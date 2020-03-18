@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 115bc6de-f5e2-4e8e-bb38-c7cf54045434
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 25349f7c8274b818df2cd1bc5d67856e31efecc4
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 2370ff5d99078ceb1ae0509e660c046dd7a1537e
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72395538"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73125617"
 ---
 # <a name="icordebugcodegetsize-method"></a>ICorDebugCode::GetSize メソッド
 
@@ -39,7 +37,7 @@ HRESULT GetSize (
 ## <a name="parameters"></a>パラメーター
 
 `pcBytes`  
-入出力この @no__t 0 オブジェクトが表すバイナリコードのサイズ (バイト単位) へのポインター。
+入出力この `ICorDebugCode` オブジェクトが表すバイナリコードのサイズ (バイト単位) へのポインター。
 
 ## <a name="requirements"></a>［要件］
 

@@ -12,15 +12,12 @@ helpviewer_keywords:
 - .NET Framework regular expressions, backreference constructs
 - regular expressions, backreference constructs
 ms.assetid: 567a4b8d-0e79-49dc-8df9-f4b1aa376a2a
-author: rpetrusha
-ms.author: ronpet
-ms.custom: seodec18
-ms.openlocfilehash: 11df25617a618cdc835ca6555c671a187ce09f8d
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 905578d763ebe5d5b8eb96a9056fbe11fbfab137
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70991642"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75711533"
 ---
 # <a name="backreference-constructs-in-regular-expressions"></a>正規表現での前方参照コンストラクト
 
@@ -53,7 +50,7 @@ ms.locfileid: "70991642"
 
 次の例では、文字列内の単語に使用される重複した文字を検索します。 例で定義している正規表現 `(\w)\1` は、次の要素で構成されています。
 
-|要素|説明|
+|要素|[説明]|
 |-------------|-----------------|
 |`(\w)`|単語文字を検出し、最初のキャプチャ グループに割り当てます。|
 |`\1`|最初のキャプチャ グループの値と同じ次の文字を検出します。|
@@ -75,7 +72,7 @@ ms.locfileid: "70991642"
 
 次の例では、文字列内の単語に使用される重複した文字を検索します。 例で定義している正規表現 `(?<char>\w)\k<char>` は、次の要素で構成されています。
 
-|要素|説明|
+|要素|[説明]|
 |-------------|-----------------|
 |`(?<char>\w)`|単語文字を検出し、`char` という名前のキャプチャ グループに割り当てます。|
 |`\k<char>`|`char` キャプチャ グループの値と同じ次の文字を検出します。|
@@ -90,7 +87,7 @@ ms.locfileid: "70991642"
 [!code-csharp[RegularExpressions.Language.Backreferences#3](../../../samples/snippets/csharp/VS_Snippets_CLR/regularexpressions.language.backreferences/cs/backreference3.cs#3)]
 [!code-vb[RegularExpressions.Language.Backreferences#3](../../../samples/snippets/visualbasic/VS_Snippets_CLR/regularexpressions.language.backreferences/vb/backreference3.vb#3)]
 
-*name* が数字の文字列表現で、その名前を持つキャプチャ グループが存在しない場合、`\k<`*name*`>` は前方参照 `\`*number* と同じになります。ここで、*number* はキャプチャの序数位置です。 次の例には、`char` という名前の単一のキャプチャ グループがあります。 前方参照構成体ではこれを `\k<1>` と呼びます。 例からの出力に示されているように、`char` は最初のキャプチャ グループであるため、<xref:System.Text.RegularExpressions.Regex.IsMatch%2A?displayProperty=nameWithType> の呼び出しは正常に行われています。
+*name* が数字の文字列表現で、その名前を持つキャプチャ グループが存在しない場合、`\k<`*name*`>` は前方参照 `\`*number* と同じになります。ここで、*number* はキャプチャの序数位置です。 次の例には、`char` という名前の単一のキャプチャ グループがあります。 前方参照構成体ではこれを `\k<1>` と呼びます。 例からの出力に示されているように、<xref:System.Text.RegularExpressions.Regex.IsMatch%2A?displayProperty=nameWithType> は最初のキャプチャ グループであるため、`char` の呼び出しは正常に行われています。
 
 [!code-csharp[Ordinal.Backreference](../../../samples/snippets/csharp/VS_Snippets_CLR/regularexpressions.language.backreferences/cs/backreference6.cs)]
 [!code-vb[Ordinal.BackReference](../../../samples/snippets/visualbasic/VS_Snippets_CLR/regularexpressions.language.backreferences/vb/backreference6.vb)]
@@ -106,7 +103,7 @@ ms.locfileid: "70991642"
 
 次の例には、正規表現パターン `(?<1>a)(?<1>\1b)*` が含まれています。このパターンは \1 の名前付きグループを再定義します。 正規表現の各パターンは、次の表に示すように定義されています。
 
-|パターン|説明|
+|パターン|[説明]|
 |-------------|-----------------|
 |`(?<1>a)`|文字 "a" を検出し、結果を `1` という名前のキャプチャ グループに割り当てます。|
 |`(?<1>\1b)*`|`1` という名前のグループの 0 個以上の出現箇所を "b" と共に検出し、結果を `1` という名前のキャプチャ グループに割り当てます。|
@@ -126,7 +123,7 @@ ms.locfileid: "70991642"
 
 グループで部分文字列がキャプチャされなかった場合、そのグループへの前方参照は未定義になり、一致することはありません。 次のように定義されている正規表現パターン `\b(\p{Lu}{2})(\d{2})?(\p{Lu}{2})\b` を例として示します。
 
-|パターン|説明|
+|パターン|[説明]|
 |-------------|-----------------|
 |`\b`|ワード境界から照合を開始します。|
 |`(\p{Lu}{2})`|2 つの大文字と一致します。 これが最初のキャプチャ グループです。|
@@ -139,6 +136,6 @@ ms.locfileid: "70991642"
 [!code-csharp[RegularExpressions.Language.Backreferences#5](../../../samples/snippets/csharp/VS_Snippets_CLR/regularexpressions.language.backreferences/cs/backreference5.cs#5)]
 [!code-vb[RegularExpressions.Language.Backreferences#5](../../../samples/snippets/visualbasic/VS_Snippets_CLR/regularexpressions.language.backreferences/vb/backreference5.vb#5)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [正規表現言語 - クイック リファレンス](../../../docs/standard/base-types/regular-expression-language-quick-reference.md)

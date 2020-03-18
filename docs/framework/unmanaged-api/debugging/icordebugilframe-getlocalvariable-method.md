@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c8706356-d50b-4f87-a40c-39c3b7f4fd38
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 29fc1b491aa4e340c3d8ad6f761d0d6d901649ac
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 85f06b49aab1f1d1745bd7e359ed311c2ba1e44d
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67758554"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130977"
 ---
 # <a name="icordebugilframegetlocalvariable-method"></a>ICorDebugILFrame::GetLocalVariable メソッド
-この Microsoft intermediate language (MSIL) のスタック フレーム内には、指定されたローカル変数の値を取得します。  
+この MSIL (Microsoft 中間言語) スタックフレーム内の指定されたローカル変数の値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,16 +36,16 @@ HRESULT GetLocalVariable (
   
 ## <a name="parameters"></a>パラメーター  
  `dwIndex`  
- [in]この MSIL のスタック フレームでローカル変数のインデックス。  
+ からこの MSIL スタックフレーム内のローカル変数のインデックス。  
   
  `ppValue`  
- [out]取得した値を表す ICorDebugValue オブジェクトのアドレスへのポインター。  
+ 入出力取得した値を表す ICorDebugValue オブジェクトのアドレスへのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- `GetLocalVariable` MSIL のスタック フレームまたは・ イン タイム (JIT) コンパイル済みのフレームで、メソッドを使用できます。  
+ `GetLocalVariable` メソッドは、MSIL スタックフレーム内または just-in-time (JIT) コンパイルフレームで使用できます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

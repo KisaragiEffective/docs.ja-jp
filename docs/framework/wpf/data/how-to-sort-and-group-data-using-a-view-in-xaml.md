@@ -1,5 +1,5 @@
 ---
-title: '方法: XAML でビューを使用してデータの並べ替えおよびグループ化を行う'
+title: '方法 : XAML でビューを使用してデータの並べ替えおよびグループ化を行う'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - data binding [WPF], grouping data in views in XAML
@@ -11,28 +11,28 @@ helpviewer_keywords:
 - views [WPF], sorting data
 - views [WPF], grouping data
 ms.assetid: 145c8c3f-dbdd-4d0d-816f-90b35eba7eda
-ms.openlocfilehash: ca4439b574264ebebfda745f0765f750099bc95f
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 9e42dd330535f71438ab7af3dca9d078e9dfd8d3
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62020739"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73460117"
 ---
-# <a name="how-to-sort-and-group-data-using-a-view-in-xaml"></a>方法: XAML でビューを使用してデータの並べ替えおよびグループ化を行う
-この例でのデータ コレクションのビューを作成する方法を示しています。[!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)]します。 グループ化、並べ替え、フィルター処理、の機能と現在の項目の概念ビューを使用します。  
+# <a name="how-to-sort-and-group-data-using-a-view-in-xaml"></a>方法 : XAML でビューを使用してデータの並べ替えおよびグループ化を行う
+この例では、[!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)]でデータコレクションのビューを作成する方法を示します。 ビューを使用すると、グループ化、並べ替え、フィルター処理、および現在の項目の概念を行うことができます。  
   
 ## <a name="example"></a>例  
- は、次の例では、静的リソースの名前*配置*のコレクションとして定義されて*場所*オブジェクトは、各*場所*オブジェクトは、市区町村名で構成されていましたし、状態。 プレフィックス*src*名前空間にマップされているデータ ソース*場所*が定義されています。 プレフィックス*scm*にマップ`"clr-namespace:System.ComponentModel;assembly=WindowsBase"`と*dat*マップ`"clr-namespace:System.Windows.Data;assembly=PresentationFramework"`します。  
+ 次の例では、place*という名前*の静的リソースが*place*オブジェクトのコレクションとして定義されています。ここでは、各*配置*オブジェクトが都市名と州で設定されています。 プレフィックス*src*は、データソースの*場所*が定義されている名前空間にマップされます。 プレフィックス*scm*は `"clr-namespace:System.ComponentModel;assembly=WindowsBase"` にマップされ、 *dat*が `"clr-namespace:System.Windows.Data;assembly=PresentationFramework"`にマップされます。  
   
- 次の例では、市区町村名によって並べ替えられ、状態別にグループ化するデータ コレクションのビューを作成します。  
+ 次の例では、市区町村名で並べ替えられたデータコレクションのビューを作成し、州別にグループ化します。  
   
  [!code-xaml[CollectionViewSource#1](~/samples/snippets/csharp/VS_Snippets_Wpf/CollectionViewSource/CS/window1.xaml#1)]  
   
- ビューは、次の例のように、バインディング ソースに指定できます。  
+ その後、次の例のように、ビューをバインドソースにすることができます。  
   
  [!code-xaml[CollectionViewSource#2](~/samples/snippets/csharp/VS_Snippets_Wpf/CollectionViewSource/CS/window1.xaml#2)]  
   
- 定義されている XML データへのバインドの<xref:System.Windows.Data.XmlDataProvider>リソース、XML 名の前に、@ 記号。  
+ <xref:System.Windows.Data.XmlDataProvider> リソースで定義されている XML データへのバインドについては、XML 名の前に @ 記号を付けます。  
   
  [!code-xaml[CollectionViewSource#XDPChunk](~/samples/snippets/csharp/VS_Snippets_Wpf/CollectionViewSource/CS/window1.xaml#xdpchunk)]  
   
@@ -42,5 +42,5 @@ ms.locfileid: "62020739"
 
 - <xref:System.Windows.Data.CollectionViewSource>
 - [データ コレクションの既定のビューを取得する](how-to-get-the-default-view-of-a-data-collection.md)
-- [データ バインディングの概要](data-binding-overview.md)
+- [データ バインディングの概要](../../../desktop-wpf/data/data-binding-overview.md)
 - [方法トピック](data-binding-how-to-topics.md)

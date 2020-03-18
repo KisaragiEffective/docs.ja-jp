@@ -14,11 +14,11 @@ Windows Communication Foundation (WCF) サービスは、1つまたは複数の�
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [方法 : 構成ファイルを使用してサービスのメタデータを公開する](./feature-details/how-to-publish-metadata-for-a-service-using-a-configuration-file.md)  
- クライアントが Ws-metadataexchange クエリ文字列を使用 @no__t してまたは HTTP/GET 要求を使用してメタデータを取得できるように、メタデータを公開するように WCF サービスを構成する方法を示します。  
+ Ws-metadataexchange または HTTP/GET 要求を使用して、クライアントが `?wsdl` クエリ文字列を使用してメタデータを取得できるように、メタデータを公開するように WCF サービスを構成する方法を示します。  
   
  [方法 : コードを使用してサービスのメタデータを公開する](./feature-details/how-to-publish-metadata-for-a-service-using-code.md)  
- WCF サービスのメタデータ公開をコードで有効にする方法を示します。これにより、クライアントは、Ws-metadataexchange または HTTP/GET 要求を使用して、@no__t 0 のクエリ文字列を使用してメタデータを取得できます。  
+ WCF サービスのメタデータ公開をコードで有効にする方法を示します。これにより、クライアントは、Ws-metadataexchange または HTTP/GET 要求を使用して、`?wsdl` クエリ文字列を使用してメタデータを取得できます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータの公開](./feature-details/publishing-metadata.md)

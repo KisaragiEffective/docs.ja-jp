@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: fd9085ff-7beb-4c38-97f0-037cd8ba4f65
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 05f5d3fbe05ad1e97a1ae61ed0496f314c4ec5cd
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: ae64edd8a3a628100d4c51d0b78be1bc8d49fc17
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67765970"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73138277"
 ---
 # <a name="customdumpitem-structure"></a>CustomDumpItem 構造体
-エラー報告でのカスタム ダンプに追加する項目をについて説明します。  
+エラー報告のカスタムダンプに追加するアイテムについて説明します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,18 +39,18 @@ struct {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`itemKind`|[ECustomDumpItemKind](../../../../docs/framework/unmanaged-api/hosting/ecustomdumpitemkind-enumeration.md)を追加する項目の種類を示す値。|  
-|`pReserved`|使用されていません。 和集合に追加する項目は、ポインターのサイズを超えるである必要があります。 場合、`struct`は必要に応じて、個別に割り当ててし、ポイントすると、します。|  
+|`itemKind`|追加する項目の種類を示す[ECustomDumpItemKind](../../../../docs/framework/unmanaged-api/hosting/ecustomdumpitemkind-enumeration.md)値。|  
+|`pReserved`|現在使用されていません。 共用体に追加された項目は、ポインターサイズ以下である必要があります。 `struct` が必要な場合は、それを個別に割り当てて、それをポイントする必要があります。|  
   
 ## <a name="remarks"></a>Remarks  
- [Iclrerrorreportingmanager::begincustomdump](../../../../docs/framework/unmanaged-api/hosting/iclrerrorreportingmanager-begincustomdump-method.md)型のパラメーターを受け取る`CustomDumpItem`します。  
+ [ICLRErrorReportingManager:: BeginCustomDump](../../../../docs/framework/unmanaged-api/hosting/iclrerrorreportingmanager-begincustomdump-method.md)は `CustomDumpItem`型のパラメーターを受け取ります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.idl  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

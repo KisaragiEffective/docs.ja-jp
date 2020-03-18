@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 205ca53b-e78e-49b2-9a46-2a7823e96b8c
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4937c86be434ef5e97ec72763b7c53d5435bcaf4
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9339bb974c261e62502c760dfaf45651573cbe1a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67774029"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136371"
 ---
 # <a name="iclrruntimeinfoisloadable-method"></a>ICLRRuntimeInfo::IsLoadable メソッド
-このインターフェイスに関連付けられているランタイムを考慮して、現在のプロセスに読み込めるかどうかを示す、プロセスに読み込まれることが既にある他のランタイム。  
+このインターフェイスに関連付けられているランタイムを現在のプロセスに読み込むことができるかどうかを示します。プロセスに既に読み込まれている可能性のある他のランタイムを考慮してください。  
   
 ## <a name="syntax"></a>構文  
   
@@ -36,7 +34,7 @@ HRESULT IsLoadable(
   
 ## <a name="parameters"></a>パラメーター  
  `pbLoadable`  
- [out]`true`このランタイムは、現在のプロセスに読み込まれます。 それ以外にできる場合は`false`します。  
+ [out] このランタイムを現在のプロセスに読み込むことができるかどうかを `true` します。それ以外の場合は、`false`ます。  
   
 ## <a name="return-value"></a>戻り値  
  このメソッドは、次の特定の HRESULT と、メソッドの失敗を示す HRESULT エラーも返します。  
@@ -47,16 +45,16 @@ HRESULT IsLoadable(
 |E_POINTER|`pbLoadable` が null です。|  
   
 ## <a name="remarks"></a>Remarks  
- 別のランタイムが既にプロセスに読み込まれていて、インプロセスでサイド バイ サイドで実行するため、このインターフェイスに関連付けられているランタイムを読み込める`pbLoadable`返します`true`します。 2 つのランタイムはサイド バイ サイドでインプロセスで実行できない場合`pbLoadable`返します`false`します。 たとえば、共通言語ランタイム (CLR) バージョン 4 では、CLR バージョン 2.0 を使用して同じプロセス内で並列してまたは CLR バージョン 1.1 を実行できます。 ただし、CLR の version 1.1 と CLR の version 2.0 では、サイド バイ サイドでプロセスを実行できません。  
+ 別のランタイムが既にプロセスに読み込まれていて、このインターフェイスに関連付けられているランタイムをインプロセス side-by-side 実行用に読み込むことができる場合、`pbLoadable` は `true`を返します。 2つのランタイムをインプロセスで並列実行できない場合、`pbLoadable` は `false`を返します。 たとえば、共通言語ランタイム (CLR) バージョン4は、CLR バージョン2.0 または CLR バージョン1.1 と同じプロセスでサイドバイサイドで実行できます。 ただし、CLR バージョン1.1 と CLR バージョン2.0 をインプロセスで並列実行することはできません。  
   
- かどうかは、プロセスにランタイムが読み込まれません、このメソッドはその常に返します`true`します。  
+ プロセスにランタイムが読み込まれていない場合、このメソッドは常に `true`を返します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MetaHost.h  
+ **ヘッダー:** メタホスト .h  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

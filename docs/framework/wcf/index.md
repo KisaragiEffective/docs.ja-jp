@@ -5,12 +5,12 @@ helpviewer_keywords:
 - Windows Communication Foundation [WCF]
 - WCF [WCF]
 ms.assetid: 149348a6-bf82-4ccc-9604-fa7cc88c0749
-ms.openlocfilehash: 34c6cb8cbe815e33658f38ee0e6aff581ea0ff74
-ms.sourcegitcommit: 9b2ef64c4fc10a4a10f28a223d60d17d7d249ee8
+ms.openlocfilehash: 836913dd35d127d181c753341a7c39c453242a8f
+ms.sourcegitcommit: 93762e1a0dae1b5f64d82eebb7b705a6d566d839
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/26/2019
-ms.locfileid: "72961164"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552681"
 ---
 # <a name="develop-service-oriented-applications-with-wcf"></a>WCF を使用したサービス指向アプリケーションの開発
 
@@ -71,9 +71,6 @@ ms.locfileid: "72961164"
 
  [一般的なリファレンス](general-reference.md)\
  このセクションでは、Windows Communication Foundation のクライアントおよびサービスの設定に使用される要素について説明します。
-
- [フィードバックとコミュニティの](feedback-and-community.md)\
- Windows Communication Foundation に関するフィードバックを提供する方法についての情報です。
 
  [プライバシー情報](privacy-information.md)\
  WCF とプライバシーに関する情報があります。

@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: c8b65b19-d777-428f-bc0c-0d84c78a37bc
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 698fb8c8efcbe347c0e833b0dba01fffd3030de6
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 355f9da29a435a02d929cc01f28e95c4e04cdfcc
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70795497"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73109149"
 ---
 # <a name="asm_name-enumeration"></a>ASM_NAME 列挙型
 [IAssemblyName](iassemblyname-interface.md)メソッドによって取得または設定されるプロパティを持つアセンブリのバージョン、ビルド、カルチャ、署名などを示します。  
@@ -64,12 +62,12 @@ typedef enum {
 } ASM_NAME;  
 ```  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Fusion. h  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

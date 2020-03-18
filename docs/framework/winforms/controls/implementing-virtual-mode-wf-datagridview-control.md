@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル: Windows フォーム DataGridView コントロールでの仮想モードを実装する'
+title: 'チュートリアル: DataGridView コントロールでの仮想モードの実装'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -12,27 +12,27 @@ helpviewer_keywords:
 - DataGridView control [Windows Forms], large data sets
 - walkthroughs [Windows Forms], DataGridView control
 ms.assetid: 74eb5276-5ab8-4ce0-8005-dae751d85f7c
-ms.openlocfilehash: 9e7fb3a42b56c40f713d73e3734142f4aab335f4
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 5db97b321238bc371c94e627a387bd83ca31b58a
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64649992"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746516"
 ---
-# <a name="walkthrough-implementing-virtual-mode-in-the-windows-forms-datagridview-control"></a>チュートリアル: Windows フォーム DataGridView コントロールでの仮想モードを実装する
-非常に大量の表形式データを表示する場合、<xref:System.Windows.Forms.DataGridView>コントロールを設定できます、<xref:System.Windows.Forms.DataGridView.VirtualMode%2A>プロパティを`true`と明示的にそのデータ ストアと、コントロールの相互作用を管理します。 このような状況で、コントロールのパフォーマンスを微調整できます。  
+# <a name="walkthrough-implementing-virtual-mode-in-the-windows-forms-datagridview-control"></a>チュートリアル : Windows フォーム DataGridView コントロールでの仮想モードの実装
+非常に大量の表形式データを <xref:System.Windows.Forms.DataGridView> コントロールに表示する場合は、<xref:System.Windows.Forms.DataGridView.VirtualMode%2A> プロパティを `true` に設定し、コントロールとそのデータストアとの対話を明示的に管理できます。 これにより、このような場合にコントロールのパフォーマンスを微調整できます。  
   
- <xref:System.Windows.Forms.DataGridView>コントロールがカスタム データ ストアとの対話を処理できるいくつかのイベントを提供します。 このチュートリアルでは、これらのイベント ハンドラーの実装プロセスを説明します。 このトピックのコード例では、わかりやすくするための非常に単純なデータ ソースを使用します。 実稼働設定で、キャッシュ内に表示され、処理する必要がある行のみを通常に読み込まれます<xref:System.Windows.Forms.DataGridView>と対話し、キャッシュを更新するイベントです。 詳細については、次を参照してください[Windows フォームの DataGridView コントロールで Just-In-Time データ読み込みで仮想モードの実装。](implementing-virtual-mode-jit-data-loading-in-the-datagrid.md)  
+ <xref:System.Windows.Forms.DataGridView> コントロールには、カスタムデータストアと対話するために処理できるいくつかのイベントが用意されています。 このチュートリアルでは、これらのイベントハンドラーを実装する手順について説明します。 このトピックのコード例では、簡単に説明するために、非常に単純なデータソースを使用します。 運用環境の設定では、通常はキャッシュに表示する必要のある行だけを読み込み、キャッシュとの対話および更新のために <xref:System.Windows.Forms.DataGridView> イベントを処理します。 詳細については、「 [Windows フォーム DataGridView コントロールでの Just-in-time データ読み込みによる仮想モードの実装](implementing-virtual-mode-jit-data-loading-in-the-datagrid.md)」を参照してください。  
   
- このトピックのコードを単一のリストとしてコピーするには、「[方法:仮想モードを実装で、Windows フォーム DataGridView コントロール](how-to-implement-virtual-mode-in-the-windows-forms-datagridview-control.md)します。  
+ このトピックのコードを単一のリストとしてコピーする方法については、「[方法: Windows フォーム DataGridView コントロールで仮想モードを実装](how-to-implement-virtual-mode-in-the-windows-forms-datagridview-control.md)する」を参照してください。  
   
 ## <a name="creating-the-form"></a>フォームの作成  
   
 #### <a name="to-implement-virtual-mode"></a>仮想モードを実装するには  
   
-1. 派生するクラスを作成<xref:System.Windows.Forms.Form>が含まれています、<xref:System.Windows.Forms.DataGridView>コントロール。  
+1. <xref:System.Windows.Forms.Form> から派生し、<xref:System.Windows.Forms.DataGridView> コントロールを含むクラスを作成します。  
   
-     次のコードには、いくつかの基本的な初期化が含まれています。 後の手順で使用されるいくつかの変数の宣言を提供しますが、`Main`メソッドとクラス コンス トラクターで単純なフォーム レイアウトを提供します。  
+     次のコードには、いくつかの基本的な初期化が含まれています。 これは、後の手順で使用されるいくつかの変数を宣言し、`Main` メソッドを提供し、クラスコンストラクターに単純なフォームレイアウトを提供します。  
   
      [!code-cpp[System.Windows.Forms.DataGridView.VirtualMode#001](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CPP/virtualmode.cpp#001)]
      [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#001](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#001)]
@@ -41,27 +41,27 @@ ms.locfileid: "64649992"
     [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#002](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#002)]
     [!code-vb[System.Windows.Forms.DataGridView.VirtualMode#002](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/VB/virtualmode.vb#002)]  
   
-2. フォームのハンドラーを実装<xref:System.Windows.Forms.Form.Load>を初期化するイベント、<xref:System.Windows.Forms.DataGridView>を制御し、サンプルの値を使用してデータ ストアを設定します。  
+2. フォームの <xref:System.Windows.Forms.Form.Load> イベントのハンドラーを実装します。このハンドラーは、<xref:System.Windows.Forms.DataGridView> コントロールを初期化し、データストアにサンプル値を設定します。  
   
      [!code-cpp[System.Windows.Forms.DataGridView.VirtualMode#110](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CPP/virtualmode.cpp#110)]
      [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#110](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#110)]
      [!code-vb[System.Windows.Forms.DataGridView.VirtualMode#110](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/VB/virtualmode.vb#110)]  
   
-3. ハンドラーを実装、<xref:System.Windows.Forms.DataGridView.CellValueNeeded>データ ストアから要求されたセルの値を取得するイベントまたは`Customer`現在編集中のオブジェクト。  
+3. 現在編集中のデータストアまたは `Customer` オブジェクトから要求されたセル値を取得する <xref:System.Windows.Forms.DataGridView.CellValueNeeded> イベントのハンドラーを実装します。  
   
-     このイベントが発生したときに、<xref:System.Windows.Forms.DataGridView>コントロールがセルを描画する必要があります。  
+     このイベントは、<xref:System.Windows.Forms.DataGridView> コントロールがセルを描画する必要があるときに発生します。  
   
      [!code-cpp[System.Windows.Forms.DataGridView.VirtualMode#120](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CPP/virtualmode.cpp#120)]
      [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#120](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#120)]
      [!code-vb[System.Windows.Forms.DataGridView.VirtualMode#120](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/VB/virtualmode.vb#120)]  
   
-4. ハンドラーを実装、<xref:System.Windows.Forms.DataGridView.CellValuePushed>イベントで、編集セルの値を格納する、`Customer`編集された行を表すオブジェクト。 このイベントは、ユーザーがセル値の変更をコミットするたびに発生します。  
+4. 編集された行を表す `Customer` オブジェクトに、編集されたセル値を格納する <xref:System.Windows.Forms.DataGridView.CellValuePushed> イベントのハンドラーを実装します。 このイベントは、ユーザーがセル値の変更をコミットするたびに発生します。  
   
      [!code-cpp[System.Windows.Forms.DataGridView.VirtualMode#130](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CPP/virtualmode.cpp#130)]
      [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#130](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#130)]
      [!code-vb[System.Windows.Forms.DataGridView.VirtualMode#130](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/VB/virtualmode.vb#130)]  
   
-5. ハンドラーを実装、<xref:System.Windows.Forms.DataGridView.NewRowNeeded>新たに作成イベント`Customer`新しく作成された行を表すオブジェクト。  
+5. 新しく作成された行を表す新しい `Customer` オブジェクトを作成する <xref:System.Windows.Forms.DataGridView.NewRowNeeded> イベントのハンドラーを実装します。  
   
      このイベントは、ユーザーが新しいレコードの行を入力するたびに発生します。  
   
@@ -69,7 +69,7 @@ ms.locfileid: "64649992"
      [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#140](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#140)]
      [!code-vb[System.Windows.Forms.DataGridView.VirtualMode#140](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/VB/virtualmode.vb#140)]  
   
-6. ハンドラーを実装、<xref:System.Windows.Forms.DataGridView.RowValidated>イベントをデータ ストアに新しいまたは変更された行を保存します。  
+6. 新しい行または変更された行をデータストアに保存する <xref:System.Windows.Forms.DataGridView.RowValidated> イベントのハンドラーを実装します。  
   
      このイベントは、ユーザーが現在の行を変更するたびに発生します。  
   
@@ -77,31 +77,31 @@ ms.locfileid: "64649992"
      [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#150](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#150)]
      [!code-vb[System.Windows.Forms.DataGridView.VirtualMode#150](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/VB/virtualmode.vb#150)]  
   
-7. ハンドラーを実装、<xref:System.Windows.Forms.DataGridView.RowDirtyStateNeeded>イベントを示すかどうか、<xref:System.Windows.Forms.DataGridView.CancelRowEdit>ユーザー編集モードで 2 回または 1 回は編集モードの外部では、esc キーを押して行の復帰を通知するときにイベントが発生します。  
+7. 編集モードで ESC キーを2回押すか、または編集モードの外で1回押すことによって、ユーザーが行再設定を通知するときに、<xref:System.Windows.Forms.DataGridView.CancelRowEdit> イベントが発生するかどうかを示すハンドラーを <xref:System.Windows.Forms.DataGridView.RowDirtyStateNeeded> イベントに実装します。  
   
-     既定では、<xref:System.Windows.Forms.DataGridView.CancelRowEdit>しない限り、現在の行にセルが変更されたときに、行の復帰時に発生します、<xref:System.Windows.Forms.QuestionEventArgs.Response%2A?displayProperty=nameWithType>プロパティに設定されて`true`で、<xref:System.Windows.Forms.DataGridView.RowDirtyStateNeeded>イベント ハンドラー。 このイベントは、コミットのスコープは実行時に決定する場合に便利です。  
+     既定では、<xref:System.Windows.Forms.DataGridView.RowDirtyStateNeeded> イベントハンドラーで <xref:System.Windows.Forms.QuestionEventArgs.Response%2A?displayProperty=nameWithType> プロパティが `true` に設定されていない限り、現在の行のセルが変更されている場合、行再設定に対して <xref:System.Windows.Forms.DataGridView.CancelRowEdit> が発生します。 このイベントは、実行時にコミットスコープが決定される場合に役立ちます。  
   
      [!code-cpp[System.Windows.Forms.DataGridView.VirtualMode#160](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CPP/virtualmode.cpp#160)]
      [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#160](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#160)]
      [!code-vb[System.Windows.Forms.DataGridView.VirtualMode#160](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/VB/virtualmode.vb#160)]  
   
-8. ハンドラーを実装、<xref:System.Windows.Forms.DataGridView.CancelRowEdit>の値を破棄するイベント、`Customer`現在の行を表すオブジェクト。  
+8. 現在の行を表す `Customer` オブジェクトの値を破棄する <xref:System.Windows.Forms.DataGridView.CancelRowEdit> イベントのハンドラーを実装します。  
   
-     このイベントは、ユーザーが ESC キーを押して編集モードで 2 回または 1 回は編集モードの外部で行の復帰を通知するときに発生します。 現在の行にセルが修正されていない場合、または場合、このイベントは発生しませんの値、<xref:System.Windows.Forms.QuestionEventArgs.Response%2A?displayProperty=nameWithType>プロパティに設定された`false`で、<xref:System.Windows.Forms.DataGridView.RowDirtyStateNeeded>イベント ハンドラー。  
+     このイベントは、編集モードで ESC キーを2回押すか、編集モードの外側で1回押すことによって、ユーザーが行再設定を通知するときに発生します。 現在の行にセルが変更されていない場合、または <xref:System.Windows.Forms.QuestionEventArgs.Response%2A?displayProperty=nameWithType> プロパティの値が <xref:System.Windows.Forms.DataGridView.RowDirtyStateNeeded> イベントハンドラーで `false` に設定されている場合、このイベントは発生しません。  
   
      [!code-cpp[System.Windows.Forms.DataGridView.VirtualMode#170](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CPP/virtualmode.cpp#170)]
      [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#170](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#170)]
      [!code-vb[System.Windows.Forms.DataGridView.VirtualMode#170](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/VB/virtualmode.vb#170)]  
   
-9. ハンドラーを実装、<xref:System.Windows.Forms.DataGridView.UserDeletingRow>既存を削除するイベント`Customer`オブジェクト データ ストアから、保存されていない破棄または`Customer`新しく作成された行を表すオブジェクト。  
+9. 既存の `Customer` オブジェクトをデータストアから削除するか、新しく作成された行を表す未保存の `Customer` オブジェクトを破棄する <xref:System.Windows.Forms.DataGridView.UserDeletingRow> イベントのハンドラーを実装します。  
   
-     このイベントは、ユーザーが行ヘッダーをクリックして DEL キーを押して行を削除するたびに発生します。  
+     このイベントは、ユーザーが行ヘッダーをクリックし、DEL キーを押して行を削除するたびに発生します。  
   
      [!code-cpp[System.Windows.Forms.DataGridView.VirtualMode#180](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CPP/virtualmode.cpp#180)]
      [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#180](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#180)]
      [!code-vb[System.Windows.Forms.DataGridView.VirtualMode#180](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/VB/virtualmode.vb#180)]  
   
-10. 単純な実装`Customers`をこのコード例で使用されるデータ項目を表すクラス。  
+10. このコード例で使用されるデータ項目を表す単純な `Customers` クラスを実装します。  
   
      [!code-cpp[System.Windows.Forms.DataGridView.VirtualMode#200](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CPP/virtualmode.cpp#200)]
      [!code-csharp[System.Windows.Forms.DataGridView.VirtualMode#200](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.VirtualMode/CS/virtualmode.cs#200)]
@@ -114,18 +114,18 @@ ms.locfileid: "64649992"
   
 - アプリケーションをコンパイルして実行します。  
   
-     表示されます、<xref:System.Windows.Forms.DataGridView>コントロールの 3 つの顧客レコードを格納します。 行の複数のセルの値を変更して 2 回編集モードの内外で 1 回編集モードを元の値の行全体を元に戻すには、esc キーを押します。 変更、追加、または、コントロール内の行を削除するときに`Customer`データ ストア内のオブジェクトの変更、追加、またはも削除します。  
+     3つの顧客レコードが設定された <xref:System.Windows.Forms.DataGridView> コントロールが表示されます。 行の複数のセルの値を変更して、編集モードで ESC キーを2回押すと、編集モードの外に1回押して、行全体を元の値に戻すことができます。 コントロールの行を変更、追加、または削除すると、データストア内の `Customer` オブジェクトも変更、追加、または削除されます。  
   
 ## <a name="next-steps"></a>次の手順  
- このアプリケーションでの仮想モードを実装する必要がありますを処理するイベントの基本を理解、<xref:System.Windows.Forms.DataGridView>コントロール。 さまざまな方法でこの基本的なアプリケーションを改善することができます。  
+ このアプリケーションでは、<xref:System.Windows.Forms.DataGridView> コントロールで仮想モードを実装するために処理する必要があるイベントについての基本的な知識が得られます。 この基本的なアプリケーションは、さまざまな方法で改善できます。  
   
-- 外部データベースから値をキャッシュするデータ ストアを実装します。 キャッシュは、取得し、クライアント コンピューターの少量のメモリを消費しているときに表示するために必要なだけが含まれるように、必要に応じて値を破棄する必要があります。  
+- 外部データベースからの値をキャッシュするデータストアを実装します。 キャッシュは必要に応じて値を取得および破棄する必要があります。これにより、クライアントコンピューターで少量のメモリを消費しているときに、表示に必要なものだけが格納されます。  
   
-- 要件に応じて、データ ストアのパフォーマンスを微調整します。 たとえば、キャッシュ サイズを大きくして、データベース クエリの数を最小限に抑えることで、クライアント コンピューターのメモリ制限ではなく、低速回線接続の補正する可能性があります。  
+- 要件に応じて、データストアのパフォーマンスを微調整します。 たとえば、より大きなキャッシュサイズを使用してデータベースクエリの数を最小限に抑えることで、クライアントコンピューターのメモリ制限ではなく、低速のネットワーク接続を補正することができます。  
   
- 外部データベースから値をキャッシュの詳細については、次を参照してください。[方法。フォームの DataGridView コントロールの Windows でジャストイン タイムのデータ読み込みによる仮想モードの実装](virtual-mode-with-just-in-time-data-loading-in-the-datagrid.md)します。  
+ 外部データベースからの値のキャッシュの詳細については、「[方法: Windows フォーム DataGridView コントロールで Just-in-time データ読み込みを使用して仮想モードを実装する](virtual-mode-with-just-in-time-data-loading-in-the-datagrid.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - <xref:System.Windows.Forms.DataGridView.VirtualMode%2A>
@@ -139,4 +139,4 @@ ms.locfileid: "64649992"
 - [Windows フォーム DataGridView コントロールでのパフォーマンス チューニング](performance-tuning-in-the-windows-forms-datagridview-control.md)
 - [Windows フォーム DataGridView コントロールを拡張するための推奨される手順](best-practices-for-scaling-the-windows-forms-datagridview-control.md)
 - [Windows フォーム DataGridView コントロールでの Just-In-Time データ読み込みによる仮想モードの実装](implementing-virtual-mode-jit-data-loading-in-the-datagrid.md)
-- [方法: Windows フォーム DataGridView コントロールでの仮想モードを実装します。](how-to-implement-virtual-mode-in-the-windows-forms-datagridview-control.md)
+- [方法: Windows フォーム DataGridView コントロールで仮想モードを実装する](how-to-implement-virtual-mode-in-the-windows-forms-datagridview-control.md)

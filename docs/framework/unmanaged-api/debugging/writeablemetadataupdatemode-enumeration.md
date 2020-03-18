@@ -1,5 +1,5 @@
 ---
-title: WriteableMetadataUpdateMode 列挙型
+title: WriteableMetadataUpdateMode 列挙体
 ms.date: 03/30/2017
 dev_langs:
 - cpp
@@ -12,16 +12,14 @@ api_type:
 ms.assetid: 6758f4d3-6bc7-4c99-8582-e9be00566784
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 62e4328b75a7f6fecc28cd620ec3ac18460316c5
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 5c3f2f7a9c0804b71c9c8a52bb032aca7c03825e
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61993448"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76790293"
 ---
-# <a name="writeablemetadataupdatemode-enumeration"></a>WriteableMetadataUpdateMode 列挙型
+# <a name="writeablemetadataupdatemode-enumeration"></a>WriteableMetadataUpdateMode 列挙体
 [.NET Framework 4.5.2 以降のバージョンでのみでサポート]  
   
  メモリ内のメタデータ更新をデバッガーに対して可視にするかどうかを指定する値を提供します。  
@@ -42,13 +40,13 @@ typedef enum WriteableMetadataUpdateMode {
 |`LegacyCompatPolicy`|メモリ内のメタデータ更新を可視にするときに、.NET Framework の以前のバージョンとの互換性を保持します。 詳細については、次の「解説」を参照してください。|  
 |`AlwaysShowUpdates`|メモリ内のメタデータ更新をデバッガーに対して可視にします。|  
   
-## <a name="remarks"></a>Remarks  
- メンバー、`WriteableMetadataUpdateMode`に列挙体を渡すことができます、 [SetWriteableMetadataUpdateMode](../../../../docs/framework/unmanaged-api/debugging/icordebugprocess7-setwriteablemetadataupdatemode-method.md)メモリ内がターゲット プロセス内のメタデータを更新するかどうかを制御するメソッドは、デバッガーに表示されます。  
+## <a name="remarks"></a>コメント  
+ `WriteableMetadataUpdateMode` 列挙体のメンバーを[SetWriteableMetadataUpdateMode](icordebugprocess7-setwriteablemetadataupdatemode-method.md)メソッドに渡すことで、ターゲットプロセス内のメタデータに対するメモリ内更新がデバッガーに表示されるかどうかを制御できます。  
   
- `LegacyCompatPolicy` オプションは、4.5.2 より前の .NET Framework のバージョンと同じ動作を適用します。 これは多くの場合、メタデータの更新が可視でないことを意味します。 しかし、多数のデバッグ メソッドを呼び出すとデバッガーは明示的に強制変換し、更新を可視にします。 たとえば、デバッガーを渡します[icordebugilframe::getlocalvariable](../../../../docs/framework/unmanaged-api/debugging/icordebugilframe-getlocalvariable-method.md)の現在の状態に一致するスナップショットが更新され、モジュールのメソッドの元のメタデータ、すべてのメタデータに見つかりません変数のインデックス、プロセスです。 言い換えれば、`LegacyCompatPolicy` オプションでは、メタデータの更新によりアンマネージ デバギング API のその他の部分がどのように使用されているかによって、使用可能なメタデータ更新がデバッガーに対して全く可視でない場合、一部が可視になる場合、すべてが可視になる場合があります。  
+ `LegacyCompatPolicy` オプションは、4.5.2 より前の .NET Framework のバージョンと同じ動作を適用します。 これは多くの場合、メタデータの更新が可視でないことを意味します。 しかし、多数のデバッグ メソッドを呼び出すとデバッガーは明示的に強制変換し、更新を可視にします。 たとえば、デバッガーが、メソッドの元のメタデータに見つからない変数のインデックス[を渡すと](icordebugilframe-getlocalvariable-method.md)、そのモジュールのすべてのメタデータが、プロセスの現在の状態と一致するスナップショットに更新されます。 言い換えれば、`LegacyCompatPolicy` オプションでは、メタデータの更新によりアンマネージ デバギング API のその他の部分がどのように使用されているかによって、使用可能なメタデータ更新がデバッガーに対して全く可視でない場合、一部が可視になる場合、すべてが可視になる場合があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -58,5 +56,5 @@ typedef enum WriteableMetadataUpdateMode {
   
 ## <a name="see-also"></a>関連項目
 
-- [列挙型のデバッグ](../../../../docs/framework/unmanaged-api/debugging/debugging-enumerations.md)
-- [SetWriteableMetadataUpdateMode メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugprocess7-setwriteablemetadataupdatemode-method.md)
+- [列挙型のデバッグ](debugging-enumerations.md)
+- [SetWriteableMetadataUpdateMode メソッド](icordebugprocess7-setwriteablemetadataupdatemode-method.md)

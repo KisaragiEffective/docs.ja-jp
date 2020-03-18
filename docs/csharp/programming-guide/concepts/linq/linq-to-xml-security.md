@@ -2,12 +2,12 @@
 title: LINQ to XML のセキュリティ (C#)
 ms.date: 07/20/2015
 ms.assetid: ef2c0dc9-ecf9-4c17-b24e-144184ab725f
-ms.openlocfilehash: c9045025b5af11fb84d4b6bb1598e8cf6ff229a0
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 5b7eb815b058cba008f1db2cf683c8934c19b743
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69591743"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73423371"
 ---
 # <a name="linq-to-xml-security-c"></a>LINQ to XML のセキュリティ (C#)
 ここでは、LINQ to XML に関連するセキュリティの問題について説明し、 セキュリティ上の脆弱性を緩和するためのガイドラインを紹介します。  
@@ -99,6 +99,6 @@ ms.locfileid: "69591743"
   
  ある程度のセキュリティが共通言語ランタイム (CLR) によって提供されます。 たとえば、プライベート クラスを含まないコンポーネントは、そのクラスによってキー指定された注釈にはアクセスできません。 ただし、注釈を読み取れないコンポーネントでも、注釈を削除することはできます。 このことが、改ざん攻撃に利用される可能性があります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [プログラミング ガイド (LINQ to XML) (C#)](./programming-guide-linq-to-xml.md)
+- [プログラミング ガイド (LINQ to XML) (C#)](linq-to-xml-overview.md)

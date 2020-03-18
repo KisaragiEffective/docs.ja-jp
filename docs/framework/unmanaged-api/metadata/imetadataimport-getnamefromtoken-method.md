@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 32114ecf-8916-4ab2-a201-179c017344f1
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: fa6e8665e5e2194eb4a3dffad8e97a69deb202d0
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 6ed30f07fcec9c730e1514350c594399f0aa16e5
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67778979"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74437265"
 ---
 # <a name="imetadataimportgetnamefromtoken-method"></a>IMetaDataImport::GetNameFromToken メソッド
 指定したメタデータ トークンによって参照されるオブジェクトの UTF-8 名を取得します。 このメソッドは、互換性のために残されています。  
@@ -38,24 +36,24 @@ HRESULT GetNameFromToken (
   
 ## <a name="parameters"></a>パラメーター  
  `tk`  
- [in]名前を取得するオブジェクトを表すトークンです。  
+ から名前を返すオブジェクトを表すトークン。  
   
  `pszUtf8NamePtr`  
- [out]ヒープで utf-8 オブジェクト名へのポインター。  
+ 入出力ヒープ内の UTF-8 オブジェクト名へのポインター。  
   
-## <a name="remarks"></a>Remarks  
- `GetNameFromToken` は互換性のために残されています。 代わりに、トークンを必要に応じてなどの特定の型のプロパティを取得するメソッドを呼び出す`GetFieldProps`フィールドまたは`GetMethodProps`メソッド。  
+## <a name="remarks"></a>コメント  
+ `GetNameFromToken` は互換性のために残されています。 別の方法として、メソッドを呼び出して、メソッドのフィールドまたは `GetMethodProps` の `GetFieldProps` など、必要な特定の種類のトークンのプロパティを取得します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
- **.NET framework のバージョン:** 1  
+ **.NET Framework のバージョン:** 1.0  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataImport インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-interface.md)
 - [IMetaDataImport2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport2-interface.md)

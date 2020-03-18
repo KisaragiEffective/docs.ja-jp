@@ -7,14 +7,12 @@ helpviewer_keywords:
 - executable image for debugging
 - debugging [.NET Framework], executable images for
 ms.assetid: 7d90ea7a-150f-4f97-98a7-f9c26541b9a3
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 1b64bd1e112932f394bb473a21642d37e28e39d3
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 44d512a8ebec0e21e33f51c07428331e5e22b7bf
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052499"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217342"
 ---
 # <a name="making-an-image-easier-to-debug-in-net"></a>.NET でのデバッグが容易になるようにイメージを作成する
 
@@ -42,7 +40,7 @@ AllowOptimize=0
 
 各オプションの値として、0 または 1 を設定できます。記述しなかったオプションの値は、既定値の 0 に設定されます。 `GenerateTrackingInfo` を 1 に設定し、`AllowOptimize` を 0 に設定すると、デバッグが最も簡単になります。
 
-.NET Framework バージョン2.0 以降では、JIT コンパイラはの`GenerateTrackingInfo` `AllowOptimize`値に関係なく常に追跡情報を生成しますが、値は引き続き効果を持ちます。 [Ngen.exe (ネイティブ イメージ ジェネレーター)](../tools/ngen-exe-native-image-generator.md) を使用して最適化を行わずにネイティブ イメージをプリコンパイルする場合は、`AllowOptimize=0` が記述された .ini ファイルが、Ngen.exe 実行時にターゲット フォルダー内に存在している必要があります。 最適化せずにアセンブリをプリコンパイルした場合は、ngen.exe を再実行してから、最適化されたコードをプリコンパイルする前に、Ngen.exe **/uninstall**オプションを使用してプリコンパイル済みコードを削除する必要があります。 .Ini ファイルがフォルダー内に存在しない場合、既定では、Ngen.exe はコードを最適化されたものとしてプリコンパイルします。
+.NET Framework バージョン2.0 以降では、`GenerateTrackingInfo`の値に関係なく、JIT コンパイラは常に追跡情報を生成します。ただし、`AllowOptimize` の値は依然として効果があります。 [Ngen.exe (Native Image Generator)](../tools/ngen-exe-native-image-generator.md) を使用して最適化を行わずにネイティブ イメージをプリコンパイルする場合は、`AllowOptimize=0` が記述された .ini ファイルが、Ngen.exe 実行時にターゲット フォルダー内に存在している必要があります。 最適化せずにアセンブリをプリコンパイルした場合は、ngen.exe を再実行してから、最適化されたコードをプリコンパイルする前に、Ngen.exe **/uninstall**オプションを使用してプリコンパイル済みコードを削除する必要があります。 .Ini ファイルがフォルダー内に存在しない場合、既定では、Ngen.exe はコードを最適化されたものとしてプリコンパイルします。
 
 アセンブリの設定は、<xref:System.Diagnostics.DebuggableAttribute?displayProperty=nameWithType> によって制御されます。 **DebuggableAttribute**には、JIT コンパイラが追跡情報を最適化するか、生成するかを制御する2つのフィールドが含まれています。 .NET Framework バージョン2.0 以降では、JIT コンパイラは常に追跡情報を生成します。
 
@@ -53,7 +51,7 @@ AllowOptimize=0
 > [!NOTE]
 > .NET Framework Version 1.0 では、 **/clr** および **/Zi** コンパイラ オプションを指定すると、Microsoft Visual C++ コンパイラによって **DebuggableAttribute** が追加されます。 .NET Framework のバージョン1.1 では、 **DebuggableAttribute**をコードに手動で追加するか、 **/assemblydebug**リンカーオプションを使用する必要があります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [デバッグ、トレース、およびプロファイリング](index.md)
 - [JIT アタッチ デバッグの有効化](enabling-jit-attach-debugging.md)

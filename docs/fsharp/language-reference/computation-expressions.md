@@ -1,21 +1,21 @@
 ---
 title: コンピュテーション式
 description: 制御フローの構造とバインディングを使用してF#シーケンス処理および結合できる、で計算を記述するための便利な構文を作成する方法について説明します。
-ms.date: 03/15/2019
-ms.openlocfilehash: ea560bb6eec82672544c7c442b671b63e405474c
-ms.sourcegitcommit: 9bd1c09128e012b6e34bdcbdf3576379f58f3137
+ms.date: 11/04/2019
+ms.openlocfilehash: 55406cc12d9e6e890fe69d712f79486d23b84452
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799049"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76794547"
 ---
 # <a name="computation-expressions"></a>コンピュテーション式
 
 のF#コンピュテーション式は、制御フローの構造とバインディングを使用して、シーケンス処理および結合できる計算を作成するための便利な構文を提供します。 計算式の種類によっては、monads、モノ id、monads トランスフォーマー、およびアプリケーションを表現する方法と考えることができます。 ただし、Haskell*のような*他の言語とは異なり、それらは1つの抽象化に関連付けられておらず、マクロやその他の形式のメタプログラミングに依存せず、便利で状況依存の構文を実現できません。
 
-## <a name="overview"></a>概要
+## <a name="overview"></a>の概要
 
-計算には多くの形式が必要です。 最も一般的な計算形式は、簡単に理解して変更できるシングルスレッド実行です。 ただし、すべての形式の計算は、シングルスレッド実行と単純なものではありません。 次に、それらの例の一部を示します。
+計算には多くの形式が必要です。 最も一般的な計算形式は、簡単に理解して変更できるシングルスレッド実行です。 ただし、すべての形式の計算は、シングルスレッド実行と単純なものではありません。 たとえば、次のものがあります。
 
 - 非決定的な計算
 - 非同期計算
@@ -112,6 +112,34 @@ for sq in squares do
     printfn "%d" sq
 ```
 
+ほとんどの場合、呼び出し元は省略できます。 `yield` を省略する最も一般的な方法は、`->` 演算子を使用することです。
+
+```fsharp
+let squares =
+    seq {
+        for i in 1..10 -> i * i
+    }
+
+for sq in squares do
+    printfn "%d" sq
+```
+
+多くの異なる値を生成する可能性がある複雑な式の場合、場合によってはキーワードを省略するだけで、次のことが可能です。
+
+```fsharp
+let weekdays includeWeekend =
+    seq {
+        "Monday"
+        "Tuesday"
+        "Wednesday"
+        "Thursday"
+        "Friday"
+        if includeWeekend then
+            "Saturday"
+            "Sunday"
+    }
+```
+
 [ C#で yield キーワード](../../csharp/language-reference/keywords/yield.md)を使用する場合と同様に、コンピュテーション式の各要素は反復処理されるときに返されます。
 
 `yield` は、ビルダー型の `Yield(x)` メンバーによって定義されます。 `x` は、返される項目です。
@@ -143,6 +171,8 @@ printfn "%A" squaresAndCubes // Prints - 1; 4; 9; 1; 8; 27
 評価された場合、`yield!` によって呼び出されるコンピュテーション式の項目は1つずつ返され、結果がフラット化されます。
 
 `yield!` は、ビルダー型の `YieldFrom(x)` メンバーによって定義されます。 `x` は値のコレクションです。
+
+`yield`とは異なり、`yield!` は明示的に指定する必要があります。 計算式では、その動作は暗黙的ではありません。
 
 ### `return`
 
@@ -179,7 +209,7 @@ let result = Async.RunSynchronously req
 
 ### `match!`
 
-F# 4.5 以降では、`match!`キーワードを使用して、その結果に対して別のコンピュテーション式とパターン一致の呼び出しをインライン化できます。
+`match!` キーワードを使用すると、別のコンピュテーション式への呼び出しをインライン化し、結果にパターン一致を行うことができます。
 
 ```fsharp
 let doThingsAsync url =
@@ -208,9 +238,9 @@ let doThingsAsync url =
 |`Delay`|`(unit -> M<'T>) -> M<'T>`|計算式を関数としてラップします。|
 |`Return`|`'T -> M<'T>`|コンピュテーション式の `return` に対して呼び出されます。|
 |`ReturnFrom`|`M<'T> -> M<'T>`|コンピュテーション式の `return!` に対して呼び出されます。|
-|`Run`|`M<'T> -> M<'T>` または<br /><br />`M<'T> -> 'T`|コンピュテーション式を実行します。|
-|`Combine`|`M<'T> * M<'T> -> M<'T>` または<br /><br />`M<unit> * M<'T> -> M<'T>`|コンピュテーション式でシーケンス処理を行うために呼び出されます。|
-|`For`|`seq<'T> * ('T -> M<'U>) -> M<'U>` または<br /><br />`seq<'T> * ('T -> M<'U>) -> seq<M<'U>>`|コンピュテーション式の `for...do` 式に対して呼び出されます。|
+|`Run`|`M<'T> -> M<'T>`<br /><br />`M<'T> -> 'T`|コンピュテーション式を実行します。|
+|`Combine`|`M<'T> * M<'T> -> M<'T>`<br /><br />`M<unit> * M<'T> -> M<'T>`|コンピュテーション式でシーケンス処理を行うために呼び出されます。|
+|`For`|`seq<'T> * ('T -> M<'U>) -> M<'U>`<br /><br />`seq<'T> * ('T -> M<'U>) -> seq<M<'U>>`|コンピュテーション式の `for...do` 式に対して呼び出されます。|
 |`TryFinally`|`M<'T> * (unit -> unit) -> M<'T>`|コンピュテーション式の `try...finally` 式に対して呼び出されます。|
 |`TryWith`|`M<'T> * (exn -> M<'T>) -> M<'T>`|コンピュテーション式の `try...with` 式に対して呼び出されます。|
 |`Using`|`'T * ('T -> M<'U>) -> M<'U> when 'T :> IDisposable`|コンピュテーション式の `use` バインドに対して呼び出されます。|
@@ -220,7 +250,7 @@ let doThingsAsync url =
 |`Zero`|`unit -> M<'T>`|コンピュテーション式の `if...then` 式の空の `else` 分岐に対して呼び出されます。|
 |`Quote`|`Quotations.Expr<'T> -> Quotations.Expr<'T>`|コンピュテーション式が `Run` メンバーに引用符として渡されることを示します。 計算のすべてのインスタンスを引用符に変換します。|
 
-ビルダークラスのメソッドの多くは、`M<'T>` コンストラクトを使用して返します。通常、これは、結合する計算の種類を特徴とする個別に定義された型です。たとえば、非同期ワークフローの場合は `Async<'T>`、シーケンスの場合は `Seq<'T>` です。コンフィギュレーション. これらのメソッドのシグネチャを使用すると、1つのコンストラクトから返されるワークフローオブジェクトを次の構造体に渡すことができるように、それらを組み合わせて入れ子にすることができます。 コンパイラは、コンピュテーション式を解析するときに、前の表のメソッドとコンピュテーション式のコードを使用して、一連の入れ子になった関数呼び出しに式を変換します。
+ビルダークラスのメソッドの多くは、`M<'T>` コンストラクトを使用して返します。通常、これは、結合する計算の種類を特徴とする個別に定義された型です。たとえば、非同期ワークフローの場合は `Async<'T>`、シーケンスワークフローの場合は `Seq<'T>` です。 これらのメソッドのシグネチャを使用すると、1つのコンストラクトから返されるワークフローオブジェクトを次の構造体に渡すことができるように、それらを組み合わせて入れ子にすることができます。 コンパイラは、コンピュテーション式を解析するときに、前の表のメソッドとコンピュテーション式のコードを使用して、一連の入れ子になった関数呼び出しに式を変換します。
 
 入れ子になった式の形式は次のとおりです。
 
@@ -228,9 +258,9 @@ let doThingsAsync url =
 builder.Run(builder.Delay(fun () -> {| cexpr |}))
 ```
 
-上記のコードでは、コンピュテーション式ビルダークラスで定義されていない場合、`Run` と `Delay` への呼び出しは省略されます。 ここでは `{| cexpr |}`として示されているコンピュテーション式の本体は、次の表に示す翻訳によって、ビルダークラスのメソッドを含む呼び出しに変換されます。 コンピュテーション式 `{| cexpr |}` は、これらの変換に従って、`expr` がF#式で、`cexpr`がコンピュテーション式である場合に、再帰的に定義されます。
+上記のコードでは、コンピュテーション式ビルダークラスで定義されていない場合、`Run` と `Delay` への呼び出しは省略されます。 ここでは `{| cexpr |}`として示されているコンピュテーション式の本体は、次の表に示す翻訳によって、ビルダークラスのメソッドを含む呼び出しに変換されます。 コンピュテーション式 `{| cexpr |}` は、これらの変換に従って、`expr` がF#式で、`cexpr` がコンピュテーション式である場合に、再帰的に定義されます。
 
-|正規表現|変換|
+|[式]|変換|
 |----------|-----------|
 |<code>{ let binding in cexpr }</code>|<code>let binding in {&#124; cexpr &#124;}</code>|
 |<code>{ let! pattern = expr in cexpr }</code>|<code>builder.Bind(expr, (fun pattern -> {&#124; cexpr &#124;}))</code>|
@@ -241,7 +271,7 @@ builder.Run(builder.Delay(fun () -> {| cexpr |}))
 |<code>{ return! expr }</code>|`builder.ReturnFrom(expr)`|
 |<code>{ use pattern = expr in cexpr }</code>|<code>builder.Using(expr, (fun pattern -> {&#124; cexpr &#124;}))</code>|
 |<code>{ use! value = expr in cexpr }</code>|<code>builder.Bind(expr, (fun value -> builder.Using(value, (fun value -> { cexpr }))))</code>|
-|<code>{ if expr then cexpr0 &#124;}</code>|<code>if expr then { cexpr0 } else binder.Zero()</code>|
+|<code>{ if expr then cexpr0 &#124;}</code>|<code>if expr then { cexpr0 } else builder.Zero()</code>|
 |<code>{ if expr then cexpr0 else cexpr1 &#124;}</code>|<code>if expr then { cexpr0 } else { cexpr1 }</code>|
 |<code>{ match expr with &#124; pattern_i -> cexpr_i }</code>|<code>match expr with &#124; pattern_i -> { cexpr_i }</code>|
 |<code>{ for pattern in expr do cexpr }</code>|<code>builder.For(enumeration, (fun pattern -> { cexpr }))</code>|
@@ -304,7 +334,7 @@ module Eventually =
     // This is boilerplate in terms of "result", "catch", and "bind".
     let tryFinally expr compensation =
         catch (expr)
-        |> bind (fun res -> 
+        |> bind (fun res ->
             compensation();
             match res with
             | Ok value -> result value
@@ -335,9 +365,9 @@ module Eventually =
     // This is boilerplate in terms of "catch", "result", and "bind".
     let forLoop (collection:seq<_>) func =
         let ie = collection.GetEnumerator()
-        tryFinally 
-            (whileLoop 
-                (fun () -> ie.MoveNext()) 
+        tryFinally
+            (whileLoop
+                (fun () -> ie.MoveNext())
                 (delay (fun () -> let value = ie.Current in func value)))
             (fun () -> ie.Dispose())
 
@@ -375,7 +405,7 @@ comp |> step |> step
 // prints "x = 1"
 // prints "x = 2"
 // returns "Done 7"
-comp |> step |> step |> step |> step 
+comp |> step |> step |> step |> step
 ```
 
 コンピュテーション式には基になる型があり、この式はを返します。 基になる型は、計算された結果または実行可能な遅延計算を表すことができます。また、一部の型のコレクションを反復処理する方法を提供する場合もあります。 前の例では、基になる型は**最終的**にでした。 シーケンス式の場合、基になる型は <xref:System.Collections.Generic.IEnumerable%601?displayProperty=nameWithType>です。 クエリ式の場合、基になる型は <xref:System.Linq.IQueryable?displayProperty=nameWithType>です。 非同期ワークフローの場合、基になる型は[`Async`](https://msdn.microsoft.com/library/03eb4d12-a01a-4565-a077-5e83f17cf6f7)です。 `Async` オブジェクトは、結果を計算するために実行する作業を表します。 たとえば、 [`Async.RunSynchronously`](https://msdn.microsoft.com/library/0a6663a9-50f2-4d38-8bf3-cefd1a51fd6b)を呼び出して計算を実行し、その結果を返します。
@@ -394,7 +424,7 @@ comp |> step |> step |> step |> step
 type Microsoft.FSharp.Linq.QueryBuilder with
 
     [<CustomOperation("existsNot")>]
-    member __.ExistsNot (source: QuerySource<'T, 'Q>, predicate) =
+    member _.ExistsNot (source: QuerySource<'T, 'Q>, predicate) =
         Enumerable.Any (source.Source, Func<_,_>(predicate)) |> not
 ```
 

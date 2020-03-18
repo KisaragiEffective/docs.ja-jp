@@ -1,5 +1,5 @@
 ---
-title: '方法: 定数を宣言する (Visual Basic)'
+title: '方法 : 定数を宣言する'
 ms.date: 07/20/2015
 f1_keywords:
 - vb.constant
@@ -23,15 +23,15 @@ helpviewer_keywords:
 - module-level constants and variables
 - Object data type [Visual Basic], declaring constants
 ms.assetid: f901b4fa-481f-4621-822e-427060577ad1
-ms.openlocfilehash: 8b84ab5e8edebba3048c5cddf723198cf3f28858
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 5054d4a4fc02d8bd22efceb01770fc54167d8cb3
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72579924"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74347466"
 ---
 # <a name="how-to-declare-a-constant-visual-basic"></a>方法: 定数を宣言する (Visual Basic)
-@No__t_0 ステートメントを使用して定数を宣言し、その値を設定します。 定数を宣言すると、意味のある名前を値に代入します。 定数を宣言すると、変更したり、新しい値を割り当てたりすることはできません。  
+`Const` ステートメントを使用して定数を宣言し、その値を設定します。 定数を宣言すると、意味のある名前を値に代入します。 定数を宣言すると、変更したり、新しい値を割り当てたりすることはできません。  
   
  定数は、プロシージャ内で、またはモジュール、クラス、または構造体の宣言セクションで宣言します。 クラスまたは構造体レベルの定数は既定で `Private` されますが、適切なレベルのコードアクセスに対して `Public`、`Friend`、`Protected`、または `Protected Friend` として宣言することもできます。  
   
@@ -45,9 +45,9 @@ ms.locfileid: "72579924"
   
      [!code-vb[VbEnumsTask#8](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbEnumsTask/VB/Class2.vb#8)]  
   
-     [オプションの推論](../../../../visual-basic/language-reference/statements/option-infer-statement.md)が `Off` で、 [option Strict](../../../../visual-basic/language-reference/statements/option-strict-statement.md)が `On` 場合、データ型 (`Boolean`、`Byte`、`Char`、`DateTime`、`Decimal`、`Double` を指定して、定数を明示的に宣言する必要があり 0、1、2、3、または 4)。  
+     [オプションの推論](../../../../visual-basic/language-reference/statements/option-infer-statement.md)が `Off`、 [option Strict](../../../../visual-basic/language-reference/statements/option-strict-statement.md)が `On`の場合、データ型 (`Boolean`、`Byte`、`Char`、`DateTime`、`Decimal`、`Double`、`Integer`、`Long`、`Short`、`Single`、`String`) を指定して、定数を明示的に宣言する必要があります。  
   
-     @No__t_0 が `On` または `Option Strict` が `Off` 場合は、`As` 句を使用してデータ型を指定せずに定数を宣言できます。 コンパイラは、式の型から定数の型を特定します。 詳細については、「[定数データ型とリテラルデータ型](constant-and-literal-data-types.md)」を参照してください。  
+     `Option Infer` が `On` または `Option Strict` が `Off`場合は、`As` 句を使用してデータ型を指定せずに定数を宣言できます。 コンパイラは、式の型から定数の型を特定します。 詳細については、「[定数データ型とリテラルデータ型](constant-and-literal-data-types.md)」を参照してください。  
   
 ### <a name="to-declare-a-constant-that-has-an-explicitly-stated-data-type"></a>明示的に記述されたデータ型を持つ定数を宣言するには  
   
@@ -65,7 +65,7 @@ ms.locfileid: "72579924"
     Public Const Four As Integer = 4, Five As Integer = 5, Six As Integer = 44  
     ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Const ステートメント](../../../../visual-basic/language-reference/statements/const-statement.md)
 - [定数とリテラルのデータ型](constant-and-literal-data-types.md)

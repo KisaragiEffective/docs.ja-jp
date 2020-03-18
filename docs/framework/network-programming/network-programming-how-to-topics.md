@@ -8,10 +8,10 @@ helpviewer_keywords:
 - network
 ms.assetid: 8fd6c675-9ea6-4fad-a412-e2c2c1f233d8
 ms.openlocfilehash: 5f8f1a3ca9aaf4bea56f342857d2df0bb18a9ba8
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "71047633"
 ---
 # <a name="network-programming-how-to-topics"></a>ネットワーク プログラミング方法のトピック
@@ -77,7 +77,7 @@ ms.locfileid: "71047633"
   
 - [方法: ホストに対して ping を実行](how-to-ping-a-host.md)  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [.NET Framework のネットワーク プログラミング](index.md)
 - [ネットワーク プログラミングのサンプル](network-programming-samples.md)

@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 1d23247e-c58c-45db-afd8-83aa89cde18e
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 65f59d3df96f46ad65650183bdb6f631356a4d0b
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 2d32dc8ae59fc1a4a189d849437cc95ea3b94a4d
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67775538"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74449541"
 ---
 # <a name="imetadataimportenumfields-method"></a>IMetaDataImport::EnumFields メソッド
 指定した TypeDef トークンによって参照される型の FieldDef トークンを列挙します。  
@@ -44,34 +42,34 @@ HRESULT EnumFields (
  [入力、出力]列挙子へのポインター。  
   
  `cl`  
- [in]フィールドが列挙クラスの TypeDef トークンです。  
+ からフィールドを列挙するクラスの TypeDef トークン。  
   
  `rFields`  
- [out]FieldDef トークンの一覧。  
+ 入出力FieldDef トークンの一覧。  
   
  `cMax`  
  [in] `rFields` 配列の最大サイズ。  
   
  `pcTokens`  
- [out]実際に返される FieldDef トークン数`rFields`します。  
+ 入出力`rFields`で返された FieldDef トークンの実際の数。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|`S_OK`|`EnumFields` 正常に返されます。|  
-|`S_FALSE`|列挙するフィールドはありません。 その場合は、`pcTokens`は 0 です。|  
+|`S_OK`|`EnumFields` が正常に返されました。|  
+|`S_FALSE`|列挙するフィールドがありません。 この場合、`pcTokens` は0になります。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataImport インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-interface.md)
 - [IMetaDataImport2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport2-interface.md)

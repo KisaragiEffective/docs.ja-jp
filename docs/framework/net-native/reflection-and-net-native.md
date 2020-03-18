@@ -2,14 +2,12 @@
 title: リフレクションおよび .NET ネイティブ
 ms.date: 03/30/2017
 ms.assetid: 91c9eae4-c641-476c-a06e-d7ce39709763
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 17b567fe0f476e689a9775c5c73ebf068424e840
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 65921377be9b8bf1c2d147b384c85cbd037d15f2
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049284"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128186"
 ---
 # <a name="reflection-and-net-native"></a>リフレクションおよび .NET ネイティブ
 .NET Framework では、マネージド開発はリフレクション API を介してメタプログラミングをサポートします。 リフレクションによって、アプリ内のオブジェクトの検査、検査で検出されたオブジェクトでのメソッドの呼び出し、実行時の新しい型の生成、およびその他多数の動的コード シナリオのサポートが可能になります。 シリアル化と逆シリアル化もサポートしているため、オブジェクトのフィールド値を保持して、後で復元できます。 これらすべてのシナリオで、使用可能なメタデータに基づいてネイティブ コードを生成するために .NET Framework Just-In-Time (JIT) コンパイラが必要です。  

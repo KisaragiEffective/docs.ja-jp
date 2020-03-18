@@ -9,14 +9,12 @@ api_location:
 api_type:
 - COM
 ms.assetid: d62c4a4c-8a62-45aa-8f01-a8387cf36159
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 157b0e215f8afa58cccb3d54a65baa9c307ba966
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: a675cc301d2dd32f87e3864a3123e2044761ef91
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69955428"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76868357"
 ---
 # <a name="icorprofilerinfo7getinmemorysymbolslength-method"></a>ICorProfilerInfo7:: Getinmemoryシンボルの長さメソッド
 [.NET Framework 4.6.1 以降のバージョンでのみでサポート]  
@@ -37,28 +35,28 @@ HRESULT GetInMemorySymbolsLength(
  からメモリ内ストリームを格納しているモジュールの識別子。  
   
  Pcountシンボルバイト数  
- 入出力メソッドから制御が`DWORD`戻るときに、ストリーム長がバイト単位で格納されている値へのポインター。  
+ 入出力メソッドから制御が戻るときに、ストリーム長がバイト単位で格納されている `DWORD` 値へのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- メモリストリームの`S_OK`長さがゼロ (0) であっても、このメソッドはを返します。  
+ このメソッドは、ゼロ (0) であっても、メモリストリームの長さを特定できる場合に `S_OK` を返します。  
   
- メソッドがを`CORPROF_E_MODULE_IS_DYNAMIC`使用して<xref:System.Reflection.Emit?displayProperty=nameWithType>作成された場合、メソッドはを返します。  
+ メソッドが <xref:System.Reflection.Emit?displayProperty=nameWithType>を使用して作成された場合、メソッドは `CORPROF_E_MODULE_IS_DYNAMIC` を返します。  
   
-## <a name="remarks"></a>Remarks  
- モジュールにメモリ内シンボルがある場合は、ストリームの長さがに`pCountSymbolBytes`配置されます。 モジュールにメモリ内シンボル`*pCountSymbolBytes = 0`がない場合は。  
+## <a name="remarks"></a>コメント  
+ モジュールにメモリ内シンボルがある場合、ストリームの長さは `pCountSymbolBytes`に配置されます。 モジュールにメモリ内シンボルがない場合は、`*pCountSymbolBytes = 0`ます。  
   
 > [!NOTE]
-> 現在の実装では、リフレクションはサポートされていません。 モジュールがリフレクションを使用して作成された場合、メソッド`CORPROF_E_MODULE_IS_DYNAMIC`はを返します。  
+> 現在の実装では、リフレクションはサポートされていません。 モジュールがリフレクションを使用して作成された場合、メソッドは `CORPROF_E_MODULE_IS_DYNAMIC`を返します。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Corprof.idl、Corprof.idl  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v461plus](../../../../includes/net-current-v461plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerInfo7 インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo7-interface.md)
+- [ICorProfilerInfo7 インターフェイス](icorprofilerinfo7-interface.md)

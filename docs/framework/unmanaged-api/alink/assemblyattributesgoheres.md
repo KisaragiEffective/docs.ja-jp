@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 4e817f35-a2bc-4403-9e6f-f731e6b9fe23
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 135938c4ed91423145ca46b743620f4236f7f818
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 128268bab77c8be5dc809eaa6d2548fc34f13cbd
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67742260"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74446613"
 ---
 # <a name="assemblyattributesgoheres"></a>AssemblyAttributesGoHereS
 
@@ -34,15 +32,15 @@ ALink でプレースホルダーとして使用し、カスタム属性に関�
 internal sealed class AssemblyAttributesGoHereS
 ```
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 この型への参照は、ソースにアセンブリのカスタム属性が含まれている netmodule 内部に埋め込まれていることがあります。 これらの型への参照が含まれる 1 つまたは複数の  netmodule からアセンブリ マニフェストを作成すると、ALink はこれらの参照にアタッチされた情報を使用して、実際のカスタム属性を生成します。 このため、この型がインスタンス化されることはなく、その型への参照はビルド処理の一部としてのみ使用され、最終的なアセンブリでは使用されません。
 
 この型への参照は、セキュリティに関連せず複数の用途を持たないカスタム属性を示します。
 
-これらの型が「内部」.NET Framework 内でマークされ、内にある、<xref:System.Runtime.CompilerServices>名前空間。
+これらの型は、.NET Framework 内で "internal" とマークされ、<xref:System.Runtime.CompilerServices> 名前空間に配置されます。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 mscorlib.dll
 

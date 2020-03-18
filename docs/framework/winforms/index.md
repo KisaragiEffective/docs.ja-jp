@@ -1,20 +1,21 @@
 ---
 title: Windows フォーム
+titleSuffix: ''
 ms.date: 03/30/2017
 helpviewer_keywords:
 - Windows Forms
 - user interface
 - user interface [Windows Forms], forms
 ms.assetid: 627df1e9-b254-41af-bbac-9a4f02810c54
-ms.openlocfilehash: 00e359e7c2440b6d88f2c42fd0267fc1f12b7bb7
-ms.sourcegitcommit: c7a7e1468bf0fa7f7065de951d60dfc8d5ba89f5
+ms.openlocfilehash: cdd3a71b406f1f0ae2afa1e1b3982c27f4db21a4
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65583425"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76739185"
 ---
 # <a name="windows-forms"></a>Windows フォーム
-フォームはアプリケーションの基本単位であるため、機能とデザインにある程度の配慮を与えることが重要です。 フォームは、最終的には開発者がユーザー インターフェイスを作成するコントロールとデータを操作するコードを拡張する白紙状態です。 そのために、Visual Studio を使用する、.NET Framework で書き込まれた設定の機能豊富なコントロールと同様に、統合開発環境 (IDE) でコードの記述を支援します。 これらのコントロールの機能をコードに補完することにより、必要なソリューションを簡単に素早く開発できます。  
+フォームはアプリケーションの基本単位であるため、機能とデザインにある程度の配慮を与えることが重要です。 フォームは、最終的には開発者がユーザー インターフェイスを作成するコントロールとデータを操作するコードを拡張する白紙状態です。 そのため、Visual Studio には、コードの記述を支援する統合開発環境 (IDE) と、.NET Framework で記述された豊富なコントロールセットが用意されています。 これらのコントロールの機能をコードに補完することにより、必要なソリューションを簡単に素早く開発できます。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [Windows フォームについて](getting-started-with-windows-forms.md)  
@@ -45,7 +46,7 @@ ms.locfileid: "65583425"
  [Windows フォーム アプリケーション](/visualstudio/debugger/debugging-preparation-windows-forms-applications)  
  Windows アプリケーション プロジェクト テンプレートを使用して作成されたアプリケーションのデバッグのプロセス、およびデバッグ構成とリリース構成を変更する方法について説明します。  
   
- [最初に、Visual Studio でのデプロイについてください。](/visualstudio/deployment/deploying-applications-services-and-components)  
+ [Visual Studio での配置の最初の確認](/visualstudio/deployment/deploying-applications-services-and-components)  
  完成したアプリケーションやコンポーネントを他のコンピューターにインストールできるように配布するためのプロセスについて説明します。  
   
  [コンソール アプリケーションの構築](../../standard/building-console-apps.md)  

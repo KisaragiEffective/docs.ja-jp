@@ -1,24 +1,23 @@
 ---
 title: Override キーワードと New キーワードを使用する場合について - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - override keyword [C#]
 - new keyword [C#]
 - polymorphism [C#], using override and new [C#]
 ms.assetid: 323db184-b136-46fc-8839-007886e7e8b0
-ms.openlocfilehash: 00751cd8eac7979fe94d890ddeb7d13edb233f9e
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 493c6c5f5bf47c6b2cd140ac0f6922f91ca4252b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69596473"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79170261"
 ---
 # <a name="knowing-when-to-use-override-and-new-keywords-c-programming-guide"></a>Override キーワードと New キーワードを使用する場合について (C# プログラミング ガイド)
 
-C# では、派生クラスのメソッドを基底クラスのメソッドと同じ名前にすることができます。 [new](../../language-reference/keywords/new-modifier.md) および [override](../../language-reference/keywords/override.md) キーワードを使って、メソッドでの処理を指定できます。 `override` 修飾子は基底クラスの `virtual`メソッドを "*拡張*" し、`new` 修飾子はアクセス可能な基底クラスのメソッドを "*非表示*" にします。 このトピックの例ではその違いを示します。  
+C# では、派生クラスのメソッドを基底クラスのメソッドと同じ名前にすることができます。 [new](../../language-reference/keywords/new-modifier.md) および [override](../../language-reference/keywords/override.md) キーワードを使って、メソッドでの処理を指定できます。 `override` 修飾子は基底クラスの *メソッドを "* 拡張`virtual`" し、`new` 修飾子はアクセス可能な基底クラスのメソッドを "*非表示*" にします。 このトピックの例ではその違いを示します。  
   
- コンソール アプリケーションで、次の 2 つのクラス `BaseClass` と `DerivedClass` を宣言します。 `DerivedClass` は `BaseClass`を継承します。  
+ コンソール アプリケーションで、次の 2 つのクラス `BaseClass` と `DerivedClass` を宣言します。 `DerivedClass` は `BaseClass` を継承します。  
   
 ```csharp  
 class BaseClass  
@@ -70,7 +69,7 @@ class Program
 }  
 ```  
   
- 次に、以下の `Method2` メソッドを `BaseClass` に追加します。 このメソッドのシグネチャは、`DerivedClass` の `Method2` メソッドのシグネチャと一致します。  
+ 次に、以下の `Method2` メソッドを `BaseClass` に追加します。 このメソッドのシグネチャは、`Method2` の `DerivedClass` メソッドのシグネチャと一致します。  
   
 ```csharp  
 public void Method2()  
@@ -90,7 +89,7 @@ bcdc.Method1();
 bcdc.Method2();  
 ```  
   
- プロジェクトをビルドすると、`BaseClass` に `Method2` メソッドを追加したことで警告が発生するようになります。 警告の内容は、`DerivedClass` の `Method2` メソッドが `BaseClass` の `Method2` メソッドを隠ぺいしているというものです。 それが意図する結果である場合は、`Method2` の定義で `new` キーワードを使うことをお勧めします。 または、どちらかの `Method2` メソッドの名前を変更して警告を解決することもできますが、実用的ではない場合があります。  
+ プロジェクトをビルドすると、`Method2` に `BaseClass` メソッドを追加したことで警告が発生するようになります。 警告の内容は、`Method2` の `DerivedClass` メソッドが `Method2` の `BaseClass` メソッドを隠ぺいしているというものです。 それが意図する結果である場合は、`new` の定義で `Method2` キーワードを使うことをお勧めします。 または、どちらかの `Method2` メソッドの名前を変更して警告を解決することもできますが、実用的ではない場合があります。  
   
  `new` を追加する前に、プログラムを実行して、追加した呼び出しステートメントによって生成される出力を確認します。 次のような結果が表示されます。  
   
@@ -106,7 +105,7 @@ bcdc.Method2();
   
  `new` キーワードは、その出力を生成する関係を維持しますが、警告を抑制します。 `BaseClass` 型の変数は引き続き `BaseClass` のメンバーにアクセスし、`DerivedClass` 型の変数は引き続き最初に `DerivedClass` のメンバーにアクセスした後、`BaseClass` から継承されたメンバーを考慮します。  
   
- 警告を抑制するには、次のコードで示すように、`DerivedClass` での `Method2` の定義に `new` 修飾子を追加します。 修飾子を追加する位置は、`public` の前でも後でもかまいません。  
+ 警告を抑制するには、次のコードで示すように、`new` での `Method2` の定義に `DerivedClass` 修飾子を追加します。 修飾子を追加する位置は、`public` の前でも後でもかまいません。  
   
 ```csharp  
 public new void Method2()  
@@ -126,7 +125,7 @@ public override void Method1()
 }  
 ```  
   
- `BaseClass` での `Method1` の定義に `virtual` 修飾子を追加します。 `virtual` 修飾子を追加する位置は、`public` の前でも後でもかまいません。  
+ `virtual` での `Method1` の定義に `BaseClass` 修飾子を追加します。 `virtual` 修飾子を追加する位置は、`public` の前でも後でもかまいません。  
   
 ```csharp  
 public virtual void Method1()  
@@ -147,7 +146,7 @@ public virtual void Method1()
 // Base - Method2  
 ```  
   
- `override` 修飾子を使うことで、`bcdc` は、`DerivedClass` で定義されている `Method1` メソッドにアクセスできます。 通常、これは継承階層での必要な動作です。 派生クラスから作成される値を持つオブジェクトには、派生クラスで定義されているメソッドを使うことが必要とされます。 そのような動作は、`override` を使って基底クラスのメソッドを拡張することで実現できます。  
+ `override` 修飾子を使うことで、`bcdc` は、`Method1` で定義されている `DerivedClass` メソッドにアクセスできます。 通常、これは継承階層での必要な動作です。 派生クラスから作成される値を持つオブジェクトには、派生クラスで定義されているメソッドを使うことが必要とされます。 そのような動作は、`override` を使って基底クラスのメソッドを拡張することで実現できます。  
   
  ここまでの例をすべて含んだコードを次に示します。  
   
@@ -181,7 +180,7 @@ namespace OverrideAndNew
             // Derived - Method1  
             // Derived - Method2  
   
-            // The following two calls produce different results, depending   
+            // The following two calls produce different results, depending
             // on whether override (Method1) or new (Method2) is used.  
             bcdc.Method1();  
             bcdc.Method2();  
@@ -219,7 +218,7 @@ namespace OverrideAndNew
 }  
 ```  
   
- 次の例では、異なるコンテキストでの同様の動作を示します。 この例では、3 つのクラスが定義されています。基底クラス `Car` と、それから派生される 2 つのクラス `ConvertibleCar` と `Minivan` です。 基底クラスには、`DescribeCar` メソッドが含まれます。 このメソッドは、車の基本的な説明を表示した後、`ShowDetails` を呼び出して追加情報を提供します。 これら 3 つのクラスのそれぞれで、`ShowDetails` メソッドが定義されています。 `new` 修飾子は、`ConvertibleCar` クラスで `ShowDetails` を定義するために使われています。 `override` 修飾子は、`Minivan` クラスで `ShowDetails` を定義するために使われています。  
+ 次の例では、異なるコンテキストでの同様の動作を示します。 この例では、3 つのクラスが定義されています。基底クラス `Car` と、それから派生される 2 つのクラス `ConvertibleCar` と `Minivan` です。 基底クラスには、`DescribeCar` メソッドが含まれます。 このメソッドは、車の基本的な説明を表示した後、`ShowDetails` を呼び出して追加情報を提供します。 これら 3 つのクラスのそれぞれで、`ShowDetails` メソッドが定義されています。 `new` 修飾子は、`ShowDetails` クラスで `ConvertibleCar` を定義するために使われています。 `override` 修飾子は、`ShowDetails` クラスで `Minivan` を定義するために使われています。  
   
 ```csharp  
 // Define the base class, Car. The class defines two methods,  
@@ -277,7 +276,7 @@ public static void TestCars1()
   
     // Notice the output from this test case. The new modifier is  
     // used in the definition of ShowDetails in the ConvertibleCar  
-    // class.    
+    // class.
   
     ConvertibleCar car2 = new ConvertibleCar();  
     car2.DescribeCar();  
@@ -289,7 +288,7 @@ public static void TestCars1()
 }  
 ```  
   
- `TestCars1` で生成される出力は次のとおりです。 `car2` の結果に特に注目してください。予測していた内容と違っている可能性があります。 オブジェクトの型は `ConvertibleCar` ですが、`DescribeCar` は `ConvertibleCar` クラスで定義されているバージョンの `ShowDetails` にアクセスしていません。これは、このメソッドが、`override` 修飾子ではなく `new` 修飾子を使って宣言されているためです。 結果として、`ConvertibleCar` オブジェクトでは `Car` オブジェクトと同じ説明が表示されます。 `Minivan` オブジェクトである `car3` の結果と比べてみてください。 この場合は、`Minivan` で宣言されている `ShowDetails` メソッドは、`Car` クラスで宣言されている `ShowDetails` メソッドをオーバーライドし、表示されるのはミニバンの説明です。  
+ `TestCars1` で生成される出力は次のとおりです。 `car2` の結果に特に注目してください。予測していた内容と違っている可能性があります。 オブジェクトの型は `ConvertibleCar` ですが、`DescribeCar` は `ShowDetails` クラスで定義されているバージョンの `ConvertibleCar` にアクセスしていません。これは、このメソッドが、`new` 修飾子ではなく `override` 修飾子を使って宣言されているためです。 結果として、`ConvertibleCar` オブジェクトでは `Car` オブジェクトと同じ説明が表示されます。 `car3` オブジェクトである `Minivan` の結果と比べてみてください。 この場合は、`ShowDetails` で宣言されている `Minivan` メソッドは、`ShowDetails` クラスで宣言されている `Car` メソッドをオーバーライドし、表示されるのはミニバンの説明です。  
   
 ```csharp  
 // TestCars1  
@@ -313,7 +312,7 @@ public static void TestCars2()
     System.Console.WriteLine("\nTestCars2");  
     System.Console.WriteLine("----------");  
   
-    var cars = new List<Car> { new Car(), new ConvertibleCar(),   
+    var cars = new List<Car> { new Car(), new ConvertibleCar(),
         new Minivan() };  
   
     foreach (var car in cars)  
@@ -324,7 +323,7 @@ public static void TestCars2()
 }  
 ```  
   
- 次のような出力が表示されます。 `TestCars1` によって表示される出力と同じであることに注意してください。 オブジェクトの型が `ConvertibleCar` であるか (`TestCars1` の場合)、`Car` であるか (`TestCars2` の場合) にかかわらず、`ConvertibleCar` クラスの `ShowDetails` メソッドは呼び出されません。 逆に、`car3` は、型が `Minivan` でも `Car` でも、`Minivan` クラスの `ShowDetails` を呼び出します。  
+ 次のような出力が表示されます。 `TestCars1` によって表示される出力と同じであることに注意してください。 オブジェクトの型が `ShowDetails` であるか (`ConvertibleCar` の場合)、`ConvertibleCar` であるか (`TestCars1` の場合) にかかわらず、`Car` クラスの `TestCars2` メソッドは呼び出されません。 逆に、`car3` は、型が `ShowDetails` でも `Minivan` でも、`Minivan` クラスの `Car` を呼び出します。  
   
 ```csharp  
 // TestCars2  
@@ -340,7 +339,7 @@ public static void TestCars2()
 // ----------  
 ```  
   
- メソッド `TestCars3` と `TestCars4` でこの例は終わりです。 これらのメソッドは、最初は型 `ConvertibleCar` および `Minivan` として宣言されているオブジェクトから (`TestCars3`)、次に型 `Car` として宣言されているオブジェクトから (`TestCars4`)、`ShowDetails` を直接呼び出します。 次のコードは、これら 2 つのメソッドの定義です。  
+ メソッド `TestCars3` と `TestCars4` でこの例は終わりです。 これらのメソッドは、最初は型 `ShowDetails` および `ConvertibleCar` として宣言されているオブジェクトから (`Minivan`)、次に型 `TestCars3` として宣言されているオブジェクトから (`Car`)、`TestCars4` を直接呼び出します。 次のコードは、これら 2 つのメソッドの定義です。  
   
 ```csharp  
 public static void TestCars3()  
@@ -420,7 +419,7 @@ namespace OverrideAndNew2
   
             // Notice the output from this test case. The new modifier is  
             // used in the definition of ShowDetails in the ConvertibleCar  
-            // class.    
+            // class.
             ConvertibleCar car2 = new ConvertibleCar();  
             car2.DescribeCar();  
             System.Console.WriteLine("----------");  
@@ -447,7 +446,7 @@ namespace OverrideAndNew2
             System.Console.WriteLine("\nTestCars2");  
             System.Console.WriteLine("----------");  
   
-            var cars = new List<Car> { new Car(), new ConvertibleCar(),   
+            var cars = new List<Car> { new Car(), new ConvertibleCar(),
                 new Minivan() };  
   
             foreach (var car in cars)  
@@ -543,9 +542,9 @@ namespace OverrideAndNew2
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [クラスと構造体](./index.md)
 - [Override キーワードと New キーワードによるバージョン管理](./versioning-with-the-override-and-new-keywords.md)
 - [base](../../language-reference/keywords/base.md)

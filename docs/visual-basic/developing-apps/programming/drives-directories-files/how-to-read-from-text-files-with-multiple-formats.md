@@ -1,5 +1,5 @@
 ---
-title: '方法: Visual Basic で複数の書式を持つテキスト ファイルを読み取る'
+title: '方法: 複数の書式を持つテキスト ファイルを読み取る'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - TextFieldParser object, reading from a file
@@ -11,12 +11,12 @@ helpviewer_keywords:
 - I/O [Visual Basic], reading text files
 - text files [Visual Basic], reading
 ms.assetid: 8d185eb2-79ca-42cd-95a7-d3ff44a5a0f8
-ms.openlocfilehash: dc726f7648c1c0a564594331023f03d20569d766
-ms.sourcegitcommit: 878ca7550b653114c3968ef8906da2b3e60e3c7a
+ms.openlocfilehash: b36c781d5f8333749d346bb8f19540f0d1bd1692
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71736821"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74334573"
 ---
 # <a name="how-to-read-from-fext-files-with-multiple-formats-in-visual-basic"></a>方法: Visual Basic で複数の書式を持つテキスト ファイルを読み取る
 

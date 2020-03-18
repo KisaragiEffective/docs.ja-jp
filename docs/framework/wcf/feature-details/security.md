@@ -6,27 +6,27 @@ helpviewer_keywords:
 - security [WCF]
 - Windows Communication Foundation, security
 ms.assetid: 7ea87fcb-dcfb-4a4a-8b03-6b954575d45b
-ms.openlocfilehash: 58bec40f197dd1f2b104607a65c3ad456b95f69d
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 0f79ac28af45e8c05922373955c5317095d2c682
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61748468"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744636"
 ---
 # <a name="windows-communication-foundation-security"></a>Windows Communication Foundation セキュリティ
-このセクションのトピックでは、Windows Communication Foundation (WCF) のセキュリティ機能とそれらを使用してメッセージをセキュリティで保護する方法について説明します。  
+このセクションのトピックでは、Windows Communication Foundation (WCF) のセキュリティ機能と、それらを使用してメッセージをセキュリティで保護する方法について説明します。  
   
- Windows Server AppFabric およびセキュリティの詳細については、次を参照してください[Windows Server AppFabric のセキュリティ モデル。](https://go.microsoft.com/fwlink/?LinkID=201279&clcid=0x409)  
+ Windows Server AppFabric とセキュリティの詳細については、「 [Windows Server appfabric のセキュリティモデル](https://docs.microsoft.com/previous-versions/appfabric/ee677202(v=azure.10))」を参照してください。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [セキュリティの概要](../../../../docs/framework/wcf/feature-details/security-overview.md)  
- WCF のセキュリティ機能をについて説明します。  
+ WCF のセキュリティ機能について説明します。  
   
  [セキュリティの概念](../../../../docs/framework/wcf/feature-details/security-concepts.md)  
- 基本的な用語と WCF のセキュリティに使用される概念について説明します。  
+ WCF セキュリティで使用される基本的な用語と概念について説明します。  
   
  [一般的なセキュリティ シナリオ](../../../../docs/framework/wcf/feature-details/common-security-scenarios.md)  
- シナリオと WCF を構成することができますトポロジについて説明します。  
+ WCF で構成できるシナリオとトポロジについて説明します。  
   
  [セキュリティ動作](../../../../docs/framework/wcf/feature-details/security-behaviors-in-wcf.md)  
  資格情報の設定など、セキュリティに影響する WCF の動作に関する概要について説明します。  
@@ -35,7 +35,7 @@ ms.locfileid: "61748468"
  カスタム セキュリティ バインディングの作成方法を示すトピックなど、バインディングをセキュリティの観点から説明します。  
   
  [サービスおよびクライアントのセキュリティ保護](../../../../docs/framework/wcf/feature-details/securing-services-and-clients.md)  
- WCF セキュリティ機能を使用してメッセージをセキュリティで保護する方法について説明します。  
+ WCF のセキュリティ機能を使用してメッセージをセキュリティで保護する方法について説明します。  
   
  [認証](../../../../docs/framework/wcf/feature-details/authentication-in-wcf.md)  
  一般的な認証タスクを示します。  
@@ -47,15 +47,15 @@ ms.locfileid: "61748468"
  フェデレーションの基本事項と、フェデレーション サーバーと通信するクライアントを作成する方法について説明します。  
   
  [部分信頼](../../../../docs/framework/wcf/feature-details/partial-trust.md)  
- 部分的に信頼されたを実行している場合は、部分的に信頼のシナリオと WCF の制限事項を実行する方法について説明します。  
+ 部分的に信頼されている場合に、部分信頼シナリオと WCF 制限を実行する方法について説明します。  
   
  [監査](../../../../docs/framework/wcf/feature-details/auditing-security-events.md)  
  セキュリティ イベントを監査する方法について説明します。  
   
  [セキュリティ ガイドラインとベスト プラクティス](../../../../docs/framework/wcf/feature-details/security-guidance-and-best-practices.md)  
- セキュリティで保護された WCF アプリケーションの作成に関するガイドラインです。  
+ セキュリティで保護された WCF アプリケーションを作成するためのガイドライン。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.ServiceModel>  
   
  <xref:System.ServiceModel.Security>  
@@ -65,10 +65,10 @@ ms.locfileid: "61748468"
   
  [基本的な WCF プログラミング](../../../../docs/framework/wcf/basic-wcf-programming.md)  
   
- [チュートリアル入門](../../../../docs/framework/wcf/getting-started-tutorial.md)  
+ [Getting Started Tutorial](../../../../docs/framework/wcf/getting-started-tutorial.md)  
   
  [概念](../../../../docs/framework/wcf/conceptual-overview.md)  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [アプリケーションの構成](../../../../docs/framework/wcf/diagnostics/configuring-your-application.md)

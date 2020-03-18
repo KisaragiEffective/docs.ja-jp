@@ -1,31 +1,34 @@
 ---
 title: Azure Functions にモデルをデプロイする
 description: Azure Functions を使用して、インターネット経由で予測用の ML.NET 感情分析機械学習モデルを提供します
-ms.date: 09/12/2019
+ms.date: 02/21/2020
 author: luisquintanilla
 ms.author: luquinta
 ms.custom: mvc, how-to
-ms.openlocfilehash: 4f805c638df9e60160c27fa08995ce393e59d007
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 33afd568bb12b855a3888bec31f2e9bbc3c720da
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72774528"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77628671"
 ---
 # <a name="deploy-a-model-to-azure-functions"></a>Azure Functions にモデルをデプロイする
 
 Azure Functions のサーバーレス環境を介して、HTTP 経由での予測のために、事前トレーニング済みの ML.NET 機械学習モデルをデプロイする方法について説明します。
 
 > [!NOTE]
-> `PredictionEnginePool` サービスの拡張機能は、現在プレビュー段階です。
+> このサンプルでは、`PredictionEnginePool` サービスのプレビュー バージョンを実行します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
 - [Visual Studio 2017 バージョン 15.6 以降](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2017)が ".NET Core クロスプラット フォーム開発" ワークロードおよび "Azure 開発" とともにインストールされていること。
-- Microsoft.NET.Sdk.Functions NuGet パッケージ バージョン 1.0.28 以降。
 - [Azure Functions ツール](/azure/azure-functions/functions-develop-vs#check-your-tools-version)
 - PowerShell
-- 事前トレーニング済みのモデル。 [ML.NET Sentiment Analysis のチュートリアル](../tutorials/sentiment-analysis.md)を使用して独自のモデルを構築するか、この[事前トレーニング済みの感情分析の機械学習モデル](https://github.com/dotnet/samples/blob/master/machine-learning/models/sentimentanalysis/sentiment_model.zip)をダウンロードすること。
+- 事前トレーニング済みのモデル。 [ML.NET Sentiment Analysis のチュートリアル](../tutorials/sentiment-analysis.md)を使用して独自のモデルを構築するか、こちらの[事前トレーニング済みの感情分析の機械学習モデル](https://github.com/dotnet/samples/blob/master/machine-learning/models/sentimentanalysis/sentiment_model.zip)をダウンロードすること。
+
+## <a name="azure-functions-sample-overview"></a>Azure Functions サンプルの概要
+
+このサンプルは、事前トレーニング済みの二項分類モデルを使用してテキストのセンチメントを正または負として分類する、**C# HTTP トリガー Azure Functions アプリケーション**です。 Azure Functions では、クラウド内の管理されたサーバーレス環境で小規模なコードを大規模に実行する簡単な方法を提供します。 このサンプルのコードについては、GitHub の [dotnet/machinelearning-samples](https://github.com/dotnet/machinelearning-samples/tree/master/samples/csharp/end-to-end-apps/ScalableMLModelOnAzureFunction) リポジトリで見つけることができます。
 
 ## <a name="create-azure-functions-project"></a>Azure Functions プロジェクトを作成する
 
@@ -35,7 +38,7 @@ Azure Functions のサーバーレス環境を介して、HTTP 経由での予�
 
     **ソリューション エクスプローラー**で、プロジェクトを右クリックし、 **[追加]**  >  **[新しいフォルダー]** を選択します。 「MLModels」と入力し、Enter キーを押します。
 
-1. **Microsoft.ML NuGet パッケージ**をインストールします。
+1. **Microsoft.ML NuGet パッケージ** バージョン **1.3.1** をインストールします。
 
     ソリューション エクスプローラーで、プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。 [パッケージ ソース] として "nuget.org" を選択し、[参照] タブを選択して「**Microsoft.ML**」を検索します。一覧からそのパッケージを選択し、 **[インストール]** を選択します。 **[変更のプレビュー]** ダイアログの **[OK]** を選択します。表示されているパッケージのライセンス条項に同意する場合は、 **[ライセンスの同意]** ダイアログの **[同意する]** を選択します。
 
@@ -43,13 +46,13 @@ Azure Functions のサーバーレス環境を介して、HTTP 経由での予�
 
     ソリューション エクスプローラーで、プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。 パッケージ ソースとして "nuget.org" を選択します。[参照] タブを選択し、「**Microsoft.Azure.Functions.Extensions**」を検索します。一覧からそのパッケージを選択し、 **[インストール]** ボタンを選択します。 **[変更のプレビュー]** ダイアログの **[OK]** を選択します。表示されているパッケージのライセンス条項に同意する場合は、 **[ライセンスの同意]** ダイアログの **[同意する]** を選択します。
 
-1. **Microsoft.Extensions.ML NuGet パッケージ**をインストールします。
+1. **Microsoft.Extensions.ML NuGet パッケージ** バージョン **0.15.1** をインストールします。
 
     ソリューション エクスプローラーで、プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。 パッケージ ソースとして "nuget.org" を選択します。[参照] タブを選択し、「**Microsoft.Extensions.ML**」を検索します。一覧からそのパッケージを選択して、 **[インストール]** ボタンを選択します。 **[変更のプレビュー]** ダイアログの **[OK]** を選択します。表示されているパッケージのライセンス条項に同意する場合は、 **[ライセンスの同意]** ダイアログの **[同意する]** を選択します。
 
-1. **Microsoft.NET.Sdk.Functions NuGet パッケージ**をバージョン 1.0.28 以上に更新します。
+1. 次に従って **Microsoft.NET.Sdk.Functions NuGet パッケージ** バージョン **1.0.31** をインストールします。
 
-    ソリューション エクスプローラーで、プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。 パッケージ ソースとして "nuget.org" を選択します。[参照] タブを選択し、「**Microsoft.NET.Sdk.Functions**」を検索します。一覧からそのパッケージを選択し、[バージョン] ドロップダウンから [1.0.28] またはそれ以降を選択し、 **[更新]** ボタンを選択します。 **[変更のプレビュー]** ダイアログの **[OK]** を選択します。表示されているパッケージのライセンス条項に同意する場合は、 **[ライセンスの同意]** ダイアログの **[同意する]** を選択します。
+    ソリューション エクスプローラーで、プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。 パッケージ ソースとして "nuget.org" を選択します。[インストール済み] タブを選択し、「**Microsoft.NET.Sdk.Functions**」を検索します。一覧からそのパッケージを選択し、[バージョン] ドロップダウンから **1.0.31** を選択し、 **[更新]** ボタンを選択します。 **[変更のプレビュー]** ダイアログの **[OK]** を選択します。表示されているパッケージのライセンス条項に同意する場合は、 **[ライセンスの同意]** ダイアログの **[同意する]** を選択します。
 
 ## <a name="add-pre-trained-model-to-project"></a>事前トレーニング済みモデルをプロジェクトに追加する
 
@@ -79,7 +82,7 @@ Azure Functions のサーバーレス環境を介して、HTTP 経由での予�
     }
     ```
 
-## <a name="create-data-models"></a>データ モデルを作成する
+## <a name="create-data-models"></a>データモデルを作成する
 
 入力データと予測のために、いくつかのクラスを作成する必要があります。 プロジェクトに新しいクラスを追加します。
 
@@ -114,17 +117,11 @@ Azure Functions のサーバーレス環境を介して、HTTP 経由での予�
 
 1. **ソリューション エクスプローラー**で、プロジェクトを右クリックし、 **[追加]**  >  **[新しい項目]** を選択します。
 1. **[新しい項目の追加]** ダイアログ ボックスで、 **[クラス]** を選択し、 **[名前]** フィールドを「*Startup.cs*」に変更します。 次に **[追加]** を選択します。
+1. *Startup.cs* の先頭に次の using ステートメントを追加します。
 
-    コード エディターに *Startup.cs* ファイルが開きます。 *Startup.cs* の先頭に次の using ステートメントを追加します。
+    [!code-csharp [StartupUsings](~/machinelearning-samples/samples/csharp/end-to-end-apps/ScalableMLModelOnAzureFunction/SentimentAnalysisFunctionsApp/Startup.cs#L1-L6)]
 
-    ```csharp
-    using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-    using Microsoft.Extensions.ML;
-    using SentimentAnalysisFunctionsApp;
-    using SentimentAnalysisFunctionsApp.DataModels;
-    ```
-
-    using ステートメントの下にある既存のコードを削除し、*Startup.cs* ファイルに次のコードを追加します。
+1. using ステートメントの下にある既存のコードを削除し、次のコードを追加します。
 
     ```csharp
     [assembly: FunctionsStartup(typeof(Startup))]
@@ -132,14 +129,22 @@ Azure Functions のサーバーレス環境を介して、HTTP 経由での予�
     {
         public class Startup : FunctionsStartup
         {
-            public override void Configure(IFunctionsHostBuilder builder)
-            {
-                builder.Services.AddPredictionEnginePool<SentimentData, SentimentPrediction>()
-                    .FromFile(modelName: "SentimentAnalysisModel", filePath:"MLModels/sentiment_model.zip", watchForChanges: true);
-            }
+
         }
     }
     ```
+
+1. アプリが実行されている環境と `Startup` クラス内でモデルが配置されるファイル パスを格納する変数を定義します。
+
+    [!code-csharp [DefineStartupVars](~/machinelearning-samples/samples/csharp/end-to-end-apps/ScalableMLModelOnAzureFunction/SentimentAnalysisFunctionsApp/Startup.cs#L13-L14)]
+
+1. その下で、コンストラクターを作成して、`_environment` 変数と `_modelPath` 変数の値を設定します。 アプリケーションがローカルで実行されている場合、既定の環境は *Development* になります。
+
+    [!code-csharp [StartupCtor](~/machinelearning-samples/samples/csharp/end-to-end-apps/ScalableMLModelOnAzureFunction/SentimentAnalysisFunctionsApp/Startup.cs#L16-L29)]
+
+1. 次に、`Configure` という名前の新しいメソッドを追加して、`PredictionEnginePool` サービスをコンストラクターの下に登録します。
+
+    [!code-csharp [ConfigureServices](~/machinelearning-samples/samples/csharp/end-to-end-apps/ScalableMLModelOnAzureFunction/SentimentAnalysisFunctionsApp/Startup.cs#L31-L35)]
 
 大まかに言えば、オブジェクトとサービスがアプリケーションによって要求されたときに、このコードでは、後で使用できるように手動ではなく自動的に初期化が実行されます。
 
@@ -172,28 +177,7 @@ Azure Functions のサーバーレス環境を介して、HTTP 経由での予�
 
 *AnalyzeSentiment* クラスの *Run* メソッドの既存の実装を、次のコードに置き換えます。
 
-```csharp
-[FunctionName("AnalyzeSentiment")]
-public async Task<IActionResult> Run(
-[HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    //Parse HTTP Request Body
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-    SentimentData data = JsonConvert.DeserializeObject<SentimentData>(requestBody);
-
-    //Make Prediction
-    SentimentPrediction prediction = _predictionEnginePool.Predict(modelName: "SentimentAnalysisModel", example: data);
-
-    //Convert prediction to string
-    string sentiment = Convert.ToBoolean(prediction.Prediction) ? "Positive" : "Negative";
-
-    //Return Prediction
-    return (ActionResult)new OkObjectResult(sentiment);
-}
-```
+[!code-csharp [AnalyzeRunMethod](~/machinelearning-samples/samples/csharp/end-to-end-apps/ScalableMLModelOnAzureFunction/SentimentAnalysisFunctionsApp/AnalyzeSentiment.cs#L26-L45)]
 
 `Run` メソッドが実行されると、HTTP 要求からの受信データが逆シリアル化されて、`PredictionEnginePool` への入力として使用されます。 次に、`Predict` メソッドが呼び出され、`Startup` クラスに登録されている `SentimentAnalysisModel` を使用して予測が行われ、成功した場合に結果がユーザーに返されます。
 

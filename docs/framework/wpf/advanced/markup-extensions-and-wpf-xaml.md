@@ -1,5 +1,5 @@
 ---
-title: マークアップ拡張機能と WPF XAML
+title: マークアップ拡張機能と XAML
 ms.date: 03/30/2017
 helpviewer_keywords:
 - brace character [WPF]
@@ -15,12 +15,12 @@ helpviewer_keywords:
 - characters [WPF], curly brace
 - DynamicResource markup extensions [WPF]
 ms.assetid: 618dc745-8b14-4886-833f-486d2254bb78
-ms.openlocfilehash: 562eea34af44a8fb24199e81477a4cb2ddb1046c
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: f4134e9d0b26135d1bd6058ac9ed8941a9c6be34
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70991831"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727887"
 ---
 # <a name="markup-extensions-and-wpf-xaml"></a>マークアップ拡張機能と WPF XAML
 ここでは XAML のマークアップ拡張の概念について、構文規則、目的、その基になるクラス オブジェクト モデルなどを説明します。 マークアップ拡張は、XAML 言語、および XAML サービスの .NET 実装の一般的な機能です。 ここでは、WPF XAML で使用するマークアップ拡張について特に詳しく説明します。  
@@ -39,18 +39,18 @@ ms.locfileid: "70991831"
   
 <a name="XAML_Defined_Markup_Extensions"></a>   
 ## <a name="xaml-defined-markup-extensions"></a>XAML で定義されたマークアップ拡張機能  
- XAML の WPF 実装に固有ではなく、言語としての XAML の組み込みまたは機能の実装であるマークアップ拡張がいくつか存在します。 これらのマークアップ拡張は、一般的な .NET Framework XAML サービスの一部として System.Xaml アセンブリで実装され、XAML 言語の XAML 名前空間内にあります。 これらのマークアップ拡張は、一般的なマークアップの使用方法では、通常、`x:` プレフィックスで識別できます。 <xref:System.Windows.Markup.MarkupExtension>基本クラス (app.xaml でも定義されています) は、すべてのマークアップ拡張機能が xaml リーダーおよび xaml ライター (WPF xaml など) でサポートされるために使用する必要があるパターンを提供します。  
+ XAML の WPF 実装に固有ではなく、言語としての XAML の組み込みまたは機能の実装であるマークアップ拡張がいくつか存在します。 これらのマークアップ拡張は、一般的な .NET Framework XAML サービスの一部として System.Xaml アセンブリで実装され、XAML 言語の XAML 名前空間内にあります。 これらのマークアップ拡張は、一般的なマークアップの使用方法では、通常、`x:` プレフィックスで識別できます。 <xref:System.Windows.Markup.MarkupExtension> 基本クラス (app.xaml でも定義されています) は、すべてのマークアップ拡張機能が XAML リーダーおよび XAML ライター (WPF XAML など) でサポートされるために使用する必要があるパターンを提供します。  
   
-- `x:Type` は、名前を指定した型の <xref:System.Type> オブジェクトを提供します。 この機能は、スタイルとテンプレートで最もよく使用されます。 詳細については、「[x:Type マークアップ拡張機能](../../xaml-services/x-type-markup-extension.md)」を参照してください。  
+- `x:Type` は、名前を指定した型の <xref:System.Type> オブジェクトを提供します。 この機能は、スタイルとテンプレートで最もよく使用されます。 詳細については、「[x:Type マークアップ拡張機能](../../../desktop-wpf/xaml-services/xtype-markup-extension.md)」を参照してください。  
   
-- `x:Static` は、静的な値を生成します。 この値は、直接的にはターゲット プロパティの値の型ではなくても、その型に評価することができる値型コード エンティティから生成されます。 詳細については、「[x:Static マークアップ拡張機能](../../xaml-services/x-static-markup-extension.md)」を参照してください。  
+- `x:Static` は、静的な値を生成します。 この値は、直接的にはターゲット プロパティの値の型ではなくても、その型に評価することができる値型コード エンティティから生成されます。 詳細については、「[x:Static マークアップ拡張機能](../../../desktop-wpf/xaml-services/xstatic-markup-extension.md)」を参照してください。  
   
-- `x:Null` は、プロパティの値として `null` を指定し、属性またはプロパティ要素の値として使用できます。 詳細については、「[x:Null マークアップ拡張機能](../../xaml-services/x-null-markup-extension.md)」を参照してください。  
+- `x:Null` は、プロパティの値として `null` を指定し、属性またはプロパティ要素の値として使用できます。 詳細については、「[x:Null マークアップ拡張機能](../../../desktop-wpf/xaml-services/xnull-markup-extension.md)」を参照してください。  
   
-- `x:Array` は、XAML 構文での一般的な配列の作成をサポートします。WPF 基本要素とコントロール モデルで提供されているコレクションのサポートをあえて使用しない場合に使用します。 詳細については、「[x:Array のマークアップ拡張機能](../../xaml-services/x-array-markup-extension.md)」を参照してください。  
+- `x:Array` は、XAML 構文での一般的な配列の作成をサポートします。WPF 基本要素とコントロール モデルで提供されているコレクションのサポートをあえて使用しない場合に使用します。 詳細については、「[x:Array Markup Extension](../../../desktop-wpf/xaml-services/xarray-markup-extension.md)」を参照してください。  
   
 > [!NOTE]
-> `x:` プレフィックスは、XAML 言語の組み込みに対する標準的な XAML 名前空間マッピングのために、XAML ファイルまたは稼働環境のルート要素で使用します。 たとえば、WPF アプリケーションの Visual Studio テンプレートは、この`x:`マッピングを使用して XAML ファイルを開始します。 独自の XAML 名前空間マッピングに別のプレフィックス トークンを選ぶこともできますが、このドキュメントでは、WPF の既定の名前空間や、特定のフレームワークに関連のないその他の XAML 名前空間ではなく、XAML 言語の XAML 名前空間の一部として定義されているエンティティを識別する手段として、既定の `x:` マッピングを想定します。  
+> `x:` プレフィックスは、XAML 言語の組み込みに対する標準的な XAML 名前空間マッピングのために、XAML ファイルまたは稼働環境のルート要素で使用します。 たとえば、WPF アプリケーションの Visual Studio テンプレートは、この `x:` マッピングを使用して XAML ファイルを開始します。 独自の XAML 名前空間マッピングに別のプレフィックス トークンを選ぶこともできますが、このドキュメントでは、WPF の既定の名前空間や、特定のフレームワークに関連のないその他の XAML 名前空間ではなく、XAML 言語の XAML 名前空間の一部として定義されているエンティティを識別する手段として、既定の `x:` マッピングを想定します。  
   
 <a name="WPF_Specific_Markup_Extensions"></a>   
 ## <a name="wpf-specific-markup-extensions"></a>WPF 固有のマークアップ拡張  
@@ -62,7 +62,7 @@ ms.locfileid: "70991831"
   
 - `Binding` は、実行時に親オブジェクトに適用されるデータ コンテキストを使用して、データ バインディングされた値をプロパティに提供します。 このマークアップ拡張は、データ バインディングを指定するためにかなりの量のインライン構文を使用できるため、比較的複雑です。 詳細については、「[バインディングのマークアップ拡張機能](binding-markup-extension.md)」を参照してください。  
   
-- `RelativeSource`実行時オブジェクトツリー内<xref:System.Windows.Data.Binding>の複数の可能なリレーションシップに移動できるのソース情報を提供します。 これにより、周囲のオブジェクト ツリーに関する完全な知識がなくても、多目的のテンプレートで作成されるバインド、またはコードで作成されるバインドに対して、特殊なソースを指定することができます。 詳細については、「[RelativeSource のマークアップ拡張機能](relativesource-markupextension.md)」を参照してください。  
+- `RelativeSource` は、実行時のオブジェクトツリー内の複数の可能なリレーションシップに移動できる <xref:System.Windows.Data.Binding> のソース情報を提供します。 これにより、周囲のオブジェクト ツリーに関する完全な知識がなくても、多目的のテンプレートで作成されるバインド、またはコードで作成されるバインドに対して、特殊なソースを指定することができます。 詳細については、「[RelativeSource のマークアップ拡張機能](relativesource-markupextension.md)」を参照してください。  
   
 - `TemplateBinding` により、コントロール テンプレートがテンプレート プロパティの値を使用できるようになります。それらの値は、テンプレートを使用するクラスのオブジェクト モデルで定義されたプロパティから取られます。 つまり、テンプレート定義内のプロパティが、テンプレートを適用する場合にのみ存在するコンテキストにアクセスできます。 詳細については、「[TemplateBinding のマークアップ拡張機能](templatebinding-markup-extension.md)」を参照してください。 `TemplateBinding` の実際の使用方法の詳細については、「[ControlTemplate を使用したスタイル設定のサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Styles%20&%20Templates/IntroToStylingAndTemplating)」を参照してください。  
   
@@ -72,13 +72,13 @@ ms.locfileid: "70991831"
   
 <a name="StarExtension"></a>   
 ## <a name="extension-classes"></a>\*拡張クラス  
- 一般的な xaml 言語と WPF 固有のマークアップ拡張機能の両方について、各マークアップ拡張機能の動作は、 `*Extension`から<xref:System.Windows.Markup.MarkupExtension>派生し<xref:System.Windows.Markup.StaticExtension.ProvideValue%2A>たクラスを通じて xaml プロセッサに対して識別され、b. 各拡張にあるこのメソッドは、マークアップ拡張の評価時に返されるオブジェクトを提供します。 返されるオブジェクトは、通常、マークアップ拡張に渡されたさまざまな文字列トークンに基づいて評価されます。  
+ 一般的な XAML 言語と WPF 固有のマークアップ拡張機能の両方について、各マークアップ拡張機能の動作は、<xref:System.Windows.Markup.MarkupExtension>から派生した `*Extension` クラスを通じて XAML プロセッサに対して識別され、<xref:System.Windows.Markup.StaticExtension.ProvideValue%2A> メソッドの実装を提供します。 各拡張にあるこのメソッドは、マークアップ拡張の評価時に返されるオブジェクトを提供します。 返されるオブジェクトは、通常、マークアップ拡張に渡されたさまざまな文字列トークンに基づいて評価されます。  
   
- たとえば、クラスは<xref:System.Windows.StaticResourceExtension> 、実際のリソース検索の表面実装を提供し、 <xref:System.Windows.Markup.MarkupExtension.ProvideValue%2A>その実装が要求されたオブジェクトを返すようにします。そのため、特定の実装の入力を、リソースをで`x:Key`検索します。 既存のマークアップ拡張を使用している場合は、この実装の詳細の大部分は重要ではありません。  
+ たとえば、<xref:System.Windows.StaticResourceExtension> クラスは、実際のリソース検索の表面実装を提供します。これにより、<xref:System.Windows.Markup.MarkupExtension.ProvideValue%2A> の実装は、要求されたオブジェクトを返します。その特定の実装の入力は、その `x:Key`によってリソースを検索するために使用される文字列です。 既存のマークアップ拡張を使用している場合は、この実装の詳細の大部分は重要ではありません。  
   
  一部のマークアップ拡張では、文字列トークン引数は使用されません。 これは、それらのマークアップ拡張では静的な値や一貫した値が返されるため、または返されるべき値のコンテキストが `serviceProvider` パラメーターを介して渡されるサービスの 1 つから得られるためです。  
   
- `*Extension` 名前付けパターンは、便宜上のものであり、一貫性を確保するためのものです。 XAML プロセッサがマークアップ拡張のサポートとしてそのクラスを識別するためには必要ではありません。 コードベースに .xaml が含まれていて、.NET Framework xaml サービスの実装を使用している場合は、xaml マークアップ拡張機能として<xref:System.Windows.Markup.MarkupExtension>認識される必要があるのは、から派生し、構築構文をサポートするためです。 WPF は、マークアップ拡張機能を定義します。 `*Extension`たとえば<xref:System.Windows.Data.Binding>、という名前付けパターンに従っていないクラスを有効にします。 通常、純粋なマークアップ拡張のサポートを超えたシナリオをそのクラスがサポートすることが原因です。 の<xref:System.Windows.Data.Binding>場合、このクラスは、XAML を使用しないシナリオで、オブジェクトのメソッドおよびプロパティへの実行時アクセスをサポートします。  
+ `*Extension` 名前付けパターンは、便宜上のものであり、一貫性を確保するためのものです。 XAML プロセッサがマークアップ拡張のサポートとしてそのクラスを識別するためには必要ではありません。 コードベースに .xaml が含まれていて、.NET Framework XAML サービスの実装を使用している限り、XAML マークアップ拡張機能として認識される必要があるのは、<xref:System.Windows.Markup.MarkupExtension> から派生し、構築構文をサポートするためです。 WPF は、マークアップ拡張機能を定義します。これにより、`*Extension` の命名パターン (<xref:System.Windows.Data.Binding>など) に従わないクラスが有効になります。 通常、純粋なマークアップ拡張のサポートを超えたシナリオをそのクラスがサポートすることが原因です。 <xref:System.Windows.Data.Binding>の場合、そのクラスは、XAML を使用しないシナリオで、オブジェクトのメソッドおよびプロパティへの実行時アクセスをサポートします。  
   
 ### <a name="extension-class-interpretation-of-initialization-text"></a>初期化テキストの拡張クラスの解釈  
  マークアップ拡張名の後に続き、中かっこの内側にある文字列トークンは、次の方法のいずれかで XAML プロセッサに解釈されます。  
@@ -92,13 +92,13 @@ ms.locfileid: "70991831"
   
 - 個別に区切られたトークンに等号が含まれている場合、XAML プロセッサは最初にマークアップ拡張機能のパラメーターなしのコンストラクターを呼び出します。 その後、各 "名前=値" のペアは、マークアップ拡張に存在するプロパティ名、およびそのプロパティに割り当てる値として解釈されます。  
   
-- マークアップ拡張でコンストラクターの動作とプロパティの設定の動作の結果が類似している場合は、どちらの動作を使用しても問題はありません。 複数の設定可能なプロパティを持つマークアップ拡張では、"*プロパティ*`=`*値*" のペアの方がよく使用されます。単に、その方がマークアップの意図が明確になり、コンストラクター パラメーターを間違って入れ替える可能性も低いためです。 ("プロパティ=値" のペアを指定すると、それらのプロパティは任意の順序になります。)また、設定可能なプロパティのすべてを設定するコンストラクター パラメーターがマークアップ拡張によって提供されるという保証はありません。 たとえば、 <xref:System.Windows.Data.Binding>はマークアップ拡張機能であり、プロパティ*値* *フォーム*`=`の拡張機能を通じて設定できるプロパティが<xref:System.Windows.Data.Binding>多数ありますが、パラメーターなしのコンストラクターと1つのコンストラクターのみをサポートしています。初期パスを設定する。  
+- マークアップ拡張でコンストラクターの動作とプロパティの設定の動作の結果が類似している場合は、どちらの動作を使用しても問題はありません。 複数の設定可能なプロパティを持つマークアップ拡張では、"*プロパティ*`=`*値*" のペアの方がよく使用されます。単に、その方がマークアップの意図が明確になり、コンストラクター パラメーターを間違って入れ替える可能性も低いためです。 (プロパティ = 値のペアを指定する場合、これらのプロパティは任意の順序で指定できます)。また、マークアップ拡張機能が、設定可能なすべてのプロパティを設定するコンストラクターパラメーターを提供するという保証はありません。 たとえば、<xref:System.Windows.Data.Binding> はマークアップ拡張機能であり、*プロパティ*`=`*値*フォームの拡張機能を通じて設定できる多くのプロパティがありますが、<xref:System.Windows.Data.Binding> では、パラメーターなしのコンストラクターと初期パスを設定するコンストラクターの2つのみがサポートされています。  
   
 - リテラルのコンマは、エスケープせずにマークアップ拡張に渡すことはできません。  
   
 <a name="EscapeSequences"></a>   
 ## <a name="escape-sequences-and-markup-extensions"></a>エスケープ シーケンスとマークアップ拡張  
- XAML プロセッサによる属性の処理では、マークアップ拡張シーケンスのインジケーターとして中かっこを使用します。 必要に応じて、空の中かっこペアの後にリテラル中かっこを使用したエスケープ シーケンスを入力することによって、リテラル中かっこ文字の属性値を生成することもできます。 「 [ {}エスケープシーケンスマークアップ拡張](../../xaml-services/escape-sequence-markup-extension.md)」を参照してください。  
+ XAML プロセッサによる属性の処理では、マークアップ拡張シーケンスのインジケーターとして中かっこを使用します。 必要に応じて、空の中かっこペアの後にリテラル中かっこを使用したエスケープ シーケンスを入力することによって、リテラル中かっこ文字の属性値を生成することもできます。 「 [{} エスケープシーケンスマークアップ拡張](../../../desktop-wpf/xaml-services/escape-sequence-markup-extension.md)」を参照してください。  
   
 <a name="Nesting"></a>   
 ## <a name="nesting-markup-extensions-in-xaml-usage"></a>XAML の使用におけるマークアップ拡張の入れ子  
@@ -114,14 +114,14 @@ ms.locfileid: "70991831"
 ## <a name="markup-extensions-and-property-element-syntax"></a>マークアップ拡張とプロパティ要素構文  
  マークアップ拡張クラスは、プロパティ要素値を設定するオブジェクト要素として使用した場合、XAML で使用可能な通常の型に基づくオブジェクト要素と見た目上は区別できません。 通常のオブジェクト要素とマークアップ拡張の実用上の違いは、マークアップ拡張は、型指定された値に評価されるか、式として処理が遅延されるかのどちらかであることです。 したがって、マークアップ拡張のプロパティ値について発生する可能性のある型エラーのメカニズムは異なります。これは、他のプログラミング モデルにおける遅延バインディング プロパティの処理方法と似ています。 通常のオブジェクト要素では、XAML が解析される時点で、そのオブジェクト要素が設定しているターゲット プロパティに対して型の一致が評価されます。  
   
- ほとんどのマークアップ拡張は、プロパティ要素を指定するオブジェクト要素構文で使用される場合、内側にコンテンツや他のプロパティ要素構文を含みません。 このため、オブジェクト要素タグを閉じ、子要素は指定しません。 オブジェクト要素が XAML プロセッサで検出されるたびに、そのクラスのコンストラクターが呼び出され、解析した要素から作成されたオブジェクトがインスタンス化されます。 マークアップ拡張クラスは変わりません。オブジェクト要素構文でマークアップ拡張機能を使用できるようにするには、パラメーターなしのコンストラクターを指定する必要があります。 既存のマークアップ拡張の中には、有効な初期化のために指定する必要のある必須プロパティ値を少なくとも 1 つ持っているものがあります。 その場合、通常、そのプロパティ値はオブジェクト要素のプロパティ属性として指定します。 [XAML 名前空間 (x:)言語機能](../../xaml-services/xaml-namespace-x-language-features.md)と[WPF XAML 拡張](wpf-xaml-extensions.md)機能のリファレンスページ、必須プロパティを持つマークアップ拡張機能 (および必要なプロパティの名前) に注意してください。 これらのリファレンス ページでは、特定のマークアップ拡張でオブジェクト要素構文と属性構文のどちらかが使用できないケースについても説明します。 特に注意する必要があるケースは、[x:Array マークアップ拡張](../../xaml-services/x-array-markup-extension.md)です。このマークアップ拡張では、配列の内容をタグ設定の内側にコンテンツとして指定する必要があるため、属性構文をサポートできません。 配列の内容は一般的なオブジェクトとして扱われるため、属性に対する既定の型コンバーターは使用できません。 また、[x:Array マークアップ拡張](../../xaml-services/x-array-markup-extension.md)には `type` パラメーターが必要です。  
+ ほとんどのマークアップ拡張は、プロパティ要素を指定するオブジェクト要素構文で使用される場合、内側にコンテンツや他のプロパティ要素構文を含みません。 このため、オブジェクト要素タグを閉じ、子要素は指定しません。 オブジェクト要素が XAML プロセッサで検出されるたびに、そのクラスのコンストラクターが呼び出され、解析した要素から作成されたオブジェクトがインスタンス化されます。 マークアップ拡張クラスは変わりません。オブジェクト要素構文でマークアップ拡張機能を使用できるようにするには、パラメーターなしのコンストラクターを指定する必要があります。 既存のマークアップ拡張の中には、有効な初期化のために指定する必要のある必須プロパティ値を少なくとも 1 つ持っているものがあります。 その場合、通常、そのプロパティ値はオブジェクト要素のプロパティ属性として指定します。 「[XAML 名前空間 (x:) 言語機能](../../../desktop-wpf/xaml-services/namespace-language-features.md)」および「[WPF XAML 拡張機能](wpf-xaml-extensions.md)」の各リファレンス ページで、必須プロパティを持つマークアップ拡張 (および必須プロパティの名前) について説明します。 これらのリファレンス ページでは、特定のマークアップ拡張でオブジェクト要素構文と属性構文のどちらかが使用できないケースについても説明します。 特に注意する必要があるケースは、[x:Array マークアップ拡張](../../../desktop-wpf/xaml-services/xarray-markup-extension.md)です。このマークアップ拡張では、配列の内容をタグ設定の内側にコンテンツとして指定する必要があるため、属性構文をサポートできません。 配列の内容は一般的なオブジェクトとして扱われるため、属性に対する既定の型コンバーターは使用できません。 また、[x:Array マークアップ拡張](../../../desktop-wpf/xaml-services/xarray-markup-extension.md)には `type` パラメーターが必要です。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [XAML の概要 (WPF)](xaml-overview-wpf.md)
-- [XAML 名前空間 (x:)言語機能](../../xaml-services/xaml-namespace-x-language-features.md)
+- [XAML の概要 (WPF)](../../../desktop-wpf/fundamentals/xaml.md)
+- [XAML 名前空間 (x:) 言語機能](../../../desktop-wpf/xaml-services/namespace-language-features.md)
 - [WPF XAML 拡張機能](wpf-xaml-extensions.md)
 - [StaticResource のマークアップ拡張機能](staticresource-markup-extension.md)
 - [バインドのマークアップ拡張機能](binding-markup-extension.md)
 - [DynamicResource マークアップ拡張](dynamicresource-markup-extension.md)
-- [x:Type マークアップ拡張機能](../../xaml-services/x-type-markup-extension.md)
+- [x:Type マークアップ拡張機能](../../../desktop-wpf/xaml-services/xtype-markup-extension.md)

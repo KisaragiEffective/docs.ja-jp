@@ -2,12 +2,12 @@
 title: ドキュメント承認プロセス
 ms.date: 03/30/2017
 ms.assetid: 9b240937-76a7-45cd-8823-7f82c34d03bd
-ms.openlocfilehash: 20167cd1c06c2ae57dfe48fd07ab3a0e2adf9927
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: cee43aff991f9482de7b3172174eb0e786ec1fe6
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70038226"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74710843"
 ---
 # <a name="document-approval-process"></a>ドキュメント承認プロセス
 
@@ -18,7 +18,7 @@ ms.locfileid: "70038226"
 >
 > `<InstallDrive>:\WF_WCF_Samples`
 >
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
 >
 > `<InstallDrive>:\WF_WCF_Samples\WF\Application\DocumentApprovalProcess`
 
@@ -90,7 +90,7 @@ ms.locfileid: "70038226"
 
 2. ソリューションをビルドするには、Ctrl キーと Shift キーを押しながら B キーを押します。
 
-3. ソリューションを実行するには、**ソリューションエクスプローラー**で approvalmanager プロジェクトを右クリックし、右クリックメニューから [**デバッグ**->] [新しいインスタンス] の順にクリックして、承認マネージャーアプリケーションを起動します。
+3. ソリューションを実行するには、**ソリューションエクスプローラー**で ApprovalManager プロジェクトを右クリックし、[->**デバッグ**] をクリックして右クリックメニューから [新しいインスタンスを**開始**] をクリックし、承認マネージャーアプリケーションを起動します。
 
     準備完了のメッセージが表示されるまで待ちます。
 
@@ -140,7 +140,7 @@ ms.locfileid: "70038226"
 
 6. `UserType1` クライアントで、ドロップダウン メニューから単一承認を選択し、ドキュメントの名前と内容を入力します。 **[Request Approval]** をクリックします。
 
-7. 2 つの `UserType2` クライアントに承認待ちのドキュメントが表示されます。 これを選択して **[承認]** を押すと、 `UserType3`ドキュメントがクライアントに渡されます。
+7. 2 つの `UserType2` クライアントに承認待ちのドキュメントが表示されます。 これを選択して **[承認]** を押すと、ドキュメントが `UserType3` クライアントに渡されます。
 
     ドキュメントは、最初の `UserType2` クライアントの定足数によって承認されると `UserType3` クライアントに渡されます。
 

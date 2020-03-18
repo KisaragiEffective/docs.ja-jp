@@ -13,8 +13,8 @@ ms.locfileid: "71697769"
 <xref:System.Uri> が特定のスキームに解析される方法を指定します。  
   
 [ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\< uri >** ](uri-element-uri-settings.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t-3 **\<schemeSettings >**  
+&nbsp;&nbsp;[ **\<uri >** ](uri-element-uri-settings.md)  
+&nbsp;&nbsp;&nbsp;&nbsp; **\<schemeSettings >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -23,15 +23,15 @@ ms.locfileid: "71697769"
 </schemeSettings>  
 ```  
   
-## <a name="attributes-and-elements"></a>属性および要素  
- 以降のセクションでは、属性、子要素、および親要素について説明します。  
+## <a name="attributes-and-elements"></a>属性と要素  
+ 次のセクションでは、属性、子要素、親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
  なし  
   
 ### <a name="child-elements"></a>子要素  
   
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |[add](add-element-for-schemesettings-uri-settings.md)|スキーム名のスキーム設定を追加します。|  
 |[clear](clear-element-for-schemesettings-uri-settings.md)|既存のスキーム設定をすべてクリアします。|  
@@ -39,7 +39,7 @@ ms.locfileid: "71697769"
   
 ### <a name="parent-elements"></a>親要素  
   
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |[uri](uri-element-uri-settings.md)|.NET Framework が、uniform resource identifier (Uri) を使用して表された web アドレスを処理する方法を指定する設定が含まれます。|  
   
@@ -52,7 +52,7 @@ ms.locfileid: "71697769"
   
  `c:\Windows\System32\cmd.exe /c dir c:\`  
   
- このため、<xref:System.Uri?displayProperty=nameWithType> クラスはまずパスの区切り記号をエスケープ解除し、次にパスの圧縮を適用します。 上記の悪意のある URL を <xref:System.Uri?displayProperty=nameWithType> クラスコンストラクターに渡すと、次の URI になります。  
+ このため、<xref:System.Uri?displayProperty=nameWithType> クラスはまずパスの区切り記号をエスケープ解除し、次にパスの圧縮を適用します。 上の悪意のある URL を <xref:System.Uri?displayProperty=nameWithType> クラスコンストラクターに渡すと、次の URI になります。  
   
  `http://www.microsoft.com/Windows/System32/cmd.exe?/c+dir+c:\`  
   
@@ -62,7 +62,7 @@ ms.locfileid: "71697769"
  この要素は、アプリケーション構成ファイルまたはマシン構成ファイル (Machine.config) で使用できます。  
   
 ## <a name="example"></a>例  
- 次の例は、http スキームでパーセントでエンコードされたパス区切り記号をエスケープしないようにするために <xref:System.Uri> クラスによって使用される構成を示しています。  
+ 次の例は、http スキームに対してパーセントでエンコードされたパス区切り記号をエスケープしないようにするために <xref:System.Uri> クラスによって使用される構成を示しています。  
   
 ```xml  
 <configuration>  
@@ -78,12 +78,12 @@ ms.locfileid: "71697769"
   
 |||
 |-|-|  
-|Namespace|System|  
-|[スキーマ名]||  
+|Namespace|システム|  
+|スキーマ名||  
 |検証ファイル||  
 |空にすることができます||  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Configuration.SchemeSettingElement?displayProperty=nameWithType>
 - <xref:System.Configuration.SchemeSettingElementCollection?displayProperty=nameWithType>

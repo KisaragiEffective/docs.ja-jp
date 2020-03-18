@@ -1,5 +1,5 @@
 ---
-title: 部分メソッド (Visual Basic)
+title: 部分メソッド
 ms.date: 07/20/2015
 f1_keywords:
 - vb.PartialMethod
@@ -11,36 +11,36 @@ helpviewer_keywords:
 - methods [Visual Basic], partial methods
 - inserting custom logic into code
 ms.assetid: 74b3368b-b348-44a0-a326-7d7dc646f4e9
-ms.openlocfilehash: 50d7f24fd9f854d36bb2ed48c2e41a996c29dfe8
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 7abf0565a985f1fb44fcf2bb91b9220d57a10f20
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64638884"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352636"
 ---
 # <a name="partial-methods-visual-basic"></a>部分メソッド (Visual Basic)
-部分メソッドには、カスタム ロジックをコードに挿入する開発者が有効にします。 通常、コードには、デザイナーで生成されたクラスの一部です。 部分メソッドは、コード ジェネレーターによって作成される部分クラスで定義され、何かが変更されたことを通知によく使用されます。 これらの変更に対応するカスタム動作を指定する、開発者が有効にします。  
+部分メソッドを使用すると、開発者はカスタムロジックをコードに挿入できます。 通常、このコードはデザイナーによって生成されるクラスの一部です。 部分メソッドは、コードジェネレーターによって作成される部分クラスで定義され、通常は、何らかの変更が行われたことを通知するために使用されます。 これにより、開発者は、変更に応じてカスタム動作を指定できます。  
   
- コード ジェネレーターのデザイナーは、メソッドのシグネチャとメソッドに対する 1 つまたは複数の呼び出しを定義します。 開発者、生成されたコードの動作をカスタマイズする場合、メソッドの実装を用意できます。 実装を指定しない場合、メソッドの呼び出しは追加のパフォーマンスのオーバーヘッドなしでその結果、コンパイラによって削除されます。  
+ コードジェネレーターのデザイナーは、メソッドシグネチャと、メソッドの1つ以上の呼び出しのみを定義します。 開発者は、生成されたコードの動作をカスタマイズする場合に、メソッドの実装を提供できます。 実装が指定されていない場合、メソッドの呼び出しはコンパイラによって削除され、その結果、追加のパフォーマンスオーバーヘッドが発生しません。  
   
 ## <a name="declaration"></a>宣言  
- キーワードを配置することで、生成されたコードは部分メソッドの定義をマーク`Partial`署名行の先頭。  
+ 生成されたコードは、署名行の先頭に `Partial` キーワードを配置することで、部分メソッドの定義をマークします。  
   
 ```vb  
 Partial Private Sub QuantityChanged()  
 End Sub  
 ```  
   
- 定義には、次の条件を満たす必要があります。  
+ 定義は、次の条件を満たしている必要があります。  
   
-- メソッドである必要があります、`Sub`ではなく、`Function`します。  
+- メソッドは、`Function`ではなく、`Sub`である必要があります。  
   
 - メソッドの本体は空のままにする必要があります。  
   
-- アクセス修飾子がある必要があります`Private`します。  
+- アクセス修飾子は `Private`である必要があります。  
   
 ## <a name="implementation"></a>実装  
- 実装では、主に、部分メソッドの本文を入力します。 この実装は一般に、定義から別の部分クラスを生成されたコードを拡張する必要がある開発者によって書き込まれます。  
+ 実装は、主に部分メソッドの本体を埋めることによって構成されます。 実装は、通常、定義とは別の部分クラスにあり、生成されたコードを拡張する開発者によって記述されます。  
   
 ```vb  
 Private Sub QuantityChanged()  
@@ -48,25 +48,25 @@ Private Sub QuantityChanged()
 End Sub  
 ```  
   
- 前の例では、宣言内のシグネチャを正確には、重複するが、バリエーションが可能です。 具体的には、その他の修飾子を追加できるよう`Overloads`または`Overrides`します。 1 つだけ`Overrides`修飾子を使用します。 メソッドの修飾子の詳細については、次を参照してください。 [Sub ステートメント](../../../../visual-basic/language-reference/statements/sub-statement.md)します。  
+ 前の例では、宣言のシグネチャを正確に複製しますが、バリエーションを使用することもできます。 特に、`Overloads` や `Overrides`などの他の修飾子を追加できます。 1つの `Overrides` 修飾子のみが許可されます。 メソッド修飾子の詳細については、「 [Sub ステートメント](../../../../visual-basic/language-reference/statements/sub-statement.md)」を参照してください。  
   
-## <a name="use"></a>使用  
- 場合とその他の部分メソッドを呼び出す`Sub`プロシージャ。 メソッドが実装されている場合は、引数が評価され、メソッドの本体が実行されます。 ただし、部分メソッドの実装は省略可能です。 メソッドが実装されていない場合は、それへの呼び出しが効果を持たず、メソッドに引数として渡される式は評価されません。  
+## <a name="use"></a>新しく使用する機能  
+ 部分メソッドは、他の `Sub` プロシージャと同じように呼び出すことができます。 メソッドが実装されている場合は、引数が評価され、メソッドの本体が実行されます。 ただし、部分メソッドの実装は省略可能であることに注意してください。 メソッドが実装されていない場合、その呼び出しは無効であり、メソッドに引数として渡された式は評価されません。  
   
 ## <a name="example"></a>例  
- Product.Designer.vb という名前のファイル、定義、`Product`を持つクラス、`Quantity`プロパティ。  
+ .Vb という名前のファイルで、`Quantity` プロパティを持つ `Product` クラスを定義します。  
   
  [!code-vb[VbVbalrPartialMeths#4](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrPartialMeths/VB/Class1.vb#4)]  
   
- 実装を提供 Product.vb という名前のファイル、`QuantityChanged`します。  
+ Product .vb という名前のファイルに、`QuantityChanged`の実装を指定します。  
   
  [!code-vb[VbVbalrPartialMeths#5](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrPartialMeths/VB/Class1.vb#5)]  
   
- 最後に、プロジェクトの Main メソッドでは宣言を`Product`インスタンスし、指定の初期値をその`Quantity`プロパティ。  
+ 最後に、プロジェクトの Main メソッドで、`Product` インスタンスを宣言し、その `Quantity` プロパティの初期値を指定します。  
   
  [!code-vb[VbVbalrPartialMeths#6](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrPartialMeths/VB/Class1.vb#6)]  
   
- このメッセージを表示するメッセージ ボックスが表示する必要があります。  
+ メッセージボックスが表示され、次のメッセージが表示されます。  
   
  `Quantity was changed to 100`  
   

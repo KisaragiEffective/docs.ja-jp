@@ -1,5 +1,6 @@
 ---
-title: インク オブジェクト モデル:Windows フォームおよび COM と WPF の比較
+title: デジタルインク-Windows フォームと COM と WPF の比較
+titleSuffix: ''
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -12,55 +13,55 @@ helpviewer_keywords:
 - ink [WPF], enabling
 - events [WPF], tablet pen
 ms.assetid: 577835be-b145-4226-8570-1d309e9b3901
-ms.openlocfilehash: 68003943041fe0ba405eff1236c43a8e7e9c2b71
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 4a183bba2c5cfb2d12a9cf435ae1f92b4cf63948
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62051677"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76737286"
 ---
-# <a name="the-ink-object-model-windows-forms-and-com-versus-wpf"></a>インク オブジェクト モデル:Windows フォームおよび COM と WPF の比較
+# <a name="the-ink-object-model-windows-forms-and-com-versus-wpf"></a>インク オブジェクト モデル : Windows フォームおよび COM と WPF の比較
 
-デジタル インクをサポートする 3 つのプラットフォーム基本的には: タブレット PC の Windows フォームのプラットフォーム、Tablet PC の COM のプラットフォームおよび Windows Presentation Foundation (WPF) プラットフォーム。  同様のオブジェクト モデルが、オブジェクトをモデルの Windows フォームおよび COM のプラットフォームの共有、[!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)]プラットフォームは大幅に異なります。  このトピックでは、1 つのオブジェクト モデルを使用してきた開発者は、他を理解できるように、簡単に説明する違いをについて説明します。  
+基本的に、デジタルインクをサポートするプラットフォームには、Tablet PC Windows フォームプラットフォーム、Tablet PC COM プラットフォーム、および Windows Presentation Foundation (WPF) プラットフォームの3つがあります。  Windows フォームと COM プラットフォームは同様のオブジェクトモデルを共有しますが、WPF プラットフォームのオブジェクトモデルは大きく異なります。  このトピックでは、1つのオブジェクトモデルを操作した開発者がもう一方のオブジェクトモデルを理解しやすくなるように、大まかな違いについて説明します。  
   
-## <a name="enabling-ink-in-an-application"></a>アプリケーションでのインクを有効にします。  
- 3 つすべてのプラットフォームでは、オブジェクトやタブレット ペンから入力を受信するアプリケーションを有効にするコントロールを出荷します。  Windows フォームおよび COM のプラットフォームで同梱[Microsoft.Ink.InkPicture](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583740(v=vs.90))、 [Microsoft.Ink.InkEdit](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552265(v=vs.90))、 [Microsoft.Ink.InkOverlay](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552322(v=vs.90))と[Microsoft.Ink.InkCollector](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583683(v=vs.90))クラス。  [Microsoft.Ink.InkPicture](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583740(v=vs.90))と[Microsoft.Ink.InkEdit](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552265(v=vs.90))追加できるコントロールはインクを収集するアプリケーションにします。  [Microsoft.Ink.InkOverlay](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552322(v=vs.90))と[Microsoft.Ink.InkCollector](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583683(v=vs.90))インク対応の windows とカスタム コントロールに既存のウィンドウにアタッチできます。  
+## <a name="enabling-ink-in-an-application"></a>アプリケーションでのインクの有効化  
+ 3つのすべてのプラットフォームには、アプリケーションがタブレットペンから入力を受け取ることができるようにするオブジェクトとコントロールが付属しています。  Windows フォームと COM[プラットフォームには](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583740(v=vs.90))、 [InkCollector](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583683(v=vs.90)) [クラスと、](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552322(v=vs.90)) [microsoft..](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552265(v=vs.90))...............。  アプリケーションに追加してインクを収集する[コントロールは、](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552265(v=vs.90)) [microsoft](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583740(v=vs.90))のアプリケーションに追加することができます。  [InkCollector と microsoft](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583683(v=vs.90))は、既存のウィンドウに[アタッチして](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552322(v=vs.90))、windows およびカスタムコントロールをインク対応にすることができます。  
   
- WPF プラットフォームには、<xref:System.Windows.Controls.InkCanvas>コントロール。  追加することができます、<xref:System.Windows.Controls.InkCanvas>アプリケーションにし、すぐにインクの収集を開始します。 <xref:System.Windows.Controls.InkCanvas>ユーザーは、コピー、選択、およびインクのサイズを変更します。  他のコントロールを追加することができます、 <xref:System.Windows.Controls.InkCanvas>、し、ユーザーが、これらのコントロールをすぎる手書きことができます。  インク対応のカスタム コントロールを作成するには追加することで、<xref:System.Windows.Controls.InkPresenter>とそのスタイラス ポイントを収集します。  
+ WPF プラットフォームには、<xref:System.Windows.Controls.InkCanvas> コントロールが含まれています。  アプリケーションに <xref:System.Windows.Controls.InkCanvas> を追加して、すぐにインクの収集を開始することができます。 <xref:System.Windows.Controls.InkCanvas>では、ユーザーはインクのコピー、選択、およびサイズ変更を行うことができます。  <xref:System.Windows.Controls.InkCanvas>に他のコントロールを追加することができ、ユーザーはこれらのコントロールを手書きでも挿入できます。  インクが有効なカスタムコントロールを作成するには、<xref:System.Windows.Controls.InkPresenter> を追加し、そのスタイラスポイントを収集します。  
   
- 次の表は、アプリケーションでのインクを有効にする方法の詳細を知りたいです。  
+ 次の表に、アプリケーションでインクを有効にする方法の詳細について説明します。  
   
-|これを行う.|WPF プラットフォームにしています.|Windows フォームや COM のプラットフォームで.|  
+|操作方法|WPF プラットフォームで...|Windows フォーム/COM プラットフォームで...|  
 |-----------------|--------------------------|------------------------------------------|  
-|インク対応コントロールをアプリケーションに追加します。|参照してください[インクの概要](getting-started-with-ink.md)します。|参照してください[自動要求フォーム サンプル](/windows/desktop/tablet/auto-claims-form-sample)|  
-|カスタム コントロールでインクを有効にします。|参照してください[作成インク入力コントロール](creating-an-ink-input-control.md)します。|参照してください[クリップボードのサンプルをインク](/windows/desktop/tablet/ink-clipboard-sample)します。|  
+|アプリケーションにインク対応コントロールを追加する|「[インクを使用したはじめに」を](getting-started-with-ink.md)参照してください。|[自動要求フォームのサンプル](/windows/desktop/tablet/auto-claims-form-sample)を参照してください|  
+|カスタムコントロールでインクを有効にする|「[インク入力コントロールの作成」を](creating-an-ink-input-control.md)参照してください。|「[インククリップボードのサンプル](/windows/desktop/tablet/ink-clipboard-sample)」を参照してください。|  
   
-## <a name="ink-data"></a>インク データ  
- Windows フォームおよび COM のプラットフォームに[Microsoft.Ink.InkCollector](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583683(v=vs.90))、 [Microsoft.Ink.InkOverlay](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552322(v=vs.90))、 [Microsoft.Ink.InkEdit](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552265(v=vs.90))、および[Microsoft.Ink.InkPicture](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583740(v=vs.90))各公開、 [Microsoft.Ink.Ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクト。 [Microsoft.Ink.Ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクトは、1 つまたは複数のデータを含む[Microsoft.Ink.Stroke](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552692(v=vs.90))オブジェクトし、共通のメソッドとプロパティを管理し、それらのストロークの操作を公開します。  [Microsoft.Ink.Ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクトが含まれています。 ストロークの有効期間を管理する、 [Microsoft.Ink.Ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクトを作成し、所有するストロークを削除します。  各[Microsoft.Ink.Stroke](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552692(v=vs.90))親内で一意の識別子を持つ[Microsoft.Ink.Ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクト。  
+## <a name="ink-data"></a>インクデータ  
+ Windows フォームと COM プラットフォームでは、 [InkCollector](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583683(v=vs.90)) [、microsoft](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552322(v=vs.90))は、それぞれが、microsoft のインクを持つようになります。[また、microsoft](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552265(v=vs.90))は、それぞれ、microsoft の[ink オブジェクトを](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))公開[します。](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583740(v=vs.90)) [Microsoft ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクトには、1つまたは複数の[microsoft ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552692(v=vs.90))オブジェクトのデータが含まれており、これらのストロークを管理および操作するための一般的なメソッドとプロパティを公開します。  [Microsoft ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクトは、含まれているストロークの有効期間を管理します。[Microsoft ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクトは、所有しているストロークを作成および削除します。  各[Microsoft ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552692(v=vs.90))は、その親である[microsoft ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクト内で一意の識別子を持っています。  
   
- WPF のプラットフォームで、<xref:System.Windows.Ink.Stroke?displayProperty=nameWithType>クラスを所有し、独自の有効期間を管理します。 グループ<xref:System.Windows.Ink.Stroke>でオブジェクトをまとめて収集できる、<xref:System.Windows.Ink.StrokeCollection>メソッドを提供しますの一般的なインク データ管理操作など、ヒット テスト、消去、変換、および手描き入力をシリアル化します。 A <xref:System.Windows.Ink.Stroke> 0、1 つ、以上に属することができます<xref:System.Windows.Ink.StrokeCollection>いずれかのオブジェクトは、時間を与えます。  はなく、 [Microsoft.Ink.Ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクト、<xref:System.Windows.Controls.InkCanvas>と<xref:System.Windows.Controls.InkPresenter>を含む、<xref:System.Windows.Ink.StrokeCollection?displayProperty=nameWithType>します。  
+ WPF プラットフォームでは、<xref:System.Windows.Ink.Stroke?displayProperty=nameWithType> クラスは独自の有効期間を所有し、管理します。 <xref:System.Windows.Ink.Stroke> オブジェクトのグループは、<xref:System.Windows.Ink.StrokeCollection>にまとめて収集できます。これにより、ヒットテスト、消去、変換、およびインクのシリアル化などの一般的なインクデータ管理操作のためのメソッドが提供されます。 <xref:System.Windows.Ink.Stroke> は、任意のタイミングで、0個、1個、または複数の <xref:System.Windows.Ink.StrokeCollection> オブジェクトに属することができます。  <xref:System.Windows.Controls.InkCanvas> と <xref:System.Windows.Controls.InkPresenter> には、<xref:System.Windows.Ink.StrokeCollection?displayProperty=nameWithType>が含まれてい[ます。](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))  
   
- 次の図のペアは、インク データのオブジェクト モデルを比較します。  Windows フォームおよび COM のプラットフォームに、 [Microsoft.Ink.Ink](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))オブジェクトの有効期間の制限、 [Microsoft.Ink.Stroke](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552692(v=vs.90))オブジェクト、および個々 のストロークに属するスタイラス パケット。  2 つ以上のストロークが参照できる同じ[Microsoft.Ink.DrawingAttributes](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583636(v=vs.90))オブジェクト、次の図に示すようにします。  
+ 次の図は、インクデータオブジェクトモデルを比較したものです。  Windows フォームと COM プラットフォームでは[、microsoft の ink オブジェクトは](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583670(v=vs.90))、Microsoft の[Stroke](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552692(v=vs.90))オブジェクトの有効期間を制限し、スタイラスパケットは個々のストロークに属します。  次の図に示すように、2つ以上のストロークで同じ[DrawingAttributes](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583636(v=vs.90))オブジェクトを参照できます。  
   
- ![COM のインク オブジェクト モデルのダイアグラム&#47;Winforms します。](./media/ink-inkownsstrokes.png "Ink_InkOwnsStrokes")  
+ ![COM&#47;Winforms のインクオブジェクトモデルの図。](./media/ink-inkownsstrokes.png "Ink_InkOwnsStrokes")  
   
- [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]、それぞれ<xref:System.Windows.Ink.Stroke?displayProperty=nameWithType>が共通言語ランタイム オブジェクトへの参照を持つものとして存在します。  各<xref:System.Windows.Ink.Stroke>参照、<xref:System.Windows.Input.StylusPointCollection>と<xref:System.Windows.Ink.DrawingAttributes?displayProperty=nameWithType>オブジェクトは、共通言語ランタイム オブジェクトでもあります。  
+ [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]では、各 <xref:System.Windows.Ink.Stroke?displayProperty=nameWithType> は共通言語ランタイムオブジェクトであり、そこに何らかの参照が含まれている限り存在します。  各 <xref:System.Windows.Ink.Stroke> は、共通言語ランタイムオブジェクトでもある <xref:System.Windows.Input.StylusPointCollection> および <xref:System.Windows.Ink.DrawingAttributes?displayProperty=nameWithType> オブジェクトを参照します。  
   
- ![WPF のインク オブジェクト モデルのダイアグラム。](./media/ink-wpfinkobjectmodel.png "Ink_WPFInkObjectModel")  
+ ![WPF のインクオブジェクトモデルの図。](./media/ink-wpfinkobjectmodel.png "Ink_WPFInkObjectModel")  
   
- 次の表に一般的なタスクを実行する方法の比較、[!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)]プラットフォームと Windows フォームおよび COM のプラットフォームです。  
+ 次の表は、WPF プラットフォームと Windows フォームと COM プラットフォームで一般的なタスクを実行する方法を比較したものです。  
   
-|タスク|Windows Presentation Foundation|Windows フォームおよび COM|  
+|タスク|Windows Presentation Foundation|Windows フォームと COM|  
 |----------|-------------------------------------|---------------------------|  
-|インクを保存します。|<xref:System.Windows.Ink.StrokeCollection.Save%2A>|[Microsoft.Ink.Ink.Save](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms571335(v=vs.90))|  
-|インクを読み込み|作成、<xref:System.Windows.Ink.StrokeCollection>で、<xref:System.Windows.Ink.StrokeCollection.%23ctor%2A>コンス トラクター。|[Microsoft.Ink.Ink.Load](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms569609(v=vs.90))|  
-|ヒット テスト|<xref:System.Windows.Ink.StrokeCollection.HitTest%2A>|[Microsoft.Ink.Ink.HitTest](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms571330(v=vs.90))|  
-|インクをコピーします。|<xref:System.Windows.Controls.InkCanvas.CopySelection%2A>|[Microsoft.Ink.Ink.ClipboardCopy](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms571316(v=vs.90))|  
-|インクを貼り付け|<xref:System.Windows.Controls.InkCanvas.Paste%2A>|[Microsoft.Ink.Ink.ClipboardPaste](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms571318(v=vs.90))|  
-|ストロークのコレクションへのアクセスのカスタム プロパティ|<xref:System.Windows.Ink.StrokeCollection.AddPropertyData%2A> (プロパティが内部的に保存され、使用してアクセス<xref:System.Windows.Ink.StrokeCollection.AddPropertyData%2A>、 <xref:System.Windows.Ink.StrokeCollection.RemovePropertyData%2A>、および<xref:System.Windows.Ink.StrokeCollection.ContainsPropertyData%2A>)|使用[Microsoft.Ink.Ink.ExtendedProperties](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms582214(v=vs.90))|  
+|インクを保存する|<xref:System.Windows.Ink.StrokeCollection.Save%2A>|[Microsoft. Ink. 保存](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms571335(v=vs.90))|  
+|インクの読み込み|<xref:System.Windows.Ink.StrokeCollection.%23ctor%2A> コンストラクターを使用して <xref:System.Windows.Ink.StrokeCollection> を作成します。|[Microsoft Ink。読み込み](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms569609(v=vs.90))|  
+|ヒットテスト|<xref:System.Windows.Ink.StrokeCollection.HitTest%2A>|[System.windows.media.visualtreehelper.hittest (Microsoft Ink)](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms571330(v=vs.90))|  
+|インクをコピーする|<xref:System.Windows.Controls.InkCanvas.CopySelection%2A>|[Microsoft Ink クリップボードのコピー](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms571316(v=vs.90))|  
+|インクの貼り付け|<xref:System.Windows.Controls.InkCanvas.Paste%2A>|[Microsoft. Ink. クリップボードの貼り付け](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms571318(v=vs.90))|  
+|ストロークのコレクションのカスタムプロパティにアクセスする|<xref:System.Windows.Ink.StrokeCollection.AddPropertyData%2A> (プロパティは内部的に格納され、<xref:System.Windows.Ink.StrokeCollection.AddPropertyData%2A>、<xref:System.Windows.Ink.StrokeCollection.RemovePropertyData%2A>、および <xref:System.Windows.Ink.StrokeCollection.ContainsPropertyData%2A>を介してアクセスされます)|[Microsoft Ink プロパティ](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms582214(v=vs.90))を使用する|  
   
-### <a name="sharing-ink-between-platforms"></a>プラットフォーム間でのインクの共有  
- プラットフォームには、インク データのさまざまなオブジェクト モデルがありますが、プラットフォーム間でデータの共有は非常に簡単にします。 次の例では、Windows フォーム アプリケーションからインクを保存し、Windows Presentation Foundation アプリケーションにインクを読み込みます。  
+### <a name="sharing-ink-between-platforms"></a>プラットフォーム間でインクを共有する  
+ プラットフォームにはインクデータ用の異なるオブジェクトモデルがありますが、プラットフォーム間でデータを共有するのは非常に簡単です。 次の例では、Windows フォームアプリケーションからインクを保存し、Windows Presentation Foundation アプリケーションにインクを読み込みます。  
   
  [!code-csharp[WinFormWPFInk#UsingWinforms](~/samples/snippets/csharp/VS_Snippets_Wpf/WinformWPFInk/CSharp/Program.cs#usingwinforms)]
  [!code-vb[WinFormWPFInk#UsingWinforms](~/samples/snippets/visualbasic/VS_Snippets_Wpf/WinformWPFInk/VisualBasic/Module1.vb#usingwinforms)]  
@@ -72,7 +73,7 @@ ms.locfileid: "62051677"
 [!code-csharp[WinFormWPFInk#LoadWPF](~/samples/snippets/csharp/VS_Snippets_Wpf/WinformWPFInk/CSharp/Program.cs#loadwpf)]
 [!code-vb[WinFormWPFInk#LoadWPF](~/samples/snippets/visualbasic/VS_Snippets_Wpf/WinformWPFInk/VisualBasic/Module1.vb#loadwpf)]  
   
- 次の例では、Windows Presentation Foundation アプリケーションからインクを保存し、Windows フォーム アプリケーションに、インクを読み込みます。  
+ 次の例では、Windows Presentation Foundation アプリケーションからインクを保存し、Windows フォームアプリケーションにインクを読み込みます。  
   
  [!code-csharp[WinFormWPFInk#UsingWPF](~/samples/snippets/csharp/VS_Snippets_Wpf/WinformWPFInk/CSharp/Program.cs#usingwpf)]
  [!code-vb[WinFormWPFInk#UsingWPF](~/samples/snippets/visualbasic/VS_Snippets_Wpf/WinformWPFInk/VisualBasic/Module1.vb#usingwpf)]  
@@ -83,23 +84,23 @@ ms.locfileid: "62051677"
  [!code-vb[WinFormWPFInk#UsingWinforms](~/samples/snippets/visualbasic/VS_Snippets_Wpf/WinformWPFInk/VisualBasic/Module1.vb#usingwinforms)]  
 [!code-csharp[WinFormWPFInk#LoadWinforms](~/samples/snippets/csharp/VS_Snippets_Wpf/WinformWPFInk/CSharp/Program.cs#loadwinforms)]
 [!code-vb[WinFormWPFInk#LoadWinforms](~/samples/snippets/visualbasic/VS_Snippets_Wpf/WinformWPFInk/VisualBasic/Module1.vb#loadwinforms)]
-## <a name="events-from-the-tablet-pen"></a>タブレット ペンからのイベント  
+## <a name="events-from-the-tablet-pen"></a>タブレットペンからのイベント  
 
- [Microsoft.Ink.InkOverlay](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552322(v=vs.90))、 [Microsoft.Ink.InkCollector](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583683(v=vs.90))、および[Microsoft.Ink.InkPicture](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583740(v=vs.90))プラットフォームは Windows フォームおよび COM にイベントを受け取るときに、ユーザーペンのデータを入力します。 [Microsoft.Ink.InkOverlay](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552322(v=vs.90))または[Microsoft.Ink.InkCollector](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583683(v=vs.90))はウィンドウやコントロールにアタッチされ、タブレット入力データによって発生したイベントにサブスクライブできます。 これらのイベントが発生するスレッドは、マウス、ペンを使用して、イベントが発生したかどうかに依存またはプログラムを使用します。 これらのイベントに関連スレッド処理の詳細については、次を参照してください。[一般的なスレッド処理の考慮事項](/windows/desktop/tablet/general-threading-considerations)と[にイベントが起動できるスレッド](/windows/desktop/tablet/threads-on-which-an-event-can-fire)します。  
+ Windows フォームと COM プラットフォーム上の[InkCollector](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583683(v=vs.90))および[microsoft は、](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552322(v=vs.90))ユーザーがペンデータを入力したときに[イベントを受信](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583740(v=vs.90))することができます。 InkCollector[は、ウィンドウ](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms552322(v=vs.90))またはコントロール[Microsoft.Ink.InkCollector](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms583683(v=vs.90))にアタッチされ、タブレット入力データによって生成されたイベントをサブスクライブできます。 これらのイベントが発生するスレッドは、ペン、マウス、またはプログラムによってイベントが発生したかどうかによって異なります。 これらのイベントに関連したスレッド処理の詳細については、「[イベントが発生](/windows/desktop/tablet/threads-on-which-an-event-can-fire)する[一般的なスレッド処理の考慮事項](/windows/desktop/tablet/general-threading-considerations)とスレッド」を参照してください。  
   
- Windows Presentation Foundation のプラットフォームで、<xref:System.Windows.UIElement>クラスのペン入力イベントがあります。 これは、すべてのコントロールがスタイラス イベントの完全なセットを公開していることを意味します。  スタイラス イベントがあるトンネルとバブル イベントのペアし、アプリケーションのスレッドで常に発生します。  詳細については、次を参照してください。[ルーティング イベントの概要](routed-events-overview.md)します。  
+ Windows Presentation Foundation プラットフォームでは、<xref:System.Windows.UIElement> クラスにはペン入力のイベントがあります。 これは、すべてのコントロールがスタイラスイベントの完全なセットを公開することを意味します。  スタイラスイベントは、トンネルイベントとバブルイベントのペアを持ち、常にアプリケーションスレッド上で発生します。  詳細については、「[ルーティングイベントの概要](routed-events-overview.md)」を参照してください。  
   
- 次の図は、スタイラス イベントを発生させるクラスのオブジェクト モデルを比較します。 Windows Presentation Foundation オブジェクト モデルには、バブル イベント、のみであり、トンネリング イベント対応ではありませんが表示されます。  
+ 次の図は、スタイラスイベントを発生させるクラスのオブジェクトモデルを比較したものです。 Windows Presentation Foundation オブジェクトモデルでは、対応するトンネリングイベントだけではなく、バブルイベントのみが表示されます。  
   
- ![WPF と Winforms のスタイラス イベントのダイアグラム。](./media/ink-stylusevents.png "Ink_StylusEvents")  
+ ![WPF と Winforms のスタイラスイベントの図。](./media/ink-stylusevents.png "Ink_StylusEvents")  
   
-## <a name="pen-data"></a>ペン データ  
- 3 つすべてのプラットフォームは、インターセプト、タブレット ペン由来するデータを操作する方法を提供します。  Windows フォームおよび COM のプラットフォームで、作成してこれは、 [Microsoft.StylusInput.RealTimeStylus](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms585724(v=vs.90))、ウィンドウやコントロールをそれにアタッチしを実装するクラスを作成、 [Microsoft.StylusInput.IStylusSyncPlugin](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms575201(v=vs.90))または[Microsoft.StylusInput.IStylusAsyncPlugin](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms575194(v=vs.90))インターフェイス。 カスタム プラグインがプラグインのコレクションに追加し、 [Microsoft.StylusInput.RealTimeStylus](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms585724(v=vs.90))します。 このオブジェクト モデルの詳細については、次を参照してください。 [StylusInput Api のアーキテクチャ](/windows/desktop/tablet/architecture-of-the-stylusinput-apis)します。  
+## <a name="pen-data"></a>ペンデータ  
+ 3つのすべてのプラットフォームで、タブレットペンから取得したデータをインターセプトして操作する方法が提供されます。  Windows フォームと COM プラットフォームでは、 [StylusInput](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms585724(v=vs.90))を作成し、StylusInput またはコントロールをアタッチし、 [IStylusSyncPlugin](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms575201(v=vs.90))または[StylusInput](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms575194(v=vs.90))インターフェイスを実装するクラスを作成することによってこれを実現します。 その後、カスタムプラグインが[StylusInput](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms585724(v=vs.90))のプラグインコレクションに追加されています。 このオブジェクトモデルの詳細については、「 [StylusInput api のアーキテクチャ](/windows/desktop/tablet/architecture-of-the-stylusinput-apis)」を参照してください。  
   
- [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] 、プラットフォーム、<xref:System.Windows.UIElement>クラスのプラグイン、同様のデザインのコレクションを公開する、 [Microsoft.StylusInput.RealTimeStylus](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms585724(v=vs.90))します。  ペンのデータをインターセプトするから継承するクラスを作成<xref:System.Windows.Input.StylusPlugIns.StylusPlugIn>オブジェクトを追加して、<xref:System.Windows.UIElement.StylusPlugIns%2A>のコレクション、<xref:System.Windows.UIElement>します。 この操作の詳細については、次を参照してください。[スタイラスからの入力のインターセプト](intercepting-input-from-the-stylus.md)します。  
+ WPF プラットフォームでは、<xref:System.Windows.UIElement> クラスは、 [StylusInput](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms585724(v=vs.90))と同じように設計されているプラグインのコレクションを公開します。  ペンデータを受け取るには、<xref:System.Windows.Input.StylusPlugIns.StylusPlugIn> から継承するクラスを作成し、そのオブジェクトを <xref:System.Windows.UIElement>の <xref:System.Windows.UIElement.StylusPlugIns%2A> コレクションに追加します。 この相互作用の詳細については、「[スタイラスからの入力のインターセプト](intercepting-input-from-the-stylus.md)」を参照してください。  
   
- すべてのプラットフォームでは、スレッド プールは、スタイラス イベントを使用して、インク データを受信し、アプリケーション スレッドに送信します。  スレッドの COM および Windows プラットフォームの詳細については、次を参照してください。 [StylusInput Api に関する考慮事項をスレッド](/windows/desktop/tablet/threading-considerations-for-the-stylusinput-apis)します。  スレッドの Windows プレゼンテーション ソフトウェアの詳細については、次を参照してください。[インク スレッド モデル](the-ink-threading-model.md)します。  
+ すべてのプラットフォームで、スレッドプールはスタイラスイベントを使用してインクデータを受け取り、それをアプリケーションスレッドに送信します。  COM プラットフォームと Windows プラットフォームでのスレッド処理の詳細については、「 [StylusInput api のスレッド処理に関する考慮事項](/windows/desktop/tablet/threading-considerations-for-the-stylusinput-apis)」を参照してください。  Windows プレゼンテーションソフトウェアでのスレッド処理の詳細については、「[インクスレッドモデル](the-ink-threading-model.md)」を参照してください。  
   
- 次の図は、ペン スレッド プールでペンのデータを受信するクラスのオブジェクト モデルを比較します。  
+ 次の図は、ペンスレッドプールでペンデータを受け取るクラスのオブジェクトモデルを比較しています。  
   
- ![StylusPlugin モデル WPF と Winforms のダイアグラム。](./media/ink-stylusplugins.png "Ink_StylusPlugins")
+ ![StylusPlugin モデル WPF vs Winforms の図。](./media/ink-stylusplugins.png "Ink_StylusPlugins")

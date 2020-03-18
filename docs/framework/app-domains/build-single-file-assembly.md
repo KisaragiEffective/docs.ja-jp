@@ -1,5 +1,5 @@
 ---
-title: '方法: .NET Framework シングルファイル アセンブリをビルドする'
+title: '方法: .NET Framework 単一ファイルアセンブリをビルドする'
 ms.date: 08/20/2019
 helpviewer_keywords:
 - assembly manifest, single-file assemblies
@@ -13,16 +13,14 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: a6063221-43a5-4d3e-814c-288a4ec69aec
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 98f06e62e1070f78faa77ef7d83fd80a62984684
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
-ms.translationtype: HT
+ms.openlocfilehash: af1bfb89b01a316a858cbb45bf19a26a16d90016
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70991243"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73119951"
 ---
-# <a name="how-to-build-a-net-framework-single-file-assembly"></a>方法: .NET Framework シングルファイル アセンブリをビルドする
+# <a name="how-to-build-a-net-framework-single-file-assembly"></a>方法: .NET Framework 単一ファイルアセンブリをビルドする
 
 アセンブリの最も単純な形式であるシングルファイル アセンブリには、型の情報、実装、[アセンブリ マニフェスト](../../standard/assembly/manifest.md)が含まれています。 コマンド ライン コンパイラや Visual Studio を利用し、.NET Framework を対象とするシングルファイル アセンブリを作成できます。 既定では、コンパイラでは *.exe* 拡張子でアセンブリ ファイルが作成されます。
 
@@ -90,5 +88,5 @@ vbc -out:myCodeLibrary.dll -t:library myCode.vb
 
 - [アセンブリを作成する](../../standard/assembly/create.md)
 - [マルチファイル アセンブリ](multifile-assemblies.md)
-- [方法: マルチファイル アセンブリをビルドする](build-multifile-assembly.md)
+- [方法: マルチファイルアセンブリをビルドする](build-multifile-assembly.md)
 - [アセンブリを使用したプログラム](../../standard/assembly/program.md)

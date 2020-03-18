@@ -5,10 +5,10 @@ ms.date: 08/09/2019
 author: sdmaclea
 ms.author: stmaclea
 ms.openlocfilehash: 8a73a432bf8cc72cced77cf6c62a785b72032913
-ms.sourcegitcommit: 9c3a4f2d3babca8919a1e490a159c1500ba7a844
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "72303708"
 ---
 # <a name="understanding-systemruntimeloaderassemblyloadcontext"></a>System.Runtime.Loader.AssemblyLoadContext について

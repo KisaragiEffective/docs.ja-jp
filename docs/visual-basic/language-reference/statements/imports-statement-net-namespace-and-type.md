@@ -1,5 +1,5 @@
 ---
-title: Imports ステートメント-.NET 名前空間と型 (Visual Basic)
+title: Imports ステートメント-.NET 名前空間と型
 ms.date: 07/20/2015
 f1_keywords:
 - vb.Imports
@@ -16,12 +16,12 @@ helpviewer_keywords:
 - aliases [Visual Basic], import
 - declared elements [Visual Basic], container elements
 ms.assetid: 7062f8aa-d890-4232-9eed-92836e13fb6e
-ms.openlocfilehash: 573bb7383b292e0ad2e85a4355d89cf92fe8dd7d
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: 39fa4e74f973bcb575b5751c387c0b879f4e398d
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73040740"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351066"
 ---
 # <a name="imports-statement-net-namespace-and-type"></a>Imports ステートメント (.NET 名前空間および型)
 
@@ -39,11 +39,11 @@ Imports [ aliasname = ] namespace.element
 
 |用語|定義|
 |---|---|
-|`aliasname`|省略可能です。 完全修飾文字列ではなく、コードが `namespace` を参照できる*インポートエイリアス*または名前。 「 [Declared Element Names](../../programming-guide/language-features/declared-elements/declared-element-names.md)」を参照してください。|
-|`namespace`|必須です。 インポートされる名前空間の完全修飾名。 には、任意のレベルに入れ子になった名前空間の文字列を指定できます。|
-|`element`|省略可能です。 名前空間で宣言されているプログラミング要素の名前。 任意のコンテナー要素を指定できます。|
+|`aliasname`|任意。 完全修飾文字列ではなく、コードが `namespace` を参照できる*インポートエイリアス*または名前。 「[宣言された要素の名前](../../programming-guide/language-features/declared-elements/declared-element-names.md)」を参照してください。|
+|`namespace`|必須。 インポートされる名前空間の完全修飾名。 には、任意のレベルに入れ子になった名前空間の文字列を指定できます。|
+|`element`|任意。 名前空間で宣言されているプログラミング要素の名前。 任意のコンテナー要素を指定できます。|
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 `Imports` ステートメントを使用すると、特定の名前空間に含まれている型を直接参照できます。
 
@@ -57,16 +57,16 @@ Imports System.Collections.Generic
 
 `Imports` は、ファイルレベルでのみ使用できます。 つまり、インポートの宣言コンテキストはソースファイルである必要があり、名前空間、クラス、構造体、モジュール、インターフェイス、プロシージャ、またはブロックにすることはできません。
 
-`Imports` ステートメントでは、プロジェクトで他のプロジェクトおよびアセンブリの要素を使用できないことに注意してください。 インポートでは、参照の設定は行われません。 これにより、プロジェクトで既に使用可能な名前を修飾する必要がなくなります。 詳細については、「宣言された[要素への参照](../../programming-guide/language-features/declared-elements/references-to-declared-elements.md)」の「コンテナー要素のインポート」を参照してください。
+`Imports` ステートメントでは、プロジェクトで他のプロジェクトおよびアセンブリの要素を使用できないことに注意してください。 インポートでは、参照の設定は行われません。 これにより、プロジェクトで既に使用可能な名前を修飾する必要がなくなります。 詳細については、「[宣言された要素の参照](../../programming-guide/language-features/declared-elements/references-to-declared-elements.md)」の「コンテナー要素のインポート」を参照してください。
 
 > [!NOTE]
 > 暗黙の `Imports` ステートメントを定義するには、[[参照] ページの [プロジェクトデザイナー] (Visual Basic)](/visualstudio/ide/reference/references-page-project-designer-visual-basic)を使用します。 詳細については、「[方法: インポートされた名前空間を追加または削除する (Visual Basic)](/visualstudio/ide/how-to-add-or-remove-imported-namespaces-visual-basic)」を参照してください。
 
 ## <a name="import-aliases"></a>インポート エイリアス
 
-*インポートエイリアス*は、名前空間または型のエイリアスを定義します。 インポートエイリアスは、1つまたは複数の名前空間で宣言されているものと同じ名前の項目を使用する必要がある場合に便利です。 詳細と例については、「宣言された[要素への参照](../../programming-guide/language-features/declared-elements/references-to-declared-elements.md)」の「要素名の修飾」を参照してください。
+*インポートエイリアス*は、名前空間または型のエイリアスを定義します。 インポートエイリアスは、1 つまたは複数の名前空間で宣言されているものと同じ名前の項目を使用する必要がある場合に便利です。 詳細と例については、「[宣言された要素の参照](../../programming-guide/language-features/declared-elements/references-to-declared-elements.md)」の「要素名の修飾」を参照してください。
 
-モジュールレベルで `aliasname` と同じ名前のメンバーを宣言することはできません。 この場合、Visual Basic コンパイラは、宣言されたメンバーに対してのみ `aliasname` を使用し、それをインポートエイリアスとして認識しなくなります。
+モジュールレベルで `aliasname`と同じ名前のメンバーを宣言することはできません。 この場合、Visual Basic コンパイラは、宣言されたメンバーに対してのみ `aliasname` を使用し、それをインポートエイリアスとして認識しなくなります。
 
 インポートエイリアスの宣言に使用される構文は、XML 名前空間プレフィックスのインポートに使用される構文と似ていますが、結果は異なります。 インポートエイリアスは、コード内で式として使用できます。一方、XML 名前空間プレフィックスは、xml リテラルまたは XML 軸プロパティで、修飾された要素名または属性名のプレフィックスとしてのみ使用できます。
 

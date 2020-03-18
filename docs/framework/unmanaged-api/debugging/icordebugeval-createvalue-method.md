@@ -15,19 +15,17 @@ helpviewer_keywords:
 ms.assetid: 9a1c0b47-6f10-4fcb-844a-4ab2d7990140
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3ada3a06a2beb8f21c3e24665c0f1f8e7c48515f
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: bd6f1b2153404ba4567ef8348ff128b5d475c6fe
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67752949"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76793488"
 ---
 # <a name="icordebugevalcreatevalue-method"></a>ICorDebugEval::CreateValue メソッド
-0 または null の初期値を持つ指定した型の値を作成します。  
+初期値を0または null にして、指定した型の値を作成します。  
   
- このメソッドは、.NET Framework version 2.0 で廃止されています。 使用[icordebugeval 2::createvaluefortype](../../../../docs/framework/unmanaged-api/debugging/icordebugeval2-createvaluefortype-method.md)代わりにします。  
+ このメソッドは .NET Framework バージョン2.0 では廃止されています。 代わりに[ICorDebugEval2:: CreateValueForType](icordebugeval2-createvaluefortype-method.md)を使用してください。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,31 +39,31 @@ HRESULT CreateValue (
   
 ## <a name="parameters"></a>パラメーター  
  `elementType`  
- [in]値、 [CorElementType](../../../../docs/framework/unmanaged-api/metadata/corelementtype-enumeration.md)列挙値の型を指定します。  
+ から値の型を指定する[Corelementtype](../../../../docs/framework/unmanaged-api/metadata/corelementtype-enumeration.md)列挙体の値。  
   
  `pElementClass`  
- [in]ポインター、 [ICorDebugClass](../../../../docs/framework/unmanaged-api/debugging/icordebugclass-interface.md)型がプリミティブ型でない場合、値のクラスを指定するオブジェクト。  
+ から型がプリミティブ型ではない場合に、値のクラスを指定[する、のオブジェクトへ](icordebugclass-interface.md)のポインター。  
   
  `ppValue`  
- [out]値を表す"ICorDebugValue"オブジェクトのアドレスへのポインター。  
+ 入出力値を表す "ICorDebugValue" オブジェクトのアドレスへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- `CreateValue` 作成、`ICorDebugValue`の関数の評価で使用する目的で指定された型のオブジェクト。 この値オブジェクトは、ユーザーの定数をパラメーターとして渡すために使用できます。  
+## <a name="remarks"></a>コメント  
+ `CreateValue` 関数の評価で使用するための唯一の目的として、指定された型の `ICorDebugValue` オブジェクトを作成します。 この値オブジェクトを使用して、ユーザー定数をパラメーターとして渡すことができます。  
   
- その初期値は 0 で、値の型がプリミティブ型の場合は null です。 使用[icordebuggenericvalue::setvalue](../../../../docs/framework/unmanaged-api/debugging/icordebuggenericvalue-setvalue-method.md)プリミティブ型の値を設定します。  
+ 値の型がプリミティブ型の場合、初期値は0または null になります。 の型の値を設定するには、を[使用します](icordebuggenericvalue-setvalue-method.md)。  
   
- 場合の値`elementType`ELEMENT_TYPE_CLASS は、"ICorDebugReferenceValue"を取得する (で返される`ppValue`) null オブジェクト参照を表します。 このオブジェクトを使用して、オブジェクト参照のパラメーターを持つ関数の評価に null を渡すことができます。 設定することはできません、`ICorDebugValue`に何も常に null です。  
+ `elementType` の値が ELEMENT_TYPE_CLASS 場合は、null オブジェクト参照を表す "" の値 "(`ppValue`で返される) を取得します。 このオブジェクトを使用すると、オブジェクト参照パラメーターを持つ関数の評価に null を渡すことができます。 `ICorDebugValue` を何にも設定することはできません。常に null のままです。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
  **ライブラリ:** CorGuids.lib  
   
- **.NET framework のバージョン:** 1.1, 1.0  
+ **.NET Framework のバージョン:** 1.1、1.0  
   
 ## <a name="see-also"></a>関連項目
 
-- [CreateValueForType メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugeval2-createvaluefortype-method.md)
-- [ICorDebugEval インターフェイス](icordebugeval-interface.md)
+- [CreateValueForType メソッド](icordebugeval2-createvaluefortype-method.md)
+- [の場合は、インターフェイス](icordebugeval-interface.md)

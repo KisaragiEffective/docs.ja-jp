@@ -1,5 +1,5 @@
 ---
-title: '方法: プロシージャにパラメーターを定義する (Visual Basic)'
+title: '方法 : プロシージャにパラメーターを定義する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - procedure parameters [Visual Basic], defining data types for
@@ -8,53 +8,53 @@ helpviewer_keywords:
 - Visual Basic code, procedures
 - procedure parameters [Visual Basic], defining
 ms.assetid: 7962808d-407e-4e84-984e-43e9857c53c9
-ms.openlocfilehash: bf57d4dbd7e8596396fb2e9099d5984759d6e90d
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 411959a7be92ea49a59558b508e992bfba8eff95
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64665380"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74344882"
 ---
-# <a name="how-to-define-a-parameter-for-a-procedure-visual-basic"></a>方法: プロシージャにパラメーターを定義する (Visual Basic)
-A*パラメーター*それを呼び出すときに、プロシージャに値を渡すコードの呼び出しを許可します。 プロシージャの各パラメーターは、変数を宣言すると、その名前とデータ型を指定することと同じ方法で宣言します。 渡す方法を指定するかどうか、パラメーターは省略可能です。  
+# <a name="how-to-define-a-parameter-for-a-procedure-visual-basic"></a>方法: プロシージャに対してパラメーターを定義する (Visual Basic)
+*パラメーター*を使用すると、呼び出し元のコードは、呼び出し時にプロシージャに値を渡すことができます。 プロシージャの各パラメーターは、変数を宣言する場合と同じ方法で宣言し、名前とデータ型を指定します。 また、渡す機構と、パラメーターが省略可能かどうかも指定します。  
   
- 詳細については、次を参照してください。[プロシージャのパラメーターと引数](./procedure-parameters-and-arguments.md)します。  
+ 詳細については、「[プロシージャのパラメーターと引数](./procedure-parameters-and-arguments.md)」を参照してください。  
   
-### <a name="to-define-a-procedure-parameter"></a>プロシージャのパラメーターを定義するには  
+### <a name="to-define-a-procedure-parameter"></a>プロシージャパラメーターを定義するには  
   
-1. プロシージャの宣言では、その他のパラメーターをコンマで区切って、プロシージャのパラメーター リストに、パラメーター名を追加します。  
+1. プロシージャの宣言で、プロシージャのパラメーターリストにパラメーター名を追加し、他のパラメーターとコンマで区切ります。  
   
 2. パラメーターのデータ型を決定します。  
   
-3. パラメーター名に続けて、`As`データ型を指定する句。  
+3. パラメーター名の後に `As` 句を入力して、データ型を指定します。  
   
-4. パラメーターの引き渡し方法を決定します。 通常、プロシージャ呼び出し元のコードでは、その値を変更できるようにする場合を除きに、値でパラメーターを渡します。  
+4. パラメーターに渡すメカニズムを決定します。 通常、プロシージャが呼び出し元のコードで値を変更できないようにする場合は、パラメーターを値で渡します。  
   
-5. パラメーター名の前に[ByVal](../../../../visual-basic/language-reference/modifiers/byval.md)または[ByRef](../../../../visual-basic/language-reference/modifiers/byref.md)引き渡し方法を指定します。 詳細については、次を参照してください。[の相違点の間の値と参照渡しによって引数を渡す](./differences-between-passing-an-argument-by-value-and-by-reference.md)します。  
+5. パラメーター名の前に、 [ByVal](../../../../visual-basic/language-reference/modifiers/byval.md)または[ByRef](../../../../visual-basic/language-reference/modifiers/byref.md)を渡して、渡すメカニズムを指定します。 詳細については、「[引数を値で渡す方法と参照渡しの違い](./differences-between-passing-an-argument-by-value-and-by-reference.md)」を参照してください。  
   
-6. 渡しのパラメーターが省略可能な場合は、前に[(省略可能)](../../../../visual-basic/language-reference/modifiers/optional.md)は等号でパラメーターのデータ型に従います (`=`) と、既定値。  
+6. パラメーターが省略可能な場合は、渡される機構の前に[オプション](../../../../visual-basic/language-reference/modifiers/optional.md)を指定し、等号 (`=`) と既定値を指定してパラメーターのデータ型に従います。  
   
-     次の例のアウトラインを定義する、 `Sub` 3 つのパラメーターを持つプロシージャ。 最初の 2 つが必要ですし、3 つ目は省略可能です。 パラメーターの宣言は、パラメーター リストにコンマで区切られます。  
+     次の例では、3つのパラメーターを持つ `Sub` プロシージャのアウトラインを定義します。 最初の2つは必須で、3番目のオプションは省略可能です。 パラメーターの宣言は、パラメーターリスト内でコンマで区切られます。  
   
      [!code-vb[VbVbcnProcedures#33](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#33)]  
   
-     最初のパラメーターを受け入れる、`customer`オブジェクト、および`updateCustomer`に渡される変数を直接更新できます`c`引数が渡されるため[ByRef](../../../../visual-basic/language-reference/modifiers/byref.md)します。 渡されるために、プロシージャが最後の 2 つの引数の値を変更できません[ByVal](../../../../visual-basic/language-reference/modifiers/byval.md)します。  
+     最初のパラメーターは `customer` オブジェクトを受け入れます。引数は[ByRef](../../../../visual-basic/language-reference/modifiers/byref.md)で渡されるため、`updateCustomer` は `c` に渡された変数を直接更新できます。 プロシージャは[ByVal](../../../../visual-basic/language-reference/modifiers/byval.md)で渡されるため、最後の2つの引数の値を変更することはできません。  
   
-     呼び出し元のコードがの値を指定しないかどうか、`level`パラメーターでは、Visual Basic 設定を既定値の 0。  
+     呼び出し元のコードが `level` パラメーターの値を指定していない場合は、Visual Basic 既定値の0に設定されます。  
   
-     型チェック スイッチの場合 ([Option Strict ステートメント](../../../../visual-basic/language-reference/statements/option-strict-statement.md)) は`Off`、`As`パラメーターを定義するときに、句は省略可能です。 ただし、任意の 1 つのパラメーターを使用している場合、`As`句では、いずれも使用する必要あります。 型チェック スイッチがある場合`On`、`As`句がすべてのパラメーター定義が必要です。  
+     型チェックスイッチ ([Option Strict ステートメント](../../../../visual-basic/language-reference/statements/option-strict-statement.md)) が `Off`場合、パラメーターを定義するときに、`As` 句は省略可能です。 ただし、1つのパラメーターで `As` 句を使用する場合は、すべてのパラメーターでそれを使用する必要があります。 型チェックスイッチが `On`場合は、すべてのパラメーター定義に対して `As` 句が必要です。  
   
-     すべてのプログラミング要素のデータ型の指定と呼びます*厳密な型指定*します。 設定すると`Option Strict On`、Visual Basic は、厳密な型指定を適用します。 これは強くお勧めします、次の理由。  
+     すべてのプログラミング要素のデータ型の指定は、*厳密な*型指定と呼ばれます。 `Option Strict On`を設定すると、Visual Basic は厳密な型指定を適用します。 これは、次の理由から強くお勧めします。  
   
-    - 変数とパラメーターの IntelliSense のサポートが有効にするとします。 これにより、コードに入力すると、プロパティやその他のメンバーを表示することができます。  
+    - これにより、変数とパラメーターの IntelliSense サポートが有効になります。 これにより、コードを入力するときに、プロパティとその他のメンバーを表示できます。  
   
-    - これにより、コンパイラが型チェックを実行できます。 これは、オーバーフローなどのエラーにより実行時に失敗するステートメントを検出するのに役立ちます。 サポートしていないオブジェクトに対するメソッドの呼び出しをキャッチします。  
+    - これにより、コンパイラは型チェックを実行できます。 これは、オーバーフローなどのエラーによって実行時に失敗する可能性があるステートメントをキャッチするのに役立ちます。 また、サポートされていないオブジェクトのメソッドの呼び出しもキャッチします。  
   
-    - コードの実行速度が速くなります。 この理由の 1 つは、プログラミング要素のデータ型を指定しない場合、Visual Basic コンパイラが割り当てる、`Object`型。 コンパイル済みのコードは、間を気軽に変換する必要があります`Object`とその他のデータ型は、パフォーマンスが低下します。  
+    - これにより、コードの実行時間が短縮されます。 その理由の1つは、プログラミング要素のデータ型を指定しない場合、Visual Basic コンパイラによって `Object` 型に割り当てられることです。 コンパイルされたコードは、`Object` とその他のデータ型との間で変換を行う必要があります。これにより、パフォーマンスが低下します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [プロシージャ](./index.md)
+- [Visual Basic におけるプロシージャ](./index.md)
 - [Sub プロシージャ](./sub-procedures.md)
 - [Function プロシージャ](./function-procedures.md)
 - [方法: プロシージャに引数を渡す](./how-to-pass-arguments-to-a-procedure.md)

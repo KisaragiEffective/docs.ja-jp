@@ -9,10 +9,10 @@ helpviewer_keywords:
 - /pdb compiler option [C#]
 ms.assetid: e9d0f96a-5b75-45d6-9765-92538dd5f823
 ms.openlocfilehash: 3081f4716e8cd858d789db6050e635af941aa05c
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69602566"
 ---
 # <a name="-pdb-c-compiler-options"></a>-pdb (C# コンパイラ オプション)
@@ -42,7 +42,7 @@ ms.locfileid: "69602566"
 csc -debug -pdb:tt t.cs  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](./index.md)
 - [プロジェクトおよびソリューションのプロパティの管理](/visualstudio/ide/managing-project-and-solution-properties)

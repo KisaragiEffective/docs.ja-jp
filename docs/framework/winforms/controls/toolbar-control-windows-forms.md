@@ -1,16 +1,16 @@
 ---
-title: ToolBar コントロール (Windows フォーム)
+title: ToolBar コントロール
 ms.date: 03/30/2017
 helpviewer_keywords:
 - toolbars [Windows Forms]
 - ToolBar control [Windows Forms]
 ms.assetid: 6b40e9ce-6a7a-4784-bfc9-7f1d36b7462e
-ms.openlocfilehash: 13a56af0e52897a6fd4e11516fbf4c0b8f6d6b5d
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 027c96bb49e9446244e4b08ba93c551ef043b3c0
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69929567"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76735454"
 ---
 # <a name="toolbar-control-windows-forms"></a>ToolBar コントロール (Windows フォーム)
 > [!NOTE]
@@ -25,18 +25,18 @@ ms.locfileid: "69929567"
  [ToolBar コントロールの概要](toolbar-control-overview-windows-forms.md)  
  ユーザーが操作できるカスタム ツールバーを設計できる、`ToolBar` コントロールの一般的な概念について説明します。  
   
- [方法: ツールバーコントロールにボタンを追加する](how-to-add-buttons-to-a-toolbar-control.md)  
+ [方法: ツール バー コントロールにボタンを追加する](how-to-add-buttons-to-a-toolbar-control.md)  
  ボタンを `ToolBar` コントロールに追加する方法について説明します。  
   
- [方法: ツールバーボタンのアイコンを定義する](how-to-define-an-icon-for-a-toolbar-button.md)  
+ [方法: ツール バー ボタンのアイコンを定義する](how-to-define-an-icon-for-a-toolbar-button.md)  
  アイコンを `ToolBar` コントロールのボタン内に表示する方法について説明します。  
   
- [方法: ツールバーボタンのトリガーメニューイベント](how-to-trigger-menu-events-for-toolbar-buttons.md)  
+ [方法: ツール バー ボタンのメニュー イベントをトリガーする](how-to-trigger-menu-events-for-toolbar-buttons.md)  
  `ToolBar` コントロールでユーザーがクリックするボタンを解釈するコードの記述方法について説明します。  
   
- 「 [方法:デザイナー](how-to-define-an-icon-for-a-toolbar-button-using-the-designer.md)を使用してツールバーボタンのアイコンを[定義します。方法は次のとおりです。デザイナー](how-to-add-buttons-to-a-toolbar-control-using-the-designer.md)を使用して、ツールバーコントロールにボタンを追加します。  
+ 「[方法: デザイナーを使用してツールバーのボタンのアイコンを定義](how-to-define-an-icon-for-a-toolbar-button-using-the-designer.md)する」、「[方法: デザイナーを使用してツールバーコントロールにボタンを追加](how-to-add-buttons-to-a-toolbar-control-using-the-designer.md)する」も参照してください。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.ToolBar> クラス  
  クラスとそのメンバーに関するリファレンス情報を提供します。  
   

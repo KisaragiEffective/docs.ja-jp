@@ -12,7 +12,7 @@
           href: interface-definition-language.md
         - name: ネットワーク プロトコル
           href: network-protocols.md
-        - name: WCF 開発者に gRPC が推奨される理由
+        - name: WCF 開発者に gRPC を推奨する理由
           href: Why-grpc.md
     - name: プロトコル バッファー
       href: protocol-buffers.md
@@ -79,7 +79,7 @@
           href: docker.md
         - name: Kubernetes
           href: kubernetes.md
-        - name: gRPC とサービス メッシュ
+        - name: サービス メッシュ
           href: service-mesh.md
         - name: 負荷分散
           href: load-balancing.md

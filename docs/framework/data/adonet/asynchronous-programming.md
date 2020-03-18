@@ -2,12 +2,12 @@
 title: 非同期プログラミング
 ms.date: 10/18/2018
 ms.assetid: 85da7447-7125-426e-aa5f-438a290d1f77
-ms.openlocfilehash: ae6153f9613be7723d7e750ed6969ea550ad4af7
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 7bf492e45a9ebabdd36caa8e21605739bb410695
+ms.sourcegitcommit: 7e2128d4a4c45b4274bea3b8e5760d4694569ca1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70785001"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75937590"
 ---
 # <a name="asynchronous-programming"></a>非同期プログラミング
 
@@ -15,7 +15,7 @@ ms.locfileid: "70785001"
 
 ## <a name="legacy-asynchronous-programming"></a>従来の非同期プログラミング
 
-.NET Framework 4.5 より前の場合、SqlClient を使用した非同期プログラミングは、次`Asynchronous Processing=true`のメソッドと接続プロパティを使用して行われました。
+.NET Framework 4.5 より前の場合、SqlClient を使用した非同期プログラミングは、次のメソッドと `Asynchronous Processing=true` 接続プロパティを使用して行われました。
 
 1. <xref:System.Data.SqlClient.SqlCommand.BeginExecuteNonQuery%2A?displayProperty=nameWithType>
 
@@ -26,7 +26,7 @@ ms.locfileid: "70785001"
 この機能は .NET Framework 4.5 の SqlClient に残されています。
 
 > [!TIP]
-> .NET Framework 4.5 以降では、これらのレガシメソッド`Asynchronous Processing=true`は接続文字列では不要になりました。
+> .NET Framework 4.5 以降では、これらのレガシメソッドは、接続文字列で `Asynchronous Processing=true` する必要がなくなりました。
 
 ## <a name="asynchronous-programming-features-added-in-net-framework-45"></a>.NET Framework 4.5 で追加された非同期プログラミング機能
 
@@ -38,15 +38,15 @@ ms.locfileid: "70785001"
 
 - [Async および Await を使用した非同期プログラミング (Visual Basic)](../../../visual-basic/programming-guide/concepts/async/index.md)
 
-- [.NET 4.5 での SqlDataReader の新しい非同期メソッドの使用 (パート 1)](https://blogs.msdn.microsoft.com/adonet/2012/04/20/using-sqldatareaders-new-async-methods-in-net-4-5/)
+- [.NET 4.5 での SqlDataReader の新しい非同期メソッドの使用 (パート 1)](https://docs.microsoft.com/archive/blogs/adonet/using-sqldatareaders-new-async-methods-in-net-4-5)
 
-- [.NET 4.5 での SqlDataReader の新しい非同期メソッドの使用 (パート 2)](https://blogs.msdn.microsoft.com/adonet/2012/07/15/using-sqldatareaders-new-async-methods-in-net-4-5-part-2-examples/)
+- [.NET 4.5 での SqlDataReader の新しい非同期メソッドの使用 (パート 2)](https://docs.microsoft.com/archive/blogs/adonet/using-sqldatareaders-new-async-methods-in-net-4-5-part-2-examples)
 
 ユーザー インターフェイスが応答しない場合やサーバーのパフォーマンスが向上しない場合は、コードをさらに非同期にする必要がある可能性があります。 非同期コードの記述には、従来、非同期操作の完了後に発生するロジックを表すコールバック (または継続とも呼ばれます) のインストールが伴っていました。 これにより、同期コードと比較して、非同期コードの構造は複雑になります。
 
 現在は、コールバックを使用したり、コードを複数のメソッドやラムダ式で分割したりせずに、非同期メソッドを呼び出すことができるようになりました。
 
-`async` 修飾子はメソッドが非同期であることを示します。 `async` メソッドを呼び出すと、タスクが返されます。 `await`演算子がタスクに適用されると、現在のメソッドはすぐに終了します。 タスクが終了すると、同じメソッド内で実行が再開されます。
+`async` 修飾子はメソッドが非同期であることを示します。 `async` メソッドを呼び出すと、タスクが返されます。 `await` 演算子がタスクに適用されると、現在のメソッドはすぐに終了します。 タスクが終了すると、同じメソッド内で実行が再開されます。
 
 > [!WARNING]
 > 非同期呼び出しは、アプリケーションで `Context Connection` 接続文字列キーワードも使用されている場合はサポートされません。
@@ -92,7 +92,7 @@ ms.locfileid: "70785001"
  [SqlClient ストリーミングサポート](sqlclient-streaming-support.md)をサポートするために、他の非同期メンバーが追加されました。
 
 > [!TIP]
-> 新しい非同期メソッドは、接続`Asynchronous Processing=true`文字列には必要ありません。
+> 新しい非同期メソッドでは、接続文字列に `Asynchronous Processing=true` は必要ありません。
 
 ### <a name="synchronous-to-asynchronous-connection-open"></a>同期から非同期接続を開く
 
@@ -643,7 +643,7 @@ namespace SqlBulkCopyAsyncCodeSample {
 この例では、 **AdventureWorks**データベースへの単一の接続を開きます。 <xref:System.Data.SqlClient.SqlCommand> オブジェクトを使用して、<xref:System.Data.SqlClient.SqlDataReader> が作成されます。 リーダーが使用されると、2 番目の <xref:System.Data.SqlClient.SqlDataReader> リーダーが開かれます。このとき、最初の <xref:System.Data.SqlClient.SqlDataReader> から取得したデータが 2 番目のリーダーの WHERE 句に入力されます。
 
 > [!NOTE]
-> 次の例では、SQL Server に含まれるサンプルの**AdventureWorks**データベースを使用します。 サンプル コードの接続文字列は、データベースがローカルのコンピューターにインストールされて利用可能な状態になっていることを前提としています。 必要に応じて、お使いの環境に合わせて接続文字列を変更してください。
+> 次の例では、SQL Server に含まれるサンプルの **AdventureWorks** データベースを使用します。 サンプル コードの接続文字列は、データベースがローカルのコンピューターにインストールされて利用可能な状態になっていることを前提としています。 必要に応じて、お使いの環境に合わせて接続文字列を変更してください。
 
 ```csharp
 using System;
@@ -711,12 +711,12 @@ class Class1 {
 
 ## <a name="asynchronously-reading-and-updating-data-with-mars"></a>MARS を使用してデータの読み取りと更新を非同期的に行う
 
-MARS を使用すると、複数の保留中の操作について、読み取り操作と DML (データ操作言語) 操作の両方で 1 つの接続を使用することができます。 この機能により、アプリケーションで接続ビジー エラーを処理する必要がなくなります。 さらに、MARS ではサーバー側カーソルのユーザーを置き換えることができます。通常、この処理は多くのリソースを消費します。 最後に、複数の操作を1つの接続で実行できるため、同じトランザクションコンテキストを共有して、 **sp_getbindtoken**および**sp_bindsession**システムストアドプロシージャを使用する必要がなくなります。
+MARS を使用すると、複数の保留中の操作について、読み取り操作と DML (データ操作言語) 操作の両方で 1 つの接続を使用することができます。 この機能により、アプリケーションで接続ビジー エラーを処理する必要がなくなります。 さらに、MARS ではサーバー側カーソルのユーザーを置き換えることができます。通常、この処理は多くのリソースを消費します。 最後に、複数の操作を単一の接続で実行できるので、同じトランザクション コンテキストを共有することにより、システムのストアド プロシージャである **sp_getbindtoken** と **sp_bindsession** を使用する必要がなくなります。
 
-次のコンソール アプリケーションでは、2 つの <xref:System.Data.SqlClient.SqlDataReader> オブジェクトを 3 つの <xref:System.Data.SqlClient.SqlCommand> オブジェクトと使用する方法、および 1 つの <xref:System.Data.SqlClient.SqlConnection> オブジェクトを MARS を有効にして使用する方法について示します。 最初のコマンド オブジェクトでは、格付けが 5 のベンダーの一覧を取得します。 2 番目のコマンド オブジェクトでは、<xref:System.Data.SqlClient.SqlDataReader> から提供されるベンダー ID を使用して特定のベンダーのすべての製品について 2 番目の <xref:System.Data.SqlClient.SqlDataReader> を読み取ります。 各製品のレコードは、2 番目の <xref:System.Data.SqlClient.SqlDataReader> によってアクセスされます。 計算は、新しい**Onorderqty**を決定するために実行されます。 3番目のコマンドオブジェクトを使用して、 **Productvendor**テーブルを新しい値で更新します。 このプロセスはすべて単一のトランザクションで行われ、最後にロールバックされます。
+次のコンソール アプリケーションでは、2 つの <xref:System.Data.SqlClient.SqlDataReader> オブジェクトを 3 つの <xref:System.Data.SqlClient.SqlCommand> オブジェクトと使用する方法、および 1 つの <xref:System.Data.SqlClient.SqlConnection> オブジェクトを MARS を有効にして使用する方法について示します。 最初のコマンド オブジェクトでは、格付けが 5 のベンダーの一覧を取得します。 2 番目のコマンド オブジェクトでは、<xref:System.Data.SqlClient.SqlDataReader> から提供されるベンダー ID を使用して特定のベンダーのすべての製品について 2 番目の <xref:System.Data.SqlClient.SqlDataReader> を読み取ります。 各製品のレコードは、2 番目の <xref:System.Data.SqlClient.SqlDataReader> によってアクセスされます。 計算が実行され、新規 **OnOrderQty** を判定します。 3 番目のコマンド オブジェクトでは、**ProductVendor** テーブルを新しい値で更新します。 このプロセスはすべて単一のトランザクションで行われ、最後にロールバックされます。
 
 > [!NOTE]
-> 次の例では、SQL Server に含まれるサンプルの**AdventureWorks**データベースを使用します。 サンプル コードの接続文字列は、データベースがローカルのコンピューターにインストールされて利用可能な状態になっていることを前提としています。 必要に応じて、お使いの環境に合わせて接続文字列を変更してください。
+> 次の例では、SQL Server に含まれるサンプルの **AdventureWorks** データベースを使用します。 サンプル コードの接続文字列は、データベースがローカルのコンピューターにインストールされて利用可能な状態になっていることを前提としています。 必要に応じて、お使いの環境に合わせて接続文字列を変更してください。
 
 ```csharp
 using System;

@@ -1,5 +1,6 @@
 ---
-title: LoadFromHistory 関数 (WPF のアンマネージ API リファレンス)
+title: LoadFromHistory 関数-WPF アンマネージ API リファレンス
+titleSuffix: ''
 ms.date: 03/30/2017
 dev_langs:
 - cpp
@@ -8,17 +9,17 @@ api_name:
 api_location:
 - PresentationHost_v0400.dll
 ms.assetid: d037c062-a911-4949-b251-ccd3e48b1d17
-ms.openlocfilehash: a4480d54390aea2771e2939b0a0825f6c49c3564
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 7807e073d1f09ac6a6213aee6d86d53cc75a3c56
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61766133"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727934"
 ---
-# <a name="loadfromhistory-function-wpf-unmanaged-api-reference"></a>LoadFromHistory 関数 (WPF のアンマネージ API リファレンス)
-この API は、Windows Presentation Foundation (WPF) インフラストラクチャをサポートしているし、コードから直接使用するものではありません。  
+# <a name="loadfromhistory-function-wpf-unmanaged-api-reference"></a>LoadFromHistory 関数 (WPF アンマネージ API リファレンス)
+この API は、Windows Presentation Foundation (WPF) インフラストラクチャをサポートします。独自に作成したコードから直接使用するためのものではありません。  
   
- Windows Presentation Foundation (WPF) インフラストラクチャによって windows の管理に使用します。  
+ Windows management の Windows Presentation Foundation (WPF) インフラストラクチャで使用されます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -34,19 +35,19 @@ HRESULT LoadFromHistory_export(
  履歴情報のストリームへのポインター。  
   
  pBindCtx  
- バインド コンテキストへのポインター。  
+ バインドコンテキストへのポインター。  
   
 ## <a name="requirements"></a>必要条件  
- **プラットフォーム:** 参照してください[.NET Framework システム要件](../../get-started/system-requirements.md)します。  
+ **プラットフォーム:** 「 [.NET Framework のシステム要件](../../get-started/system-requirements.md)」を参照してください。  
   
- **DLL:**  
+ **DLL**  
   
- .NET framework 3.0 および 3.5。PresentationHostDLL.dll  
+ .NET Framework 3.0 と 3.5: プレゼンテーション Hostdll .dll  
   
- .NET framework 4 以降では。PresentationHost_v0400.dll  
+ .NET Framework 4 以降: PresentationHost_v0400 .dll  
   
- **.NET framework のバージョン:** [!INCLUDE[net_current_v30plus](../../../../includes/net-current-v30plus-md.md)]  
+ **.NET Framework のバージョン:** [!INCLUDE[net_current_v30plus](../../../../includes/net-current-v30plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [WPF のアンマネージ API リファレンス](wpf-unmanaged-api-reference.md)

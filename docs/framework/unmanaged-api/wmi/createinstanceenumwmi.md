@@ -14,14 +14,12 @@ helpviewer_keywords:
 - CreateInstanceEnumWmi function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b7709d9c50a494013ece2f91b3acc213278f0e57
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 9ffa718be0e8b67471fdf8cb277df201388d2840
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798906"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130404"
 ---
 # <a name="createinstanceenumwmi-function"></a>CreateInstanceEnumWmi 関数
 
@@ -54,7 +52,7 @@ HRESULT CreateInstanceEnumWmi (
 `lFlags`\
 からこの関数の動作に影響を与えるフラグの組み合わせ。 次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_FLAG_USE_AMENDED_QUALIFIERS` | 0x20000 | 設定すると、関数は、現在の接続のロケールのローカライズされた名前空間に格納されている修正された修飾子を取得します。 <br/> 設定されていない場合、関数は、イミディエイト名前空間に格納されている修飾子だけを取得します。 |
 | `WBEM_FLAG_DEEP` | 0 | 列挙体には、階層内のこのおよびすべてのサブクラスが含まれます。 |
@@ -63,10 +61,10 @@ HRESULT CreateInstanceEnumWmi (
 | `WBEM_FLAG_FORWARD_ONLY` | 0x20 | 関数は、順方向専用の列挙子を返します。 通常、順方向専用の列挙子は、従来の列挙子よりも高速で使用されるメモリが少なくなりますが、[複製](clone.md)の呼び出しは許可されません。 |
 | `WBEM_FLAG_BIDIRECTIONAL` | 0 | WMI は、列挙体が解放されるまで、そのオブジェクトへのポインターを保持します。 |
 
-最適なパフォーマンスを`WBEM_FLAG_RETURN_IMMEDIATELY`得る`WBEM_FLAG_FORWARD_ONLY`ために、推奨されるフラグはとです。
+最適なパフォーマンスを得るために、推奨されるフラグは `WBEM_FLAG_RETURN_IMMEDIATELY` と `WBEM_FLAG_FORWARD_ONLY` です。
 
 `pCtx`\
-から通常、この値は`null`です。 それ以外の場合は、要求されたインスタンスを提供しているプロバイダーによって使用される可能性のある[IWbemContext](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemcontext)インスタンスへのポインターです。
+から通常、この値は `null`です。 それ以外の場合は、要求されたインスタンスを提供しているプロバイダーによって使用される可能性のある[IWbemContext](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemcontext)インスタンスへのポインターです。
 
 `ppEnum`\
 入出力列挙子へのポインターを受け取ります。
@@ -93,7 +91,7 @@ HRESULT CreateInstanceEnumWmi (
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_E_ACCESS_DENIED` | 0x80041003 | 指定されたクラスのインスタンスを表示する権限がユーザーにありません。 |
 | `WBEM_E_FAILED` | 0x80041001 | 特定できないエラーが発生しました。 |
@@ -112,9 +110,9 @@ HRESULT CreateInstanceEnumWmi (
 
 関数呼び出しが失敗した場合は、 [GetErrorInfo](geterrorinfo.md)関数を呼び出して追加のエラー情報を取得できます。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** WMINet_Utils
 

@@ -1,17 +1,15 @@
 ---
-title: <Assembly>要素 (.NET ネイティブ)
+title: <Assembly> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: cfe629eb-1106-4113-86e1-052f402d8d8b
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1743264996680c6a0ce308619d7a5bafef5d07a5
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: bad2286c5306b9f8a8955ebef12e5e99aec5bb89
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049914"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128510"
 ---
-# <a name="assembly-element-net-native"></a>\<Assembly > 要素 (.NET ネイティブ)
+# <a name="assembly-element-net-native"></a>Assembly > 要素の \<(.NET ネイティブ)
 指定したアセンブリ内のすべての型にランタイム リフレクション ポリシーを適用します。  
   
 ## <a name="syntax"></a>構文  
@@ -51,13 +49,13 @@ ms.locfileid: "71049914"
   
 ## <a name="name-attribute"></a>Name 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*assembly_name*|ファイル拡張子のないアセンブリの簡易名です。 この属性は、<xref:System.Reflection.AssemblyName.Name%2A?displayProperty=nameWithType> プロパティに対応します。 たとえば、Extensions.dll というアセンブリの名前は "Extensions" です。<br /><br /> リテラル文字列 `*Application*` を指定して、アプリ パッケージ内のすべてのアセンブリに、読み込みの有無に関係なくポリシーを適用することもできます。 `*Application*` は、.NET Framework アセンブリにポリシーを適用しません。|  
   
 ## <a name="all-other-attributes"></a>その他すべての属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*policy_setting*|アセンブリ内のすべての型について、このポリシーの種類に適用する設定です。 指定できる値は、`All`、`Auto`、`Excluded`、`Public`、`PublicAndInternal`、`Required Public`、`Required PublicAndInternal`、および `Required All` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|  
   

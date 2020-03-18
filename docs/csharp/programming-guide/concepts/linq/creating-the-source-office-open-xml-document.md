@@ -3,10 +3,10 @@ title: ソースとなる Office Open XML ドキュメントの作成 (C#)
 ms.date: 07/20/2015
 ms.assetid: 653c8cdb-73be-4dc2-927f-924cfb4ed9ed
 ms.openlocfilehash: d6c4d8866bba58e86735099a62041894a9faa9b1
-ms.sourcegitcommit: 2d792961ed48f235cf413d6031576373c3050918
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "70204161"
 ---
 # <a name="creating-the-source-office-open-xml-document-c"></a>ソースとなる Office Open XML ドキュメントの作成 (C#)

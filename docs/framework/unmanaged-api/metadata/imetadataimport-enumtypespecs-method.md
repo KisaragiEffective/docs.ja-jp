@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 75331c7b-988b-436c-9eb9-a270d37b4f06
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 81592b6da7fa7cdf275e9fa5b4b82ef0a15061c0
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 42b8360ac6a7bb62f29046475d6cc98124619770
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67782568"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74449973"
 ---
 # <a name="imetadataimportenumtypespecs-method"></a>IMetaDataImport::EnumTypeSpecs メソッド
 現在のメタデータ スコープに定義されている TypeSpec トークンを列挙します。  
@@ -40,33 +38,33 @@ HRESULT EnumTypeSpecs (
   
 ## <a name="parameters"></a>パラメーター  
  `phEnum`  
- [入力、出力]列挙子へのポインター。 この値では、このメソッドの最初の呼び出しは、NULL にする必要があります。  
+ [入力、出力]列挙子へのポインター。 このメソッドの最初の呼び出しでは、この値は NULL である必要があります。  
   
  `rTypeSpecs`  
- [out]TypeSpec トークンを格納するために使用する配列。  
+ 入出力TypeSpec トークンを格納するために使用される配列。  
   
  `cMax`  
  [in] `rTypeSpecs` 配列の最大サイズ。  
   
  `pcTypeSpecs`  
- [out]返される TypeSpec トークン数`rTypeSpecs`します。  
+ 入出力`rTypeSpecs`で返された TypeSpec トークンの数。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|`S_OK`|`EnumTypeSpecs` 正常に返されます。|  
-|`S_FALSE`|トークンを列挙することはありません。 その場合は、`pcTypeSpecs`は 0 です。|  
+|`S_OK`|`EnumTypeSpecs` が正常に返されました。|  
+|`S_FALSE`|列挙するトークンがありません。 この場合、`pcTypeSpecs` は0になります。|  
   
-## <a name="remarks"></a>Remarks  
- TypeSpec トークンがによって作成された、 [imetadataemit::gettokenfromtypespec](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-gettokenfromtypespec-method.md)メソッド。  
+## <a name="remarks"></a>コメント  
+ TypeSpec トークンは、 [IMetaDataEmit:: GetTokenFromTypeSpec](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-gettokenfromtypespec-method.md)メソッドによって作成されます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

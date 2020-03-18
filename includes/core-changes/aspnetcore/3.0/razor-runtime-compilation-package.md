@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 8479168b64153d3c729f8814a2649df8d46f2135
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: cd13e7560ee98e0c862c5e2293521c6aaa273455
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72394431"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75344316"
 ---
 ### <a name="razor-runtime-compilation-moved-to-a-package"></a>Razor: 実行時コンパイルをパッケージに移動
 
@@ -20,12 +20,12 @@ Razor ビューおよび Razor Pages の実行時コンパイルのサポート�
 
 #### <a name="new-behavior"></a>新しい動作
 
-この機能は、`Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` パッケージに移動されました。
+この機能は [Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) パッケージに移動されました。
 
 次の API は、実行時コンパイルをサポートするために、以前は `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions` で使用できました。 これらの API は、`Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.MvcRazorRuntimeCompilationOptions` を介して使用できるようになりました。
 
-- `RazorViewEngineOptions.FileProviders` -> `MvcRazorRuntimeCompilationOptions.FileProviders`
-- `RazorViewEngineOptions.AdditionalCompilationReferences` -> `MvcRazorRuntimeCompilationOptions.AdditionalReferencePaths`
+- `RazorViewEngineOptions.FileProviders` は、現在 `MvcRazorRuntimeCompilationOptions.FileProviders` です
+- `RazorViewEngineOptions.AdditionalCompilationReferences` は、現在 `MvcRazorRuntimeCompilationOptions.AdditionalReferencePaths` です
 
 また、`Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange` が削除されました。 ファイルの変更時の再コンパイルは、`Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` パッケージを参照することによって既定で有効になります。
 
@@ -33,16 +33,16 @@ Razor ビューおよび Razor Pages の実行時コンパイルのサポート�
 
 この変更は、ASP.NET Core 共有フレームワークの Roslyn への依存関係を削除するために必要でした。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 Razor ファイルの実行時コンパイルまたは再コンパイルを必要とするアプリでは、次の手順を実行する必要があります。
 
 1. `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` パッケージへの参照を追加します。
-1. プロジェクトの `Startup.ConfigureServices` メソッドを更新して、`AddMvcRazorRuntimeCompilation` の呼び出しを含めます。 たとえば、`Startup.ConfigureServices` では次のようにします。
+1. プロジェクトの `Startup.ConfigureServices` メソッドを更新して、`AddRazorRuntimeCompilation` の呼び出しを含めます。 次に例を示します。
 
     ```csharp
     services.AddMvc()
-        .AddMvcRazorRuntimeCompilation();
+        .AddRazorRuntimeCompilation();
     ```
 
 #### <a name="category"></a>カテゴリ

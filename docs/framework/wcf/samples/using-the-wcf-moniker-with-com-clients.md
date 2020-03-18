@@ -2,12 +2,12 @@
 title: WCF モニカーの COM クライアントと組み合わせての使用
 ms.date: 03/30/2017
 ms.assetid: e2799bfe-88bd-49d7-9d6d-ac16a9b16b04
-ms.openlocfilehash: 2836b8c034a62602822ca629189e38eff818180a
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 281921bf42910086b874194cb2d8b56fbf71e671
+ms.sourcegitcommit: 8c99457955fc31785b36b3330c4ab6ce7984a7ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70038725"
+ms.lasthandoff: 12/29/2019
+ms.locfileid: "75544697"
 ---
 # <a name="using-the-wcf-moniker-with-com-clients"></a>WCF モニカーの COM クライアントと組み合わせての使用
 このサンプルでは、Windows Communication Foundation (WCF) サービスモニカーを使用して、Microsoft Office Visual Basic for Applications (Office VBA) や Visual Basic 6.0 などの COM ベースの開発環境に Web サービスを統合する方法を示します。 このサンプルは、Windows スクリプト ホストのクライアント (.vbs)、サポート クライアント ライブラリ (.dll)、およびインターネット インフォメーション サービス (IIS) でホストされるサービス ライブラリ (.dll) で構成されています。 このサービスは電卓サービスの 1 つであり、COM クライアントはサービスの算術演算 (Add、Subtract、Multiply、および Divide) を呼び出します。 クライアント アクティビティは、メッセージ ボックス ウィンドウに表示されます。  
@@ -20,7 +20,7 @@ ms.locfileid: "70038725"
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Services\Interop\COM`  
   
@@ -70,7 +70,7 @@ regasm.exe /tlb:CalcProxy.tlb client.dll
   
  作成されたアセンブリは、グローバル アセンブリ キャッシュに追加する必要があります。 必要性は強くありませんが、これによってアセンブリを検索するランタイムのプロセスが簡略化されます。 グローバル アセンブリ キャッシュにアセンブリを追加するコマンドを次に示します。  
   
-```  
+```console  
 gacutil.exe /i client.dll  
 ```  
   
@@ -191,17 +191,17 @@ WScript.Echo "MEX service moniker: 9 * 81.25 = " & mexServiceMoniker.Multiply(9,
 3. Visual Studio の開発者コマンドプロンプトで、言語固有のフォルダーの下にある \ client\bin フォルダーを開きます。  
   
     > [!NOTE]
-    > [!INCLUDE[wv](../../../../includes/wv-md.md)]、[!INCLUDE[lserver](../../../../includes/lserver-md.md)]、Windows 7、または Windows Server 2008 R2 を使用している場合は、コマンド プロンプトを管理者権限で実行する必要があります。  
+    > Windows Vista、Windows Server 2008、Windows 7、または Windows Server 2008 R2 を使用している場合は、管理者特権でコマンドプロンプトを実行してください。  
   
-4. 「」 `tlbexp.exe client.dll /out:CalcProxy.tlb`と入力して、dll を tlb ファイルにエクスポートします。 "タイプ ライブラリ エクスポーターの警告" が表示されることが予想されますが、ジェネリック型は不要なので問題にはなりません。  
+4. 「`tlbexp.exe client.dll /out:CalcProxy.tlb`」と入力して、dll を tlb ファイルにエクスポートします。 "タイプ ライブラリ エクスポーターの警告" が表示されることが予想されますが、ジェネリック型は不要なので問題にはなりません。  
   
-5. 型を`regasm.exe /tlb:CalcProxy.tlb client.dll` COM に登録するには、「」と入力します。 "タイプ ライブラリ エクスポーターの警告" が表示されることが予想されますが、ジェネリック型は不要なので問題にはなりません。  
+5. 型を COM に登録するには、`regasm.exe /tlb:CalcProxy.tlb client.dll` を入力します。 "タイプ ライブラリ エクスポーターの警告" が表示されることが予想されますが、ジェネリック型は不要なので問題にはなりません。  
   
-6. アセンブリを`gacutil.exe /i client.dll`グローバルアセンブリキャッシュに追加するには、「」と入力します。  
+6. アセンブリをグローバルアセンブリキャッシュに追加するには、「`gacutil.exe /i client.dll`」と入力します。  
   
 #### <a name="to-run-the-sample-on-the-same-computer"></a>サンプルを同じコンピューターで実行するには  
   
-1. 次のアドレス`http://localhost/servicemodelsamples/service.svc`を入力して、ブラウザーを使用してサービスにアクセスできることをテストします。 これに応答して、確認ページが表示されます。  
+1. 次のアドレスを入力して、ブラウザーを使用してサービスにアクセスできることをテストします: `http://localhost/servicemodelsamples/service.svc`。 これに応答して、確認ページが表示されます。  
   
 2. 言語固有のフォルダーの下の \client にある ComCalcClient.vbs を実行します。 クライアント アクティビティがメッセージ ボックス ウィンドウに表示されます。  
   
@@ -221,13 +221,13 @@ WScript.Echo "MEX service moniker: 9 * 81.25 = " & mexServiceMoniker.Multiply(9,
   
 6. Client.dll ライブラリを、言語固有のフォルダーにある \client\bin\ フォルダーからクライアント コンピューターのディレクトリにコピーします。  
   
-7. コマンド プロンプトで、クライアント コンピューターのコピー先ディレクトリに移動します。 [!INCLUDE[wv](../../../../includes/wv-md.md)] または [!INCLUDE[lserver](../../../../includes/lserver-md.md)] を使用する場合は、コマンド プロンプトを管理者として実行してください。  
+7. コマンド プロンプトで、クライアント コンピューターのコピー先ディレクトリに移動します。 Windows Vista または Windows Server 2008 を使用している場合は、管理者としてコマンドプロンプトを実行してください。  
   
-8. 「」 `tlbexp.exe client.dll /out:CalcProxy.tlb`と入力して、dll を tlb ファイルにエクスポートします。 "タイプ ライブラリ エクスポーターの警告" が表示されることが予想されますが、ジェネリック型は不要なので問題にはなりません。  
+8. 「`tlbexp.exe client.dll /out:CalcProxy.tlb`」と入力して、dll を tlb ファイルにエクスポートします。 "タイプ ライブラリ エクスポーターの警告" が表示されることが予想されますが、ジェネリック型は不要なので問題にはなりません。  
   
-9. 型を`regasm.exe /tlb:CalcProxy.tlb client.dll` COM に登録するには、「」と入力します。 コマンドを実行する前に、パスがに含ま`regasm.exe`れるフォルダーに設定されていることを確認します。  
+9. 型を COM に登録するには、`regasm.exe /tlb:CalcProxy.tlb client.dll` を入力します。 コマンドを実行する前に、パスが `regasm.exe` を含むフォルダーに設定されていることを確認してください。  
   
-10. アセンブリを`gacutil.exe /i client.dll`グローバルアセンブリキャッシュに追加するには、「」と入力します。 コマンドを実行する前に、パスがに含ま`gacutil.exe`れるフォルダーに設定されていることを確認します。  
+10. アセンブリをグローバルアセンブリキャッシュに追加するには、「`gacutil.exe /i client.dll`」と入力します。 コマンドを実行する前に、パスが `gacutil.exe` を含むフォルダーに設定されていることを確認してください。  
   
 11. ブラウザーを使用して、サービスにクライアント コンピューターからアクセスできるかどうかをテストします。  
   

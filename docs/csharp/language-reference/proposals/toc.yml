@@ -78,3 +78,5 @@
           href: ../../../../_csharplang/proposals/csharp-8.0/null-coalescing-assignment.md
         - name: 読み取り専用インスタンス メンバー
           href: ../../../../_csharplang/proposals/csharp-8.0/readonly-instance-members.md
+        - name: 入れ子になった stackalloc
+          href: ../../../../_csharplang/proposals/csharp-8.0/nested-stackalloc.md

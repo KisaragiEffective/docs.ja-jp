@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 2692a83ff351557889d4d573b6f7cddfe6739983
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "72523949"
 ---
 # <a name="voice-and-tone-guidelines"></a>スタイルとトーンのガイドライン

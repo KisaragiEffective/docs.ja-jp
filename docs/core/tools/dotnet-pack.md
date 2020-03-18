@@ -1,21 +1,17 @@
 ---
 title: dotnet pack コマンド
 description: dotnet pack コマンドでは、.NET Core プロジェクトの NuGet パッケージを作成します。
-ms.date: 08/08/2019
-ms.openlocfilehash: 99dd8e35601f82adf2a3101121028f191a4c3da4
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+ms.date: 02/14/2020
+ms.openlocfilehash: 865262f1eb314f9b7e8ee713c573a965e89ded93
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71117649"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77503648"
 ---
 # <a name="dotnet-pack"></a>dotnet pack
 
-**このトピックの対象: ✓** .NET Core 1.x SDK 以降のバージョン
-
-<!-- todo: uncomment when all CLI commands are reviewed
-[!INCLUDE [topic-appliesto-net-core-all](../../../includes/topic-appliesto-net-core-all.md)]
--->
+**この記事の対象:** ✔️ .NET Core 2.x SDK 以降のバージョン
 
 ## <a name="name"></a>name
 
@@ -24,15 +20,15 @@ ms.locfileid: "71117649"
 ## <a name="synopsis"></a>構文
 
 ```dotnetcli
-dotnet pack [<PROJECT>|<SOLUTION>] [-c|--configuration] [--force] [--include-source] [--include-symbols] [--interactive] 
-    [--no-build] [--no-dependencies] [--no-restore] [--nologo] [-o|--output] [--runtime] [-s|--serviceable] 
+dotnet pack [<PROJECT>|<SOLUTION>] [-c|--configuration] [--force] [--include-source] [--include-symbols] [--interactive]
+    [--no-build] [--no-dependencies] [--no-restore] [--nologo] [-o|--output] [--runtime] [-s|--serviceable]
     [-v|--verbosity] [--version-suffix]
 dotnet pack [-h|--help]
 ```
 
-## <a name="description"></a>説明
+## <a name="description"></a>[説明]
 
-`dotnet pack` コマンドはプロジェクトをビルドし、NuGet パッケージを作成します。 このコマンドの結果が NuGet パッケージ (つまり、 *.nupkg* ファイル) です。 
+`dotnet pack` コマンドはプロジェクトをビルドし、NuGet パッケージを作成します。 このコマンドの結果が NuGet パッケージ (つまり、 *.nupkg* ファイル) です。
 
 デバッグ シンボルを含むパッケージを生成する場合、使用可能なオプションが 2 つあります。
 
@@ -63,13 +59,13 @@ Web プロジェクトは既定でパッケージ化可能ではありません�
 
 ## <a name="options"></a>オプション
 
-- **`-c|--configuration {Debug|Release}`**
+- **`-c|--configuration <CONFIGURATION>`**
 
-  ビルド構成を定義します。 既定値は `Debug` です。
+  ビルド構成を定義します。 ほとんどのプロジェクトの既定値は `Debug` ですが、プロジェクトでビルド構成設定をオーバーライドできます。
 
 - **`--force`**
 
-  最後の復元が成功した場合でも、すべての依存関係が強制的に解決されます。 このフラグを指定することは、*project.assets.json* ファイルを削除することと同じです。 .NET Core 2.0 SDK 以降、使用できるオプションです。
+  最後の復元が成功した場合でも、すべての依存関係が強制的に解決されます。 このフラグを指定することは、*project.assets.json* ファイルを削除することと同じです。
 
 - **`-h|--help`**
 
@@ -93,11 +89,11 @@ Web プロジェクトは既定でパッケージ化可能ではありません�
 
 - **`--no-dependencies`**
 
-  プロジェクト間参照を無視し、ルート プロジェクトのみを復元します。 .NET Core 2.0 SDK 以降、使用できるオプションです。
+  プロジェクト間参照を無視し、ルート プロジェクトのみを復元します。
 
 - **`--no-restore`**
 
-  コマンドを実行するときに、暗黙的な復元を実行しません。 .NET Core 2.0 SDK 以降、使用できるオプションです。
+  コマンドを実行するときに、暗黙的な復元を実行しません。
 
 - **`--nologo`**
 
@@ -109,7 +105,7 @@ Web プロジェクトは既定でパッケージ化可能ではありません�
 
 - **`--runtime <RUNTIME_IDENTIFIER>`**
 
-  パッケージを復元するターゲット ランタイムを指定します。 ランタイム ID (RID) の一覧については、[RID カタログ](../rid-catalog.md)に関するページをご覧ください。 .NET Core 2.0 SDK 以降、使用できるオプションです。
+  パッケージを復元するターゲット ランタイムを指定します。 ランタイム ID (RID) の一覧については、[RID カタログ](../rid-catalog.md)に関するページをご覧ください。
 
 - **`-s|--serviceable`**
 
@@ -123,7 +119,7 @@ Web プロジェクトは既定でパッケージ化可能ではありません�
 
   コマンドの詳細レベルを設定します。 指定できる値は、`q[uiet]`、`m[inimal]`、`n[ormal]`、`d[etailed]`、および `diag[nostic]` です。
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 - 現在のディレクトリのプロジェクトをパックします。
 
@@ -149,13 +145,13 @@ Web プロジェクトは既定でパッケージ化可能ではありません�
   dotnet pack --no-build --output nupkgs
   ```
 
-- *.csproj* ファイルで `<VersionSuffix>$(VersionSuffix)</VersionSuffix>` として構成されているプロジェクトのバージョン サフィックスで、現在のプロジェクトをパックし、結果のパッケージ バージョンを指定されたサフィックスで更新します。
+- `<VersionSuffix>$(VersionSuffix)</VersionSuffix>`.csproj*ファイルで* として構成されているプロジェクトのバージョン サフィックスで、現在のプロジェクトをパックし、結果のパッケージ バージョンを指定されたサフィックスで更新します。
 
   ```dotnetcli
   dotnet pack --version-suffix "ci-1234"
   ```
 
-- `PackageVersion` MSBuild プロパティで `2.1.0` にパッケージ バージョンを設定します。
+- `2.1.0` MSBuild プロパティで `PackageVersion` にパッケージ バージョンを設定します。
 
   ```dotnetcli
   dotnet pack -p:PackageVersion=2.1.0
@@ -167,7 +163,7 @@ Web プロジェクトは既定でパッケージ化可能ではありません�
   dotnet pack -p:TargetFrameworks=net45
   ```
 
-- プロジェクトをパックして、復元操作の特定のランタイム (Windows 10) を使用します(.NET Core SDK 2.0 以降のバージョン)。
+- プロジェクトをパックして、復元操作用の特定のランタイム (Windows 10) を使用する:
 
   ```dotnetcli
   dotnet pack --runtime win10-x64

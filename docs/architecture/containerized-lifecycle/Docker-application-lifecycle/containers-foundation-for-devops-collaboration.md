@@ -2,12 +2,12 @@
 title: DevOps コラボレーションの基盤としてのコンテナー
 description: DevOps を効率化するコンテナーの重要な役割を理解します。
 ms.date: 02/15/2019
-ms.openlocfilehash: 16cccef0545f0da14128e31dc8f7ad78369cf23a
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 8258f4331212d92376d64fef318adcdff492f61f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72394801"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73094500"
 ---
 # <a name="containers-as-the-foundation-for-devops-collaboration"></a>DevOps コラボレーションの基盤としてのコンテナー
 
@@ -51,7 +51,7 @@ Docker のコンテナー化とマイクロサービスを使用することで�
 
 - Microsoft Azure でコンテナー用のオープンソースのツールやプラットフォームを使用するにはどうすればよいですか?
 
-これらのすべての質問に答えることができれば、ご利用のアプリケーション (既存または新規のアプリ) を Docker コンテナーに移動する準備が整います。 
+これらのすべての質問に答えることができれば、ご利用のアプリケーション (既存または新規のアプリ) を Docker コンテナーに移動する準備が整います。
 
 ## <a name="introduction-to-a-generic-end-to-end-docker-application-life-cycle-workflow"></a>一般的なエンドツーエンドの Docker アプリケーション ライフ サイクル ワークフローの概要
 

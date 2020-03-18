@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: a656aad6-cc7e-4994-8251-004a6a45e18f
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 906b5ef2795d8fad996185f66f145a8cd3618c41
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 086e17185df9caa823b44b51cf027f95d635c48d
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781812"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74450275"
 ---
 # <a name="corlinkeroptions-enumeration"></a>CorLinkerOptions 列挙型
 メタデータ リンカーのオプションを選択するためのフラグを指定します。  
@@ -42,13 +40,13 @@ typedef enum CorLinkerOptions {
 |`MDAssembly`|プライベート型とグローバル関数は保持されません。|  
 |`MDNetModule`|プライベート型とグローバル関数が保持されます。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

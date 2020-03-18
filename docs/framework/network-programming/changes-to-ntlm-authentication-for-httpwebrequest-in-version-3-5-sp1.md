@@ -3,10 +3,10 @@ title: バージョン 3.5 SP1 における HttpWebRequest の NTLM 認証への
 ms.date: 03/30/2017
 ms.assetid: 8bf0b428-5a21-4299-8d6e-bf8251fd978a
 ms.openlocfilehash: 388e6dc648e1fd68e24a852cb08de107f09f9c9f
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "64754881"
 ---
 # <a name="changes-to-ntlm-authentication-for-httpwebrequest-in-version-35-sp1"></a>バージョン 3.5 SP1 における HttpWebRequest の NTLM 認証への変更
@@ -19,7 +19,7 @@ ms.locfileid: "64754881"
 
 <xref:System.Net> 名前空間と <xref:System.Net.Security> 名前空間内の複数のコンポーネントは、呼び出し元のアプリケーションに代わって統合 Windows 認証を実行します。 このセクションでは、統合 Windows 認証の使用で拡張保護を追加するための System.Net コンポーネントへの変更について説明します。
 
-## <a name="changes"></a>変更内容
+## <a name="changes"></a>[変更点]
 
 統合 Windows 認証で使用される NTLM 認証プロセスには、クライアント コンピューターに送り返される、ターゲット コンピューターによって発行されるチャレンジが含まれています。 コンピューター自体が生成したチャレンジをコンピューターが受け取った場合、接続がループ バック接続 (たとえば、IPv4 アドレス 127.0.0.1) でない限り、認証は失敗します。
 
@@ -53,7 +53,7 @@ Version 3.5 SP1 の既定では、<xref:System.Net.AuthenticationManager.CustomT
 
 <https://support.microsoft.com/kb/896861> で説明されているように、あまり安全ではない回避策はループ バック チェックを無効にすることです。 これによって、リフレクション攻撃に対する保護が無効になります。 そのため、実際に使用するコンピューターと想定するコンピューターにのみ、代替名のセットを制限することをお勧めします。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Net.AuthenticationManager.CustomTargetNameDictionary%2A?displayProperty=nameWithType>
 - <xref:System.Net.HttpRequestHeader?displayProperty=nameWithType>

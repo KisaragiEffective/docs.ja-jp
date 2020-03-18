@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 67985a22-88a2-4c54-8d99-4bcde9d6213e
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 323e53c45a26d5703548ebe9863978f6d3929f0b
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 63719d0c6e13768e9dc7ed80e52e2a293e32a8a1
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70787484"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74449348"
 ---
 # <a name="getalinkmessagedll-function"></a>GetALinkMessageDll 関数
 メッセージ DLL を検索して読み込みます。 メッセージ DLL が見つからないか、または読み込むことができなかった場合は0を返します。 メッセージ DLL は、名前が言語 ID または現在のディレクトリ内のサブディレクトリにある必要があります。  
@@ -33,11 +31,11 @@ ms.locfileid: "70787484"
 HINSTANCE WINAPI GetALinkMessageDll();  
 ```  
   
-## <a name="requirements"></a>必要条件  
+## <a name="requirements"></a>要件  
  **ヘッダー:** alink  
   
  **ライブラリ**: alink  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Al.exe (アセンブリ リンカー)](../../tools/al-exe-assembly-linker.md)

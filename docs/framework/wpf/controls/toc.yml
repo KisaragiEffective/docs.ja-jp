@@ -394,8 +394,8 @@
       items:
         - name: スタイルとテンプレート
           href: styling-and-templating.md
-        - name: ControlTemplate の作成による既存のコントロールの外観のカスタマイズ
-          href: customizing-the-appearance-of-an-existing-control.md
+        - name: ControlTemplate を使用した既存のコントロールのカスタマイズ
+          href: ../../../desktop-wpf/themes/how-to-create-apply-template.md
         - name: '方法: ControlTemplate によって生成された要素を検索する'
           href: how-to-find-controltemplate-generated-elements.md
     - name: コントロールのカスタマイズ

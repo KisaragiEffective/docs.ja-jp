@@ -2,12 +2,12 @@
 title: デバッグのワークフロー
 ms.date: 03/30/2017
 ms.assetid: b23b4814-ebb1-4c51-b7a9-469f4da7a96d
-ms.openlocfilehash: 3947e61161b0e2108fa48fbc7e33fb7601645a1b
-ms.sourcegitcommit: 9c3a4f2d3babca8919a1e490a159c1500ba7a844
+ms.openlocfilehash: 2bfc50215697636f1771d6bb35510fbf9e0b435d
+ms.sourcegitcommit: 32a575bf4adccc901f00e264f92b759ced633379
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72291488"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74802636"
 ---
 # <a name="debugging-workflows"></a>デバッグのワークフロー
 
@@ -19,7 +19,7 @@ ms.locfileid: "72291488"
 
 ## <a name="debugging-in-xaml"></a>XAML でのデバッグ
 
-デザイナーでワークフローがブレークポイントで一時停止すると、XAML でもワークフローをデバッグできます。 XAML での実行ポイントを表示するには、ワークフローの実行が一時停止されているときに、ワークフローデザイナーで **[Xaml ビュー]** を選択します。 デバッグをデザイナーに切り替えるには、ソリューション エクスプローラーからデザイナーでワークフローを開き直します。 詳細については、「[方法 :ワークフローデザイナー @ no__t-0 を使用して XAML をデバッグします。
+デザイナーでワークフローがブレークポイントで一時停止すると、XAML でもワークフローをデバッグできます。 XAML での実行ポイントを表示するには、ワークフローの実行が一時停止されているときに、ワークフローデザイナーで **[Xaml ビュー]** を選択します。 デバッグをデザイナーに切り替えるには、ソリューション エクスプローラーからデザイナーでワークフローを開き直します。 詳細については、「[方法: ワークフローデザイナーを使用](/visualstudio/workflow-designer/how-to-debug-xaml-with-the-workflow-designer)して XAML をデバッグする」を参照してください。
 
 ## <a name="debugging-in-code"></a>コードでのデバッグ
 
@@ -31,10 +31,10 @@ ms.locfileid: "72291488"
 
 ## <a name="remote-debugging"></a>Remote Debugging
 
-Windows Workflow Foundation (WF) リモートデバッグは、他の Visual Studio コンポーネントのリモートデバッグと同じように機能します。 リモートデバッグの使用方法の詳細については、@no__t を参照してください。リモートデバッグ @ no__t を有効にします。
+Windows Workflow Foundation (WF) リモートデバッグは、他の Visual Studio コンポーネントのリモートデバッグと同じように機能します。 リモートデバッグの使用方法の詳細については、「[方法: リモートデバッグを有効](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2010/febz73k0(v=vs.100))にする」を参照してください。
 
 > [!NOTE]
-> ワークフローアプリケーションが x86 アーキテクチャを対象としていて、64ビットオペレーティングシステムを実行しているコンピューターでホストされている場合、リモートコンピューターに Visual Studio がインストールされていない場合、またはワークフローアプリケーションのターゲットがに変更されている場合を除き、リモートデバッグは機能しません。**任意の CPU**。
+> ワークフローアプリケーションが x86 アーキテクチャを対象としていて、64ビットオペレーティングシステムを実行しているコンピューターでホストされている場合、リモートデバッグは、Visual Studio がリモートコンピューターにインストールされていない場合、またはワークフローアプリケーションのターゲットが**ANY CPU**に変更されている場合を除き、機能しません。
 
 ## <a name="extending-the-workflow-debugging-service"></a>ワークフロー デバッグ サービスの拡張
 

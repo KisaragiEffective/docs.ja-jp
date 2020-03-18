@@ -2,26 +2,26 @@
 title: WCF Web HTTP サービスのヘルプ ページ
 ms.date: 03/30/2017
 ms.assetid: 63c7c695-44b6-4f31-bb9c-00f2763f525e
-ms.openlocfilehash: 60fd909d6e7d3ba0e0c0254024ef7eb40263b59e
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 8d798c8080bf1afee87305cd00a27db2ece7e970
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62050416"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73975914"
 ---
 # <a name="wcf-web-http-service-help-page"></a>WCF Web HTTP サービスのヘルプ ページ
-[!INCLUDE[netfx_current_long](../../../../includes/netfx-current-long-md.md)] には、WCF WEB HTTP サービスの自動的なヘルプ ページが用意されています。 このヘルプ ページには、各操作の説明、要求と応答の形式、およびスキーマが一覧表示されます。 この機能は、既定では無効になっています。 ときにユーザーが WCF WEB HTTP サービスを参照し、追加します"/help"例については、URL の最後に`http://localhost:8000/Customers/Help`、ヘルプ ページが、次が表示されるようにします。  
+[!INCLUDE[netfx_current_long](../../../../includes/netfx-current-long-md.md)] には、WCF WEB HTTP サービスの自動的なヘルプ ページが用意されています。 このヘルプ ページには、各操作の説明、要求と応答の形式、およびスキーマが一覧表示されます。 この機能は、既定では無効になっています。 ユーザーが WCF WEB HTTP サービスを参照し、URL の末尾に "/Help" を追加すると (`http://localhost:8000/Customers/Help`など)、次のようなヘルプページが表示されます。  
   
- ![WCF REST ヘルプ ページを使用したブラウザーを開きます。](./media/wcf-web-http-service-help-page/windows-communication-foundation-rest-help-page.gif)  
+ ![WCF REST ヘルプページが開いているブラウザー。](./media/wcf-web-http-service-help-page/windows-communication-foundation-rest-help-page.gif)  
   
  ヘルプ ページに一覧表示されているメソッドをユーザーがクリックすると、その操作の詳細を示すページが表示され、メッセージの形式や応答例など、そのメソッドの詳細が示されます。 次の図は、メソッドのヘルプ ページの例です。  
   
- ![WCF REST ヘルプ ページの詳細、GetCustomers メソッドを使用したブラウザーを開きます。](./media/wcf-web-http-service-help-page/windows-communication-foundation-rest-help-page-detail.gif)  
+ ![GetCustomers メソッドを開くための WCF REST ヘルプページの詳細が含まれているブラウザー。](./media/wcf-web-http-service-help-page/windows-communication-foundation-rest-help-page-detail.gif)  
   
 ## <a name="using-the-wcf-web-http-help-page"></a>WCF Web HTTP ヘルプ ページの使用  
  <xref:System.ComponentModel.DescriptionAttribute> を使用して指定した場合は、WCF WEB HTTP ヘルプ ページに各操作の短い説明が表示されます。 この属性は、適用される操作の短い説明を含む文字列を取得します。 たとえば、次のコードでは、<xref:System.ComponentModel.DescriptionAttribute> を使用して短い説明を提供する方法を示しています。  
   
-```  
+```csharp
 [OperationContract]  
 [WebGet(UriTemplate="/template1", BodyStyle = WebMessageBodyStyle.Bare)]  
 [Description("Description for GET /template1")]  
@@ -47,7 +47,7 @@ SyndicationFeedFormatter GetTemplate1();
   
  WCF Web HTTP ヘルプ ページをコードで有効化するには、サービス エンドポイントを追加し、<xref:System.ServiceModel.Description.WebHttpBehavior> をエンドポイントに追加し、<xref:System.ServiceModel.Description.WebHttpBehavior.HelpEnabled%2A> を `true` に設定します。 この方法を次のコードに示します。  
   
-```  
+```csharp
 using (WebServiceHost host = new WebServiceHost(typeof(Service), new Uri("http://localhost:8000/Customers")))  
 {  
    host.AddServiceEndpoint(typeof(ICustomerCollection), new WebHttpBinding(), "");
@@ -240,4 +240,4 @@ using (WebServiceHost host = new WebServiceHost(typeof(Service), new Uri("http:/
 </xs:schema>  
 ```  
   
- データ コントラクトのシリアル化スキーマの詳細については、次を参照してください。 [Data Contract Schema Reference](../../../../docs/framework/wcf/feature-details/data-contract-schema-reference.md)します。
+ データコントラクトのシリアル化スキーマの詳細については、「[データコントラクトスキーマの参照](../../../../docs/framework/wcf/feature-details/data-contract-schema-reference.md)」を参照してください。

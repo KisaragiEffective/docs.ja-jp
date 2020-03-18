@@ -1,15 +1,13 @@
 ---
 title: WMI およびパフォーマンス カウンター (アンマネージド API リファレンス)
 description: WMI 用の .NET Framework アンマネージド API およびパフォーマンス カウンターに関する概要を示します。
-author: rpetrusha
-ms.author: ronpet
 ms.date: 11/06/2017
-ms.openlocfilehash: bbf22496098f848cc7c55652198d792c6f631c15
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: f28cd25ee6c3511dc5ac8a6dd4076c81f43fe74a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62049311"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73127420"
 ---
 # <a name="windows-management-instrumentation-wmi-and-performance-counters-unmanaged-api-reference"></a>Windows Management Instrumentation (WMI) およびパフォーマンス カウンター (アンマネージ API リファレンス)
 
@@ -19,7 +17,7 @@ ms.locfileid: "62049311"
 
 API には次の関数が含まれています。
 
-| 関数 | 説明 |
+| Function | [説明] |
 |---------|---------|
 | [BeginEnumeration 関数](beginenumeration.md) | 列挙子が WMI オブジェクト プロパティの列挙型の先頭にリセットされます。 |
 | [BeginMethodEnumeration 関数](beginmethodenumeration.md) |  オブジェクトで使用可能なメソッドの列挙型が開始されます。 |
@@ -73,6 +71,6 @@ API には次の関数が含まれています。
 | [VerifyClient 関数](verifyclientkey.md) | クライアント キーに適切なセキュリティが確実に含められます。 |
 | [WritePropertyValue 関数](writepropertyvalue.md) | 指定したバイト数が、プロパティ ハンドルによって識別されるプロパティに書き込まれます。 |
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [アンマネージド API リファレンス](../index.md)

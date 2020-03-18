@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォーム DataGridView コントロールの列ヘッダーを非表示にする'
+title: DataGridView コントロールの列ヘッダーを非表示にする
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -9,15 +9,15 @@ helpviewer_keywords:
 - column headers [Windows Forms], hiding
 - DataGridView control [Windows Forms], column headers
 ms.assetid: e4ad5f68-50d2-4b9e-93ee-9d622423a8ab
-ms.openlocfilehash: 888ff59d42f44db652d3188e016b9e10a9590139
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: d84c93b0ad1c9ef456c73dd29af1de4857778999
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64651669"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76736583"
 ---
-# <a name="how-to-hide-column-headers-in-the-windows-forms-datagridview-control"></a>方法: Windows フォーム DataGridView コントロールの列ヘッダーを非表示にする
-表示することもありますが、<xref:System.Windows.Forms.DataGridView>列ヘッダーのないです。 <xref:System.Windows.Forms.DataGridView>コントロール、<xref:System.Windows.Forms.DataGridView.ColumnHeadersVisible%2A>プロパティの値が列ヘッダーを表示するかどうかを判断します。  
+# <a name="how-to-hide-column-headers-in-the-windows-forms-datagridview-control"></a>方法 : Windows フォーム DataGridView コントロールの列ヘッダーを非表示にする
+列ヘッダーのない <xref:System.Windows.Forms.DataGridView> を表示することが必要になる場合があります。 <xref:System.Windows.Forms.DataGridView> コントロールでは、<xref:System.Windows.Forms.DataGridView.ColumnHeadersVisible%2A> プロパティ値によって、列ヘッダーを表示するかどうかが決定されます。  
   
 ### <a name="to-hide-the-column-headers"></a>列ヘッダーを非表示にするには  
   
@@ -29,11 +29,11 @@ ms.locfileid: "64651669"
 ## <a name="compiling-the-code"></a>コードのコンパイル  
  この例で必要な要素は次のとおりです。  
   
-- `dataGridView1` という名前の <xref:System.Windows.Forms.DataGridView> コントロール。  
+- <xref:System.Windows.Forms.DataGridView> という名前の `dataGridView1` コントロール。  
   
 - <xref:System?displayProperty=nameWithType> アセンブリおよび <xref:System.Windows.Forms?displayProperty=nameWithType> アセンブリへの参照。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - <xref:System.Windows.Forms.DataGridView.ColumnHeadersVisible%2A?displayProperty=nameWithType>

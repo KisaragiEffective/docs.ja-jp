@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの DataGridView コントロールのバンドを操作する'
+title: DataGridView コントロールのバンドを操作する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,15 +10,15 @@ helpviewer_keywords:
 - bands [Windows Forms], manipulating in Windows Forms
 - DataGridView control [Windows Forms], manipulating bands
 ms.assetid: 1ea3470e-480f-4edc-bcbd-51373eca3856
-ms.openlocfilehash: 5e62f5d31b9d24469455ab31f9771ebc81f74967
-ms.sourcegitcommit: c7a7e1468bf0fa7f7065de951d60dfc8d5ba89f5
+ms.openlocfilehash: 89fdf41a592ef241935f1f71157588a392320df3
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65592346"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76736120"
 ---
-# <a name="how-to-manipulate-bands-in-the-windows-forms-datagridview-control"></a>方法: Windows フォームの DataGridView コントロールのバンドを操作する
-次のコード例では、<xref:System.Windows.Forms.DataGridViewRow> クラスと <xref:System.Windows.Forms.DataGridViewColumn> クラスの派生元である <xref:System.Windows.Forms.DataGridViewBand> クラスのプロパティを使用して、<xref:System.Windows.Forms.DataGridView> の行と列を操作する様々な方法を示します。  
+# <a name="how-to-manipulate-bands-in-the-windows-forms-datagridview-control"></a>方法 : Windows フォームの DataGridView コントロールのバンドを操作する
+次のコード例では、<xref:System.Windows.Forms.DataGridView> クラスと <xref:System.Windows.Forms.DataGridViewBand> クラスの派生元である <xref:System.Windows.Forms.DataGridViewRow> クラスのプロパティを使用して、<xref:System.Windows.Forms.DataGridViewColumn> の行と列を操作する様々な方法を示します。  
   
 ## <a name="example"></a>例  
  [!code-cpp[System.Windows.Forms.DataGridView.ButtonDemos#0](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.DataGridView.ButtonDemos/CPP/DataGridViewBandDemo.cpp#0)]
@@ -30,7 +30,7 @@ ms.locfileid: "65592346"
   
 - System、System.Drawing、および System.Windows.Forms の各アセンブリへの参照。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - <xref:System.Windows.Forms.DataGridViewBand>

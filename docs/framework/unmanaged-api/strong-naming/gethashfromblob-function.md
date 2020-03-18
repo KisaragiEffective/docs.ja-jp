@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: b712d862-f2d0-4b55-87d4-65bbeadef982
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 59b4df08157ce14a58393e54b671e8f41b8998ed
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: d1027aea1d800bda1654b223fec992aa70efd4b7
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70799235"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73140714"
 ---
 # <a name="gethashfromblob-function"></a>GetHashFromBlob 関数
 
@@ -57,18 +55,18 @@ HRESULT GetHashFromBlob (
 入出力返されたハッシュバッファー。
 
 `cchHash`\
-から要求された最大`pbHash`サイズ。
+から要求された `pbHash`の最大サイズ。
 
 `pchHash`\
-入出力返さ`pbHash`れたのサイズ (バイト単位)。
+入出力返された `pbHash`のサイズ (バイト単位)。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** StrongName
 
-**ライブラリ**Mscoree.dll にリソースとして含まれています
+**ライブラリ:** Mscoree.dll にリソースとして含まれています
 
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]
 

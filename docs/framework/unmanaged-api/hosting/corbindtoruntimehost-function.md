@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 5c826ba3-8258-49bc-a417-78807915fcaf
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7e1965917e8a1c5ae07cf119df3664b969a979be
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: a6d9708e7281a72c88ba28012006784f7b0ee9d9
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69969251"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73124354"
 ---
 # <a name="corbindtoruntimehost-function"></a>CorBindToRuntimeHost 関数
 ホストが、指定したバージョンの共通言語ランタイム (CLR: Common Language Runtime) をプロセスに読み込むことができるようにします。  
@@ -56,7 +54,7 @@ HRESULT CorBindToRuntimeHost (
  `pwszBuildFlavor`  
  [入力] CLR のサーバー ビルドまたはワークステーション ビルドのどちらを読み込むかを指定する文字列。 有効値は `svr` または `wks` です。 ワークステーション ビルドはシングルプロセッサ コンピューターでクライアント アプリケーションを実行するために最適化され、サーバー ビルドはガベージ コレクションでマルチ プロセッサを利用するために最適化されています。  
   
- が`pwszBuildFlavor` null に設定されている場合、ワークステーションのビルドが読み込まれます。 をシングルプロセッサコンピューターで実行する場合、 `pwszBuildFlavor`がに`svr`設定されていても、ワークステーションのビルドは常に読み込まれます。 ただし、が`pwszBuildFlavor`に`svr`設定され、同時実行ガベージコレクションが指定されている`startupFlags`場合 (パラメーターの説明を参照)、サーバービルドが読み込まれます。  
+ `pwszBuildFlavor` が null に設定されている場合、ワークステーションのビルドが読み込まれます。 シングルプロセッサのコンピューターで実行している場合、`pwszBuildFlavor` が `svr`に設定されていても、ワークステーションのビルドは常に読み込まれます。 ただし、`pwszBuildFlavor` が `svr` に設定されており、同時実行ガベージコレクションが指定されている場合 (`startupFlags` パラメーターの説明を参照)、サーバービルドが読み込まれます。  
   
 > [!NOTE]
 > 同時実行ガベージ コレクションは、Intel Itanium アーキテクチャ (以前の IA-64) を実装する 64 ビット システム上で WOW64 x86 エミュレーターを実行しているアプリケーションではサポートされません。 64ビット Windows システムでの WOW64 の使用の詳細については、「 [32 ビットアプリケーションの実行](/windows/desktop/WinProg64/running-32-bit-applications)」を参照してください。  
@@ -71,7 +69,7 @@ HRESULT CorBindToRuntimeHost (
  [入力] 同時実行ガベージ コレクション、ドメインに中立なコード、および `pwszVersion` パラメーターの動作を制御するフラグのセット。 どのフラグも設定されていない場合は、既定はシングル ドメインになります。 サポートされている値の一覧については、「 [STARTUP_FLAGS 列挙型](../../../../docs/framework/unmanaged-api/hosting/startup-flags-enumeration.md)」を参照してください。  
   
  `rclsid`  
- から [ICorRuntimeHost](../../../../docs/framework/unmanaged-api/hosting/icorruntimehost-interface.md) または[ICLRRuntimeHost](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-interface.md)のいずれかのインターフェイスを実装するコクラスの。`CLSID` サポートされている値は CLSID_CorRuntimeHost と CLSID_CLRRuntimeHost です。  
+ から[ICorRuntimeHost](../../../../docs/framework/unmanaged-api/hosting/icorruntimehost-interface.md)または[ICLRRuntimeHost](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-interface.md)のいずれかのインターフェイスを実装するコクラスの `CLSID`。 サポートされている値は CLSID_CorRuntimeHost と CLSID_CLRRuntimeHost です。  
   
  `riid`  
  [入力] 要求するインターフェイスの `IID`。 サポートされている値は IID_ICorRuntimeHost と IID_ICLRRuntimeHost です。  
@@ -79,12 +77,12 @@ HRESULT CorBindToRuntimeHost (
  `ppv`  
  [出力] 読み込まれたランタイムのバージョンへのインターフェイス ポインター。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

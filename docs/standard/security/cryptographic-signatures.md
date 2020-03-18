@@ -20,26 +20,18 @@ helpviewer_keywords:
 - digital signatures, verifying
 - signing XML
 ms.assetid: aa87cb7f-e608-4a81-948b-c9b8a1225783
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 862d520073dde1b935510bc7c68782c1204c6111
-ms.sourcegitcommit: 09d699aca28ae9723399bbd9d3d44aa0cbd3848d
+ms.openlocfilehash: 1de6b3f2eb30df270339910e7b8287101bde65ca
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68331643"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75706254"
 ---
 # <a name="cryptographic-signatures"></a>暗号署名
 
-<a name="top"></a> 暗号デジタル署名は、公開キー アルゴリズムを使用してデータの整合性を提供します。 デジタル署名を使用してデータに署名すると、第三者が署名を検証し、データが署名者から発信され、署名後に変更されていないことを証明できます。 デジタル署名の詳細については、「 [Cryptographic Services](../../../docs/standard/security/cryptographic-services.md)」を参照してください。
+暗号デジタル署名は、公開キー アルゴリズムを使用してデータの整合性を提供します。 デジタル署名を使用してデータに署名すると、第三者が署名を検証し、データが署名者から発信され、署名後に変更されていないことを証明できます。 デジタル署名の詳細については、「 [Cryptographic Services](../../../docs/standard/security/cryptographic-services.md)」を参照してください。
 
 ここでは、 <xref:System.Security.Cryptography?displayProperty=nameWithType> 名前空間のクラスを使用してデジタル署名を生成して検証する方法について説明します。
-
-- [署名の生成](#generate)
-
-- [署名の検証](#verify)
-
-<a name="generate"></a>
 
 ## <a name="generating-signatures"></a>署名の生成
 
@@ -48,7 +40,6 @@ ms.locfileid: "68331643"
 SHA1 の衝突の問題のため、SHA256 以上をお勧めします。
 
 ```vb
-Imports System
 Imports System.Security.Cryptography
 
 Module Module1
@@ -113,10 +104,6 @@ class Class1
 
 この名前空間のクラスは、World Wide Web コンソーシアムの「 [XML 署名の構文と処理に関する勧告](https://www.w3.org/TR/xmldsig-core/) 」に従っています。
 
-[ページのトップへ](#top)
-
-<a name="verify"></a>
-
 ## <a name="verifying-signatures"></a>署名の検証
 
 データが特定の関係者によって署名されたことを検証するには、次の情報が必要です。
@@ -129,7 +116,7 @@ class Class1
 
 - 署名者が使用したハッシュ アルゴリズム。
 
-<xref:System.Security.Cryptography.RSAPKCS1SignatureFormatter> クラスによって署名された署名を検証するには、 <xref:System.Security.Cryptography.RSAPKCS1SignatureDeformatter> クラスを使用します。 <xref:System.Security.Cryptography.RSAPKCS1SignatureDeformatter> クラスに対しては、署名者の公開キーを提供する必要があります。 公開キーを指定するには、剰余値と指数部の値が必要になります (これらの値は、公開キーと秘密キーのペアの作成者が提供する必要があります)。まず、署名を検証する公開キーを保持するための <xref:System.Security.Cryptography.RSACryptoServiceProvider> オブジェクトを作成します。次に、<xref:System.Security.Cryptography.RSAParameters> 構造体を、公開キーを指定する剰余値と指数部の値で初期化します。
+<xref:System.Security.Cryptography.RSAPKCS1SignatureFormatter> クラスによって署名された署名を検証するには、 <xref:System.Security.Cryptography.RSAPKCS1SignatureDeformatter> クラスを使用します。 <xref:System.Security.Cryptography.RSAPKCS1SignatureDeformatter> クラスに対しては、署名者の公開キーを提供する必要があります。 公開キーを指定するには、剰余値と指数部の値が必要になります (公開キーと秘密キーのペアを生成したパーティは、これらの値を提供する必要があります)。まず、署名を検証する公開キーを保持する <xref:System.Security.Cryptography.RSACryptoServiceProvider> オブジェクトを作成し、次に、<xref:System.Security.Cryptography.RSAParameters> 構造体を、公開キーを指定する剰余値と指数部の値に初期化します。
 
 次のコードは、 <xref:System.Security.Cryptography.RSAParameters> 構造体の作成を示しています。 `Modulus` プロパティは `modulusData` というバイト配列の値に設定し、 `Exponent` プロパティは `exponentData`というバイト配列の値に設定します。
 
@@ -147,7 +134,7 @@ rsaKeyInfo.Exponent = exponentData;
 
 <xref:System.Security.Cryptography.RSAParameters> オブジェクトを作成した後、 <xref:System.Security.Cryptography.RSACryptoServiceProvider> クラスの新しいインスタンスを <xref:System.Security.Cryptography.RSAParameters>で指定した値に初期設定できます。 次に、 <xref:System.Security.Cryptography.RSACryptoServiceProvider> を <xref:System.Security.Cryptography.RSAPKCS1SignatureDeformatter> のコンストラクターに渡してキーを転送します。
 
-このプロセスを説明する例を次に示します。 この例で、 `hashValue` と `signedHashValue` は、リモートにいる関係者から提供されるバイト配列です。 リモートにいる関係者は、SHA1 アルゴリズムを使用して `hashValue` に署名し、デジタル署名 `signedHashValue`を生成します。 メソッド<xref:System.Security.Cryptography.RSAPKCS1SignatureDeformatter.VerifySignature%2A?displayProperty=nameWithType>は、デジタル署名が有効であり、 `hashValue`に署名するために使用されたことを確認します。
+このプロセスを説明する例を次に示します。 この例で、 `hashValue` と `signedHashValue` は、リモートにいる関係者から提供されるバイト配列です。 リモートにいる関係者は、SHA1 アルゴリズムを使用して `hashValue` に署名し、デジタル署名 `signedHashValue`を生成します。 <xref:System.Security.Cryptography.RSAPKCS1SignatureDeformatter.VerifySignature%2A?displayProperty=nameWithType> メソッドは、デジタル署名が有効であり、`hashValue`に署名するために使用されたことを検証します。
 
 ```vb
 Dim rsa As New RSACryptoServiceProvider()

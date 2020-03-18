@@ -7,24 +7,24 @@ helpviewer_keywords:
 - controls [WPF], Label
 - Label control [WPF]
 ms.assetid: 241c1ce2-60f8-4613-a0ec-9b9bb25fb6af
-ms.openlocfilehash: 131eb251493b77f13b5dc59a3a03504be8868e8a
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 73f36325a2621cc834e1bef8d2060dec1a8c133d
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62052054"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73423772"
 ---
 # <a name="label"></a>group1
-<xref:System.Windows.Controls.Label> コントロールが通常の情報を提供、[!INCLUDE[TLA#tla_ui](../../../../includes/tlasharptla-ui-md.md)]します。  従来を<xref:System.Windows.Controls.Label>のみのテキストが格納されているが、<xref:System.Windows.Controls.Label>付属している[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]は、 <xref:System.Windows.Controls.ContentControl>、いずれかのテキストを含めることができますまたは<xref:System.Windows.UIElement>。  
+<xref:System.Windows.Controls.Label> コントロールは通常、[!INCLUDE[TLA#tla_ui](../../../../includes/tlasharptla-ui-md.md)]の情報を提供します。  これまで、<xref:System.Windows.Controls.Label> にはテキストのみが含まれていましたが、[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] に付属する <xref:System.Windows.Controls.Label> は <xref:System.Windows.Controls.ContentControl>であるため、テキストまたは <xref:System.Windows.UIElement>を含めることができます。  
   
- A<xref:System.Windows.Controls.Label>アクセス キーの機能およびビジュアルの両方のサポートを提供します。 などのコントロールへの簡単なキーボード アクセスを有効にするでよく使用される、<xref:System.Windows.Controls.TextBox>します。 割り当てる、<xref:System.Windows.Controls.Label>を<xref:System.Windows.Controls.Control>に設定して、<xref:System.Windows.Controls.Label.Target%2A?displayProperty=nameWithType>プロパティをコントロールをユーザーのアクセス キーを押したときに、フォーカスを取得する必要があります。  
+ <xref:System.Windows.Controls.Label> には、アクセスキーの機能とビジュアルの両方のサポートが用意されています。 これは、<xref:System.Windows.Controls.TextBox>などのコントロールへのクイックキーボードアクセスを可能にするためによく使用されます。 <xref:System.Windows.Controls.Control>に <xref:System.Windows.Controls.Label> を割り当てるには、ユーザーがアクセスキーを押したときにフォーカスを得るコントロールに <xref:System.Windows.Controls.Label.Target%2A?displayProperty=nameWithType> プロパティを設定します。  
   
- 次の図は、 <xref:System.Windows.Controls.Label> 「テーマ」を対象とする、<xref:System.Windows.Controls.ComboBox>します。  ユーザーがキーを押したときに、<xref:System.Windows.Controls.ComboBox>がフォーカスを受け取る。  詳細については、「[方法 :ラベルのターゲット プロパティを設定](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms752101(v=vs.90))します。  
+ 次の図は、<xref:System.Windows.Controls.ComboBox>を対象とする "テーマ" <xref:System.Windows.Controls.Label> を示しています。  ユーザーがを押すと、<xref:System.Windows.Controls.ComboBox> がフォーカスを受け取ります。  詳細については、「[方法: ラベルのターゲットプロパティを設定する](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms752101(v=vs.90))」を参照してください。  
   
- ![表示プロパティを示しますを使用してラベルの付いた](./media/labeledby.JPG "LabeledBy")  
+ ![使用法によってラベル付けされた表示プロパティダイアログのスクリーンショット。](./media/label/display-properties-labeled-by.png "LabeledBy")  
   
 ## <a name="in-this-section"></a>このセクションの内容  
- [方法: アクセス キーおよびテキスト折り返し機能を持つコントロールを作成します。](how-to-create-a-control-that-has-an-access-key-and-text-wrapping.md)  
+ [方法: アクセスキーとテキストの折り返しを持つコントロールを作成する](how-to-create-a-control-that-has-an-access-key-and-text-wrapping.md)  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>辞書／辞典／その他  
  <xref:System.Windows.Controls.Label>

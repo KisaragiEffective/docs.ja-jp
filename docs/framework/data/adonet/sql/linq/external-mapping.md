@@ -10,24 +10,24 @@ ms.lasthandoff: 10/07/2019
 ms.locfileid: "72003045"
 ---
 # <a name="external-mapping"></a>外部マップ
-[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] は、別の XML ファイルを使用してデータベースのデータモデルとオブジェクトモデル間のマッピングを指定するプロセスである*外部マッピング*をサポートします。 外部マッピング ファイルを使用すると、次のような利点があります。  
+[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] では、別の XML ファイルを使用してデータベースのデータモデルとオブジェクトモデルの間のマッピングを指定するプロセスである*外部マッピング*がサポートされています。 外部マッピング ファイルを使用すると、次のような利点があります。  
   
 - マッピング コードをアプリケーション コードから分離できます。 この方法により、アプリケーション コードの煩雑さが軽減されます。  
   
 - 外部マッピング ファイルは、構成ファイルのような方法で扱うことができます。 たとえば、バイナリを配布した後、外部マッピング ファイルを交換するだけでアプリケーションの動作を更新できます。  
   
 ## <a name="requirements"></a>要件  
- マッピングファイルは XML ファイルである必要があり、ファイルは @no__t 0 スキーマ定義 (.xsd) ファイルに対して検証する必要があります。  
+ マッピングファイルは XML ファイルである必要があり、ファイルは [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] スキーマ定義 (.xsd) ファイルに対して検証する必要があります。  
   
  次の規則が適用されます。  
   
 - マッピング ファイルは XML ファイルである必要があります。  
   
-- XML マッピング ファイルは、XML スキーマ定義ファイルに対して有効である必要があります。 詳細については、「[方法 :DBML ファイルと外部マッピングファイルを検証する @ no__t-0  
+- XML マッピング ファイルは、XML スキーマ定義ファイルに対して有効である必要があります。 詳細については、「[方法: DBML ファイルおよび外部マッピングファイルを検証する](how-to-validate-dbml-and-external-mapping-files.md)」を参照してください。  
   
 - 外部マッピングは、属性ベースのマッピングをオーバーライドします。 言い換えると、外部マッピング ソースを使って <xref:System.Data.Linq.DataContext> を作成した場合、<xref:System.Data.Linq.DataContext> はクラスに作成したすべてのマッピング属性を無視します。 この動作は、クラスが外部マッピング ファイルに含まれるかどうかにかかわらず適用されます。  
   
-- [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] では、2 つのマッピング方法 (属性ベースと外部) を組み合わせて使用することはできません。  
+- [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] では、2つのマッピング方法 (属性ベースおよび外部) のハイブリッド使用はサポートされていません。  
   
 ## <a name="xml-schema-definition-file"></a>XML スキーマ定義ファイル  
  [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] の外部マッピングは、以下のような XML スキーマ定義に対して有効である必要があります。  
@@ -35,7 +35,7 @@ ms.locfileid: "72003045"
  このスキーマ定義ファイルを、DBML ファイルの検証に使われるスキーマ定義ファイルと区別してください。 詳細については、「 [LINQ to SQL でのコード生成](code-generation-in-linq-to-sql.md)」を参照してください。  
   
 > [!NOTE]
-> また、Visual Studio ユーザーは、この XSD ファイルを [XML スキーマ] ダイアログボックスの "LinqToSqlMapping" として検索します。 外部マッピングファイルを検証するためにこのファイルを正しく使用するには、「[How to:DBML ファイルと外部マッピングファイルを検証する @ no__t-0  
+> また、Visual Studio ユーザーは、この XSD ファイルを [XML スキーマ] ダイアログボックスの "LinqToSqlMapping" として検索します。 外部マッピングファイルを検証するためにこのファイルを正しく使用する方法については、「[方法: DBML ファイルおよび外部マッピングファイルを検証](how-to-validate-dbml-and-external-mapping-files.md)する」を参照してください。  
   
 ```xml  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -141,8 +141,8 @@ elementFormDefault="qualified" >
 </xs:schema>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [LINQ to SQL でのコード生成](code-generation-in-linq-to-sql.md)
-- [リファレンス](reference.md)
-- [2 つのオブジェクトが等しいかどうかをテストする方法オブジェクトモデルを外部ファイルとして生成する @ no__t-0
+- [参照](reference.md)
+- [方法 : オブジェクト モデルを外部ファイルとして生成する](how-to-generate-the-object-model-as-an-external-file.md)

@@ -14,14 +14,12 @@ helpviewer_keywords:
 - CreateClassEnumWmi function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a696a6f02f6d3a5afbcb45e5566e4b667739e2c5
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 1d637479bd140e635ee647a1e30d03343d8b0dcd
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798734"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73107533"
 ---
 # <a name="createclassenumwmi-function"></a>CreateClassEnumWmi 関数
 指定した選択条件を満たしたすべてのクラスに対する列挙子が返されます。
@@ -48,12 +46,12 @@ HRESULT CreateClassEnumWmi (
 ## <a name="parameters"></a>パラメーター
 
 `strSuperclass`\
-からそうで`null`ない場合、または空白の場合は、親クラスの名前を指定します。列挙子は、このクラスのサブクラスのみを返します。 または空白で、が WBEM_FLAG_SHALLOW の場合、はトップレベルのクラス (親クラスを持たないクラス) のみを返します。 `lFlags` `null` または空白で、 `WBEM_FLAG_DEEP`がの場合は、名前空間のすべてのクラスを返します。`lFlags` `null`
+から`null` ない場合、または空白の場合は、親クラスの名前を指定します。列挙子は、このクラスのサブクラスのみを返します。 `null` または空白で `lFlags` が WBEM_FLAG_SHALLOW の場合、はトップレベルのクラス (親クラスを持たないクラス) のみを返します。 `null` または空白で `lFlags` が `WBEM_FLAG_DEEP`場合、は名前空間のすべてのクラスを返します。
 
 `lFlags`\
 からこの関数の動作に影響を与えるフラグの組み合わせ。 次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_FLAG_USE_AMENDED_QUALIFIERS` | 0x20000 | 設定すると、関数は、現在の接続のロケールのローカライズされた名前空間に格納されている修正された修飾子を取得します。 <br/> 設定されていない場合、関数は、イミディエイト名前空間に格納されている修飾子だけを取得します。 |
 | `WBEM_FLAG_DEEP` | 0 | 列挙には階層内のすべてのサブクラスが含まれますが、このクラスは含まれません。 |
@@ -62,10 +60,10 @@ HRESULT CreateClassEnumWmi (
 | `WBEM_FLAG_FORWARD_ONLY` | 0x20 | 関数は、順方向専用の列挙子を返します。 通常、順方向専用の列挙子は、従来の列挙子よりも高速で使用されるメモリが少なくなりますが、[複製](clone.md)の呼び出しは許可されません。 |
 | `WBEM_FLAG_BIDIRECTIONAL` | 0 | WMI は、列挙体が解放されるまで、そのオブジェクトへのポインターを保持します。 |
 
-最適なパフォーマンスを`WBEM_FLAG_RETURN_IMMEDIATELY`得る`WBEM_FLAG_FORWARD_ONLY`ために、推奨されるフラグはとです。
+最適なパフォーマンスを得るために、推奨されるフラグは `WBEM_FLAG_RETURN_IMMEDIATELY` と `WBEM_FLAG_FORWARD_ONLY` です。
 
 `pCtx`\
-から通常、この値は`null`です。 それ以外の場合は、要求されたクラスを提供しているプロバイダーが使用できる[IWbemContext](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemcontext)インスタンスへのポインターです。
+から通常、この値は `null`です。 それ以外の場合は、要求されたクラスを提供しているプロバイダーが使用できる[IWbemContext](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemcontext)インスタンスへのポインターです。
 
 `ppEnum`\
 入出力列挙子へのポインターを受け取ります。
@@ -92,7 +90,7 @@ HRESULT CreateClassEnumWmi (
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_E_ACCESS_DENIED` | 0x80041003 | 関数が返すことのできる1つ以上のクラスを表示するアクセス許可がユーザーにありません。 |
 | `WBEM_E_FAILED` | 0x80041001 | 特定できないエラーが発生しました。 |
@@ -109,9 +107,9 @@ HRESULT CreateClassEnumWmi (
 
 関数呼び出しが失敗した場合は、 [GetErrorInfo](geterrorinfo.md)関数を呼び出して追加のエラー情報を取得できます。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** WMINet_Utils
 

@@ -1,15 +1,13 @@
 ---
 title: ランタイム パッケージ ストア
 description: .NET Core で使用されるランタイム パッケージ ストアとターゲット マニフェストの使用方法について説明します。
-author: bleroy
 ms.date: 08/12/2017
-ms.custom: seodec18
-ms.openlocfilehash: 8a8d2d3298f144347c36c640700a1e578dc14715
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+ms.openlocfilehash: 7a833ed95147608c6fb403f8f0dec179d2a73833
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71116545"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77448959"
 ---
 # <a name="runtime-package-store"></a>ランタイム パッケージ ストア
 
@@ -118,17 +116,17 @@ dotnet publish --manifest manifest.xml
 </PropertyGroup>
 ```
 
-アプリのターゲット環境が .Net Core プロジェクトのようによく知られている場合にのみ、プロジェクト ファイルにターゲット マニフェストを指定します。 これは、オープンソース プロジェクトには該当しません。 オープンソース プロジェクトのユーザーは通常、さまざまな運用環境にアプリを展開します。 一般的に、これらの運用環境には、さまざまなインストール済みのパッケージのセットがあります。 このような環境でターゲット マニフェストについて想定することができないため、[`dotnet publish`](../tools/dotnet-publish.md) の `--manifest` オプションを使用する必要があります。
+アプリのターゲット環境が .Net Core プロジェクトのようによく知られている場合にのみ、プロジェクト ファイルにターゲット マニフェストを指定します。 これは、オープンソース プロジェクトには該当しません。 オープンソース プロジェクトのユーザーは通常、さまざまな運用環境にアプリを展開します。 一般的に、これらの運用環境には、さまざまなインストール済みのパッケージのセットがあります。 このような環境でターゲット マニフェストについて想定することができないため、`--manifest`[`dotnet publish` の ](../tools/dotnet-publish.md) オプションを使用する必要があります。
 
 ## <a name="aspnet-core-implicit-store"></a>ASP.NET Core の暗黙的なストア
 
 ASP.NET Core の暗黙的なストアは、ASP.NET Core 2.0 にのみ適用されます。 暗黙的なストアを使用**しない** ASP.NET Core 2.1 以降を、アプリケーションで使用することを強くお勧めします。 ASP.NET Core 2.1 以降では、共有フレームワークを使用します。
 
-このランタイム パッケージ ストア機能は、アプリが[フレームワークに依存する展開 (FDD)](index.md#framework-dependent-deployments-fdd) のアプリとして展開されるときに、ASP.NET Core アプリによって暗黙的に使用されます。 [`Microsoft.NET.Sdk.Web`](https://github.com/aspnet/websdk) のターゲットには、ターゲット システムの暗黙的なパッケージ ストアを参照しているマニフェストが含まれます。 さらに、`Microsoft.AspNetCore.All` パッケージによって異なる FDD アプリは、アプリとそのアセットのみを含み、`Microsoft.AspNetCore.All` メタパッケージに一覧されるパッケージは含まないアプリとして発行されます。 それらのパッケージは、ターゲット システムに存在すると想定されます。
+このランタイム パッケージ ストア機能は、アプリが[フレームワークに依存する展開 (FDD)](index.md#publish-runtime-dependent) のアプリとして展開されるときに、ASP.NET Core アプリによって暗黙的に使用されます。 [`Microsoft.NET.Sdk.Web`](https://github.com/aspnet/websdk) のターゲットには、ターゲット システムの暗黙的なパッケージ ストアを参照しているマニフェストが含まれます。 さらに、`Microsoft.AspNetCore.All` パッケージによって異なる FDD アプリは、アプリとそのアセットのみを含み、`Microsoft.AspNetCore.All` メタパッケージに一覧されるパッケージは含まないアプリとして発行されます。 それらのパッケージは、ターゲット システムに存在すると想定されます。
 
 ランタイム パッケージ ストアは、.NET Core SDK がインストールされるときに、ホストにインストールされます。 その他のインストーラーでは、Zip/tarball インストールの .NET Core SDK、`apt-get`、Red Hat Yum、.NET Core Windows Server Hosting バンドル、および手動のランタイム パッケージ ストアのインストールなど、ランタイム パッケージ ストアを提供する場合があります。
 
-[フレームワークに依存する展開 (FDD)](index.md#framework-dependent-deployments-fdd) アプリを展開するときに、ターゲット環境に .NET Core SDK がインストールされていることを確認します。 アプリが ASP.NET Core を含まない環境に展開される場合、次の例のように、プロジェクト ファイルで **\<PublishWithAspNetCoreTargetManifest>** を `false` に指定して、暗黙的なストアを無効にできます。
+[フレームワークに依存する展開 (FDD)](index.md#publish-runtime-dependent) アプリを展開するときに、ターゲット環境に .NET Core SDK がインストールされていることを確認します。 アプリが ASP.NET Core を含まない環境に展開される場合、次の例のように、プロジェクト ファイルで **\<PublishWithAspNetCoreTargetManifest>** を `false` に指定して、暗黙的なストアを無効にできます。
 
 ```xml
 <PropertyGroup>
@@ -137,7 +135,7 @@ ASP.NET Core の暗黙的なストアは、ASP.NET Core 2.0 にのみ適用さ�
 ```
 
 > [!NOTE]
-> [自己完結型の展開 (SCD)](index.md#self-contained-deployments-scd) アプリの場合、ターゲット システムには必ずしも必要なマニフェスト パッケージを含んでいないと想定されます。 そのため、SCD アプリの場合、 **\<PublishWithAspNetCoreTargetManifest>** を `true` に設定することはできません。
+> [自己完結型の展開 (SCD)](index.md#publish-self-contained) アプリの場合、ターゲット システムには必ずしも必要なマニフェスト パッケージを含んでいないと想定されます。 そのため、SCD アプリの場合、 **\<PublishWithAspNetCoreTargetManifest>** を `true` に設定することはできません。
 
 展開に存在するマニフェストの依存関係を持つアプリケーションを展開する場合は (アセンブリは *bin* フォルダーに存在します)、ランタイム パッケージ ストアはそのアセンブリ用のホスト上では*使用されません*。 ホスト上のランタイム パッケージ ストアに存在するかに関係なく、*bin* フォルダーのアセンブリが使用されます。
 
@@ -145,7 +143,7 @@ ASP.NET Core の暗黙的なストアは、ASP.NET Core 2.0 にのみ適用さ�
 
 展開が発行時に*トリミング*されると、指定した特定のバージョンのマニフェスト パッケージのみが、発行された出力から引かれます。 アプリを開始するには、指定されたバージョンのパッケージがホスト上に存在する必要があります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [dotnet-publish](../tools/dotnet-publish.md)
 - [dotnet-store](../tools/dotnet-store.md)

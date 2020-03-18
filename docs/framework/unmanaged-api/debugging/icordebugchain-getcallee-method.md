@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 19560c79-abdc-4bdf-a5fe-eb362a59edc0
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 79743b78ea3d19bab4756b580d2feddd07e0a23b
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 5d28af09faae84b0482d438ae33f593f250490c1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67744986"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73196339"
 ---
 # <a name="icordebugchaingetcallee-method"></a>ICorDebugChain::GetCallee メソッド
 このチェーンによって呼び出されたチェーンを取得します。  
@@ -37,13 +35,13 @@ HRESULT GetCallee (
   
 ## <a name="parameters"></a>パラメーター  
  `ppChain`  
- [out]呼び出されたチェーンを表す ICorDebugChain オブジェクトのアドレスへのポインター。 場合 (つまり、このチェーンを返すと呼ばれるチェーンが待機していない) 場合、このチェーンは現在実行中、`ppChain`は null になります。  
+ 入出力呼び出されたチェーンを表す、のオブジェクトのアドレスへのポインター。 このチェーンが現在実行されている場合 (つまり、このチェーンが呼び出し先チェーンの戻りを待機していない場合)、`ppChain` は null になります。  
   
 ## <a name="remarks"></a>Remarks  
- このチェーンは、呼び出されたチェーンに戻りますが、実行を再開する前に待機します。 スレッド間マーシャ リングされた呼び出しの場合、別のスレッドで呼び出されたチェーンがあります。  
+ このチェーンは、呼び出されたチェーンが返されるのを待機してから、実行を再開します。 スレッド間でマーシャリングされた呼び出しの場合、呼び出されたチェーンは別のスレッド上にある可能性があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

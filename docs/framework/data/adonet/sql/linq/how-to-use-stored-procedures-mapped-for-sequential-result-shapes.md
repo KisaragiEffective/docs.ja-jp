@@ -1,5 +1,5 @@
 ---
-title: '方法: シーケンシャルな結果形状が割り当てられたストアド プロシージャを使用する'
+title: '方法 : シーケンシャルな結果形状が割り当てられたストアド プロシージャを使用する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -12,8 +12,8 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/07/2019
 ms.locfileid: "72003224"
 ---
-# <a name="how-to-use-stored-procedures-mapped-for-sequential-result-shapes"></a>方法: シーケンシャルな結果形状が割り当てられたストアド プロシージャを使用する
-この種類のストアド プロシージャでは、複数の結果形状が生成されますが、どの順序で結果が返されるかがわかります。 このシナリオは、返される結果のシーケンスがわからないシナリオと対照的です。 詳細については、「[方法 :複数の結果図形に対してマップされたストアドプロシージャ @ no__t-0 を使用します。  
+# <a name="how-to-use-stored-procedures-mapped-for-sequential-result-shapes"></a>方法 : シーケンシャルな結果形状が割り当てられたストアド プロシージャを使用する
+この種類のストアド プロシージャでは、複数の結果形状が生成されますが、どの順序で結果が返されるかがわかります。 このシナリオは、返される結果のシーケンスがわからないシナリオと対照的です。 詳細については、「[方法: 複数の結果形状にマップされたストアドプロシージャを使用する](how-to-use-stored-procedures-mapped-for-multiple-result-shapes.md)」を参照してください。  
   
 ## <a name="example"></a>例  
  次は、複数の結果形状をシーケンシャルに返すストアド プロシージャの T-SQL です。  
@@ -34,6 +34,6 @@ select * from customers
  [!code-csharp[DLinqSprox#7](../../../../../../samples/snippets/csharp/VS_Snippets_Data/DLinqSprox/cs/Program.cs#7)]
  [!code-vb[DLinqSprox#7](../../../../../../samples/snippets/visualbasic/VS_Snippets_Data/DLinqSprox/vb/Module1.vb#7)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ストアド プロシージャ](stored-procedures.md)

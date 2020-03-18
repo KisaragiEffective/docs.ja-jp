@@ -8,14 +8,12 @@ api_location:
 api_type:
 - DLLExport
 ms.assetid: d468325a-21c5-43ce-8567-84e342b22308
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: aaf76d4c3d0f5fb59aeb35fae7a7020ee97b74d6
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 3c5e803c874e1254510f75189846d7cb12cb1ee2
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70776478"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73132471"
 ---
 # <a name="certtimestampauthenticodelicense-function"></a>CertTimestampAuthenticodeLicense 関数
 Authenticode XrML ライセンスにタイム スタンプを付けます。  
@@ -38,7 +36,7 @@ HRESULT CertTimestampAuthenticodeLicense (
  [in] タイム スタンプ サーバーの URI。  
   
  `pTimestampSignatureBlob`  
- [out] base64 でエンコードされたタイム スタンプの署名を取得するための、CRYPT_DATA_BLOB へのポインター。 呼び出し元は、使用後にを`pTimestampSignatureBlob` `HepFree()`解放-> `pbData`する必要があります。 [CRYPTOAPI_BLOB](/windows/win32/api/dpapi/ns-dpapi-crypt_integer_blob)構造体を参照してください。  
+ [out] base64 でエンコードされたタイム スタンプの署名を取得するための、CRYPT_DATA_BLOB へのポインター。 使用後 `HepFree()` で `pTimestampSignatureBlob`->`pbData` を解放するのは、呼び出し元の責任です。 [CRYPTOAPI_BLOB](/windows/win32/api/dpapi/ns-dpapi-crypt_integer_blob)構造体を参照してください。  
   
 ## <a name="remarks"></a>Remarks  
  タイム スタンプの署名は、実際は PKCS #7 SignedData メッセージで、この内容は、ライセンスの署名の SignatureValue のバイナリ形式です。 これは基本的に、ライセンスの副署名として機能します。  

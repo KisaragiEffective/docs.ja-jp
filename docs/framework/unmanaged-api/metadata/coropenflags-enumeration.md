@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: e27a83b5-2698-4996-9032-1e0fed8b91ca
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 831f4665967f2cd07a7ebb4de750fbe456a82261
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: ad582fc2fd1bd1d2fc9d5a0d483fdb3a51309a10
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781681"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74436507"
 ---
 # <a name="coropenflags-enumeration"></a>CorOpenFlags 列挙型
 マニフェスト ファイルを開くときにメタデータの動作を制御するフラグ値を含めます。  
@@ -58,21 +56,21 @@ typedef enum CorOpenFlags
 |`ofCopyMemory`|ファイルがメモリ内に読み込まれることを示します。 メタデータは自身のコピーを保持する必要があります。|  
 |`ofCacheImage`|互換性のために残されています。 このフラグは無視されます。|  
 |`ofManifestMetadata`|互換性のために残されています。 このフラグは無視されます。|  
-|`ofReadOnly`|読み取り用にファイルが開かれることを示しますへの呼び出し`QueryInterface`の[IMetaDataEmit](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-interface.md)にことはできません。|  
-|`ofTakeOwnership`|呼び出しを使用してメモリが割り当てられたことを示します[CoTaskMemAlloc](/windows/desktop/api/combaseapi/nf-combaseapi-cotaskmemalloc)メタデータによって解放されるとします。|  
+|`ofReadOnly`|は、ファイルを読み取り用に開く必要があること、および[IMetaDataEmit](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-interface.md)の `QueryInterface` の呼び出しを行うことができないことを示します。|  
+|`ofTakeOwnership`|[CoTaskMemAlloc](/windows/desktop/api/combaseapi/nf-combaseapi-cotaskmemalloc)への呼び出しを使用してメモリが割り当てられ、メタデータによって解放されることを示します。|  
 |`ofNoTypeLib`|互換性のために残されています。 このフラグは無視されます。|  
-|`ofNoTransform`|.winmd ファイルの自動変換を無効にする必要があることを示します。 つまり、Windows Runtime タイプから .NET Framework タイプへの投射は無効になります。 詳細については、次を参照してください。 [Windows ランタイムと CLR の内部での .NET and Windows Runtime](https://msdn.microsoft.com/magazine/jj651569.aspx)します。|  
-|`ofReserved1`|内部使用のために予約されています。|  
-|`ofReserved2`|内部使用のために予約されています。|  
-|`ofReserved`|内部使用のために予約されています。|  
+|`ofNoTransform`|.winmd ファイルの自動変換を無効にする必要があることを示します。 つまり、Windows Runtime タイプから .NET Framework タイプへの投射は無効になります。 詳細については、「 [Windows ランタイムと CLR-.net と Windows ランタイム](https://docs.microsoft.com/archive/msdn-magazine/2012/windows-8-special-issue/windows-runtime-and-the-clr-underneath-the-hood-with-net-and-the-windows-runtime)」を参照してください。|  
+|`ofReserved1`|内部使用のために予約済みです。|  
+|`ofReserved2`|内部使用のために予約済みです。|  
+|`ofReserved`|内部使用のために予約済みです。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

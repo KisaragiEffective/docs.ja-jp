@@ -7,14 +7,12 @@ helpviewer_keywords:
 - interop marshaling, copying
 - interop marshaling, pinning
 ms.assetid: 0059f576-e460-4e70-b257-668870e420b8
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 90ed12862c4cadc45777150deb1b9f91f111bf41
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
-ms.translationtype: HT
+ms.openlocfilehash: f6db7d37293015911c1285d39e19bf7542a7ac59
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64750515"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73123642"
 ---
 # <a name="copying-and-pinning"></a>コピーと固定
 
@@ -33,7 +31,7 @@ ms.locfileid: "64750515"
 書式指定された [blittable](blittable-and-non-blittable-types.md) クラスは、マネージド メモリとアンマネージド メモリの両方で、固定レイアウト (書式指定されている) と共通のデータ表現を持ちます。 このような型でマーシャリングが必要な場合は、ヒープ内のオブジェクトへのポインターが呼び出し先に直接渡されます。 呼び出し先はポインターによって参照されるメモリ位置の内容を変更できます。
 
 > [!NOTE]
-> パラメーターに Out または In/Out のマークが付いている場合、呼び出し先はメモリの内容を変更できます。逆に、In としてマーシャリングするようにパラメーターが設定されている場合、呼び出し先は内容の変更を避ける必要があります。In は書式指定された blittable 型に対する既定の設定です。 同じクラスをタイプ ライブラリにエクスポートし、アパートメント間呼び出しのために使用した場合に、In オブジェクトを変更すると問題が発生します。
+> パラメーターが Out または In/Out としてマークされている場合、呼び出し先はメモリの内容を変更できます。これに対して、呼び出し先は、パラメーターがとしてマーシャリングするように設定されている場合に、コンテンツを変更しないようにします。これは、書式設定された blittable 型の既定値です。 同じクラスをタイプ ライブラリにエクスポートし、アパートメント間呼び出しのために使用した場合に、In オブジェクトを変更すると問題が発生します。
 
 ## <a name="formatted-non-blittable-classes"></a>書式指定された blittable でないクラス
 

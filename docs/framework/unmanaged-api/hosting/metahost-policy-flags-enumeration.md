@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 3bb4b526-0118-42e2-ba59-c95648528ce9
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1d35bd5f8aaa2dc0df0044671414a5a936fed24d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 048286fb9e1af34cd964fb5b21892778f9575d2c
+ms.sourcegitcommit: 7e2128d4a4c45b4274bea3b8e5760d4694569ca1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781056"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75938202"
 ---
-# <a name="metahostpolicyflags-enumeration"></a>METAHOST_POLICY_FLAGS 列挙体
-ほとんどのランタイム ホストに共通するバインディング ポリシーを提供します。 この列挙体を使って、 [iclrmetahostpolicy::getrequestedruntime](../../../../docs/framework/unmanaged-api/hosting/iclrmetahostpolicy-getrequestedruntime-method.md)メソッド。  
+# <a name="metahost_policy_flags-enumeration"></a>METAHOST_POLICY_FLAGS 列挙体
+ほとんどのランタイムホストに共通のバインドポリシーを提供します。 この列挙体は、 [ICLRMetaHostPolicy:: GetRequestedRuntime](../../../../docs/framework/unmanaged-api/hosting/iclrmetahostpolicy-getrequestedruntime-method.md)メソッドによって使用されます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -45,22 +43,22 @@ typedef enum {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`METAHOST_POLICY_HIGHCOMPAT`|共通言語ランタイム (CLR) は、現在のプロセスに読み込まれると見なしません高い互換性、ポリシーを定義します。 代わりと見なされるインストールされている Clr のみと、コンポーネントの基本設定、アセンブリ ファイル自体、宣言されたビルド対象のバージョン、または構成ファイルから派生します。|  
-|`METAHOST_POLICY_APPLY_UPGRADE_POLICY`|完全一致が見つからない場合に、hkey_local_machine \software\microsoft の内容に基づいて、バージョンのバインドの結果にアップグレード ポリシーを適用\\します。NETFramework\Policy\Upgrades します。 これと同じ効果を持つ[RUNTIME_INFO_UPGRADE_VERSION](../../../../docs/framework/unmanaged-api/hosting/runtime-info-flags-enumeration.md)します。|  
-|`METAHOST_POLICY_EMULATE_EXE_LAUNCH`|呼び出しに提供されたイメージは、新しいプロセスで起動された場合に、バインドの結果が返されます。 現時点では、`GetRequestedRuntime`読み込み可能なランタイムのセットを無視し、インストールされているランタイムのセットに対してバインドします。 このフラグは、ホストの起動時に、EXE がバインドするランタイムを決定するを使用します。|  
-|`METAHOST_POLICY_SHOW_ERROR_DIALOG`|場合、エラー ダイアログ ボックスが表示される`GetRequestedRuntime`は入力パラメーターと互換性があるランタイムを検索できません。 以降、.NET Framework 4.5 では、このエラー ダイアログ ボックスは、適切な機能を有効にする、ユーザーが希望かどうかを確認する Windows 機能 ダイアログ ボックスのフォームを実行できます。|  
-|`METAHOST_POLICY_USE_PROCESS_IMAGE_PATH`|`GetRequestedRuntime` バインディング プロセスに追加の入力として、プロセス イメージ (および、対応する構成ファイル) を使用します。 既定では、`GetRequestedRuntime`ことはありません、プロセス イメージのパス (通常は、プロセスを起動するために使用された EXE) にバインドするランタイムを決定するときにします。|  
-|`METAHOST_POLICY_ENSURE_SKU_SUPPORTED`|`GetRequestedRuntime` 情報は、現在の構成ファイルでないときに、適切な SKU がインストールされているかどうかを確認する必要があります。 これにより、アプリケーション、.NET Framework の既定のインストールよりも小さい Sku で適切に失敗する構成ファイルがないことができます。 既定では、 `GetRequestedRuntime` SKU 属性は、構成ファイルで指定されていない場合、適切な SKU がインストールされているかどうかをチェックしません`<supportedRuntime />`要素。|  
-|`METAHOST_POLICY_IGNORE_ERROR_MODE`|`GetRequestedRuntime` SEM_FAILCRITICALERRORS を無視する (呼び出すことによって設定されています、 [SetErrorMode](https://go.microsoft.com/fwlink/p/?LinkId=255242)関数)、エラー ダイアログ ボックスを表示するとします。 既定では、SEM_FAILCRITICALERRORS は、エラー ダイアログ ボックスを抑制します。 別のプロセスから継承されている可能性があるし、サイレント エラーが実際のシナリオでは望ましくない可能性があります。|  
+|`METAHOST_POLICY_HIGHCOMPAT`|現在のプロセスに読み込まれる共通言語ランタイム (CLR: common language runtime) を考慮しない、互換性の高いポリシーを定義します。 代わりに、インストールされた CLRs と、コンポーネントの設定 (アセンブリファイル自体、宣言された組み込みバージョン、または構成ファイルから派生したもの) のみを考慮します。|  
+|`METAHOST_POLICY_APPLY_UPGRADE_POLICY`|HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\\の内容に基づいて完全一致が見つからなかった場合に、バージョンのバインド結果にアップグレードポリシーを適用します。NETFramework\Policy\Upgrades. これは[RUNTIME_INFO_UPGRADE_VERSION](../../../../docs/framework/unmanaged-api/hosting/runtime-info-flags-enumeration.md)と同じ効果があります。|  
+|`METAHOST_POLICY_EMULATE_EXE_LAUNCH`|呼び出しに対して指定されたイメージが新しいプロセスで起動されたかのように、バインディングの結果が返されます。 現時点では、`GetRequestedRuntime` は、一連の読み込み可能なランタイムを無視し、インストールされている一連のランタイムに対してバインドします。 このフラグにより、ホストは、起動時に EXE がバインドされるランタイムを決定できます。|  
+|`METAHOST_POLICY_SHOW_ERROR_DIALOG`|`GetRequestedRuntime` が入力パラメーターと互換性のあるランタイムを見つけられない場合、エラーダイアログボックスが表示されます。 .NET Framework 4.5 以降、このエラーダイアログボックスには、ユーザーが適切な機能を有効にするかどうかを確認する Windows の機能ダイアログボックスが表示されます。|  
+|`METAHOST_POLICY_USE_PROCESS_IMAGE_PATH`|`GetRequestedRuntime` は、プロセスイメージ (およびそれに対応する構成ファイル) をバインドプロセスへの追加入力として使用します。 既定では、`GetRequestedRuntime` は、バインド先のランタイムを決定するときに、プロセスイメージのパス (通常はプロセスの起動に使用された EXE) にフォールバックしません。|  
+|`METAHOST_POLICY_ENSURE_SKU_SUPPORTED`|構成ファイルに利用できる情報がない場合は、適切な SKU がインストールされているかどうかを確認 `GetRequestedRuntime` 必要があります。 これにより、構成ファイルを持たないアプリケーションは、.NET Framework の既定のインストールよりも小さい Sku では正常に機能しなくなります。 既定では、構成ファイル `<supportedRuntime />` 要素で SKU 属性が指定されていない限り、`GetRequestedRuntime` は適切な SKU がインストールされているかどうかを確認しません。|  
+|`METAHOST_POLICY_IGNORE_ERROR_MODE`|`GetRequestedRuntime` は、( [SetErrorMode](/windows/win32/api/errhandlingapi/nf-errhandlingapi-seterrormode)関数を呼び出すことによって設定される) SEM_FAILCRITICALERRORS を無視し、エラーダイアログボックスを表示します。 既定では、SEM_FAILCRITICALERRORS はエラーダイアログボックスを表示しません。 このファイルは別のプロセスから継承されている可能性があり、シナリオによってはサイレントエラーが望ましくない場合があります。|  
   
 ## <a name="remarks"></a>Remarks  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Metahost.h  
+ **ヘッダー:** メタホスト .h  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

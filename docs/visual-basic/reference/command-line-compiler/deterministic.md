@@ -5,12 +5,12 @@ helpviewer_keywords:
 - deterministic compiler option [Visual Basic]
 - -deterministic compiler option [Visual Basic]
 - -deterministic compiler option [Visual Basic]
-ms.openlocfilehash: 6a83b636dd83534788f3a38971e0fef2919314f5
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: 9b611a72656bdd570eccec8a0585bf5ce6fa55f6
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72005633"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75716790"
 ---
 # <a name="-deterministic"></a>-deterministic
 
@@ -22,7 +22,7 @@ ms.locfileid: "72005633"
 -deterministic
 ```
 
-## <a name="remarks"></a>コメント
+## <a name="remarks"></a>Remarks
 
 既定では、コンパイラはタイムスタンプと乱数から生成された GUID を追加するため、指定した入力のセットからのコンパイラの出力は固有になります。 `-deterministic` オプションを使用して、*決定論的アセンブリ*を生成します。そのバイナリ コンテンツは、入力が同じである限り、コンパイル全体で同一になります。
 
@@ -44,7 +44,7 @@ ms.locfileid: "72005633"
   - アナライザーによって使用される可能性がある追加のファイル
 - 現在のカルチャ (診断と例外メッセージが生成される言語)。
 - エンコードが指定されていない場合の既定のエンコード (または現在のコード ページ)。
-- コンパイラの検索パス上のファイルの有無、および内容 (たとえば、`/lib` や `/recurse` で指定)。
+- コンパイラの検索パス上のファイルの有無、および内容 (たとえば、`-lib` や `-recurse` で指定)。
 - コンパイラが実行される CLR プラットフォーム。
 - `%LIBPATH%` の値。アナライザーの依存関係の読み込みに影響する場合があります。
 

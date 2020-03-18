@@ -30,7 +30,7 @@ ms.locfileid: "72291475"
   
  ドラッグ アンド ドロップ操作中に実行される特定の操作はアプリケーション固有で、多くの場合コンテキストによって決定されます。  たとえば、選択したファイルを同じストレージデバイス上のフォルダーから別のフォルダーにドラッグすると、既定でファイルが移動されます。一方、汎用名前付け規則 (UNC) 共有からローカルフォルダーにファイルをドラッグすると、既定でファイルがコピーされます。  
   
- [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] が提供するドラッグ アンド ドロップ機能は、さまざまなドラッグ アンド ドロップのシナリオをサポートするよう、非常に柔軟かつカスタマイズできるように設計されています。  ドラッグ アンド ドロップでは、1 つのアプリケーション内で、または異なるアプリケーションの間でのオブジェクトの操作をサポートします。 @No__t 0 のアプリケーションとその他の Windows アプリケーションの間でのドラッグアンドドロップも完全にサポートされています。  
+ [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] が提供するドラッグ アンド ドロップ機能は、さまざまなドラッグ アンド ドロップのシナリオをサポートするよう、非常に柔軟かつカスタマイズできるように設計されています。  ドラッグ アンド ドロップでは、1 つのアプリケーション内で、または異なるアプリケーションの間でのオブジェクトの操作をサポートします。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションとその他の Windows アプリケーションの間でのドラッグアンドドロップも完全にサポートされています。  
   
  [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] では、任意の <xref:System.Windows.UIElement> または <xref:System.Windows.ContentElement> がドラッグ アンド ドロップに参加できます。 ドラッグ アンド ドロップ操作に必要なイベントとメソッドは、<xref:System.Windows.DragDrop> クラスで定義されています。 <xref:System.Windows.UIElement> と <xref:System.Windows.ContentElement> クラスには、<xref:System.Windows.DragDrop> のアタッチ済みのイベントのエイリアスが含まれています。これにより、<xref:System.Windows.UIElement> や <xref:System.Windows.ContentElement> が基本要素として継承されるときに、イベントがクラスのメンバーとして表示されます。 これらのイベントにアタッチされたイベント ハンドラーは、基になる <xref:System.Windows.DragDrop> のアタッチ済みのイベントにアタッチされ、同じイベント データのインスタンスを受信します。 詳細については、<xref:System.Windows.UIElement.Drop?displayProperty=nameWithType> イベントを参照してください。  
   
@@ -49,12 +49,12 @@ ms.locfileid: "72291475"
   
  コピーと貼り付け操作では、システムのクリップボードを使用して、転送されたデータを一時的に保存します。ドラッグ アンド ドロップ操作では、<xref:System.Windows.DataObject> を使用してデータを格納します。 データ オブジェクトは、概念的に、実際のデータと対応するデータ形式の識別子を格納する 1 組以上の <xref:System.Object> で構成されています。  
   
- ドラッグ元では、静的な <xref:System.Windows.DragDrop.DoDragDrop%2A?displayProperty=nameWithType> メソッドを呼び出して、転送するデータをそのメソッドに渡すことでドラッグ アンド ドロップ操作を開始します。 必要な場合、<xref:System.Windows.DragDrop.DoDragDrop%2A> メソッドは <xref:System.Windows.DataObject> にデータを自動的にラップします。 データ形式の制御を拡大するには、データを <xref:System.Windows.DragDrop.DoDragDrop%2A> メソッドに渡す前に <xref:System.Windows.DataObject> にラップします。 ドロップ先は、<xref:System.Windows.DataObject> からデータを抽出する役割を務めます。 データ オブジェクトの操作の詳細については、「[データとデータ オブジェクト](data-and-data-objects.md)」を参照してください。  
+ ドラッグ元では、静的な <xref:System.Windows.DragDrop.DoDragDrop%2A?displayProperty=nameWithType> メソッドを呼び出して、転送するデータをそのメソッドに渡すことでドラッグ アンド ドロップ操作を開始します。 必要な場合、<xref:System.Windows.DragDrop.DoDragDrop%2A> メソッドは <xref:System.Windows.DataObject> にデータを自動的にラップします。 データ形式の制御を拡大するには、データを <xref:System.Windows.DataObject> メソッドに渡す前に <xref:System.Windows.DragDrop.DoDragDrop%2A> にラップします。 ドロップ先は、<xref:System.Windows.DataObject> からデータを抽出する役割を務めます。 データ オブジェクトの操作の詳細については、「[データとデータ オブジェクト](data-and-data-objects.md)」を参照してください。  
   
  ドラッグ アンド ドロップ操作のソースとターゲットは UI 要素ですが、一般に、実際に転送されているデータには視覚的表現はありません。 Windows エクスプローラーでファイルをドラッグするときに起こるような視覚的表現を、ドラッグするデータで実行するように、コードを記述することができます。 既定では、データを移動するのかコピーするのかなど、ドラッグ アンド ドロップ操作によりデータに起こる効果を表すようにカーソルを変更して、ユーザーにフィードバックします。  
   
 ### <a name="drag-and-drop-effects"></a>ドラッグ アンド ドロップの効果  
- ドラッグ アンド ドロップ操作には、転送するデータにさまざまな効果を持たせることができます。 たとえば、データをコピーしたり、データを移動したりできるなどです。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] では、ドラッグ アンド ドロップ操作の効果を指定するために使用できる <xref:System.Windows.DragDropEffects> 列挙体を定義します。 ドラッグ元では、ソースが <xref:System.Windows.DragDrop.DoDragDrop%2A> メソッドで許可する効果を指定できます。 ドロップ先では、<xref:System.Windows.DragEventArgs.Effects%2A> クラスの <xref:System.Windows.DragEventArgs> プロパティでターゲットの目的の効果を指定できます。 <xref:System.Windows.DragDrop.DragOver> イベントでドロップ先の目的の効果を指定した場合、その情報が <xref:System.Windows.DragDrop.GiveFeedback> イベントのドラッグ元に渡されます。 ドラッグ元では、この情報を使用して、ドロップ先がデータにどのような効果を起こそうとしているかをユーザーに伝えます。 データがドロップされると、ドロップ先では <xref:System.Windows.DragDrop.Drop> イベントでの実際の効果を指定します。 この情報は、<xref:System.Windows.DragDrop.DoDragDrop%2A> メソッドの戻り値としてドラッグ元に渡されます。 ドラッグ元の `allowedEffects` の一覧にない効果をドロップ先が返す場合、ドラッグ アンド ドロップ操作は取り消され、データ転送は発生しません。  
+ ドラッグ アンド ドロップ操作には、転送するデータにさまざまな効果を持たせることができます。 たとえば、データをコピーしたり、データを移動したりできるなどです。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] は、ドラッグアンドドロップ操作の効果を指定するために使用できる <xref:System.Windows.DragDropEffects> 列挙体を定義します。 ドラッグ元では、ソースが <xref:System.Windows.DragDrop.DoDragDrop%2A> メソッドで許可する効果を指定できます。 ドロップ先では、<xref:System.Windows.DragEventArgs.Effects%2A> クラスの <xref:System.Windows.DragEventArgs> プロパティでターゲットの目的の効果を指定できます。 <xref:System.Windows.DragDrop.DragOver> イベントでドロップ先の目的の効果を指定した場合、その情報が <xref:System.Windows.DragDrop.GiveFeedback> イベントのドラッグ元に渡されます。 ドラッグ元では、この情報を使用して、ドロップ先がデータにどのような効果を起こそうとしているかをユーザーに伝えます。 データがドロップされると、ドロップ先では <xref:System.Windows.DragDrop.Drop> イベントでの実際の効果を指定します。 この情報は、<xref:System.Windows.DragDrop.DoDragDrop%2A> メソッドの戻り値としてドラッグ元に渡されます。 ドラッグ元の `allowedEffects` の一覧にない効果をドロップ先が返す場合、ドラッグ アンド ドロップ操作は取り消され、データ転送は発生しません。  
   
  [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] では、ドラッグ アンド ドロップ操作の効果に関しては、<xref:System.Windows.DragDropEffects> 値はドラッグ元とドロップ先間の通信にのみ使用されるということを覚えておくのは重要です。 ドラッグ アンド ドロップ操作の実際の効果は、アプリケーションで適切なコードを記述することに依存します。  
   
@@ -66,21 +66,21 @@ ms.locfileid: "72291475"
   
 ### <a name="drag-source-events"></a>ドラッグ元のイベント  
   
-|イベント|まとめ|  
+|イベント|概要|  
 |-----------|-------------|  
-|<xref:System.Windows.DragDrop.GiveFeedback>|このイベントは、ドラッグ アンド ドロップ操作中に継続的に発生し、ドロップ ソースがユーザーに情報をフィードバックできるようにします。 このフィードバックは、通常、マウス ポインターの外観を変えて、ドロップ先が許可する効果を示すことで実行されます。  これは、バブリング イベントです。|  
-|<xref:System.Windows.DragDrop.QueryContinueDrag>|このイベントは、ドラッグ アンド ドロップ操作時にキーボードやマウス ボタンの状態が変化し、ドロップ ソースがキーやボタンの状態によってドラッグ アンド ドロップ操作の取り消しができるようになったときに発生します。 これは、バブリング イベントです。|  
+|<xref:System.Windows.DragDrop.GiveFeedback>|このイベントは、ドラッグ アンド ドロップ操作中に継続的に発生し、ドロップ ソースがユーザーに情報をフィードバックできるようにします。 このフィードバックは、通常、マウス ポインターの外観を変えて、ドロップ先が許可する効果を示すことで実行されます。  これは、 バブリング イベントです。|  
+|<xref:System.Windows.DragDrop.QueryContinueDrag>|このイベントは、ドラッグ アンド ドロップ操作時にキーボードやマウス ボタンの状態が変化し、ドロップ ソースがキーやボタンの状態によってドラッグ アンド ドロップ操作の取り消しができるようになったときに発生します。 これは、 バブリング イベントです。|  
 |<xref:System.Windows.DragDrop.PreviewGiveFeedback>|トンネリング バージョンの <xref:System.Windows.DragDrop.GiveFeedback> です。|  
 |<xref:System.Windows.DragDrop.PreviewQueryContinueDrag>|トンネリング バージョンの <xref:System.Windows.DragDrop.QueryContinueDrag> です。|  
   
 ### <a name="drop-target-events"></a>ドロップ先のイベント  
   
-|イベント|まとめ|  
+|イベント|概要|  
 |-----------|-------------|  
-|<xref:System.Windows.DragDrop.DragEnter>|このイベントは、オブジェクトがドロップ先の境界の中にドラッグされるときに発生します。 これは、バブリング イベントです。|  
-|<xref:System.Windows.DragDrop.DragLeave>|このイベントは、オブジェクトがドロップ先の境界の外にドラッグされるときに発生します。  これは、バブリング イベントです。|  
-|<xref:System.Windows.DragDrop.DragOver>|このイベントは、オブジェクトがドロップ先の境界内でドラッグ (移動) する間、継続的に発生します。 これは、バブリング イベントです。|  
-|<xref:System.Windows.DragDrop.Drop>|このイベントは、オブジェクトがドロップ先にドロップするときに発生します。  これは、バブリング イベントです。|  
+|<xref:System.Windows.DragDrop.DragEnter>|このイベントは、オブジェクトがドロップ先の境界の中にドラッグされるときに発生します。 これは、 バブリング イベントです。|  
+|<xref:System.Windows.DragDrop.DragLeave>|このイベントは、オブジェクトがドロップ先の境界の外にドラッグされるときに発生します。  これは、 バブリング イベントです。|  
+|<xref:System.Windows.DragDrop.DragOver>|このイベントは、オブジェクトがドロップ先の境界内でドラッグ (移動) する間、継続的に発生します。 これは、 バブリング イベントです。|  
+|<xref:System.Windows.DragDrop.Drop>|このイベントは、オブジェクトがドロップ先にドロップするときに発生します。  これは、 バブリング イベントです。|  
 |<xref:System.Windows.DragDrop.PreviewDragEnter>|トンネリング バージョンの <xref:System.Windows.DragDrop.DragEnter> です。|  
 |<xref:System.Windows.DragDrop.PreviewDragLeave>|トンネリング バージョンの <xref:System.Windows.DragDrop.DragLeave> です。|  
 |<xref:System.Windows.DragDrop.PreviewDragOver>|トンネリング バージョンの <xref:System.Windows.DragDrop.DragOver> です。|  
@@ -122,7 +122,7 @@ ms.locfileid: "72291475"
   
 <a name="Drag_And_Drop_Example"></a>   
 ## <a name="drag-and-drop-example"></a>ドラッグ アンド ドロップの例  
- このセクションでは、<xref:System.Windows.Shapes.Ellipse> 要素のドラッグ アンド ドロップを実装する方法について説明します。 <xref:System.Windows.Shapes.Ellipse> はドラッグ元とドロップ先の両方です。 転送されるデータは、楕円の <xref:System.Windows.Shapes.Shape.Fill%2A> プロパティの文字列表現です。 次の XAML は、<xref:System.Windows.Shapes.Ellipse> 要素と、XAML が処理するドラッグ アンド ドロップ関連のイベントを示しています。 ドラッグアンドドロップを実装する手順の詳細については、「[Walkthrough:ユーザーコントロールでドラッグアンドドロップを有効にする @ no__t-0  
+ このセクションでは、<xref:System.Windows.Shapes.Ellipse> 要素のドラッグ アンド ドロップを実装する方法について説明します。 <xref:System.Windows.Shapes.Ellipse> はドラッグ元とドロップ先の両方です。 転送されるデータは、楕円の <xref:System.Windows.Shapes.Shape.Fill%2A> プロパティの文字列表現です。 次の XAML は、<xref:System.Windows.Shapes.Ellipse> 要素と、XAML が処理するドラッグ アンド ドロップ関連のイベントを示しています。 ドラッグ アンド ドロップの実装方法の完全な手順については、「[チュートリアル: ユーザー コントロールでドラッグ アンド ドロップを有効にする](walkthrough-enabling-drag-and-drop-on-a-user-control.md)」を参照してください。  
   
  [!code-xaml[DragDropSnippets#EllipseXaml](~/samples/snippets/csharp/VS_Snippets_Wpf/dragdropsnippets/cs/mainwindow.xaml#ellipsexaml)]  
   
@@ -146,11 +146,11 @@ ms.locfileid: "72291475"
   
  <xref:System.Windows.UIElement.MouseMove> イベント ハンドラー内で、<xref:System.Windows.DragDrop.DoDragDrop%2A> メソッドを呼び出して、ドラッグ アンド ドロップ操作を開始します。 <xref:System.Windows.DragDrop.DoDragDrop%2A> メソッドは 3 つのパラメーターを受け取ります。  
   
-- `dragSource` – 転送されたデータのソースである依存関係オブジェクトへの参照。通常、これは <xref:System.Windows.UIElement.MouseMove> イベントのソースです。  
+- `dragSource` –転送されたデータのソースである依存関係オブジェクトへの参照。これは、通常、<xref:System.Windows.UIElement.MouseMove> イベントのソースです。  
   
-- `data` - <xref:System.Windows.DataObject> にラップされる転送済みデータを含むオブジェクト。  
+- `data`-<xref:System.Windows.DataObject>にラップされた、転送されたデータを格納しているオブジェクト。  
   
-- `allowedEffects` - ドラッグ アンド ドロップ操作の許可される効果を指定する <xref:System.Windows.DragDropEffects> 列挙値の 1 つ。  
+- `allowedEffects`-ドラッグアンドドロップ操作の許可された効果を指定する <xref:System.Windows.DragDropEffects> 列挙値の1つ。  
   
  シリアル化可能なオブジェクトはすべて `data` パラメーターに渡すことができます。 データがまだ <xref:System.Windows.DataObject> にラップされていない場合、データは新しい <xref:System.Windows.DataObject> に自動的にラップされます。 複数のデータ項目を渡すには、自分で <xref:System.Windows.DataObject> を作成し、<xref:System.Windows.DragDrop.DoDragDrop%2A> メソッドに渡す必要があります。 詳細については、「[データとデータ オブジェクト](data-and-data-objects.md)」を参照してください。  
   
@@ -189,35 +189,35 @@ ms.locfileid: "72291475"
   
  <xref:System.Windows.DragDrop.DragEnter> イベントは、データがドロップ先の境界の中にドラッグされるときに発生します。 通常は、アプリケーションに適していれば、ドラッグ アンド ドロップ操作の効果のプレビューを提供するように、このイベントを処理します。 <xref:System.Windows.DragEventArgs.Effects%2A?displayProperty=nameWithType> イベントで <xref:System.Windows.DragDrop.DragEnter> プロパティを設定しないでください。このプロパティは <xref:System.Windows.DragDrop.DragOver> イベントで上書きされるためです。  
   
- 次の例は、<xref:System.Windows.Shapes.Ellipse> 要素の <xref:System.Windows.DragDrop.DragEnter> イベント ハンドラーを示しています。 このコードでは、現在の <xref:System.Windows.Shapes.Shape.Fill%2A> ブラシを保存して、ドラッグ アンド ドロップ操作の効果をプレビューします。 続いて、<xref:System.Windows.DataObject.GetDataPresent%2A> メソッドを使用して、楕円の上にドラッグした <xref:System.Windows.DataObject> に、<xref:System.Windows.Media.Brush> に変換できる文字列データが含まれているかどうかを確認します。 含まれている場合、データは <xref:System.Windows.DataObject.GetData%2A> メソッドによって抽出されます。 その後、データは <xref:System.Windows.Media.Brush> に変換されて、楕円に適用されます。 変更は <xref:System.Windows.DragDrop.DragLeave> イベント ハンドラーで元に戻ります。 データが <xref:System.Windows.Media.Brush> に変換できない場合、アクションは実行されません。  
+ 次の例は、<xref:System.Windows.DragDrop.DragEnter> 要素の <xref:System.Windows.Shapes.Ellipse> イベント ハンドラーを示しています。 このコードでは、現在の <xref:System.Windows.Shapes.Shape.Fill%2A> ブラシを保存して、ドラッグ アンド ドロップ操作の効果をプレビューします。 続いて、<xref:System.Windows.DataObject.GetDataPresent%2A> メソッドを使用して、楕円の上にドラッグした <xref:System.Windows.DataObject> に、<xref:System.Windows.Media.Brush> に変換できる文字列データが含まれているかどうかを確認します。 含まれている場合、データは <xref:System.Windows.DataObject.GetData%2A> メソッドによって抽出されます。 その後、データは <xref:System.Windows.Media.Brush> に変換されて、楕円に適用されます。 変更は <xref:System.Windows.DragDrop.DragLeave> イベント ハンドラーで元に戻ります。 データが <xref:System.Windows.Media.Brush> に変換できない場合、アクションは実行されません。  
   
  [!code-csharp[DragDropSnippets#DragEnter](~/samples/snippets/csharp/VS_Snippets_Wpf/dragdropsnippets/cs/mainwindow.xaml.cs#dragenter)]
  [!code-vb[DragDropSnippets#DragEnter](~/samples/snippets/visualbasic/VS_Snippets_Wpf/dragdropsnippets/vb/mainwindow.xaml.vb#dragenter)]  
   
  <xref:System.Windows.DragDrop.DragOver> イベントは、データがドロップ先の上にドラッグされる間、継続的に発生します。 このイベントはドラッグ元の <xref:System.Windows.DragDrop.GiveFeedback> イベントとペアになります。 <xref:System.Windows.DragDrop.DragOver> イベント ハンドラーでは、通常は <xref:System.Windows.DataObject.GetDataPresent%2A> メソッドと <xref:System.Windows.DataObject.GetData%2A> メソッドを使用して、転送されたデータがドロップ先で処理できる形式であるかどうかを確認します。 また、いずれかの修飾キーが押されたかどうかも確認できます。修飾キーは、通常、ユーザーが移動またはコピー操作を意図しているかどうかを示します。 これらの確認を行った後、<xref:System.Windows.DragEventArgs.Effects%2A?displayProperty=nameWithType> プロパティを、データをドロップするとどのような効果が起こるかをドラッグ元に通知するように設定します。 ドラッグ元は、<xref:System.Windows.DragDrop.GiveFeedback> のイベント引数でこの情報を受信し、適切なカーソルを設定してユーザーにフィードバックします。  
   
- 次の例は、<xref:System.Windows.Shapes.Ellipse> 要素の <xref:System.Windows.DragDrop.DragOver> イベント ハンドラーを示しています。 このコードは、楕円の上にドラッグされている <xref:System.Windows.DataObject> に、<xref:System.Windows.Media.Brush> に変換できる文字列データが含まれているかどうかを確認します。 含まれている場合、<xref:System.Windows.DragEventArgs.Effects%2A?displayProperty=nameWithType> プロパティを <xref:System.Windows.DragDropEffects.Copy> に設定します。 これにより、ドラッグ元に対して、データが楕円にコピーできることを示します。 データが <xref:System.Windows.Media.Brush> に変換できない場合、<xref:System.Windows.DragEventArgs.Effects%2A?displayProperty=nameWithType> プロパティは <xref:System.Windows.DragDropEffects.None> に設定されます。 これにより、ドラッグ元に対して、楕円はデータの有効なドロップ先ではないことを示します。  
+ 次の例は、<xref:System.Windows.DragDrop.DragOver> 要素の <xref:System.Windows.Shapes.Ellipse> イベント ハンドラーを示しています。 このコードは、楕円の上にドラッグされている <xref:System.Windows.DataObject> に、<xref:System.Windows.Media.Brush> に変換できる文字列データが含まれているかどうかを確認します。 含まれている場合、<xref:System.Windows.DragEventArgs.Effects%2A?displayProperty=nameWithType> プロパティを <xref:System.Windows.DragDropEffects.Copy> に設定します。 これにより、ドラッグ元に対して、データが楕円にコピーできることを示します。 データが <xref:System.Windows.Media.Brush> に変換できない場合、<xref:System.Windows.DragEventArgs.Effects%2A?displayProperty=nameWithType> プロパティは <xref:System.Windows.DragDropEffects.None> に設定されます。 これにより、ドラッグ元に対して、楕円はデータの有効なドロップ先ではないことを示します。  
   
  [!code-csharp[DragDropSnippets#DragOver](~/samples/snippets/csharp/VS_Snippets_Wpf/dragdropsnippets/cs/mainwindow.xaml.cs#dragover)]
  [!code-vb[DragDropSnippets#DragOver](~/samples/snippets/visualbasic/VS_Snippets_Wpf/dragdropsnippets/vb/mainwindow.xaml.vb#dragover)]  
   
  <xref:System.Windows.DragDrop.DragLeave> イベントは、データがドロップされることなくターゲットの境界の外にドラッグされるときに発生します。 このイベントを処理すると、<xref:System.Windows.DragDrop.DragEnter> イベント ハンドラーで行ったことをすべて元に戻すことができます。  
   
- 次の例は、<xref:System.Windows.Shapes.Ellipse> 要素の <xref:System.Windows.DragDrop.DragLeave> イベント ハンドラーを示しています。 このコードは、保存された <xref:System.Windows.Media.Brush> を楕円に適用することで、<xref:System.Windows.DragDrop.DragEnter> イベント ハンドラーで行ったプレビュー内容を元に戻します。  
+ 次の例は、<xref:System.Windows.DragDrop.DragLeave> 要素の <xref:System.Windows.Shapes.Ellipse> イベント ハンドラーを示しています。 このコードは、保存された <xref:System.Windows.DragDrop.DragEnter> を楕円に適用することで、<xref:System.Windows.Media.Brush> イベント ハンドラーで行ったプレビュー内容を元に戻します。  
   
  [!code-csharp[DragDropSnippets#DragLeave](~/samples/snippets/csharp/VS_Snippets_Wpf/dragdropsnippets/cs/mainwindow.xaml.cs#dragleave)]
  [!code-vb[DragDropSnippets#DragLeave](~/samples/snippets/visualbasic/VS_Snippets_Wpf/dragdropsnippets/vb/mainwindow.xaml.vb#dragleave)]  
   
  <xref:System.Windows.DragDrop.Drop> イベントは、データがドロップ先にドロップされると発生します。既定では、これはマウス ボタンが放されたときに発生します。 <xref:System.Windows.DragDrop.Drop> イベント ハンドラーでは、<xref:System.Windows.DataObject.GetData%2A> メソッドを使用して <xref:System.Windows.DataObject> から転送されたデータを抽出し、アプリケーションが必要とするデータ処理を実行します。 <xref:System.Windows.DragDrop.Drop> イベントは、ドラッグ アンド ドロップ操作を終了します。  
   
- 次の例は、<xref:System.Windows.Shapes.Ellipse> 要素の <xref:System.Windows.DragDrop.Drop> イベント ハンドラーを示しています。 このコードは、ドラッグ アンド ドロップ操作の効果を適用します。<xref:System.Windows.DragDrop.DragEnter> イベント ハンドラーのコードと似ています。 このコードは、楕円の上にドラッグされている <xref:System.Windows.DataObject> に、<xref:System.Windows.Media.Brush> に変換できる文字列データが含まれているかどうかを確認します。 含まれている場合は、 <xref:System.Windows.Media.Brush> は楕円に適用されます。 データが <xref:System.Windows.Media.Brush> に変換できない場合、アクションは実行されません。  
+ 次の例は、<xref:System.Windows.DragDrop.Drop> 要素の <xref:System.Windows.Shapes.Ellipse> イベント ハンドラーを示しています。 このコードは、ドラッグ アンド ドロップ操作の効果を適用します。<xref:System.Windows.DragDrop.DragEnter> イベント ハンドラーのコードと似ています。 このコードは、楕円の上にドラッグされている <xref:System.Windows.DataObject> に、<xref:System.Windows.Media.Brush> に変換できる文字列データが含まれているかどうかを確認します。 含まれている場合は、 <xref:System.Windows.Media.Brush> は楕円に適用されます。 データが <xref:System.Windows.Media.Brush> に変換できない場合、アクションは実行されません。  
   
  [!code-csharp[DragDropSnippets#Drop](~/samples/snippets/csharp/VS_Snippets_Wpf/dragdropsnippets/cs/mainwindow.xaml.cs#drop)]
  [!code-vb[DragDropSnippets#Drop](~/samples/snippets/visualbasic/VS_Snippets_Wpf/dragdropsnippets/vb/mainwindow.xaml.vb#drop)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Clipboard>
-- [チュートリアル: ユーザーコントロールでのドラッグアンドドロップの有効化 @ no__t-0
-- [方法トピック](drag-and-drop-how-to-topics.md)
+- [チュートリアル: ユーザー コントロールでのドラッグ アンド ドロップの有効化](walkthrough-enabling-drag-and-drop-on-a-user-control.md)
+- [方法のトピック](drag-and-drop-how-to-topics.md)
 - [ドラッグ アンド ドロップ](drag-and-drop.md)

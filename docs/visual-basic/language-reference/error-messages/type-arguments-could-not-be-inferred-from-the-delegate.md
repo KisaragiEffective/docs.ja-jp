@@ -29,6 +29,6 @@ ms.locfileid: "64584260"
 
 - [Visual Basic におけるジェネリック型](../../../visual-basic/programming-guide/language-features/data-types/generic-types.md)
 - [AddressOf 演算子](../../../visual-basic/language-reference/operators/addressof-operator.md)
-- [Generic Procedures in Visual Basic](../../../visual-basic/programming-guide/language-features/data-types/generic-procedures.md)
+- [Visual Basic におけるジェネリック プロシージャ](../../../visual-basic/programming-guide/language-features/data-types/generic-procedures.md)
 - [型リスト](../../../visual-basic/language-reference/statements/type-list.md)
 - [拡張メソッド](../../../visual-basic/programming-guide/language-features/procedures/extension-methods.md)

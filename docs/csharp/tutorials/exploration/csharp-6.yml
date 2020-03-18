@@ -8,22 +8,22 @@ metadata:
   ms.date: 12/11/2018
   displayType: two-column
   interactive: csharp
-  ms.openlocfilehash: e1414c17cefd0fb31bb782a311e11dbd4cc056bb
-  ms.sourcegitcommit: 093571de904fc7979e85ef3c048547d0accb1d8a
+  ms.openlocfilehash: 594ae1530ac9ef41d6f3200b3e218db026552b95
+  ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 09/06/2019
-  ms.locfileid: "70394086"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "78240403"
 items:
 - durationInMinutes: 1
   content: >
     このチュートリアルでは C# 6 を対話形式で詳しく学習できます。ブラウザーを使用して C# を記述し、コードをコンパイルして実行した結果を確認します。 これには、より新しく簡潔な C# 6 の機能を使用するため、以前の C# プラクティスを変更する一連のレッスンが含まれています。 この記事の残りの部分では、これらの各機能の概要と、各機能をより詳しく学習するためのリンクを提供します。
 - title: 読み取り専用の型を有効にする読み取り専用の自動プロパティ
   durationInMinutes: 2
-  content: "自動プロパティ構文に対する 2 つの機能強化 (読み取り専用の自動プロパティと自動プロパティ初期化子) により、より多くの場所で自動プロパティが使いやすくなりました。 次の小さなプログラムを検討します。\n\n[!code-csharp[Starter](../../../../samples/csharp/tutorials/exploration/csharp6-starter/Program.cs)]  \n\n    \n フォーカス モードに入り、上記のコードを C# 対話型ウィンドウにコピーします。 次に、*[実行]* をクリックして、コードにより何が行われるかを確認します。 `AllCaps` には、大文字の文字列を返すことに加え、プロパティ値の変更という望ましくない副作用があります。 `Person` クラスの作成者は、`FirstName` と `LastName` の文字列を読み取り専用にすることを意図していました。 C# 6 では、その意図を明白にすることができます。 両方のプロパティから `private set` を削除して、読み取り専用の自動プロパティを作成します。 *[実行]* をクリックして、`FirstName` プロパティと `LastName`プロパティが変更されるべきでないタイミングで変更される 2 つの場所をコンパイラが特定するのを確認します。 `AllCaps` メソッドを次のコードに変更して、コンパイラ エラーを修正できます。\n\n```csharp\npublic string AllCaps()\n{\n  return ToString().ToUpper();\n}\n```\n\nこの新しい構文を使用することで、コンパイラはプロパティを変更できないようにします。\n"
+  content: "自動プロパティ構文に対する 2 つの機能強化 (読み取り専用の自動プロパティと自動プロパティ初期化子) により、より多くの場所で自動プロパティが使いやすくなりました。 次の小さなプログラムを検討します。\n\n[!code-csharp[Starter](../../../../samples/snippets/csharp/tutorials/exploration/csharp6-starter/Program.cs)]  \n\n    \n フォーカス モードに入り、上記のコードを C# 対話型ウィンドウにコピーします。 次に、*[実行]* を選択して、コードにより何が行われるかを確認します。 `AllCaps` には、大文字の文字列を返すことに加え、プロパティ値の変更という望ましくない副作用があります。 `Person` クラスの作成者は、`FirstName` と `LastName` の文字列を読み取り専用にすることを意図していました。 C# 6 では、その意図を明白にすることができます。 両方のプロパティから `private set` を削除して、読み取り専用の自動プロパティを作成します。 *[実行]* を選択して、`FirstName` および `LastName` プロパティが変更されるべきでないタイミングで変更される 2 つの場所をコンパイラが特定するのを確認します。 `AllCaps` メソッドを次のコードに変更して、コンパイラ エラーを修正できます。\n\n```csharp\npublic string AllCaps()\n{\n  return ToString().ToUpper();\n}\n```\n\nこの新しい構文を使用することで、コンパイラはプロパティを変更できないようにします。\n"
 - title: 自動プロパティのバッキング フィールドの初期化
   durationInMinutes: 1
-  content: "C# 6 の新しい構文により、自動プロパティに初期化子を使用することができます。 クラスに新しい機能が増えたため、これはさらに重要になります。 ミドル ネーム プロパティと、3 つの文字列を受け取る新しいコンストラクターを `Person` クラスに追加します。\n\n[!code-csharp[MiddleName](../../../../samples/csharp/tutorials/exploration/csharp6-finished/Program.cs#MiddleName)]  \n\n`MiddleName` プロパティの割り当ては初期化子です。 これはミドル ネーム用にコンパイラによって生成されたバッキング フィールドを初期化します。\n"
+  content: "C# 6 の新しい構文により、自動プロパティに初期化子を使用することができます。 クラスに新しい機能が増えたため、これはさらに重要になります。 ミドル ネーム プロパティと、3 つの文字列を受け取る新しいコンストラクターを `Person` クラスに追加します。\n\n[!code-csharp[MiddleName](../../../../samples/snippets/csharp/tutorials/exploration/csharp6-finished/Program.cs#MiddleName)]  \n\n`MiddleName` プロパティの割り当ては初期化子です。 これはミドル ネーム用にコンパイラによって生成されたバッキング フィールドを初期化します。\n"
 - title: 式形式のメンバー
   durationInMinutes: 2
   content: >
@@ -54,10 +54,10 @@ items:
     同じことを `AllCaps` メソッドで試します。 これは小さな改善ですが、うまく使用することで、特にデータ転送オブジェクト (DTO) や最小限の動作を持つその他の型に対しては、もっと読みやすいコードを作成することができます。
 - title: 単一クラスのインポート
   durationInMinutes: 2
-  content: "コード全体で 1 つのクラスの静的メソッドを繰り返し使用する場合は、毎回クラス名を含めるとコードの意味がわかりにくくなります。 `Person` クラスは現在、<xref:System.Console?displayProperty=nameWithType> しか使用されていない場合でも、`System` 名前空間をインポートします。 `using` ステートメントを次のように変更します。\n\n[!code-csharp[MiddleName](../../../../samples/csharp/tutorials/exploration/csharp6-finished/Program.cs#UsingStatic)]  \n\n`static using` ステートメントは、[`string`](xref:System.String) クラスや <xref:System.Math?displayProperty=nameWithType> クラスのように、多くの静的メソッドを持つ 1 つのクラスを大量に使用する大規模なプログラムではより有用になります。\n"
+  content: "コード全体で 1 つのクラスの静的メソッドを繰り返し使用する場合は、毎回クラス名を含めるとコードの意味がわかりにくくなります。 `Person` クラスは現在、<xref:System.Console?displayProperty=nameWithType> しか使用されていない場合でも、`System` 名前空間をインポートします。 `using` ステートメントを次のように変更します。\n\n[!code-csharp[MiddleName](../../../../samples/snippets/csharp/tutorials/exploration/csharp6-finished/Program.cs#UsingStatic)]  \n\n`static using` ステートメントは、[`string`](xref:System.String) クラスや <xref:System.Math?displayProperty=nameWithType> クラスのように、多くの静的メソッドを持つ 1 つのクラスを大量に使用する大規模なプログラムではより有用になります。\n"
 - title: 向上した文字列形式
   durationInMinutes: 2
-  content: "C# 6 で導入された新しい構文では、文字列と、その他の文字列値を生成するために評価される埋め込み式から、文字列を作成することができます。 この構文を使用するように、`ToString` メソッドと `AllCaps` メソッドを変更できます。\n\n[!code-csharp[StringInterpolation](../../../../samples/csharp/tutorials/exploration/csharp6-finished/Program.cs#StringInterpolation)]  \n\n`{` と `}` の間の位置引数の代わりに、C# 式を直接記述します。 `Main` メソッドでも同じことができます。 既存のコードを次のコードに置き換えます。\n\n[!code-csharp[InterpolationMain](../../../../samples/csharp/tutorials/exploration/csharp6-finished/Program.cs#InterpolationMain)]  \n\nこれらの式では、変数は 1 つに制限されません。 新しい例を使用して、文字列補間で使用できるその他の式を示すように変更してみましょう。 `Main` メソッドの対話型ウィンドウに次のコードを貼り付けます。\n\n[!code-csharp[Phrases](../../../../samples/csharp/tutorials/exploration/csharp6-finished/Program.cs#Phrases)]  \nLINQ を使用するので、対話型ウィンドウの先頭に次の using ステートメントを追加する必要があります。\n\n```csharp\nusing System.Linq;\n```\n\nローカル変数 `average` を削除して、補間文字列式の一部としてその計算を実行できます。 最後の 2 行を以下に置き換えます。\n\n```csharp\nWriteLine($\"The average word length is: {wordLength.Average()}\");\n```\n\n上記の例を実行すると、`Average` の出力の小数点以下の桁数が必要以上に多いことに気付くでしょう。 文字列補間の構文では、これまでの書式設定メソッドを通じて利用できるすべての書式がサポートされます。 中かっこ内に書式文字列を指定します。 書式設定する式 の後に、`:` を追加します。\n\n```csharp\nWriteLine($\"The average word length is: {wordLength.Average():F2}\");\n```\n"
+  content: "C# 6 で導入された新しい構文では、文字列と、その他の文字列値を生成するために評価される埋め込み式から、文字列を作成することができます。 この構文を使用するように、`ToString` メソッドと `AllCaps` メソッドを変更できます。\n\n[!code-csharp[StringInterpolation](../../../../samples/snippets/csharp/tutorials/exploration/csharp6-finished/Program.cs#StringInterpolation)]  \n\n`{` と `}` の間の位置引数の代わりに、C# 式を直接記述します。 `Main` メソッドでも同じことができます。 既存のコードを次のコードに置き換えます。\n\n[!code-csharp[InterpolationMain](../../../../samples/snippets/csharp/tutorials/exploration/csharp6-finished/Program.cs#InterpolationMain)]  \n\nこれらの式では、変数は 1 つに制限されません。 新しい例を使用して、文字列補間で使用できるその他の式を示すように変更してみましょう。 `Main` メソッドの対話型ウィンドウに次のコードを貼り付けます。\n\n[!code-csharp[Phrases](../../../../samples/snippets/csharp/tutorials/exploration/csharp6-finished/Program.cs#Phrases)]  \nLINQ を使用するので、対話型ウィンドウの先頭に次の using ステートメントを追加する必要があります。\n\n```csharp\nusing System.Linq;\n```\n\nローカル変数 `average` を削除して、補間文字列式の一部としてその計算を実行できます。 最後の 2 行を以下に置き換えます。\n\n```csharp\nWriteLine($\"The average word length is: {wordLength.Average()}\");\n```\n\n上記の例を実行すると、`Average` の出力の小数点以下の桁数が必要以上に多いことに気付くでしょう。 文字列補間の構文では、これまでの書式設定メソッドを通じて利用できるすべての書式がサポートされます。 中かっこ内に書式文字列を指定します。 書式設定する式 の後に、`:` を追加します。\n\n```csharp\nWriteLine($\"The average word length is: {wordLength.Average():F2}\");\n```\n"
 - title: 手早く簡単な null チェック
   durationInMinutes: 2
   content: "`?.` (null 条件) 演算子により、追加の `if` チェックを行わなくても、`null` 値をシームレスに考慮するロジックの記述が容易になります。 この機能を詳しく学習するため、まず次のコードを対話型ウィンドウにコピーして、試してみましょう。\n\n```csharp\nusing System;\n\npublic class Program\n{\n    public static void Main()\n    {\n      string s = null;\n      Console.WriteLine(s.Length);\n    }\n}\n```\n\nサンプルを実行すると、<xref:System.NullReferenceException> がスローされます。 `.` メンバー アクセス演算子を **null 条件演算子**に変更します。\n\n```csharp\nConsole.WriteLine(s?.Length);\n``` \n\nこれを変更すると、出力がなくなります。 これは、`s.Length` の結果が `int` の場合、`s?.Length` の結果は `int?` となるからです。 この例では、`s?.Length` は `null` です。 左オペランドが `null` の場合、`?.` は `null` を返します。 右オペランドの型が値の型である場合、`?.` 演算子はその型に対して null 許容型を返します。 配列アクセスまたはインデクサー アクセスには、`?.` の他に `?[]` も使用できます。 対話型ウィンドウで次のコードを実行します。\n\n ```csharp\n char? c = s?[0];\n Console.WriteLine(c.HasValue);\n ```\n\n 複数の条件演算子は、1 つの式に結合できます。 `null` 左オペランドは `null` の結果を生成し、入れ子になった if 句がメンバーのメンバーにアクセスするのを簡単に回避できるようにします。 たとえば、対話型ウィンドウで次のコードを実行してみましょう。\n\n ```csharp\n string s = null;\n bool? hasMore = s?.ToCharArray()?.GetEnumerator()?.MoveNext();\n Console.WriteLine(hasMore.HasValue);\n ```\n\n 既定値を指定する **null 合体演算子**を使用して、前出の例を簡略化できます。\n\n ```csharp\n bool hasMore = s?.ToCharArray()?.GetEnumerator()?.MoveNext() ?? false;\n Console.WriteLine(hasMore);\n ```\n\n **null 条件演算子**は、`null` 値をシームレスにテストしながら、コア ロジックを明確にするコードを記述するのに役立ちます。\n"

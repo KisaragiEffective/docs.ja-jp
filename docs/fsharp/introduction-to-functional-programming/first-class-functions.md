@@ -1,6 +1,6 @@
 ---
 title: ファーストクラス関数
-description: ファーストクラスの関数と、のF#関数型プログラミングの重要な機能について説明します。
+description: ファーストクラス関数と、F# の関数型プログラミングの重要な機能について説明します。
 ms.date: 10/29/2018
 ms.openlocfilehash: 4681d32abd59cc4aade6f4cb2d062e7888bcfbbc
 ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4

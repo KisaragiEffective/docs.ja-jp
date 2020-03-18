@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: cf7940e9-4558-4319-925c-09f6c98c8fcd
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 350a3505345aa88d93f551309eb896ff52cc683d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 4f6940f863504a9aedd9539e121c7b3791f746b9
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67761154"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76788302"
 ---
 # <a name="icordebugmanagedcallback2destroyconnection-method"></a>ICorDebugManagedCallback2::DestroyConnection メソッド
-指定した接続が終了されたことをデバッガーに通知します。  
+指定された接続が終了したことをデバッガーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,16 +36,16 @@ HRESULT DestroyConnection (
   
 ## <a name="parameters"></a>パラメーター  
  `pProcess`  
- [in]破棄された接続を含むプロセスを表す ICorDebugProcess オブジェクトへのポインター。  
+ から破棄された接続を含むプロセスを表す、のオブジェクトへのポインター。  
   
  `dwConnectionId`  
- [in]破棄された接続の ID。  
+ から破棄された接続の ID。  
   
-## <a name="remarks"></a>Remarks  
- A`DestroyConnection`ホストを呼び出すときに起動されるコールバック[iclrdebugmanager::endconnection](../../../../docs/framework/unmanaged-api/hosting/iclrdebugmanager-endconnection-method.md)で、[ホスト API](../../../../docs/framework/unmanaged-api/hosting/index.md)します。  
+## <a name="remarks"></a>コメント  
+ ホストが[ホスティング API](../../../../docs/framework/unmanaged-api/hosting/index.md)で[ICLRDebugManager:: endconnection](../../../../docs/framework/unmanaged-api/hosting/iclrdebugmanager-endconnection-method.md)を呼び出したときに、`DestroyConnection` コールバックが発生します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -57,5 +55,5 @@ HRESULT DestroyConnection (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugManagedCallback2 インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback2-interface.md)
-- [ICorDebugManagedCallback インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-interface.md)
+- [ICorDebugManagedCallback2 インターフェイス](icordebugmanagedcallback2-interface.md)
+- [ICorDebugManagedCallback インターフェイス](icordebugmanagedcallback-interface.md)

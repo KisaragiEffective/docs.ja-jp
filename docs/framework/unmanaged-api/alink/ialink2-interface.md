@@ -6,14 +6,12 @@ f1_keywords:
 helpviewer_keywords:
 - IALink2 interface
 ms.assetid: fba62a55-36bd-401e-bcd2-5be8e2d34891
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a876e4db7656c7a9976aee61931af29078e410c0
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 57998f8841ed952c8876fa6d36f090cf58866a8b
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70777172"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74431372"
 ---
 # <a name="ialink2-interface"></a>IALink2 インターフェイス
 [IMetaDataEmit2 インターフェイス](../metadata/imetadataemit2-interface.md)などの新しいメタデータインターフェイスを操作するメソッドを宣言して、 [ialink インターフェイス](ialink-interface.md)を補完します。 また、IALink2 は、元の IALink インターフェイスよりも追加の使用の柔軟性を提供するメソッドを宣言します。  
@@ -41,7 +39,7 @@ ms.locfileid: "70777172"
   
  [SetPEKind メソッド](setpekind-method.md)  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ALink API](index.md)
 - [IALink インターフェイス](ialink-interface.md)

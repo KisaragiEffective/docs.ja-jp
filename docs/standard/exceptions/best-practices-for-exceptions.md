@@ -9,12 +9,12 @@ dev_langs:
 helpviewer_keywords:
 - exceptions, best practices
 ms.assetid: f06da765-235b-427a-bfb6-47cd219af539
-ms.openlocfilehash: 6a165c3e0f41603ef7233669d7148dd44b1d3ce6
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: 1de231b01e3fa97e78a87ae6b0595a9b5536374e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71696760"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78160171"
 ---
 # <a name="best-practices-for-exceptions"></a>例外の推奨事項
 
@@ -24,7 +24,7 @@ ms.locfileid: "71696760"
 
 例外が発生する可能性があるコードの前後に `try`/`catch` を使用します。***すると***、その例外からコードは回復できます。 `catch` ブロックでは、例外を常に最も強い派生型から最も弱い派生型の順序で並べ替えます。 すべての例外は <xref:System.Exception> から派生します。 最も強い派生型の例外は、基礎例外クラスの catch 句に続く catch 句では処理されません。 コードが例外から回復できないとき、その例外はキャッチしないでください。 可能であれば、回復させる呼び出し履歴のずっと上でメソッドを有効にします。
 
-`using` ステートメントか `finally` ブロックで割り当てられているリソースをクリーンアップします。 例外がスローされたとき、リソースを自動クリーンアップするには `using` ステートメントを選択します。 <xref:System.IDisposable> を実装しないリソースをクリーンアップするには `finally` ブロックを使用します。 `finally` 句のコードは常に、例外がスローされるときでも実行されます。
+`using` ステートメントか `finally` ブロックで割り当てられているリソースをクリーンアップします。 例外がスローされたとき、リソースを自動クリーンアップするには `using` ステートメントを選択します。 `finally` を実装しないリソースをクリーンアップするには <xref:System.IDisposable> ブロックを使用します。 `finally` 句のコードは常に、例外がスローされるときでも実行されます。
 
 ## <a name="handle-common-conditions-without-throwing-exceptions"></a>例外をスローせずに一般的な状態を処理する
 
@@ -56,7 +56,7 @@ ms.locfileid: "71696760"
 
 例外が返されるのを回避するもう 1 つの方法は、非常に一般的なエラーの場合に、例外をスローする代わりに null (または既定値) を返すことです。 非常に一般的なエラーは、通常の制御の流れと見なすことができます。 このような場合は、null (または既定値) を返すことによって、アプリケーションのパフォーマンスへの影響を最小限に抑えることができます。
 
-値の型の場合、`Nullable<T>` または既定値をエラー インジケーターとして使用するかどうかを特定のアプリに関して検討します。 `Nullable<Guid>` を使用すると、`default` は `Guid.Empty` ではなく `null` になります。 `Nullable<T>` を追加すると、値があるときとないときがはっきりすることがあります。 `Nullable<T>` を追加すると、不要な確認事項が増え、潜在的なエラーの原因にしかならないこともあります。 
+値の型の場合、`Nullable<T>` または既定値をエラー インジケーターとして使用するかどうかを特定のアプリに関して検討します。 `Nullable<Guid>` を使用すると、`default` は `null` ではなく `Guid.Empty` になります。 `Nullable<T>` を追加すると、値があるときとないときがはっきりすることがあります。 `Nullable<T>` を追加すると、不要な確認事項が増え、潜在的なエラーの原因にしかならないこともあります。
 
 ## <a name="throw-exceptions-instead-of-returning-an-error-code"></a>エラー コードを返す代わりに、例外をスローする
 
@@ -88,7 +88,7 @@ ms.locfileid: "71696760"
 
 - 文字列メッセージと内部例外を受け取る <xref:System.Exception.%23ctor%28System.String%2CSystem.Exception%29>。
 
-例については、「[方法: ユーザー定義の例外を作成する](how-to-create-user-defined-exceptions.md)」をご覧ください。
+例については、「[方法: ユーザー定義の例外を作成する](how-to-create-user-defined-exceptions.md)」を参照してください。
 
 ## <a name="ensure-that-exception-data-is-available-when-code-executes-remotely"></a>コードがリモートで実行されるときに、例外データが利用できるようにする
 
@@ -108,12 +108,12 @@ ms.locfileid: "71696760"
 
 ## <a name="include-a-localized-string-message-in-every-exception"></a>すべての例外に、ローカライズした文字列メッセージを含める
 
-ユーザーに対して表示されるエラー メッセージは、例外クラスの名前ではなく、スローされた例外の <xref:System.Exception.Message?displayProperty=nameWithType> プロパティから派生されます。 通常は、メッセージ文字列を[例外コンストラクター](xref:System.Exception.%23ctor%2A)の `message` 引数に渡すことで、<xref:System.Exception.Message?displayProperty=nameWithType> プロパティに値を割り当てます。
+ユーザーに対して表示されるエラー メッセージは、例外クラスの名前ではなく、スローされた例外の <xref:System.Exception.Message?displayProperty=nameWithType> プロパティから派生されます。 通常は、メッセージ文字列を<xref:System.Exception.Message?displayProperty=nameWithType>例外コンストラクター`message`の [ 引数に渡すことで、](xref:System.Exception.%23ctor%2A) プロパティに値を割り当てます。
 
 ローカライズされたアプリケーションの場合は、アプリケーションがスローできるすべての例外に、ローカライズされたメッセージ文字列を指定する必要があります。 ローカライズされたエラー メッセージを指定するには、リソース ファイルを使用します。 アプリケーションのローカライズとローカライズされた文字列の取得の詳細については、次の記事を参照してください。
 
 - [方法: ローカライズされた例外メッセージを使用するユーザー定義の例外を作成する](how-to-create-localized-exception-messages.md)
-- [デスクトップ アプリケーションのリソース](../../framework/resources/index.md) 
+- [デスクトップ アプリケーションのリソース](../../framework/resources/index.md)
 - <xref:System.Resources.ResourceManager?displayProperty=nameWithType>
 
 ## <a name="in-custom-exceptions-provide-additional-properties-as-needed"></a>カスタム例外で、必要に応じて追加のプロパティを提供する
@@ -214,6 +214,6 @@ Catch ex As Exception
 End Try
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [例外](index.md)

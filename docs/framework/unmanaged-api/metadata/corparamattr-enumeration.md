@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: a7ff90ad-dad8-48e8-917d-4aa9a118cbc8
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: bfa8f1b5df76c7fdfe2f25b637b157bfa4424f7a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 1d58c8c0413346536c3e61e67ca0077c08c2b387
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781655"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74436495"
 ---
 # <a name="corparamattr-enumeration"></a>CorParamAttr 列挙型
 メソッド パラメーターのメタデータを記述する値が格納されます。  
@@ -49,20 +47,20 @@ typedef enum CorParamAttr {
 |メンバー|説明|  
 |------------|-----------------|  
 |`pdIn`|パラメーターがメソッドの呼び出しに渡されることを指定します。|  
-|`pdOut`|パラメーターが渡されること、メソッドから戻り値を指定します。|  
-|`pdOptional`|パラメーターが省略可能なことを指定します。|  
-|`pdReservedMask`|共通言語ランタイムでは、内部使用のため予約されています。|  
-|`pdHasDefault`|パラメーターの既定値を指定します。|  
-|`pdHasFieldMarshal`|パラメーターがマーシャ リング情報を使用することを指定します。|  
-|`pdUnused`|使用されません。|  
+|`pdOut`|パラメーターがメソッドの戻り値から渡されることを指定します。|  
+|`pdOptional`|パラメーターが省略可能であることを指定します。|  
+|`pdReservedMask`|共通言語ランタイムによる内部使用のために予約されています。|  
+|`pdHasDefault`|パラメーターに既定値が設定されていることを指定します。|  
+|`pdHasFieldMarshal`|パラメーターにマーシャリング情報があることを指定します。|  
+|`pdUnused`|未使用。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

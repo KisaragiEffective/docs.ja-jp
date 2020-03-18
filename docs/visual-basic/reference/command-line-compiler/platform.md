@@ -1,17 +1,17 @@
 ---
-title: -platform (Visual Basic)
+title: -platform
 ms.date: 03/13/2018
 helpviewer_keywords:
 - platform compiler option [Visual Basic]
 - /platform compiler option [Visual Basic]
 - -platform compiler option [Visual Basic]
 ms.assetid: f9bc61e6-e854-4ae1-87b9-d6244de23fd1
-ms.openlocfilehash: 741c36473d80b2581718d969a7037f6c81ff4bf5
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: a6226b73d5d5d4d48a71afe39e8a546019d4c0bc
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72775587"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352342"
 ---
 # <a name="-platform-visual-basic"></a>-platform (Visual Basic)
 出力ファイルをどのプラットフォーム用の共通言語ランタイム (CLR) で実行するかを指定します。  
@@ -24,7 +24,7 @@ ms.locfileid: "72775587"
   
 ## <a name="arguments"></a>引数  
   
-|用語|定義|  
+|用語|Definition|  
 |---|---|  
 |`x86`|32 ビット x86 互換 CLR で実行されるように、アセンブリをコンパイルします。|  
 |`x64`|AMD64 または EM64T 命令セットをサポートするコンピューター上の 64 ビット CLR で実行されるように、アセンブリをコンパイルします。|  
@@ -33,7 +33,7 @@ ms.locfileid: "72775587"
 |`anycpu`|任意のプラットフォーム上で実行されるように、アセンブリをコンパイルします。 アプリケーションは、Windows の 32 ビット バージョンでは 32 ビット アプリケーションとして、Windows の 64 ビット バージョンでは 64 ビット アプリケーションとして実行されます。 このフラグが既定値です。|  
 |`anycpu32bitpreferred`|任意のプラットフォーム上で実行されるように、アセンブリをコンパイルします。 アプリケーションは、Windows の 32 ビット バージョンおよび 64 ビット バージョンの両方で、 32 ビット アプリケーションとして実行されます。 このフラグは、実行可能ファイル () に対してのみ有効です。EXE) と .NET Framework 4.5 が必要です。|  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
  出力ファイルの対象となるプロセッサの種類を指定するには、`-platform` オプションを使用します。  
   
  通常、Visual Basic で記述された .NET Framework アセンブリは、プラットフォームに関係なく、同じように実行されます。 ただし、プラットフォーム間で動作が異なる場合があります。 その一般的な例を次に示します。  
@@ -48,7 +48,7 @@ ms.locfileid: "72775587"
   
 - すべてのプラットフォームに存在するとは限らないコンポーネントを使用したプラットフォーム呼び出しまたは COM 相互運用機能の使用  
   
- **-Platform**オプションを使用すると、コードが実行されるアーキテクチャについて想定したことがわかった場合に、いくつかの問題を軽減できます。 具体的には、次のように使用します。  
+ **-Platform**オプションを使用すると、コードが実行されるアーキテクチャについて想定したことがわかった場合に、いくつかの問題を軽減できます。 具体的な内容は次のとおりです。  
   
 - 64 ビット プラットフォームを対象にし、アプリケーションを 32 ビット マシンで実行した場合、エラー メッセージは、このスイッチを使用しない場合よりも、エラー メッセージがかなり早期に出力され、より絞り込まれた内容になります。  
   
@@ -81,8 +81,8 @@ ms.locfileid: "72775587"
 vbc -platform:x86 myFile.vb  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [-target (Visual Basic)](target.md)
-- [Visual Basic のコマンド ライン コンパイラ](index.md)
-- [コンパイル コマンド ラインのサンプル](sample-compilation-command-lines.md)
+- [Visual Basic コマンドラインコンパイラ](index.md)
+- [コンパイルコマンドラインのサンプル](sample-compilation-command-lines.md)

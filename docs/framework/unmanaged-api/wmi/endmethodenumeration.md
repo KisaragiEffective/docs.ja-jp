@@ -14,14 +14,12 @@ helpviewer_keywords:
 - EndMethodEnumeration function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: cdcf49bd748a423b1cebfba88644aa961f1c7b65
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 174cf76d4b0ddf07e67e02bff20a983dca08819a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70799346"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73132019"
 ---
 # <a name="endmethodenumeration-function"></a>EndMethodEnumeration 関数
 [BeginMethodEnumeration 関数](beginmethodenumeration.md)の呼び出しで開始された列挙シーケンスを終了します。  
@@ -49,7 +47,7 @@ HRESULT EndMethodEnumeration (
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_E_UNEXPECTED` | 0x8004101d | 内部エラーが発生しました。 |
 |`WBEM_S_NO_ERROR` | 0 | 関数の呼び出しに成功しました。  |
@@ -58,10 +56,10 @@ HRESULT EndMethodEnumeration (
 
 この関数は、 [IWbemClassObject:: EndMethodEnumeration](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemclassobject-endmethodenumeration)メソッドの呼び出しをラップします。
 
-呼び出し元は、 [BeginMethodEnumeration 関数](beginmethodenumeration.md)を使用して列挙シーケンスを開始し、メソッドがを返す`WBEM_S_NO_MORE_DATA`まで[nextmethod 関数](nextmethod.md )を呼び出します。 呼び出し元は、を呼び出す`EndMethodEnumeration`ことによって、シーケンスを終了する必要があります。 呼び出し元は、いつでもを呼び`EndMethodEnumeration`出すことによって、列挙を早期に終了する場合があります。
+呼び出し元は、 [BeginMethodEnumeration 関数](beginmethodenumeration.md)を使用して列挙シーケンスを開始し、メソッドが `WBEM_S_NO_MORE_DATA`を返すまで[nextmethod 関数](nextmethod.md )を呼び出します。 呼び出し元は、必要に応じて `EndMethodEnumeration`を呼び出すことによってシーケンスを終了します。 呼び出し元は、いつでも `EndMethodEnumeration` を呼び出すことによって、列挙を早期に終了する場合があります。
 
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

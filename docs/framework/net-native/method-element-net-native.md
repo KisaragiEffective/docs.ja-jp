@@ -1,15 +1,13 @@
 ---
-title: <Method>要素 (.NET ネイティブ)
+title: <Method> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: 348b49e5-589d-4eb2-a597-d6ff60ab52d1
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d741f51abf02f4bfda2b007efd4c859027e54d9b
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 7b0e77e6dea29cbd5218ab3f6f992002efd51656
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049584"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128335"
 ---
 # <a name="method-element-net-native"></a>\<メソッド > 要素 (.NET ネイティブ)
 コンストラクターまたはメソッドにランタイム リフレクション ポリシーを適用します。  
@@ -37,19 +35,19 @@ ms.locfileid: "71049584"
   
 ## <a name="name-attribute"></a>Name 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*method_name*|メソッド名。 メソッドの型は、親の [\<Type>](type-element-net-native.md) 要素または [\<TypeInstantiation>](typeinstantiation-element-net-native.md) 要素により定義されます。|  
   
 ## <a name="signature-attribute"></a>シグネチャ属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*method_signature*|メソッド シグネチャを形成するパラメーター型です。 複数のパラメーターは、`"System.String,System.Int32,System.Int32)"` のようにコンマで区切ります。 パラメーターの型名は完全修飾されている必要があります。|  
   
 ## <a name="all-other-attributes"></a>その他すべての属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*policy_setting*|このポリシーの種類に適用する設定です。 指定できる値は、`Auto`、`Excluded`、`Included`、および `Required` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|  
   

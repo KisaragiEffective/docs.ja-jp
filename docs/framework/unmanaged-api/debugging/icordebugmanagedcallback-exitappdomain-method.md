@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: d815486e-b3bd-4fe8-ba28-02abdb4d67ba
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b1e045c475b57f863071eb81194868b7db3c5a3c
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 7bfa71ccff4a65e72a6b548a09d27648b67c0ae5
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67755799"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76781853"
 ---
 # <a name="icordebugmanagedcallbackexitappdomain-method"></a>ICorDebugManagedCallback::ExitAppDomain メソッド
-アプリケーション ドメインが終了していることをデバッガーに通知します。  
+アプリケーションドメインが終了したことをデバッガーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,13 +36,13 @@ HRESULT ExitAppDomain (
   
 ## <a name="parameters"></a>パラメーター  
  `pProcess`  
- [in]特定のアプリケーション ドメインが含まれるプロセスを表す ICorDebugProcess オブジェクトへのポインター。  
+ から指定されたアプリケーションドメインを含むプロセスを表す、のオブジェクトへのポインター。  
   
  `pAppDomain`  
- [in]終了するアプリケーション ドメインを表す ICorDebugAppDomain オブジェクトへのポインター。  
+ から終了したアプリケーションドメインを表す、のオブジェクトへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -54,4 +52,4 @@ HRESULT ExitAppDomain (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugManagedCallback インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-interface.md)
+- [ICorDebugManagedCallback インターフェイス](icordebugmanagedcallback-interface.md)

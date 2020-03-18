@@ -14,14 +14,12 @@ helpviewer_keywords:
 - QualifierSet_Delete function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4bc26a16650a5beecc17898e0421e79536713deb
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: e7bedcb5c56f9976f8dfd2619081971075d0d809
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798339"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127295"
 ---
 # <a name="qualifierset_delete-function"></a>QualifierSet_Delete 関数
 名前によって指定した修飾子が削除されます。  
@@ -53,7 +51,7 @@ HRESULT QualifierSet_Delete (
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_E_INVALID_PARAMETER` | 0x80041008 | `wszName` パラメーターが正しくありません。 |
 |`WBEM_E_INVALID_OPERATION` | 0x80041016 | この修飾子の削除は無効です。 |
@@ -65,10 +63,10 @@ HRESULT QualifierSet_Delete (
 
 この関数は、 [IWbemQualifierSet::D e)](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemqualifierset-delete)メソッドの呼び出しをラップします。
 
-修飾子の伝達規則により、特定の修飾子が別のオブジェクトから継承され、現在のクラスまたはインスタンスで単にオーバーライドされている可能性があります。 この場合、メソッドは`QualifierSet_Delete` 、修飾子を元の継承された値にリセットします。 この場合の関数は、ステータスコード`WBEM_S_RESET_TO_DEFAULT`を返します。
+修飾子の伝達規則により、特定の修飾子が別のオブジェクトから継承され、現在のクラスまたはインスタンスで単にオーバーライドされている可能性があります。 この場合、`QualifierSet_Delete` メソッドは、修飾子を元の継承された値にリセットします。 この場合の関数は、状態コード `WBEM_S_RESET_TO_DEFAULT`を返します。
 
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

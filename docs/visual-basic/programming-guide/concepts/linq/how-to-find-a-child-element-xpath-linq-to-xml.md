@@ -1,15 +1,15 @@
 ---
-title: '方法: 子要素の検索 (XPath LINQ to XML) (Visual Basic)'
+title: '方法 : 子要素を検索する (XPath-LINQ to XML)'
 ms.date: 07/20/2015
 ms.assetid: adb46c98-a650-42e2-b62d-835920fe8421
-ms.openlocfilehash: 9dac53f70882791fb05265d4a04444c98adff451
-ms.sourcegitcommit: d7c298f6c2e3aab0c7498bfafc0a0a94ea1fe23e
+ms.openlocfilehash: 3697dabb1b277ceab7b7bb9be54b72ef8be6974d
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249986"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74353031"
 ---
-# <a name="how-to-find-a-child-element-xpath-linq-to-xml-visual-basic"></a>方法: 子要素の検索 (XPath LINQ to XML) (Visual Basic)
+# <a name="how-to-find-a-child-element-xpath-linq-to-xml-visual-basic"></a>方法: 子要素を検索する (XPath LINQ to XML) (Visual Basic)
 このトピックでは、XPath の子要素軸と [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] <xref:System.Xml.Linq.XContainer.Element%2A> メソッドを比較します。  
   
  XPath 式は `DeliveryNotes` です。  
@@ -17,7 +17,7 @@ ms.locfileid: "72249986"
 ## <a name="example"></a>例  
  この例では、`DeliveryNotes` 子要素を検索します。  
   
- この例では、次の XML ドキュメントを使用します。「[サンプル XML ファイル:複数の購買発注書 (LINQ to XML)](../../../../visual-basic/programming-guide/concepts/linq/sample-xml-file-multiple-purchase-orders-linq-to-xml.md)。  
+ この例では、「[サンプル XML ファイル: 複数の購買発注書 (LINQ to XML)](../../../../visual-basic/programming-guide/concepts/linq/sample-xml-file-multiple-purchase-orders-linq-to-xml.md)」の XML ドキュメントを使用します。  
   
 ```vb  
 Dim cpo As XDocument = XDocument.Load("PurchaseOrders.xml")  

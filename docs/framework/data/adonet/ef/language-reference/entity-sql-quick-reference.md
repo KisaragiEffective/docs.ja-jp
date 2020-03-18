@@ -275,7 +275,7 @@ SELECT c.ContactID as ID, c.LastName AS Name FROM
 |12|Aguilar|  
   
 ## <a name="grouping"></a>グループ化  
- [[GROUPING BY](group-by-entity-sql.md)は、クエリ ([SELECT](select-entity-sql.md)) 式によって返されるオブジェクトのグループを指定します。  
+ [GROUPING BY](group-by-entity-sql.md)は、クエリ ([SELECT](select-entity-sql.md)) 式によって返されるオブジェクトのグループを指定します。  
   
  例:  
   

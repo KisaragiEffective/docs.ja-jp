@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: b8205b60-1893-4303-8cff-7ac5a00892aa
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: b9dee1404a8da63208bba7b7529b16eabbee3254
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d5bf6626e2c6ba15fa9a5da08bcf2d9052866750
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67745767"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76866945"
 ---
 # <a name="functionidmapper-function"></a>FunctionIDMapper 関数
-使用される代替 ID に、関数の指定した id 再割り当てされることをプロファイラーに通知、 [FunctionEnter2](../../../../docs/framework/unmanaged-api/profiling/functionenter2-function.md)、 [FunctionLeave2](../../../../docs/framework/unmanaged-api/profiling/functionleave2-function.md)、および[FunctionTailcall2](../../../../docs/framework/unmanaged-api/profiling/functiontailcall2-function.md)その関数のコールバック。 また `FunctionIDMapper` により、プロファイラーはその関数のコールバックを受信するかどうかを示すことができます。  
+関数の特定の識別子が、その関数の[FunctionEnter2](functionenter2-function.md)、 [FunctionLeave2](functionleave2-function.md)、および[FunctionTailcall2](functiontailcall2-function.md)コールバックで使用される代替 ID に再マップされる可能性があることをプロファイラーに通知します。 また `FunctionIDMapper` により、プロファイラーはその関数のコールバックを受信するかどうかを示すことができます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -35,29 +33,32 @@ UINT_PTR __stdcall FunctionIDMapper (
 );  
 ```  
   
-## <a name="parameters"></a>パラメーター  
- `funcId`  
- [入力] 再割り当てされる関数識別子。  
-  
- `pbHookFunction`  
- [out]プロファイラーに設定される値へのポインター`true`を受信する必要がある場合`FunctionEnter2`、 `FunctionLeave2`、および`FunctionTailcall2`コールバックです。 それ以外の場合、この値設定`false`します。  
-  
+## <a name="parameters"></a>パラメーター
+
+- `funcId`
+
+  \[] マップを再マップする関数の識別子。
+
+- `pbHookFunction`
+
+  \[out] `FunctionEnter2`、`FunctionLeave2`、および `FunctionTailcall2` のコールバックを受信する必要がある場合にプロファイラーが `true` するように設定する値へのポインター。それ以外の場合は、この値を `false`に設定します。
+
 ## <a name="return-value"></a>戻り値  
- プロファイラーは、実行エンジンが代替関数識別子として使用する値を返します。 `false` で `pbHookFunction` を返さない限り、戻り値を null にすることはできません。 それ以外の場合、戻り値を null、プロセスの中止などの予期しない結果が生成されます。  
+ プロファイラーは、実行エンジンが代替関数識別子として使用する値を返します。 `false` で `pbHookFunction` を返さない限り、戻り値を null にすることはできません。 それ以外の場合、null 値が返されると、処理が停止する可能性があるなど、予測できない結果が生成されます。  
   
 ## <a name="remarks"></a>Remarks  
- `FunctionIDMapper`関数がコールバック。 プロファイラーの役に立つその他の何らかの識別子に関数の ID を再マップするために、プロファイラーによって実装されます。 `FunctionIDMapper`任意指定の関数に使用する代替 ID を返します。 実行エンジンでプロファイラーに戻るだけでなく、従来の関数の ID では、この代替 ID を渡すことによって、プロファイラーの要求からは優先、`clientData`のパラメーター、 `FunctionEnter2`、 `FunctionLeave2`、および`FunctionTailcall2`フックを識別するために対象のフック関数が呼び出される関数。  
+ `FunctionIDMapper` 関数はコールバックです。 プロファイラーによって実装され、関数 ID を他の識別子にマップし直すことができます。これは、プロファイラーにとって便利です。 `FunctionIDMapper` は、指定された関数に使用される代替 ID を返します。 その後、実行エンジンは、従来の関数 ID に加えて、この代替 ID を渡してプロファイラーの要求を受け入れ、`FunctionEnter2`、`FunctionLeave2`、および `FunctionTailcall2` フックの `clientData` パラメーターのプロファイラーに戻り、フックが呼び出されている関数を識別します。  
   
- 使用することができます、 [icorprofilerinfo::setfunctionidmapper](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-setfunctionidmapper-method.md)メソッドの実装を指定する、`FunctionIDMapper`関数。 呼び出すことができます、`ICorProfilerInfo::SetFunctionIDMapper`とメソッドを 1 回のみで実行することをお勧めします、 [icorprofilercallback::initialize](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-initialize-method.md)コールバック。  
+ [ICorProfilerInfo:: SetFunctionIDMapper](icorprofilerinfo-setfunctionidmapper-method.md)メソッドを使用して、`FunctionIDMapper` 関数の実装を指定できます。 `ICorProfilerInfo::SetFunctionIDMapper` メソッドは1回だけ呼び出すことができ、 [ICorProfilerCallback:: Initialize](icorprofilercallback-initialize-method.md)コールバックで呼び出すことをお勧めします。  
   
- 既定では、ことが前提とプロファイラーをセットする COR_PRF_MONITOR_ENTERLEAVE フラグを使用して[icorprofilerinfo::seteventmask](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-seteventmask-method.md)を使用してフックを設定して[icorprofilerinfo::setenterleavefunctionhooks](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-setenterleavefunctionhooks-method.md)または[icorprofilerinfo 2::setenterleavefunctionhooks2](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo2-setenterleavefunctionhooks2-method.md)、受信する必要があります、 `FunctionEnter2`、 `FunctionLeave2`、および`FunctionTailcall2`の各関数にコールバックします。 ただし、プロファイラーが実装`FunctionIDMapper`選択的にこれらのコールバックを特定の受信を回避するために設定して関数`pbHookFunction`に`false`します。  
+ 既定では、 [ICorProfilerInfo:: SetEventMask](icorprofilerinfo-seteventmask-method.md)を使用して COR_PRF_MONITOR_ENTERLEAVE フラグを設定し、 [ICorProfilerInfo:: SetEnterLeaveFunctionHooks](icorprofilerinfo-setenterleavefunctionhooks-method.md)または[ICorProfilerInfo2:: SetEnterLeaveFunctionHooks2](icorprofilerinfo2-setenterleavefunctionhooks2-method.md)を介してフックを設定するプロファイラーは、すべての関数に対して `FunctionEnter2`、`FunctionLeave2`、および `FunctionTailcall2` コールバックを受け取る必要があることを前提としています。 ただし、`pbHookFunction` を `false`に設定することによって、特定の関数に対してこれらのコールバックが受信されないように、`FunctionIDMapper` を実装する場合があります。  
   
- プロファイラーは、プロファイリング対象のアプリケーションの複数のスレッドが、同じメソッド/関数を同時に呼び出す場合の必要があります。 このような場合は、プロファイラーが複数を受け取る可能性があります`FunctionIDMapper`のコールバックを同じ`FunctionID`します。 プロファイラーがあります同じを複数回呼び出された場合、このコールバックから同じ値が返されます特定`FunctionID`します。  
+ プロファイラーは、プロファイルされたアプリケーションの複数のスレッドが同時に同じメソッドまたは関数を呼び出す場合を許容します。 このような場合、プロファイラーは同じ `FunctionID`に対して複数の `FunctionIDMapper` コールバックを受け取ることがあります。 同じ `FunctionID`で複数回呼び出された場合、このコールバックから同じ値が返されるようにするには、プロファイラーが適切である必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl  
+ **ヘッダー:** Corprof.idl  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -65,9 +66,9 @@ UINT_PTR __stdcall FunctionIDMapper (
   
 ## <a name="see-also"></a>関連項目
 
-- [SetFunctionIDMapper メソッド](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-setfunctionidmapper-method.md)
-- [FunctionIDMapper2 関数](../../../../docs/framework/unmanaged-api/profiling/functionidmapper2-function.md)
-- [FunctionEnter2 関数](../../../../docs/framework/unmanaged-api/profiling/functionenter2-function.md)
-- [FunctionLeave2 関数](../../../../docs/framework/unmanaged-api/profiling/functionleave2-function.md)
-- [FunctionTailcall2 関数](../../../../docs/framework/unmanaged-api/profiling/functiontailcall2-function.md)
-- [グローバル静的関数のプロファイル](../../../../docs/framework/unmanaged-api/profiling/profiling-global-static-functions.md)
+- [SetFunctionIDMapper メソッド](icorprofilerinfo-setfunctionidmapper-method.md)
+- [FunctionIDMapper2 関数](functionidmapper2-function.md)
+- [FunctionEnter2 関数](functionenter2-function.md)
+- [FunctionLeave2 関数](functionleave2-function.md)
+- [FunctionTailcall2 関数](functiontailcall2-function.md)
+- [グローバル静的関数のプロファイル](profiling-global-static-functions.md)

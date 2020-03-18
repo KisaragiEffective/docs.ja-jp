@@ -1,40 +1,46 @@
-- name: アプリケーションの互換性
+- name: 破壊的変更とは
+  href: index.md
+- name: 破壊的変更のカテゴリ
+  href: categories.md
+- name: ページ セレクター
+  href: breaking-changes.md
+- name: バージョン別
+  expanded: true
   items:
-    - name: 破壊的変更を評価する
-      href: index.md
-    - name: 破壊的変更のカテゴリ
-      href: categories.md
-    - name: 破壊的変更のセレクター
-      href: breaking-changes.md
-    - name: バージョン別
+    - name: 3.0 から 3.1 へ
+      href: 3.0-3.1.md
+    - name: 2.2 から 3.1
+      href: 2.2-3.1.md
+    - name: 2.2 から 3.0
+      href: 2.2-3.0.md
+    - name: 2.0 から 2.1
+      href: 2.0-2.1.md
+    - name: .NET Framework から .NET Core へ
       items:
-        - name: .NET Framework - .NET Core
-          href: framework-core.md
-        - name: 2.2 - 3.0
-          href: 2.2-3.0.md
-        - name: 3.0 Preview 6 - 3.0 Preview 7
-          href: 3.0.6-3.0.7.md
-        - name: 3.0 Preview 7 - 3.0 Preview 8
-          href: 3.0.7-3.0.8.md
-        - name: 3.0 Preview 8 - 3.0 Preview 9
-          href: 3.0.8-3.0.9.md
-        - name: 3.0 Preview 9 - 3.0 RC1
-          href: 3.0.9-3.0rc1.md
-    - name: カテゴリ別
-      items:
-        - name: ASP.NET Core
-          href: aspnetcore.md
-        - name: CoreFx
-          href: corefx.md
-        - name: 暗号
-          href: cryptography.md
-        - name: Entity Framework Core
-          href: /ef/core/what-is-new/ef-core-3.0/breaking-changes
-        - name: グローバリゼーション
-          href: globalization.md
-        - name: ネットワーキング
-          href: networking.md
-        - name: Visual Basic
-          href: visualbasic.md
-        - name: Windows フォーム
-          href: winforms.md
+        - name: 互換性に影響する変更
+          href: fx-core.md
+        - name: 利用できないテクノロジ
+          href: ../porting/net-framework-tech-unavailable.md?toc=/dotnet/core/compatibility/toc.json&bc=/dotnet/breadcrumb/toc.json
+        - name: 常にスローする API
+          href: unsupported-apis.md
+- name: 領域別
+  expanded: true
+  items:
+    - name: ASP.NET Core
+      href: aspnetcore.md
+    - name: CoreFx
+      href: corefx.md
+    - name: 暗号
+      href: cryptography.md
+    - name: Entity Framework Core
+      href: /ef/core/what-is-new/ef-core-3.0/breaking-changes?toc=/dotnet/core/compatibility/toc.json&bc=/dotnet/breadcrumb/toc.json
+    - name: グローバリゼーション
+      href: globalization.md
+    - name: MSBuild
+      href: msbuild.md
+    - name: ネットワーキング
+      href: networking.md
+    - name: Visual Basic
+      href: visualbasic.md
+    - name: Windows フォーム
+      href: winforms.md

@@ -10,14 +10,12 @@ helpviewer_keywords:
 - application resources, creating files
 - resource files, creating
 ms.assetid: 6c5ad891-66a0-4e7a-adcf-f41863ba6d8d
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 893b6e6e61e23bdc0da1902407017a836bc6cbe8
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 92e52fb130adecd6acdbeb8eac8d624d3c291094
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71045680"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129977"
 ---
 # <a name="create-resource-files-for-net-apps"></a>.NET アプリ用のリソース ファイルを作成する
 
@@ -60,7 +58,7 @@ name2=value2
 
  .txt ファイルと .restext ファイルのリソース ファイル形式は同じです。 .restext ファイル拡張子は、テキスト ファイルがテキスト ベースのリソース ファイルであることをすぐに識別するために使用します。
 
- 文字列リソースは、*name/value* のペアとして表示されます。ここで、*name* はリソースを識別する文字列です。*value* は、リソース取得メソッド (<xref:System.Resources.ResourceManager.GetString%2A?displayProperty=nameWithType> など) に *name* を渡すときに返されるリソース文字列です。 *name* と *value* は等号 (=) で区切る必要があります。 次に例を示します。
+ 文字列リソースは、*name/value* のペアとして表示されます。ここで、*name* はリソースを識別する文字列です。*value* は、リソース取得メソッド (<xref:System.Resources.ResourceManager.GetString%2A?displayProperty=nameWithType> など) に *name* を渡すときに返されるリソース文字列です。 *name* と *value* は等号 (=) で区切る必要があります。 (例:
 
 ```text
 FileMenuName=File
@@ -72,7 +70,7 @@ HelpMenuName=Help
 > [!CAUTION]
 > パスワード、セキュリティの配慮が必要な情報、プライベートなデータなどの格納には、リソース ファイルを使用しないでください。
 
- 空の文字列 (つまり、値が <xref:System.String.Empty?displayProperty=nameWithType> であるリソース) はテキスト ファイルで使用できます。 次に例を示します。
+ 空の文字列 (つまり、値が <xref:System.String.Empty?displayProperty=nameWithType> であるリソース) はテキスト ファイルで使用できます。 (例:
 
 ```text
 EmptyString=
@@ -94,7 +92,7 @@ CancelButton=Cancel
 
  テキスト ファイルに *name* が重複して出現する場合、[リソース ファイル ジェネレーター (Resgen.exe)](../tools/resgen-exe-resource-file-generator.md) によって警告が表示され、2 番目の名前が無視されます。
 
- *value* に改行文字を含めることはできませんが、C 言語形式のエスケープ文字で、改行を表す `\n` やタブを表す `\t` は使用できます。エスケープする場合は、円記号を含めることができます (たとえば、"\\\\")。 空の文字列を使用することもできます。
+ *値*に改行文字を含めることはできませんが、`\n` などの C 言語形式のエスケープ文字を使用すると、新しい行を表し、タブを表す `\t` ことができます。エスケープされている場合は、円記号を含めることもできます (たとえば、"\\\\")。 空の文字列を使用することもできます。
 
  リトル エンディアンまたはビッグ エンディアンのバイト順の UTF-8 エンコーディングまたは UTF-16 エンコーディングを使用して、テキスト ファイル形式でリソースを保存する必要があります。 ただし、.txt ファイルを .resources ファイルに変換する[リソース ファイル ジェネレーター (Resgen.exe)](../tools/resgen-exe-resource-file-generator.md) では、ファイルを既定では UTF-8 として扱います。 UTF-16 でエンコードされたファイルを Resgen.exe が認識できるようにする場合は、ファイルの先頭に Unicode バイト順マーク (U+FEFF) を置く必要があります。
 

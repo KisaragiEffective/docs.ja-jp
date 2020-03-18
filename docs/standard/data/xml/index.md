@@ -3,14 +3,12 @@ title: XML ドキュメントと XML データ
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: e695047f-3c0f-4045-8708-5baea91cc380
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 073b28d353bb7ea43775c7e20ddf7241cabf7d9a
-ms.sourcegitcommit: d6e27023aeaffc4b5a3cb4b88685018d6284ada4
+ms.openlocfilehash: e0c3f3e99b06b65caf79d87a7831369f6fb33b08
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67664009"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75710792"
 ---
 # <a name="xml-documents-and-data"></a>XML ドキュメントと XML データ
 
@@ -62,7 +60,7 @@ ms.locfileid: "67664009"
 
 [XML の処理オプション](../../../../docs/standard/data/xml/xml-processing-options.md) XML データの処理に関するオプションについて説明します。
 
-[メモリ内の XML データの処理](../../../../docs/standard/data/xml/processing-xml-data-in-memory.md) XML データをメモリ内で処理する 3 つの方法について説明します。[LINQ to XML (C#)](../../../csharp/programming-guide/concepts/linq/linq-to-xml.md) および [LINQ to XML (Visual Basic)](../../../visual-basic/programming-guide/concepts/linq/linq-to-xml.md)、<xref:System.Xml.XmlDocument> クラス (W3C ドキュメント オブジェクト モデルに基づく)、および <xref:System.Xml.XPath.XPathDocument> クラス (XPath データ モデルに基づく)。
+[メモリ内の XML データの処理](../../../../docs/standard/data/xml/processing-xml-data-in-memory.md) XML データをメモリ内で処理する 3 つの方法について説明します。[LINQ to XML (C#)](../../../csharp/programming-guide/concepts/linq/linq-to-xml-overview.md) および [LINQ to XML (Visual Basic)](../../../visual-basic/programming-guide/concepts/linq/linq-to-xml.md)、<xref:System.Xml.XmlDocument> クラス (W3C ドキュメント オブジェクト モデルに基づく)、および <xref:System.Xml.XPath.XPathDocument> クラス (XPath データ モデルに基づく)。
 
 [XSLT 変換](../../../../docs/standard/data/xml/xslt-transformations.md)\
 XSLT プロセッサの使い方について説明します。

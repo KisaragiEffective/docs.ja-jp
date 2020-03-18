@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: fc7d9448-3186-494d-9f0d-ea39717e9a82
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9c4fa79f4918412720592bce449a001a349ae657
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e20ea6addc1ae3f99b4b3d65f532e0128ac160b3
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67766563"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73134967"
 ---
 # <a name="igchostcollect-method"></a>IGCHost::Collect メソッド
-コレクションの現在のガベージ コレクションの状態に関係なく、特定のジェネレーションの実行を強制します。  
+現在のガベージコレクションの状態に関係なく、指定したジェネレーションに対して強制的にコレクションを実行します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,14 +35,14 @@ HRESULT Collect (
   
 ## <a name="parameters"></a>パラメーター  
  `Generation`  
- [in]ガベージ コレクションを生成します。 値-1 は、すべてのジェネレーションのガベージ コレクションが行われることを示します。  
+ からガベージコレクションを実行する生成。 値-1 は、すべてのジェネレーションがガベージコレクションを実行することを示します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** GCHost.idl、GCHost.h  
+ **ヘッダー:** GCHost、GCHost  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

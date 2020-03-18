@@ -1,5 +1,5 @@
 ---
-title: '方法: 変数の可用性を制御する (Visual Basic)'
+title: '方法 : 変数の可用性を制御する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - access levels, declared elements
@@ -11,12 +11,12 @@ helpviewer_keywords:
 - declared elements [Visual Basic], access level
 - Protected keyword [Visual Basic], accessing variables
 ms.assetid: eaf4f073-7922-43ce-ae1e-90ff376ae947
-ms.openlocfilehash: 84aaeecdbd3cc8ab12589c0342b982bf3f1c8529
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 886b57909cf6ba25dbaceea5c5f06eb4e3ba6f1f
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582614"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74345390"
 ---
 # <a name="how-to-control-the-availability-of-a-variable-visual-basic"></a>方法: 変数の可用性を制御する (Visual Basic)
 変数の可用性を制御するには、*アクセスレベル*を指定します。 アクセスレベルによって、変数に対する読み取りまたは書き込みのアクセス許可を持つコードが決まります。  
@@ -25,7 +25,7 @@ ms.locfileid: "72582614"
   
 - *ローカル変数*(プロシージャ内で定義) とにはパブリックアクセスがありますが、そのプロシージャ内のコードだけがアクセスできます。 ローカル変数のアクセスレベルを変更することはできませんが、それを含むプロシージャのアクセスレベルを変更することはできます。  
   
- 詳細については、「 [Visual Basic のアクセスレベル](../../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)」を参照してください。  
+ 詳細については、「[Visual Basic でのアクセス レベル](../../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)」を参照してください。  
   
 ## <a name="private-and-public-access"></a>プライベートアクセスとパブリックアクセス  
   
@@ -33,7 +33,7 @@ ms.locfileid: "72582614"
   
 1. 変数の[Dim ステートメント](../../../../visual-basic/language-reference/statements/dim-statement.md)をモジュール、クラス、または構造体の内部に配置しますが、プロシージャの外側に配置します。  
   
-2. @No__t_1 ステートメントに[Private](../../../../visual-basic/language-reference/modifiers/private.md)キーワードを含めます。  
+2. `Dim` ステートメントに[Private](../../../../visual-basic/language-reference/modifiers/private.md)キーワードを含めます。  
   
      モジュール、クラス、または構造体内のどこからでも変数の読み取りまたは書き込みを行うことができますが、外部からは読み取ることはできません。  
   
@@ -41,15 +41,15 @@ ms.locfileid: "72582614"
   
 1. メンバー変数の場合は、変数の `Dim` ステートメントをモジュール、クラス、または構造体の内部に配置しますが、プロシージャの外側に配置します。  
   
-2. @No__t_1 ステートメントに[Public](../../../../visual-basic/language-reference/modifiers/public.md)キーワードを含めます。  
+2. `Dim` ステートメントに[Public](../../../../visual-basic/language-reference/modifiers/public.md)キーワードを含めます。  
   
      アセンブリと相互運用できる任意のコードから変数の読み取りまたは書き込みを行うことができます。  
   
- -または-  
+ または  
   
 1. ローカル変数の場合は、プロシージャ内に変数の `Dim` ステートメントを配置します。  
   
-2. @No__t_1 ステートメントに `Public` キーワードを含めないでください。  
+2. `Dim` ステートメントに `Public` キーワードを含めないでください。  
   
      変数の読み取りまたは書き込みは、プロシージャ内の任意の場所から行うことができますが、外部からは実行できません。  
   
@@ -60,7 +60,7 @@ ms.locfileid: "72582614"
   
 1. 変数の `Dim` ステートメントをクラス内に配置しますが、プロシージャの外側に配置します。  
   
-2. @No__t_1 ステートメントに[Protected](../../../../visual-basic/language-reference/modifiers/protected.md)キーワードを含めます。  
+2. `Dim` ステートメントに[Protected](../../../../visual-basic/language-reference/modifiers/protected.md)キーワードを含めます。  
   
      変数の読み取りまたは書き込みは、クラス内の任意の場所から行うことができます。また、派生チェーン内のクラスの外部から派生したクラスから派生することもできます。  
   
@@ -68,12 +68,12 @@ ms.locfileid: "72582614"
   
 1. 変数の `Dim` ステートメントをモジュール、クラス、または構造体の内部に配置しますが、プロシージャの外側に配置します。  
   
-2. @No__t_1 ステートメントに[Friend](../../../../visual-basic/language-reference/modifiers/friend.md)キーワードを含めます。  
+2. `Dim` ステートメントに[Friend](../../../../visual-basic/language-reference/modifiers/friend.md)キーワードを含めます。  
   
      モジュール、クラス、または構造体内の任意の場所から、また同じアセンブリ内の任意のコードから、変数に対する読み取りまたは書き込みを行うことができます。ただし、アセンブリの外部からは参照できません。  
   
 ## <a name="example"></a>例  
- 次の例では、`Public`、`Protected`、`Friend`、`Protected Friend`、および `Private` アクセスレベルを持つ変数の宣言を示します。 @No__t_0 ステートメントでアクセスレベルを指定する場合は、`Dim` キーワードを含める必要はありません。  
+ 次の例では、`Public`、`Protected`、`Friend`、`Protected Friend`、および `Private` アクセスレベルを持つ変数の宣言を示します。 `Dim` ステートメントでアクセスレベルを指定する場合は、`Dim` キーワードを含める必要はありません。  
   
 ```vb  
 Public Class classForEverybody  
@@ -83,12 +83,12 @@ Protected Friend stringForProjectAndHeirs As String
 Private numberForMeOnly As Integer  
 ```  
   
-## <a name="net-framework-security"></a>.NET Framework セキュリティ  
+## <a name="net-framework-security"></a>.NET Framework のセキュリティ  
  変数のアクセスレベルが制限されているほど、悪意のあるコードによって不適切に使用される可能性が小さくなります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [Visual Basic のアクセスレベル](../../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)
+- [Visual Basic でのアクセス レベル](../../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)
 - [Dim ステートメント](../../../../visual-basic/language-reference/statements/dim-statement.md)
 - [Public](../../../../visual-basic/language-reference/modifiers/public.md)
 - [Protected](../../../../visual-basic/language-reference/modifiers/protected.md)

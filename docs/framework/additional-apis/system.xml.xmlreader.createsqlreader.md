@@ -1,7 +1,5 @@
 ---
 title: XmlReader (System.xml) メソッド (System.xml)
-author: mairaw
-ms.author: mairaw
 ms.date: 10/17/2019
 topic_type:
 - apiref
@@ -11,14 +9,14 @@ api_location:
 - system.xml.dll
 api_type:
 - Assembly
-ms.openlocfilehash: 302be4eff32d2c96a1571d291e0b289e77694db8
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: c65ef7c073175488c11c5e912a44d46fd4319209
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582782"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77215450"
 ---
-# <a name="xmlreadercreatesqlreader-method"></a>XmlReader Qlreader メソッド
+# <a name="xmlreadercreatesqlreader-method"></a>XmlReader.CreateSqlReader  メソッド
 
 解析のために指定されたストリーム、設定、およびコンテキスト情報を使用して、新しい <xref:System.Xml.XmlReader> インスタンスを作成します。
 
@@ -33,24 +31,24 @@ internal static XmlReader CreateSqlReader(Stream input,
   XML データを格納しているストリーム。
 
 - `settings` <xref:System.Xml.XmlReaderSettings>  
-  新しい <xref:System.Xml.XmlReader> インスタンスの設定。 この値は、`null` の場合もあります。
+  新しい <xref:System.Xml.XmlReader> インスタンスの設定。 この値には `null` を指定できます。
 
 - `inputContext` <xref:System.Xml.XmlParserContext>  
-  XML フラグメントの解析に必要なコンテキスト情報。 この値は、`null` の場合もあります。
+  XML フラグメントの解析に必要なコンテキスト情報。 この値には `null` を指定できます。
 
 ## <a name="returns"></a>戻り値
 
 <xref:System.Xml.XmlReader>  
 ストリーム内の XML データの読み取りに使用するオブジェクト。
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 > [!WARNING]
-> @No__t_0 メソッドは内部であり、コードで直接使用するためのものではありません。
+> `XmlReader.CreateSqlReader` メソッドは内部であり、コードで直接使用するためのものではありません。
 >
 > Microsoft では、どのような状況でも、実稼働アプリケーションでこの方法を使用することはサポートしていません。
 
-## <a name="requirements"></a>［要件］
+## <a name="requirements"></a>要件
 
 **名前空間:** <xref:System.Xml>
 

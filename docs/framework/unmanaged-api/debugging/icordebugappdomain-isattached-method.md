@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: af0c67c7-f53e-47c9-b84b-be50bd04903e
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1a3f01edcd6ce1d16ab2c651a66d2fd9cd2eb0ba
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 30e0b0c4ed9bac4abd1dc185031e41c1e3ed014a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737822"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73134669"
 ---
 # <a name="icordebugappdomainisattached-method"></a>ICorDebugAppDomain::IsAttached メソッド
-アプリケーション ドメインに、デバッガーがアタッチされているかどうかを示す値を取得します。  
+デバッガーがアプリケーションドメインにアタッチされているかどうかを示す値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,13 +35,13 @@ HRESULT IsAttached (
   
 ## <a name="parameters"></a>パラメーター  
  `pbAttached`  
- [out]`true`デバッガーがアプリケーション ドメインに接続されている。 それ以外の場合`false`します。  
+ [out] デバッガーがアプリケーションドメインにアタッチされている場合は `true`それ以外の場合は、`false`ます。  
   
 ## <a name="remarks"></a>Remarks  
- ICorDebugController メソッドは、アプリケーション ドメインに、デバッガーがアタッチされるまで使用できません。  
+ このデバッガーがアプリケーションドメインにアタッチされるまでは、このコントロールメソッドを使用できません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

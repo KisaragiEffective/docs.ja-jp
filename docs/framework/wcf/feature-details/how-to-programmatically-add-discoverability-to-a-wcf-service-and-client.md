@@ -1,5 +1,5 @@
 ---
-title: '方法: プログラムを使用して探索可能性に WCF サービスとクライアントを追加する'
+title: プログラムを使用して探索可能性に WCF サービスとクライアントを追加する方法
 ms.date: 03/30/2017
 ms.assetid: 4f7ae7ab-6fc8-4769-9730-c14d43f7b9b1
 ms.openlocfilehash: a139eb4a15486be329bc6853ee6b3a3be06b0619
@@ -9,14 +9,14 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/12/2019
 ms.locfileid: "72291573"
 ---
-# <a name="how-to-programmatically-add-discoverability-to-a-wcf-service-and-client"></a>方法: プログラムを使用して探索可能性に WCF サービスとクライアントを追加する
+# <a name="how-to-programmatically-add-discoverability-to-a-wcf-service-and-client"></a>プログラムを使用して探索可能性に WCF サービスとクライアントを追加する方法
 このトピックでは、Windows Communication Foundation (WCF) サービスを探索可能にする方法について説明します。 これは、[自己ホスト](https://go.microsoft.com/fwlink/?LinkId=145523)のサンプルに基づいています。  
   
 ### <a name="to-configure-the-existing-self-host-service-sample-for-discovery"></a>既存の自己ホスト サービス サンプルを探索用に構成するには  
   
 1. Visual Studio 2012 でセルフホストソリューションを開きます。 このサンプルは、TechnologySamples\Basic\Service\Hosting\SelfHost ディレクトリにあります。  
   
-2. `System.ServiceModel.Discovery.dll` への参照をサービス プロジェクトに追加します。 "システム" というエラーメッセージが表示される場合があります。 ServiceModel またはその依存関係の1つには、プロジェクトで指定されているものより新しいバージョンの .NET Framework が必要です。 "このメッセージが表示された場合は、ソリューションエクスプローラーでプロジェクトを右クリックし、 **[プロパティ]** を選択します。 プロジェクトの**プロパティ**ウィンドウで、**ターゲットフレームワーク**が [!INCLUDE[netfx_current_long](../../../../includes/netfx-current-long-md.md)] であることを確認します。  
+2. `System.ServiceModel.Discovery.dll` への参照をサービス プロジェクトに追加します。 "システム" というエラーメッセージが表示される場合があります。 ServiceModel またはその依存関係の1つには、プロジェクトで指定されているものより新しいバージョンの .NET Framework が必要です。 "このメッセージが表示された場合は、ソリューションエクスプローラーでプロジェクトを右クリックし、 **[プロパティ]** を選択します。 プロジェクトの**プロパティ**ウィンドウで、**ターゲットフレームワーク**が [!INCLUDE[netfx_current_long](../../../../includes/netfx-current-long-md.md)]ていることを確認します。  
   
 3. Service.cs ファイルを開き、次の `using` ステートメントを追加します。  
   
@@ -92,7 +92,7 @@ ms.locfileid: "72291573"
     }  
     ```  
   
-     これは、@no__t 0 クラスが、探索メッセージの送受信に標準の UDP 探索エンドポイントを使用する必要があることを WCF に伝えます。  
+     これは、<xref:System.ServiceModel.Discovery.DiscoveryClient> クラスが、探索メッセージの送受信に標準の UDP 探索エンドポイントを使用する必要があることを WCF に伝えます。  
   
 8. 次の行では、<xref:System.ServiceModel.Discovery.DiscoveryClient.Find%2A> メソッドを呼び出し、検索対象のサービス コントラクトを含む <xref:System.ServiceModel.Discovery.FindCriteria> インスタンスを指定します。 ここでは、`ICalculator` を指定します。  
   
@@ -340,7 +340,7 @@ namespace DiscoveryClientApp
 }  
 ```  
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [WCF Discovery の概要](../../../../docs/framework/wcf/feature-details/wcf-discovery-overview.md)
 - [WCF Discovery オブジェクト モデル](../../../../docs/framework/wcf/feature-details/wcf-discovery-object-model.md)

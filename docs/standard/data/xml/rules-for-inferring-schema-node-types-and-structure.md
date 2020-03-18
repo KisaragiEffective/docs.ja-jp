@@ -3,14 +3,12 @@ title: スキーマのノード型および構造を推論するときの規則
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: d74ce896-717d-4871-8fd9-b070e2f53cb0
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 6c68cd98b496143e6b964383f8fa0c3af5d2c87d
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
-ms.translationtype: HT
+ms.openlocfilehash: 6d66384dea7018bcc3b2dd8fde96f4fa2653f8e8
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69939640"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75710246"
 ---
 # <a name="rules-for-inferring-schema-node-types-and-structure"></a>スキーマのノード型および構造を推論するときの規則
 このトピックでは、スキーマ推論プロセスで、XML ドキュメント内のノード型を XML スキーマ定義言語 (XSD) 構造に変換する方法を説明します。  
@@ -137,12 +135,12 @@ ms.locfileid: "69939640"
   
 |ノード型|変換|  
 |---------------|-----------------|  
-|処理命令|無視されます。|  
-|コメント|無視されます。|  
+|処理命令|無視。|  
+|コメント|無視。|  
 |エンティティ参照|<xref:System.Xml.Schema.XmlSchemaInference> クラスではエンティティ参照を処理しません。 XML ドキュメントにエンティティ参照が含まれている場合は、エンティティを展開するリーダーを使用する必要があります。 たとえば、<xref:System.Xml.XmlTextReader> プロパティを <xref:System.Xml.XmlTextReader.EntityHandling%2A> に設定した <xref:System.Xml.EntityHandling.ExpandEntities> をパラメーターとして渡すことができます。 エンティティ参照が検出されたにもかかわらず、リーダーがエンティティを展開しない場合は、例外がスローされます。|  
 |CDATA|XML ドキュメント内のすべての `<![CDATA[ … ]]` セクションが `xs:string` として推論されます。|  
-|ドキュメント型|無視されます。|  
-|名前空間|無視されます。|  
+|[ドキュメントの種類]|無視。|  
+|名前空間|無視。|  
   
  スキーマ推論プロセスの詳細については、「[XML ドキュメントからのスキーマの推論](../../../../docs/standard/data/xml/inferring-schemas-from-xml-documents.md)」を参照してください。  
   

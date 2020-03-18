@@ -5,20 +5,18 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - thread-safe collections, overview
 ms.assetid: 2e7ca21f-786c-4367-96be-0cf3f3dcc6bd
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 4c7ffa98aec115db2d8c9a40e977f8cb7d33441a
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 790543118b18b0422f41c3249512b62aae0cfb03
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69962991"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75938106"
 ---
 # <a name="thread-safe-collections"></a>スレッド セーフなコレクション
 .NET Framework 4 では、スレッド セーフかつスケーラブルなコレクション クラスをいくつか含む <xref:System.Collections.Concurrent?displayProperty=nameWithType> 名前空間が導入されています。 ユーザー コードで同期を追加することなく、複数のスレッドでこのようなコレクションの項目を安全かつ効率的に追加または削除できます。 新しいコードを記述する場合、コレクションに対して複数のスレッドが同時に書き込みを行うときは常に同時実行コレクション クラスを使用します。 共有コレクションの読み取りのみを行う場合は、<xref:System.Collections.Generic?displayProperty=nameWithType> 名前空間のクラスを使用できます。 .NET Framework 1.1 以前のランタイムを対象にする必要がない場合は、1.0 コレクション クラスを使用しないことをお勧めします。  
   
 ## <a name="thread-synchronization-in-the-net-framework-10-and-20-collections"></a>.NET Framework 1.0 と 2.0 のコレクションのスレッドの同期  
- .NET Framework 1.0 で導入されたコレクションは、<xref:System.Collections?displayProperty=nameWithType> 名前空間にあります。 一般的に使用される <xref:System.Collections.ArrayList> や <xref:System.Collections.Hashtable> を含むこのコレクションは、コレクションのスレッド セーフ ラッパーを返す `Synchronized` プロパティを通じてスレッド セーフを確保します。 このラッパーは、すべての追加操作または削除操作でコレクション全体をロックすることで機能します。 したがって、コレクションにアクセスしようとする各スレッドは、ロックを取得する順番を待機する必要があります。 これはスケーラブルではなく、大規模なコレクションの場合はパフォーマンスが大幅に低下するおそれがあります。 また、競合状態を完全に防ぐことはできません。 詳細については、「[Synchronization in Generic Collections](https://blogs.msdn.microsoft.com/bclteam/2005/03/15/synchronization-in-generic-collections-brian-grunkemeyer/)」 (ジェネリック コレクションでの同期) を参照してください。  
+ .NET Framework 1.0 で導入されたコレクションは、<xref:System.Collections?displayProperty=nameWithType> 名前空間にあります。 一般的に使用される <xref:System.Collections.ArrayList> や <xref:System.Collections.Hashtable> を含むこのコレクションは、コレクションのスレッド セーフ ラッパーを返す `Synchronized` プロパティを通じてスレッド セーフを確保します。 このラッパーは、すべての追加操作または削除操作でコレクション全体をロックすることで機能します。 したがって、コレクションにアクセスしようとする各スレッドは、ロックを取得する順番を待機する必要があります。 これはスケーラブルではなく、大規模なコレクションの場合はパフォーマンスが大幅に低下するおそれがあります。 また、競合状態を完全に防ぐことはできません。 詳細については、「[Synchronization in Generic Collections](https://docs.microsoft.com/archive/blogs/bclteam/synchronization-in-generic-collections-brian-grunkemeyer)」 (ジェネリック コレクションでの同期) を参照してください。  
   
  .NET Framework 2.0 で導入されたコレクション クラスは、<xref:System.Collections.Generic?displayProperty=nameWithType> 名前空間にあります。 これには、<xref:System.Collections.Generic.List%601>、<xref:System.Collections.Generic.Dictionary%602> などがあります。 これらのクラスを使用すると、.NET Framework 1.0 クラスと比較して、タイプ セーフおよびパフォーマンスが向上します。 ただし、.NET Framework 2.0 コレクション クラスではスレッドの同期は行われません。複数のスレッドで同時に項目を追加または削除する場合は、ユーザー コードですべての同期を行う必要があります。  
   
@@ -34,7 +32,7 @@ ms.locfileid: "69962991"
   
  <xref:System.Collections.Concurrent?displayProperty=nameWithType> 名前空間に属するコレクション型を次の表に示します。  
   
-|型|説明|  
+|[種類]|[説明]|  
 |----------|-----------------|  
 |<xref:System.Collections.Concurrent.BlockingCollection%601>|<xref:System.Collections.Concurrent.IProducerConsumerCollection%601> を実装する任意の型の境界ブロッキング機能を提供します。 詳細については、「[BlockingCollection の概要](../../../../docs/standard/collections/thread-safe/blockingcollection-overview.md)」を参照してください。|  
 |<xref:System.Collections.Concurrent.ConcurrentDictionary%602>|キーと値のペアのディクショナリのスレッド セーフな実装。|  
@@ -45,7 +43,7 @@ ms.locfileid: "69962991"
   
 ## <a name="related-topics"></a>関連トピック  
   
-|Title|説明|  
+|タイトル|[説明]|  
 |-----------|-----------------|  
 |[BlockingCollection の概要](../../../../docs/standard/collections/thread-safe/blockingcollection-overview.md)|<xref:System.Collections.Concurrent.BlockingCollection%601> 型で提供される機能について説明します。|  
 |[方法: ConcurrentDictionary の項目を追加および削除する](../../../../docs/standard/collections/thread-safe/how-to-add-and-remove-items.md)|<xref:System.Collections.Concurrent.ConcurrentDictionary%602> の要素を追加および削除する方法について説明します。|  
@@ -55,5 +53,5 @@ ms.locfileid: "69962991"
 |[方法: パイプラインでブロッキング コレクションの配列を使用する](../../../../docs/standard/collections/thread-safe/how-to-use-arrays-of-blockingcollections.md)|複数のブロッキング コレクションを同時に使用してパイプラインを実装する方法について説明します。|  
 |[方法: ConcurrentBag を使用してオブジェクト プールを作成する](../../../../docs/standard/collections/thread-safe/how-to-create-an-object-pool.md)|新しいオブジェクトを頻繁に作成する代わりにオブジェクトを再利用できるシナリオで、同時実行バッグを使用してパフォーマンスを向上させる方法について説明します。|  
   
-## <a name="reference"></a>関連項目  
+## <a name="reference"></a>リファレンス  
  <xref:System.Collections.Concurrent?displayProperty=nameWithType>

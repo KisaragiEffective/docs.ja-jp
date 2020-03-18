@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 4fde4cd0-f53e-4411-a2fe-fc5c54472f95
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 38f98b971e430a2c35a4c484f4f9c4bf387c640c
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: a8856790b655f071df704879a247169f456ae2f5
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798955"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130871"
 ---
 # <a name="strongnamesignaturesize-function"></a>StrongNameSignatureSize 関数
-厳密な名前の署名のサイズが返されます。 `StrongNameSignatureSize`は、通常、コンパイラによって使用され、遅延署名されたアセンブリを作成するときにファイルで予約する領域の量を決定します。  
+厳密な名前の署名のサイズが返されます。 `StrongNameSignatureSize` は、通常、遅延署名されたアセンブリを作成するときに、ファイルに予約する容量を決定するためにコンパイラによって使用されます。  
   
  この関数は非推奨とされます。 代わりに[ICLRStrongName:: StrongNameSignatureSize](../hosting/iclrstrongname-strongnamesignaturesize-method.md)メソッドを使用してください。  
   
@@ -43,23 +41,23 @@ BOOLEAN StrongNameSignatureSize (
  から厳密な名前の署名を生成するために使用されるキーペアの公開部分を格納する[Publickeyblob](publickeyblob-structure.md)型の構造体。  
   
  `cbPublicKeyBlob`  
- からの`pbPublicKeyBlob`サイズ (バイト単位)。  
+ から`pbPublicKeyBlob`のサイズ (バイト単位)。  
   
  `pcbSize`  
  から厳密な名前の署名を格納するために必要なバイト数。  
   
 ## <a name="return-value"></a>戻り値  
- `true`正常に完了した場合は。それ以外`false`の場合は。  
+ 正常に完了した場合は `true`。それ以外の場合は、`false`ます。  
   
 ## <a name="remarks"></a>Remarks  
- 関数が正常に完了しない場合は、[StrongNameErrorInfo](strongnameerrorinfo-function.md) 関数を呼び出して、最後に生成されたエラーを取得します。`StrongNameSignatureSize`  
+ `StrongNameSignatureSize` 関数が正常に完了しない場合は、 [StrongNameErrorInfo](strongnameerrorinfo-function.md)関数を呼び出して、最後に生成されたエラーを取得します。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** StrongName  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

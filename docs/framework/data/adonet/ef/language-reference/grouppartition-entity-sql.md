@@ -41,13 +41,13 @@ SELET p, Sum(ol.Quantity) FROM LOB.OrderLines AS ol
   
  `GROUPPARTITION` 演算子は、ユーザー定義の集計関数と組み合わせて使用できます。  
   
-`GROUPPARTITION` は、グループ化された入力セットへの参照を格納する特殊な集計演算子です。 この参照は、GROUP BY がスコープに含まれているクエリ内の任意の位置で使用できます。 以下に例を示します。
+`GROUPPARTITION` は、グループ化された入力セットへの参照を格納する特殊な集計演算子です。 この参照は、GROUP BY がスコープに含まれているクエリ内の任意の位置で使用できます。 例 :
   
 ```sql  
 SELECT p, GroupPartition(ol.Quantity) FROM LOB.OrderLines AS ol GROUP BY ol.Product AS p
 ```  
   
- 通常の @no__t 0 の場合、グループ化の結果は非表示になります。 結果は集計関数でのみ使用できます。 グループ化の結果を表示するには、サブクエリを使用してグループ化の結果と、入力セットを相関させる必要があります。 次の 2 つのクエリは等価です。  
+ 通常の `GROUP BY`では、グループ化の結果は非表示になります。 結果は集計関数でのみ使用できます。 グループ化の結果を表示するには、サブクエリを使用してグループ化の結果と、入力セットを相関させる必要があります。 次の 2 つのクエリは等価です。  
   
 ```sql  
 SELET p, (SELECT q FROM GroupPartition(ol.Quantity) AS q) FROM LOB.OrderLines AS ol GROUP BY ol.Product AS p

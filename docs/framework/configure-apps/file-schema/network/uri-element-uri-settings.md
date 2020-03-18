@@ -13,7 +13,7 @@ ms.locfileid: "71697438"
 .NET Framework が、uniform resource identifier (Uri) を使用して表された web アドレスを処理する方法を指定する設定が含まれます。  
   
 [ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1 **\<uri >**  
+&nbsp;&nbsp; **\<uri >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -22,15 +22,15 @@ ms.locfileid: "71697438"
 </uri>  
 ```  
   
-## <a name="attributes-and-elements"></a>属性および要素  
- 以降のセクションでは、属性、子要素、および親要素について説明します。  
+## <a name="attributes-and-elements"></a>属性と要素  
+ 次のセクションでは、属性、子要素、親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
- [なし] :  
+ [なし]。  
   
 ### <a name="child-elements"></a>子要素  
   
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |[idn](idn-element-uri-settings.md)|国際化ドメイン名 (IDN) の解析がドメイン名に適用されるかどうかを指定します。|  
 |[Iriparsing>](iriparsing-element-uri-settings.md)|国際化リソース識別子 (IRI) の解析を <xref:System.Uri> に適用するかどうか、および IRI 解析規則を適用するかどうかを指定します。|  
@@ -38,12 +38,12 @@ ms.locfileid: "71697438"
   
 ### <a name="parent-elements"></a>親要素  
   
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |[configuration](../configuration-element.md)|すべての名前空間の設定が含まれます。|  
   
 ## <a name="remarks"></a>コメント  
- @No__t-0 要素には、<xref:System.Net> 名前空間のクラスによって使用される <xref:System.Uri> クラスのメンバーの設定が含まれています。 この設定により、IRI と IDN のサポートが構成されます。  
+ `uri` 要素には、<xref:System.Net> 名前空間のクラスによって使用される <xref:System.Uri> クラスのメンバーの設定が含まれています。 この設定により、IRI と IDN のサポートが構成されます。  
   
 ## <a name="example"></a>例  
   
@@ -65,6 +65,6 @@ ms.locfileid: "71697438"
 </configuration>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ネットワーク設定スキーマ](index.md)

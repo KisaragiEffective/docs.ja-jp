@@ -10,21 +10,19 @@ helpviewer_keywords:
 - for loop, parallel construction in .NET
 - parallel for loops, how to use
 ms.assetid: 9029ba7f-a9d1-4526-8c84-c88716dba5d4
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: f2070562ba0910b5cac951e925bd9c5f0e7f68fb
-ms.sourcegitcommit: 6b308cf6d627d78ee36dbbae8972a310ac7fd6c8
+ms.openlocfilehash: 78f07a4f0118c6bce7a043f111988281ddd6add0
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54574925"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73139657"
 ---
 # <a name="how-to-write-a-simple-parallelfor-loop"></a>方法: 単純な Parallel.For ループを記述する
 
 このトピックでは、<xref:System.Threading.Tasks.Parallel.For%2A?displayProperty=nameWithType> メソッドを示す 2 つの例を示しています。 最初の例では <xref:System.Threading.Tasks.Parallel.For%28System.Int64%2CSystem.Int64%2CSystem.Action%7BSystem.Int64%7D%29?displayProperty=nameWithType> メソッドのオーバー ロードを使用し、2 番目の例では <xref:System.Threading.Tasks.Parallel.For%28System.Int32%2CSystem.Int32%2CSystem.Action%7BSystem.Int32%7D%29?displayProperty=nameWithType> のオーバー ロードを使用しています。これらは <xref:System.Threading.Tasks.Parallel.For%2A?displayProperty=nameWithType> メソッドの 2 つの最も単純なオーバーロードです。 <xref:System.Threading.Tasks.Parallel.For%2A?displayProperty=nameWithType> メソッドのこれらの 2 つのオーバー ロードは、ループをキャンセルする必要がない場合、ループのイテレーションから抜ける場合、またはいずれかのスレッドローカル状態を維持する場合に使用します。
 
 > [!NOTE]
-> ここでは、ラムダ式を使用して TPL でデリゲートを定義します。 C# または Visual Basic のラムダ式についての情報が必要な場合は、「[Lambda Expressions in PLINQ and TPL (PLINQ および TPL のラムダ式)](../../../docs/standard/parallel-programming/lambda-expressions-in-plinq-and-tpl.md)」を参照してください。
+> ここでは、ラムダ式を使用して TPL でデリゲートを定義します。 C# または Visual Basic のラムダ式についての情報が必要な場合は、「[PLINQ および TPL のラムダ式](../../../docs/standard/parallel-programming/lambda-expressions-in-plinq-and-tpl.md)」を参照してください。
 
 最初の例では、1 つのディレクトリ内のファイルのサイズを計算します。 2 つ目の例では、2 つの行列の積を計算します。
 
@@ -46,13 +44,13 @@ ms.locfileid: "54574925"
 
 ## <a name="the-delegate"></a>デリゲート
 
-この <xref:System.Threading.Tasks.Parallel.For%2A> のオーバーロードの 3 番目のパラメーターは、`Action<int>` 型 (C#) または`Action(Of Integer)` 型 (Visual Basic) のデリゲートです。 `Action` デリゲートは、0 種類、1 種類、または 16 種類のパラメーターのいずれがあっても常に void を返します。 Visual Basic では、`Action` の動作は `Sub` で定義されます。 例では、ラムダ式を使用してデリゲートを作成していますが、他の方法でも同様にデリゲートを作成することができます。 詳細については、「[PLINQ および TPL のラムダ式](../../../docs/standard/parallel-programming/lambda-expressions-in-plinq-and-tpl.md)」を参照してください。
+この <xref:System.Threading.Tasks.Parallel.For%2A> のオーバーロードの 3 番目のパラメーターは、`Action<int>` 型 (C#) または`Action(Of Integer)` 型 (Visual Basic) のデリゲートです。 `Action` デリゲートは、0、1、または 16 の型パラメーターのいずれがあっても常に void を返します。 Visual Basic では、`Action` の動作は `Sub` で定義されます。 例では、ラムダ式を使用してデリゲートを作成していますが、他の方法でも同様にデリゲートを作成することができます。 詳細については、「[PLINQ および TPL のラムダ式](../../../docs/standard/parallel-programming/lambda-expressions-in-plinq-and-tpl.md)」を参照してください。
 
 ## <a name="the-iteration-value"></a>イテレーション値
 
 デリゲートは、値が現在のイテレーションである 1 つの入力パラメーターを受け取ります。 このイテレーション値はランタイムによって提供され、その開始値は、現在のスレッドで処理されているソースのセグメント (パーティション) の最初の要素のインデックスです。
 
-コンカレンシー レベルをより細かく制御する必要がある場合は、<xref:System.Threading.Tasks.Parallel.For%28System.Int32%2CSystem.Int32%2CSystem.Threading.Tasks.ParallelOptions%2CSystem.Action%7BSystem.Int32%2CSystem.Threading.Tasks.ParallelLoopState%7D%29?displayProperty=nameWithType> などの <xref:System.Threading.Tasks.ParallelOptions?displayProperty=nameWithType> 入力パラメーターを受け取るいずれかのオーバーロードを使用します。
+コンカレンシー レベルをより細かく制御する必要がある場合は、<xref:System.Threading.Tasks.ParallelOptions?displayProperty=nameWithType> などの <xref:System.Threading.Tasks.Parallel.For%28System.Int32%2CSystem.Int32%2CSystem.Threading.Tasks.ParallelOptions%2CSystem.Action%7BSystem.Int32%2CSystem.Threading.Tasks.ParallelLoopState%7D%29?displayProperty=nameWithType> 入力パラメーターを受け取るいずれかのオーバーロードを使用します。
 
 ## <a name="return-value-and-exception-handling"></a>戻り値と例外処理
 
@@ -70,7 +68,7 @@ ms.locfileid: "54574925"
 
 このコードをコピーして、Visual Studio プロジェクトに貼り付けます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Threading.Tasks.Parallel.For%2A>
 - <xref:System.Threading.Tasks.Parallel.ForEach%2A>

@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォーム DomainUpDown コントロールにプログラムで項目を追加する'
+title: DomainUpDown コントロールにプログラムで項目を追加する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -9,19 +9,19 @@ helpviewer_keywords:
 - spin button control [Windows Forms], adding items
 - DomainUpDown control [Windows Forms], adding items to
 ms.assetid: fd31d314-33eb-4181-90f8-d32ed0c4e072
-ms.openlocfilehash: ef44a9e68b8007d57fc7442a178ae98322747c99
-ms.sourcegitcommit: 0be8a279af6d8a43e03141e349d3efd5d35f8767
-ms.translationtype: HT
+ms.openlocfilehash: 2e9f51fa051bf9b62e95f289db97bffd83450036
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59343676"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76745581"
 ---
-# <a name="how-to-add-items-to-windows-forms-domainupdown-controls-programmatically"></a>方法: Windows フォーム DomainUpDown コントロールにプログラムで項目を追加する
-Windows フォームに項目を追加する<xref:System.Windows.Forms.DomainUpDown>コード内でコントロールできます。 呼び出す、<xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Add%2A>または<xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Insert%2A>のメソッド、<xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection>をコントロールの項目を追加するクラス<xref:System.Windows.Forms.DomainUpDown.Items%2A>プロパティ。 <xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Add%2A>メソッドは、コレクションの末尾に項目を追加中に、<xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Insert%2A>メソッドは、指定した位置にある項目を追加します。  
+# <a name="how-to-add-items-to-windows-forms-domainupdown-controls-programmatically"></a>方法 : Windows フォーム DomainUpDown コントロールにプログラムで項目を追加する
+コード内の Windows フォーム <xref:System.Windows.Forms.DomainUpDown> コントロールに項目を追加できます。 <xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection> クラスの <xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Add%2A> または <xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Insert%2A> メソッドを呼び出して、コントロールの <xref:System.Windows.Forms.DomainUpDown.Items%2A> プロパティに項目を追加します。 <xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Add%2A> メソッドは、コレクションの末尾に項目を追加します。一方、<xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Insert%2A> メソッドは、指定した位置に項目を追加します。  
   
 ### <a name="to-add-a-new-item"></a>新しい項目を追加するには  
   
-1. 使用して、<xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Add%2A>項目のリストの末尾に項目を追加する方法。  
+1. 項目の一覧の末尾に項目を追加するには、<xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Add%2A> メソッドを使用します。  
   
     ```vb  
     DomainUpDown1.Items.Add("noodles")  
@@ -35,9 +35,9 @@ Windows フォームに項目を追加する<xref:System.Windows.Forms.DomainUpD
     domainUpDown1->Items->Add("noodles");  
     ```  
   
-     - または -  
+     または  
   
-2. 使用して、<xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Insert%2A>指定位置にあるリストに項目を挿入するメソッド。  
+2. <xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Insert%2A> メソッドを使用して、リスト内の指定した位置に項目を挿入します。  
   
     ```vb  
     ' Inserts an item at the third position in the list  
@@ -54,7 +54,7 @@ Windows フォームに項目を追加する<xref:System.Windows.Forms.DomainUpD
     domainUpDown1->Items->Insert(2, "rice");  
     ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DomainUpDown>
 - <xref:System.Windows.Forms.DomainUpDown.DomainUpDownItemCollection.Add%2A?displayProperty=nameWithType>

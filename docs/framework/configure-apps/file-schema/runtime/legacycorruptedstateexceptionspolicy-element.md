@@ -5,21 +5,19 @@ helpviewer_keywords:
 - <legacyCorruptedStateExceptionsPolicy> element
 - legacyCorruptedStateExceptionsPolicy element
 ms.assetid: e0a55ddc-bfa8-4f3e-ac14-d1fc3330e4bb
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 6566437d899b768cda1bab74bb1310deb7aa74db
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: d1d29a37999a01f3e370897a1052f4f94435a218
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252516"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73116459"
 ---
-# <a name="legacycorruptedstateexceptionspolicy-element"></a>\<legacyCorruptedStateExceptionsPolicy> 要素
+# <a name="legacycorruptedstateexceptionspolicy-element"></a>\<legacyCorruptedStateExceptionsPolicy > 要素
 共通言語ランタイムで、マネージコードがアクセス違反とその他の破損状態例外をキャッチできるようにするかどうかを指定します。  
   
 [ **\<configuration>** ](../configuration-element.md)\
 &nbsp;&nbsp;[ **\<runtime>** ](runtime-element.md)\
-&nbsp;&nbsp;&nbsp;&nbsp; **\<legacyCorruptedStateExceptionsPolicy>**  
+&nbsp;&nbsp;&nbsp;&nbsp; **\<legacyCorruptedStateExceptionsPolicy >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,7 +36,7 @@ ms.locfileid: "70252516"
   
 ## <a name="enabled-attribute"></a>enabled 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |`false`|アプリケーションでは、アクセス違反などの破損状態の例外エラーはキャッチされません。 既定値です。|  
 |`true`|アプリケーションは、アクセス違反などの破損状態の例外エラーをキャッチします。|  
@@ -56,13 +54,13 @@ ms.locfileid: "70252516"
 ## <a name="remarks"></a>Remarks  
  .NET Framework バージョン3.5 以前では、共通言語ランタイムは、破損したプロセス状態によって発生した例外をキャッチするために、マネージコードを許可しました。 この種類の例外の例として、アクセス違反があります。  
   
- .NET Framework 4 以降では、マネージコードはブロック内の`catch`これらの種類の例外をキャッチしなくなりました。 ただし、次の2つの方法で、この変更をオーバーライドし、破損状態例外の処理を維持することができます。  
+ .NET Framework 4 以降では、マネージコードは `catch` ブロックでこれらの種類の例外をキャッチしなくなりました。 ただし、次の2つの方法で、この変更をオーバーライドし、破損状態例外の処理を維持することができます。  
   
-- 要素の`enabled`属性をに`true`設定します。 `<legacyCorruptedStateExceptionsPolicy>` この構成設定は、プロセス全体に適用され、すべてのメソッドに影響します。  
+- `<legacyCorruptedStateExceptionsPolicy>` 要素の `enabled` 属性を `true`に設定します。 この構成設定は、プロセス全体に適用され、すべてのメソッドに影響します。  
   
- \- または -  
+ -または-  
   
-- <xref:System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptionsAttribute?displayProperty=nameWithType> 例外`catch`ブロックを含むメソッドに属性を適用します。  
+- 例外 `catch` ブロックを含むメソッドに <xref:System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptionsAttribute?displayProperty=nameWithType> 属性を適用します。  
   
  この構成要素は、.NET Framework 4 以降でのみ使用できます。  
   

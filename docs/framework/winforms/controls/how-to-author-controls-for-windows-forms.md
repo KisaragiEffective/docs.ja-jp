@@ -1,22 +1,22 @@
 ---
-title: '方法: Windows フォームのコントロールを作成する'
+title: '方法: コントロールを作成する'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - controls [Windows Forms], creating
 - UserControl class [Windows Forms], Windows Forms
 - custom controls [Windows Forms], creating
 ms.assetid: 7570e982-545b-4c3a-a7c7-55581d313400
-author: gewarren
-ms.author: gewarren
+author: jillre
+ms.author: jillfra
 manager: jillfra
-ms.openlocfilehash: 45a6ae68102204ad8506027065c2676e02fdd7a3
-ms.sourcegitcommit: 121ab70c1ebedba41d276e436dd2b1502748a49f
+ms.openlocfilehash: 169104f51898f9bda08efa08685207e50406a7ff
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70015920"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746721"
 ---
-# <a name="how-to-author-controls-for-windows-forms"></a>方法: Windows フォームの作成者コントロール
+# <a name="how-to-author-controls-for-windows-forms"></a>方法: Windows フォームのコントロールを作成する
 
 コントロールは、ユーザーとプログラムの間のグラフィカルなリンクを表します。 コントロールは、データの提供または処理、ユーザー入力の受け付け、イベントへの応答、ユーザーとアプリケーションを接続する他の任意の数の関数の実行を行うことができます。 コントロールは、基本的にグラフィカル インターフェイスを持つコンポーネントであるため、ユーザーとの対話だけでなく、コンポーネントが実行するあらゆる機能を果たします。 コントロールは特定の目的に使用するために作成します。コントロールの作成は、まったく別のプログラミング タスクです。 このことを念頭に、次の手順では、コントロールの作成手順の概要を示します。 個々の手順のリンクで追加情報を提供します。
 
@@ -40,9 +40,9 @@ ms.locfileid: "70015920"
 
 5. コントロールのカスタム描画が必要な場合は、そのコードを追加します。 詳細については、「[コントロールのカスタム描画およびレンダリング](custom-control-painting-and-rendering.md)」を参照してください。
 
-6. コントロールがから<xref:System.Windows.Forms.UserControl>継承されている場合は、コントロールプロジェクトをビルドし、 **UserControl テストコンテナー**で実行することによって、実行時の動作をテストできます。 詳細については、「[方法 :UserControl](how-to-test-the-run-time-behavior-of-a-usercontrol.md)の実行時の動作をテストします。
+6. コントロールが <xref:System.Windows.Forms.UserControl>から継承されている場合は、コントロールプロジェクトをビルドし、 **UserControl テストコンテナー**で実行することによって、実行時の動作をテストできます。 詳細については、「[方法: UserControl の実行時の動作をテストする](how-to-test-the-run-time-behavior-of-a-usercontrol.md)」を参照してください。
 
-7. Windows アプリケーションなどの新しいプロジェクトを作成してコンテナーに配置することで、コントロールをテストしてデバッグすることができます。 このプロセスは、チュートリアルの[一部として示されています。複合コントロール](walkthrough-authoring-a-composite-control-with-visual-csharp.md)を作成する。
+7. Windows アプリケーションなどの新しいプロジェクトを作成してコンテナーに配置することで、コントロールをテストしてデバッグすることができます。 このプロセスは[、「チュートリアル: 複合コントロールの作成](walkthrough-authoring-a-composite-control-with-visual-csharp.md)」の一部として示されています。
 
 8. 各機能を追加するときは、テスト プロジェクトに機能を追加して新しい機能を実行します。
 
@@ -50,10 +50,10 @@ ms.locfileid: "70015920"
 
 10. コントロールをパッケージ化してデプロイします。 詳細については、「 [Visual Studio での配置の概要](/visualstudio/deployment/deploying-applications-services-and-components)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [方法: UserControl クラスを継承する](how-to-inherit-from-the-usercontrol-class.md)
-- [方法: コントロールクラスから継承する](how-to-inherit-from-the-control-class.md)
-- [方法: 既存の Windows フォームコントロールから継承する](how-to-inherit-from-existing-windows-forms-controls.md)
-- [方法: UserControl の実行時の動作をテストする](how-to-test-the-run-time-behavior-of-a-usercontrol.md)
+- [方法 : UserControl クラスを継承する](how-to-inherit-from-the-usercontrol-class.md)
+- [方法: コントロール クラスを継承する](how-to-inherit-from-the-control-class.md)
+- [方法: 既存の Windows フォーム コントロールから継承する](how-to-inherit-from-existing-windows-forms-controls.md)
+- [方法 : UserControl の実行時の動作をテストする](how-to-test-the-run-time-behavior-of-a-usercontrol.md)
 - [さまざまなカスタム コントロール](varieties-of-custom-controls.md)

@@ -1,5 +1,5 @@
 ---
-title: <source> の <listeners> 要素
+title: <listeners> の <source> 要素
 ms.date: 03/30/2017
 f1_keywords:
 - http://schemas.microsoft.com/.NetConfiguration/v2.0#configuration/system.diagnostics/sources/source/listeners
@@ -14,14 +14,14 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71697299"
 ---
-# <a name="listeners-element-for-source"></a>\< ソースの @no__t 0listeners > 要素 >
-@No__t-1 の <xref:System.Diagnostics.TraceSource.Listeners%2A> コレクションのリスナーを追加または削除します。 リスナーは、ログ、ウィンドウ、テキストファイルなど、適切なターゲットにトレース出力を送信します。  
+# <a name="listeners-element-for-source"></a>\<listeners> の \<source> 要素
+<xref:System.Diagnostics.TraceSource>の <xref:System.Diagnostics.TraceSource.Listeners%2A> コレクション内のリスナーを追加または削除します。 リスナーは、ログ、ウィンドウ、テキストファイルなど、適切なターゲットにトレース出力を送信します。  
   
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\<system. diagnostics >** ](system-diagnostics-element.md)  
-&nbsp; @ no__t-1 @ no__t no__t-3[ **\<sources >** ](sources-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5[ **\<source >** になります。](source-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5 @ no__t-6 @ no__t-7 **\<listeners >** します。  
+[**\<configuration>**](../configuration-element.md)  
+&nbsp;&nbsp;[**\<system.diagnostics>**](system-diagnostics-element.md)  
+&nbsp;&nbsp;&nbsp;&nbsp;[**\<sources>**](sources-element.md)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**\<source>**](source-element.md)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**\<listeners>**  
   
 ## <a name="syntax"></a>構文  
   
@@ -33,18 +33,18 @@ ms.locfileid: "71697299"
 </listeners>  
 ```  
   
-## <a name="attributes-and-elements"></a>属性および要素  
- 以降のセクションでは、属性、子要素、および親要素について説明します。  
+## <a name="attributes-and-elements"></a>属性と要素  
+ 次のセクションでは、属性、子要素、親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
- [なし] :  
+ [なし]。  
   
 ### <a name="child-elements"></a>子要素  
   
 |要素|説明|  
 |-------------|-----------------|  
 |[\<add>](add-element-for-listeners-for-source.md)|`Listeners` コレクションにリスナーを追加します。|  
-|[\<remove>](remove-element-for-listeners-for-source.md)|@No__t 0 のコレクションからリスナーを削除します。|  
+|[\<remove>](remove-element-for-listeners-for-source.md)|`Listeners` コレクションからリスナーを削除します。|  
 |[\<clear>](clear-element-for-listeners-for-source.md)|トレース ソースの `Listeners` コレクションを消去します。|  
   
 ### <a name="parent-elements"></a>親要素  
@@ -87,7 +87,7 @@ ms.locfileid: "71697299"
 </configuration>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Diagnostics.TraceListener>
 - [トレースおよびデバッグ設定のスキーマ](index.md)

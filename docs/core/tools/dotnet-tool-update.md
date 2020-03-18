@@ -1,84 +1,95 @@
 ---
 title: dotnet tool update コマンド
-description: dotnet tool update コマンドは、マシン上の指定された .NET Core グローバル ツールを更新します。
-ms.date: 05/29/2018
-ms.openlocfilehash: b10ce39c8b9d4df23243bcf672454a455e34eec1
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+description: dotnet tool update コマンドでは、お使いのコンピューター上の指定された .NET Core ツールを更新します。
+ms.date: 02/14/2020
+ms.openlocfilehash: 80e807a0fc06ad762334f888e701f6d9c448369a
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71117529"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78156947"
 ---
 # <a name="dotnet-tool-update"></a>dotnet tool update
 
-[!INCLUDE [topic-appliesto-net-core-21plus.md](../../../includes/topic-appliesto-net-core-21plus.md)]
+**この記事の対象:** ✔️ .NET Core 2.1 SDK 以降のバージョン
 
-## <a name="name"></a>name
+## <a name="name"></a>名前
 
-`dotnet tool update` - マシン上の指定された [.NET Core グローバル ツール](global-tools.md) を更新します。
+`dotnet tool update` - お使いのコンピューター上の指定された [.NET Core ツール](global-tools.md)を更新します。
 
 ## <a name="synopsis"></a>構文
 
 ```dotnetcli
-dotnet tool update <PACKAGE_NAME> <-g|--global> [--configfile] [--framework] [-v|--verbosity]
-dotnet tool update <PACKAGE_NAME> <--tool-path> [--configfile] [--framework] [-v|--verbosity]
+dotnet tool update <PACKAGE_NAME> <-g|--global> [--configfile] [--framework] [-v|--verbosity] [--add-source]
+dotnet tool update <PACKAGE_NAME> <--tool-path> [--configfile] [--framework] [-v|--verbosity] [--add-source]
+dotnet tool update <PACKAGE_NAME> [--configfile] [--framework] [-v|--verbosity] [--add-source]
 dotnet tool update <-h|--help>
 ```
 
 ## <a name="description"></a>説明
 
-`dotnet tool update` コマンドは、マシン上の指定された .NET Core グローバル ツールをパッケージの最新の安定バージョンに更新するための手段を提供します。 このコマンドは、ツールをアンインストールして再インストールして、効果的に更新します。 コマンドを使用するには、`--global` オプションを使用してユーザー全体のインストールからツールを更新することを指定するか、`--tool-path` オプションを使用してツールがインストールされている場所へのパスを指定する必要があります。
+`dotnet tool update` コマンドでは、お使いのコンピューター上の .NET Core ツールをパッケージの最新の安定バージョンに更新するための方法を提供します。 このコマンドは、ツールをアンインストールして再インストールして、効果的に更新します。 コマンドを使用するには、次のいずれかのオプションを指定します。
+
+* 既定の場所にインストールされたグローバル ツールを更新するには、`--global` オプションを使用します
+* カスタムの場所にインストールされたグローバル ツールを更新するには、`--tool-path` オプションを使用します。
+* ローカル ツールを更新するには、`--global` および `--tool-path` オプションを省略します。
+
+**ローカル ツールは .NET Core SDK 3.0 以降で使用できます。**
 
 ## <a name="arguments"></a>引数
 
-`PACKAGE_NAME`
+- **`PACKAGE_NAME`**
 
-更新する .NET Core グローバル ツールが格納されている NuGet パッケージの名前または ID。 パッケージを見つけるには、[dotnet tool list](dotnet-tool-list.md) コマンドを使用できます。
+  更新する .NET Core グローバル ツールが格納されている NuGet パッケージの名前または ID。 パッケージを見つけるには、[dotnet tool list](dotnet-tool-list.md) コマンドを使用できます。
 
 ## <a name="options"></a>オプション
 
-`--add-source <SOURCE>`
+- **`--add-source <SOURCE>`**
 
-インストール時に使用するために追加の NuGet パッケージ ソースを追加します。
+  インストール時に使用するために追加の NuGet パッケージ ソースを追加します。
 
-`--configfile <FILE>`
+- **`--configfile <FILE>`**
 
-使用する NuGet 構成 (*nuget.config*) ファイル。
+  使用する NuGet 構成 (*nuget.config*) ファイル。
 
-`--framework <FRAMEWORK>`
+- **`--framework <FRAMEWORK>`**
 
-ツールを更新する[ターゲット フレームワーク](../../standard/frameworks.md)を指定します。
+  ツールを更新する[ターゲット フレームワーク](../../standard/frameworks.md)を指定します。
 
-`-g|--global`
+- **`-g|--global`**
 
-更新プログラムがユーザー全体のツール用であることを指定します。 `--tool-path` オプションと組み合わせることはできません。 このオプションを指定しない場合は、`--tool-path` オプションを指定する必要があります。
+  更新プログラムがユーザー全体のツール用であることを指定します。 `--tool-path` オプションと組み合わせることはできません。 `--global` と `--tool-path` の両方を省略すると、更新されるツールはローカル ツールであると指定されます。
 
-`-h|--help`
+- **`-h|--help`**
 
-コマンドの短いヘルプを印刷します。
+  コマンドの短いヘルプを印刷します。
 
-`--tool-path <PATH>`
+- **`--tool-path <PATH>`**
 
-グローバル ツールがインストールされている場所を指定します。 パスは絶対パスでも相対パスでもかまいません。 `--global` オプションと組み合わせることはできません。 このオプションを指定しない場合は、`--global` オプションを指定する必要があります。
+  グローバル ツールがインストールされている場所を指定します。 PATH は絶対パスでも相対パスでもかまいません。 `--global` オプションと組み合わせることはできません。 `--global` と `--tool-path` の両方を省略すると、更新されるツールはローカル ツールであると指定されます。
 
-`-v|--verbosity <LEVEL>`
+- **`-v|--verbosity <LEVEL>`**
 
-コマンドの詳細レベルを設定します。 指定できる値は、`q[uiet]`、`m[inimal]`、`n[ormal]`、`d[etailed]`、および `diag[nostic]` です。
+  コマンドの詳細レベルを設定します。 指定できる値は、`q[uiet]`、`m[inimal]`、`n[ormal]`、`d[etailed]`、および `diag[nostic]` です。
 
 ## <a name="examples"></a>使用例
 
-[dotnetsay](https://www.nuget.org/packages/dotnetsay/) グローバル ツールを更新します。
+- **`dotnet tool update -g dotnetsay`**
 
-`dotnet tool update -g dotnetsay`
+  [dotnetsay](https://www.nuget.org/packages/dotnetsay/) グローバル ツールを更新します。
 
-特定の Windows フォルダーに配置されている [dotnetsay](https://www.nuget.org/packages/dotnetsay/) グローバル ツールを更新します。
+- **`dotnet tool update dotnetsay --tool-path c:\global-tools`**
 
-`dotnet tool update dotnetsay --tool-path c:\global-tools`
+  特定の Windows ディレクトリに配置されている [dotnetsay](https://www.nuget.org/packages/dotnetsay/) グローバル ツールを更新します。
 
-特定の Linux/macOS フォルダーに配置されている [dotnetsay](https://www.nuget.org/packages/dotnetsay/) グローバル ツールを更新します。
+- **`dotnet tool update dotnetsay --tool-path ~/bin`**
 
-`dotnet tool update dotnetsay --tool-path ~/bin`
+  特定の Linux/macOS ディレクトリに配置されている [dotnetsay](https://www.nuget.org/packages/dotnetsay/) グローバル ツールを更新します。
+
+- **`dotnet tool update dotnetsay`**
+
+  現在のディレクトリに対してインストールされている [dotnetsay](https://www.nuget.org/packages/dotnetsay/) ローカル ツールを更新します。
 
 ## <a name="see-also"></a>関連項目
 
-- [.NET Core グローバル ツール](global-tools.md)
+- [.NET Core ツール](global-tools.md)

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: bbc0881c-6a59-41a0-b5ee-2f3d1b71684c
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: bd79299dcfdb03b703c2cab214ba448631daa6f2
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 3afefdc3d704044184ea20d061eb9449458b5060
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67763482"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129575"
 ---
 # <a name="icordebugmodulegetglobalvariablevalue-method"></a>ICorDebugModule::GetGlobalVariableValue メソッド
-指定されたグローバル変数の値を取得します。  
+指定したグローバル変数の値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,13 +36,13 @@ HRESULT GetGlobalVariableValue(
   
 ## <a name="parameters"></a>パラメーター  
  `fieldDef`  
- [in]`mdFieldDef`グローバル変数を記述するメタデータを参照するトークン。  
+ からグローバル変数を記述するメタデータを参照する `mdFieldDef` トークン。  
   
  `ppValue`  
- [out]指定されたグローバル変数の値を表す ICorDebugValue オブジェクトのアドレスへのポインター。  
+ 入出力指定されたグローバル変数の値を表す ICorDebugValue オブジェクトのアドレスへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

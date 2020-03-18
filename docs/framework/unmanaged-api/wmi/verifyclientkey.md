@@ -14,14 +14,12 @@ helpviewer_keywords:
 - VerifyClientKey function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b674e959ab93cf76b84e2af41e875a50b7d115f4
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 0a0680651eb192e2798ede00048599c5130e63f1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798189"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73107357"
 ---
 # <a name="verifyclientkey-function"></a>VerifyClientKey 関数
 クライアント キーに適切なセキュリティが確実に含められます。  
@@ -36,12 +34,12 @@ LONG VerifyClientKey();
 
 ## <a name="return-value"></a>戻り値
 
-関数が成功した場合、戻り値`ERROR_SUCCESS`は (0) になります。
+関数が成功した場合、戻り値は `ERROR_SUCCESS` (0) になります。
 
 関数が失敗した場合、戻り値は、 *winerror.h*で定義されている0以外のエラーコードです。
 
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 4e0c3521-e54d-43c1-9857-cc76b49b8ffc
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: ff298f73f02f148fc389f389ba86fd9a550998c7
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 74088d1cd018bb07406fc7d00ff83d783a98b663
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781775"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74450231"
 ---
 # <a name="cormethodattr-enumeration"></a>CorMethodAttr 列挙型
-メソッドの機能を記述する値が含まれています。  
+メソッドの機能を記述する値を格納します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -68,38 +66,38 @@ typedef enum CorMethodAttr {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`mdMemberAccessMask`|メンバーへのアクセスを指定します。|  
+|`mdMemberAccessMask`|メンバーアクセスを指定します。|  
 |`mdPrivateScope`|メンバーを参照できないことを指定します。|  
-|`mdPrivate`|メンバーが親の型からのみアクセスできることを指定します。|  
-|`mdFamANDAssem`|メンバーがこのアセンブリでのみサブタイプ アクセスできることを指定します。|  
-|`mdAssem`|メンバーがアクセスできます。 アセンブリ内のすべてのユーザーがあることを指定します。|  
-|`mdFamily`|メンバーが型とサブタイプによってのみアクセスできることを指定します。|  
-|`mdFamORAssem`|メンバーがアクセスできるは、そのアセンブリ内の他の型と派生クラスであることを指定します。|  
-|`mdPublic`|メンバーがスコープにアクセスできるアクセス権を持つすべての種類であることを指定します。|  
-|`mdStatic`|インスタンスのメンバーではなく、型の一部として、メンバーが定義されていることを指定します。|  
+|`mdPrivate`|メンバーが親の型によってのみアクセス可能であることを指定します。|  
+|`mdFamANDAssem`|このアセンブリ内のサブタイプだけがメンバーにアクセスできることを指定します。|  
+|`mdAssem`|メンバーがアセンブリ内のすべてのユーザーによって accessibly されることを指定します。|  
+|`mdFamily`|メンバーが型とサブタイプによってのみアクセス可能であることを指定します。|  
+|`mdFamORAssem`|メンバーが、派生クラスおよびそのアセンブリ内の他の型によってアクセス可能であることを指定します。|  
+|`mdPublic`|スコープへのアクセス権を持つすべての型からメンバーにアクセスできることを指定します。|  
+|`mdStatic`|メンバーがインスタンスのメンバーとしてではなく、型の一部として定義されることを指定します。|  
 |`mdFinal`|メソッドをオーバーライドできないことを指定します。|  
 |`mdVirtual`|メソッドをオーバーライドできることを指定します。|  
-|`mdHideBySig`|メソッドには、名前だけではなく、名前とシグネチャで非表示にするを指定します。|  
+|`mdHideBySig`|メソッドが名前だけではなく、名前とシグネチャで非表示になるように指定します。|  
 |`mdVtableLayoutMask`|仮想テーブルのレイアウトを指定します。|  
-|`mdReuseSlot`|仮想テーブルでは、このメソッドの使用、スロットが再利用することを指定します。 既定値です。|  
-|`mdNewSlot`|メソッドは、仮想テーブルの新しいスロットを常に取得を指定します。|  
-|`mdCheckAccessOnOverride`|表示は同じ型でメソッドをオーバーライドできることを指定します。|  
+|`mdReuseSlot`|仮想テーブルでこのメソッドに使用されるスロットを再利用することを指定します。 既定値です。|  
+|`mdNewSlot`|メソッドが常に仮想テーブル内の新しいスロットを取得することを指定します。|  
+|`mdCheckAccessOnOverride`|メソッドを、表示されているのと同じ型でオーバーライドできることを指定します。|  
 |`mdAbstract`|メソッドが実装されていないことを指定します。|  
-|`mdSpecialName`|メソッドが、特別なと、その名前を記述しているを指定する方法。|  
+|`mdSpecialName`|メソッドが特別であり、その名前がどのように説明するかを指定します。|  
 |`mdPinvokeImpl`|メソッドの実装が PInvoke を使用して転送されることを指定します。|  
-|`mdUnmanagedExport`|メソッドがアンマネージ コードにエクスポートする管理対象のメソッドを指定します。|  
-|`mdReservedMask`|共通言語ランタイムでは、内部使用のため予約されています。|  
-|`mdRTSpecialName`|共通言語ランタイムがメソッド名のエンコードを確認する必要がありますように指定します。|  
-|`mdHasSecurity`|メソッドに関連付けられているセキュリティを指定します。|  
-|`mdRequireSecObject`|メソッドがセキュリティ コードを含む他のメソッドを呼び出すことを指定します。|  
+|`mdUnmanagedExport`|メソッドがアンマネージコードにエクスポートされたマネージメソッドであることを指定します。|  
+|`mdReservedMask`|共通言語ランタイムによる内部使用のために予約されています。|  
+|`mdRTSpecialName`|共通言語ランタイムがメソッド名のエンコーディングを確認する必要があることを指定します。|  
+|`mdHasSecurity`|メソッドにセキュリティが関連付けられていることを指定します。|  
+|`mdRequireSecObject`|メソッドが、セキュリティコードを含む別のメソッドを呼び出すことを指定します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

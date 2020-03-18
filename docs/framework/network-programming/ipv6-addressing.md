@@ -27,10 +27,10 @@ helpviewer_keywords:
 - IPv6, disabling
 ms.assetid: 20a104ae-1649-4649-a005-531a5cf74c93
 ms.openlocfilehash: 1bad43b96fc6f66724e5e40cdf0ae6d76b46d867
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "71047850"
 ---
 # <a name="ipv6-addressing"></a>IPv6 アドレス指定
@@ -55,7 +55,7 @@ IPv6 ユニキャスト アドレスは、2 つの部分に分かれています
 
 64 ビットのプレフィックスを使用するアドレスの例を次に示します。
 
-`3FFE:FFFF:0:CD30:0:0:0:0/64`。
+[https://login.microsoftonline.com/consumers/](`3FFE:FFFF:0:CD30:0:0:0:0/64`)
 
 この例のプレフィックスは `3FFE:FFFF:0:CD30` です。 アドレスは、`3FFE:FFFF:0:CD30::/64` のように圧縮形式で書き込むこともできます。
 
@@ -75,7 +75,7 @@ IPv6 では、次のアドレスの種類を定義します。
 
 一般に、ノードは常にリンク ローカル アドレスを持ちます。 サイト ローカル アドレスおよび 1 つまたは複数のグローバル アドレスを持つ場合があります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [インターネット プロトコル バージョン 6](internet-protocol-version-6.md)
 - [ソケット](sockets.md)

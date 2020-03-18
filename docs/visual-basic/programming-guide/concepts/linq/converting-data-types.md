@@ -1,13 +1,13 @@
 ---
-title: データ型の変換 (Visual Basic)
+title: データ型の変換
 ms.date: 07/20/2015
 ms.assetid: 9b0cf1ab-de48-4c6e-9f00-05b40fade46e
-ms.openlocfilehash: 744dec0093384a15470186fc09695c17e79468fa
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 25d21954f0bb7555f1f5666f83fb37f4f73e2a60
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524228"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74354253"
 ---
 # <a name="converting-data-types-visual-basic"></a>データ型の変換 (Visual Basic)
 
@@ -27,7 +27,7 @@ ms.locfileid: "72524228"
 
 名前が "As" で始まるこの表の変換メソッドは、ソース コレクションの静的型を変更しますが、ソース コレクションを列挙しません。 名前が "To" で始まるメソッドは、ソース コレクションを列挙し、各項目を対応するコレクション型に変換します。
 
-|メソッド名|説明|Visual Basic クエリ式の構文|説明|
+|メソッド名|説明|Visual Basic クエリ式の構文|詳細|
 |-----------------|-----------------|------------------------------------------|----------------------|
 |AsEnumerable|<xref:System.Collections.Generic.IEnumerable%601> として型指定された入力を返します。|該当しない。|<xref:System.Linq.Enumerable.AsEnumerable%2A?displayProperty=nameWithType>|
 |AsQueryable|(ジェネリック) <xref:System.Collections.IEnumerable> を (ジェネリック) <xref:System.Linq.IQueryable> に変換します。|該当しない。|<xref:System.Linq.Queryable.AsQueryable%2A?displayProperty=nameWithType>|
@@ -80,7 +80,7 @@ Sub Cast()
 End Sub
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Linq>
 - [標準クエリ演算子の概要 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/standard-query-operators-overview.md)

@@ -1,25 +1,25 @@
 ---
-title: チュートリアル:モデル ビルダーで回帰を使用して価格を予測する
+title: 'チュートリアル: モデル ビルダーで回帰を使用して価格を予測する'
 description: このチュートリアルでは、ML.NET モデル ビルダーを使用して、価格 (具体的にはニューヨーク市のタクシー運賃) を予測する回帰モデルを構築する方法を示します。
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 10/08/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.custom: mvc
-ms.openlocfilehash: a851bf3c405d15243bc1457b8c3dff815d072ebe
-ms.sourcegitcommit: dfd612ba454ce775a766bcc6fe93bc1d43dfda47
+ms.custom: mvc, mlnet-tooling
+ms.openlocfilehash: c027fe57f571c791784b0bdb7ad9503fc49daa1c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72180283"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79187693"
 ---
-# <a name="tutorial-predict-prices-using-regression-with-model-builder"></a>チュートリアル:モデル ビルダーで回帰を使用して価格を予測する
+# <a name="tutorial-predict-prices-using-regression-with-model-builder"></a>チュートリアル: モデル ビルダーで回帰を使用して価格を予測する
 
 ML.NET モデル ビルダーを使用して、価格を予測する回帰モデルを構築する方法について説明します。  このチュートリアルで開発する .NET コンソール アプリでは、過去のニューヨーク市のタクシー運賃データに基づいてタクシー運賃を予測します。
 
 モデル ビルダーの価格予測テンプレートは、数値による予測値を必要とするすべてのシナリオで使用できます。 シナリオの例には、住宅価格の予測、需要予測、売上予測などがあります。
 
-このチュートリアルでは、以下の内容を学習します。
+このチュートリアルでは、次の作業を行う方法について説明します。
 > [!div class="checklist"]
 >
 > - データを準備して理解する
@@ -36,9 +36,9 @@ ML.NET モデル ビルダーを使用して、価格を予測する回帰モデ
 
 前提条件の一覧とインストール手順は、[モデル ビルダーのインストール ガイド](../how-to-guides/install-model-builder.md)を参照してください。
 
-## <a name="create-a-console-application"></a>コンソール アプリケーションの作成
+## <a name="create-a-console-application"></a>コンソール アプリケーションを作成する
 
-1. "TaxiFarePrediction" という名前の **.NET Core コンソール アプリケーション**を作成します。
+1. "TaxiFarePrediction" という名前の **C# .NET Core コンソール アプリケーション**を作成します。 **[ソリューションとプロジェクトを同じディレクトリに配置する]** を**オフ** (VS 2019) にします。または、 **[ソリューションのディレクトリの作成]** を**オン**にします (VS 2017)。
 
 ## <a name="prepare-and-understand-the-data"></a>データを準備して理解する
 
@@ -83,8 +83,8 @@ ML.NET モデル ビルダーを使用して、価格を予測する回帰モデ
 
 1. モデル ビルダー ツールのデータの手順で、データ ソースのドロップダウンから *[ファイル]* を選択します。
 1. *[ファイルの選択]* テキスト ボックスの横にあるボタンを選択し、ファイル エクスプローラーを使用して *Data* ディレクトリにある *[taxi-fare-test.csv]* を参照し、選択します
-1. *[Column to Predict (Label)]\(予測する列 (ラベル)\)* ドロップダウンにある *[fare_amount]* を選択して、モデル ビルダー ツールのトレーニングの手順に移動します。
-1. *[Input Columns (Features)]\(入力列 (特徴)\)* ドロップダウンを展開し、 *[trip_time_in_secs]* 列をオフにして、トレーニング時の特徴から除外します。
+1. *[Column to Predict (Label)]\(予測する列 (ラベル)\)* ドロップダウンで *[fare_amount]* を選択します。
+1. *[Input Columns (Features)]\(入力列 (特徴)\)* ドロップダウンを展開し、 *[trip_time_in_secs]* 列をオフにして、トレーニング時の特徴から除外します。  Model Builder ツールのトレーニング ステップに移動します。
 
 ## <a name="train-the-model"></a>モデルをトレーニングする
 
@@ -126,7 +126,7 @@ ML.NET モデル ビルダーを使用して、価格を予測する回帰モデ
     using TaxiFarePredictionML.Model;
     ```
 
-1. 新しいデータに対してモデルを使用して予測を行うには、アプリケーションの `ModelInput` メソッド内に `Main` クラスの新しいインスタンスを作成します。 運賃額が入力に含まれていないことがわかります。 これは、モデルによってその予測が生成されるためです。 
+1. 新しいデータに対してモデルを使用して予測を行うには、アプリケーションの `ModelInput` メソッド内に `Main` クラスの新しいインスタンスを作成します。 運賃額が入力に含まれていないことがわかります。 これは、モデルによってその予測が生成されるためです。
 
     ```csharp
     // Create sample data
@@ -140,7 +140,7 @@ ML.NET モデル ビルダーを使用して、価格を予測する回帰モデ
     };
     ```
 
-1. `ConsumeModel` クラスの `Predict` メソッドを使用します。 `Predict` メソッドでは、トレーニング済みモデルを読み込み、モデルに対して [`PredictionEngine`](xref:Microsoft.ML.PredictionEngine%602) を作成し、新しいデータに対してそれを使用して予測を行います。 
+1. `ConsumeModel` クラスの `Predict` メソッドを使用します。 `Predict` メソッドでは、トレーニング済みモデルを読み込み、モデルに対して [`PredictionEngine`](xref:Microsoft.ML.PredictionEngine%602) を作成し、新しいデータに対してそれを使用して予測を行います。
 
     ```csharp
     // Make prediction
@@ -163,7 +163,7 @@ ML.NET モデル ビルダーを使用して、価格を予測する回帰モデ
 
 ## <a name="next-steps"></a>次の手順
 
-このチュートリアルでは、以下の内容を学習しました。
+このチュートリアルでは、次の作業を行う方法を学びました。
 > [!div class="checklist"]
 >
 > - データを準備して理解する
@@ -178,6 +178,6 @@ ML.NET モデル ビルダーを使用して、価格を予測する回帰モデ
 このチュートリアルで説明しているトピックについて詳しくは、次のリソースを参照してください。
 
 - [モデル ビルダーのシナリオ](../automate-training-with-model-builder.md#scenarios)
-- [Regression](../resources/glossary.md#regression) (回帰)
-- [回帰モデルのメトリック](../resources/metrics.md#metrics-for-regression)
-- [NYC TLC Taxi Trip データ セット](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml)
+- [回帰](../resources/glossary.md#regression)
+- [回帰モデルのメトリック](../resources/metrics.md#evaluation-metrics-for-regression-and-recommendation)
+- [NYC TLC Taxi Trip データ セット](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)

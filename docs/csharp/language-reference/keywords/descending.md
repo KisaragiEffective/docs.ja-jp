@@ -1,6 +1,5 @@
 ---
 title: descending コンテキスト キーワード - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - descending
@@ -8,12 +7,12 @@ f1_keywords:
 helpviewer_keywords:
 - descending keyword [C#]
 ms.assetid: 8d2cd1e5-9c1c-4dfc-b84c-60e2d3240927
-ms.openlocfilehash: 88f3eb6ab1041a9e60846f95d883f34f1390b03b
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: e17963e58abef2757594d0f6f3f7c5e805a1c966
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69605829"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75713592"
 ---
 # <a name="descending-c-reference"></a>descending (C# リファレンス)
 
@@ -21,12 +20,12 @@ ms.locfileid: "69605829"
 
 ## <a name="example"></a>例
 
-[orderby 句](./orderby-clause.md)での `descending` の使用例を次に示します。
+`descending`orderby 句[での ](./orderby-clause.md) の使用例を次に示します。
 
 [!code-csharp[csrefKeywordsContextual#11](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsContextual/CS/csrefKeywordsContextual.cs#11)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [LINQ クエリ式](../../programming-guide/linq-query-expressions/index.md)
+- [C# での LINQ](../../linq/index.md)
 - [ascending](./ascending.md)

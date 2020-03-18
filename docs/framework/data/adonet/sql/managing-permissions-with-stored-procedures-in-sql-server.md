@@ -2,12 +2,12 @@
 title: SQL Server でのストアド プロシージャを使用した権限の管理
 ms.date: 03/30/2017
 ms.assetid: 08fa34e8-2ffa-470d-ba62-e511a5f8558e
-ms.openlocfilehash: 412d2a0a292e2ac83e6c42cf721c83e63633408c
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 85383c46dd029db825d24d2f67d2dbda00f3bc95
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70780956"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77452384"
 ---
 # <a name="managing-permissions-with-stored-procedures-in-sql-server"></a>SQL Server でのストアド プロシージャを使用した権限の管理
 データベースを多層的に防御する 1 つの方法として、あらゆるデータ アクセスをストアド プロシージャまたはユーザー定義関数を使って実装することが考えられます。 テーブルなど、基になるオブジェクトに対する権限をすべて取り消すか拒否し、ストアド プロシージャに対して EXECUTE 権限を付与するようにします。 こうすることで、データやデータベース オブジェクトの周囲にセキュリティの境界を設けることができます。  
@@ -49,14 +49,14 @@ ms.locfileid: "70780956"
   
 - どうしても必要な場合を除き、動的 SQL は使用しない。 文字列値を Transact-SQL の QUOTENAME() 関数に渡すことで、入力文字列に含まれている可能性のある区切り記号をエスケープできます。  
   
-## <a name="external-resources"></a>外部リソース  
+## <a name="external-resources"></a>外部資料  
  詳細については、次のリソースを参照してください。  
   
 |リソース|説明|  
 |--------------|-----------------|  
-|「[ストアド プロシージャ](/sql/relational-databases/stored-procedures/stored-procedures-database-engine)」と「[SQL インジェクション](https://go.microsoft.com/fwlink/?LinkId=98234)」 (SQL Server オンライン ブック)|ストアド プロシージャの作成方法と SQL インジェクションのしくみについて説明します。|  
+|[ストアドプロシージャ](/sql/relational-databases/stored-procedures/stored-procedures-database-engine)と[SQL インジェクション](/sql/relational-databases/security/sql-injection)|記事では、ストアドプロシージャの作成方法と SQL インジェクションのしくみについて説明します。|  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ADO.NET アプリケーションのセキュリティ保護](../securing-ado-net-applications.md)
 - [SQL Server セキュリティの概要](overview-of-sql-server-security.md)

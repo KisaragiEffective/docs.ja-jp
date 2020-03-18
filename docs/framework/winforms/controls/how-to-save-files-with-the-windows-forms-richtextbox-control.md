@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの RichTextBox コントロールを使用してファイルを保存する'
+title: RichTextBox コントロールを使用してファイルを保存する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -15,18 +15,18 @@ helpviewer_keywords:
 - .rtf files [Windows Forms], saving in RichTextBox control
 - text files [Windows Forms], saving from RichTextBox control
 ms.assetid: 4a58ec19-84d1-4383-9110-298c06adcfca
-ms.openlocfilehash: c5d88e4942d96ee12e8b9f40156090c874386668
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: a87b93a53347aeba54f944b0f4c455aa272ea243
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70046268"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744822"
 ---
-# <a name="how-to-save-files-with-the-windows-forms-richtextbox-control"></a>方法: Windows フォームの RichTextBox コントロールを使用してファイルを保存する
+# <a name="how-to-save-files-with-the-windows-forms-richtextbox-control"></a>方法 : Windows フォームの RichTextBox コントロールを使用してファイルを保存する
 
-Windows フォーム<xref:System.Windows.Forms.RichTextBox>コントロールは、次のいずれかの形式で表示される情報を書き込むことができます。
+Windows フォーム <xref:System.Windows.Forms.RichTextBox> コントロールは、次のいずれかの形式で表示される情報を書き込むことができます。
 
-- プレーンテキスト
+- プレーンテキスト ファイル
 
 - Unicode プレーンテキスト
 
@@ -36,17 +36,17 @@ Windows フォーム<xref:System.Windows.Forms.RichTextBox>コントロールは
 
 - OLE オブジェクトのテキスト表現を含むプレーンテキスト
 
-ファイルを保存するには、 <xref:System.Windows.Forms.RichTextBox.SaveFile%2A>メソッドを呼び出します。 **SaveFile**メソッドを使用して、データをストリームに保存することもできます。 詳細については、「 <xref:System.Windows.Forms.RichTextBox.SaveFile%28System.IO.Stream%2CSystem.Windows.Forms.RichTextBoxStreamType%29> 」を参照してください。
+ファイルを保存するには、<xref:System.Windows.Forms.RichTextBox.SaveFile%2A> メソッドを呼び出します。 **SaveFile**メソッドを使用して、データをストリームに保存することもできます。 詳細については、<xref:System.Windows.Forms.RichTextBox.SaveFile%28System.IO.Stream%2CSystem.Windows.Forms.RichTextBoxStreamType%29> を参照してください。
 
 ### <a name="to-save-the-contents-of-the-control-to-a-file"></a>コントロールの内容をファイルに保存するには
 
 1. 保存するファイルのパスを決定します。
 
-    実際のアプリケーションでこれを行うには、通常、 <xref:System.Windows.Forms.SaveFileDialog>コンポーネントを使用します。 概要については、「 [Savefiledialog コンポーネントの概要](savefiledialog-component-overview-windows-forms.md)」を参照してください。
+    実際のアプリケーションでこれを行うには、通常、<xref:System.Windows.Forms.SaveFileDialog> コンポーネントを使用します。 概要については、「 [Savefiledialog コンポーネントの概要](savefiledialog-component-overview-windows-forms.md)」を参照してください。
 
-2. 保存するファイルと、 <xref:System.Windows.Forms.RichTextBox>必要に応じてファイルの種類を指定して、コントロールのメソッドを呼び出します。<xref:System.Windows.Forms.RichTextBox.SaveFile%2A> ファイル名を唯一の引数としてメソッドを呼び出すと、ファイルは RTF として保存されます。 別の種類のファイルを指定するには、2 番目の引数として <xref:System.Windows.Forms.RichTextBoxStreamType> 列挙型の値を指定します。
+2. <xref:System.Windows.Forms.RichTextBox> コントロールの <xref:System.Windows.Forms.RichTextBox.SaveFile%2A> メソッドを呼び出して、保存するファイルと、必要に応じてファイルの種類を指定します。 ファイル名を唯一の引数としてメソッドを呼び出すと、ファイルは RTF として保存されます。 別の種類のファイルを指定するには、2 番目の引数として <xref:System.Windows.Forms.RichTextBoxStreamType> 列挙型の値を指定します。
 
-    次の例では、リッチテキストファイルの場所に設定されているパスが **[マイドキュメント**] フォルダーです。 この場所は、Windows オペレーティングシステムを実行しているほとんどのコンピューターにこのフォルダーを含めることを前提としているために使用されます。 また、この場所を選択すると、最小限のシステムアクセスレベルのユーザーがアプリケーションを安全に実行できるようになります。 次の例では、フォームに<xref:System.Windows.Forms.RichTextBox>コントロールが既に追加されていることを前提としています。
+    次の例では、リッチテキストファイルの場所に設定されているパスが **[マイドキュメント**] フォルダーです。 この場所は、Windows オペレーティングシステムを実行しているほとんどのコンピューターにこのフォルダーを含めることを前提としているために使用されます。 また、この場所を選択すると、最小限のシステムアクセスレベルのユーザーがアプリケーションを安全に実行できるようになります。 次の例では、フォームに <xref:System.Windows.Forms.RichTextBox> コントロールが既に追加されていることを前提としています。
 
     ```vb
     Public Sub SaveFile()
@@ -88,7 +88,7 @@ Windows フォーム<xref:System.Windows.Forms.RichTextBox>コントロールは
     > [!IMPORTANT]
     > 次のコード例では、ファイルが存在しない場合は新規にファイルを作成します。 アプリケーションでファイルを作成する必要がある場合、そのアプリケーションにはフォルダーの作成アクセスが必要です。 アクセス許可は、アクセス制御リストを使って設定します。 ファイルが既に存在する場合、アプリケーションに必要なのは、より低い特権である書き込みアクセスだけです。 可能な場合は、配置時にファイルを作成し、フォルダーのアクセスを作成するのではなく、1つのファイルに対する読み取りアクセスのみを許可する方が安全です。 また、ルート フォルダーや Program Files フォルダーにデータを書き込むよりも、ユーザー フォルダーに書き込む方が安全です。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.RichTextBox.SaveFile%2A?displayProperty=nameWithType>
 - <xref:System.Windows.Forms.RichTextBox>

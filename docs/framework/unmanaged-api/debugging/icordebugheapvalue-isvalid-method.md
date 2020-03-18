@@ -15,19 +15,17 @@ helpviewer_keywords:
 ms.assetid: 68e20e62-203d-46d8-bb91-8d3c61cfacc3
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3ca3b86e90dcb76c1fece44cf2c5ed68e073d8e7
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 7685d1b6d5458a4405fc5a4abdb2f3134618f01c
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67757222"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76794399"
 ---
 # <a name="icordebugheapvalueisvalid-method"></a>ICorDebugHeapValue::IsValid メソッド
-この ICorDebugHeapValue によって表されるオブジェクトが有効かどうかを示す値を取得します。  
+この値によって表されるオブジェクトが有効かどうかを示す値を取得します。  
   
- このメソッドは、.NET Framework version 2.0 で廃止されました。  
+ このメソッドは .NET Framework バージョン2.0 では非推奨とされました。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,15 +37,15 @@ HRESULT IsValid (
   
 ## <a name="parameters"></a>パラメーター  
  `pbValid`  
- [out]ヒープ上には、この値が有効かどうかを示すブール値へのポインター。  
+ 入出力ヒープ上のこの値が有効かどうかを示すブール値へのポインター。  
   
-## <a name="remarks"></a>Remarks  
- 値は、ガベージ コレクターが解放された場合に有効ではありません。  
+## <a name="remarks"></a>コメント  
+ 値は、ガベージコレクターによって回収されている場合は無効です。  
   
- このメソッドの使用は非推奨とされました。 すべての値の有効期限は、.NET Framework 2.0 で[icordebugcontroller::continue](../../../../docs/framework/unmanaged-api/debugging/icordebugcontroller-continue-method.md)であり、値は、検証は、呼び出されます。  
+ このメソッドの使用は非推奨とされました。 .NET Framework 2.0 では、すべての値は、"の値は無効になります。 [" が呼び出されるまで、](icordebugcontroller-continue-method.md)すべての値が有効になります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

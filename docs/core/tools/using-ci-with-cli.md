@@ -1,15 +1,13 @@
 ---
-title: 継続的インテグレーション (CI) で .NET Core SDK とツールを使用する
-description: .NET Core SDK とそのツールをビルド サーバーで使用する方法に関する情報。
-author: mairaw
+title: .NET Core SDK とツールを使用した継続的インテグレーション (CI)
+description: 継続的インテグレーションで .NET Core SDK とそのツールをビルド サーバー上で使用する方法について説明します。
 ms.date: 05/18/2017
-ms.custom: seodec18
-ms.openlocfilehash: 629b7a9e1f2b59981adb77ab4d3125be7036ff02
-ms.sourcegitcommit: 621a5f6df00152006160987395b93b5b55f7ffcd
+ms.openlocfilehash: 6e23a21dd36422a095e56519c9aa28ce2549f7b2
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299968"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77451039"
 ---
 # <a name="using-net-core-sdk-and-tools-in-continuous-integration-ci"></a>継続的インテグレーション (CI) で .NET Core SDK とツールを使用する
 
@@ -34,7 +32,7 @@ macOS をご利用の場合、PKG インストーラーをお使いください�
 > [!NOTE]
 > **Azure DevOps Services**
 >
-> インストーラー スクリプトの使用時、ネイティブ依存性は自動的にはインストールされません。 オペレーティング システムにネイティブ依存性がない場合、それをインストールする必要があります。 詳細については、「[Linux における .NET Core の前提条件](../linux-prerequisites.md)」を参照してください。
+> インストーラー スクリプトの使用時、ネイティブ依存性は自動的にはインストールされません。 オペレーティング システムにネイティブ依存性がない場合、それをインストールする必要があります。 詳細については、[.NET Core の依存関係と要件](../install/dependencies.md)に関する記事を参照してください。
 
 ## <a name="ci-setup-examples"></a>CI セットアップ例
 
@@ -122,7 +120,7 @@ LOCALDOTNET="$INSTALLDIR/dotnet"
 
 ### <a name="travis-ci"></a>Travis CI
 
-`csharp` 言語と `dotnet` キーを使用して .NET Core SDK をインストールするように [Travis CI](https://travis-ci.org/) を構成できます。 詳細については、公式 Travis CI ドキュメントの「[Building a C#, F#, or Visual Basic Project](https://docs.travis-ci.com/user/languages/csharp/)」(C#、F#、または Visual Basic プロジェクトのビルド) を参照してください。 Travis CI 情報にアクセスするときは、コミュニティが保守管理している `language: csharp` 言語識別子は F# や Mono を含む、あらゆる .NET 言語で機能することにご留意ください。
+[ 言語と ](https://travis-ci.org/) キーを使用して .NET Core SDK をインストールするように `csharp`Travis CI`dotnet` を構成できます。 詳細については、公式 Travis CI ドキュメントの「[Building a C#, F#, or Visual Basic Project](https://docs.travis-ci.com/user/languages/csharp/)」(C#、F#、または Visual Basic プロジェクトのビルド) を参照してください。 Travis CI 情報にアクセスするときは、コミュニティが保守管理している `language: csharp` 言語識別子は F# や Mono を含む、あらゆる .NET 言語で機能することにご留意ください。
 
 Travis CI は、*ビルド マトリックス*において、macOS ジョブと Linux ジョブの両方を実行できます。ビルド マトリックスでは、ランタイム、環境、除外/追加の組み合わせを指定し、アプリのビルド組み合わせを範囲に含めます。 詳細については、Travis CI ドキュメントの「[Customizing the Build](https://docs.travis-ci.com/user/customizing-the-build)」 (ビルドをカスタマイズする) の記事を参照してください。 MSBuild ベースのツールのパッケージには、LTS (1.0.x) ランタイムと Current (1.1.x) ランタイムが含まれています。SDK をインストールすることで、ビルドに必要なすべてが与えられます。
 
@@ -161,7 +159,7 @@ Azure DevOps Services で手動セットアップ スクリプトを使用する
 
    ![ビルド ステップの追加](./media/using-ci-with-cli/add-build-step.png)
 
-1. **[タスク カタログ]** が表示されます。 このカタログには、ビルドで使用するタスクが含まれています。 スクリプトがあるので、 **[追加]** ボタンを **PowerShell:Run a PowerShell スクリプト**に選択します。
+1. **[タスク カタログ]** が表示されます。 このカタログには、ビルドで使用するタスクが含まれています。 スクリプトがあるので、**PowerShell: Run a PowerShell スクリプト**の **[追加]** ボタンを選択します。
 
    ![PowerShell スクリプトの追加手順](./media/using-ci-with-cli/add-powershell-script.png)
 
@@ -175,6 +173,6 @@ Azure DevOps Services で手動セットアップ スクリプトを使用する
 
 .NET Core ツールを利用して .NET Core コードのビルド プロセスを構造化するとき、通常、2 つの手法があります。MSBuild を直接利用するか、.NET Core コマンドライン コマンドを利用します。 いずれの手法を採用するかは、手法と複雑性との兼ね合いで使いやすいものを選択してください。 MSBuild を利用すれば、タスクやターゲットとしてビルド プロセスを表現できますが、MSBuild プロジェクト ファイルの構文は複雑で、学習の難易度が上がります。 .NET Core コマンドライン ツールはおそらく、使い方がより単純です。ただし、`bash` や PowerShell のようなスクリプト記述言語でオーケストレーション ロジックを記述する必要があります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [.NET ダウンロード - Linux](https://dotnet.microsoft.com/download?initial-os=linux)

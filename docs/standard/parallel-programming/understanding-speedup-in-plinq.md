@@ -8,14 +8,12 @@ dev_langs:
 helpviewer_keywords:
 - PLINQ queries, performance tuning
 ms.assetid: 53706c7e-397d-467a-98cd-c0d1fd63ba5e
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 014adfbf6f9afab0eaacd574cfb181c0eec07b5b
-ms.sourcegitcommit: ffd7dd79468a81bbb0d6449f6d65513e050c04c4
+ms.openlocfilehash: 07b5027d560a4caccc6c0a516c3f70c11df6be83
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960312"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73139909"
 ---
 # <a name="understanding-speedup-in-plinq"></a>PLINQ での高速化について
 PLINQ の主な目的は、マルチコア コンピューターでクエリ デリゲートを並列実行することで、LINQ to Objects クエリの実行を高速化することです。 PLINQ は、ソース コレクション内の各要素の処理が独立しており、個々のデリゲート間に関連する共有状態がない場合に最適です。 このような操作は LINQ to Objects および PLINQ で一般的であり、複数のスレッドでのスケジューリングに適しているため、多くの場合、"*適切な並列操作*" と呼ばれます。 ただし、すべてのクエリが適切な並列操作のみで構成されているわけではなく、ほとんど場合、クエリには、並列化できないか、並列実行速度を低下させるいくつかの演算子が含まれます。 また、完全に適切な並列操作であるクエリの場合でも、PLINQ では引き続きデータ ソースをパーティション分割し、スレッドでの作業をスケジューリングし、通常はクエリの完了時に結果をマージする必要があります。 これらすべての操作では並列処理の計算コストが追加されます。このような並列処理の追加コストを*オーバーヘッド* と呼びます。 PLINQ クエリでの最適なパフォーマンスを実現するための目標は、適切な並列処理の部分を最大化し、オーバーヘッドを必要とする部分を最小化することです。 この記事では、引き続き正しい結果を生成しながら、できる限り効率的な PLINQ クエリを記述するのに役立つ情報を提供します。  
@@ -70,7 +68,7 @@ PLINQ の主な目的は、マルチコア コンピューターでクエリ デ
 ## <a name="when-plinq-chooses-sequential-mode"></a>PLINQ で順次モードが選択されるタイミング  
  PLINQ は常に、少なくともクエリが順次実行される同じ速度でクエリを実行しようとします。 PLINQ では、ユーザー デリゲートの計算コストがどれくらい高いかや、入力ソースがどれくらい大きいかは確認されませんが、特定のクエリの "形状" は検索されます。 具体的には、通常、並列モードでのクエリの実行により時間がかかるクエリ演算子または演算子の組み合わせが検索されます。 このような形状が検出されると、PLINQ は既定でシーケンシャル モードに戻ります。  
   
- ただし、特定のクエリのパフォーマンスを測定した後に、実際には並列モードではより高速に実行されることがわかる場合があります。 このような場合は、<xref:System.Linq.ParallelEnumerable.WithExecutionMode%2A> メソッドで <xref:System.Linq.ParallelExecutionMode.ForceParallelism?displayProperty=nameWithType> フラグを使用して、クエリを並列化するように PLINQ に指示できます。 詳細については、「[方法 :PLINQ の実行モードを指定する](../../../docs/standard/parallel-programming/how-to-specify-the-execution-mode-in-plinq.md)」をご覧ください。  
+ ただし、特定のクエリのパフォーマンスを測定した後に、実際には並列モードではより高速に実行されることがわかる場合があります。 このような場合は、<xref:System.Linq.ParallelExecutionMode.ForceParallelism?displayProperty=nameWithType> メソッドで <xref:System.Linq.ParallelEnumerable.WithExecutionMode%2A> フラグを使用して、クエリを並列化するように PLINQ に指示できます。 詳細については、「[How to: Specify the Execution Mode in PLINQ (方法: PLINQ の実行モードを指定する)](../../../docs/standard/parallel-programming/how-to-specify-the-execution-mode-in-plinq.md)」を参照してください。  
   
  次のリストでは、既定で PLINQ がシーケンシャル モードで実行するクエリの形状について説明します。  
   
@@ -84,6 +82,6 @@ PLINQ の主な目的は、マルチコア コンピューターでクエリ デ
   
 - インデックス可能なデータ ソースに適用されている場合を除き、Reverse を含むクエリ。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Parallel LINQ (PLINQ)](../../../docs/standard/parallel-programming/parallel-linq-plinq.md)

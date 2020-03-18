@@ -1,13 +1,13 @@
 ---
-title: '方法: ファイルから XML を読み込む (Visual Basic)'
+title: '方法 : ファイルから XML を読み込む'
 ms.date: 07/20/2015
 ms.assetid: e2d337ad-8ac8-4671-b694-30e5ca1413b7
-ms.openlocfilehash: 985c011d78b8386996ff4803194c8510e7ea0048
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 72a5adb8c7165f8113584f27bea64efde4ec58fb
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582071"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74336108"
 ---
 # <a name="how-to-load-xml-from-a-file-visual-basic"></a>方法: ファイルから XML を読み込む (Visual Basic)
 
@@ -50,6 +50,6 @@ Console.WriteLine(booksFromFile)
 </Catalog>
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [XML の解析 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/parsing-xml.md)

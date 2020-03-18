@@ -6,14 +6,12 @@ helpviewer_keywords:
 - unmanaged API reference [.NET Framework], diagnostics symbol store
 - native API reference [.NET Framework], diagnostics symbol store
 ms.assetid: ee1fbb7a-b0f9-482f-8cd0-6df37e6586a2
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 418c9afdec32b685f67bd457c055476b5501b414
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 2bf393f1a2f44d265038282713265fefc80bc66f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61599304"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74445504"
 ---
 # <a name="diagnostics-symbol-store-unmanaged-api-reference"></a>シンボル ストア診断 (アンマネージ API リファレンス)
 シンボル ストア診断 API を使うと、コンパイラにより、デバッガーで使うためのシンボル情報を生成できます。  

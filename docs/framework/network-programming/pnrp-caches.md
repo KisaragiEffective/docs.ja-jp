@@ -3,10 +3,10 @@ title: PNRP キャッシュ
 ms.date: 03/30/2017
 ms.assetid: 270068d9-1b6b-4eb9-9e14-e02326bb88df
 ms.openlocfilehash: 3ed3e11e702c8933b500421de5654b212cdd80d8
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "64622989"
 ---
 # <a name="pnrp-caches"></a>PNRP キャッシュ
@@ -35,6 +35,6 @@ ms.locfileid: "64622989"
   
  ピアは、他のピアからオブジェクトを受信する希望を登録できます。 オブジェクトが更新されると、コラボレーション アプリケーションに通知され、新しいオブジェクトはアプリケーションのすべてのサブスクライバーに渡されます。 たとえば、グループ チャット アプリケーションのピアは、アプリケーション情報を受信する希望を登録できます。そのアプリケーションからは、すべてのチャット レコードがアプリケーション データとして送信されます。  これによって、クラウド内のチャット アクティビティを監視できます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Net.PeerToPeer>

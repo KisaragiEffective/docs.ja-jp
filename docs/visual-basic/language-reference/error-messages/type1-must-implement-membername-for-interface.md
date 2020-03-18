@@ -1,5 +1,5 @@
 ---
-title: <type1>'<typename>' は、インターフェイス '<interfacename>' に対して '<membername>' を実装しなければなりません。
+title: <type1>'<typename>' は、インターフェイス '<membername>' に対して '<interfacename>' を実装しなければなりません。
 ms.date: 07/20/2015
 f1_keywords:
 - vbc30154
@@ -14,8 +14,8 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71696891"
 ---
-# <a name="type1typename-must-implement-membername-for-interface-interfacename"></a>\<type1 > ' \< typename > ' は、' \<membername > ' をインターフェイス ' 3interfacename @no__t ' に実装しなければなりません
-' \<typename > ' は、インターフェイス ' 2interfacename @no__t ' に対して ' \<membername > ' を実装しなければなりません。 実装するプロパティには、' ReadOnly '/' WriteOnly ' 指定子が一致しなければなりません。  
+# <a name="type1typename-must-implement-membername-for-interface-interfacename"></a>\<type1 > '\<typename > ' は、インターフェイス '\<interfacename > ' に '\<membername > ' を実装しなければなりません
+'\<typename > ' は、インターフェイス '\<interfacename > ' に対して '\<membername > ' を実装しなければなりません。 実装するプロパティには、' ReadOnly '/' WriteOnly ' 指定子が一致しなければなりません。  
   
  インターフェイスを実装するクラスまたは構造体が要求しますが、インターフェイスで定義されたプロシージャ、プロパティ、またはイベントを実装しません。 インターフェイスのすべてのメンバーを実装する必要があります。  
   
@@ -25,7 +25,7 @@ ms.locfileid: "71696891"
   
 1. インターフェイスで定義されているものと同じ名前およびシグネチャを持つメンバーを宣言します。 少なくとも `End Function`、`End Sub`、または `End Property` ステートメントを含めるようにしてください。  
   
-2. @No__t-1、`Sub`、`Property`、または `Event` ステートメントの末尾に `Implements` 句を追加します。 以下に例を示します。  
+2. `Function`、`Sub`、`Property`、または `Event` ステートメントの末尾に `Implements` 句を追加します。 例 :  
   
     ```vb  
     Public Event ItHappened() Implements IBaseInterface.ItHappened  
@@ -35,7 +35,7 @@ ms.locfileid: "71696891"
   
 4. プロパティを実装する場合は、必要に応じて `Get` および `Set` プロシージャを宣言します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Implements ステートメント](../../../visual-basic/language-reference/statements/implements-statement.md)
 - [インターフェイス](../../../visual-basic/programming-guide/language-features/interfaces/index.md)

@@ -2,12 +2,12 @@
 title: Pick アクティビティの使用
 ms.date: 03/30/2017
 ms.assetid: b89be812-a247-4025-b0e3-ffb20db027a6
-ms.openlocfilehash: 03b9ff7f552ad0cdcfbe9c46121a2f46f35de52a
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: b0997254615ca962fd386dea70c67a8edb36c90a
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70037876"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715527"
 ---
 # <a name="using-the-pick-activity"></a>Pick アクティビティの使用
 このサンプルでは、<xref:System.Activities.Statements.Pick> アクティビティを使用する方法を示します。
@@ -16,25 +16,25 @@ ms.locfileid: "70037876"
 
  このサンプルでは、指定した時間内にコンソールでユーザー名を入力するようユーザーに求めます。 このサンプルの <xref:System.Activities.Statements.Pick> アクティビティには、ユーザーが 5 秒以内にユーザー名を入力したかどうかに基づいて実行される 2 つの分岐があります。 ユーザーが 5 秒以内にユーザー名を入力した場合は、カスタムの `ReadLine` アクティビティを含む最初の分岐が実行されます。それ以外の場合は、<xref:System.Activities.Statements.Delay> アクティビティを含むもう 1 つの分岐が実行されます。 コンソールでユーザー名を入力すると、そのユーザー名がコンソールに出力されます。 5 秒以内に入力しないと、操作はタイムアウトします。
 
-## <a name="demonstrates"></a>使用例
+## <a name="demonstrates"></a>例
  <xref:System.Activities.Statements.Pick> アクティビティ。
 
-## <a name="discussion"></a>説明
+## <a name="discussion"></a>ディスカッション
  このサンプルには、デザイナー ワークフローとコード化されたワークフローがあります。
 
  デザイナーのワークフローデザイナーのサンプルでは、デザイナーでワークフローを作成する方法を示しています。 次のファイルがあります。
 
-- Program.cs:サンプルワークフローを実行する関数が含まれています。`Main`
+- Program.cs: サンプル ワークフローを実行する `Main` 関数が含まれています。
 
-- ReadString.cs:コンソールから一部の入力を読み取るカスタムアクティビティ。
+- ReadString.cs: コンソールからの入力を読み取るカスタム アクティビティです。
 
-- Sequence1:Pick を使用するデザイナーを使用して作成されたワークフロー。
+- Sequence1.xaml: Pick を使用する、デザイナーで作成されたワークフローです。
 
  コード化されたワークフローサンプルのコード化されたバージョンは、デザイナーでワークフローを作成する方法を示しています。 次のファイルがあります。
 
-- Program.cs:サンプルワークフローを実行する関数が含まれています。`Main`
+- Program.cs: サンプル ワークフローを実行する `Main` 関数が含まれています。
 
-- ReadString.cs:コンソールから一部の入力を読み取るカスタムアクティビティ。
+- ReadString.cs: コンソールからの入力を読み取るカスタム アクティビティです。
 
 #### <a name="to-use-this-sample"></a>このサンプルを使用するには
 
@@ -49,6 +49,6 @@ ms.locfileid: "70037876"
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WF\Basic\Built-InActivities\Pick`

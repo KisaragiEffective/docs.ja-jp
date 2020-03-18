@@ -5,14 +5,12 @@ helpviewer_keywords:
 - ExceptionThrown_V1 event [.NET Framework]
 - ETW, ExceptionThrown_V1 event (CLR)
 ms.assetid: 0d3da389-6b7b-40f6-a877-fac546d6019c
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 91abd9e6f31380b7e8cd3df1a14aa5c5722901ba
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 80faf6e607755ee79c7ec17f2d7d3d5bdce822b7
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71046511"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75716059"
 ---
 # <a name="exception-thrown_v1-etw-event"></a>Exception Thrown_V1 ETW イベント
 このイベントは、スローされる例外に関する情報をキャプチャします。  
@@ -25,19 +23,19 @@ ms.locfileid: "71046511"
   
  次の表にイベント情報を示します。  
   
-|イベント|イベント ID|いつ発生するか|  
+|Event|イベント ID|いつ発生するか|  
 |-----------|--------------|-----------------|  
 |`ExceptionThrown_V1`|80|マネージド例外がスローされます。|  
   
  次の表にイベント データを示します。  
   
-|フィールド名|データ型|説明|  
+|フィールド名|[データ型]|説明|  
 |----------------|---------------|-----------------|  
 |例外の種類|win:UnicodeString|例外の種類 (`System.NullReferenceException` など)。|  
 |例外メッセージ|win:UnicodeString|実際の例外メッセージ。|  
 |EIPCodeThrow|win:Pointer|例外が発生した命令ポインター。|  
-|ExceptionHR|win:UInt32|例外 [HRESULT](https://go.microsoft.com/fwlink/?LinkId=179679)。|  
-|ExceptionFlags|win:UInt16|0x01HasInnerException (Visual Basic ドキュメントの「 [CLR ETW イベント](clr-etw-events.md)」を参照してください)。<br /><br /> 除くIsNestedException.<br /><br /> 0x04IsRethrownException.<br /><br /> 0x08IsCorruptedStateException (プロセスの状態が破損していることを示します。「MSDN で[破損状態の例外を処理](https://go.microsoft.com/fwlink/?LinkId=179681)する」を参照してください)。<br /><br /> 0x10IsCLSCompliant (から<xref:System.Exception>派生する例外は cls に準拠していますが、それ以外の場合は cls に準拠していません)。|  
+|ExceptionHR|win:UInt32|例外 [HRESULT](https://docs.microsoft.com/openspecs/windows_protocols/ms-erref/0642cb2f-2075-4469-918c-4441e69c548a)。|  
+|ExceptionFlags|win:UInt16|0x01: HasInnerException (Visual Basic のドキュメントで「[CLR ETW イベント](clr-etw-events.md)」を参照)。<br /><br /> 0x02: IsNestedException。<br /><br /> 0x04: IsRethrownException。<br /><br /> 0x08: IsCorruptedStateException (プロセスの状態が破損していることを示します。「[破損状態の例外の処理](https://docs.microsoft.com/archive/msdn-magazine/2009/february/clr-inside-out-handling-corrupted-state-exceptions)」を参照してください)。<br /><br /> 0x10: IsCLSCompliant (<xref:System.Exception> から派生した例外は CLS 準拠で、それ以外は CLS 非準拠)。|  
 |ClrInstanceID|win:UInt16|CLR または CoreCLR のインスタンスの一意の ID。|  
   
 ## <a name="see-also"></a>関連項目

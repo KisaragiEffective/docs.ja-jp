@@ -1,18 +1,20 @@
 ---
 title: ML.NET コマンドライン インターフェイス (CLI) ツールをインストールする方法
-description: ML.NET コマンドライン インターフェイス (CLI) ツールの概要とインストール。
-ms.date: 04/16/2019
-ms.custom: ''
-ms.openlocfilehash: baced9bbcc72153458d42d4b6d8206921bf187b8
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+description: ML.NET コマンド ライン インターフェイス (CLI) ツールをインストール、アップグレード、ダウングレード、およびアンインストールする方法を説明します。
+ms.date: 12/18/2019
+ms.custom: mlnet-tooling
+ms.openlocfilehash: 9f678c7117d32bf817139951db7eef2c3d0f5eb2
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71118000"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78848640"
 ---
 # <a name="how-to-install-the-mlnet-command-line-interface-cli-tool"></a>ML.NET コマンドライン インターフェイス (CLI) ツールをインストールする方法
 
-ML.NET CLI (コマンドライン インターフェイス) は、用意したトレーニング データセットに基づいて高品質の ML.NET モデルとソース コードを生成するための、コマンドプロンプト (Windows、Mac、または Linux) 上で実行できるツールです。
+Windows、Mac、または Linux で ML.NET CLI (コマンド ライン インターフェイス) ツールをインストールする方法を説明します。
+
+ML.NET CLI では、自動機械学習 (AutoML) とトレーニング データセットを使用して、高品質 ML.NET モデルとソース コードが生成されます。
 
 > [!NOTE]
 > このトピックは、現在プレビュー段階の ML.NET CLI と ML.NET AutoML について述べており、内容が変更される場合があります。
@@ -23,13 +25,13 @@ ML.NET CLI (コマンドライン インターフェイス) は、用意した�
 
 - (省略可能) [Visual Studio 2017 または 2019](https://visualstudio.microsoft.com/vs/)
 
-生成された C# コード プロジェクトは、Visual Studio で F5 キーまたは `dotnet run` (.NET Core CLI) を使用して実行できます。
+生成された C# コード プロジェクトを Visual Studio で実行するには、`F5` キーを押すか、`dotnet run` (.NET Core CLI) を使用します。
 
 メモ:[.NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) のインストール後に `dotnet tool` コマンドが機能しない場合は、Windows からサインアウトしてから再度サインインします。
 
 ## <a name="install"></a>インストール
 
-ML.NET CLI のインストール方法は他の .NET グローバル ツールと同様です。 `dotnet tool install` .NET Core CLI コマンドを使用します。 
+ML.NET CLI のインストール方法は他の .NET グローバル ツールと同様です。 `dotnet tool install` .NET Core CLI コマンドを使用します。
 
 次の例は、既定の NuGet フィードの場所に ML.NET CLI をインストールする方法を示しています。
 
@@ -112,7 +114,7 @@ ML.NET CLI は `System.CommandLine` に基づいているので、タブ補完�
 
     ```console
     echo $profile
-    ``` 
+    ```
 
 (他のシェルについては、[検索する](https://github.com/dotnet/System.CommandLine/issues?q=is%3Aissue+is%3Aopen+label%3A%22shell+suggestion%22)か、[問題](https://github.com/dotnet/System.CommandLine/issues)を開いてください。)
 
@@ -134,7 +136,7 @@ ML.NET CLI は、既定のディレクトリまたは特定の場所にインス
 
 ## <a name="see-also"></a>関連項目
 
-- ["ML.NET CLI ツールの概要" のチュートリアル](../tutorials/mlnet-cli.md)
-- [ML.NET CLI ツールを使用してモデルを自動的にトレーニングする方法](../automate-training-with-cli.md)
-- [ML.NET CLI auto-train コマンド リファレンス ガイド](../reference/ml-net-cli-reference.md) 
+- [ML.NET CLI の概要](../automate-training-with-cli.md)
+- [チュートリアル: ML.NET CLI を使用してセンチメントを分析する](../tutorials/sentiment-analysis-cli.md)
+- [ML.NET CLI auto-train コマンド リファレンス ガイド](../reference/ml-net-cli-reference.md)
 - [ML.NET CLI のテレメトリ](../resources/ml-net-cli-telemetry.md)

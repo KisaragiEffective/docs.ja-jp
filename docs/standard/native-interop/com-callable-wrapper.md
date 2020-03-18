@@ -12,14 +12,12 @@ helpviewer_keywords:
 - interoperation with unmanaged code, COM wrappers
 - COM callable wrappers
 ms.assetid: d04be3b5-27b9-4f5b-8469-a44149fabf78
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ebfc8f79303f89b092dd0fb38237dffffe0a93ba
-ms.sourcegitcommit: da2dd2772fcf32b44eb18b1cbe8affd17b1753c9
+ms.openlocfilehash: 6f2f4055a95dbcea8d7872b5c5fa3ccede8c2c8c
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71353905"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120727"
 ---
 # <a name="com-callable-wrapper"></a>COM 呼び出し可能ラッパー
 

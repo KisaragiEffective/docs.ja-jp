@@ -15,18 +15,16 @@ helpviewer_keywords:
 ms.assetid: d7e916a6-1c39-4676-972d-da3d8546044b
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9218dd87b0794f3972365a4049cd8941e6671312
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 6ebe07fc7cd963cbe9cae3cd8c3f7c0580dad5fc
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61996048"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76788810"
 ---
 # <a name="icordebugeditandcontinuesnapshotgetmvid-method"></a>ICorDebugEditAndContinueSnapshot::GetMvid メソッド
 `GetMvid` は互換性のために残されています。 このメソッドを呼び出さないでください。  
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

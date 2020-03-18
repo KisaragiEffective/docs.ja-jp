@@ -1,21 +1,19 @@
 ---
 title: 追加のクラス ライブラリと API
-ms.date: 10/17/2019
+ms.date: 11/19/2019
 helpviewer_keywords:
 - Additional class libraries
 - Additional managed libraries
 - .NET Framework out-of-band releases
 - out-of-band releases
 ms.assetid: cf2d9006-b631-4e5d-81cd-20aab78c60f1
-author: mairaw
-ms.author: mairaw
 ms.topic: conceptual
-ms.openlocfilehash: 4b47847e9d6e9424d4442d655c40a637383c7229
-ms.sourcegitcommit: 337bdc5a463875daf2cc6883e5a2da97d56f5000
+ms.openlocfilehash: 3a5134aa4407598e223fd2c938bfaac02cf9178c
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847083"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77215532"
 ---
 # <a name="additional-class-libraries-and-apis"></a>追加のクラス ライブラリと API
 
@@ -25,7 +23,7 @@ ms.locfileid: "72847083"
   
 ## <a name="oob-projects"></a>OOB プロジェクト
   
-| [プロジェクト] | 説明 |  
+| プロジェクト | 説明 |  
 | ------- | ----------- |  
 | <xref:System.Collections.Immutable> | スレッド セーフであり、内容が変更されないことが保証されているコレクションを提供します。 |
 | <xref:System.Net.Http.WinHttpHandler> | Windows の WinHTTP インターフェイスに基づいた <xref:System.Net.Http.HttpClient> のメッセージ ハンドラーを提供します。 |
@@ -34,7 +32,7 @@ ms.locfileid: "72847083"
 
 ## <a name="platform-specific-libraries"></a>プラットフォーム固有のライブラリ
   
-| [プロジェクト] | 説明 |  
+| プロジェクト | 説明 |  
 | ------- | ----------- |  
 | <xref:System.Text.CodePagesEncodingProvider> | <xref:System.Text.EncodingProvider> クラスを拡張して、ユニバーサル Windows プラットフォームを対象とするアプリでコードページエンコーディングを使用できるようにします。 |  
   
@@ -56,6 +54,7 @@ ms.locfileid: "72847083"
 * [SqlTypes (システムのデータ. Seek メソッド)](system.data.sqltypes.sqlstreamchars.seek.md)
 * [SetLength メソッドを SqlTypes しています。](system.data.sqltypes.sqlstreamchars.setlength.md)
 * [SqlTypes メソッドを作成してください。](system.data.sqltypes.sqlstreamchars.write.md)
+* [MemoryStream メソッドの呼び出しを行います。](system.io.memorystream.internalgetoriginandlength.md)
 * [System .Net. Connection クラス](connection.md)
 * [System .Net. Connection. m\_WriteList フィールド](m_writelist.md)
 * [システム .Net. ConnectionGroup クラス](connectiongroup.md)
@@ -68,10 +67,13 @@ ms.locfileid: "72847083"
 * [HttpWebRequest.\_CoreResponse フィールド](httpwebrequest__coreresponse.md)
 * [HttpWebRequest.\_Httpresponse.cache フィールド](_httpresponse.md)
 * [System .Net. PooledStream. NetworkStream プロパティ](system.net.pooledstream.networkstream.md)
+* [システム .Net. RtcState クラス](system.net.rtcstate.md)
 * [System .Net. ServicePoint. m\_ConnectionGroupList フィールド](m_connectiongrouplist.md)
 * [System .Net. ServicePointManager. s\_Servicepointmanager フィールド](s_servicepointtable.md)
-* [TlsStream. m_Worker フィールド](system.net.tlsstream.m_worker.md)
+* [M_Worker TlsStream (システム) フィールド](system.net.tlsstream.m_worker.md)
 * [System .Net. Security. Sslstate プロパティ](system.net.security.sslstate.sslprotocol.md)
+* [System.servicemodel. Channels. Message. BodyToString メソッド](system.servicemodel.channels.message.bodytostring.md)
+* [WriteStartHeaders メソッド (System.servicemodel.)](system.servicemodel.channels.message.writestartheaders.md)
 * [IsDebuggerCheckDisabledForTestPurposes フィールドの\_システム ()](s-isdebuggercheckdisabledfortestpurposes-field.md)
 * [System.string クラス (DataMemberFieldEditor クラス)](datamemberfieldeditor-class.md)
 * [System.string クラス (DataMemberListEditor クラス)](datamemberlisteditor-class.md)
@@ -88,6 +90,6 @@ ms.locfileid: "72847083"
 * [stdole.StdFont インターフェイス](stdole.stdfont.md)
 * [stdole.StdPicture インターフェイス](stdole.stdpicture.md)
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 * [NET Framework および特別なリリース](../get-started/the-net-framework-and-out-of-band-releases.md)

@@ -4,12 +4,12 @@ description: .NET Core でのマネージド アセンブリ読み込みアル�
 ms.date: 08/09/2019
 author: sdmaclea
 ms.author: stmaclea
-ms.openlocfilehash: bf95cbd0eebed064f0198ae9b0f7a4288a938f8a
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: 312a320676be6eb453697e0704ab771a6707618b
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "72303630"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73973509"
 ---
 # <a name="managed-assembly-loading-algorithm"></a>マネージド アセンブリの読み込みアルゴリズム
 
@@ -31,7 +31,7 @@ ms.locfileid: "72303630"
 |<xref:System.Reflection.Assembly.LoadFile%2A?displayProperty=nameWithType>|新しい <xref:System.Runtime.Loader.AssemblyLoadContext> インスタンスにパスから読み込みます。|新しい <xref:System.Runtime.Loader.AssemblyLoadContext> インスタンス。|
 <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=nameWithType>|新しい <xref:System.Runtime.Loader.AssemblyLoadContext.Default%2A?displayProperty=nameWithType> インスタンスにパスから読み込みます。<p><xref:System.Runtime.Loader.AssemblyLoadContext.Resolving> ハンドラーを <xref:System.Runtime.Loader.AssemblyLoadContext.Default%2A?displayProperty=nameWithType> に追加します。 ハンドラーは、そのディレクトリからアセンブリの依存関係を読み込みます。|<xref:System.Runtime.Loader.AssemblyLoadContext.Default%2A?displayProperty=nameWithType> インスタンス。|
 |<xref:System.Reflection.Assembly.Load(System.Reflection.AssemblyName)?displayProperty=nameWithType><p><xref:System.Reflection.Assembly.Load(System.String)?displayProperty=nameWithType><p><xref:System.Reflection.Assembly.LoadWithPartialName%2A?displayProperty=nameWithType>|`Load-by-name`。|呼び出し元から推論されます。<p><xref:System.Runtime.Loader.AssemblyLoadContext> メソッドが優先されます。|
-|<xref:System.Reflection.Assembly.Load(System.Byte[])?displayProperty=nameWithType><p><xref:System.Reflection.Assembly.Load(System.Byte[],System.Byte[])?displayProperty=nameWithType>|オブジェクトから読み込みます。|呼び出し元から推論されます。<p><xref:System.Runtime.Loader.AssemblyLoadContext> メソッドが優先されます。|
+|<xref:System.Reflection.Assembly.Load(System.Byte[])?displayProperty=nameWithType><p><xref:System.Reflection.Assembly.Load(System.Byte[],System.Byte[])?displayProperty=nameWithType>|新しい <xref:System.Runtime.Loader.AssemblyLoadContext>インスタンスのオブジェクトから読み込みます。|新しい <xref:System.Runtime.Loader.AssemblyLoadContext> インスタンス。|
 <xref:System.Type.GetType(System.String)?displayProperty=nameWithType><p><xref:System.Type.GetType(System.String,System.Boolean)?displayProperty=nameWithType><p><xref:System.Type.GetType(System.String,System.Boolean,System.Boolean)?displayProperty=nameWithType>|`Load-by-name`。|呼び出し元から推論されます。<p>`assemblyResolver` 引数を使用した <xref:System.Type.GetType%2A?displayProperty=nameWithType> メソッドが優先されます。|
 <xref:System.Reflection.Assembly.GetType%2A?displayProperty=nameWithType>|型 `name` がアセンブリ修飾ジェネリック型を記述している場合は、`Load-by-name` をトリガーします。|呼び出し元から推論されます。<p>アセンブリ修飾型名を使用する場合は、<xref:System.Type.GetType%2A?displayProperty=nameWithType> が優先されます。|
 <xref:System.Activator.CreateInstance(System.String,System.String)?displayProperty=nameWithType><p><xref:System.Activator.CreateInstance(System.String,System.String,System.Object[])?displayProperty=nameWithType><p><xref:System.Activator.CreateInstance(System.String,System.String,System.Boolean,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object[],System.Globalization.CultureInfo,System.Object[])?displayProperty=nameWithType>|`Load-by-name`。|呼び出し元から推論されます。<p><xref:System.Type> 引数を取る <xref:System.Activator.CreateInstance%2A?displayProperty=nameWithType> メソッドが優先されます。|

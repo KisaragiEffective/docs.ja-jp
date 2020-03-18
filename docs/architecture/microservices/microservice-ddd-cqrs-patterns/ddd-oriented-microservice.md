@@ -2,12 +2,12 @@
 title: DDD 指向マイクロサービスの設計
 description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | DDD 指向の注文マイクロサービスの設計とそのアプリケーション レイヤーを理解する
 ms.date: 10/08/2018
-ms.openlocfilehash: 303f8909d12dddef93b20604a00b9ea8e8493ee5
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: c5ac55978ca979a3ae055d9b0cd2d3c6b3187b4e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68674349"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79401533"
 ---
 # <a name="design-a-ddd-oriented-microservice"></a>DDD 指向マイクロサービスの設計
 
@@ -37,13 +37,13 @@ ms.locfileid: "68674349"
 
 図 7-5 は、階層化設計が eShopOnContainers アプリケーションにどのように実装されているかを示しています。
 
-![Ordering などの DDD マイクロサービスの 3 つのレイヤー。 レイヤーはそれぞれ VS プロジェクトです。アプリケーション レイヤーは Ordering.API、ドメイン レイヤーは Ordering.Domain、インフラストラクチャ レイヤーは Ordering.Infrastructure です。](./media/image6.png)
+![ドメイン駆動設計マイクロサービス内のレイヤーを示す図。](./media/ddd-oriented-microservice/domain-driven-design-microservice.png)
 
 **図 7-5**。 eShopOnContainers 内の注文マイクロサービスの DDD レイヤー
 
-システムは、各レイヤーが他の特定のレイヤーとだけ通信するように設計する必要があります。 これを適用しやすくする上で、各レイヤーを別のクラス ライブラリとして実装することが役に立つ場合があります。ライブラリ間に設定されている依存関係を明確に識別できるようになるためです。 たとえば、ドメイン モデル レイヤーは他のレイヤーに依存関係を持ってはなりません (ドメイン モデル クラスは単純な従来の CLR オブジェクト、つまり [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) クラスでなければなりません)。 図 7-6 に示すように、**Ordering.Domain** レイヤー ライブラリは .NET Core ライブラリまたは NuGet パッケージだけに依存関係があり、データ ライブラリや永続化ライブラリなどの他のカスタム ライブラリには依存関係がありません。
+Ordering などの DDD マイクロサービスの 3 つのレイヤー。 レイヤーはそれぞれ VS プロジェクトです。アプリケーション レイヤーは Ordering.API、ドメイン レイヤーは Ordering.Domain、インフラストラクチャ レイヤーは Ordering.Infrastructure です。 システムは、各レイヤーが他の特定のレイヤーとだけ通信するように設計する必要があります。 これを適用しやすくする上で、各レイヤーを別のクラス ライブラリとして実装することが役に立つ場合があります。ライブラリ間に設定されている依存関係を明確に識別できるようになるためです。 たとえば、ドメイン モデル レイヤーは他のレイヤーに依存関係を持ってはなりません (ドメイン モデル クラスは単純な従来の CLR オブジェクト、つまり [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) クラスでなければなりません)。 図 7-6 に示すように、**Ordering.Domain** レイヤー ライブラリは .NET Core ライブラリまたは NuGet パッケージだけに依存関係があり、データ ライブラリや永続化ライブラリなどの他のカスタム ライブラリには依存関係がありません。
 
-![.NET Core ライブラリのみに依存していることを示す、Ordering.Domain の依存関係のソリューション エクスプローラー ビュー。](./media/image7.png)
+![Ordering.Domain の依存関係のスクリーンショット。](./media/ddd-oriented-microservice/ordering-domain-dependencies.png)
 
 **図 7-6**。 レイヤーをライブラリとして実装すると、レイヤー間の依存関係の制御が改善できる
 
@@ -85,11 +85,11 @@ Entity Framework Core などの最新の ORM フレームワークのほとん�
 
 したがって、図 7-7 に示すように、レイヤーまたはクラス ライブラリとプロジェクトは、最終的にドメイン モデル レイヤー (ライブラリ) に依存するはずで、逆方向の依存はありません。
 
-![DDD サービスの依存関係、アプリケーション レイヤーはドメインとインフラストラクチャに依存し、インフラストラクチャはドメインに依存しますが、ドメインはレイヤーに依存しません。](./media/image8.png)
+![DDD サービス レイヤー間に存在する依存関係を示す図。](./media/ddd-oriented-microservice/ddd-service-layer-dependencies.png)
 
 **図 7-7**。 DDD 内のレイヤー間の依存関係
 
-このレイヤー設計は、マイクロサービスごとに独立している必要があります。 上述のとおり、最も複雑なマイクロサービスは DDD のパターンに従って実装できますが、単純なデータ駆動マイクロサービス (単一レイヤーの単純な CRUD) はより単純な方法で実装します。
+DDD サービスの依存関係、アプリケーション レイヤーはドメインとインフラストラクチャに依存し、インフラストラクチャはドメインに依存しますが、ドメインはレイヤーに依存しません。 このレイヤー設計は、マイクロサービスごとに独立している必要があります。 上述のとおり、最も複雑なマイクロサービスは DDD のパターンに従って実装できますが、単純なデータ駆動マイクロサービス (単一レイヤーの単純な CRUD) はより単純な方法で実装します。
 
 #### <a name="additional-resources"></a>その他の技術情報
 

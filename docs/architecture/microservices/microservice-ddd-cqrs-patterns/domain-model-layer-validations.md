@@ -2,12 +2,12 @@
 title: ドメイン モデル レイヤーでの検証の設計
 description: コンテナー化された .NET アプリケーション用の .NET マイクロサービス アーキテクチャ | ドメイン モデル検証の主要な概念を理解する。
 ms.date: 10/08/2018
-ms.openlocfilehash: 1d3196d2130df33969ed231bccfe0fc6f0af2ad8
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: 98ccc5df84c9f6f402ecbee83b077c806d6a76fc
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68674249"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75899664"
 ---
 # <a name="design-validations-in-the-domain-model-layer"></a>ドメイン モデル レイヤーでの検証を設計する
 
@@ -53,7 +53,7 @@ public void SetAddress(string line1, string line2,
 
 ### <a name="use-validation-attributes-in-the-model-based-on-data-annotations"></a>データ注釈に基づいてモデルで検証属性を使用する
 
-Required 属性や MaxLength 属性のようなデータ注釈を使用すると、「[テーブル マッピング](infrastructure-persistence-layer-implemenation-entity-framework-core.md#table-mapping)」セクションで詳述したように、EF Core データベースのフィールド プロパティを構成することができます。しかし、.NET Framework の EF 4.x 以降に行われているので、[それらは EF Core でのエンティティ検証では機能しなくなりました](https://github.com/aspnet/EntityFrameworkCore/issues/3680) (<xref:System.ComponentModel.DataAnnotations.IValidatableObject.Validate%2A?displayProperty=nameWithType> メソッドも機能しません)。
+Required 属性や MaxLength 属性のようなデータ注釈を使用すると、「[テーブル マッピング](infrastructure-persistence-layer-implemenation-entity-framework-core.md#table-mapping)」セクションで詳述したように、EF Core データベースのフィールド プロパティを構成することができます。しかし、.NET Framework の EF 4.x 以降に行われているので、[それらは EF Core でのエンティティ検証では機能しなくなりました](https://github.com/dotnet/efcore/issues/3680) (<xref:System.ComponentModel.DataAnnotations.IValidatableObject.Validate%2A?displayProperty=nameWithType> メソッドも機能しません)。
 
 コントローラーの通常どおりのアクション呼び出しの前に行われるモデル バインディングの際にモデル検証で、データ注釈と <xref:System.ComponentModel.DataAnnotations.IValidatableObject> インターフェイスを引き続き使用することができます。しかし、そのモデルは ViewModel または DTO であることを前提としており、それはドメイン モデルに関する問題ではなく、MVC または API に関する問題です。
 
@@ -61,7 +61,7 @@ Required 属性や MaxLength 属性のようなデータ注釈を使用すると
 
 DbContext の SaveChanges メソッドをオーバーライドすれば、データ注釈と `IValidatableObject.Validate` メソッドを使用してエンティティ クラスにカスタム検証を引き続き実装することができます。
 
-`IValidatableObject` エンティティを検証するための実装のサンプルについては、[GitHub 上のこちらのコメント](https://github.com/aspnet/EntityFrameworkCore/issues/3680#issuecomment-155502539)を参照してください。 そのサンプルでは属性ベースの検証は行われていません。その検証については、同じオーバーライド内でリフレクションを使用することで容易に実装できるはずです。
+`IValidatableObject` エンティティを検証するための実装のサンプルについては、[GitHub 上のこちらのコメント](https://github.com/dotnet/efcore/issues/3680#issuecomment-155502539)を参照してください。 そのサンプルでは属性ベースの検証は行われていません。その検証については、同じオーバーライド内でリフレクションを使用することで容易に実装できるはずです。
 
 ただし、DDD の観点から、ドメイン モデルはエンティティの動作メソッド内の例外を使用して、または検証ルールを強制する仕様パターンと通知パターンを実装することで、リーンに保つことをお勧めします。
 

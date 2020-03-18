@@ -1,15 +1,14 @@
 ---
 title: 破棄 - C# ガイド
 description: C# の破棄のサポートについて説明します。破棄は、未割り当てで破棄可能な変数です。また、破棄の使用例についても説明します。
-author: rpetrusha
-ms.author: ronpet
+ms.technology: csharp-fundamentals
 ms.date: 07/21/2017
-ms.openlocfilehash: 761fb69d3bc774975caf63b8aa665f8c19c0430a
-ms.sourcegitcommit: ccd8c36b0d74d99291d41aceb14cf98d74dc9d2b
+ms.openlocfilehash: a76e7fc13f92ec0de87153bb35eb3924bb317616
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53143606"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73100639"
 ---
 # <a name="discards---c-guide"></a>破棄 - C# ガイド
 
@@ -48,7 +47,7 @@ C# 7.0 では、破棄は次のコンテキストの割り当てでサポート�
 
 *破棄パターン*は、[is](language-reference/keywords/is.md) キーワードと [switch](language-reference/keywords/switch.md) キーワードを使用したパターン マッチングで使用できます。 各式は常に破棄パターンと一致します。
 
-[is](language-reference/keywords/is.md) ステートメントを使用して、オブジェクトが <xref:System.IFormatProvider> 実装を提供しているかどうかを判断し、オブジェクトが `null` かどうかをテストする `ProvidesFormatInfo` メソッドの定義例を次に示します。 また、破棄パターンを使用して、その他の任意の型の null 以外のオブジェクトを処理します。
+`ProvidesFormatInfo`is[ ステートメントを使用して、オブジェクトが ](language-reference/keywords/is.md) 実装を提供しているかどうかを判断し、オブジェクトが <xref:System.IFormatProvider> かどうかをテストする `null` メソッドの定義例を次に示します。 また、破棄パターンを使用して、その他の任意の型の null 以外のオブジェクトを処理します。
 
 [!code-csharp[discard-pattern](../../samples/snippets/csharp/programming-guide/discards/discard-pattern2.cs)]
 
@@ -80,7 +79,7 @@ C# 7.0 では、破棄は次のコンテキストの割り当てでサポート�
 
    [!code-csharp[standalone-discard](../../samples/snippets/csharp/programming-guide/discards/standalone-discard2.cs#3)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [タプルおよびその他の型の分解](deconstruct.md)
 - [`is` キーワード](language-reference/keywords/is.md)

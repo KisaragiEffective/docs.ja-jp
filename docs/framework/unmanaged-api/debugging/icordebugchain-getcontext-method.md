@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 26abe7ee-e578-4228-affa-01bed0dfce1b
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4b4a59d7ecdb88b6ca052b7ffef896b7471e3f43
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: cdf7f269217390d59e6731ac75cf56b44c77ae9a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67745240"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73196314"
 ---
 # <a name="icordebugchaingetcontext-method"></a>ICorDebugChain::GetContext メソッド
-.NET Framework の現在のバージョンでは、このメソッドは実装されていません。  
+このメソッドは、.NET Framework の現在のバージョンでは実装されていません。  
   
 ## <a name="syntax"></a>構文  
   

@@ -1,5 +1,5 @@
 ---
-title: Windows フォーム コントロールのイベントの定義
+title: コントロールでのイベントの定義
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,17 +8,17 @@ helpviewer_keywords:
 - events [Windows Forms], defining within Windows Forms custom controls
 - custom controls [Windows Forms], events using code
 ms.assetid: d89f1096-8061-42e2-a855-a1f053f1940a
-ms.openlocfilehash: 4235c8b3c513509023388112071e78cfd079ec6f
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: d45c369e1fc82ee009a85b5b35fe6aa754873436
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61972342"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746081"
 ---
 # <a name="defining-an-event-in-windows-forms-controls"></a>Windows フォーム コントロールのイベントの定義
-カスタム イベントを定義する方法の詳細については、次を参照してください。[イベント](../../../standard/events/index.md)します。 関連データがないイベントを定義する場合、イベント データの基本型である <xref:System.EventArgs> を使用し、イベント デリゲートとして <xref:System.EventHandler> を使用します。 イベント メンバーとプロテクトを定義する操作は、すべて`On` *EventName*イベントを発生させるメソッド。  
+カスタムイベントの定義の詳細については、「[イベント](../../../standard/events/index.md)」を参照してください。 関連データがないイベントを定義する場合、イベント データの基本型である <xref:System.EventArgs> を使用し、イベント デリゲートとして <xref:System.EventHandler> を使用します。 イベントメンバーと、イベントを発生させる protected `On`*EventName*メソッドを定義するだけです。  
   
- `FlashTrackBar` カスタム コントロールによる `ValueChanged` カスタム イベントの定義方法を示すコードを次に示します。 完全なコード、`FlashTrackBar`サンプルを参照してください、[方法。進行状況を示す Windows フォーム コントロールを作成する](how-to-create-a-windows-forms-control-that-shows-progress.md)します。  
+ `FlashTrackBar` カスタム コントロールによる `ValueChanged` カスタム イベントの定義方法を示すコードを次に示します。 `FlashTrackBar` サンプルの完全なコードについては、「[方法: 進行状況を示す Windows フォームコントロールを作成](how-to-create-a-windows-forms-control-that-shows-progress.md)する」を参照してください。  
   
 ```vb  
 Option Explicit  
@@ -76,7 +76,7 @@ public class FlashTrackBar : Control {
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Windows フォーム コントロールのイベント](events-in-windows-forms-controls.md)
 - [イベント](../../../standard/events/index.md)

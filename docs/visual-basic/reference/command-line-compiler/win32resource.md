@@ -32,12 +32,12 @@ Win32 リソースファイルを出力ファイルに挿入します。
 ## <a name="remarks"></a>コメント  
  Win32 リソースファイルは、Microsoft Windows リソースコンパイラ (RC) を使用して作成できます。  
   
- Win32 リソースには、**ファイルエクスプローラー**でアプリケーションを識別するのに役立つバージョンまたはビットマップ (アイコン) 情報を含めることができます。 @No__t-0 を指定しない場合、コンパイラはアセンブリのバージョンに基づいてバージョン情報を生成します。 @No__t-0 および `-win32icon` オプションは相互に排他的です。  
+ Win32 リソースには、**ファイルエクスプローラー**でアプリケーションを識別するのに役立つバージョンまたはビットマップ (アイコン) 情報を含めることができます。 '-win32resource' を指定しない場合、コンパイラはアセンブリのバージョンに基づいてバージョン情報を生成します。 '-win32resource' および `-win32icon` オプションは相互に排他的です。  
   
  .NET Framework リソースファイルを参照する場合は[-linkresource (Visual Basic)](../../../visual-basic/reference/command-line-compiler/linkresource.md)を参照し、.NET Framework リソースファイルをアタッチする場合は[-resource (Visual Basic)](../../../visual-basic/reference/command-line-compiler/resource.md)を参照してください。  
   
 > [!NOTE]
-> @No__t-0 オプションは、Visual Studio 開発環境内からは使用できません。これは、コマンドラインからコンパイルする場合にのみ使用できます。  
+> '-win32resource' オプションは、Visual Studio 開発環境内からは使用できません。これは、コマンドラインからコンパイルする場合にのみ使用できます。  
   
 ## <a name="example"></a>例  
  次のコードは `In.vb` をコンパイルし、Win32 リソースファイルをアタッチします。 `Rf.res` となります。  
@@ -48,5 +48,5 @@ vbc -win32resource:rf.res in.vb
   
 ## <a name="see-also"></a>関連項目
 
-- [Visual Basic のコマンド ライン コンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
-- [コンパイル コマンド ラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)
+- [Visual Basic コマンドラインコンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
+- [コンパイルコマンドラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)

@@ -1,5 +1,5 @@
 ---
-title: My.Settings オブジェクト (Visual Basic)
+title: My.Settings オブジェクト
 ms.date: 07/20/2015
 f1_keywords:
 - My.MySettingsProperty.Settings
@@ -7,59 +7,59 @@ f1_keywords:
 helpviewer_keywords:
 - My.Settings object
 ms.assetid: 41f30dc1-202a-4273-b9b7-5728941f996c
-ms.openlocfilehash: 9533e8e1ccc51078fefcf6bf73feb2683ae8febb
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 9560a51332ea596d4cf2228f1e07c158a0457ece
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64625278"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350361"
 ---
 # <a name="mysettings-object"></a>My.Settings オブジェクト
-プロパティと、アプリケーションの設定にアクセスするためのメソッドを提供します。  
+アプリケーションの設定にアクセスするためのプロパティとメソッドを提供します。  
   
-## <a name="remarks"></a>Remarks  
- `My.Settings`オブジェクトは、アプリケーションの設定へのアクセスを提供し、動的に格納し、プロパティの設定と、アプリケーションの他の情報を取得することができます。 詳細については、「[アプリケーションの設定の管理 (.NET)](/visualstudio/ide/managing-application-settings-dotnet)」を参照してください。  
+## <a name="remarks"></a>コメント  
+ `My.Settings` オブジェクトは、アプリケーションの設定へのアクセスを提供し、アプリケーションのプロパティ設定やその他の情報を動的に格納および取得できるようにします。 詳細については、[アプリケーションの設定の管理 (.NET)](/visualstudio/ide/managing-application-settings-dotnet) を参照してください。  
   
 ## <a name="properties"></a>プロパティ  
- `My.Settings` オブジェクトのプロパティを使用すると、アプリケーションの設定にアクセスできます。 を追加または削除の設定を使用して、**設定デザイナー**します。  
+ `My.Settings` オブジェクトのプロパティを使用すると、アプリケーションの設定にアクセスできます。 設定を追加または削除するには、**設定デザイナー**を使用します。  
   
- 各設定は、**名前**、**型**、**スコープ**と**値**、これらの設定を確認する方法各設定にアクセスするプロパティ表示されます、`My.Settings`オブジェクト。  
+ 各設定には**名前**、**種類**、**スコープ**、および**値**があり、これらの設定によって、各設定にアクセスするプロパティが `My.Settings` オブジェクトにどのように表示されるかが決まります。  
   
-- **名前**プロパティの名前を指定します。  
+- **Name**プロパティの名前を指定します。  
   
-- **型**プロパティの種類を決定します。  
+- **Type**は、プロパティの型を決定します。  
   
-- **スコープ**プロパティは読み取り専用のかどうかを示します。 値が場合**アプリケーション**、プロパティは読み取り専用です。 値の場合**ユーザー**、プロパティが読み取り/書き込みです。  
+- **スコープ**は、プロパティが読み取り専用かどうかを示します。 値が**アプリケーション**の場合、プロパティは読み取り専用です。値が**User**の場合、プロパティは読み取り/書き込み可能です。  
   
-- **値**はプロパティの既定値です。  
+- **値**は、プロパティの既定値です。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |---|---|  
-|`Reload`|最後に保存されている値からユーザーの設定を再読み込みします。|  
+|`Reload`|最後に保存した値からユーザー設定を再読み込みします。|  
 |`Save`|現在のユーザー設定を保存します。|  
   
- `My.Settings`オブジェクトは、高度なプロパティとから継承されたメソッドにも提供します、<xref:System.Configuration.ApplicationSettingsBase>クラス。  
+ `My.Settings` オブジェクトは、<xref:System.Configuration.ApplicationSettingsBase> クラスから継承された高度なプロパティやメソッドも提供します。  
   
-## <a name="tasks"></a>[タスク]  
- 次の表に、関連するタスクの例については、`My.Settings`オブジェクト。  
+## <a name="tasks"></a>タスク  
+ 次の表に、`My.Settings` オブジェクトに関連するタスクの例を示します。  
   
-|目的|解決方法|  
+|目的|参照先|  
 |---|---|  
-|アプリケーション設定を読み取り|[方法: Visual Basic でアプリケーション設定を読み取る](../../../visual-basic/developing-apps/programming/app-settings/how-to-read-application-settings.md)|  
-|ユーザー設定を変更します。|[方法: Visual Basic でユーザー設定を変更する](../../../visual-basic/developing-apps/programming/app-settings/how-to-change-user-settings.md)|  
-|ユーザー設定します。|[方法: Visual Basic でユーザー設定を永続化する](../../../visual-basic/developing-apps/programming/app-settings/how-to-persist-user-settings.md)|  
-|ユーザー設定のプロパティ グリッドを作成します。|[方法: Visual Basic でユーザー設定のためのプロパティ グリッドを作成する](../../../visual-basic/developing-apps/programming/app-settings/how-to-create-property-grids-for-user-settings.md)|  
+|アプリケーション設定の読み取り|[方法: Visual Basic でアプリケーション設定を読み取る](../../../visual-basic/developing-apps/programming/app-settings/how-to-read-application-settings.md)|  
+|ユーザー設定を変更する|[方法: Visual Basic でユーザー設定を変更する](../../../visual-basic/developing-apps/programming/app-settings/how-to-change-user-settings.md)|  
+|ユーザー設定を保持する|[方法: Visual Basic でユーザー設定を永続化する](../../../visual-basic/developing-apps/programming/app-settings/how-to-persist-user-settings.md)|  
+|ユーザー設定のプロパティグリッドを作成する|[方法: Visual Basic でユーザー設定のためのプロパティ グリッドを作成する](../../../visual-basic/developing-apps/programming/app-settings/how-to-create-property-grids-for-user-settings.md)|  
   
 ## <a name="example"></a>例  
  次の例は、`Nickname` の設定値を表示します。  
   
  [!code-vb[VbVbalrMyResources#14](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrMyResources/VB/Form1.vb#14)]  
   
- この例を実行するには、アプリケーションで `String` 型の `Nickname` を設定する必要があります。  
+ この例を実行するには、アプリケーションで `Nickname` 型の `String` を設定する必要があります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Configuration.ApplicationSettingsBase>
 - [方法: Visual Basic でアプリケーション設定を読み取る](../../../visual-basic/developing-apps/programming/app-settings/how-to-read-application-settings.md)

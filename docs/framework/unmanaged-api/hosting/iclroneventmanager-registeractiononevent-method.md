@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: b944cf49-918d-4c4e-993b-77d097a52550
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 36d4b0692b112a66fea3dd878c7054a083fb68ff
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 4068166438c524ad1c0ed4efe455b1f66b6641d5
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69951147"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73140825"
 ---
 # <a name="iclroneventmanagerregisteractiononevent-method"></a>ICLROnEventManager::RegisterActionOnEvent メソッド
 指定されたイベントのコールバックポインターを登録します。  
@@ -38,7 +36,7 @@ HRESULT RegisterActionOnEvent (
   
 ## <a name="parameters"></a>パラメーター  
  `event`  
- から[Eclrevent](../../../../docs/framework/unmanaged-api/hosting/eclrevent-enumeration.md)値の1つ。によって`pAction`記述されるコールバックポインターを登録するイベントを示します。  
+ から`pAction`によって記述されるコールバックポインターを登録するイベントを示す、 [Eclrevent](../../../../docs/framework/unmanaged-api/hosting/eclrevent-enumeration.md)値の1つ。  
   
  `pAction`  
  から登録されたイベントが発生したときに呼び出される[Iactiononclrevent](../../../../docs/framework/unmanaged-api/hosting/iactiononclrevent-interface.md)オブジェクトへのポインター。  
@@ -47,7 +45,7 @@ HRESULT RegisterActionOnEvent (
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`RegisterActionOnEvent`正常に返されました。|  
+|S_OK|`RegisterActionOnEvent` が正常に返されました。|  
 |HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) がプロセスに読み込まれていないか、CLR がマネージコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
 |HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
@@ -55,17 +53,17 @@ HRESULT RegisterActionOnEvent (
 |E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された後は、そのプロセス内で CLR を使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
 ## <a name="remarks"></a>Remarks  
- ホストは、で説明されて`EClrEvent`いる2つのイベントの種類のいずれかまたは両方のコールバックを登録できます。 ホストは、 `ICLROnEventManager` [ICLRControl:: getclrmanager](../../../../docs/framework/unmanaged-api/hosting/iclrcontrol-getclrmanager-method.md)メソッドを呼び出すことによって、インターフェイスを取得します。  
+ ホストは、`EClrEvent`で説明されている2つのイベントの種類のいずれかまたは両方のコールバックを登録できます。 ホストは、 [ICLRControl:: GetCLRManager](../../../../docs/framework/unmanaged-api/hosting/iclrcontrol-getclrmanager-method.md)メソッドを呼び出すことによって `ICLROnEventManager` インターフェイスを取得します。  
   
 > [!NOTE]
-> 登録する`RegisterActionOnEvent`イベントは、複数の異なるスレッドから起動して、CLR のアンロードまたは無効化を通知することができます。  
+> レジスタを `RegisterActionOnEvent` するイベントを複数回起動したり、さまざまなスレッドから CLR のアンロードまたは無効化を通知したりすることができます。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

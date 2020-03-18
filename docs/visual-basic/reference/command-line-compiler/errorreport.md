@@ -43,7 +43,7 @@ Visual Basic コンパイラが内部コンパイラエラーを報告する方�
 このオプションは、Microsoft のエンジニアがより簡単にエラーを再現できるようにするため、 [-bugreport](../../../visual-basic/reference/command-line-compiler/bugreport.md)オプションと共に使用することをお勧めします。
 
 > [!NOTE]
-> @No__t_0 オプションは、Visual Studio 開発環境内からは使用できません。これは、コマンドラインからコンパイルする場合にのみ使用できます。
+> `-errorreport` オプションは、Visual Studio 開発環境内からは使用できません。これは、コマンドラインからコンパイルする場合にのみ使用できます。
 
 ## <a name="example"></a>例
 
@@ -55,6 +55,6 @@ vbc -errorreport:prompt t2.vb
 
 ## <a name="see-also"></a>関連項目
 
-- [Visual Basic のコマンド ライン コンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
-- [コンパイル コマンド ラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)
+- [Visual Basic コマンドラインコンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
+- [コンパイルコマンドラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)
 - [-bugreport](../../../visual-basic/reference/command-line-compiler/bugreport.md)

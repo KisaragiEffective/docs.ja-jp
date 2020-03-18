@@ -2,24 +2,24 @@
 title: Docker について
 description: Docker について、もう少し理解を深めます。ここに示す簡単な例えが役立つ場合があります。
 ms.date: 02/15/2019
-ms.openlocfilehash: 7747c4985af27be0a073fad2f22622f697f4ce27
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: e3b3685f2fc6d5a9d33bb176d04ca910f0289344
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68673429"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "76919875"
 ---
 # <a name="what-is-docker"></a>Docker について
 
 [Docker](https://www.docker.com/) は、クラウドまたはオンプレミスで実行できる移植可能な自己完結型のコンテナーとしてアプリの展開を自動化する[オープン ソース プロジェクト](https://github.com/docker/docker)です。 Docker は、クラウド、Linux、および Windows ベンダー (Microsoft を含む) と協力し、このテクノロジを促進し、進化させている[企業](https://www.docker.com/)でもあります。
 
-![Docker コンテナーは、オンプレミスのカスタマー データセンター内、外部サービス プロバイダー内、Azure 上のクラウド内など、どこでも実行できます。](./media/image2.png)
+![Docker コンテナーを実行できる場所を示す図。](./media/what-is-docker/docker-containers-run-anywhere.png)
 
 **図 1-2**. Docker は、ハイブリッド クラウドのすべてのレイヤーでコンテナーを展開します。
 
-Docker イメージ コンテナーは、Linux と Windows 上でネイティブに実行できます。 ただし、Windows イメージは Windows ホスト上でのみ実行でき、Linux イメージは (現在のところ Hyper-V Linux VM を使用して) Linux ホストと Windows ホスト上で実行できます (ここで言うホストとは、サーバーまたは VM です)。
+上の図が示すように、Docker コンテナーは、オンプレミスのカスタマー データセンター内、外部サービス プロバイダー内、Azure 上のクラウド内など、どこでも実行できます。 また、Docker イメージ コンテナーは、Linux と Windows 上でネイティブに実行できます。 ただし、Windows イメージは Windows ホスト上でのみ実行でき、Linux イメージは (現在のところ Hyper-V Linux VM を使用して) Linux ホストと Windows ホスト上で実行できます (ここで言うホストとは、サーバーまたは VM です)。
 
-開発者は、Windows、Linux、または macOS 上の開発環境を使用できます。 開発用コンピューターで、アプリとその依存関係を含む、Docker イメージが展開されている Docker ホストを実行します。 Linux または Mac 上で開発する場合は、Linux ベースの Docker ホストを使用し、Linux コンテナー用のイメージのみを作成できます (Mac 上で開発する場合は、macOS からコードを編集したり、Docker コマンドライン インターフェイス (CLI) を実行したりすることができますが、この記事の執筆時点では、コンテナーは macOS 上で直接動作しません)。Windows 上で開発する場合は、Linux または Windows コンテナーのいずれかのイメージを作成できます。
+開発者は、Windows、Linux、または macOS 上の開発環境を使用できます。 開発用コンピューターで、アプリとその依存関係を含む、Docker イメージが展開されている Docker ホストを実行します。 Linux または Mac 上で開発する場合は、Linux ベースの Docker ホストを使用し、Linux コンテナー用のイメージのみを作成できます (Mac 上で開発する場合は、macOS からコードを編集したり Docker CLI を実行したりできますが、この記事の執筆時点では、macOS 上でコンテナーを直接実行することはできません)。Windows 上で開発する場合は、Linux または Windows コンテナーのいずれかのイメージを作成できます。
 
 開発環境でコンテナーをホストし、開発ツールを追加するために、Docker は Windows 用または macOS 用の [Docker Community Edition (CE)](https://www.docker.com/community-edition) をリリースしています。 これらの製品で、コンテナーをホストするために必要な VM (Docker ホスト) がインストールされます。 Docker は [Docker Enterprise Edition (EE) ](https://www.docker.com/enterprise-edition) もリリースしています。エンタープライズ開発向けに設計されており、大規模なビジネスクリティカル アプリケーションをビルドし、リリースし、運用環境で実行する IT チームに使用されています。
 
@@ -35,9 +35,11 @@ Docker イメージ コンテナーは、Linux と Windows 上でネイティブ
 
 図 1-3 は、VM と Docker コンテナーの比較を示しています。
 
-![VM の場合、ホスト サーバーに 3 つの基本レイヤーがあります。下からインフラストラクチャ、ホスト オペレーティング システム、ハイパーバイザーです。また、それらすべての上位には、各 VM の OS とすべての必要なライブラリがあります。 一方、Docker の場合、ホスト サーバーにはインフラストラクチャと OS のみがあり、その上位には、コンテナー エンジンがあります。これで、コンテナーの分離が維持されますが、ベースの OS サービスが共有されます。](./media/image3.png)
+![VM 環境とコンテナー環境の比較を示す図。](./media/what-is-docker/comparison-vms-docker-conatiners.png)
 
 **図 1-3**. 従来の仮想マシンと Docker コンテナーの比較
+
+上の図に示すように、VM の場合、ホスト サーバーには 3 つの基本レイヤーがあります。 下から順に、インフラストラクチャ、ホスト オペレーティング システム、ハイパーバイザーです。 さらに、各 VM には独自の OS と必要なすべてのライブラリがあります。 一方、Docker の場合、ホスト サーバーにはインフラストラクチャと OS のみがあります。 その上、コンテナー エンジンにより、コンテナーの分離は維持されますが、1 つのベース OS のサービスを共有できます。
 
 コンテナーに必要なリソースははるかに少ないため (たとえば、完全な OS は必要ありません)、導入が簡単で、すぐに開始することができます。 そのため、密度を高めることができます。つまり、同じハードウェア ユニットでより多くのサービスを実行できるため、コストを削減できます。
 

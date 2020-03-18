@@ -1,13 +1,13 @@
 ---
 title: Docker アプリの開発ワークフロー
 description: Docker ベースのアプリケーションを開発するためのワークフローの詳細を理解します。 まず、段階的に見ていき、Dockerfile の最適化について詳しく確認し、最終的には Visual Studio を使用する際に利用できる簡略化されたワークフローを理解します。
-ms.date: 01/07/2019
-ms.openlocfilehash: f7c7252edc82400e2af4b96a75ed040e11df392f
-ms.sourcegitcommit: 10db6551ea3c971470cf5d2cc21ba1cbcefe5c55
+ms.date: 01/30/2020
+ms.openlocfilehash: c58ea2436027968143777a19286a1a0a72107717
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031885"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79401509"
 ---
 # <a name="development-workflow-for-docker-apps"></a>Docker アプリの開発ワークフロー
 
@@ -23,11 +23,13 @@ ms.locfileid: "72031885"
 
 ## <a name="workflow-for-developing-docker-container-based-applications"></a>Docker のコンテナー ベースのアプリケーションを開発するためのワークフロー
 
-このセクションでは、Docker のコンテナー ベースのアプリケーションの*内側のループ*の開発ワークフローについて説明します。 内側のループのワークフローは、運用への展開まで含めることができる DevOps のより広範なワークフローを意味するのではなく、開発者のコンピューター上で実行される開発作業のみに重点が置かれています。 環境を設定する初期手順は、一度のみ実行されるものなので含まれていません。
+このセクションでは、Docker のコンテナー ベースのアプリケーションの*内側のループ*の開発ワークフローについて説明します。 内側のループのワークフローは、運用への展開まで含めることができる DevOps のより広範なワークフローを考慮していないということではなく、開発者のコンピューター上で実行される開発作業のみに重点が置かれています。 環境を設定する初期手順は、一度のみ実行されるものなので含まれていません。
 
 アプリケーションは、自分のサービスと追加のライブラリ (依存関係) で構成されます。 Docker アプリケーションを構築するときの基本手順を次の図 5-1 に示します。
 
-![Docker アプリの開発プロセス:1 - アプリをコーディングする、2- Dockerfile を書き込む、3 - Dockerfile で定義されているイメージを作成する、4 - (省略可能) docker-compose.yml ファイルにサービスを作成する、5 - コンテナーまたは docker-compose アプリを実行する、6 - アプリまたはマイクロサービスをテストする、7 - リポジトリにプッシュして繰り返す。 ](./media/image1.png)
+:::image type="complex" source="./media/docker-app-development-workflow/life-cycle-containerized-apps-docker-cli.png" alt-text="コンテナー化されたアプリを作成するために必要な 7 つの手順を示す図。":::
+Docker アプリの開発プロセス:1 - アプリをコーディングする、2- Dockerfile を書き込む、3 - Dockerfile で定義されているイメージを作成する、4 - (省略可能) docker-compose.yml ファイルにサービスを作成する、5 - コンテナーまたは docker-compose アプリを実行する、6 - アプリまたはマイクロサービスをテストする、7 - リポジトリにプッシュして繰り返す。
+:::image-end:::
 
 **図 5-1** Docker のコンテナー化されたアプリケーションを開発するための詳細なワークフロー
 
@@ -35,11 +37,11 @@ ms.locfileid: "72031885"
 
 エディター/CLI 開発アプローチ (Visual Studio Code と macOS または Windows 上の Docker CLI など) を使用する場合、Visual Studio を使用する場合よりも、通常はより詳細にすべての手順を把握している必要があります。 CLI 環境での作業の詳細については、電子書籍「[Containerized Docker Application lifecycle with Microsoft Platforms and Tools](https://aka.ms/dockerlifecycleebook/)」 (Microsoft のプラットフォームおよびツールとコンテナー化された Docker アプリケーションのライフサイクル) を参照してください。
 
-Visual Studio 2017 を使用している場合、これらの手順の多くは自動処理されるので、生産性が大幅に向上します。 これは、Visual Studio 2017 を使用しており、複数のコンテナー アプリケーションをターゲットとしている場合に特に当てはまります。 たとえば、マウスを 1 回クリックするだけで、Visual Studio では、アプリケーションに適した構成で Dockerfile と docker-compose.yml ファイルをプロジェクトに追加できます。 そのアプリケーションを Visual Studio で実行すると、Docker イメージが構築され、Docker で直接マルチコンテナー アプリケーションが実行されます。また、一度に複数のコンテナーをデバッグすることもできます。 これらの機能により、開発の速度が向上します。
+Visual Studio 2019 を使用している場合、これらの手順の多くは自動処理されるので、生産性が大幅に向上します。 これは、Visual Studio 2019 を使用しており、複数のコンテナー アプリケーションをターゲットとしている場合に特に当てはまります。 たとえば、マウスを 1 回クリックするだけで、Visual Studio によって、アプリケーションに適した構成の `Dockerfile` と `docker-compose.yml` ファイルがプロジェクトに追加されます。 そのアプリケーションを Visual Studio で実行すると、Docker イメージが構築され、Docker で直接マルチコンテナー アプリケーションが実行されます。また、一度に複数のコンテナーをデバッグすることもできます。 これらの機能により、開発の速度が向上します。
 
 しかし、Visual Studio によって、これらの手順が自動化されるからといって、Docker の背後で何が起こっているのか知らなくてもよいというわけではありません。 したがって、次のガイダンスではすべての手順について詳しく説明します。
 
-![1 - アプリをコーディングする](./media/image2.png)
+![手順 1 の画像。](./media/docker-app-development-workflow/step-1-code-your-app.png)
 
 ## <a name="step-1-start-coding-and-create-your-initial-application-or-service-baseline"></a>手順 1. コーディングを開始して、初期アプリケーションまたはサービス ベースラインを作成します。
 
@@ -51,11 +53,11 @@ Docker アプリケーションの開発方法は、Docker を使用しないア
 
 [Get started with Docker CE for Windows](https://docs.docker.com/docker-for-windows/) (Windows 用の Docker CE の概要)
 
-さらに、図 5-2 に示すように、 **.NET Core クロスプラットフォーム開発**ワークロードがインストールされた、Visual Studio 2017 バージョン 15.7 以降が必要です。
+さらに、図 5-2 に示すように、 **.NET Core クロスプラットフォーム開発**ワークロードがインストールされた Visual Studio 2019 バージョン 16.4 以降が必要です。
 
-![Visual Studio のインストール時での、.NET Core クロスプラットフォーム開発ワークロードの選択。](./media/image3.png)
+![.NET Core クロスプラットフォーム開発の選択のスクリーンショット。](./media/docker-app-development-workflow/dotnet-core-cross-platform-development.png)
 
-**図 5-2** Visual Studio 2017 のセットアップ時での **.NET Core クロスプラットフォーム開発**ワークロードの選択
+**図 5-2** Visual Studio 2019 のセットアップ時の **.NET Core クロスプラットフォーム開発**ワークロードの選択
 
 アプリケーションのコーディングは、アプリケーションで Docker を有効にし、Docker で展開してテストする前から、単純な .NET で開始することができます (コンテナーを使用する計画がある場合、通常は .NET Core で)。 ただし、実際の環境となることに加え、問題が早く検出されるため、できるだけ早く Docker で作業を開始することをお勧めします。 Docker は、Visual Studio では、ほとんど透過的で、使用しやすくなっているため、このようにすることが推奨されます。この最良の例は、Visual Studio からのマルチコンテナー アプリケーションのデバッグです。
 
@@ -64,10 +66,10 @@ Docker アプリケーションの開発方法は、Docker を使用しないア
 - **Windows 用の Docker CE の概要** \
   <https://docs.docker.com/docker-for-windows/>
 
-- **Visual Studio 2017** \
-  [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2017)
+- **Visual Studio 2019** \
+  [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
 
-![2 - Dockerfile を作成する](./media/image4.png)
+![手順 2 の画像。](./media/docker-app-development-workflow/step-2-write-dockerfile.png)
 
 ## <a name="step-2-create-a-dockerfile-related-to-an-existing-net-base-image"></a>手順 2. 既存の .NET 基本イメージに関連する Dockerfile を作成します。
 
@@ -75,34 +77,34 @@ Dockerfile は、構築するカスタム イメージごとに必要です。�
 
 Dockerfile は、アプリケーションまたはサービスのルート フォルダーにあります。 これには、コンテナーでアプリケーションまたはサービスを設定して実行する方法を Docker に指示するコマンドが含まれています。 手動でコードに Dockerfile を作成し、.NET の依存関係と共にプロジェクトに追加できます。
 
-Visual Studio と Docker 用のツールでは、このタスクはマウスを何度かクリックするのみで実行できます。 Visual Studio 2017 で新しいプロジェクトを作成する場合、図 5-3 に示すように、 **[Enable Docker Support]\(Docker サポートを有効にする\)** というオプションがあります。
+Visual Studio と Docker 用のツールでは、このタスクはマウスを何度かクリックするのみで実行できます。 Visual Studio 2019 で新しいプロジェクトを作成する場合、図 5-3 に示すように **[Docker サポートを有効にする]** というオプションがあります。
 
-![Visual Studio 2017 で新しい ASP.NET Core プロジェクトを作成するときの [Enable Docker Support]\(Docker サポートを有効にする) チェック ボックス](./media/image5.png)
+![[Docker サポートを有効にする] チェックボックスを示すスクリーンショット。](./media/docker-app-development-workflow/enable-docker-support-check-box.png)
 
-**図 5-3** Visual Studio 2017 で新しい ASP.NET Core プロジェクトを作成するときの Docker サポートの有効化
+**図 5-3** Visual Studio 2019 で新しい ASP.NET Core プロジェクトを作成するときの Docker サポートの有効化
 
-また、図 5-4 に示すように、**ソリューション エクスプローラー**でプロジェクトを右クリックし、 **[追加]**  >  **[Docker サポート]** を選択することで、既存の ASP.NET Core Web アプリ プロジェクトに対して Docker サポートを有効にすることもできます。
+また、図 5-4 に示すように、**ソリューション エクスプローラー**でプロジェクトを右クリックし、 **[追加]**  >  **[Docker サポート...]** を選択することで、既存の ASP.NET Core Web アプリ プロジェクトに対して Docker サポートを有効にすることもできます。
 
-![Visual Studio の Docker サポートの追加メニュー オプション](./media/image6.png)
+![[追加] メニューの [Docker サポート] オプションを示すスクリーンショット。](./media/docker-app-development-workflow/add-docker-support-option.png)
 
-**図 5-4** 既存の Visual Studio 2017 プロジェクトでの Docker サポートの有効化
+**図 5-4** 既存の Visual Studio 2019 プロジェクトでの Docker サポートの有効化
 
 この操作で、必要な構成のプロジェクトに *Dockerfile* が追加され、ASP.NET Core プロジェクトでのみ使用できるようになります。
 
-同じように、Visual Studio で **[追加] > [Container Orchestrator Support]\(コンテナー オーケストレーターのサポート\)** オプションを使用して、ソリューション全体の docker-compose.yml ファイルを追加することもできます。 手順 4 で、このオプションについてさらに詳しく説明します。
+同じように、Visual Studio で **[追加] > [コンテナー オーケストレーターのサポート]** オプションを使用して、ソリューション全体の `docker-compose.yml` ファイルを追加することもできます。手順 4 で、このオプションについてさらに詳しく説明します。
 
 ### <a name="using-an-existing-official-net-docker-image"></a>既存の公式の .NET Docker イメージの使用
 
-通常、[Docker Hub](https://hub.docker.com/) レジストリなどの公式のリポジトリから取得する基本イメージ上に、コンテナーのカスタム イメージをビルドします。 Visual Studio で Docker のサポートを有効にした場合、背後ではこれがまさに発生します。 Dockerfile では、既存の `aspnetcore` イメージを使用します。
+通常、[Docker Hub](https://hub.docker.com/) レジストリなどの公式のリポジトリから取得する基本イメージ上に、コンテナーのカスタム イメージをビルドします。 Visual Studio で Docker のサポートを有効にした場合、背後ではこれがまさに発生します。 Dockerfile では、既存の `dotnet/core/aspnet` イメージを使用します。
 
-選択した OS とフレームワークによって、使用できる Docker イメージとリポジトリについては、既に説明しています。 たとえば、ASP.NET Core (Linux または Windows) を使用したい場合は、`mcr.microsoft.com/dotnet/core/aspnet:2.2` のイメージを使用します。 この場合は、コンテナーに使用する基本の Docker イメージのみを指定する必要があります。 これは、`FROM mcr.microsoft.com/dotnet/core/aspnet:2.2` を Dockerfile に追加することで行います。 これは、Visual Studio が自動的に実行しますが、バージョンを更新する場合は、この値を更新する必要があります。
+選択した OS とフレームワークによって、使用できる Docker イメージとリポジトリについては、既に説明しています。 たとえば、ASP.NET Core (Linux または Windows) を使用したい場合は、`mcr.microsoft.com/dotnet/core/aspnet:3.1` のイメージを使用します。 この場合は、コンテナーに使用する基本の Docker イメージのみを指定する必要があります。 これは、`FROM mcr.microsoft.com/dotnet/core/aspnet:3.1` を Dockerfile に追加することで行います。 これは、Visual Studio が自動的に実行しますが、バージョンを更新する場合は、この値を更新する必要があります。
 
 バージョン番号を使用して Docker Hub の公式の .NET イメージ リポジトリを使うと、同じ言語機能が (開発、テスト、および実稼働環境などの) すべてのコンピューターで使用できるようになります。
 
 次の例では、ASP.NET Core コンテナー用のサンプルの Dockerfile を示しています。
 
 ```Dockerfile
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 ARG source
 WORKDIR /app
 EXPOSE 80
@@ -110,14 +112,14 @@ COPY ${source:-obj/Docker/publish} .
 ENTRYPOINT ["dotnet", " MySingleContainerWebApp.dll "]
 ```
 
-この場合、イメージは、公式の ASP.NET Core Docker イメージ (Linux および Windows 用マルチアーキテクチャ) のバージョン 2.2 に基づいています。 この設定は、`FROM mcr.microsoft.com/dotnet/core/aspnet:2.2` です。 (この基本イメージの詳細については、「[.NET Core Docker Image](https://hub.docker.com/_/microsoft-dotnet-core/)」 (.NET Core Docker イメージ) ページを参照してください)。Dockerfile では、実行時に使用する、リッスンする TCP ポートを、Docker に指示する必要があります (ここでは、EXPOSE 設定で構成したポート 80)。
+この場合、イメージは、公式の ASP.NET Core Docker イメージ (Linux および Windows 用マルチアーキテクチャ) のバージョン 3.1 に基づいています。 この設定は、`FROM mcr.microsoft.com/dotnet/core/aspnet:3.1` です。 (この基本イメージの詳細については、「[.NET Core Docker Image](https://hub.docker.com/_/microsoft-dotnet-core/)」 (.NET Core Docker イメージ) ページを参照してください)。Dockerfile では、実行時に使用する、リッスンする TCP ポートを、Docker に指示する必要があります (ここでは、EXPOSE 設定で構成したポート 80)。
 
 使用している言語とフレームワークによっては、Dockerfile に別の構成設定を指定できます。 たとえば、`["dotnet", "MySingleContainerWebApp.dll"]` の ENTRYPOINT 行では、.NET Core アプリケーションを実行するように Docker に指示します。 SDK と .NET Core CLI (dotnet CLI) を使用して、.NET アプリケーションをビルドおよび実行している場合、この設定は異なります。 つまり、アプリケーションに選択した言語とプラットフォームにより、ENTRYPOINT 行とその他の設定は別になります。
 
 ### <a name="additional-resources"></a>その他の技術情報
 
 - **.NET Core アプリケーションの Docker イメージのビルド** \
-  [https://docs.microsoft.com/dotnet/core/docker/building-net-docker-images](../../../core/docker/building-net-docker-images.md)
+  [https://docs.microsoft.com/dotnet/core/docker/building-net-docker-images](/aspnet/core/host-and-deploy/docker/building-net-docker-images)
 
 - **Build your own image (独自のイメージのビルド)** 。 Docker の公式なドキュメント内にあります。\
   <https://docs.docker.com/engine/tutorials/dockerimages/>
@@ -134,16 +136,16 @@ ENTRYPOINT ["dotnet", " MySingleContainerWebApp.dll "]
 
 タグを指定する場合、次の場合のように、明示的にプラットフォームを指定できます。
 
-- `microsoft/dotnet:2.2-aspnetcore-runtime-stretch-slim` \
-  ターゲット: Linux の .NET Core 2.2 ランタイムのみ
+- `mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim` \
+  ターゲット: Linux の .NET Core 3.1 ランタイムのみ
 
-- `microsoft/dotnet:2.2-aspnetcore-runtime-nanoserver-1809` \
-  ターゲット: Windows Nano Server の .NET Core 2.2 ランタイムのみ
+- `mcr.microsoft.com/dotnet/core/aspnet:3.1-nanoserver-1909` \
+  ターゲット: Windows Nano Server の .NET Core 3.1 ランタイムのみ
 
-しかし、同じイメージ名を指定した場合、タグが同じでも、次の例に示すように、マルチアーキテクチャ イメージ (`aspnetcore` イメージなど) では、展開する Docker ホスト OS に応じて、Linux または Windows バージョンが使用されます。
+しかし、同じイメージ名を指定した場合、タグが同じでも、次の例に示すように、マルチアーキテクチャ イメージ (`aspnet` イメージなど) では、展開する Docker ホスト OS に応じて、Linux または Windows バージョンが使用されます。
 
-- `microsoft/dotnet:2.2-aspnetcore-runtime` \
-  マルチアーキテクチャ: Docker ホスト OS に応じて、Linux または Windows Nano Server の .NET Core 2.2 ランタイムのみ
+- `mcr.microsoft.com/dotnet/core/aspnet:3.1` \
+  マルチアーキテクチャ: Docker ホスト OS に応じて、Linux または Windows Nano Server の .NET Core 3.1 ランタイムのみ
 
 この場合、Windows ホストからイメージをプルした場合、Windows バリアントがプルされ、同じイメージ名が Linux ホストからプルされた場合、Linux バリアントがプルされます。
 
@@ -172,11 +174,11 @@ Dockerfile はバッチ スクリプトに似ています。 コマンド ライ
 初期の Dockerfile は、次のようになります。
 
 ```Dockerfile
- 1  FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+ 1  FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
  2  WORKDIR /app
  3  EXPOSE 80
  4
- 5  FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
+ 5  FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
  6  WORKDIR /src
  7  COPY src/Services/Catalog/Catalog.API/Catalog.API.csproj …
  8  COPY src/BuildingBlocks/HealthChecks/src/Microsoft.AspNetCore.HealthChecks …
@@ -275,11 +277,11 @@ RUN dotnet restore
 結果のファイルは次のようになります。
 
 ```Dockerfile
- 1  FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+ 1  FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
  2  WORKDIR /app
  3  EXPOSE 80
  4
- 5  FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS publish
+ 5  FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS publish
  6  WORKDIR /src
  7  COPY . .
  8  RUN dotnet restore /ignoreprojectextensions:.dcproj
@@ -304,7 +306,7 @@ RUN dotnet restore
 - **Create a base image** (基本イメージを作成する) Docker の公式なドキュメント。\
   <https://docs.docker.com/develop/develop-images/baseimages/>
 
-![3 - Dockerfile で定義されているイメージを作成する](./media/image7.png)
+![手順 3 の画像。](./media/docker-app-development-workflow/step-3-create-dockerfile-defined-images.png)
 
 ## <a name="step-3-create-your-custom-docker-images-and-embed-your-application-or-service-in-them"></a>手順 3. カスタマイズした Docker イメージを作成し、それにアプリケーションまたはサービスを埋め込みます。
 
@@ -316,7 +318,7 @@ Docker イメージは、Visual Studio が自動的に構築することに注�
 
 Docker CLI と Dockerfile を使用して、ローカルの環境にカスタム イメージを作成するには、図 5-5 のとおり、docker build コマンドを使用します。
 
-![Docker イメージのビルドの進行状況を示す画面](./media/image8.png)
+![docker build コマンドのコンソール出力を示すスクリーンショット。](./media/docker-app-development-workflow/run-docker-build-command.png)
 
 **図 5-5** カスタム Docker イメージの作成
 
@@ -328,7 +330,7 @@ Docker CLI と Dockerfile を使用して、ローカルの環境にカスタム
 
 図 5-6 の docker images コマンドを使用すると、ローカル リポジトリの既存のイメージを検索できます。
 
-![docker images コマンドでリストされるイメージの画面表示](./media/image9.png)
+![コマンド docker イメージからのコンソール出力。既存のイメージを確認できます。](./media/docker-app-development-workflow/view-existing-images-with-docker-images.png)
 
 **図 5-6** docker images コマンドを使用した既存のイメージの表示
 
@@ -336,7 +338,7 @@ Docker CLI と Dockerfile を使用して、ローカルの環境にカスタム
 
 Visual Studio を使用して、Docker のサポートでプロジェクトを作成する場合、イメージは明示的には作成されません。 代わりに、**F5** (または **Ctrl + F5**) キーを押し、Docker でコンテナー化されたアプリケーションまたはサービスを実行することによって、イメージが作成されます。 この手順は Visual Studio で自動的に実行されるので、処理内容を見ることはできませんが、内部の処理内容を知ることは重要です。
 
-![4 - (省略可能) docker-compose.yml ファイルでサービスを作成する](./media/image10.png)
+![省略可能な手順 4 の画像。](./media/docker-app-development-workflow/step-4-define-services-docker-compose-yml.png)
 
 ## <a name="step-4-define-your-services-in-docker-composeyml-when-building-a-multi-container-docker-application"></a>手順 4. マルチ コンテナー Docker アプリケーションを構築するときの docker-compose.yml へのサービスの定義
 
@@ -352,35 +354,35 @@ services:
   webmvc:
     image: eshop/web
     environment:
-      - CatalogUrl=http://catalog.api
-      - OrderingUrl=http://ordering.api
+      - CatalogUrl=http://catalog-api
+      - OrderingUrl=http://ordering-api
     ports:
       - "80:80"
     depends_on:
-      - catalog.api
-      - ordering.api
+      - catalog-api
+      - ordering-api
 
-  catalog.api:
-    image: eshop/catalog.api
+  catalog-api:
+    image: eshop/catalog-api
     environment:
-      - ConnectionString=Server=sql.data;Port=1433;Database=CatalogDB;…
+      - ConnectionString=Server=sqldata;Port=1433;Database=CatalogDB;…
     ports:
       - "81:80"
     depends_on:
-      - sql.data
+      - sqldata
 
-  ordering.api:
-    image: eshop/ordering.api
+  ordering-api:
+    image: eshop/ordering-api
     environment:
-      - ConnectionString=Server=sql.data;Database=OrderingDb;…
+      - ConnectionString=Server=sqldata;Database=OrderingDb;…
     ports:
       - "82:80"
     extra_hosts:
       - "CESARDLBOOKVHD:10.0.75.1"
     depends_on:
-      - sql.data
+      - sqldata
 
-  sql.data:
+  sqldata:
     image: mssql-server-linux:latest
     environment:
       - SA_PASSWORD=Pass@word
@@ -391,7 +393,7 @@ services:
 
 この docker-compose.yml ファイルは、簡略化され、結合されたバージョンです。 これには、常に必要な (カスタム イメージ名などの) 各コンテナー用の静的な構成データと、展開環境によっては異なる場合のある、接続文字列などの構成情報が含まれています。 後半のセクションでは、複数の docker-compose ファイルに docker-compose.yml 構成を分割し、環境と実行の種類 (デバッグまたはリリース) に応じて、値をオーバーライドする方法について学習します。
 
-docker-compose.yml ファイルの例では、`webmvc` サービス (Web アプリケーション)、2 つのマイクロサービス (`ordering.api` と `basket.api`)、および 1 つのデータ ソース コンテナー (コンテナーとして実行される Linux 用 SQL Server に基づく `sql.data`) というの 4 つのサービスが定義されています。 各サービスはコンテナーとして展開されるので、それぞれに Docker イメージが必要です。
+docker-compose.yml ファイルの例では、`webmvc` サービス (Web アプリケーション)、2 つのマイクロサービス (`ordering-api` と `basket-api`)、および 1 つのデータ ソース コンテナー (コンテナーとして実行される Linux 用 SQL Server に基づく `sqldata`) というの 4 つのサービスが定義されています。 各サービスはコンテナーとして展開されるので、それぞれに Docker イメージが必要です。
 
 docker-compose.yml ファイルでは、どのコンテナーが使用されているかのみでなく、それらがどのように個々に構成されるかが指定されています。 たとえば、.yml ファイルの `webmvc` コンテナーの定義は次のようになります。
 
@@ -405,33 +407,33 @@ docker-compose.yml ファイルでは、どのコンテナーが使用されて�
 
 docker-compose.yml ファイルについては、マイクロサービスとマルチコンテナー アプリを実装する方法について説明する後のセクションで、再確認します。
 
-### <a name="working-with-docker-composeyml-in-visual-studio-2017"></a>Visual Studio 2017 での docker-compose.yml の操作
+### <a name="working-with-docker-composeyml-in-visual-studio-2019"></a>Visual Studio 2019 での docker-compose.yml の操作
 
-Dockerfile をプロジェクトに追加するだけでなく、前述のとおり、Visual Studio 2017 (15.8 以降) では、ソリューションに Docker Compose のオーケストレーター サポートを追加できます。
+Dockerfile をプロジェクトに追加するだけでなく、前述のとおり、Visual Studio 2017 (バージョン 15.8 以降) では、ソリューションに Docker Compose のオーケストレーター サポートを追加できます。
 
 図 5-7 に示すように、コンテナー オーケストレーターのサポートを最初に追加するときに、Visual Studio でプロジェクト用の Dockerfile が作成され、いくつかのグローバル `docker-compose*.yml` ファイルを含むソリューションに新しい (サービス セクション) プロジェクトが作成されてから、それらのファイルにプロジェクトが追加されます。 その後、docker-compose.yml ファイルを開き、追加機能で更新することができます。
 
 docker-compose.yml ファイルに含めるプロジェクトごとに、この操作フォームを繰り返す必要があります。
 
-この記事の執筆時点では、Visual Studio で Docker Compose および Service Fabric オーケストレーターがサポートされています。
+この記事の執筆時点では、Visual Studio で **Docker Compose** オーケストレーターと **Kubernetes/Helm** オーケストレーターがサポートされています。
 
-![オーケストレーターのサポートを ASP.NET Core プロジェクトに追加するためのコンテキスト メニュー オプション](./media/image21.png)
+![プロジェクト コンテキスト メニューの [コンテナー オーケストレーター サポート] オプションを示すスクリーンショット。](./media/docker-app-development-workflow/add-container-orchestrator-support-option.png)
 
-**図 5-7** Visual Studio 2017 への ASP.NET Core プロジェクトの右クリックでの Docker サポートの追加
+**図 5-7** ASP.NET Core プロジェクトの右クリックでの Visual Studio 2019 への Docker サポートの追加
 
 Visual Studio でソリューションにオーケストレーター サポートを追加すると、図 5-8 のとおり、追加された docker-compose.yml ファイルが含まれた新しいノード (`docker-compose.dcproj` プロジェクト ファイル) もソリューション エクスプローラーに表示されます。
 
-![ソリューション エクスプローラーの docker-compose ノード](./media/image11.png)
+![ソリューション エクスプローラーの docker-compose ノードのスクリーンショット。](./media/docker-app-development-workflow/docker-compose-tree-node.png)
 
-**図 5-8**. Visual Studio 2017 のソリューション エクスプローラーに追加された **docker-compose** ツリー ノード
+**図 5-8**. Visual Studio 2019 のソリューション エクスプローラーに追加された **docker-compose** ツリー ノード
 
 `docker-compose up` コマンドを使用すると、1 つの docker-compose.yml ファイルで、マルチコンテナー アプリケーションを展開することができます。 しかし、Visual Studio でそれらのグループが追加されるため、環境 (開発または運用) と実行の種類 (リリースまたはデバッグ) に応じて、値をオーバーライドできます。 この機能は、後のセクションで説明します。
 
-![5 - コンテナーまたは作成されたアプリを実行する](./media/image12.png)
+![手順 5 の画像。](./media/docker-app-development-workflow/step-5-run-containers-compose-app.png)
 
 ## <a name="step-5-build-and-run-your-docker-application"></a>手順 5. Docker アプリケーションのビルドと実行
 
-アプリケーションにコンテナーが 1 つしかない場合、Docker ホスト (仮想マシンまたは物理サーバー) に展開して実行することができます。 ただし、アプリケーションに複数のサービスが含まれている場合、単一の CLI コマンド (docker-compose up) を使用するか、背後でそのコマンドを使用する Visual Studio を使用して、構成されたアプリケーションとして展開することができます。 別のオプションを見てみましょう。
+アプリケーションにコンテナーが 1 つしかない場合、Docker ホスト (仮想マシンまたは物理サーバー) に展開して実行することができます。 ただし、アプリケーションに複数のサービスが含まれている場合、単一の CLI コマンド (`docker-compose up)`) を使用するか、背後でそのコマンドを使用する Visual Studio を使用して、構成されたアプリケーションとして展開することができます。 別のオプションを見てみましょう。
 
 ### <a name="option-a-running-a-single-container-application"></a>オプション A:単一コンテナー アプリケーションの実行
 
@@ -440,18 +442,18 @@ Visual Studio でソリューションにオーケストレーター サポー�
 図 5-9 に示すように、`docker run` コマンドを使用して Docker コンテナーを実行できます。
 
 ```console
-  docker run -t -d -p 80:5000 cesardl/netcore-webapi-microservice-docker:first
+docker run -t -d -p 80:5000 cesardl/netcore-webapi-microservice-docker:first
 ```
 
-上記のコマンドでは、実行されるたびに、指定されたイメージから新しいコンテナー インスタンスが作成されます。 `--name` パラメーターを使用して、コンテナーに名前を付けてから、`docker start {name}` (またはコンテナー ID あるいは自動名) を使って、既存のコンテナー インスタンスを実行することができます。
+上記のコマンドでは、実行されるたびに、指定されたイメージから新しいコンテナー インスタンスが作成されます。 `--name` パラメーターを使用してコンテナーに名前を付けてから、`docker start {name}` (またはコンテナー ID あるいは自動名) を使って、既存のコンテナー インスタンスを実行することができます。
 
-![docker run コマンドを使用して Docker コンテナーを実行する場合の画面表示](./media/image13.png)
+![docker run コマンドを使用して Docker コンテナーを実行しているスクリーンショット。](./media/docker-app-development-workflow/use-docker-run-command.png)
 
 **図 5-9** docker run コマンドを使用した Docker コンテナーの実行
 
 この場合、このコマンドによって、コンテナーの内部ポート 5000 がホスト コンピューターのポート 80 にバインドされます。 つまり、ホストはポート 80 をリッスンし、コンテナーのポート 5000 に転送することを意味します。
 
-表示されるハッシュはコンテナー ID であり、`--name` オプションが使用されていない場合はランダムな読み取り可能な名前も割り当てられます。
+表示されるハッシュはコンテナー ID であり、`--name` オプションが指定されていない場合は、ランダムな読み取り可能な名前も割り当てられます。
 
 #### <a name="using-visual-studio"></a>Visual Studio の使用
 
@@ -461,7 +463,7 @@ Visual Studio でソリューションにオーケストレーター サポー�
 
 多くのエンタープライズ シナリオでは、Docker アプリケーションは複数のサービスで構成されています。つまり、図 5-10 のようにマルチコンテナーのアプリケーションを実行する必要があります。
 
-![いくつかの Docker コンテナーを含む VM](./media/image14.png)
+![いくつかの Docker コンテナーを含む VM](./media/docker-app-development-workflow/vm-with-docker-containers-deployed.png)
 
 **図 5-10** Docker コンテナーが展開された VM
 
@@ -469,7 +471,7 @@ Visual Studio でソリューションにオーケストレーター サポー�
 
 Docker CLI を使用してマルチコンテナー アプリケーションを実行するには、`docker-compose up` コマンドを使用します。 このコマンドでは、マルチコンテナー アプリケーションを展開するためにソリューション レベルにある **docker compose.yml** ファイルを使用します。 図 5-11 は、docker-compose.yml ファイルを含む、メイン ソリューション ディレクトリからコマンドを実行した結果を示しています。
 
-![docker-compose up コマンドの実行時の画面表示](./media/image15.png)
+![docker-compose up コマンドの実行時の画面表示](./media/docker-app-development-workflow/results-docker-compose-up.png)
 
 **図 5-11** docker-compose up コマンドの実行結果の例
 
@@ -477,7 +479,7 @@ docker-compose up コマンドを実行すると、図 5-10 に示すように�
 
 #### <a name="using-visual-studio"></a>Visual Studio の使用
 
-Visual Studio 2017 を使用したマルチコンテナー アプリケーションの実行は非常に簡単です。 **Ctrl + F5** キーを押して実行するか、**F5** キーを押してデバッグするだけです。その場合、通常どおり、**docker-compose** をスタートアップ プロジェクトとして設定します。  必要なすべてのセットアップは Visual Studio によって処理されるため、通常どおりブレークポイントを作成し、このように、最終的に "リモート サーバー" で実行される独立したプロセスになるものをデバッグできます。
+Visual Studio 2019 を使用したマルチコンテナー アプリケーションの実行は非常に簡単です。 **Ctrl + F5** キーを押して実行するか、**F5** キーを押してデバッグするだけです。その場合、通常どおり、**docker-compose** をスタートアップ プロジェクトとして設定します。  必要なすべてのセットアップは Visual Studio によって処理されるため、既に接続されているデバッガーを使用して、通常どおりブレークポイントを作成し、最終的に "リモート サーバー" で実行される独立したプロセスになるものを簡単に デバッグできます。
 
 既に説明したとおり、ソリューション内のプロジェクトに Docker ソリューションのサポートを追加するたびに、そのプロジェクトは、グローバル (ソリューション レベル) docker-compose.yml ファイルに構成され、一度にソリューション全体を実行またはデバッグできるようになります。 Visual Studio では、Docker ソリューションのサポートが有効になっているプロジェクトごとに 1 つのコンテナーが起動され、内部のすべての手順をユーザーのために実行してくれます (dotnet publish、docker build など)。
 
@@ -485,11 +487,11 @@ Visual Studio 2017 を使用したマルチコンテナー アプリケーショ
 
 `{root solution folder}\obj\Docker\docker-compose.vs.debug.g.yml`
 
-ここで重要なのは、図 5-12 のとおり、Visual Studio 2017 には、F5 のアクション用に追加の **Docker** コマンドがあることです。 このオプションでは、ソリューション レベルで docker-compose.yml ファイルに定義されているすべてのコンテナーを実行して、マルチコンテナー アプリケーションを実行またはデバッグできます。 マルチコンテナー ソリューションをデバッグできるということは、異なるプロジェクト (コンテナー) にそれぞれブレークポイントを設定でき (いくつかブレークポイントを設定でき)、Visual Studio でデバッグする際、別のプロジェクトに定義され、別のコンテナーで実行されているブレークポイントで停止されることを意味します。
+ここで重要なのは、図 5-12 に示すように、Visual Studio 2019 には、F5 のアクション用に追加の **Docker** コマンドがあることです。 このオプションでは、ソリューション レベルで docker-compose.yml ファイルに定義されているすべてのコンテナーを実行して、マルチコンテナー アプリケーションを実行またはデバッグできます。 マルチコンテナー ソリューションをデバッグできるということは、異なるプロジェクト (コンテナー) にそれぞれブレークポイントを設定でき (いくつかブレークポイントを設定でき)、Visual Studio でデバッグする際、別のプロジェクトに定義され、別のコンテナーで実行されているブレークポイントで停止されることを意味します。
 
-![docker-compose プロジェクトを実行している Visual Studio デバッグ ツール バー](./media/image16.png)
+![docker-compose プロジェクトを実行しているデバッグ ツールバーのスクリーンショット。](./media/docker-app-development-workflow/debug-toolbar-docker-compose-project.png)
 
-**図 5-12** Visual Studio 2017 でのマルチコンテナー アプリの実行
+**図 5-12** Visual Studio 2019 でのマルチコンテナー アプリの実行
 
 ### <a name="additional-resources"></a>その他の技術情報
 
@@ -498,15 +500,15 @@ Visual Studio 2017 を使用したマルチコンテナー アプリケーショ
 
 ### <a name="a-note-about-testing-and-deploying-with-orchestrators"></a>オーケストレーターを使用したテストと展開に関する注意事項
 
-docker-compose up および docker run コマンド (または Visual Studio でのコンテナーの実行およびデバッグ) を使用して、開発環境でコンテナーを十分にテストできます。 しかし、[Kubernetes](https://kubernetes.io/) や [Service Fabric](https://azure.microsoft.com/services/service-fabric/) などのオーケストレーターをターゲットにする必要がある、運用での展開にはこの方法を使用しないでください。 Kubernetes を使用している場合は、[ポッド](https://kubernetes.io/docs/concepts/workloads/pods/pod/)を使ってコンテナーと[サービス](https://kubernetes.io/docs/concepts/services-networking/service/)を整理し、ネットワーク接続する必要があります。 [展開](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)を使用して、ポッドの作成と変更を整理することもできます。
+docker-compose up および docker run コマンド (または Visual Studio でのコンテナーの実行およびデバッグ) を使用して、開発環境でコンテナーを十分にテストできます。 しかし、[Kubernetes](https://kubernetes.io/) や [Service Fabric](https://azure.microsoft.com/services/service-fabric/) などのオーケストレーターをターゲットにする必要がある、運用での展開にはこの方法を使用しないでください。 Kubernetes を使用している場合は、[ポッド](https://kubernetes.io/docs/concepts/workloads/pods/pod/)を使ってコンテナーと[サービス](https://kubernetes.io/docs/concepts/services-networking/service/)を整理し、それらをネットワーク接続する必要があります。 [展開](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)を使用して、ポッドの作成と変更を整理することもできます。
 
-![6 - アプリまたはマイクロサービスをテストする](./media/image17.png)
+![手順 6 の画像。](./media/docker-app-development-workflow/step-6-test-app-microservices.png)
 
 ## <a name="step-6-test-your-docker-application-using-your-local-docker-host"></a>手順 6. ローカル Docker ホストを使用した Docker アプリケーションのテスト
 
 この手順は、アプリケーションで何が実行されているかによって異なります。 単一のコンテナーやサービスとして展開された単純な .NET Core Web アプリケーションでは、図 5-13 に示すように、Docker ホストでブラウザーを開き、サイトに移動して、サービスにアクセスできます。 (Dockerfile の構成で、コンテナーがホストの 80 以外のポートにマップされる場合、この URL にホスト ポストを含めます。)
 
-![API エンドポイント応答のブラウザー ビュー](./media/image18.png)
+![localhost/API/values からの応答のスクリーンショット。](./media/docker-app-development-workflow/test-docker-app-locally-localhost.png)
 
 **図 5-13** localhost を使用したローカルでの Docker アプリケーションのテスト例
 
@@ -516,17 +518,17 @@ localhost が Docker ホスト IP をポイントしていない場合 (Docker C
 
 図 5-14 のとおり、ターミナルからカールを使用して、アプリケーションをテストすることも可能です。 Windows の Docker インストールでは、既定の Docker ホスト IP は常に、コンピューターの実際の IP アドレスに 10.0.75.1 を加えたものとなります。
 
-![curl での API エンドポイント応答の画面表示](./media/image19.png)
+![CURL で http://10.0.75.1/API/values を取得したときのコンソール出力。](./media/docker-app-development-workflow/test-docker-app-locally-curl.png)
 
 **図 5-14** カールを使用したローカルでの Docker アプリケーションのテスト例
 
-### <a name="testing-and-debugging-containers-with-visual-studio-2017"></a>Visual Studio 2017 を使用したコンテナーのテストおよびデバッグ
+### <a name="testing-and-debugging-containers-with-visual-studio-2019"></a>Visual Studio 2019 を使用したコンテナーのテストとデバッグ
 
-Visual Studio 2017 でコンテナーを実行またはデバッグする場合、.NET アプリケーションのデバッグは、コンテナーを使用しないでデバッグするのとほぼ同じ方法で実行できます。
+Visual Studio 2019 でコンテナーを実行またはデバッグする場合、コンテナーを使用しないでデバッグするのとほぼ同じ方法で .NET アプリケーションのデバッグを実行できます。
 
 ### <a name="testing-and-debugging-without-visual-studio"></a>Visual Studio を使用しないデバッグおよびテスト
 
-エディター/CLI アプローチを使用して開発する場合、コンテナーのデバッグはより難しくなるため、トレースを生成してデバッグした方がよいでしょう。
+エディター/CLI アプローチを使用して開発する場合、コンテナーのデバッグはより難しくなるため、トレースを生成してデバッグすることをお勧めします。
 
 ### <a name="additional-resources"></a>その他の技術情報
 
@@ -540,7 +542,9 @@ Visual Studio 2017 でコンテナーを実行またはデバッグする場合�
 
 Visual Studio を使用するワークフローは、エディター/CLI アプローチを使用するワークフローよりも、実際はるかに簡単になります。 Dockerfile と docker-compose.yml ファイルに関係する Docker で必要な多くの手順は、図 5-15 のとおり、Visual Studio では背後で実行されるか、簡略化されます。
 
-![Visual Studio による簡略化されたコンテナー開発ワークフロー:1 - アプリをコーディングする、2 - Docker サポートをプロジェクトに追加する (一度のみ)、3 - コンテナーまたは docker-compose アプリを実行する、4 - アプリまたはマイクロサービスをテストする、5 - リポジトリにプッシュして繰り返す。](./media/image20.png)
+:::image type="complex" source="./media/docker-app-development-workflow/simplified-life-cycle-containerized-apps-docker-cli.png" alt-text="アプリを作成するために実行する 5 つの簡単な手順を示す図。":::
+Docker アプリの開発プロセス:1 - アプリをコーディングする、2- Dockerfile を書き込む、3 - Dockerfile で定義されているイメージを作成する、4 - (省略可能) docker-compose.yml ファイルにサービスを作成する、5 - コンテナーまたは docker-compose アプリを実行する、6 - アプリまたはマイクロサービスをテストする、7 - リポジトリにプッシュして繰り返す。
+:::image-end:::
 
 **図 5-15**。 Visual Studio での開発の簡略ワークフロー
 
@@ -548,7 +552,7 @@ Visual Studio を使用するワークフローは、エディター/CLI アプ�
 
 ### <a name="additional-resources"></a>その他の技術情報
 
-- **作成者: Steve Lasker。Visual Studio 2017 を使用した .NET Docker の開発** \
+- **Steve Lasker。Visual Studio (2017) を使用した .NET Docker の開発** \
   <https://channel9.msdn.com/Events/Visual-Studio/Visual-Studio-2017-Launch/T111>
 
 ## <a name="using-powershell-commands-in-a-dockerfile-to-set-up-windows-containers"></a>Windows コンテナーを設定するための PowerShell コマンドの使用
@@ -556,7 +560,7 @@ Visual Studio を使用するワークフローは、エディター/CLI アプ�
 [Windows コンテナー](https://docs.microsoft.com/virtualization/windowscontainers/about/index)は、既存の Windows アプリケーションを Docker イメージに変換して、Docker エコシステムの残りと同じツールで展開できます。 Windows コンテナーを使用するには、次の例のように、Dockerfile で PowerShell コマンドを実行します。
 
 ```Dockerfile
-FROM microsoft/windowsservercore
+FROM mcr.microsoft.com/windows/servercore
 LABEL Description="IIS" Vendor="Microsoft" Version="10"
 RUN powershell -Command Add-WindowsFeature Web-Server
 CMD [ "ping", "localhost", "-t" ]

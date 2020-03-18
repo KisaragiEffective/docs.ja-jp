@@ -7,10 +7,10 @@ dev_langs:
 - vb
 ms.assetid: 892548b8-954a-4f6a-9bca-2ae620c3700f
 ms.openlocfilehash: a0941d42de71029be9aab2fdbc69f8434fb73e2d
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "65632986"
 ---
 # <a name="how-to-download-files-with-ftp"></a>方法: FTP を使用してファイルをダウンロードする

@@ -9,12 +9,12 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71698089"
 ---
-# <a name="iriparsing-element-uri-settings"></a>@no__t 0iriParsing > 要素 (Uri 設定)
+# <a name="iriparsing-element-uri-settings"></a>\<iriParsing > 要素 (Uri 設定)
 International Resource Identifier (IRI) 解析が、<xref:System.Uri> に適用されるかどうか、および IRI の解析規則が適用されるどうかを指定します。  
   
 [ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\< uri >** ](uri-element-uri-settings.md)  
-&nbsp; @ no__t @ no__t-2 @ no__t-3 **\<iriParsing >**  
+&nbsp;&nbsp;[ **\<uri >** ](uri-element-uri-settings.md)  
+&nbsp;&nbsp;&nbsp;&nbsp; **\<iriParsing >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -24,12 +24,12 @@ International Resource Identifier (IRI) 解析が、<xref:System.Uri> に適用�
 />  
 ```  
   
-## <a name="attributes-and-elements"></a>属性および要素  
- 以降のセクションでは、属性、子要素、および親要素について説明します。  
+## <a name="attributes-and-elements"></a>属性と要素  
+ 次のセクションでは、属性、子要素、親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
   
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |`enabled`|IRI 解析を有効にするかどうかを指定します。 既定値は `false` です。|  
   
@@ -38,7 +38,7 @@ International Resource Identifier (IRI) 解析が、<xref:System.Uri> に適用�
   
 ### <a name="parent-elements"></a>親要素  
   
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |[uri](uri-element-uri-settings.md)|.NET Framework が、uniform resource identifier (Uri) を使用して表された web アドレスを処理する方法を指定する設定が含まれます。|  
   
@@ -55,7 +55,7 @@ International Resource Identifier (IRI) 解析が、<xref:System.Uri> に適用�
   
 2. IRI 解析規則を適用するかどうかを指定します。 これは、machine.config ファイルまたは app.config ファイルで指定できます。  
   
- Iri 解析を有効にすると (iriparsing 有効 = `true`)、RFC 3987 の最新の IRI 規則に従って、正規化と文字チェックが実行されます。 既定値は 0 @no__t であり、RFC 2396 および RFC 3986 (IPv6 リテラルの場合) に従って、正規化と文字チェックが実行されます。  
+ IRI 解析を有効にする (iriParsing enabled = `true`) と、RFC 3987 の最新の IRI 規則に従って正規化と文字チェックが実行されます。 既定値は `false` であり、RFC 2396 および RFC 3986 (IPv6 リテラルの場合) に従って、正規化と文字チェックを行います。  
   
 ### <a name="configuration-files"></a>構成ファイル  
  この要素は、アプリケーション構成ファイルまたはマシン構成ファイル (Machine.config) で使用できます。  
@@ -76,7 +76,7 @@ International Resource Identifier (IRI) 解析が、<xref:System.Uri> に適用�
 </configuration>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Configuration.IriParsingElement?displayProperty=nameWithType>
 - <xref:System.Configuration.UriSection?displayProperty=nameWithType>

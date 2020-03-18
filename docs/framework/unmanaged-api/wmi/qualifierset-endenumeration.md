@@ -14,14 +14,12 @@ helpviewer_keywords:
 - QualifierSet_EndEnumeration function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2c5a817174ec4c4e4407c19bb1d6d2d852d86dd2
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 82627fa416f71e123ed2c03bae4584e4433310eb
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798318"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127291"
 ---
 # <a name="qualifierset_endenumeration-function"></a>QualifierSet_EndEnumeration 関数
 [QualifierSet_BeginEnumeration](qualifierset-beginenumeration.md)関数の呼び出しで開始された列挙体を終了します。  
@@ -49,7 +47,7 @@ HRESULT QualifierSet_EndEnumeration (
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_S_NO_ERROR` | 0 | 関数の呼び出しに成功しました。  |
   
@@ -59,9 +57,9 @@ HRESULT QualifierSet_EndEnumeration (
 
 この呼び出しは推奨されますが、必須ではありません。 列挙に関連付けられているリソースを直ちに解放します。
 
-## <a name="requirements"></a>必要条件  
+## <a name="requirements"></a>［要件］  
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
 **ヘッダー:** WMINet_Utils  
   

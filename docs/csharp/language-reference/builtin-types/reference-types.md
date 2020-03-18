@@ -20,20 +20,20 @@ helpviewer_keywords:
 - '@ string literal'
 - string literals [C#]
 - string keyword [C#]
-ms.openlocfilehash: a5a32fa0a98cda37d7f599b20ef2b507cadd730c
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: c2c03f47babd9ccf87eb60d33b9d65d1a9c82e2e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69604213"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398311"
 ---
 # <a name="built-in-reference-types-c-reference"></a>組み込みの参照型 (C# リファレンス)
 
-C# には複数の組み込み参照型があります。 それらには、.NET ライブラリでの型に対するシノニムであるキーワードまたは演算子があります。 
+C# には複数の組み込み参照型があります。 それらには、.NET ライブラリでの型に対するシノニムであるキーワードまたは演算子があります。
 
-## <a name="the-object-type"></a>オブジェクト型
+## <a name="the-object-type"></a>オブジェクトの型
 
-`object` 型は .NET での <xref:System.Object?displayProperty=nameWithType> の別名です。 C# の統一型システムでは、すべての型 (定義済み、ユーザー定義、参照型、および値型) が、直接または間接的に <xref:System.Object?displayProperty=nameWithType> を継承します。 `object` 型の変数には、任意の型の値を割り当てることができます。 すべての `object` 変数には、リテラル `null` を使って既定値を割り当てることができます。 値型の変数が object に変換されることを、*ボックス化*されると言います。 object 型の変数が値型に変換されることを、*ボックス化解除*されると言います。 詳細については、「[ボックス化とボックス化解除](../../programming-guide/types/boxing-and-unboxing.md)」を参照してください。 
+`object` 型は .NET での <xref:System.Object?displayProperty=nameWithType> の別名です。 C# の統一型システムでは、すべての型 (定義済み、ユーザー定義、参照型、および値型) が、直接または間接的に <xref:System.Object?displayProperty=nameWithType> を継承します。 `object` 型の変数には、任意の型の値を割り当てることができます。 すべての `object` 変数には、リテラル `null` を使って既定値を割り当てることができます。 値型の変数が object に変換されることを、*ボックス化*されると言います。 `object` 型の変数が値型に変換されることを、*ボックス化解除*されると言います。 詳細については、「[ボックス化とボックス化解除](../../programming-guide/types/boxing-and-unboxing.md)」を参照してください。
 
 ## <a name="the-string-type"></a>文字列型
 
@@ -67,14 +67,14 @@ string b = "h";
 b += "ello";
 ```
 
-`[]` [演算子](../operators/member-access-operators.md#indexer-operator-)は、`string` の各文字への読み取り専用アクセスに使用できます。 有効な値は `0` から始まり、`string` の長さ未満である必要があります。
+`[]` [演算子](../operators/member-access-operators.md#indexer-operator-)は、文字列の各文字への読み取り専用アクセスに使用できます。 有効なインデックス値は `0` から始まり、文字列の長さ未満である必要があります。
 
 ```csharp
 string str = "test";
 char x = str[2];  // x = 's';
 ```
 
-同様に、`[]` 演算子を使って `string` 内の各文字を反復処理することもできます。
+同様に、`[]` 演算子を使って文字列内の各文字を反復処理することもできます。
 
 ```csharp-interactive
 string str = "test";
@@ -84,7 +84,7 @@ for (int i = 0; i < str.Length; i++)
   Console.Write(str[i] + " ");
 }
 // Output: t e s t
-``` 
+```
 
 文字列リテラルは `string` 型であり、二重引用符で囲む形式と、`@` 付きの二重引用符で囲む形式の 2 種類があります。 二重引用符で囲む場合は、リテラル文字列の前後に二重引用符 (") を付けます。
 
@@ -97,15 +97,15 @@ for (int i = 0; i < str.Length; i++)
 ```csharp-interactive
 string a = "\\\u0066\n F";
 Console.WriteLine(a);
-\\ Output:
-\\ \f
-\\  F
+// Output:
+// \f
+//  F
 ```
 
 > [!NOTE]
 > エスケープ コード `\udddd` (`dddd` は 4 桁の数字) は、Unicode 文字 U +`dddd` を表します。 8 桁の Unicode エスケープ コード `\Udddddddd` も認識できます。
 
-[verbatim 文字列リテラル](../tokens/verbatim.md)の場合は、先頭に `@` を付け、さらに前後に二重引用符を付けます。 例:
+[verbatim 文字列リテラル](../tokens/verbatim.md)の場合は、先頭に `@` を付け、さらに前後に二重引用符を付けます。 次に例を示します。
 
 ```csharp
 @"good morning"  // a string literal
@@ -136,7 +136,7 @@ public delegate int AnotherDelegate(MyType m, long num);
 
 `delegate` は、名前付きメソッドまたは匿名メソッドをカプセル化することができる参照型です。 デリゲートは C++ の関数ポインターに似ていますが、タイプ セーフであり安全です。 デリゲートの使い方については、[デリゲート](../../programming-guide/delegates/index.md)と[汎用デリゲート](../../programming-guide/generics/generic-delegates.md)に関するページを参照してください。 デリゲートは[イベント](../../programming-guide/events/index.md)の土台となる働きをします。 デリゲートは名前付きメソッドまたは匿名メソッドに関連付けることによって、インスタンス化することができます。
 
-デリゲートは、適合する入力パラメーターと戻り値の型を持ったメソッドまたはラムダ式でインスタンス化する必要があります。 メソッドのシグネチャでどの程度の変性が許容されるかについて詳しくは、[デリゲートの変性](../../programming-guide/concepts/covariance-contravariance/using-variance-in-delegates.md)に関するページを参照してください。 匿名メソッドで使用する場合は、デリゲートとそれに関連付けるコードとを一緒に宣言します。 
+デリゲートは、適合する入力パラメーターと戻り値の型を持ったメソッドまたはラムダ式でインスタンス化する必要があります。 メソッドのシグネチャでどの程度の変性が許容されるかについて詳しくは、[デリゲートの変性](../../programming-guide/concepts/covariance-contravariance/using-variance-in-delegates.md)に関するページを参照してください。 匿名メソッドで使用する場合は、デリゲートとそれに関連付けるコードとを一緒に宣言します。
 
 ## <a name="the-dynamic-type"></a>dynamic 型
 
@@ -144,7 +144,7 @@ public delegate int AnotherDelegate(MyType m, long num);
 
 ほとんどの環境で、`dynamic` 型は `object` 型のように動作します。 具体的には、null 以外の任意の式を `dynamic` 型に変換できます。 `dynamic` 型は `object` と異なり、`dynamic` 型の式を含む演算はコンパイラによって解決または型チェックされません。 コンパイラは演算に関する情報をまとめてパッケージ化します。その情報が後で実行時に演算を評価するために使用されます。 このプロセスの過程で、`dynamic` 型の変数は `object` 型の変数にコンパイルされます。 そのため、`dynamic` 型はコンパイル時にのみ存在し、実行時には存在しません。
 
-`dynamic` 型の変数と `object` 型の変数の違いを次に示します。 コンパイル時に各変数の型を確認するには、`WriteLine` ステートメントの `dyn` または `obj` にマウス ポインターを置きます。 IntelliSense が使用可能なエディターに、次のコードをコピーします。 IntelliSense 機能によって、`dyn` には **dynamic**、`obj` には **object** が表示されます。
+`dynamic` 型の変数と `object` 型の変数の違いを次に示します。 コンパイル時に各変数の型を確認するには、`dyn` ステートメントの `obj` または `WriteLine` にマウス ポインターを置きます。 IntelliSense が使用可能なエディターに、次のコードをコピーします。 IntelliSense 機能によって、**には**dynamic`dyn`、**には**object`obj` が表示されます。
 
 [!code-csharp[csrefKeywordsTypes#21](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsTypes/CS/dynamic1.cs#21)]
 
@@ -168,7 +168,7 @@ obj = obj + 3;
 
 [!code-csharp[csrefKeywordsTypes#25](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsTypes/CS/dynamic2.cs#25)]
 
-### <a name="see-also"></a>関連項目
+### <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
 - [C# のキーワード](../keywords/index.md)
@@ -178,7 +178,7 @@ obj = obj + 3;
 - [基本的な文字列操作](../../../standard/base-types/basic-string-operations.md)
 - [新しい文字列の作成](../../../standard/base-types/creating-new.md)
 - [型テストとキャスト演算子](../operators/type-testing-and-cast.md)
-- [方法: パターン マッチング、as 演算子、is 演算子を使用して安全にキャストする](../../how-to/safely-cast-using-pattern-matching-is-and-as-operators.md)
+- [パターン マッチング、is 演算子、as 演算子を使用して安全にキャストする方法](../../how-to/safely-cast-using-pattern-matching-is-and-as-operators.md)
 - [チュートリアル: 動的オブジェクトの作成と使用](../../programming-guide/types/walkthrough-creating-and-using-dynamic-objects.md)
 - <xref:System.Object?displayProperty=nameWithType>
 - <xref:System.String?displayProperty=nameWithType>

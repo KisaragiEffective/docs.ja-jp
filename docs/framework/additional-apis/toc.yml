@@ -9,7 +9,7 @@
               href: microsoft.sqlserver.server.smiorderproperty.item.md
     - name: システム
       items:
-        - name: Exception クラス
+        - name: 例外クラス
           items:
             - name: Exception.PrepForRemoting メソッド
               href: system.exception.prepforremoting.md
@@ -43,6 +43,12 @@
               href: system.data.sqltypes.sqlstreamchars.setlength.md
             - name: Write メソッド
               href: system.data.sqltypes.sqlstreamchars.write.md
+    - name: System.IO
+      items:
+        - name: MemoryStream クラス
+          items:
+            - name: InternalGetOriginAndLength メソッド
+              href: system.io.memorystream.internalgetoriginandlength.md
     - name: System.Net
       items:
         - name: Connection クラス
@@ -55,6 +61,10 @@
           items:
             - name: m_ConnectionList フィールド
               href: m_connectionlist.md
+        - name: ConnectStream クラス
+          items:
+            - name: Connection プロパティ
+              href: system.net.connectstream.connection.md
         - name: CoreResponseData クラス
           href: coreresponsedata.md
           items:
@@ -70,12 +80,36 @@
               href: httpwebrequest__coreresponse.md
             - name: _HttpResponse フィールド
               href: _httpresponse.md
+        - name: PooledStream クラス
+          items:
+            - name: NetworkStream プロパティ
+              href: system.net.pooledstream.networkstream.md
+        - name: RtcState クラス
+          href: system.net.rtcstate.md
         - name: ServicePoint クラス
           items:
             - name: m_ConnectionGroupList フィールド
               href: m_connectiongrouplist.md
             - name: s_ServicePointTable フィールド
               href: s_servicepointtable.md
+        - name: TlsStream クラス
+          items:
+            - name: m_Worker フィールド
+              href: system.net.tlsstream.m_worker.md
+    - name: System.Net.Security
+      items:
+        - name: SslState クラス
+          items:
+            - name: SslProtocol プロパティ
+              href: system.net.security.sslstate.sslprotocol.md
+    - name: System.ServiceModel.Channels
+      items:
+        - name: Message クラス
+          items:
+            - name: BodyToString メソッド
+              href: system.servicemodel.channels.message.bodytostring.md
+            - name: WriteStartHeaders メソッド
+              href: system.servicemodel.channels.message.writestartheaders.md
     - name: System.Windows.Diagnostics
       items:
         - name: VisualDiagnostics クラス
@@ -110,11 +144,11 @@
       items:
         - name: XmlReader クラス
           items:
-            - name: XmlReader.CreateSqlReader  メソッド
+            - name: XmlReader.CreateSqlReader メソッド
               href: system.xml.xmlreader.createsqlreader.md
     - name: adodb 名前空間
       items:
-        - name: 接続のインターフェイス
+        - name: Connection インターフェイス
           href: adodb.connection.md
         - name: EventReason 列挙型
           href: adodb.eventreasonenum.md

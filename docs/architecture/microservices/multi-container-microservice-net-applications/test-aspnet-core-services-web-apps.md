@@ -1,13 +1,13 @@
 ---
 title: ASP.NET Core サービスと Web アプリのテスト
 description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | コンテナーで ASP.NET Core サービスと Web アプリをテストするためのアーキテクチャについて調べる。
-ms.date: 10/02/2018
-ms.openlocfilehash: 042f7a6171a88025d3d4a8e37c4deceb416e5711
-ms.sourcegitcommit: 9c3a4f2d3babca8919a1e490a159c1500ba7a844
+ms.date: 01/30/2020
+ms.openlocfilehash: ab3ae6276ea4e4c741731f050913d956046271ca
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72291286"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77501990"
 ---
 # <a name="testing-aspnet-core-services-and-web-apps"></a>ASP.NET Core サービスと Web アプリのテスト
 
@@ -68,7 +68,7 @@ public async Task Get_order_detail_success()
 
 統合テストは、単体テストより大きなコード セグメントを実行し、インフラストラクチャ要素に依存するため、多くの場合、単体テストと比べて桁違いに低速になります。 そのため、記述して実行する統合テストの数を制限することをお勧めします。
 
-ASP.NET Core には、ネットワークのオーバーヘッドなしで HTTP 要求を処理するために使用できる、組み込みのテスト Web ホストが含まれています。これは、実際の Web ホストを使用するときにはそれらのテストをより速く実行できるということです。 テスト Web ホスト (TestServer) は、Microsoft.AspNetCore.TestHost として NuGet コンポーネントでご利用いただけます。 これを統合テスト プロジェクトに追加して、ASP.NET Core アプリケーションをホストするために使用できます。
+ASP.NET Core には、ネットワークのオーバーヘッドなしで HTTP 要求を処理するために使用できる、組み込みのテスト Web ホストが含まれています。これは、実際の Web ホストの使用時よりもそれらのテストをより速く実行できるということです。 テスト Web ホスト (TestServer) は、Microsoft.AspNetCore.TestHost として NuGet コンポーネントでご利用いただけます。 これを統合テスト プロジェクトに追加して、ASP.NET Core アプリケーションをホストするために使用できます。
 
 次のコードからわかるように、ASP.NET Core コントローラーの統合テストを作成すると、テスト ホストによってコントローラーがインスタンス化されます。 これは、HTTP 要求に相当しますが、より速く実行されます。
 
@@ -140,11 +140,9 @@ Compose アプリケーションが起動し実行されると、Visual Studio �
 
 3. **アプリケーションの機能/統合テスト**。マイクロサービスの統合に集中します。複数のマイクロサービスを実行するテスト ケースが含まれています。 これらのテストはプロジェクト **Application.FunctionalTests** にあります。
 
-4. **ロード テスト**。各マイクロサービスの応答時間に集中します。 これらのテストはプロジェクト **LoadTest** にあり、Visual Studio 2017 Enterprise Edition を必要とします。
-
 図 6-25 に示すように、マイクロサービスごとの単体および統合テストは各マイクロサービスの test フォルダーに含まれており、アプリケーションのロード テストはソリューション フォルダーの test フォルダーの下に含まれています。
 
-![eShopOnContainers のテストの構造各サービスには単体および機能テストが含まれる "test" フォルダーがあります。 ソリューションの "test" フォルダーの下には、アプリケーション全体の機能テストとロード テストが含まれています。](./media/image42.png)
+![ソリューション内のテスト プロジェクトの一部を指している VS のスクリーンショット。](./media/test-aspnet-core-services-web-apps/eshoponcontainers-test-folder-structure.png)
 
 **図 6-25**。 eShopOnContainers のテスト フォルダーの構造
 
@@ -160,9 +158,9 @@ services:
     image: redis:alpine
   rabbitmq:
     image: rabbitmq:3-management-alpine
-  sql.data:
-    image: microsoft/mssql-server-linux:2017-latest
-  nosql.data:
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+  nosqldata:
     image: mongo
 ```
 
@@ -179,13 +177,13 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
-  sql.data:
+  sqldata:
     environment:
       - SA_PASSWORD=Pass@word
       - ACCEPT_EULA=Y
     ports:
       - "5433:1433"
-  nosql.data:
+  nosqldata:
     ports:
       - "27017:27017"
 ```

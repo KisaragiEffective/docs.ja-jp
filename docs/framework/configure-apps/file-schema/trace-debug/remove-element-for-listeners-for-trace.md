@@ -7,22 +7,22 @@ helpviewer_keywords:
 - remove element
 - <remove> element
 ms.assetid: 9a5cd1b5-be1a-485f-8f0c-2890ad3ef3e0
-ms.openlocfilehash: 56d1e56514aed98d5f3b9f7363e461af6ac68a8c
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: f06973ec30d5061e4a200d6bf7e68adcf6302018
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71697212"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74088845"
 ---
-# <a name="remove-element-for-listeners-for-trace"></a>\<trace > の \< リスナーの > 要素を削除 @no__t
+# <a name="remove-element-for-listeners-for-trace"></a>\<トレース > の \<リスナー > の > 要素を削除 \<には
 **リスナーコレクションから**リスナーを削除します。  
-  
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\<system. diagnostics >** ](system-diagnostics-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t-3[ **\<trace >** ](trace-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5[ **\<listeners >** します。](listeners-element-for-trace.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5 @ no__t-6 @ no__t-7 **\<remove を削除**します。  
-  
+
+[ **\<configuration>** ](../configuration-element.md)\
+&nbsp;&nbsp;[ **\<** ](system-diagnostics-element.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;\<[**トレース >** ](trace-element.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<[**リスナー >** ](listeners-element-for-trace.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**削除 >**
+
 ## <a name="syntax"></a>構文  
   
 ```xml  
@@ -50,10 +50,10 @@ ms.locfileid: "71697212"
 |`system.diagnostics`|メッセージを収集、格納、およびルーティングするトレース リスナーとトレース スイッチを設定するレベルを指定します。|  
 |`trace`|ASP.NET トレースサービスを構成します。|  
   
-## <a name="remarks"></a>コメント  
+## <a name="remarks"></a>Remarks  
   
 > [!NOTE]
-> @No__t-0 を `Listeners` のコレクションから削除すると、<xref:System.Diagnostics.Debug.Assert%2A?displayProperty=nameWithType>、<xref:System.Diagnostics.Trace.Assert%2A?displayProperty=nameWithType>、@no__t 4、および @no__t 5 の各メソッドの動作が変更されます。 通常、`Assert` または `Fail` メソッドを呼び出すと、メッセージボックスが表示されますが、<xref:System.Diagnostics.DefaultTraceListener> が @no__t 3 コレクションに含まれていない場合、メッセージボックスは表示されません。  
+> `Listeners` コレクションから <xref:System.Diagnostics.DefaultTraceListener> を削除すると、<xref:System.Diagnostics.Debug.Assert%2A?displayProperty=nameWithType>、<xref:System.Diagnostics.Trace.Assert%2A?displayProperty=nameWithType>、<xref:System.Diagnostics.Debug.Fail%2A?displayProperty=nameWithType>、および <xref:System.Diagnostics.Trace.Fail%2A?displayProperty=nameWithType> の各メソッドの動作が変更されます。 `Assert` または `Fail` メソッドを呼び出すと、通常、メッセージボックスが表示されますが、<xref:System.Diagnostics.DefaultTraceListener> が `Listeners` コレクションに含まれていない場合は、メッセージボックスは表示されません。  
   
 ## <a name="example"></a>例  
  次の例は、トレース**リスナー**コレクションから既定のトレースリスナーを削除する方法を示しています。  

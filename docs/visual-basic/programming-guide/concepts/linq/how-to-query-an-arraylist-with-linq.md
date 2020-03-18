@@ -1,17 +1,17 @@
 ---
-title: '方法: LINQ を使用して ArrayList を照会する (Visual Basic)'
+title: '方法 : LINQ を使用して ArrayList を照会する'
 ms.date: 07/20/2015
 ms.assetid: 176358a9-d765-4b57-9557-7feb4428138d
-ms.openlocfilehash: 5b05fa2ed5c9b3b701571ef4760600caac7193d5
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 94a3c6d4c381f41f9ba87bf3af93261712ad1136
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524152"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74347756"
 ---
 # <a name="how-to-query-an-arraylist-with-linq-visual-basic"></a>方法: LINQ を使用して ArrayList を照会する (Visual Basic)
 
-LINQ を使用して <xref:System.Collections.ArrayList> などの非ジェネリックの <xref:System.Collections.IEnumerable> コレクションをクエリする場合、範囲変数の型を明示的に宣言して、オブジェクトの特定の型をコレクションに反映させる必要があります。 たとえば、`Student` オブジェクトの <xref:System.Collections.ArrayList> がある場合、 [From 句](../../../../visual-basic/language-reference/queries/from-clause.md)は次のようになります。
+LINQ を使用して <xref:System.Collections.IEnumerable> などの非ジェネリックの <xref:System.Collections.ArrayList> コレクションをクエリする場合、範囲変数の型を明示的に宣言して、オブジェクトの特定の型をコレクションに反映させる必要があります。 たとえば、`Student` オブジェクトの <xref:System.Collections.ArrayList> がある場合、 [From 句](../../../../visual-basic/language-reference/queries/from-clause.md)は次のようになります。
 
 ```vb
 Dim query = From student As Student In arrList
@@ -78,6 +78,6 @@ End Module
 '   Garcia: 97
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [LINQ to Objects (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/linq-to-objects.md)

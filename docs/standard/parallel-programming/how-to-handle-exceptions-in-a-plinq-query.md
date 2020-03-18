@@ -8,14 +8,12 @@ dev_langs:
 helpviewer_keywords:
 - PLINQ queries, how to handle exceptions
 ms.assetid: 8d56ff9b-a571-4d31-b41f-80c0b51b70a5
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: c9b5dce796e546bf041c28864c8bf66b5f51965e
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 3645f5dc470ef53710aa7f4c78c60431fb27ecfa
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70046624"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73123088"
 ---
 # <a name="how-to-handle-exceptions-in-a-plinq-query"></a>方法: PLINQ クエリの例外を処理する
 
@@ -52,7 +50,7 @@ ms.locfileid: "70046624"
 
 プログラムの状態を破損しないようにするため、処理方法がわからない場合は、例外をキャッチしないでください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Linq.ParallelEnumerable>
 - [Parallel LINQ (PLINQ)](../../../docs/standard/parallel-programming/parallel-linq-plinq.md)

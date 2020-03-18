@@ -10,22 +10,22 @@ helpviewer_keywords:
 - filters, trace listeners
 - trace listeners, filters
 ms.assetid: 7d4e7faa-2e4e-4379-ac76-f6cd7f2f8fac
-ms.openlocfilehash: 4e92f80e9f6069b5fa70501e13a55d5a6fe95e7a
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: e04ecd773bd6aa7791858711edbd72128dc391ea
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71697324"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74088878"
 ---
-# <a name="filter-element-for-add-for-sharedlisteners"></a>\<filter > 要素 \< add > for \<sharedListeners >
+# <a name="filter-element-for-add-for-sharedlisteners"></a>\<sharedListeners> の \<add> の \<filter> 要素
 `sharedListeners` コレクションのリスナーにフィルターを追加します。  
-  
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\<system. diagnostics >** ](system-diagnostics-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t-3[ **\<sharedListeners >** ](sharedlisteners-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5[ **\<add を追加**します。](add-element-for-sharedlisteners.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5 @ no__t-6 @ no__t-7 **\<filter >** します。  
-  
+
+[ **\<configuration>** ](../configuration-element.md)\
+&nbsp;&nbsp;[ **\<system.diagnostics>** ](system-diagnostics-element.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;[ **\<sharedListeners>** ](sharedlisteners-element.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ **\<add>** ](add-element-for-sharedlisteners.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<filter>**
+
 ## <a name="syntax"></a>構文  
   
 ```xml  
@@ -40,7 +40,7 @@ ms.locfileid: "71697324"
   
 |属性|説明|  
 |---------------|-----------------|  
-|**type**|必須の属性です。<br /><br /> フィルターの種類を指定します。 (@No__t-0 プロパティの形式で) 型の完全な名前のみを使用することも、アセンブリ情報を含む完全修飾型名 (<xref:System.Type.AssemblyQualifiedName%2A?displayProperty=nameWithType> プロパティの形式) を使用することもできます。 完全修飾型名の作成の詳細については、「[完全修飾型名の指定](../../../reflection-and-codedom/specifying-fully-qualified-type-names.md)」を参照してください。|  
+|**type**|必須の属性です。<br /><br /> フィルターの種類を指定します。 (<xref:System.Type.FullName%2A?displayProperty=nameWithType> プロパティの形式で) 型の完全な名前のみを使用することも、アセンブリ情報を含む完全修飾型名 (<xref:System.Type.AssemblyQualifiedName%2A?displayProperty=nameWithType> プロパティの形式) を使用することもできます。 完全修飾型名の作成の詳細については、「[完全修飾型名の指定](../../../reflection-and-codedom/specifying-fully-qualified-type-names.md)」を参照してください。|  
 |**initializeData**|省略可能な属性です。<br /><br /> 指定したクラスのコンストラクターに渡される文字列。|  
   
 ### <a name="child-elements"></a>子要素  
@@ -55,13 +55,13 @@ ms.locfileid: "71697324"
 |`sharedListeners`|任意のソースまたはトレース要素が参照できるリスナーのコレクション。|  
 |`add`|リスナーを**sharedListeners**コレクションに追加します。|  
   
-## <a name="remarks"></a>コメント  
- リスナーが `<sharedListeners>` 要素の @no__t 0 要素で定義されている場合、そのリスナーのフィルターは、`<add>` 要素の子である `<filter>` 要素で定義する必要があります。  
+## <a name="remarks"></a>Remarks  
+ リスナーが `<sharedListeners>` 要素の `<add>` 要素で定義されている場合は、そのリスナーのフィルターを `<add>` 要素の子である `<filter>` 要素で定義する必要があります。  
   
  この要素は、コンピューターの構成ファイル (machine.config) とアプリケーション構成ファイルで使用できます。  
   
 ## <a name="example"></a>例  
- 次の例は、`<filter>` 要素を使用して、`sharedListeners` コレクションのトレースリスナー `console` にフィルターを追加する方法を示しています。  
+ 次の例は、`<filter>` 要素を使用して、`sharedListeners` コレクション内のトレースリスナー `console` にフィルターを追加する方法を示しています。  
   
 ```xml  
 <configuration>  

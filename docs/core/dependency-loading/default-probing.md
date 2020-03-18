@@ -5,11 +5,11 @@ ms.date: 08/09/2019
 author: sdmaclea
 ms.author: stmaclea
 ms.openlocfilehash: 500ee6ee863b1f311970a9e718936f57f7d4efd6
-ms.sourcegitcommit: 10db6551ea3c971470cf5d2cc21ba1cbcefe5c55
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72303684"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398005"
 ---
 # <a name="default-probing"></a>既定のプローブ
 
@@ -21,7 +21,7 @@ ms.locfileid: "72303684"
 
 各プローブ プロパティはオプションです。 存在する場合、各プロパティは区切り記号で区切られた絶対パスのリストを含む文字列値です。 区切り記号は、Windows では ';'、他のすべてのプラットフォームでは ':' になります。
 
-|プロパティ名                 |説明  |
+|プロパティ名                 |[説明]  |
 |------------------------------|---------|
 |`TRUSTED_PLATFORM_ASSEMBLIES`   | プラットフォームとアプリケーション アセンブリ ファイル パスの一覧。 |
 |`PLATFORM_RESOURCE_ROOTS`       | サテライト リソース アセンブリを検索するディレクトリ パスの一覧。 |
@@ -48,7 +48,7 @@ ms.locfileid: "72303684"
 
 以下に示す特定の環境変数が有効になっている場合、.NET Core ランタイム ホストは便利なトレース メッセージを出力します。
 
-|環境変数        |説明  |
+|環境変数        |[説明]  |
 |----------------------------|---------|
 |`COREHOST_TRACE=1`          |トレースを有効にします。|
 |`COREHOST_TRACEFILE=<path>` |既定の `stderr` ではなくファイル パスにトレースします。|
@@ -58,7 +58,7 @@ ms.locfileid: "72303684"
 
 マネージド アセンブリを探すためにプローブするとき、<xref:System.Runtime.Loader.AssemblyLoadContext.Default%2A?displayProperty=nameWithType> は次の順序で検索します。
 
-- `TRUSTED_PLATFORM_ASSEMBLIES` 内の <xref:System.Reflection.AssemblyName.Name?displayProperty=nameWithType> に一致するファイル (ファイル拡張子を削除した後)。
+- <xref:System.Reflection.AssemblyName.Name?displayProperty=nameWithType> 内の `TRUSTED_PLATFORM_ASSEMBLIES` に一致するファイル (ファイル拡張子を削除した後)。
 - 共通のファイル拡張子を持つ `APP_NI_PATHS` のネイティブ イメージ アセンブリ ファイル。
 - 共通のファイル拡張子を持つ `APP_PATHS` のアセンブリ ファイル。
 

@@ -1,28 +1,28 @@
 ---
-title: Visual Basic のオブジェクトとクラス
+title: オブジェクトとクラス
 ms.date: 07/20/2015
 helpviewer_keywords:
 - classes [Visual Basic]
 - objects [Visual Basic]
 ms.assetid: c68c5752-1006-46e1-975a-6717b62a42fc
-ms.openlocfilehash: dd2968f7ab528fa07ef0c5af85f2a7f07147a76e
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 589b0b362cc25fd10e2780fd541cf9f7cfb546a9
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67755168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75344640"
 ---
 # <a name="objects-and-classes-in-visual-basic"></a>Visual Basic のオブジェクトとクラス
 
 "*オブジェクト*" は、1 つの単位として扱うことができるコードとデータの組み合わせです。 オブジェクトは、コントロールやフォームのように、アプリケーションの一部になることができます。 アプリケーション全体も、オブジェクトになることができます。
 
-Visual Basic でアプリケーションを作成するときに常にオブジェクトを操作します。 コントロール、フォーム、およびデータ アクセス オブジェクトなど、Visual Basic では、によって提供されるオブジェクトを使用することができます。 Visual Basic アプリケーション内で他のアプリケーションからオブジェクトを使用することもできます。 独自のオブジェクトを作成し、それらのプロパティとメソッドを追加で定義することもできます。 オブジェクトはプログラムの作成済みの構成要素として機能し、コードを一度記述すれば、何度も再利用できます。
+Visual Basic でアプリケーションを作成する場合は、常にオブジェクトを操作します。 Visual Basic によって提供されるオブジェクト (コントロール、フォーム、データアクセスオブジェクトなど) を使用できます。 また、Visual Basic アプリケーション内の他のアプリケーションのオブジェクトを使用することもできます。 独自のオブジェクトを作成し、それらのプロパティとメソッドを追加で定義することもできます。 オブジェクトはプログラムの作成済みの構成要素として機能し、コードを一度記述すれば、何度も再利用できます。
 
 このトピックでは、オブジェクトの詳細について説明します。
 
 ## <a name="objects-and-classes"></a>オブジェクトとクラス
 
-Visual Basic では、各オブジェクトによって定義されます、*クラス*します。 クラスは、オブジェクトの変数、プロパティ、プロシージャ、およびイベントを記述します。 オブジェクトはクラスのインスタンスです。クラスを定義したら、必要な数のオブジェクトを作成することができます。
+Visual Basic 内の各オブジェクトは、*クラス*によって定義されます。 クラスは、オブジェクトの変数、プロパティ、プロシージャ、およびイベントを記述します。 オブジェクトはクラスのインスタンスです。クラスを定義したら、必要な数のオブジェクトを作成することができます。
 
 オブジェクトとそのクラス間の関係を理解するために、クッキーの抜き型とクッキーを考えてみましょう。 クッキーの抜き型はクラスです。 それは、クッキーの特徴 (大きさや形など) を定義します。 クラスを使用して、オブジェクトを作成します。 オブジェクトはクッキーです。
 
@@ -121,7 +121,7 @@ safetyTimer.Start()
 
 詳細については、「[プロシージャ](../../../../visual-basic/programming-guide/language-features/procedures/index.md)」を参照してください。
 
-### <a name="events"></a>イベント
+### <a name="events"></a>Events
 
 イベントは、マウスのクリックやキーの押下などのオブジェクトによって認識される操作であり、それに応答するコードを記述できます。 イベントは、ユーザーの操作またはプログラム コードの結果として発生する可能性がありますが、システムによって発生する場合もあります。 イベントを通知するコードを、イベントを "*発生させる*" と言い、イベントに応答するコードを、イベントを "*処理する*" と言います。
 
@@ -143,7 +143,7 @@ safetyTimer.Start()
    Dim secondForm As New System.Windows.Forms.Form
    ```
 
-2. メンバーにアクセスするステートメントで、オブジェクト変数名に続けて、"*メンバー アクセス演算子"*  (`.`) とメンバー名を指定します。
+2. メンバーにアクセスするステートメントで、てオブジェクト変数名に続けて、"*メンバー アクセス演算子"*  (`.`) とメンバー名を指定します。
 
    ```vb
    secondForm.Show()
@@ -176,7 +176,7 @@ safetyTimer.Start()
 
 オブジェクトを使用すると、変数とプロシージャを 1 度宣言した後、必要に応じていつでもそれらを再利用できます。 たとえば、スペル チェック機能をアプリケーションに追加する場合は、スペル チェック機能を提供するためのすべての変数とサポート機能を定義することができます。 スペル チェック機能をクラスとして作成した場合は、コンパイルされたアセンブリへの参照を追加することで、他のアプリケーションで再利用できます。 さらに、誰かが既に開発したスペル チェック機能のクラスを使用することで、作業の手間を省くことができます。
 
-.NET Framework では、使用可能なコンポーネントの多くの例を示します。 次の例では、<xref:System> 名前空間に <xref:System.TimeZone> クラスが使用されています。 <xref:System.TimeZone> は、現在のコンピューター システムのタイム ゾーンに関する情報を取得できるメンバーを提供します。
+.NET Framework には、使用可能なコンポーネントの例が多数用意されています。 次の例では、<xref:System> 名前空間に <xref:System.TimeZone> クラスが使用されています。 <xref:System.TimeZone> は、現在のコンピューター システムのタイム ゾーンに関する情報を取得できるメンバーを提供します。
 
 ```vb
 Public Sub examineTimeZone()
@@ -239,7 +239,7 @@ End Sub
 
 派生クラスは、派生元のクラスからメンバーを継承するため、クラス階層が深くなるにつれて、クラスをより複雑にすることができます。 詳細については、「[継承の基本](../../../../visual-basic/programming-guide/language-features/objects-and-classes/inheritance-basics.md)」を参照してください。
 
-### <a name="compiling-the-code"></a>コードのコンパイル
+### <a name="compile-the-code"></a>コードのコンパイル
 
 コンパイラが、新しいクラスの派生元となるクラスにアクセスできることを確認します。 これは、上記の例のように名前を完全に修飾するか、名前空間を [Imports ステートメント (.NET 名前空間と型)](../../../../visual-basic/language-reference/statements/imports-statement-net-namespace-and-type.md) で識別することを意味する場合があります。 クラスが別のプロジェクト内にある場合は、そのプロジェクトへの参照の追加が必要になることがあります。 詳細については、「[プロジェクト内の参照の管理](/visualstudio/ide/managing-references-in-a-project)」を参照してください。
 
@@ -249,27 +249,27 @@ End Sub
 
 #### <a name="collections"></a>コレクション
 
-特別な種類のオブジェクトの含有として、"*コレクション*" と表現されるものがあります。 コレクションは、列挙することができる類似のオブジェクトの集まりです。 Visual Basic で特定の構文をサポートしている、[For Each...Next ステートメント](../../../../visual-basic/language-reference/statements/for-each-next-statement.md)コレクションの項目を反復処理することができます。 さらに、多くの場合、コレクションでは、<xref:Microsoft.VisualBasic.Collection.Item%2A> を使用して、その要素を、インデックスまたは一意の文字列の関連付けによって取得することができます。 コレクションは、インデックスなしで項目を削除または追加できるため、配列よりも簡単に使用できます。 簡単に使用できるため、多くの場合、コレクションは、フォームとコントロールを格納するために使用されます。
+特別な種類のオブジェクトの含有として、"*コレクション*" と表現されるものがあります。 コレクションは、列挙できる、類似したオブジェクトのグループです。 Visual Basic の [For Each...Next ステートメント](../../../../visual-basic/language-reference/statements/for-each-next-statement.md)には、コレクションの項目を反復処理するための特別な構文があります。 さらに、多くの場合、コレクションでは、<xref:Microsoft.VisualBasic.Collection.Item%2A> を使用して、その要素を、インデックスまたは一意の文字列の関連付けによって取得することができます。 コレクションは、インデックスなしで項目を削除または追加できるため、配列よりも簡単に使用できます。 簡単に使用できるため、多くの場合、コレクションは、フォームとコントロールを格納するために使用されます。
 
 ## <a name="related-topics"></a>関連トピック
 
-[チュートリアル: クラスを定義します。](../../../../visual-basic/programming-guide/language-features/objects-and-classes/walkthrough-defining-classes.md)\
+[チュートリアル: クラスの定義](../../../../visual-basic/programming-guide/language-features/objects-and-classes/walkthrough-defining-classes.md)\
 クラスを作成する方法を手順を追って説明します。
 
-[オーバー ロードされたプロパティとメソッド](../../../../visual-basic/programming-guide/language-features/objects-and-classes/overloaded-properties-and-methods.md)\
+オーバーロードされた[プロパティとメソッド](../../../../visual-basic/programming-guide/language-features/objects-and-classes/overloaded-properties-and-methods.md)\
 オーバーロードされたプロパティとメソッド
 
 [継承の基本](../../../../visual-basic/programming-guide/language-features/objects-and-classes/inheritance-basics.md)\
 継承修飾子、メソッドとプロパティのオーバーライド、MyClass、および MyBase について説明します。
 
-[オブジェクトの有効期間:オブジェクトを作成および破棄する方法](../../../../visual-basic/programming-guide/language-features/objects-and-classes/object-lifetime-how-objects-are-created-and-destroyed.md)\
+[オブジェクトの有効期間: オブジェクトの作成と破棄](../../../../visual-basic/programming-guide/language-features/objects-and-classes/object-lifetime-how-objects-are-created-and-destroyed.md)\
 クラス インスタンスの作成と破棄について説明します。
 
 [匿名型](../../../../visual-basic/programming-guide/language-features/objects-and-classes/anonymous-types.md)\
 匿名型を作成して使用する方法について説明します。匿名型を使用すると、データ型のクラス定義を記述せずにオブジェクトを作成できます。
 
-[オブジェクト初期化子:名前付きの匿名型](../../../../visual-basic/programming-guide/language-features/objects-and-classes/object-initializers-named-and-anonymous-types.md)\
+[オブジェクト初期化子 : 名前付きの型と匿名型](../../../../visual-basic/programming-guide/language-features/objects-and-classes/object-initializers-named-and-anonymous-types.md)\
 1 つの式で名前付きの型と匿名型のインスタンスを作成するために使用する、オブジェクト初期化子について説明します。
 
-[方法: 匿名型の宣言におけるプロパティ名と型を推論します。](../../../../visual-basic/programming-guide/language-features/objects-and-classes/how-to-infer-property-names-and-types-in-anonymous-type-declarations.md)\
+[方法: 匿名型の宣言でプロパティの名前と型を推論する](../../../../visual-basic/programming-guide/language-features/objects-and-classes/how-to-infer-property-names-and-types-in-anonymous-type-declarations.md)\
 匿名型で宣言されたプロパティの名前と型を推論する方法について説明します。 推論の成功例と失敗例を示します。

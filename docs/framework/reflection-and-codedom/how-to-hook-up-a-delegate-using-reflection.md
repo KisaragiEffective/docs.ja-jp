@@ -1,5 +1,5 @@
 ---
-title: '方法: リフレクションを使用してデリゲートをフックする'
+title: '方法 : リフレクションを使用してデリゲートをフックする'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,20 +10,18 @@ helpviewer_keywords:
 - reflection, adding event-handler delegates
 - delegates [.NET Framework], adding event handlers with reflection
 ms.assetid: 076ee62d-a964-449e-a447-c31b33518b81
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 937dca59be8b83526ebf6cd4c369532b1a8b9afe
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 14a9694708b36b23ecef453d530ad3b939a046ba
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71045974"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130117"
 ---
-# <a name="how-to-hook-up-a-delegate-using-reflection"></a>方法: リフレクションを使用してデリゲートをフックする
+# <a name="how-to-hook-up-a-delegate-using-reflection"></a>方法 : リフレクションを使用してデリゲートをフックする
 リフレクションを使用して、アセンブリを読み込んで実行する場合、C# の `+=` 演算子や Visual Basic の [AddHandler ステートメント](../../visual-basic/language-reference/statements/addhandler-statement.md)のような言語機能を使用してイベントをフックすることはできません。 次の手順では、必要なすべての型をリフレクションによって取得することで、既存のメソッドをイベントにフックする方法と、リフレクション出力を使用して動的メソッドを作成し、それをイベントにフックする方法を示します。  
   
 > [!NOTE]
-> イベント処理デリゲートをフックするもう 1 つの方法については、<xref:System.Reflection.EventInfo.AddEventHandler%2A> クラスの <xref:System.Reflection.EventInfo> メソッドのコード例を参照してください。  
+> イベント処理デリゲートをフックするもう 1 つの方法については、<xref:System.Reflection.EventInfo> クラスの <xref:System.Reflection.EventInfo.AddEventHandler%2A> メソッドのコード例を参照してください。  
   
 ### <a name="to-hook-up-a-delegate-using-reflection"></a>リフレクションを使用してデリゲートをフックするには  
   

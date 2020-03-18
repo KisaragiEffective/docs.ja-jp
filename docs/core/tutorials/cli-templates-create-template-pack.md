@@ -2,15 +2,15 @@
 title: dotnet new 用のテンプレート パックを作成する
 description: dotnet new コマンド用のテンプレート パックをビルドする csproj ファイルを作成する方法を説明します。
 author: thraka
-ms.date: 06/25/2019
+ms.date: 12/10/2019
 ms.topic: tutorial
 ms.author: adegeo
-ms.openlocfilehash: 520af5022e061236c0cfe80379679d9c7b5896b2
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+ms.openlocfilehash: 5bc926861dd6a501d7c2d24bd5f7c4116cc78b2c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71117407"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77503489"
 ---
 # <a name="tutorial-create-a-template-pack"></a>チュートリアル: テンプレート パックを作成する
 
@@ -31,7 +31,7 @@ ms.locfileid: "71117407"
 
   このチュートリアルでは、チュートリアルの最初の 2 つのパートで作成した 2 つのテンプレートを使用します。 そのテンプレートをフォルダーとして _working\templates\\_ フォルダー内にコピーしていれば、別のテンプレートを使用することもできます。
 
-* ターミナルを開いて _working\templates\\_ フォルダーに移動します。
+* ターミナルを開いて _working\\_ フォルダーに移動します。
 
 ## <a name="create-a-template-pack-project"></a>テンプレート パック プロジェクトを作成する
 
@@ -49,10 +49,13 @@ ms.locfileid: "71117407"
 dotnet new console -n templatepack -o .
 ```
 
-`-n` パラメーターによって _.csproj_ ファイルの名前が _templatepack.csproj_ に設定され、`-o` パラメーターによってファイルが現在のディレクトリ内に作成されます。 次の出力のような結果が表示されます。
+`-n` パラメーターを指定すると、 _.csproj_ のファイル名が _templatepack.csproj_ に設定されます。 `-o` パラメーターを指定すると、現在のディレクトリにファイルが作成されます。 次の出力のような結果が表示されます。
+
+```dotnetcli
+dotnet new console -n templatepack -o .
+```
 
 ```console
-C:\working> dotnet new console -n templatepack -o .
 The template "Console Application" was created successfully.
 
 Processing post-creation actions...
@@ -91,7 +94,7 @@ Restore succeeded.
 </Project>
 ```
 
-上の XML 内の `<PropertyGroup>` の設定は、3 つのグループに分かれています。 最初のグループでは、NuGet パッケージに必要なプロパティが処理されます。 `<Package` の 3 つの設定は、NuGet フィード上でパッケージを識別するための NuGet パッケージ プロパティと関係しています。 具体的には、`<PacakgeId>` 値は、ディレクトリ パスではなく単一の名前を使用してテンプレート パックをアンインストールするために使用されます。 また、NuGet フィードからテンプレート パックをインストールするためにも使用されます。 `<Title>`、`<Tags>` などの残りの設定は、NuGet フィードに表示されるメタデータに関連しています。 NuGet の設定の詳細については、[NuGet と MSBuild のプロパティ](/nuget/reference/msbuild-targets)に関する記事を参照してください。
+上の XML 内の `<PropertyGroup>` の設定は、3 つのグループに分かれています。 最初のグループでは、NuGet パッケージに必要なプロパティが処理されます。 `<Package` の 3 つの設定は、NuGet フィード上でパッケージを識別するための NuGet パッケージ プロパティと関係しています。 具体的には、`<PackageId>` 値は、ディレクトリ パスではなく単一の名前を使用してテンプレート パックをアンインストールするために使用されます。 また、NuGet フィードからテンプレート パックをインストールするためにも使用されます。 `<Title>`、`<PackageTags>` などの残りの設定は、NuGet フィードに表示されるメタデータに関連しています。 NuGet の設定の詳細については、[NuGet と MSBuild のプロパティ](/nuget/reference/msbuild-targets)に関する記事を参照してください。
 
 `<TargetFramework>` の設定は、パック コマンドを実行してプロジェクトのコンパイルとパッケージ化を行うときに MSBuild が正しく実行されるように設定する必要があります。
 
@@ -109,8 +112,11 @@ dotnet pack
 
 このコマンドを実行すると、プロジェクトがビルドされ、_working\bin\Debug_ フォルダー内に NuGet パッケージが作成されます。
 
+```dotnetcli
+dotnet pack
+```
+
 ```console
-C:\working> dotnet pack
 Microsoft (R) Build Engine version 16.2.0-preview-19278-01+d635043bd for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
@@ -146,8 +152,11 @@ NuGet パッケージを NuGet フィードにアップロードした場合は�
 
 テンプレート パックを削除する方法は、テンプレート パックをインストールした方法 ( _.nupkg_ ファイルを使用して直接、または NuGet フィードを使用) にかかわらず同じです。 アンインストールするテンプレートの `<PackageId>` を使用します。 `dotnet new -u` コマンドを実行すると、インストールされているテンプレートの一覧を取得できます。
 
+```dotnetcli
+dotnet new -u
+```
+
 ```console
-C:\working> dotnet new -u
 Template Instantiation Commands for .NET Core CLI
 
 Currently installed items:
@@ -178,7 +187,7 @@ Currently installed items:
 
 `dotnet new -u AdatumCorporation.Utility.Templates` を実行してテンプレートをアンインストールします。 `dotnet new` コマンドを実行するとヘルプ情報が出力され、前にインストールしたテンプレートが除外されているはずです。
 
-おめでとうございます! テンプレート パックをインストールしてアンインストールしました。 
+おめでとうございます! テンプレート パックをインストールしてアンインストールしました。
 
 ## <a name="next-steps"></a>次の手順
 

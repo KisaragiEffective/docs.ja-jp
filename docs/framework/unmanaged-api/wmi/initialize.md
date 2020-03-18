@@ -14,14 +14,12 @@ helpviewer_keywords:
 - Initialize function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1bc3688b30180bdcde0a87027955a789de749f90
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: b1f96b6285911b12d72ac136127d736b75d44023
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798442"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127392"
 ---
 # <a name="initialize-function"></a>Initialize 関数
 
@@ -41,15 +39,15 @@ HRESULT Initialize(
 
 `bAllowIManagementObjectQI`
 
-から`true` WMI オブジェクトに対する QueryInterface の呼び出しが許可されていることを示す場合は。`false`それ以外の場合は。
+[in] WMI オブジェクトの QueryInterface の呼び出しが許可されていることを示す `true` ます。それ以外の場合は `false`。
 
 ## <a name="return-value"></a>戻り値
 
-関数は常に`S_OK` (0) を返します。
+関数は常に `S_OK` (0) を返します。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** WMINet_Utils
 

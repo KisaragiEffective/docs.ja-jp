@@ -1,19 +1,19 @@
 ---
-title: 'チュートリアル: 型プロバイダーを作成する'
+title: 'チュートリアル: 型プロバイダーの作成'
 description: いくつかの単純型プロバイダー F#を調べてF#基本的な概念を説明することにより、3.0 で独自の型プロバイダーを作成する方法について説明します。
-ms.date: 02/02/2019
-ms.openlocfilehash: 8d1a1fedf03437ccbacd40616cc7dc3e1da435b2
-ms.sourcegitcommit: 56f1d1203d0075a461a10a301459d3aa452f4f47
+ms.date: 11/04/2019
+ms.openlocfilehash: 8df893669b8ee04bad366dbe42a55c83d1f5a8fe
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71214275"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73968371"
 ---
-# <a name="tutorial-create-a-type-provider"></a>チュートリアル: 型プロバイダーを作成する
+# <a name="tutorial-create-a-type-provider"></a>チュートリアル: 型プロバイダーの作成
 
 の型プロバイダー機構F#は、情報豊富なプログラミングをサポートするための重要な部分です。 このチュートリアルでは、基本的な概念を示すために単純な型プロバイダーをいくつか作成する過程を通して、独自の型プロバイダーを作成する方法を説明します。 のF#型プロバイダー機構の詳細については、「[型プロバイダー](index.md)」を参照してください。
 
-F#エコシステムには、一般的に使用されるインターネットおよびエンタープライズデータサービス用のさまざまな種類のプロバイダーが含まれています。 次に例を示します。
+F#エコシステムには、一般的に使用されるインターネットおよびエンタープライズデータサービス用のさまざまな種類のプロバイダーが含まれています。 (例:
 
 - Fsharp.core には、JSON、XML、CSV、HTML ドキュメント形式の型プロバイダーが含まれてい[ます。](https://fsharp.github.io/FSharp.Data/)
 
@@ -53,7 +53,7 @@ F#エコシステムには、一般的に使用されるインターネットお
 
 ## <a name="a-simple-type-provider"></a>単純な型プロバイダー
 
-このサンプルは HelloWorldTypeProvider です。これは、 [ F#型プロバイダー SDK](https://github.com/fsprojects/FSharp.TypeProviders.SDK/)の`examples`ディレクトリにあるサンプルと似ています。 このプロバイダーは、次のコードが示すように、F# シグネチャ構文を使用して `Type1` 以外の詳細を省略することで、消去型 100 個を含む "型空間" を使用可能にします。 消去型の詳細については、このトピックで後述する「[指定された型の消去に関する詳細](#details-about-erased-provided-types)」を参照してください。
+このサンプルは HelloWorldTypeProvider です。これは、 [ F#型プロバイダー SDK](https://github.com/fsprojects/FSharp.TypeProviders.SDK/)の `examples` ディレクトリのサンプルに似ています。 このプロバイダーは、次のコードが示すように、F# シグネチャ構文を使用して `Type1` 以外の詳細を省略することで、消去型 100 個を含む "型空間" を使用可能にします。 消去型の詳細については、このトピックで後述する「[指定された型の消去に関する詳細](#details-about-erased-provided-types)」を参照してください。
 
 ```fsharp
 namespace Samples.HelloWorldTypeProvider
@@ -162,9 +162,9 @@ Visual Studio を使用してこのプロバイダーをデバッグするには
 devenv.exe /debugexe fsc.exe -r:bin\Debug\HelloWorldTypeProvider.dll script.fsx
 ```
 
-別の方法として、Visual Studio を開き、[デバッグ`Debug/Attach to process…`] メニューを開いて`devenv`を選択し、スクリプトを編集している別のプロセスにアタッチします。 この方法を使用すると、2 番目のインスタンス (IntelliSense およびその他の機能をすべて備えている) に式を対話形式で入力できるので、型プロバイダー内の特定のロジックを簡単に対象とすることができます。
+別の方法として、Visual Studio を開き、[デバッグ] メニューを開き、[`Debug/Attach to process…`] をクリックして、スクリプトを編集している別の `devenv` プロセスにアタッチします。 この方法を使用すると、2 番目のインスタンス (IntelliSense およびその他の機能をすべて備えている) に式を対話形式で入力できるので、型プロバイダー内の特定のロジックを簡単に対象とすることができます。
 
-生成されたコード内のエラーを特定しやすくするために、マイ コードのみのデバッグを無効にできます。 この機能を有効または無効にする方法の詳細については、「[デバッガーでのコード間の移動](/visualstudio/debugger/navigating-through-code-with-the-debugger)」を参照してください。 また、メニュー `Exceptions`を開き、Ctrl + Alt + `Exceptions` E キーを選択`Debug`してダイアログボックスを開くことで、初回例外のキャッチを設定することもできます。 このダイアログボックスの [ `Common Language Runtime Exceptions`] で、 `Thrown`チェックボックスをオンにします。
+生成されたコード内のエラーを特定しやすくするために、マイ コードのみのデバッグを無効にできます。 この機能を有効または無効にする方法の詳細については、「[デバッガーでのコード間の移動](/visualstudio/debugger/navigating-through-code-with-the-debugger)」を参照してください。 また、[`Debug`] メニューを開き、[`Exceptions`] を選択するか、Ctrl + Alt + E キーを押して [`Exceptions`] ダイアログボックスを開くことで、初回例外のキャッチを設定することもできます。 そのダイアログボックスの `Common Language Runtime Exceptions`で、`Thrown` チェックボックスをオンにします。
 
 ### <a name="implementation-of-the-type-provider"></a>型プロバイダーの実装
 
@@ -236,7 +236,7 @@ let t = ProvidedTypeDefinition(thisAssembly, namespaceName,
 
 次の点に注意してください。
 
-- この指定された型は消去されます。  基本型が`obj`であることを示すため、インスタンスはコンパイル済みコードで[obj](https://msdn.microsoft.com/library/dcf2430f-702b-40e5-a0a1-97518bf137f7)型の値として表示されます。
+- この指定された型は消去されます。  基本型が `obj`であることを示すため、インスタンスはコンパイル済みコードで[obj](https://msdn.microsoft.com/library/dcf2430f-702b-40e5-a0a1-97518bf137f7)型の値として表示されます。
 
 - 入れ子になっていない型を指定する場合、アセンブリと名前空間を指定する必要があります。 消去型の場合、アセンブリは型プロバイダー アセンブリ自体である必要があります。
 
@@ -318,7 +318,7 @@ instanceProp.AddXmlDocDelayed(fun () -> "This is an instance property")
 t.AddMember instanceProp
 ```
 
-このプロパティを取得すると、その戻り値は表現オブジェクトである文字列の長さです。 `GetterCode` プロパティは、ホスト コンパイラがプロパティを取得するために生成するコードを指定する F# クォートを返します。 `InvokeCode` と同様に、`GetterCode` 関数はクォートを返します。 ホスト コンパイラはこの関数を一連の引数を使って呼び出します。 この場合、引数には、getter が呼び出されるインスタンスを表す単一の式だけが含まれます。これは、を使用`args.[0]`してアクセスできます。 次に、 `GetterCode`の実装では、消去された型`obj`の結果の引用符に分割し、キャストを使用して、オブジェクトが文字列であることを型を確認するためのコンパイラの機構を満たしています。 `makeOneProvidedType` の次の部分は 1 個のパラメーターを持つインスタンス メソッドを指定します。
+このプロパティを取得すると、その戻り値は表現オブジェクトである文字列の長さです。 `GetterCode` プロパティは、ホスト コンパイラがプロパティを取得するために生成するコードを指定する F# クォートを返します。 `InvokeCode` と同様に、`GetterCode` 関数はクォートを返します。 ホスト コンパイラはこの関数を一連の引数を使って呼び出します。 この場合、引数には、getter が呼び出されるインスタンスを表す単一の式だけが含まれます。これは、`args.[0]`を使用してアクセスできます。 `GetterCode` の実装では、`obj`消去された型の結果の引用符に分割し、キャストを使用して、オブジェクトが文字列であることを確認するためのコンパイラの機構を満たしています。 `makeOneProvidedType` の次の部分は 1 個のパラメーターを持つインスタンス メソッドを指定します。
 
 ```fsharp
 let instanceMeth =
@@ -341,19 +341,21 @@ t.AddMembersDelayed(fun () ->
 
   nestedType.AddMembersDelayed (fun () ->
     let staticPropsInNestedType =
-      [ for i in 1 .. 100 do
-          let valueOfTheProperty = "I am string "  + string i
-
-          let p =
-            ProvidedProperty(propertyName = "StaticProperty" + string i,
-              propertyType = typeof<string>,
-              isStatic = true,
-              getterCode= (fun args -> <@@ valueOfTheProperty @@>))
-
-          p.AddXmlDocDelayed(fun () ->
-              sprintf "This is StaticProperty%d on NestedType" i)
-
-          yield p ]
+      [
+          for i in 1 .. 100 ->
+              let valueOfTheProperty = "I am string "  + string i
+    
+              let p =
+                ProvidedProperty(propertyName = "StaticProperty" + string i,
+                  propertyType = typeof<string>,
+                  isStatic = true,
+                  getterCode= (fun args -> <@@ valueOfTheProperty @@>))
+    
+              p.AddXmlDocDelayed(fun () ->
+                  sprintf "This is StaticProperty%d on NestedType" i)
+    
+              p
+      ]
 
     staticPropsInNestedType)
 
@@ -783,10 +785,12 @@ printfn "%f" (float time)
 type CsvFile(filename) =
     // Cache the sequence of all data lines (all lines but the first)
     let data =
-        seq { for line in File.ReadAllLines(filename) |> Seq.skip 1 do
-                 yield line.Split(',') |> Array.map float }
+        seq {
+            for line in File.ReadAllLines(filename) |> Seq.skip 1 ->
+                line.Split(',') |> Array.map float
+        }
         |> Seq.cache
-    member __.Data = data
+    member _.Data = data
 
 [<TypeProvider>]
 type public MiniCsvProvider(cfg:TypeProviderConfig) as this =
@@ -875,7 +879,7 @@ type public MiniCsvProvider(cfg:TypeProviderConfig) as this =
 
 - 型プロバイダーコンストラクターに渡された[Typeproviderconfig](https://msdn.microsoft.com/library/1cda7b9a-3d07-475d-9315-d65e1c97eb44)値を使用して、相対ファイル名を解決できます。
 
-- 指定されたプロパティの場所を定義するには `AddDefinitionLocation` メソッドを使用できます。 したがって、指定さ`Go To Definition`れたプロパティでを使用すると、CSV ファイルが Visual Studio で開かれます。
+- 指定されたプロパティの場所を定義するには `AddDefinitionLocation` メソッドを使用できます。 したがって、指定されたプロパティで `Go To Definition` を使用すると、CSV ファイルが Visual Studio で開かれます。
 
 - SI 単位を調べて適切な `ProvidedMeasureBuilder` 型を生成するには、`float<_>` 型を使用できます。
 
@@ -931,7 +935,7 @@ IL_0017:  ret
 
 型プロバイダーを作成するときは、次の規則に従ってください。
 
-**接続プロトコルのプロバイダー**一般に、OData や SQL 接続など、データおよびサービス接続プロトコル用のほとんどのプロバイダー dll の名前は、また`TypeProvider`は`TypeProviders`で終了する必要があります。 たとえば、次の文字列のような DLL 名を使用します。
+**接続プロトコルのプロバイダー**一般に、OData や SQL 接続など、データおよびサービス接続プロトコル用のほとんどのプロバイダー Dll の名前は、`TypeProvider` または `TypeProviders`で終わる必要があります。 たとえば、次の文字列のような DLL 名を使用します。
 
 `Fabrikam.Management.BasicTypeProviders.dll`
 
@@ -1020,10 +1024,10 @@ ProvidedType API には遅延バージョンの AddMember があります。
 
 ### <a name="providing-array-types-and-generic-type-instantiations"></a>配列型とジェネリック型のインスタンス化の提供
 
-( `MakeArrayType`を含む`MakeGenericType` <xref:System.Type> `MakePointerType` )の任意のインスタンスで、通常の、、およびを使用して、指定されたメンバー(シグネチャに配列型、byref型、およびジェネリック型のインスタンス化が含まれる)を作成します。`ProvidedTypeDefinitions`
+指定されたメンバー (シグネチャには、配列型、byref 型、ジェネリック型のインスタンス化など) を使用して、通常の `MakeArrayType`、`MakePointerType`、および `ProvidedTypeDefinitions`を含む <xref:System.Type>の任意のインスタンスの `MakeGenericType` を使用します。
 
 > [!NOTE]
-> 場合によっては、で`ProvidedTypeBuilder.MakeGenericType`ヘルパーを使用する必要があります。  詳細については、[型プロバイダー SDK のドキュメント](https://github.com/fsprojects/FSharp.TypeProviders.SDK/blob/master/README.md#explicit-construction-of-code-makegenerictype-makegenericmethod-and-uncheckedquotations)を参照してください。
+> 場合によっては、`ProvidedTypeBuilder.MakeGenericType`でヘルパーを使用することが必要になることがあります。  詳細については、[型プロバイダー SDK のドキュメント](https://github.com/fsprojects/FSharp.TypeProviders.SDK/blob/master/README.md#explicit-construction-of-code-makegenerictype-makegenericmethod-and-uncheckedquotations)を参照してください。
 
 ### <a name="providing-unit-of-measure-annotations"></a>測定単位の注釈を指定する
 
@@ -1058,7 +1062,7 @@ ProvidedTypes API は、メジャーの注釈を指定するためのヘルパ�
 
 ### <a name="backing-assembly"></a>バッキング アセンブリ
 
-`.dll`または`.exe`ファイルをコンパイルすると、生成された型のバッキング .dll ファイルは、結果のアセンブリに静的にリンクされます。 このリンクは、中間言語 (IL) の型定義とマネージド リソースをバッキング アセンブリから最終アセンブリにコピーして作成されます。 F# Interactive を使用すると、バッキング .dll ファイルはコピーされず、代わりに F# Interactive プロセスに直接読み込まれます。
+`.dll` または `.exe` ファイルをコンパイルすると、生成された型のバッキング .dll ファイルは、結果のアセンブリに静的にリンクされます。 このリンクは、中間言語 (IL) の型定義とマネージド リソースをバッキング アセンブリから最終アセンブリにコピーして作成されます。 F# Interactive を使用すると、バッキング .dll ファイルはコピーされず、代わりに F# Interactive プロセスに直接読み込まれます。
 
 ### <a name="exceptions-and-diagnostics-from-type-providers"></a>型プロバイダーからの例外と診断
 
@@ -1068,7 +1072,7 @@ ProvidedTypes API は、メジャーの注釈を指定するためのヘルパ�
 
 - 型プロバイダーは警告を発生できません。
 
-- F# コンパイラ、F# 開発環境、または F# Interactive でホストされている型プロバイダーからの例外はすべてキャッチされます。 Message プロパティは常にエラー テキストであり、スタック トレースは表示されません。 例外をスローする場合は`System.NotSupportedException`、、 `System.IO.IOException`、 `System.Exception`の各例をスローすることができます。
+- F# コンパイラ、F# 開発環境、または F# Interactive でホストされている型プロバイダーからの例外はすべてキャッチされます。 Message プロパティは常にエラー テキストであり、スタック トレースは表示されません。 例外をスローする場合は、`System.NotSupportedException`、`System.IO.IOException`、`System.Exception`の例をスローすることができます。
 
 #### <a name="providing-generated-types"></a>生成された型の指定
 
@@ -1082,9 +1086,9 @@ type Service = ODataService<"http://services.odata.org/Northwind/Northwind.svc/"
 
 F# 3.0 リリースに含まれている ProvidedTypes-0.2 ヘルパー コードは、生成された型を指定するためのサポートが限られています。 生成された型の定義は次の条件を満たす必要があります。
 
-- `isErased`をに`false`設定する必要があります。
+- `isErased` を `false`に設定する必要があります。
 
-- 生成された型は、生成され`ProvidedAssembly()`たコードフラグメントのコンテナーを表す、新しく構築されたに追加する必要があります。
+- 生成された型は、生成されたコードフラグメントのコンテナーを表す、新しく構築された `ProvidedAssembly()`に追加する必要があります。
 
 - プロバイダーは、実際のバッキング .NET .dll ファイルを含むアセンブリを持ち、対応する .dll ファイルがディスク上にある。
 
@@ -1096,7 +1100,7 @@ F# 3.0 リリースに含まれている ProvidedTypes-0.2 ヘルパー コー�
 
 すべての指定された型は、入れ子になっていない型から到達可能である必要があります。 入れ子になっていない型は、`TypeProviderForNamespaces` コンストラクターへの呼び出し、または `AddNamespace` への呼び出しで指定されます。 たとえば、プロバイダーが `StaticClass.P : T` 型を指定する場合、T は入れ子になっていない型、または 1 階層だけ入れ子になっている型である必要があります。
 
-たとえば、一部のプロバイダーには、`DataTypes` の各型を含む `T1, T2, T3, ...` などの静的クラスがあります。 それ以外の場合、アセンブリ A 内の型 T に対する参照は見つかるが、型はそのアセンブリ内に見つからないというエラーが表示されます。 このエラーが表示された場合は、すべての下位の型が指定された型から到達可能であることを確認します。 メモ:これら`T1, T2, T3...`の型は *、オンザフライ*型と呼ばれます。 必ずこれらの型をアクセス可能な名前空間または親の型に入れてください。
+たとえば、一部のプロバイダーには、`DataTypes` の各型を含む `T1, T2, T3, ...` などの静的クラスがあります。 それ以外の場合、アセンブリ A 内の型 T に対する参照は見つかるが、型はそのアセンブリ内に見つからないというエラーが表示されます。 このエラーが表示された場合は、すべての下位の型が指定された型から到達可能であることを確認します。 注: これらの `T1, T2, T3...` 型は *、その場で*実行される型と呼ばれます。 必ずこれらの型をアクセス可能な名前空間または親の型に入れてください。
 
 ### <a name="limitations-of-the-type-provider-mechanism"></a>型プロバイダー メカニズムの制約
 

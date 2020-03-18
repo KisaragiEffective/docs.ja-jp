@@ -3,12 +3,12 @@ title: C# の歴史 - C# ガイド
 description: この言語の最初のバージョンがどのようなものであったか、そしてそれ以降どのように進化してきたかについて説明します。
 author: erikdietrich
 ms.date: 09/20/2017
-ms.openlocfilehash: bce61d7a1838753f6cc2397440208e0c02b8194a
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: 9114395a5c6cfd8df5da18024921c35828947e0b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72002696"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398335"
 ---
 # <a name="the-history-of-c"></a>C\# の歴史
 
@@ -37,8 +37,8 @@ C# バージョン 1.0 は、現在のバージョンと比べると、機能が
 C# 1.0 の主な機能:
 
 - [クラス](../programming-guide/classes-and-structs/classes.md)
-- [構造体](../programming-guide/classes-and-structs/structs.md)
-- "[インターフェイス](../programming-guide/interfaces/index.md)"
+- [構造体](../language-reference/builtin-types/struct.md)
+- [インターフェイス](../programming-guide/interfaces/index.md)
 - [イベント](../events-overview.md)
 - [プロパティ](../properties.md)
 - [デリゲート](../delegates-overview.md)
@@ -57,7 +57,7 @@ Visual Studio .NET 2003 に付属の C# バージョン 1.2。 言語に対す�
 - [ジェネリック](../programming-guide/generics/index.md)
 - [部分型](../programming-guide/classes-and-structs/partial-classes-and-methods.md#partial-classes)
 - [匿名メソッド](../language-reference/operators/delegate-operator.md)
-- [null 許容値型](../programming-guide/nullable-types/index.md)
+- [null 許容値型](../language-reference/builtin-types/nullable-value-types.md)
 - [反復子](../programming-guide/concepts/iterators.md)
 - [共変性と反変性](../programming-guide/concepts/covariance-contravariance/index.md)
 
@@ -104,7 +104,7 @@ Visual Studio 2010 でリリースされた C# バージョン 4.0 は、バー�
 
 次のバージョンでは、いくつかの興味深い新機能が導入されました。
 
-- [動的バインディング](../language-reference/keywords/dynamic.md)
+- [動的バインディング](../language-reference/builtin-types/reference-types.md)
 - [名前付き/省略可能な引数](../programming-guide/classes-and-structs/named-and-optional-arguments.md)
 - [ジェネリックの共変と反変](../../standard/generics/covariance-and-contravariance.md)
 - [埋め込まれた相互運用機能型](../../framework/interop/type-equivalence-and-embedded-interop-types.md)
@@ -132,7 +132,7 @@ Visual Studio 2012 でリリースされた C# バージョン 5.0 は、この�
 
 ## <a name="c-version-60"></a>C# バージョン 6.0
 
-C# バージョン 3.0 と 5.0 では、主要な新機能がオブジェクト指向言語に追加されました。 Visual Studio 2013 と共にリリースされたバージョン 6.0 では、主要な目玉機能を投入する代わりに、C# プログラミングをより生産的にする多くの小さな機能をリリースしました。 そのいくつかを次に示します。
+C# バージョン 3.0 と 5.0 では、主要な新機能がオブジェクト指向言語に追加されました。 Visual Studio 2015 と共にリリースされたバージョン 6.0 では、主要な目玉機能を投入する代わりに、C# プログラミングをより生産的にする多くの小さな機能をリリースしました。 その一部を次に示します。
 
 - [静的インポート](./csharp-6.md#using-static)
 - [例外フィルター](./csharp-6.md#exception-filters)

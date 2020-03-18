@@ -2,12 +2,12 @@
 title: C# 7.1 の新機能
 description: C# 7.1 の新機能の概要。
 ms.date: 04/09/2019
-ms.openlocfilehash: ee68cbf129d02fc58155a603d6a3f63cfb182cd0
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: 5d2d6f51b6422f5b4db5c6bd275b5ffce1f695f8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70105546"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398353"
 ---
 # <a name="whats-new-in-c-71"></a>C# 7.1 の新機能
 
@@ -17,7 +17,7 @@ C# 7.1 では、[言語バージョン選択](../language-reference/configure-la
 
 このリリースの新しい言語機能は次のとおりです。
 
-- [`async` `Main` メソッド](#async-main)
+- [`async` `Main`メソッド](#async-main)
   - アプリケーションのエントリ ポイントに `async` 修飾子を設定できます。
 - [`default` リテラル式](#default-literal-expressions)
   - ターゲットの種類を推論できるとき、既定の値式で既定のリテラル式を使用できます。
@@ -26,7 +26,7 @@ C# 7.1 では、[言語バージョン選択](../language-reference/configure-la
 - [ジェネリック型パラメーターのパターン マッチ](#pattern-matching-on-generic-type-parameters)
   - 型がジェネリック型パラメーターである変数にパターン マッチ式を使用できます。
 
-最後に、コンパイラには、[参照アセンブリ生成](#reference-assembly-generation)を制御する 2 つのオプション、`-refout` と `-refonly` があります。
+最後に、コンパイラには、`-refout`参照アセンブリ生成`-refonly`を制御する 2 つのオプション、[ と ](#reference-assembly-generation) があります。
 
 ポイント リリースで最新の機能を使用するには、[コンパイラ言語バージョンを構成](../language-reference/configure-language-version.md)し、バージョンを選択する必要があります。
 
@@ -39,7 +39,7 @@ C# 7.1 では、[言語バージョン選択](../language-reference/configure-la
 
 ## <a name="async-main"></a>async main
 
-*async main* メソッドにより、`Main` メソッドで `await` を使用できます。
+*async main* メソッドにより、`await` メソッドで `Main` を使用できます。
 以前は次のように記述する必要がありました。
 
 ```csharp
@@ -60,7 +60,7 @@ static async Task<int> Main()
 }
 ```
 
-プログラムによって終了コードが返されない場合、<xref:System.Threading.Tasks.Task> を返す `Main` メソッドを宣言できます。
+プログラムによって終了コードが返されない場合、`Main` を返す <xref:System.Threading.Tasks.Task> メソッドを宣言できます。
 
 ```csharp
 static async Task Main()
@@ -86,7 +86,7 @@ Func<string, bool> whereClause = default(Func<string, bool>);
 Func<string, bool> whereClause = default;
 ```
 
-詳しくは、「[default 演算子](../language-reference/operators/default.md)」記事の「[default リテラル](../language-reference/operators/default.md#default-literal)」セクションをご覧ください。
+詳しくは、「[default 演算子](../language-reference/operators/default.md#default-literal)」記事の「[default リテラル](../language-reference/operators/default.md)」セクションをご覧ください。
 
 ## <a name="inferred-tuple-element-names"></a>推論されたタプル要素の名前
 

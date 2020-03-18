@@ -9,19 +9,17 @@ helpviewer_keywords:
 - MDAs (managed debugging assistants), overlapped structures
 - freeing overlapped structures
 ms.assetid: b6ab2d48-6eee-4bab-97a3-046b3b0a5470
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 70d31bc187cabe49351e86a20023e2ec65e87b94
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 8a0c72cf26ef8434719ff6661ef15a44f51c8740
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052398"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217257"
 ---
 # <a name="overlappedfreeerror-mda"></a>overlappedFreeError MDA
-オーバーラップされた操作が完了する前に <xref:System.Threading.Overlapped.Free%28System.Threading.NativeOverlapped%2A%29?displayProperty=nameWithType> メソッドが呼び出されると、`overlappedFreeError` マネージド デバッグ アシスタント (MDA) がアクティブになります。  
+オーバーラップされた操作が完了する前に `overlappedFreeError` メソッドが呼び出されると、<xref:System.Threading.Overlapped.Free%28System.Threading.NativeOverlapped%2A%29?displayProperty=nameWithType> マネージド デバッグ アシスタント (MDA) がアクティブになります。  
   
-## <a name="symptoms"></a>症状  
+## <a name="symptoms"></a>現象  
  アクセス違反またはガベージ コレクションされたヒープの破損。  
   
 ## <a name="cause"></a>原因  
@@ -50,7 +48,7 @@ ms.locfileid: "71052398"
 </mdaConfig>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.InteropServices.MarshalAsAttribute>
 - [マネージド デバッグ アシスタントによるエラーの診断](diagnosing-errors-with-managed-debugging-assistants.md)

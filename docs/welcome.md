@@ -1,16 +1,14 @@
 ---
 title: .NET にようこそ
 description: .NET ファミリのテクノロジの概要です。
-author: mairaw
-ms.author: mairaw
-ms.date: 09/23/2019
+ms.date: 12/03/2019
 ms.custom: updateeachrelease
-ms.openlocfilehash: bc525aeefe2c247c610886fae6ae7d79cb9e6517
-ms.sourcegitcommit: 3caa92cb97e9f6c31f21769c7a3f7c4304024b39
+ms.openlocfilehash: 20332f4dcc0664287873a27e0064a4765b1ecde7
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71274334"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77124222"
 ---
 # <a name="welcome-to-net"></a>.NET にようこそ
 
@@ -29,9 +27,9 @@ ms.locfileid: "71274334"
 
 また、最新の .NET イベントもご確認ください。
 
+- [Microsoft Ignite](https://www.microsoft.com/ignite)
 - [Microsoft Build](https://www.microsoft.com/build)
 - [.NET Conf](https://www.dotnetconf.net/)
-- [Microsoft Connect()](https://www.microsoft.com/connectevent)
 
 .NET の実装およびサポートされている言語に追加された最新の機能の詳細については、次の記事を参照してください。
 
@@ -47,9 +45,9 @@ ms.locfileid: "71274334"
 - [.NET のガイド](standard/index.md)
 - [.NET Core のガイド](core/index.md)
 - [.NET Framework ガイド](framework/index.md)
-- [C# のガイド](csharp/index.md)
-- [F# のガイド](fsharp/index.md)
-- [Visual Basic のガイド](visual-basic/index.md)
+- [C# のガイド](csharp/index.yml)
+- [F# Guide (F# ガイド)](fsharp/index.yml)
+- [Visual Basic のガイド](visual-basic/index.yml)
 - [ML.NET ガイド](machine-learning/index.yml)
 - [.NET for Apache Spark](spark/index.yml)
 - [.NET アプリケーション アーキテクチャ](architecture/index.yml)
@@ -67,11 +65,10 @@ Web、モバイル、デスクトップ、C#、機械学習、コンテナー/Do
 このドキュメントは、完全な[オープン ソース](https://github.com/dotnet/docs)です。 問題の作成からドキュメントの作成まで、好みに応じて投稿することができます。 さらに、.NET 自体のほとんどがオープン ソースでもあります。 次の一覧は、メインの .NET GitHub リポジトリを示しています。
 
 - [.NET Core ホーム](https://github.com/dotnet/core)
-- [.NET ライブラリ](https://github.com/dotnet/corefx)
-- [.NET Core ランタイム](https://github.com/dotnet/coreclr)
-- [.NET Core CLI](https://github.com/dotnet/cli)
+- [.NET Core ランタイム](https://github.com/dotnet/runtime)
+- [.NET Core SDK](https://github.com/dotnet/sdk)
 - [Roslyn (C# および Visual Basic) コンパイラ プラットフォームと IDE ツール](https://github.com/dotnet/roslyn)
-- [F# コンパイラと IDE ツール](https://github.com/microsoft/visualfsharp)
+- [F# コンパイラと IDE ツール](https://github.com/dotnet/fsharp)
 - [Windows フォーム](https://github.com/dotnet/winforms)
 - [WPF](https://github.com/dotnet/wpf)
 

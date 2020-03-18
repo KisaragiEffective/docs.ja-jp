@@ -1,35 +1,35 @@
 ---
-title: FontDialog コンポーネント (Windows フォーム)
+title: FontDialog コンポーネント
 ms.date: 03/30/2017
 helpviewer_keywords:
 - fonts [Windows Forms], dialog box
 - FontDialog component [Windows Forms]
 - Font dialog box [Windows Forms], Windows Forms
 ms.assetid: 54015df3-aab2-4338-84e5-ba78cedbfdfc
-ms.openlocfilehash: de3a6b8f59d5ae83d55ea408f70d54d37761f693
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 6c150db1d6833babd3dd53923fb11a2ab98a4b5c
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61971354"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76745690"
 ---
 # <a name="fontdialog-component-windows-forms"></a>FontDialog コンポーネント (Windows フォーム)
-Windows フォームの <xref:System.Windows.Forms.FontDialog> コンポーネントは、事前構成済みのダイアログ ボックスです。 これは同じ**フォント** ダイアログ ボックスが、Windows オペレーティング システムによって公開されています。 コンポーネントが継承、<xref:System.Windows.Forms.CommonDialog>クラス。  
+Windows フォームの <xref:System.Windows.Forms.FontDialog> コンポーネントは、事前構成済みのダイアログ ボックスです。 これは、Windows オペレーティングシステムによって公開されているのと同じ**フォント**ダイアログボックスです。 コンポーネントは <xref:System.Windows.Forms.CommonDialog> クラスから継承されます。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [FontDialog コンポーネントの概要](fontdialog-component-overview-windows-forms.md)  
- 一般的な概念が導入されています、<xref:System.Windows.Forms.FontDialog>コンポーネントは、構成済みのダイアログ ボックスを表示するために使用します。 ユーザーは、フォントとその設定を操作するのにダイアログ ボックスを使用できます。  
+ 構成済みのダイアログボックスを表示するために使用する <xref:System.Windows.Forms.FontDialog> コンポーネントの一般的な概念について説明します。 ユーザーは、ダイアログボックスを使用して、フォントとその設定を操作できます。  
   
- [方法: FontDialog コンポーネントでのフォントの一覧を表示します。](how-to-show-a-font-list-with-the-fontdialog-component.md)  
- インスタンスを介して実行時にフォントを選択する方法について説明します、<xref:System.Windows.Forms.FontDialog>コンポーネント。  
+ [方法: FontDialog コンポーネントを使用してフォントの一覧を表示する](how-to-show-a-font-list-with-the-fontdialog-component.md)  
+ 実行時に <xref:System.Windows.Forms.FontDialog> コンポーネントのインスタンスを使用してフォントを選択する方法について説明します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.FontDialog>  
  <xref:System.Windows.Forms.FontDialog> クラスとそのメンバーに関するリファレンス情報を提供します。  
   
 ## <a name="related-sections"></a>関連項目  
  [ダイアログ ボックス コントロールおよびコンポーネント](dialog-box-controls-and-components-windows-forms.md)  
- アプリケーションまたはシステムと標準的な対話を実行するユーザーを有効にするコントロールとコンポーネントのセットについて説明します。  
+ ユーザーがアプリケーションまたはシステムとの標準的な対話を実行できるようにするコントロールとコンポーネントのセットについて説明します。  
   
  [Windows フォームで使用するコントロール](controls-to-use-on-windows-forms.md)  
- その使用に関する情報へのリンクで、Windows フォーム コントロールの完全な一覧を提供します。
+ Windows フォームコントロールの完全な一覧と、それらの使用方法に関する情報へのリンクを示します。

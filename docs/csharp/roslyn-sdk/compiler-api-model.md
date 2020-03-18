@@ -3,16 +3,16 @@ title: .NET Compiler Platform SDK の概念とオブジェクト モデル
 description: この概要では、.NET Compiler SDK を効果的に使用するために必要な背景を示します。 API レイヤー、関連する主な型、全体のオブジェクト モデルについて学習します。
 ms.date: 10/10/2017
 ms.custom: mvc
-ms.openlocfilehash: ee8f902bf1df8b63e229fd518e7a0c592fcd47ca
-ms.sourcegitcommit: 58fc0e6564a37fa1b9b1b140a637e864c4cf696e
+ms.openlocfilehash: e563260e21fb8807017db90ff63e30fec0415a48
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57675707"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79156962"
 ---
 # <a name="understand-the-net-compiler-platform-sdk-model"></a>.NET Compiler Platform SDK モデルについて
 
-コンパイラは、多くの場合、人間がコードを読み取り、理解する方法とは異なる構造化された規則に従って書き込まれたコードを処理します。 コンパイラで使用されるモデルの基礎知識は、Roslyn ベースのツールを構築するときに使用する API を理解するのに必須です。 
+コンパイラは、多くの場合、人間がコードを読み取り、理解する方法とは異なる構造化された規則に従って書き込まれたコードを処理します。 コンパイラで使用されるモデルの基礎知識は、Roslyn ベースのツールを構築するときに使用する API を理解するのに必須です。
 
 ## <a name="compiler-pipeline-functional-areas"></a>コンパイラ パイプラインの機能領域
 
@@ -30,7 +30,7 @@ ms.locfileid: "57675707"
 
 各コンパイラは、これらのコンポーネントを一緒に単一のエンド ツー エンド全体として結合します。
 
-これらの API は、Visual Studio で使用されるものと同じです。 たとえば、コードのアウトライン表示と書式設定機能では構文ツリーを使用し、オブジェクト ブラウザーとナビゲーション機能ではシンボル テーブルを使用します。リファクタリングと定義へ移動ではセマンティック モデルを使用し、エディット コンティニュでは、生成 API を含む、これらすべてを使用します。 
+これらの API は、Visual Studio で使用されるものと同じです。 たとえば、コードのアウトライン表示と書式設定機能では構文ツリーを使用し、オブジェクト ブラウザーとナビゲーション機能ではシンボル テーブルを使用します。リファクタリングと定義へ移動ではセマンティック モデルを使用し、エディット コンティニュでは、生成 API を含む、これらすべてを使用します。
 
 ## <a name="api-layers"></a>API レイヤー
 

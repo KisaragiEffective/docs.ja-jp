@@ -4,11 +4,11 @@ description: LINQ で複合キーを使用して結合する方法について�
 ms.date: 12/01/2016
 ms.assetid: da70b54d-3213-45eb-8437-fbe75cbcf935
 ms.openlocfilehash: 460a52da7e0c0a47b77d4c64e76641bae9da7cd6
-ms.sourcegitcommit: 5dcfeb59179e81071f54840d4902cbe00b184294
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857516"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "61659879"
 ---
 # <a name="join-by-using-composite-keys"></a>複合キーを使用した結合
 
@@ -36,7 +36,7 @@ join...on new {Name = o.CustomerName, ID = o.CustID} equals
 
 複合キーは、`group` 句でも使用できます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [統合言語クエリ (LINQ)](index.md)
 - [join 句](../language-reference/keywords/join-clause.md)

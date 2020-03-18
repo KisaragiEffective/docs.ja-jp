@@ -9,18 +9,18 @@ helpviewer_keywords:
 - Web service binding [WPF]
 - data binding [WPF], Web service
 ms.assetid: 77e2d373-69ba-4cbd-b6f5-2c83c38fc98b
-ms.openlocfilehash: d752f4815de16daa466302881116e80aceec6edf
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: 3a3f6edc974448ddab9fe30e97bdc1130d3b97dc
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73040902"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77449973"
 ---
 # <a name="how-to-bind-to-a-web-service"></a>方法 : Web サービスにバインドする
 この例では、Web サービスメソッド呼び出しによって返されるオブジェクトにバインドする方法を示します。  
   
 ## <a name="example"></a>例  
- この例では、 [MSDN/TechNet Publishing System (MTPS) コンテンツサービス](https://go.microsoft.com/fwlink/?LinkId=95677)を使用して、指定されたドキュメントでサポートされている言語の一覧を取得します。  
+ この例では、MSDN/TechNet Publishing System (MTPS) コンテンツサービスを使用して、指定されたドキュメントでサポートされている言語の一覧を取得します。  
   
  Web サービスを呼び出す前に、その Web サービスへの参照を作成する必要があります。 Visual Studio を使用して MTPS サービスへの Web 参照を作成するには、次の手順に従います。  
   
@@ -45,8 +45,8 @@ ms.locfileid: "73040902"
   
  `getContentResponse`の構造の詳細については、[コンテンツサービスのドキュメント](https://services.msdn.microsoft.com/ContentServices/ContentService.asmx)を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [データ バインディングの概要](data-binding-overview.md)
+- [データ バインディングの概要](../../../desktop-wpf/data/data-binding-overview.md)
 - [バインディング ソースの概要](binding-sources-overview.md)
 - [XAML でデータをバインディング可能にする](how-to-make-data-available-for-binding-in-xaml.md)

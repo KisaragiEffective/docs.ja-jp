@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 0a65e2a4-5bb6-496c-ae6f-40474426b5a6
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8aeb6ed448539db2720fee0d42cfcc344fd3bbf7
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: da532ee1b5909a68bedbb9e6f6c96333e88002a8
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67762765"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73109728"
 ---
 # <a name="icordebugmoduleenablejitdebugging-method"></a>ICorDebugModule::EnableJITDebugging メソッド
-ジャストイン タイム (JIT) コンパイラがこのモジュール内でメソッドのデバッグ情報を保持するかどうかを制御します。  
+Just-in-time (JIT) コンパイラが、このモジュール内のメソッドのデバッグ情報を保持するかどうかを制御します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,16 +36,16 @@ HRESULT EnableJITDebugging(
   
 ## <a name="parameters"></a>パラメーター  
  `bTrackJITInfo`  
- [in]この値に設定`true`Microsoft intermediate language (MSIL) のバージョンと、このモジュール内の各メソッドの JIT コンパイルされたバージョン間のマッピング情報を保持するために、JIT コンパイラを有効にします。  
+ からこの値を `true` に設定すると、JIT コンパイラは、このモジュールの各メソッドの MSIL (Microsoft 中間言語) バージョンと JIT コンパイルバージョンとの間のマッピング情報を保持できます。  
   
  `bAllowJitOpts`  
- [in]この値に設定`true`デバッグの特定の特定の JIT 最適化を使用したコードを生成する、JIT コンパイラを有効にします。  
+ からこの値を `true` に設定すると、JIT コンパイラはデバッグのために特定の JIT 固有の最適化を使用してコードを生成できます。  
   
 ## <a name="remarks"></a>Remarks  
- 既定では、デバッガーがアクティブなときに読み込まれているすべてのモジュール、JIT デバッグを有効になっています。 プログラムでを有効または無効にするには、グローバル設定よりも優先されます。  
+ JIT デバッグは、デバッガーがアクティブなときに読み込まれるすべてのモジュールに対して、既定で有効になっています。 プログラムを使用して設定を有効または無効にすると、グローバル設定が上書きされます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

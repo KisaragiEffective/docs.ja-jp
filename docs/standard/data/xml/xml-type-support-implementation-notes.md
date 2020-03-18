@@ -3,14 +3,12 @@ title: XML 型サポートの実装に関するメモ
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: 26b071f3-1261-47ef-8690-0717f5cd93c1
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 817d48e15f3a1d370e1953ca9c9aa8e10baa7f29
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
-ms.translationtype: HT
+ms.openlocfilehash: 40ab0f746ef82ccd195fc6b873f5c8edb255f868
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69916027"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75709869"
 ---
 # <a name="xml-type-support-implementation-notes"></a>XML 型サポートの実装に関するメモ
 このトピックでは、認識しておく必要があるいくつかの実装上の詳細について説明します。  
@@ -34,7 +32,7 @@ ms.locfileid: "69916027"
   
  <xref:System.TimeSpan> クラスは、この部分的な順序付けをサポートしません。 その代わりに、1 年および 1 か月に特定の日数 (それぞれ 365 日と 30 日) を使用します。  
   
- `xs:duration` 型の詳細については、W3C の「[XML Schema Part 2: Datatypes Recommendation](https://www.w3.org/TR/xmlschema-2/)」 (XML スキーマ第 2 部: データ型の推奨事項) を参照してください。
+ `xs:duration` 型の詳細については、W3C の 「[XML Schema Part 2: Datatypes Recommendation](https://www.w3.org/TR/xmlschema-2/)」(XML スキーマ 第 2 部: データ型の推奨事項) を参照してください。
   
 ### <a name="xstime-gregorian-date-types-and-systemdatetime"></a>xs:time、グレオリオ暦の日付、および System.DateTime  
  `xs:time` 値が <xref:System.DateTime> オブジェクトにマップされている場合、<xref:System.DateTime.MinValue> フィールドは <xref:System.DateTime> オブジェクトの日付プロパティ (<xref:System.DateTime.Year%2A>、<xref:System.DateTime.Month%2A>、<xref:System.DateTime.Day%2A> など) を可能な最小の <xref:System.DateTime> 値に初期化するために使用されます。  

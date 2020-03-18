@@ -15,20 +15,18 @@ helpviewer_keywords:
 ms.assetid: fffe5616-0896-4426-ab5e-21869b514883
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: de37bb34aee9b6536ff892ac30855761bcc69445
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 2d3f8360a1fb1164fd4e26f85246251409bee376
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69963129"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76788961"
 ---
 # <a name="icordebugterminate-method"></a>ICorDebug::Terminate メソッド
-オブジェクトを`ICorDebug`終了します。  
+`ICorDebug` オブジェクトを終了します。  
   
 > [!NOTE]
-> `Terminate`デバッグされているすべてのプロセスに対して、 [ExitProcess Callback callback::](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-exitprocess-method.md) callback が受信されるまでは呼び出さないでください。  
+> デバッグ中のすべてのプロセスに対して、 [ExitProcess callback::](icordebugmanagedcallback-exitprocess-method.md)コールバックを受信するまでは、`Terminate` を呼び出すことはできません。  
   
 ## <a name="syntax"></a>構文  
   
@@ -36,18 +34,18 @@ ms.locfileid: "69963129"
 HRESULT Terminate ();  
 ```  
   
-## <a name="remarks"></a>Remarks  
- `Terminate`オブジェクトが不要になっ`ICorDebug`た場合は、を呼び出す必要があります。  
+## <a name="remarks"></a>コメント  
+ `ICorDebug` オブジェクトが不要になった場合は、`Terminate` を呼び出す必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebug インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebug-interface.md)
+- [ICorDebug インターフェイス](icordebug-interface.md)

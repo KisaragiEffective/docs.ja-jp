@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c30a4ce3-2d3e-411a-98df-e62ac4a5dd50
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: f005ee9d3d9d4b8977cd6a1838fe46015e604df5
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 3dfdd473b01bfe83def52f957c52e0f4d11375ad
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777471"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74434386"
 ---
 # <a name="imetadataemitdefinetyperefbyname-method"></a>IMetaDataEmit::DefineTypeRefByName メソッド
-現在のスコープ外には、指定したスコープで定義されている型のメタデータ トークンを取得します。  
+現在のスコープ外にある、指定されたスコープで定義されている型のメタデータトークンを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,34 +37,34 @@ HRESULT DefineTypeRefByName (
   
 ## <a name="parameters"></a>パラメーター  
  `tkResolutionScope`  
- [in]解決スコープを指定するトークンです。 次のトークン型は有効です。  
+ から解決スコープを指定するトークン。 有効なトークンの種類は次のとおりです。  
   
-- `mdModuleRef`、呼び出し元が定義されている同じアセンブリで型が定義されている場合。  
+- 型が、呼び出し元が定義されている同じアセンブリで定義されている場合は `mdModuleRef`。  
   
-- `mdAssemblyRef`、呼び出し元が定義されているもの以外のアセンブリで型が定義されている場合。  
+- 型が、呼び出し元が定義されているアセンブリ以外のアセンブリで定義されている場合は `mdAssemblyRef`。  
   
-- `mdTypeRef`、型が入れ子にされた型の場合。  
+- 型が入れ子にされた型の場合は `mdTypeRef`。  
   
-- `mdModule`、、型が、呼び出し元が定義されている同じモジュールで定義されている場合。  
+- 型が、呼び出し元が定義されている同じモジュールで定義されている場合は `mdModule`。  
   
-- 型がグローバルに定義されている場合は null です。  
+- 型がグローバルに定義されている場合は Null。  
   
  `szName`  
- [in]Unicode で対象の型の名前。  
+ からUnicode での対象の型の名前。  
   
  `ptr`  
- [out]ポインター、`mdTypeRef`型に割り当てられているトークンです。  
+ 入出力型に割り当てられている `mdTypeRef` トークンへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MSCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataEmit インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-interface.md)
 - [IMetaDataEmit2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-interface.md)

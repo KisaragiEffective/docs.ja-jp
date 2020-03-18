@@ -10,15 +10,15 @@ helpviewer_keywords:
 - validation of PrintTickets [WPF]
 - PrintTicket [WPF], validation
 ms.assetid: 4fe2d501-d0b0-4fef-86af-6ffe6c162532
-ms.openlocfilehash: 15e328729886e0f1efc3b47705fcb4ce13013137
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: bd7f399555b343a52ec6f36aa3b8c706747d8b06
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73035571"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77094528"
 ---
 # <a name="how-to-validate-and-merge-printtickets"></a>方法 : PrintTickets を検証およびマージする
-Microsoft Windows[印刷スキーマ](https://go.microsoft.com/fwlink/?LinkId=186397)には、柔軟で拡張可能な <xref:System.Printing.PrintCapabilities> と <xref:System.Printing.PrintTicket> の要素が含まれています。 前者は印刷デバイスの機能を示しています。後者では、デバイスが特定の順序のドキュメント、個々のドキュメント、または個々のページに対してこれらの機能をどのように使用するかを指定します。  
+Microsoft Windows[印刷スキーマ](/windows/win32/printdocs/printschema)には、柔軟で拡張可能な <xref:System.Printing.PrintCapabilities> と <xref:System.Printing.PrintTicket> の要素が含まれています。 前者は印刷デバイスの機能を示しています。後者では、デバイスが特定の順序のドキュメント、個々のドキュメント、または個々のページに対してこれらの機能をどのように使用するかを指定します。  
   
  印刷をサポートするアプリケーションの一般的なタスクシーケンスは、次のとおりです。  
   
@@ -56,7 +56,7 @@ Microsoft Windows[印刷スキーマ](https://go.microsoft.com/fwlink/?LinkId=18
  [!code-csharp[PrintTicketManagment#UIForMergeAndValidatePTUtility](~/samples/snippets/csharp/VS_Snippets_Wpf/PrintTicketManagment/CSharp/printticket.cs#uiformergeandvalidateptutility)]
  [!code-vb[PrintTicketManagment#UIForMergeAndValidatePTUtility](~/samples/snippets/visualbasic/VS_Snippets_Wpf/PrintTicketManagment/visualbasic/printticket.vb#uiformergeandvalidateptutility)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Printing.PrintCapabilities>
 - <xref:System.Printing.PrintTicket>
@@ -67,4 +67,4 @@ Microsoft Windows[印刷スキーマ](https://go.microsoft.com/fwlink/?LinkId=18
 - <xref:System.Printing.PrintQueue.GetPrintCapabilities%2A>
 - [WPF のドキュメント](documents-in-wpf.md)
 - [印刷の概要](printing-overview.md)
-- [スキーマの印刷](https://go.microsoft.com/fwlink/?LinkId=186397)
+- [スキーマの印刷](/windows/win32/printdocs/printschema)

@@ -1,12 +1,12 @@
 ---
 ms.openlocfilehash: a4e20e0468d861138ad801c9dbfa15340b3f388c
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "72394284"
 ---
-### <a name="authentication-oauthhandler-exchangecodeasync-signature-changed"></a>認証: OAuthHandler ExchangeCodeAsync 署名が変更されました
+### <a name="authentication-oauthhandler-exchangecodeasync-signature-changed"></a>認証:OAuthHandler ExchangeCodeAsync 署名が変更されました
 
 ASP.NET Core 3.0 では、`OAuthHandler.ExchangeCodeAsync` の署名が次のように変更されました。
 
@@ -36,7 +36,7 @@ protected virtual System.Threading.Tasks.Task<Microsoft.AspNetCore.Authenticatio
 
 この変更により、追加のパラメーターを中断することなく提供できます。 新しい `ExchangeCodeAsync` オーバーロードを作成する必要はありません。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 適切な `code` と `redirectUri` の値を使用して、`OAuthCodeExchangeContext` を作成します。 <xref:Microsoft.AspNetCore.Authentication.AuthenticationProperties> インスタンスを指定する必要があります。 この 1 つの `OAuthCodeExchangeContext` インスタンスは、複数の引数ではなく、`OAuthHandler.ExchangeCodeAsync` に渡すことができます。
 

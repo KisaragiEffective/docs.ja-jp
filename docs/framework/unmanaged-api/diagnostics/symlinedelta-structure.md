@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 9634e995-d46d-4397-ab66-cc5781d11e4e
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: d98ebed2eb853d5dc8177b0b044bf654c3978494
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: a1e83e4b8cb6603029f3b42b1a3b9ba4810c9039
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67744349"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74438016"
 ---
 # <a name="symlinedelta-structure"></a>SYMLINEDELTA 構造体
-編集の結果として移動されたメソッドに関する情報をシンボル ハンドラーを提供します。  
+編集の結果として移動されたメソッドについて、シンボルハンドラーに情報を提供します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,12 +38,12 @@ typedef struct _SYMLINEDELTA
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`mdMethod`|メソッドのメタデータ トークンです。|  
+|`mdMethod`|メソッドのメタデータトークン。|  
 |`delta`|メソッドが移動された行の数。|  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** CorSym .idl  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [シンボル ストア診断構造体](../../../../docs/framework/unmanaged-api/diagnostics/diagnostics-symbol-store-structures.md)

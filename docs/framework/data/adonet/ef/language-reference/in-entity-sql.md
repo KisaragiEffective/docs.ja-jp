@@ -29,17 +29,17 @@ value [ NOT ] IN expression
  一致の判定対象のコレクションを返す任意の有効な式。 すべての式は、 `value`と同じ型であるか、共通の基本型または派生型である必要があります。  
   
 ## <a name="return-value"></a>戻り値  
- コレクションに値が見つかった場合は `true`、値が null またはコレクションが null の場合は null、それ以外の場合は `false` が返されます。 NOT IN を使用すると、IN の結果が否定されます。  
+ 値がコレクション内で見つかった場合は `true` します。値が null の場合、またはコレクションが null の場合は null です。それ以外の場合は、`false`ます。 NOT IN を使用すると、IN の結果が否定されます。  
   
 ## <a name="example"></a>例  
  次の Entity SQL クエリでは、IN 演算子を使用して、コレクション内に一致する値があるかどうかを調べます。 このクエリは、AdventureWorks Sales Model に基づいています。 このクエリをコンパイルして実行するには、次の手順を実行します。  
   
-1. @No__t の手順に従います。StructuralType Results @ no__t-0 を返すクエリを実行します。  
+1. 「 [How to: Execute a Query that Returns StructuralType Results](../how-to-execute-a-query-that-returns-structuraltype-results.md)」の手順に従います。  
   
 2. 次のクエリを引数として `ExecuteStructuralTypeQuery` メソッドに渡します。  
   
  [!code-sql[DP EntityServices Concepts#IN](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#in)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Entity SQL リファレンス](entity-sql-reference.md)

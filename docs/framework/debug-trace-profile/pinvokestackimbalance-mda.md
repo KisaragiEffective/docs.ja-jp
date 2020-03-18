@@ -10,25 +10,23 @@ helpviewer_keywords:
 - PInvokeStackImbalance MDA
 - managed debugging assistants (MDAs), platform invoke
 ms.assetid: 34ddc6bd-1675-4f35-86aa-de1645d5c631
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: dc4a48c79fc39b12f8231bd913b4ca8970c0f46f
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: c789e8cb409bd4c59c91d6b646efe428afe7c86d
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052364"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217241"
 ---
 # <a name="pinvokestackimbalance-mda"></a>PInvokeStackImbalance MDA
 
-マネージデバッグアシスタント (MDA) は、プラットフォーム呼び出しの後のスタックの深さが、予想されるスタックの深さと一致しないことを CLR が検出したときに<xref:System.Runtime.InteropServices.DllImportAttribute>アクティブ化されます。これには、属性で指定した呼び出し規約と、 `PInvokeStackImbalance`マネージシグネチャ内のパラメーターの宣言。
+`PInvokeStackImbalance` マネージデバッグアシスタント (MDA) は、プラットフォーム呼び出しの後のスタックの深さが予想されるスタックの深さと一致しないことを CLR が検出したときにアクティブ化されます。これには、<xref:System.Runtime.InteropServices.DllImportAttribute> 属性で指定された呼び出し規則とマネージシグネチャのパラメーターの宣言が含まれます。
 
 `PInvokeStackImbalance` MDA は 32 ビット x86 プラットフォームに対してのみ実装されています。
 
 > [!NOTE]
-> MDA `PInvokeStackImbalance`は、既定では無効になっています。 Visual Studio 2017 では、 `PInvokeStackImbalance` **[例外設定]** ダイアログボックスの **[マネージデバッグアシスタント]** の一覧に MDA が表示されます > ([**Windows**  >  **のデバッグ] を選択すると表示されます)。例外設定**)。 ただし、[スローされ**たときに中断**する] チェックボックスをオンまたはオフにしても、MDA は有効または無効になりません。MDA がアクティブになったときに Visual Studio が例外をスローするかどうかのみを制御します。
+> `PInvokeStackImbalance` MDA は、既定では無効になっています。 Visual Studio 2017 以降のバージョンでは、`PInvokeStackImbalance` MDA が **例外設定** ダイアログボックスの **マネージデバッグアシスタント** の一覧に表示されます (**デバッグ** > **Windows** > **例外設定**を選択した場合に表示されます)。 ただし、[スローされ**たときに中断**する] チェックボックスをオンまたはオフにしても、MDA は有効または無効になりません。MDA がアクティブになったときに Visual Studio が例外をスローするかどうかのみを制御します。
 
-## <a name="symptoms"></a>症状
+## <a name="symptoms"></a>現象
 
 プラットフォーム呼び出しの実行時または実行後に、アプリケーションでアクセス違反またはメモリ破損が発生します。
 
@@ -60,7 +58,7 @@ MDA メッセージが、スタックの不均衡の原因であるプラット�
 </mdaConfig>
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.InteropServices.MarshalAsAttribute>
 - [マネージド デバッグ アシスタントによるエラーの診断](diagnosing-errors-with-managed-debugging-assistants.md)

@@ -1,5 +1,5 @@
 ---
-title: NumericUpDown コントロールの概要 (Windows フォーム)
+title: NumericUpDown コントロールの概要
 ms.date: 03/30/2017
 f1_keywords:
 - NumericUpDown
@@ -8,24 +8,24 @@ helpviewer_keywords:
 - NumericUpDown control [Windows Forms], about NumericUpDown control
 - spin button control [Windows Forms], Windows Forms
 ms.assetid: cff3cf30-4d46-4381-87df-37bfe83c71c5
-ms.openlocfilehash: 218eb685e546acac76a18450612a1601ab87276b
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 3e24fa543df9028e9866d91ec60c3cf88578ac56
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61805763"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76740805"
 ---
 # <a name="numericupdown-control-overview-windows-forms"></a>NumericUpDown コントロールの概要 (Windows フォーム)
-<xref:System.Windows.Forms.NumericUpDown>コントロールがテキスト ボックスの組み合わせと 1 対の矢印、値を調整する、ユーザーがクリックできるようになります。 コントロールは、表示し、固定の数値の選択肢の一覧から 1 つの数値を設定します。 ユーザーは、増加し、上下の矢印キーを押すか、コントロールのテキスト ボックスの一部で数値を入力して下矢印をクリックして、数を減らします。 上矢印キーをクリックすると、数値が最大方向を移動します。下方向キーをクリックすると、数値が最低限の方向が移動します。  
+<xref:System.Windows.Forms.NumericUpDown> コントロールは、テキストボックスと、ユーザーがクリックして値を調整できる矢印の組み合わせのように見えます。 コントロールは、固定された数値値の選択肢の一覧から1つの数値を表示および設定します。 ユーザーは、上矢印と下矢印をクリックするか、上方向キーまたは下方向キーを押すか、コントロールのテキストボックスの部分に数値を入力することによって、数値を増減できます。 上方向キーをクリックすると、数値が最大値に移動します。下方向キーをクリックすると、数値が最小値に移動します。  
   
- では、汎用的な機能のためこのコントロールは、ミュージック プレーヤー アプリケーションのボリューム コントロールを作成する場合など、明白な選択肢では、が。 <xref:System.Windows.Forms.NumericUpDown>コントロールは、多くの Windows コントロール パネル アプリケーションで使用されます。  
+ このコントロールは、さまざまな用途に対応しているため、音楽プレーヤーアプリケーションのボリュームコントロールを作成する場合などに、このコントロールを選択することをお勧めします。 <xref:System.Windows.Forms.NumericUpDown> コントロールは、多くの Windows コントロールパネルアプリケーションで使用されます。  
   
-## <a name="key-properties-and-methods"></a>キー プロパティとメソッド  
- コントロールのテキスト ボックスに表示する数値は 16 進数などの形式のさまざまなで指定できます。 詳細については、「[方法 :Windows フォームの NumericUpDown コントロールの書式を設定](how-to-set-the-format-for-the-windows-forms-numericupdown-control.md)します。 コントロールのプロパティは<xref:System.Windows.Forms.NumericUpDown.Value%2A>、 <xref:System.Windows.Forms.NumericUpDown.Maximum%2A> (既定値は 100)、 <xref:System.Windows.Forms.NumericUpDown.Minimum%2A> (既定値 0)、および<xref:System.Windows.Forms.NumericUpDown.Increment%2A>(既定値 1)。 <xref:System.Windows.Forms.NumericUpDown.Value%2A>プロパティ、コントロールで選択されている現在の数を設定します。 <xref:System.Windows.Forms.NumericUpDown.Increment%2A>プロパティは、ユーザーが上向きまたは下向きの矢印に数を調整する量を設定します。 コントロールからフォーカスが移動と、は、最小値と最大の数値に対して任意の型指定された入力が検証されます。 継続的に押す矢印または下向き矢印、数字、を通じてコントロールを移動する速度を上げることで、<xref:System.Windows.Forms.NumericUpDown.Accelerations%2A>プロパティ。 コントロールの主要なメソッドは<xref:System.Windows.Forms.NumericUpDown.UpButton%2A>と<xref:System.Windows.Forms.NumericUpDown.DownButton%2A>します。  
+## <a name="key-properties-and-methods"></a>キーのプロパティとメソッド  
+ コントロールのテキストボックスに表示される数値は、16進数などのさまざまな形式にすることができます。 詳細については、「[方法: Windows フォーム NumericUpDown コントロールの形式を設定する](how-to-set-the-format-for-the-windows-forms-numericupdown-control.md)」を参照してください。 コントロールのキープロパティは、<xref:System.Windows.Forms.NumericUpDown.Value%2A>、<xref:System.Windows.Forms.NumericUpDown.Maximum%2A> (既定値は 100)、<xref:System.Windows.Forms.NumericUpDown.Minimum%2A> (既定値は 0)、および <xref:System.Windows.Forms.NumericUpDown.Increment%2A> (既定値 1) です。 <xref:System.Windows.Forms.NumericUpDown.Value%2A> プロパティは、コントロールで選択されている現在の数値を設定します。 <xref:System.Windows.Forms.NumericUpDown.Increment%2A> プロパティは、ユーザーが上矢印または下矢印をクリックしたときに、数値が調整される量を設定します。 フォーカスがコントロールから移動すると、型指定された入力は、最小値と最大値に対して検証されます。 ユーザーが <xref:System.Windows.Forms.NumericUpDown.Accelerations%2A> プロパティを使用して上矢印または下矢印を連続して押すと、コントロールが数値を移動する速度を上げることができます。 コントロールの主要なメソッドは <xref:System.Windows.Forms.NumericUpDown.UpButton%2A> と <xref:System.Windows.Forms.NumericUpDown.DownButton%2A>です。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.NumericUpDown>
 - [NumericUpDown コントロール](numericupdown-control-windows-forms.md)
-- [方法: Windows フォームの NumericUpDown コントロールの形式を設定します。](how-to-set-the-format-for-the-windows-forms-numericupdown-control.md)
+- [方法: Windows フォームの NumericUpDown コントロールの書式を設定する](how-to-set-the-format-for-the-windows-forms-numericupdown-control.md)
 - [TextBox コントロール](textbox-control-windows-forms.md)

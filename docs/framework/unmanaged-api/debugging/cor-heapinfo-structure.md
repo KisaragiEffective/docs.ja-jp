@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: bfb2cd39-3e0b-4d51-ba0c-f009755c1456
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: f7b340a73aa9eaebca9c0d78563ae298557039b8
-ms.sourcegitcommit: 3caa92cb97e9f6c31f21769c7a3f7c4304024b39
+ms.openlocfilehash: b6fd3682290c9752125aed7b9663c6704ade25de
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71274192"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73132331"
 ---
 # <a name="cor_heapinfo-structure"></a>COR_HEAPINFO 構造体
 列挙可能かどうかなど、ガベージ コレクション ヒープに関する情報が提供されます。  
@@ -42,23 +40,23 @@ typedef struct _COR_HEAPINFO {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`areGCStructuresValid`|`true`ガベージコレクション構造体が有効で、ヒープを列挙できる場合は。それ以外`false`の場合は。|  
+|`areGCStructuresValid`|ガベージコレクション構造が有効で、ヒープを列挙できるかどうかを `true` します。それ以外の場合は、`false`ます。|  
 |`pointerSize`|ターゲットアーキテクチャのポインターのサイズ (バイト単位)。|  
 |`numHeaps`|プロセス内の論理ガベージコレクションヒープの数。|  
-|`concurrent`|`TRUE`同時実行 (バックグラウンド) ガベージコレクションが有効な場合は。それ以外`FALSE`の場合は。|  
+|`concurrent`|同時実行 (バックグラウンド) ガベージコレクションが有効になっている場合に `TRUE` します。それ以外の場合は、`FALSE`ます。|  
 |`gcType`|ガベージコレクターがワークステーションまたはサーバーのどちらで実行されているかを示す[CorDebugGCType](cordebuggctype-enumeration.md)列挙体のメンバー。|  
   
-## <a name="remarks"></a>コメント  
- `COR_HEAPINFO`構造体のインスタンスは、 [ICorDebugProcess5:: getg apinformation](icordebugprocess5-getgcheapinformation-method.md)メソッドを呼び出すことによって返されます。  
+## <a name="remarks"></a>Remarks  
+ [ICorDebugProcess5:: Getg](icordebugprocess5-getgcheapinformation-method.md)メソッドを呼び出すことによって、`COR_HEAPINFO` 構造体のインスタンスが返されます。  
   
- ガベージコレクションヒープ上のオブジェクトを列挙する前に、必ずフィールド`areGCStructuresValid`をチェックして、ヒープが列挙可能な状態であることを確認する必要があります。 詳細については、「 [ICorDebugProcess5:: Getg](icordebugprocess5-getgcheapinformation-method.md) 」を参照してください。  
+ ガベージコレクションヒープのオブジェクトを列挙する前に、必ず `areGCStructuresValid` フィールドをチェックして、ヒープが列挙可能な状態であることを確認する必要があります。 詳細については、「 [ICorDebugProcess5:: Getg](icordebugprocess5-getgcheapinformation-method.md) 」を参照してください。  
   
-## <a name="requirements"></a>要件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v45plus](../../../../includes/net-current-v45plus-md.md)]  
   

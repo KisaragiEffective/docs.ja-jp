@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: bac0b156-31a3-4e7f-be4d-ab21789c81f1
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d6eb97fc70fec25f4b225c3fd5bad1e780091f7c
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 23ad8882ad97e5ceaeb690dfae08a6be55b85f64
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67771034"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76791854"
 ---
 # <a name="icordebugstackwalksetcontext-method"></a>ICorDebugStackWalk::SetContext メソッド
-セット、 [ICorDebugStackWalk](../../../../docs/framework/unmanaged-api/debugging/icordebugstackwalk-interface.md)オブジェクトの現在のスレッドの有効なコンテキストのコンテキスト。  
+[オブジェクトの現在のコンテキスト](icordebugstackwalk-interface.md)をスレッドの有効なコンテキストに設定します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,35 +35,35 @@ HRESULT SetContext([in] CorDebugSetContextFlag flag,
   
 ## <a name="parameters"></a>パラメーター  
  `flag`  
- [in]A [CorDebugSetContextFlag](../../../../docs/framework/unmanaged-api/debugging/cordebugsetcontextflag-enumeration.md)かどうか、コンテキストは、スタックのアクティブなフレームから、またはスタックのアンワインドで取得したコンテキストを示すフラグです。  
+ からコンテキストがスタックのアクティブなフレームからのものであるか、またはスタックのアンワインドによって取得されたコンテキストであるかを示す[Cordebugsetcontextflag](cordebugsetcontextflag-enumeration.md)フラグ。  
   
  `contextSize`  
- [in]割り当てのサイズ、`CONTEXT`バッファー。  
+ から`CONTEXT` バッファーに割り当てられたサイズ。  
   
  `context`  
- [in]`CONTEXT`バッファー。  
+ から`CONTEXT` バッファー。  
   
 ## <a name="return-value"></a>戻り値  
  このメソッドは、次の特定の HRESULT と、メソッドの失敗を示す HRESULT エラーも返します。  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`ICorDebugStackWalk`オブジェクトのコンテキストが正常に設定します。|  
-|E_FAIL|`ICorDebugStackWalk`オブジェクトのコンテキストが設定されませんでした。|  
+|S_OK|`ICorDebugStackWalk` オブジェクトのコンテキストが正常に設定されました。|  
+|E_FAIL|`ICorDebugStackWalk` オブジェクトのコンテキストが設定されませんでした。|  
 |E_INVALIDARG|コンテキストが null です。|  
-|HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER)|コンテキスト バッファーが小さすぎます。|  
+|HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER)|コンテキストバッファーが小さすぎます。|  
   
 ## <a name="exceptions"></a>例外  
   
-## <a name="remarks"></a>Remarks  
- このメソッドでは、スレッドの現在のコンテキストは変更されません。  
+## <a name="remarks"></a>コメント  
+ このメソッドは、スレッドの現在のコンテキストを変更しません。  
   
- 無効なコンテキストを現在のコンテキストを設定すると、スタック ウォーカーから予期しない結果があります可能性。  
+ 現在のコンテキストを無効なコンテキストに設定すると、スタックウォーカーから予期しない結果が発生する可能性があります。  
   
- このコンテキストの正確なビットごとのコピーを取得するにはすぐに呼び出すことによって、 [icordebugstackwalk::getcontext](../../../../docs/framework/unmanaged-api/debugging/icordebugstackwalk-getcontext-method.md)メソッド。  
+ このコンテキストの完全なビットごとのコピーを取得するには、次のようにして、" [GetContext](icordebugstackwalk-getcontext-method.md) " メソッドを直ちに呼び出します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -75,5 +73,5 @@ HRESULT SetContext([in] CorDebugSetContextFlag flag,
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)
+- [デバッグ](index.md)

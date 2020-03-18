@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 017a7ba5-aaaf-44e2-9cbe-ceebef259df0
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 215eb3a508a746230d36fdda3e8ba992287be62c
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: e3e50538bde8fe3509b49e3dbcb031875e6863e5
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796830"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127118"
 ---
 # <a name="iassemblycachecreateassemblycacheitem-method"></a>IAssemblyCache::CreateAssemblyCacheItem メソッド
 新しい[Iassemblycacheitem](iassemblycacheitem-interface.md)オブジェクトへの参照を取得します。  
@@ -47,16 +45,16 @@ HRESULT CreateAssemblyCacheItem (
 - IASSEMBLYCACHE_INSTALL_FLAG_FORCE_REFRESH (0x00000002)  
   
  `pvReserved`  
- [入力] 将来の機能拡張に備えて予約されています。 `pvReserved`null 参照である必要があります。  
+ [入力] 将来の機能拡張に備えて予約されています。 `pvReserved` は null 参照である必要があります。  
   
  `ppAsmItem`  
- 入出力返され`IAssemblyCacheItem`たポインター。  
+ 入出力返された `IAssemblyCacheItem` ポインター。  
   
  `pszAssemblyName`  
- [in、optional]正規化が解除、コンマ`name=value`区切りのペア。  
+ [in、optional]正規化が解除、コンマ区切りの `name=value` ペア。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Fusion. h  
   

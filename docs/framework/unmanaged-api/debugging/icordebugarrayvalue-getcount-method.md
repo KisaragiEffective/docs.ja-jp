@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 44cd98cf-2127-4d46-8c6a-da4e857bb6b0
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: e45f49d17a5b71abfb58ff8c0126abad49322c5b
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: f33225eae4b62f2d5f0793212ae7dcc70e97f508
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737590"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73088529"
 ---
 # <a name="icordebugarrayvaluegetcount-method"></a>ICorDebugArrayValue::GetCount メソッド
-配列の要素の合計数を取得します。  
+配列内の要素の合計数を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT GetCount (
   
 ## <a name="parameters"></a>パラメーター  
  `pnCount`  
- [out]配列内の要素の総数へのポインター。  
+ 入出力配列内の要素の合計数へのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

@@ -1,63 +1,41 @@
 ---
-title: '方法: 長時間にわたって実行されるワークフローを作成して実行する'
+title: 実行時間の長いワークフローを作成および実行する方法
 ms.date: 03/30/2017
 dev_langs:
 - csharp
 - vb
 ms.assetid: c0043c89-2192-43c9-986d-3ecec4dd8c9c
-ms.openlocfilehash: 15ee10120f4d4c92bdc95cb48cb3cb838f526343
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 10eb4e2947bed9cea89f1cda05272aa3fa0fadaa
+ms.sourcegitcommit: 81ad1f09b93f3b3e6706a7f2e4ddf50ef229ea3d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70044374"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74204892"
 ---
-# <a name="how-to-create-and-run-a-long-running-workflow"></a>方法: 長時間にわたって実行されるワークフローを作成して実行する
+# <a name="how-to-create-and-run-a-long-running-workflow"></a>実行時間の長いワークフローを作成および実行する方法
 
-Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル状態のワークフローをデータベースに永続化してアンロードするランタイムの機能です。 手順[は次のとおりです。ワークフロー](how-to-run-a-workflow.md)を実行し、コンソールアプリケーションを使用したワークフローホスティングの基本について説明します。 ワークフローの開始、ワークフロー ライフサイクル ハンドラー、およびブックマークの再開の例を紹介しました。 ワークフローの永続化を効果的に説明するためには、複数のワークフロー インスタンスの開始と再開をサポートするより複雑なワークフロー ホストが必要です。 チュートリアルのこの手順では、複数のワークフロー インスタンスの開始と再開およびワークフローの永続化をサポートする Windows フォーム ホスト アプリケーションを作成する方法について説明します。また、この手順は、以降の手順で説明する追跡やバージョン管理などの高度な機能の基礎となります。
+Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル状態のワークフローをデータベースに永続化してアンロードするランタイムの機能です。 [「方法: ワークフローを実行する](how-to-run-a-workflow.md)」の手順では、コンソールアプリケーションを使用したワークフローホスティングの基本について説明しています。 ワークフローの開始、ワークフロー ライフサイクル ハンドラー、およびブックマークの再開の例を紹介しました。 ワークフローの永続化を効果的に説明するためには、複数のワークフロー インスタンスの開始と再開をサポートするより複雑なワークフロー ホストが必要です。 チュートリアルのこの手順では、複数のワークフロー インスタンスの開始と再開およびワークフローの永続化をサポートする Windows フォーム ホスト アプリケーションを作成する方法について説明します。また、この手順は、以降の手順で説明する追跡やバージョン管理などの高度な機能の基礎となります。
 
 > [!NOTE]
-> このチュートリアルの手順と以降の手順では、次の[3 種類のワークフローを使用します。ワークフロー](how-to-create-a-workflow.md)を作成します。 3種類すべてを完了していない場合は、 [Windows Workflow Foundation (WF45)-はじめにチュートリアル](https://go.microsoft.com/fwlink/?LinkID=248976)から完了したバージョンの手順をダウンロードできます。
+> このチュートリアルの手順と以降の手順では、 [「方法: ワークフローを作成する](how-to-create-a-workflow.md)」の3種類のワークフローをすべて使用します。 3種類すべてを完了していない場合は、 [Windows Workflow Foundation (WF45)-はじめにチュートリアル](https://go.microsoft.com/fwlink/?LinkID=248976)から完了したバージョンの手順をダウンロードできます。
 
 > [!NOTE]
 > チュートリアルの完成したバージョンをダウンロードしたり、ビデオチュートリアルを表示したりするには、「 [Windows Workflow Foundation (WF45)-はじめにチュートリアル](https://go.microsoft.com/fwlink/?LinkID=248976)」を参照してください。
 
-## <a name="in-this-topic"></a>このトピックの内容
-
-- [永続性データベースを作成するには](how-to-create-and-run-a-long-running-workflow.md#BKMK_CreatePersistenceDatabase)
-
-- [System.activities.durableinstancing.instances アセンブリへの参照を追加するには](how-to-create-and-run-a-long-running-workflow.md#BKMK_AddReference)
-
-- [ワークフローホストフォームを作成するには](how-to-create-and-run-a-long-running-workflow.md#BKMK_CreateForm)
-
-- [フォームのプロパティとヘルパーメソッドを追加するには](how-to-create-and-run-a-long-running-workflow.md#BKMK_AddHelperMethods)
-
-- [インスタンスストア、ワークフローライフサイクルハンドラー、および拡張機能を構成するには](how-to-create-and-run-a-long-running-workflow.md#BKMK_ConfigureWorkflowApplication)
-
-- [複数のワークフローの種類を開始および再開できるようにするには](how-to-create-and-run-a-long-running-workflow.md#BKMK_WorkflowVersionMap)
-
-- [新しいワークフローを開始するには](how-to-create-and-run-a-long-running-workflow.md#BKMK_StartWorkflow)
-
-- [ワークフローを再開するには](how-to-create-and-run-a-long-running-workflow.md#BKMK_ResumeWorkflow)
-
-- [ワークフローを終了するには](how-to-create-and-run-a-long-running-workflow.md#BKMK_TerminateWorkflow)
-
-- [アプリケーションをビルドして実行するには](how-to-create-and-run-a-long-running-workflow.md#BKMK_BuildAndRun)
-
-### <a name="BKMK_CreatePersistenceDatabase"></a>永続性データベースを作成するには
+## <a name="to-create-the-persistence-database"></a>永続性データベースを作成するには
 
 1. SQL Server Management Studio を開き、 **.\SQLEXPRESS**などのローカルサーバーに接続します。 ローカルサーバーの **[データベース]** ノードを右クリックし、 **[新しいデータベース]** をクリックします。 新しいデータベースに**WF45GettingStartedTutorial**という名前を指定し、他のすべての値をそのまま使用して、[ **OK]** を選択します。
 
     > [!NOTE]
     > データベースを作成する前に、ローカルサーバーに対する**Create Database**権限があることを確認してください。
 
-2. **[ファイル]** メニューの **[開く]** をクリックします。 次のフォルダーに移動します: `C:\Windows\Microsoft.NET\Framework\v4.0.30319\sql\en`。
+2. **[ファイル]** メニューの [**開く** **] をクリック**します。 次のフォルダーを参照します: *C:\Windows\Microsoft.NET\Framework\v4.0.30319\sql\en*
 
     次の2つのファイルを選択し、 **[開く]** をクリックします。
 
-    - SqlWorkflowInstanceStoreLogic.sql
+    - *SqlWorkflowInstanceStoreLogic .sql*
 
-    - SqlWorkflowInstanceStoreSchema.sql
+    - *Sqlworkflowinstancestoreschema.sql*
 
 3. **[ウィンドウ]** メニューの **[sqlworkflowinstancestoreschema.sql]** をクリックします。 **[使用できるデータベース]** ドロップダウンで**WF45GettingStartedTutorial**が選択されていることを確認し、 **[クエリ]** メニューの **[実行]** を選択します。
 
@@ -66,22 +44,22 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     > [!WARNING]
     > 前の 2 つの手順を正しい順序で実行することが重要です。 クエリが正しい順序で実行されないと、エラーが発生し、永続性データベースは正しく構成されません。
 
-### <a name="BKMK_AddReference"></a>System.activities.durableinstancing.instances アセンブリへの参照を追加するには
+## <a name="to-add-the-reference-to-the-durableinstancing-assemblies"></a>DurableInstancing アセンブリへの参照を追加するには
 
 1. **ソリューションエクスプローラー**で **[NumberGuessWorkflowHost]** を右クリックし、 **[参照の追加]** を選択します。
 
-2. **[参照の追加]** ボックスの一覧から [ `DurableInstancing` **アセンブリ**] を選択し、 **[アセンブリの検索]** ボックスに「」と入力します。 これにより、アセンブリがフィルター処理され、目的の参照を簡単に選択できます。
+2. **[参照の追加]** ボックスの一覧から **[アセンブリ]** を選択し、 **[アセンブリの検索]** ボックスに「`DurableInstancing`」と入力します。 これにより、アセンブリがフィルター処理され、目的の参照を簡単に選択できます。
 
 3. **検索結果**の一覧で**system.activities.durableinstancing.instances**と**system.activities.durableinstancing.instances**の横のチェックボックスをオンにし、[ **OK]** をクリックします。
 
-### <a name="BKMK_CreateForm"></a>ワークフローホストフォームを作成するには
+## <a name="to-create-the-workflow-host-form"></a>ワークフロー ホスト フォームを作成するには
 
 > [!NOTE]
-> この手順では、フォームを手動で追加して構成する方法について説明します。 必要に応じて、チュートリアルのソリューション ファイルをダウンロードし、完成したフォームをプロジェクトに追加できます。 チュートリアルファイルをダウンロードするには、 [Windows Workflow Foundation (WF45)-はじめにチュートリアル](https://go.microsoft.com/fwlink/?LinkID=248976)を参照してください。 ファイルがダウンロードされたら、 **NumberGuessWorkflowHost**を右クリックし、 **[参照の追加]** を選択します。 System.string および system.string への参照を追加します。 これらの参照は、 **[追加]** 、 **[新しい項目]** メニューから新しいフォームを追加した場合に自動的に追加されますが、フォームをインポートするときに手動で追加する必要があります。 参照が追加されたら、**ソリューションエクスプローラー**で **[NumberGuessWorkflowHost]** を右クリックし、 **[追加]** 、 **[既存の項目]** の順に選択します。 プロジェクトファイル内`Form`のフォルダーを参照し、 **WorkflowHostForm.cs** (または**WorkflowHostForm**) を選択して、 **[追加]** をクリックします。 フォームをインポートする場合は、次のセクションに進んで、[フォームのプロパティとヘルパーメソッドを追加](how-to-create-and-run-a-long-running-workflow.md#BKMK_AddHelperMethods)することができます。
+> この手順では、フォームを手動で追加して構成する方法について説明します。 必要に応じて、チュートリアルのソリューション ファイルをダウンロードし、完成したフォームをプロジェクトに追加できます。 チュートリアルファイルをダウンロードするには、 [Windows Workflow Foundation (WF45)-はじめにチュートリアル](https://go.microsoft.com/fwlink/?LinkID=248976)を参照してください。 ファイルがダウンロードされたら、 **NumberGuessWorkflowHost**を右クリックし、 **[参照の追加]** を選択します。 System.string および system.string への**参照を追加** **します。** これらの参照は、 **[追加]** 、 **[新しい項目]** メニューから新しいフォームを追加した場合に自動的に追加されますが、フォームをインポートするときに手動で追加する必要があります。 参照が追加されたら、**ソリューションエクスプローラー**で **[NumberGuessWorkflowHost]** を右クリックし、 **[追加]** 、 **[既存の項目]** の順に選択します。 プロジェクトファイルの `Form` フォルダーに移動し、 **WorkflowHostForm.cs** (または**WorkflowHostForm**) を選択し、 **[追加]** をクリックします。 フォームをインポートする場合は、次のセクションに進んで、[フォームのプロパティとヘルパーメソッドを追加](#to-add-the-properties-and-helper-methods-of-the-form)することができます。
 
 1. **ソリューションエクスプローラー**で **[NumberGuessWorkflowHost]** を右クリックし、 **[追加]** 、 **[新しい項目]** の順に選択します。
 
-2. **[インストールされ]** たテンプレート の一覧で [ `WorkflowHostForm` **Windows フォーム**] を選択し、 **[名前]** ボックスに「」と入力して、 **[追加]** をクリックします。
+2. **[インストールされ]** たテンプレート の一覧で **[Windows フォーム]** を選択し、 **[名前]** ボックスに「`WorkflowHostForm`」と入力して、 **[追加]** をクリックします。
 
 3. フォームの次のプロパティを構成します。
 
@@ -93,28 +71,28 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 
 4. 次のコントロールを指定された順序でフォームに追加し、指示に従ってプロパティを構成します。
 
-    |コントロール|"値|
+    |Control|プロパティ: 値|
     |-------------|---------------------|
-    |**Button**|名前:NewGame<br /><br /> 所在地:13, 13<br /><br /> サイズ:75, 23<br /><br /> 本文New Game|
-    |**Label**|所在地:94, 18<br /><br /> 本文Guess a number from 1 to|
-    |**ComboBox**|名前:NumberRange<br /><br /> DropDownStyleDropDownList<br /><br /> 項目:10、100、1000<br /><br /> 所在地:228, 12<br /><br /> サイズ:143, 21|
-    |**Label**|所在地:13, 43<br /><br /> 本文Workflow type|
-    |**ComboBox**|名前:WorkflowType<br /><br /> DropDownStyleDropDownList<br /><br /> 項目:Statemachinenumberguessworkflow.xaml、Flowchartnumberguessworkflow.xaml、Sequentialnumberguessworkflow.xaml<br /><br /> 所在地:94, 40<br /><br /> サイズ:277, 21|
-    |**Label**|名前:WorkflowVersion<br /><br /> 所在地:13, 362<br /><br /> 本文Workflow version|
-    |**GroupBox**|所在地:13, 67<br /><br /> サイズ:358, 287<br /><br /> 本文Game|
+    |**Button**|名前: NewGame<br /><br /> 場所:13、13<br /><br /> サイズ:75、23<br /><br /> テキスト: 新しいゲーム|
+    |**group1**|場所:94、18<br /><br /> Text: 1 からまでの数値を推測します。|
+    |**ComboBox**|名前: NumberRange<br /><br /> DropDownStyle: DropDownList<br /><br /> 項目:10、100、1000<br /><br /> 場所: 228、12<br /><br /> サイズ: 143、21|
+    |**group1**|場所:13、43<br /><br /> Text: ワークフローの種類|
+    |**ComboBox**|名前: WorkflowType<br /><br /> DropDownStyle: DropDownList<br /><br /> Items: Statemachinenumberguessworkflow.xaml、Flowchartnumberguessworkflow.xaml、Sequentialnumberguessworkflow.xaml<br /><br /> 場所:94、40<br /><br /> サイズ: 277、21|
+    |**group1**|名前: WorkflowVersion<br /><br /> 場所:13、362<br /><br /> テキスト: ワークフローバージョン|
+    |**GroupBox**|場所:13、67<br /><br /> サイズ: 358、287<br /><br /> テキスト: ゲーム|
 
     > [!NOTE]
     > 次のコントロールを追加するときに、それらを GroupBox に配置します。
 
-    |コントロール|"値|
+    |Control|プロパティ: 値|
     |-------------|---------------------|
-    |**Label**|所在地:7, 20<br /><br /> 本文ワークフロー インスタンス ID|
-    |**ComboBox**|名前:InstanceId<br /><br /> DropDownStyleDropDownList<br /><br /> 所在地:121, 17<br /><br /> サイズ:227, 21|
-    |**Label**|所在地:7, 47<br /><br /> 本文Guess|
-    |**TextBox**|名前:Guess<br /><br /> 所在地:50, 44<br /><br /> サイズ:65, 20|
-    |**Button**|名前:EnterGuess<br /><br /> 所在地:121, 42<br /><br /> サイズ:75, 23<br /><br /> 本文Enter Guess|
-    |**Button**|名前:QuitGame<br /><br /> 所在地:274, 42<br /><br /> サイズ:75, 23<br /><br /> 本文終了|
-    |**TextBox**|名前:WorkflowStatus<br /><br /> 所在地:10, 73<br /><br /> ラインTrue<br /><br /> ReadOnlyTrue<br /><br /> バーVertical<br /><br /> サイズ:338, 208|
+    |**group1**|場所: 7、20<br /><br /> テキスト: ワークフローインスタンス Id|
+    |**ComboBox**|名前: InstanceId<br /><br /> DropDownStyle: DropDownList<br /><br /> 場所: 121、17<br /><br /> サイズ: 227、21|
+    |**group1**|場所: 7、47<br /><br /> Text: Guess|
+    |**TextBox**|名前: Guess<br /><br /> 場所:50、44<br /><br /> サイズ:65、20|
+    |**Button**|名前: EnterGuess<br /><br /> 場所: 121、42<br /><br /> サイズ:75、23<br /><br /> Text: 「Guess」と入力します。|
+    |**Button**|名前: QuitGame<br /><br /> 場所: 274、42<br /><br /> サイズ:75、23<br /><br /> テキスト: 終了|
+    |**TextBox**|名前: WorkflowStatus<br /><br /> 場所:10、73<br /><br /> 複数行: True<br /><br /> ReadOnly: True<br /><br /> スクロールバー: 縦<br /><br /> サイズ: 338、208|
 
 5. フォームの**Acceptbutton**プロパティを**enterguess**に設定します。
 
@@ -122,7 +100,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 
  ![Windows Workflow Foundation ワークフローホストフォームのスクリーンショット。](./media/how-to-create-and-run-a-long-running-workflow/windows-workflow-foundation-workflowhostform.png)
 
-### <a name="BKMK_AddHelperMethods"></a>フォームのプロパティとヘルパーメソッドを追加するには
+## <a name="to-add-the-properties-and-helper-methods-of-the-form"></a>フォームのプロパティとヘルパー メソッドを追加するには
 
 このセクションの手順では、フォーム クラスに、数値推測ワークフローの実行と再開をサポートするようフォームの UI を構成するプロパティとヘルパー メソッドを追加します。
 
@@ -131,19 +109,19 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 2. 次の `using` (または `Imports`) ステートメントを、他の `using` (または `Imports`) ステートメントを含むファイルの先頭に追加します。
 
     ```vb
-    Imports System.Windows.Forms
-    Imports System.Activities.DurableInstancing
     Imports System.Activities
+    Imports System.Activities.DurableInstancing
     Imports System.Data.SqlClient
     Imports System.IO
+    Imports System.Windows.Forms
     ```
 
     ```csharp
-    using System.Windows.Forms;
-    using System.Activities.DurableInstancing;
     using System.Activities;
+    using System.Activities.DurableInstancing;
     using System.Data.SqlClient;
     using System.IO;
+    using System.Windows.Forms;
     ```
 
 3. **WorkflowHostForm**クラスに次のメンバー宣言を追加します。
@@ -151,13 +129,13 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     ```vb
     Const connectionString = "Server=.\SQLEXPRESS;Initial Catalog=WF45GettingStartedTutorial;Integrated Security=SSPI"
     Dim store As SqlWorkflowInstanceStore
-    Dim WorkflowStarting As Boolean
+    Dim workflowStarting As Boolean
     ```
 
     ```csharp
     const string connectionString = "Server=.\\SQLEXPRESS;Initial Catalog=WF45GettingStartedTutorial;Integrated Security=SSPI";
     SqlWorkflowInstanceStore store;
-    bool WorkflowStarting;
+    bool workflowStarting;
     ```
 
     > [!NOTE]
@@ -187,7 +165,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     }
     ```
 
-    コンボ`InstanceId`ボックスには、永続化されたワークフローインスタンス id の`WorkflowInstanceId`一覧が表示され、プロパティは現在選択されているワークフローを返します。
+    `InstanceId` コンボボックスには、永続化されたワークフローインスタンス id の一覧が表示され、`WorkflowInstanceId` プロパティは現在選択されているワークフローを返します。
 
 5. フォームの `Load` イベントのハンドラーを追加します。 ハンドラーを追加するには、フォームの**デザインビュー**に切り替え、 **[プロパティ]** ウィンドウの上部にある **[イベント]** アイコンをクリックして、 **[読み込み]** をダブルクリックします。
 
@@ -207,12 +185,12 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 6. `WorkflowHostForm_Load` に次のコードを追加します。
 
     ```vb
-    'Initialize the store and configure it so that it can be used for
-    'multiple WorkflowApplication instances.
+    ' Initialize the store and configure it so that it can be used for
+    ' multiple WorkflowApplication instances.
     store = New SqlWorkflowInstanceStore(connectionString)
     WorkflowApplication.CreateDefaultInstanceOwner(store, Nothing, WorkflowIdentityFilter.Any)
 
-    'Set default ComboBox selections.
+    ' Set default ComboBox selections.
     NumberRange.SelectedIndex = 0
     WorkflowType.SelectedIndex = 0
 
@@ -234,7 +212,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 
     フォームの読み込み時に、`SqlWorkflowInstanceStore` が構成され、範囲とワークフローの種類のコンボ ボックスが既定値に設定されます。さらに、永続化されたワークフロー インスタンスが `InstanceId` コンボ ボックスに追加されます。
 
-7. `SelectedIndexChanged` の `InstanceId` ハンドラーを追加します。 ハンドラーを追加するには、フォームの**デザインビュー**に切り替え、 `InstanceId`コンボボックスを選択し、 **[プロパティ]** ウィンドウの上部にある **[イベント]** アイコンをクリックして、 **[selectedindexchanged]** をダブルクリックします。
+7. `SelectedIndexChanged` の `InstanceId` ハンドラーを追加します。 ハンドラーを追加するには、フォームの**デザインビュー**に切り替えて、[`InstanceId`] コンボボックスを選択し、 **[プロパティ]** ウィンドウの上部にある **[イベント]** アイコンをクリックして、 **[selectedindexchanged]** をダブルクリックします。
 
     ```vb
     Private Sub InstanceId_SelectedIndexChanged(sender As Object, e As EventArgs) Handles InstanceId.SelectedIndexChanged
@@ -256,20 +234,20 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
         Return
     End If
 
-    'Clear the status window.
+    ' Clear the status window.
     WorkflowStatus.Clear()
 
-    'Get the workflow version and display it.
-    'If the workflow is just starting then this info will not
-    'be available in the persistence store so do not try and retrieve it.
-    If Not WorkflowStarting Then
+    ' Get the workflow version and display it.
+    ' If the workflow is just starting then this info will not
+    ' be available in the persistence store so do not try and retrieve it.
+    If Not workflowStarting Then
         Dim instance As WorkflowApplicationInstance = _
             WorkflowApplication.GetInstance(WorkflowInstanceId, store)
 
         WorkflowVersion.Text = _
             WorkflowVersionMap.GetIdentityDescription(instance.DefinitionIdentity)
 
-        'Unload the instance.
+        ' Unload the instance.
         instance.Abandon()
     End If
     ```
@@ -286,7 +264,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     // Get the workflow version and display it.
     // If the workflow is just starting then this info will not
     // be available in the persistence store so do not try and retrieve it.
-    if (!WorkflowStarting)
+    if (!workflowStarting)
     {
         WorkflowApplicationInstance instance =
             WorkflowApplication.GetInstance(this.WorkflowInstanceId, store);
@@ -305,7 +283,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     Private Sub ListPersistedWorkflows()
         Using localCon As New SqlConnection(connectionString)
             Dim localCmd As String = _
-                "Select [InstanceId] from [System.Activities.DurableInstancing].[Instances] Order By [CreationTime]"
+                "SELECT [InstanceId] FROM [System.Activities.DurableInstancing].[Instances] ORDER BY [CreationTime]"
 
             Dim cmd As SqlCommand = localCon.CreateCommand()
             cmd.CommandText = localCmd
@@ -313,7 +291,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
             Using reader As SqlDataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection)
 
                 While (reader.Read())
-                    'Get the InstanceId of the persisted Workflow.
+                    ' Get the InstanceId of the persisted Workflow.
                     Dim id As Guid = Guid.Parse(reader(0).ToString())
                     InstanceId.Items.Add(id)
                 End While
@@ -323,10 +301,10 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     ```
 
     ```csharp
-    using (SqlConnection localCon = new SqlConnection(connectionString))
+    using (var localCon = new SqlConnection(connectionString))
     {
         string localCmd =
-            "Select [InstanceId] from [System.Activities.DurableInstancing].[Instances] Order By [CreationTime]";
+            "SELECT [InstanceId] FROM [System.Activities.DurableInstancing].[Instances] ORDER BY [CreationTime]";
 
         SqlCommand cmd = localCon.CreateCommand();
         cmd.CommandText = localCmd;
@@ -335,7 +313,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
         {
             while (reader.Read())
             {
-                // Get the InstanceId of the persisted Workflow
+                // Get the InstanceId of the persisted Workflow.
                 Guid id = Guid.Parse(reader[0].ToString());
                 InstanceId.Items.Add(id);
             }
@@ -343,15 +321,15 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     }
     ```
 
-    `ListPersistedWorkflows` は、永続化されたワークフロー インスタンスのインスタンス ストアに対してクエリを実行し、`cboInstanceId` コンボ ボックスにインスタンス ID を追加します。
+    `ListPersistedWorkflows` は、永続化されたワークフローインスタンスのインスタンスストアを照会し、`cboInstanceId` コンボボックスにインスタンス id を追加します。
 
 10. 次の `UpdateStatus` メソッドと対応するデリゲートをフォーム クラスに追加します。 このメソッドは、現在実行中のワークフローのステータスでフォーム上のステータス ウィンドウを更新します。
 
     ```vb
     Private Delegate Sub UpdateStatusDelegate(msg As String)
     Public Sub UpdateStatus(msg As String)
-        'We may be on a different thread so we need to
-        'make this call using BeginInvoke.
+        ' We may be on a different thread so we need to
+        ' make this call using BeginInvoke.
         If InvokeRequired Then
             BeginInvoke(New UpdateStatusDelegate(AddressOf UpdateStatus), msg)
         Else
@@ -361,7 +339,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 
             WorkflowStatus.AppendText(msg)
 
-            'Ensure that the newly added status is visible.
+            ' Ensure that the newly added status is visible.
             WorkflowStatus.SelectionStart = WorkflowStatus.Text.Length
             WorkflowStatus.ScrollToCaret()
         End If
@@ -400,7 +378,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
         If InvokeRequired Then
             BeginInvoke(New GameOverDelegate(AddressOf GameOver))
         Else
-            'Remove this instance from the InstanceId combo box.
+            ' Remove this instance from the InstanceId combo box.
             InstanceId.Items.Remove(InstanceId.SelectedItem)
             InstanceId.SelectedIndex = -1
         End If
@@ -417,14 +395,14 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
         }
         else
         {
-            // Remove this instance from the combo box
+            // Remove this instance from the combo box.
             InstanceId.Items.Remove(InstanceId.SelectedItem);
             InstanceId.SelectedIndex = -1;
         }
     }
     ```
 
-### <a name="BKMK_ConfigureWorkflowApplication"></a>インスタンスストア、ワークフローライフサイクルハンドラー、および拡張機能を構成するには
+## <a name="to-configure-the-instance-store-workflow-lifecycle-handlers-and-extensions"></a>インスタンス ストア、ワークフロー ライフサイクル ハンドラー、および拡張機能を構成するには
 
 1. フォーム クラスに `ConfigureWorkflowApplication` メソッドを追加します。
 
@@ -445,7 +423,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 2. `ConfigureWorkflowApplication` で、`SqlWorkflowInstanceStore` の `WorkflowApplication` を指定します。
 
     ```vb
-    'Configure the persistence store.
+    ' Configure the persistence store.
     wfApp.InstanceStore = store
     ```
 
@@ -454,11 +432,11 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     wfApp.InstanceStore = store;
     ```
 
-3. 次に、`StringWriter` インスタンスを作成して `Extensions` の `WorkflowApplication` コレクションに追加します。 が拡張`StringWriter`機能に追加されると、すべて`WriteLine`のアクティビティの出力がキャプチャされます。 ワークフローがアイドル状態になると、`WriteLine` の出力を `StringWriter` から抽出してフォームに表示できます。
+3. 次に、`StringWriter` インスタンスを作成して `Extensions` の `WorkflowApplication` コレクションに追加します。 拡張機能に `StringWriter` が追加されると、`WriteLine` アクティビティの出力がすべてキャプチャされます。 ワークフローがアイドル状態になると、`WriteLine` の出力を `StringWriter` から抽出してフォームに表示できます。
 
     ```vb
-    'Add a StringWriter to the extensions. This captures the output
-    'from the WriteLine activities so we can display it in the form.
+    ' Add a StringWriter to the extensions. This captures the output
+    ' from the WriteLine activities so we can display it in the form.
     Dim sw As New StringWriter()
     wfApp.Extensions.Add(sw)
     ```
@@ -466,7 +444,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     ```csharp
     // Add a StringWriter to the extensions. This captures the output
     // from the WriteLine activities so we can display it in the form.
-    StringWriter sw = new StringWriter();
+    var sw = new StringWriter();
     wfApp.Extensions.Add(sw);
     ```
 
@@ -476,14 +454,12 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     wfApp.Completed = _
         Sub(e As WorkflowApplicationCompletedEventArgs)
             If e.CompletionState = ActivityInstanceState.Faulted Then
-                UpdateStatus(String.Format("Workflow Terminated. Exception: {0}" & vbCrLf & "{1}", _
-                    e.TerminationException.GetType().FullName, _
-                    e.TerminationException.Message))
+                UpdateStatus($"Workflow Terminated. Exception: {e.TerminationException.GetType().FullName}{vbCrLf}{e.TerminationException.Message}")
             ElseIf e.CompletionState = ActivityInstanceState.Canceled Then
                 UpdateStatus("Workflow Canceled.")
             Else
-                Dim Turns As Integer = Convert.ToInt32(e.Outputs("Turns"))
-                UpdateStatus(String.Format("Congratulations, you guessed the number in {0} turns.", Turns))
+                Dim turns As Integer = Convert.ToInt32(e.Outputs("Turns"))
+                UpdateStatus($"Congratulations, you guessed the number in {turns} turns.")
             End If
             GameOver()
         End Sub
@@ -494,9 +470,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     {
         if (e.CompletionState == ActivityInstanceState.Faulted)
         {
-            UpdateStatus(string.Format("Workflow Terminated. Exception: {0}\r\n{1}",
-                e.TerminationException.GetType().FullName,
-                e.TerminationException.Message));
+            UpdateStatus($"Workflow Terminated. Exception: {e.TerminationException.GetType().FullName}\r\n{e.TerminationException.Message}");
         }
         else if (e.CompletionState == ActivityInstanceState.Canceled)
         {
@@ -504,8 +478,8 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
         }
         else
         {
-            int Turns = Convert.ToInt32(e.Outputs["Turns"]);
-            UpdateStatus(string.Format("Congratulations, you guessed the number in {0} turns.", Turns));
+            int turns = Convert.ToInt32(e.Outputs["Turns"]);
+            UpdateStatus($"Congratulations, you guessed the number in {turns} turns.");
         }
         GameOver();
     };
@@ -516,16 +490,12 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     ```vb
     wfApp.Aborted = _
         Sub(e As WorkflowApplicationAbortedEventArgs)
-            UpdateStatus(String.Format("Workflow Aborted. Exception: {0}" & vbCrLf & "{1}", _
-                e.Reason.GetType().FullName, _
-                e.Reason.Message))
+            UpdateStatus($"Workflow Aborted. Exception: {e.Reason.GetType().FullName}{vbCrLf}{e.Reason.Message}")
         End Sub
 
     wfApp.OnUnhandledException = _
         Function(e As WorkflowApplicationUnhandledExceptionEventArgs)
-            UpdateStatus(String.Format("Unhandled Exception: {0}" & vbCrLf & "{1}", _
-                e.UnhandledException.GetType().FullName, _
-                e.UnhandledException.Message))
+            UpdateStatus($"Unhandled Exception: {e.UnhandledException.GetType().FullName}{vbCrLf}{e.UnhandledException.Message}")
             GameOver()
             Return UnhandledExceptionAction.Terminate
         End Function
@@ -534,16 +504,12 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     ```csharp
     wfApp.Aborted = delegate(WorkflowApplicationAbortedEventArgs e)
     {
-        UpdateStatus(string.Format("Workflow Aborted. Exception: {0}\r\n{1}",
-                e.Reason.GetType().FullName,
-                e.Reason.Message));
+        UpdateStatus($"Workflow Aborted. Exception: {e.Reason.GetType().FullName}\r\n{e.Reason.Message}");
     };
 
     wfApp.OnUnhandledException = delegate(WorkflowApplicationUnhandledExceptionEventArgs e)
     {
-        UpdateStatus(string.Format("Unhandled Exception: {0}\r\n{1}",
-                e.UnhandledException.GetType().FullName,
-                e.UnhandledException.Message));
+        UpdateStatus($"Unhandled Exception: {e.UnhandledException.GetType().FullName}\r\n{e.UnhandledException.Message}");
         GameOver();
         return UnhandledExceptionAction.Terminate;
     };
@@ -554,7 +520,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     ```vb
     wfApp.PersistableIdle = _
         Function(e As WorkflowApplicationIdleEventArgs)
-            'Send the current WriteLine outputs to the status window.
+            ' Send the current WriteLine outputs to the status window.
             Dim writers = e.GetInstanceExtensions(Of StringWriter)()
             For Each writer In writers
                 UpdateStatus(writer.ToString())
@@ -576,54 +542,48 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     };
     ```
 
-    <xref:System.Activities.PersistableIdleAction> 列挙体には、<xref:System.Activities.PersistableIdleAction.None>、<xref:System.Activities.PersistableIdleAction.Persist>、および <xref:System.Activities.PersistableIdleAction.Unload> の 3 つの値があります。 <xref:System.Activities.PersistableIdleAction.Persist> により、ワークフローは永続化されますが、ワークフローがアンロードされることはありません。 <xref:System.Activities.PersistableIdleAction.Unload> により、ワーク フローが永続化され、アンロードされます。
+    <xref:System.Activities.PersistableIdleAction> 列挙体には、<xref:System.Activities.PersistableIdleAction.None>、<xref:System.Activities.PersistableIdleAction.Persist>、および <xref:System.Activities.PersistableIdleAction.Unload> の 3 つの値があります。 <xref:System.Activities.PersistableIdleAction.Persist> によってワークフローは永続化されますが、ワークフローのアンロードは行われません。 <xref:System.Activities.PersistableIdleAction.Unload> によって、ワークフローが永続化され、アンロードされます。
 
     完成した `ConfigureWorkflowApplication` メソッドは次のようになります。
 
     ```vb
     Private Sub ConfigureWorkflowApplication(wfApp As WorkflowApplication)
-        'Configure the persistence store.
+        ' Configure the persistence store.
         wfApp.InstanceStore = store
 
-        'Add a StringWriter to the extensions. This captures the output
-        'from the WriteLine activities so we can display it in the form.
+        ' Add a StringWriter to the extensions. This captures the output
+        ' from the WriteLine activities so we can display it in the form.
         Dim sw As New StringWriter()
         wfApp.Extensions.Add(sw)
 
         wfApp.Completed = _
             Sub(e As WorkflowApplicationCompletedEventArgs)
                 If e.CompletionState = ActivityInstanceState.Faulted Then
-                    UpdateStatus(String.Format("Workflow Terminated. Exception: {0}" & vbCrLf & "{1}", _
-                        e.TerminationException.GetType().FullName, _
-                        e.TerminationException.Message))
+                    UpdateStatus($"Workflow Terminated. Exception: {e.TerminationException.GetType().FullName}{vbCrLf}{e.TerminationException.Message}")
                 ElseIf e.CompletionState = ActivityInstanceState.Canceled Then
                     UpdateStatus("Workflow Canceled.")
                 Else
-                    Dim Turns As Integer = Convert.ToInt32(e.Outputs("Turns"))
-                    UpdateStatus(String.Format("Congratulations, you guessed the number in {0} turns.", Turns))
+                    Dim turns As Integer = Convert.ToInt32(e.Outputs("Turns"))
+                    UpdateStatus($"Congratulations, you guessed the number in {turns} turns.")
                 End If
                 GameOver()
             End Sub
 
         wfApp.Aborted = _
             Sub(e As WorkflowApplicationAbortedEventArgs)
-                UpdateStatus(String.Format("Workflow Aborted. Exception: {0}" & vbCrLf & "{1}", _
-                    e.Reason.GetType().FullName, _
-                    e.Reason.Message))
+                UpdateStatus($"Workflow Aborted. Exception: {e.Reason.GetType().FullName}{vbCrLf}{e.Reason.Message}")
             End Sub
 
         wfApp.OnUnhandledException = _
             Function(e As WorkflowApplicationUnhandledExceptionEventArgs)
-                UpdateStatus(String.Format("Unhandled Exception: {0}" & vbCrLf & "{1}", _
-                    e.UnhandledException.GetType().FullName, _
-                    e.UnhandledException.Message))
+                UpdateStatus($"Unhandled Exception: {e.UnhandledException.GetType().FullName}{vbCrLf}{e.UnhandledException.Message}")
                 GameOver()
                 Return UnhandledExceptionAction.Terminate
             End Function
 
         wfApp.PersistableIdle = _
             Function(e As WorkflowApplicationIdleEventArgs)
-                'Send the current WriteLine outputs to the status window.
+                ' Send the current WriteLine outputs to the status window.
                 Dim writers = e.GetInstanceExtensions(Of StringWriter)()
                 For Each writer In writers
                     UpdateStatus(writer.ToString())
@@ -641,16 +601,14 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 
         // Add a StringWriter to the extensions. This captures the output
         // from the WriteLine activities so we can display it in the form.
-        StringWriter sw = new StringWriter();
+        var sw = new StringWriter();
         wfApp.Extensions.Add(sw);
 
         wfApp.Completed = delegate(WorkflowApplicationCompletedEventArgs e)
         {
             if (e.CompletionState == ActivityInstanceState.Faulted)
             {
-                UpdateStatus(string.Format("Workflow Terminated. Exception: {0}\r\n{1}",
-                    e.TerminationException.GetType().FullName,
-                    e.TerminationException.Message));
+                UpdateStatus($"Workflow Terminated. Exception: {e.TerminationException.GetType().FullName}\r\n{e.TerminationException.Message}");
             }
             else if (e.CompletionState == ActivityInstanceState.Canceled)
             {
@@ -658,24 +616,20 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
             }
             else
             {
-                int Turns = Convert.ToInt32(e.Outputs["Turns"]);
-                UpdateStatus(string.Format("Congratulations, you guessed the number in {0} turns.", Turns));
+                int turns = Convert.ToInt32(e.Outputs["Turns"]);
+                UpdateStatus($"Congratulations, you guessed the number in {turns} turns.");
             }
             GameOver();
         };
 
         wfApp.Aborted = delegate(WorkflowApplicationAbortedEventArgs e)
         {
-            UpdateStatus(string.Format("Workflow Aborted. Exception: {0}\r\n{1}",
-                    e.Reason.GetType().FullName,
-                    e.Reason.Message));
+            UpdateStatus($"Workflow Aborted. Exception: {e.Reason.GetType().FullName}\r\n{e.Reason.Message}");
         };
 
         wfApp.OnUnhandledException = delegate(WorkflowApplicationUnhandledExceptionEventArgs e)
         {
-            UpdateStatus(string.Format("Unhandled Exception: {0}\r\n{1}",
-                    e.UnhandledException.GetType().FullName,
-                    e.UnhandledException.Message));
+            UpdateStatus($"Unhandled Exception: {e.UnhandledException.GetType().FullName}\r\n{e.UnhandledException.Message}");
             GameOver();
             return UnhandledExceptionAction.Terminate;
         };
@@ -693,22 +647,22 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     }
     ```
 
-### <a name="BKMK_WorkflowVersionMap"></a>複数のワークフローの種類を開始および再開できるようにするには
+## <a name="to-enable-starting-and-resuming-multiple-workflow-types"></a>複数のワークフローの種類を開始および再開できるようにするには
 
-ワークフロー インスタンスを再開するには、ホストはワークフロー定義を指定する必要があります。 このチュートリアルには 3 種類のワークフローがあり、以降の手順では、これらの種類の複数のバージョンを指定します。 `WorkflowIdentity` を使用すると、ホスト アプリケーションは、識別情報を永続化されたワークフロー インスタンスに関連付けることができます。 このセクションの手順では、永続化されたワークフロー インスタンスから対応するワークフロー定義へのワークフロー ID のマッピングに役立つユーティリティ クラスの作成方法を示します。 `WorkflowIdentity`とのバージョン管理の詳細については、「 [WorkflowIdentity とバージョン管理の使用](using-workflowidentity-and-versioning.md)」を参照してください。
+ワークフロー インスタンスを再開するには、ホストはワークフロー定義を指定する必要があります。 このチュートリアルには 3 種類のワークフローがあり、以降の手順では、これらの種類の複数のバージョンを指定します。 `WorkflowIdentity` を使用すると、ホストアプリケーションは、永続化されたワークフローインスタンスに識別情報を関連付けることができます。 このセクションの手順では、永続化されたワークフロー インスタンスから対応するワークフロー定義へのワークフロー ID のマッピングに役立つユーティリティ クラスの作成方法を示します。 `WorkflowIdentity` とバージョン管理の詳細については、「 [WorkflowIdentity とバージョン管理の使用](using-workflowidentity-and-versioning.md)」を参照してください。
 
-1. **ソリューションエクスプローラー**で **[NumberGuessWorkflowHost]** を右クリックし、 **[追加]** 、 **[クラス]** の順に選択します。 [ `WorkflowVersionMap` **名前**] ボックスに「」と入力し、 **[追加]** をクリックします。
+1. **ソリューションエクスプローラー**で **[NumberGuessWorkflowHost]** を右クリックし、 **[追加]** 、 **[クラス]** の順に選択します。 **[名前]** ボックスに「`WorkflowVersionMap`」と入力し、 **[追加]** をクリックします。
 
 2. 次の `using` または `Imports` ステートメントを、他の `using` または `Imports` ステートメントを含むファイルの先頭に追加します。
 
     ```vb
-    Imports NumberGuessWorkflowActivities
     Imports System.Activities
+    Imports NumberGuessWorkflowActivities
     ```
 
     ```csharp
-    using NumberGuessWorkflowActivities;
     using System.Activities;
+    using NumberGuessWorkflowActivities;
     ```
 
 3. `WorkflowVersionMap` クラス宣言を次の宣言に置き換えます。
@@ -717,7 +671,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     Public Module WorkflowVersionMap
         Dim map As Dictionary(Of WorkflowIdentity, Activity)
 
-        'Current version identities.
+        ' Current version identities.
         Public StateMachineNumberGuessIdentity As WorkflowIdentity
         Public FlowchartNumberGuessIdentity As WorkflowIdentity
         Public SequentialNumberGuessIdentity As WorkflowIdentity
@@ -725,7 +679,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
         Sub New()
             map = New Dictionary(Of WorkflowIdentity, Activity)
 
-            'Add the current workflow version identities.
+            ' Add the current workflow version identities.
             StateMachineNumberGuessIdentity = New WorkflowIdentity With
             {
                 .Name = "StateMachineNumberGuessWorkflow",
@@ -809,11 +763,11 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     }
     ```
 
-    `WorkflowVersionMap` は、このチュートリアルの 3 つのワークフロー定義にマップされる 3 つのワークフロー ID を格納しており、以降のセクションでワークフローが開始および再開されるときに使用されます。
+    `WorkflowVersionMap` には、このチュートリアルの3つのワークフロー定義にマップされる3つのワークフロー id が含まれています。ワークフローが開始され、再開されるときに、次のセクションで使用します。
 
-### <a name="BKMK_StartWorkflow"></a>新しいワークフローを開始するには
+## <a name="to-start-a-new-workflow"></a>新しいワークフローを開始するには
 
-1. `Click` の `NewGame` ハンドラーを追加します。 ハンドラーを追加するには、フォームの**デザインビュー**に切り替え、をダブルクリック`NewGame`します。 `NewGame_Click` ハンドラーが追加され、ビューがフォームのコード ビューに切り替わります。 ユーザーがこのボタンをクリックするたびに、新しいワークフローが開始されます。
+1. `Click` の `NewGame` ハンドラーを追加します。 ハンドラーを追加するには、フォームの**デザインビュー**に切り替え、[`NewGame`] をダブルクリックします。 `NewGame_Click` ハンドラーが追加され、ビューがフォームのコード ビューに切り替わります。 ユーザーがこのボタンをクリックするたびに、新しいワークフローが開始されます。
 
     ```vb
     Private Sub NewGame_Click(sender As Object, e As EventArgs) Handles NewGame.Click
@@ -885,26 +839,26 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 4. 次に、ワークフローの一覧にワークフローを追加し、フォーム上にワークフローのバージョン情報を表示する次のコードを追加します。
 
     ```vb
-    'Add the workflow to the list and display the version information.
-    WorkflowStarting = True
+    ' Add the workflow to the list and display the version information.
+    workflowStarting = True
     InstanceId.SelectedIndex = InstanceId.Items.Add(wfApp.Id)
     WorkflowVersion.Text = identity.ToString()
-    WorkflowStarting = False
+    workflowStarting = False
     ```
 
     ```csharp
     // Add the workflow to the list and display the version information.
-    WorkflowStarting = true;
+    workflowStarting = true;
     InstanceId.SelectedIndex = InstanceId.Items.Add(wfApp.Id);
     WorkflowVersion.Text = identity.ToString();
-    WorkflowStarting = false;
+    workflowStarting = false;
     ```
 
 5. `ConfigureWorkflowApplication` を呼び出して、この `WorkflowApplication` インスタンスのインスタンス ストア、拡張機能、およびワークフロー ライフサイクル ハンドラーを構成します。
 
     ```vb
-    'Configure the instance store, extensions, and
-    'workflow lifecycle handlers.
+    ' Configure the instance store, extensions, and
+    ' workflow lifecycle handlers.
     ConfigureWorkflowApplication(wfApp)
     ```
 
@@ -917,7 +871,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 6. 最後に、`Run` を呼び出します。
 
     ```vb
-    'Start the workflow.
+    ' Start the workflow.
     wfApp.Run()
     ```
 
@@ -930,7 +884,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 
     ```vb
     Private Sub NewGame_Click(sender As Object, e As EventArgs) Handles NewGame.Click
-        'Start a new workflow.
+        ' Start a new workflow.
         Dim inputs As New Dictionary(Of String, Object)()
         inputs.Add("MaxNumber", Convert.ToInt32(NumberRange.SelectedItem))
 
@@ -950,17 +904,17 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 
         Dim wfApp = New WorkflowApplication(wf, inputs, identity)
 
-        'Add the workflow to the list and display the version information.
-        WorkflowStarting = True
+        ' Add the workflow to the list and display the version information.
+        workflowStarting = True
         InstanceId.SelectedIndex = InstanceId.Items.Add(wfApp.Id)
         WorkflowVersion.Text = identity.ToString()
-        WorkflowStarting = False
+        workflowStarting = False
 
-        'Configure the instance store, extensions, and
-        'workflow lifecycle handlers.
+        ' Configure the instance store, extensions, and
+        ' workflow lifecycle handlers.
         ConfigureWorkflowApplication(wfApp)
 
-        'Start the workflow.
+        ' Start the workflow.
         wfApp.Run()
     End Sub
     ```
@@ -989,13 +943,13 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 
         Activity wf = WorkflowVersionMap.GetWorkflowDefinition(identity);
 
-        WorkflowApplication wfApp = new WorkflowApplication(wf, inputs, identity);
+        var wfApp = new WorkflowApplication(wf, inputs, identity);
 
         // Add the workflow to the list and display the version information.
-        WorkflowStarting = true;
+        workflowStarting = true;
         InstanceId.SelectedIndex = InstanceId.Items.Add(wfApp.Id);
         WorkflowVersion.Text = identity.ToString();
-        WorkflowStarting = false;
+        workflowStarting = false;
 
         // Configure the instance store, extensions, and
         // workflow lifecycle handlers.
@@ -1006,9 +960,9 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     }
     ```
 
-### <a name="BKMK_ResumeWorkflow"></a>ワークフローを再開するには
+## <a name="to-resume-a-workflow"></a>ワークフローを再開するには
 
-1. `Click` の `EnterGuess` ハンドラーを追加します。 ハンドラーを追加するには、フォームの**デザインビュー**に切り替え、をダブルクリック`EnterGuess`します。 ユーザーがこのボタンをクリックするたびに、ワークフローが再開されます。
+1. `Click` の `EnterGuess` ハンドラーを追加します。 ハンドラーを追加するには、フォームの**デザインビュー**に切り替え、[`EnterGuess`] をダブルクリックします。 ユーザーがこのボタンをクリックするたびに、ワークフローが再開されます。
 
     ```vb
     Private Sub EnterGuess_Click(sender As Object, e As EventArgs) Handles EnterGuess.Click
@@ -1063,14 +1017,13 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     Dim instance As WorkflowApplicationInstance = _
         WorkflowApplication.GetInstance(WorkflowInstanceId, store)
 
-    'Use the persisted WorkflowIdentity to retrieve the correct workflow
-    'definition from the dictionary.
+    ' Use the persisted WorkflowIdentity to retrieve the correct workflow
+    ' definition from the dictionary.
     Dim wf As Activity = _
         WorkflowVersionMap.GetWorkflowDefinition(instance.DefinitionIdentity)
 
-    'Associate the WorkflowApplication with the correct definition
-    Dim wfApp As WorkflowApplication = _
-        New WorkflowApplication(wf, instance.DefinitionIdentity)
+    ' Associate the WorkflowApplication with the correct definition
+    Dim wfApp As New WorkflowApplication(wf, instance.DefinitionIdentity)
     ```
 
     ```csharp
@@ -1083,22 +1036,21 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
         WorkflowVersionMap.GetWorkflowDefinition(instance.DefinitionIdentity);
 
     // Associate the WorkflowApplication with the correct definition
-    WorkflowApplication wfApp =
-        new WorkflowApplication(wf, instance.DefinitionIdentity);
+    var wfApp = new WorkflowApplication(wf, instance.DefinitionIdentity);
     ```
 
 4. `WorkflowApplication` が作成されたら、`ConfigureWorkflowApplication` を呼び出してインスタンス ストア、ワークフロー ライフサイクル ハンドラー、および拡張機能を構成します。 これらの手順は、新しい `WorkflowApplication` が作成されるたびに行う必要があります。また、ワークフロー インスタンスが `WorkflowApplication` に読み込まれる前に行う必要があります。 ワークフローは、読み込まれた後、ユーザーの推定値を使用して再開されます。
 
     ```vb
-    'Configure the extensions and lifecycle handlers.
-    'Do this before the instance is loaded. Once the instance is
-    'loaded it is too late to add extensions.
+    ' Configure the extensions and lifecycle handlers.
+    ' Do this before the instance is loaded. Once the instance is
+    ' loaded it is too late to add extensions.
     ConfigureWorkflowApplication(wfApp)
 
-    'Load the workflow.
+    ' Load the workflow.
     wfApp.Load(instance)
 
-    'Resume the workflow.
+    ' Resume the workflow.
     wfApp.ResumeBookmark("EnterGuess", userGuess)
     ```
 
@@ -1118,7 +1070,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 5. 最後に、Guess テキスト ボックスをクリアして、別の推定値を受け取るようにフォームを準備します。
 
     ```vb
-    'Clear the Guess textbox.
+    ' Clear the Guess textbox.
     Guess.Clear()
     Guess.Focus()
     ```
@@ -1149,27 +1101,26 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
         Dim instance As WorkflowApplicationInstance = _
             WorkflowApplication.GetInstance(WorkflowInstanceId, store)
 
-        'Use the persisted WorkflowIdentity to retrieve the correct workflow
-        'definition from the dictionary.
+        ' Use the persisted WorkflowIdentity to retrieve the correct workflow
+        ' definition from the dictionary.
         Dim wf As Activity = _
             WorkflowVersionMap.GetWorkflowDefinition(instance.DefinitionIdentity)
 
-        'Associate the WorkflowApplication with the correct definition
-        Dim wfApp As WorkflowApplication = _
-            New WorkflowApplication(wf, instance.DefinitionIdentity)
+        ' Associate the WorkflowApplication with the correct definition
+        Dim wfApp As New WorkflowApplication(wf, instance.DefinitionIdentity)
 
-        'Configure the extensions and lifecycle handlers.
-        'Do this before the instance is loaded. Once the instance is
-        'loaded it is too late to add extensions.
+        ' Configure the extensions and lifecycle handlers.
+        ' Do this before the instance is loaded. Once the instance is
+        ' loaded it is too late to add extensions.
         ConfigureWorkflowApplication(wfApp)
 
-        'Load the workflow.
+        ' Load the workflow.
         wfApp.Load(instance)
 
-        'Resume the workflow.
+        ' Resume the workflow.
         wfApp.ResumeBookmark("EnterGuess", userGuess)
 
-        'Clear the Guess textbox.
+        ' Clear the Guess textbox.
         Guess.Clear()
         Guess.Focus()
     End Sub
@@ -1202,8 +1153,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
             WorkflowVersionMap.GetWorkflowDefinition(instance.DefinitionIdentity);
 
         // Associate the WorkflowApplication with the correct definition
-        WorkflowApplication wfApp =
-            new WorkflowApplication(wf, instance.DefinitionIdentity);
+        var wfApp = new WorkflowApplication(wf, instance.DefinitionIdentity);
 
         // Configure the extensions and lifecycle handlers.
         // Do this before the instance is loaded. Once the instance is
@@ -1222,9 +1172,9 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     }
     ```
 
-### <a name="BKMK_TerminateWorkflow"></a>ワークフローを終了するには
+## <a name="to-terminate-a-workflow"></a>ワークフローを終了するには
 
-1. `Click` の `QuitGame` ハンドラーを追加します。 ハンドラーを追加するには、フォームの**デザインビュー**に切り替え、をダブルクリック`QuitGame`します。 ユーザーがこのボタンをクリックするたびに、現在選択されているワークフローが終了します。
+1. `Click` の `QuitGame` ハンドラーを追加します。 ハンドラーを追加するには、フォームの**デザインビュー**に切り替え、[`QuitGame`] をダブルクリックします。 ユーザーがこのボタンをクリックするたびに、現在選択されているワークフローが終了します。
 
     ```vb
     Private Sub QuitGame_Click(sender As Object, e As EventArgs) Handles QuitGame.Click
@@ -1250,21 +1200,20 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     Dim instance As WorkflowApplicationInstance = _
         WorkflowApplication.GetInstance(WorkflowInstanceId, store)
 
-    'Use the persisted WorkflowIdentity to retrieve the correct workflow
-    'definition from the dictionary.
+    ' Use the persisted WorkflowIdentity to retrieve the correct workflow
+    ' definition from the dictionary.
     Dim wf As Activity = WorkflowVersionMap.GetWorkflowDefinition(instance.DefinitionIdentity)
 
-    'Associate the WorkflowApplication with the correct definition.
-    Dim wfApp As WorkflowApplication = _
-        New WorkflowApplication(wf, instance.DefinitionIdentity)
+    ' Associate the WorkflowApplication with the correct definition.
+    Dim wfApp As New WorkflowApplication(wf, instance.DefinitionIdentity)
 
-    'Configure the extensions and lifecycle handlers.
+    ' Configure the extensions and lifecycle handlers.
     ConfigureWorkflowApplication(wfApp)
 
-    'Load the workflow.
+    ' Load the workflow.
     wfApp.Load(instance)
 
-    'Terminate the workflow.
+    ' Terminate the workflow.
     wfApp.Terminate("User resigns.")
     ```
 
@@ -1283,8 +1232,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     Activity wf = WorkflowVersionMap.GetWorkflowDefinition(instance.DefinitionIdentity);
 
     // Associate the WorkflowApplication with the correct definition
-    WorkflowApplication wfApp =
-        new WorkflowApplication(wf, instance.DefinitionIdentity);
+    var wfApp = new WorkflowApplication(wf, instance.DefinitionIdentity);
 
     // Configure the extensions and lifecycle handlers
     ConfigureWorkflowApplication(wfApp);
@@ -1296,9 +1244,9 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     wfApp.Terminate("User resigns.");
     ```
 
-### <a name="BKMK_BuildAndRun"></a> アプリケーションをビルドして実行するには
+## <a name="to-build-and-run-the-application"></a>アプリケーションをビルドして実行するには
 
-1. **ソリューションエクスプローラー**で**Program.cs** (またはmodule1.vb) をダブルクリックして、コードを表示します。
+1. **ソリューションエクスプローラー**で**Program.cs** (または module1.vb) をダブルクリックして、コードを表示**します。**
 
 2. 次の `using` (または `Imports`) ステートメントを、他の `using` (または `Imports`) ステートメントを含むファイルの先頭に追加します。
 
@@ -1310,7 +1258,7 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
     using System.Windows.Forms;
     ```
 
-3. 既存のワークフローホスティングコードを削除またはコメント[アウトするには、次の方法を実行します。ワークフロー](how-to-run-a-workflow.md)を実行し、次のコードに置き換えます。
+3. [「方法: ワークフローを実行する」の手順に](how-to-run-a-workflow.md)従って、既存のワークフローホスティングコードを削除またはコメントアウトし、次のコードに置き換えます。
 
     ```vb
     Sub Main()
@@ -1337,4 +1285,4 @@ Windows Workflow Foundation (WF) の中心的な機能の1つは、アイドル�
 
 8. さまざまなワークフローの種類と数値の範囲を使用して複数のワークフローを開始し、いくつかの推測を入力して、 **[ワークフローインスタンス Id]** リストから選択してワークフローを切り替えます。
 
-    新しいワークフローに切り替えると、前の推定値とワークフローの進行状況はステータス ウィンドウに表示されません。 ステータスが利用できない理由は、ステータスがキャプチャされず、どこにも保存されないためです。 チュートリアルの次の手順では、 [次の操作を行います。カスタムの追跡参加要素](how-to-create-a-custom-tracking-participant.md)を作成し、この情報を保存するカスタム追跡参加要素を作成します。
+    新しいワークフローに切り替えると、前の推定値とワークフローの進行状況はステータス ウィンドウに表示されません。 ステータスが利用できない理由は、ステータスがキャプチャされず、どこにも保存されないためです。 チュートリアルの次の手順「[方法: カスタム追跡参加要素を作成](how-to-create-a-custom-tracking-participant.md)する」では、この情報を保存するカスタム追跡参加要素を作成します。

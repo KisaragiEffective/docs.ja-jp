@@ -4,12 +4,12 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - buttons [WPF]
 ms.assetid: 138c41c4-1759-4bbf-8d77-77031a06a8a0
-ms.openlocfilehash: a0792beca358de52a24bd9bb0dd48a20c175f8ff
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: 6738b9e66c1223ea4ec50c070a421d119fd30bc4
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920185"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73458697"
 ---
 # <a name="walkthrough-create-a-button-by-using-xaml"></a>チュートリアル : XAML を使用したボタンの作成
 
@@ -92,7 +92,7 @@ ms.locfileid: "72920185"
 
      ![幅が90、余白が10のボタン](./media/custom-button-animatedbutton-2.gif "custom_button_AnimatedButton_2")
 
-     スタイルを使用すると、さまざまな方法で、対象となるオブジェクトを細かく調整したり、複雑なプロパティ値を指定したり、他のスタイルの入力としてスタイルを使用したりできます。 詳しくは、「 [スタイルとテンプレート](styling-and-templating.md)」をご覧ください。
+     スタイルを使用すると、さまざまな方法で、対象となるオブジェクトを細かく調整したり、複雑なプロパティ値を指定したり、他のスタイルの入力としてスタイルを使用したりできます。 詳しくは、「 [スタイルとテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)」をご覧ください。
 
 3. **リソースにスタイルプロパティ値を設定します。** リソースを使用すると、一般的に定義されているオブジェクトと値を簡単に再利用できます。 特に、コードのモジュール性を高めるために、リソースを使用して複雑な値を定義すると便利です。 次の強調表示されたマークアップを app.xaml に追加します。
 
@@ -439,7 +439,7 @@ ms.locfileid: "72920185"
 ## <a name="see-also"></a>関連項目
 
 - [Microsoft Expression Blend を使用してボタンを作成する](walkthrough-create-a-button-by-using-microsoft-expression-blend.md)
-- [スタイルとテンプレート](styling-and-templating.md)
+- [スタイルとテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)
 - [アニメーションの概要](../graphics-multimedia/animation-overview.md)
 - [純色およびグラデーションによる塗りつぶしの概要](../graphics-multimedia/painting-with-solid-colors-and-gradients-overview.md)
 - [ビットマップ効果の概要](../graphics-multimedia/bitmap-effects-overview.md)

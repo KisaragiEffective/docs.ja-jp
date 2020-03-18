@@ -14,14 +14,12 @@ helpviewer_keywords:
 - CompareTo function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2ec42dff333422e247a11b4a3a5b9aed9bd316fa
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 0d210795016cd2e0179b902a224ca0c62f4ac01f
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798779"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128705"
 ---
 # <a name="compareto-function"></a>CompareTo 関数
 
@@ -52,17 +50,17 @@ HRESULT CompareTo (
 から比較のために考慮するオブジェクト特性を指定するフラグのビットごとの組み合わせ。 詳細については、「[解説](#remarks)」を参照してください。
 
 `pCompareTo`\
-から比較対象のオブジェクト。 `pCompareTo`有効な[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスである必要があります。にする`null`ことはできません。
+から比較対象のオブジェクト。 `pCompareTo` 有効な[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスである必要があります。`null`することはできません。
 
 ## <a name="return-value"></a>戻り値
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_E_FAILED` | 0x80041001 | 特定できないエラーが発生しました。 |
 | `WBEM_E_INVALID_PARAMETER` | 0x80041008 | パラメーターが無効です。 |
-| `WBEM_E_UNEXPECTED` | 0x8004101d | への2回`BeginEnumeration`目の呼び出しは、の間[`EndEnumeration`](endenumeration.md)の呼び出しなしで行われました。 |
+| `WBEM_E_UNEXPECTED` | 0x8004101d | `BeginEnumeration` の2回目の呼び出しが、 [`EndEnumeration`](endenumeration.md)の介在する呼び出しなしで行われました。 |
 | `WBEM_S_NO_ERROR` | 0 | 関数の呼び出しに成功しました。  |
 | `WBEM_S_DIFFERENT` | 0x40003 | オブジェクトが異なります。 |
 | `WBEM_S_SAME` | 0 | これらのオブジェクトは、比較フラグに基づいています。 |
@@ -71,9 +69,9 @@ HRESULT CompareTo (
 
 この関数は、 [IWbemClassObject:: CompareTo](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemclassobject-compareto)メソッドの呼び出しをラップします。
 
-`lEnumFlags`引数として渡すことができるフラグは、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。 次のフラグのビットごとの組み合わせを指定することで、比較に含まれる個々の特性を指定できます。
+`lEnumFlags` 引数として渡すことができるフラグは、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。 次のフラグのビットごとの組み合わせを指定することで、比較に含まれる個々の特性を指定できます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_FLAG_IGNORE_OBJECT_SOURCE` | 2 | ソース (サーバーとその元の名前空間) を無視します。 |
 | `WBEM_FLAG_IGNORE_QUALIFIERS` | 1 | すべての修飾子を無視する (**キー**と**動的**を含む) |
@@ -84,13 +82,13 @@ HRESULT CompareTo (
 
 または、次のように1つの複合フラグを指定することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_COMPARISON_INCLUDE_ALL` | 0 | 比較のすべての機能を検討します。 |
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** WMINet_Utils
 

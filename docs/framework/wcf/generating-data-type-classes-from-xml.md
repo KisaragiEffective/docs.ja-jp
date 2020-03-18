@@ -2,12 +2,12 @@
 title: XML からのデータ型クラスの生成
 ms.date: 03/30/2017
 ms.assetid: e4e5e4e8-527f-44d1-92fa-8904a08784ea
-ms.openlocfilehash: bf5596211e78842153b7406273626a7fa3c3aeea
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 977b12b5c61c196a4f033361d37785e4ed0af73a
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70990287"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73975851"
 ---
 # <a name="generating-data-type-classes-from-xml"></a>XML からのデータ型クラスの生成
 .NET Framework 4.5 には、XML からデータ型クラスを生成するための新しい機能が含まれています。 このトピックでは、.NET ブログ RSS フィードのデータ型を自動的に生成する方法について説明します。  
@@ -28,13 +28,13 @@ ms.locfileid: "70990287"
   
 3. **[編集]** 、 **[特殊な貼り付け]** 、 **[XML をクラスとして貼り付ける]** を選択します。  
   
-4. `link` `rss` 、、`rssChannelImage`、 、`rssChannelItem`およびと`rssChannelItemGuid`いうクラスは、RSS フィード内の要素にアクセスするために必要なメンバーと共に作成されます。 `rssChannel`  
+4. `link`、`rss`、`rssChannel`、`rssChannelImage`、`rssChannelItem`、`rssChannelItemGuid` というクラスは、RSS フィード内の要素にアクセスするために必要なメンバーと共に作成されます。  
   
 ### <a name="using-the-generated-classes"></a>生成されたクラスの使用  
   
 1. クラスが生成されると、他のクラスのコードなどで使用できます。 次のコード例では、`rssChannelImage` クラスの新しいインスタンスが返されます。  
   
-    ```csharp  
+    ```csharp
     var channelImage = new rssChannelImage()   
     {   
         title = "MyImage",   

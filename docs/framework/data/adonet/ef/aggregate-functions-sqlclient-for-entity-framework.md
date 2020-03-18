@@ -16,11 +16,11 @@ ms.locfileid: "71700054"
 
 ## <a name="avgexpression"></a>AVG (式)
 
-コレクション内の値の平均値を返します。 NULL 値は無視されます。
+コレクション内の値の平均値を返します。 Null 値は無視されます。
 
-**引数**
+**Arguments**
 
-@No__t-0、`Int64`、`Double`、および `Decimal`。
+`Int32`、`Int64`、`Double`、および `Decimal`。
 
 **戻り値**
 
@@ -32,9 +32,9 @@ ms.locfileid: "71700054"
 
 ## <a name="checksum_aggcollection"></a>CHECKSUM_AGG (コレクション)
  
- コレクション内にある値のチェックサムを返します。 NULL 値は無視されます。
+ コレクション内にある値のチェックサムを返します。 Null 値は無視されます。
  
- **引数**
+ **Arguments**
  
  コレクション (`Int32`)。
  
@@ -50,9 +50,9 @@ ms.locfileid: "71700054"
 
 コレクション内のアイテムの数を `Int32` 型の値として返します。
 
-**引数**
+**Arguments**
 
-コレクション @ no__t ~ 0T >。ここで、T は次のいずれかの型になります。
+T >\<のコレクション。ここで、T は次のいずれかの型になります。
 
 |   |   |   |   |
 |---|---|---|---|
@@ -71,7 +71,7 @@ ms.locfileid: "71700054"
  
 コレクション内のアイテムの数を `bigint` 型の値として返します。
  
- **引数**
+ **Arguments**
  
  Collection (T)。ここで、T は次のいずれかの型になります。
  
@@ -92,7 +92,7 @@ ms.locfileid: "71700054"
 
 コレクション内の最大値を返します。
 
-**引数**
+**Arguments**
 
 Collection (T)。ここで、T は次のいずれかの型になります。 
 
@@ -113,7 +113,7 @@ Collection (T)。ここで、T は次のいずれかの型になります。
 
 コレクション内の最小値を返します。
 
-**引数**
+**Arguments**
 
 Collection (T)。ここで、T は次のいずれかの型になります。 
 
@@ -134,7 +134,7 @@ Collection (T)。ここで、T は次のいずれかの型になります。
 
 指定された式のすべての値の統計的標準偏差を返します。
 
-**引数**
+**Arguments**
 
 コレクション (`Double`)。
 
@@ -150,7 +150,7 @@ Collection (T)。ここで、T は次のいずれかの型になります。
 
 指定された式のすべての値を母集団として統計的標準偏差を返します。
 
-**引数**
+**Arguments**
 
 コレクション (`Double`)。
 
@@ -166,9 +166,9 @@ Collection (T)。ここで、T は次のいずれかの型になります。
 
 コレクション内のすべての値の合計を返します。
 
-**引数**
+**Arguments**
 
-Collection (T)。ここで、T は次のいずれかの型になります。 `Int32`、`Int64`、`Double`、`Decimal`。
+Collection (T)。ここで、T は `Int32`、`Int64`、`Double`、`Decimal`のいずれかの型になります。
 
 **戻り値**
 
@@ -182,7 +182,7 @@ Collection (T)。ここで、T は次のいずれかの型になります。 `In
 
 指定された式のすべての値の統計的分散を返します。
 
-**引数**
+**Arguments**
 
 コレクション (`Double`)。
 
@@ -198,7 +198,7 @@ Collection (T)。ここで、T は次のいずれかの型になります。 `In
 
 指定した式のすべての値について、母集団に対する統計的変位を返します。
 
-**引数**
+**Arguments**
 
 コレクション (`Double`)。
 
@@ -210,7 +210,7 @@ Collection (T)。ここで、T は次のいずれかの型になります。 `In
 
 [!code-sql[DP EntityServices Concepts#SQLSERVER_VARP](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#sqlserver_varp)] 
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [集計関数 (Transact-sql)](/sql/t-sql/functions/aggregate-functions-transact-sql)
 - [Entity SQL 言語](./language-reference/entity-sql-language.md)

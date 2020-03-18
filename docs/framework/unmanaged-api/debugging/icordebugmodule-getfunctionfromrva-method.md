@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: f5a34517-2422-484f-be89-2ce0b4bce195
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0ab8d56a457db0a70b47293684f0de73ce9ff5f4
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 6245942f0b5cedd478ba0704acc1fef7251b8211
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67763363"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73109605"
 ---
 # <a name="icordebugmodulegetfunctionfromrva-method"></a>ICorDebugModule::GetFunctionFromRVA メソッド
-このメソッドは、.NET Framework の現在のバージョンで実装されていません。  
+このメソッドは、現在のバージョンの .NET Framework では実装されていません。  
   
 ## <a name="syntax"></a>構文  
   
@@ -36,7 +34,7 @@ HRESULT GetFunctionFromRVA(
 );  
 ```  
   
-## <a name="requirements"></a>必要条件  
+## <a name="requirements"></a>［要件］  
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
 ## <a name="see-also"></a>関連項目

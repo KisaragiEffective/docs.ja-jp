@@ -5,12 +5,12 @@ helpviewer_keywords:
 - Self hosted service
 - Self Host Sample [Windows Communication Foundation]
 ms.assetid: 05e68661-1ddf-4abf-a899-9bb1b8272a5b
-ms.openlocfilehash: a1fecb0ade00604d9a6e019ec50ceca04abeb545
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 5a94eff021074a24df5b8891fe7b418b1fcf3c35
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70044752"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77094918"
 ---
 # <a name="self-host"></a>自己ホスト
 このサンプルでは、自己ホスト型サービスをコンソール アプリケーションに実装する方法を示します。 このサンプルは、[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいています。 サービス構成ファイルは、名前が Web.config から App.config に変更され、ホストが使用するベース アドレスを構成するように変更されました。 サービス ソース コードは、構成されたベース アドレスを提供するサービス ホストを作成して開く、静的な `Main` 関数を実装するように変更されました。 サービス実装は、操作ごとにコンソールに出力を書き込むように変更されました。 クライアントは、サービスのエンドポイント アドレスが正しく構成されたことを除き、変更されていません。  
@@ -41,7 +41,7 @@ public static void Main()
 }  
 ```  
   
- サービスがインターネット インフォメーション サービス (IIS) または Windows プロセス アクティブ化サービス (WAS) にホストされている場合、サービスのベース アドレスはホスト環境から提供されます。 自己ホスト型の場合は、ベース アドレスを手動で指定する必要があります。 これを行うには`add` 、次のサンプル構成に示すように、要素、 [ \<baseaddresses](../../../../docs/framework/configure-apps/file-schema/wcf/baseaddresses.md)の子 >、 [ \<ホスト >](../../../../docs/framework/configure-apps/file-schema/wcf/host.md)の子、 [ \<サービス >](../../../../docs/framework/configure-apps/file-schema/wcf/service.md)の子を使用します。  
+ サービスがインターネット インフォメーション サービス (IIS) または Windows プロセス アクティブ化サービス (WAS) にホストされている場合、サービスのベース アドレスはホスト環境から提供されます。 自己ホスト型の場合は、ベース アドレスを手動で指定する必要があります。 これを行うには、次のサンプル構成で[示すように](../../../../docs/framework/configure-apps/file-schema/wcf/service.md)、`add` 要素、 [\<baseaddresses](../../../../docs/framework/configure-apps/file-schema/wcf/baseaddresses.md)の子 >、 [\<ホスト >](../../../../docs/framework/configure-apps/file-schema/wcf/host.md)の子を使用します。\<  
   
 ```xml  
 <service   
@@ -71,10 +71,10 @@ public static void Main()
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Services\Hosting\SelfHost`  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [AppFabric のホスティングと永続化のサンプル](https://go.microsoft.com/fwlink/?LinkId=193961)
+- [AppFabric のホスティングと永続化のサンプル](https://docs.microsoft.com/previous-versions/appfabric/ff383418(v=azure.10))

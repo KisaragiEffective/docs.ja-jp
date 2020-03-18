@@ -10,21 +10,21 @@ helpviewer_keywords:
 - <remove> element, authenticationModules
 - authenticationModules, remove element
 ms.assetid: abf79949-b05c-465a-b51c-bbeda9a74173
-ms.openlocfilehash: 9b73c0dc1fe161616c08ef0501241d55e9fea9bc
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: 2113b2b81ae347b398b0f25028dc6c361aec8447
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71697927"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089178"
 ---
-# <a name="remove-element-for-authenticationmodules-network-settings"></a>authenticationModules の > 要素を @no__t 0remove (ネットワーク設定)
+# <a name="remove-element-for-authenticationmodules-network-settings"></a>authenticationModules の > 要素 (ネットワーク設定) を削除 \<には
 アプリケーションから認証モジュールを削除します。  
-  
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **@no__t 47 >** ](system-net-element-network-settings.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @-3[ **\<authenticationModules >** ](authenticationmodules-element-network-settings.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5 **\<remove を削除**します。  
-  
+
+[ **\<configuration>** ](../configuration-element.md)\
+&nbsp;&nbsp;[ **\<system. net >** ](system-net-element-network-settings.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;[ **\<authenticationModules >** ](authenticationmodules-element-network-settings.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**削除**>
+
 ## <a name="syntax"></a>構文  
   
 ```xml  
@@ -38,7 +38,7 @@ ms.locfileid: "71697927"
   
 ### <a name="attributes"></a>属性  
   
-|**属性**|**[説明]**|  
+|**属性**|**説明**|  
 |-------------------|---------------------|  
 |**type**|削除する認証モジュールの名前。|  
   
@@ -47,14 +47,14 @@ ms.locfileid: "71697927"
   
 ### <a name="parent-elements"></a>親要素  
   
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |[authenticationModules](authenticationmodules-element-network-settings.md)|ネットワーク要求を認証するために使用するモジュールを指定します。|  
   
-## <a name="remarks"></a>コメント  
- @No__t-0 要素は、構成ファイルまたは構成階層の上位レベルで定義された認証モジュールを削除します。  
+## <a name="remarks"></a>Remarks  
+ `remove` 要素は、構成ファイルまたは構成階層の上位レベルで定義された認証モジュールを削除します。  
   
- @No__t-0 属性の値は、有効なクラス名である必要があります。  
+ `type` 属性の値は、有効なクラス名である必要があります。  
   
 ## <a name="configuration-files"></a>構成ファイル  
  この要素は、アプリケーション構成ファイルまたはマシン構成ファイル (Machine.config) で使用できます。  

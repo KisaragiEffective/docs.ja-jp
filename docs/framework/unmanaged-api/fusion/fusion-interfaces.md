@@ -6,14 +6,12 @@ helpviewer_keywords:
 - fusion interfaces [.NET Framework]
 - unmanaged interfaces [.NET Framework], fusion
 ms.assetid: e2cf98b7-40c1-4f74-86c7-8a76dd9da677
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1605605f8510f7ccf5f0bbf2f3f6b09050a16025
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 81c66825e69d9526abddfe06133426a2274ad08f
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70795307"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73108191"
 ---
 # <a name="fusion-interfaces"></a>Fusion インターフェイス
 このセクションでは、アプリケーションのリソースのプロパティにアクセスするために fusion API が使用するアンマネージインターフェイスについて説明し、アプリケーションのリソースの正しいバージョンを特定します。  
@@ -29,7 +27,7 @@ ms.locfileid: "70795307"
  グローバルアセンブリキャッシュ内の1つのアセンブリを表します。  
   
  [IAssemblyEnum インターフェイス](iassemblyenum-interface.md)  
- オブジェクトの`IAssemblyName`配列の列挙子を表します。  
+ `IAssemblyName` オブジェクトの配列の列挙子を表します。  
   
  [IAssemblyName インターフェイス](iassemblyname-interface.md)  
  アセンブリの一意の id を記述および操作するためのメソッドを提供します。  
@@ -41,13 +39,13 @@ ms.locfileid: "70795307"
  現在のスコープ内のアプリケーションを定義するコードの一意の署名を表します。  
   
  [IEnumDefinitionIdentity インターフェイス](ienumdefinitionidentity-interface.md)  
- オブジェクトの`IDefinitionIdentity`コレクションの列挙子として機能します。  
+ `IDefinitionIdentity` オブジェクトのコレクションの列挙子として機能します。  
   
  [IEnumIDENTITY_ATTRIBUTE インターフェイス](ienumidentity-attribute-interface.md)  
  現在のスコープ内のコードオブジェクトの属性の列挙子として機能します。  
   
  [IEnumReferenceIdentity インターフェイス](ienumreferenceidentity-interface.md)  
- オブジェクトの`IReferenceIdentity`コレクションの列挙子として機能します。  
+ `IReferenceIdentity` オブジェクトのコレクションの列挙子として機能します。  
   
  [IIdentityAuthority インターフェイス](iidentityauthority-interface.md)  
  コードオブジェクトの id キーを管理します。  
@@ -64,7 +62,7 @@ ms.locfileid: "70795307"
  [IReferenceIdentity インターフェイス](ireferenceidentity-interface.md)  
  コードオブジェクトの一意の署名への参照を表します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>辞書／辞典／その他  
  <xref:System.Reflection>  
   
  <xref:System.Reflection.Emit>  

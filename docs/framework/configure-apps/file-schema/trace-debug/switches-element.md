@@ -9,20 +9,20 @@ helpviewer_keywords:
 - switches element
 - trace switches, <switches> element
 ms.assetid: 4cf36786-b89a-40e2-a0f1-86bb9b783343
-ms.openlocfilehash: c161f842192396101dcc6850f3b3da328958eac3
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: 4aeb3cb0cd75f0fb27e3b359b86da61a77b491c7
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71697084"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74088800"
 ---
-# <a name="switches-element"></a>\<switches > 要素
+# <a name="switches-element"></a>\<スイッチ > 要素
 トレース スイッチと、トレース スイッチを設定するレベルを保持します。  
-  
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\<system. diagnostics >** ](system-diagnostics-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t-3 **\<switches >**  
-  
+
+[ **\<configuration>** ](../configuration-element.md)\
+&nbsp;&nbsp;[ **\<** ](system-diagnostics-element.md)\
+&nbsp;&nbsp;&nbsp;&nbsp; **\<スイッチ >**
+
 ## <a name="syntax"></a>構文  
   
 ```xml  
@@ -34,7 +34,7 @@ ms.locfileid: "71697084"
  以降のセクションでは、属性、子要素、および親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
- [なし] :  
+ なし。  
   
 ### <a name="child-elements"></a>子要素  
   
@@ -49,11 +49,11 @@ ms.locfileid: "71697084"
 |`configuration`|共通言語ランタイムおよび .NET Framework アプリケーションで使用されるすべての構成ファイルのルート要素です。|  
 |`System.diagnostics`|メッセージを収集、格納、およびルーティングするトレース リスナーとトレース スイッチを設定するレベルを指定します。|  
   
-## <a name="remarks"></a>コメント  
- トレーススイッチのレベルは、構成ファイルに配置することによって変更できます。 スイッチが @no__t 0 の場合は、オンまたはオフにすることができます。 スイッチが @no__t 0 の場合は、別のレベルを割り当てて、アプリケーションが出力するトレースメッセージまたはデバッグメッセージの種類を指定できます。  
+## <a name="remarks"></a>Remarks  
+ トレーススイッチのレベルは、構成ファイルに配置することによって変更できます。 スイッチが <xref:System.Diagnostics.BooleanSwitch>の場合は、オンまたはオフにすることができます。 スイッチが <xref:System.Diagnostics.TraceSwitch>の場合は、別のレベルを割り当てて、アプリケーションが出力するトレースメッセージまたはデバッグメッセージの種類を指定できます。  
   
 ## <a name="example"></a>例  
- 次の例では、 **\<switch >** 要素を使用して `General` トレーススイッチを <xref:System.Diagnostics.TraceLevel> レベルに設定し、@no__t ブールトレーススイッチを有効にする方法を示します。  
+ 次の例では、 **\<switch >** 要素を使用して `General` トレーススイッチを <xref:System.Diagnostics.TraceLevel> レベルに設定し、`Data` ブール型のトレーススイッチを有効にする方法を示します。  
   
 ```xml  
 <configuration>  
@@ -72,4 +72,3 @@ ms.locfileid: "71697084"
 - <xref:System.Diagnostics.TraceSwitch>
 - <xref:System.Diagnostics.BooleanSwitch>
 - [トレースおよびデバッグ設定のスキーマ](index.md)
- 

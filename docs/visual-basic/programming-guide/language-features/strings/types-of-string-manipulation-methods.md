@@ -1,48 +1,48 @@
 ---
-title: Visual Basic における文字列操作メソッドの種類
+title: 文字列操作メソッドの種類
 ms.date: 07/20/2015
 helpviewer_keywords:
 - strings [Visual Basic], manipulating [Visual Basic]
 - string manipulation
 ms.assetid: 905055cd-7f50-48fb-9eed-b0995af1dc1f
-ms.openlocfilehash: 44eb101ebdfeb316958a659107190ef1fc84df44
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: a02278abfb71efb2f31f239a89a22ad1c8ee7a18
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61938269"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346270"
 ---
 # <a name="types-of-string-manipulation-methods-in-visual-basic"></a>Visual Basic における文字列操作メソッドの種類
-いくつかの方法を分析し、文字列の操作があります。 Visual Basic 言語の一部である一部のメソッドと他のユーザーに固有では、`String`クラス。  
+文字列を分析して操作するには、いくつかの方法があります。 一部のメソッドは Visual Basic 言語の一部であり、`String` クラスに固有のものです。  
   
 ## <a name="visual-basic-language-and-the-net-framework"></a>Visual Basic 言語と .NET Framework  
- Visual Basic のメソッドは、言語固有の関数として使用されます。 付けず、コードで使用することです。 次の例は、Visual Basic の文字列操作コマンドの一般的な使用を示しています。  
+ Visual Basic メソッドは、言語の固有の関数として使用されます。 これらは、コード内で修飾なしで使用することができます。 次の例は、Visual Basic 文字列操作コマンドの一般的な使用法を示しています。  
   
  [!code-vb[VbVbalrStrings#44](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStrings/VB/Class2.vb#44)]  
   
- この例で、`Mid`関数で直接操作を実行する`aString`に値が割り当てられます`bString`します。  
+ この例では、`Mid` 関数が `aString` に対して直接操作を実行し `bString`に値を代入します。  
   
- Visual Basic の文字列操作メソッドの一覧は、次を参照してください。[文字列操作の概要](../../../../visual-basic/language-reference/keywords/string-manipulation-summary.md)します。  
+ Visual Basic 文字列操作メソッドの一覧については、「[文字列操作の概要](../../../../visual-basic/language-reference/keywords/string-manipulation-summary.md)」を参照してください。  
   
-### <a name="shared-methods-and-instance-methods"></a>共有メソッドとインスタンス メソッド  
- メソッドを使って、文字列を操作することも、`String`クラス。 内のメソッドの 2 種類があります`String`:*共有*メソッドと*インスタンス*メソッド。  
+### <a name="shared-methods-and-instance-methods"></a>共有メソッドとインスタンスメソッド  
+ `String` クラスのメソッドを使用して、文字列を操作することもできます。 `String`には、*共有*メソッドと*インスタンス*メソッドという2種類のメソッドがあります。  
   
 #### <a name="shared-methods"></a>共有メソッド  
- 共有メソッドに由来するメソッド、`String`クラス自体と、操作するには、そのクラスのインスタンスは必要ありません。 これらのメソッドは、クラスの名前で修飾することができます (`String`) のインスタンスではなく、`String`クラス。 例:  
+ 共有メソッドは、`String` クラス自体からのメソッドであり、そのクラスのインスタンスが動作するためには必要ありません。 これらのメソッドは、`String` クラスのインスタンスではなく、クラスの名前 (`String`) で修飾できます。 例 :  
   
  [!code-vb[VbVbalrStrings#45](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStrings/VB/Class2.vb#45)]  
   
- 上記の例では、<xref:System.String.Copy%2A?displayProperty=nameWithType>メソッドは静的メソッドを式に対して機能することが指定され、その結果の値を割り当てます`bString`します。  
+ 前の例では、<xref:System.String.Copy%2A?displayProperty=nameWithType> メソッドは静的メソッドです。このメソッドは、指定された式に対して動作し、結果として得られる値を `bString`に代入します。  
   
-#### <a name="instance-methods"></a>インスタンス メソッド  
- インスタンス メソッド、の特定のインスタンスからこれに対し、語幹`String`インスタンス名で修飾する必要があります。 例:  
+#### <a name="instance-methods"></a>インスタンスメソッド  
+ これに対して、インスタンスメソッドは、`String` の特定のインスタンスからのものであり、インスタンス名で修飾する必要があります。 例 :  
   
  [!code-vb[VbVbalrStrings#46](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStrings/VB/Class2.vb#46)]  
   
- この例で、<xref:System.String.Substring%2A?displayProperty=nameWithType>メソッドは、メソッドのインスタンスの`String`(つまり、 `aString`)。 操作の実行`aString`にその値を割り当てます`bString`します。  
+ この例では、<xref:System.String.Substring%2A?displayProperty=nameWithType> メソッドは、`String` のインスタンス (つまり、`aString`) のメソッドです。 `aString` に対して操作を実行し、その値を `bString`に割り当てます。  
   
- 詳細については、ドキュメントを参照して、<xref:System.String>クラス。  
+ 詳細については、<xref:System.String> クラスのドキュメントを参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Visual Basic の文字列の概要](../../../../visual-basic/programming-guide/language-features/strings/introduction-to-strings.md)

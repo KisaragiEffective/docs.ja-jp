@@ -2,16 +2,14 @@
 title: <Thread_UseAllCpuGroups> 要素
 ms.date: 03/30/2017
 ms.assetid: d30fe7c5-8469-46e2-b804-e3eec7b24256
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: e964f1b2861926803b0449be06cbfd9567ac74a3
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: a3a612c0ffbcb211157b9623d298ce8ad7a13e94
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252271"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73115409"
 ---
-# <a name="thread_useallcpugroups-element"></a>\<Thread_UseAllCpuGroups> 要素
+# <a name="thread_useallcpugroups-element"></a>\<Thread_UseAllCpuGroups > 要素
 
 ランタイムによって、すべての CPU グループにマネージド スレッドを分散するかどうかを指定します。
 
@@ -38,10 +36,10 @@ ms.locfileid: "70252271"
 
 ## <a name="enabled-attribute"></a>enabled 属性
 
-|値|説明|
+|[値]|説明|
 |-----------|-----------------|
 |`false`|ランタイムは、複数の CPU グループにマネージド スレッドを分散しません。 既定値です。|
-|`true`|コンピューターに複数の cpu グループ[ \<](gccpugroup-element.md)があり、GCCpuGroup > 要素が有効になっている場合、ランタイムは複数の cpu グループにマネージスレッドを分散します。|
+|`true`|コンピューターに複数の CPU グループがあり、 [\<GCCpuGroup >](gccpugroup-element.md)要素が有効になっている場合、ランタイムは複数の cpu グループにマネージスレッドを分散します。|
 
 ### <a name="child-elements"></a>子要素
 
@@ -56,7 +54,7 @@ ms.locfileid: "70252271"
 
 ## <a name="remarks"></a>Remarks
 
-コンピューターに複数の CPU グループがある場合、この要素を有効にすると、ランタイムは、すべての CPU グループにマネージド スレッドを分散します。 この機能を使用するには、 [ \<GCCpuGroup >](gccpugroup-element.md)要素も有効にする必要があります。これにより、ガベージコレクションがすべての CPU グループに拡張され、ヒープを作成および分散するときにすべてのコアが考慮されます。 [ \<GCCpuGroup >](gccpugroup-element.md)要素を有効にするには、 [ \<gcServer >](gcserver-element.md)要素を有効にする必要があります。 これらの要素が有効でない場合、`<Thread_UseAllCpuGroups>` 要素を有効にしても効力はありません。
+コンピューターに複数の CPU グループがある場合、この要素を有効にすると、ランタイムは、すべての CPU グループにマネージド スレッドを分散します。 この機能を使用するには、 [\<GCCpuGroup >](gccpugroup-element.md)要素を有効にする必要もあります。これにより、ガベージコレクションがすべての CPU グループに拡張され、ヒープを作成および分散するときにすべてのコアが考慮されます。 [\<GCCpuGroup >](gccpugroup-element.md)要素を有効にするには、 [\<gcServer >](gcserver-element.md)要素を有効にする必要があります。 これらの要素が有効でない場合、`<Thread_UseAllCpuGroups>` 要素を有効にしても効力はありません。
 
 ## <a name="example"></a>例
 

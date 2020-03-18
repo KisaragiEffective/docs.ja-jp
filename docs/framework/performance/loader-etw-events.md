@@ -5,37 +5,22 @@ helpviewer_keywords:
 - loader events [.NET Framework]
 - ETW, loader events (CLR)
 ms.assetid: cb403cc6-56f8-4609-b467-cdfa09f07909
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 6177bdff873feb75eb15dba53bcdb5197260fa9d
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 73665915a70225c2b1da47c7b60347b089564884
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71046391"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75716027"
 ---
 # <a name="loader-etw-events"></a>ローダー ETW イベント
-<a name="top"></a> これらのイベントは、アプリケーションのドメイン、アセンブリ、およびモジュールのロードとアンロードに関連する情報を収集します。  
+これらのイベントは、アプリケーションのドメイン、アセンブリ、およびモジュールのロードとアンロードに関連する情報を収集します。  
   
  すべてのローダー イベントは、 `LoaderKeyword` (0x8) キーワードで発生します。 `DCStart` および `DCEnd` のイベントは、`StartRundown`/`EndRundown` が有効になっている `LoaderRundownKeyword` (0x8) で発生します。 (詳細については、「 [CLR ETW Keywords and Levels](clr-etw-keywords-and-levels.md)」を参照してください)。  
-  
- ローダー イベントは、次のように細分化されています。  
-  
-- [アプリケーション ドメイン イベント](#application_domain_events)  
-  
-- [CLR ローダー アセンブリ イベント](#clr_loader_assembly_events)  
-  
-- [モジュール イベント](#module_events)  
-  
-- [CLR ドメイン モジュール イベント](#clr_domain_module_events)  
-  
-- [モジュールの範囲イベント](#module_range_events)  
-  
-<a name="application_domain_events"></a>   
-## <a name="application-domain-events"></a>アプリケーション ドメイン イベント  
+
+## <a name="application-domain-events"></a>アプリケーション ドメイン イベント
  次の表に、キーワードとレベルを示します。  
   
-|イベントを発生させるキーワード|event|レベル|  
+|イベントを発生させるキーワード|Event|レベル|  
 |-----------------------------------|-----------|-----------|  
 |`LoaderKeyword` (0x8)|`AppDomainLoad_V1` および `AppDomainUnLoad_V1`|情報提供 (4)|  
 |`LoaderRundownKeyword` (0x8) +<br /><br /> `StartRundownKeyword`|`AppDomainDCStart_V1`|情報提供 (4)|  
@@ -43,7 +28,7 @@ ms.locfileid: "71046391"
   
  次の表に、イベント情報を示します。  
   
-|イベント|イベント ID|説明|  
+|Event|イベント ID|説明|  
 |-----------|--------------|-----------------|  
 |`AppDomainLoad_V1` (すべてのアプリケーション ドメインについて記録)|156|プロセスの有効期間中に、アプリケーション ドメインが作成されるたびに発生します。|  
 |`AppDomainUnLoad_V1`|157|プロセスの有効期間中に、アプリケーション ドメインが破壊されるたびに発生します。|  
@@ -52,21 +37,18 @@ ms.locfileid: "71046391"
   
  次の表に、イベント データを示します。  
   
-|フィールド名|データ型|説明|  
+|フィールド名|[データ型]|説明|  
 |----------------|---------------|-----------------|  
 |AppDomainID|win:UInt64|アプリケーション ドメインの一意の識別子。|  
-|AppDomainFlags|win:UInt32|0x1既定のドメイン。<br /><br /> 0x2ァイル.<br /><br /> 0x4アプリケーションドメイン、ビット 28-31:このドメインのポリシーを共有しています。<br /><br /> 0共有ドメイン。|  
+|AppDomainFlags|win:UInt32|0x1: 既定のドメイン。<br /><br /> 0x2: 実行可能ファイル。<br /><br /> 0x4: アプリケーション ドメイン、ビット 28 ～ 31: このドメインの共有ポリシー。<br /><br /> 0: 共有ドメイン。|  
 |AppDomainName|win:UnicodeString|わかりやすいアプリケーション ドメイン名。 プロセスの有効期間中に変更することがあります。|  
 |AppDomainIndex|win:UInt32|このアプリケーション ドメインのインデックス。|  
 |ClrInstanceID|win:UInt16|CLR または CoreCLR のインスタンスの一意の ID。|  
-  
- [ページのトップへ](#top)  
-  
-<a name="clr_loader_assembly_events"></a>   
+
 ## <a name="clr-loader-assembly-events"></a>CLR ローダー アセンブリ イベント  
  次の表に、キーワードとレベルを示します。  
   
-|イベントを発生させるキーワード|event|レベル|  
+|イベントを発生させるキーワード|Event|レベル|  
 |-----------------------------------|-----------|-----------|  
 |`LoaderKeyword` (0x8)|`AssemblyLoad` および `AssemblyUnload`|情報提供 (4)|  
 |`LoaderRundownKeyword` (0x8) +<br /><br /> `StartRundownKeyword`|`AssemblyDCStart`|情報提供 (4)|  
@@ -74,7 +56,7 @@ ms.locfileid: "71046391"
   
  次の表に、イベント情報を示します。  
   
-|イベント|イベント ID|説明|  
+|Event|イベント ID|説明|  
 |-----------|--------------|-----------------|  
 |`AssemblyLoad_V1`|154|アセンブリが読み込まれたときに発生します。|  
 |`AssemblyUnload_V1`|155|アセンブリがアンロードされたときに発生します。|  
@@ -83,22 +65,19 @@ ms.locfileid: "71046391"
   
  次の表に、イベント データを示します。  
   
-|フィールド名|データ型|説明|  
+|フィールド名|[データ型]|説明|  
 |----------------|---------------|-----------------|  
 |AssemblyID|win:UInt64|アセンブリの一意の ID。|  
 |AppDomainID|win:UInt64|このアセンブリのドメインの ID。|  
 |BindingID|win:UInt64|アセンブリ バインディングを一意に識別する ID。|  
-|AssemblyFlags|win:UInt32|0x1ドメイン中立アセンブリ。<br /><br /> 0x2動的アセンブリ。<br /><br /> 0x4アセンブリにはネイティブイメージがあります。<br /><br /> 0x8収集可能アセンブリ。|  
+|AssemblyFlags|win:UInt32|0x1: ドメインに中立的なアセンブリ。<br /><br /> 0x2: 動的アセンブリ。<br /><br /> 0x4: アセンブリにネイティブ イメージがある。<br /><br /> 0x8: 収集可能なアセンブリ。|  
 |AssemblyName|win:UnicodeString|完全修飾アセンブリ名。|  
-|ClrInstanceID|win:UInt16|CLR または CoreCLR のインスタンスの一意の ID。|  
-  
- [ページのトップへ](#top)  
-  
-<a name="module_events"></a>   
-## <a name="module-events"></a>モジュール イベント  
+|ClrInstanceID|win:UInt16|CLR または CoreCLR のインスタンスの一意の ID。|   
+
+## <a name="module-events"></a>モジュール イベント
  次の表に、キーワードとレベルを示します。  
   
-|イベントを発生させるキーワード|event|レベル|  
+|イベントを発生させるキーワード|Event|レベル|  
 |-----------------------------------|-----------|-----------|  
 |`LoaderKeyword` (0x8)|`ModuleLoad_V2` および `ModuleUnload_V2`|情報提供 (4)|  
 |`LoaderRundownKeyword` (0x8) +<br /><br /> `StartRundownKeyword`|`ModuleDCStart_V2`|情報提供 (4)|  
@@ -107,7 +86,7 @@ ms.locfileid: "71046391"
   
  次の表に、イベント情報を示します。  
   
-|イベント|イベント ID|説明|  
+|Event|イベント ID|説明|  
 |-----------|--------------|-----------------|  
 |`ModuleLoad_V2`|152|プロセスの有効期間中にモジュールが読み込まれるときに発生します。|  
 |`ModuleUnload_V2`|153|プロセスの有効期間中にモジュールがアンロードされるときに発生します。|  
@@ -116,11 +95,11 @@ ms.locfileid: "71046391"
   
  次の表に、イベント データを示します。  
   
-|フィールド名|データ型|説明|  
+|フィールド名|[データ型]|説明|  
 |----------------|---------------|-----------------|  
 |ModuleID|win:UInt64|モジュールの一意な ID。|  
 |AssemblyID|win:UInt64|このモジュールが存在するアセンブリの ID。|  
-|ModuleFlags|win:UInt32|0x1ドメイン中立モジュール。<br /><br /> 0x2モジュールにネイティブイメージがあります。<br /><br /> 0x4動的モジュール。<br /><br /> 0x8マニフェストモジュール。|  
+|ModuleFlags|win:UInt32|0x1: ドメインに中立的なモジュール。<br /><br /> 0x2: モジュールにネイティブ イメージがある。<br /><br /> 0x4: 動的モジュール。<br /><br /> 0x8: マニフェスト モジュール。|  
 |Reserved1|win:UInt32|予約済みのフィールド。|  
 |ModuleILPath|win:UnicodeString|モジュールの Microsoft intermediate language (MSIL) のイメージのパス、またはそれが動的アセンブリ (null で終わる) である場合は動的モジュール名。|  
 |ModuleNativePath|win:UnicodeString|モジュール ネイティブ イメージがある場合、そのパス (null で終わる)。|  
@@ -136,17 +115,14 @@ ms.locfileid: "71046391"
   
 - 名前に"Pdb"が付いているフィールドは、プロファイル セッション中に読み込まれたモジュールに一致する PDB を検索するプロファイリング ツールによって使用できます。 これらのフィールドの値は、読み込まれたモジュールに一致する PDB の位置を特定するためにデバッガーが通常使用する、モジュールの IMAGE_DIRECTORY_ENTRY_DEBUG のセクションに書き込まれたデータに対応します。  
   
-- "ManagedPdb"で始まるフィールド名は、マネージド コンパイラ (C# または Visual Basic コンパイラなど) によって生成された MSIL モジュールに対応する管理対象の PDB を参照します。 この PDB は、管理対象の PDB 形式を使用して、ファイル、行番号、およびシンボルの名前など、元のマネージド ソース コードからの要素が MSIL モジュールにコンパイルされている MSIL 要素にどのようにマップされるかについて説明します。  
+- "ManagedPdb"で始まるフィールド名は、マネージド コンパイラ (c# または Visual Basic コンパイラなど) によって生成された MSIL モジュールに対応する管理対象の PDB を参照します。 この PDB は、管理対象の PDB 形式を使用して、ファイル、行番号、およびシンボルの名前など、元のマネージド ソース コードからの要素が MSIL モジュールにコンパイルされている MSIL 要素にどのようにマップされるかについて説明します。  
   
 - "NativePdb"で始まるフィールド名は、 `NGEN createPDB`を呼び出すことによって生成された NGen PDB を参照します。 この PDB は、ネイティブ PDB 形式を使用して、ファイル、行番号、およびシンボルの名前など、元のマネージド ソース コードからの要素が NGen モジュールにコンパイルされているネイティブ要素にどのようにマップされるかについて説明します。  
-  
- [ページのトップへ](#top)  
-  
-<a name="clr_domain_module_events"></a>   
-## <a name="clr-domain-module-events"></a>CLR ドメイン モジュール イベント  
+
+## <a name="clr-domain-module-events"></a>CLR ドメイン モジュール イベント
  次の表に、キーワードとレベルを示します。  
   
-|イベントを発生させるキーワード|event|レベル|  
+|イベントを発生させるキーワード|Event|レベル|  
 |-----------------------------------|-----------|-----------|  
 |`LoaderKeyword` (0x8)|`DomainModuleLoad_V1`|情報提供 (4)|  
 |`LoaderRundownKeyword` (0x8) +<br /><br /> `StartRundownKeyword`|`DomainModuleDCStart_V1`|情報提供 (4)|  
@@ -154,7 +130,7 @@ ms.locfileid: "71046391"
   
  次の表に、イベント情報を示します。  
   
-|イベント|イベント ID|説明|  
+|Event|イベント ID|説明|  
 |-----------|--------------|-----------------|  
 |`DomainModuleLoad_V1`|151|モジュールがアプリケーション ドメインに読み込まれるときに発生します。|  
 |`DomainModuleDCStart_V1`|151|開始ランダウン中にアプリケーション ドメインに読み込まれたモジュールを列挙し、すべてのアプリケーション ドメインについてログに記録されます。|  
@@ -162,24 +138,21 @@ ms.locfileid: "71046391"
   
  次の表に、イベント データを示します。  
   
-|フィールド名|データ型|説明|  
+|フィールド名|[データ型]|説明|  
 |----------------|---------------|-----------------|  
 |ModuleID|win:UInt64|このモジュールが所属するアセンブリを識別します。|  
 |AssemblyID|win:UInt64|このモジュールが存在するアセンブリの ID。|  
 |AppDomainID|win:UInt64|このモジュールを使用する、アプリケーション ドメインの ID。|  
-|ModuleFlags|win:UInt32|0x1ドメイン中立モジュール。<br /><br /> 0x2モジュールにネイティブイメージがあります。<br /><br /> 0x4動的モジュール。<br /><br /> 0x8マニフェストモジュール。|  
+|ModuleFlags|win:UInt32|0x1: ドメインに中立的なモジュール。<br /><br /> 0x2: モジュールにネイティブ イメージがある。<br /><br /> 0x4: 動的モジュール。<br /><br /> 0x8: マニフェスト モジュール。|  
 |Reserved1|win:UInt32|予約済みのフィールド。|  
 |ModuleILPath|win:UnicodeString|モジュールの MSIL のイメージのパス、またはそれが動的アセンブリ (null で終わる) である場合は動的モジュール名。|  
 |ModuleNativePath|win:UnicodeString|モジュール ネイティブ イメージがある場合、そのパス (null で終わる)。|  
 |ClrInstanceID|win:UInt16|CLR または CoreCLR のインスタンスの一意の ID。|  
-  
- [ページのトップへ](#top)  
-  
-<a name="module_range_events"></a>   
-## <a name="module-range-events"></a>モジュールの範囲イベント  
+
+## <a name="module-range-events"></a>モジュールの範囲イベント
  次の表に、キーワードとレベルを示します。  
   
-|イベントを発生させるキーワード|event|レベル|  
+|イベントを発生させるキーワード|Event|レベル|  
 |-----------------------------------|-----------|-----------|  
 |`PerfTrackKeyWord`)|`ModuleRange`|情報提供 (4)|  
 |`PerfTrackKeyWord`|`ModuleRangeDCStart`|情報提供 (4)|  
@@ -187,7 +160,7 @@ ms.locfileid: "71046391"
   
  次の表に、イベント情報を示します。  
   
-|イベント|イベント ID|説明|  
+|Event|イベント ID|説明|  
 |-----------|--------------|-----------------|  
 |`ModuleRange`|158|ロードされたネイティブ イメージ ジェネレーター (NGen) のイメージが IBC によって最適化されていて、NGen イメージのホット セクションに関する情報が含まれる場合は、このイベントが存在します。|  
 |`ModuleRangeDCStart`|160|ランダウンの開始時に発生する `ModuleRange` イベント。|  
@@ -195,7 +168,7 @@ ms.locfileid: "71046391"
   
  次の表に、イベント データを示します。  
   
-|フィールド名|データ型|説明|  
+|フィールド名|[データ型]|説明|  
 |----------------|---------------|-----------------|  
 |ClrInstanceID|win:UInt16|CLR の複数のインスタンスが読み込まれている場合、プロセス内の CLR の特定のインスタンスを一意に識別します。|  
 |ModuleID|win:UInt64|このモジュールが所属するアセンブリを識別します。|  

@@ -2,12 +2,12 @@
 title: 名前空間
 description: 名前F#空間を使用して、プログラム要素のグループに名前を添付できるようにすることで、関連する機能の領域にコードを整理する方法について説明します。
 ms.date: 12/08/2018
-ms.openlocfilehash: d295f25cae81bc28b4fcb522bdcacde862f9517a
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: a55da1592b04c64576b4c66de61b5ca137289a6f
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68627379"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425042"
 ---
 # <a name="namespaces"></a>名前空間
 
@@ -27,11 +27,11 @@ namespace [rec] [parent-namespaces.]identifier
 
 XML ドキュメントコメントは名前空間の上に宣言できますが、無視されます。 コンパイラディレクティブは、名前空間の上に宣言することもできます。
 
-名前空間は、namespace キーワードを使用して明示的に宣言することも、モジュールを宣言するときに暗黙的に宣言することもできます。 名前空間を明示的に宣言するには、namespace キーワードを使用し、その後に名前空間名を指定します。 次の例は、型とその名前空間に`Widgets`含まれるモジュールを持つ名前空間を宣言するコードファイルを示しています。
+名前空間は、namespace キーワードを使用して明示的に宣言することも、モジュールを宣言するときに暗黙的に宣言することもできます。 名前空間を明示的に宣言するには、namespace キーワードを使用し、その後に名前空間名を指定します。 次の例は、型とその名前空間に含まれるモジュールを使用して `Widgets` 名前空間を宣言するコードファイルを示しています。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-2/snippet6406.fs)]
 
-ファイルの内容全体が1つのモジュールに含まれている場合は、 `module`キーワードを使用し、完全修飾モジュール名に新しい名前空間名を指定することで、名前空間を暗黙的に宣言することもできます。 次の例は、関数を含む名前空間`Widgets`とモジュール`WidgetsModule`を宣言するコードファイルを示しています。
+ファイルの内容全体が1つのモジュールに含まれている場合は、`module` キーワードを使用して、完全修飾モジュール名に新しい名前空間名を指定することで、名前空間を暗黙的に宣言することもできます。 次の例では、関数を含む名前空間 `Widgets` とモジュール `WidgetsModule`を宣言するコードファイルを示します。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-2/snippet6401.fs)]
 
@@ -39,7 +39,7 @@ XML ドキュメントコメントは名前空間の上に宣言できますが�
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/namespaces/snippet6402.fs)]
 
-1つ以上の名前空間で同じファイルに複数のモジュールが必要な場合は、ローカルモジュール宣言を使用する必要があります。 ローカルモジュール宣言を使用する場合、モジュール宣言で修飾された名前空間を使用することはできません。 次のコードは、名前空間宣言と2つのローカルモジュール宣言を含むファイルを示しています。 この場合、モジュールは名前空間に直接含まれています。ファイルと同じ名前を持つ、暗黙的に作成されたモジュールはありません。 `do`バインドなどのファイル内のその他のコードは、名前空間にありますが、内部モジュールには存在しないため、モジュール名を`widgetFunction`使用してモジュールメンバーを修飾する必要があります。
+1つ以上の名前空間で同じファイルに複数のモジュールが必要な場合は、ローカルモジュール宣言を使用する必要があります。 ローカルモジュール宣言を使用する場合、モジュール宣言で修飾された名前空間を使用することはできません。 次のコードは、名前空間宣言と2つのローカルモジュール宣言を含むファイルを示しています。 この場合、モジュールは名前空間に直接含まれています。ファイルと同じ名前を持つ、暗黙的に作成されたモジュールはありません。 ファイル内のその他のコード (`do` バインドなど) は名前空間にありますが、内部モジュールには存在しません。そのため、モジュール名を使用して `widgetFunction` モジュールメンバーを修飾する必要があります。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-2/snippet6403.fs)]
 
@@ -62,11 +62,11 @@ Module2 5 6
 
 ## <a name="namespaces-in-files-and-assemblies"></a>ファイルとアセンブリ内の名前空間
 
-名前空間は、1つのプロジェクトまたはコンパイルで複数のファイルにまたがることができます。 *名前空間フラグメント*という用語は、1つのファイルに含まれる名前空間の部分を記述します。 名前空間は、複数のアセンブリにまたがることもできます。 たとえば`System` 、名前空間には .NET Framework 全体が含まれています。これは多数のアセンブリにまたがり、入れ子になった多数の名前空間が含まれています。
+名前空間は、1つのプロジェクトまたはコンパイルで複数のファイルにまたがることができます。 *名前空間フラグメント*という用語は、1つのファイルに含まれる名前空間の部分を記述します。 名前空間は、複数のアセンブリにまたがることもできます。 たとえば、`System` 名前空間には、多数のアセンブリにまたがり、入れ子になった多数の名前空間が含まれている .NET Framework 全体が含まれます。
 
 ## <a name="global-namespace"></a>グローバル名前空間
 
-定義済みの名前`global`空間を使用して、.net の最上位レベルの名前空間に名前を付けます。
+定義済みの名前空間 `global` を使用して、.NET の最上位レベルの名前空間に名前を付けます。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-2/snippet6407.fs)]
 
@@ -76,7 +76,7 @@ Module2 5 6
 
 ## <a name="recursive-namespaces"></a>再帰的な名前空間
 
-また、含まれているすべてのコードが相互に再帰的になるように、名前空間を再帰として宣言することもできます。  これは、を`namespace rec`使用して行います。 を使用`namespace rec`すると、型とモジュール間で相互参照コードを記述できないという問題を軽減できます。 この例を次に示します。
+また、含まれているすべてのコードが相互に再帰的になるように、名前空間を再帰として宣言することもできます。  これは `namespace rec`によって行われます。 `namespace rec` を使用すると、型とモジュール間で相互参照コードを記述できないという問題を軽減できます。 この例を次に示します。
 
 ```fsharp
 namespace rec MutualReferences
@@ -101,7 +101,7 @@ module BananaHelpers =
     let peel (b: Banana) =
         let flip (banana: Banana) =
             match banana.Orientation with
-            | Up -> 
+            | Up ->
                 banana.Orientation <- Down
                 banana
             | Down -> banana
@@ -117,7 +117,7 @@ module BananaHelpers =
         | Down -> b |> peelSides
 ```
 
-例外`DontSqueezeTheBananaException`とクラス`Banana`は両方とも参照していることに注意してください。  さらに、モジュール`BananaHelpers`とクラス`Banana`も相互に参照します。 名前空間からF# `rec`キーワードを削除した場合、でを表現することはできません。 `MutualReferences`
+例外 `DontSqueezeTheBananaException` とクラス `Banana` 両方が相互に参照されていることに注意してください。  さらに、モジュール `BananaHelpers` とクラス `Banana` も相互に参照します。 `MutualReferences` 名前空間から `rec` キーワードをF#削除した場合、でを表すことはできません。
 
 この機能は、最上位レベルの[モジュール](modules.md)でも使用できます。
 

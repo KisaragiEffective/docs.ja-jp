@@ -2,30 +2,29 @@
 title: ICorDebugProcess8 インターフェイス
 ms.date: 03/30/2017
 ms.assetid: 7ab1a70f-ec11-46ff-8869-cd8ca679cc51
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a6db1bc7e87750a36415439707777fed99e358ea
-ms.sourcegitcommit: 621a5f6df00152006160987395b93b5b55f7ffcd
+ms.openlocfilehash: 813afc047f9fda060f1cf1af780336ff8b7c18be
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66300529"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76792149"
 ---
 # <a name="icordebugprocess8-interface"></a>ICorDebugProcess8 インターフェイス
-[.NET Framework 4.6 以降のバージョンでサポートされます]  
+[.NET Framework 4.6 以降のバージョンでサポートされています]  
   
- 有効または無効の特定の種類に ICorDebugProcess インターフェイスを論理的に拡張[ICorDebugManagedCallback2](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback2-interface.md)例外コールバック。  
+ ICorDebugManagedCallback2 Process インターフェイスを論理的に拡張して、[特定の種類の](icordebugmanagedcallback2-interface.md)例外コールバックを有効または無効にします。
+  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[EnableExceptionCallbacksOutsideOfMyCode メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugprocess8-enableexceptioncallbacksoutsideofmycode-method.md)|有効またはの特定の種類を無効に[ICorDebugManagedCallback2](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback2-interface.md)例外コールバック。|  
+|[EnableExceptionCallbacksOutsideOfMyCode メソッド](icordebugprocess8-enableexceptioncallbacksoutsideofmycode-method.md)|特定の種類の[ICorDebugManagedCallback2](icordebugmanagedcallback2-interface.md)例外コールバックを有効または無効にします。|  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -35,5 +34,5 @@ ms.locfileid: "66300529"
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)
+- [デバッグ](index.md)

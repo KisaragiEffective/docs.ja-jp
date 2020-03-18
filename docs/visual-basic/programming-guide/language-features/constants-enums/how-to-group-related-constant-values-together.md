@@ -1,34 +1,34 @@
 ---
-title: '方法: グループ関連する定数値 (Visual Basic)'
+title: '方法 : 関連する定数値をまとめてグループ化する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - enumerations [Visual Basic], constants
 - constants [Visual Basic], grouping together
 ms.assetid: 09d61da5-c940-4126-a79f-ba93c36653dc
-ms.openlocfilehash: a4f74e48cfdd5c0bc0f745d0f32eb39442f5bd83
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 151eefee4f69e1db8ba40f91334da8a051b95732
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61906764"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74354041"
 ---
-# <a name="how-to-group-related-constant-values-together-visual-basic"></a>方法: グループ関連する定数値 (Visual Basic)
-列挙型は、関連する定数をグループ化する最善の方法です。 持つ列挙体を作成する、`Enum`クラスまたはモジュールの宣言セクション内のステートメント。 詳細については、「[方法 :列挙型を宣言](../../../../visual-basic/programming-guide/language-features/constants-enums/how-to-declare-enumerations.md)します。  
+# <a name="how-to-group-related-constant-values-together-visual-basic"></a>方法: 関連する定数値をまとめてグループ化する (Visual Basic)
+列挙は、関連する定数をグループ化するための最適な方法です。 列挙体を作成するには、クラスまたはモジュールの宣言セクションにある `Enum` ステートメントを使用します。 詳細については、「[方法: 列挙型を宣言](../../../../visual-basic/programming-guide/language-features/constants-enums/how-to-declare-enumerations.md)する」を参照してください。  
   
-### <a name="to-group-related-constant-values"></a>グループに関連する定数値  
+### <a name="to-group-related-constant-values"></a>関連する定数値をグループ化するには  
   
-1. コードのアクセス レベルを含む宣言を記述、`Enum`キーワード、および有効な名前。 この例で作成、`Private`列挙型、`temperatureValues`します。  
+1. コードアクセスレベル、`Enum` キーワード、および有効な名前を含む宣言を記述します。 この例では、`Private` 列挙型、`temperatureValues`を作成します。  
   
      [!code-vb[VbEnumsTask#21](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbEnumsTask/VB/Class2.vb#21)]  
   
-2. 列挙体の定数を定義します。 この例で作成、`Public`列挙`temperatureValues`し、その値を割り当てます。  
+2. 列挙体の定数を定義します。 この例では、`Public` 列挙 `temperatureValues` を作成し、その値を割り当てます。  
   
      [!code-vb[VbEnumsTask#1](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbEnumsTask/VB/Class2.vb#1)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [列挙型と名前の修飾](../../../../visual-basic/programming-guide/language-features/constants-enums/enumerations-and-name-qualification.md)
-- [方法: 列挙体のメンバーを参照してください。](../../../../visual-basic/programming-guide/language-features/constants-enums/how-to-refer-to-an-enumeration-member.md)
+- [方法 : 列挙型のメンバーを参照する](../../../../visual-basic/programming-guide/language-features/constants-enums/how-to-refer-to-an-enumeration-member.md)
 - [列挙型を使用する状況](../../../../visual-basic/programming-guide/language-features/constants-enums/when-to-use-an-enumeration.md)
 - [定数の概要](../../../../visual-basic/programming-guide/language-features/constants-enums/constants-overview.md)
 - [定数とリテラルのデータ型](../../../../visual-basic/programming-guide/language-features/constants-enums/constant-and-literal-data-types.md)

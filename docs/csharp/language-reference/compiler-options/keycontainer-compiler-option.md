@@ -9,10 +9,10 @@ helpviewer_keywords:
 - -keycontainer compiler option [C#]
 ms.assetid: b3982b6d-2382-4f7e-bebd-ce98eaa30763
 ms.openlocfilehash: fead2d4296cfa6fb0195cb4b43f6448c0fc7e6a9
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "70970146"
 ---
 # <a name="-keycontainer-c-compiler-options"></a>-keycontainer (C# コンパイラ オプション)
@@ -45,7 +45,7 @@ ms.locfileid: "70970146"
   
  このコンパイラ オプションには、プログラムで <xref:VSLangProj.ProjectProperties.AssemblyKeyContainerName%2A> を使ってアクセスできます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラの -keyfile オプション](keyfile-compiler-option.md)
 - [C# コンパイラ オプション](index.md)

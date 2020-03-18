@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: a7b50175-2bf1-40be-8f65-64aec7aa1247
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7b949961e854facf8414c81c47f995b2ac57af3f
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 66d544bbc0511ea76565376c8f10294f1758026b
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67755386"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76792570"
 ---
 # <a name="icordebugprocesssetthreadcontext-method"></a>ICorDebugProcess::SetThreadContext メソッド
-このプロセスでは、特定のスレッドのコンテキストを設定します。  
+このプロセス内の指定されたスレッドのコンテキストを設定します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,25 +37,25 @@ HRESULT SetThreadContext(
   
 ## <a name="parameters"></a>パラメーター  
  `threadID`  
- [in]コンテキストを設定する対象のスレッドの ID。  
+ からコンテキストを設定するスレッドの ID。  
   
  `contextSize`  
  [in] `context` 配列のサイズ。  
   
  `context`  
- [in]スレッドのコンテキストを表すバイトの配列。  
+ からスレッドのコンテキストを記述するバイト配列。  
   
- コンテキストには、スレッドが実行されているプロセッサのアーキテクチャを指定します。  
+ コンテキストは、スレッドが実行されているプロセッサのアーキテクチャを指定します。  
   
-## <a name="remarks"></a>Remarks  
- デバッガーは、Win32 ではなく、このメソッドを呼び出す必要があります`SetThreadContext`関数は、スレッドは、「ハイジャック」をそのコンテキストが一時的に変更された状態で実際にできるためです。 ネイティブ コードでスレッドがある場合にのみ、このメソッドを使用する必要があります。 使用[ICorDebugRegisterSet](../../../../docs/framework/unmanaged-api/debugging/icordebugregisterset-interface.md)マネージ コード内のスレッドにします。 帯域外の (OOB) のデバッグ イベント時に、スレッドのコンテキストを変更する必要はありません。  
+## <a name="remarks"></a>コメント  
+ デバッガーは、Win32 `SetThreadContext` 関数ではなく、このメソッドを呼び出す必要があります。これは、スレッドが実際には "ハイジャック" 状態にあり、そのコンテキストが一時的に変更されている可能性があるためです。 このメソッドは、スレッドがネイティブコード内にある場合にのみ使用してください。 マネージコード内のスレッドには、コード[を使用し](icordebugregisterset-interface.md)ます。 アウトオブバンド (OOB) デバッグイベント中は、スレッドのコンテキストを変更する必要はありません。  
   
- 渡されたデータは、現在のプラットフォームの context 構造体である必要があります。  
+ 渡されるデータは、現在のプラットフォームのコンテキスト構造である必要があります。  
   
- このメソッドは、誤って使用すると、ランタイムを破壊できます。  
+ 不適切に使用された場合、このメソッドはランタイムを破損する可能性があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

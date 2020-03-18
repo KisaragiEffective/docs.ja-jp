@@ -5,18 +5,18 @@ ms.date: 05/03/2019
 author: luisquintanilla
 ms.author: luquinta
 ms.custom: mvc, how-to
-ms.openlocfilehash: 1628d0669d8a9e677ff39b5869d3802d89d96410
-ms.sourcegitcommit: bab17fd81bab7886449217356084bf4881d6e7c8
+ms.openlocfilehash: 735782a4a0877a917b6e1885f009aa49d834170f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397698"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73976964"
 ---
 # <a name="re-train-a-model"></a>モデルを再トレーニングする
 
 ML.NET で機械学習モデルを再トレーニングする方法について説明します。
 
-世界とその周りのデータは一定のペースで変化します。 そのため、モデルも同様に変更および更新する必要があります。 ML.NET には、学習したモデルのパラメーターを出発点として使用してモデルを再トレーニングする機能が用意されており、毎回最初から始めるのではなく、以前のエクスペリエンスを継続的に利用できます。  
+世界とその周りのデータは一定のペースで変化します。 そのため、モデルも同様に変更および更新する必要があります。 ML.NET には、学習したモデルのパラメーターを出発点として使用してモデルを再トレーニングする機能が用意されており、毎回最初から始めるのではなく、以前のエクスペリエンスを継続的に利用できます。
 
 ML.NET では以下のアルゴリズムを再トレーニングできます。
 
@@ -33,7 +33,7 @@ ML.NET では以下のアルゴリズムを再トレーニングできます。
 
 ## <a name="load-pre-trained-model"></a>トレーニング済みモデルを読み込む
 
-まず、トレーニング済みモデルをアプリケーションに読み込みます。 トレーニング パイプラインとモデルの読み込みの詳細については、関連する[ハウツー記事](./consuming-model-ml-net.md)を参照してください。
+まず、トレーニング済みモデルをアプリケーションに読み込みます。 トレーニング パイプラインとモデルの読み込みの詳細については、「[トレーニング済みモデルの保存と読み込み](save-load-machine-learning-models-ml-net.md)」を参照してください。
 
 ```csharp
 // Create MLContext
@@ -51,17 +51,17 @@ ITransformer trainedModel = mlContext.Model.Load("ogd_model.zip", out modelSchem
 
 ## <a name="extract-pre-trained-model-parameters"></a>トレーニング済みモデルのパラメーターを抽出する
 
-モデルが読み込まれたら、トレーニング済みモデルの [`Model`](xref:Microsoft.ML.Data.PredictionTransformerBase`1.Model*) プロパティにアクセスして、学習済みモデルのパラメーターを抽出します。 トレーニング済みモデルは、[`LinearRegressionModelParameters`](xref:Microsoft.ML.Trainers.LinearRegressionModelParameters) を出力する [`RegressionPredictionTransformer`](xref:Microsoft.ML.Data.RegressionPredictionTransformer%601) を作成する線形回帰モデル [`OnlineGradientDescentTrainer`](xref:Microsoft.ML.Trainers.OnlineGradientDescentTrainer) を使用して学習されています。 これらの線形回帰モデルのパラメーターには、学習済みのバイアスと、モデルの重みまたは係数が含まれています。 これらの値は、新しい再トレーニング済みモデルの出発点として使用されます。
+モデルが読み込まれたら、トレーニング済みモデルの [`Model`](xref:Microsoft.ML.Data.PredictionTransformerBase`1.Model*) プロパティにアクセスして、学習済みモデルのパラメーターを抽出します。 トレーニング済みモデルは、[`OnlineGradientDescentTrainer`](xref:Microsoft.ML.Trainers.OnlineGradientDescentTrainer) を出力する [`RegressionPredictionTransformer`](xref:Microsoft.ML.Data.RegressionPredictionTransformer%601) を作成する線形回帰モデル [`LinearRegressionModelParameters`](xref:Microsoft.ML.Trainers.LinearRegressionModelParameters) を使用して学習されています。 これらの線形回帰モデルのパラメーターには、学習済みのバイアスと、モデルの重みまたは係数が含まれています。 これらの値は、新しい再トレーニング済みモデルの出発点として使用されます。
 
 ```csharp
 // Extract trained model parameters
-LinearRegressionModelParameters originalModelParameters = 
+LinearRegressionModelParameters originalModelParameters =
     ((ISingleFeaturePredictionTransformer<object>)trainedModel).Model as LinearRegressionModelParameters;
 ```
 
 ## <a name="re-train-model"></a>モデルを再トレーニングする
 
-モデルを再トレーニングするプロセスは、モデルをトレーニングするプロセスと同じです。 唯一の違いは、データに加えて [`Fit`](xref:Microsoft.ML.Trainers.OnlineLinearTrainer`2.Fit*) メソッドも元の学習済みモデル パラメーターを入力として受け取り、それらを再トレーニング プロセスの開始点として使用することです。  
+モデルを再トレーニングするプロセスは、モデルをトレーニングするプロセスと同じです。 唯一の違いは、データに加えて [`Fit`](xref:Microsoft.ML.Trainers.OnlineLinearTrainer`2.Fit*) メソッドも元の学習済みモデル パラメーターを入力として受け取り、それらを再トレーニング プロセスの開始点として使用することです。
 
 ```csharp
 // New Data
@@ -94,7 +94,7 @@ IDataView newData = mlContext.Data.LoadFromEnumerable<HousingData>(housingData);
 IDataView transformedNewData = dataPrepPipeline.Transform(newData);
 
 // Retrain model
-RegressionPredictionTransformer<LinearRegressionModelParameters> retrainedModel = 
+RegressionPredictionTransformer<LinearRegressionModelParameters> retrainedModel =
     mlContext.Regression.Trainers.OnlineGradientDescent()
         .Fit(transformedNewData, originalModelParameters);
 ```
@@ -108,7 +108,7 @@ RegressionPredictionTransformer<LinearRegressionModelParameters> retrainedModel 
 LinearRegressionModelParameters retrainedModelParameters = retrainedModel.Model as LinearRegressionModelParameters;
 
 // Inspect Change in Weights
-var weightDiffs = 
+var weightDiffs =
     originalModelParameters.Weights.Zip(
         retrainedModelParameters.Weights, (original, retrained) => original - retrained).ToArray();
 
@@ -119,9 +119,9 @@ for(int i=0;i < weightDiffs.Count();i++)
 }
 ```
 
-以下の表は、出力がどのようになるかを示しています。 
+以下の表は、出力がどのようになるかを示しています。
 
-|元 | 再トレーニング済み | 相違点 |
+|変更元 | 再トレーニング済み | 相違点 |
 |---|---|---|
 | 33039.86 | 56293.76 | -23253.9 |
 | 29099.14 | 49586.03 | -20486.89 |

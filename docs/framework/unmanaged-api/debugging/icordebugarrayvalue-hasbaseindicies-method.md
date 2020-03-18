@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: aa26df07-e0a6-4608-bdef-d4afafec89aa
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: c488ca3a77f2c2b2a40c6143989cd86adf071787
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 418ebb51df3f2d86011ee2e77022c3ee5c7ac0b0
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737433"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73088229"
 ---
 # <a name="icordebugarrayvaluehasbaseindicies-method"></a>ICorDebugArrayValue::HasBaseIndicies メソッド
-この配列のディメンションに 0 以外のベース インデックスがあるかどうかを示す値を取得します。  
+この配列のどの次元にも0以外のベースインデックスがあるかどうかを示す値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT HasBaseIndicies (
   
 ## <a name="parameters"></a>パラメーター  
  `pbHasBaseIndicies`  
- [out]ブール値へのポインター`true`場合この 1 つまたは複数のディメンション`ICorDebugArrayValue`オブジェクトは、0 以外の基本のインデックスを持つ。 ブール値は、それ以外の場合、`false`します。  
+ 入出力この `ICorDebugArrayValue` オブジェクトの1つ以上の次元のベースインデックスが0以外の場合に `true` されるブール値へのポインター。それ以外の場合、ブール値は `false`です。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

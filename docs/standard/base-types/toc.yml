@@ -11,11 +11,11 @@
     - name: 型の書式設定
       href: formatting-types.md
       items:
-        - name: 標準の数値書式指定文字列
+        - name: 標準の数値形式文字列
           href: standard-numeric-format-strings.md
-        - name: カスタム数値書式指定文字列
+        - name: カスタム数値形式文字列
           href: custom-numeric-format-strings.md
-        - name: 標準の日時書式指定文字列
+        - name: 標準の日時形式文字列
           href: standard-date-and-time-format-strings.md
         - name: カスタム日時書式指定文字列
           href: custom-date-and-time-format-strings.md
@@ -38,10 +38,6 @@
               href: how-to-define-and-use-custom-numeric-format-providers.md
             - name: '方法: 日付と時刻の値をラウンドトリップさせる'
               href: how-to-round-trip-date-and-time-values.md
-            - name: '方法: Web コントロールでの数値のユーザー入力を数値に変換する'
-              href: how-to-convert-numeric-user-input-in-web-controls-to-numbers.md
-            - name: '方法: ローカライズされた日付/時刻情報を Web ユーザーに表示する'
-              href: how-to-display-localized-date-and-time-information-to-web-users.md
             - name: '方法: 日付および時刻の値のミリ秒部分を表示する'
               href: how-to-display-milliseconds-in-date-and-time-values.md
             - name: '方法: グレゴリオ暦以外の暦の日付を表示する'
@@ -118,7 +114,7 @@
                   href: how-to-extract-a-protocol-and-port-number-from-a-url.md
                 - name: '方法: 文字列から無効な文字を取り除く'
                   href: how-to-strip-invalid-characters-from-a-string.md
-                - name: '方法: 文字列が有効な電子メール形式であるかどうかを検証する'
+                - name: 文字列が有効な電子メール形式であるかどうかを検証する方法
                   href: how-to-verify-that-strings-are-in-valid-email-format.md
         - name: .NET での文字エンコード
           href: character-encoding.md

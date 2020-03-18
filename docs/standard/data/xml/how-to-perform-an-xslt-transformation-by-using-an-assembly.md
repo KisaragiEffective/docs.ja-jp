@@ -1,21 +1,19 @@
 ---
-title: '方法: アセンブリを使用して XSLT 変換を実行する'
+title: '方法 : アセンブリを使用して XSLT 変換を実行する'
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 dev_langs:
 - csharp
 - vb
 ms.assetid: 76ee440b-d134-4f8f-8262-b917ad6dcbf6
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 7e998526f3e5fcefdf6b776fb493cf9625e6c696
-ms.sourcegitcommit: 7bfe1682d9368cf88d43e895d1e80ba2d88c3a99
+ms.openlocfilehash: 447cf18c7a9d24addf9d0a4ad523f46a45a5d27a
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71957148"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155976"
 ---
-# <a name="how-to-perform-an-xslt-transformation-by-using-an-assembly"></a>方法: アセンブリを使用して XSLT 変換を実行する
+# <a name="how-to-perform-an-xslt-transformation-by-using-an-assembly"></a>方法 : アセンブリを使用して XSLT 変換を実行する
 XSLT コンパイラ (xsltc.exe) は、XSLT スタイル シートをコンパイルしてアセンブリを生成します。 このアセンブリを <xref:System.Xml.Xsl.XslCompiledTransform.Load%28System.Type%29?displayProperty=nameWithType> メソッドに直接渡すことができます。  
   
 ### <a name="to-copy-the-xml-and-xslt-files-to-your-local-computer"></a>XML ファイルと XSLT ファイルをローカル コンピューターにコピーするには  
@@ -173,15 +171,15 @@ XSLT コンパイラ (xsltc.exe) は、XSLT スタイル シートをコンパ�
 xslt.Load(typeof(Transform));  
 ```  
   
-代入  
+with  
   
-```csharp 
+```csharp
 xslt.Load(System.Reflection.Assembly.Load("Transform").GetType("Transform"));  
-``` 
+```
   
 に置き換えます。 アセンブリの読み込み方法の詳細については、「<xref:System.Reflection.Assembly.Load%2A>」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Xml.Xsl.XslCompiledTransform>
 - [XSLT コンパイラ (xsltc.exe)](../../../../docs/standard/data/xml/xslt-compiler-xsltc-exe.md)

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c698b86e-ace7-4b21-9549-f52d6a034959
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 6e06695f5ba348315523c7414822ce87d594bdbc
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 85e65f6a3ec13c2acc31b8f87dbe4b4476ffc2a5
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67776596"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74427871"
 ---
 # <a name="isymunmanagedwritersetmethodsourcerange-method"></a>ISymUnmanagedWriter::SetMethodSourceRange メソッド
-実際の先頭とソース ファイル内のメソッドの末尾を指定します。 このメソッドを使用すると、メソッド内に存在するシーケンス ポイントとは無関係に、メソッドの範囲を指定できます。  
+ソースファイル内のメソッドの実際の開始と終了を指定します。 メソッドの範囲を、メソッド内に存在するシーケンスポイントとは別に指定するには、このメソッドを使用します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,29 +39,29 @@ HRESULT SetMethodSourceRange(
   
 ## <a name="parameters"></a>パラメーター  
  `startDoc`  
- [in]開始位置を含むドキュメントへのポインター。  
+ から開始位置を格納しているドキュメントへのポインター。  
   
  `startLine`  
- [in]開始行番号。  
+ から開始行番号。  
   
  `startColumn`  
- [in]開始列。  
+ から開始列。  
   
  `endDoc`  
- [in]終了位置を含むドキュメントへのポインター。  
+ から終了位置を含むドキュメントへのポインター。  
   
  `endLine`  
- [in]終了行番号。  
+ から終了行番号。  
   
  `endColumn`  
- [in]終了列番号。  
+ から終了列番号。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。それ以外の場合、E_FAIL またはその他のエラー コード。  
+ メソッドが成功した場合は S_OK。それ以外の場合は、E_FAIL またはその他のエラーコードを指定します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl, CorSym.h  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** CorSym .idl、CorSym .h  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ISymUnmanagedWriter インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedwriter-interface.md)

@@ -1,68 +1,66 @@
 - name: .NET のアセンブリ
   href: index.md
+- name: アセンブリの内容
+  href: contents.md
+- name: 'file:///'
+  href: manifest.md
+- name: セキュリティの考慮事項
+  href: security-considerations.md
+- name: バージョン管理
+  href: versioning.md
+- name: side-by-side 実行
+  href: side-by-side-execution.md
+- name: アセンブリ ファイルの形式
+  href: file-format.md
+- name: .NET Core のアンローダビリティ
+  href: unloadability.md
+- name: 参照アセンブリ
+  href: reference-assemblies.md
+- name: アセンブリ読み込みを解決する
+  href: resolve-loads.md
+- name: アセンブリを作成する
+  href: create.md
+- name: アセンブリ名
+  href: names.md
+- name: アセンブリの完全修飾名を検索する
+  href: find-fully-qualified-name.md
+- name: アセンブリの場所
+  href: location.md
+- name: アセンブリ属性を設定する
+  href: set-attributes.md
+- name: 厳密な名前付きアセンブリ
   items:
-    - name: アセンブリの内容
-      href: contents.md
-    - name: アセンブリ マニフェスト
-      href: manifest.md
-    - name: 厳密な名前付きアセンブリ
+    - name: 概要
       href: strong-named.md
-    - name: アセンブリのセキュリティに関する考慮事項
-      href: security-considerations.md
-    - name: アセンブリのバージョン管理
-      href: versioning.md
-    - name: アセンブリと side-by-side 実行
-      href: side-by-side-execution.md
-    - name: アセンブリ ファイルの形式
-      href: file-format.md
-    - name: '方法: .NET Core でアセンブリのアンローダビリティを使用およびデバッグする'
-      href: unloadability.md
-    - name: 参照アセンブリ
-      href: reference-assemblies.md
-    - name: アセンブリ読み込みを解決する
-      href: resolve-loads.md
-    - name: アセンブリを使用したプログラム
-      href: program.md
-      items:
-        - name: アセンブリを作成する
-          href: create.md
-        - name: アセンブリ名
-          href: names.md
-        - name: '方法: アセンブリの完全修飾名を検索する'
-          href: find-fully-qualified-name.md
-        - name: アセンブリの場所
-          href: location.md
-        - name: アセンブリ属性を設定する
-          href: set-attributes.md
-        - name: 厳密な名前付きアセンブリの作成と使用
-          href: create-use-strong-named.md
-          items:
-            - name: '方法: 公開キーと秘密キーのキー ペアを作成する'
-              href: create-public-private-key-pair.md
-            - name: '方法: 厳密な名前でアセンブリに署名する'
-              href: sign-strong-name.md
-            - name: 拡張された厳密な名前付け
-              href: enhanced-strong-naming.md
-            - name: '方法: 厳密な名前のアセンブリを参照する'
-              href: reference-strong-named.md
-            - name: '方法: 厳密な名前のバイパス機能を無効にする'
-              href: disable-strong-name-bypass-feature.md
-        - name: アセンブリへの遅延署名
-          href: delay-sign.md
-        - name: '方法: アセンブリの内容を表示する'
-          href: view-contents.md
-        - name: 共通言語ランタイムでの型の転送
-          href: type-forwarding.md
-        - name: フレンド アセンブリ
-          href: friend.md
-          items:
-            - name: '方法: 署名のないフレンド アセンブリを作成する'
-              href: create-unsigned-friend.md
-            - name: '方法: 署名されたフレンド アセンブリを作成する'
-              href: create-signed-friend.md
-        - name: '方法: ファイルがアセンブリであるかどうかを確認する'
-          href: identify.md
-        - name: '方法: アセンブリを読み込み、アンロードする'
-          href: load-unload.md
-        - name: 'チュートリアル: Visual Studio でマネージド アセンブリからの型を埋め込む'
-          href: embed-types-visual-studio.md
+    - name: 厳密な名前付きアセンブリの作成と使用
+      href: create-use-strong-named.md
+    - name: 公開キーと秘密キーのキー ペアを作成する
+      href: create-public-private-key-pair.md
+    - name: 厳密な名前でアセンブリに署名する
+      href: sign-strong-name.md
+    - name: 拡張された厳密な名前付け
+      href: enhanced-strong-naming.md
+    - name: 厳密な名前のアセンブリを参照する
+      href: reference-strong-named.md
+    - name: 厳密な名前のバイパスを無効にする
+      href: disable-strong-name-bypass-feature.md
+- name: アセンブリへの遅延署名
+  href: delay-sign.md
+- name: アセンブリの内容を表示する
+  href: view-contents.md
+- name: CLR での型転送
+  href: type-forwarding.md
+- name: フレンド アセンブリ
+  items:
+    - name: 概要
+      href: friend.md
+    - name: 署名のないフレンド アセンブリを作成する
+      href: create-unsigned-friend.md
+    - name: 署名されたフレンド アセンブリを作成する
+      href: create-signed-friend.md
+- name: ファイルがアセンブリであるかどうかを確認する
+  href: identify.md
+- name: アセンブリを読み込み、アンロードする
+  href: load-unload.md
+- name: 'チュートリアル: Visual Studio でマネージド アセンブリからの型を埋め込む'
+  href: embed-types-visual-studio.md

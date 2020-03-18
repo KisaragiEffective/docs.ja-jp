@@ -1,18 +1,16 @@
 ---
 title: 構造体のマーシャリングのカスタマイズ - .NET
 description: .NET で構造体をネイティブ表現にマーシャリングする方法をカスタマイズする手順について説明します。
-author: jkoritzinsky
-ms.author: jekoritz
 ms.date: 01/18/2019
 dev_langs:
 - csharp
 - cpp
-ms.openlocfilehash: b174a817e82f9a9f123c79581656cc8e7179b435
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
-ms.translationtype: HT
+ms.openlocfilehash: 7f8d1ad93633d6feef9c3c6f5d19aad52105968c
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70929035"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76741533"
 ---
 # <a name="customizing-structure-marshaling"></a>構造体のマーシャリングのカスタマイズ
 
@@ -22,11 +20,11 @@ ms.locfileid: "70929035"
 
 .NET には <xref:System.Runtime.InteropServices.StructLayoutAttribute?displayProperty=nameWithType> 属性と <xref:System.Runtime.InteropServices.LayoutKind?displayProperty=nameWithType> 列挙型が用意されており、フィールドをメモリに配置する方法をカスタマイズできます。 次のガイダンスを使用すると、一般的な問題を回避できます。
 
-**✔️ 推奨**: 可能な限り `LayoutKind.Sequential` を使用するようにします。
+✔️は、可能な限り `LayoutKind.Sequential` の使用を検討してください。
 
-**✔️ 実行**: ネイティブ構造体に共用体などの明示的なレイアウトもある場合は、マーシャリング時に `LayoutKind.Explicit` のみを使用します。
+✔️は、ネイティブ構造体に共用体などの明示的なレイアウトがある場合にのみ、マーシャリングで `LayoutKind.Explicit` を使用します。
 
-**❌ 回避**: Windows 以外のプラットフォームで構造体をマーシャリングするときに、`LayoutKind.Explicit` を使用しないようにします。 .NET Core ランタイムは、Intel または AMD 64 ビットの Windows 以外のシステム上でネイティブ関数への値による明示的な構造体の受け渡しをサポートしていません。 ただし、ランタイムはすべてのプラットフォーム上で明示的な構造体の参照渡しをサポートしています。
+.NET Core 3.0 より前のランタイムを対象にする必要がある場合は、Windows 以外のプラットフォームで構造体をマーシャリングするときに `LayoutKind.Explicit` を使用しないように ❌ します。 3\.0 より前の .NET Core ランタイムでは、Intel または AMD 64 ビットの Windows 以外のシステムでは、明示的な構造を値でネイティブ関数に渡すことがサポートされていません。 ただし、ランタイムはすべてのプラットフォーム上で明示的な構造体の参照渡しをサポートしています。
 
 ## <a name="customizing-boolean-field-marshaling"></a>ブール値フィールドのマーシャリングのカスタマイズ
 
@@ -165,7 +163,7 @@ struct InPlaceArray
 
 .NET には、文字列フィールドをマーシャリングするためのさまざまなカスタマイズも用意されています。
 
-既定では、.NET は文字列を null で終わる文字列へのポインターとしてマーシャリングします。 エンコードは、<xref:System.Runtime.InteropServices.StructLayoutAttribute?displayProperty=nameWithType> の <xref:System.Runtime.InteropServices.StructLayoutAttribute.CharSet?displayProperty=nameWithType> フィールドの値によって決まります。 属性が指定されていない場合、エンコードは既定で ANSI エンコードになります。
+既定では、.NET は文字列を null で終わる文字列へのポインターとしてマーシャリングします。 エンコードは、<xref:System.Runtime.InteropServices.StructLayoutAttribute.CharSet?displayProperty=nameWithType> の <xref:System.Runtime.InteropServices.StructLayoutAttribute?displayProperty=nameWithType> フィールドの値によって決まります。 属性が指定されていない場合、エンコードは既定で ANSI エンコードになります。
 
 ```csharp
 [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
@@ -197,7 +195,7 @@ struct DefaultString
 };
 ```
 
-フィールドごとに異なるエンコードを使用する必要がある場合、または単に構造体の定義内でより明示的にする場合は、<xref:System.Runtime.InteropServices.MarshalAsAttribute?displayProperty=nameWithType> 属性に <xref:System.Runtime.InteropServices.UnmanagedType.LPStr?displayProperty=nameWithType> 値または <xref:System.Runtime.InteropServices.UnmanagedType.LPWStr?displayProperty=nameWithType> 値を使用できます。
+フィールドごとに異なるエンコードを使用する必要がある場合、または単に構造体の定義内でより明示的にする場合は、<xref:System.Runtime.InteropServices.UnmanagedType.LPStr?displayProperty=nameWithType> 属性に <xref:System.Runtime.InteropServices.UnmanagedType.LPWStr?displayProperty=nameWithType> 値または <xref:System.Runtime.InteropServices.MarshalAsAttribute?displayProperty=nameWithType> 値を使用できます。
 
 ```csharp
 public struct AnsiString
@@ -229,7 +227,7 @@ struct UnicodeString
 };
 ```
 
-UTF-8 エンコードを使用して文字列をマーシャリングする場合は、<xref:System.Runtime.InteropServices.MarshalAsAttribute> に <xref:System.Runtime.InteropServices.UnmanagedType.LPUTF8Str?displayProperty=nameWithType> 値を使用できます。
+UTF-8 エンコードを使用して文字列をマーシャリングする場合は、<xref:System.Runtime.InteropServices.UnmanagedType.LPUTF8Str?displayProperty=nameWithType> に <xref:System.Runtime.InteropServices.MarshalAsAttribute> 値を使用できます。
 
 ```csharp
 public struct UTF8String
@@ -319,7 +317,7 @@ struct DefaultString
 
 ## <a name="customizing-decimal-field-marshaling"></a>10 進数フィールドのマーシャリングのカスタマイズ
 
-Windows を使用している場合は、ネイティブの [`CY` または `CURRENCY`](/windows/win32/api/wtypes/ns-wtypes-cy~r1) 構造体を使用する API がいくつかあります。 既定で、.NET の `decimal` 型はネイティブの [`DECIMAL`](/windows/win32/api/wtypes/ns-wtypes-decimal~r1) 構造体にマーシャリングされます。 ただし、値が <xref:System.Runtime.InteropServices.UnmanagedType.Currency?displayProperty=nameWithType> の <xref:System.Runtime.InteropServices.MarshalAsAttribute> を使用して、`decimal` 値をネイティブの `CY` 値に変換するようにマーシャラーに指示することができます。
+Windows を使用している場合は、ネイティブの [`CY` または `CURRENCY`](/windows/win32/api/wtypes/ns-wtypes-cy~r1) 構造体を使用する API がいくつかあります。 既定で、.NET の `decimal` 型はネイティブの [`DECIMAL`](/windows/win32/api/wtypes/ns-wtypes-decimal~r1) 構造体にマーシャリングされます。 ただし、値が <xref:System.Runtime.InteropServices.MarshalAsAttribute> の <xref:System.Runtime.InteropServices.UnmanagedType.Currency?displayProperty=nameWithType> を使用して、`decimal` 値をネイティブの `CY` 値に変換するようにマーシャラーに指示することができます。
 
 ```csharp
 public struct Currency
@@ -360,7 +358,7 @@ struct ObjectDefault
 };
 ```
 
-オブジェクト フィールドを `IDispatch*` にマーシャリングする場合は、値が <xref:System.Runtime.InteropServices.UnmanagedType.IDispatch?displayProperty=nameWithType> の <xref:System.Runtime.InteropServices.MarshalAsAttribute> を追加します。
+オブジェクト フィールドを `IDispatch*` にマーシャリングする場合は、値が <xref:System.Runtime.InteropServices.MarshalAsAttribute> の <xref:System.Runtime.InteropServices.UnmanagedType.IDispatch?displayProperty=nameWithType> を追加します。
 
 ```csharp
 public struct ObjectDispatch
@@ -377,7 +375,7 @@ struct ObjectDispatch
 };
 ```
 
-`VARIANT` としてマーシャリングする場合は、値が <xref:System.Runtime.InteropServices.UnmanagedType.Struct?displayProperty=nameWithType> の <xref:System.Runtime.InteropServices.MarshalAsAttribute> を追加します。
+`VARIANT` としてマーシャリングする場合は、値が <xref:System.Runtime.InteropServices.MarshalAsAttribute> の <xref:System.Runtime.InteropServices.UnmanagedType.Struct?displayProperty=nameWithType> を追加します。
 
 ```csharp
 public struct ObjectVariant

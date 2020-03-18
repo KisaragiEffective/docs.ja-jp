@@ -2,18 +2,18 @@
 title: モデル アイテム ツリーのプログラミング
 ms.date: 03/30/2017
 ms.assetid: 0229efde-19ac-4bdc-a187-c6227a7bd1a5
-ms.openlocfilehash: f2d89cb2a3b0f6167f043148ea793ec1c264a556
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: efda69ac568b0ad9c5fdcf4d42722c5b7dadd3f3
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70038172"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715667"
 ---
 # <a name="programming-model-item-tree"></a>モデル アイテム ツリーのプログラミング
-このサンプルでは、Windows Presentation Foundation ( <xref:System.Activities.Presentation.Model.ModelItem> WPF) ツリービューの宣言型データバインディングを使用してツリー内を移動する方法を示します。
+このサンプルでは、Windows Presentation Foundation (WPF) ツリービューの宣言型データバインディングを使用して <xref:System.Activities.Presentation.Model.ModelItem> ツリー内を移動する方法を示します。
 
 ## <a name="sample-details"></a>サンプルの詳細
- <xref:System.Activities.Presentation.Model.ModelItem> ツリーは、編集する基のインスタンスに関するデータを公開するために [!INCLUDE[wfd1](../../../../includes/wfd1-md.md)] のインフラストラクチャで使用される抽象表現です。 次の図は、[!INCLUDE[wfd2](../../../../includes/wfd2-md.md)]のインフラストラクチャのさまざまな層を表しています。
+ <xref:System.Activities.Presentation.Model.ModelItem> ツリーは、編集されている基になるインスタンスに関するデータを公開するために Windows ワークフローデザイナーインフラストラクチャによって使用される抽象化です。 次の図は、ワークフローデザイナー内のインフラストラクチャのさまざまな層を示しています。
 
  ![ワークフローデザイナーアーキテクチャを示す図。](./media/programming-model-item-tree/workflow-designer-architecture.jpg)
 
@@ -35,7 +35,7 @@ justAdded.Properties["DisplayName"].SetValue("new name");
 
 3. F5 キーを押してアプリケーションを実行します。 WPF フォームが表示されます。
 
-4. **[WF の読み込み]** ボタンをクリック<xref:System.Activities.Presentation.Model.ModelItem>すると、が読み込まれ、ツリービューにバインドされます。
+4. **[WF の読み込み]** ボタンをクリックして <xref:System.Activities.Presentation.Model.ModelItem> を読み込み、ツリービューにバインドします。
 
 5. **[モデル項目ツリーの変更]** ボタンをクリックすると、前のコードが実行され、ツリーに項目が追加され、プロパティが設定されます。
 
@@ -44,10 +44,10 @@ justAdded.Properties["DisplayName"].SetValue("new name");
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WF\Basic\Designer\ProgrammingModelItemTree`  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Data.IValueConverter>

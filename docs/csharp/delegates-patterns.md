@@ -3,16 +3,16 @@ title: デリゲートの一般的なパターン
 description: コンポーネント間の密接な結合を避けるための、コードでのデリゲートの一般的な使用パターンについて説明します。
 ms.date: 06/20/2016
 ms.assetid: 0ff8fdfd-6a11-4327-b061-0f2526f35b43
-ms.openlocfilehash: ea0e0b7af361b76c4b46b0a180e07b44c1fa07e1
-ms.sourcegitcommit: 0be8a279af6d8a43e03141e349d3efd5d35f8767
+ms.openlocfilehash: 22ab88e5b139381e3a8921baa20df035f1405146
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59095699"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398737"
 ---
 # <a name="common-patterns-for-delegates"></a>デリゲートの一般的なパターン
 
-[前へ](delegates-strongly-typed.md)
+[[戻る]](delegates-strongly-typed.md)
 
 デリゲートは、コンポーネント間の結合度を最小限にしたソフトウェア設計を可能にするメカニズムです。
 
@@ -54,15 +54,15 @@ public static IEnumerable<TSource> Where<TSource> (this IEnumerable<TSource> sou
 
 最初は簡単な機能を実装してみましょう。新しいメッセージを受け取ったら、アタッチされたデリゲートを使ってそれらを出力するものです。 まず、コンソールにメッセージを出力するデリゲートを 1 つ作成します。
 
-[!code-csharp[LoggerImplementation](../../samples/csharp/delegates-and-events/Logger.cs#FirstImplementation "A first Logger implementation.")]
+[!code-csharp[LoggerImplementation](../../samples/snippets/csharp/delegates-and-events/Logger.cs#FirstImplementation "A first Logger implementation.")]
 
-上の静的クラスは、ごく簡単なコードですが、きちんと機能します。 メッセージをコンソールに出力するメソッドの機能を 1 つ実装する必要があります。 
+上の静的クラスは、ごく簡単なコードですが、きちんと機能します。 メッセージをコンソールに出力するメソッドの機能を 1 つ実装する必要があります。
 
-[!code-csharp[LogToConsole](../../samples/csharp/delegates-and-events/Program.cs#LogToConsole "A Console logger.")]
+[!code-csharp[LogToConsole](../../samples/snippets/csharp/delegates-and-events/LoggingMethods.cs#LogToConsole "A Console logger.")]
 
 最後にそのメソッドを、Logger に宣言されている WriteMessage デリゲートにアタッチして接続する必要があります。
 
-[!code-csharp[ConnectDelegate](../../samples/csharp/delegates-and-events/Program.cs#ConnectDelegate "Connect to the delegate")]
+[!code-csharp[ConnectDelegate](../../samples/snippets/csharp/delegates-and-events/Program.cs#ConnectDelegate "Connect to the delegate")]
 
 ## <a name="practices"></a>実践
 
@@ -70,20 +70,20 @@ public static IEnumerable<TSource> Where<TSource> (this IEnumerable<TSource> sou
 
 ユーザーは、Core Framework に定義されているデリゲート型を使うことで、さらに簡単にデリゲートを扱うことができます。 皆さんが新しい型を定義する必要はなく、皆さんのライブラリを利用する開発者も、特別な目的を持ったデリゲート型を新たに覚える必要がありません。
 
-使用されているインターフェイスはごくわずかでありながら、最大限の柔軟性が得られるようになっています。新しい出力ロガーを作成するには、メソッドを 1 つ作成する必要があります。 そのメソッドは静的メソッドでも、インスタンス メソッドでもかまいません。 またアクセス指定も任意です。
+使用されているインターフェイスはごくわずかでありながら、最大限の柔軟性が得られるようになっています。つまり新しい出力ロガーを作成するために皆さんがすべきことは、メソッドを 1 つ作成することです。 そのメソッドは静的メソッドでも、インスタンス メソッドでもかまいません。 またアクセス指定も任意です。
 
-## <a name="formatting-output"></a>出力の初期設定
+## <a name="formatting-output"></a>出力の書式設定
 
 最初のコード例にもう少し肉付けしてみましょう。その後、別のログ メカニズムの作成に進みます。
 
 まず、より構造化されたメッセージを作成するために、いくつかの引数を `LogMessage()` メソッドに追加します。
 
-[!code-csharp[Severity](../../samples/csharp/delegates-and-events/Logger.cs#Severity "Define severities")]
-[!code-csharp[NextLogger](../../samples/csharp/delegates-and-events/Logger.cs#LoggerTwo "Refine the Logger")]
+[!code-csharp[Severity](../../samples/snippets/csharp/delegates-and-events/Logger.cs#Severity "Define severities")]
+[!code-csharp[NextLogger](../../samples/snippets/csharp/delegates-and-events/Logger.cs#LoggerTwo "Refine the Logger")]
 
-次に、その `Severity` 引数を利用して、ログ出力に送るメッセージをフィルター選択します。 
+次に、その `Severity` 引数を利用して、ログ出力に送るメッセージをフィルター選択します。
 
-[!code-csharp[FinalLogger](../../samples/csharp/delegates-and-events/Logger.cs#LoggerFinal "Finish the Logger")]
+[!code-csharp[FinalLogger](../../samples/snippets/csharp/delegates-and-events/Logger.cs#LoggerFinal "Finish the Logger")]
 
 ## <a name="practices"></a>実践
 
@@ -97,23 +97,23 @@ public static IEnumerable<TSource> Where<TSource> (this IEnumerable<TSource> sou
 
 このファイル ベースのロガーを次に示します。
 
-[!code-csharp[FileLogger](../../samples/csharp/delegates-and-events/FileLogger.cs#FileLogger "Log to files")]
+[!code-csharp[FileLogger](../../samples/snippets/csharp/delegates-and-events/FileLogger.cs#FileLogger "Log to files")]
 
 このクラスを作成した後、インスタンス化すれば、その LogMessage メソッドを Logger コンポーネントにアタッチすることができます。
 
-[!code-csharp[FileLogger](../../samples/csharp/delegates-and-events/Program.cs#FileLogger "Log to files")]
+[!code-csharp[FileLogger](../../samples/snippets/csharp/delegates-and-events/Program.cs#FileLogger "Log to files")]
 
 この 2 つは、どちらか一方しか使えないというわけではありません。 両方のログ メソッドをアタッチすれば、コンソールとファイルにメッセージを生成することができます。
 
 ```csharp
 var fileOutput = new FileLogger("log.txt");
-Logger.WriteMessage += LogToConsole;
+Logger.WriteMessage += LoggingMethods.LogToConsole; // LoggingMethods is the static class we utilized earlier
 ```
 
 後で同じアプリケーションで、片方のデリゲートを削除しても、システムに問題が生じることはありません。
 
 ```csharp
-Logger.WriteMessage -= LogToConsole;
+Logger.WriteMessage -= LoggingMethods.LogToConsole;
 ```
 
 ## <a name="practices"></a>実践
@@ -133,7 +133,7 @@ Logger.WriteMessage -= LogToConsole;
 
 ## <a name="handling-null-delegates"></a>Null デリゲートの処理
 
-最後に、出力メカニズムが選択されなかったケースに備えて、LogMessage メソッドに変更を加えたいと思います。 現在の実装コードでは、`WriteMessage` デリゲートに呼び出しリストがアタッチされなかった場合、`NullReferenceException` がスローされます。
+最後に、出力メカニズムが選択されなかったケースに備えて、LogMessage メソッドに変更を加えたいと思います。 現在の実装コードでは、`NullReferenceException` デリゲートに呼び出しリストがアタッチされなかった場合、`WriteMessage` がスローされます。
 メソッドがアタッチされていなくても、何事もなかったように処理が継続されるような設計の方が望ましい場合もあります。 これは、`Delegate.Invoke()` メソッドに null 条件演算子を組み合わせて使えば簡単に実現できます。
 
 ```csharp
@@ -145,7 +145,7 @@ public static void LogMessage(string msg)
 
 null 条件演算子 (`?.`) は、左辺オペランド (このケースでは `WriteMessage`) が null のとき、そこで評価が打ち切られます。つまり、メッセージを記録する処理は試行されません。
 
-`System.Delegate` や `System.MulticastDelegate` のドキュメントを探しても、`Invoke()` メソッドは記載されていません。 宣言されているデリゲート型には、コンパイラによってタイプ セーフな `Invoke` メソッドが生成されます。 つまり、この例では、`Invoke` が `string` 引数を 1 つ持ち、戻り値の型が void であるということです。
+`Invoke()` や `System.Delegate` のドキュメントを探しても、`System.MulticastDelegate` メソッドは記載されていません。 宣言されているデリゲート型には、コンパイラによってタイプ セーフな `Invoke` メソッドが生成されます。 つまり、この例では、`Invoke` が `string` 引数を 1 つ持ち、戻り値の型が void であるということです。
 
 ## <a name="summary-of-practices"></a>実践のまとめ
 

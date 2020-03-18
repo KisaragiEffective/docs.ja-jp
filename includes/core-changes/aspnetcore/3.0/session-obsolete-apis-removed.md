@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: bbf8a02096a4a654a041cfe17c760939fc17f2f5
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 4dcb357570cb6597fde86c9e8f2acb74364cfaa3
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72394153"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73198485"
 ---
-### <a name="session-state-obsolete-apis-removed"></a>セッション状態: 古い API が削除された 
+### <a name="session-state-obsolete-apis-removed"></a>セッション状態: 古い API が削除された
 
 セッション Cookie を構成するための古い API が削除されました。 詳細については、[aspnet/Announcements#257](https://github.com/aspnet/Announcements/issues/257) を参照してください。
 
@@ -18,7 +18,7 @@ ms.locfileid: "72394153"
 
 この変更により、Cookie を使用する機能を構成するための API 間の一貫性が適用されます。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 削除された API の使用箇所を、置換された新しい API に移行します。 `Startup.ConfigureServices` での次の例を検討してください。
 

@@ -1,121 +1,120 @@
 ---
-title: パディングを使用した CBC モードの対称復号化に関するタイミングの脆弱性
-description: 検出および暗号ブロック チェーン (CBC) モードでパディングを使用して暗号化解除の対称のタイミングの脆弱性を軽減する方法について説明します。
+title: CBC 暗号化解除の脆弱性
+description: パディングを使用して暗号ブロックチェーン (CBC) モードの対称復号化を使用してタイミングの脆弱性を検出し、軽減する方法について説明します。
 ms.date: 06/12/2018
 author: blowdart
-ms.author: mairaw
-ms.openlocfilehash: 6d8c2593cdbc4bbff2b1507196989282b16aa9a8
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 4616ef9015b47ff232a17f058c7a0f1449f42e81
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61933901"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78159963"
 ---
 # <a name="timing-vulnerabilities-with-cbc-mode-symmetric-decryption-using-padding"></a>パディングを使用した CBC モードの対称復号化に関するタイミングの脆弱性
 
-Microsoft は、安全を除き、暗号化テキストの整合性を確認せずに検証可能な埋め込みが適用されているときに、対称暗号化の暗号ブロック チェーン (CBC) モードで暗号化されたデータを復号化には不要になったと考えています非常に限定。状況。 この判断は、現在認識されている暗号リサーチに基づいています。 
+検証可能な埋め込みが適用されている場合は、特に限定的なものを除き、暗号ブロックチェーン (CBC) モードで暗号化されたデータの暗号化を解除しても安全ではなくなります。環境. この略しは、現在認識されている暗号調査に基づいています。
 
 ## <a name="introduction"></a>はじめに
 
-埋め込みの oracle 攻撃とは、攻撃者がキーを知ることがなく、データの内容を復号化には、暗号化されたデータに対する攻撃の一種です。
+埋め込み oracle 攻撃とは、暗号化されたデータに対する攻撃の一種であり、攻撃者はキーを知らなくてもデータの内容を解読することができます。
 
-Oracle は参照を"なのかを"は、実行しているアクションが正しいかどうかについて、攻撃者の情報を提供します。 ボードの再生を想像してくださいまたは子カード ゲームです。 ときに当惑顔点灯笑顔で彼女は彼女と思われるため、oracle である、適切な移動を行うためについて。 、、対戦相手として使用できますこの oracle、次の操作を適切に計画します。
+Oracle は、実行中のアクションが正しいかどうかについての情報を攻撃者に示す "通知" を参照します。 子供とともにボードまたはカードゲームをプレイしてみてください。 私たちが大きな気に入った機能を持っている場合は、これが oracle であると考えています。 相手は、この oracle を使用して、次の移動を適切に計画することができます。
 
-余白は、特定の暗号用語です。 データの暗号化に使用するアルゴリズムであり、一部の暗号は、各ブロックが固定サイズのデータのブロックで動作します。 暗号化するデータが、要素を入力する適切なサイズでない場合はこれまでに、データが埋め込まれます。 埋め込みの多くの形式では、常に存在する場合でも、元の入力が適切なサイズがその埋め込みが必要です。 これにより、余白を常に暗号化解除時に削除しても問題ありません。
+パディングは特定の暗号化用語です。 一部の暗号は、データの暗号化に使用されるアルゴリズムであり、各ブロックが固定サイズであるデータのブロックに対して機能します。 暗号化するデータがブロックを埋めるための適切なサイズではない場合、データはそのデータに埋め込まれます。 多くの形式の埋め込みでは、元の入力が適切なサイズであったとしても、常に埋め込みが存在している必要があります。 これにより、復号化時には、常に埋め込みを安全に削除できます。
 
-次の 2 つをまとめて、パディングの oracle ソフトウェアの実装は復号化されたデータに有効な余白があるかどうかがわかります。 Oracle は、「無効な埋め込み」ことを示す値を返すように単純なものか、無効なブロックではなく有効なブロックを処理するさまざまなある程度までの時間がかかってのような複雑なものになります。
+この2つを組み合わせると、ソフトウェアの実装と埋め込み oracle によって、暗号化解除されたデータに有効な埋め込みがあるかどうかが明らかになります。 Oracle は、無効なブロックではなく、有効なブロックを処理するためにある程度までの時間を取るなど、"無効な埋め込み" という値を返すような単純なものになる可能性があります。
 
-ブロック ベースの暗号化には 2 番目のブロック内のデータに最初のブロック内のデータのリレーションシップを決定すると、モードと呼ばれる、別のプロパティがあり、具合です。 CBC は、最もよく使用されるモードのいずれか。 CBC は、既知のとして初期化ベクター (IV)、初期乱数ブロックを紹介し、同じ暗号化された出力を常に生成しない同じキーを持つ、同じメッセージを暗号化するように静的な暗号化の結果と、前のブロックを結合します。
+ブロックベースの暗号には、モードと呼ばれるもう1つのプロパティがあります。これは、最初のブロックのデータと2番目のブロックのデータとの関係を決定します。 最も一般的に使用されるモードの1つは、CBC です。 CBC は初期化ベクター (IV) と呼ばれる初期のランダムブロックを導入し、前のブロックと静的暗号化の結果を組み合わせて、同じキーを使用して同じメッセージを暗号化しても、必ずしも同じ暗号化された出力を生成しないようにします。
 
-Oracle を公開するコードにわずかに変更されたメッセージを送信し、oracle では、ことを示すまでデータの送信を保持するデータが正しく、攻撃者は CBC データ構造と組み合わせて、パディングの oracle を使用できます。 この応答から、攻撃者は、バイトごとのメッセージを暗号化解除できます。
+攻撃者は、データが正しいことを oracle が通知するまで、oracle の埋め込みを使用して、CBC データをどのように構造化し、oracle を公開するコードにわずかに変更されたメッセージを送信し、データを送信し続けることができます。 この応答から、攻撃者はメッセージバイトをバイト単位で復号化できます。
 
-最近のコンピューターのネットワークはこのような高品質の攻撃者がリモート システム上 (0.1 ミリ秒未満) の実行の相違点の時間が非常に小さい検出できます。 成功と失敗の復号化の違いを観察するように設計されたツールからの攻撃に対して脆弱になりますが、データが改ざんされた場合にのみを正常に復号化が発生すると仮定すると、アプリケーションがあります。 このタイミングの違いは、他よりも、いくつかの言語またはライブラリでより重要なことがありますが、障害に対するアプリケーションの応答がアカウントに実行したときに、すべての言語とライブラリの実際的な脅威はこれを今すぐ信じします。
+最新のコンピューターネットワークは、このような高品質なので、攻撃者はリモートシステムの実行時間の差が非常に小さく (0.1 ミリ秒未満) 検出される可能性があります。 暗号化が正常に行われなかったと想定されているアプリケーションは、データが改ざんされていない場合にのみ発生する可能性があり、復号化が成功したか失敗したかを確認するように設計されているツールからの攻撃に対して脆弱 このタイミングの違いは、言語やライブラリによっては、他の言語やライブラリによってはさらに重要になる場合がありますが、アプリケーションの障害への対応が考慮されると、すべての言語とライブラリに対して実際の脅威であると考えられるようになりました。
 
-この攻撃は、暗号化されたデータを変更し、oracle と結果をテストする機能に依存しています。 暗号化されたデータへの変更を検出し、それに対するアクションは実行を拒否するのには完全に攻撃を軽減するしかありません。 これを行う標準的な方法では、データの署名を作成し、すべての操作を実行する前に、その署名を検証します。 署名は検証可能である必要があります、攻撃者が作成できないは、暗号化されたデータを変更し、変更されたデータに基づいて新しい署名の計算のそれ以外の場合。 適切なシグネチャの 1 つの一般的な型は、キー付きハッシュ メッセージ認証コード (HMAC) と呼ばれます。 HMAC は、既知の HMAC を生成する人にのみ、ユーザーの検証に秘密キーを受け取るというチェックサムと異なります。 キーを所有している、なしには、正しい HMAC を生成することはできません。 データが表示されたら、するは暗号化されたデータを取得、個別にコンピューティングいない HMAC の秘密キーを使用し、する、送信者の共有、比較が送信されるとき、いずれかに対してする HMAC 計算。 この比較は一定の時間である必要があります、それ以外の場合追加した別の検出可能な oracle では、異なる種類の攻撃を許可します。
+この攻撃は、暗号化されたデータを変更し、oracle を使用して結果をテストする機能に依存しています。 攻撃を完全に軽減する唯一の方法は、暗号化されたデータへの変更を検出し、それに対するアクションの実行を拒否することです。 これを行うための標準的な方法は、データの署名を作成し、操作を実行する前にその署名を検証することです。 署名は検証可能である必要があります。攻撃者が作成することはできません。それ以外の場合は、暗号化されたデータを変更し、変更されたデータに基づいて新しい署名を計算します。 適切な署名の1つの一般的な型は、キー付きハッシュメッセージ認証コード (HMAC) と呼ばれます。 HMAC は、HMAC を生成したユーザーとそれを検証しているユーザーだけが認識する秘密キーを取得するという点で、チェックサムとは異なります。 キーを所有していない場合、正しい HMAC を生成することはできません。 データを受信したら、暗号化されたデータを取得し、秘密キーと送信者共有を使用して HMAC を個別に計算した後、送信した HMAC を計算したものと比較します。 この比較は一定の時間にする必要があります。そうしないと、別の検出可能な oracle を追加して、異なる種類の攻撃を行うことができます。
 
-要約すると、使用するには、CBC ブロック暗号を安全に埋め込み、データを復号化する前に一定の時間の比較を使用して検証する、HMAC (または別のデータの整合性チェック)、それらを組み合わせる必要があります。 変更されたすべてのメッセージでは、応答を生成するために同じ時間がかかる、攻撃が回避されます。
+要約すると、埋め込まれている CBC ブロック暗号を安全に使用するには、データの暗号化を解除する前に一定時間の比較を使用して検証する HMAC (または他のデータ整合性チェック) と組み合わせて使用する必要があります。 変更されたすべてのメッセージは、応答を生成するのに同じ時間を要するため、攻撃を防ぐことができます。
 
-## <a name="who-is-vulnerable"></a>脆弱であります。
+## <a name="who-is-vulnerable"></a>脆弱なユーザー
 
-この脆弱性は、独自の暗号化と復号化を実行しているアプリケーションがマネージ コードとネイティブの両方に適用されます。 これが含まれている例。
+この脆弱性は、独自の暗号化と復号化を実行しているマネージアプリケーションとネイティブアプリケーションの両方に適用されます。 たとえば、次のようになります。
 
-- 復号化に後で、サーバー上の cookie を暗号化するアプリケーション。
-- 列を持つユーザーがテーブルにデータを挿入する機能を提供するデータベース アプリケーションは、後で復号化します。
-- データは、共有キーを使用して、転送中のデータを保護する暗号化に依存するアプリケーションを転送します。
-- 暗号化し、「内」TLS トンネルのメッセージを復号化するアプリケーション。
+- 後でサーバーで暗号化を解除するためにクッキーを暗号化するアプリケーション。
+- 列が後で復号化されるテーブルにユーザーがデータを挿入する機能を提供するデータベースアプリケーション。
+- 転送中のデータを保護するために共有キーを使用する暗号化に依存するデータ転送アプリケーション。
+- TLS トンネルの "内部" メッセージを暗号化および復号化するアプリケーション。
 
-だけで TLS を使用してが保護されないこれらのシナリオで注意してください。
+TLS だけを使用すると、これらのシナリオでは保護されない場合があることに注意してください。
 
-脆弱なアプリケーションの場合:
+脆弱なアプリケーション:
 
-- CBC 暗号モードを PKCS #7 または ANSI X.923 など、検証可能なパディング モードを使用してデータを復号化します。
-- (MAC または非対称のデジタル署名) を使って、データの整合性チェックを実行せず、復号化を実行します。
+- PKCS # 7 や ANSI 923 などの検証可能なパディングモードで、CBC 暗号モードを使用してデータを復号化します。
+- (MAC または非対称デジタル署名を使用して) データ整合性チェックを実行せずに、暗号化解除を実行します。
 
-これは、Cryptographic Message Syntax (PKCS #7/CMS) EnvelopedData 構造など、これらのプリミティブの上に抽象化の上に構築されたアプリケーションにも適用されます。
+これは、暗号メッセージ構文 (PKCS # 7/CMS) EnvelopedData 構造体など、これらのプリミティブの上に構築されたアプリケーションにも当てはまります。
 
-## <a name="related-areas-of-concern"></a>関連する重要な領域
+## <a name="related-areas-of-concern"></a>関連する関連領域
 
-Research は ISO 10126 等価では、メッセージのよく知られているか、予測可能なフッター構造内のスペースで埋められます CBC メッセージについてさらに関係する Microsoft の led が。 たとえば、W3C XML Encryption Syntax と処理の推奨事項 (xmlenc encryptedxml の互換性) の規則の下で準備のコンテンツ。 メッセージに署名し、暗号化するには、W3C ガイダンスと見なされていました適切な時点で、中に、Microsoft は常に暗号化、署名を行うようになりました推奨します。
+調査により、Microsoft は、メッセージに既知または予測可能なフッター構造が設定されている場合に、ISO 10126 と同等のパディングで埋め込まれる CBC メッセージについてさらに懸念しています。 たとえば、W3C XML 暗号化の構文と処理の推奨事項 (xmlenc、EncryptedXml) の規則に基づいてコンテンツが準備されているとします。 メッセージに署名するための W3C ガイダンスでは、暗号化は常に適切と見なされていましたが、Microsoft は常に暗号化を行うことをお勧めします。
 
-アプリケーション開発者は常に、非対称署名キーの適用性の確認に注意してください、非対称キーと任意のメッセージの本質的な信頼関係が存在しないためです。
+非対称キーと任意のメッセージの間には固有の信頼関係がないため、アプリケーション開発者は常に非対称署名キーの適用性を検証することを考慮する必要があります。
 
-## <a name="details"></a>説明
+## <a name="details"></a>詳細
 
-従来は、両方の暗号化および HMAC または RSA 署名などの手段を使用して、重要なデータを認証することが重要合意がありました。 ただし、暗号化および認証操作をシーケンス処理する方法について明確なガイダンスは少ないがありました。 この記事に記載された脆弱性により Microsoft のガイダンスは常に「を暗号化し、サインオン」パラダイムを使用するようになりましたが。 最初に対称キーを使用してデータを暗号化し、MAC、または非対称署名、暗号化テキスト (暗号化されたデータ) を計算します。 データを復号化、逆を実行します。 最初に、MAC や、暗号化テキストの署名を確認し、暗号化を解除します。
+これまで、HMAC や RSA 署名などの方法を使用して、重要なデータを暗号化して認証することが重要であるという合意がありました。 ただし、暗号化と認証の操作をシーケンス処理する方法については、明確なガイダンスはありません。 この記事で説明されている脆弱性により、Microsoft のガイダンスは、常に "暗号化-再署名" パラダイムを使用するようになりました。 つまり、まず対称キーを使用してデータを暗号化した後、暗号化テキスト (暗号化されたデータ) で MAC または非対称署名を計算します。 データの暗号化を解除する場合は、逆の操作を実行します。 まず、暗号化テキストの MAC または署名を確認してから、暗号化を解除します。
 
-10 年以上にわたって存在に呼ばれる「パディング oracle 攻撃」と呼ばれる脆弱性のクラスです。 これらの脆弱性を許可すると、攻撃者がデータのブロックあたり 4,096 個以下の試行を使用して、AES および 3 des などの対称ブロック アルゴリズムで暗号化されたデータを復号化します。 これらの脆弱性のため暗号をブロックするファクトの使用は、最後に検証可能な埋め込みデータを最も頻繁に使用します。 場合は、攻撃者は、暗号化テキストを改ざんし、末尾の余白の形式でエラーが発生改ざんが行われたかどうかを検出、攻撃者は、データを解読することができます、それが見つかりました。
+"Oracle 攻撃の埋め込み" と呼ばれる脆弱性のクラスは、10年以上にわたって存在することがわかっています。 これらの脆弱性により、攻撃者は、AES や3DES などの対称ブロックアルゴリズムによって暗号化されたデータの暗号化を解除できます。この場合、データのブロックあたり4096回以下の試行が行われます。 これらの脆弱性は、ブロック暗号が最後に検証可能な埋め込みデータで最も頻繁に使用されるという事実を活用します。 攻撃者が暗号文を改ざんし、改ざんによって最後に埋め込みの形式でエラーが発生したかどうかを確認できた場合、攻撃者はデータの暗号化を解除できます。
 
-埋め込みが ASP.NET の脆弱性など、有効かどうかに基づいて別のエラー コードを返すようサービスに実用的な攻撃されたに基づいて最初に、 [MS10 070](/security-updates/SecurityBulletins/2010/ms10-070)します。 ただし、Microsoft ようになりましたものであるが有効および無効な余白の処理間のタイミングでは、差分のみを使用して類似の攻撃を実施するは実用的であります。
+最初に、実際の攻撃は、埋め込みが有効かどうかに基づいて異なるエラーコードを返すサービス (ASP.NET 脆弱性[MS10](/security-updates/SecurityBulletins/2010/ms10-070)など) に基づいていました。 しかし、Microsoft は、有効な埋め込みと無効な埋め込みを処理するタイミングの違いのみを使用して、同様の攻撃を行うことが実用的であると考えています。
 
-すべての情報を生成せず、データの整合性を確認できます暗号化スキームは、署名を使用し、(内容) に関係なくデータの指定された長さの固定のランタイムと、署名の検証が実行されること、使用して攻撃者、[側チャネル](https://en.wikipedia.org/wiki/Side-channel_attack)します。 整合性チェックは、改ざんされたメッセージを拒否するため、埋め込み oracle 脅威が軽減されます。
+暗号化スキームによって署名が使用され、署名の検証が特定のデータ長 (内容にかかわらず) に対して実行される場合、データの整合性は、[サイドチャネル](https://en.wikipedia.org/wiki/Side-channel_attack)経由で攻撃者に情報を出力することなく検証できます。 整合性チェックでは改ざんされたメッセージが拒否されるため、oracle の脅威の脅威が軽減されます。
 
 ## <a name="guidance"></a>ガイダンス
 
-何よりもまず、経由でトランスポート層セキュリティ (TLS)、Secure Sockets Layer (SSL) に後続必要がある機密性のあるすべてのデータに送信することをお勧めします。
+まず、機密性を持つデータをトランスポート層セキュリティ (TLS) を介して送信することをお勧めします。これは、Secure Sockets Layer (SSL) の後継となります。
 
-次に、アプリケーションを分析します。
+次に、次のようにアプリケーションを分析します。
 
-- 実行しているどのような暗号化とどのような暗号化は、プラットフォームと Api を使用しているによって提供されていると正確に理解します。
-- 各使用法、対称の各層であることがはっきり[ブロック暗号アルゴリズム](https://en.wikipedia.org/wiki/Block_cipher#Notable_block_ciphers)AES および 3 des、CBC モードでは、シークレット キー付きのデータの整合性チェックの使用を組み込むことなど、(、非対称の署名、HMAC する暗号モードを変更します。[認証暗号化](https://en.wikipedia.org/wiki/Authenticated_encryption)(AE) モード CCM、GCM など)。
+- どのような暗号化が実行されているか、および使用しているプラットフォームと Api によってどのような暗号化が提供されているかを正確に把握します。
+- 対称[ブロック暗号アルゴリズム](https://en.wikipedia.org/wiki/Block_cipher#Notable_block_ciphers)の各レイヤー (AES や3des など) での各使用方法には、秘密キー付きのデータ整合性チェック (非対称署名、HMAC、または暗号モードを GCM や CCM などの[認証済み暗号化](https://en.wikipedia.org/wiki/Authenticated_encryption)(AE) モードに変更する) の使用が組み込まれていることを確認してください。
 
-現在の研究に基づく、一般と思われます場合、認証と暗号化の手順は、の暗号化のない AE モード別に行う、暗号文の認証 (暗号化-、-記号) が最適な一般的なオプションです。 ただし、暗号化万能型の正しい答えはありません、この一般論がプロフェッショナルな暗号技術者からのアドバイスをすぐに有向はありません。
+現在の調査に基づき、一般的には、認証と暗号化の手順が非 AE 暗号化のモードに対して個別に実行されるときに、暗号化テキスト (encrypt-sign) の認証が最適なオプションであると考えられます。 ただし、暗号化には1つのサイズに適合するすべての答えはありません。この汎化は、professional 熟練からのアドバイスとして適切ではありません。
 
-メッセージング形式の変更が認証されていない CBC 暗号化解除を実行できないアプリケーションなどの軽減策を組み込むしようとすることが推奨されます。
+メッセージング形式を変更できないが、認証されていない CBC 復号化を実行するアプリケーションは、次のような軽減策を組み込むことをお勧めします。
 
-- 復号化、パディングを削除するを確認または復号化を許可しません。
-  - 適用された埋め込みは削除するか、無視する必要がある、負荷をアプリケーションに移動します。
-  - 利点は、その他のアプリケーション データの検証ロジックに組み込むことが、埋め込みの検証と削除です。 パディングの検証とデータの検証は、定数時間で完了できます、脅威が減少します。
-  - 埋め込みの解釈が認識されるメッセージの長さを変更するためもありますタイミングについてはこのアプローチから生成されます。
-- ISO10126 を復号化のパディング モードを変更します。
-  - ISO10126 復号化の埋め込みが PKCS7 暗号化パディングと ANSIX923 暗号化パディングの両方との互換性です。
-  - モードを変更すると、ブロック全体ではなく、1 バイトを埋め込み oracle サポート技術情報が減少します。 ただし、コンテンツがある XML 要素では、終了などのよく知られているフッター場合、関連する攻撃は、メッセージの残りの部分を攻撃する続行できます。
-  - これは防ぐことも、攻撃者が別のメッセージ オフセットで複数回暗号化された同じプレーン テキストを強制する状況でプレーン テキストの回復。
-- ゲートするタイミングのシグナルを緩衝復号化の呼び出しの評価:
-  - ホールド時間の計算の余白を含む任意のデータ セグメントに対して暗号化解除操作が行われる最大時間を超える場合の最小値が必要です。
-  - ガイダンスに従い、時間の計算を行う必要があります[高解像度のタイムスタンプを取得](/windows/desktop/sysinfo/acquiring-high-resolution-time-stamps)を使用していない<xref:System.Environment.TickCount?displayProperty=nameWithType>(対象ロール-over/オーバーフロー) または 2 つのシステムのタイムスタンプ (NTP 調整の対象を削除します。エラーの場合)。
-  - 時間計算する必要があります内のすべての潜在的な例外を含む、復号化操作を含む管理または末尾に埋め込まれただけでなく、C++ アプリケーションです。
-  - 成功または失敗をまだ決定されていますが場合、タイミング ゲートは、有効期限が切れるときにエラーを返す必要があります。
-- 認証されていない復号化を実行しているサービスは、大量の「無効」のメッセージが取得することを検出する監視が必要です。
-  - このシグナルが (合法的に破損したデータ) の偽陽性と偽陰性の (分散化検出を回避するための十分に長い時間の経過と共に攻撃) の両方を実行するも留意してください。
+- 復号化による埋め込みの検証または削除を許可せずに暗号化を解除します。
+  - 適用された埋め込みを削除または無視する必要がある場合でも、アプリケーションに負荷を移すことになります。
+  - その利点は、埋め込みの検証と削除を他のアプリケーションデータ検証ロジックに組み込むことができることです。 埋め込みの検証とデータの検証を一定の時間に実行できる場合は、脅威が軽減されます。
+  - パディングの解釈によって認識されるメッセージ長が変わるため、このアプローチから生成されたタイミング情報が残っている可能性があります。
+- 復号化パディングモードを ISO10126 に変更します。
+  - ISO10126 復号化埋め込みは、PKCS7 暗号化パディングと ANSIX923 暗号化埋め込みの両方と互換性があります。
+  - モードを変更すると、oracle ナレッジがブロック全体ではなく1バイトに変換されます。 ただし、コンテンツに既知のフッター (XML の終了要素など) が含まれている場合、関連する攻撃によってメッセージの残りの部分が攻撃される可能性があります。
+  - これにより、攻撃者が同じプレーンテキストを別のメッセージオフセットを使用して複数回暗号化する場合でも、プレーンテキストの回復を防ぐことはできません。
+- Dampen に対する復号化呼び出しの評価を、タイミングシグナルにします。
+  - ホールド時間の計算には、埋め込みを含むデータセグメントに対して復号化操作が行う最大時間を超える最小値が必要です。
+  - 時間計算は、<xref:System.Environment.TickCount?displayProperty=nameWithType> (ロールオーバー/オーバーフロー) を使用したり、2つのシステムタイムスタンプ (NTP 調整エラーが発生) を引いたりするのではなく、[高解像度のタイムスタンプを取得する方法](/windows/desktop/sysinfo/acquiring-high-resolution-time-stamps)に従って実行する必要があります。
+  - 時間の計算は、最後に埋め込まれるだけでなく、マネージまたC++はアプリケーションで発生する可能性のあるすべての例外を含む、復号化操作を含む必要があります。
+  - 成功または失敗が判明した場合、タイミングゲートは、期限切れになったときにエラーを返す必要があります。
+- 認証されていない暗号化解除を実行するサービスでは、"無効な" メッセージが大量に発生していることを検出するための監視を実施する必要があります。
+  - この信号には誤検知 (正当な破損データ) と偽陽性の両方が含まれていることに注意してください (回避検出に十分に長い時間をかけて攻撃を拡散します)。
 
-## <a name="finding-vulnerable-code---native-applications"></a>脆弱なコードは、ネイティブ アプリケーションの検索
+## <a name="finding-vulnerable-code---native-applications"></a>脆弱なコードの検索-ネイティブアプリケーション
 
-Windows の暗号化に対してビルドされたプログラム。[次へ] の Generation (CNG) ライブラリ:
+Windows Cryptography: Next Generation (CNG) ライブラリに対してビルドされたプログラムの場合:
 
-- 復号化の呼び出しはに対する[BCryptDecrypt](/windows/desktop/api/bcrypt/nf-bcrypt-bcryptdecrypt)を指定して、`BCRYPT_BLOCK_PADDING`フラグ。
-- キー ハンドルが呼び出すことによって初期化されている[BCryptSetProperty](/windows/desktop/api/bcrypt/nf-bcrypt-bcryptsetproperty)で[BCRYPT_CHAINING_MODE](/windows/desktop/SecCNG/cng-property-identifiers#BCRYPT_CHAINING_MODE)設定`BCRYPT_CHAIN_MODE_CBC`します。
-  - `BCRYPT_CHAIN_MODE_CBC`既定値は、影響を受けるはコードに、値を割り当てることがない可能性がありますが`BCRYPT_CHAINING_MODE`します。
+- 暗号化解除呼び出しは、`BCRYPT_BLOCK_PADDING` フラグを指定して、 [Bcryptdecrypt 化](/windows/desktop/api/bcrypt/nf-bcrypt-bcryptdecrypt)を行います。
+- キーハンドルは、 [BCRYPT_CHAINING_MODE](/windows/desktop/SecCNG/cng-property-identifiers#BCRYPT_CHAINING_MODE)が `BCRYPT_CHAIN_MODE_CBC`に設定された[bcryptsetproperty](/windows/desktop/api/bcrypt/nf-bcrypt-bcryptsetproperty)を呼び出すことによって初期化されています。
+  - `BCRYPT_CHAIN_MODE_CBC` が既定値であるため、影響を受けるコードには、`BCRYPT_CHAINING_MODE`の値が割り当てられていない可能性があります。
 
-以前の Windows 暗号化 API に対してビルドされたプログラム。
+以前の Windows 暗号化 API に対してビルドされたプログラムの場合:
 
-- 復号化の呼び出しはに対する[CryptDecrypt](/windows/desktop/api/wincrypt/nf-wincrypt-cryptdecrypt)で`Final=TRUE`します。
-- キー ハンドルが呼び出すことによって初期化されている[CryptSetKeyParam](/windows/desktop/api/wincrypt/nf-wincrypt-cryptsetkeyparam)で[KP_MODE](/windows/desktop/api/wincrypt/nf-wincrypt-cryptgetkeyparam)設定`CRYPT_MODE_CBC`します。
-  - `CRYPT_MODE_CBC`既定値は、影響を受けるはコードに、値を割り当てることがない可能性がありますが`KP_MODE`します。
+- 復号化の呼び出しは、`Final=TRUE`を使用して暗号[解除](/windows/desktop/api/wincrypt/nf-wincrypt-cryptdecrypt)を行うことです。
+- キーハンドルは、 [KP_MODE](/windows/desktop/api/wincrypt/nf-wincrypt-cryptgetkeyparam)を `CRYPT_MODE_CBC`に設定して[CryptSetKeyParam](/windows/desktop/api/wincrypt/nf-wincrypt-cryptsetkeyparam)を呼び出すことによって初期化されています。
+  - `CRYPT_MODE_CBC` が既定値であるため、影響を受けるコードには、`KP_MODE`の値が割り当てられていない可能性があります。
 
-## <a name="finding-vulnerable-code---managed-applications"></a>脆弱性のあるコードの検索 - マネージ アプリケーション
+## <a name="finding-vulnerable-code---managed-applications"></a>脆弱なコード管理アプリケーションの検索
 
-- 復号化の呼び出しはに対する、<xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor>または<xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor(System.Byte[],System.Byte[])>メソッド<xref:System.Security.Cryptography.SymmetricAlgorithm?displayProperty=nameWithType>します。
-  - これは、.NET 内で次の派生型が含まれていますが、サード パーティの型を含めることもできます。
+- 復号化呼び出しは <xref:System.Security.Cryptography.SymmetricAlgorithm?displayProperty=nameWithType>の <xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor> または <xref:System.Security.Cryptography.SymmetricAlgorithm.CreateDecryptor(System.Byte[],System.Byte[])> メソッドに対して行います。
+  - これには、.NET 内の次の派生型が含まれますが、サードパーティの型が含まれる場合もあります。
     - <xref:System.Security.Cryptography.Aes>
     - <xref:System.Security.Cryptography.AesCng>
     - <xref:System.Security.Cryptography.AesCryptoServiceProvider>
@@ -129,24 +128,24 @@ Windows の暗号化に対してビルドされたプログラム。[次へ] の
     - <xref:System.Security.Cryptography.TripleDES>
     - <xref:System.Security.Cryptography.TripleDESCng>
     - <xref:System.Security.Cryptography.TripleDESCryptoServiceProvider>
-- <xref:System.Security.Cryptography.SymmetricAlgorithm.Padding?displayProperty=nameWithType>プロパティに設定されました<xref:System.Security.Cryptography.PaddingMode.PKCS7?displayProperty=nameWithType>、 <xref:System.Security.Cryptography.PaddingMode.ANSIX923?displayProperty=nameWithType>、または<xref:System.Security.Cryptography.PaddingMode.ISO10126?displayProperty=nameWithType>します。
-  - <xref:System.Security.Cryptography.PaddingMode.PKCS7?displayProperty=nameWithType>既定値は、影響を受けるはコードが割り当てられませんが、<xref:System.Security.Cryptography.SymmetricAlgorithm.Padding?displayProperty=nameWithType>プロパティ。
-- <xref:System.Security.Cryptography.SymmetricAlgorithm.Mode?displayProperty=nameWithType>プロパティに設定されました <xref:System.Security.Cryptography.CipherMode.CBC?displayProperty=nameWithType>
-  - <xref:System.Security.Cryptography.CipherMode.CBC?displayProperty=nameWithType>既定値は、影響を受けるはコードが割り当てられませんが、<xref:System.Security.Cryptography.SymmetricAlgorithm.Mode?displayProperty=nameWithType>プロパティ。
+- <xref:System.Security.Cryptography.SymmetricAlgorithm.Padding?displayProperty=nameWithType> プロパティが <xref:System.Security.Cryptography.PaddingMode.PKCS7?displayProperty=nameWithType>、<xref:System.Security.Cryptography.PaddingMode.ANSIX923?displayProperty=nameWithType>、または <xref:System.Security.Cryptography.PaddingMode.ISO10126?displayProperty=nameWithType>に設定されました。
+  - <xref:System.Security.Cryptography.PaddingMode.PKCS7?displayProperty=nameWithType> が既定値であるため、影響を受けるコードに <xref:System.Security.Cryptography.SymmetricAlgorithm.Padding?displayProperty=nameWithType> プロパティが割り当てられていない可能性があります。
+- <xref:System.Security.Cryptography.SymmetricAlgorithm.Mode?displayProperty=nameWithType> プロパティがに設定されました <xref:System.Security.Cryptography.CipherMode.CBC?displayProperty=nameWithType>
+  - <xref:System.Security.Cryptography.CipherMode.CBC?displayProperty=nameWithType> が既定値であるため、影響を受けるコードに <xref:System.Security.Cryptography.SymmetricAlgorithm.Mode?displayProperty=nameWithType> プロパティが割り当てられていない可能性があります。
 
-## <a name="finding-vulnerable-code---cryptographic-message-syntax"></a>暗号化メッセージ構文脆弱性のあるコードの検索
+## <a name="finding-vulnerable-code---cryptographic-message-syntax"></a>脆弱性のあるコードの検出-暗号化メッセージの構文
 
-暗号化されたコンテンツを持つ、CBC モードの AES (2.16.840.1.101.3.4.1.2、2.16.840.1.101.3.4.1.22、2.16.840.1.101.3.4.1.42)、DES (1.3.14.3.2.7)、3 des を使用して認証されていない、CMS EnvelopedData メッセージ (1.2.840.113549.3.7) または RC2 (1.2.840.113549.3.2) は、脆弱性もとしてメッセージ CBC モードの他のブロック暗号アルゴリズムを使用します。
+暗号化されたコンテンツが、AES の CBC モード (2.16.840.1.101.3.4.1.2、2.16.840.1.101.3.4.1.22、2.16.840.1.101.3.4.1.42)、DES (1.3.14.3.2.7)、3DES (1.2.840.113549.3.7)、または RC2 (1.2.840.113549.3.2) を使用する、認証されていない CMS EnvelopedData メッセージCBC モードでその他のブロック暗号アルゴリズムを使用したメッセージを脆弱にします。
 
-ストリーム暗号は、この特定の脆弱性に影響を受けやすい中、ContentEncryptionAlgorithm 値を調べることで、常にで、データの認証を行うことをお勧めします。
+ストリーム暗号はこの特定の脆弱性の影響を受けませんが、Microsoft では、ContentEncryptionAlgorithm 値を検査することによって常にデータを認証することをお勧めします。
 
-Blob は、CMS EnvelopedData、マネージ アプリケーションに渡されるすべての値が検出<xref:System.Security.Cryptography.Pkcs.EnvelopedCms.Decode(System.Byte[])?displayProperty=fullName>します。
+マネージアプリケーションの場合、CMS EnvelopedData blob は <xref:System.Security.Cryptography.Pkcs.EnvelopedCms.Decode(System.Byte[])?displayProperty=fullName>に渡される任意の値として検出できます。
 
-ネイティブのアプリケーションを使用して CMS ハンドルを指定した値として CMS EnvelopedData blob を検出できる[CryptMsgUpdate](/windows/desktop/api/wincrypt/nf-wincrypt-cryptmsgupdate)が結果として[CMSG_TYPE_PARAM](/windows/desktop/api/wincrypt/nf-wincrypt-cryptmsggetparam)は`CMSG_ENVELOPED`CMS ハンドルや後で送信、`CMSG_CTRL_DECRYPT`命令を使用して[CryptMsgControl](/windows/desktop/api/wincrypt/nf-wincrypt-cryptmsgcontrol)します。
+ネイティブアプリケーションの場合、cms EnvelopedData blob は、 [Cryptmsgupdate](/windows/desktop/api/wincrypt/nf-wincrypt-cryptmsgupdate)を介して cms ハンドルに提供される任意の値として検出できます。この場合、結果として得られる[CMSG_TYPE_PARAM](/windows/desktop/api/wincrypt/nf-wincrypt-cryptmsggetparam)が `CMSG_ENVELOPED` されます。また、cms ハンドルは、後で、 [cryptmsgupdate](/windows/desktop/api/wincrypt/nf-wincrypt-cryptmsgcontrol)経由で `CMSG_CTRL_DECRYPT` 命令を送信します。
 
-## <a name="vulnerable-code-example---managed"></a>脆弱なコード例の管理
+## <a name="vulnerable-code-example---managed"></a>脆弱なコードの例-マネージド
 
-Cookie を読み取ってを復号化し、データの整合性チェックが表示されません。 そのため、このメソッドによって読み取られる cookie の内容は、受信したユーザーまたは暗号化された cookie の値を取得した任意の攻撃者によって攻撃があります。
+このメソッドは、cookie を読み取り、復号化します。データ整合性チェックは表示されません。 このため、このメソッドによって読み取られたクッキーの内容は、その cookie を受け取ったユーザー、または暗号化された cookie 値を取得した攻撃者によって攻撃される可能性があります。
 
 ```csharp
 private byte[] DecryptCookie(string cookieName)
@@ -171,17 +170,17 @@ private byte[] DecryptCookie(string cookieName)
 }
 ```
 
-## <a name="example-code-following-recommended-practices---managed"></a>推奨されるベスト プラクティス - マネージ コードの次の例
+## <a name="example-code-following-recommended-practices---managed"></a>推奨される運用方法に従うコード例-マネージド
 
-次のサンプル コードの非標準のメッセージ形式を使用します。
+次のサンプルコードでは、標準ではないメッセージ形式のを使用します。
 
 `cipher_algorithm_id || hmac_algorithm_id || hmac_tag || iv || ciphertext`
 
-場所、`cipher_algorithm_id`と`hmac_algorithm_id`アルゴリズム識別子は、これらのアルゴリズムのアプリケーションのローカル (標準) の表現です。 これらの識別子は、ベア連結されたバイト ストリームとしての代わりに、既存のメッセージング プロトコルの他の部分で意味をようにできます。
+`cipher_algorithm_id` アルゴリズム識別子と `hmac_algorithm_id` アルゴリズム識別子は、これらのアルゴリズムのアプリケーションローカル (非標準) 表現です。 これらの識別子は、ベア連結されたバイトストリームとしてではなく、既存のメッセージングプロトコルの他の部分でも意味があります。
 
-この例では、1 つのマスター _ キーを使用して、暗号化キーと、HMAC キーの両方を派生します。 デュアル キー付きのアプリケーションにし、2 つのキーとして別の値を維持する方法の片方向キーとアプリケーションを有効にするため、利便性のためであると指定されます。 さらに、同期、HMAC キーと暗号化キーを取得できませんを保証します。
+また、この例では、1つのマスターキーを使用して、暗号化キーと HMAC キーの両方を派生させます。 これは、シングルキーアプリケーションをデュアルキーアプリケーションに変換し、2つのキーを異なる値として保持するための便利な方法として提供されています。 さらに、HMAC キーと暗号化キーが同期されないことを保証します。
 
-このサンプルは受け入れません、<xref:System.IO.Stream>暗号化または復号化します。 現在のデータ形式で 1 回暗号化困難なため、`hmac_tag`値の前に、暗号化テキスト。 ただし、この形式は、パーサーを単純に先頭にあるすべての固定サイズ要素に保持するために選択されました。 このデータ形式に 1 回の復号化は、実装者を GetHashAndReset を呼び出し、TransformFinalBlock を呼び出す前に結果を確認する警告が表示されますが、可能性があります。 ストリーミングの暗号化が重要な場合は、さまざまな AE モードが必要に可能性があります。
+このサンプルでは、暗号化または復号化のための <xref:System.IO.Stream> は受け入れられません。 現在のデータ形式では、`hmac_tag` 値が暗号化テキストの前にあるため、ワンパス暗号化が困難になります。 ただし、この形式が選択されました。これは、パーサーをより単純にするために、すべての固定サイズの要素を先頭に維持するためです。 このデータ形式では、1回だけの暗号化解除が可能です。ただし、cautioned は、GetHashAndReset を呼び出して、TransformFinalBlock を呼び出す前に結果を確認することができます。 ストリーミング暗号化が重要な場合は、異なる AE モードが必要になることがあります。
 
 ```csharp
 // ==++==

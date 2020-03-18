@@ -1,5 +1,5 @@
 ---
-title: NotifyIcon コンポーネント (Windows フォーム)
+title: NotifyIcon コンポーネント
 ms.date: 03/30/2017
 helpviewer_keywords:
 - application icons [Windows Forms], background processes
@@ -11,27 +11,27 @@ helpviewer_keywords:
 - NotifyIcon component
 - SysTray icons
 ms.assetid: 20312268-1d67-494a-8601-5c43b7f1b513
-ms.openlocfilehash: b1237a1280142cf65002ca307179b054a8fb7dd2
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 61fc4a53a16c3e7df8e0141cecb497a6a85fc5cb
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61627812"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744951"
 ---
 # <a name="notifyicon-component-windows-forms"></a>NotifyIcon コンポーネント (Windows フォーム)
-Windows フォーム`NotifyIcon`バック グラウンドで実行し、それ以外の場合とないプロセスがユーザー インターフェイス コンポーネントに、タスク バーの状態通知領域にアイコンが表示されます。 たとえば、タスク バーの状態通知領域のアイコンをクリックしてアクセス可能なウイルス対策プログラムなどです。  
+Windows フォーム `NotifyIcon` コンポーネントは、バックグラウンドで実行され、それ以外のユーザーインターフェイスを持たないプロセスについて、タスクバーの状態通知領域にアイコンを表示します。 たとえば、タスクバーの状態通知領域のアイコンをクリックしてアクセス可能なウイルス対策プログラムなどです。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [NotifyIcon コンポーネントの概要](notifyicon-component-overview-windows-forms.md)  
- 一般的な概念が導入されています、`NotifyIcon`コンポーネントで、ユーザー インターフェイスがないバック グラウンドで実行されているプロセスのアイコンを表示することができます。  
+ `NotifyIcon` コンポーネントの一般的な概念について説明します。これにより、ユーザーインターフェイスを持たないバックグラウンドで実行されているプロセスのアイコンを表示できます。  
   
- [方法: Windows フォームの NotifyIcon コンポーネントによってタスクバーにアプリケーション アイコンを追加します。](app-icons-to-the-taskbar-with-wf-notifyicon.md)  
- によって表示されるアイコンを設定するための手順を説明します、`NotifyIcon`コンポーネント。  
+ [方法: Windows フォームの NotifyIcon コンポーネントによってタスクバーにアプリケーション アイコンを追加する](app-icons-to-the-taskbar-with-wf-notifyicon.md)  
+ `NotifyIcon` コンポーネントによって表示されるアイコンを設定する手順について説明します。  
   
- [方法: ショートカット メニューを Windows フォームの NotifyIcon コンポーネントに関連付ける](how-to-associate-a-shortcut-menu-with-a-windows-forms-notifyicon-component.md)  
- ショートカット メニューを追加するための手順を説明します、`NotifyIcon`コンポーネント。  
+ [方法: ショートカット メニューを Windows フォーム NotifyIcon コンポーネントに関連付ける](how-to-associate-a-shortcut-menu-with-a-windows-forms-notifyicon-component.md)  
+ `NotifyIcon` コンポーネントにショートカットメニューを追加する手順について説明します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.NotifyIcon>  
  クラスとそのメンバーに関するリファレンス情報を提供します。  
   

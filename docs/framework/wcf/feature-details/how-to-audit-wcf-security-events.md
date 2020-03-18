@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows Communication Foundation セキュリティ イベントを監査します。'
+title: '方法 : Windows Communication Foundation セキュリティ イベントを監査する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -7,15 +7,15 @@ dev_langs:
 helpviewer_keywords:
 - security [WCF], auditing events
 ms.assetid: e71e9587-3336-46a2-9a9e-d72a1743ecec
-ms.openlocfilehash: 634489ced9b437d7b273eb5fa1092165cc6a935f
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 7071aaf88346ee217226632501ebd6c82cfc1cb8
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62047967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75346755"
 ---
-# <a name="how-to-audit-windows-communication-foundation-security-events"></a>方法: Windows Communication Foundation セキュリティ イベントを監査します。
-Windows Communication Foundation (WCF)、Windows イベント ビューアーを使用して表示できる Windows イベント ログにセキュリティ イベント ログに記録することができます。 このトピックでは、セキュリティ イベントをログ出力するようにアプリケーションを設定する方法について説明します。 WCF が監査の詳細については、次を参照してください。[監査](../../../../docs/framework/wcf/feature-details/auditing-security-events.md)します。  
+# <a name="how-to-audit-windows-communication-foundation-security-events"></a>方法 : Windows Communication Foundation セキュリティ イベントを監査する
+Windows Communication Foundation (WCF) を使用すると、windows イベントビューアーを使用して表示できるセキュリティイベントを Windows イベントログに記録できます。 このトピックでは、セキュリティ イベントをログ出力するようにアプリケーションを設定する方法について説明します。 WCF 監査の詳細については、「[監査](../../../../docs/framework/wcf/feature-details/auditing-security-events.md)」を参照してください。  
   
 ### <a name="to-audit-security-events-in-code"></a>セキュリティ イベントを監査するコードを記述するには  
   
@@ -24,7 +24,7 @@ Windows Communication Foundation (WCF)、Windows イベント ビューアーを
      [!code-csharp[AuditingSecurityEvents#2](../../../../samples/snippets/csharp/VS_Snippets_CFX/auditingsecurityevents/cs/auditingsecurityevents.cs#2)]
      [!code-vb[AuditingSecurityEvents#2](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/auditingsecurityevents/vb/auditingsecurityevents.vb#2)]  
   
-     <xref:System.ServiceModel.AuditLogLocation>列挙体には 3 つの値: `Application`、 `Security`、または`Default`します。 これは、イベント ビューアーを開いたとき、セキュリティ ログとアプリケーション ログのどちらが表示されるかを表します。 `Default` を指定した場合の動作は、アプリケーションが稼働するオペレーティング システムに依存します。 ログの場所を指定せずに監査機能を有効にした場合、セキュリティ ログに書き込み可能なプラットフォームであれば `Security` ログに、そうでなければ `Application` ログに出力するようになります。 セキュリティ ログへの書き込みが可能なのは、[!INCLUDE[ws2003](../../../../includes/ws2003-md.md)] と [!INCLUDE[wv](../../../../includes/wv-md.md)] に限ります。  
+     <xref:System.ServiceModel.AuditLogLocation> 列挙体には、`Application`、`Security`、`Default`の3つの値があります。 これは、イベント ビューアーを開いたとき、セキュリティ ログとアプリケーション ログのどちらが表示されるかを表します。 `Default` を指定した場合の動作は、アプリケーションが稼働するオペレーティング システムに依存します。 ログの場所を指定せずに監査機能を有効にした場合、セキュリティ ログに書き込み可能なプラットフォームであれば `Security` ログに、そうでなければ `Application` ログに出力するようになります。 既定では、セキュリティログへの書き込みがサポートされているのは、Windows Server 2003 と Windows Vista だけです。  
   
 2. イベントの種類を監査対象として設定します。 サービス レベルのイベントとメッセージ レベルの承認イベントを同時に監査できます。 それには、次のコードに示すように、<xref:System.ServiceModel.Description.ServiceSecurityAuditBehavior.ServiceAuthorizationAuditLevel%2A> プロパティまたは <xref:System.ServiceModel.Description.ServiceSecurityAuditBehavior.MessageAuthenticationAuditLevel%2A> プロパティに <xref:System.ServiceModel.AuditLevel> 列挙体のいずれかの値を設定します。  
   
@@ -45,7 +45,7 @@ Windows Communication Foundation (WCF)、Windows イベント ビューアーを
   
 ### <a name="to-set-up-auditing-in-configuration"></a>構成ファイルで監査を設定するには  
   
-1. 構成ファイルで監査を設定するには、追加、 [\<動作 >](../../../../docs/framework/configure-apps/file-schema/wcf/behavior-of-endpointbehaviors.md)要素を[\<動作 >](../../../../docs/framework/configure-apps/file-schema/wcf/behaviors.md) web.config ファイルのセクション。 追加し、 [ \<serviceSecurityAudit >](../../../../docs/framework/configure-apps/file-schema/wcf/servicesecurityaudit.md)要素と次の例に示すように、さまざまな属性セットです。  
+1. 構成で監査を設定するには、web.config ファイルの[\<の動作 >](../../../../docs/framework/configure-apps/file-schema/wcf/behaviors.md)セクションに[\<動作 >](../../../../docs/framework/configure-apps/file-schema/wcf/behavior-of-endpointbehaviors.md)要素を追加します。 次に、次の例に示すように、 [\<serviceSecurityAudit >](../../../../docs/framework/configure-apps/file-schema/wcf/servicesecurityaudit.md)要素を追加し、さまざまな属性を設定します。  
   
     ```xml  
     <behaviors>  
@@ -72,20 +72,20 @@ Windows Communication Foundation (WCF)、Windows イベント ビューアーを
     </services>  
     ```  
   
-## <a name="example"></a>例  
+## <a name="example"></a>使用例  
  <xref:System.ServiceModel.ServiceHost> クラスのインスタンスを作成し、新しい <xref:System.ServiceModel.Description.ServiceSecurityAuditBehavior> をその動作のコレクションに追加するコード例を次に示します。  
   
  [!code-csharp[AuditingSecurityEvents#1](../../../../samples/snippets/csharp/VS_Snippets_CFX/auditingsecurityevents/cs/auditingsecurityevents.cs#1)]
  [!code-vb[AuditingSecurityEvents#1](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/auditingsecurityevents/vb/auditingsecurityevents.vb#1)]  
   
 ## <a name="net-framework-security"></a>.NET Framework セキュリティ  
- <xref:System.ServiceModel.Description.ServiceSecurityAuditBehavior.SuppressAuditFailure%2A> プロパティを `true` に設定すると、セキュリティ監査を生成する失敗が抑制されます (`false` に設定した場合は、例外がスローされます)。 ただし、次の Windows を有効にした場合**ローカル セキュリティ設定**プロパティ、イベントの監査の生成に失敗したの Windows をすぐにシャット ダウンが発生します。  
+ <xref:System.ServiceModel.Description.ServiceSecurityAuditBehavior.SuppressAuditFailure%2A> プロパティを `true` に設定すると、セキュリティ監査を生成する失敗が抑制されます (`false` に設定した場合は、例外がスローされます)。 ただし、次の Windows**ローカルセキュリティ設定**プロパティを有効にすると、監査イベントの生成に失敗すると、windows が直ちにシャットダウンします。  
   
- **監査:セキュリティ監査を記録できない場合は直ちにシステムをシャット ダウン**  
+ **監査: セキュリティ監査をログに記録できない場合は、直ちにシステムをシャットダウンします。**  
   
- プロパティを設定するには、開く、**ローカル セキュリティ設定** ダイアログ ボックス。 [**セキュリティ設定**、] をクリックして**ローカル ポリシー**します。 クリックして**セキュリティ オプション**します。  
+ プロパティを設定するには、 **[ローカルセキュリティの設定]** ダイアログボックスを開きます。 **[セキュリティの設定]** で、 **[ローカルポリシー]** をクリックします。 次に、 **[セキュリティオプション]** をクリックします。  
   
- 場合、<xref:System.ServiceModel.AuditLogLocation>プロパティに設定されて<xref:System.ServiceModel.AuditLogLocation.Security>と**オブジェクト アクセスの監査**に設定されていない、**ローカル セキュリティ ポリシー**、監査イベントは、セキュリティ ログに書き込まれません。 エラーが返らない場合でも、監査エントリはセキュリティ ログに書き込まれません。  
+ <xref:System.ServiceModel.AuditLogLocation> プロパティが <xref:System.ServiceModel.AuditLogLocation.Security> に設定されていて、 **[オブジェクトアクセスの監査]** が**ローカルセキュリティポリシー**で設定されていない場合、監査イベントはセキュリティログに書き込まれません。 エラーが返らない場合でも、監査エントリはセキュリティ ログに書き込まれません。  
   
 ## <a name="see-also"></a>関連項目
 

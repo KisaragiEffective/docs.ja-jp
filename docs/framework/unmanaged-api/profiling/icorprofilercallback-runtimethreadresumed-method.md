@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: da984f89-4f53-4ab0-ae6f-3e2ee6085994
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 5b4464c72e8d189cea4831cb641b9ff05063ce25
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 5a9ca2f4587c4881820e1aa3d4134f90ce47d557
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67747220"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76865897"
 ---
 # <a name="icorprofilercallbackruntimethreadresumed-method"></a>ICorProfilerCallback::RuntimeThreadResumed メソッド
 指定したスレッドが中断された後に再開されたことをプロファイラーに通知します。  
@@ -36,12 +34,12 @@ HRESULT RuntimeThreadResumed(
   
 ## <a name="parameters"></a>パラメーター  
  `threadId`  
- [in]再開されているスレッドの ID。  
+ から再開されたスレッドの ID。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -49,5 +47,5 @@ HRESULT RuntimeThreadResumed(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerCallback インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-interface.md)
-- [RuntimeThreadSuspended メソッド](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-runtimethreadsuspended-method.md)
+- [ICorProfilerCallback インターフェイス](icorprofilercallback-interface.md)
+- [RuntimeThreadSuspended メソッド](icorprofilercallback-runtimethreadsuspended-method.md)

@@ -1,6 +1,5 @@
 ---
 title: this キーワード - C# リファレンス
-ms.custom: seodec18
 description: this キーワード (C# リファレンス)
 ms.date: 07/20/2015
 f1_keywords:
@@ -9,12 +8,12 @@ f1_keywords:
 helpviewer_keywords:
 - this keyword [C#]
 ms.assetid: d4f827fe-4710-410b-89b8-867dad44b8a3
-ms.openlocfilehash: 4a3342e73fef3effd54f72e68283eb6085eef5b5
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 2a2c487ad93e6fc75ecf95c541e859b8b60bb5b5
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69608449"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75715101"
 ---
 # <a name="this-c-reference"></a>this (C# リファレンス)
 
@@ -43,7 +42,7 @@ ms.locfileid: "69608449"
 
 ## <a name="example"></a>例
 
-この例では、似た名前によって非表示にされている `Employee` クラスのメンバー `name` と `alias` を修飾するために `this` が使用されています。 また、別のクラスに属するメソッド `CalcTax` にオブジェクトを渡すためにも使用されています。
+この例では、似た名前によって非表示にされている `this` クラスのメンバー `Employee` と `name` を修飾するために `alias` が使用されています。 また、別のクラスに属するメソッド `CalcTax` にオブジェクトを渡すためにも使用されています。
 
 [!code-csharp[csrefKeywordsAccess#3](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsAccess/CS/csrefKeywordsAccess.cs#3)]
 
@@ -51,10 +50,10 @@ ms.locfileid: "69608449"
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# のキーワード](index.md)
 - [base](base.md)
 - [メソッド](../../programming-guide/classes-and-structs/methods.md)

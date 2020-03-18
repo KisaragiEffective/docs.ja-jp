@@ -1,5 +1,5 @@
 ---
-title: Ansi (Visual Basic)
+title: Ansi
 ms.date: 07/20/2015
 f1_keywords:
 - vb.Ansi
@@ -8,28 +8,28 @@ helpviewer_keywords:
 - ANSI, Visual Basic
 - ANSI
 ms.assetid: 4f1fa6ff-5557-41ab-b6da-90baf4c15917
-ms.openlocfilehash: 98dafab3e524ea371bba228eb231e28d46cc3b4e
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 0c38c2b81af7b4cb8fd1723853a09c5413f805af
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61802558"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74344737"
 ---
 # <a name="ansi-visual-basic"></a>Ansi (Visual Basic)
-Visual Basic に宣言されている外部プロシージャの名前に関係なく米国規格協会 (ANSI) の値にすべての文字列がマーシャ リングする必要がありますを指定します。  
+宣言する外部プロシージャの名前に関係なく、すべての文字列を米国規格協会 (ANSI) (ANSI) 値にマーシャリング Visual Basic 必要があることを指定します。  
   
- プロジェクトの外部で定義されたプロシージャを呼び出すときに、Visual Basic コンパイラには、プロシージャを正しく呼び出すために必要な情報へのアクセスはありません。 この情報には、プロシージャがある場所は、識別方法、その呼び出し元のシーケンスおよび戻り値の型が含まれます。 して、使用する文字列の文字セットします。 [Declare ステートメント](../../../visual-basic/language-reference/statements/declare-statement.md)外部プロシージャへの参照を作成し、このために必要な情報を提供します。  
+ プロジェクトの外部で定義されたプロシージャを呼び出すと、Visual Basic コンパイラは、プロシージャを正しく呼び出すために必要な情報にアクセスできません。 この情報には、プロシージャの配置場所、識別方法、呼び出し元のシーケンスと戻り値の型、および使用する文字列文字セットが含まれます。 [Declare ステートメント](../../../visual-basic/language-reference/statements/declare-statement.md)は、外部プロシージャへの参照を作成し、この必要な情報を提供します。  
   
- `charsetmodifier`パーツ、`Declare`ステートメントが外部プロシージャの呼び出し中に文字列をマーシャ リングするための文字セットの情報を提供します。 また、Visual Basic が外部プロシージャ名の外部のファイルを検索する方法も影響します。 `Ansi`修飾子は、Visual Basic が ANSI 値にすべての文字列をマーシャ リングする必要があり、検索中にその名前を変更することがなく、プロシージャを検索することを指定します。  
+ `Declare` ステートメントの `charsetmodifier` 部分では、外部プロシージャの呼び出し時に文字列をマーシャリングするための文字セット情報を指定します。 また、外部ファイルで外部プロシージャ名を検索 Visual Basic 方法にも影響します。 `Ansi` 修飾子は、Visual Basic がすべての文字列を ANSI 値にマーシャリングする必要があることを指定します。検索中は、プロシージャの名前を変更せずにプロシージャを検索する必要があります。  
   
- 文字セットに修飾子が指定されていない場合`Ansi`既定値です。  
+ 文字セット修飾子が指定されていない場合は、`Ansi` が既定値になります。  
   
-## <a name="remarks"></a>Remarks  
- `Ansi`修飾子は、このコンテキストで使用できます。  
+## <a name="remarks"></a>コメント  
+ このコンテキストでは、`Ansi` 修飾子を使用できます。  
   
- [Declare ステートメント](../../../visual-basic/language-reference/statements/declare-statement.md)  
+ [Declare Statement](../../../visual-basic/language-reference/statements/declare-statement.md)  
   
-## <a name="smart-device-developer-notes"></a>スマート デバイスの開発者向け注意事項  
+## <a name="smart-device-developer-notes"></a>スマートデバイスの開発者向けメモ  
  このキーワードはサポートされていません。  
   
 ## <a name="see-also"></a>関連項目

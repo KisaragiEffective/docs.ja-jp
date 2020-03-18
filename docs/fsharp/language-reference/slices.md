@@ -1,17 +1,17 @@
 ---
-title: Slice (F#)
+title: スライス
 description: 既存F#のデータ型にスライスを使用する方法、およびその他のデータ型用に独自のスライスを定義する方法について説明します。
-ms.date: 01/22/2019
-ms.openlocfilehash: cbff1b055ea99ef708f9db191be49275e630ee90
-ms.sourcegitcommit: 9bd1c09128e012b6e34bdcbdf3576379f58f3137
+ms.date: 12/23/2019
+ms.openlocfilehash: 928005f2c63ffe099bb64e11ed29bb625e0a54c6
+ms.sourcegitcommit: 19014f9c081ca2ff19652ca12503828db8239d48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72798909"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76980380"
 ---
 # <a name="slices"></a>スライス
 
-でF#は、スライスはデータ型のサブセットです。 データ型からスライスを取得できるようにするには、データ型で `GetSlice` メソッドを定義するか、スコープ内にある[型拡張機能](type-extensions.md)を定義する必要があります。 この記事では、既存F#の型からスライスを取得する方法と、独自の型を定義する方法について説明します。
+でF#は、スライスは、その定義またはスコープ内の[型拡張機能](type-extensions.md)に `GetSlice` メソッドを持つ任意のデータ型のサブセットです。 これは、配列とリストF#で最もよく使用されます。 この記事では、既存F#の型からスライスを取得する方法と、独自のスライスを定義する方法について説明します。
 
 スライスは[インデクサー](./members/indexed-properties.md)に似ていますが、基になるデータ構造から1つの値を生成するのではなく、複数の値を生成します。
 
@@ -89,7 +89,7 @@ let twoByTwo = A.[0..1,0..1]
 printfn "%A" twoByTwo
 ```
 
-コアF#ライブラリでは、3d 配列の`GetSlice`が定義されていません。 その他の次元の配列をスライスする場合は、`GetSlice` メンバーを自分で定義する必要があります。
+コアF#ライブラリでは、現在、3d 配列の `GetSlice` が定義されていません。 3D 配列やその他の次元の配列をスライスする場合は、`GetSlice` メンバーを自分で定義します。
 
 ## <a name="defining-slices-for-other-data-structures"></a>他のデータ構造のスライスの定義
 
@@ -117,12 +117,19 @@ let slice = arr.[2..5] //[ 3; 4; 5]
 ```fsharp
 open System
 
+type ReadOnlySpan<'T> with
+    // Note the 'inline' in the member definition
+    member inline sp.GetSlice(startIdx, endIdx) =
+        let s = defaultArg startIdx 0
+        let e = defaultArg endIdx sp.Length
+        sp.Slice(s, e - s)
+
 type Span<'T> with
     // Note the 'inline' in the member definition
     member inline sp.GetSlice(startIdx, endIdx) =
         let s = defaultArg startIdx 0
         let e = defaultArg endIdx sp.Length
-        sp.Slice(s, e)
+        sp.Slice(s, e - s)
 
 let printSpan (sp: Span<int>) =
     let arr = sp.ToArray()
@@ -132,7 +139,18 @@ let sp = [| 1; 2; 3; 4; 5 |].AsSpan()
 printSpan sp.[0..] // [|1; 2; 3; 4; 5|]
 printSpan sp.[..5] // [|1; 2; 3; 4; 5|]
 printSpan sp.[0..3] // [|1; 2; 3|]
-printSpan sp.[1..2] // |2; 3|]
+printSpan sp.[1..3] // |2; 3|]
+```
+
+## <a name="built-in-f-slices-are-end-inclusive"></a>組み込みF#スライスは両端を含みます。
+
+内のすべてのF#組み込みスライスは、終了します。つまり、上限がスライスに含まれます。 開始インデックス `x` と終了インデックス `y`を持つ特定のスライスの場合、結果として得られるスライスには*yth*値が含まれます。
+
+```fsharp
+// Define a new list
+let xs = [1 .. 10]
+
+printfn "%A" xs.[2..5] // Includes the 5th index
 ```
 
 ## <a name="see-also"></a>関連項目

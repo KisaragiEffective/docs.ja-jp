@@ -20,7 +20,7 @@ match [NOT] LIKE pattern [ESCAPE escape]
   
 ## <a name="arguments"></a>引数  
  `match`  
- @No__t-1 に評価される @no__t 0 式。  
+ `String`に評価される [!INCLUDE[esql](../../../../../../includes/esql-md.md)] 式。  
   
  `pattern`  
  指定された `String` に一致するパターン。  
@@ -32,24 +32,24 @@ match [NOT] LIKE pattern [ESCAPE escape]
  LIKE の結果を否定することを指定します。  
   
 ## <a name="return-value"></a>戻り値  
- `true` がパターンに一致する場合は `string`、一致しない場合は `false`。  
+ `string` がパターンに一致するかどうかを `true` します。それ以外の場合は、`false`ます。  
   
-## <a name="remarks"></a>Remarks  
- LIKE 演算子を使用する @no__t 0 の式は、フィルター条件として等価性を使用する式とほとんど同じ方法で評価されます。 ただし、LIKE 演算子を使用する @no__t 0 の式には、リテラルとワイルドカード文字の両方を含めることができます。  
+## <a name="remarks"></a>コメント  
+ LIKE 演算子を使用する [!INCLUDE[esql](../../../../../../includes/esql-md.md)] 式は、フィルター条件として等価性を使用する式とほとんど同じ方法で評価されます。 ただし、LIKE 演算子を使用する [!INCLUDE[esql](../../../../../../includes/esql-md.md)] 式には、リテラルとワイルドカード文字の両方を含めることができます。  
   
  次の表では、パターン `string` の構文について説明します。  
   
 |ワイルドカード文字|説明|例|  
 |------------------------|-----------------|-------------|  
-|%|0 個またはそれ以上の文字で構成される任意の `string` です。|`title like '%computer%'` の場合は、タイトルの任意の場所に `"computer"` という単語が含まれるすべてのタイトルが検索されます。|  
-|_ (アンダースコア)|任意の 1 文字です。|`firstname like '_ean'` `"ean` で終わる4文字のすべての名前を検索します。|  
-|[ ]|指定した範囲 ([a-f]) またはセット ([abcdef]) にある任意の 1 文字です。|`lastname like '[C-P]arsen'` は、"arsen" で終わる姓を検索し、C と P の間の任意の1文字 (Carsen やなど) で始まります。|  
-|[^]|指定した範囲 ([^a-f]) またはセット ([^abcdef]) にない任意の 1 文字です。|`lastname like 'de[^l]%'` は、"de" で始まり、次の文字として "l" を含まない姓をすべて検索します。|  
+|%|0 個またはそれ以上の文字で構成される任意の `string` です。|`title like '%computer%'` は、タイトル内の任意の場所に `"computer"` という単語を含むすべてのタイトルを検索します。|  
+|_ (アンダースコア)|任意の 1 文字です。|`firstname like '_ean'` は、`"ean`で終わる4文字の名前をすべて検索します。|  
+|[ ]|指定した範囲 ([a-f]) またはセット ([abcdef]) にある任意の 1 文字です。|`lastname like '[C-P]arsen'` では、末尾に "arsen" が付いている姓と、C から P までの任意の1文字 (Carsen やなど) を検索します。|  
+|[^]|指定した範囲 ([^a-f]) またはセット ([^abcdef]) にない任意の 1 文字です。|`lastname like 'de[^l]%'` は、"de" で始まる姓をすべて検索し、次の文字として "l" を含めません。|  
   
 > [!NOTE]
 > [!INCLUDE[esql](../../../../../../includes/esql-md.md)] の LIKE 演算子および ESCAPE 句は、`System.DateTime` または `System.Guid` 値には適用できません。  
   
- LIKE では、ASCII パターン マッチと Unicode パターン マッチがサポートされています。 すべてのパラメーターが ASCII 文字の場合は、ASCII パターン マッチが行われます。 1 つまたは複数の引数が Unicode の場合は、すべての引数が Unicode に変換され、Unicode パターン マッチが行われます。 LIKE で Unicode を使用する場合、後続する空白は意味を持ちます。しかし、Unicode 以外のデータの場合、後続する空白は意味を持ちません。 @No__t-0 のパターン文字列構文は、Transact-sql のパターンと同じです。  
+ LIKE では、ASCII パターン マッチと Unicode パターン マッチがサポートされています。 すべてのパラメーターが ASCII 文字の場合は、ASCII パターン マッチが行われます。 1 つまたは複数の引数が Unicode の場合は、すべての引数が Unicode に変換され、Unicode パターン マッチが行われます。 LIKE で Unicode を使用する場合、後続する空白は意味を持ちます。しかし、Unicode 以外のデータの場合、後続する空白は意味を持ちません。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] のパターン文字列構文は、Transact-sql のパターンと同じです。  
   
  パターンは、標準の文字とワイルドカード文字を含むことができます。 パターン マッチ時に、標準の文字は `string` に指定された文字と正確に一致する必要があります。 しかし、ワイルドカード文字は文字列の任意の部分と一致することができます。 ワイルドカード文字を使用する場合、LIKE 演算子は = や != などの文字列比較演算子よりも柔軟です。  
   
@@ -63,10 +63,10 @@ match [NOT] LIKE pattern [ESCAPE escape]
 "title like '%100!%%' escape '!'"  
 ```  
   
- この検索式では、感嘆符文字 (!) の直後のパーセント ワイルドカード文字 (%) は、ワイルドカード文字としてではなく、リテラルとして処理されます。 @No__t 0 のワイルドカード文字と角かっこ (`[ ]`) 文字を除き、任意の文字をエスケープ文字として使用できます。 前の例では、感嘆符 (!) 文字はエスケープ文字です。  
+ この検索式では、感嘆符文字 (!) の直後のパーセント ワイルドカード文字 (%) は、ワイルドカード文字としてではなく、リテラルとして処理されます。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] のワイルドカード文字と角かっこ (`[ ]`) 文字を除き、任意の文字をエスケープ文字として使用できます。 前の例では、感嘆符 (!) 文字はエスケープ文字です。  
   
 ## <a name="example"></a>例  
- 次の2つの [!INCLUDE[esql](../../../../../../includes/esql-md.md)] クエリでは、LIKE 演算子と ESCAPE 演算子を使用して、特定の文字列が指定したパターンに一致するかどうかを判断します。 最初のクエリでは、-1 @no__t の文字で始まる @no__t 0 が検索されます。 アンダースコア (`_`) はワイルドカード文字であるため、このクエリは ESCAPE オプションを使用します。 ESCAPE オプションを指定しない場合、クエリでは、`Down` の後にアンダースコア文字以外の任意の1文字で始まる @no__t 0 の値が検索されます。 クエリは、AdventureWorks Sales Model に基づいています。 このクエリをコンパイルして実行するには、次の手順を実行します。  
+ 次の2つの [!INCLUDE[esql](../../../../../../includes/esql-md.md)] クエリでは、LIKE 演算子と ESCAPE 演算子を使用して、特定の文字列が指定したパターンに一致するかどうかを判断します。 最初のクエリでは、`Down_`文字で始まる `Name` を検索します。 アンダースコア (`_`) はワイルドカード文字であるため、このクエリは ESCAPE オプションを使用します。 ESCAPE オプションを指定しない場合、クエリでは、単語 `Down` の後にアンダースコア文字以外の任意の1文字で始まる `Name` 値が検索されます。 クエリは、AdventureWorks Sales Model に基づいています。 このクエリをコンパイルして実行するには、次の手順を実行します。  
   
 1. [「方法: PrimitiveType の結果を返すクエリを実行](../how-to-execute-a-query-that-returns-primitivetype-results.md)する」の手順に従います。  
   
@@ -74,6 +74,6 @@ match [NOT] LIKE pattern [ESCAPE escape]
   
  [!code-sql[DP EntityServices Concepts#LIKE](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#like)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Entity SQL リファレンス](entity-sql-reference.md)

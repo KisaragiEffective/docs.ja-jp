@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 1edd1670-976a-4fc8-bef7-7c41e60ad989
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 7a7859bd890a2ecc10b5117f697ff8b06ad569f6
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 411fad0accb59431f776c5bd66e8bd3027ddd907
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781701"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74450146"
 ---
 # <a name="cornotificationfortokenmovement-enumeration"></a>CorNotificationForTokenMovement 列挙型
-トークンの再マップが発生したときに、メタデータ API クライアントに送信される通知を指定します。  
+トークンの再マップが発生したときにメタデータ API クライアントに送信される通知を指定します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -65,40 +63,40 @@ typedef enum CorNotificationForTokenMovement {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`MDNotifyDefault`|ときの通知`mdTypeRef`、 `mdMethodDef`、 `mdMemberRef`、または`mdFieldDef`トークン移動します。|  
+|`MDNotifyDefault`|`mdTypeRef`、`mdMethodDef`、`mdMemberRef`、または `mdFieldDef` のトークンが移動したときに通知します。|  
 |`MDNotifyAll`|任意のトークンが移動したときに通知します。|  
 |`MDNotifyNone`|トークンの移動時に通知しません。|  
-|`MDNotifyMethodDef`|ときの通知、`mdMethodDef`トークン移動します。|  
-|`MDNotifyMemberRef`|ときの通知、`mdMemberRef`トークン移動します。|  
-|`MDNotifyFieldDef`|ときの通知、`mdFieldDef`トークン移動します。|  
-|`MDNotifyTypeRef`|ときの通知、`mdTypeRef`トークン移動します。|  
-|`MDNotifyTypeDef`|ときの通知、`mdTypeDef`トークン移動します。|  
-|`MDNotifyParamDef`|ときの通知、`mdParamDef`トークン移動します。|  
-|`MDNotifyInterfaceImpl`|ときの通知、`mdInterfaceImpl`トークン移動します。|  
-|`MDNotifyProperty`|ときの通知、`mdProperty`トークン移動します。|  
-|`MDNotifyEvent`|ときの通知、`mdEvent`トークン移動します。|  
-|`MDNotifySignature`|ときの通知、`mdSignature`トークン移動します。|  
-|`MDNotifyTypeSpec`|ときの通知、`mdTypeSpec`トークン移動します。|  
-|`MDNotifyCustomAttribute`|ときの通知、`mdCustomAttribute`トークン移動します。|  
-|`MDNotifySecurityValue`|ときの通知、`mdSecurityValue`トークン移動します。|  
-|`MDNotifyPermission`|ときの通知、`mdPermission`トークン移動します。|  
-|`MDNotifyModuleRef`|ときの通知、`mdModuleRef`トークン移動します。|  
-|`MDNotifyNameSpace`|ときの通知、`mdNameSpace`トークン移動します。|  
-|`MDNotifyAssemblyRef`|ときの通知、`mdAssemblyRef`トークン移動します。|  
-|`MDNotifyFile`|ときの通知、`mdFile`トークン移動します。|  
-|`MDNotifyExportedType`|ときの通知、`mdExportedType`トークン移動します。|  
-|`MDNotifyResource`|ときの通知、`mdManifestResource`トークン移動します。|  
+|`MDNotifyMethodDef`|`mdMethodDef` トークンが移動したときに通知します。|  
+|`MDNotifyMemberRef`|`mdMemberRef` トークンが移動したときに通知します。|  
+|`MDNotifyFieldDef`|`mdFieldDef` トークンが移動したときに通知します。|  
+|`MDNotifyTypeRef`|`mdTypeRef` トークンが移動したときに通知します。|  
+|`MDNotifyTypeDef`|`mdTypeDef` トークンが移動したときに通知します。|  
+|`MDNotifyParamDef`|`mdParamDef` トークンが移動したときに通知します。|  
+|`MDNotifyInterfaceImpl`|`mdInterfaceImpl` トークンが移動したときに通知します。|  
+|`MDNotifyProperty`|`mdProperty` トークンが移動したときに通知します。|  
+|`MDNotifyEvent`|`mdEvent` トークンが移動したときに通知します。|  
+|`MDNotifySignature`|`mdSignature` トークンが移動したときに通知します。|  
+|`MDNotifyTypeSpec`|`mdTypeSpec` トークンが移動したときに通知します。|  
+|`MDNotifyCustomAttribute`|`mdCustomAttribute` トークンが移動したときに通知します。|  
+|`MDNotifySecurityValue`|`mdSecurityValue` トークンが移動したときに通知します。|  
+|`MDNotifyPermission`|`mdPermission` トークンが移動したときに通知します。|  
+|`MDNotifyModuleRef`|`mdModuleRef` トークンが移動したときに通知します。|  
+|`MDNotifyNameSpace`|`mdNameSpace` トークンが移動したときに通知します。|  
+|`MDNotifyAssemblyRef`|`mdAssemblyRef` トークンが移動したときに通知します。|  
+|`MDNotifyFile`|`mdFile` トークンが移動したときに通知します。|  
+|`MDNotifyExportedType`|`mdExportedType` トークンが移動したときに通知します。|  
+|`MDNotifyResource`|`mdManifestResource` トークンが移動したときに通知します。|  
   
-## <a name="remarks"></a>Remarks  
- トークンを再マップ (移動) するメタデータのマージ中にします。  
+## <a name="remarks"></a>コメント  
+ メタデータのマージ中に、トークンが再マップ (移動) される場合があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

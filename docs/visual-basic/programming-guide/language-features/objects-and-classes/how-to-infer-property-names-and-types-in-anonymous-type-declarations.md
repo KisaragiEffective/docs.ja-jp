@@ -1,17 +1,17 @@
 ---
-title: '方法: 匿名型の宣言におけるプロパティ名と型を推論する (Visual Basic)'
+title: '方法 : 匿名型の宣言におけるプロパティ名と型を推論する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - inferring property names [Visual Basic]
 - anonymous types [Visual Basic], inferring property names and types
 - inferring property types [Visual Basic]
 ms.assetid: 7c748b22-913f-4d9d-b747-6b7bf296a0bc
-ms.openlocfilehash: 5bd4e0a760bcedf8f5e96c2cebe3a71b9050a420
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 89a39e8e9cd66b1d774da70be47c7c6824cccef2
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582276"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350036"
 ---
 # <a name="how-to-infer-property-names-and-types-in-anonymous-type-declarations-visual-basic"></a>方法: 匿名型の宣言におけるプロパティ名と型を推論する (Visual Basic)
 

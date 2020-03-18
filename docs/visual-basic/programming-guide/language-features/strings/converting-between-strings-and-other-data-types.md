@@ -1,5 +1,5 @@
 ---
-title: Visual Basic での文字列とその他のデータ型の変換
+title: 文字列とその他のデータ型との変換
 ms.date: 07/20/2015
 helpviewer_keywords:
 - Visual Basic, strings
@@ -7,12 +7,12 @@ helpviewer_keywords:
 - conversions [Visual Basic], Visual Basic
 - string conversion [Visual Basic], Visual Basic
 ms.assetid: 06085ed5-191d-4930-8fbc-da63930da400
-ms.openlocfilehash: 5b30bfe180bed62ea330b78ec50d8fbfa1bcd9c1
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: da9f4fb707b2df2812afd0f8b0a5317a75e69935
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72580990"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352491"
 ---
 # <a name="converting-between-strings-and-other-data-types-in-visual-basic"></a>Visual Basic での文字列とその他のデータ型の変換
 

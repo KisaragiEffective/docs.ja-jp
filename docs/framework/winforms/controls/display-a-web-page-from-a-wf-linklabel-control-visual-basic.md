@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの LinkLabel コントロールから Web ページを表示する (Visual Basic)'
+title: LinkLabel コントロールから Web ページを表示する (Visual Basic)
 ms.date: 03/30/2017
 dev_langs:
 - vb
@@ -12,15 +12,15 @@ helpviewer_keywords:
 - Windows Forms, linking to Web pages
 - LinkLabel control [Windows Forms], examples
 ms.assetid: 477a7398-5971-4de3-b24c-f49f32bdb28a
-ms.openlocfilehash: f36f5bbaaf28963fc95440a4f3a174b8b48f6276
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 75373d55b7bc5ef11e39d5b9546996cb1c4f6f7c
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64651800"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76745920"
 ---
-# <a name="how-to-display-a-web-page-from-a-windows-forms-linklabel-control-visual-basic"></a>方法: Windows フォームの LinkLabel コントロールから Web ページを表示する (Visual Basic)
-この例では、ユーザーが Windows フォームをクリックすると、既定のブラウザーで Web ページを表示<xref:System.Windows.Forms.LinkLabel>コントロール。  
+# <a name="how-to-display-a-web-page-from-a-windows-forms-linklabel-control-visual-basic"></a>方法 : Windows フォームの LinkLabel コントロールから Web ページを表示する (Visual Basic)
+この例では、ユーザーが Windows フォーム <xref:System.Windows.Forms.LinkLabel> コントロールをクリックしたときに、既定のブラウザーに Web ページを表示します。  
   
 ## <a name="example"></a>例  
   
@@ -40,16 +40,16 @@ End Sub
 ## <a name="compiling-the-code"></a>コードのコンパイル  
  この例で必要な要素は次のとおりです。  
   
-- という名前の Windows フォーム`Form1`します。  
+- `Form1`という名前の Windows フォーム。  
   
-- `LinkLabel1` という名前の <xref:System.Windows.Forms.LinkLabel> コントロール。  
+- <xref:System.Windows.Forms.LinkLabel> という名前の `LinkLabel1` コントロール。  
   
-- インターネットに接続します。  
+- アクティブなインターネット接続。  
   
-## <a name="net-framework-security"></a>.NET Framework セキュリティ  
- 呼び出し、<xref:System.Diagnostics.Process.Start%2A>メソッドには、完全な信頼が必要です。 詳細については、「 <xref:System.Security.SecurityException> 」を参照してください。  
+## <a name="net-framework-security"></a>.NET Framework のセキュリティ  
+ <xref:System.Diagnostics.Process.Start%2A> メソッドを呼び出すには、完全信頼が必要です。 詳細については、<xref:System.Security.SecurityException> を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.LinkLabel>
 - [LinkLabel コントロール](linklabel-control-windows-forms.md)

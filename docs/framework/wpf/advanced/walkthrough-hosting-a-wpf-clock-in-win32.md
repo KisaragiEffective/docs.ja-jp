@@ -1,29 +1,30 @@
 ---
 title: 'チュートリアル: Win32 での WPF クロックのホスト'
+titleSuffix: ''
 ms.date: 03/30/2017
 helpviewer_keywords:
 - interoperability [WPF], tutorials
 - Win32 code [WPF], WPF interoperation
 - interoperability [WPF], Win32
 ms.assetid: 555e55a7-0851-4ec8-b1c6-0acba7e9b648
-ms.openlocfilehash: 42ed51a1a1ce59b6a3cc3319d86d3a7445403ce4
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: 0aecde96d182e12ab72b1a6cba129ab1d8a28391
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72919743"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123780"
 ---
-# <a name="walkthrough-hosting-a-wpf-clock-in-win32"></a>チュートリアル: Win32 での WPF クロックのホスト
+# <a name="walkthrough-host-a-wpf-clock-in-win32"></a>チュートリアル: Win32 での WPF クロックのホスト
 
-[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] アプリケーション内に [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] を配置するには、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツを含む HWND を提供する <xref:System.Windows.Interop.HwndSource>を使用します。 まず、<xref:System.Windows.Interop.HwndSource>を作成し、CreateWindow のようなパラメーターを指定します。 次に、その内部に必要な [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツについて <xref:System.Windows.Interop.HwndSource> を伝えます。 最後に、<xref:System.Windows.Interop.HwndSource>から HWND を取得します。 このチュートリアルでは、[オペレーティングシステムの**日付と時刻のプロパティ**] ダイアログを再実装する [!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] アプリケーション内で混合 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] を作成する方法について説明します。
+Win32 アプリケーション内に [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] を配置するには、<xref:System.Windows.Interop.HwndSource>を使用します。これにより、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツを含む HWND が提供されます。 まず、<xref:System.Windows.Interop.HwndSource>を作成し、CreateWindow のようなパラメーターを指定します。 次に、その内部に必要な [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツについて <xref:System.Windows.Interop.HwndSource> を伝えます。 最後に、<xref:System.Windows.Interop.HwndSource>から HWND を取得します。 このチュートリアルでは、[オペレーティングシステムの**日付と時刻のプロパティ**] ダイアログを再実装する Win32 アプリケーション内で混合 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] を作成する方法について説明します。
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
 「 [WPF と Win32 の相互運用」を](wpf-and-win32-interoperation.md)参照してください。
 
 ## <a name="how-to-use-this-tutorial"></a>このチュートリアルの使用方法
 
-このチュートリアルでは、相互運用アプリケーションを生成するための重要な手順について説明します。 このチュートリアルは、サンプルの[Win32 クロック相互運用のサンプル](https://go.microsoft.com/fwlink/?LinkID=160051)によって支えられていますが、そのサンプルは終了製品を反映しています。 このチュートリアルでは、独自の既存の [!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] プロジェクト (通常は既存のプロジェクト) を使用して作業を開始し、ホストされた [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] をアプリケーションに追加するという手順について説明します。 [Win32 クロック相互運用のサンプル](https://go.microsoft.com/fwlink/?LinkID=160051)を使用して、終了製品を比較することができます。
+このチュートリアルでは、相互運用アプリケーションを生成するための重要な手順について説明します。 このチュートリアルは、サンプルの[Win32 クロック相互運用のサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Migration%20and%20Interoperability/Win32Clock)によって支えられていますが、そのサンプルは終了製品を反映しています。 このチュートリアルでは、独自の既存の Win32 プロジェクト (通常は既存のプロジェクト) を使用して作業を開始し、ホストされている [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] をアプリケーションに追加している場合と同様の手順について説明します。 [Win32 クロック相互運用のサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Migration%20and%20Interoperability/Win32Clock)を使用して、終了製品を比較することができます。
 
 ## <a name="a-walkthrough-of-windows-presentation-framework-inside-win32-hwndsource"></a>Win32 内の Windows Presentation Framework のチュートリアル (System.windows.interop.hwndsource>)
 
@@ -35,11 +36,11 @@ ms.locfileid: "72919743"
 
 ![[再作成された日付と時刻のプロパティ] ダイアログボックス](./media/walkthrough-hosting-a-wpf-clock-in-win32/recreated-date-time-properties-dialog.png)
 
-(<xref:System.Windows.Interop.HwndSource>を使用するために Visual Studio を使用する必要はなく、[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)]プログラムを記述C++するためにを使用する必要はありませんが、これは非常に一般的な方法であり、ステップごとのチュートリアルの説明に適しています)。
+(<xref:System.Windows.Interop.HwndSource>を使用するために Visual Studio を使用する必要はなく、Win32 プログラムを記述C++するためにを使用する必要はありませんが、これは非常に一般的な方法であり、これについてはチュートリアルの説明にも役立ちます。
 
 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] の時計をダイアログに入れるには、5つの特定の手順を実行する必要があります。
 
-1. Visual Studio でプロジェクト設定を変更して、[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] プロジェクトでマネージコード ( **/clr**) を呼び出すことができるようにします。
+1. Visual Studio でプロジェクト設定を変更することにより、Win32 プロジェクトでマネージコード ( **/clr**) を呼び出すことができるようにします。
 
 2. 別の DLL に [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]<xref:System.Windows.Controls.Page> を作成します。
 
@@ -47,11 +48,11 @@ ms.locfileid: "72919743"
 
 4. <xref:System.Windows.Interop.HwndSource.Handle%2A> プロパティを使用して、その <xref:System.Windows.Controls.Page> の HWND を取得します。
 
-5. [!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] を使用して、より大きな [!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] アプリケーション内で HWND を配置する場所を決定します。
+5. Win32 を使用して、より大きな Win32 アプリケーション内で HWND を配置する場所を決定する
 
 ## <a name="clr"></a>/clr
 
-最初の手順は、このアンマネージ [!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] プロジェクトをマネージコードを呼び出すことができるようにすることです。 使用する必要な Dll にリンクする/clr コンパイラオプションを使用して、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]で使用するための Main メソッドを調整します。
+最初の手順では、アンマネージ Win32 プロジェクトをマネージコードを呼び出すことができるものに変換します。 使用する必要な Dll にリンクする/clr コンパイラオプションを使用して、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]で使用するための Main メソッドを調整します。
 
 C++プロジェクト内でマネージコードを使用できるようにするには、win32clock プロジェクトを右クリックし、 **[プロパティ]** を選択します。 **全般** プロパティページ (既定) で、共通言語ランタイムサポート を `/clr`に変更します。
 
@@ -85,15 +86,15 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                      int       nCmdShow)
 ```
 
-この属性は、コンポーネントオブジェクトモデル (COM) を初期化するときに、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] (および [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)]) に必要なシングルスレッドアパートメントモデル (STA) を使用する必要があることを、共通言語ランタイム (CLR) に通知します。
+この属性は、コンポーネントオブジェクトモデル (COM) を初期化するときに、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] (および Windows フォーム) に必要なシングルスレッドアパートメントモデル (STA) を使用する必要があることを、共通言語ランタイム (CLR) に通知します。
 
 ## <a name="create-a-windows-presentation-framework-page"></a>Windows Presentation Framework ページを作成する
 
 次に、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]<xref:System.Windows.Controls.Page>を定義する DLL を作成します。 多くの場合、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]<xref:System.Windows.Controls.Page> をスタンドアロンアプリケーションとして作成し、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] の部分を記述してデバッグする方が簡単です。 完了したら、プロジェクトを右クリックし、**プロパティ** をクリックして、アプリケーションに移動し、出力の種類 を Windows クラスライブラリ に変更することにより、そのプロジェクトを DLL に変換できます。
 
-[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] dll プロジェクトは、[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] プロジェクト (2 つのプロジェクトを含む1つのソリューション) と組み合わせることができます。ソリューションを右クリックし、 **[Add\Existing プロジェクト]** を選択します。
+[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] dll プロジェクトは、Win32 プロジェクト (2 つのプロジェクトを含む1つのソリューション) と組み合わせることができます。ソリューションを右クリックし、 **[Add\Existing プロジェクト]** を選択します。
 
-この [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] dll を [!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] プロジェクトから使用するには、参照を追加する必要があります。
+Win32 プロジェクトからこの [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] dll を使用するには、参照を追加する必要があります。
 
 1. Win32clock プロジェクト を右クリックし、**参照** を選択します。
 
@@ -183,7 +184,7 @@ return (HWND) source->Handle.ToPointer();
 
 ## <a name="positioning-the-hwnd"></a>Hwnd の配置
 
-これで [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] クロックを含む HWND が作成されたので、この HWND を [!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] ダイアログ内に配置する必要があります。 HWND をどこに配置するかがわかっている場合は、先ほど定義した `GetHwnd` 関数にそのサイズと場所を渡します。 ただし、リソースファイルを使用してダイアログを定義したので、Hwnd がどこに配置されているかを正確に確認することはできません。 Visual Studio のダイアログエディターを使用して、時計の移動先 ("ここに時計を挿入する") に [!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] スタティックコントロールを配置し、それを使用して [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] クロックを配置することができます。
+これで [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] クロックを含む HWND が作成されたので、この HWND を Win32 ダイアログ内に配置する必要があります。 HWND をどこに配置するかがわかっている場合は、先ほど定義した `GetHwnd` 関数にそのサイズと場所を渡します。 ただし、リソースファイルを使用してダイアログを定義したので、Hwnd がどこに配置されているかを正確に確認することはできません。 Visual Studio のダイアログエディターを使用して、時計の移動先 ("ここに時計を挿入する") に Win32 スタティックコントロールを配置し、それを使用して [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] クロックを配置することができます。
 
 WM_INITDIALOG を処理する場合は、`GetDlgItem` を使用して、プレースホルダー STATIC の HWND を取得します。
 
@@ -231,10 +232,10 @@ HWND clock = ManagedCode::GetHwnd(hDlg, point.x, point.y, width, height);
 
 ![[最終結果の日付と時刻のプロパティ] ダイアログボックス](./media/walkthrough-hosting-a-wpf-clock-in-win32/final-result-date-time-properties-dialog.png)
 
-このスクリーンショットを生成したコードと結果を比較するには、「 [Win32 Clock 相互運用のサンプル](https://go.microsoft.com/fwlink/?LinkID=160051)」を参照してください。
+このスクリーンショットを生成したコードと結果を比較するには、「 [Win32 Clock 相互運用のサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Migration%20and%20Interoperability/Win32Clock)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Interop.HwndSource>
 - [WPF と Win32 の相互運用性](wpf-and-win32-interoperation.md)
-- [Win32 クロック相互運用のサンプル](https://go.microsoft.com/fwlink/?LinkID=160051)
+- [Win32 クロック相互運用のサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Migration%20and%20Interoperability/Win32Clock)

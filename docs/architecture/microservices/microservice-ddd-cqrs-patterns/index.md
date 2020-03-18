@@ -2,12 +2,12 @@
 title: マイクロサービスで DDD と CQRS パターンを使ってビジネスの複雑さに取り組む
 description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | DDD と CQRS パターンを適用して複雑なビジネス シナリオに取り組む方法を理解する
 ms.date: 10/08/2018
-ms.openlocfilehash: d311641e2ac73205c04c3f1147b54991585ce851
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: 88b105b68307c8587f877bb9ddf370e143d8539b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "70295103"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73739841"
 ---
 # <a name="tackle-business-complexity-in-a-microservice-with-ddd-and-cqrs-patterns"></a>マイクロサービスで DDD と CQRS パターンを使ってビジネスの複雑さに取り組む
 
@@ -15,7 +15,9 @@ ms.locfileid: "70295103"
 
 このセクションでは、複雑なサブシステムへの取り組みが必要な場合に実装する高度なマイクロサービスについて、またドメイン専門家の知識と絶えず変化するビジネス ルールに由来するマイクロサービスについて説明します。 このセクションで使用するアーキテクチャ パターンは、図 7-1 に示すように、ドメイン駆動設計 (DDD) とコマンドクエリ責務分離 (CQRS) の手法に基づいています。
 
-![外部アーキテクチャ (マイクロサービス パターン、API ゲートウェイ、回復力のある通信、pub/sub など) と、内部アーキテクチャ (データ駆動型/CRUD、DDD パターン、依存関係の挿入、複数のライブラリなど) の違い。](./media/image1.png)
+:::image type="complex" source="./media/index/internal-versus-external-architecture.png" alt-text="外部アーキテクチャと内部アーキテクチャのパターンを比較した図。":::
+外部アーキテクチャ (マイクロサービス パターン、API ゲートウェイ、回復力のある通信、pub/sub など) と、内部アーキテクチャ (データ駆動型/CRUD、DDD パターン、依存関係の挿入、複数のライブラリなど) の違い。
+:::image-end:::
 
 **図 7-1**。 外部マイクロサービス アーキテクチャとマイクロサービスごとの内部アーキテクチャ パターンとの対比
 

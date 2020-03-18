@@ -8,21 +8,21 @@ helpviewer_keywords:
 - <ipv6> element
 - ipv6 element
 ms.assetid: 10b79aef-327b-4718-a892-e11f55e4d169
-ms.openlocfilehash: bf04b16682c2c1bc677fecbd6dc966090c77e1da
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: c16949171d082bd02abb0a02db83c2e71c2f17df
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71698128"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74088133"
 ---
 # <a name="ipv6-element-network-settings"></a>\<ipv6> 要素 (ネットワーク設定)
-<xref:System.Net.Dns> クラスの廃止されたメンバーからインターネット プロトコル バージョン 6 (IPv6) 応答を有効にします。  
-  
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **@no__t 47 >** ](system-net-element-network-settings.md)  
-&nbsp; @ no__t @ no__t @no__t @ no__t-3[ **-6 設定 >** ](settings-element-network-settings.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5 **\<ipv6 >** します。  
-  
+<xref:System.Net.Dns> クラスの互換性のために残されているメンバーからのインターネットプロトコルバージョン 6 (IPv6) 応答を有効にします。  
+
+[ **\<configuration>** ](../configuration-element.md)\
+&nbsp;&nbsp;[ **\<system.net>** ](system-net-element-network-settings.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;[ **\<settings>** ](settings-element-network-settings.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<ipv6>**
+
 ## <a name="syntax"></a>構文  
   
 ```xml  
@@ -36,21 +36,21 @@ ms.locfileid: "71698128"
   
 ### <a name="attributes"></a>属性  
   
-|**属性**|**[説明]**|  
+|**属性**|**説明**|  
 |-------------------|---------------------|  
-|`enabled`|@No__t-0 クラスのメンバーがインターネットプロトコルバージョン 6 (IPv6) アドレスを返すかどうかを指定します。 既定値は `false` です。|  
+|`enabled`|<xref:System.Net.Dns> クラスのメンバーがインターネットプロトコルバージョン 6 (IPv6) アドレスを返すかどうかを指定します。 既定値は `false`です。|  
   
 ### <a name="child-elements"></a>子要素  
  なし。  
   
 ### <a name="parent-elements"></a>親要素  
   
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |[settings](settings-element-network-settings.md)|<xref:System.Net> 名前空間の基本的なネットワーク オプションを構成します。|  
   
-## <a name="remarks"></a>コメント  
- この設定により、<xref:System.Net.Dns> クラスの不使用のメンバーの IPv6 サポートが有効になります。 <xref:System.Net.Dns.BeginGetHostByName%2A>、<xref:System.Net.Dns.BeginResolve%2A>、<xref:System.Net.Dns.EndGetHostByName%2A>、@no__t 4、<xref:System.Net.Dns.GetHostByAddress%2A>、<xref:System.Net.Dns.GetHostByName%2A>、および <xref:System.Net.Dns.Resolve%2A> です。 @No__t-0 名前空間のその他のメンバーについては、オペレーティングシステムで IPv6 が有効になっている場合、IPv6 アドレスが返されることがあります。  
+## <a name="remarks"></a>Remarks  
+ この設定により、<xref:System.Net.Dns> クラスの古いメンバー (<xref:System.Net.Dns.BeginGetHostByName%2A>、<xref:System.Net.Dns.BeginResolve%2A>、<xref:System.Net.Dns.EndGetHostByName%2A>、<xref:System.Net.Dns.EndResolve%2A>、<xref:System.Net.Dns.GetHostByAddress%2A>、<xref:System.Net.Dns.GetHostByName%2A>、<xref:System.Net.Dns.Resolve%2A>) の IPv6 サポートが有効になります。 <xref:System.Net?displayProperty=nameWithType> 名前空間のその他のメンバーについては、オペレーティングシステムで IPv6 が有効になっている場合、IPv6 アドレスが返されることがあります。  
   
 ## <a name="configuration-files"></a>構成ファイル  
  この要素は、アプリケーション構成ファイルまたはマシン構成ファイル (Machine.config) で使用できます。  

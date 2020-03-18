@@ -5,28 +5,28 @@ helpviewer_keywords:
 - application resources [WPF]
 - resources [WPF], application resources
 ms.assetid: 507ea937-5191-406b-8797-0a3d9f94156d
-ms.openlocfilehash: 70dff8089c4da70fdc61247a0c604cf7ee85d02b
-ms.sourcegitcommit: 0be8a279af6d8a43e03141e349d3efd5d35f8767
+ms.openlocfilehash: e4114466fa8016f8e31100d7a37038b0abfdccca
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59088204"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73460272"
 ---
 # <a name="how-to-use-application-resources"></a>方法: アプリケーション リソースを使用する
 この例では、アプリケーション リソースを使用する方法を示します。  
   
 ## <a name="example"></a>例  
- 次の例は、アプリケーション定義ファイルを示しています。 アプリケーション定義ファイルがリソース セクションを定義します (値を<xref:System.Windows.Application.Resources%2A>プロパティ)。 アプリケーション レベルで定義されているリソースには、そのアプリケーションの一部であるその他すべてのページからアクセスできます。 この例では、リソースは宣言済みのスタイルです。 この例で、コントロール テンプレート内で定義されているを省略コントロール テンプレートを含む完全なスタイル指定できますが、時間がかかるため、<xref:System.Windows.Controls.ContentControl.ContentTemplate%2A>スタイルのプロパティ set アクセス操作子。  
+ 次の例は、アプリケーション定義ファイルを示しています。 アプリケーション定義ファイルでは、リソースセクション (<xref:System.Windows.Application.Resources%2A> プロパティの値) を定義します。 アプリケーション レベルで定義されているリソースには、そのアプリケーションの一部であるその他すべてのページからアクセスできます。 この例では、リソースは宣言済みのスタイルです。 コントロールテンプレートを含む完全なスタイルは長くなる可能性があるため、この例では、スタイルの <xref:System.Windows.Controls.ContentControl.ContentTemplate%2A> プロパティ setter 内で定義されているコントロールテンプレートを省略しています。  
   
  [!code-xaml[ResourcesApplication#PreTemplateResource](~/samples/snippets/csharp/VS_Snippets_Wpf/ResourcesApplication/CS/app.xaml#pretemplateresource)]  
 [!code-xaml[ResourcesApplication#PostTemplateResource](~/samples/snippets/csharp/VS_Snippets_Wpf/ResourcesApplication/CS/app.xaml#posttemplateresource)]  
   
- 次の例は、[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]前の例で定義されているアプリケーション レベルのリソースを参照するページ。 使用してリソースを参照する、 [StaticResource マークアップ拡張機能](staticresource-markup-extension.md)要求されたリソースの一意のリソース キーを指定します。 "GelButton" というキーを持つリソースが、現在のページで見つからないため、要求されているリソースのリソース ルックアップ スコープは、現在のページを越えて、定義されているアプリケーション レベルのリソースまで継続されます。  
+ 次の例は、前の例で定義したアプリケーションレベルのリソースを参照する [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ページを示しています。 リソースは、要求されたリソースの一意のリソースキーを指定する[StaticResource マークアップ拡張機能](staticresource-markup-extension.md)を使用して参照されます。 "GelButton" というキーを持つリソースが、現在のページで見つからないため、要求されているリソースのリソース ルックアップ スコープは、現在のページを越えて、定義されているアプリケーション レベルのリソースまで継続されます。  
   
  [!code-xaml[ResourcesApplication#ConsumingPage](~/samples/snippets/csharp/VS_Snippets_Wpf/ResourcesApplication/CS/page1.xaml#consumingpage)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [XAML リソース](xaml-resources.md)
+- [XAML リソース](../../../desktop-wpf/fundamentals/xaml-resources-define.md)
 - [アプリケーション管理の概要](../app-development/application-management-overview.md)
 - [方法トピック](resources-how-to-topics.md)

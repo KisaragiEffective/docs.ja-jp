@@ -2,16 +2,15 @@
 title: .NET クラス ライブラリ
 description: .NET クラス ライブラリを使用して、役に立つ機能をモジュールとしてコンポーネント化して、複数のアプリケーションで使用する方法について説明します。
 author: richlander
-ms.author: mairaw
 ms.date: 06/20/2016
 ms.technology: dotnet-standard
 ms.assetid: a67484c3-fe92-44d8-8fa3-36fa2071d880
-ms.openlocfilehash: c918883d8620513749826680f9f1b6d89ae87585
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: b7934e5def202760ab05d363ee5fcda5d012ca72
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64664602"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77124586"
 ---
 # <a name="net-class-libraries"></a>.NET クラス ライブラリ
 

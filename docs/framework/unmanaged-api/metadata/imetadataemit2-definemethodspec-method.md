@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 3c24e552-fc69-4971-b65a-a3e4b5f7f1e8
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a4185ec41fc9f7d1d919a79b57c02625210ad72a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 7547d7557169b1279125141afb5b05e22341942a
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777179"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74432747"
 ---
 # <a name="imetadataemit2definemethodspec-method"></a>IMetaDataEmit2::DefineMethodSpec メソッド
-メソッドのジェネリック インスタンスを作成し、定義するためのトークンを取得します。  
+メソッドのジェネリックインスタンスを作成し、その定義へのトークンを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,27 +38,27 @@ HRESULT DefineMethodSpec (
   
 ## <a name="parameters"></a>パラメーター  
  `tkParent`  
- [in]ジェネリックのインスタンスを作成する対象のメソッドのトークンです。 トークン型でなければなりません`mdMethodDef`または`mdMemberRef`します。  
+ からジェネリックインスタンスを作成するメソッドのトークン。 トークンは `mdMethodDef` または `mdMemberRef`型である必要があります。  
   
  `pvSigBlob`  
- [in]メソッドのバイナリの COM + シグネチャへのポインター。  
+ からメソッドのバイナリ COM + シグネチャへのポインター。  
   
  `cbSibBlob`  
- [in]サイズ (バイト単位) の`pvSigBlob`します。  
+ から`pvSigBlob`のサイズ (バイト単位)。  
   
  `pmi`  
- [out]メソッドのメタデータ署名定義のトークン。  
+ 入出力メソッドのメタデータシグネチャ定義へのトークン。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataEmit2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-interface.md)
 - [IMetaDataEmit インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-interface.md)

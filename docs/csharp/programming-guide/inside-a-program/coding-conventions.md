@@ -1,21 +1,21 @@
 ---
 title: C# のコーディング規則 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - coding conventions, C#
 - Visual C#, coding conventions
 - C# language, coding conventions
 ms.assetid: f4f60de9-d49b-4fb6-bab1-20e19ea24710
-ms.openlocfilehash: 27001d1697def083580ecdc742b4b8db924545aa
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 77b173a420f26834855e0bdca3c8d04406ac65d4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69589419"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398377"
 ---
 # <a name="c-coding-conventions-c-programming-guide"></a>C# のコーディング規則 (C# プログラミング ガイド)
- コーディング規則には、次の目的があります。  
+
+コーディング規則には、次の目的があります。  
   
 - コードの見た目が統一されるため、コードを読むときに、レイアウトではなく内容に重点を置くことができます。  
   
@@ -25,9 +25,9 @@ ms.locfileid: "69589419"
   
 - コーディング規約により、C# のベスト プラクティスがわかります。  
 
- このトピックのガイドラインは、サンプルおよびドキュメントを開発するために Microsoft によって使用されます。  
+この記事のガイドラインは、サンプルおよびドキュメントを開発するために Microsoft によって使用されます。  
   
-## <a name="naming-conventions"></a>名前付け規則  
+## <a name="naming-conventions"></a>命名規則  
   
 - [using ディレクティブ](../../language-reference/keywords/using-directive.md)が含まれていない簡単な例では、名前空間の修飾を使用します。 プロジェクトに名前空間が既定でインポートされていることがわかっている場合は、その名前空間の各名前を完全修飾する必要はありません。 次の例に示すように、修飾名が長すぎて 1 行に収まらない場合は、ドット (.) の後で改行できます。  
   
@@ -36,15 +36,16 @@ ms.locfileid: "69589419"
 - 他のガイドラインに合わせて、Visual Studio デザイナーのツールを使用して作成されたオブジェクトの名前を変更する必要はありません。  
   
 ## <a name="layout-conventions"></a>レイアウト規則  
- コードの構造を強調する書式が使用され、コードが読みやすくなっているのが、優れたレイアウトです。 マイクロソフトの例とサンプルは、次の規則に準拠しています。  
+
+コードの構造を強調する書式が使用され、コードが読みやすくなっているのが、優れたレイアウトです。 マイクロソフトの例とサンプルは、次の規則に準拠しています。  
   
-- コード エディターの既定の設定 (スマート インデント、4 文字インデント、タブを空白として保存) を使用します。 詳細については、「[[オプション]、[テキスト エディター]、[C#]、[書式設定]](/visualstudio/ide/reference/options-text-editor-csharp-formatting)」を参照してください。  
+- コード エディターの既定の設定 (スマートインデント、4 文字インデント、タブを空白として保存) を使用します。 詳細については、「[[オプション]、[テキスト エディター]、[C#]、[書式設定]](/visualstudio/ide/reference/options-text-editor-csharp-formatting)」を参照してください。  
   
 - 1 つの行には 1 つのステートメントのみを記述します。  
   
 - 1 つの行には 1 つの宣言のみを記述します。  
   
-- 継続行にインデントが自動的に設定されない場合は、1 タブ ストップ (4 つの空白) 分のインデントを設定します。  
+- 継続行にインデントが自動的に設定されない場合は、1 タブストップ (4 つの空白) 分のインデントを設定します。  
   
 - メソッド定義とプロパティ定義の間に少なくとも 1 行の空白行を追加します。  
   
@@ -67,7 +68,8 @@ ms.locfileid: "69589419"
 - アスタリスクを整形したブロックでコメントを囲まないようにします。  
   
 ## <a name="language-guidelines"></a>言語ガイドライン  
- 以降のセクションでは、コード例とサンプルを準備する際に C# チームが従っている方法について説明します。  
+
+以降のセクションでは、コード例とサンプルを準備する際に C# チームが従っている方法について説明します。  
   
 ### <a name="string-data-type"></a>文字列型 (String)  
   
@@ -93,35 +95,40 @@ ms.locfileid: "69589419"
   
      [!code-csharp[csProgGuideCodingConventions#10](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#10)]  
   
-- [dynamic](../../language-reference/keywords/dynamic.md) の代わりに `var` を使用しないようにしてください。  
+- `var`dynamic[ の代わりに ](../../language-reference/builtin-types/reference-types.md) を使用しないようにしてください。  
   
-- [for](../../language-reference/keywords/for.md) ループおよび [foreach](../../language-reference/keywords/foreach-in.md) ループでループ変数の型を決定するときは、暗黙の型指定を使用します。  
+- [for](../../language-reference/keywords/for.md) ループでループ変数の型を決定するときは、暗黙の型指定が使用されます。  
   
      次の例では、`for` ステートメントで暗黙の型指定を使用しています。  
   
      [!code-csharp[csProgGuideCodingConventions#7](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#7)]  
-  
-     次の例では、`foreach` ステートメントで暗黙の型指定を使用しています。  
-  
-     [!code-csharp[csProgGuideCodingConventions#12](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#12)]  
-  
+
+- [foreach](../../language-reference/keywords/foreach-in.md) ループでループ変数の型を決定するときは、暗黙の型指定は使用されません。
+
+     次の例では、`foreach` ステートメントで暗黙の型指定が使用されています。
+
+     [!code-csharp[csProgGuideCodingConventions#12](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#12)]
+
+     > [!NOTE]
+     > 反復可能コレクションの要素の型を誤って変更しないように注意してください。 たとえば、<xref:System.Linq.IQueryable?displayProperty=nameWithType> ステートメントで <xref:System.Collections.IEnumerable?displayProperty=nameWithType> から `foreach` に切り替えるのは簡単ですが、これを行うとクエリの結果が変更されます。
+
 ### <a name="unsigned-data-type"></a>Unsigned データ型  
   
-- 通常は、unsigned 型ではなく `int` を使用します。 C# では `int` を使用するのが一般的です。`int` を使用すると、他のライブラリと対話しやすくなります。  
+通常は、unsigned 型ではなく `int` を使用します。 C# では `int` を使用するのが一般的です。`int` を使用すると、他のライブラリと対話しやすくなります。  
   
 ### <a name="arrays"></a>配列  
   
-- 宣言行で配列を初期化するときは簡潔な構文を使用します。  
+宣言行で配列を初期化するときは簡潔な構文を使用します。  
   
-     [!code-csharp[csProgGuideCodingConventions#13](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#13)]  
+[!code-csharp[csProgGuideCodingConventions#13](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#13)]  
   
 ### <a name="delegates"></a>デリゲート  
   
-- デリゲート型のインスタンスを作成するときは簡潔な構文を使用します。  
+デリゲート型のインスタンスを作成するときは簡潔な構文を使用します。  
   
-     [!code-csharp[csProgGuideCodingConventions#14](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#14)]  
+[!code-csharp[csProgGuideCodingConventions#14](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#14)]  
   
-     [!code-csharp[csProgGuideCodingConventions#15](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#15)]  
+[!code-csharp[csProgGuideCodingConventions#15](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#15)]  
   
 ### <a name="try-catch-and-using-statements-in-exception-handling"></a>例外処理における try-catch ステートメントと using ステートメント  
   
@@ -135,11 +142,11 @@ ms.locfileid: "69589419"
   
 ### <a name="-and-124124-operators"></a>&& 演算子および &#124;&#124; 演算子  
   
-- 例外を回避し、不要な比較をスキップしてパフォーマンスを向上させるには、比較を実行する場合、次の例に示すように [&](../../language-reference/operators/boolean-logical-operators.md#logical-and-operator-) の代わりに [&&](../../language-reference/operators/boolean-logical-operators.md#conditional-logical-and-operator-) を、[&#124;](../../language-reference/operators/boolean-logical-operators.md#logical-or-operator-) の代わりに [&#124;&#124;](../../language-reference/operators/boolean-logical-operators.md#conditional-logical-or-operator-) を使用します。  
+例外を回避し、不要な比較をスキップしてパフォーマンスを向上させるには、比較を実行する場合、次の例に示すように [&&](../../language-reference/operators/boolean-logical-operators.md#conditional-logical-and-operator-) の代わりに [&](../../language-reference/operators/boolean-logical-operators.md#logical-and-operator-) を、[&#124;](../../language-reference/operators/boolean-logical-operators.md#conditional-logical-or-operator-) の代わりに [&#124;&#124;](../../language-reference/operators/boolean-logical-operators.md#logical-or-operator-) を使用します。  
   
-     [!code-csharp[csProgGuideCodingConventions#18](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#18)]  
+[!code-csharp[csProgGuideCodingConventions#18](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#18)]  
   
-### <a name="new-operator"></a>[New Operator]  
+### <a name="new-operator"></a>new 演算子  
   
 - 次の宣言に示すように、暗黙の型指定を使用してオブジェクトのインスタンス化を簡潔な形式にします。  
   
@@ -155,15 +162,15 @@ ms.locfileid: "69589419"
   
 ### <a name="event-handling"></a>イベント処理  
   
-- 後で削除する必要のないイベント ハンドラーを定義する場合は、ラムダ式を使用します。  
+後で削除する必要のないイベント ハンドラーを定義する場合は、ラムダ式を使用します。  
   
-     [!code-csharp[csProgGuideCodingConventions#22](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#22)]  
+[!code-csharp[csProgGuideCodingConventions#22](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#22)]  
   
-     [!code-csharp[csProgGuideCodingConventions#23](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#23)]  
+[!code-csharp[csProgGuideCodingConventions#23](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#23)]  
   
 ### <a name="static-members"></a>静的メンバー  
   
-- [静的](../../language-reference/keywords/static.md)メンバーは、クラス名 *ClassName.StaticMember* を使用して呼び出します。 こうすることで、静的アクセスが明確になり、コードがよりわかりやすくなります。  派生クラスの名前を持つ基本クラスに定義された静的メンバーを指定しないでください。  このコードをコンパイルすると、コードが読みやすくなくなり、派生クラスに同じ名前の静的メンバーを追加すると、将来的にコードが中断する場合があります。  
+[静的](../../language-reference/keywords/static.md)メンバーは、クラス名 (*ClassName.StaticMember*) を使用して呼び出します。 こうすることで、静的アクセスが明確になり、コードがよりわかりやすくなります。  派生クラスの名前を持つ基本クラスに定義された静的メンバーを指定しないでください。  このコードをコンパイルすると、コードが読みやすくなくなり、派生クラスに同じ名前の静的メンバーを追加すると、将来的にコードが中断する場合があります。  
   
 ### <a name="linq-queries"></a>LINQ クエリ  
   
@@ -189,14 +196,15 @@ ms.locfileid: "69589419"
   
      [!code-csharp[csProgGuideCodingConventions#29](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#29)]  
   
-- 内部コレクションにアクセスするには、[join](../../language-reference/keywords/join-clause.md) 句ではなく複数の `from` 句を使用します。 たとえば、`Student` オブジェクトのコレクションがあり、各オブジェクトに試験の点数のコレクションが含まれているとします。 次のクエリを実行すると、90 点より高い点数とその点数を取った学生の姓が返されます。  
+- 内部コレクションにアクセスするには、`from`join[ 句ではなく複数の ](../../language-reference/keywords/join-clause.md) 句を使用します。 たとえば、`Student` オブジェクトのコレクションがあり、各オブジェクトに試験の点数のコレクションが含まれているとします。 次のクエリを実行すると、90 点より高い点数とその点数を取った学生の姓が返されます。  
   
      [!code-csharp[csProgGuideCodingConventions#30](../../../../samples/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs#30)]  
   
-## <a name="security"></a>セキュリティ  
- 「[安全なコーディングのガイドライン](../../../standard/security/secure-coding-guidelines.md)」のガイドラインに従ってください。  
+## <a name="security"></a>Security  
+
+「[安全なコーディングのガイドライン](../../../standard/security/secure-coding-guidelines.md)」のガイドラインに従ってください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Visual Basic のコーディング規則](../../../visual-basic/programming-guide/program-structure/coding-conventions.md)
 - [安全なコーディングのガイドライン](../../../standard/security/secure-coding-guidelines.md)

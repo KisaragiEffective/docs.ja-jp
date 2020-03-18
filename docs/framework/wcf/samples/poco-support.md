@@ -2,17 +2,17 @@
 title: POCO サポート
 ms.date: 03/30/2017
 ms.assetid: 3846ca73-2819-4ca2-8367-dc739dde5a5b
-ms.openlocfilehash: 6796d7948bd3ebe0a8b96a861c628b30b7540912
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 2962fa8a9eb824bbfbbb2f1e9347f8988b50ddcd
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70044781"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74716541"
 ---
 # <a name="poco-support"></a>POCO サポート
-このサンプルでは、マークされていない型 (シリアル化属性が適用されていない型で、POCO (Plain Old CLR Object) 型と呼ばれる場合もあります) のシリアル化のサポートについて説明します。 は<xref:System.Runtime.Serialization.DataContractSerializer> 、パラメーターなしのコンストラクターを持つ、すべてのパブリックのマークされていない型のデータコントラクトを推論します。 データ コントラクトを使用すると、サービスと構造化データをやり取りできます。 マークが付いていない型の詳細については、「 [Serializable 型](../../../../docs/framework/wcf/feature-details/serializable-types.md)」を参照してください。  
+このサンプルでは、マークされていない型 (シリアル化属性が適用されていない型で、POCO (Plain Old CLR Object) 型と呼ばれる場合もあります) のシリアル化のサポートについて説明します。 <xref:System.Runtime.Serialization.DataContractSerializer> は、パラメーターなしのコンストラクターを持つ、すべてのパブリックのマークされていない型のデータコントラクトを推測します。 データ コントラクトを使用すると、サービスと構造化データをやり取りできます。 マークが付いていない型の詳細については、「 [Serializable 型](../../../../docs/framework/wcf/feature-details/serializable-types.md)」を参照してください。  
   
- このサンプルは[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいていますが、プリミティブな数値型ではなく複素数を使用します。 また、属性<xref:System.Runtime.Serialization.DataContractAttribute>と<xref:System.Runtime.Serialization.DataMemberAttribute>属性が使用されない点を除いて、[基本的なデータコントラクト](../../../../docs/framework/wcf/samples/basic-data-contract.md)サンプルに似ています。  
+ このサンプルは[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいていますが、プリミティブな数値型ではなく複素数を使用します。 また、<xref:System.Runtime.Serialization.DataContractAttribute> 属性と <xref:System.Runtime.Serialization.DataMemberAttribute> 属性が使用されない点を除いて、[基本的なデータコントラクト](../../../../docs/framework/wcf/samples/basic-data-contract.md)サンプルに似ています。  
   
  サービスはインターネット インフォメーション サービス (IIS) によってホストされています。クライアントはコンソール アプリケーション (.exe) です。  
   
@@ -52,11 +52,11 @@ public class ComplexNumber
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Contract\Data\POCO`  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.Serialization.IgnoreDataMemberAttribute>
 - [シリアル化可能な型](../../../../docs/framework/wcf/feature-details/serializable-types.md)

@@ -5,15 +5,15 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 43dfb23b-5cef-46f2-8d87-78f0fba1eb8c
-ms.openlocfilehash: db0df68aa89cdd5c8bf94ad95a2b8bc9b36d5685
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: d834f0c4517f4ff9fe8645257d5a947c03893881
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70786224"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73968397"
 ---
 # <a name="loading-dataset-schema-information-from-xml"></a>XML の DataSet スキーマ情報の読み込み
-のスキーマ<xref:System.Data.DataSet> (そのテーブル、列、リレーション、および制約) は、プログラムによって定義するか、の <xref:System.Data.Common.DataAdapter>Fill メソッドまたは**FillSchema**メソッドで作成するか、または XML ドキュメントから読み込むことができます。 XML ドキュメントから**dataset**スキーマ情報を読み込むには、**データセット**の**readxmlschema**または**InferXmlSchema**メソッドを使用します。 **Readxmlschema**を使用すると、xml スキーマ定義言語 (XSD) スキーマを含むドキュメントまたはインライン xml スキーマを含む xml ドキュメントから、**データセット**スキーマ情報を読み込んだり、推測したりすることができます。 **InferXmlSchema**を使用すると、指定した特定の xml 名前空間を無視しながら、xml ドキュメントからスキーマを推論できます。  
+<xref:System.Data.DataSet> のスキーマ (テーブル、列、リレーション、および制約) は、プログラムによって定義するか、<xref:System.Data.Common.DataAdapter>の**Fill**メソッドまたは**FillSchema**メソッドによって作成するか、または XML ドキュメントから読み込むことができます。 XML ドキュメントから**dataset**スキーマ情報を読み込むには、**データセット**の**readxmlschema**または**InferXmlSchema**メソッドを使用します。 **Readxmlschema**を使用すると、xml スキーマ定義言語 (XSD) スキーマを含むドキュメントまたはインライン xml スキーマを含む xml ドキュメントから、**データセット**スキーマ情報を読み込んだり、推測したりすることができます。 **InferXmlSchema**を使用すると、指定した特定の xml 名前空間を無視しながら、xml ドキュメントからスキーマを推論できます。  
   
 > [!NOTE]
 > Web サービスまたは XML シリアル化を使用して、XSD コンストラクト (入れ子になったリレーションなど) を使用してメモリ内に作成された**データセット**を転送する場合、**データセット**内のテーブルの順序が保持されないことがあります。 この場合、**データセット**の受信者はテーブルの順序に依存しないようにしてください。 ただし、転送される**データセット**のスキーマが、メモリ内に作成されるのではなく、XSD ファイルから読み取られた場合、テーブルの順序は常に保持されます。  
@@ -40,7 +40,7 @@ dataSet.ReadXmlSchema("schema.xsd");
 ```  
   
 ```vb  
-Dim xmlStream As System.IO.StreamReader = New System.IO.StreamReader ("schema.xsd");  
+Dim xmlStream As New System.IO.StreamReader("schema.xsd")
 Dim dataSet As DataSet = New DataSet  
 dataSet.ReadXmlSchema(xmlStream)  
 xmlStream.Close()  
@@ -73,7 +73,7 @@ xmlStream.Close();
 </NewDataSet>  
 ```  
   
- 前の XML ドキュメントの要素に属性が指定されているため、 **Readxmlschema**メソッドと**XmlReadMode**の**InferSchema**を持つ**ReadXml**メソッドの両方で、ガイド**Categories**、 **CategoryID**、**区分**、 **Description**、 **Products**、 **ProductID**、 **ReorderLevel**、および**廃止**されました。 (詳細については、次を参照してください[推論 DataSet リレーショナル構造の XML から](inferring-dataset-relational-structure-from-xml.md)。)ただし、より適切な構造としては、 **categories**テーブルと**Products**テーブルだけを作成してから、 **categories**テーブル**に CategoryID、区分、および Description の各列を作成します。** **Products**テーブルの ProductID、 **ReorderLevel**、および**廃止**された列。 推論されたスキーマで XML 要素に指定されている属性が無視されるようにするには、次の例に示すように、 **InferXmlSchema**メソッドを使用して、 **officedata**の xml 名前空間を無視するように指定します。  
+ 前の XML ドキュメントの要素に対して属性が指定されているため、 **Readxmlschema**メソッドと**ReadXml**メソッドの両方が**InferSchema**の**XmlReadMode**を使用すると、ドキュメント内のすべての要素に対して、 **Categories**、 **CategoryID**、**区分**、 **Description**、 **Products**、 **ProductID**、 **ReorderLevel**、および**廃止**されたテーブルが作成されます。 (詳細については、「 [XML からの DataSet リレーショナル構造の推論](inferring-dataset-relational-structure-from-xml.md)」を参照してください)。ただし、より適切な構造としては、 **categories**テーブルと**Products**テーブルだけを作成してから、 **categories**テーブルの**CategoryID**、 **ReorderLevel** **、および** **廃止** **され** **た列を** **作成します**。 推論されたスキーマで XML 要素に指定されている属性が無視されるようにするには、次の例に示すように、 **InferXmlSchema**メソッドを使用して、 **officedata**の xml 名前空間を無視するように指定します。  
   
 ```vb  
 Dim dataSet As DataSet = New DataSet  

@@ -9,20 +9,20 @@ helpviewer_keywords:
 - trace sources
 - <sources> element
 ms.assetid: c727b2e2-423a-4463-a223-013f40ff16a3
-ms.openlocfilehash: 0ca35d9be5e1eaf36a2c9cae99efc2736ef3403d
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: a903d009f2056e65414c1792494fbbd20e224413
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71699206"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74088814"
 ---
-# <a name="sources-element"></a>@no__t 0sources > 要素
+# <a name="sources-element"></a>\<sources> 要素
 トレースメッセージを開始するトレースソースを指定します。  
-  
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\<system. diagnostics >** ](system-diagnostics-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t **\<sources >**  
-  
+
+[ **\<configuration>** ](../configuration-element.md)\
+&nbsp;&nbsp;[ **\<system.diagnostics>** ](system-diagnostics-element.md)\
+&nbsp;&nbsp;&nbsp;&nbsp; **\<sources>**
+
 ## <a name="syntax"></a>構文  
   
 ```xml  
@@ -35,7 +35,7 @@ ms.locfileid: "71699206"
  以降のセクションでは、属性、子要素、および親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
- [なし] :  
+ なし。  
   
 ### <a name="child-elements"></a>子要素  
   
@@ -50,11 +50,11 @@ ms.locfileid: "71699206"
 |`configuration`|共通言語ランタイムおよび .NET Framework アプリケーションで使用されるすべての構成ファイルのルート要素です。|  
 |`system.diagnostics`|メッセージを収集、格納、およびルーティングするトレース リスナーとトレース スイッチを設定するレベルを指定します。|  
   
-## <a name="remarks"></a>コメント  
+## <a name="remarks"></a>Remarks  
  この要素は、コンピューターの構成ファイル (machine.config) とアプリケーション構成ファイルで使用できます。  
   
 ## <a name="example"></a>例  
- 次の例では、`<sources>` の要素を使用してトレース @no__t ソースを追加し、`sourceSwitch` という名前のソーススイッチのレベルを設定する方法を示します。 トレース情報をコンソールに書き込むコンソールトレースリスナーが追加されます。  
+ 次の例では、`<sources>` 要素を使用してトレースソース `mySource` を追加し、`sourceSwitch`という名前のソーススイッチのレベルを設定する方法を示します。 トレース情報をコンソールに書き込むコンソールトレースリスナーが追加されます。  
   
 ```xml  
 <configuration>  

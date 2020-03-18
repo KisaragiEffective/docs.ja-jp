@@ -1,19 +1,21 @@
 ---
 title: 機械学習のタスク
 description: ML.NET でサポートされる機械学習のさまざまなタスクと、それらに関連するタスクについて説明します。
-ms.custom: seodec18
-ms.date: 04/23/2019
-author: natke
-ms.openlocfilehash: bcd967c11156ca9b837631560e78722b13fc7ae0
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.date: 12/23/2019
+ms.openlocfilehash: 6cd41065e668375537b9816ef7a208a65e0a523b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68630056"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79397789"
 ---
 # <a name="machine-learning-tasks-in-mlnet"></a>ML.NET での機械学習のタスク
 
-機械学習モデルを構築する場合は、データを使用して実現したい目的を最初に定義する必要があります。 これによって、状況に適した機械学習のタスクを選択できます。 選択可能な機械学習のさまざまなタスクといくつかの一般的なユース ケースについて以下で説明します。
+機械学習タスクとは、問題や質問、および利用可能なデータに基づいて行われる予測または推論の種類です。 たとえば、分類タスクはデータをカテゴリに割り当て、クラスター化タスクは類似性に従ってデータをグループ化します。
+
+機械学習タスクはデータのパターンに依存します。明示的にプログラミングされるのでありません。
+
+この記事では、ML.NET から選択できる機械学習のさまざまなタスクと、一般的なユース ケースをいくつか取り上げ説明します。
 
 どのタスクが自分のシナリオにとって適切かを決定したら、モデルをトレーニングするのに最適なアルゴリズムを選択する必要があります。 使用可能なアルゴリズムは、タスクごとのセクションに一覧表示されています。
 
@@ -24,7 +26,7 @@ ms.locfileid: "68630056"
 * [Twitter コメントのセンチメントが "肯定的" か "否定的" かを理解する](../tutorials/sentiment-analysis.md)。
 * 患者が特定の病気であるかどうかを診断する。
 * 電子メールを "スパム" としてマークするかどうかを決定する。
-* 写真に犬または果物が含まれているかどうかを決定する。
+* 写真にイヌや果物などの特定のアイテムが含まれているかどうかを判断します。
 
 詳しくは、Wikipedia の[二項分類](https://en.wikipedia.org/wiki/Binary_classification)の記事を参照してください。
 
@@ -34,15 +36,15 @@ ms.locfileid: "68630056"
 
 * <xref:Microsoft.ML.Trainers.AveragedPerceptronTrainer>
 * <xref:Microsoft.ML.Trainers.SdcaLogisticRegressionBinaryTrainer>
-* <xref:Microsoft.ML.Trainers.SdcaNonCalibratedBinaryTrainer> 
-* <xref:Microsoft.ML.Trainers.SymbolicSgdLogisticRegressionBinaryTrainer> 
-* <xref:Microsoft.ML.Trainers.LbfgsLogisticRegressionBinaryTrainer> 
-* <xref:Microsoft.ML.Trainers.LightGbm.LightGbmBinaryTrainer> 
-* <xref:Microsoft.ML.Trainers.FastTree.FastTreeBinaryTrainer> 
+* <xref:Microsoft.ML.Trainers.SdcaNonCalibratedBinaryTrainer>
+* <xref:Microsoft.ML.Trainers.SymbolicSgdLogisticRegressionBinaryTrainer>
+* <xref:Microsoft.ML.Trainers.LbfgsLogisticRegressionBinaryTrainer>
+* <xref:Microsoft.ML.Trainers.LightGbm.LightGbmBinaryTrainer>
+* <xref:Microsoft.ML.Trainers.FastTree.FastTreeBinaryTrainer>
 * <xref:Microsoft.ML.Trainers.FastTree.FastForestBinaryTrainer>
-* <xref:Microsoft.ML.Trainers.FastTree.GamBinaryTrainer> 
-* <xref:Microsoft.ML.Trainers.FieldAwareFactorizationMachineTrainer> 
-* <xref:Microsoft.ML.Trainers.PriorTrainer> 
+* <xref:Microsoft.ML.Trainers.FastTree.GamBinaryTrainer>
+* <xref:Microsoft.ML.Trainers.FieldAwareFactorizationMachineTrainer>
+* <xref:Microsoft.ML.Trainers.PriorTrainer>
 * <xref:Microsoft.ML.Trainers.LinearSvmTrainer>
 
 ### <a name="binary-classification-inputs-and-outputs"></a>二項分類の入力と出力
@@ -54,7 +56,7 @@ ms.locfileid: "68630056"
 
 これらのトレーナーから、以下の列が出力されます。
 
-| 出力列の名前 | 列の型 | 説明|
+| [出力列の名前] | 列の型 | [説明]|
 | -- | -- | -- |
 | `Score` | <xref:System.Single> | モデルによって計算された生のスコア|
 | `PredictedLabel` | <xref:System.Boolean> | スコアの符号に基づく予測ラベル。 負のスコアは `false` にマップされ、正のスコアは `true` にマップされます。|
@@ -79,10 +81,11 @@ ms.locfileid: "68630056"
 * <xref:Microsoft.ML.Trainers.LightGbm.LightGbmMulticlassTrainer>
 * <xref:Microsoft.ML.Trainers.SdcaMaximumEntropyMulticlassTrainer>
 * <xref:Microsoft.ML.Trainers.SdcaNonCalibratedMulticlassTrainer>
-* <xref:Microsoft.ML.Trainers.LbfgsMaximumEntropyMulticlassTrainer> 
-* <xref:Microsoft.ML.Trainers.NaiveBayesMulticlassTrainer> 
+* <xref:Microsoft.ML.Trainers.LbfgsMaximumEntropyMulticlassTrainer>
+* <xref:Microsoft.ML.Trainers.NaiveBayesMulticlassTrainer>
 * <xref:Microsoft.ML.Trainers.OneVersusAllTrainer>
-* <xref:Microsoft.ML.Trainers.PairwiseCouplingTrainer> 
+* <xref:Microsoft.ML.Trainers.PairwiseCouplingTrainer>
+* <xref:Microsoft.ML.Vision.ImageClassificationTrainer>
 
 ### <a name="multiclass-classification-inputs-and-outputs"></a>多クラス分類の入力と出力
 
@@ -91,7 +94,7 @@ ms.locfileid: "68630056"
 
 このトレーナーの出力は以下のとおりです。
 
-| 出力の名前 | 型 | 説明|
+| 出力の名前 | [種類] | [説明]|
 | -- | -- | -- |
 | `Score` | <xref:System.Single> のベクター | すべてのクラスのスコア。 値が大きいほど、関連するクラスに分類される可能性が高くなります。 i 番目の要素が最大値の場合、予測ラベル インデックスは i になります。 i はゼロベースのインデックスです。 |
 | `PredictedLabel` | [キー](xref:Microsoft.ML.Data.KeyDataViewType)型 | 予測ラベルのインデックス。 その値が i の場合、実際のラベルはキーと値の入力ラベルの型の i 番目のカテゴリになります。 |
@@ -112,7 +115,7 @@ ms.locfileid: "68630056"
 * <xref:Microsoft.ML.Trainers.LightGbm.LightGbmRegressionTrainer>
 * <xref:Microsoft.ML.Trainers.SdcaRegressionTrainer>
 * <xref:Microsoft.ML.Trainers.OlsTrainer>
-* <xref:Microsoft.ML.Trainers.OnlineGradientDescentTrainer> 
+* <xref:Microsoft.ML.Trainers.OnlineGradientDescentTrainer>
 * <xref:Microsoft.ML.Trainers.FastTree.FastTreeRegressionTrainer>
 * <xref:Microsoft.ML.Trainers.FastTree.FastTreeTweedieTrainer>
 * <xref:Microsoft.ML.Trainers.FastTree.FastForestRegressionTrainer>
@@ -124,7 +127,7 @@ ms.locfileid: "68630056"
 
 このタスクのトレーナーの出力は以下のとおりです。
 
-| 出力の名前 | 型 | 説明|
+| 出力の名前 | [種類] | [説明]|
 | -- | -- | -- |
 | `Score` | <xref:System.Single> | モデルによって予測された生のスコア |
 
@@ -140,7 +143,7 @@ ms.locfileid: "68630056"
 
 次のアルゴリズムを使用してクラスタリング モデルをトレーニングすることができます。
 
-* <xref:Microsoft.ML.Trainers.KMeansTrainer> 
+* <xref:Microsoft.ML.Trainers.KMeansTrainer>
 
 ### <a name="clustering-inputs-and-outputs"></a>入力と出力のクラスタリング
 
@@ -148,7 +151,7 @@ ms.locfileid: "68630056"
 
 このトレーナーの出力は以下のとおりです。
 
-| 出力の名前 | 型 | 説明|
+| 出力の名前 | [種類] | [説明]|
 | -- | -- | -- |
 | `Score` | <xref:System.Single> のベクター | 与えられたデータ ポイントからすべてのクラスターの重心までの距離 |
 | `PredictedLabel` | [キー](xref:Microsoft.ML.Data.KeyDataViewType)型 | モデルによって予測された最も近いクラスターのインデックス。 |
@@ -180,9 +183,10 @@ ms.locfileid: "68630056"
 
 このトレーナーの出力は以下のとおりです。
 
-| 出力の名前 | 型 | 説明|
+| 出力の名前 | [種類] | [説明]|
 | -- | -- | -- |
 | `Score` | <xref:System.Single> | 異常検出モデルによって計算された、負ではない無制限のスコア |
+| `PredictedLabel` | <xref:System.Boolean> | 入力が異常 (PredictedLabel = true) か異常でないか (PredictedLabel = false) を表す true/false 値 |
 
 ## <a name="ranking"></a>ランキング
 
@@ -193,7 +197,7 @@ ms.locfileid: "68630056"
 次のアルゴリズムを使ってランキング モデルをトレーニングすることができます。
 
 * <xref:Microsoft.ML.Trainers.LightGbm.LightGbmRankingTrainer>
-* <xref:Microsoft.ML.Trainers.FastTree.FastTreeRankingTrainer> 
+* <xref:Microsoft.ML.Trainers.FastTree.FastTreeRankingTrainer>
 
 ### <a name="ranking-input-and-outputs"></a>入力と出力のランキング
 
@@ -203,16 +207,26 @@ ms.locfileid: "68630056"
 
 このトレーナーの出力は以下のとおりです。
 
-| 出力の名前 | 型 | 説明|
+| 出力の名前 | [種類] | [説明]|
 | -- | -- | -- |
 | `Score` | <xref:System.Single> | 予測を決定するためにモデルによって計算された無制限のスコア |
 
-## <a name="recommendation"></a>推奨事項
+## <a name="recommendation"></a>推奨
 
-レコメンデーション タスクによって、推奨される製品やサービスの一覧を作成できます。 ML.NET では、カタログ内に製品のレーティングの履歴データがある場合は、レコメンデーション用の[協調フィルタリング](https://en.wikipedia.org/wiki/Collaborative_filtering) アルゴリズムである[行列因子分解 (MF)](https://en.wikipedia.org/wiki/Matrix_factorization_%28recommender_systems%29) が使用されます。 たとえば、ユーザーによる映画の採点の履歴データがあるときに、そのユーザーが次に見たいと思う映画を推薦できます。
+レコメンデーション タスクによって、推奨される製品やサービスの一覧を作成できます。 ML.NET では、カタログ内に製品のレーティングの履歴データがある場合は、レコメンデーション用の[協調フィルタリング](https://en.wikipedia.org/wiki/Matrix_factorization_%28recommender_systems%29) アルゴリズムである[行列因子分解 (MF)](https://en.wikipedia.org/wiki/Collaborative_filtering) が使用されます。 たとえば、ユーザーによる映画の採点の履歴データがあるときに、そのユーザーが次に見たいと思う映画を推薦できます。
 
 ### <a name="recommendation-training-algorithms"></a>レコメンデーション トレーニング アルゴリズム
 
 次のアルゴリズムを使ってレコメンデーション モデルをトレーニングすることができます。
 
 * <xref:Microsoft.ML.Trainers.MatrixFactorizationTrainer>
+
+## <a name="forecasting"></a>予測
+
+予測タスクでは過去の時系列データを使用し、将来の行動を予測します。 予測に適したシナリオには、気象予測、季節別の売上予測、予防保守管理などがあります。
+
+### <a name="forecasting-trainers"></a>予測トレーナー
+
+次のアルゴリズムを使って予測モデルをトレーニングすることができます。
+
+<xref:Microsoft.ML.TimeSeriesCatalog.ForecastBySsa*>

@@ -11,15 +11,15 @@ helpviewer_keywords:
 - components [Windows Forms], troubleshooting
 - Windows Forms controls, debugging
 ms.assetid: e9c8c099-2271-4737-882f-50f336c7a55e
-author: gewarren
-ms.author: gewarren
+author: jillre
+ms.author: jillfra
 manager: jillfra
-ms.openlocfilehash: 2e0b98107ac5f43c80aad6cb5ea61e6f4e1e28d3
-ms.sourcegitcommit: 121ab70c1ebedba41d276e436dd2b1502748a49f
+ms.openlocfilehash: 9ee9df41e6f0a4e37164760a2e40740e31530121
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70015714"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73459064"
 ---
 # <a name="troubleshoot-control-and-component-authoring"></a>コントロールとコンポーネントの作成に関するトラブルシューティング
 
@@ -31,7 +31,7 @@ ms.locfileid: "70015714"
 
 - 継承されたコントロールまたはコンポーネントでイベントが 2 回発生する
 
-- デザイン時エラー:"コンポーネント '*コンポーネント名*' を作成できませんでした"
+- デザイン時エラー: "コンポーネント '*コンポーネント名*' を生成できませんでした"
 
 - STAThreadAttribute
 
@@ -39,7 +39,7 @@ ms.locfileid: "70015714"
 
 ## <a name="cannot-add-control-to-toolbox"></a>ツールボックスにコントロールを追加できない
 
-別のプロジェクトで作成したカスタム コントロールまたはサード パーティ製コントロールを**ツールボックス**に追加する場合は、手動で追加する必要があります。 現在のプロジェクトにコントロールまたはコンポーネントが含まれている場合は、**ツールボックス**に自動的に表示されます。 詳細については、「[チュートリアル:ツールボックスにカスタムコンポーネント](walkthrough-automatically-populating-the-toolbox-with-custom-components.md)を自動的に設定します。
+別のプロジェクトで作成したカスタム コントロールまたはサード パーティ製コントロールを**ツールボックス**に追加する場合は、手動で追加する必要があります。 現在のプロジェクトにコントロールまたはコンポーネントが含まれている場合は、**ツールボックス**に自動的に表示されます。 詳細については、「[チュートリアル: ツールボックスへのカスタム コンポーネントの自動設定](walkthrough-automatically-populating-the-toolbox-with-custom-components.md)」を参照してください。
 
 ### <a name="to-add-a-control-to-the-toolbox"></a>ツールボックスにコントロールを追加するには
 
@@ -73,7 +73,7 @@ ms.locfileid: "70015714"
 
 ## <a name="cannot-debug-the-windows-forms-user-control-or-component"></a>Windows フォームのユーザー コントロールまたはコンポーネントをデバッグできない
 
-コントロールが<xref:System.Windows.Forms.UserControl>クラスから派生している場合は、テストコンテナーで実行時の動作をデバッグできます。 詳細については、「[方法 :UserControl](how-to-test-the-run-time-behavior-of-a-usercontrol.md)の実行時の動作をテストします。
+コントロールが <xref:System.Windows.Forms.UserControl> クラスから派生している場合は、テストコンテナーを使用して実行時の動作をデバッグできます。 詳細については、「[方法: UserControl の実行時の動作をテストする](how-to-test-the-run-time-behavior-of-a-usercontrol.md)」を参照してください。
 
 他のカスタム コントロールやカスタム コンポーネントはスタンドアロン プロジェクトではありません。 そのため、Windows フォーム プロジェクトなどのアプリケーションでホストする必要があります。 コントロールまたはコンポーネントをデバッグするには、Windows フォーム プロジェクトに追加する必要があります。
 
@@ -99,27 +99,27 @@ ms.locfileid: "70015714"
 
    これで、コントロールまたはコンポーネントを通常どおりデバッグできるようになります。
 
-デバッグの詳細については、「 [Visual Studio でのデバッグ](/visualstudio/debugger/debugging-in-visual-studio)」および[「チュートリアル:デザイン時](walkthrough-debugging-custom-windows-forms-controls-at-design-time.md)にカスタム Windows フォームコントロールをデバッグする。
+デバッグの詳細については、「[Visual Studio でのデバッグ](/visualstudio/debugger/debugger-feature-tour)」および「[チュートリアル : カスタム Windows フォーム コントロールのデザイン時のデバッグ](walkthrough-debugging-custom-windows-forms-controls-at-design-time.md)」を参照してください。
 
 ## <a name="event-is-raised-twice-in-inherited-control-or-component"></a>継承されたコントロールまたはコンポーネントでイベントが 2 回発生する
 
 `Handles` 句が重複していることが原因と考えられます。 詳細については、「[Visual Basic での継承されたイベント ハンドラーのトラブルシューティング](~/docs/visual-basic/programming-guide/language-features/events/troubleshooting-inherited-event-handlers.md)」を参照してください。
 
-## <a name="design-time-error-failed-to-create-component-component-name"></a>デザイン時エラー:"コンポーネント ' コンポーネント名 ' を作成できませんでした"
+## <a name="design-time-error-failed-to-create-component-component-name"></a>デザイン時エラー: "コンポーネント 'コンポーネント名' を生成できませんでした"
 
 コンポーネントまたはコントロールは、パラメーターなしのパラメーターなしのコンストラクターを提供する必要があります。 デザイン環境では、コンポーネントまたはコントロールのインスタンスを作成するときに、パラメーターを受け取るコンストラクター オーバーロードにパラメーターを提供しません。
 
 ## <a name="stathreadattribute"></a>STAThreadAttribute
 
-は<xref:System.STAThreadAttribute> 、シングルスレッドアパートメントモデルを使用 Windows フォームことを共通言語ランタイム (CLR) に通知します。 この属性を Windows フォーム アプリケーションの `Main` メソッドに適用していない場合、意図しない動作が発生することがあります。 たとえば、のような<xref:System.Windows.Forms.ListView>コントロールでは、背景イメージが表示されない場合があります。 また、一部のコントロールでは、オートコンプリートやドラッグ アンド ドロップの動作を正常に行うためにこの属性が必要になる場合もあります。
+<xref:System.STAThreadAttribute> は、シングルスレッドアパートメントモデルを使用 Windows フォームことを共通言語ランタイム (CLR) に通知します。 この属性を Windows フォーム アプリケーションの `Main` メソッドに適用していない場合、意図しない動作が発生することがあります。 たとえば、<xref:System.Windows.Forms.ListView>のようなコントロールでは、背景イメージが表示されない場合があります。 また、一部のコントロールでは、オートコンプリートやドラッグ アンド ドロップの動作を正常に行うためにこの属性が必要になる場合もあります。
 
 ## <a name="component-icon-does-not-appear-in-toolbox"></a>ツールボックスにコンポーネント アイコンが表示されない
 
-を使用<xref:System.Drawing.ToolboxBitmapAttribute>してアイコンをカスタムコンポーネントに関連付けた場合、ツールボックスには自動生成されたコンポーネントのビットマップが表示されません。 ビットマップを表示するには、 **[ツールボックス アイテムの選択]** ダイアログ ボックスを使用してコントロールを再読み込みします。 詳細については、「[方法 :コントロール](how-to-provide-a-toolbox-bitmap-for-a-control.md)のツールボックスビットマップを提供します。
+<xref:System.Drawing.ToolboxBitmapAttribute> を使用してアイコンをカスタムコンポーネントに関連付けた場合、ツールボックスには自動生成されたコンポーネントのビットマップが表示されません。 ビットマップを表示するには、 **[ツールボックス アイテムの選択]** ダイアログ ボックスを使用してコントロールを再読み込みします。 詳細については、「[方法 : コントロールにツールボックス ビットマップを指定する](how-to-provide-a-toolbox-bitmap-for-a-control.md)」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 
 - [デザイン時の Windows フォーム コントロールの開発](developing-windows-forms-controls-at-design-time.md)
-- [チュートリアル: ツールボックスへのカスタムコンポーネントの自動設定](walkthrough-automatically-populating-the-toolbox-with-custom-components.md)
+- [チュートリアル: ツールボックスへのカスタム コンポーネントの自動設定](walkthrough-automatically-populating-the-toolbox-with-custom-components.md)
 - [方法: UserControl の実行時の動作をテストする](how-to-test-the-run-time-behavior-of-a-usercontrol.md)
 - [チュートリアル: カスタム Windows フォーム コントロールのデザイン時のデバッグ](walkthrough-debugging-custom-windows-forms-controls-at-design-time.md)

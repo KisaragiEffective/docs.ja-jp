@@ -11,44 +11,44 @@ helpviewer_keywords:
 - shared [elements VB]
 - elements [Visual Basic], shared
 ms.assetid: 2bf7cf2c-b0dd-485e-8749-b5d674dab4cd
-ms.openlocfilehash: fd43ef7cb5c16995fff87a65fc0f0974d8f4a47d
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 98fa25d2283408dfb80e82fbc620a1b284e5c530
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64647704"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74349124"
 ---
 # <a name="shared-visual-basic"></a>Shared (Visual Basic)
-1 つまたは複数の宣言されたプログラミング要素がクラスまたは構造体全体、クラスまたは構造体の特定のインスタンスではなくと関連付けられていることを指定します。  
+1つ以上の宣言されたプログラミング要素が、クラスまたは構造体の特定のインスタンスではなく、大規模なクラスまたは構造体に関連付けられていることを指定します。  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
   
 ## <a name="when-to-use-shared"></a>共有を使用する場合  
- すべてのインスタンスを使用できるクラスまたは構造体のメンバーを共有するようになく*非共有*、各インスタンスが独自のコピーを保持します。 これは、変数の値は、アプリケーション全体に適用される場合に便利です。 その変数を宣言する場合`Shared`すべてのインスタンスが、同じストレージの場所にアクセスし、更新された値にアクセスするすべてのインスタンス 1 つのインスタンスには、変数の値が変更された場合。  
+ クラスまたは構造体のメンバーを共有すると、共有ではなく、すべてのインスタンスで使用できるようになります。この*場合、各*インスタンスは独自のコピーを保持します。 これは、変数の値がアプリケーション全体に適用される場合などに便利です。 この変数を `Shared`するように宣言すると、すべてのインスタンスが同じストレージの場所にアクセスし、1つのインスタンスが変数の値を変更すると、すべてのインスタンスが更新された値にアクセスします。  
   
- 共有メンバーのアクセス レベルは変更されません。 たとえば、クラス メンバーを共有できるとプライベート (クラス内からのみアクセスできます)、または非共有と公開。 詳細については、[ Visual Basic のアクセス レベル](../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)を参照してください。  
+ 共有によってメンバーのアクセスレベルが変更されることはありません。 たとえば、クラスメンバーは、共有およびプライベート (クラス内からのみアクセス可能)、または非共有およびパブリックにすることができます。 詳細については、「[Visual Basic でのアクセス レベル](../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)」を参照してください。  
   
 ## <a name="rules"></a>ルール  
   
-- **宣言コンテキスト。** `Shared` は、モジュール レベルでのみ使用できます。 これは、意味の宣言のコンテキストを`Shared`要素がクラスまたは構造体にある必要があるあり、ソース ファイル、名前空間、またはプロシージャにすることはできません。  
+- **宣言コンテキスト。** `Shared` は、モジュール レベルでのみ使用できます。 つまり、`Shared` 要素の宣言コンテキストは、クラスまたは構造体である必要があり、ソースファイル、名前空間、またはプロシージャにすることはできません。  
   
-- **結合された修飾子。** 指定することはできません`Shared`と共に[オーバーライド](../../../visual-basic/language-reference/modifiers/overrides.md)、 [Overridable](../../../visual-basic/language-reference/modifiers/overridable.md)、 [NotOverridable](../../../visual-basic/language-reference/modifiers/notoverridable.md)、 [MustOverride](../../../visual-basic/language-reference/modifiers/mustoverride.md)、または[静的](../../../visual-basic/language-reference/modifiers/static.md)同じ宣言内。  
+- **修飾子の結合。** 同じ宣言で、[Overrides](../../../visual-basic/language-reference/modifiers/overrides.md)、 [Overridable](../../../visual-basic/language-reference/modifiers/overridable.md)、 [NotOverridable](../../../visual-basic/language-reference/modifiers/notoverridable.md)、 [MustOverride](../../../visual-basic/language-reference/modifiers/mustoverride.md)、または[Static](../../../visual-basic/language-reference/modifiers/static.md) と共に `Shared` を指定することはできません。  
   
-- **アクセスします。** 共有要素にアクセスするには、そのクラスまたは構造体の名前を持つ、そのクラスまたは構造体の特定のインスタンスの変数名ではなくを修飾します。 でも、クラスまたはその共有メンバーにアクセスする構造体のインスタンスを作成する必要はありません。  
+- **アクセス。 ** 共有要素には、そのクラスまたは構造体の特定のインスタンスの変数名ではなく、そのクラスまたは構造体の名前を修飾することによってアクセスします。 クラスまたは構造体のインスタンスを作成しなくても、その共有メンバーにアクセスできます。  
   
-     次の例では共有のプロシージャ<xref:System.Double.IsNaN%2A>によって公開されている、<xref:System.Double>構造体。  
+     次の例では、<xref:System.Double> 構造によって公開される <xref:System.Double.IsNaN%2A> 共有プロシージャを呼び出します。  
   
      `If Double.IsNaN(result) Then MsgBox("Result is mathematically undefined.")`  
   
-- **暗黙の型を共有します。** 使用することはできません、`Shared`修飾子、 [Const ステートメント](../../../visual-basic/language-reference/statements/const-statement.md)定数が暗黙的に共有しますが、できます。 同様に、するには、モジュールまたはインターフェイスのメンバーを宣言することはできません`Shared`、暗黙的に共有しますが、できます。  
+- **暗黙の共有。** [Const ステートメント](../../../visual-basic/language-reference/statements/const-statement.md)では `Shared` 修飾子を使用できませんが、定数は暗黙的に共有されます。 同様に、モジュールまたはインターフェイスのメンバーを `Shared`するように宣言することはできませんが、暗黙的に共有されます。  
   
 ## <a name="behavior"></a>動作  
   
-- **記憶域。** 共有変数またはイベントは、そのクラスまたは構造体の作成の数またはいくつかのインスタンスに関係なく、1 回だけメモリに格納されます。 同様に、共有プロシージャまたはプロパティは、ローカル変数の 1 つだけのセットを保持します。  
+- **ストレージ。 ** 共有変数またはイベントは、クラスまたは構造体に生成されたインスタンスの数に関係なく、メモリに 1 回だけ格納されます。 同様に、共有プロシージャまたはプロパティは、ローカル変数のセットを 1 つだけ保持します。  
   
-- **インスタンス変数を通じてアクセスします。** クラスまたは構造体の特定のインスタンスを格納する変数の名前で修飾して、共有要素にアクセスすることになります。 通常、これは期待どおりに動作をコンパイラは警告メッセージを生成し、変数ではなく、クラスまたは構造体の名前を使ってアクセスします。  
+- **インスタンス変数を使用したアクセス。** 共有要素にアクセスするには、そのクラスまたは構造体の特定のインスタンスを含む変数の名前を指定します。 これは通常、想定どおりに動作しますが、コンパイラは警告メッセージを生成し、変数ではなくクラスまたは構造体の名前を使用してアクセスを行います。  
   
-- **インスタンス式からアクセスします。** 共有要素をそのクラスまたは構造体のインスタンスを返す式を使用してアクセスする場合、コンパイラで式を評価するのではなく、クラスまたは構造体の名前でアクセスを行います。 その他のアクション、インスタンスを返すことを実行する式を意図した場合、予期しない結果が生成されます。 次に例を示します。  
+- **インスタンス式を使用したアクセス。** クラスまたは構造体のインスタンスを返す式を使用して共有要素にアクセスする場合、コンパイラは式を評価するのではなく、クラスまたは構造体の名前を使用してアクセスを行います。 これにより、他のアクションを実行するための式を作成する場合や、インスタンスを返す場合に、予期しない結果が発生します。 これを次の例に示します。  
   
     ```vb
     Sub main()  
@@ -76,7 +76,7 @@ ms.locfileid: "64647704"
     End Class  
     ```  
   
-     前の例では、コンパイラ警告メッセージを生成、コード共有変数にアクセスする両方の回`total`インスタンスを使用します。 クラスから直接アクセスは、各ケース`shareTotal`を行わないと、インスタンスを使用します。 プロシージャに目的の呼び出しの場合`returnClass`、つまりへの呼び出しも生成しません`returnClass`ので、"関数 returnClass() と呼ばれる"を表示する追加のアクションは実行されません。  
+     前の例では、コードがインスタンスを介して `total` 共有変数にアクセスするときに、コンパイラによって警告メッセージが生成されます。 各ケースでは、クラス `shareTotal` を通じて直接アクセスを行い、インスタンスを使用しません。 このプロシージャ `returnClass`の呼び出しの場合、これは `returnClass`の呼び出しを生成しないことを意味するため、"関数 returnClass ()" を表示する追加のアクションは実行されません。  
   
  `Shared` 修飾子は、次のコンテキストで使用できます。  
   
@@ -92,11 +92,11 @@ ms.locfileid: "64647704"
   
  [Sub ステートメント](../../../visual-basic/language-reference/statements/sub-statement.md)  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Shadows](../../../visual-basic/language-reference/modifiers/shadows.md)
 - [Static](../../../visual-basic/language-reference/modifiers/static.md)
-- [Visual Basic での有効期間](../../../visual-basic/programming-guide/language-features/declared-elements/lifetime.md)
-- [プロシージャ](../../../visual-basic/programming-guide/language-features/procedures/index.md)
+- [Visual Basic における有効期間](../../../visual-basic/programming-guide/language-features/declared-elements/lifetime.md)
+- [Visual Basic におけるプロシージャ](../../../visual-basic/programming-guide/language-features/procedures/index.md)
 - [構造体](../../../visual-basic/programming-guide/language-features/data-types/structures.md)
 - [クラスとオブジェクト](../../../visual-basic/programming-guide/language-features/objects-and-classes/index.md)

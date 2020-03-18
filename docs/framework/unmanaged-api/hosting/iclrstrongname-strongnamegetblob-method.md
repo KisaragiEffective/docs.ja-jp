@@ -16,14 +16,12 @@ helpviewer_keywords:
 ms.assetid: a24218f8-7196-44be-b7a2-ee9cdd7a85c4
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: cbc0262062eddb363b0a00535a2d099100124b67
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: c7f04364cc52bd38d7d2659d1d188c5fd783ad01
+ms.sourcegitcommit: 7088f87e9a7da144266135f4b2397e611cf0a228
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67748080"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75899764"
 ---
 # <a name="iclrstrongnamestrongnamegetblob-method"></a>ICLRStrongName::StrongNameGetBlob メソッド
 指定したアドレスにある実行可能ファイルのバイナリ表現が、指定したバッファーに入れられます。  
@@ -40,23 +38,23 @@ HRESULT StrongNameGetBlob (
   
 ## <a name="parameters"></a>パラメーター  
  `wszFilePath`  
- [in]読み込まれる実行可能ファイルへの有効なパス。  
+ から読み込む実行可能ファイルへの有効なパス。  
   
  `pbBlob`  
- [in]実行可能ファイルを読み込むバッファー。  
+ から実行可能ファイルの読み込み先のバッファー。  
   
  `pcbBlob`  
- [入力、出力]最大サイズ (バイト単位) を要求された`pbBlob`します。 関数が戻るとき、実際のサイズをバイト単位の`pbBlob`します。  
+ [入力、出力]`pbBlob`の要求された最大サイズ (バイト単位)。 返されたときに、`pbBlob`の実際のサイズ (バイト単位)。  
   
 ## <a name="return-value"></a>戻り値  
- `S_OK` メソッドが正常に完了した場合それ以外の場合、エラーを示す HRESULT 値 (を参照してください[の共通 HRESULT 値](https://go.microsoft.com/fwlink/?LinkId=213878)一覧については)。  
+ メソッドが正常に完了した場合は `S_OK`。それ以外の場合は、失敗を示す HRESULT 値 (「リストの[一般的な Hresult 値](/windows/win32/seccrypto/common-hresult-values)」を参照してください)。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MetaHost.h  
+ **ヘッダー:** メタホスト .h  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

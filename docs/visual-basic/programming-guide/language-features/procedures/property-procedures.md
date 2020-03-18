@@ -1,5 +1,5 @@
 ---
-title: Property プロシージャ (Visual Basic)
+title: Property プロシージャ
 ms.date: 07/20/2015
 helpviewer_keywords:
 - Set statement [Visual Basic], Property procedures
@@ -13,12 +13,12 @@ helpviewer_keywords:
 - property procedures
 - Get statement [Visual Basic], property procedures
 ms.assetid: 46a98379-e1a2-45dd-a48c-b51213f5ab07
-ms.openlocfilehash: 118c9e776813f303ed921946f4cf6f1236ac02e3
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: a4b8ac3e27348764f537ee9502ce1fbb165bb3ef
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73040970"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352560"
 ---
 # <a name="property-procedures-visual-basic"></a>Property プロシージャ (Visual Basic)
 
@@ -35,11 +35,11 @@ Visual Basic には、次のプロパティプロシージャが用意されて�
 
 クラス、構造体、およびモジュールのプロパティを定義できます。 プロパティは既定で `Public` されます。これは、プロパティのコンテナーにアクセスできるアプリケーション内の任意の場所から呼び出すことができることを意味します。
 
-プロパティと変数の比較については、「 [Visual Basic のプロパティと変数の違い](differences-between-properties-and-variables.md)」を参照してください。
+プロパティと変数の比較については、「[Visual Basic のプロパティと変数の違い](differences-between-properties-and-variables.md)」を参照してください。
 
 ## <a name="declaration-syntax"></a>宣言の構文
 
-プロパティ自体は、[プロパティステートメント](../../../../visual-basic/language-reference/statements/property-statement.md)および `End Property` ステートメント内に囲まれたコードのブロックによって定義されます。 このブロックの内部では、各プロパティプロシージャは、宣言ステートメント (`Get` または `Set`) と一致する `End` 宣言内に囲まれた内部ブロックとして表示されます。
+プロパティ自体は、[Property ステートメント](../../../../visual-basic/language-reference/statements/property-statement.md)および `End Property` ステートメント内に囲まれたコードのブロックによって定義されます。 このブロックの内部では、各プロパティプロシージャは、宣言ステートメント (`Get` または `Set`) と一致する `End` 宣言内に囲まれた内部ブロックとして表示されます。
 
 プロパティとそのプロシージャを宣言する構文は次のとおりです。
 
@@ -60,9 +60,9 @@ End Property
 [Default] [Modifiers] Property PropertyName [(ParameterList)] [As DataType]
 ```
 
-`Modifiers` は、オーバーロード、オーバーライド、共有、およびシャドウに関するアクセスレベルと情報、およびプロパティが読み取り専用であるか書き込み専用であるかを指定できます。 `Get` または `Set` プロシージャの `AccessLevel` には、プロパティ自体に対して指定されたアクセスレベルよりも制限の厳しい任意のレベルを指定できます。 詳細については、「 [Property ステートメント](../../../../visual-basic/language-reference/statements/property-statement.md)」を参照してください。
+`Modifiers` は、オーバーロード、オーバーライド、共有、およびシャドウに関するアクセスレベルと情報、およびプロパティが読み取り専用であるか書き込み専用であるかを指定できます。 `Get` または `Set` プロシージャの `AccessLevel` には、プロパティ自体に対して指定されたアクセスレベルよりも制限の厳しい任意のレベルを指定できます。 詳細については、「[Property ステートメント](../../../../visual-basic/language-reference/statements/property-statement.md)」を参照してください。
 
-### <a name="data-type"></a>データの種類
+### <a name="data-type"></a>データ型
 
 プロパティのデータ型とプリンシパルアクセスレベルは、プロパティプロシージャではなく、`Property` ステートメントで定義されます。 プロパティは、データ型を1つだけ持つことができます。 たとえば、`Decimal` 値を格納するプロパティを定義することはできませんが、`Double` 値を取得することはできません。
 
@@ -72,7 +72,7 @@ End Property
 
 ## <a name="parameter-declaration"></a>パラメーターの宣言
 
-各パラメーターは、[サブプロシージャ](sub-procedures.md)に対して実行するのと同じ方法で宣言します。ただし、渡すメカニズムは `ByVal`する必要があります。
+各パラメータの宣言は、[Sub プロシージャ](sub-procedures.md)の場合と同じ方法で行います。ただし、引き渡し方法は`ByVal`である必要があります。
 
 パラメーターリストの各パラメーターの構文は次のとおりです。
 
@@ -86,7 +86,7 @@ End Property
 Optional ByVal parametername As datatype = defaultvalue
 ```
 
-## <a name="property-value"></a>プロパティ値
+## <a name="property-value"></a>［プロパティ値］
 
 `Get` のプロシージャでは、プロパティの値として呼び出し元の式に戻り値が指定されます。
 
@@ -119,9 +119,9 @@ Do While (propertyname[(argumentlist)] > expression)
 
 [!code-vb[VbVbcnProcedures#9](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#9)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [手順](index.md)
+- [Visual Basic におけるプロシージャ](index.md)
 - [Function プロシージャ](function-procedures.md)
 - [演算子プロシージャ](operator-procedures.md)
 - [プロシージャのパラメーターと引数](procedure-parameters-and-arguments.md)

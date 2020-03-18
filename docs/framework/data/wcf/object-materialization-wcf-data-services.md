@@ -5,20 +5,20 @@ helpviewer_keywords:
 - WCF Data Services, client library
 - WCF Data Services, querying
 ms.assetid: f0dbf7b0-0292-4e31-9ae4-b98288336dc1
-ms.openlocfilehash: 89357b1d05526438c939a73663c5b7b6273df4ac
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 7a2b201e5690c4304e663e9429c54f377e05f556
+ms.sourcegitcommit: 79a2d6a07ba4ed08979819666a0ee6927bbf1b01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70790391"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74568904"
 ---
 # <a name="object-materialization-wcf-data-services"></a>オブジェクトの具体化 (WCF Data Services)
 
-**[サービス参照の追加]** ダイアログボックス[!INCLUDE[ssODataFull](../../../../includes/ssodatafull-md.md)]を使用して、.NET Framework ベースのクライアントアプリケーションでフィードを使用すると、フィードによって公開されるデータモデルのエンティティ型ごとに同等のデータクラスが生成されます。 詳細については、「[データサービスクライアントライブラリの生成](generating-the-data-service-client-library-wcf-data-services.md)」を参照してください。 クエリによって返されるエンティティ データは、これらの生成されたクライアント データ サービス クラスのいずれかのインスタンスに具体化されます。 追跡オブジェクトのマージオプションと id 解決の詳細については、「[データサービスコンテキストの管理](managing-the-data-service-context-wcf-data-services.md)」を参照してください。
+.NET Framework ベースのクライアントアプリケーションで **[サービス参照の追加]** ダイアログボックスを使用して Open Data Protocol (OData) フィードを使用すると、フィードによって公開されるデータモデル内の各エンティティ型に対して同等のデータクラスが生成されます。 詳細については、「[データサービスクライアントライブラリの生成](generating-the-data-service-client-library-wcf-data-services.md)」を参照してください。 クエリによって返されるエンティティ データは、これらの生成されたクライアント データ サービス クラスのいずれかのインスタンスに具体化されます。 追跡オブジェクトのマージオプションと id 解決の詳細については、「[データサービスコンテキストの管理](managing-the-data-service-context-wcf-data-services.md)」を参照してください。
 
-さらに [!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)] では、ツールによって生成されたデータ クラスを使用する代わりに、独自のクライアント データ サービス クラスを定義できます。 これにより、"plain-old CLR object" (POCO) データ クラスとして知られる独自のデータ クラスを使用できます。 これらの種類のカスタムデータクラスを使用する場合は、または<xref:System.Data.Services.Common.DataServiceKeyAttribute> <xref:System.Data.Services.Common.DataServiceEntityAttribute>のいずれかを使用してデータクラスの属性を設定し、クライアントの型名がデータサービスのデータモデルの型名と一致するようにします。
+WCF Data Services では、ツールで生成されたデータクラスを使用するのではなく、独自のクライアントデータサービスクラスを定義することもできます。 これにより、"plain-old CLR object" (POCO) データ クラスとして知られる独自のデータ クラスを使用できます。 これらの種類のカスタムデータクラスを使用する場合は、<xref:System.Data.Services.Common.DataServiceKeyAttribute> または <xref:System.Data.Services.Common.DataServiceEntityAttribute> のいずれかを使用してデータクラスの属性を設定し、クライアントの型名がデータサービスのデータモデルの型名と一致することを確認する必要があります。
 
-ライブラリは、クエリ応答メッセージを受信すると、 [!INCLUDE[ssODataShort](../../../../includes/ssodatashort-md.md)]フィードから返されたデータを、クエリの種類のクライアントデータサービスクラスのインスタンスに具体化します。 これらのオブジェクトを具体化する一般的なプロセスは次のとおりです。
+ライブラリは、クエリ応答メッセージを受信すると、OData フィードから返されたデータを、クエリの種類のクライアントデータサービスクラスのインスタンスに具体化します。 これらのオブジェクトを具体化する一般的なプロセスは次のとおりです。
 
 1. クライアント ライブラリは、応答メッセージ フィード内の `entry` 要素からシリアル化された型を読み取り、次のいずれかの方法で正しい型の新しいインスタンスの作成を試みます。
 
@@ -28,7 +28,7 @@ ms.locfileid: "70790391"
 
     - フィードで宣言された型が <xref:System.Data.Services.Client.DataServiceQuery%601> の型、または派生した型と一致しない場合は、空のコンストラクターを使用してクエリされた型の新しいインスタンスが作成されます。
 
-    - <xref:System.Data.Services.Client.DataServiceContext.ResolveType%2A> プロパティが設定されている場合、指定されたデリゲートが呼び出され、既定の名前ベースの型のマッピングを上書きし、<xref:System.Func%602> によって返された型の新しいインスタンスが代わりに作成されます。 このデリゲートが NULL 値を返した場合、クエリされた型の新しいインスタンスが代わりに作成されます。 継承のシナリオをサポートするために、既定の名前ベースの型名のマッピングをオーバーライドすることが必要な場合があります。
+    - <xref:System.Data.Services.Client.DataServiceContext.ResolveType%2A> プロパティが設定されている場合、指定されたデリゲートが呼び出され、既定の名前ベースの型のマッピングをオーバーライドし、<xref:System.Func%602> によって返された型の新しいインスタンスが代わりに作成されます。 このデリゲートが NULL 値を返した場合、クエリされた型の新しいインスタンスが代わりに作成されます。 継承のシナリオをサポートするために、既定の名前ベースの型名のマッピングをオーバーライドすることが必要な場合があります。
 
 2. クライアント ライブラリは `id` の `entry` 要素から URI 値を読み取ります。これがエンティティの ID 値です。 <xref:System.Data.Services.Client.DataServiceContext.MergeOption%2A> の  <xref:System.Data.Services.Client.MergeOption.NoTracking> 値が使用されない限り、<xref:System.Data.Services.Client.DataServiceContext> のオブジェクトの追跡には、ID 値が使用されます。 さらに、クエリ応答でエンティティが複数回返されたときでも、単一のエンティティ インスタンスのみが作成されることを保証するためにも ID 値を使用します。
 
@@ -47,7 +47,7 @@ ms.locfileid: "70790391"
 
 5. クライアント ライブラリは <xref:System.Data.Services.Client.DataServiceContext> にオブジェクトをアタッチします。 <xref:System.Data.Services.Client.MergeOption> が <xref:System.Data.Services.Client.MergeOption.NoTracking> の場合は、オブジェクトはアタッチされません。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [データ サービスに対するクエリ](querying-the-data-service-wcf-data-services.md)
 - [クエリ射影](query-projections-wcf-data-services.md)

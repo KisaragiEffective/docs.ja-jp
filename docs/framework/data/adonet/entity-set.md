@@ -2,15 +2,15 @@
 title: エンティティ セット
 ms.date: 03/30/2017
 ms.assetid: 59ec6ab0-88e5-4d25-b112-7a4eccbe61f0
-ms.openlocfilehash: b74d6bf373925ac90a998e2c4425c053e533f82a
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 5a2465801c270813dd7bca2144d05fa202571153
+ms.sourcegitcommit: 22be09204266253d45ece46f51cc6f080f2b3fd6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70783998"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73738424"
 ---
 # <a name="entity-set"></a>エンティティ セット
-エンティティ*セット*は、[エンティティ型](entity-type.md)のインスタンスと、そのエンティティ型から派生した任意の型のインスタンスの論理コンテナーです。 派生型の詳細については[、Entity Data Model を参照してください。継承](entity-data-model-inheritance.md)。)エンティティ型とエンティティセットのリレーションシップは、リレーショナルデータベースの行とテーブルのリレーションシップに似ています。行と同様に、エンティティ型はデータ構造を記述します。また、テーブルと同様に、エンティティセットには特定の構造体のインスタンスが含まれます。 エンティティ セットは、データ モデリング構造ではなく、データ構造を表しません。 エンティティ セットは、エンティティ型のインスタンスをグループ化してデータ ストアにマップするための、ホスト環境またはストレージ環境 (共通言語ランタイムや SQL Server データベースなど) の構造を提供します。  
+エンティティ*セット*は、[エンティティ型](entity-type.md)のインスタンスと、そのエンティティ型から派生した任意の型のインスタンスの論理コンテナーです。 派生型の詳細については、「 [Entity Data Model: 継承](entity-data-model-inheritance.md)」を参照してください。エンティティ型とエンティティセットの間のリレーションシップは、リレーショナルデータベース内の行とテーブルのリレーションシップに似ています。たとえば、行と同様に、エンティティ型はデータ構造を表し、テーブルと同様に、エンティティセットには特定の構造体のインスタンスが含まれます。 エンティティ セットは、データ モデリング構造ではなく、データ構造を表しません。 エンティティ セットは、エンティティ型のインスタンスをグループ化してデータ ストアにマップするための、ホスト環境またはストレージ環境 (共通言語ランタイムや SQL Server データベースなど) の構造を提供します。  
   
  エンティティセットは、エンティティセットと[アソシエーションセット](association-set.md)の論理的なグループである[エンティティコンテナー](entity-container.md)内で定義されます。  
   
@@ -32,11 +32,11 @@ ms.locfileid: "70783998"
   
  ![3種類のエンティティを持つモデルの例](./media/entity-set/example-model-three-entity-types.gif)  
   
- 次のダイアグラムには、上の概念モデルに基づく 2 つのエンティティ セット (`Books` および `Publishers`) と、アソシエーション セット(`PublishedBy`) を示しています。 `Books`エンティティセット内の Bi は、 `Book`実行時にエンティティ型のインスタンスを表します。 同様に、Pj は`Publisher` `Publishers`エンティティセット内のインスタンスを表します。 Bipj は、 `PublishedBy`アソシエーションセット内`PublishedBy`のアソシエーションのインスタンスを表します。  
+ 次のダイアグラムには、上の概念モデルに基づく 2 つのエンティティ セット (`Books` および `Publishers`) と、アソシエーション セット(`PublishedBy`) を示しています。 `Books` エンティティセット内の Bi は、実行時に `Book` エンティティ型のインスタンスを表します。 同様に、Pj は、`Publishers` エンティティセット内の `Publisher` インスタンスを表します。 BiPj は、`PublishedBy` アソシエーションセット内の `PublishedBy` 関連付けのインスタンスを表します。  
   
  ![セットの例を示すスクリーンショット。](./media/entity-set/sets-example-association.gif)  
   
- [ADO.NET Entity Framework](./ef/index.md)は、概念スキーマ定義言語 ([CSDL](./ef/language-reference/csdl-specification.md)) と呼ばれるドメイン固有言語 (DSL) を使用して概念モデルを定義します。 次の CSDL は、上の概念モデルに示された各エンティティ型に対して 1 つのエンティティ セットを持つエンティティ コンテナーを定義しています。 各エンティティ セットの名前とエンティティ型は、XML 属性で定義されています。  
+ [ADO.NET Entity Framework](./ef/index.md)は、概念スキーマ定義言語 ([CSDL](/ef/ef6/modeling/designer/advanced/edmx/csdl-spec)) と呼ばれるドメイン固有言語 (DSL) を使用して概念モデルを定義します。 次の CSDL は、上の概念モデルに示された各エンティティ型に対して 1 つのエンティティ セットを持つエンティティ コンテナーを定義しています。 各エンティティ セットの名前とエンティティ型は、XML 属性で定義されています。  
   
  [!code-xml[EDM_Example_Model#EntityContainerExample](../../../../samples/snippets/xml/VS_Snippets_Data/edm_example_model/xml/books.edmx#entitycontainerexample)]  
   

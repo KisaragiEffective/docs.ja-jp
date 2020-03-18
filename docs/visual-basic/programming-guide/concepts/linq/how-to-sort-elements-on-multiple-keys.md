@@ -1,21 +1,21 @@
 ---
-title: '方法: 複数のキーの要素の並べ替え (Visual Basic)'
+title: '方法 : 複数のキーに基づいて要素を並べ替える'
 ms.date: 07/20/2015
 ms.assetid: 0c4c1462-3047-4766-b9e2-7e0e9cc7f421
-ms.openlocfilehash: 9e70a54dcf7ff8cd2e0f767773ad7a56b1da2330
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.openlocfilehash: bf1749983700656508b781091ab349943dbc7bc1
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71835139"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74333747"
 ---
-# <a name="how-to-sort-elements-on-multiple-keys-visual-basic"></a>方法: 複数のキーの要素の並べ替え (Visual Basic)
+# <a name="how-to-sort-elements-on-multiple-keys-visual-basic"></a>方法: 複数のキーの要素を並べ替える (Visual Basic)
 このトピックでは、複数のキーに基づく並べ替えの方法について説明します。  
   
 ## <a name="example"></a>例  
  この例の結果は、まず出荷先の郵便番号順に並べ替えられ、次に発注日順に並べ替えられます。  
   
- この例では、次の XML ドキュメントを使用します: 「[サンプル XML ファイル:顧客と注文 (LINQ to XML)](../../../../visual-basic/programming-guide/concepts/linq/sample-xml-file-customers-and-orders-linq-to-xml.md)」。  
+ この例では、「[サンプル XML ファイル: 顧客と注文 (LINQ to XML)](../../../../visual-basic/programming-guide/concepts/linq/sample-xml-file-customers-and-orders-linq-to-xml.md)」の XML ドキュメントを使用します。  
   
 ```vb  
 Dim co As XElement = XElement.Load("CustomersOrders.xml")  
@@ -64,7 +64,7 @@ CustomerID:LAZYK EmployeeID:8 ShipPostalCode:99362 OrderDate:5/22/1997
 ## <a name="example"></a>例  
  次の例は名前空間に含まれている XML 用のクエリです。これらのクエリは上の例と同じ機能を表しています。 詳細については、「[名前空間の概要」 (LINQ to XML) (Visual Basic)](namespaces-overview-linq-to-xml.md)を参照してください。  
   
- この例では、次の XML ドキュメントを使用します: 「[サンプル XML ファイル:名前空間内の顧客と注文](../../../../visual-basic/programming-guide/concepts/linq/sample-xml-file-customers-and-orders-in-a-namespace.md)」。  
+ この例では、「[サンプル XML ファイル: 名前空間内の顧客と注文](../../../../visual-basic/programming-guide/concepts/linq/sample-xml-file-customers-and-orders-in-a-namespace.md)」の XML ドキュメントを使用します。  
   
 ```vb  
 Imports <xmlns='http://www.adventure-works.com'>  
@@ -116,6 +116,6 @@ CustomerID:LAZYK EmployeeID:1 ShipPostalCode:99362 OrderDate:3/21/1997
 CustomerID:LAZYK EmployeeID:8 ShipPostalCode:99362 OrderDate:5/22/1997  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [基本的なクエリ (LINQ to XML) (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/basic-queries-linq-to-xml.md)

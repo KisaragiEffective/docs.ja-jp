@@ -1,5 +1,5 @@
 ---
-title: '方法: データ コレクションの既定のビューを取得する'
+title: '方法 : データ コレクションの既定のビューを取得する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,29 +8,29 @@ helpviewer_keywords:
 - data collections [WPF], creating views of
 - data binding [WPF], creating views of data collections
 ms.assetid: b641e96c-c2f6-42ea-9c5d-bac81176ad65
-ms.openlocfilehash: 746331e69ee1e5eee795a0e35202f4889b72c53f
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: e82d252ed82e4d2e6d641e8b60e890cc93bb0427
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61931519"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73459116"
 ---
-# <a name="how-to-get-the-default-view-of-a-data-collection"></a>方法: データ コレクションの既定のビューを取得する
-ビューでは、並べ替え、フィルター処理、または条件をグループ化に応じて、さまざまな方法で表示する同じデータ収集を許可します。 すべてのコレクションには、バインディング ソースとしてコレクションを指定するときに、実際のバインディング ソースとして使用される 1 つの共有の既定ビューがあります。 この例では、コレクションの既定のビューを取得する方法を示します。  
+# <a name="how-to-get-the-default-view-of-a-data-collection"></a>方法 : データ コレクションの既定のビューを取得する
+ビューでは、並べ替え、フィルター処理、グループ化の基準に応じて、同じデータコレクションをさまざまな方法で表示できます。 すべてのコレクションには共有された既定のビューが1つあります。これは、バインディングがソースとしてコレクションを指定するときに実際のバインディングソースとして使用されます。 この例は、コレクションの既定のビューを取得する方法を示しています。  
   
 ## <a name="example"></a>例  
- ビューを作成するには、コレクションへのオブジェクト参照が必要です。 このデータ オブジェクトは、データ ソースのプロパティを取得することによって、またはバインディングのプロパティを取得することによって、データ コンテキストを取得することによって、独自の分離コード オブジェクトを参照することによって取得できます。 この例は、取得する方法を示します、<xref:System.Windows.FrameworkElement.DataContext%2A>データ オブジェクトと使用のこのコレクションの表示を直接、既定のコレクションを取得します。  
+ ビューを作成するには、コレクションへのオブジェクト参照が必要です。 このデータオブジェクトを取得するには、データコンテキストを取得するか、データソースのプロパティを取得するか、またはバインディングのプロパティを取得して、独自の分離コードオブジェクトを参照します。 この例では、データオブジェクトの <xref:System.Windows.FrameworkElement.DataContext%2A> を取得し、それを使用してこのコレクションの既定のコレクションビューを直接取得する方法を示します。  
   
  [!code-csharp[CollectionView#2](~/samples/snippets/csharp/VS_Snippets_Wpf/CollectionView/CSharp/Page1.xaml.cs#2)]
  [!code-vb[CollectionView#2](~/samples/snippets/visualbasic/VS_Snippets_Wpf/CollectionView/VisualBasic/Page1.xaml.vb#2)]  
   
- この例では、ルート要素は、<xref:System.Windows.Controls.StackPanel>します。 <xref:System.Windows.FrameworkElement.DataContext%2A>に設定されている*myDataSource*を参照するデータ プロバイダーである、<xref:System.Collections.ObjectModel.ObservableCollection%601>の*順序*オブジェクト。  
+ この例では、ルート要素は <xref:System.Windows.Controls.StackPanel>です。 <xref:System.Windows.FrameworkElement.DataContext%2A> が*Mydatasource*に設定されています。これは、 *Order*オブジェクトの <xref:System.Collections.ObjectModel.ObservableCollection%601> であるデータプロバイダーを参照します。  
   
  [!code-xaml[CollectionView#CollectionViewDataContext](~/samples/snippets/csharp/VS_Snippets_Wpf/CollectionView/CSharp/Page1.xaml#collectionviewdatacontext)]  
   
- または、インスタンス化し、独自のビューを使用してコレクションにバインド、<xref:System.Windows.Data.CollectionViewSource>クラス。 このコレクション ビューが直接バインドするコントロールのみ共有します。 例については、ビューのセクションで作成する方法を参照してください、[データ バインディングの概要](data-binding-overview.md)します。  
+ または、<xref:System.Windows.Data.CollectionViewSource> クラスを使用して、独自のコレクションビューをインスタンス化し、バインドすることもできます。 このコレクションビューは、直接バインドするコントロールによってのみ共有されます。 例については、「[データバインディングの概要](../../../desktop-wpf/data/data-binding-overview.md)」の「ビューを作成する方法」セクションを参照してください。  
   
- コレクション ビューで提供される機能の例については、次を参照してください[ビューのデータを並べ替える](how-to-sort-data-in-a-view.md)、[ビュー内のフィルター データ](how-to-filter-data-in-a-view.md)、および[移動のオブジェクト データ CollectionView](how-to-navigate-through-the-objects-in-a-data-collectionview.md).  
+ コレクションビューで提供される機能の例については、「[ビュー内のデータの並べ替え](how-to-sort-data-in-a-view.md)」、「[ビューのデータのフィルター処理](how-to-filter-data-in-a-view.md)」、および「[データ CollectionView 内のオブジェクト間の移動](how-to-navigate-through-the-objects-in-a-data-collectionview.md)」を参照してください。  
   
 ## <a name="see-also"></a>関連項目
 

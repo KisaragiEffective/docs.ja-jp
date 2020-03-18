@@ -1,5 +1,5 @@
 ---
-title: Windows フォームでのコントロールの使用方法の概要
+title: コントロールの使用の概要
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -9,24 +9,24 @@ helpviewer_keywords:
 - controls [Windows Forms]
 - custom controls [Windows Forms]
 ms.assetid: fddbe951-4485-459d-a5fd-665ea346dbc1
-ms.openlocfilehash: 16a28db6477ea86a8bc853fbf506cf6d6d4fa5e0
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: ca8b9fab3c53e256792faf0969b5066d5e35f6c7
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64654591"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744345"
 ---
 # <a name="overview-of-using-controls-in-windows-forms"></a>Windows フォームでのコントロールの使用方法の概要
-このトピックでは、Windows フォーム アプリケーションの重要な要素について説明し、コントロールを使用して Windows フォーム アプリケーションでイベントを処理する簡単な例を提供します。  
+このトピックでは、Windows フォームアプリケーションの重要な要素について説明し、Windows フォームアプリケーションでコントロールを使用してイベントを処理する簡単な例を示します。  
   
-## <a name="simple-windows-forms-applications"></a>単純な Windows フォーム アプリケーション  
- 少なくとも、Windows フォーム アプリケーションは、次の要素で構成されます。  
+## <a name="simple-windows-forms-applications"></a>単純な Windows フォームアプリケーション  
+ Windows フォームアプリケーションは、少なくとも次の要素で構成されています。  
   
-- 1 つまたは複数のクラスから派生した<xref:System.Windows.Forms.Form?displayProperty=nameWithType>します。  
+- <xref:System.Windows.Forms.Form?displayProperty=nameWithType>から派生した1つ以上のクラス。  
   
-- A`Main`メソッドを呼び出す、 `static` (`shared` Visual Basic で)<xref:System.Windows.Forms.Application.Run%2A>メソッドを呼び出し、<xref:System.Windows.Forms.Form>のインスタンス。 <xref:System.Windows.Forms.Application.Run%2A>メソッドは、オペレーティング システムからアプリケーションへのメッセージを処理します。  
+- `static``shared` (Visual Basic) <xref:System.Windows.Forms.Application.Run%2A> メソッドを呼び出して、<xref:System.Windows.Forms.Form> インスタンスを渡す `Main` メソッド。 <xref:System.Windows.Forms.Application.Run%2A> メソッドは、オペレーティングシステムからアプリケーションにメッセージを処理します。  
   
- 次のコード例では、Windows フォーム アプリケーションの重要な要素を示します。  
+ 次のコード例は、Windows フォームアプリケーションの重要な要素を示しています。  
   
 ```vb  
 Option Explicit  
@@ -74,8 +74,8 @@ public class MyForm : Form {
 }  
 ```  
   
-## <a name="using-controls-in-a-windows-forms-application"></a>Windows フォーム アプリケーションでコントロールを使用します。  
- 次のコード例では、Windows フォーム アプリケーションのコントロールを使用してし、イベントを処理する方法を説明する簡単なアプリケーションを示します。 フォームの 3 つのボタンの例で構成されます。各ボタンがクリックされたときに背景色を変更します。  
+## <a name="using-controls-in-a-windows-forms-application"></a>Windows フォームアプリケーションでのコントロールの使用  
+ 次のコード例は、アプリケーションがコントロールを使用してイベントを処理 Windows フォーム方法を示す単純なアプリケーションを示しています。 この例は、フォーム上の3つのボタンで構成されています。各ボタンをクリックすると、背景色が変更されます。  
   
 ```vb  
 Option Explicit  
@@ -223,7 +223,7 @@ public class MyForm : Form {
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [.NET Framework を使用したカスタム Windows フォーム コントロールの開発](developing-custom-windows-forms-controls.md)
 - [Windows フォーム コントロール開発の基本概念](windows-forms-control-development-basics.md)

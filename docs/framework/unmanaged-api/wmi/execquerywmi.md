@@ -14,14 +14,12 @@ helpviewer_keywords:
 - ExecQueryWmi function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b8547d306819e85b838f1160d9912dd43e42f2f3
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 3c6ea58eca5ac635893a24b57ade261e04a69721
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798689"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130435"
 ---
 # <a name="execquerywmi-function"></a>ExecQueryWmi 関数
 
@@ -58,20 +56,20 @@ HRESULT ExecQueryWmi (
 `lFlags`\
 からこの関数の動作に影響を与えるフラグの組み合わせ。 次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-| 定数 | Value  | 説明  |
+| 定数 | [値]  | 説明  |
 |---------|---------|---------|
 | `WBEM_FLAG_USE_AMENDED_QUALIFIERS` | 0x20000 | 設定すると、関数は、現在の接続のロケールのローカライズされた名前空間に格納されている修正された修飾子を取得します。 <br/> 設定されていない場合、関数は、イミディエイト名前空間に格納されている修飾子だけを取得します。 |
 | `WBEM_FLAG_RETURN_IMMEDIATELY` | 0x10 | このフラグにより、半同期呼び出しが発生します。 |
 | `WBEM_FLAG_FORWARD_ONLY` | 0x20 | 関数は、順方向専用の列挙子を返します。 通常、順方向専用の列挙子は、従来の列挙子よりも高速で使用されるメモリが少なくなりますが、[複製](clone.md)の呼び出しは許可されません。 |
 | `WBEM_FLAG_BIDIRECTIONAL` | 0 | WMI は、列挙体が解放されるまで、そのオブジェクトへのポインターを保持します。 |
-| `WBEM_FLAG_ENSURE_LOCATABLE` | 0x100 | 返されたオブジェクトに十分な情報が含まれていることを確認して、 **__ PATH**、 **__RELPATH**、 **__ SERVER**などの`null`システムプロパティがないようにします。 |
+| `WBEM_FLAG_ENSURE_LOCATABLE` | 0x100 | 返されたオブジェクトに十分な情報が含まれていることを確認して、 **__ PATH**、 **__RELPATH**、 **__ SERVER**などのシステムプロパティが `null`ないようにします。 |
 | `WBEM_FLAG_PROTOTYPE` | 2 | このフラグは、プロトタイプを行うために使用されます。 クエリは実行されず、代わりに通常の結果オブジェクトのように見えるオブジェクトを返します。 |
 | `WBEM_FLAG_DIRECT_READ` | 0x200 | 親クラスまたはサブクラスに関係なく、指定されたクラスのプロバイダーに直接アクセスします。 |
 
-最適なパフォーマンスを`WBEM_FLAG_RETURN_IMMEDIATELY`得る`WBEM_FLAG_FORWARD_ONLY`ために、推奨されるフラグはとです。
+最適なパフォーマンスを得るために、推奨されるフラグは `WBEM_FLAG_RETURN_IMMEDIATELY` と `WBEM_FLAG_FORWARD_ONLY` です。
 
 `pCtx`\
-から通常、この値は`null`です。 それ以外の場合は、要求されたクラスを提供しているプロバイダーが使用できる[IWbemContext](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemcontext)インスタンスへのポインターです。
+から通常、この値は `null`です。 それ以外の場合は、要求されたクラスを提供しているプロバイダーが使用できる[IWbemContext](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemcontext)インスタンスへのポインターです。
 
 `ppEnum`\
 入出力エラーが発生しなかった場合、は、呼び出し元がクエリの結果セット内のインスタンスを取得できるようにする列挙子へのポインターを受け取ります。 クエリには、インスタンスがゼロの結果セットを含めることができます。 詳細については、「[解説](#remarks)」を参照してください。
@@ -98,7 +96,7 @@ HRESULT ExecQueryWmi (
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_E_ACCESS_DENIED` | 0x80041003 | 関数が返すことのできる1つ以上のクラスを表示するアクセス許可がユーザーにありません。 |
 | `WBEM_E_FAILED` | 0x80041001 | 特定できないエラーが発生しました。 |
@@ -116,15 +114,15 @@ HRESULT ExecQueryWmi (
 
 この関数は、 [IWbemServices:: ExecQuery](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemservices-execquery)メソッドの呼び出しをラップします。
 
-この関数は、 `strQuery`パラメーターで指定されたクエリを処理し、呼び出し元がクエリ結果にアクセスするための列挙子を作成します。 列挙子は、 [IEnumWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-ienumwbemclassobject)インターフェイスへのポインターです。クエリの結果は、 [IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インターフェイスを通じて使用できるクラスオブジェクトのインスタンスです。
+この関数は、`strQuery` パラメーターで指定されたクエリを処理し、呼び出し元がクエリ結果にアクセスするための列挙子を作成します。 列挙子は、 [IEnumWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-ienumwbemclassobject)インターフェイスへのポインターです。クエリの結果は、 [IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インターフェイスを通じて使用できるクラスオブジェクトのインスタンスです。
 
-WQL クエリで使用できるキーワードと`AND` `OR`キーワードの数には制限があります。 複雑なクエリで使用される WQL キーワードの数が多いと、WMI `WBEM_E_QUOTA_VIOLATION`が (または 0x8004106c) エラーコード`HRESULT`を値として返すことがあります。 WQL キーワードの制限は、クエリの複雑さによって異なります。
+WQL クエリで使用できる `AND` および `OR` キーワードの数には制限があります。 複雑なクエリで使用される WQL キーワードの数が多いと、WMI が `WBEM_E_QUOTA_VIOLATION` (または 0x8004106c) エラーコードを `HRESULT` 値として返すことがあります。 WQL キーワードの制限は、クエリの複雑さによって異なります。
 
 関数呼び出しが失敗した場合は、 [GetErrorInfo](geterrorinfo.md)関数を呼び出して追加のエラー情報を取得できます。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** WMINet_Utils
 

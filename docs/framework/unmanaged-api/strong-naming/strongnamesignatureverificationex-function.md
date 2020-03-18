@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: cfe4b634-18bf-44b8-9773-d94fb7e8a480
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 08247c1ec5b868055e4836b3c0fb520a536374e8
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: ca428d680df1710d8e74441d9945d4c3545b0482
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798922"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73121142"
 ---
 # <a name="strongnamesignatureverificationex-function"></a>StrongNameSignatureVerificationEx 関数
 指定したパスにあるアセンブリ マニフェストに厳密な名前の署名が含まれるかどうかを示す値が取得されます。  
@@ -44,23 +42,23 @@ BOOLEAN StrongNameSignatureVerificationEx (
  から検証するアセンブリの移植可能な実行可能ファイル (.exe または .dll) のパス。  
   
  `fForceVerification`  
- からレジストリ設定を上書きする必要がある場合でも検証を実行する場合`false`は。それ以外の場合は。 `true`  
+ [入力] レジストリ設定を上書きする必要がある場合でも、検証を実行する `true` ます。それ以外の場合は、`false`ます。  
   
  `pfWasVerified`  
- 入出力厳密な名前の署名が検証された`false`場合は。それ以外の場合は。 `true` `pfWasVerified`レジストリ設定によっ`false`て検証が成功した場合は、もに設定されます。  
+ [out] 厳密な名前の署名が検証された場合は `true`。それ以外の場合は、`false`ます。 レジストリ設定によって検証が成功した場合は、`pfWasVerified` も `false` に設定されます。  
   
 ## <a name="return-value"></a>戻り値  
- `true`検証が成功した場合は、それ以外`false`の場合は。  
+ 検証が成功した場合は `true` します。それ以外の場合は、`false`ます。  
   
 ## <a name="remarks"></a>Remarks  
- `StrongNameSignatureVerificationEx`[StrongNameSignatureVerification](strongnamesignatureverification-function.md)関数と同様の機能を提供します。 ただし、2番目の入力パラメーターとの`StrongNameSignatureVerificationEx`出力パラメーターは、の`DWORD`代わりに型`BOOLEAN`になります。  
+ `StrongNameSignatureVerificationEx` には、 [StrongNameSignatureVerification](strongnamesignatureverification-function.md)関数と同様の機能が用意されています。 ただし、2番目の入力パラメーターと `StrongNameSignatureVerificationEx` の出力パラメーターは `DWORD`ではなく `BOOLEAN` 型です。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** StrongName  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

@@ -4,14 +4,12 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - side-by-side execution
 ms.assetid: 649f1342-766b-49e6-a90d-5b019a751e11
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 78cbb98d4fb3887b82b2432451c47ac64d96ab91
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: e965702943149d3ed34be39bb2923ad52dcf90ca
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052029"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79181646"
 ---
 # <a name="side-by-side-execution-in-the-net-framework"></a>.NET Framework での side-by-side 実行
 
@@ -30,7 +28,7 @@ side-by-side 実行は、アプリケーションまたはコンポーネント�
 side-by-side 実行により、アプリケーションがバインドするコンポーネントのバージョンやアプリケーションが使用するランタイムのバージョンをより詳細に制御できます。  
   
 ## <a name="benefits-of-side-by-side-execution"></a>side-by-side 実行の利点  
- 
+
 Windows XP および .NET Framework 以前では、アプリケーションは同じコードの非互換バージョンを識別できないため、DLL の競合が発生することがありました。 DLL に含まれる型情報は、ファイル名だけに関連付けられていました。 アプリケーションは、DLL に含まれている型とアプリケーションの作成に使用された型が同じであるかどうかを判断できませんでした。 この結果、新しいバージョンのコンポーネントが古いバージョンを書き変え、アプリケーションが壊れてしまうことがありました。  
   
 side-by-side 実行と .NET Framework によって、DLL の競合を防ぐ次の機能が得られます。  
@@ -45,7 +43,7 @@ side-by-side 実行と .NET Framework によって、DLL の競合を防ぐ次�
   
 - 分離。  
   
-     .NET Framework を使用すると、分離して実行できるアプリケーションとコンポーネントを作成できます。 分離は、side-by-side 実行に欠くことのできない構成要素です。 分離には、使用しているリソースを認識し、アプリケーションまたはコンポーネントの複数のバージョンでこれを確実に共有する処理も含まれます。 また、分離には、バージョンに固有の方法でファイルを格納する方法も含まれます。 分離の詳細については、「[Guidelines for Creating Components for Side-by-Side Execution](guidelines-for-creating-components-for-side-by-side-execution.md)」(side-by-side 実行用のコンポーネントを作成するためのガイドライン) を参照してください。  
+     .NET Framework を使用すると、分離して実行できるアプリケーションとコンポーネントを作成できます。 分離は、side-by-side 実行に欠くことのできない構成要素です。 分離には、使用しているリソースを認識し、アプリケーションまたはコンポーネントの複数のバージョンでこれを確実に共有する処理も含まれます。 また、分離には、バージョンに固有の方法でファイルを格納する方法も含まれます。 分離の詳細については、「[side-by-side 実行用のコンポーネントを作成するためのガイドライン](guidelines-for-creating-components-for-side-by-side-execution.md)」 を参照してください。  
   
 ## <a name="version-compatibility"></a>バージョンの互換性  
 
@@ -104,13 +102,13 @@ COM アプリケーションおよび COM+ アプリケーションを含むア�
  `myAssembly` というアセンブリを完全に修飾する、アプリケーション構成ファイルのエントリの例を次に示します。  
   
 ```xml  
-<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">   
-<qualifyAssembly partialName="myAssembly"   
+<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+<qualifyAssembly partialName="myAssembly"
 fullName="myAssembly,  
-      version=1.0.0.0,   
-publicKeyToken=...,   
-      culture=neutral"/>   
-</assemblyBinding>   
+      version=1.0.0.0,
+publicKeyToken=...,
+      culture=neutral"/>
+</assemblyBinding>
 ```  
   
  アセンブリの読み込みステートメントが `myAssembly` を参照するたびに、構成ファイルのこれらの設定により、ランタイムは部分修飾された `myAssembly` 参照を完全限定参照に自動的に変換します。 たとえば、Assembly.Load("myAssembly") は Assembly.Load("myAssembly, version=1.0.0.0, publicKeyToken=..., culture=neutral") に変換されます。  

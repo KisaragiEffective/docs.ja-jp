@@ -15,18 +15,16 @@ helpviewer_keywords:
 ms.assetid: 35b8f0d6-9aba-4714-adb2-62020a38fb7e
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a4eaf426bc9c933de1d4b774928f2b0a54dfb472
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 5936ca837c9ab452e992fcb09aacb476ab37316a
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65636941"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74431435"
 ---
 # <a name="imetadatatablesgetuserstring-method"></a>IMetaDataTables::GetUserString メソッド
 
-現在のスコープ内で文字列の列で指定したインデックス位置には、ハード コーディングされた文字列を取得します。
+現在のスコープ内の文字列列にある、指定したインデックス位置にあるハードコーディングされた文字列を取得します。
 
 ## <a name="syntax"></a>構文
 
@@ -41,21 +39,21 @@ HRESULT GetUserString (
 ## <a name="parameters"></a>パラメーター
 
 `ixUserString`\
-[in]ハード コーディングされた文字列の取得元となるインデックス値。
+からハードコーディングされた文字列の取得元のインデックス値。
 
 `pcbData`\
-[out]サイズへのポインター`ppData`します。
+入出力`ppData`のサイズへのポインター。
 
 `ppData`\
-[out]返される文字列へのポインターへのポインター。
+入出力返された文字列へのポインターへのポインター。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
-**プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。
 
-**ヘッダー:** Cor.h
+**ヘッダー:** Cor
 
-**ライブラリ:** MsCorEE.dll にリソースとして使用
+**ライブラリ:** Mscoree.dll のリソースとして使用されます。
 
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]
 

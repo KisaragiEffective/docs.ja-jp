@@ -1,22 +1,21 @@
 ---
 title: 部分クラスと部分メソッド - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - partial methods [C#]
 - partial classes [C#]
 - C# language, partial classes and methods
 ms.assetid: 804cecb7-62db-4f97-a99f-60975bd59fa1
-ms.openlocfilehash: 53c3ac6e4fa6313488c47d851e0897bd512521b7
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 50b192d5a7416a982f41d0c3ac13e9c1bfe3397c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69596274"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398425"
 ---
 # <a name="partial-classes-and-methods-c-programming-guide"></a>部分クラスと部分メソッド (C# プログラミング ガイド)
 
-[クラス](../../language-reference/keywords/class.md)、[構造体](../../language-reference/keywords/struct.md)、[インターフェイス](../../language-reference/keywords/interface.md)やメソッドの定義を複数のソース ファイルに分割できます。 各ソース ファイルには型やメソッドの定義のセクションが含まれ、分割されたすべての部分はアプリケーションのコンパイル時に結合されます。
+[クラス](../../language-reference/keywords/class.md)、[構造体](../../language-reference/builtin-types/struct.md)、[インターフェイス](../../language-reference/keywords/interface.md)やメソッドの定義を複数のソース ファイルに分割できます。 各ソース ファイルには型やメソッドの定義のセクションが含まれ、分割されたすべての部分はアプリケーションのコンパイル時に結合されます。
 
 ## <a name="partial-classes"></a>部分クラス
 
@@ -152,7 +151,7 @@ partial void onNameChanged()
 }
 ```
 
-- 部分メソッドの宣言はコンテキスト キーワード [partial](../../language-reference/keywords/partial-type.md) で始まる必要があり、メソッドは [void](../../language-reference/keywords/void.md) を返す必要があります。
+- 部分メソッドの宣言はコンテキスト キーワード [partial](../../language-reference/keywords/partial-type.md) で始まる必要があり、メソッドは [void](../../language-reference/builtin-types/void.md) を返す必要があります。
 
 - 部分メソッドには、[in](../../language-reference/keywords/in-parameter-modifier.md) や [ref](../../language-reference/keywords/ref.md) パラメーターを使用できますが、[out](../../language-reference/keywords/out-parameter-modifier.md) パラメーターは使用できません。
 
@@ -164,16 +163,16 @@ partial void onNameChanged()
 
 - 部分メソッドはジェネリックにできます。 制約は部分メソッドの定義宣言に置き、必要に応じて実装宣言で繰り返すことができます。 パラメーター名と型パラメーター名は、定義宣言と実装宣言で同じである必要はありません。
 
-- [delegate](../../language-reference/keywords/delegate.md) は、定義および実装されている部分メソッドには使用できますが、定義されているのみの部分メソッドには使用できません。
+- [delegate](../../language-reference/builtin-types/reference-types.md) は、定義および実装されている部分メソッドには使用できますが、定義されているのみの部分メソッドには使用できません。
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳細については、「[C# 言語仕様](../../language-reference/language-specification/index.md)」の[部分型](~/_csharplang/spec/classes.md#partial-types)に関するセクションを参照してください。 言語仕様は、C# の構文と使用法に関する信頼性のある情報源です。
+詳細については、「[C# 言語仕様](/dotnet/csharp/language-reference/language-specification/introduction)」の[部分型](~/_csharplang/spec/classes.md#partial-types)に関するセクションを参照してください。 言語仕様は、C# の構文と使用法に関する信頼性のある情報源です。
 
 ## <a name="see-also"></a>関連項目
 
 - [C# プログラミング ガイド](../index.md)
 - [クラス](./classes.md)
-- [構造体](./structs.md)
+- [構造体型](../../language-reference/builtin-types/struct.md)
 - [インターフェイス](../interfaces/index.md)
 - [partial (型)](../../language-reference/keywords/partial-type.md)

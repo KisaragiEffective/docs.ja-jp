@@ -2,12 +2,12 @@
 title: .NET Core でマイクロサービス ドメイン モデルを実装する
 description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | DDD 指向ドメイン モデルの実装の詳細について
 ms.date: 10/08/2018
-ms.openlocfilehash: b2ad62c2a16dd3993b9624ec14f0070e934ac2de
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: bff9cbda08e519038056268151a1721427f0ac01
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68676589"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73972040"
 ---
 # <a name="implement-a-microservice-domain-model-with-net-core"></a>.NET Core でマイクロサービス ドメイン モデルを実装する
 
@@ -17,7 +17,9 @@ ms.locfileid: "68676589"
 
 eShopOnContainers 参照アプリケーションに使用されているフォルダー編成は、このアプリケーションの DDD モデルを示しています。 アプリケーションによっては、別のフォルダー編成の方が、選択する設計をより明確に表現できる場合もあります。 図 7-10 に示されているように、注文ドメイン モデルには、注文集約と購入者集約という 2 つの集約があります。 それぞれの集約はドメイン エンティティと値オブジェクトから成るグループですが、単一のドメイン エンティティ (集約ルートまたはルート エンティティ) で集約を構成することもできます。
 
-![BuyerAggregate および OrderAggregate フォルダーが含まれる AggregatesModel フォルダーが示された Ordering.Domain プロジェクトのソリューション エクスプローラーの表示。それぞれのフォルダーにそのエンティティ クラス、値オブジェクト ファイルなどが含まれています。 ](./media/image11.png)
+:::image type="complex" source="./media/net-core-microservice-domain-model/ordering-microservice-container.png" alt-text="ソリューション エクスプローラーの Ordering.Domain プロジェクトのスクリーンショット。":::
+BuyerAggregate および OrderAggregate フォルダーが含まれる AggregatesModel フォルダーが示された Ordering.Domain プロジェクトのソリューション エクスプローラーの表示。それぞれのフォルダーにそのエンティティ クラス、値オブジェクト ファイルなどが含まれています。
+:::image-end:::
 
 **図 7-10**。 eShopOnContainers の注文マイクロサービスのドメイン モデル構造
 
@@ -31,7 +33,9 @@ eShopOnContainers 参照アプリケーションに使用されているフォ�
 
 トランザクションの整合性とは、ビジネス アクションの最後の時点で集約が一貫した状態になり、なおかつ最新状態になることを保証することです。 たとえば、eShopOnContainers 注文マイクロサービス ドメイン モデルの注文集約は、図 7-11 のように構成されています。
 
-![OrderAggregate フォルダーの詳細な表示:Address.cs は値オブジェクト、IOrderRepository はリポジトリ インターフェイス、Order.cs は集約ルート、OrderItem.cs は子エンティティ、OrderStatus.cs は列挙クラス。](./media/image12.png)
+:::image type="complex" source="./media/net-core-microservice-domain-model/vs-solution-explorer-order-aggregate.png" alt-text="OrderAggregate フォルダーとそのクラスのスクリーンショット。":::
+OrderAggregate フォルダーの詳細な表示:Address.cs は値オブジェクト、IOrderRepository はリポジトリ インターフェイス、Order.cs は集約ルート、OrderItem.cs は子エンティティ、OrderStatus.cs は列挙クラス。
+:::image-end:::
 
 **図 7-11**。 Visual Studio ソリューションにおける注文集約
 
@@ -170,7 +174,7 @@ EF Core 1.1 以降の機能で列をフィールドにマップすれば、プ�
   <https://kalele.io/blog-posts/modeling-aggregates-with-ddd-and-entity-framework/>
 
 - **Julie Lerman。データ ポイント - ドメイン駆動設計のコーディング:データを重視する開発者のためのヒント** \
-  <https://msdn.microsoft.com/magazine/dn342868.aspx>
+  <https://docs.microsoft.com/archive/msdn-magazine/2013/august/data-points-coding-for-domain-driven-design-tips-for-data-focused-devs>
 
 - **Udi Dahan。完全にカプセル化されたドメイン モデルを作成する方法** \
   <http://udidahan.com/2008/02/29/how-to-create-fully-encapsulated-domain-models/>

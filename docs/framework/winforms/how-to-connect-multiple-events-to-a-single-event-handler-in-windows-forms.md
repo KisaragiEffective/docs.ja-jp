@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの 1 つのイベント ハンドラーに複数のイベントを関連付ける'
+title: '方法: 複数のイベントを1つのイベントハンドラーに接続する'
 ms.date: 03/30/2017
 dev_langs:
 - vb
@@ -10,25 +10,25 @@ helpviewer_keywords:
 - Windows Forms controls, events
 - menu items [Windows Forms], multicasting event-handling methods
 ms.assetid: 5a20749a-41b5-4acc-8eb1-9e5040b0a2c4
-ms.openlocfilehash: eec6a754b885cd169e5542221caefb3233c4c8af
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 0591291522ab1da04fef90bf1c0a73cf33ba0518
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61967025"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76739611"
 ---
-# <a name="how-to-connect-multiple-events-to-a-single-event-handler-in-windows-forms"></a>方法: Windows フォームの 1 つのイベント ハンドラーに複数のイベントを関連付ける
-アプリケーションの設計でする必要がありますを 1 つのイベント ハンドラーを使用して、複数のイベントまたは複数のイベントが、同じ手順を実行します。 たとえば、フォーム上のボタンの場合は、同じ機能を公開するように、同じイベントを発生させるメニュー コマンドを使用して強力な時間を節約では多くの場合です。 [プロパティ] ウィンドウのイベント ビューを使用してこれを行うC#またはを使用して、`Handles`キーワードと**クラス名**と**メソッド名**ドロップダウン ボックスでは、Visual Basic コード エディター。  
+# <a name="how-to-connect-multiple-events-to-a-single-event-handler-in-windows-forms"></a>方法 : Windows フォームの 1 つのイベント ハンドラーに複数のイベントを関連付ける
+アプリケーションの設計では、複数のイベントに対して単一のイベントハンドラーを使用するか、複数のイベントで同じ手順を実行する必要があります。 たとえば、多くの場合、メニューコマンドで同じ機能を公開すると、フォーム上のボタンと同じイベントが生成されます。 これを行うには、のC#プロパティウィンドウのイベントビューを使用するか、Visual Basic コードエディターで `Handles` キーワードと**クラス名**と**メソッド名**のドロップダウンボックスを使用します。  
   
-### <a name="to-connect-multiple-events-to-a-single-event-handler-in-visual-basic"></a>Visual Basic での 1 つのイベント ハンドラーに複数のイベントを接続するには  
+### <a name="to-connect-multiple-events-to-a-single-event-handler-in-visual-basic"></a>複数のイベントを Visual Basic の1つのイベントハンドラーに接続するには  
   
-1. フォームを右クリックし **コードの表示**します。  
+1. フォームを右クリックし、 **[コードの表示]** を選択します。  
   
-2. **クラス名**ドロップダウン ボックスで、イベント ハンドラーが処理するコントロールのいずれかを選択します。  
+2. **[クラス名]** ボックスの一覧で、イベントハンドラーが処理するコントロールの1つを選択します。  
   
-3. **メソッド名**ドロップダウン ボックスで、イベント ハンドラーが処理するイベントは、のいずれかを選択します。  
+3. **[メソッド名]** ボックスの一覧で、イベントハンドラーが処理するイベントの1つを選択します。  
   
-4. コード エディターでは、適切なイベント ハンドラーを挿入し、メソッド内でカーソルを配置します。 次の例では、<xref:System.Windows.Forms.Control.Click>イベントを<xref:System.Windows.Forms.Button>コントロール。  
+4. コードエディターによって、適切なイベントハンドラーが挿入され、メソッド内に挿入ポイントが配置されます。 次の例では、<xref:System.Windows.Forms.Button> コントロールの <xref:System.Windows.Forms.Control.Click> イベントです。  
   
     ```vb  
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click  
@@ -36,7 +36,7 @@ ms.locfileid: "61967025"
     End Sub  
     ```  
   
-5. 他のイベントを処理を追加、`Handles`句。  
+5. 処理するその他のイベントを `Handles` 句に追加します。  
   
     ```vb  
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click, Button2.Click  
@@ -44,23 +44,23 @@ ms.locfileid: "61967025"
     End Sub  
     ```  
   
-6. イベント ハンドラーに、適切なコードを追加します。  
+6. 適切なコードをイベントハンドラーに追加します。  
   
-### <a name="to-connect-multiple-events-to-a-single-event-handler-in-c"></a>C での 1 つのイベント ハンドラーに複数のイベントを接続するには\#
+### <a name="to-connect-multiple-events-to-a-single-event-handler-in-c"></a>C\# で1つのイベントハンドラーに複数のイベントを接続するには
   
-1. イベント ハンドラーを接続するコントロールを選択します。  
+1. イベントハンドラーを接続するコントロールを選択します。  
   
-2. [プロパティ] ウィンドウ、**イベント**ボタン (![イベント ボタン](./media/vxeventsbutton-propertieswindow.png "vxEventsButton_PropertiesWindow"))。  
+2. プロパティウィンドウで、 **[イベント]** ボタン ([![イベント] ボタン](./media/vxeventsbutton-propertieswindow.png "vxEventsButton_PropertiesWindow")) をクリックします。  
   
 3. 処理するイベントの名前をクリックします。  
   
-4. イベント名の横の [値] セクションでは、処理するイベントのメソッド シグネチャに一致する既存のイベント ハンドラーの一覧を表示するドロップダウン ボタンをクリックします。  
+4. イベント名の横にある [値] セクションで、ドロップダウンボタンをクリックして、処理するイベントのメソッドシグネチャに一致する既存のイベントハンドラーの一覧を表示します。  
   
-5. 一覧から適切なイベント ハンドラーを選択します。  
+5. 一覧から適切なイベントハンドラーを選択します。  
   
-     コードは、既存のイベント ハンドラーにイベントをバインドするフォームに追加されます。  
+     イベントを既存のイベントハンドラーにバインドするためのコードがフォームに追加されます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [Windows フォーム内でのイベント ハンドラーの作成](creating-event-handlers-in-windows-forms.md)
+- [Windows フォーム内のイベント ハンドラーの作成](creating-event-handlers-in-windows-forms.md)
 - [イベント ハンドラーの概要](event-handlers-overview-windows-forms.md)

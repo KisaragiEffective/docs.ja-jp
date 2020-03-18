@@ -16,13 +16,13 @@ ms.locfileid: "70971546"
 # <a name="specifying-an-assemblys-location"></a>アセンブリの場所の指定
 アセンブリの場所を指定するには、次の2つの方法があります。  
   
-- [ \<コードベースの >](./file-schema/runtime/codebase-element.md)要素を使用します。  
+- [ \<codeBase>](./file-schema/runtime/codebase-element.md) 要素を使用  
   
-- プローブ > 要素を使用します。 [ \<](./file-schema/runtime/probing-element.md)  
+- [\<probing>](./file-schema/runtime/probing-element.md) 要素を使用  
   
  また、 [.NET Framework 構成ツール (mscorcfg.msc)](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/2bc0cxhc(v=vs.100))を使用して、アセンブリの場所を指定したり、共通言語ランタイムがアセンブリをプローブする場所を指定したりすることもできます。  
   
-## <a name="using-the-codebase-element"></a>コードベース\<の > 要素の使用  
+## <a name="using-the-codebase-element"></a>\<codeBase> 要素の使用  
  **\<コードベース >** 要素は、アセンブリのバージョンをリダイレクトするマシン構成または発行者ポリシーファイルでのみ使用できます。 使用するアセンブリバージョンをランタイムが決定すると、バージョンを決定するファイルのコードベース設定が適用されます。 コードベースが指定されていない場合、ランタイムは通常の方法でアセンブリをプローブします。 詳細については、「[ランタイムがアセンブリを検索する方法](../deployment/how-the-runtime-locates-assemblies.md)」を参照してください。  
   
  アセンブリの場所を指定する方法を次の例に示します。  
@@ -48,10 +48,10 @@ ms.locfileid: "70971546"
 > [!NOTE]
 > 厳密な名前が付けられていないアセンブリのコードベースヒントを指定する場合、ヒントはアプリケーションベースディレクトリのアプリケーションベースまたはサブディレクトリをポイントする必要があります。  
   
-## <a name="using-the-probing-element"></a>プローブ > \<要素の使用  
+## <a name="using-the-probing-element"></a>\<probing> 要素の使用  
  実行時に、プローブによってコードベースのないアセンブリが検索されます。 プローブの詳細については、「[ランタイムがアセンブリを検索する方法](../deployment/how-the-runtime-locates-assemblies.md)」を参照してください。  
   
- アプリケーション構成ファイルの[ \<プローブ >](./file-schema/runtime/probing-element.md)要素を使用して、アセンブリを検索するときにランタイムが検索する必要があるサブディレクトリを指定できます。 次の例は、ランタイムが検索するディレクトリを指定する方法を示しています。  
+ アプリケーション構成ファイルの[\<probing>](./file-schema/runtime/probing-element.md)要素を使用して、アセンブリを検索するときにランタイムが検索する必要があるサブディレクトリを指定できます。 次の例は、ランタイムが検索するディレクトリを指定する方法を示しています。  
   
 ```xml  
 <configuration>  

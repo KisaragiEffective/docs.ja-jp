@@ -4,12 +4,12 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - configuration [WCF]
 ms.assetid: beac771e-f28e-4f84-9ff1-ad9251c726d3
-ms.openlocfilehash: 4fcf01c9f65f2b1bd11462a6f7d61b3551f37b86
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 332a88530010197187ca3ea787e152b0c95a5514
+ms.sourcegitcommit: fbb8a593a511ce667992502a3ce6d8f65c594edf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72320648"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74141586"
 ---
 # <a name="configuring-wcf-services"></a>WCF サービスの構成
 
@@ -19,7 +19,7 @@ ms.locfileid: "72320648"
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [簡略化された構成](simplified-configuration.md)  
- @No__t-0 以降、wcf には、WCF の構成要件を簡略化する新しい既定の構成モデルが用意されています。 特定のサービスに対して WCF の構成を指定しない場合、ランタイムは既定のエンドポイント、バインド、および動作を使用してサービスを自動的に構成します。  
+ .NET Framework 4 以降、wcf には、WCF の構成要件を簡略化する新しい既定の構成モデルが用意されています。 特定のサービスに対して WCF の構成を指定しない場合、ランタイムは既定のエンドポイント、バインド、および動作を使用してサービスを自動的に構成します。  
   
  [構成ファイルを使用してサービスを構成する方法](configuring-services-using-configuration-files.md)  
  Windows Communication Foundation (WCF) サービスは、.NET Framework 構成テクノロジを使用して構成できます。 通常、XML 要素は、WCF サービスをホストするインターネットインフォメーションサービス (IIS) サイトの Web.config ファイルに追加されます。 この要素によって、コンピューターごとにエンドポイント アドレス (サービスと通信するために使用する実際のアドレス) などの詳細情報を変更できます。  
@@ -36,7 +36,7 @@ ms.locfileid: "72320648"
  [WS-I Basic Profile 1.1 の相互運用可能サービスの作成](./creating-ws-i-basic-profile-1-1-interoperable-services.md)  
  他のプラットフォームやオペレーティング システム上で動作するサービスやクライアントと、相互に運用できるような形でサービスを配置するために必要な事項は、WS-I Basic Profile 1.1 の仕様に記載されています。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>辞書／辞典／その他  
  <xref:System.ServiceModel>  
   
  <xref:System.ServiceModel.Channels>  

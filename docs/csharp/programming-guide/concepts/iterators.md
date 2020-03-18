@@ -2,12 +2,12 @@
 title: C# でのコレクションの反復処理
 ms.date: 08/14/2018
 ms.assetid: c93f6dd4-e72a-4a06-be1c-a98b3255b734
-ms.openlocfilehash: d47dcf6e7748f85978b1b0bcf739b5d1280263f3
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: aceedd11466c75cedad3c67224c3a5595b4cabfa
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69594968"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77626271"
 ---
 # <a name="iterators-c"></a>反復子 (C#)
 
@@ -324,11 +324,11 @@ public class Stack<T> : IEnumerable<T>
 
 反復子は、メソッドまたは `get` アクセサーとして指定できます。 反復子を、イベント、インスタンス コンストラクター、静的コンストラクター、静的ファイナライザーで指定することはできません。
 
-`yield return` ステートメント内の式の型から、反復子によって返される IEnumerable\<T> 用の型引数への暗黙的な変換が存在する必要があります。
+`yield return` ステートメントの式の型を、反復子によって返される `IEnumerable<T>` の型引数に暗黙的に変換する必要があります。
 
 C# の場合、反復子メソッドで `in`、`ref`、`out` パラメーターを指定することはできません。
 
-C# の場合、"yield" は予約語ではなく、`return` または `break` キーワードの前に使用される場合にのみ、特別な意味を持ちます。
+C# の場合、`yield` は予約語ではなく、`return` または `break` キーワードの前に使用される場合にのみ、特別な意味を持ちます。
 
 ## <a name="technical-implementation"></a>技術的な実装
 
@@ -336,7 +336,7 @@ C# の場合、"yield" は予約語ではなく、`return` または `break` キ
 
 コンパイラの動作を確認するには、Ildasm.exe ツールを使用して、iterator メソッドに対して生成される Microsoft 中間言語コードを表示します。
 
-[クラス](../../language-reference/keywords/class.md)または[構造体](../../language-reference/keywords/struct.md)用の反復子を作成する場合、<xref:System.Collections.IEnumerator> インターフェイス全体を実装する必要はありません。 コンパイラは、反復子を検出すると、<xref:System.Collections.IEnumerator> または <xref:System.Collections.Generic.IEnumerator%601> インターフェイスの `Current`、`MoveNext`、および `Dispose` メソッドを自動的に生成します。
+[クラス](../../language-reference/keywords/class.md)または[構造体](../../language-reference/builtin-types/struct.md)用の反復子を作成する場合、<xref:System.Collections.IEnumerator> インターフェイス全体を実装する必要はありません。 コンパイラは、反復子を検出すると、<xref:System.Collections.IEnumerator> または <xref:System.Collections.Generic.IEnumerator%601> インターフェイスの `Current`、`MoveNext`、および `Dispose` メソッドを自動的に生成します。
 
 `foreach` ループの連続する反復ごとに (または `IEnumerator.MoveNext` を直接呼び出すと)、前の `yield return` ステートメントの後で次の反復子コード本体が再開されます。 その後、反復子本体の最後に到達するか、`yield break` ステートメントが検出されるまで、次の `yield return` ステートメントに続行されます。
 

@@ -8,12 +8,12 @@ helpviewer_keywords:
 - serialization, guidelines
 - binary serialization, guidelines
 ms.assetid: ebbeddff-179d-443f-bf08-9c373199a73a
-ms.openlocfilehash: 603306ad4a739f168716fd7f6169a79923585b82
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 067f32a026e3354e6c4256602ed17fd7d7bde0b8
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64645049"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78159794"
 ---
 # <a name="serialization-guidelines"></a>シリアル化のガイドライン
 このドキュメントには、シリアル化できるように API をデザインする際に考慮すべきガイドラインを示します。  
@@ -69,8 +69,7 @@ ms.locfileid: "64645049"
      [!code-csharp[SerializationGuidelines#3](../../../samples/snippets/csharp/VS_Snippets_CFX/serializationguidelines/cs/source.cs#3)]
      [!code-vb[SerializationGuidelines#3](../../../samples/snippets/visualbasic/VS_Snippets_CFX/serializationguidelines/vb/source.vb#3)]  
   
-     <xref:System.Runtime.Serialization.OnDeserializedAttribute> 属性は最もよく使用されるコールバック属性です。 ファミリの他の属性には、<xref:System.Runtime.Serialization.OnDeserializingAttribute>、    
-    <xref:System.Runtime.Serialization.OnSerializingAttribute>、および<xref:System.Runtime.Serialization.OnSerializedAttribute>します。 これらを使用して、逆シリアル化前、シリアル化前、およびシリアル化後に実行されるコールバックをマークすることができます。  
+     <xref:System.Runtime.Serialization.OnDeserializedAttribute> 属性は最もよく使用されるコールバック属性です。 ファミリ内のその他の属性は、<xref:System.Runtime.Serialization.OnDeserializingAttribute>、<xref:System.Runtime.Serialization.OnSerializingAttribute>、および <xref:System.Runtime.Serialization.OnSerializedAttribute>です。 これらを使用して、逆シリアル化前、シリアル化前、およびシリアル化後に実行されるコールバックをマークすることができます。  
   
 4. 複雑なオブジェクト グラフを逆シリアル化する場合は、使用する具象型を示す <xref:System.Runtime.Serialization.KnownTypeAttribute> を使用することを検討してください。  
   
@@ -104,7 +103,7 @@ ms.locfileid: "64645049"
      [!code-csharp[SerializationGuidelines#6](../../../samples/snippets/csharp/VS_Snippets_CFX/serializationguidelines/cs/source.cs#6)]
      [!code-vb[SerializationGuidelines#6](../../../samples/snippets/visualbasic/VS_Snippets_CFX/serializationguidelines/vb/source.vb#6)]  
   
-2. XML シリアル化属性を適用することで提供される、シリアル化された XML の形状をより細かく制御する場合は、<xref:System.Xml.Serialization.IXmlSerializable> インターフェイスを実装することを検討してください。 2 つのメソッド、インターフェイスの<xref:System.Xml.Serialization.IXmlSerializable.ReadXml%2A>と<xref:System.Xml.Serialization.IXmlSerializable.WriteXml%2A>を使用するシリアル化された XML ストリームを完全に制御できます。 また、<xref:System.Xml.Serialization.XmlSchemaProviderAttribute> 属性を適用することで、その型用に生成される XML スキーマを制御することもできます。  
+2. XML シリアル化属性を適用することで提供される、シリアル化された XML の形状をより細かく制御する場合は、<xref:System.Xml.Serialization.IXmlSerializable> インターフェイスを実装することを検討してください。 インターフェイスの2つのメソッド (<xref:System.Xml.Serialization.IXmlSerializable.ReadXml%2A> と <xref:System.Xml.Serialization.IXmlSerializable.WriteXml%2A>) を使用すると、シリアル化された XML ストリームを完全に制御できます。 また、<xref:System.Xml.Serialization.XmlSchemaProviderAttribute> 属性を適用することで、その型用に生成される XML スキーマを制御することもできます。  
   
 #### <a name="supporting-runtime-serialization"></a>ランタイム シリアル化のサポート  
  *ランタイム シリアル化*は .NET リモート処理で使用されるテクノロジです。 .NET リモート処理を使用して型を変換する場合、ランタイム シリアル化がサポートされていることを確認する必要があります。  
@@ -138,7 +137,7 @@ ms.locfileid: "64645049"
      [!code-csharp[SerializationGuidelines#11](../../../samples/snippets/csharp/VS_Snippets_CFX/serializationguidelines/cs/source.cs#11)]
      [!code-vb[SerializationGuidelines#11](../../../samples/snippets/visualbasic/VS_Snippets_CFX/serializationguidelines/vb/source.vb#11)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [データ コントラクトの使用](../../../docs/framework/wcf/feature-details/using-data-contracts.md)
 - [データ コントラクト シリアライザー](../../../docs/framework/wcf/feature-details/data-contract-serializer.md)

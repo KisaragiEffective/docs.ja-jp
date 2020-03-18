@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 808e1f1d-52f4-47c4-83cc-dcf47d075219
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7354536db483ad93d29fef29745af44a6f90884c
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 935d8e9fa3ed15be03c6cd05b1bc3c4919d0cc2b
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779928"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127855"
 ---
 # <a name="iclrvalidatorformateventinfo-method"></a>ICLRValidator::FormatEventInfo メソッド
-指定した検証エラーに関する詳細なメッセージを取得します。  
+指定された検証エラーに関する詳細メッセージを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,37 +39,37 @@ HRESULT FormatEventInfo (
   
 ## <a name="parameters"></a>パラメーター  
  `hVECode`  
- [in]検証のエラー ハンドラーに渡された HRESULT 値。  
+ から検証エラーハンドラーに渡された HRESULT 値。  
   
  `Context`  
- [in]A`VEContext`検証エラーに関するコンテキスト情報を格納しているインスタンス。  
+ から検証エラーに関するコンテキスト情報を格納している `VEContext` インスタンス。  
   
  `msg`  
- [入力、出力]わかりやすいエラー メッセージ。  
+ [入力、出力]わかりやすいエラーメッセージ。  
   
  `ulMaxLength`  
- [in]エラー メッセージの最大長。  
+ からエラーメッセージの最大長。  
   
  `psa`  
- [in]メッセージで使用される追加のパラメーターのセーフ配列。  
+ からメッセージで使用される追加パラメーターのセーフ配列。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`FormatEventInfo` 正常に返されます。|  
-|HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) は、プロセスに読み込まれていないか、CLR は状態をマネージ コードを実行または呼び出しを正常に処理ができません。|  
-|HOST_E_TIMEOUT|呼び出しがタイムアウトになりました。|  
+|S_OK|`FormatEventInfo` が正常に返されました。|  
+|HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) がプロセスに読み込まれていないか、CLR がマネージコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
+|HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
-|HOST_E_ABANDONED|イベントがキャンセルされましたブロックされたスレッドまたはファイバーが待機しています。|  
-|E_FAIL|不明な致命的なエラーが発生しました。 メソッドには、E_FAIL が返される、ときに、CLR は、プロセス内で使用可能ではなくなりました。 メソッドをホストする後続の呼び出しには、HOST_E_CLRNOTAVAILABLE が返されます。|  
+|HOST_E_ABANDONED|ブロックされたスレッドまたはファイバーが待機しているときに、イベントが取り消されました。|  
+|E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、そのプロセス内で CLR は使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** IValidator.idl, IValidator.h  
+ **ヘッダー:** IValidator、IValidator  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

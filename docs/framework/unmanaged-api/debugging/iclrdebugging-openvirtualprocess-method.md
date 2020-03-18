@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: e8ab7c41-d508-4ed9-8a31-ead072b5a314
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4c460bc644017f32fdb96d35e5f42981ac09f825
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 585b3d605d0df9169c12ca10198846ec0a7fe6d4
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67738387"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76793610"
 ---
 # <a name="iclrdebuggingopenvirtualprocess-method"></a>ICLRDebugging::OpenVirtualProcess メソッド
-ICorDebugProcess インターフェイスに対応するプロセスに読み込まれている共通言語ランタイム (CLR) モジュールを取得します。  
+プロセスに読み込まれた共通言語ランタイム (CLR) モジュールに対応する、コンポーネントインターフェイスを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,52 +41,52 @@ HRESULT OpenVirtualProcess(
   
 ## <a name="parameters"></a>パラメーター  
  `moduleBaseAddress`  
- [in]ターゲット プロセスのモジュールのベース アドレス。 COR_E_NOT_CLR が、指定したモジュールが CLR モジュールではない場合に返されます。  
+ からターゲットプロセス内のモジュールのベースアドレス。 指定したモジュールが CLR モジュールでない場合、COR_E_NOT_CLR が返されます。  
   
  `pDataTarget`  
- [in]マネージ デバッガーがプロセスの状態を検査できるデータ ターゲット抽象化します。 デバッガーを実装する必要があります、 [ICorDebugDataTarget](../../../../docs/framework/unmanaged-api/debugging/icordebugdatatarget-interface.md)インターフェイス。 実装する必要があります、 [ICLRDebuggingLibraryProvider](../../../../docs/framework/unmanaged-api/debugging/iclrdebugginglibraryprovider-interface.md)デバッグ中に CLR がインストールされていないローカル コンピューターのシナリオをサポートするインターフェイス。  
+ からマネージデバッガーがプロセスの状態を検査できるデータターゲットの抽象化。 デバッガーでは、、のように、によっては、[このインターフェイスを](icordebugdatatarget-interface.md)実装してください。 デバッグ対象の CLR がコンピューターにローカルにインストールされていないシナリオをサポートするには、 [ICLRDebuggingLibraryProvider](iclrdebugginglibraryprovider-interface.md)インターフェイスを実装する必要があります。  
   
  `pLibraryProvider`  
- [in]バージョン固有のデバッグ ライブラリを検索しに読み込む要求を許可するライブラリのプロバイダーのコールバック インターフェイス。 このパラメーターは必要な場合にのみ`ppProcess`または`pFlags`ない`null`します。  
+ からライブラリプロバイダーのコールバックインターフェイス。バージョン固有のデバッグライブラリをオンデマンドで検索し、読み込むことができます。 このパラメーターは、`ppProcess` または `pFlags` が `null`ない場合にのみ必要です。  
   
  `pMaxDebuggerSupportedVersion`  
- [in]このデバッガーでデバッグできる CLR の最新バージョン。 メジャー、マイナーを指定し、このデバッガーをサポートする最新の CLR バージョンからバージョンをビルドおよびリビジョン番号を将来のインプレース CLR サービス リリースの対応するために 65535 に設定する必要があります。  
+ からこのデバッガーがデバッグできる CLR の最大バージョン。 このデバッガーでサポートされている最新の CLR バージョンからメジャー、マイナー、ビルドの各バージョンを指定し、将来の CLR サービスリリースに対応するためにリビジョン番号を65535に設定する必要があります。  
   
  `riidProcess`  
- [in]取得する ICorDebugProcess インターフェイスの ID。 現時点では、可能な値は IID_CORDEBUGPROCESS3、IID_CORDEBUGPROCESS2、および IID_CORDEBUGPROCESS です。  
+ から取得するコード処理インターフェイスの ID。 現時点で許容される値は、IID_CORDEBUGPROCESS3、IID_CORDEBUGPROCESS2、および IID_CORDEBUGPROCESS だけです。  
   
  `ppProcess`  
- [out]識別される COM インターフェイスへのポインター`riidProcess`します。  
+ 入出力`riidProcess`によって識別される COM インターフェイスへのポインター。  
   
  `pVersion`  
- [入力、出力]CLR のバージョン。 この値は、入力の`null`します。 指していることも、 [CLR_DEBUGGING_VERSION](../../../../docs/framework/unmanaged-api/debugging/clr-debugging-version-structure.md)構造の場合、構造体の`wStructVersion`フィールドは、0 (ゼロ) に初期化する必要があります。  
+ [入力、出力]CLR のバージョン。 入力時には、この値を `null`できます。 また、 [CLR_DEBUGGING_VERSION](clr-debugging-version-structure.md)構造体を指すこともできます。この場合、構造体の `wStructVersion` フィールドを 0 (ゼロ) に初期化する必要があります。  
   
- 出力で返された`CLR_DEBUGGING_VERSION`CLR のバージョン情報が格納される構造体。  
+ 出力時には、返された `CLR_DEBUGGING_VERSION` 構造体に CLR のバージョン情報が格納されます。  
   
  `pdwFlags`  
- [out]指定したランタイムの概要情報フラグです。 参照してください、 [CLR_DEBUGGING_PROCESS_FLAGS](../../../../docs/framework/unmanaged-api/debugging/clr-debugging-process-flags-enumeration.md)フラグの説明のトピックです。  
+ 入出力指定されたランタイムに関する情報フラグ。 フラグの説明については、 [CLR_DEBUGGING_PROCESS_FLAGS](clr-debugging-process-flags-enumeration.md)のトピックを参照してください。  
   
 ## <a name="return-value"></a>戻り値  
  このメソッドは、次の特定の HRESULT と、メソッドの失敗を示す HRESULT エラーも返します。  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|メソッドは正常に完了しました。|  
-|E_POINTER|`pDataTarget` は `null` です。|  
-|CORDBG_E_LIBRARY_PROVIDER_ERROR|[ICLRDebuggingLibraryProvider](../../../../docs/framework/unmanaged-api/debugging/iclrdebugginglibraryprovider-interface.md)コールバックがエラーを返しますまたは、有効なハンドルは実現されません。|  
-|CORDBG_E_MISSING_DATA_TARGET_INTERFACE|`pDataTarget` このバージョンのランタイムの必要なデータ ターゲットのインターフェイスを実装しません。|  
-|CORDBG_E_NOT_CLR|指定されたモジュールが CLR モジュールではありません。 メモリが破損している、モジュールが使用できないか、CLR のバージョンが shim バージョンより新しいために、CLR モジュールを検出できない場合にも、この HRESULT が返されます。|  
-|CORDBG_E_UNSUPPORTED_DEBUGGING_MODEL|このランタイム バージョンは、このデバッグ モデルをサポートしていません。 現時点では、デバッグのモデルは、.NET Framework 4 より前に、の CLR のバージョンではサポートされていません。 `pwszVersion`出力パラメーターが設定されて、適切な値にこのエラーが発生後します。|  
-|CORDBG_E_UNSUPPORTED_FORWARD_COMPAT|CLR のバージョンでは、このデバッガーでサポートされるバージョンを超えています。 `pwszVersion`出力パラメーターが設定されて、適切な値にこのエラーが発生後します。|  
-|E_NO_INTERFACE|`riidProcess`インターフェイスは利用できません。|  
-|CORDBG_E_UNSUPPORTED_VERSION_STRUCT|`CLR_DEBUGGING_VERSION`構造体には、認識されている値はありません。`wStructVersion`します。 この時点でのみ使用できる値は 0 です。|  
+|S_OK|メソッドは正常に終了しました。|  
+|E_POINTER|`pDataTarget` は `null`です。|  
+|CORDBG_E_LIBRARY_PROVIDER_ERROR|[ICLRDebuggingLibraryProvider](iclrdebugginglibraryprovider-interface.md)コールバックによってエラーが返されたか、有効なハンドルが提供されていません。|  
+|CORDBG_E_MISSING_DATA_TARGET_INTERFACE|`pDataTarget` は、このバージョンのランタイムに必要なデータターゲットインターフェイスを実装していません。|  
+|CORDBG_E_NOT_CLR|指定されたモジュールは CLR モジュールではありません。 この HRESULT は、メモリが破損している、モジュールが使用できない、または CLR バージョンが shim バージョンより後であるために CLR モジュールが検出できない場合にも返されます。|  
+|CORDBG_E_UNSUPPORTED_DEBUGGING_MODEL|このランタイムバージョンでは、このデバッグモデルはサポートされていません。 現時点では、.NET Framework 4 より前のバージョンの CLR では、デバッグモデルはサポートされていません。 このエラーが発生した後も、`pwszVersion` 出力パラメーターは正しい値に設定されます。|  
+|CORDBG_E_UNSUPPORTED_FORWARD_COMPAT|CLR のバージョンが、このデバッガーがサポートするために要求するバージョンよりも大きくなっています。 このエラーが発生した後も、`pwszVersion` 出力パラメーターは正しい値に設定されます。|  
+|E_NO_INTERFACE|`riidProcess` インターフェイスは使用できません。|  
+|CORDBG_E_UNSUPPORTED_VERSION_STRUCT|`CLR_DEBUGGING_VERSION` 構造体には、`wStructVersion`に対して認識される値がありません。 現時点で許容される値は0のみです。|  
   
 ## <a name="exceptions"></a>例外  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -98,5 +96,5 @@ HRESULT OpenVirtualProcess(
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)
+- [デバッグ](index.md)

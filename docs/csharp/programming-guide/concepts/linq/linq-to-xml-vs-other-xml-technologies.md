@@ -2,12 +2,12 @@
 title: LINQ to XML およびその他の XML テクノロジ3
 ms.date: 07/20/2015
 ms.assetid: 01b8e746-12d3-471d-b811-7539e4547784
-ms.openlocfilehash: 1cafa8b690afb753dfdb0301dc6a19f5f257e9c0
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 4cade6ecbee95ee288db34246986858609697731
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69591871"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75635679"
 ---
 # <a name="linq-to-xml-vs-other-xml-technologies"></a>LINQ to XML およびその他の XML テクノロジ
 ここでは、[!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] を他の XML テクノロジ (<xref:System.Xml.XmlReader>、XSLT、MSXML、および XmlLite) と比較します。 使用するテクノロジを決定するときに、ここで説明する情報を参照してください。  
@@ -50,7 +50,7 @@ ms.locfileid: "69591871"
   
  XmlLite の最大の利点は、ほとんどのシナリオで、軽量かつ高速で安全な XML パーサーとして利用できることです。 XmlLite は脅威の対象となる要素がほとんどないため、 信頼されていないドキュメントを解析し、サービス拒否攻撃やデータ漏洩攻撃などからの保護が必要な場合は、優れた方法となります。  
   
- XmlLite は、[!INCLUDE[vbteclinqext](~/includes/vbteclinqext-md.md)] と統合されていません。 [!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] の利用動機となるプログラミングの生産性の向上はもたらされません。  
+ XmlLite は、統合言語クエリ (LINQ) と統合されていません。 LINQ の利用動機となるプログラミングの生産性の向上はもたらされません。  
   
 ## <a name="see-also"></a>関連項目
 

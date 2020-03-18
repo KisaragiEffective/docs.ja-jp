@@ -1,5 +1,5 @@
 ---
-title: DateTimePicker コントロール (Windows フォーム)
+title: DateTimePicker コントロール
 ms.date: 03/30/2017
 helpviewer_keywords:
 - dates [Windows Forms], choosing from a list
@@ -7,30 +7,30 @@ helpviewer_keywords:
 - DateTimePicker control [Windows Forms]
 - date and time picker controls
 ms.assetid: 1dac1fbd-8f67-4910-9ccb-2c5462d0d855
-ms.openlocfilehash: 236017834f3a965ee0ddfc1a74121679f086050b
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 22883da5dec58a6272e611b50671a8b1341d92e4
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61971341"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76731975"
 ---
 # <a name="datetimepicker-control-windows-forms"></a>DateTimePicker コントロール (Windows フォーム)
-Windows フォーム`DateTimePicker`コントロールによりユーザーは日付または時刻の一覧から 1 つの項目を選択します。 2 つの部分に表示される日付の表示に使用する場合: テキスト、および一覧の横の下向きの矢印をクリックしたときに表示されるグリッドで表される日付のドロップダウン リスト。  
+Windows フォーム `DateTimePicker` コントロールを使用すると、ユーザーは日付または時刻の一覧から1つの項目を選択できます。 日付を表すために使用した場合、2つの部分に表示されます。テキストで日付が表示されたドロップダウンリストと、一覧の横にある下向き矢印をクリックしたときに表示されるグリッドです。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [DateTimePicker コントロールの概要](datetimepicker-control-overview-windows-forms.md)  
- 一般的な概念が導入されています、`DateTimePicker`コントロールで、日付または時刻の一覧から 1 つの項目を選択することができます。  
+ `DateTimePicker` コントロールの一般的な概念について説明します。これにより、ユーザーは日付または時刻の一覧から1つの項目を選択できるようになります。  
   
- [方法: Windows フォームの DateTimePicker コントロールを使用してカスタム形式で日付を表示します。](display-a-date-in-a-custom-format-with-wf-datetimepicker-control.md)  
- 書式指定文字列を使用して、希望の形式の日付を表示する方法について説明します。  
+ [方法: Windows フォームの DateTimePicker コントロールを使用してカスタム形式で日付を表示する](display-a-date-in-a-custom-format-with-wf-datetimepicker-control.md)  
+ 書式指定文字列を使用して、適切な形式で日付を表示する方法について説明します。  
   
- [方法: Windows フォームの DateTimePicker コントロールを設定し、戻り値の日付](how-to-set-and-return-dates-with-the-windows-forms-datetimepicker-control.md)  
- コントロールで日付を設定して、ユーザーが選択した日付にアクセスする手順を示します。  
+ [方法: Windows フォームの DateTimePicker コントロールを使用して日付を設定および取得する](how-to-set-and-return-dates-with-the-windows-forms-datetimepicker-control.md)  
+ コントロールの日付を設定し、ユーザーが選択した日付にアクセスする手順について説明します。  
   
- [方法: 時間 DateTimePicker コントロールを表示します。](how-to-display-time-with-the-datetimepicker-control.md)  
- ための手順を示します、`DateTimePicker`時間のみが表示されます。  
+ [方法: DateTimePicker コントロールを使用して時間を表示する](how-to-display-time-with-the-datetimepicker-control.md)  
+ `DateTimePicker` で時刻のみを表示する手順を示します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.DateTimePicker>  
  このクラスについて説明し、すべてのメンバーへのリンクの一覧を示します。  
   

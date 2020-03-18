@@ -1,5 +1,5 @@
 ---
-title: 演算子プロシージャ (Visual Basic)
+title: 演算子プロシージャ
 ms.date: 07/20/2015
 helpviewer_keywords:
 - Visual Basic code, procedures
@@ -11,16 +11,16 @@ helpviewer_keywords:
 - operator overloading
 - operator procedures
 ms.assetid: 8c513d38-246b-4fb7-8b75-29e1364e555b
-ms.openlocfilehash: 46afbbe411a1adf27960e3c7d9d3ca98046ecec5
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: b395f5fcf1b89bb49e55e207c4910e95f2aae69d
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524528"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74345999"
 ---
 # <a name="operator-procedures-visual-basic"></a>演算子プロシージャ (Visual Basic)
 
-演算子プロシージャは、定義したクラスまたは構造体の標準演算子 (`*`、`<>`、`And` など) の動作を定義する一連の Visual Basic ステートメントです。 これは、*演算子のオーバーロード*とも呼ばれます。
+演算子プロシージャは、定義したクラスまたは構造体の標準演算子 (`*`、`<>`、`And`など) の動作を定義する一連の Visual Basic ステートメントです。 これは、*演算子のオーバーロード*とも呼ばれます。
 
 ## <a name="when-to-define-operator-procedures"></a>演算子プロシージャを定義する場合
 
@@ -28,7 +28,7 @@ ms.locfileid: "72524528"
 
 Visual Basic は、基本データ型に対してのみ演算子を定義します。 1つまたは両方のオペランドがクラスまたは構造体の型である場合は、演算子の動作を定義できます。
 
-詳細については、「 [Operator Statement](../../../../visual-basic/language-reference/statements/operator-statement.md)」を参照してください。
+詳細については、「[Operator ステートメント](../../../../visual-basic/language-reference/statements/operator-statement.md)」を参照してください。
 
 ## <a name="types-of-operator-procedure"></a>演算子プロシージャの種類
 
@@ -56,17 +56,17 @@ Public Shared [Widening | Narrowing] Operator operatorsymbol ( operand1 [,  oper
 End Operator
 ```
 
-@No__t_0 または `Narrowing` キーワードは、型変換演算子でのみ使用します。 演算子シンボルは、型変換演算子の場合は常に[CType 関数](../../../../visual-basic/language-reference/functions/ctype-function.md)です。
+`Widening` または `Narrowing` キーワードは、型変換演算子でのみ使用します。 演算子シンボルは、型変換演算子の場合は常に[CType 関数](../../../../visual-basic/language-reference/functions/ctype-function.md)です。
 
-2つのオペランドを宣言して二項演算子を定義し、1つのオペランドを宣言して、単項演算子 (型変換演算子を含む) を定義します。 すべてのオペランドは `ByVal` として宣言する必要があります。
+2つのオペランドを宣言して二項演算子を定義し、1つのオペランドを宣言して、単項演算子 (型変換演算子を含む) を定義します。 すべてのオペランドは `ByVal`として宣言する必要があります。
 
-各オペランドは、[サブプロシージャ](./sub-procedures.md)のパラメーターを宣言するのと同じ方法で宣言します。
+各オペランドは、[Sub プロシージャ](./sub-procedures.md)のパラメーターを宣言するのと同じ方法で宣言します。
 
-### <a name="data-type"></a>データの種類
+### <a name="data-type"></a>データ型
 
 定義したクラスまたは構造体に演算子を定義しているため、少なくとも1つのオペランドがそのクラスまたは構造体のデータ型である必要があります。 型変換演算子の場合、オペランドまたは戻り値の型は、クラスまたは構造体のデータ型である必要があります。
 
-詳細については、「 [Operator Statement](../../../../visual-basic/language-reference/statements/operator-statement.md)」を参照してください。
+詳細については、「[Operator ステートメント](../../../../visual-basic/language-reference/statements/operator-statement.md)」を参照してください。
 
 ## <a name="calling-syntax"></a>呼び出し構文
 
@@ -74,9 +74,9 @@ End Operator
 
 演算子プロシージャへの暗黙的な呼び出しの構文は次のとおりです。
 
-`Dim testStruct As`  *structurename*
+`Dim testStruct As`*structurename*
 
-`Dim testNewStruct As`*structurename* `= testStruct`*演算子シンボル*`10`
+`Dim testNewStruct As`*structurename*`= testStruct`*演算子シンボル*`10`
 
 ### <a name="illustration-of-declaration-and-call"></a>宣言と呼び出しの図
 
@@ -84,13 +84,13 @@ End Operator
 
 [!code-vb[VbVbcnProcedures#23](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#23)]
 
-次の例は、`veryLong` で定義されている `+` 演算子の一般的な呼び出しを示しています。
+次の例は、`veryLong`で定義されている `+` 演算子の一般的な呼び出しを示しています。
 
 [!code-vb[VbVbcnProcedures#24](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#24)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [手順](./index.md)
+- [Visual Basic におけるプロシージャ](./index.md)
 - [Sub プロシージャ](./sub-procedures.md)
 - [Function プロシージャ](./function-procedures.md)
 - [Property プロシージャ](./property-procedures.md)

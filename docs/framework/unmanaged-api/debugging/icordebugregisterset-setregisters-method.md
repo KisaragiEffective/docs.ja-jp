@@ -15,20 +15,18 @@ helpviewer_keywords:
 ms.assetid: ac6244b9-54ba-475f-b72a-abed6afc46ec
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 200ea1b9c046b8743699a549c07c0baaf285be39
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: d61d37448930d451b519c93909165e5e16f92765
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69965032"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76792050"
 ---
 # <a name="icordebugregistersetsetregisters-method"></a>ICorDebugRegisterSet::SetRegisters メソッド
-`SetRegisters`は .NET Framework バージョン2.0 では実装されていません。 このメソッドを呼び出さないでください。  
+`SetRegisters` は .NET Framework バージョン2.0 では実装されていません。 このメソッドを呼び出さないでください。  
   
 > [!NOTE]
-> 「いいね!: [: setip](../../../../docs/framework/unmanaged-api/debugging/icordebugilframe-setip-method.md) 」や「いいね!: [: setip](../../../../docs/framework/unmanaged-api/debugging/icordebugnativeframe-setip-method.md)」などの上位レベルの操作を使用します。  
+> 「いいね!: [: setip](icordebugilframe-setip-method.md) 」や「いいね!: [: setip](icordebugnativeframe-setip-method.md)」などの上位レベルの操作を使用します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,16 +38,16 @@ HRESULT SetRegisters (
 );  
 ```  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** 1.1、1.0  
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugRegisterSet インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugregisterset-interface.md)
-- [ICorDebugRegisterSet2 インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugregisterset2-interface.md)
+- [ICorDebugRegisterSet インターフェイス](icordebugregisterset-interface.md)
+- [ICorDebugRegisterSet2 インターフェイス](icordebugregisterset2-interface.md)

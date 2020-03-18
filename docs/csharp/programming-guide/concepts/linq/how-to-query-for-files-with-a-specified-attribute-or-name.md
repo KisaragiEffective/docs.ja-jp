@@ -1,15 +1,15 @@
 ---
-title: 方法:指定された属性または名前のファイルをクエリする (C#)
+title: 指定された属性または名前のファイルを照会する方法 (C#)
 ms.date: 07/20/2015
 ms.assetid: 560e3879-b0b3-4549-ad02-0a53aff2f83c
-ms.openlocfilehash: c1ecaad7e4fb4538331ba8f8076c9795acc52877
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: fc6456f159887b7ad109e8ad48f0f79999d53e09
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69592902"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79168870"
 ---
-# <a name="how-to-query-for-files-with-a-specified-attribute-or-name-c"></a>方法:指定された属性または名前のファイルをクエリする (C#)
+# <a name="how-to-query-for-files-with-a-specified-attribute-or-name-c"></a>指定された属性または名前のファイルを照会する方法 (C#)
 この例では、指定されたディレクトリ ツリーで、指定されたファイル名拡張子 (".txt" など) を持つすべてのファイルを検索する方法を示します。 また、ファイルの作成日時に基づいて、ツリー内の最も新しいファイルまたは最も古いファイルを返す方法も示します。  
   
 ## <a name="example"></a>例  
@@ -44,8 +44,8 @@ class FindFileByExtension
             Console.WriteLine(fi.FullName);  
         }  
   
-        // Create and execute a new query by using the previous   
-        // query as a starting point. fileQuery is not   
+        // Create and execute a new query by using the previous
+        // query as a starting point. fileQuery is not
         // executed again until the call to Last()  
         var newestFile =  
             (from file in fileQuery  
@@ -66,7 +66,7 @@ class FindFileByExtension
 ## <a name="compiling-the-code"></a>コードのコンパイル  
   System.Linq 名前空間と System.IO 名前空間に `using` ディレクティブを使用して、C# コンソール アプリケーション プロジェクトを作成します。
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [LINQ to Objects (C#)](./linq-to-objects.md)
 - [LINQ とファイル ディレクトリ (C#)](./linq-and-file-directories.md)

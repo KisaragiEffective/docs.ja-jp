@@ -14,14 +14,12 @@ helpviewer_keywords:
 - Delete function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a1bf9bd5d93d1affee649588138456269411d280
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 6b8f287be831702dd31a8335f9b2f6447bcee540
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798673"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127664"
 ---
 # <a name="delete-function"></a>Delete 関数
 
@@ -48,13 +46,13 @@ HRESULT Delete (
 から[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスへのポインター。
 
 `wszName`\
-から削除するプロパティの名前。 `wszName`は、有効`LPCWSTR`なへのポインターである必要があります。
+から削除するプロパティの名前。 `wszName` は、有効な `LPCWSTR`へのポインターである必要があります。
 
 ## <a name="return-value"></a>戻り値
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_E_FAILED` | 0x80041001 | 特定できないエラーが発生しました。 |
 | `WBEM_E_INVALID_OPERATION` | 0x80041016 | プロパティを削除できません。 |
@@ -70,9 +68,9 @@ HRESULT Delete (
 
 この関数は、 [IWbemClassObject::D e)](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemclassobject-delete)メソッドの呼び出しをラップします。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** WMINet_Utils
 

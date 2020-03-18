@@ -14,19 +14,17 @@ helpviewer_keywords:
 ms.assetid: 98a4762d-9ad2-45bd-9d03-39064a028b44
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 46e3356df6578f2adf2ceee00b1363b65fd014ea
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: f1ad414c30788801e14a33e98a0893e2a0f58d0c
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67760231"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136514"
 ---
 # <a name="flockclrversioncallback-function-pointer"></a>FLockClrVersionCallback 関数ポインター
-その初期化を示すために、共通言語ランタイム (CLR) 呼び出しが開始または完了する関数を指します。  
+は、初期化が開始されたか完了したことを示すために、共通言語ランタイム (CLR) が呼び出す関数を指します。  
   
- この関数ポインターは、.NET Framework 4 では廃止されました。  
+ この関数ポインターは .NET Framework 4 で非推奨とされました。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,12 +35,12 @@ typedef HRESULT (__stdcall *FLockClrVersionCallback) ( );
 ## <a name="remarks"></a>Remarks  
  この関数は、ホストによって実装されます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorWks.dll  
+ **ライブラリ:** Mscorwks.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

@@ -15,16 +15,16 @@ topic_type:
 - apiref
 author: hoyosjs
 ms.author: juhoyosa
-ms.openlocfilehash: 77ef2c65157df4a033700bb8d0295875ede46554
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 46031f29da6916eeaeea863ebef6924a720d7155
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67739112"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76793814"
 ---
 # <a name="dacprejitdata-structure"></a>DacpReJitData 構造体
 
-指定されたプロファイラー インストルメント メソッドに関する基本情報を定義します。
+プロファイラーによってインストルメント化された特定のメソッドに関する基本情報を定義します。
 
 [!INCLUDE[debugging-api-recommended-note](../../../../includes/debugging-api-recommended-note.md)]
 
@@ -52,20 +52,20 @@ struct MSLAYOUT DacpReJitData
 | メンバー           | 説明                                                                                      |
 | ---------------- | ------------------------------------------------------------------------------------------------ |
 | `rejitID`        | メソッドの ReJit リビジョン番号。                                                          |
-| `flags`          | 特定のバージョンのメソッドの ReJit インストルメンテーションの現在の状態を示すフラグ。 |
-| `NativeCodeAddr` | メソッドの rejitted 実装のベース アドレス。                                         |
+| `flags`          | 指定されたバージョンのメソッドの ReJit インストルメンテーションの現在の状態を示すフラグ。 |
+| `NativeCodeAddr` | メソッドの rejitted 実装のベースアドレス。                                         |
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-この構造は、ランタイム内に収めるし、任意のヘッダーまたはライブラリ ファイルでは公開されません。 これを使用するには、上で指定した構造を定義します。 使用して、構造体を定義する必要がありますも`ms_struct`Microsoft コンパイラを使用していない場合にパックします。
+この構造体はランタイム内に存在し、ヘッダーまたはライブラリファイルを介して公開されることはありません。 これを使用するには、前に示したように構造体を定義します。 Microsoft コンパイラを使用していない場合は、`ms_struct` パッキングを使用して構造体を定義する必要もあります。
 
-## <a name="requirements"></a>必要条件
-**プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
-**ヘッダー:** なし  
-**ライブラリ:** なし  
+## <a name="requirements"></a>要件
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
+**ヘッダー:** 存在  
+**ライブラリ:** 存在  
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v47plus](../../../../includes/net-current-v47plus.md)]  
 
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
-- [デバッグ構造体](../../../../docs/framework/unmanaged-api/debugging/debugging-structures.md)
+- [デバッグ](index.md)
+- [デバッグ構造体](debugging-structures.md)

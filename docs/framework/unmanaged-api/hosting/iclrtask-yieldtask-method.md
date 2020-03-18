@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: b8eb4095-3a8f-4be3-9446-63e9893dce7d
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 6fde9586c1b3736b5db2c4814058dd23713dd34d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 43f2048c8ab85fa7e94f73aad430400ad4c8352f
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67770333"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73124594"
 ---
 # <a name="iclrtaskyieldtask-method"></a>ICLRTask::YieldTask メソッド
-共通言語ランタイム (CLR) で確保、タスクを開始する要求を現在[ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)インスタンスが表す、およびプロセッサ時間をその他のタスクを使用できるようにします。  
+現在の[ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)インスタンスが表すタスクを共通言語ランタイム (CLR) が確保し、他のタスクでプロセッサ時間を使用できるようにすることを要求します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,22 +35,22 @@ HRESULT YieldTask ();
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`YieldTask` 正常に返されます。|  
-|HOST_E_CLRNOTAVAILABLE|プロセスに CLR が読み込まれていないか、CLR は状態をマネージ コードを実行または呼び出しを正常に処理ができません。|  
-|HOST_E_TIMEOUT|呼び出しがタイムアウトになりました。|  
+|S_OK|`YieldTask` が正常に返されました。|  
+|HOST_E_CLRNOTAVAILABLE|CLR がプロセスに読み込まれていないか、CLR がマネージドコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
+|HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
-|HOST_E_ABANDONED|イベントがキャンセルされましたブロックされたスレッドまたはファイバーが待機しています。|  
-|E_FAIL|不明な致命的なエラーが発生しました。 メソッドには、E_FAIL が返される、ときに、CLR は、プロセス内で使用可能ではなくなりました。 メソッドをホストする後続の呼び出しには、HOST_E_CLRNOTAVAILABLE が返されます。|  
+|HOST_E_ABANDONED|ブロックされたスレッドまたはファイバーが待機しているときに、イベントが取り消されました。|  
+|E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、そのプロセス内で CLR は使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
 ## <a name="remarks"></a>Remarks  
- ホストは`YieldTask`他のタスクまたはプロセスのプロセッサ リソースを要求します。 このメソッドは、主に CPU 時間を断念する実行時間の長いコードを許可します。 ランタイムが、タスクを配置しようとしています。 を現在`ICLRTask`インスタンスが表す状態が、処理時間を生成することができますが、成功の保証はありません。  
+ ホストは `YieldTask` を呼び出して、他のタスクまたはプロセスのプロセッサリソースを要求します。 このメソッドは、主に、長時間実行されるコードが CPU 時間を確保できるようにするためのものです。 ランタイムは、現在の `ICLRTask` インスタンスが処理時間を生成できる状態にあるタスクを配置しようとしますが、成功は保証されません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

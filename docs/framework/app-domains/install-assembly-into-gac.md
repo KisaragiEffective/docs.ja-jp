@@ -9,14 +9,12 @@ helpviewer_keywords:
 - Global Assembly Cache tool
 - windows installer, global assembly cache
 ms.assetid: a7e6f091-d02c-49ba-b736-7295cb0eb743
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: de5ae03ab885c4368e39b6339b5a14d1082e6df5
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
-ms.translationtype: HT
+ms.openlocfilehash: e670f5dba47393b7df047fb4e6f7d92df8cb187c
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70972871"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73119805"
 ---
 # <a name="how-to-install-an-assembly-into-the-global-assembly-cache"></a>方法: アセンブリをグローバル アセンブリ キャッシュにインストールする
 
@@ -26,7 +24,7 @@ ms.locfileid: "70972871"
 - [グローバル アセンブリ キャッシュ ツール](#global-assembly-cache-tool)
 
 > [!IMPORTANT]
-> グローバル アセンブリ キャッシュにインストールできるのは、厳密な名前のアセンブリだけです。 厳密な名前付きのアセンブリを作成する方法については、「[方法:厳密な名前でアセンブリに署名する](../../standard/assembly/sign-strong-name.md)」を参照してください。
+> グローバル アセンブリ キャッシュにインストールできるのは、厳密な名前のアセンブリだけです。 厳密な名前付きアセンブリを作成する方法の詳細については、「[方法: 厳密な名前でアセンブリに署名](../../standard/assembly/sign-strong-name.md)する」を参照してください。
 
 ## <a name="windows-installer"></a>Windows インストーラー
 
@@ -61,6 +59,6 @@ gacutil -i hello.dll
 ## <a name="see-also"></a>関連項目
 
 - [アセンブリとグローバル アセンブリ キャッシュの使用](working-with-assemblies-and-the-gac.md)
-- [方法: グローバル アセンブリ キャッシュからアセンブリを削除する](how-to-remove-an-assembly-from-the-gac.md)
+- [方法: グローバルアセンブリキャッシュからアセンブリを削除する](how-to-remove-an-assembly-from-the-gac.md)
 - [Gacutil.exe (グローバル アセンブリ キャッシュ ツール)](../tools/gacutil-exe-gac-tool.md)
 - [方法: 厳密な名前でアセンブリに署名する](../../standard/assembly/sign-strong-name.md)

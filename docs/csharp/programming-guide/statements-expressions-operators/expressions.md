@@ -1,17 +1,16 @@
 ---
 title: 式 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 05/11/2017
 helpviewer_keywords:
 - expressions [C#]
 - C# language, expressions
 ms.assetid: c7d8feb0-0e58-4f94-8bf6-4d070550a832
-ms.openlocfilehash: 1a0e94f40a9dc861b32e6a1c12935faadda9921b
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 4bbee8f15c2591e8b172df9a6759449d48697804
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69921807"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75699094"
 ---
 # <a name="expressions-c-programming-guide"></a>式 (C# プログラミング ガイド)
 
@@ -33,11 +32,11 @@ System.Convert.ToInt32("35");
   
 ## <a name="overflows"></a>オーバーフロー
 
- 値の型の最大値よりも値が大きくなると、数式でオーバーフローが発生することがあります。 詳細については、「[Checked と Unchecked](../../language-reference/keywords/checked-and-unchecked.md)」および「[明示的な数値変換の一覧表](../../language-reference/keywords/explicit-numeric-conversions-table.md)」を参照してください。  
+ 値の型の最大値よりも値が大きくなると、数式でオーバーフローが発生することがあります。 詳細については、[Checked と Unchecked](../../language-reference/keywords/checked-and-unchecked.md) に関する記事と[組み込みの数値変換](../../language-reference/builtin-types/numeric-conversions.md#explicit-numeric-conversions)に関する記事の「[明示的な数値変換](../../language-reference/builtin-types/numeric-conversions.md)」セクションを参照してください。
   
 ## <a name="operator-precedence-and-associativity"></a>演算子の優先順位と結合規則
 
- 式の評価方法は、結合規則と演算子の優先順位によって決まります。 詳細については、「[演算子](../../language-reference/operators/index.md)」を参照してください。  
+ 式の評価方法は、結合規則と演算子の優先順位によって決まります。 詳細については、「 [オペレーター](../../language-reference/operators/index.md)」を参照してください。  
   
  代入式とメソッドの呼び出し式を除き、ほとんどの式はステートメントに埋め込む必要があります。 詳細については、「[ステートメント](./statements.md)」を参照してください。  
   
@@ -47,7 +46,7 @@ System.Convert.ToInt32("35");
   
  [!code-csharp[csProgGuideStatements#2](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideStatements/CS/Statements.cs#2)]  
   
- リテラルの詳細については、「[型](../../language-reference/keywords/types.md)」を参照してください。  
+ リテラルの詳細については、「[型](/dotnet/csharp/language-reference/keywords)」を参照してください。  
   
  前の例の `i` と `s` は、どちらもローカル変数を識別する簡易名です。 これらの変数を式で使用すると、変数名は、変数のメモリ位置に現在格納されている値に評価されます。 以下の例を参照してください。  
   
@@ -61,7 +60,7 @@ System.Convert.ToInt32("35");
 DoWork();  
 ```  
   
- メソッドの呼び出しでは、メソッドの名前 (上の例のような名前、または別の式の結果としての名前) を使用し、その後にかっことメソッド パラメーターを記述する必要があります。 詳細については、「[メソッド](../classes-and-structs/methods.md)」を参照してください。 デリゲートの呼び出しでは、デリゲートの名前とメソッド パラメーターをかっこで囲んで使用します。 詳細については、「[デリゲート](../delegates/index.md)」を参照してください。 メソッドの呼び出しとデリゲートの呼び出しは、メソッドが値を返す場合、メソッドの戻り値に評価されます。 void を返すメソッドは、式の値の代わりに使用できません。  
+ メソッドの呼び出しでは、メソッドの名前 (上の例のような名前、または別の式の結果としての名前) を使用し、その後にかっことメソッド パラメーターを記述する必要があります。 詳細については、「[メソッド](../classes-and-structs/methods.md)」を参照してください。 デリゲートの呼び出しでは、デリゲートの名前とメソッド パラメーターをかっこで囲んで使用します。 詳細については、「 [デリゲート](../delegates/index.md)で定義されているインターフェイスのプライベート C++ 固有の実装です。 メソッドの呼び出しとデリゲートの呼び出しは、メソッドが値を返す場合、メソッドの戻り値に評価されます。 void を返すメソッドは、式の値の代わりに使用できません。  
 
 ## <a name="query-expressions"></a>クエリ式
 
@@ -85,12 +84,12 @@ C# は*式形式のメンバー*をサポートしています。式形式のメ
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳細については、[C# 言語仕様](~/_csharplang/spec/introduction.md)の「[式](~/_csharplang/spec/expressions.md)」セクションを参照してください。
+詳細については、[C# 言語仕様](~/_csharplang/spec/expressions.md)の「[式](~/_csharplang/spec/introduction.md)」セクションを参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
-- [演算子](../../language-reference/operators/index.md)
+- [C# プログラミングガイド](../index.md)
+- [オペレーター](../../language-reference/operators/index.md)
 - [メソッド](../classes-and-structs/methods.md)
 - [デリゲート](../delegates/index.md)
 - [型](../types/index.md)

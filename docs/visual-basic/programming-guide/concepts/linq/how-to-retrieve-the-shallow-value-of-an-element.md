@@ -1,13 +1,13 @@
 ---
-title: '方法: 要素の浅い値を取得する (Visual Basic)'
+title: '方法 : 要素の浅い値を取得する'
 ms.date: 07/20/2015
 ms.assetid: 730a6670-fb8c-41fc-8a1b-eb97a837e432
-ms.openlocfilehash: 184186a92865b022118b9989633a97c75274e7f4
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 7449d6d1230313aef6005284270370bb9d243a3f
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72320428"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346911"
 ---
 # <a name="how-to-retrieve-the-shallow-value-of-an-element-visual-basic"></a>方法: 要素の浅い値を取得する (Visual Basic)
 
@@ -76,6 +76,6 @@ Column  Name="CustomerId"   =Customer.CustomerId
 Column  Name="Name"         =Customer.Name
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [LINQ to XML 軸 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/linq-to-xml-axes.md)

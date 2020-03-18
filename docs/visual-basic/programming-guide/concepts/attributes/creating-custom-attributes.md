@@ -1,13 +1,13 @@
 ---
-title: カスタム属性の作成 (Visual Basic)
+title: カスタム属性の作成
 ms.date: 07/20/2015
 ms.assetid: 5c9ef584-6c7c-496b-92a9-6e42f8d9ca28
-ms.openlocfilehash: 3b1b03f69229bd4d824d6fff734b83400c2aab44
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 773a3e8e974f37a1554892dd3441c115681c5bae
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524289"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350145"
 ---
 # <a name="creating-custom-attributes-visual-basic"></a>カスタム属性の作成 (Visual Basic)
 
@@ -27,7 +27,7 @@ Public Class Author
 End Class
 ```
 
-クラス名は属性の名前の `Author` です。 このクラスは `System.Attribute` から派生しているので、カスタム属性クラスです。 コンストラクターのパラメーターはカスタム属性の位置指定パラメーターです。 この例では、`name` が位置指定パラメーターになります。 パブリックな読み取り/書き込みフィールドまたはプロパティは名前付きパラメーターです。 この場合は、`version` が唯一の名前付きパラメーターです。 `AttributeUsage` 属性を使用して、クラスと `Structure` の宣言に対してのみ `Author` 属性を有効にしていることに注意してください。
+クラス名は属性の名前の `Author` です。 このクラスは `System.Attribute` から派生しているので、カスタム属性クラスです。 コンストラクターのパラメーターはカスタム属性の位置指定パラメーターです。 この例では、`name` が位置指定パラメーターになります。 パブリックな読み取り/書き込みフィールドまたはプロパティは名前付きパラメーターです。 この場合は、`version` が唯一の名前付きパラメーターです。 `AttributeUsage` 属性を使用して、クラスと `Author` の宣言に対してのみ `Structure` 属性を有効にしていることに注意してください。
 
 この新しい属性の使用方法は次のとおりです。
 
@@ -63,7 +63,7 @@ End Class
 > [!NOTE]
 > 属性クラスにプロパティが含まれている場合、そのプロパティは読み取り/書き込み可能である必要があります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Reflection>
 - [Visual Basic のプログラミング ガイド](../../../../visual-basic/programming-guide/index.md)

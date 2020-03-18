@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c35199bf-bc47-4901-b467-4e8a37644bbb
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ac7014962b99ac167e8192c13b2bae5ca92470f0
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 9fd299ad25166bcbcf0202da13a5b4cbdd20d7d7
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69948525"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73133803"
 ---
 # <a name="ihostiocompletionmanagerinitializehostoverlapped-method"></a>IHostIoCompletionManager::InitializeHostOverlapped メソッド
-非同期 i/o 要求に使用される Win32 `OVERLAPPED`構造体に追加するカスタムデータを初期化する機会をホストに提供します。  
+非同期 i/o 要求に使用される Win32 `OVERLAPPED` 構造に追加するカスタムデータを初期化する機会をホストに提供します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,13 +35,13 @@ HRESULT InitializeHostOverlapped (
   
 ## <a name="parameters"></a>パラメーター  
  `pvOverlapped`  
- からI/o 要求に含まれる`OVERLAPPED` Win32 構造体へのポインター。  
+ からI/o 要求に含める Win32 `OVERLAPPED` 構造体へのポインター。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`InitializeHostOverlapped`正常に返されました。|  
+|S_OK|`InitializeHostOverlapped` が正常に返されました。|  
 |HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) がプロセスに読み込まれていないか、CLR がマネージコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
 |HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
@@ -52,19 +50,19 @@ HRESULT InitializeHostOverlapped (
 |E_OUTOFMEMORY|要求されたリソースを割り当てるのに十分なメモリがありませんでした。|  
   
 ## <a name="remarks"></a>Remarks  
- Windows プラットフォーム関数は、 `OVERLAPPED`構造体を使用して非同期 i/o 要求の状態を格納します。 CLR は、 `InitializeHostOverlapped`メソッドを呼び出して、ホストにカスタムデータを`OVERLAPPED`インスタンスに追加する機会を与えます。  
+ Windows プラットフォーム関数は、`OVERLAPPED` 構造を使用して、非同期 i/o 要求の状態を格納します。 CLR は、`InitializeHostOverlapped` メソッドを呼び出して、ホストにカスタムデータを `OVERLAPPED` インスタンスに追加する機会を与えます。  
   
 > [!IMPORTANT]
-> カスタムデータブロックの先頭に到達するには、ホストで、オフセットを`OVERLAPPED`構造体のサイズ (`sizeof(OVERLAPPED)`) に設定する必要があります。  
+> カスタムデータブロックの先頭に到達するには、ホストでオフセットを `OVERLAPPED` 構造 (`sizeof(OVERLAPPED)`) のサイズに設定する必要があります。  
   
  戻り値 E_OUTOFMEMORY は、ホストがカスタムデータを初期化できなかったことを示します。 この場合、CLR はエラーを報告し、呼び出しに失敗します。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

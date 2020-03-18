@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: d8ec8d3c-70f7-4cc6-9957-68068fd8f49c
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a82ce9709e008e092c5f31372a89bf9a16e1f88b
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 6b551743227dc1c6069796038782a515e6dbe8c4
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67767017"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74443777"
 ---
 # <a name="corcheckduplicatesfor-enumeration"></a>CorCheckDuplicatesFor 列挙型
-重複のチェックとメタデータ トークンを指定します。  
+重複をチェックするメタデータトークンを指定します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -70,41 +68,41 @@ typedef enum CorCheckDuplicatesFor {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`MDDupAll`|すべてのメタデータ トークンの重複を確認します。|  
+|`MDDupAll`|すべてのメタデータトークンの重複を確認します。|  
 |`MDDupENC`|使用しません。|  
-|`MDNoDupChecks`|メタデータ トークンの重複をチェックしません。|  
-|`MDDupTypeDef`|重複をチェック`mdTypeDef`トークンです。|  
-|`MDDupInterfaceImpl`|重複をチェック`mdInterfaceImpl`トークンです。|  
-|`MDDupMethodDef`|重複をチェック`mdMethodDef`トークンです。|  
-|`MDDupTypeRef`|重複をチェック`mdTypeRef`トークンです。|  
-|`MDDupMemberRef`|重複をチェック`mdMemberRef`トークンです。|  
-|`MDDupCustomAttribute`|重複をチェック`mdCustomAttribute`トークンです。|  
-|`MDDupParamDef`|重複をチェック`mdParamDef`トークンです。|  
-|`MDDupPermission`|重複をチェック`mdPermission`トークンです。|  
-|`MDDupProperty`|重複をチェック`mdProperty`トークンです。|  
-|`MDDupEvent`|重複をチェック`mdEvent`トークンです。|  
-|`MDDupFieldDef`|重複をチェック`mdFieldDef`トークンです。|  
-|`MDDupSignature`|重複をチェック`mdSignature`トークンです。|  
-|`MDDupModuleRef`|重複をチェック`mdModuleRef`トークンです。|  
-|`MDDupTypeSpec`|重複をチェック`mdTypeSpec`トークンです。|  
-|`MDDupImplMap`|重複をチェック`mdImplMap`トークンです。|  
-|`MDDupAssemblyRef`|重複をチェック`mdAssemblyRef`トークンです。|  
-|`MDDupFile`|重複をチェック`mdFile`トークンです。|  
-|`MDDupExportedType`|重複をチェック`mdExportedType`トークンです。|  
-|`MDDupManifestResource`|重複をチェック`mdManifestResource`トークンです。|  
-|`MDDupGenericParam`|重複をチェック`mdGenericParam`トークンです。|  
-|`MDDupMethodSpec`|重複をチェック`mdMethodSpec`トークンです。|  
-|`MDDupGenericParamConstraint`|重複をチェック`mdGenericParamConstraint`トークンです。|  
-|`MDDupAssembly`|重複をチェック`mdAssembly`トークンです。|  
-|`MDDupDefault`|重複をチェック`mdMemberRef`、 `mdTypeRef`、 `mdSignature`、 `mdTypeSpec`、および`mdMethodSpec`トークンです。|  
+|`MDNoDupChecks`|メタデータトークンの重複をチェックしないでください。|  
+|`MDDupTypeDef`|`mdTypeDef` トークンの重複を確認します。|  
+|`MDDupInterfaceImpl`|`mdInterfaceImpl` トークンの重複を確認します。|  
+|`MDDupMethodDef`|`mdMethodDef` トークンの重複を確認します。|  
+|`MDDupTypeRef`|`mdTypeRef` トークンの重複を確認します。|  
+|`MDDupMemberRef`|`mdMemberRef` トークンの重複を確認します。|  
+|`MDDupCustomAttribute`|`mdCustomAttribute` トークンの重複を確認します。|  
+|`MDDupParamDef`|`mdParamDef` トークンの重複を確認します。|  
+|`MDDupPermission`|`mdPermission` トークンの重複を確認します。|  
+|`MDDupProperty`|`mdProperty` トークンの重複を確認します。|  
+|`MDDupEvent`|`mdEvent` トークンの重複を確認します。|  
+|`MDDupFieldDef`|`mdFieldDef` トークンの重複を確認します。|  
+|`MDDupSignature`|`mdSignature` トークンの重複を確認します。|  
+|`MDDupModuleRef`|`mdModuleRef` トークンの重複を確認します。|  
+|`MDDupTypeSpec`|`mdTypeSpec` トークンの重複を確認します。|  
+|`MDDupImplMap`|`mdImplMap` トークンの重複を確認します。|  
+|`MDDupAssemblyRef`|`mdAssemblyRef` トークンの重複を確認します。|  
+|`MDDupFile`|`mdFile` トークンの重複を確認します。|  
+|`MDDupExportedType`|`mdExportedType` トークンの重複を確認します。|  
+|`MDDupManifestResource`|`mdManifestResource` トークンの重複を確認します。|  
+|`MDDupGenericParam`|`mdGenericParam` トークンの重複を確認します。|  
+|`MDDupMethodSpec`|`mdMethodSpec` トークンの重複を確認します。|  
+|`MDDupGenericParamConstraint`|`mdGenericParamConstraint` トークンの重複を確認します。|  
+|`MDDupAssembly`|`mdAssembly` トークンの重複を確認します。|  
+|`MDDupDefault`|`mdMemberRef`、`mdTypeRef`、`mdSignature`、`mdTypeSpec`、および `mdMethodSpec` トークンの重複を確認します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

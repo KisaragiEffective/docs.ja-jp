@@ -2,26 +2,26 @@
 title: メタデータ形式
 ms.date: 03/30/2017
 ms.assetid: baad1e68-28fc-4a6a-8a43-75e47e7fa871
-ms.openlocfilehash: 55f68f4b56e50b19da19ecc941e9ec537b846006
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: e7208a8d5fd6d100ac2a2c4fb1369a571c63e7fc
+ms.sourcegitcommit: 09b4090b78f52fd09b0e430cd4b26576f1fdf96e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62038572"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76212169"
 ---
 # <a name="metadata-formats"></a>メタデータ形式
-Windows Communication Foundation (WCF) では、次の表に、メタデータの形式をサポートしています。  
+Windows Communication Foundation (WCF) は、次の表のメタデータ形式をサポートしています。  
   
 ## <a name="metadata-specifications-and-usage"></a>メタデータの仕様と用途  
   
-|プロトコル|仕様と用途|  
+|[プロトコル]|仕様と用途|  
 |--------------|-----------------------------|  
-|WSDL 1.1|[Web サービス記述言語 (WSDL) 1.1](https://go.microsoft.com/fwlink/?LinkId=94859)<br /><br /> WCF では、Web サービス記述言語 (WSDL) を使用して、サービスについて説明します。|  
-|XML スキーマ|[XML Schema Part 2:Datatypes Second Edition](https://go.microsoft.com/fwlink/?LinkId=94861)と[XML Schema Part 1。Structures Second Edition](https://go.microsoft.com/fwlink/?LinkId=94862)<br /><br /> WCF では、XML スキーマを使用して、メッセージで使用されるデータ型について説明します。|  
-|WS-Policy|[Web サービスのポリシー 1.2 - フレームワーク (Ws-policy)](https://go.microsoft.com/fwlink/?LinkId=94864)<br /><br /> [Web サービスのポリシー バージョン 1.5 フレームワーク](https://go.microsoft.com/fwlink/?LinkId=94865)<br /><br /> WCF を使用して、Ws-policy 1.2 または 1.5 の仕様のドメイン固有のアサーションとサービスの要件と機能について説明します。|  
-|WS-PolicyAttachments|[Web サービスのポリシー 1.2: 添付ファイル (Ws-policyattachment)](https://go.microsoft.com/fwlink/?LinkId=94866)<br /><br /> WCF では、WSDL 内のさまざまなスコープでポリシー式をアタッチする Ws-policy の添付ファイルを実装します。|  
-|WS-Metadata Exchange|[Web サービス メタデータ交換 (Ws-metadataexchange) バージョン 1.1](https://go.microsoft.com/fwlink/?LinkId=94868)<br /><br /> WCF には、XML スキーマ、WSDL、Ws-policy を取得するには、Ws-metadataexchange が実装されています。|  
-|WS Addressing Binding for WSDL|[Web Services Addressing 1.0 - WSDL バインディング](https://go.microsoft.com/fwlink/?LinkId=94869)<br /><br /> WCF では、Ws-addressing Binding for WSDL でアドレス指定情報をアタッチする WSDL を実装します。|  
+|WSDL 1.1|[Web サービス記述言語 (WSDL) 1.1](https://www.w3.org/TR/wsdl/)<br /><br /> WCF では、Web サービス記述言語 (WSDL) を使用してサービスを記述します。|  
+|XML スキーマ|[Xml スキーマパート 2: データ型 Second エディション](https://www.w3.org/TR/2004/REC-xmlschema-2-20041028/)と[XML スキーマパート 1: 2 番目のエディション](https://www.w3.org/TR/2004/REC-xmlschema-1-20041028/)<br /><br /> WCF では、XML スキーマを使用して、メッセージで使用されるデータ型を記述します。|  
+|WS-Policy|[Web サービスポリシー 1.2-Framework (WS-POLICY)](https://www.w3.org/Submission/WS-Policy/)<br /><br /> [Web サービスポリシー 1.5-フレームワーク](https://www.w3.org/TR/ws-policy/)<br /><br /> WCF では、ドメイン固有のアサーションと共に WS-POLICY 1.2 または1.5 仕様を使用して、サービスの要件と機能を記述します。|  
+|WS-PolicyAttachments|[Web サービスポリシー 1.2-添付ファイル (WS-I 添付ファイル)](https://www.w3.org/Submission/WS-PolicyAttachment/)<br /><br /> WCF では、WS-POLICY 添付ファイルを実装して、WSDL 内のさまざまなスコープでポリシー式をアタッチします。|  
+|WS-Metadata Exchange|[Web サービスメタデータ交換 (Ws-metadataexchange) バージョン1.1](https://specs.xmlsoap.org/ws/2004/09/mex/WS-MetadataExchange.pdf)<br /><br /> WCF では、XML スキーマ、WSDL、および WS-POLICY を取得するために、Ws-metadataexchange が実装されています。|  
+|WS Addressing Binding for WSDL|[Web サービスアドレス指定 1.0-WSDL バインド](https://www.w3.org/TR/ws-addr-wsdl/)<br /><br /> WCF では、wsdl でアドレス指定情報をアタッチするために、WS-ADDRESSING Binding for WSDL が実装されています。|  
   
 ## <a name="see-also"></a>関連項目
 

@@ -1,5 +1,5 @@
 ---
-title: Visual Basic でのファイルおよびディレクトリの作成、削除、および移動
+title: ファイルおよびディレクトリの作成、削除、および移動
 ms.date: 07/20/2015
 helpviewer_keywords:
 - examples [Visual Basic], moving files and directories
@@ -22,17 +22,19 @@ helpviewer_keywords:
 - I/O [Visual Basic], renaming folders
 - I/O [Visual Basic], moving files
 ms.assetid: 8f814fcc-4c42-4dbb-a131-005ec445ac9e
-ms.openlocfilehash: 8b734b553e0ef4c14e372892e53b1184798390e6
-ms.sourcegitcommit: 3d5d33f384eeba41b2dff79d096f47ccc8d8f03d
+ms.openlocfilehash: 8e0b291c0bb526c21654a1e8c08bd168d95ac53a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33590947"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74348908"
 ---
 # <a name="creating-deleting-and-moving-files-and-directories-in-visual-basic"></a>Visual Basic でのファイルおよびディレクトリの作成、削除、および移動
+
 このセクションでは、Visual Basic でのファイルとディレクトリの作成、削除、移動、名前変更に関連するタスクを列挙します。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
+
  [方法: 特定のパターンを持つファイルをディレクトリにコピーする](../../../../visual-basic/developing-apps/programming/drives-directories-files/how-to-copy-files-with-a-specific-pattern-to-a-directory.md)  
  特定のファイル名パターンを持つファイルをディレクトリにコピーする方法を示します。たとえば、.txt ファイルのみをコピーします。  
   
@@ -75,7 +77,8 @@ ms.locfileid: "33590947"
  [方法: ファイル パスを解析する](../../../../visual-basic/developing-apps/programming/drives-directories-files/how-to-parse-file-paths.md)  
  `My` メソッドを使用し、ファイル パスを結合する方法を示します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
+
  <xref:Microsoft.VisualBasic.FileIO.FileSystem>  
  `My.Computer.FileSystem` オブジェクトとそのメンバーについて説明します。  
   
@@ -116,6 +119,7 @@ ms.locfileid: "33590947"
  `SpecialDirectories` オブジェクトについて説明します。  
   
 ## <a name="related-sections"></a>関連項目  
+
  [ファイルの読み取り](../../../../visual-basic/developing-apps/programming/drives-directories-files/reading-from-files.md)  
  ファイルの読み取りに関連するタスクを一覧表示します。  
   

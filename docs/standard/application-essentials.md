@@ -5,14 +5,12 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - .NET Framework development
 ms.assetid: 653da4ba-3752-4d1f-a08a-de017dc86ecc
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d993042cbb435826b92bbcc62f1320a310a02627
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 494f3305f225e0130df30433f3fa0d06ca218068
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72320020"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73122546"
 ---
 # <a name="net-framework-application-essentials"></a>.NET Framework アプリケーションの基本事項
 .NET Framework ドキュメントのこのセクションでは、.NET Framework での基本的なアプリケーション開発タスクに関する情報を提供します。  

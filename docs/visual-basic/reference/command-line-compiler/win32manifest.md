@@ -1,17 +1,17 @@
 ---
-title: -win32manifest (Visual Basic)
+title: -win32manifest
 ms.date: 03/13/2018
 helpviewer_keywords:
 - /win32manifest compiler option [Visual Basic]
 - win32manifest compiler option [Visual Basic]
 - -win32manifest compiler option [Visual Basic]
 ms.assetid: 9e3191b4-90db-41c8-966a-28036fd20005
-ms.openlocfilehash: cae6b34aadf6698a337e52aa1ea1ce44206836ac
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: cef1e6c19e7fdd6fc9f42c8fc36008314ea80a80
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72004627"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74349131"
 ---
 # <a name="-win32manifest-visual-basic"></a>-win32manifest (Visual Basic)
 プロジェクトのポータブル実行可能 (PE) ファイルに埋め込まれる、ユーザー定義の Win32 アプリケーション マニフェスト ファイルを識別します。  
@@ -24,7 +24,7 @@ ms.locfileid: "72004627"
   
 ## <a name="arguments"></a>引数  
   
-|項目|定義|  
+|用語|Definition|  
 |---|---|  
 |`fileName`|カスタムマニフェストファイルのパス。|  
   
@@ -38,11 +38,11 @@ ms.locfileid: "72004627"
   
  次のいずれかの条件に該当する場合、アプリケーションは仮想化の対象になります。  
   
-1. @No__t-0 オプションを使用していて、後のビルド手順でマニフェストを提供していないか、または `-win32resource` オプションを使用して Windows リソース (.res) ファイルの一部として指定されていません。  
+1. `-nowin32manifest` オプションを使用していて、後のビルド手順でマニフェストを提供していないか、または `-win32resource` オプションを使用して Windows リソース (.res) ファイルの一部として指定されていません。  
   
 2. 要求実行レベルが指定されていないカスタム マニフェストを提供している。  
   
- Visual Studio は、既定の .manifest ファイルを作成し、それを実行可能ファイルと一緒にデバッグ ディレクトリとリリース ディレクトリに保存します。 既定のアプリケーションマニフェストファイルを表示または編集するには、プロジェクトデザイナーの **[アプリケーション]** タブで **[UAC 設定の表示]** をクリックします。 詳細については、「[[アプリケーション] ページ (プロジェクト デザイナー) (Visual Basic)](/visualstudio/ide/reference/application-page-project-designer-visual-basic)」を参照してください。  
+ Visual Studio は、既定の .manifest ファイルを作成し、それを実行可能ファイルと一緒にデバッグ ディレクトリとリリース ディレクトリに保存します。 既定のアプリケーションマニフェストファイルを表示または編集するには、プロジェクトデザイナーの **[アプリケーション]** タブで **[UAC 設定の表示]** をクリックします。 詳細については、「 [Application Page, Project Designer (Visual Basic)](/visualstudio/ide/reference/application-page-project-designer-visual-basic)」を参照してください。  
   
  アプリケーションマニフェストは、カスタムのビルド後の手順として提供することも、`-nowin32manifest` オプションを使用して Win32 リソースファイルの一部として指定することもできます。 アプリケーションを Windows Vista でファイルまたはレジストリの仮想化の対象にする場合は、これと同じオプションを使用します。 これにより、コンパイラは既定のマニフェストを作成し、PE ファイルに埋め込むことができなくなります。  
   
@@ -66,7 +66,7 @@ ms.locfileid: "72004627"
 </assembly>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [Visual Basic のコマンド ライン コンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
+- [Visual Basic コマンドラインコンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
 - [-nowin32manifest (Visual Basic)](../../../visual-basic/reference/command-line-compiler/nowin32manifest.md)

@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル: 暗号化アプリケーションの作成'
+title: 'チュートリアル : 暗号化アプリケーションの作成'
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 dev_langs:
@@ -10,16 +10,14 @@ helpviewer_keywords:
 - cryptography [NET Framework], cryptographic application example
 - cryptography [NET Framework], application example
 ms.assetid: abf48c11-1e72-431d-9562-39cf23e1a8ff
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: ee6dafa8578c59d23908bf0e184091bb4ceaeb45
-ms.sourcegitcommit: 5ae5a1a9520b8b8b6164ad728d396717f30edafc
+ms.openlocfilehash: 6e2d9b8bebdfd2ea5d5507cc73d444fa8bf785fb
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70895287"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75705835"
 ---
-# <a name="walkthrough-creating-a-cryptographic-application"></a>チュートリアル: 暗号化アプリケーションの作成
+# <a name="walkthrough-creating-a-cryptographic-application"></a>チュートリアル : 暗号化アプリケーションの作成
 このチュートリアルでは、コンテンツの暗号化および復号化の方法を示します。 コード例は、Windows フォーム アプリケーション向けに設計されています。 このアプリケーションは、スマート カードを使用するなどの実際のシナリオは示していません。 代わりに、暗号化と復号化の基礎を示しています。  
   
  このチュートリアルでは、次の暗号化のガイドラインを使用します。  
@@ -45,7 +43,7 @@ ms.locfileid: "70895287"
 |公開キーのインポート|キーを XML ファイルからキー コンテナーに読み込みます。|  
 |アプリケーションのテスト|このアプリケーションをテストするための手順を一覧に示します。|  
   
-## <a name="prerequisites"></a>必須コンポーネント  
+## <a name="prerequisites"></a>[前提条件]  
  このチュートリアルを実行するには、次のコンポーネントが必要です。  
   
 - <xref:System.IO> 名前空間と <xref:System.Security.Cryptography> 名前空間への参照。  
@@ -53,7 +51,7 @@ ms.locfileid: "70895287"
 ## <a name="creating-a-windows-forms-application"></a>Windows フォーム アプリケーションの作成  
  このチュートリアルにあるほとんどのコード例は、ボタン コントロールのイベント ハンドラーとして設計されています。 次の表は、サンプル アプリケーションに必要なコントロールと、コード例に一致する必要な名前を示しています。  
   
-|コントロール|Name|テキストのプロパティ (必要に応じて)|  
+|Control|[名前]|テキストのプロパティ (必要に応じて)|  
 |-------------|----------|---------------------------------|  
 |<xref:System.Windows.Forms.Button>|`buttonEncryptFile`|ファイルの暗号化|  
 |<xref:System.Windows.Forms.Button>|`buttonDecryptFile`|ファイルの復号化|  
@@ -82,7 +80,7 @@ ms.locfileid: "70895287"
  [!code-vb[CryptoWalkThru#2](../../../samples/snippets/visualbasic/VS_Snippets_CLR/CryptoWalkThru/vb/Form1.vb#2)]  
   
 ## <a name="encrypting-a-file"></a>ファイルの暗号化  
- このタスクには、 `Encrypt File`ボタン (`buttonEncryptFile_Click`) のイベントハンドラーメソッドと`EncryptFile`メソッドの2つのメソッドが含まれます。 最初のメソッドは、ファイルを選択するためのダイアログ ボックスを表示し、暗号化を実行する 2 番目のメソッドにファイル名を渡します。  
+ このタスクには、`Encrypt File` ボタン (`buttonEncryptFile_Click`) のイベントハンドラーメソッドと `EncryptFile` メソッドの2つのメソッドが含まれます。 最初のメソッドは、ファイルを選択するためのダイアログ ボックスを表示し、暗号化を実行する 2 番目のメソッドにファイル名を渡します。  
   
  暗号化されたコンテンツ、キー、および IV は、すべて 1 つの <xref:System.IO.FileStream> に保存されます。これを暗号化パッケージといいます。  
   

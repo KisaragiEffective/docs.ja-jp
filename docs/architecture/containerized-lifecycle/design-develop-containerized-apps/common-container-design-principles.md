@@ -3,10 +3,10 @@ title: コンテナー設計の共通原則
 description: コンテナーでは 1 つのプロセスのみをホストする必要があるという、適切なコンテナー設計の基本原則について学習します。
 ms.date: 02/15/2019
 ms.openlocfilehash: 69f3ff6c9303f0c4082695d861a8c90031295b6a
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "68672499"
 ---
 # <a name="common-container-design-principles"></a>コンテナー設計の共通原則

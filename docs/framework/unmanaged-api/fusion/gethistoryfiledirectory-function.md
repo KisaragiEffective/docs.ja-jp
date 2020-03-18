@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 93232222-926e-42ac-b85d-8a6d33977672
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: adbbf94dc36c6d82360ed532b283cd666a1a52ed
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 1aabfad14ee2eb35916bbf115631602276cd1fc3
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796849"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73109890"
 ---
 # <a name="gethistoryfiledirectory-function"></a>GetHistoryFileDirectory 関数
 アプリケーション履歴ディレクトリのパスを取得します。  
@@ -48,17 +46,17 @@ HRESULT GetHistoryFileDirectory (
 |リターン コード|説明|  
 |-----------------|-----------------|  
 |S_OK|メソッドは正常に完了しました。|  
-|E_INVALIDARG|`wzDir`また`pdwSize`はが null であるか、またはバージョン文字列が正しくありません。|  
+|E_INVALIDARG|`wzDir` または `pdwSize` が null であるか、バージョン文字列が正しくありません。|  
   
 ## <a name="remarks"></a>Remarks  
- 正常に完了する`pdwSize`と、引数はパス文字列の長さに設定されます。  
+ 正常に完了すると、`pdwSize` の引数がパス文字列の長さに設定されます。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Fusion. h  
   
- **ライブラリ**Fusion .dll と Mscorwks.dll。 Mscorwks.dll の代わりに Fusion を使用して、正しいバージョンの .NET Framework を対象としていることを確認してください。  
+ **ライブラリ:** Fusion .dll と Mscorwks.dll。 Mscorwks.dll の代わりに Fusion を使用して、正しいバージョンの .NET Framework を対象としていることを確認してください。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v11plus](../../../../includes/net-current-v11plus-md.md)]  
   

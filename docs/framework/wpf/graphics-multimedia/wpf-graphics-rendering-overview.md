@@ -1,5 +1,5 @@
 ---
-title: WPF グラフィックス レンダリングの概要
+title: グラフィックスレンダリングの概要
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,37 +8,37 @@ helpviewer_keywords:
 - graphics [WPF], rendering
 - rendering graphics [WPF]
 ms.assetid: 6dec9657-4d8c-4e46-8c54-40fb80008265
-ms.openlocfilehash: 09f5f026ed320aaa253d8cdf6e0b271235aff604
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: 103d086857bce8ae0960452bb92a69b68dc49dfa
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72004171"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744807"
 ---
 # <a name="wpf-graphics-rendering-overview"></a>WPF グラフィックス レンダリングの概要
-ここでは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] のビジュアル層の概要について説明します。 この記事では、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] モデルでレンダリングをサポートするための <xref:System.Windows.Media.Visual> クラスの役割に焦点を当てています。  
+ここでは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] のビジュアル層の概要について説明します。 この記事では、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] モデルでのレンダリングのサポートのための <xref:System.Windows.Media.Visual> クラスの役割に焦点を当てています。  
 
 <a name="role_of_visual_object"></a>   
 ## <a name="role-of-the-visual-object"></a>ビジュアル オブジェクトの役割  
- @No__t-0 クラスは、すべての <xref:System.Windows.FrameworkElement> オブジェクトが派生する基本抽象化です。 また、このクラスは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] で新しいコントロールを作成するためのエントリ ポイントとしても機能し、多くの点で Win32 アプリケーション モデルのウィンドウ ハンドル (HWND) と考えることができます。  
+ <xref:System.Windows.Media.Visual> クラスは、すべての <xref:System.Windows.FrameworkElement> オブジェクトが派生する基本抽象化です。 また、このクラスは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] で新しいコントロールを作成するためのエントリ ポイントとしても機能し、多くの点で Win32 アプリケーション モデルのウィンドウ ハンドル (HWND) と考えることができます。  
   
- @No__t 0 オブジェクトは主要な [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] オブジェクトであり、プライマリロールがレンダリングサポートを提供します。 @No__t-0 や <xref:System.Windows.Controls.TextBox> などのユーザーインターフェイスコントロールは、<xref:System.Windows.Media.Visual> クラスから派生し、レンダリングデータを保持するために使用します。 @No__t 0 オブジェクトでは、次の機能がサポートされています。  
+ <xref:System.Windows.Media.Visual> オブジェクトは、レンダリングサポートを提供する主要な役割を持つ主要な [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] オブジェクトです。 <xref:System.Windows.Controls.Button> や <xref:System.Windows.Controls.TextBox>などのユーザーインターフェイスコントロールは <xref:System.Windows.Media.Visual> クラスから派生し、レンダリングデータを保持するために使用されます。 <xref:System.Windows.Media.Visual> オブジェクトは、次の機能をサポートします。  
   
-- 出力の表示:ビジュアルの永続化された、シリアル化された描画コンテンツをレンダリングしています。  
+- 出力表示: ビジュアルの、シリアル化された永続的な描画内容をレンダリングします。  
   
-- 転換ビジュアルで変換を実行する。  
+- 変換: ビジュアルで変換を実行します。  
   
-- クリッピングビジュアルのクリッピング領域のサポートを提供します。  
+- クリッピング: ビジュアルのクリッピング領域をサポートします。  
   
-- ヒットテスト:座標またはジオメトリがビジュアルの境界内に含まれるかどうかを判断します。  
+- ヒット テスト: 座標またはジオメトリがビジュアルの境界内に含まれているかどうかを判断します。  
   
-- 境界ボックスの計算:ビジュアルの外接する四角形を決定する。  
+- 境界ボックスの計算: ビジュアルの四角形領域を決定します。  
   
- ただし、@no__t 0 のオブジェクトには、次のような非レンダリング機能のサポートは含まれていません。  
+ ただし、<xref:System.Windows.Media.Visual> オブジェクトには、次のような非レンダリング機能のサポートは含まれていません。  
   
 - イベント処理  
   
-- レイアウト  
+- [レイアウト]  
   
 - スタイル  
   
@@ -51,85 +51,85 @@ ms.locfileid: "72004171"
  ![Visual オブジェクトから派生したクラスのダイアグラム](./media/wpf-graphics-rendering-overview/classes-derived-visual-object.png)    
   
 ### <a name="drawingvisual-class"></a>DrawingVisual クラス  
- @No__t-0 は、図形、画像、またはテキストを表示するために使用される軽量の描画クラスです。 このクラスが軽量と見なされる理由は、レイアウトやイベントの処理を行わないため、実行時のパフォーマンスが向上するからです。 そのため、背景やクリップ アートの描画に適しています。 @No__t 0 を使用して、カスタムビジュアルオブジェクトを作成できます。 詳しくは、「[DrawingVisual オブジェクトの使用](using-drawingvisual-objects.md)」をご覧ください。  
+ <xref:System.Windows.Media.DrawingVisual> は、図形、画像、またはテキストを表示するために使用される軽量の描画クラスです。 このクラスが軽量と見なされる理由は、レイアウトやイベントの処理を行わないため、実行時のパフォーマンスが向上するからです。 このため、背景やクリップ アートの描画に適しています。 <xref:System.Windows.Media.DrawingVisual> を使用すると、カスタムビジュアルオブジェクトを作成できます。 詳しくは、「[DrawingVisual オブジェクトの使用](using-drawingvisual-objects.md)」を参照してください。  
   
 ### <a name="viewport3dvisual-class"></a>Viewport3DVisual クラス  
- @No__t-0 は、2D <xref:System.Windows.Media.Visual> と @no__t 2 つのオブジェクト間のブリッジを提供します。 @No__t-0 クラスは、すべての3D ビジュアル要素の基本クラスです。 @No__t-0 では、@no__t 1 の値と @no__t 2 の値を定義する必要があります。 カメラを使用するとシーンを表示できます。 ビューポートは、投影が 2D サーフェイス上にマップされる場所を設定します。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] の 3D について詳しくは、「[3-D グラフィックスの概要](3-d-graphics-overview.md)」をご覧ください。  
+ <xref:System.Windows.Media.Media3D.Viewport3DVisual> は、2D <xref:System.Windows.Media.Visual> と <xref:System.Windows.Media.Media3D.Visual3D> オブジェクトの間のブリッジを提供します。 <xref:System.Windows.Media.Media3D.Visual3D> クラスは、すべての3D ビジュアル要素の基本クラスです。 <xref:System.Windows.Media.Media3D.Viewport3DVisual> では、<xref:System.Windows.Media.Media3D.Viewport3DVisual.Camera%2A> 値と <xref:System.Windows.Media.Media3D.Viewport3DVisual.Viewport%2A> 値を定義する必要があります。 カメラを使用するとシーンを表示できます。 ビューポートは、投影が 2D サーフェイス上にマップされる場所を設定します。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] の 3D について詳しくは、「[3-D グラフィックスの概要](3-d-graphics-overview.md)」をご覧ください。  
   
 ### <a name="containervisual-class"></a>ContainerVisual クラス  
- @No__t-0 クラスは、<xref:System.Windows.Media.Visual> オブジェクトのコレクションのコンテナーとして使用されます。 @No__t-0 クラスは、<xref:System.Windows.Media.ContainerVisual> クラスから派生し、ビジュアルオブジェクトのコレクションを格納できるようにします。  
+ <xref:System.Windows.Media.ContainerVisual> クラスは、<xref:System.Windows.Media.Visual> オブジェクトのコレクションのコンテナーとして使用されます。 <xref:System.Windows.Media.DrawingVisual> クラスは、<xref:System.Windows.Media.ContainerVisual> クラスから派生し、ビジュアルオブジェクトのコレクションを格納できるようにします。  
   
 ### <a name="drawing-content-in-visual-objects"></a>ビジュアル オブジェクトの描画コンテンツ  
- @No__t 0 オブジェクトは、そのレンダリングデータを**ベクターグラフィックス命令リスト**として格納します。 命令リスト内の各項目は、グラフィックス データと関連リソースの低レベル セットを、シリアル化された形式で表します。 描画コンテンツを格納できるレンダリング データには、次の 4 つの種類があります。  
+ <xref:System.Windows.Media.Visual> オブジェクトは、そのレンダリングデータを**ベクターグラフィックス命令リスト**として格納します。 命令リスト内の各項目は、グラフィックス データと関連リソースの低レベル セットを、シリアル化された形式で表します。 描画コンテンツを格納できるレンダリング データには、次の 4 つの種類があります。  
   
-|描画コンテンツの種類|説明|  
+|描画コンテンツの種類|[説明]|  
 |--------------------------|-----------------|  
-|ベクター グラフィックス|ベクターグラフィックスデータ、および関連付けられている @no__t 0 および <xref:System.Windows.Media.Pen> の情報を表します。|  
-|イメージ|@No__t によって定義される領域内のイメージを表します-0。|  
-|グリフ|指定されたフォントリソースからの一連のグリフである @no__t 0 をレンダリングする描画を表します。 テキストはこれによって表示されます。|  
+|ベクター グラフィックス|ベクターグラフィックスデータ、および関連付けられているすべての <xref:System.Windows.Media.Brush> と <xref:System.Windows.Media.Pen> 情報を表します。|  
+|Image|<xref:System.Windows.Rect>によって定義される領域内のイメージを表します。|  
+|グリフ|指定されたフォントリソースからの一連のグリフである <xref:System.Windows.Media.GlyphRun>を表示する描画を表します。 テキストはこれによって表示されます。|  
 |ビデオ|ビデオをレンダリングする描画を表します。|  
   
- @No__t-0 を使用すると、@no__t にビジュアルコンテンツを設定できます。 @No__t 0 オブジェクトの描画コマンドを使用する場合、実際には、グラフィックスシステムによって使用されるレンダリングデータのセットを格納します。リアルタイムで画面に描画していません。  
+ <xref:System.Windows.Media.DrawingContext> を使用すると、<xref:System.Windows.Media.Visual> にビジュアルコンテンツを設定できます。 <xref:System.Windows.Media.DrawingContext> オブジェクトの描画コマンドを使用する場合、実際には、グラフィックスシステムによって使用されるレンダリングデータのセットを格納します。リアルタイムで画面に描画していません。  
   
- @No__t-1 などの @no__t 0 コントロールを作成すると、コントロールによって描画用のレンダリングデータが暗黙的に生成されます。 たとえば、<xref:System.Windows.Controls.Button> の <xref:System.Windows.Controls.ContentControl.Content%2A> プロパティを設定すると、コントロールはグリフのレンダリング表現を格納します。  
+ <xref:System.Windows.Controls.Button>などの [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コントロールを作成すると、コントロールによって描画用のレンダリングデータが暗黙的に生成されます。 たとえば、<xref:System.Windows.Controls.Button> の [<xref:System.Windows.Controls.ContentControl.Content%2A>] プロパティを設定すると、コントロールにグリフのレンダリング表現が格納されます。  
   
- @No__t-0 は、<xref:System.Windows.Media.DrawingGroup> 内に含まれる1つ以上の @no__t 1 オブジェクトとしてそのコンテンツを記述します。 @No__t-0 も、不透明マスク、変換、ビットマップ効果、およびその内容に適用されるその他の操作について説明します。 @no__t 0 の操作は、コンテンツがレンダリングされるときに、<xref:System.Windows.Media.DrawingGroup.OpacityMask%2A>、<xref:System.Windows.Media.DrawingGroup.Opacity%2A>、<xref:System.Windows.Media.DrawingGroup.BitmapEffect%2A>、<xref:System.Windows.Media.DrawingGroup.ClipGeometry%2A>、<xref:System.Windows.Media.DrawingGroup.GuidelineSet%2A>、<xref:System.Windows.Media.DrawingGroup.Transform%2A> の順に適用されます。  
+ <xref:System.Windows.Media.Visual> は、<xref:System.Windows.Media.DrawingGroup>内に含まれる1つ以上の <xref:System.Windows.Media.Drawing> オブジェクトとしてそのコンテンツを記述します。 <xref:System.Windows.Media.DrawingGroup> は、不透明マスク、変換、ビットマップ効果、およびその内容に適用されるその他の操作についても説明します。 <xref:System.Windows.Media.DrawingGroup> 操作は、コンテンツがレンダリングされるときに、<xref:System.Windows.Media.DrawingGroup.OpacityMask%2A>、<xref:System.Windows.Media.DrawingGroup.Opacity%2A>、<xref:System.Windows.Media.DrawingGroup.BitmapEffect%2A>、<xref:System.Windows.Media.DrawingGroup.ClipGeometry%2A>、<xref:System.Windows.Media.DrawingGroup.GuidelineSet%2A>、<xref:System.Windows.Media.DrawingGroup.Transform%2A>の順に適用されます。  
   
  次の図は、レンダリングシーケンス中に <xref:System.Windows.Media.DrawingGroup> 操作が適用される順序を示しています。  
   
- ![操作の graphcismm_drawinggroup_order (図面グループの順序](./media/graphcismm-drawinggroup-order.png "") )  
+ ![DrawingGroup の操作の順序](./media/graphcismm-drawinggroup-order.png "graphcismm_drawinggroup_order")  
 DrawingGroup の操作の順序  
   
  詳しくは、「[Drawing オブジェクトの概要](drawing-objects-overview.md)」をご覧ください。  
   
 #### <a name="drawing-content-at-the-visual-layer"></a>ビジュアル層での描画コンテンツ  
- @No__t を直接インスタンス化することはありません-0;ただし、<xref:System.Windows.Media.DrawingGroup.Open%2A?displayProperty=nameWithType> や <xref:System.Windows.Media.DrawingVisual.RenderOpen%2A?displayProperty=nameWithType> などの特定のメソッドから描画コンテキストを取得することはできます。 次の例では、<xref:System.Windows.Media.DrawingVisual> から <xref:System.Windows.Media.DrawingContext> を取得し、それを使用して四角形を描画します。  
+ <xref:System.Windows.Media.DrawingContext>を直接インスタンス化することはできません。ただし、<xref:System.Windows.Media.DrawingGroup.Open%2A?displayProperty=nameWithType> や <xref:System.Windows.Media.DrawingVisual.RenderOpen%2A?displayProperty=nameWithType>などの特定のメソッドから描画コンテキストを取得することはできます。 次の例では、<xref:System.Windows.Media.DrawingVisual> から <xref:System.Windows.Media.DrawingContext> を取得し、それを使用して四角形を描画します。  
   
  [!code-csharp[drawingvisualsample#101](~/samples/snippets/csharp/VS_Snippets_Wpf/DrawingVisualSample/CSharp/Window1.xaml.cs#101)]
  [!code-vb[drawingvisualsample#101](~/samples/snippets/visualbasic/VS_Snippets_Wpf/DrawingVisualSample/visualbasic/window1.xaml.vb#101)]  
   
 #### <a name="enumerating-drawing-content-at-the-visual-layer"></a>ビジュアル層で描画コンテンツを列挙する  
- @No__t-0 オブジェクトは、他の用途に加えて、<xref:System.Windows.Media.Visual> の内容を列挙するためのオブジェクトモデルも提供します。  
+ <xref:System.Windows.Media.Drawing> オブジェクトは、他の用途に加えて、<xref:System.Windows.Media.Visual>の内容を列挙するためのオブジェクトモデルも提供します。  
   
 > [!NOTE]
-> ビジュアルの内容を列挙する場合、ベクターグラフィックス命令リストとしてレンダリングデータの基になる表現ではなく、@no__t 0 のオブジェクトを取得します。  
+> ビジュアルの内容を列挙する場合、ベクターグラフィックス命令リストとしてレンダリングデータの基になる表現ではなく、<xref:System.Windows.Media.Drawing> オブジェクトを取得します。  
   
- 次の例では、<xref:System.Windows.Media.VisualTreeHelper.GetDrawing%2A> メソッドを使用して、<xref:System.Windows.Media.Visual> の <xref:System.Windows.Media.DrawingGroup> 値を取得し、それを列挙します。  
+ 次の例では、<xref:System.Windows.Media.VisualTreeHelper.GetDrawing%2A> メソッドを使用して <xref:System.Windows.Media.Visual> の <xref:System.Windows.Media.DrawingGroup> 値を取得し、それを列挙します。  
   
  [!code-csharp[DrawingMiscSnippets_snip#GraphicsMMRetrieveDrawings](~/samples/snippets/csharp/VS_Snippets_Wpf/DrawingMiscSnippets_snip/CSharp/EnumerateDrawingsExample.xaml.cs#graphicsmmretrievedrawings)]  
   
 <a name="how_visual_objects_are_used_to_build_controls"></a>   
 ## <a name="how-visual-objects-are-used-to-build-controls"></a>ビジュアル オブジェクトを使用してコントロールをビルドする方法  
- [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] のオブジェクトの多くは、他のビジュアル オブジェクトで構成されています。そのため、それらのオブジェクトには、子孫オブジェクトのさまざまな階層を格納することができます。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] のユーザー インターフェイス要素 (コントロールなど) の多くは、さまざまな種類のレンダリング要素を表す、複数のビジュアル オブジェクトで構成されています。 たとえば、@no__t 0 コントロールには、<xref:Microsoft.Windows.Themes.ClassicBorderDecorator>、<xref:System.Windows.Controls.ContentPresenter>、<xref:System.Windows.Controls.TextBlock> など、他の多くのオブジェクトを含めることができます。  
+ [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] のオブジェクトの多くは、他のビジュアル オブジェクトで構成されています。そのため、それらのオブジェクトには、子孫オブジェクトのさまざまな階層を格納することができます。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] のユーザー インターフェイス要素 (コントロールなど) の多くは、さまざまな種類のレンダリング要素を表す、複数のビジュアル オブジェクトで構成されています。 たとえば、<xref:System.Windows.Controls.Button> コントロールには、<xref:Microsoft.Windows.Themes.ClassicBorderDecorator>、<xref:System.Windows.Controls.ContentPresenter>、<xref:System.Windows.Controls.TextBlock>など、他の多くのオブジェクトを含めることができます。  
   
- 次のコードは、マークアップで定義されている @no__t 0 コントロールを示しています。  
+ 次のコードは、マークアップで定義されている <xref:System.Windows.Controls.Button> コントロールを示しています。  
   
  [!code-xaml[VisualsOverview#VisualsOverviewSnippet1](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualsOverview/CSharp/Window1.xaml#visualsoverviewsnippet1)]  
   
- 既定の @no__t 0 コントロールを構成するビジュアルオブジェクトを列挙すると、次に示すビジュアルオブジェクトの階層が表示されます。  
+ 既定の <xref:System.Windows.Controls.Button> コントロールを構成するビジュアルオブジェクトを列挙すると、次に示すビジュアルオブジェクトの階層が表示されます。  
   
  ![ビジュアル ツリー階層のダイアグラム](./media/wpf-graphics-rendering-overview/visual-object-diagram.gif) 
   
- @No__t 0 コントロールには、1つの @no__t 要素が含まれています。この要素には @no__t 2 つの要素が含まれています。 @No__t-0 要素は、<xref:System.Windows.Controls.Button> の境界線と背景を描画します。 @No__t-0 要素は、<xref:System.Windows.Controls.Button> の内容を表示します。 この場合、テキストを表示しているため、@no__t 0 の要素には、<xref:System.Windows.Controls.TextBlock> の要素が含まれます。 @No__t 0 コントロールが <xref:System.Windows.Controls.ContentPresenter> を使用するということは、<xref:System.Windows.Controls.Image> や @no__t geometry などの他の要素でコンテンツを表すことができることを意味します。  
+ <xref:System.Windows.Controls.Button> コントロールには、<xref:Microsoft.Windows.Themes.ClassicBorderDecorator> 要素が含まれています。この要素には <xref:System.Windows.Controls.ContentPresenter> 要素が含まれています。 <xref:Microsoft.Windows.Themes.ClassicBorderDecorator> 要素は、<xref:System.Windows.Controls.Button>の境界線と背景を描画します。 <xref:System.Windows.Controls.ContentPresenter> 要素は、<xref:System.Windows.Controls.Button>の内容を表示します。 この場合、テキストを表示しているため、<xref:System.Windows.Controls.ContentPresenter> 要素には <xref:System.Windows.Controls.TextBlock> 要素が含まれます。 <xref:System.Windows.Controls.Button> コントロールが <xref:System.Windows.Controls.ContentPresenter> を使用するということは、コンテンツを他の要素 (<xref:System.Windows.Controls.Image> や、<xref:System.Windows.Media.EllipseGeometry>などのジオメトリ) で表すことができることを意味します。  
   
 ### <a name="control-templates"></a>コントロール テンプレート  
- コントロールの階層へのコントロールの展開の鍵となるのは、<xref:System.Windows.Controls.ControlTemplate> です。 コントロール テンプレートは、コントロールの既定のビジュアル階層を指定します。 コントロールを明示的に参照すると、コントロールのビジュアル階層が暗黙的に参照されます。 コントロール テンプレートの既定値をオーバーライドして、コントロールの外観をカスタマイズすることもできます。 たとえば、<xref:System.Windows.Controls.Button> コントロールの背景色の値を変更して、純色の値の代わりに線状グラデーションの色の値を使用することができます。 詳しくは、「[ボタンのスタイルとテンプレート](../controls/button-styles-and-templates.md)」をご覧ください。  
+ コントロールの階層にコントロールを展開する際の鍵となるのは、<xref:System.Windows.Controls.ControlTemplate>です。 コントロール テンプレートは、コントロールの既定のビジュアル階層を指定します。 コントロールを明示的に参照すると、コントロールのビジュアル階層が暗黙的に参照されます。 コントロール テンプレートの既定値をオーバーライドして、コントロールの外観をカスタマイズすることもできます。 たとえば、<xref:System.Windows.Controls.Button> コントロールの背景色の値を変更して、純色の値の代わりに線状グラデーションの色の値を使用することができます。 詳しくは、「[ボタンのスタイルとテンプレート](../controls/button-styles-and-templates.md)」をご覧ください。  
   
- @No__t 0 コントロールなどのユーザーインターフェイス要素には、コントロールのレンダリング定義全体を記述するいくつかのベクターグラフィックス命令リストが含まれています。 次のコードは、マークアップで定義されている @no__t 0 コントロールを示しています。  
+ <xref:System.Windows.Controls.Button> コントロールなどのユーザーインターフェイス要素には、コントロールのレンダリング定義全体を記述するいくつかのベクターグラフィックス命令リストが含まれています。 次のコードは、マークアップで定義されている <xref:System.Windows.Controls.Button> コントロールを示しています。  
   
  [!code-xaml[VisualsOverview#VisualsOverviewSnippet2](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualsOverview/CSharp/Window1.xaml#visualsoverviewsnippet2)]  
   
- @No__t 0 コントロールを構成するビジュアルオブジェクトとベクターグラフィックス命令リストを列挙すると、次の図に示すようなオブジェクトの階層が表示されます。  
+ <xref:System.Windows.Controls.Button> コントロールを構成するビジュアルオブジェクトとベクターグラフィックス命令リストを列挙すると、次の図に示すようなオブジェクトの階層が表示されます。  
   
  ![ビジュアル ツリーおよび描画データのダイアグラム](./media/wpf-graphics-rendering-overview/visual-tree-rendering-data.png)  
   
- @No__t 0 コントロールには、1つの @no__t 要素が含まれています。この要素には @no__t 2 つの要素が含まれています。 @No__t 0 要素は、ボタンの境界線と背景を構成するすべての不連続グラフィック要素を描画する役割を担います。 @No__t-0 要素は、<xref:System.Windows.Controls.Button> の内容を表示します。 この場合、イメージを表示しているため、@no__t 0 の要素には、@no__t 1 要素が含まれています。  
+ <xref:System.Windows.Controls.Button> コントロールには、<xref:Microsoft.Windows.Themes.ClassicBorderDecorator> 要素が含まれています。この要素には <xref:System.Windows.Controls.ContentPresenter> 要素が含まれています。 <xref:Microsoft.Windows.Themes.ClassicBorderDecorator> 要素は、ボタンの境界線と背景を構成するすべての不連続グラフィック要素を描画する役割を担います。 <xref:System.Windows.Controls.ContentPresenter> 要素は、<xref:System.Windows.Controls.Button>の内容を表示します。 この場合、イメージを表示しているため、<xref:System.Windows.Controls.ContentPresenter> 要素には <xref:System.Windows.Controls.Image> 要素が含まれます。  
   
  ビジュアル オブジェクトとベクター グラフィックス命令リストの階層については、次の点に注意する必要があります。  
   
 - 階層内の順序は、描画情報のレンダリング順序を表します。 子要素は、ルート ビジュアル要素を起点として、左から右、上から下に走査されます。 要素に子ビジュアル要素がある場合、子ビジュアル要素は要素の兄弟よりも先に走査されます。  
   
-- 階層内の非リーフノード要素 (<xref:System.Windows.Controls.ContentPresenter> など) は、子要素を格納するために使用されます。これには命令リストは含まれません。  
+- <xref:System.Windows.Controls.ContentPresenter>など、階層内の非リーフノード要素は、子要素を格納するために使用されます。これには、命令リストは含まれません。  
   
 - ビジュアル要素にベクター グラフィックス命令リストとビジュアル子の両方が含まれている場合は、ビジュアル子オブジェクトが描画される前に、親ビジュアル要素の命令リストがレンダリングされます。  
   
@@ -139,11 +139,11 @@ DrawingGroup の操作の順序
 ## <a name="visual-tree"></a>ビジュアル ツリー  
  ビジュアル ツリーには、アプリケーションのユーザー インターフェイスで使用されるすべてのビジュアル要素が含まれます。 ビジュアル要素には永続化された描画情報が含まれているので、ビジュアル ツリーは、ディスプレイ デバイスへの出力を構成するのに必要なレンダリング情報をすべて含んだ、シーン グラフであると考えることができます。 このツリーは、コードかマークアップかを問わず、アプリケーションで直接作成されたすべてのビジュアル要素を累積したものです。 ビジュアル ツリーには、コントロールやデータ オブジェクトなど、要素のテンプレート拡張によって作成されたビジュアル要素もすべて含まれます。  
   
- 次のコードは、マークアップで定義されている @no__t 0 要素を示しています。  
+ 次のコードは、マークアップで定義された <xref:System.Windows.Controls.StackPanel> 要素を示しています。  
   
  [!code-xaml[VisualsOverview#VisualsOverviewSnippet3](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualsOverview/CSharp/Window1.xaml#visualsoverviewsnippet3)]  
   
- マークアップの例で @no__t 0 要素を構成するビジュアルオブジェクトを列挙すると、次の図に示すようなビジュアルオブジェクトの階層が表示されます。  
+ マークアップの例で <xref:System.Windows.Controls.StackPanel> 要素を構成するビジュアルオブジェクトを列挙すると、次の図に示すようなビジュアルオブジェクトの階層が表示されます。  
   
  ![ビジュアル ツリー階層のダイアグラム](./media/wpf-graphics-rendering-overview/visual-tree-hierarchy.gif)  
   
@@ -153,28 +153,28 @@ DrawingGroup の操作の順序
  ![ビジュアルツリーの描画順序のダイアグラム](./media/wpf-graphics-rendering-overview/visual-tree-rendering-order.gif) 
   
 ### <a name="root-visual"></a>ルート ビジュアル  
- **ルート ビジュアル**は、ビジュアル ツリー階層内の最上位の要素です。 ほとんどのアプリケーションでは、ルートビジュアルの基底クラスは <xref:System.Windows.Window> または <xref:System.Windows.Navigation.NavigationWindow> のいずれかです。 ただし、ビジュアル オブジェクトを Win32 アプリケーションでホストする場合は、Win32 ウィンドウにホストする最上位のビジュアルがルート ビジュアルになります。 詳しくは、「[チュートリアル: Win32 アプリケーションでのビジュアルオブジェクトのホスト @ no__t-0。  
+ **ルート ビジュアル**は、ビジュアル ツリー階層内の最上位の要素です。 ほとんどのアプリケーションでは、ルートビジュアルの基底クラスは <xref:System.Windows.Window> または <xref:System.Windows.Navigation.NavigationWindow>です。 ただし、ビジュアル オブジェクトを Win32 アプリケーションでホストする場合は、Win32 ウィンドウにホストする最上位のビジュアルがルート ビジュアルになります。 詳しくは、「[チュートリアル: Win32 アプリケーションでのビジュアル オブジェクトのホスト](tutorial-hosting-visual-objects-in-a-win32-application.md)」をご覧ください。  
   
 ### <a name="relationship-to-the-logical-tree"></a>論理ツリーとの関係  
- [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] の論理ツリーは、実行時のアプリケーションの要素を表します。 このツリーを直接操作することはありませんが、アプリケーションのこのビューは、プロパティの継承やイベントのルーティングを理解する上で役立ちます。 ビジュアルツリーとは異なり、論理ツリーは、<xref:System.Windows.Documents.ListItem> などの非ビジュアルデータオブジェクトを表すことができます。 多くの場合、論理ツリーはアプリケーションのマークアップ定義にほぼ一致します。 次のコードは、マークアップで定義されている @no__t 0 要素を示しています。  
+ [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] の論理ツリーは、実行時のアプリケーションの要素を表します。 このツリーを直接操作することはありませんが、アプリケーションのこのビューは、プロパティの継承やイベントのルーティングを理解する上で役立ちます。 ビジュアルツリーとは異なり、論理ツリーは、<xref:System.Windows.Documents.ListItem>などの非ビジュアルデータオブジェクトを表すことができます。 多くの場合、論理ツリーはアプリケーションのマークアップ定義にほぼ一致します。 次のコードは、マークアップで定義された <xref:System.Windows.Controls.DockPanel> 要素を示しています。  
   
  [!code-xaml[VisualsOverview#VisualsOverviewSnippet5](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualsOverview/CSharp/Window1.xaml#visualsoverviewsnippet5)]  
   
- マークアップの例で @no__t 0 要素を構成する論理オブジェクトを列挙すると、次の図に示すような論理オブジェクトの階層が表示されます。  
+ マークアップの例で <xref:System.Windows.Controls.DockPanel> 要素を構成する論理オブジェクトを列挙すると、次の図に示すような論理オブジェクトの階層が表示されます。  
   
- ![ツリーダイアグラム](./media/tree1-wcp.gif "Tree1_wcp")  
+ ![ツリー ダイアグラム](./media/tree1-wcp.gif "Tree1_wcp")  
 論理ツリーのダイアグラム  
   
- ビジュアル ツリーと論理ツリーはどちらも、現在のアプリケーション要素セットと同期し、要素の追加、削除、または変更をすべて反映します。 ただし、これらのツリーが表すアプリケーションのビューはそれぞれ異なるものです。 ビジュアルツリーとは異なり、論理ツリーはコントロールの @no__t 0 要素を展開しません。 つまり、同じオブジェクト セットについて見ても、論理ツリーとビジュアルツリーの間に 1 対 1 の対応関係はありません。 実際、 **Logicaltreehelper**オブジェクトの <xref:System.Windows.LogicalTreeHelper.GetChildren%2A> メソッドと、パラメーターと同じ要素を使用した**VisualTreeHelper**オブジェクトの @no__t メソッドを呼び出すと、結果は異なります。  
+ ビジュアル ツリーと論理ツリーはどちらも、現在のアプリケーション要素セットと同期し、要素の追加、削除、または変更をすべて反映します。 ただし、これらのツリーが表すアプリケーションのビューはそれぞれ異なるものです。 ビジュアルツリーとは異なり、論理ツリーはコントロールの <xref:System.Windows.Controls.ContentPresenter> 要素を展開しません。 つまり、同じオブジェクト セットについて見ても、論理ツリーとビジュアルツリーの間に 1 対 1 の対応関係はありません。 実際、パラメーターと同じ要素を使用して、 **Logicaltreehelper**オブジェクトの <xref:System.Windows.LogicalTreeHelper.GetChildren%2A> メソッドと**VisualTreeHelper**オブジェクトの <xref:System.Windows.Media.VisualTreeHelper.GetChild%2A> メソッドを呼び出すと、結果は異なります。  
   
  論理ツリーについて詳しくは、「[WPF のツリー](../advanced/trees-in-wpf.md)」をご覧ください。  
   
 ### <a name="viewing-the-visual-tree-with-xamlpad"></a>XamlPad を使用したビジュアル ツリーの表示  
- @No__t 0 ツール XamlPad は、現在定義されている XAML コンテンツに対応するビジュアルツリーを表示および探索するためのオプションを提供します。 ビジュアル ツリーを表示するには、メニュー バーの **[Show Visual Tree]** (ビジュアル ツリーを表示) ボタンをクリックします。 次に示すのは、XamlPad の**ビジュアルツリーエクスプローラー**パネルで、ビジュアルツリーノードに XAML コンテンツを展開する方法を示しています。  
+ [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] ツール XamlPad は、現在定義されている XAML コンテンツに対応するビジュアルツリーを表示し、探索するためのオプションを提供します。 ビジュアル ツリーを表示するには、メニュー バーの **[Show Visual Tree]** (ビジュアル ツリーを表示) ボタンをクリックします。 次に示すのは、XamlPad の**ビジュアルツリーエクスプローラー**パネルで、ビジュアルツリーノードに XAML コンテンツを展開する方法を示しています。  
   
  ![XamlPad のビジュアル ツリー エクスプローラー パネル](./media/wpf-graphics-rendering-overview/visual-tree-explorer.png)  
 
- @No__t-0、<xref:System.Windows.Controls.TextBox>、および <xref:System.Windows.Controls.Button> コントロールが、XamlPad の**ビジュアルツリーエクスプローラー**パネルにそれぞれ個別のビジュアルオブジェクト階層を表示することに注意してください。 これは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コントロールは、そのコントロールのビジュアルツリーを含む <xref:System.Windows.Controls.ControlTemplate> を持つためです。 コントロールを明示的に参照すると、コントロールのビジュアル階層が暗黙的に参照されます。  
+ <xref:System.Windows.Controls.Label>、<xref:System.Windows.Controls.TextBox>、および <xref:System.Windows.Controls.Button> の各コントロールで、XamlPad の**ビジュアルツリーエクスプローラー**パネルにそれぞれ個別のビジュアルオブジェクト階層が表示されていることに注意してください。 これは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コントロールに、そのコントロールのビジュアルツリーを含む <xref:System.Windows.Controls.ControlTemplate> があるためです。 コントロールを明示的に参照すると、コントロールのビジュアル階層が暗黙的に参照されます。  
   
 ### <a name="profiling-visual-performance"></a>ビジュアル パフォーマンスのプロファイリング  
  [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] にはパフォーマンス プロファイリング ツールのセットがあります。アプリケーションの実行時動作を分析したり、適用できるパフォーマンス最適化の種類を決定したりできます。 Visual Profiler ツールでは、パフォーマンス データをアプリケーションのビジュアル ツリーに直接マップすることにより、それらのデータを多彩なグラフィカル ビューで表示できます。 このスクリーンショットでは、Visual Profiler の **[CPU 使用率]** セクションに、オブジェクトの [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] サービスの使用率が詳しく表示されています (レンダリングやレイアウトなど)。  
@@ -207,7 +207,7 @@ Visual Profiler 表示出力
   
  ![ラスター グラフィックスとベクター グラフィックスの違い](./media/wpf-graphics-rendering-overview/raster-vector-differences.png)  
   
- 次のマークアップは、定義されている2つの @no__t 0 要素を示しています。 2番目の要素は <xref:System.Windows.Media.ScaleTransform> を使用して、最初の要素の描画命令のサイズを 300% で変更します。 @No__t 0 の要素の描画命令は変更されていないことに注意してください。  
+ 次のマークアップは、定義されている2つの <xref:System.Windows.Shapes.Path> 要素を示しています。 2番目の要素は、<xref:System.Windows.Media.ScaleTransform> を使用して、最初の要素の描画命令のサイズを300% で変更します。 <xref:System.Windows.Shapes.Path> 要素の描画命令は変更されていないことに注意してください。  
   
  [!code-xaml[VectorGraphicsSnippets#VectorGraphicsSnippet1](~/samples/snippets/csharp/VS_Snippets_Wpf/VectorGraphicsSnippets/CS/PageOne.xaml#vectorgraphicssnippet1)]  
   
@@ -220,34 +220,34 @@ Visual Profiler 表示出力
   
  [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] では、ハードウェア ピクセルの代わりに、デバイス非依存のピクセルを主要測定単位として用いた、自動拡大縮小機能がサポートされています。つまり、アプリケーション開発者が手を加えなくても、グラフィックスとテキストが適切に拡大縮小されます。 次の図は、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] のテキストとグラフィックスが、さまざまな DPI でどのように表示されるかを示したものです。  
   
- ![異なる DPI 設定のグラフィックスとテキスト](./media/graphicsmm-dpi-setting-examples.png "graphicsmm_dpi_setting_examples")  
+ ![異なる DPI 設定のグラフィックとテキスト](./media/graphicsmm-dpi-setting-examples.png "graphicsmm_dpi_setting_examples")  
 異なる DPI 設定のグラフィックスとテキスト  
   
 <a name="visualtreehelper_class"></a>   
 ## <a name="visualtreehelper-class"></a>VisualTreeHelper クラス  
- @No__t 0 クラスは、ビジュアルオブジェクトレベルでのプログラミングのための低レベルの機能を提供する静的ヘルパークラスです。これは、高パフォーマンスのカスタムコントロールの開発など、非常に具体的なシナリオで役に立ちます。 ほとんどの場合、<xref:System.Windows.Controls.Canvas> や <xref:System.Windows.Controls.TextBlock> などの上位レベルの @no__t 0 framework オブジェクトでは、柔軟性と使いやすさが向上しています。  
+ <xref:System.Windows.Media.VisualTreeHelper> クラスは、visual オブジェクトレベルでプログラミングするための低レベルの機能を提供する静的ヘルパークラスです。これは、高パフォーマンスのカスタムコントロールの開発など、非常に具体的なシナリオで役立ちます。 ほとんどの場合、<xref:System.Windows.Controls.Canvas> や <xref:System.Windows.Controls.TextBlock>などの上位レベルの [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] framework オブジェクトを使用すると、柔軟性と使いやすさが向上します。  
   
 ### <a name="hit-testing"></a>ヒット テスト  
- @No__t-0 クラスは、既定のヒットテストのサポートがニーズを満たさない場合に、ビジュアルオブジェクトに対してヒットテストを行うためのメソッドを提供します。 @No__t-1 クラスの @no__t 0 メソッドを使用して、geometry 値またはポイント座標値が、コントロールやグラフィック要素など、特定のオブジェクトの境界内にあるかどうかを判断できます。 たとえば、ヒット テストを使用して、オブジェクトの四角形領域内でのマウス クリックが円のジオメトリ内にあるかどうかを確認することもできます。また、ヒット テストの既定の実装をオーバーライドして、独自のカスタム ヒット テスト計算を実行することもできます。  
+ <xref:System.Windows.Media.VisualTreeHelper> クラスは、既定のヒットテストのサポートがニーズに合わない場合に、ビジュアルオブジェクトに対してヒットテストを行うためのメソッドを提供します。 <xref:System.Windows.Media.VisualTreeHelper> クラスの <xref:System.Windows.Media.VisualTreeHelper.HitTest%2A> メソッドを使用すると、geometry または point 座標の値が、コントロールやグラフィック要素など、特定のオブジェクトの境界内にあるかどうかを判断できます。 たとえば、ヒット テストを使用して、オブジェクトの四角形領域内でのマウス クリックが円のジオメトリ内にあるかどうかを確認することもできます。また、ヒット テストの既定の実装をオーバーライドして、独自のカスタム ヒット テスト計算を実行することもできます。  
   
  ヒット テストについて詳しくは、「[ビジュアル層でのヒット テスト](hit-testing-in-the-visual-layer.md)」をご覧ください。  
   
 ### <a name="enumerating-the-visual-tree"></a>ビジュアル ツリーを列挙する  
- @No__t-0 クラスは、ビジュアルツリーのメンバーを列挙するための機能を提供します。 親を取得するには、<xref:System.Windows.Media.VisualTreeHelper.GetParent%2A> メソッドを呼び出します。 ビジュアルオブジェクトの子 (直接の子孫) を取得するには、<xref:System.Windows.Media.VisualTreeHelper.GetChild%2A> メソッドを呼び出します。 このメソッドは、指定されたインデックス位置にある親の子 @no__t 0 を返します。  
+ <xref:System.Windows.Media.VisualTreeHelper> クラスは、ビジュアルツリーのメンバーを列挙するための機能を提供します。 親を取得するには、<xref:System.Windows.Media.VisualTreeHelper.GetParent%2A> メソッドを呼び出します。 ビジュアルオブジェクトの子 (直接の子孫) を取得するには、<xref:System.Windows.Media.VisualTreeHelper.GetChild%2A> メソッドを呼び出します。 このメソッドは、指定したインデックス位置にある親の <xref:System.Windows.Media.Visual> 子を返します。  
   
  次の例に示すのは、ビジュアル オブジェクトのすべての子孫を列挙する方法です。これは、ビジュアル オブジェクト階層のすべての描画情報をシリアル化する必要がある場合に使用できる手法です。  
   
  [!code-csharp[VisualsOverview#101](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualsOverview/CSharp/Window1.xaml.cs#101)]
  [!code-vb[VisualsOverview#101](~/samples/snippets/visualbasic/VS_Snippets_Wpf/VisualsOverview/visualbasic/window1.xaml.vb#101)]  
   
- ほとんどの場合、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションの要素を表すのには、論理ツリーの方が役立ちます。 論理ツリーを直接変更することはありませんが、アプリケーションのこのビューは、プロパティの継承やイベントのルーティングを理解する上で役立ちます。 ビジュアルツリーとは異なり、論理ツリーは、<xref:System.Windows.Documents.ListItem> などの非ビジュアルデータオブジェクトを表すことができます。 論理ツリーについて詳しくは、「[WPF のツリー](../advanced/trees-in-wpf.md)」をご覧ください。  
+ ほとんどの場合、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションの要素を表すのには、論理ツリーの方が役立ちます。 論理ツリーを直接変更することはありませんが、アプリケーションのこのビューは、プロパティの継承やイベントのルーティングを理解する上で役立ちます。 ビジュアルツリーとは異なり、論理ツリーは、<xref:System.Windows.Documents.ListItem>などの非ビジュアルデータオブジェクトを表すことができます。 論理ツリーについて詳しくは、「[WPF のツリー](../advanced/trees-in-wpf.md)」をご覧ください。  
   
- @No__t-0 クラスは、ビジュアルオブジェクトの外接する四角形を返すメソッドを提供します。 @No__t-0 を呼び出すことによって、ビジュアルオブジェクトの外接する四角形を返すことができます。 @No__t-0 を呼び出すことによって、ビジュアルオブジェクト自体を含む、ビジュアルオブジェクトのすべての子孫の外接する四角形を返すことができます。 次のコードは、ビジュアル オブジェクトとそのすべての子孫の四角形領域を計算する方法を示したものです。  
+ <xref:System.Windows.Media.VisualTreeHelper> クラスには、ビジュアルオブジェクトの外接する四角形を返すメソッドが用意されています。 <xref:System.Windows.Media.VisualTreeHelper.GetContentBounds%2A>を呼び出すことによって、ビジュアルオブジェクトの外接する四角形を返すことができます。 <xref:System.Windows.Media.VisualTreeHelper.GetDescendantBounds%2A>を呼び出すことによって、ビジュアルオブジェクト自体を含む、ビジュアルオブジェクトのすべての子孫の外接する四角形を返すことができます。 次のコードは、ビジュアル オブジェクトとそのすべての子孫の四角形領域を計算する方法を示したものです。  
   
  [!code-csharp[VisualsOverview#102](~/samples/snippets/csharp/VS_Snippets_Wpf/VisualsOverview/CSharp/Window1.xaml.cs#102)]
  [!code-vb[VisualsOverview#102](~/samples/snippets/visualbasic/VS_Snippets_Wpf/VisualsOverview/visualbasic/window1.xaml.vb#102)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Media.Visual>
 - <xref:System.Windows.Media.VisualTreeHelper>
@@ -255,5 +255,5 @@ Visual Profiler 表示出力
 - [2D グラフィックスとイメージング](../advanced/optimizing-performance-2d-graphics-and-imaging.md)
 - [ビジュアル層でのヒット テスト](hit-testing-in-the-visual-layer.md)
 - [DrawingVisual オブジェクトの使用](using-drawingvisual-objects.md)
-- [チュートリアル: Win32 アプリケーションでのビジュアルオブジェクトのホスト @ no__t-0
+- [チュートリアル : Win32 アプリケーションでのビジュアル オブジェクトのホスト](tutorial-hosting-visual-objects-in-a-win32-application.md)
 - [WPF アプリケーションのパフォーマンスの最適化](../advanced/optimizing-wpf-application-performance.md)

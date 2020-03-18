@@ -4,17 +4,17 @@ description: C# で LINQ を使用して、連続するキーで結果をグル�
 ms.date: 08/14/2018
 ms.assetid: cbda9c08-151b-4c9e-82f7-c3d7f3dac66b
 ms.openlocfilehash: b5753c85bb07be4fc84b78a299eece961969ff9d
-ms.sourcegitcommit: fb78d8abbdb87144a3872cf154930157090dd933
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47193006"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "61659905"
 ---
 # <a name="group-results-by-contiguous-keys"></a>連続するキーで結果をグループ化する
 
 要素をグループ化し、連続するキーのサブシーケンスを表すチャンクにする方法を次の例に示します。 たとえば、次の一連のキーと値のペアがあるとします。
 
-|キー|[値]|
+|キー|値|
 |---------|-----------|
 |A|水|
 |A|think|
@@ -49,6 +49,6 @@ ms.locfileid: "47193006"
 
 プロジェクトで拡張メソッドを使用するには、`MyExtensions` 静的クラスを新規または既存のソース コード ファイルにコピーし、必要に応じて、配置されている名前空間の `using` ディレクティブを追加します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [統合言語クエリ (LINQ)](index.md)

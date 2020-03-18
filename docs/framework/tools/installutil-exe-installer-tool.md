@@ -13,14 +13,12 @@ helpviewer_keywords:
 - progress information for installation
 - reporting installation progress
 ms.assetid: 3f9d0533-f895-4897-b4ea-528284e0241d
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5ad0497bd5303dc4113dbb7b8078c70cb044cc95
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: caca946617c681ce6516b7184a9ea506cc67158d
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71044534"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73105074"
 ---
 # <a name="installutilexe-installer-tool"></a>Installutil.exe (インストーラー ツール)
 

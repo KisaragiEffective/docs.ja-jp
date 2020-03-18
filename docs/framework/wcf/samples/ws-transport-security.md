@@ -2,12 +2,12 @@
 title: WS トランスポート セキュリティ
 ms.date: 03/30/2017
 ms.assetid: 33a20358-5e1b-458a-a6a9-15753bc7b99b
-ms.openlocfilehash: 2d6e0bab3e7c8c86330bac3b51bb3dc61d3d894b
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 2b83dba2912e65ec78536b9a7051759be573b3ab
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70045367"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74714578"
 ---
 # <a name="ws-transport-security"></a>WS トランスポート セキュリティ
 このサンプルでは、<xref:System.ServiceModel.WSHttpBinding> バインディングを使用した SSL トランスポート セキュリティを示します。 既定で、`wsHttpBinding` バインディングは HTTP 通信を実現します。 トランスポート セキュリティ用に構成すると、バインディングは HTTPS 通信をサポートします。 このサンプルは、電卓サービスを実装する[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいています。 `wsHttpBinding` は、クライアントとサービスのアプリケーション構成ファイルに指定され、構成されます。  
@@ -20,7 +20,7 @@ ms.locfileid: "70045367"
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Binding\WS\wsTransportSecurity`  
   
@@ -51,7 +51,7 @@ ms.locfileid: "70045367"
   
  アドレス指定では https:// スキームを使用しています。 このバインド構成により、セキュリティ モードが `Transport` に設定されます。 同じセキュリティ モードが、サービスの Web.config ファイルで指定される必要があります。  
   
- このサンプルで使用される証明書は、Makecert で作成されたテスト証明書であるため、ブラウザーからなどの https: アドレス https://localhost/servicemodelsamples/service.svc にアクセスしようとすると、セキュリティの警告が表示されます。 Windows Communication Foundation (WCF) クライアントが適切なテスト証明書を使用できるようにするために、セキュリティの警告を抑制するために、いくつかの追加のコードがクライアントに追加されました。 そのためのコードとそれに必要なクラスは、本運用の証明書を使用するときには不要です。  
+ このサンプルで使用される証明書は、Makecert で作成されたテスト証明書であるため、ブラウザーから https: アドレス (https://localhost/servicemodelsamples/service.svc など) にアクセスしようとすると、セキュリティの警告が表示されます。 Windows Communication Foundation (WCF) クライアントが適切なテスト証明書を使用できるようにするために、セキュリティの警告を抑制するために、いくつかの追加のコードがクライアントに追加されました。 そのためのコードとそれに必要なクラスは、本運用の証明書を使用するときには不要です。  
 
 ```csharp
 // This code is required only for test certificates like those created by Makecert.exe.  
@@ -60,7 +60,7 @@ PermissiveCertificatePolicy.Enact("CN=ServiceModelSamples-HTTPS-Server");
 
  このサンプルを実行すると、操作要求および応答がクライアントのコンソール ウィンドウに表示されます。 クライアントをシャットダウンするには、クライアント ウィンドウで Enter キーを押します。  
   
-```  
+```console  
 Add(100,15.99) = 115.99  
 Subtract(145,76.54) = 68.46  
 Multiply(9,81.25) = 731.25  
@@ -73,7 +73,7 @@ Press <ENTER> to terminate client.
   
 1. 次のコマンドを使用して、ASP.NET 4.0 をインストールします。  
   
-    ```  
+    ```console  
     %windir%\Microsoft.NET\Framework\v4.0.XXXXX\aspnet_regiis.exe /i /enable  
     ```  
   

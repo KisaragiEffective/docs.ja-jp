@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 50a95b8b-9766-470e-bb29-2c7ecddfd4a1
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: e3ce0b9a40d5375f563662d73964d28724209dcd
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: eddc2f29da0efd9e56df710203b1d7621ffc27a0
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67758296"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136866"
 ---
 # <a name="couninitializecor-function"></a>CoUninitializeCor 関数
 `CoUninitializeCor` は互換性のために残されています。  
@@ -34,7 +32,7 @@ STDAPI_(void) CoUninitializeCor(void);
 ```  
   
 ## <a name="remarks"></a>Remarks  
- 共通言語ランタイムは、プロセスからアンロードすることはできません。 実行中のプロセスからランタイムを完全に削除するには、そのプロセスをシャット ダウンする必要があります。  
+ 共通言語ランタイムをプロセスからアンロードすることはできません。 実行中のプロセスからランタイムを完全に削除するには、そのプロセスをシャットダウンする必要があります。  
   
 ## <a name="see-also"></a>関連項目
 

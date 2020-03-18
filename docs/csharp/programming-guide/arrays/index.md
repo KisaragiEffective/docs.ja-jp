@@ -1,17 +1,16 @@
 ---
 title: 配列 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - arrays [C#]
 - C# language, arrays
 ms.assetid: bb79bdde-e570-4c30-adb0-1dd5759ae041
-ms.openlocfilehash: e31cff94c51c626c4b8f0e08df270c45a9cc1316
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: bbabc84c144e5b3415c19f346b890782e251662c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72772096"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75715057"
 ---
 # <a name="arrays-c-programming-guide"></a>配列 (C# プログラミング ガイド)
 
@@ -37,7 +36,7 @@ type[] arrayName;
 - ジャグ配列は配列の配列です。そのため、配列要素は参照型で、`null` に初期化されます。
 - 配列には、ゼロから始まるインデックスが付けられます。`n` 個の要素を含む配列には、`0` から `n-1` までのインデックスが付けられます。
 - 配列の要素および配列型は、どのような型でもかまいません。
-- 配列型は、抽象基本型 <xref:System.Array> から派生した[参照型](../../language-reference/keywords/reference-types.md)です。 この型は <xref:System.Collections.IEnumerable> と <xref:System.Collections.Generic.IEnumerable%601> を実装するので、C# のすべての配列で [foreach](../../language-reference/keywords/foreach-in.md) 反復処理を使用できます。
+- 配列型は、抽象基本型 [ から派生した](../../language-reference/keywords/reference-types.md)参照型<xref:System.Array>です。 この型は <xref:System.Collections.IEnumerable> と <xref:System.Collections.Generic.IEnumerable%601> を実装するので、C# のすべての配列で [foreach](../../language-reference/keywords/foreach-in.md) 反復処理を使用できます。
 
 ## <a name="related-sections"></a>関連項目
 
@@ -49,7 +48,7 @@ type[] arrayName;
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [コレクション](../concepts/collections.md)

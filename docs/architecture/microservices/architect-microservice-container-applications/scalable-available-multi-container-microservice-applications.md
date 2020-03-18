@@ -1,15 +1,15 @@
 ---
 title: 高いスケーラビリティと可用性のためにマイクロサービスと複数のコンテナー アプリケーションを調整する
 description: Kubernetes アプリケーション ライフサイクルを開発しながら、高いスケーラビリティおよび可用性と Azure Dev Spaces の可能性のためにマイクロサービスと複数のコンテナー アプリケーションを調整するオプションについて説明します。
-ms.date: 09/20/2018
-ms.openlocfilehash: f0efad0134ec95028ecd49ad8d294ae4813940e9
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.date: 01/30/2020
+ms.openlocfilehash: ea204941a461794fbeeb2482aa11973b79437027
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71834322"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77628502"
 ---
-# <a name="orchestrating-microservices-and-multi-container-applications-for-high-scalability-and-availability"></a>高いスケーラビリティと可用性のためにマイクロサービスと複数のコンテナー アプリケーションを調整する
+# <a name="orchestrate-microservices-and-multi-container-applications-for-high-scalability-and-availability"></a>高いスケーラビリティと可用性のためにマイクロサービスと複数のコンテナー アプリケーションを調整する
 
 アプリケーションがマイクロサービスに基づく場合や、単に複数のコンテナーに分割されている場合、運用可能なアプリケーションのオーケストレーターを使用することが不可欠です。 前述のとおり、マイクロサービス ベースの方法では、マイクロサービスはそれぞれモデルとデータを所有しているため、開発と展開の観点から自立していることになります。 ただし、複数のサービスで構成される従来のアプリケーション (SOA など) を使用する場合でも、分散システムとして展開する必要がある単一のビジネス アプリケーションを構成する複数のコンテナーまたはサービスを使用する場合もあります。 この種のシステムはスケールアウトや管理が複雑であるため、運用可能でスケーラブルな複数のコンテナー アプリケーションを使用する場合、どうしてもオーケストレーターが必要になります。
 
@@ -36,7 +36,7 @@ ms.locfileid: "71834322"
 ## <a name="software-platforms-for-container-clustering-orchestration-and-scheduling"></a>コンテナーのクラスタリング、オーケストレーション、スケジューリングのためのソフトウェア プラットフォーム
 
 |     |   |
-|-----|---|
+|:---:|---|
 | **Kubernetes** <br> ![Kubernetes ロゴの画像。](./media/scalable-available-multi-container-microservice-applications/kubernetes-container-orchestration-system-logo.png) | [*Kubernetes*](https://kubernetes.io/) はオープンソースの製品であり、クラスターのインフラストラクチャとコンテナーのスケジューリングからオーケストレーションまでのさまざまな機能を提供します。 ホストのクラスター全体のアプリケーション コンテナーの展開、スケーリング、操作を自動化できます。 <br><br> *Kubernetes* ではコンテナー中心のインフラストラクチャが提供され、アプリケーション コンテナーを論理ユニットにグループ化し、管理と検出を容易にします。 <br><br> *Kubernetes* は Linux では完成されていますが、Windows では未完成です。 |
 | **Azure Kubernetes Service (AKS)** <br> ![Azure Kubernetes Service のロゴの画像。](./media/scalable-available-multi-container-microservice-applications/azure-kubernetes-service-logo.png) | [AKS](https://azure.microsoft.com/services/kubernetes-service/) は、Azure でのマネージド Kubernetes コンテナー オーケストレーション サービスです。これによって、Kubernetes クラスターの管理、デプロイ、操作が簡略化されます。 |
 
@@ -60,21 +60,21 @@ Azure Kubernetes Service によって、一般的な Docker クラスタリン�
 
 ## <a name="development-environment-for-kubernetes"></a>Kubernetes 用の開発環境
 
-開発環境において、単に [Docker Desktop](https://docs.docker.com/install/) をインストールすることにより 1 台の開発マシン (Windows 10 または macOS) でも Kubernetes を実行できることが [2018 年 7 月に Docker から発表](https://blog.docker.com/2018/07/kubernetes-is-now-available-in-docker-desktop-stable-channel/)されました。 図 4-25 に示すように、さらなる統合テストを行うために、後でクラウド (AKS) にデプロイすることができます。
+開発環境において、単に [Docker Desktop](https://blog.docker.com/2018/07/kubernetes-is-now-available-in-docker-desktop-stable-channel/) をインストールすることにより 1 台の開発マシン (Windows 10 または macOS) でも Kubernetes を実行できることが [2018 年 7 月に Docker から発表](https://docs.docker.com/install/)されました。 図 4-25 に示すように、さらなる統合テストを行うために、後でクラウド (AKS) にデプロイすることができます。
 
-![開発マシン上にあり、AKS にデプロイされる Kubernetes を示す図](./media/scalable-available-multi-container-microservice-applications/kubernetes-development-environment.png) 
+![開発マシン上にあり、AKS にデプロイされる Kubernetes を示す図](./media/scalable-available-multi-container-microservice-applications/kubernetes-development-environment.png)
 
 **図 4-25** 開発マシンとクラウドでの Kubernetes の実行
 
-## <a name="getting-started-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) の使用の開始 
+## <a name="getting-started-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) の使用の開始
 
 AKS の使用を開始するには、Azure portal から、または CLI を使用して AKS クラスターをデプロイします。 Azure の Kubernetes クラスター デプロイの詳細については、[Azure Kubernetes Service (AKS) クラスターのデプロイ](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)に関するページを参照してください。
 
 AKS の一部として既定でインストールされるソフトウェアはいずれも無料です。 既定のすべてのオプションはオープン ソース ソフトウェアと共に実装されます。 AKS は Azure 内の複数の仮想マシンで使用できます。 選択したコンピューティング インスタンスと、ストレージやネットワーキングなどの利用された他の基になるインフラストラクチャ リソースにのみ課金されます。 AKS 自体に従量課金はありません。
 
-kubectl および元の .yaml ファイルに基づく Kubernetes へのデプロイの詳細については、[AKS (Azure Kubernetes Service) での eShopOnContainers の設定](https://github.com/dotnet-architecture/eShopOnContainers/wiki/10.-Setting-the-solution-up-in-AKS-(Azure-Kubernetes-Service))に関する投稿記事を参照してください。
+Kubernetes 用の既定の運用環境デプロイ オプションでは、次のセクションで説明する Helm Chart が使用されます。
 
-## <a name="deploying-with-helm-charts-into-kubernetes-clusters"></a>Helm Chart を使用した Kubernetes クラスターへのデプロイ
+## <a name="deploy-with-helm-charts-into-kubernetes-clusters"></a>Helm Chart を使用した Kubernetes クラスターへのデプロイ
 
 Kubernetes クラスターにアプリケーションをデプロイする場合は、前のセクションで既に述べたように、ネイティブ形式 (.yaml ファイル) に基づくデプロイ ファイルを使用することにより、元の kubectl.exe CLI ツールを使用できます。 ただし、複雑なマイクロサービス ベースのアプリケーションをデプロイする場合など、より複雑な Kubernetes アプリケーションについては、[Helm](https://helm.sh/) の使用をお勧めします。
 
@@ -84,7 +84,7 @@ Helm Chart を使用すると、非常に複雑な Kubernetes アプリケーシ
 
 Helm は、[Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/) が維持しています (Microsoft、Google、Bitnami、および Helm の共同作成者コミュニティとの協力で)。
 
-Helm Chart および Kubernetes の実装の詳細については、[Helm Chart を使用することによる AKS への eShopOnContainers のデプロイ](https://github.com/dotnet-architecture/eShopOnContainers/wiki/10.1-Deploying-to-AKS-using-Helm-Charts)に関する投稿記事を参照してください。
+Helm Chart および Kubernetes の実装の詳細については、[Helm Chart を使用した AKS への eShopOnContainers のデプロイ](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Deploy-to-Azure-Kubernetes-Service-(AKS))に関する投稿記事を参照してください。
 
 ## <a name="use-azure-dev-spaces-for-your-kubernetes-application-lifecycle"></a>ご利用の Kubernetes アプリケーション ライフ サイクルに対して Azure Dev Spaces を使用する
 
@@ -92,7 +92,7 @@ Helm Chart および Kubernetes の実装の詳細については、[Helm Chart 
 
 前述のように、Azure Dev Spaces では、コンテナー ベースのアプリケーションのデプロイ時に Helm Chart が使用されます。
 
-Azure Dev Spaces では、Visual Studio 2017 または Visual Studio Code を使用するだけで、Azure 内のグローバルな Kubernetes クラスターで直接、コードを迅速に反復およびデバッグすることができます。このため、Azure Dev Spaces は開発チームが Kubernetes での生産性を高めるのに役立ちます。 Azure 内の Kubernetes クラスターは共有されたマネージド Kubernetes クラスターであるため、チームは共同で作業を行うことができます。 コードを個別に開発してから、グローバル クラスターにデプロイし、依存関係のレプリケートやモックアップの作成なしで、他のコンポーネントでエンドツーエンド テストを実行することができます。
+Azure Dev Spaces では、Visual Studio 2019 または Visual Studio Code を使用するだけで、Azure 内のグローバルな Kubernetes クラスターで直接、コードを迅速に反復およびデバッグすることができます。このため、Azure Dev Spaces は開発チームが Kubernetes での生産性を高めるのに役立ちます。 Azure 内の Kubernetes クラスターは共有されたマネージド Kubernetes クラスターであるため、チームは共同で作業を行うことができます。 コードを個別に開発してから、グローバル クラスターにデプロイし、依存関係のレプリケートやモックアップの作成なしで、他のコンポーネントでエンドツーエンド テストを実行することができます。
 
 図 4-26 に示すように、Azure Dev Spaces の他と最も異なる機能は、クラスター内の残りのグローバル デプロイに統合された運用可能な "スペース" を作成できるということです。
 
@@ -106,11 +106,11 @@ Azure Dev Spaces ではスペースの概念が提供されます。これによ
 
 この機能は URL プレフィックスに基づいているため、URL で何らかの開発スペース プレフィックスを使用しているとき、要求は、ターゲット マイクロサービスが開発スペース内に存在する場合はそのマイクロサービスから処理されます。そうでない場合、要求は階層内で見つかったターゲット マイクロサービスの最初のインスタンスに、最終的には最上位のマスター開発スペースに転送されます。
 
-実際のビューの具体的な例を確認するには、[Azure Dev Spaces に関する eShopOnContainers wiki ページ](https://github.com/dotnet-architecture/eShopOnContainers/wiki/10.1-Using-Azure-Dev-Spaces-and-AKS)を参照してください。
+実際のビューの具体的な例を確認するには、[Azure Dev Spaces に関する eShopOnContainers Wiki ページ](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Azure-Dev-Spaces)を参照してください。
 
 詳細については、「[Azure Dev Spaces を使用したチーム開発](https://docs.microsoft.com/azure/dev-spaces/team-development-netcore)」を参照してください。
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 - **Azure Kubernetes Service (AKS) の使用の開始** \
   <https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal>

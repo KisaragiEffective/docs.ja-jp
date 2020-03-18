@@ -677,28 +677,28 @@ f1_keywords:
 helpviewer_keywords:
 - errors [C#], additional information
 ms.assetid: 48320e4a-6e17-45a6-9966-88c6ec89bd2f
-ms.openlocfilehash: f60c2e3caec215c60851e669eabf554617149096
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: bc19224f980091e6046494fd4d708af2b03041da
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72002166"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73419710"
 ---
 # <a name="sorry-we-dont-have-specifics-on-this-c-error"></a>申し訳ありませんが、この C# エラーに関する詳細情報はありません。
 
 申し訳ありませんが、このエラーに関する具体的な情報はありません。 Web でエラー番号とメッセージ テキストを検索して情報を探すことができます。 または、次のいずれかを使用して、他の開発者に問い合わせることもできます。
   
  [Msdn フォーラム-ビジュアルC#](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=csharpgeneral)  
- Visual C# を使用したその他のフォーラムで取り上げていない質問や一般的な議論のためのフォーラムを提供します。  
+ 他のフォーラムでは説明されていC#ない、ビジュアルに関する質問や問題に関するフォーラムを提供します。  
 
  [スタック オーバーフロー](https://stackoverflow.com/questions/tagged/c%23)  
 ビジュアルC#に関する質問や問題のための QA web サイトを提供します。  
 
  関連項目:  
- [Visual C# プログラマのための追加リソース](../getting-started/additional-resources.md)  
+ [Visual C# プログラマのための追加リソース](../getting-started/index.md)  
   
 ## <a name="see-also"></a>関連項目
 
-- [C# プログラミング ガイド](../programming-guide/index.md)
+- [C# プログラミングガイド](../programming-guide/index.md)
 - [C# リファレンス](../language-reference/index.md)
-- [ご意見](/visualstudio/ide/talk-to-us)
+- [ご意見](/visualstudio/ide/feedback-options)

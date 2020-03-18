@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: ed86185f-2152-459c-961f-10c06d62e83f
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 50dd4acece43628b20b6bc50a539ee197e865855
-ms.sourcegitcommit: 3caa92cb97e9f6c31f21769c7a3f7c4304024b39
+ms.openlocfilehash: cbc272070e9eb6810b34ec1f3fdc9e944c624cd3
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71274154"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73132383"
 ---
 # <a name="cor_active_function-structure"></a>COR_ACTIVE_FUNCTION 構造体
 スレッドのフレームで現在アクティブな機能に関する情報が含まれます。 この構造体は、 [ICorDebugThread2:: GetActiveFunctions](icordebugthread2-getactivefunctions-method.md)メソッドによって使用されます。  
@@ -42,18 +40,18 @@ typedef struct  _COR_ACTIVE_FUNCTION {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`pAppDomain`|`ilOffset`フィールドのアプリケーションドメイン所有者へのポインター。|  
-|`pModule`|`ilOffset`フィールドのモジュール所有者へのポインター。|  
-|`pFunction`|`ilOffset`フィールドの関数所有者へのポインター。|  
+|`pAppDomain`|`ilOffset` フィールドのアプリケーションドメイン所有者へのポインター。|  
+|`pModule`|`ilOffset` フィールドのモジュール所有者へのポインター。|  
+|`pFunction`|`ilOffset` フィールドの関数所有者へのポインター。|  
 |`ilOffset`|フレームの MSIL (Microsoft 中間言語) オフセット。|  
 |`flags`|将来の拡張のために予約されています。|  
   
-## <a name="requirements"></a>要件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug .idl  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

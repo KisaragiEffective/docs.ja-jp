@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: e8138f6e-a0a4-48d4-8dae-9466b4dc6180
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 917ebe3c2001a9bc87978685d7f9a19eb3d98220
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 2210dcd9e8a8af92b7905ec680c53c1119e6a3cf
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67767203"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136708"
 ---
 # <a name="ihostmemorymanagergetmemoryload-method"></a>IHostMemoryManager::GetMemoryLoad メソッド
-現在使用中で、したがって使用不可能で、ホストによって報告された、物理メモリの量を取得します。  
+ホストによって報告された、現在使用中の物理メモリの量を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,33 +36,33 @@ HRESULT GetMemoryLoad (
   
 ## <a name="parameters"></a>パラメーター  
  `pMemoryLoad`  
- [out]現在使用されている物理メモリの総量のおおよその割合へのポインター。  
+ 入出力現在使用されている合計物理メモリのおおよその割合を示すポインター。  
   
  `pAvailableBytes`  
- [out]共通言語ランタイム (CLR) に使用できるバイト数へのポインター。  
+ 入出力共通言語ランタイム (CLR) で使用可能なバイト数へのポインター。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`GetMemoryLoad` 正常に返されます。|  
-|HOST_E_CLRNOTAVAILABLE|プロセスに CLR が読み込まれていないか、CLR は状態をマネージ コードを実行または呼び出しを正常に処理ができません。|  
-|HOST_E_TIMEOUT|呼び出しがタイムアウトになりました。|  
+|S_OK|`GetMemoryLoad` が正常に返されました。|  
+|HOST_E_CLRNOTAVAILABLE|CLR がプロセスに読み込まれていないか、CLR がマネージドコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
+|HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
-|HOST_E_ABANDONED|イベントがキャンセルされましたブロックされたスレッドまたはファイバーが待機しています。|  
-|E_FAIL|不明な致命的なエラーが発生しました。 メソッドには、E_FAIL が返される、ときに、CLR は、プロセス内で使用可能ではなくなりました。 メソッドをホストする後続の呼び出しには、HOST_E_CLRNOTAVAILABLE が返されます。|  
+|HOST_E_ABANDONED|ブロックされたスレッドまたはファイバーが待機しているときに、イベントが取り消されました。|  
+|E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、そのプロセス内で CLR は使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
 ## <a name="remarks"></a>Remarks  
- `GetMemoryLoad` Win32 のラップ`GlobalMemoryStatus`関数。 値`pMemoryLoad`相当、`dwMemoryLoad`フィールドに、`MEMORYSTATUS`から返される構造体`GlobalMemoryStatus`します。  
+ `GetMemoryLoad` Win32 `GlobalMemoryStatus` 関数をラップします。 `pMemoryLoad` の値は、`GlobalMemoryStatus`から返された `MEMORYSTATUS` 構造体の `dwMemoryLoad` フィールドに相当します。  
   
- ランタイムは、ガベージ コレクターのヒューリスティックとして戻り値を使用します。 たとえば、ホストは、メモリの大部分が使用されているレポート、ガベージ コレクターが利用できるメモリの量を増やす複数世代から収集することがあります。  
+ ランタイムは、ガベージコレクターのヒューリスティックとして戻り値を使用します。 たとえば、ホストが大量のメモリを使用していることを報告した場合、ガベージコレクターは複数の世代から収集して、使用可能になる可能性があるメモリの量を増やすことができます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

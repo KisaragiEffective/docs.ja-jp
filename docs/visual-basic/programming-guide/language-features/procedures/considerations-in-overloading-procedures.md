@@ -1,5 +1,5 @@
 ---
-title: プロシージャのオーバーロードに関する注意事項 (Visual Basic)
+title: プロシージャのオーバーロードに関する注意事項
 ms.date: 07/20/2015
 helpviewer_keywords:
 - signatures [Visual Basic], ParamArray arguments
@@ -25,17 +25,17 @@ helpviewer_keywords:
 - restrictions [Visual Basic], overloading procedures
 - procedures [Visual Basic], parameter lists
 ms.assetid: a2001248-10d0-42c5-b0ce-eeedc987319f
-ms.openlocfilehash: bd5b0032ca63ccb2f2cc30d72a5b3f3c7eb3c346
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 4a0cfe176a59b3f90f5850ae8b4e34784c400c6b
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72775730"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351010"
 ---
 # <a name="considerations-in-overloading-procedures-visual-basic"></a>プロシージャのオーバーロードに関する注意事項 (Visual Basic)
 プロシージャをオーバーロードする場合は、オーバーロードされたバージョンごとに異なる*シグネチャ*を使用する必要があります。 これは通常、各バージョンで別のパラメーターリストを指定する必要があることを意味します。 詳細については、「[プロシージャのオーバーロード](./procedure-overloading.md)」の「別の署名」を参照してください。  
   
- @No__t_1 プロシージャを使用して `Function` プロシージャをオーバーロードすることができます。また、シグネチャが異なる場合は、その逆も可能です。 2つのオーバーロードは、一方が戻り値を持ち、もう一方が戻り値を持たない場合にのみ、異なることはできません。  
+ `Sub` プロシージャを使用して `Function` プロシージャをオーバーロードすることができます。また、シグネチャが異なる場合は、その逆も可能です。 2つのオーバーロードは、一方が戻り値を持ち、もう一方が戻り値を持たない場合にのみ、異なることはできません。  
   
  同じ制限を使用して、プロシージャをオーバーロードするのと同じ方法でプロパティをオーバーロードすることができます。 ただし、プロパティを使用してプロシージャをオーバーロードすることはできません。また、その逆もできません。  
   
@@ -83,7 +83,7 @@ ms.locfileid: "72775730"
  詳細については、「[パラメーター配列](./parameter-arrays.md)」を参照してください。  
   
 ## <a name="implicit-overloads-for-optional-parameters"></a>省略可能なパラメーターの暗黙のオーバーロード  
- [省略可能](../../../../visual-basic/language-reference/modifiers/optional.md)なパラメーターを持つプロシージャは、2つのオーバーロードされたプロシージャに相当します。1つは省略可能なパラメーターで、もう1つは使用しません。 このようなプロシージャは、これらのいずれかに対応するパラメーターリストを使用してオーバーロードすることはできません。 次の宣言はこれを示しています。  
+ [Optional](../../../../visual-basic/language-reference/modifiers/optional.md)なパラメーターを持つプロシージャは、2 つのオーバーロードされたプロシージャに相当します。1 つは省略可能なパラメーターで、もう 1 つは使用しません。 このようなプロシージャは、これらのいずれかに対応するパラメーターリストを使用してオーバーロードすることはできません。 次の宣言はこれを示しています。  
   
  [!code-vb[VbVbcnProcedures#58](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#58)]  
   
@@ -123,7 +123,7 @@ ms.locfileid: "72775730"
   
 ## <a name="see-also"></a>関連項目
 
-- [手順](./index.md)
+- [Visual Basic におけるプロシージャ](./index.md)
 - [プロシージャのパラメーターと引数](./procedure-parameters-and-arguments.md)
 - [プロシージャのトラブルシューティング](./troubleshooting-procedures.md)
 - [方法 : プロシージャの複数のバージョンを定義する](./how-to-define-multiple-versions-of-a-procedure.md)
@@ -131,4 +131,4 @@ ms.locfileid: "72775730"
 - [方法 : 省略可能なパラメーターを受け取るプロシージャをオーバーロードする](./how-to-overload-a-procedure-that-takes-optional-parameters.md)
 - [方法 : 不特定数のパラメーターを受け取るプロシージャをオーバーロードする](./how-to-overload-a-procedure-that-takes-an-indefinite-number-of-parameters.md)
 - [オーバーロードの解決](./overload-resolution.md)
-- [オーバーロード](../../../../visual-basic/language-reference/modifiers/overloads.md)
+- [Overloads](../../../../visual-basic/language-reference/modifiers/overloads.md)

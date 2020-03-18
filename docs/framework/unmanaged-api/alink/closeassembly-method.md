@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: f66a43bc-a5c5-4190-acbe-63fd27640634
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: b7828c86018724bb934de99cab4617f9885fdca6
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 70dca19075d8c896408ec78f89549b0c539280de
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70787607"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74446580"
 ---
 # <a name="closeassembly-method"></a>CloseAssembly メソッド
 アセンブリ操作を終了します。 新しいアセンブリまたは非バインドモジュールを開始する前に、このメソッドを呼び出します。  
@@ -40,12 +38,12 @@ HRESULT CloseAssembly(
  アセンブリの ID。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合、S_OK を返します。  
+ メソッドが成功した場合は S_OK を返します。  
   
-## <a name="requirements"></a>必要条件  
+## <a name="requirements"></a>要件  
  Alink. h が必要です。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IALink インターフェイス](ialink-interface.md)
 - [IALink2 インターフェイス](ialink2-interface.md)

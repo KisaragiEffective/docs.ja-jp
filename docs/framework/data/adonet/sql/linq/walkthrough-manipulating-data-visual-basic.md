@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル: データの操作 (Visual Basic)'
+title: 'チュートリアル : データの操作 (Visual Basic)'
 ms.date: 03/30/2017
 dev_langs:
 - vb
@@ -11,7 +11,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/07/2019
 ms.locfileid: "72003398"
 ---
-# <a name="walkthrough-manipulating-data-visual-basic"></a>チュートリアル: データの操作 (Visual Basic)
+# <a name="walkthrough-manipulating-data-visual-basic"></a>チュートリアル : データの操作 (Visual Basic)
 このチュートリアルでは、データベースに対してデータの追加、変更、および削除を行う、基本の [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] シナリオ全体を示します。 顧客の追加、顧客名の変更、および注文の削除を行うため、サンプルの Northwind データベースのコピーを使用します。  
   
  [!INCLUDE[note_settings_general](../../../../../../includes/note-settings-general-md.md)]  
@@ -38,7 +38,7 @@ ms.locfileid: "72003398"
 ## <a name="overview"></a>概要  
  このチュートリアルは、主に次の 6 つの手順で構成されています。  
   
-- Visual Studio で @no__t 0 ソリューションを作成する。  
+- Visual Studio で [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] ソリューションを作成する。  
   
 - プロジェクトにデータベース コード ファイルを追加します。  
   
@@ -59,14 +59,14 @@ ms.locfileid: "72003398"
   
 2. **[新しいプロジェクト]** ダイアログボックスの **[プロジェクトの種類]** ペインで、 **[Visual Basic]** をクリックします。  
   
-3. **[テンプレート]** ペインの **[コンソール アプリケーション]** をクリックします。  
+3. **[テンプレート]** ウィンドウで **[コンソール アプリケーション]** をクリックします。  
   
 4. **[名前]** ボックスに「 **LinqDataManipulationApp**」と入力します。  
   
 5. **[OK]** をクリックします。  
   
 ## <a name="adding-linq-references-and-directives"></a>LINQ の参照とディレクティブを追加する  
- このチュートリアルで使用するアセンブリは、既定ではプロジェクトにインストールされていない場合があります。 @No__t-0 がプロジェクトに参照として表示されていない場合 (**ソリューションエクスプローラー**で **[すべてのファイルを表示]** をクリックし、 **[参照]** ノードを展開)、次の手順で説明するように追加します。  
+ このチュートリアルで使用するアセンブリは、既定ではプロジェクトにインストールされていない場合があります。 `System.Data.Linq` がプロジェクトに参照として表示されていない場合 (**ソリューションエクスプローラー**で **[すべてのファイルを表示]** をクリックし、 **[参照]** ノードを展開)、次の手順で説明するように追加します。  
   
 #### <a name="to-add-systemdatalinq"></a>System.Data.Linq を追加するには  
   
@@ -186,6 +186,6 @@ ms.locfileid: "72003398"
 > [!NOTE]
 > 変更内容を送信して新しい顧客を追加した後で、このソリューションを再度実行することはできません。同じ顧客を再度追加できないためです。 ソリューションを再度実行するには、追加する顧客 ID の値を変更します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [チュートリアルによる学習](learning-by-walkthroughs.md)

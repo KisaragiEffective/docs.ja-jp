@@ -1,21 +1,19 @@
 ---
-title: 軽減策:新しい 64 ビット JIT コンパイラ
+title: '軽減策: 新しい 64 ビット JIT コンパイラ'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - JIT compiler, 64-bit
 - JIT compilation, 64-bit
 - RyuJIT compiler
 ms.assetid: 0332dabc-72c5-4bdc-8975-20d717802b17
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 07f9ae01fae5e4badbc13670ee56a2f05e303c0c
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 883aaf032bde632b08f965d3450cfbea4feb8e65
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70779355"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79181252"
 ---
-# <a name="mitigation-new-64-bit-jit-compiler"></a>軽減策:新しい 64 ビット JIT コンパイラ
+# <a name="mitigation-new-64-bit-jit-compiler"></a>軽減策: 新しい 64 ビット JIT コンパイラ
 .NET Framework 4.6 以降では、ランタイムに Just-In-Time コンパイル用の新しい 64 ビット JIT コンパイラが含まれています。 この変更は、32 ビット JIT コンパイラでのコンパイルには影響しません。  
   
 ## <a name="unexpected-behavior-or-exceptions"></a>予期しない動作または例外  
@@ -36,9 +34,9 @@ ms.locfileid: "70779355"
   
 - 特定のまれな条件下では、コンパイラの最適化が有効な場合に、条件付きのビット テストで正しくない <xref:System.Boolean> 値が返されたり、例外がスローされたりすることがあります。  
   
-- 特定の条件下では、`if` ステートメントを使用して、`try` ブロックの開始前と `try` ブロックの終了時の条件をテストし、同じ条件を `catch` または `finally` ブロックで評価する場合、新しい 64 ビット JIT コンパイラが、コードの最適化の際に `catch` または `finally` ブロックから `if` 条件を削除します。 その結果、`catch` または `finally` ブロックの `if` ステートメント内のコードは無条件で実行されます。  
+- 特定の条件下では、`if` ステートメントを使用して、`try` ブロックの開始前と `try` ブロックの終了時の条件をテストし、同じ条件を `catch` または `finally` ブロックで評価する場合、新しい 64 ビット JIT コンパイラが、コードの最適化の際に `if` または `catch` ブロックから `finally` 条件を削除します。 その結果、`if` または `catch` ブロックの `finally` ステートメント内のコードは無条件で実行されます。  
   
-<a name="General"></a>   
+<a name="General"></a>
 ## <a name="mitigation-of-known-issues"></a>既知の問題の軽減策  
  上記の問題が発生する場合は、次のいずれかの方法で解決できます。  
   
@@ -48,7 +46,7 @@ ms.locfileid: "70779355"
   
 - 古い 64 ビット JIT コンパイラでコンパイルします。 この方法の詳細については、「[その他の問題の軽減策](#Other)」を参照してください。  
   
-<a name="Other"></a>   
+<a name="Other"></a>
 ## <a name="mitigation-of-other-issues"></a>その他の問題の軽減策  
  古い 64 ビット コンパイラと新しい 64 ビット JIT コンパイラでコンパイルされたコードの動作、またはアプリのデバッグ バージョンとリリース バージョン (両方とも新しい 64 ビット JIT コンパイラでコンパイル) の動作に違いが見られる場合は、次のようにして、古い 64 ビット JIT コンパイラでアプリをコンパイルすることができます。  
   
@@ -63,13 +61,13 @@ ms.locfileid: "70779355"
     </configuration>  
     ```  
   
-- ユーザーごとに、`useLegacyJit` という `REG_DWORD` 値をレジストリの `HKEY_CURRENT_USER\SOFTWARE\Microsoft\.NETFramework` キーに追加できます。 値を 1 にすると、従来の 64 ビット JIT コンパイラが有効になり、値を 0 にすると、従来の 64 ビット JIT コンパイラが無効になり、新しい 64 ビット JIT コンパイラが有効になります。  
+- ユーザーごとに、`REG_DWORD` という `useLegacyJit` 値をレジストリの `HKEY_CURRENT_USER\SOFTWARE\Microsoft\.NETFramework` キーに追加できます。 値を 1 にすると、従来の 64 ビット JIT コンパイラが有効になり、値を 0 にすると、従来の 64 ビット JIT コンパイラが無効になり、新しい 64 ビット JIT コンパイラが有効になります。  
   
-- コンピューターごとに、`useLegacyJit` という名前の `REG_DWORD` 値をレジストリの `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework` キーに追加できます。 値を 1 にすると、従来の 64 ビット JIT コンパイラが有効になり、値を 0 にすると、従来の 64 ビット JIT コンパイラが無効になり、新しい 64 ビット JIT コンパイラが有効になります。  
+- コンピューターごとに、`REG_DWORD` という名前の `useLegacyJit` 値をレジストリの `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework` キーに追加できます。 値を 1 にすると、従来の 64 ビット JIT コンパイラが有効になり、値を 0 にすると、従来の 64 ビット JIT コンパイラが無効になり、新しい 64 ビット JIT コンパイラが有効になります。  
   
  [Microsoft Connect](https://connect.microsoft.com/VisualStudio) でバグを報告し、問題を弊社に知らせることもできます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [ランタイムの変更点](runtime-changes-in-the-net-framework-4-6.md)
+- [アプリケーションの互換性](application-compatibility.md)
 - [\<useLegacyJit> 要素](../configure-apps/file-schema/runtime/uselegacyjit-element.md)

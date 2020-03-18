@@ -14,14 +14,12 @@ helpviewer_keywords:
 - GetPropertyOrigin function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0c2d0f23f3dd2d52f73f09c32d4e3118a9ed5ea3
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 6cab3765f0359f5dd18831acaaa1aefce3fe1081
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798485"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101852"
 ---
 # <a name="getpropertyorigin-function"></a>GetPropertyOrigin 関数
 
@@ -58,7 +56,7 @@ HRESULT GetPropertyOrigin (
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_E_FAILED` | 0x80041001 | 一般的なエラーが発生しました。 |
 |`WBEM_E_NOT_FOUND` | 0x80041002 | 指定されたプロパティが見つかりませんでした。 |
@@ -72,11 +70,11 @@ HRESULT GetPropertyOrigin (
 
 クラスは1つまたは複数の基底クラスからプロパティを継承できるため、多くの場合、特定のメソッドが定義されているプロパティを特定する必要があります。
 
-パラメーター `pstrClassName`であるため`out` 、関数が呼び出さ`BSTR`れる前に、パラメーターは有効なを指していない必要があります。このポインターは、関数から制御が戻った後に割り当て解除されません。
+`pstrClassName` パラメーターは `out` パラメーターであるため、関数が呼び出される前に、有効な `BSTR` をポイントすることはできません。関数から制御が戻った後、このポインターの割り当ては解除されません。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** WMINet_Utils
 

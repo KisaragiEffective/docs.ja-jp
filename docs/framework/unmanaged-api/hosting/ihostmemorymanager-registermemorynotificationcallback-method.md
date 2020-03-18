@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 65d301f6-4dbb-4b5f-8eff-82540e2b6465
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 34701642a9e76ec52141e00fe9dde92878faccd2
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 4400fab27ed82e540230ce4196844285e8e37d16
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69945436"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128634"
 ---
 # <a name="ihostmemorymanagerregistermemorynotificationcallback-method"></a>IHostMemoryManager::RegisterMemoryNotificationCallback メソッド
 コンピューターの現在のメモリ負荷を共通言語ランタイム (CLR) に通知するために、ホストが呼び出すコールバック関数へのポインターを登録します。  
@@ -43,7 +41,7 @@ HRESULT RegisterMemoryNotificationCallback (
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`RegisterMemoryNotificationCallback`正常に返されました。|  
+|S_OK|`RegisterMemoryNotificationCallback` が正常に返されました。|  
 |HOST_E_CLRNOTAVAILABLE|CLR がプロセスに読み込まれていないか、CLR がマネージドコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
 |HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
@@ -51,17 +49,17 @@ HRESULT RegisterMemoryNotificationCallback (
 |E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、そのプロセス内で CLR は使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
 ## <a name="remarks"></a>Remarks  
- インターフェイスは`ICLRMemoryNotificationCallback` 1 つのメソッド ([ICLRMemoryNotificationCallback:: onmemorynotification](../../../../docs/framework/unmanaged-api/hosting/iclrmemorynotificationcallback-onmemorynotification-method.md)) のみを定義する`pCallback`ため、は CLR に`ICLRMemoryNotificationCallback`よって提供されるインスタンスへのポインターであるため、コールバック関数自体。 ホストは、 `OnMemoryNotification`標準の Win32 `CreateMemoryResourceNotification`関数を使用するのではなく、メモリ不足状態を報告するためにを呼び出します。 詳細については、Windows プラットフォームのドキュメントを参照してください。  
+ `ICLRMemoryNotificationCallback` インターフェイスは1つのメソッド ([ICLRMemoryNotificationCallback:: OnMemoryNotification](../../../../docs/framework/unmanaged-api/hosting/iclrmemorynotificationcallback-onmemorynotification-method.md)) のみを定義するため、`pCallback` は CLR によって提供される `ICLRMemoryNotificationCallback` インスタンスへのポインターであるため、コールバックに対しては効果的に登録が行われます。関数自体。 ホストは、標準の Win32 `CreateMemoryResourceNotification` 関数を使用するのではなく、メモリ不足状態を報告するために `OnMemoryNotification` を呼び出します。 詳細については、Windows プラットフォームのドキュメントを参照してください。  
   
 > [!NOTE]
-> を`OnMemoryNotification`呼び出してもブロックされません。 常に直ちに返されます。  
+> `OnMemoryNotification` の呼び出しはブロックされません。 常に直ちに返されます。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

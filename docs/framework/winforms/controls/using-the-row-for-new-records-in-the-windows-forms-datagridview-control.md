@@ -1,65 +1,65 @@
 ---
-title: Windows フォーム DataGridView コントロールにおける新規レコード行の使用
+title: DataGridView コントロールの新しいレコードに対して行を使用する
 ms.date: 03/30/2017
 helpviewer_keywords:
 - DataGridView control [Windows Forms], adding rows for new records
 - rows [Windows Forms], new records
 - DataGridView control [Windows Forms], data entry
 ms.assetid: 6110f1ea-9794-442c-a98a-f104a1feeaf4
-ms.openlocfilehash: b28a8a8fc2d75f80a14447008c850de63e4e04b3
-ms.sourcegitcommit: c4e9d05644c9cb89de5ce6002723de107ea2e2c4
+ms.openlocfilehash: 2fcd35f8c4d04909cdbc26f6a4293fdd570385b8
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65882430"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76728340"
 ---
 # <a name="using-the-row-for-new-records-in-the-windows-forms-datagridview-control"></a>Windows フォーム DataGridView コントロールにおける新規レコード行の使用
-使用すると、<xref:System.Windows.Forms.DataGridView>アプリケーションでデータを編集するには、多くの場合することをデータ ストアに新しいデータ行を追加する機能をユーザーに提供します。 <xref:System.Windows.Forms.DataGridView>コントロールは、最後の行として常に表示されている、新しいレコードの行を指定してこの機能をサポートしています。 これは、行のヘッダーにアスタリスク (*) 記号でマークされます。 次のセクションでは、新しいレコードの行でプログラムが有効にした場合の考慮事項について説明します。  
+アプリケーションのデータを編集するために <xref:System.Windows.Forms.DataGridView> を使用する場合、多くの場合、ユーザーがデータストアに新しいデータ行を追加できるようにする必要があります。 <xref:System.Windows.Forms.DataGridView> コントロールは、常に最後の行として表示される新しいレコードの行を提供することによって、この機能をサポートします。 行ヘッダーにアスタリスク (*) 記号が付いています。 次のセクションでは、新しいレコードを有効にする行をプログラミングするときに考慮する必要がある事項について説明します。  
   
-## <a name="displaying-the-row-for-new-records"></a>新しいレコードの行を表示します。  
- 使用して、<xref:System.Windows.Forms.DataGridView.AllowUserToAddRows%2A>新しいレコードの行を表示するかどうかを示すプロパティです。 このプロパティの既定値は `true` です。  
+## <a name="displaying-the-row-for-new-records"></a>新しいレコードの行を表示する  
+ 新しいレコードの行を表示するかどうかを指定するには、<xref:System.Windows.Forms.DataGridView.AllowUserToAddRows%2A> プロパティを使用します。 このプロパティの既定値は `true` です。  
   
- 新しいレコードの行が表示されます、データの場合、バインドの場合、<xref:System.Windows.Forms.DataGridView.AllowUserToAddRows%2A>コントロールのプロパティと<xref:System.ComponentModel.IBindingList.AllowNew%2A?displayProperty=nameWithType>のデータ ソースのプロパティは、どちらも`true`します。 いずれかの場合`false`その行は表示されません。  
+ データバインドケースでは、コントロールの <xref:System.Windows.Forms.DataGridView.AllowUserToAddRows%2A> プロパティとデータソースの <xref:System.ComponentModel.IBindingList.AllowNew%2A?displayProperty=nameWithType> プロパティの両方が `true`場合、新しいレコードの行が表示されます。 どちらかが `false` の場合、行は表示されません。  
   
-## <a name="populating-the-row-for-new-records-with-default-data"></a>既定のデータを新しいレコードの行を設定  
- ユーザーが現在の行と新しいレコードの行を選択するとき、<xref:System.Windows.Forms.DataGridView>制御発生させ、<xref:System.Windows.Forms.DataGridView.DefaultValuesNeeded>イベント。  
+## <a name="populating-the-row-for-new-records-with-default-data"></a>既定のデータを使用して新しいレコードの行を設定する  
+ ユーザーが新しいレコードの行を現在の行として選択すると、<xref:System.Windows.Forms.DataGridView> コントロールによって <xref:System.Windows.Forms.DataGridView.DefaultValuesNeeded> イベントが発生します。  
   
- このイベントは、新しいへのアクセスを提供します。<xref:System.Windows.Forms.DataGridViewRow>既定のデータを新しい行に設定することができます。 詳細については、「[方法 :Windows フォームの DataGridView コントロール内の新しい行の既定値を指定します。](specify-default-values-for-new-rows-in-the-datagrid.md)  
+ このイベントは、新しい <xref:System.Windows.Forms.DataGridViewRow> へのアクセスを提供し、新しい行に既定のデータを設定できるようにします。 詳細については、「[方法: Windows フォーム DataGridView コントロールで新しい行の既定値を指定する](specify-default-values-for-new-rows-in-the-datagrid.md)」を参照してください。  
   
-## <a name="the-rows-collection"></a>行のコレクション  
- 新しいレコードの行が含まれている、<xref:System.Windows.Forms.DataGridView>コントロールの<xref:System.Windows.Forms.DataGridView.Rows%2A>コレクションが、2 つの点では動作が異なります。  
+## <a name="the-rows-collection"></a>Rows コレクション  
+ 新しいレコードの行は <xref:System.Windows.Forms.DataGridView> コントロールの <xref:System.Windows.Forms.DataGridView.Rows%2A> コレクションに含まれていますが、次の2つの点で動作が異なります。  
   
-- 新しいレコードの行を削除できません、<xref:System.Windows.Forms.DataGridView.Rows%2A>コレクション プログラムを使用します。 <xref:System.InvalidOperationException>が、これを試行した場合にスローされます。 また、ユーザーは、新しいレコードの行を削除できません。 <xref:System.Windows.Forms.DataGridViewRowCollection.Clear%2A?displayProperty=nameWithType>メソッドでは、この行からは削除されません、<xref:System.Windows.Forms.DataGridView.Rows%2A>コレクション。  
+- 新しいレコードの行は、プログラムで <xref:System.Windows.Forms.DataGridView.Rows%2A> コレクションから削除することはできません。 このような場合は、<xref:System.InvalidOperationException> がスローされます。 ユーザーは、新しいレコードの行を削除することもできません。 <xref:System.Windows.Forms.DataGridViewRowCollection.Clear%2A?displayProperty=nameWithType> メソッドでは、この行が <xref:System.Windows.Forms.DataGridView.Rows%2A> コレクションから削除されることはありません。  
   
-- 新しいレコードの行の後に行を追加されません。 <xref:System.InvalidOperationException>が、これを試行した場合に発生します。 その結果、新しいレコードの行は常に最後の行で、<xref:System.Windows.Forms.DataGridView>コントロール。 メソッドを<xref:System.Windows.Forms.DataGridViewRowCollection>行を追加する-<xref:System.Windows.Forms.DataGridViewRowCollection.Add%2A>、 <xref:System.Windows.Forms.DataGridViewRowCollection.AddCopy%2A>、および<xref:System.Windows.Forms.DataGridViewRowCollection.AddCopies%2A>— すべてメソッドを呼び出す挿入内部的に新しいレコードの行が存在する場合。  
+- 新しいレコードの行の後に行を追加することはできません。 このような場合は、<xref:System.InvalidOperationException> が発生します。 その結果、新しいレコードの行は常に <xref:System.Windows.Forms.DataGridView> コントロールの最後の行になります。 行を追加する <xref:System.Windows.Forms.DataGridViewRowCollection> のメソッド (<xref:System.Windows.Forms.DataGridViewRowCollection.Add%2A>、<xref:System.Windows.Forms.DataGridViewRowCollection.AddCopy%2A>、および <xref:System.Windows.Forms.DataGridViewRowCollection.AddCopies%2A>) は、新しいレコードの行が存在する場合に、すべての挿入メソッドを内部的に呼び出します。  
   
-## <a name="visual-customization-of-the-row-for-new-records"></a>新しいレコードの行のビジュアルのカスタマイズ  
- 指定した行に基づいて新しいレコードの行が作成されたときに、<xref:System.Windows.Forms.DataGridView.RowTemplate%2A>プロパティ。 この行に指定されていないセルのスタイルは、その他のプロパティから継承されます。 セル スタイルの継承の詳細については、次を参照してください。 [Windows フォームの DataGridView コントロールのセル スタイル](cell-styles-in-the-windows-forms-datagridview-control.md)します。  
+## <a name="visual-customization-of-the-row-for-new-records"></a>新しいレコードの行のビジュアルカスタマイズ  
+ 新しいレコードの行が作成されると、その行は <xref:System.Windows.Forms.DataGridView.RowTemplate%2A> プロパティによって指定された行に基づいて作成されます。 この行に対して指定されていないセルスタイルは、他のプロパティから継承されます。 セルスタイルの継承の詳細については、「 [Windows フォーム DataGridView コントロールのセルのスタイル](cell-styles-in-the-windows-forms-datagridview-control.md)」を参照してください。  
   
- 各セルから新しいレコードを取得、行内のセルで表示される初期値<xref:System.Windows.Forms.DataGridViewCell.DefaultNewRowValue%2A>プロパティ。 型のセルの<xref:System.Windows.Forms.DataGridViewImageCell>、このプロパティは、プレース ホルダー イメージを返します。 このプロパティを返しますそれ以外の場合、`null`します。 カスタム値を返すには、このプロパティをオーバーライドすることができます。 ただし、によってこれらの初期値を置き換えることができます、<xref:System.Windows.Forms.DataGridView.DefaultValuesNeeded>新しいレコードの行にフォーカスが移ったときにイベント ハンドラー。  
+ 新しいレコードの行のセルによって表示される初期値は、各セルの <xref:System.Windows.Forms.DataGridViewCell.DefaultNewRowValue%2A> プロパティから取得されます。 <xref:System.Windows.Forms.DataGridViewImageCell>型のセルの場合、このプロパティはプレースホルダーイメージを返します。 それ以外の場合は、`null` を返します。 このプロパティをオーバーライドして、カスタム値を返すことができます。 ただし、これらの初期値は、新しいレコードの行にフォーカスが入ったときに、<xref:System.Windows.Forms.DataGridView.DefaultValuesNeeded> のイベントハンドラーに置き換えることができます。  
   
- 矢印またはアスタリスクは、この行のヘッダーの標準アイコンは、パブリックに公開されません。 アイコンをカスタマイズするには、カスタムを作成する必要があります<xref:System.Windows.Forms.DataGridViewRowHeaderCell>クラス。  
+ この行のヘッダーの標準アイコン (矢印またはアスタリスク) は、一般公開されていません。 アイコンをカスタマイズする場合は、カスタム <xref:System.Windows.Forms.DataGridViewRowHeaderCell> クラスを作成する必要があります。  
   
- 標準のアイコンを使用して、<xref:System.Windows.Forms.DataGridViewCellStyle.ForeColor%2A>のプロパティ、<xref:System.Windows.Forms.DataGridViewCellStyle>行ヘッダー セルで使用します。 標準のアイコンは、それらを完全に表示するには、十分な領域がない場合はレンダリングされません。  
+ 標準アイコンは、行ヘッダーセルによって使用されている <xref:System.Windows.Forms.DataGridViewCellStyle> の <xref:System.Windows.Forms.DataGridViewCellStyle.ForeColor%2A> プロパティを使用します。 標準アイコンは、完全に表示するための十分な領域がない場合はレンダリングされません。  
   
- 行ヘッダー セルに設定すると、文字列値が設定されている場合、およびテキストとアイコンの両方に対して十分な空きがない場合は、アイコンを先に削除します。  
+ 行ヘッダーセルに文字列値が設定されていて、テキストとアイコンの両方に十分な領域がない場合は、まずアイコンがドロップされます。  
   
 ## <a name="sorting"></a>並べ替え  
- バインドされていないモードでは、新しいレコードがの末尾に追加する常に、<xref:System.Windows.Forms.DataGridView>場合でも、ユーザーには、内容が並べ替えられて、<xref:System.Windows.Forms.DataGridView>します。 ユーザーは、正しい位置に行を並べ替えるために再度並べ替えを適用する必要があります。この動作は、に似ていますが、<xref:System.Windows.Forms.ListView>コントロール。  
+ 非バインドモードでは、ユーザーが <xref:System.Windows.Forms.DataGridView>の内容を並べ替えた場合でも、新しいレコードは常に <xref:System.Windows.Forms.DataGridView> の最後に追加されます。 ユーザーは、行を正しい位置に並べ替えるために並べ替えを再度適用する必要があります。この動作は、<xref:System.Windows.Forms.ListView> コントロールの動作と似ています。  
   
- データ バインドされた仮想のモードでは、並べ替えが適用されるときに、カーソル動作はデータ モデルの実装に依存することができます。 Ado.net の場合は、正しい位置に行がすぐに並べ替えられます。  
+ データバインドモードと仮想モードでは、並べ替えが適用されるときの挿入動作は、データモデルの実装に依存します。 ADO.NET の場合、行はすぐに正しい位置に並べ替えられます。  
   
-## <a name="other-notes-on-the-row-for-new-records"></a>新しいレコードの行でその他の注意事項  
- 設定することはできません、<xref:System.Windows.Forms.DataGridViewRow.Visible%2A>プロパティには、この行の`false`します。 <xref:System.InvalidOperationException>が、これを試行した場合に発生します。  
+## <a name="other-notes-on-the-row-for-new-records"></a>新しいレコードの行に関するその他のメモ  
+ この行の <xref:System.Windows.Forms.DataGridViewRow.Visible%2A> プロパティを `false`に設定することはできません。 このような場合は、<xref:System.InvalidOperationException> が発生します。  
   
- 新しいレコードの行が選択されていない状態で常に作成されます。  
+ 新しいレコードの行は、常に選択されていない状態で作成されます。  
   
 ## <a name="virtual-mode"></a>仮想モード  
- 仮想モードを実装する場合は、新しいレコードの行がデータ モデルと、行の追加をロールバックするために必要な場合に追跡する必要があります。 この機能の正確な実装に依存データ モデルとそのトランザクションのセマンティクスの実装など、コミットのスコープがセルまたは行レベルであるかどうか。 詳細については、次を参照してください。 [Windows フォームの DataGridView コントロールでの仮想モード](virtual-mode-in-the-windows-forms-datagridview-control.md)します。  
+ 仮想モードを実装する場合は、データモデルで新しいレコードの行が必要になるタイミングと、行の追加をロールバックするタイミングを追跡する必要があります。 この機能の正確な実装は、データモデルの実装とそのトランザクションセマンティクスによって異なります。たとえば、コミットスコープがセルレベルまたは行レベルのどちらであるかなどです。 詳細については、「 [Windows フォーム DataGridView コントロールでの仮想モード](virtual-mode-in-the-windows-forms-datagridview-control.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - <xref:System.Windows.Forms.DataGridView.DefaultValuesNeeded?displayProperty=nameWithType>
 - [Windows フォーム DataGridView コントロールでのデータ入力](data-entry-in-the-windows-forms-datagridview-control.md)
-- [方法: Windows フォームの DataGridView コントロール内の新しい行の既定値を指定します。](specify-default-values-for-new-rows-in-the-datagrid.md)
+- [方法: Windows フォーム DataGridView コントロールの新しい行に既定値を指定する](specify-default-values-for-new-rows-in-the-datagrid.md)

@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 88a5da04-8729-4108-82c4-af206a7d483e
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a262ab26c9bbb93e42a11217fbeea6b3c55c7eb9
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 2acbe72377e4c5b291ab062fcb5faa6503bd7937
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69966262"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129287"
 ---
 # <a name="iclrerrorreportingmanagerendcustomdump-method"></a>ICLRErrorReportingManager::EndCustomDump メソッド
 [ICLRErrorReportingManager:: BeginCustomDump](../../../../docs/framework/unmanaged-api/hosting/iclrerrorreportingmanager-begincustomdump-method.md)メソッドの以前の呼び出しで指定されたカスタムスタックダンプ構成を削除します。  
@@ -37,7 +35,7 @@ HRESULT EndCustomDump ();
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`EndCustomDump`正常に返されました。|  
+|S_OK|`EndCustomDump` が正常に返されました。|  
 |HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) がプロセスに読み込まれていないか、CLR がマネージコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
 |HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
@@ -45,17 +43,17 @@ HRESULT EndCustomDump ();
 |E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された後は、そのプロセス内で CLR を使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
 ## <a name="remarks"></a>Remarks  
- メソッド`EndCustomDump`は、メソッドの以前の`BeginCustomDump`呼び出しによって設定されたカスタムスタックダンプ構成をクリアし、関連付けられているすべての状態を解放します。 カスタムスタックダンプの完了後に呼び出す必要があります。  
+ `EndCustomDump` メソッドは、前の呼び出しで `BeginCustomDump` メソッドに対して設定されたカスタムスタックダンプ構成をクリアし、関連付けられているすべての状態を解放します。 カスタムスタックダンプの完了後に呼び出す必要があります。  
   
 > [!IMPORTANT]
-> を呼び出さ`EndCustomDump`ないと、メモリがリークします。  
+> `EndCustomDump` を呼び出さないと、メモリがリークします。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

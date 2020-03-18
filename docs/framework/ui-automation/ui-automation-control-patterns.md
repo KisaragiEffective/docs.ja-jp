@@ -7,18 +7,18 @@ helpviewer_keywords:
 - control patterns, UI Automation
 - UI Automation, control patterns
 ms.assetid: 1f8b5ab3-c193-4d0f-9e67-a0076225a1a5
-ms.openlocfilehash: 75ce2d997efbc465c8a98bce1d42296b37f84f64
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: d86397fc49ad1fe04c4c3b4565b2cab850dfb695
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71042325"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74441461"
 ---
 # <a name="ui-automation-control-patterns"></a>UI オートメーション コントロール パターン
 > [!NOTE]
-> このドキュメントは、[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)] 名前空間で定義されているマネージド <xref:System.Windows.Automation> クラスを使用する .NET Framework 開発者を対象としています。 の最新情報[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]については[、「Windows Automation API:UI オートメーション](https://go.microsoft.com/fwlink/?LinkID=156746)。  
+> このドキュメントは、[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)] 名前空間で定義されているマネージド <xref:System.Windows.Automation> クラスを使用する .NET Framework 開発者を対象としています。 [!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]の最新情報については、「 [Windows Automation API: UI オートメーション](/windows/win32/winauto/entry-uiauto-win32)」を参照してください。  
   
- ここでは、コントロールパターンの使用[!INCLUDE[TLA#tla_uiautomation](../../../includes/tlasharptla-uiautomation-md.md)]方法について詳しく説明します。  
+ ここでは、[!INCLUDE[TLA#tla_uiautomation](../../../includes/tlasharptla-uiautomation-md.md)] コントロールパターンの使用方法について詳しく説明します。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [UI オートメーション Dock コントロール パターンの実装](implementing-the-ui-automation-dock-control-pattern.md)  
@@ -38,4 +38,4 @@ ms.locfileid: "71042325"
  [UI オートメーション Transform コントロール パターンの実装](implementing-the-ui-automation-transform-control-pattern.md)  
  [UI オートメーション Value コントロール パターンの実装](implementing-the-ui-automation-value-control-pattern.md)  
  [UI オートメーション Window コントロール パターンの実装](implementing-the-ui-automation-window-control-pattern.md)  
- [方法トピック](ui-automation-control-patterns-how-to-topics.md)
+ [方法のトピック](ui-automation-control-patterns-how-to-topics.md)

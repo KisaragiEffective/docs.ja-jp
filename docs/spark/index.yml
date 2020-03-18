@@ -11,15 +11,19 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/11/2019
-  ms.openlocfilehash: bce56c20e30df1f6eb6d6be5edb7ea766a783d83
-  ms.sourcegitcommit: 8b8dd14dde727026fd0b6ead1ec1df2e9d747a48
+  ms.openlocfilehash: b75740fa84fd7c6fa383129075a082c4ea2ccdcc
+  ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 09/27/2019
-  ms.locfileid: "71332560"
+  ms.lasthandoff: 03/15/2020
+  ms.locfileid: "77542807"
 landingContent:
 - title: .NET for Apache Spark について
   linkLists:
+  - linkListType: whats-new
+    links:
+    - text: .NET の新機能に関するドキュメント
+      url: /dotnet/whats-new/index
   - linkListType: overview
     links:
     - text: .NET for Apache Spark とは
@@ -30,7 +34,7 @@ landingContent:
       url: /dotnet/api/?view=spark-dotnet
     - text: GitHub
       url: https://github.com/dotnet/spark
-- title: 作業開始
+- title: はじめに
   linkLists:
   - linkListType: tutorial
     links:

@@ -13,14 +13,12 @@ helpviewer_keywords:
 - regular expressions [.NET Framework], examples
 - pattern-matching with regular expressions, examples
 ms.assetid: ab7f62b3-6d2c-4efb-8ac6-28600df5fd5c
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a08e97b02e2f60422132e97e2f3f7d4d2d5b8ec4
-ms.sourcegitcommit: ad99773e5e45068ce03b99518008397e1299e0d1
+ms.openlocfilehash: f2704e3fb5ceb68609a475d52e11030177ad760b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46583786"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73138719"
 ---
 # <a name="how-to-extract-a-protocol-and-port-number-from-a-url"></a>方法 : URL からプロトコルとポート番号を抽出する
 次の例では、URL からプロトコルとポート番号を抽出します。  
@@ -33,7 +31,7 @@ ms.locfileid: "46583786"
   
  この正規表現パターン `^(?<proto>\w+)://[^/]+?(?<port>:\d+)?/` の解釈を次の表に示します。  
   
-|パターン|説明|  
+|パターン|[説明]|  
 |-------------|-----------------|  
 |`^`|文字列の先頭から照合を開始します。|  
 |`(?<proto>\w+)`|1 つ以上の単語文字に一致します。 このグループに `proto` と名前を付けます。|  
@@ -49,6 +47,6 @@ ms.locfileid: "46583786"
  [!code-csharp[RegularExpressions.Examples.Protocol#2](../../../samples/snippets/csharp/VS_Snippets_CLR/RegularExpressions.Examples.Protocol/cs/example2.cs#2)]
  [!code-vb[RegularExpressions.Examples.Protocol#2](../../../samples/snippets/visualbasic/VS_Snippets_CLR/RegularExpressions.Examples.Protocol/vb/example2.vb#2)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [.NET の正規表現](../../../docs/standard/base-types/regular-expressions.md)

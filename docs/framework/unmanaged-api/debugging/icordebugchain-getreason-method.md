@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 9f9f62b9-113a-4a98-8f9b-b593cef27b03
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0e5120b5fddf621d6f4c684c4c432fda4f5c0117
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e51ee2e4d44af547c82a21a782121976d07118c5
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67745260"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73124713"
 ---
 # <a name="icordebugchaingetreason-method"></a>ICorDebugChain::GetReason メソッド
-この呼び出しチェーンの起源の理由を取得します。  
+この呼び出しチェーンの genesis の理由を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT GetReason (
   
 ## <a name="parameters"></a>パラメーター  
  `pReason`  
- [out]この呼び出しチェーンの起源の理由を示す CorDebugChainReason 列挙型の値 (ビットごとの組み合わせ) へのポインター。  
+ 入出力この呼び出しチェーンの genesis の理由を示す、CorDebugChainReason 列挙体の値 (ビットごとの組み合わせ) へのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

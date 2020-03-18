@@ -2,12 +2,12 @@
 title: WCF サービス付き ASMX クライアント
 ms.date: 03/30/2017
 ms.assetid: 3ea381ee-ac7d-4d62-8c6c-12dc3650879f
-ms.openlocfilehash: ed3cceb7806e0f0b71b9290da001ba0659e28f3c
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: a560650dba250d1ee4f0b959ead70a2915c9997f
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70045182"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74716136"
 ---
 # <a name="asmx-client-with-a-wcf-service"></a>WCF サービス付き ASMX クライアント
 
@@ -35,7 +35,7 @@ public interface ICalculator
 }
 ```
 
-<xref:System.Runtime.Serialization.DataContractSerializer> と <xref:System.Xml.Serialization.XmlSerializer> は、CLR 型を XML 表現にマップします。 <xref:System.Runtime.Serialization.DataContractSerializer> は一部の XML 表現を、XmlSerializer とは異なる方法で解釈します。 Wsdl.exe などの WCF 以外のプロキシジェネレーターは、XmlSerializer が使用されている場合に、より使用可能なインターフェイスを生成します。 は<xref:System.ServiceModel.XmlSerializerFormatAttribute> 、CLR 型を`ICalculator` XML にマッピングするために XmlSerializer が使用されるように、インターフェイスに適用されます。 このサービス実装は、計算を行い、結果を返します。
+<xref:System.Runtime.Serialization.DataContractSerializer> と <xref:System.Xml.Serialization.XmlSerializer> は、CLR 型を XML 表現にマップします。 <xref:System.Runtime.Serialization.DataContractSerializer> は一部の XML 表現を、XmlSerializer とは異なる方法で解釈します。 Wsdl.exe などの WCF 以外のプロキシジェネレーターは、XmlSerializer が使用されている場合に、より使用可能なインターフェイスを生成します。 <xref:System.ServiceModel.XmlSerializerFormatAttribute> は、CLR 型を XML にマッピングするために XmlSerializer が使用されるように、`ICalculator` インターフェイスに適用されます。 このサービス実装は、計算を行い、結果を返します。
 
 サービスは、そのサービスとの通信に使用する単一エンドポイントを公開します。エンドポイントは構成ファイル (Web.config) で定義します。 エンドポイントは、アドレス、バインディング、およびコントラクトがそれぞれ 1 つずつで構成されます。 サービスは、インターネット インフォメーション サービス (IIS) ホストから提供されるベース アドレスで、エンドポイントを公開します。 `binding` 属性は basicHttpBinding に設定されます。これにより、WS-I Basic Profile 1.1 に準拠した SOAP 1.1 を使用する HTTP 通信を実現します。次のサンプル構成を参照してください。
 
@@ -51,7 +51,7 @@ public interface ICalculator
 </services>
 ```
 
-ASMX クライアントは、Web サービス記述言語 (wsdl) ユーティリティ (Wsdl.exe) によって生成される型指定されたプロキシを使用して、WCF サービスと通信します。 型指定のあるプロキシは、ファイル generatedClient.cs に含まれています。 WSDL ユーティリティは、指定されたサービスが使用するメタデータを取得し、クライアントが通信に使用する型指定のあるプロキシを生成します。 既定では、フレームワークはメタデータを公開しません。 プロキシを生成するために必要なメタデータを公開するには、次の構成`httpGetEnabled`に示す`True`ように、 [ \<serviceMetadata >](../../../../docs/framework/configure-apps/file-schema/wcf/servicemetadata.md)を追加し、その属性をに設定する必要があります。
+ASMX クライアントは、Web サービス記述言語 (wsdl) ユーティリティ (Wsdl.exe) によって生成される型指定されたプロキシを使用して、WCF サービスと通信します。 型指定のあるプロキシは、ファイル generatedClient.cs に含まれています。 WSDL ユーティリティは、指定されたサービスが使用するメタデータを取得し、クライアントが通信に使用する型指定のあるプロキシを生成します。 既定では、フレームワークはメタデータを公開しません。 プロキシを生成するために必要なメタデータを公開するには、次の構成に示すように、 [\<serviceMetadata >](../../../../docs/framework/configure-apps/file-schema/wcf/servicemetadata.md)を追加し、その `httpGetEnabled` 属性を `True` に設定する必要があります。
 
 ```xml
 <behaviors>
@@ -139,13 +139,13 @@ Press <ENTER> to terminate client.
 3. サンプルを単一コンピューター構成または複数コンピューター構成で実行するには、「 [Windows Communication Foundation サンプルの実行](../../../../docs/framework/wcf/samples/running-the-samples.md)」の手順に従います。
 
 > [!NOTE]
-> 複合データ型を渡すと返す方法の詳細については、次を参照してください。[Windows フォームクライアントでのデータバインディング](../../../../docs/framework/wcf/samples/data-binding-in-a-windows-forms-client.md)、 [Windows Presentation Foundation クライアントでのデータバインディング](../../../../docs/framework/wcf/samples/data-binding-in-a-wpf-client.md)、 [ASP.NET クライアントでの](../../../../docs/framework/wcf/samples/data-binding-in-an-aspnet-client.md)データバインディング
+> 複合データ型を渡すと返す方法の詳細については、「 [Windows フォームクライアントでのデータバインディング](../../../../docs/framework/wcf/samples/data-binding-in-a-windows-forms-client.md)」、「 [Windows Presentation Foundation クライアントでのデータバインディング](../../../../docs/framework/wcf/samples/data-binding-in-a-wpf-client.md)」、および「 [ASP.NET クライアントでのデータ](../../../../docs/framework/wcf/samples/data-binding-in-an-aspnet-client.md)バインディング」を参照してください。
 
 > [!IMPORTANT]
 > サンプルは、既にコンピューターにインストールされている場合があります。 続行する前に、次の (既定の) ディレクトリを確認してください。
 >
 > `<InstallDrive>:\WF_WCF_Samples`
 >
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
 >
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Services\Interop\ASMX`

@@ -16,19 +16,17 @@ helpviewer_keywords:
 ms.assetid: e36e1fd8-8456-4359-bdc3-3ec1765f041f
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 96968de84182b74f7baa89d5dfc12a4797ade595
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: de27851b4afc3eccad46531848c68723bff346d5
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779231"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136829"
 ---
 # <a name="createiceefilegen-function"></a>CreateICeeFileGen 関数
-作成、 [ICeeFileGen](../../../../docs/framework/unmanaged-api/hosting/iceefilegen-class.md)オブジェクト。  
+[ICeeFileGen](../../../../docs/framework/unmanaged-api/hosting/iceefilegen-class.md)オブジェクトを作成します。  
   
- この関数は、.NET Framework 4 では廃止されました。  
+ この関数は .NET Framework 4 で非推奨とされました。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,22 +38,22 @@ HRESULT CreateICeeFileGen (
   
 ## <a name="parameters"></a>パラメーター  
  `ceeFileGen`  
- [out]新しいアドレスへのポインター`ICeeFileGen`オブジェクト。  
+ 入出力新しい `ICeeFileGen` オブジェクトのアドレスへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- このメソッドは、標準の COM エラー コードを返します。  
+ このメソッドは、標準の COM エラーコードを返します。  
   
 ## <a name="remarks"></a>Remarks  
- `ICeeFileGen`オブジェクトが共通言語ランタイム (CLR) のポータブル実行可能 (PE) ファイルを作成するために使用します。  
+ `ICeeFileGen` オブジェクトは、共通言語ランタイム (CLR) の移植可能な実行可能 (PE) ファイルを作成するために使用されます。  
   
- 呼び出す、 [DestroyICeeFileGen](../../../../docs/framework/unmanaged-api/hosting/destroyiceefilegen-function.md)を破棄する関数、`ICeeFileGen`オブジェクトの終了時にします。  
+ [DestroyICeeFileGen](../../../../docs/framework/unmanaged-api/hosting/destroyiceefilegen-function.md)関数を呼び出して、完了時に `ICeeFileGen` オブジェクトを破棄します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** ICeeFileGen.h  
+ **ヘッダー:** ICeeFileGen  
   
- **ライブラリ:** MSCorPE.dll  
+ **ライブラリ:** MSCorPE  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

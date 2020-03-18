@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 48adc154-9058-4fef-9c43-e9aad80e4dbf
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b08149b2acd766aac428614205401e79246c5b21
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 92e07d2f59a1f2fa063b81282aa0f014f373cd04
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737250"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73196363"
 ---
 # <a name="icordebugassemblygetcodebase-method"></a>ICorDebugAssembly::GetCodeBase メソッド
-.NET Framework の現在のバージョンでは、このメソッドは実装されていません。  
+このメソッドは、.NET Framework の現在のバージョンでは実装されていません。  
   
 ## <a name="syntax"></a>構文  
   

@@ -5,34 +5,34 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: cad53e1a-b7c9-4064-bc87-508c3d1dce49
-ms.openlocfilehash: 613b85e18109faa2a4386090e91aaddcfd8e0b68
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: fccdd021e392e6c37615a9091ce13f0e94167246
+ms.sourcegitcommit: 09b4090b78f52fd09b0e430cd4b26576f1fdf96e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62038585"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76212005"
 ---
 # <a name="message-security-with-an-anonymous-client"></a>メッセージ セキュリティと匿名クライアント
 
-次のシナリオでは、クライアントと Windows Communication Foundation (WCF) メッセージ セキュリティで保護されたサービスを説明します。 設計目標は、トランスポート セキュリティではなくメッセージ セキュリティを使用することです。これによって将来、多様なクレームに基づくモデルをサポートできます。 承認に多様なクレームの使用に関する詳細については、次を参照してください。[管理クレームと Id モデルでの承認](../../../../docs/framework/wcf/feature-details/managing-claims-and-authorization-with-the-identity-model.md)します。
+次のシナリオは、Windows Communication Foundation (WCF) メッセージセキュリティによってセキュリティ保護されたクライアントとサービスを示しています。 設計目標は、トランスポート セキュリティではなくメッセージ セキュリティを使用することです。これによって将来、多様なクレームに基づくモデルをサポートできます。 高度な要求を使用した承認の詳細については、「 [Id モデルを使用したクレームと承認の管理](../../../../docs/framework/wcf/feature-details/managing-claims-and-authorization-with-the-identity-model.md)」を参照してください。
 
-サンプル アプリケーションでは、次を参照してください。[メッセージ セキュリティ匿名](../../../../docs/framework/wcf/samples/message-security-anonymous.md)します。
+サンプルアプリケーションについては、「[メッセージセキュリティ匿名](../../../../docs/framework/wcf/samples/message-security-anonymous.md)」を参照してください。
 
-![メッセージ セキュリティと匿名クライアント](../../../../docs/framework/wcf/feature-details/media/b361a565-831c-4c10-90d7-66d8eeece0a1.gif "b361a565-831c-4c10-90d7-66d8eeece0a1")
+![匿名クライアントを使用したメッセージセキュリティ](../../../../docs/framework/wcf/feature-details/media/b361a565-831c-4c10-90d7-66d8eeece0a1.gif "b361a565-831c-4c10-90d7-66d8eeece0a1")
 
 |特徴|説明|
 |--------------------|-----------------|
-|セキュリティ モード|メッセージ|
+|セキュリティ モード|[メッセージ]|
 |相互運用性|WCF のみ|
 |認証 (サーバー)|初期ネゴシエーションには、サーバー認証が必要ですが、クライアント認証は不要です|
-|認証 (クライアント)|なし|
+|認証 (クライアント)|[なし]|
 |整合性|はい、共有のセキュリティ コンテキストを使用します|
 |機密性|はい、共有のセキュリティ コンテキストを使用します|
 |Transport|HTTP|
 
 ## <a name="service"></a>サービス
 
-次のコードと構成は、別々に実行します。 次のいずれかの操作を行います。
+次のコードと構成は、別々に実行します。 以下のいずれかを実行します。
 
 - 構成を使用せずに、コードを使用してスタンドアロン サービスを作成します。
 
@@ -45,7 +45,7 @@ ms.locfileid: "62038585"
 [!code-csharp[C_SecurityScenarios#8](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_securityscenarios/cs/source.cs#8)]
 [!code-vb[C_SecurityScenarios#8](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_securityscenarios/vb/source.vb#8)]
 
-### <a name="configuration"></a>構成
+### <a name="configuration"></a>の構成
 
 コードの代わりに次の構成を使用できます。 サービス動作要素を使用して、クライアントに対するサービスの認証に使用する証明書を指定します。 サービス要素は、`behaviorConfiguration` 属性を使用して動作を指定する必要があります。 バインド要素で、クライアント資格情報の種類が `None` であることを指定します。この資格情報の種類では、匿名クライアントがサービスを使用できます。
 
@@ -88,13 +88,13 @@ ms.locfileid: "62038585"
 </configuration>
 ```
 
-## <a name="client"></a>Client
+## <a name="client"></a>クライアント
 
-次のコードと構成は、別々に実行します。 次のいずれかの操作を行います。
+次のコードと構成は、別々に実行します。 以下のいずれかを実行します。
 
 - コード (およびクライアント コード) を使用してスタンドアロン クライアントを作成します。
 
-- エンドポイント アドレスを定義しないクライアントを作成します。 代わりに、引数として構成名を受け取るクライアント コンストラクターを使用します。 次に例を示します。
+- エンドポイント アドレスを定義しないクライアントを作成します。 代わりに、引数として構成名を受け取るクライアント コンストラクターを使用します。 例:
 
     [!code-csharp[C_SecurityScenarios#0](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_securityscenarios/cs/source.cs#0)]
     [!code-vb[C_SecurityScenarios#0](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_securityscenarios/vb/source.vb#0)]
@@ -106,7 +106,7 @@ ms.locfileid: "62038585"
 [!code-csharp[C_SecurityScenarios#15](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_securityscenarios/cs/source.cs#15)]
 [!code-vb[C_SecurityScenarios#15](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_securityscenarios/vb/source.vb#15)]
 
-### <a name="configuration"></a>構成
+### <a name="configuration"></a>の構成
 
 クライアントを構成する場合のコード例を次に示します。
 
@@ -144,4 +144,4 @@ ms.locfileid: "62038585"
 - [分散アプリケーションのセキュリティ](../../../../docs/framework/wcf/feature-details/distributed-application-security.md)
 - [メッセージ セキュリティ匿名](../../../../docs/framework/wcf/samples/message-security-anonymous.md)
 - [サービス ID と認証](../../../../docs/framework/wcf/feature-details/service-identity-and-authentication.md)
-- [Windows Server App Fabric のセキュリティ モデル](https://go.microsoft.com/fwlink/?LinkID=201279&clcid=0x409)
+- [Windows Server App Fabric のセキュリティモデル](https://docs.microsoft.com/previous-versions/appfabric/ee677202(v=azure.10))

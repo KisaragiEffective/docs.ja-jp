@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 6734321c-c8a9-401f-a558-cad715ec4a77
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 120d00bd329db17b98a439aa2e9c36d2d04968d3
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 06c08499298656c8314d72667d9dac88c8d11e6a
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67761300"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76788339"
 ---
 # <a name="icordebugmanagedcallbackunloadassembly-method"></a>ICorDebugManagedCallback::UnloadAssembly メソッド
-共通言語ランタイム アセンブリがアンロードされたことをデバッガーに通知します。  
+共通言語ランタイムアセンブリがアンロードされたことをデバッガーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,16 +36,16 @@ HRESULT UnloadAssembly (
   
 ## <a name="parameters"></a>パラメーター  
  `pAppDomain`  
- [in]アセンブリに含まれるアプリケーション ドメインを表す ICorDebugAppDomain オブジェクトへのポインター。  
+ からアセンブリが格納されているアプリケーションドメインを表す、のオブジェクトへのポインター。  
   
  `pAssembly`  
- [in]アセンブリを表す ICorDebugAssembly オブジェクトへのポインター。  
+ からアセンブリを表す、オブジェクトへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- このコールバックの後、アセンブリを使用しない必要があります。  
+## <a name="remarks"></a>コメント  
+ このコールバックの後にアセンブリを使用することはできません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -57,5 +55,5 @@ HRESULT UnloadAssembly (
   
 ## <a name="see-also"></a>関連項目
 
-- [LoadAssembly メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-loadassembly-method.md)
-- [ICorDebugManagedCallback インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-interface.md)
+- [LoadAssembly メソッド](icordebugmanagedcallback-loadassembly-method.md)
+- [ICorDebugManagedCallback インターフェイス](icordebugmanagedcallback-interface.md)

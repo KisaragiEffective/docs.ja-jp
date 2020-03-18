@@ -2,12 +2,12 @@
 title: トークン認証システム
 ms.date: 03/30/2017
 ms.assetid: 84382f2c-f6b1-4c32-82fa-aebc8f6064db
-ms.openlocfilehash: a8a8713cd35e73b5126dadd7e0e17a3f8304188b
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 835a158ba668a3aef749602c73fd9157e8d83a40
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70045457"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73425030"
 ---
 # <a name="token-authenticator"></a>トークン認証システム
 このサンプルでは、カスタム トークンの認証システムを実装する方法を示します。 Windows Communication Foundation (WCF) のトークン認証システムは、メッセージで使用されるトークンを検証し、それが自己整合していることを確認し、トークンに関連付けられている id を認証するために使用されます。
@@ -108,7 +108,7 @@ ms.locfileid: "70045457"
 
  クライアント実装では、使用するユーザー名とパスワードが設定されます。
 
-```
+```csharp
 static void Main()
 {
      ...
@@ -125,7 +125,7 @@ static void Main()
 
      このサンプルは、ユーザー名が有効な電子メール形式であることを検証するカスタム トークン認証システムを実装しています。 この実装は <xref:System.IdentityModel.Selectors.UserNameSecurityTokenAuthenticator> から派生します。 このクラスで最も重要なメソッドは <xref:System.IdentityModel.Selectors.UserNameSecurityTokenAuthenticator.ValidateUserNamePasswordCore%28System.String%2CSystem.String%29> です。 このメソッドで、認証システムはユーザー名の形式を検証し、さらに、ホスト名が非承認のドメインのものでないことを検証します。 どちらの条件も満たされる場合は、<xref:System.IdentityModel.Policy.IAuthorizationPolicy> インスタンスの読み取り専用のコレクションを返します。次にこれを使用して、ユーザー名トークン内に格納されている情報を表すクレームを指定します。
 
-    ```
+    ```csharp
     protected override ReadOnlyCollection<IAuthorizationPolicy> ValidateUserNamePasswordCore(string userName, string password)
     {
         if (!ValidateUserNameFormat(userName))
@@ -144,7 +144,7 @@ static void Main()
 
      このサンプルでは、<xref:System.IdentityModel.Policy.IAuthorizationPolicy> という名前の `UnconditionalPolicy` の独自の実装を示します。これにより、コンストラクター内でこのポリシーに渡されたクレームと ID のセットが返されます。
 
-    ```
+    ```csharp
     class UnconditionalPolicy : IAuthorizationPolicy
     {
         String id = Guid.NewGuid().ToString();
@@ -214,7 +214,7 @@ static void Main()
 
      <xref:System.IdentityModel.Selectors.SecurityTokenManager> は、<xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator> メソッド内でカスタム セキュリティ トークン マネージャーに渡される特定の <xref:System.IdentityModel.Selectors.SecurityTokenRequirement> オブジェクトを対象とした `CreateSecurityTokenAuthenticator` の作成に使用されます。 セキュリティ トークン マネージャーは、トークン プロバイダーとトークン シリアライザーの作成にも使用されますが、このサンプルでは扱っていません。 このサンプルでは、カスタム セキュリティ トークン マネージャーは <xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager> クラスを継承し、渡されたトークンの要件でユーザー名認証システムが必要であることが示されている場合に、`CreateSecurityTokenAuthenticator` メソッドをオーバーライドしてユーザー名トークンのカスタム認証システムを返します。
 
-    ```
+    ```csharp
     public class MySecurityTokenManager : ServiceCredentialsSecurityTokenManager
     {
         MyUserNameCredential myUserNameCredential;
@@ -244,7 +244,7 @@ static void Main()
 
      サービス資格情報クラスは、サービス用に構成された資格情報を表すために使用され、トークン認証システム、トークン プロバイダー、およびトークン シリアライザーの取得に使用されるセキュリティ トークン マネージャーを作成します。
 
-    ```
+    ```csharp
     public class MyUserNameCredential : ServiceCredentials
     {
 
@@ -270,7 +270,7 @@ static void Main()
 
      サービスでカスタム サービス資格情報を使用するには、既定のサービス資格情報に事前構成されているサービス証明書をキャプチャした後で既定のサービス資格情報クラスを削除し、事前構成されているサービス証明書を使用するよう新しいサービス資格情報のインスタンスを構成します。さらに、この新しいサービス資格情報のインスタンスをサービス動作に追加します。
 
-    ```
+    ```csharp
     ServiceCredentials sc = serviceHost.Credentials;
     X509Certificate2 cert = sc.ServiceCertificate.Certificate;
     MyUserNameCredential serviceCredential = new MyUserNameCredential();
@@ -281,7 +281,7 @@ static void Main()
 
  呼び出し元の情報を表示するには、次のコードに示すように <xref:System.ServiceModel.ServiceSecurityContext.PrimaryIdentity%2A> を使用できます。 <xref:System.ServiceModel.ServiceSecurityContext.Current%2A> には、現在のユーザーに関する情報が保持されています。
 
-```
+```csharp
 static void DisplayIdentityInformation()
 {
     Console.WriteLine("\t\tSecurity context identity  :  {0}",
@@ -301,7 +301,7 @@ static void DisplayIdentityInformation()
 
      Setup.bat バッチ ファイルの次の行は、使用するサーバー証明書を作成します。 `%SERVER_NAME%` 変数はサーバー名です。 この変数を変更して、使用するサーバー名を指定します。 このバッチ ファイルでの既定は localhost です。
 
-    ```
+    ```console
     echo ************
     echo Server cert setup starting
     echo %SERVER_NAME%
@@ -315,7 +315,7 @@ static void DisplayIdentityInformation()
 
      Setup.bat バッチ ファイルの次の行は、サーバー証明書をクライアントの信頼されたユーザーのストアにコピーします。 この手順が必要なのは、Makecert.exe によって生成される証明書がクライアント システムにより暗黙には信頼されないからです。 マイクロソフト発行の証明書など、クライアントの信頼されたルート証明書に基づいた証明書が既にある場合は、クライアント証明書ストアにサーバー証明書を配置するこの手順は不要です。
 
-    ```
+    ```console
     certmgr.exe -add -r LocalMachine -s My -c -n %SERVER_NAME% -r CurrentUser -s TrustedPeople
     ```
 

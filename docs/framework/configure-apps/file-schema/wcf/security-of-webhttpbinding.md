@@ -2,22 +2,22 @@
 title: <security> の <webHttpBinding>
 ms.date: 03/30/2017
 ms.assetid: 727cf3d2-6f56-48ad-a59f-ba423edb9c83
-ms.openlocfilehash: 2f0bc97e10fcd72f2f33cc20730320cbbfc42dd8
-ms.sourcegitcommit: 093571de904fc7979e85ef3c048547d0accb1d8a
+ms.openlocfilehash: 77009dc950a608da9e0db3a7d09be67e1ed46137
+ms.sourcegitcommit: 22be09204266253d45ece46f51cc6f080f2b3fd6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70399770"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73738640"
 ---
-# <a name="security-of-webhttpbinding"></a>\<webHttpBinding > の\<セキュリティ >
-[ \<WebHttpBinding >](webhttpbinding.md)で構成されたエンドポイントのセキュリティ要件を指定します。  
+# <a name="security-of-webhttpbinding"></a>\<webHttpBinding > のセキュリティ > の \<
+[\<webHttpBinding >](webhttpbinding.md)で構成されたエンドポイントのセキュリティ要件を指定します。  
   
 [ **\<configuration>** ](../configuration-element.md)\
-&nbsp;&nbsp;[ **\<System.servicemodel >** ](system-servicemodel.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;[ **\<バインド >** ](bindings.md)\
+&nbsp; &nbsp;[ **\<system >** ](system-servicemodel.md) \
+&nbsp;&nbsp;&nbsp;&nbsp;\<[**バインド**](bindings.md)\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ **\<webHttpBinding >** ](webhttpbinding.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<バインド >** \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<セキュリティ >**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**バインド >** \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**セキュリティ >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -44,21 +44,21 @@ ms.locfileid: "70399770"
   
 |属性|説明|  
 |---------------|-----------------|  
-|モード|トランスポート レベルのセキュリティをエンドポイントで使用するか、セキュリティを使用しないかを指定します。 既定値は `None` です。 この属性は <xref:System.ServiceModel.WebHttpSecurityMode> 型です。|  
+|モード|トランスポート レベルのセキュリティをエンドポイントで使用するか、セキュリティを使用しないかを指定します。 既定値は、 `None`です。 この属性は <xref:System.ServiceModel.WebHttpSecurityMode> 型です。|  
   
 ## <a name="mode-attribute"></a>Mode 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
-|なし|セキュリティを無効にします。|  
-|Transport|セキュリティは、HTTPS を使用して確保されます。 サービスは、SSL 証明書を使用して構成する必要があります。 メッセージは、HTTPS およびサービスを使用して完全にセキュリティで保護され、サービスの SSL 証明書を使用するクライアントによって認証されます。 クライアント認証は、 [ \<トランスポート >](transport-of-webhttpbinding.md)の`ClientCredentialType`属性によって制御されます。|  
-|TransportCredentialOnly|このモードは、メッセージの整合性と機密性を提供しません。 HTTP ベースのクライアント認証が提供されます。 このモードは注意して使用してください。 トランスポートセキュリティが他の方法 (IPSec など) によって提供され、WCF インフラストラクチャによってクライアント認証のみが提供される環境で使用する必要があります。|  
+|None|セキュリティを無効にします。|  
+|Transport|セキュリティは、HTTPS を使用して確保されます。 サービスは、SSL 証明書を使用して構成する必要があります。 メッセージは、HTTPS およびサービスを使用して完全にセキュリティで保護され、サービスの SSL 証明書を使用するクライアントによって認証されます。 クライアント認証は、 [\<トランスポート >](transport-of-webhttpbinding.md)の `ClientCredentialType` 属性によって制御されます。|  
+|TransportCredentialOnly|このモードは、メッセージの整合性と機密性を提供しません。 HTTP ベースのクライアント認証を提供します。 このモードを使用するときは、十分に注意する必要があります。 トランスポートセキュリティが他の方法 (IPSec など) によって提供され、WCF インフラストラクチャによってクライアント認証のみが提供される環境で使用する必要があります。|  
   
 ### <a name="child-elements"></a>子要素  
   
 |要素|説明|  
 |-------------|-----------------|  
-|[\<transport>](transport-of-webhttpbinding.md)|トランスポートのセキュリティ設定を定義します。 この要素は、<xref:System.ServiceModel.Configuration.HttpTransportSecurityElement> 型に対応しています。|  
+|[\<transport >](transport-of-webhttpbinding.md)|トランスポートのセキュリティ設定を定義します。 この要素は、<xref:System.ServiceModel.Configuration.HttpTransportSecurityElement> 型に対応しています。|  
   
 ### <a name="parent-elements"></a>親要素  
   
@@ -78,5 +78,5 @@ ms.locfileid: "70399770"
 - [バインディング](../../../wcf/bindings.md)
 - [システムが提供するバインディングの構成](../../../wcf/feature-details/configuring-system-provided-bindings.md)
 - [サービスとクライアントを構成するためのバインディングの使用](../../../wcf/using-bindings-to-configure-services-and-clients.md)
-- [\<binding>](../../../misc/binding.md)
+- [\<binding >](bindings.md)
 - [WCF Web HTTP プログラミング モデル](../../../wcf/feature-details/wcf-web-http-programming-model.md)

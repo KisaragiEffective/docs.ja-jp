@@ -2,12 +2,12 @@
 title: チャネルのチャンキング
 ms.date: 03/30/2017
 ms.assetid: e4d53379-b37c-4b19-8726-9cc914d5d39f
-ms.openlocfilehash: 6bd7f1f31426c2d355b42f04ad770aac60183838
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 3811f7e7229dec1a46585a558b96f94bb202902f
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70990114"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74716029"
 ---
 # <a name="chunking-channel"></a>チャネルのチャンキング
 
@@ -23,7 +23,7 @@ Windows Communication Foundation (WCF) を使用してサイズの大きいメ�
 >
 > `<InstallDrive>:\WF_WCF_Samples`
 >
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
 >
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Extensibility\Channels\ChunkingChannel`
 
@@ -256,7 +256,7 @@ interface ITestService
 
 - Send に渡されるタイムアウトは、すべてのチャンクの送信を含む送信操作全体のタイムアウトとして使用されます。
 
-- 元のメッセージ本文全体がバッファされないように、カスタムの <xref:System.Xml.XmlDictionaryWriter> デザインが選択されています。 <xref:System.Xml.XmlDictionaryReader> を使用して本文の `message.GetReaderAtBodyContents` を取得する場合、本文全体がバッファされます。 代わりに、に`message.WriteBodyContents`渡されるカスタム<xref:System.Xml.XmlDictionaryWriter>があります。 メッセージがライタの WriteBase64 を呼び出すと、ライタはチャンクをパッケージ化してメッセージを作成し、内部チャンネルを使用して送信します。 WriteBase64 は、チャンクが送信されるまでブロックされます。
+- 元のメッセージ本文全体がバッファされないように、カスタムの <xref:System.Xml.XmlDictionaryWriter> デザインが選択されています。 <xref:System.Xml.XmlDictionaryReader> を使用して本文の `message.GetReaderAtBodyContents` を取得する場合、本文全体がバッファされます。 代わりに、カスタム <xref:System.Xml.XmlDictionaryWriter> が `message.WriteBodyContents`に渡されます。 メッセージがライタの WriteBase64 を呼び出すと、ライタはチャンクをパッケージ化してメッセージを作成し、内部チャンネルを使用して送信します。 WriteBase64 は、チャンクが送信されるまでブロックされます。
 
 ## <a name="implementing-the-receive-operation"></a>Receive 操作の実装
 
@@ -282,7 +282,7 @@ interface ITestService
 
 ### <a name="onclose"></a>OnClose
 
-`OnClose` は、保留状態の `stopReceive` が停止したことを通知するため、最初に `true` を `ReceiveChunkLoop` に設定します。 次に、 `receiveStopped` <xref:System.Threading.ManualResetEvent>が停止したとき`ReceiveChunkLoop`に設定されるを待機します。 `ReceiveChunkLoop` が指定されたタイムアウト内で停止した場合、`OnClose` はタイムアウトの残り時間で `innerChannel.Close` を呼び出します。
+`OnClose` は、保留状態の `stopReceive` が停止したことを通知するため、最初に `true` を `ReceiveChunkLoop` に設定します。 次に、`receiveStopped` <xref:System.Threading.ManualResetEvent>を待機します。これは `ReceiveChunkLoop` が停止したときに設定されます。 `ReceiveChunkLoop` が指定されたタイムアウト内で停止した場合、`OnClose` はタイムアウトの残り時間で `innerChannel.Close` を呼び出します。
 
 ### <a name="onabort"></a>OnAbort
 
@@ -306,9 +306,9 @@ interface ITestService
 
 ## <a name="implementing-binding-element-and-binding"></a>バインディング要素とバインディングの実装
 
-`ChunkingBindingElement` は、`ChunkingChannelFactory` および `ChunkingChannelListener` を作成します。 は`ChunkingBindingElement` 、t > と`CanBuildChannelFactory` `IDuplexSessionChannel` \< `CanBuildChannelListener`t > の t が型 (チャンキングチャネルによってサポートされる唯一のチャネル) であるかどうか、およびバインディング内の他のバインド要素がこれをサポートしているかどうかを確認します。 \<チャネルの種類。
+`ChunkingBindingElement` は、`ChunkingChannelFactory` および `ChunkingChannelListener` を作成します。 `ChunkingBindingElement` は、`CanBuildChannelFactory`\<> T の T と `CanBuildChannelListener`\<T > が型 `IDuplexSessionChannel` (チャンキングチャネルでサポートされている唯一のチャネル) であること、およびバインディング内の他のバインド要素がこのチャネルの種類をサポートしているかどうかを確認します。
 
-`BuildChannelFactory`\<T > は、最初に要求されたチャネルの種類を構築できることを確認し、次にチャンク対象のメッセージアクションのリストを取得します。 詳細については、次のセクションを参照してください。 次に、新しい `ChunkingChannelFactory` を作成し、それに内部チャネル ファクトリ (`context.BuildInnerChannelFactory<IDuplexSessionChannel>` から返されたままの状態での)、メッセージ アクションのリスト、およびバッファするチャンクの最大数を渡します。 チャンクの最大数は、`MaxBufferedChunks` によって公開される `ChunkingBindingElement` というプロパティによって指定されます。
+`BuildChannelFactory`\<T > は、要求されたチャネルの種類を構築できることを最初に確認し、次にチャンク対象のメッセージアクションの一覧を取得します。 詳細については、次のセクションを参照してください。 次に、新しい `ChunkingChannelFactory` を作成し、それに内部チャネル ファクトリ (`context.BuildInnerChannelFactory<IDuplexSessionChannel>` から返されたままの状態での)、メッセージ アクションのリスト、およびバッファするチャンクの最大数を渡します。 チャンクの最大数は、`MaxBufferedChunks` によって公開される `ChunkingBindingElement` というプロパティによって指定されます。
 
 `BuildChannelListener<T>` には、`ChunkingChannelListener` を作成してこれに内部チャネル リスナーを渡す同様の実装があります。
 
@@ -320,7 +320,7 @@ interface ITestService
 
 チャネルのチャンキングによってチャンクされるメッセージは、`ChunkingBehavior` 属性を介して識別されるメッセージのみです。 `ChunkingBehavior` クラスは `IOperationBehavior` を実装し、`AddBindingParameter` メソッドの呼び出しによって実装されます。 このメソッドでは、`ChunkingBehavior` が `AppliesTo` プロパティの値 (`InMessage` または`OutMessage` のいずれか、またはその両方) を調べ、どのメッセージがチャンク対象かを判断します。 次に、チャンク対象の各メッセージのアクションを (`OperationDescription` の Messages コレクションから) 取得し、これを `ChunkingBindingParameter` のインスタンス内に含まれている文字列コレクションに追加します。 そして、この `ChunkingBindingParameter` を指定された `BindingParameterCollection` に追加します。
 
-この `BindingParameterCollection` は、バインド要素がチャネル ファクトリまたはチャネル リスナを作成するときに、`BindingContext` 内でバインディングの各バインド要素に渡されます。 `ChunkingBindingElement`のの`ChunkingBindingParameter`実装では`BindingContext’`、これをから取得します。`BindingParameterCollection` `BuildChannelListener<T>` `BuildChannelFactory<T>` 次に、`ChunkingBindingParameter` に含まれているアクションのコレクションが `ChunkingChannelFactory` または `ChunkingChannelListener` に渡され、その後 `ChunkingDuplexSessionChannel` に渡されます。
+この `BindingParameterCollection` は、バインド要素がチャネル ファクトリまたはチャネル リスナを作成するときに、`BindingContext` 内でバインディングの各バインド要素に渡されます。 `ChunkingBindingElement`による `BuildChannelFactory<T>` と `BuildChannelListener<T>` の実装では、`BindingContext’`s `BindingParameterCollection`からこの `ChunkingBindingParameter` をプルします。 次に、`ChunkingBindingParameter` に含まれているアクションのコレクションが `ChunkingChannelFactory` または `ChunkingChannelListener` に渡され、その後 `ChunkingDuplexSessionChannel` に渡されます。
 
 ## <a name="running-the-sample"></a>サンプルの実行
 
@@ -369,7 +369,7 @@ Press enter when service is available
  < Received chunk 10 of message 5b226ad5-c088-4988-b737-6a565e0563dd
 ```
 
-サーバー
+サーバー :
 
 ```console
 Service started, press enter to exit

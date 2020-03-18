@@ -14,14 +14,12 @@ helpviewer_keywords:
 - localization [.NET Framework], about localization
 - localizing resources
 ms.assetid: 49d520d7-92d7-44ee-bb24-8b615db1d41b
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 79ec24d16b43bd8e1312b3425e618adf163edd24
-ms.sourcegitcommit: 34593b4d0be779699d38a9949d6aec11561657ec
+ms.openlocfilehash: 89851c42570f301bee8a3eca744eb5d069347d4e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66834024"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73120869"
 ---
 # <a name="localization"></a>ローカリゼーション
 
@@ -33,7 +31,7 @@ ms.locfileid: "66834024"
 
 Windows ソフトウェア開発キット (SDK) には Windows フォーム リソース エディター (Winres.exe) があります。このエディターでは、ターゲット カルチャに合わせて Windows フォームを簡単にローカライズできます。 このツールの使用方法については、「[Winres.exe (Windows フォーム リソース エディター)](../../../docs/framework/tools/winres-exe-windows-forms-resource-editor.md)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [グローバライズとローカライズ](../../../docs/standard/globalization-localization/index.md)
 - [ローカライズ化の確認](../../../docs/standard/globalization-localization/localizability-review.md)

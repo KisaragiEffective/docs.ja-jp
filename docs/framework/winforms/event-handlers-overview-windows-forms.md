@@ -1,5 +1,5 @@
 ---
-title: イベント ハンドラーの概要 (Windows フォーム)
+title: イベント ハンドラーの概要
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,15 +10,15 @@ helpviewer_keywords:
 - event handling [Windows Forms], Windows Forms
 - event handlers [Windows Forms], about event handlers
 ms.assetid: 228112e1-1711-42ee-8ffa-ff3555bffe66
-ms.openlocfilehash: 05acbfaf427060d015c2445360a7d73ebe97d070
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 10ba458197973ede35849a86fec35003f139b8d2
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61966830"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76743461"
 ---
 # <a name="event-handlers-overview-windows-forms"></a>イベント ハンドラーの概要 (Windows フォーム)
-イベント ハンドラーは、イベントにバインドされるメソッドです イベントが発生したとき、そのイベント ハンドラー内のコードが実行されます 各イベント ハンドラーは、イベントを正しく処理できるように 2 つのパラメーターを提供しています。 次の例では、<xref:System.Windows.Forms.Button> コントロールの <xref:System.Windows.Forms.Control.Click> イベントのイベント ハンドラーを示しています。  
+イベント ハンドラーは、イベントにバインドされるメソッドです イベントが発生したとき、そのイベント ハンドラー内のコードが実行されます 各イベント ハンドラーは、イベントを正しく処理できるように 2 つのパラメーターを提供しています。 次の例は、<xref:System.Windows.Forms.Button> コントロールの <xref:System.Windows.Forms.Control.Click> イベントのイベントハンドラーを示しています。  
   
 ```vb  
 Private Sub button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles button1.Click  
@@ -42,13 +42,13 @@ private:
   }  
 ```  
   
- 最初のパラメーター、`sender` はイベントを発生させたオブジェクトへの参照を提供します。  2 番目のパラメーター、 `e`は、上記の例では、処理されたイベントで特有のオブジェクトを渡しています。 そのオブジェクトのプロパティ (また、ときには、そのメソッド) を参照することによって、マウス イベントにおけるマウスの位置や、あるいはドラッグ アンド ドロップのイベントで移動したデータのような情報を取得できます。  
+ 最初のパラメーターである`sender`は、イベントを発生させたオブジェクトへの参照を提供します。 上の例の2番目のパラメーター `e`は、処理されるイベントに固有のオブジェクトを渡します。 そのオブジェクトのプロパティ (また、ときには、そのメソッド) を参照することによって、マウス イベントにおけるマウスの位置や、あるいはドラッグ アンド ドロップのイベントで移動したデータのような情報を取得できます。  
   
- 多くのイベントは、2 番目のパラメーターに異なるイベント オブジェクト型を持つ イベント ハンドラーを有しています。 <xref:System.Windows.Forms.Control.MouseDown> や <xref:System.Windows.Forms.Control.MouseUp> のようないくつかのイベント ハンドラーは 2 番目のパラメーターに同じオブジェクト型を持ちます。 この種のイベントでは、両方のイベントを処理するために同じイベント ハンドラーを使用することができます。  
+ 多くのイベントは、2 番目のパラメーターに異なるイベント オブジェクト型を持つ イベント ハンドラーを有しています。 <xref:System.Windows.Forms.Control.MouseDown> イベントや <xref:System.Windows.Forms.Control.MouseUp> イベントのイベントハンドラーの中には、2番目のパラメーターと同じオブジェクト型を持つものもあります。 この種のイベントでは、両方のイベントを処理するために同じイベント ハンドラーを使用することができます。  
   
- また、異なるコントロールの同じイベントを処理するために同じイベント ハンドラーを使用することもできます。 たとえば、フォーム上に <xref:System.Windows.Forms.RadioButton> のコントロールのグループがある場合、<xref:System.Windows.Forms.Control.Click> イベントのイベント ハンドラーを作成し、それぞれのコントロールの <xref:System.Windows.Forms.Control.Click> イベントをその 1 つのイベント ハンドラーにバインドさせることができます。 詳細については、「[方法 :Windows フォームで 1 つのイベント ハンドラーに複数のイベントを関連付ける](how-to-connect-multiple-events-to-a-single-event-handler-in-windows-forms.md)します。  
+ また、異なるコントロールの同じイベントを処理するために同じイベント ハンドラーを使用することもできます。 たとえば、フォームに <xref:System.Windows.Forms.RadioButton> コントロールのグループがある場合、<xref:System.Windows.Forms.Control.Click> イベントの1つのイベントハンドラーを作成し、各コントロールの <xref:System.Windows.Forms.Control.Click> イベントを1つのイベントハンドラーにバインドすることができます。 詳細については、「[方法: Windows フォームの1つのイベントハンドラーに複数のイベントを接続](how-to-connect-multiple-events-to-a-single-event-handler-in-windows-forms.md)する」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [Windows フォーム内でのイベント ハンドラーの作成](creating-event-handlers-in-windows-forms.md)
+- [Windows フォーム内のイベント ハンドラーの作成](creating-event-handlers-in-windows-forms.md)
 - [イベントの概要](events-overview-windows-forms.md)

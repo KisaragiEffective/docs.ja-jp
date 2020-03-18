@@ -13,7 +13,7 @@ ms.lasthandoff: 10/15/2019
 ms.locfileid: "72319493"
 ---
 # <a name="null-comparisons"></a>NULL 比較
-データ ソースの `null` 値は不明な値を表します。 LINQ to Entities のクエリでは、null 値をチェックして、特定の計算または比較が、有効な、または null 以外のデータを含む行に対してのみ実行されるようにすることができます。 ただし、CLR の NULL セマンティクスは、データ ソースの NULL セマンティクスとは異なる場合があります。 ほとんどのデータベースでは、3 値論理を使用して NULL 比較を処理します。 つまり、null 値に対する比較は `true` または `false` に評価されません。これは `unknown` に評価されます。 これは、多くの場合は ANSI NULL の実装ですが、そうでない場合もあります。  
+データ ソースの `null` 値は不明な値を表します。 LINQ to Entities のクエリでは、null 値をチェックして、特定の計算または比較が、有効な、または null 以外のデータを含む行に対してのみ実行されるようにすることができます。 ただし、CLR の NULL セマンティクスは、データ ソースの NULL セマンティクスとは異なる場合があります。 ほとんどのデータベースでは、3 値論理を使用して NULL 比較を処理します。 つまり、null 値に対する比較は `true` または `false`には評価されず、`unknown`に評価されます。 これは、多くの場合は ANSI NULL の実装ですが、そうでない場合もあります。  
   
  SQL Server の既定では、NULL = NULL の比較は NULL 値を返します。 次の例では、`ShipDate` が null である行が結果セットから除外され、Transact-sql ステートメントが0行を返します。  
   
@@ -44,8 +44,8 @@ WHERE h.ShipDate IS Null
  [!code-vb[DP L2E Conceptual Examples#CastResultsIsNull](../../../../../../samples/snippets/visualbasic/VS_Snippets_Data/DP L2E Conceptual Examples/VB/Module1.vb#castresultsisnull)]  
   
 ## <a name="passing-null-collections-to-aggregate-functions"></a>集計関数に NULL コレクションを渡す  
- LINQ to Entities では、`IQueryable` をサポートするコレクションを集計関数に渡すと、集計操作がデータベースで実行されます。 メモリ内で実行されたクエリの結果と、データベースで実行されたクエリの結果が異なる場合があります。 メモリ内クエリで一致するものがない場合、クエリは0を返します。 データベースでは、これと同じクエリから `null` が返されます。 @No__t 0 の値が LINQ 集計関数に渡されると、例外がスローされます。 使用可能な @no__t 0 の値を受け入れるには、クエリ結果を受け取る型の型とプロパティを null 許容型にキャストします。  
+ LINQ to Entities では、`IQueryable` をサポートするコレクションを集計関数に渡すと、集計操作がデータベースで実行されます。 メモリ内で実行されたクエリの結果と、データベースで実行されたクエリの結果が異なる場合があります。 メモリ内クエリで一致するものがない場合、クエリは0を返します。 データベースでは、これと同じクエリから `null` が返されます。 `null` 値が LINQ 集計関数に渡されると、例外がスローされます。 使用可能な `null` 値を受け入れるには、クエリ結果を受け取る型の型とプロパティを null 許容型にキャストします。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [LINQ to Entities クエリ内の式](expressions-in-linq-to-entities-queries.md)

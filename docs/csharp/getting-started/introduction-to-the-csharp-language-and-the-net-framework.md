@@ -6,12 +6,12 @@ helpviewer_keywords:
 - C# language, about C# language
 - Visual C#, about
 ms.assetid: 0a2dff4e-cd84-42ff-8141-e89889b24081
-ms.openlocfilehash: 995362667ed0a203112744f03a036eabbcb784c8
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: d2fd879203932ea3f2211e38a2efdd626928962b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69608299"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75713908"
 ---
 # <a name="introduction-to-the-c-language-and-the-net-framework"></a>C# 言語と .NET Framework の概要
 
@@ -22,7 +22,7 @@ C# は、タイプ セーフで洗練されたオブジェクト指向言語で�
   
 ## <a name="c-language"></a>C# 言語
 
- C# の構文は表現力が豊かですが、単純ですぐに覚えることができます。 C、C++、または Java に慣れていれば、C# の中かっこ ({}) 構文をすぐに理解できます。 これらの言語のいずれかを理解していると、一般に、C# での開発を短期間で始めることができます。 C# 構文では、C++ の複雑な部分が数多く簡略化され、null 許容値型、列挙体、デリゲート、ラムダ式、ダイレクト メモリ アクセスなど、Java にはない強力な機能が実装されました。 C# はジェネリック メソッドおよびジェネリック型をサポートしているため、タイプ セーフおよびパフォーマンスが向上し、反復子もサポートしているため、クライアント コードで簡単に使用できるカスタムの反復動作をコレクション クラスの実装側が定義できます。 [!INCLUDE[vbteclinqext](~/includes/vbteclinqext-md.md)] 式により、厳密に型指定されたクエリは高度な言語構成要素になります。  
+C# の構文は表現力が豊かですが、単純ですぐに覚えることができます。 C、C++、または Java に慣れていれば、C# の中かっこ ({}) 構文をすぐに理解できます。 これらの言語のいずれかを理解していると、一般に、C# での開発を短期間で始めることができます。 C# 構文では、C++ の複雑な部分が数多く簡略化され、null 許容値型、列挙体、デリゲート、ラムダ式、ダイレクト メモリ アクセスなどの強力な機能が実装されました。 C# はジェネリック メソッドおよびジェネリック型をサポートしているため、タイプ セーフおよびパフォーマンスが向上し、反復子もサポートしているため、クライアント コードで簡単に使用できるカスタムの反復動作をコレクション クラスの実装側が定義できます。 統合言語クエリ (LINQ) 式により、厳密に型指定されたクエリは高度な言語構成要素になります。  
   
  C# は、オブジェクト指向言語として、カプセル化、継承、およびポリモーフィズムの概念をサポートしています。 アプリケーションのエントリ ポイントである `Main` メソッドなど、変数とメソッドのすべてがクラス定義内でカプセル化されています。 親クラスから直接継承できるクラスは 1 つのみですが、クラスで実装できるインターフェイスの数は任意です。 親クラスの仮想メソッドをオーバーライドする場合、誤って再定義しないように、`override` キーワードを指定する必要があります。 C# の構造体はコンパクトなクラスのようなものです。インターフェイスを実装できるスタック割り当て型ですが、継承はサポートされていません。  
   
@@ -36,19 +36,19 @@ C# は、タイプ セーフで洗練されたオブジェクト指向言語で�
   
 - インライン XML ドキュメントのコメント。  
   
-- [!INCLUDE[vbteclinqext](~/includes/vbteclinqext-md.md)]。さまざまなデータ ソースを対象とする組み込みのクエリ機能を提供します。  
+- 統合言語クエリ (LINQ)。さまざまなデータ ソースを対象とする組み込みのクエリ機能を提供します。  
   
- COM オブジェクトやネイティブの Win32 DLL など、他の Windows ソフトウェアと対話するには、C# で "相互運用" というプロセスを使用します。 C# プログラムで相互運用機能を使用すると、ネイティブの C++ アプリケーションで実行できる機能をほぼすべて実行できます。 さらに、ダイレクト メモリ アクセスが必須の場合でも、ポインターと "unsafe" コードの概念がサポートされます。  
+ COM オブジェクトやネイティブの Win32 DLL など、他の Windows ソフトウェアと対話するには、C# で "相互運用" というプロセスを使用します。 C# プログラムで相互運用機能を使用すると、ネイティブの C++ アプリケーションで実行できる機能をほぼすべて実行できます。 さらに、ダイレクト メモリ アクセスがクリティカルの場合でも、ポインターと "unsafe" コードの概念がサポートされます。  
   
  C# のビルド処理は、C や C++ よりも単純で Java よりも柔軟です。 ヘッダー ファイルは分かれていません。また、メソッドや型を特定の順序で宣言する必要はありません。 C# のソース ファイルでは、クラス、構造体、インターフェイス、およびイベントをいくつでも定義できます。  
   
  その他に、C# の参照ドキュメントを紹介します。  
   
-- C# 言語の概略については、「[C# 言語仕様](../language-reference/language-specification/index.md)」の第 1 章を参照してください。  
+- C# 言語の概略については、「[C# 言語仕様](/dotnet/csharp/language-reference/language-specification/introduction)」の第 1 章を参照してください。  
   
 - C# 言語の具体的な側面の詳細については、「[C# リファレンス](../language-reference/index.md)」を参照してください。  
   
-- [!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] の詳細については、[LINQ (統合言語クエリ)](../programming-guide/concepts/linq/index.md) に関するページを参照してください。  
+- LINQ の詳細については、「[統合言語クエリ (LINQ)](../programming-guide/concepts/linq/index.md)」を参照してください。  
 
 ## <a name="net-framework-platform-architecture"></a>.NET Framework のプラットフォーム アーキテクチャ
 
@@ -58,7 +58,7 @@ C# は、タイプ セーフで洗練されたオブジェクト指向言語で�
   
  C# プログラムを実行すると、アセンブリが CLR に読み込まれ、マニフェストの情報に基づいてさまざまな処理が実行されます。 このとき、セキュリティ要件に一致すると、CLR で Just-In-Time (JIT) コンパイルが実行され、IL コードはネイティブのマシン語命令に変換されます。 CLR には、自動的なガベージ コレクション、例外処理、およびリソース管理に関するサービスも用意されています。 CLR で実行されるコードは、"マネージド コード" と呼ばれることがあります。反対に、特定のシステムを対象にしたネイティブのマシン語にコンパイルされたコードは、"アンマネージド コード" と呼ばれることがあります。 C# ソース コード ファイル、.NET Framework クラス ライブラリ、アセンブリ、および CLR について、コンパイル時間と実行時間の関係を次の図に示します。  
   
- ![C&#35; ソース コードからマシン実行へ](./media/introduction-to-the-csharp-language-and-the-net-framework/net-architecture-relationships.png)  
+ ![C# ソース コードからマシン実行へ](./media/introduction-to-the-csharp-language-and-the-net-framework/net-architecture-relationships.png)  
   
  言語の相互運用性は、.NET Framework の主要機能です。 C# コンパイラで生成された IL コードは、共通型の仕様 (CTS: Common Type Specification) に準拠しています。このため、C# の IL コードは、Visual Basic、Visual C++ の .NET バージョンを始めとする、20 を超える CTS 準拠言語で生成されたコードと相互運用性があります。 1 つのアセンブリには、異なる .NET 言語で記述されたモジュールを複数含めることができます。また、同じ言語で記述されている場合と同様に、型を参照することもできます。  
   
@@ -66,7 +66,6 @@ C# は、タイプ セーフで洗練されたオブジェクト指向言語で�
   
  .NET Framework の詳細については、[Microsoft .NET Framework の概要](../../framework/get-started/overview.md)に関する記事を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C#](../index.md)
-- [Visual C# と Visual Basic の概要](/visualstudio/ide/getting-started-with-visual-csharp-and-visual-basic)
+- [Visual C# 入門](/visualstudio/ide/quickstart-csharp-console)

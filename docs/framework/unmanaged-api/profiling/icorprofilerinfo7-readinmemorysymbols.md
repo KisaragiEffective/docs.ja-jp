@@ -10,14 +10,12 @@ api_location:
 api_type:
 - COM
 ms.assetid: 1745a0b9-8332-4777-a670-b549bff3b901
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 95b463b23c230d620d746e48da49d75238ef2cb7
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 53c01d2db44f4d0adf1ba5b9cc225ab49581aa5d
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69955371"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76868344"
 ---
 # <a name="icorprofilerinfo7readinmemorysymbols"></a>ICorProfilerInfo7:: ReadInMemorySymbols
 [.NET Framework 4.6.1 以降のバージョンでのみでサポート]  
@@ -44,7 +42,7 @@ HRESULT ReadInMemorySymbols(
  からメモリ内ストリーム内でバイトの読み取りを開始する位置のオフセット。  
   
  `pSymbolBytes`  
- 入出力データがコピーされるバッファーへのポインター。 バッファーには、 `countSymbolBytes`使用可能な領域が必要です。  
+ 入出力データがコピーされるバッファーへのポインター。 バッファーには、使用可能な領域の `countSymbolBytes` が必要です。  
   
  `countSymbolBytes`  
  からコピーするバイト数。  
@@ -53,25 +51,25 @@ HRESULT ReadInMemorySymbols(
  入出力メソッドから制御が戻るときに、実際に読み取られたバイト数を格納します。  
   
 ## <a name="return-value"></a>戻り値  
- `S_OK`0以外のバイト数が読み取られた場合は。  
+ 0以外のバイト数が読み取られた場合は `S_OK`。  
   
- `CORPROF_E_MODULE_IS_DYNAMIC`モジュールがを使用して<xref:System.Reflection.Emit>作成された場合は。  
+ モジュールが <xref:System.Reflection.Emit>を使用して作成された場合は `CORPROF_E_MODULE_IS_DYNAMIC`。  
   
-## <a name="remarks"></a>Remarks  
- メソッド`ReadInMemorySymbols`は、インメモリ`countSymbolBytes`ストリーム内のオフセット`symbolsReadOffset`を開始位置として、データの読み取りを試みます。 データはに`pSymbolBytes`コピーされます。これには`countSymbolBytes` 、使用可能な領域があることが予想されます。     `pCountSymbolsBytesRead`実際に読み取られたバイト数を格納します。ストリーム`countSymbolBytes`の末尾に到達した場合よりも小さくなることがあります。  
+## <a name="remarks"></a>コメント  
+ `ReadInMemorySymbols` メソッドは、インメモリストリーム内のオフセット `symbolsReadOffset` で始まるデータの `countSymbolBytes` の読み取りを試みます。 データは `pSymbolBytes`にコピーされます。これには、使用可能な領域の `countSymbolBytes` があることが予想されます。     `pCountSymbolsBytesRead` には実際に読み取られたバイト数が含まれます。ストリームの末尾に到達した場合、`countSymbolBytes` よりも小さくなることがあります。  
   
 > [!NOTE]
-> 現在の実装では、リフレクションはサポートされていません。 モジュールがリフレクションを使用して作成された場合、メソッド`CORPROF_E_MODULE_IS_DYNAMIC`はを返します。  
+> 現在の実装では、リフレクションはサポートされていません。 モジュールがリフレクションを使用して作成された場合、メソッドは `CORPROF_E_MODULE_IS_DYNAMIC`を返します。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Corprof.idl、Corprof.idl  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v461plus](../../../../includes/net-current-v461plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerInfo7 インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo7-interface.md)
+- [ICorProfilerInfo7 インターフェイス](icorprofilerinfo7-interface.md)

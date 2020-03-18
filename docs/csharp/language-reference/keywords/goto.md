@@ -1,6 +1,5 @@
 ---
 title: goto ステートメント - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - goto_CSharpKeyword
@@ -8,12 +7,12 @@ f1_keywords:
 helpviewer_keywords:
 - goto keyword [C#]
 ms.assetid: 2c03c9c1-8119-44ef-b740-fb3d287a42fe
-ms.openlocfilehash: 675893f02a0022b403d2afc018d24d6f826b8f75
-ms.sourcegitcommit: 10986410e59ff29f2ec55c6759bde3eb4d1a00cb
+ms.openlocfilehash: 076f793e880a7b4d1e8872d80e88c44cdf077541
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66421806"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75715272"
 ---
 # <a name="goto-c-reference"></a>goto (C# リファレンス)
 
@@ -25,7 +24,7 @@ ms.locfileid: "66421806"
 
 ## <a name="example"></a>例
 
-次の例では、[switch](switch.md) ステートメントでの `goto` の使い方を示します。
+次の例では、`goto`switch[ ステートメントでの ](switch.md) の使い方を示します。
 
 [!code-csharp[csrefKeywordsJump#4](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsJump/CS/csrefKeywordsJump.cs#4)]
 
@@ -39,9 +38,9 @@ ms.locfileid: "66421806"
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# のキーワード](index.md)
 - [goto ステートメント (C++)](/cpp/cpp/goto-statement-cpp)

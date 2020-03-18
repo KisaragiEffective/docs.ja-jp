@@ -1,23 +1,22 @@
 ---
 title: 拡張メソッド - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - methods [C#], adding to existing types
 - extension methods [C#]
 - methods [C#], extension
 ms.assetid: 175ce3ff-9bbf-4e64-8421-faeb81a0bb51
-ms.openlocfilehash: e37fc792f79044345d52b2bc463813c0bde22f5b
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: ce35ef4d4286310aa6c8b6e40c3a448b0d91ea7d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70970905"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75937520"
 ---
 # <a name="extension-methods-c-programming-guide"></a>拡張メソッド (C# プログラミング ガイド)
 拡張メソッドを使用すると、新規の派生型の作成、再コンパイル、または元の型の変更を行うことなく既存の型にメソッドを "追加" できます。 拡張メソッドは特別な種類の静的メソッドですが、拡張された型のインスタンス メソッドのように呼び出します。 C#、F#、および Visual Basic で作成されたクライアント コードの場合は、拡張メソッドの呼び出しと、型で実際に定義されたメソッドの呼び出しに明確な違いはありません。  
   
- 最も一般的な拡張メソッドは、既存の [!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] 型および <xref:System.Collections.IEnumerable?displayProperty=nameWithType> 型にクエリ機能を追加する <xref:System.Collections.Generic.IEnumerable%601?displayProperty=nameWithType> 標準クエリ演算子です。 この標準クエリ演算子を使用するには、まず `using System.Linq` ディレクティブを使用して、スコープに含めます。 <xref:System.Collections.Generic.IEnumerable%601> を実装するすべての型は、<xref:System.Linq.Enumerable.GroupBy%2A>、<xref:System.Linq.Enumerable.OrderBy%2A>、<xref:System.Linq.Enumerable.Average%2A> などのインスタンス メソッドを持っていると考えられます。 <xref:System.Collections.Generic.List%601>、<xref:System.Array> などの <xref:System.Collections.Generic.IEnumerable%601> 型のインスタンスの後に "ドット" を入力すると、IntelliSense により、ステートメントの入力候補としてこれらの追加メソッドが表示されます。  
+ 最も一般的な拡張メソッドは、既存の <xref:System.Collections.IEnumerable?displayProperty=nameWithType> 型および <xref:System.Collections.Generic.IEnumerable%601?displayProperty=nameWithType> 型にクエリ機能を追加する LINQ 標準クエリ演算子です。 この標準クエリ演算子を使用するには、まず `using System.Linq` ディレクティブを使用して、スコープに含めます。 <xref:System.Collections.Generic.IEnumerable%601> を実装するすべての型は、<xref:System.Linq.Enumerable.GroupBy%2A>、<xref:System.Linq.Enumerable.OrderBy%2A>、<xref:System.Linq.Enumerable.Average%2A> などのインスタンス メソッドを持っていると考えられます。 <xref:System.Collections.Generic.List%601>、<xref:System.Array> などの <xref:System.Collections.Generic.IEnumerable%601> 型のインスタンスの後に "ドット" を入力すると、IntelliSense により、ステートメントの入力候補としてこれらの追加メソッドが表示されます。  
   
  整数の配列において、標準クエリ演算子の `OrderBy` メソッドを呼び出す方法を次の例に示します。 かっこ内の式はラムダ式です。 標準クエリ演算子の多くはパラメーターとしてラムダ式を受け取りますが、拡張メソッドでは、これは必須ではありません。 詳細については、「[ラムダ式](../statements-expressions-operators/lambda-expressions.md)」を参照してください。  
   
@@ -44,7 +43,7 @@ int i = s.WordCount();
   
  コードでは、インスタンス メソッドの構文を使用して拡張メソッドを呼び出します。 ただし、コンパイラが生成する中間言語 (IL: Intermediate Language) により、コードは静的メソッドに対する呼び出しに変換されます。 したがって、カプセル化の原則には実質的に違反していません。 実際に、拡張メソッドは、それらが拡張している型のプライベート変数にはアクセスできません。  
   
- 詳細については、「[方法 :カスタム拡張メソッドを実装して呼び出す](./how-to-implement-and-call-a-custom-extension-method.md)」をご覧ください。  
+ 詳細については、「[カスタム拡張メソッドを実装して呼び出す方法](./how-to-implement-and-call-a-custom-extension-method.md)」を参照してください。
   
  一般的には、独自の拡張メソッドを実装するよりも、拡張メソッドを呼び出すことの方がはるかに多くなります。 拡張メソッドは、インスタンス メソッドの構文を使用して呼び出すので、特別な知識がなくてもクライアント コードからそれらを使用できます。 メソッドが定義されている名前空間に関する `using` ディレクティブを追加するだけで、特定の型の拡張メソッドを使用できるようになります。 たとえば、標準クエリ演算子を使用するには、次の `using` ディレクティブをコードに追加します。  
   
@@ -85,7 +84,7 @@ using System.Linq;
 - [並列プログラミングのサンプル (拡張メソッドの例が多数掲載されています)](https://code.msdn.microsoft.com/Samples-for-Parallel-b4b76364)
 - [ラムダ式](../statements-expressions-operators/lambda-expressions.md)
 - [標準クエリ演算子の概要](../concepts/linq/standard-query-operators-overview.md)
-- [インスタンス パラメーターの変換規則とその影響](https://blogs.msdn.microsoft.com/sreekarc/2007/10/11/conversion-rules-for-instance-parameters-and-their-impact)
-- [拡張メソッドの言語間での相互運用性](https://blogs.msdn.microsoft.com/sreekarc/2007/10/11/extension-methods-interoperability-between-languages)
-- [拡張メソッドとカリー化デリゲート](https://blogs.msdn.microsoft.com/sreekarc/2007/05/01/extension-methods-and-curried-delegates)
-- [バインディングとエラー報告に関する拡張メソッド](https://blogs.msdn.microsoft.com/sreekarc/2007/04/26/extension-method-binding-and-error-reporting)
+- [インスタンス パラメーターの変換規則とその影響](https://docs.microsoft.com/archive/blogs/sreekarc/conversion-rules-for-instance-parameters-and-their-impact)
+- [拡張メソッドの言語間での相互運用性](https://docs.microsoft.com/archive/blogs/sreekarc/extension-methods-interoperability-between-languages)
+- [拡張メソッドとカリー化デリゲート](https://docs.microsoft.com/archive/blogs/sreekarc/extension-methods-and-curried-delegates)
+- [バインディングとエラー報告に関する拡張メソッド](https://docs.microsoft.com/archive/blogs/sreekarc/extension-method-binding-and-error-reporting)

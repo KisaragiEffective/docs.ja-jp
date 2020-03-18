@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 542cdd81-5ae7-4361-b0ef-1ae4775df258
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5cd2add7e96a8edaff8509563ae1846e80132001
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 2845c15d67e287d6efb0cd0a9c940b69de3a1c0c
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67740100"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76789374"
 ---
 # <a name="cordebugexceptionobjectstackframe-structure"></a>CorDebugExceptionObjectStackFrame 構造体
 例外オブジェクトのスタック フレームの情報を表しています。  
@@ -41,16 +39,16 @@ typedef struct CorDebugExceptionObjectStackFrame {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`pModule`|現在のフレームの ICorDebugModule オブジェクトへのポインター。|  
+|`pModule`|現在のフレームのモジュールオブジェクトへのポインター。|  
 |`ip`|現在のフレームの命令ポインター (EIP/RIP) の値。|  
-|`methodDef`|現在のフレーム メソッド トークンです。|  
+|`methodDef`|現在のフレームのメソッドトークン。|  
 |`isLastForeignExceptionFrame`|フレームが外部例外の最後のフレームであるかどうかを示す値。|  
   
-## <a name="remarks"></a>Remarks  
- 呼び出し元は、使用が ICorDebugModule オブジェクトへのポインターを解放する必要があります。  
+## <a name="remarks"></a>コメント  
+ 呼び出し元は、使用されなくなったときに、モジュールオブジェクトへのポインターを解放する必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -60,5 +58,5 @@ typedef struct CorDebugExceptionObjectStackFrame {
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ構造体](../../../../docs/framework/unmanaged-api/debugging/debugging-structures.md)
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
+- [デバッグ構造体](debugging-structures.md)
+- [デバッグ](index.md)

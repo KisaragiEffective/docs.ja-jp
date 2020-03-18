@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 0aba6096-5b38-435c-a72a-86d35db4daef
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8f0643ba9e750e7c64d2dae8eb5744df7bc26931
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 5a6e0b009674ff52595aaa0ae4a060f1cdfd1398
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737792"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73089044"
 ---
 # <a name="icordebugappdomain2getfunctionpointertype-method"></a>ICorDebugAppDomain2::GetFunctionPointerType メソッド
 指定されたシグネチャを持つ関数へのポインターを取得します。  
@@ -39,16 +37,16 @@ HRESULT GetFunctionPointerType (
   
 ## <a name="parameters"></a>パラメーター  
  `nTypeArgs`  
- [in]関数の型引数の数。  
+ から関数の型引数の数。  
   
  `ppTypeArgs`  
- [in]関数の引数の型を表す ICorDebugType オブジェクトを指す各ポインターの配列。 最初の要素は、戻り値の型です。これらの他の要素は、パラメーターの型です。  
+ からポインターの配列。各ポインターは、関数の型引数を表す、テキスト型のオブジェクトを指します。 最初の要素は戻り値の型です。その他の要素はそれぞれパラメーター型です。  
   
  `ppType`  
- [out]アドレスへのポインター、`ICorDebugType`関数へのポインターを表すオブジェクト。  
+ 入出力関数へのポインターを表す `ICorDebugType` オブジェクトのアドレスへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

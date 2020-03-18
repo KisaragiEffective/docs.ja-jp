@@ -1,18 +1,19 @@
 ---
-title: 'チュートリアル: Windows フォームでの WPF 複合コントロールのホスト'
+title: Windows フォームでの WPF 複合コントロールのホスト
+titleSuffix: ''
 ms.date: 03/30/2017
 helpviewer_keywords:
 - hosting WPF content in Windows Forms [WPF]
 ms.assetid: 0ac41286-4c1b-4b17-9196-d985cb844ce1
-ms.openlocfilehash: 0054ac49589991d754da655e9f8f52d63e9a6274
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: 05ba8120c90175801aa2cb61499c48133853e8f7
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920220"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76794165"
 ---
 # <a name="walkthrough-hosting-a-wpf-composite-control-in-windows-forms"></a>チュートリアル: Windows フォームでの WPF 複合コントロールのホスト
-[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] は、アプリケーションの作成に適した環境を提供します。 ただし、[!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] コードに多大な投資をしている場合は、最初から書き換えるのではなく、既存の [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] アプリケーションを [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] で拡張する方が効果的です。 一般的なシナリオは、Windows フォームアプリケーション内の [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] で実装された1つ以上のコントロールを埋め込む場合です。 WPF コントロールのカスタマイズの詳細については、「[コントロールのカスタマイズ](../controls/control-customization.md)」を参照してください。  
+[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] は、アプリケーションの作成に適した環境を提供します。 ただし、Windows フォームコードに多大な投資をしている場合は、最初から書き換えるのではなく、既存の Windows フォームアプリケーションを [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] で拡張する方が効果的です。 一般的なシナリオは、Windows フォームアプリケーション内の [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] で実装された1つ以上のコントロールを埋め込む場合です。 WPF コントロールのカスタマイズの詳細については、「[コントロールのカスタマイズ](../controls/control-customization.md)」を参照してください。  
   
  このチュートリアルでは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] 複合コントロールをホストし、Windows フォームアプリケーションでデータ入力を実行するアプリケーションについて説明します。 複合コントロールは DLL にパッケージ化されています。 この一般的な手順は、より複雑なアプリケーションやコントロールに拡張することができます。 このチュートリアルは、 [「チュートリアル: WPF での Windows フォーム複合コントロールのホスト](walkthrough-hosting-a-windows-forms-composite-control-in-wpf.md)」という外観と機能にほぼ同じように設計されています。 主な違いは、ホストする側とされる側が逆であることです。  
   
@@ -26,7 +27,7 @@ ms.locfileid: "72920220"
   
  このチュートリアルで示すタスクの完全なコード一覧については、「 [Windows フォームサンプルでの WPF 複合コントロールのホスト](https://github.com/microsoft/WPF-Samples/tree/master/Migration%20and%20Interoperability/WindowsFormsHostingWpfControl)」を参照してください。  
   
-## <a name="prerequisites"></a>必要条件  
+## <a name="prerequisites"></a>Prerequisites  
 
 このチュートリアルを完了するには Visual Studio が必要です。  
   
@@ -58,7 +59,7 @@ ms.locfileid: "72920220"
   
 - PresentationFramework  
   
-- システム  
+- System  
   
 - WindowsBase  
   
@@ -87,7 +88,7 @@ ms.locfileid: "72920220"
 #### <a name="styling-the-ui-elements"></a>UI 要素のスタイル設定  
  データ入力フォームの多くの要素は外観が似ていますが、それは、そのいくつかのプロパティの設定が同一であることを意味しています。 各要素の属性を個別に設定するのではなく、前の XAML では <xref:System.Windows.Style> 要素を使用して要素のクラスの標準プロパティ設定を定義します。 この方法だと、コントロールの複雑さが軽減され、1 つのスタイル属性を使用して複数要素の外観を変更することができます。  
   
- <xref:System.Windows.Style> 要素は、<xref:System.Windows.Controls.Grid> 要素の <xref:System.Windows.FrameworkElement.Resources%2A> プロパティに含まれているので、コントロール内のすべての要素で使用できます。 スタイルにという名前が付けられている場合は、スタイル名に <xref:System.Windows.Style> 要素セットを追加することによって、要素に適用します。 名前が付いていないスタイルは、その要素の既定のスタイルになります。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] スタイルの詳細については、「スタイル[とテンプレート](../controls/styling-and-templating.md)」を参照してください。  
+ <xref:System.Windows.Style> 要素は、<xref:System.Windows.Controls.Grid> 要素の <xref:System.Windows.FrameworkElement.Resources%2A> プロパティに含まれているので、コントロール内のすべての要素で使用できます。 スタイルにという名前が付けられている場合は、スタイル名に <xref:System.Windows.Style> 要素セットを追加することによって、要素に適用します。 名前が付いていないスタイルは、その要素の既定のスタイルになります。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] スタイルの詳細については、「スタイル[とテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)」を参照してください。  
   
  次の XAML は、複合コントロールの <xref:System.Windows.Style> 要素を示しています。 スタイルがどのように要素に適用されるかについては、前の XAML を参照してください。 たとえば、最後の <xref:System.Windows.Controls.TextBlock> 要素は `inlineText` スタイルを持ち、最後の <xref:System.Windows.Controls.TextBox> 要素は既定のスタイルを使用します。  
   
@@ -230,19 +231,19 @@ namespace MyControls
   
 4. 次の <xref:System.Windows.Forms.GroupBox?displayProperty=nameWithType> コントロールをフォームに追加します。  
   
-    |名|テキスト|  
+    |[名前]|テキスト|  
     |----------|----------|  
     |groupBox1|背景色|  
     |groupBox2|前景色|  
     |groupBox3|フォント サイズ|  
     |groupBox4|フォント ファミリ|  
-    |groupBox5|[スタイル]|  
+    |groupBox5|フォント スタイル|  
     |groupBox6|フォントの太さ|  
     |groupBox7|コントロールからのデータ|  
   
 5. 次の <xref:System.Windows.Forms.RadioButton?displayProperty=nameWithType> コントロールを <xref:System.Windows.Forms.GroupBox?displayProperty=nameWithType> コントロールに追加します。  
   
-    |GroupBox|名|テキスト|  
+    |GroupBox|[名前]|テキスト|  
     |--------------|----------|----------|  
     |groupBox1|radioBackgroundOriginal|元|  
     |groupBox1|radioBackgroundLightGreen|ライトグリーン|  
@@ -259,16 +260,16 @@ namespace MyControls
     |groupBox5|radioStyleOriginal|標準|  
     |groupBox5|radioStyleItalic|[斜体]|  
     |groupBox6|radioWeightOriginal|元|  
-    |groupBox6|radioWeightBold|[太字]|  
+    |groupBox6|radioWeightBold|太字|  
   
 6. 次の <xref:System.Windows.Forms.Label?displayProperty=nameWithType> コントロールを最後の <xref:System.Windows.Forms.GroupBox?displayProperty=nameWithType>に追加します。 これらのコントロールは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] 複合コントロールによって返されるデータを表示します。  
   
-    |GroupBox|名|テキスト|  
+    |GroupBox|[名前]|テキスト|  
     |--------------|----------|----------|  
     |groupBox7|lblName|名前:|  
     |groupBox7|lblAddress|番地:|  
-    |groupBox7|lblCity|市区町村:|  
-    |groupBox7|lblState|都道府県:|  
+    |groupBox7|lblCity|都市:|  
+    |groupBox7|lblState|状態:|  
     |groupBox7|lblZip|郵便番号:|  
   
 ### <a name="initializing-the-form"></a>フォームの初期化  
@@ -326,6 +327,6 @@ namespace MyControls
 
 - <xref:System.Windows.Forms.Integration.ElementHost>
 - <xref:System.Windows.Forms.Integration.WindowsFormsHost>
-- [Visual Studio で XAML をデザインする](/visualstudio/designers/designing-xaml-in-visual-studio)
+- [Visual Studio で XAML をデザインする](/visualstudio/xaml-tools/designing-xaml-in-visual-studio)
 - [チュートリアル: WPF での Windows フォーム複合コントロールのホスト](walkthrough-hosting-a-windows-forms-composite-control-in-wpf.md)
 - [チュートリアル: Windows フォームでの 3D WPF 複合コントロールのホスト](walkthrough-hosting-a-3-d-wpf-composite-control-in-windows-forms.md)

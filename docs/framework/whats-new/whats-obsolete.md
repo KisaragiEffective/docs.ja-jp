@@ -1,5 +1,5 @@
 ---
-title: クラス ライブラリ内にある旧版のもの
+title: .NET Framework で互換性のために残されている機能
 ms.custom: updateeachrelease
 ms.date: 04/02/2019
 helpviewer_keywords:
@@ -7,23 +7,21 @@ helpviewer_keywords:
 - what's obsolete [.NET Framework]
 - deprecated [.NET Framework]
 ms.assetid: d356a43a-73df-4ae2-a457-b9628074c7cd
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 810f49581d4cb28987ea41237645f75c50388084
-ms.sourcegitcommit: d8ebe0ee198f5d38387a80ba50f395386779334f
+ms.openlocfilehash: 7cfebfde859a95495e9d2d5e42bd034ad5d55e61
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66690478"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79143136"
 ---
 # <a name="whats-obsolete-in-the-net-framework-class-library"></a>クラス ライブラリ内にある旧版のもの
 
-.NET Framework は進化しています。 バージョンが新しくなるたびに、新しい機能を提供する新しい型と新しいメンバーが追加されています。 既存の型とそのメンバーも変更されています。 たとえば、一部の型は、その型がサポートするテクノロジが新しいテクノロジに置き換えられることで重要度が下がり、一部のメソッドは、より便利な新しいメソッドまたはより多くの機能を備えた新しいメソッドに置き換えられています。
+.NET の変化の推移。 バージョンが新しくなるたびに、新しい機能を提供する新しい型と新しいメンバーが追加されています。 既存の型とそのメンバーも変更されています。 たとえば、一部の型は、その型がサポートするテクノロジが新しいテクノロジに置き換えられることで重要度が下がり、一部のメソッドは、何らかの形で優れた新しいメソッドに置き換えられています。
 
-.NET Framework と共通言語ランタイムでは、下位互換性をサポートするように努めています (.NET Framework の特定のバージョンで開発したアプリケーションを、.NET Framework の次期バージョンで実行できるようにするためです)。 そのため、型または型のメンバーを単純に削除することはできません。 そこで、.NET Framework では、型または型のメンバーが使用されなくなったことを示すために、その型またはメンバーを旧式 (互換性のために残されている) または非推奨として指定しています。 型またはメンバーを非推奨とする場合は、開発者がその型またはメンバーが削除予定であることを認識してその削除に対応できるように、指定を行う必要があります。 ただし、そのような型またはメンバーを使用する既存のコードは、.NET Framework の次期バージョンで引き続き実行できます。
+.NET Framework と共通言語ランタイムでは、下位互換性をサポートするように努めています (.NET Framework の特定のバージョンで開発したアプリケーションを、.NET Framework の次期バージョンで実行できるようにするためです)。 そのため、型または型のメンバーを単純に削除することはできません。 そこで、.NET では、型または型のメンバーが使用されなくなったことを示すために、その型またはメンバーを旧式 (互換性のために残されている) または非推奨として指定しています。 型またはメンバーを非推奨とする場合は、開発者がその型またはメンバーが削除予定であることを認識してその削除に対応できるように、指定を行う必要があります。 ただし、そのような型またはメンバーを使用する既存のコードは、.NET の次期バージョンで引き続き実行できます。
 
 > [!NOTE]
-> *旧式*と*非推奨*という用語は、.NET Framework の型とメンバーに対して使用する場合は同じ意味です。
+> "*旧式 (互換性のために残されている)* " という用語と "*非推奨*" という用語は、.NET の型とメンバーに対して使用する場合は同じ意味です。
 
 ## <a name="the-obsoleteattribute-attribute"></a>ObsoleteAttribute 属性
 
@@ -45,19 +43,19 @@ ms.locfileid: "66690478"
 
 既存のコードは、.NET Framework の新しいバージョンに対して再コンパイルすることはできません。 代わりに、既存のコンパイル済みコードの実行対象である .NET Framework のバージョンを指定できます。 たとえば、.NET Framework 3.5 に対してコンパイルされた app1.exe というアプリケーションがあるものの、このアプリケーションを .NET Framework 4.5 に対して実行する必要があるとします。 この場合、次の手順が必要です。
 
-1. メイン実行可能ファイルの構成ファイルを作成し、その名前を *appName*.exe.config にします。*appName* は、アプリケーションの実行可能ファイルの名前です。 このトピックの例の app1.exe というアプリケーションの場合は、app1.exe.config という名前の構成ファイルを作成します。
+1. メイン実行可能ファイルの構成ファイルを作成し、その名前を *appName*.exe.config にします。*appName* は、アプリケーションの実行可能ファイルの名前です。 このトピックの例の *app1.exe* というアプリケーションの場合は、*app1.exe.config* という名前の構成ファイルを作成します。
 
 2. 次のコードを構成ファイルに追加します。
 
     ```xml
     <configuration>
-       <startup> 
+       <startup>
           <supportedRuntime version="v4.0" />
        </startup>
     </configuration>
     ```
 
-.NET Framework の特定のバージョンを対象とするために `version` 属性に割り当てできる文字列値を次の表に示します。
+.NET Framework の特定のバージョンを対象とするには、次の文字列値のいずれかを `version` 属性に割り当てます。
 
 |.NET Framework のバージョン|`version` 文字列|
 |-|-|
@@ -71,19 +69,16 @@ ms.locfileid: "66690478"
 |1.1|v1.1.4322|
 |1|v1.0.3705|
 
-## <a name="obsolete-lists-for-the-net-framework-45-and-later-versions"></a>.NET Framework 4.5 以降のバージョンの互換性のために残されている古い機能の一覧
+## <a name="obsolete-apis-for-net-framework-45-and-later-versions"></a>.NET Framework 4.5 以降のバージョンの互換性のために残されている API
 
-- [互換性のために残されている型](obsolete-types.md)
+- [旧版の .NET Framework の型](obsolete-types.md)
 - [互換性のために残されているメンバー](obsolete-members.md)
 
-## <a name="obsolete-lists-for-previous-versions"></a>以前のバージョンの互換性のために残されている機能の一覧
+## <a name="obsolete-apis-for-previous-versions"></a>以前のバージョンの互換性のために残されている API
 
 - [.NET Framework 4 で互換性のために残されている型](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ee461503(v=vs.100))
-
 - [.NET Framework 4 で互換性のために残されているメンバー](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ee471421(v=vs.100))
-
 - [.NET Framework 3.5 Obsolete List (.NET Framework 3.5 の互換性のために残されている機能の一覧)](https://docs.microsoft.com/previous-versions/cc835481(v=msdn.10))
-
 - [.NET Framework 2.0 Obsolete List (.NET Framework 2.0 の互換性のために残されている機能の一覧)](https://docs.microsoft.com/previous-versions/aa497286(v=msdn.10))
 
 ## <a name="see-also"></a>関連項目

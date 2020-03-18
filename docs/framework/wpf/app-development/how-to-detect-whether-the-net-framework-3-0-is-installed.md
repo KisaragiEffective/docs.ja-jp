@@ -1,23 +1,23 @@
 ---
-title: '方法: .NET Framework 3.0 がインストールされているかどうかの確認'
+title: '方法: .NET Framework 3.0 がインストールされているかどうかを確認する'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - WinFX Runtime user-agent string
 - presence of WPT [WPF], detecting
 - detecting WPF presence [WPF]
 ms.assetid: 7f71d652-1749-4379-945a-aa2e3994cb43
-ms.openlocfilehash: c68daf2cb5687497e66ad3022ce42352a17ae0f7
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 41010e615b6b3d10ebf6adc0e3f871873e94f409
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71053446"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77124456"
 ---
-# <a name="how-to-detect-whether-the-net-framework-30-is-installed"></a>方法: .NET Framework 3.0 がインストールされているかどうかの確認
+# <a name="how-to-detect-whether-the-net-framework-30-is-installed"></a>方法: .NET Framework 3.0 がインストールされているかどうかを確認する
 管理者が Microsoft .NET Framework アプリケーションをシステムに配置するには、まず、.NET Framework ランタイムが存在することを確認する必要があります。 このトピックでは、.NET Framework がシステムに存在するかどうかを確認するために管理者が使用できる HTML/JavaScript で記述されたスクリプトについて説明します。  
   
 > [!NOTE]
-> Microsoft .NET Framework のインストール、配置、および検出の詳細については、 [Microsoft .NET Framework バージョン3.0 の展開](https://go.microsoft.com/fwlink/?LinkId=96739)に関するトピックを参照してください。  
+> Microsoft .NET Framework のインストール、配置、および検出の詳細については、 [Microsoft .NET Framework バージョン3.0 の展開](https://docs.microsoft.com/previous-versions/dotnet/articles/aa480198(v=msdn.10))に関するトピックを参照してください。  
   
 <a name="content_expiration"></a>   
 ## <a name="detect-the-net-clr-user-agent-string"></a>".NET CLR" ユーザーエージェント文字列の検出  

@@ -1,20 +1,22 @@
 ---
 title: global.json の概要
 description: .NET Core CLI コマンドを実行するときに global.json ファイルを使用して .NET Core SDK のバージョンを設定する方法について説明します。
-ms.date: 12/03/2018
-ms.custom: updateeachrelease, seodec18
-ms.openlocfilehash: 2c1fec102993b61e1eb699e8d3508b773302f569
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+ms.date: 01/14/2020
+ms.custom: updateeachrelease
+ms.openlocfilehash: 70257566e1ff30f5c97212a5e0e3c308c27738b7
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71117429"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77625996"
 ---
 # <a name="globaljson-overview"></a>global.json の概要
 
-[!INCLUDE [topic-appliesto-net-core-all](../../../includes/topic-appliesto-net-core-all.md)]
+**この記事の対象:** ✔️ .NET Core 2.0 SDK 以降のバージョン
 
-*global.json* ファイルを使うと、.NET Core CLI コマンドを実行するときに使う .NET Core SDK のバージョンを定義できます。 .NET Core SDK の選択は、プロジェクトのターゲットであるランタイムの指定とは関係ありません。 .NET Core SDK のバージョンは、使われている .NET Core CLI ツールのバージョンを示します。 通常は、最新バージョンのツールを使うので、*global.json* ファイルは必要ありません。
+*global.json* ファイルを使うと、.NET Core CLI コマンドを実行するときに使う .NET Core SDK のバージョンを定義できます。 .NET Core SDK の選択は、プロジェクトのターゲットであるランタイムの指定とは関係ありません。 .NET Core SDK のバージョンは、使われている .NET Core CLI のバージョンを示します。
+
+通常は、最新バージョンの SDK ツールを使うので、*global.json* ファイルは必要ありません。 一部の高度なシナリオでは、SDK ツールのバージョンを管理する必要がある場合があります。この記事では、この方法について説明します。
 
 代わりにランタイムを指定する方法について詳しくは、「[ターゲット フレームワーク](../../standard/frameworks.md)」をご覧ください。
 
@@ -24,54 +26,143 @@ ms.locfileid: "71117429"
 
 ### <a name="sdk"></a>SDK
 
-型:Object
+型: `object`
 
 選択する .NET Core SDK についての情報を指定します。
 
 #### <a name="version"></a>version
 
-型:String
+- 型: `string`
+
+- .NET Core 1.0 SDK 以降で利用できます。
 
 使用する .NET Core SDK のバージョンです。
 
-このフィールドについては次のことに注意してください。
+このフィールドでは:
 
-- グロビングはサポートされていません。つまり、完全なバージョン番号を指定する必要があります。
+- ワイルドカードはサポートされていません。つまり、完全なバージョン番号を指定する必要があります。
 - バージョン範囲はサポートされていません。
 
-*global.json* ファイルの内容の例を次に示します。
+#### <a name="allowprerelease"></a>allowPrerelease
+
+- 型: `boolean`
+
+- .NET Core 3.0 SDK 以降で利用できます。
+
+使用する SDK バージョンを選択するときに、SDK リゾルバーでプレリリース バージョンを考慮する必要があるかどうかを示します。
+
+この値を明示的に設定しない場合、Visual Studio から実行しているかどうかによって既定値が決まります。
+
+- Visual Studio を使用して**いない**場合、既定値は `true` になります。
+- Visual Studio を使用している場合は、要求されたプレリリース状態が使用されます。 つまり、Visual Studio のプレビュー バージョンを使用している場合、または ( **[ツール]**  >  **[オプション]**  >  **[環境]**  >  **[プレビュー機能]** で) **[.NET Core SDK のプレビューを使用する]** オプションを設定している場合、既定値は `true` で、それ以外の場合は、`false` です。
+
+#### <a name="rollforward"></a>rollForward
+
+- 型: `string`
+
+- .NET Core 3.0 SDK 以降で利用できます。
+
+SDK バージョンを選択するときに、特定の SDK バージョンがない場合のフォールバックとして、またはより新しいバージョンを使用するためのディレクティブとして使用するロールフォワード ポリシー。 [バージョン](#version) は、`latestMajor` に設定する場合を除き、`rollForward` 値を使用して指定する必要があります。
+
+使用可能なポリシーとその動作を理解するには、`x.y.znn` の形式で SDK バージョンの次の定義を考慮してください。
+
+- `x` はメジャー バージョンです。
+- `y` はマイナー バージョンです。
+- `z` は機能帯です。
+- `nn` はパッチ バージョンです。
+
+`rollForward` キーの有効値を次の表に示します。
+
+| [値]         | 動作 |
+| ------------- | ---------- |
+| `patch`       | 指定されたバージョンを使用します。 <br> 見つからない場合は、最新のパッチ レベルにロールフォワードします。 <br> 見つからない場合は、失敗します。 <br><br> この値は、以前のバージョンの SDK の従来の動作です。 |
+| `feature`     | 指定されたメジャー、マイナー、および機能帯に対して最新のパッチ レベルを使用します。 <br> 見つからない場合は、同じメジャーまたはマイナー内の次の上位の機能帯にロールフォワードし、その機能帯に最新のパッチ レベルを使用します。 <br> 見つからない場合は、失敗します。 |
+| `minor`       | 指定されたメジャー、マイナー、および機能帯に対して最新のパッチ レベルを使用します。 <br> 見つからない場合は、同じメジャー バージョンまたはマイナー バージョン内の次の上位の機能帯にロールフォワードし、その機能帯に最新のパッチ レベルを使用します。 <br> 見つからない場合は、同じメジャー内の次の上位のマイナーおよび機能帯にロールフォワードし、その機能帯に最新のパッチ レベルを使用します。 <br> 見つからない場合は、失敗します。 |
+| `major`       | 指定されたメジャー、マイナー、および機能帯に対して最新のパッチ レベルを使用します。 <br> 見つからない場合は、同じメジャー バージョンまたはマイナー バージョン内の次の上位の機能帯にロールフォワードし、その機能帯に最新のパッチ レベルを使用します。 <br> 見つからない場合は、同じメジャー内の次の上位のマイナーおよび機能帯にロールフォワードし、その機能帯に最新のパッチ レベルを使用します。 <br> 見つからない場合は、次の上位のメジャー、マイナー、機能帯にロールフォワードし、その機能帯に最新のパッチ レベルを使用します。 <br> 見つからない場合は、失敗します。 |
+| `latestPatch` | 要求されたメジャー、マイナー、および機能帯が、指定された値以上のパッチ レベルと一致する、インストールされている最新のパッチ レベルを使用します。 <br> 見つからない場合は、失敗します。 |
+| `latestFeature` | 要求されたメジャーとマイナーが、指定された値以上の機能帯と一致する、インストールされている最上位の機能帯を使用します。 <br> 見つからない場合は、失敗します。 |
+| `latestMinor` | 要求されたメジャーが指定された値以上のマイナーと一致する、インストールされている最上位のマイナー、機能帯、パッチ レベルを使用します。 <br> 見つからない場合は、失敗します。 |
+| `latestMajor` | インストールされている最上位の .NET Core SDK と、指定した値以上のメジャーを使用します。 <br> 見つからない場合は、失敗します。 |
+| `disable`     | ロールフォワードしません。 完全一致が必要です。 |
+
+## <a name="examples"></a>使用例
+
+次の例は、プレリリース バージョンを使用しない方法を示しています。
 
 ```json
 {
   "sdk": {
-    "version": "2.2.100"
+    "allowPrerelease": false
+  }
+}
+```
+
+次の例は、指定したバージョン以上の、インストールされている最新バージョンを使用する方法を示しています。
+
+```json
+{
+  "sdk": {
+    "version": "3.1.100",
+    "rollForward": "latestMajor"
+  }
+}
+```
+
+次の例は、指定された正確なバージョンを使用する方法を示しています。
+
+```json
+{
+  "sdk": {
+    "version": "3.1.100",
+    "rollForward": "disable"
+  }
+}
+```
+
+次の例は、特定のバージョン (3.1.1xx 形式) のインストールされている最新のパッチ バージョンを使用する方法を示しています。
+
+```json
+{
+  "sdk": {
+    "version": "3.1.100",
+    "rollForward": "latestPatch"
   }
 }
 ```
 
 ## <a name="globaljson-and-the-net-core-cli"></a>global.json と .NET Core CLI
 
-*global.json* ファイルでバージョンを設定するには、使用可能なバージョンがわかっていると便利です。 サポートされている使用可能な SDK の完全な一覧は、[.NET Core のダウンロード](https://dotnet.microsoft.com/download/dotnet-core) ページで確認できます。 .NET Core 2.1 SDK 以降では、次のコマンドを実行して、お使いのコンピューターに既にインストールされている SDK のバージョンを確認できます。
-
-```dotnetcli
-dotnet --list-sdks
-```
+ご使用のマシンにインストールされている SDK のバージョンを把握しておくと、*global.json* ファイルにそれを設定するときに役立ちます。 その方法の詳細については、[.NET Core が既にインストールされていることを確認する方法](../install/how-to-detect-installed-versions.md#check-sdk-versions)に関するセクションを参照してください。
 
 .NET Core SDK の別のバージョンをコンピューターにインストールするには、[.NET Core のダウンロード](https://dotnet.microsoft.com/download/dotnet-core) ページにアクセスしてください。
 
 次の例のような [dotnet new](dotnet-new.md) コマンドを実行することにより、新しい *global.json* ファイルを現在のディレクトリに作成できます。
 
 ```dotnetcli
-dotnet new globaljson --sdk-version 2.2.100
+dotnet new globaljson --sdk-version 3.0.100
 ```
 
 ## <a name="matching-rules"></a>照合ルール
 
 > [!NOTE]
-> 照合ルールは、.NET Core ランタイムの一部である apphost によって制御されます。
-> 複数のランタイムがサイドバイサイドでインストールされている場合は、最新バージョンのホストが使用されます。
+> 照合ルールは、すべてのインストール済み .NET Core のインストール済みランタイムで共通の `dotnet.exe` エントリ ポイントによって管理されます。 .NET Core ランタイムのインストール済みの最新バージョンの照合ルールは、複数のランタイムがサイドバイサイドでインストールされている場合に使用されます。
 
-.NET Core 2.0 以降では、使用する SDK のバージョンを決定するときに次のルールが適用されます。
+## <a name="net-core-3x"></a>[.NET Core 3.x](#tab/netcore3x)
+
+.NET Core 3.0 以降では、使用する SDK のバージョンを決定するときに次のルールが適用されます。
+
+- *global.json* ファイルが見つからない場合、または *global.json* で SDK のバージョンまたは `allowPrerelease` 値が指定されていない場合は、インストールされている最新バージョンの SDK が使用されます (`rollForward` を `latestMajor` に設定するのと同じ)。 プレリリース SDK のバージョンを考慮するかどうかは、`dotnet` の呼び出し方法によって決まります。
+  - Visual Studio を使用して**いない**場合は、プレリリース バージョンが考慮されます。
+  - Visual Studio を使用している場合は、要求されたプレリリース状態が使用されます。 つまり、Visual Studio のプレビュー バージョンを使用している場合、または ( **[ツール]**  >  **[オプション]**  >  **[環境]**  >  **[プレビュー機能]** で) **[.NET Core SDK のプレビューを使用する]** オプションを設定している場合、プレリリース バージョンが考慮され、それ以外の場合は、リリース バージョンのみが考慮されます。
+- SDK のバージョンは指定していないが `allowPrerelease` 値を指定している *global.json* ファイルが見つかった場合は、インストールされている最新の SDK バージョンが使用されます (`rollForward` を `latestMajor` に設定するのと同じ)。 最新の SDK バージョンをリリースまたはプレリリースにできるかどうかは、`allowPrerelease` の値によって決まります。 `true` は、プレリリースバージョンが考慮されることを示し、`false` は、リリース バージョンのみが考慮されることを示します。
+- *global.json* ファイルが見つかり、そこで SDK バージョンが指定されている場合は、次のようになります。
+
+  - `rollFoward` 値が設定されていない場合、`latestPatch` が既定の `rollForward` ポリシーとして使用されます。 それ以外の場合は、「[rollForward](#rollforward)」セクションで各値とその動作を確認します。
+  - 「[allowPrerelease](#allowprerelease)」セクションには、プレリリース バージョンが考慮されるかどうか、`allowPrerelease` が設定されていない場合の既定の動作についての説明があります。
+
+## <a name="net-core-2x"></a>[.NET Core 2.x](#tab/netcore2x)
+
+.NET Core 2.x SDK では、使用する SDK のバージョンを決定するときに次のルールが適用されます。
 
 - *global.json* ファイルが見つからない場合、または *global.json* で SDK のバージョンが指定されていない場合は、インストールされている最新バージョンの SDK が使用されます。 SDK の最新バージョンはリリースまたはプレリリースのどちらでもよく、最も高いバージョン番号が採用されます。
 - *global.json* で SDK のバージョンが指定されている場合:
@@ -79,7 +170,7 @@ dotnet new globaljson --sdk-version 2.2.100
   - 指定されている SDK のバージョンがコンピューターで見つからない場合は、そのバージョンの SDK の**パッチ バージョン**でインストールされている最新のものが使用されます。 インストールされている最新の SDK **パッチ バージョン**は、リリースまたはプレリリースのどちらでもよく、最も高いバージョン番号が採用されます。 .NET Core 2.1 以降では、指定されている**パッチ バージョン**より低い**パッチ バージョン**は、SDK の選択で無視されます。
   - 指定されたバージョンの SDK および適切な SDK **パッチ バージョン**が見つからない場合は、エラーがスローされます。
 
-現在、SDK のバージョンは次の部分で構成されます。
+SDK のバージョンは次の部分で構成されます。
 
 `[.NET Core major version].[.NET Core minor version].[xyz][-optional preview name]`
 
@@ -89,19 +180,21 @@ SDK バージョン 2.1.100 以降の番号の最後の部分 (`xyz`) の最初�
 
 .NET Core SDK のバージョン `2.1.100` から `2.1.201` までは、バージョン番号体系の移行の間にリリースされたため、`xyz` の表記を正しく処理していません。 *global.json* ファイルでこれらのバージョンを指定する場合は、指定するバージョンがターゲット コンピューター上にあることを確認するよう強くお勧めします。
 
-.NET Core SDK 1.x では、バージョンを指定して、完全に一致するものが見つからない場合は、インストールされている最新バージョンの SDK が使われました。 SDK の最新バージョンはリリースまたはプレリリースのどちらでもよく、最も高いバージョン番号が採用されます。
+---
 
-## <a name="troubleshooting-build-warnings"></a>ビルドの警告のトラブルシューティング
+## <a name="troubleshoot-build-warnings"></a>ビルドの警告のトラブルシューティング
 
-> [!WARNING]
-> NET Core SDK のプレビュー バージョンを使用しています。 You can define the SDK version via a global.json file in the current project. More at <https://go.microsoft.com/fwlink/?linkid=869452> (.NET Core SDK のプレビュー バージョンを使用しています。現在のプロジェクトの global.json ファイルを使用して、SDK のバージョンを定義できます。詳しくは https://go.microsoft.com/fwlink/?linkid=869452 をご覧ください)
+* 次の警告は、プロジェクトがプレリリース バージョンの .NET Core SDK を使用してコンパイルされたことを示しています。
 
-この警告は、プレビュー バージョンの .NET Core SDK を使用してプロジェクトがコンパイルされていることを示します (「[照合ルール](#matching-rules)」セクションを参照)。 .NET Core SDK のバージョンには高品質の履歴とコミットメントがあります。 ただし、プレビュー バージョンを使用したくない場合は、*global.json* ファイルをプロジェクトの階層構造に追加して使用する SDK のバージョンを指定し、`dotnet --list-sdks` を使用してそのバージョンがコンピューターにインストールされていることを確認します。 新しいバージョンがリリースされたときに新しいバージョンを使用するには、*global.json* ファイルを削除するか、または新しいバージョンを使用するようにファイルを更新します。
+  > .NET Core SDK のプレビュー バージョンを使用しています。 現在のプロジェクトの global.json ファイルを使用して、SDK のバージョンを定義できます。 詳しくは <https://go.microsoft.com/fwlink/?linkid=869452> を参照してください。
 
-> [!WARNING]
-> スタートアップ プロジェクト '{startupProject}' で、フレームワーク '.NETCoreApp' バージョン '{targetFrameworkVersion}' がターゲットになっています。このバージョンの Entity Framework Core .NET コマンド ライン ツールは、バージョン 2.0 以降のみをサポートします。 古いバージョンのツールの使用については、をご覧ください <https://go.microsoft.com/fwlink/?linkid=871254>
+  .NET Core SDK のバージョンには高品質の履歴とコミットメントがあります。 ただし、プレリリース バージョンを使用しない場合は、「[allowPrerelease](#allowprerelease)」セクションで、.NET Core 3.0 SDK 以降のバージョンで使用できるさまざまな方法を確認してください。 .NET Core 3.0 以降のランタイムまたは SDK がインストールされていないマシンの場合は、*global.json* ファイルを作成し、使用する正確なバージョンを指定する必要があります。
 
-.NET Core 2.1 SDK (バージョン 2.1.300) 以降で、`dotnet ef` コマンドは SDK に含まれています。 この警告は、プロジェクトのターゲットが EF Core 1.0 または 1.1 であり、.NET Core 2.1 SDK 以降のバージョンと互換性がないことを示します。 プロジェクトをコンパイルするには、.NET Core 2.0 SDK (バージョン 2.1.201) またはそれ以前のバージョンをご利用のコンピューター上にインストールし、*global.json* ファイルを使用して必要な SDK バージョンを定義します。 `dotnet ef` コマンドの詳細については、「[EF Core .NET コマンドライン ツール](/ef/core/miscellaneous/cli/dotnet)」を参照してください。
+* 次の警告は、プロジェクトのターゲットが EF Core 1.0 または 1.1 であり、.NET Core 2.1 SDK 以降のバージョンと互換性がないことを示します。
+
+  > スタートアップ プロジェクト '{startupProject}' で、フレームワーク '.NETCoreApp' バージョン '{targetFrameworkVersion}' がターゲットになっています。このバージョンの Entity Framework Core .NET コマンド ライン ツールは、バージョン 2.0 以降のみをサポートします。 古いバージョンのツールの使用については、<https://go.microsoft.com/fwlink/?linkid=871254> をご覧ください。
+
+  .NET Core 2.1 SDK (バージョン 2.1.300) 以降で、`dotnet ef` コマンドは SDK に含まれています。 プロジェクトをコンパイルするには、.NET Core 2.0 SDK (バージョン 2.1.201) またはそれ以前のバージョンをご利用のコンピューター上にインストールし、*global.json* ファイルを使用して必要な SDK バージョンを定義します。 `dotnet ef` コマンドの詳細については、「[EF Core .NET コマンドライン ツール](/ef/core/miscellaneous/cli/dotnet)」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 

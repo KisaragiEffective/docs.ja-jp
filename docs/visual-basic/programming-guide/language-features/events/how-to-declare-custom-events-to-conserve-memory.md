@@ -1,29 +1,29 @@
 ---
-title: '方法: (Visual Basic) のメモリを節約するためにカスタム イベントを宣言します。'
+title: '方法: カスタム イベントを宣言してメモリを節約する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - declaring events [Visual Basic], custom
 - events [Visual Basic], custom
 - custom events [Visual Basic]
 ms.assetid: 87ebee87-260c-462f-979c-407874debd19
-ms.openlocfilehash: e4132f51f4dd85ad964042d05f7c5bc0a2e6e3cd
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 3cc2d3ea57f1a8daf704c2c929baf3f2acf78c17
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61973161"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74345132"
 ---
-# <a name="how-to-declare-custom-events-to-conserve-memory-visual-basic"></a>方法: (Visual Basic) のメモリを節約するためにカスタム イベントを宣言します。
-いくつかの状況があること、アプリケーションのメモリ使用量を低く抑える必要がある場合。 カスタム イベントは、処理するイベントに対してだけメモリを使用するアプリケーションを許可します。  
+# <a name="how-to-declare-custom-events-to-conserve-memory-visual-basic"></a>方法: カスタム イベントを宣言してメモリを節約する (Visual Basic)
+アプリケーションでメモリ使用量を少なくすることが重要な状況がいくつかあります。 カスタムイベントを使用すると、アプリケーションが処理するイベントにのみメモリを使用できます。  
   
- 既定では、クラスのイベントを宣言して、コンパイラは、イベント情報を格納するフィールドのメモリを割り当てます。 クラスに使用されていない多数のイベントがある場合は、不必要が必要になるメモリ。  
+ 既定では、クラスがイベントを宣言すると、コンパイラは、イベント情報を格納するために、フィールドにメモリを割り当てます。 クラスに使用されているイベントの数が多い場合は、不必要にメモリを占有します。  
   
- Visual Basic ではイベントの既定の実装を使用する代わりには、カスタム イベントを使用して、メモリ使用量をより慎重に管理することができます。  
+ Visual Basic が提供するイベントの既定の実装を使用する代わりに、カスタムイベントを使用してメモリ使用量をより慎重に管理できます。  
   
 ## <a name="example"></a>例  
- この例で、クラスが 1 つのインスタンスを使用して、<xref:System.ComponentModel.EventHandlerList>に格納されているクラス、`Events`使用イベントについての情報を格納するためのフィールド。 <xref:System.ComponentModel.EventHandlerList>クラスは、最適化されたリスト クラスのデリゲートを保持するために設計されています。  
+ この例では、クラスは、`Events` フィールドに格納されている <xref:System.ComponentModel.EventHandlerList> クラスの1つのインスタンスを使用して、使用中のイベントに関する情報を格納します。 <xref:System.ComponentModel.EventHandlerList> クラスは、デリゲートを保持するように設計された最適化リストクラスです。  
   
- クラスの使用中のすべてのイベント、`Events`どのような方法には、各イベントが処理を追跡するフィールド。  
+ クラスのすべてのイベントでは、`Events` フィールドを使用して、各イベントを処理しているメソッドを追跡します。  
   
  [!code-vb[VbVbalrEvents#22](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrEvents/VB/Class1.vb#22)]  
   
@@ -31,4 +31,4 @@ ms.locfileid: "61973161"
 
 - <xref:System.ComponentModel.EventHandlerList>
 - [イベント](../../../../visual-basic/programming-guide/language-features/events/index.md)
-- [方法: ブロックを回避するためにカスタム イベントを宣言します。](../../../../visual-basic/programming-guide/language-features/events/how-to-declare-custom-events-to-avoid-blocking.md)
+- [方法: カスタム イベントを宣言してブロックを回避する](../../../../visual-basic/programming-guide/language-features/events/how-to-declare-custom-events-to-avoid-blocking.md)

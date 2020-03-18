@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 7e42a928-5068-4ba6-b8c3-806551a01fa8
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 72b95b634ffc352b7fad006e0ccd68e6e159dee9
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9e90772ae8c3e6be5744fcccc9901123df871831
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779112"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73131943"
 ---
 # <a name="coinitializeee-function"></a>CoInitializeEE 関数
-共通言語ランタイムの実行エンジンがプロセスに読み込まれているようにします。 この関数は、.NET Framework 4 では非推奨とされます。 使用して、 [iclrruntimehost::start](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-start-method.md)メソッド代わりにします。  
+共通言語ランタイムの実行エンジンが確実にプロセスに読み込まれるようにします。 この関数は .NET Framework 4 では非推奨とされます。 代わりに[ICLRRuntimeHost:: Start](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-start-method.md)メソッドを使用してください。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,26 +35,26 @@ HRESULT CoInitializeEE (
   
 ## <a name="parameters"></a>パラメーター  
  `fFlags`  
- [in]1 つ、 [COINITIEE](../../../../docs/framework/unmanaged-api/metadata/coinitiee-enumeration.md)列挙定数。  
+ から[Coinitiee](../../../../docs/framework/unmanaged-api/metadata/coinitiee-enumeration.md)列挙定数の1つ。  
   
 ## <a name="return-value"></a>戻り値  
- このメソッドは、Winerror.h と、次の表の値で定義されている標準の COM エラー コードを返します。  
+ このメソッドは、Winerror.h で定義されている標準 COM エラーコードと、次の表の値を返します。  
   
 |リターン コード|説明|  
 |-----------------|-----------------|  
-|S_OK|実行エンジンは正常に読み込まれます。|  
+|S_OK|実行エンジンが正常に読み込まれました。|  
 |S_FALSE|実行エンジンは既に読み込まれています。|  
-|E_FAIL|実行エンジンを読み込むことができませんでした。|  
+|E_FAIL|実行エンジンを読み込めませんでした。|  
   
 ## <a name="remarks"></a>Remarks  
- このメソッドは、既に読み込まれていない場合に、実行エンジンを読み込みます。  
+ このメソッドは、まだ読み込まれていない場合、実行エンジンを読み込みます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

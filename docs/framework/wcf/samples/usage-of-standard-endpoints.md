@@ -2,12 +2,12 @@
 title: 標準エンドポイントの使用
 ms.date: 03/30/2017
 ms.assetid: ecd6a62f-9619-4778-a497-6f888087a9ea
-ms.openlocfilehash: a2af1ae793166d1ed3742782b911ded30d0b9d35
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 2b210bfe683669aeebf54a1701f07d492e6abdb4
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64662388"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715339"
 ---
 # <a name="usage-of-standard-endpoints"></a>標準エンドポイントの使用
 
@@ -105,7 +105,7 @@ public class CustomEndpointElement : StandardEndpointElement
 }
 ```
 
-`CreateServiceEndpoint` 関数で、`CustomEndpoint` オブジェクトが作成されます。 その定義は、次の例に示されます。
+`CreateServiceEndpoint` 関数で、`CustomEndpoint` オブジェクトが作成されます。 その定義を次の例に示します。
 
 ```csharp
 public class CustomEndpoint : ServiceEndpoint
@@ -139,34 +139,34 @@ public class CustomEndpoint : ServiceEndpoint
 
 #### <a name="to-use-this-sample"></a>このサンプルを使用するには
 
-1. Visual Studio 2012 を使用して、StandardEndpoints.sln ファイルを開きます。
+1. Visual Studio 2012 を使用して、StandardEndpoints .sln ファイルを開きます。
 
 2. 複数のプロジェクトを起動できるようにします。
 
-    1. **ソリューション エクスプ ローラー**標準エンドポイント ソリューションを右クリックし、**プロパティ**します。
+    1. **ソリューションエクスプローラー**で、標準エンドポイントソリューションを右クリックし、 **[プロパティ]** を選択します。
 
-    2. **共通プロパティ**を選択します**スタートアップ プロジェクト**、 をクリックし、**マルチ スタートアップ プロジェクト**します。
+    2. **[共通プロパティ]** で、 **[スタートアッププロジェクト]** を選択し、 **[マルチスタートアッププロジェクト]** をクリックします。
 
-    3. サービス プロジェクトをリストの先頭に移動、**アクション**設定**開始**します。
+    3. サービスプロジェクトを一覧の先頭に移動し、**アクション**を **[開始]** に設定します。
 
-    4. も、サービス プロジェクトの後に、クライアント プロジェクトに移動、**アクション**設定**開始**します。
+    4. サービスプロジェクトの後に、**アクション**が **[開始]** に設定されているクライアントプロジェクトを移動します。
 
          これで、Client プロジェクトは Service プロジェクトの後に実行されます。
 
 3. ソリューションを実行するには、F5 キーを押します。
 
 > [!NOTE]
-> 次の手順が機能しない場合は、環境が設定されている正しく、次の手順を使用してを確認します。
+> これらの手順が機能しない場合は、次の手順に従って、環境が適切に設定されていることを確認してください。
 >
-> 1. 実行したことを確認、 [Windows Communication Foundation サンプルの 1 回限りのセットアップ手順](one-time-setup-procedure-for-the-wcf-samples.md)します。
-> 2. ソリューションをビルドする手順については、 [Windows Communication Foundation サンプルのビルド](building-the-samples.md)します。
-> 3. 1 つまたは複数のコンピューター構成でサンプルを実行する手順については、 [Windows Communication Foundation サンプルの実行](running-the-samples.md)します。
+> 1. [Windows Communication Foundation サンプルの1回限りのセットアップ手順](one-time-setup-procedure-for-the-wcf-samples.md)を実行したことを確認します。
+> 2. ソリューションをビルドするには、「 [Windows Communication Foundation サンプルのビルド](building-the-samples.md)」の手順に従います。
+> 3. 1つまたは複数のコンピューター構成でサンプルを実行するには、「 [Windows Communication Foundation サンプルの実行](running-the-samples.md)」の手順に従います。
 
 > [!IMPORTANT]
 > サンプルは、既にコンピューターにインストールされている場合があります。 続行する前に、次の (既定の) ディレクトリを確認してください。
 >
 > `<InstallDrive>:\WF_WCF_Samples`
 >
-> このディレクトリが存在しない場合に移動[Windows Communication Foundation (WCF) と .NET Framework 4 向けの Windows Workflow Foundation (WF) サンプル](https://go.microsoft.com/fwlink/?LinkId=150780)すべて Windows Communication Foundation (WCF) をダウンロードして[!INCLUDE[wf1](../../../../includes/wf1-md.md)]サンプル。 このサンプルは、次のディレクトリに格納されます。
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
 >
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Services\StandardEndpoints`

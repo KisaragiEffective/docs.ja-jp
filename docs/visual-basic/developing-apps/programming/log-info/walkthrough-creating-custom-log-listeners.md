@@ -1,16 +1,16 @@
 ---
-title: カスタム ログ リスナーの作成 (Visual Basic)
+title: カスタム ログ リスナーの作成
 ms.date: 07/20/2015
 helpviewer_keywords:
 - custom log listeners
 - My.Application.Log object, custom log listeners
 ms.assetid: 0e019115-4b25-4820-afb1-af8c6e391698
-ms.openlocfilehash: 298bfa2987397591492480d953949d20168785bf
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 7b611e93119dc66a9404cf271ea201676d7b5318
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72581684"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74353622"
 ---
 # <a name="walkthrough-creating-custom-log-listeners-visual-basic"></a>チュートリアル: カスタム ログ リスナーの作成 (Visual Basic)
 
@@ -22,7 +22,7 @@ ms.locfileid: "72581684"
 
 #### <a name="to-create-the-listener"></a>リスナーを作成するには
 
-- アプリケーションで、<xref:System.Diagnostics.TraceListener> を継承する `SimpleListener` という名前のクラスを作成します。
+- アプリケーションで、`SimpleListener` を継承する <xref:System.Diagnostics.TraceListener> という名前のクラスを作成します。
 
      [!code-vb[VbVbalrMyApplicationLog#16](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrMyApplicationLog/VB/Form1.vb#16)]
 
@@ -45,7 +45,7 @@ ms.locfileid: "72581684"
 
 3. **[アセンブリの署名]** ボックスを選択します。
 
-4. **[厳密な名前のキー ファイルを選択してください]** ドロップダウン リストから **[\<新規作成>]** を選択します。
+4. **[厳密な名前のキー ファイルを選択してください]\< ドロップダウン リストから** [**新規作成>]** を選択します。
 
      **[厳密な名前キーの作成]** ダイアログ ボックスが開きます。
 
@@ -107,10 +107,10 @@ ms.locfileid: "72581684"
 
      `SimpleLogStrongName` の値はリスナーの厳密な名前に置き換えてください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:Microsoft.VisualBasic.Logging.Log?displayProperty=nameWithType>
 - [アプリケーション ログの使用](../../../../visual-basic/developing-apps/programming/log-info/working-with-application-logs.md)
-- [方法: 例外をログに記録する](../../../../visual-basic/developing-apps/programming/log-info/how-to-log-exceptions.md)
+- [方法 : 例外をログに記録する](../../../../visual-basic/developing-apps/programming/log-info/how-to-log-exceptions.md)
 - [方法: ログ メッセージを書き込む](../../../../visual-basic/developing-apps/programming/log-info/how-to-write-log-messages.md)
-- [チュートリアル: My.Application.Log による情報の書き込み先の変更](../../../../visual-basic/developing-apps/programming/log-info/walkthrough-changing-where-my-application-log-writes-information.md)
+- [チュートリアル : My.Application.Log による情報の書き込み先の変更](../../../../visual-basic/developing-apps/programming/log-info/walkthrough-changing-where-my-application-log-writes-information.md)

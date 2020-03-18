@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 959f3959c28c7d0159be7a213986345e2865b9a2
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "72394207"
 ---
 ### <a name="shared-framework-removed-microsoftaspnetcoreall"></a>共有フレームワーク: Microsoft.AspNetCore.All を削除
@@ -26,7 +26,7 @@ ASP.NET Core 3.0 以降では、`Microsoft.AspNetCore.All` メタパッケージ
 
 `Microsoft.AspNetCore.All` メタパッケージには、多数の外部依存関係が含まれていました。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 プロジェクトを移行して、`Microsoft.AspNetCore.App` フレームワークを使用します。 `Microsoft.AspNetCore.All` でこれまで提供されていたコンポーネントは、NuGet で引き続き利用できます。 これらのコンポーネントは、共有フレームワークに含まれるのではなく、アプリと共にデプロイされるようになりました。
 
@@ -36,7 +36,7 @@ ASP.NET Core
 
 #### <a name="affected-apis"></a>影響を受ける API
 
-なし
+None
 
 <!-- 
 

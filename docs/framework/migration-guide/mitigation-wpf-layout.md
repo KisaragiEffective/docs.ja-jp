@@ -2,14 +2,12 @@
 title: '軽減策: WPF レイアウト'
 ms.date: 03/30/2017
 ms.assetid: 805ffd7f-8d1e-427e-a648-601ca8ec37a5
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d266ad33110d2bda8f7911d89981c372624c3f36
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 7a074698fd203d0c5f9b799bfee8a6a9cb40800e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70779074"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73457786"
 ---
 # <a name="mitigation-wpf-layout"></a>軽減策: WPF レイアウト
 WPF コントロールのレイアウトが若干変化する可能性があります。  
@@ -25,7 +23,7 @@ WPF コントロールのレイアウトが若干変化する可能性があり�
   
  既定では、この新しいレイアウトは .NET Framework の 4.6 を対象とするアプリに対してのみ有効となります。  
   
-## <a name="mitigation"></a>軽減策  
+## <a name="mitigation"></a>対応策  
  この変更では、DPI が高いときにWPF コントロールの一番右または一番下でクリッピングの発生を除去する傾向があるため、app.config ファイルの `<runtime>` セクションに次の行を追加することによって、以前のバージョンの .NET Framework を対象としながら .NET Framework 4.6 上で実行されているアプリがこの新しい動作を選択ことができます。  
   
 ```xml  
@@ -38,6 +36,6 @@ WPF コントロールのレイアウトが若干変化する可能性があり�
 <AppContextSwitchOverrides value="Switch.MS.Internal.DoNotApplyLayoutRoundingToMarginsAndBorderThickness=true" />  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [変更の再ターゲット](retargeting-changes-in-the-net-framework-4-6.md)
+- [アプリケーションの互換性](application-compatibility.md)

@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの ImageList コンポーネントにイメージを追加または削除する'
+title: ImageList コンポーネントを使用したイメージの追加または削除
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -13,24 +13,24 @@ helpviewer_keywords:
 - images [Windows Forms], adding to ImageList component
 - images [Windows Forms], displaying with controls
 ms.assetid: c5eacc56-f769-4e2e-bfb7-f756620913db
-ms.openlocfilehash: 430b7f573b115c21b9e2fa87f0ace74205717285
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: f531003377395bf219775e5ddb48ceb0822ff0ea
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69925118"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76741506"
 ---
-# <a name="how-to-add-or-remove-images-with-the-windows-forms-imagelist-component"></a>方法: Windows フォームの ImageList コンポーネントにイメージを追加または削除する
-Windows フォーム<xref:System.Windows.Forms.ImageList>コンポーネントには、通常、コントロールに関連付けられる前にイメージが設定されます。 ただし、イメージリストをコントロールに関連付けた後に、イメージの追加や削除を行うことができます。  
+# <a name="how-to-add-or-remove-images-with-the-windows-forms-imagelist-component"></a>方法 : Windows フォームの ImageList コンポーネントにイメージを追加または削除する
+通常、Windows フォーム <xref:System.Windows.Forms.ImageList> コンポーネントには、コントロールに関連付けられる前にイメージが設定されます。 ただし、イメージリストをコントロールに関連付けた後に、イメージの追加や削除を行うことができます。  
   
 > [!NOTE]
-> イメージを削除する場合は、関連<xref:System.Windows.Forms.ButtonBase.ImageIndex%2A>付けられているコントロールのプロパティが有効であることを確認します。  
+> イメージを削除する場合は、関連付けられているコントロールの <xref:System.Windows.Forms.ButtonBase.ImageIndex%2A> プロパティが有効であることを確認します。  
   
 ### <a name="to-add-images-programmatically"></a>プログラムによってイメージを追加するには  
   
-- イメージリストの<xref:System.Windows.Forms.ImageList.Images%2A>プロパティのメソッドを使用します。<xref:System.Windows.Forms.ImageList.ImageCollection.Add%2A>  
+- イメージリストの <xref:System.Windows.Forms.ImageList.Images%2A> プロパティの <xref:System.Windows.Forms.ImageList.ImageCollection.Add%2A> メソッドを使用します。  
   
-     次のコード例では、イメージの場所に設定されたパスが **[マイドキュメント**] フォルダーです。 この場所は、Windows オペレーティングシステムを実行しているほとんどのコンピューターにこのフォルダーを含めることを前提としているために使用されます。 また、この場所を選択すると、システムアクセスレベルを最小限にしたユーザーがアプリケーションをより安全に実行できるようになります。 次のコード例では、 <xref:System.Windows.Forms.ImageList>コントロールが既に追加されているフォームが必要です。  
+     次のコード例では、イメージの場所に設定されたパスが **[マイドキュメント**] フォルダーです。 この場所は、Windows オペレーティングシステムを実行しているほとんどのコンピューターにこのフォルダーを含めることを前提としているために使用されます。 また、この場所を選択すると、システムアクセスレベルを最小限にしたユーザーがアプリケーションをより安全に実行できるようになります。 次のコード例では、<xref:System.Windows.Forms.ImageList> コントロールが既に追加されているフォームが必要です。  
   
     ```vb  
     Public Sub LoadImage()  
@@ -76,9 +76,9 @@ Windows フォーム<xref:System.Windows.Forms.ImageList>コンポーネント�
   
 ### <a name="to-add-images-with-a-key-value"></a>キー値を使用してイメージを追加します。  
   
-- キー値を受け取る<xref:System.Windows.Forms.ImageList.ImageCollection.Add%2A>イメージリストの<xref:System.Windows.Forms.ImageList.Images%2A>プロパティのメソッドのいずれかを使用します。  
+- キー値を受け取るイメージリストの <xref:System.Windows.Forms.ImageList.Images%2A> プロパティの <xref:System.Windows.Forms.ImageList.ImageCollection.Add%2A> メソッドのいずれかを使用します。  
   
-     次のコード例では、イメージの場所に設定されたパスが **[マイドキュメント**] フォルダーです。 この場所は、Windows オペレーティングシステムを実行しているほとんどのコンピューターにこのフォルダーを含めることを前提としているために使用されます。 また、この場所を選択すると、システムアクセスレベルを最小限にしたユーザーがアプリケーションをより安全に実行できるようになります。 次のコード例では、 <xref:System.Windows.Forms.ImageList>コントロールが既に追加されているフォームが必要です。  
+     次のコード例では、イメージの場所に設定されたパスが **[マイドキュメント**] フォルダーです。 この場所は、Windows オペレーティングシステムを実行しているほとんどのコンピューターにこのフォルダーを含めることを前提としているために使用されます。 また、この場所を選択すると、システムアクセスレベルを最小限にしたユーザーがアプリケーションをより安全に実行できるようになります。 次のコード例では、<xref:System.Windows.Forms.ImageList> コントロールが既に追加されているフォームが必要です。  
   
     ```vb  
     Public Sub LoadImage()  
@@ -107,11 +107,11 @@ public void addImage()
   
 ### <a name="to-remove-all-images-programmatically"></a>プログラムによってすべてのイメージを削除するには  
   
-- 1つ<xref:System.Windows.Forms.ImageList.ImageCollection.Remove%2A>のイメージを削除するには、メソッドを使用します。  
+- <xref:System.Windows.Forms.ImageList.ImageCollection.Remove%2A> メソッドを使用して1つのイメージを削除する  
   
      、-または-  
   
-     イメージリスト<xref:System.Windows.Forms.ImageList.ImageCollection.Clear%2A>内のすべてのイメージをクリアするには、メソッドを使用します。  
+     <xref:System.Windows.Forms.ImageList.ImageCollection.Clear%2A> メソッドを使用して、イメージリスト内のすべてのイメージをクリアします。  
   
     ```vb  
     ' Removes the first image in the image list  
@@ -129,7 +129,7 @@ imageList1.Images.Clear();
   
 ### <a name="to-remove-images-by-key"></a>キーによってイメージを削除するには  
   
-- キーに<xref:System.Windows.Forms.ImageList.ImageCollection.RemoveByKey%2A>よって1つのイメージを削除するには、メソッドを使用します。  
+- キーによって1つのイメージを削除するには、<xref:System.Windows.Forms.ImageList.ImageCollection.RemoveByKey%2A> メソッドを使用します。  
   
     ```vb  
     ' Removes the image named "myPhoto" from the list.  
@@ -141,7 +141,7 @@ imageList1.Images.Clear();
 imageList1.Images.RemoveByKey("myPhoto");  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ImageList コンポーネント](imagelist-component-windows-forms.md)
 - [ImageList コンポーネントの概要](imagelist-component-overview-windows-forms.md)

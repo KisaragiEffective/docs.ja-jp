@@ -14,10 +14,10 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64651386"
 ---
-# <a name="default-property-propertyname1-conflicts-with-default-property-propertyname2-in-classname-and-so-should-be-declared-shadows"></a>既定のプロパティ '\<propertyname1 >' 既定のプロパティと競合'\<propertyname2 >' で '\<classname >'、'Shadows' を宣言する必要があります
+# <a name="default-property-propertyname1-conflicts-with-default-property-propertyname2-in-classname-and-so-should-be-declared-shadows"></a>既定プロパティ '\<propertyname1>' は、 '\<classname>' の既定プロパティ'\<propertyname2>' と競合しているため、'Shadows' と宣言される必要があります。
 プロパティは、基底クラスで定義されたプロパティと同じ名前で宣言します。 このような状況では、このクラスのプロパティは、基底クラスのプロパティをシャドウする必要があります。  
   
- このメッセージは警告です。 `Shadows` は、既定で指定されていると見なされます。 警告を表示しない方法や、警告をエラーとして扱う方法の詳細については、「 [Configuring Warnings in Visual Basic](/visualstudio/ide/configuring-warnings-in-visual-basic)」を参照してください。  
+ このメッセージは警告です。 `Shadows` は、既定で指定されていると見なされます。 警告を表示しない方法や、警告をエラーとして扱う方法の詳細については、「[Visual Basic での警告の構成](/visualstudio/ide/configuring-warnings-in-visual-basic)」を参照してください。  
   
  **エラー ID:** BC40007  
   

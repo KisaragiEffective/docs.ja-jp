@@ -4,12 +4,12 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - load balancing [WCF]
 ms.assetid: 148e0168-c08d-4886-8769-776d0953b80f
-ms.openlocfilehash: 572537826074dd51b56f1cae9edb767708bc1c3d
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: c9a1e889ab5adcb8f0eb5ea851c81a4f9ee56e95
+ms.sourcegitcommit: fbb8a593a511ce667992502a3ce6d8f65c594edf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72321027"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74138547"
 ---
 # <a name="load-balancing"></a>負荷分散
 Windows Communication Foundation (WCF) アプリケーションの容量を増やす方法の1つは、負荷分散されたサーバーファームに配置することによってスケールアウトすることです。 WCF アプリケーションは、Windows ネットワーク負荷分散やハードウェアベースの負荷分散アプライアンスなどのソフトウェアロードバランサーを含む、標準的な負荷分散手法を使用して負荷分散することができます。  
@@ -17,7 +17,7 @@ Windows Communication Foundation (WCF) アプリケーションの容量を増�
  以下のセクションでは、さまざまなシステム指定のバインディングを使用して構築された WCF アプリケーションの負荷分散に関する考慮事項について説明します。  
   
 ## <a name="load-balancing-with-the-basic-http-binding"></a>基本 HTTP バインディングによる負荷分散  
- 負荷分散の観点からは、@no__t 0 を使用して通信する WCF アプリケーションは、他の一般的な種類の HTTP ネットワークトラフィック (静的な HTML コンテンツ、ASP.NET ページ、または ASMX Web サービス) とまったく同じではありません。 このバインディングを使用する WCF チャネルは本質的にステートレスであり、チャネルが閉じられると接続を終了します。 したがって、<xref:System.ServiceModel.BasicHttpBinding> には既存の HTTP 負荷分散の手法で十分に対応できます。  
+ 負荷分散の観点からは、<xref:System.ServiceModel.BasicHttpBinding> を使用して通信する WCF アプリケーションは、他の一般的な種類の HTTP ネットワークトラフィック (静的な HTML コンテンツ、ASP.NET ページ、または ASMX Web サービス) とまったく同じではありません。 このバインディングを使用する WCF チャネルは本質的にステートレスであり、チャネルが閉じられると接続を終了します。 したがって、<xref:System.ServiceModel.BasicHttpBinding> には既存の HTTP 負荷分散の手法で十分に対応できます。  
   
  既定では、<xref:System.ServiceModel.BasicHttpBinding> は、メッセージの接続 HTTP ヘッダーで `Keep-Alive` 値を送信することで、サポートするサービスにクライアントが永続的な接続を確立できるようにします。 この構成では、以前に確立した接続を再使用して同じサーバーへの後続するメッセージを送信できるため、スループットが向上します。 ただし、接続を再使用すると、クライアントが負荷分散ファーム内の特定サーバーと強く関連付けられてしまうため、ラウンドロビン方式の負荷分散の効果を損ねることがあります。 これを回避するには、`Keep-Alive` またはユーザー定義の <xref:System.ServiceModel.Channels.HttpTransportBindingElement.KeepAliveEnabled%2A> で <xref:System.ServiceModel.Channels.CustomBinding> プロパティを使用して、サーバーの HTTP <xref:System.ServiceModel.Channels.Binding> を無効にできます。 構成を使用してこれを行う例を次に示します。  
   
@@ -56,7 +56,7 @@ Windows Communication Foundation (WCF) アプリケーションの容量を増�
 </configuration>  
 ```  
   
- [!INCLUDE[netfx40_short](../../../includes/netfx40-short-md.md)] で導入された簡略化された構成を使用すると、次の簡略化された構成で同じ動作を実現できます。  
+ .NET Framework 4 で導入された簡略化された構成を使用すると、次の簡略化された構成を使用して同じ動作を実現できます。  
   
 ```xml  
 <?xml version="1.0" encoding="utf-8" ?>  

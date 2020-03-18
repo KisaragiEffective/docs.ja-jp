@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: acef6d7177ee5ad7e18dc8ba1e383d6f76263623
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: f202b39f1a45f740625827be25e72df0e403d605
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72394447"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75901721"
 ---
 ### <a name="signalr-javascript-client-package-name-changed"></a>SignalR:JavaScript クライアント パッケージ名が変更されました
 
@@ -12,7 +12,7 @@ ASP.NET Core 3.0 Preview 7 で、SignalR JavaScript クライアント パッケ
 
 この変更に合わせるため、*package.json* ファイル、`require` ステートメント、ECMAScript `import` ステートメントで参照を変更してください。 この名前変更の一環として API が変更されることはありません。
 
-ディスカッションについては、[aspnet/AspNetCore#11637](https://github.com/aspnet/AspNetCore/issues/11637) を参照してください。
+ディスカッションについては、[dotnet/aspnetcore#11637](https://github.com/dotnet/aspnetcore/issues/11637) を参照してください。
 
 #### <a name="version-introduced"></a>導入されたバージョン
 
@@ -30,7 +30,7 @@ ASP.NET Core 3.0 Preview 7 で、SignalR JavaScript クライアント パッケ
 
 この名前変更は、Azure SignalR Service のおかげで、ASP.NET Core アプリ以外でも SignalR が便利になっていることを表わしています。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 新しいパッケージ `@microsoft/signalr` に切り替えます。
 
@@ -40,7 +40,7 @@ ASP.NET Core
 
 #### <a name="affected-apis"></a>影響を受ける API
 
-なし
+None
 
 <!-- 
 

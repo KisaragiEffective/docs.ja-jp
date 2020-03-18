@@ -1,21 +1,17 @@
 ---
 title: dotnet clean コマンド
 description: dotnet clean コマンドは現在のディレクトリを消去します。
-ms.date: 06/26/2019
-ms.openlocfilehash: 982232833b460b4ea4181acebee74dcef54d3131
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+ms.date: 02/14/2020
+ms.openlocfilehash: 186f1ea07718a8e178f88c3d079cf6e2f1f8660b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71117746"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77503752"
 ---
 # <a name="dotnet-clean"></a>dotnet clean
 
-**このトピックの対象: ✓** .NET Core 1.x SDK 以降のバージョン
-
-<!-- todo: uncomment when all CLI commands are reviewed
-[!INCLUDE [topic-appliesto-net-core-all](../../../includes/topic-appliesto-net-core-all.md)]
--->
+**この記事の対象:** ✔️ .NET Core 2.x SDK 以降のバージョン
 
 ## <a name="name"></a>name
 
@@ -24,12 +20,12 @@ ms.locfileid: "71117746"
 ## <a name="synopsis"></a>構文
 
 ```dotnetcli
-dotnet clean [<PROJECT>|<SOLUTION>] [-c|--configuration] [-f|--framework] [--interactive] 
+dotnet clean [<PROJECT>|<SOLUTION>] [-c|--configuration] [-f|--framework] [--interactive]
     [--nologo] [-o|--output] [-r|--runtime] [-v|--verbosity]
 dotnet clean [-h|--help]
 ```
 
-## <a name="description"></a>説明
+## <a name="description"></a>[説明]
 
 `dotnet clean` コマンドは、以前のビルドの出力を消去します。 [MSBuild ターゲット](/visualstudio/msbuild/msbuild-targets)として実装されます。そのため、コマンドの実行時にプロジェクトが評価されます。 ビルド中に作成された出力のみが消去されます。 中間 (*obj*) と最終出力 (*bin*) フォルダーの両方が消去されます。
 
@@ -41,9 +37,9 @@ dotnet clean [-h|--help]
 
 ## <a name="options"></a>オプション
 
-* **`-c|--configuration {Debug|Release}`**
+* **`-c|--configuration <CONFIGURATION>`**
 
-  ビルド構成を定義します。 既定値は `Debug` です。 このオプションは、ビルド時に指定した場合にのみ、消去時にも必要です。
+  ビルド構成を定義します。 ほとんどのプロジェクトの既定値は `Debug` ですが、プロジェクトでビルド構成設定をオーバーライドできます。 このオプションは、ビルド時に指定した場合にのみ、消去時にも必要です。
 
 * **`-f|--framework <FRAMEWORK>`**
 
@@ -67,13 +63,13 @@ dotnet clean [-h|--help]
 
 * **`-r|--runtime <RUNTIME_IDENTIFIER>`**
 
-  指定したランタイムの出力フォルダーをクリーンアップします。 これは、[自己完結型の展開](../deploying/index.md#self-contained-deployments-scd)が作成された場合に使用されます。 .NET Core 2.0 SDK 以降、使用できるオプションです。
+  指定したランタイムの出力フォルダーをクリーンアップします。 これは、[自己完結型の展開](../deploying/index.md#publish-self-contained)が作成された場合に使用されます。
 
 * **`-v|--verbosity <LEVEL>`**
 
   MSBuild の詳細レベルを設定します。 指定できる値は、`q[uiet]`、`m[inimal]`、`n[ormal]`、`d[etailed]`、および `diag[nostic]` です。 既定値は、`normal` です。
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 * プロジェクトの既定のビルドを消去します。
 

@@ -5,14 +5,12 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - tasks and APM
 ms.assetid: 7add905b-ff60-4353-af79-5089038d9a08
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1ae3449e37dd5b8ff19dd2f0116a3c2cfa051385
-ms.sourcegitcommit: c7f3e2e9d6ead6cc3acd0d66b10a251d0c66e59d
+ms.openlocfilehash: c1bb98222c5e2ba88f59565dc983f1612b520eee
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2018
-ms.locfileid: "44253235"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73139893"
 ---
 # <a name="using-tpl-with-other-asynchronous-patterns"></a>TPL と他の非同期パターンの使用
 タスク並列ライブラリは、さまざまな方法で従来の .NET Framework 非同期プログラミング パターンと併用できます。  
@@ -24,6 +22,6 @@ ms.locfileid: "44253235"
  [方法: タスクに EAP パターンをラップする](../../../docs/standard/parallel-programming/how-to-wrap-eap-patterns-in-a-task.md)  
  <xref:System.Threading.Tasks.Task> オブジェクトを使用して EAP パターンをカプセル化する方法を示します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [タスク並列ライブラリ (TPL)](../../../docs/standard/parallel-programming/task-parallel-library-tpl.md)

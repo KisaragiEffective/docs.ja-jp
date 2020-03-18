@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: aa527b31-89d4-41f2-ad6f-63b76950b7df
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 73098077e3860d3f4a8a02921ecedf8dff24165b
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: bc956827ad59fc655137e4147e6d98b6d097d470
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67774046"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73138189"
 ---
 # <a name="etasktype-enumeration"></a>ETaskType 列挙型
-いずれかで表されるタスクの種類を示す値を含む、 [ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)または[IHostTask](../../../../docs/framework/unmanaged-api/hosting/ihosttask-interface.md)インターフェイス。  
+[ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)または[IHostTask](../../../../docs/framework/unmanaged-api/hosting/ihosttask-interface.md)インターフェイスによって表されるタスクの種類を示す値を格納します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -48,24 +46,24 @@ typedef enum ETaskType {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`TT_ADUNLOAD`|このインターフェイスは、アプリケーション ドメインのアンロード タスクを表します。|  
-|`TT_DEBUGGERHELPER`|このインターフェイスは、デバッガー ヘルパーのタスクを表します。|  
-|`TT_FINALIZER`|このインターフェイスは、ファイナライザーのタスクを表します。|  
-|`TT_GC`|このインターフェイスは、ガベージ コレクションのタスクを表します。|  
-|`TT_THREADPOOL_GATE`|このインターフェイスは、ゲートのスレッドのタスクを表します。|  
-|`TT_THREADPOOL_IOCOMPLETION`|このインターフェイスは、I/O スレッドのタスクまたはタスクの完了ポート スレッドを表します。|  
-|`TT_THREADPOOL_TIMER`|このインターフェイスは、タイマー スレッドのタスクを表します。|  
-|`TT_THREADPOOL_WAIT`|このインターフェイスは、待機スレッドのタスクを表します。|  
-|`TT_THREADPOOL_WORKER`|このインターフェイスは、ワーカー スレッドのタスクを表します。|  
-|`TT_UNKNOWN`|タスクが不明です。|  
-|`TT_USER`|このインターフェイスは、ユーザーのタスクを表します。|  
+|`TT_ADUNLOAD`|インターフェイスは、アプリケーションドメインのアンロードタスクを表します。|  
+|`TT_DEBUGGERHELPER`|インターフェイスは、デバッガーヘルパータスクを表します。|  
+|`TT_FINALIZER`|インターフェイスは、ファイナライザータスクを表します。|  
+|`TT_GC`|インターフェイスは、ガベージコレクションタスクを表します。|  
+|`TT_THREADPOOL_GATE`|インターフェイスは、ゲートスレッドタスクを表します。|  
+|`TT_THREADPOOL_IOCOMPLETION`|インターフェイスは、i/o スレッドタスクまたは完了ポートスレッドタスクを表します。|  
+|`TT_THREADPOOL_TIMER`|インターフェイスは、タイマースレッドタスクを表します。|  
+|`TT_THREADPOOL_WAIT`|インターフェイスは、待機スレッドタスクを表します。|  
+|`TT_THREADPOOL_WORKER`|インターフェイスは、ワーカースレッドタスクを表します。|  
+|`TT_UNKNOWN`|タスクは不明です。|  
+|`TT_USER`|インターフェイスは、ユーザータスクを表します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

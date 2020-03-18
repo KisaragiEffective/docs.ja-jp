@@ -2,12 +2,12 @@
 title: 雇用プロセス
 ms.date: 03/30/2017
 ms.assetid: d5fcacbb-c884-4b37-a5d6-02b1b8eec7b4
-ms.openlocfilehash: 16975aaa56c8fde09fa6f57781f13280c147e73e
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 02968acfc762550c9010dd0ed29acbca845e08bb
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70038160"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715979"
 ---
 # <a name="hiring-process"></a>雇用プロセス
 このサンプルでは、メッセージング アクティビティ、およびワークフロー サービスとしてホストされる 2 つのワークフローを使用して、ビジネス プロセスを実装する方法を示します。 この 2 つのワークフローは、Contoso, Inc という架空の会社の IT インフラストラクチャの一部です。  
@@ -20,7 +20,7 @@ ms.locfileid: "70038160"
   
 - ビジネス プロセスをモデル化する <xref:System.Activities.Statements.Flowchart> および <xref:System.Activities.Statements.Sequence> ワークフロー。  
   
-- ワークフロー サービス。  
+- ワークフロー サービス  
   
 - メッセージング アクティビティ。  
   
@@ -53,7 +53,7 @@ ms.locfileid: "70038160"
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WF\Application\HiringProcess`  
   
@@ -108,25 +108,25 @@ ms.locfileid: "70038160"
 ## <a name="feature-summary"></a>機能の概要  
  このサンプルでの各機能の使用方法を次の表に示します。  
   
-|機能|説明|プロジェクト|  
+|特性|説明|プロジェクト|  
 |-------------|-----------------|-------------|  
 |フローチャート|ビジネス プロセスがフローチャートとして表されます。 このフローチャートの説明では、業務時にプロセスがホワイトボードに描画されるのと同じ方法でプロセスが表されます。|HiringRequestService|  
 |ワークフロー サービス|プロセスの定義を持つフローチャートは、サービスでホストされます (この例では、サービスはコンソール アプリケーションでホストされます)。|HiringRequestService|  
 |メッセージング アクティビティ|フローチャートでは、次の 2 つの方法でメッセージング アクティビティが使用されます。<br /><br /> -ユーザーから情報を取得する場合 (各承認手順で意思決定と関連情報を受け取る場合)。<br />-サービス参照によって使用される、他の既存のサービス (受信トレイサービスおよび OrgDataService) と対話する場合。|HiringRequestService|  
 |コンテンツ ベースの相関関係|雇用要求の ID プロパティにおける承認メッセージ相関関係は次のとおりです。<br /><br /> -プロセスが開始されると、関連付けハンドルは要求の ID で初期化されます。<br />-受信承認メッセージはその ID に関連付けられます (各承認メッセージの最初のパラメーターは要求の ID です)。|HiringRequestService / ResumeRequestService|  
-|カスタム アクティビティ (宣言型およびコード ベース)|このサンプルには、次の複数のカスタム アクティビティがあります。<br /><br /> -   `SaveActionTracking`[ ] :このアクティビティは、( <xref:System.Activities.Tracking.TrackingRecord>を使用<xref:System.Activities.NativeActivityContext.Track%2A>して) カスタムを出力します。 このアクティビティは、<xref:System.Activities.NativeActivity> を拡張する命令型コードを使用して作成されています。<br />-   `GetEmployeesByPositionTypes`[ ] :このアクティビティは、位置の種類 Id の一覧を受け取り、Contoso にその位置を持つ people の一覧を返します。 このアクティビティは、宣言的に作成されています (アクティビティ デザイナーを使用)。<br />-   `SaveHiringRequestInfo`[ ] :このアクティビティは、 `HiringRequest` (を使用して`HiringRequestRepository.Save`) の情報を保存します。 このアクティビティは、<xref:System.Activities.CodeActivity> を拡張する命令型コードを使用して作成されています。|HiringRequestService|  
+|カスタム アクティビティ (宣言型およびコード ベース)|このサンプルには、次の複数のカスタム アクティビティがあります。<br /><br /> -   `SaveActionTracking`: このアクティビティは、(<xref:System.Activities.NativeActivityContext.Track%2A>を使用して) カスタム <xref:System.Activities.Tracking.TrackingRecord> を出力します。 このアクティビティは、<xref:System.Activities.NativeActivity> を拡張する命令型コードを使用して作成されています。<br />-   `GetEmployeesByPositionTypes`: このアクティビティは、位置の種類の Id のリストを受け取り、Contoso にその位置を持つ people の一覧を返します。 このアクティビティは、宣言的に作成されています (アクティビティ デザイナーを使用)。<br />-   `SaveHiringRequestInfo`: このアクティビティでは、(`HiringRequestRepository.Save`を使用して) `HiringRequest` の情報が保存されます。 このアクティビティは、<xref:System.Activities.CodeActivity> を拡張する命令型コードを使用して作成されています。|HiringRequestService|  
 |システムで指定された SQL サーバー永続性|Flowchart プロセス定義をホストする<xref:System.ServiceModel.Activities.WorkflowServiceHost> インスタンスは、システムで指定された SQL サーバー永続性を使用するように構成されています。|HiringRequestService / ResumeRequestService|  
 |カスタム追跡|このサンプルには、`HiringRequestProcess` の履歴を保存するカスタム追跡参加要素が含まれています (これによって、アクションの内容、実行者、および時期が記録されます)。 ソース コードは、HiringRequestService の Tracking フォルダーにあります。|HiringRequestService|  
 |ETW 追跡|システムで指定された ETW 追跡は、HiringRequestService サービスの App.config ファイルで設定されます。|HiringRequestService|  
 |アクティビティの構成|プロセス定義では、<xref:System.Activities.Activity> のフリー コンポジションが使用されます。 Flowchart には、その他のアクティビティなどを同時に含んでいる複数の Sequence アクティビティと Parallel アクティビティが含まれています。|HiringRequestService|  
-|並列アクティビティ|-   <xref:System.Activities.Statements.ParallelForEach%601>は、CEO および人事管理者の受信トレイに並列で登録するために使用されます (2 人の HR マネージャーの承認手順を待機しています)。<br />-   <xref:System.Activities.Statements.Parallel>は、完了および拒否された手順でクリーンアップタスクを実行するために使用されます。|HiringRequestService|  
+|並行活動|-   <xref:System.Activities.Statements.ParallelForEach%601> は、CEO および人事管理者の受信トレイに並列で登録するために使用されます (2 人の HR マネージャーの承認手順を待機しています)。<br />-   <xref:System.Activities.Statements.Parallel> は、完了して却下された手順でクリーンアップタスクを実行するために使用されます。|HiringRequestService|  
 |モデルの取り消し|フローチャートでは、<xref:System.Activities.Statements.CancellationScope> を使用して、取り消し動作を作成します (この場合、一部のクリーンアップが実行されます)。|HiringRequestService|  
 |カスタマー永続参加要素|`HiringRequestPersistenceParticipant` は、ワークフロー変数のデータを Contoso HR データベースに保存されているテーブルに保存します。|HiringRequestService|  
 |ワークフロー サービス|`ResumeRequestService` は、ワークフロー サービスを使用して実装されます。 ワークフロー定義およびサービス情報は、ResumeRequestService.xamlx に含まれています。 サービスは、永続性と追跡を使用するように構成されます。|ResumeRequestService|  
-|永続的なタイマー|`ResumeRequestService` は、永続的なタイマーを使用して、求人の期間を定義します (タイムアウトになると、求人は終了します)。|ResumeRequestService|  
+|持続的なタイマー|`ResumeRequestService` は、永続的なタイマーを使用して、求人の期間を定義します (タイムアウトになると、求人は終了します)。|ResumeRequestService|  
 |トランザクション|<xref:System.Activities.Statements.TransactionScope> は、複数のアクティビティの実行時にデータの一貫性を保つために使用されます (新しい履歴書の受信時)。|ResumeRequestService|  
 |トランザクション|カスタムの永続参加要素 (`HiringRequestPersistenceParticipant`) とカスタムの追跡参加要素 (`HistoryFileTrackingParticipant`) では、同じトランザクションを使用します。|HiringRequestService|  
-|ASP.NET [!INCLUDE[wf1](../../../../includes/wf1-md.md)]アプリケーションでを使用する。|ワークフローは、2つの ASP.NET アプリケーションからアクセスされます。|InternalClient / CareersWebSite|  
+|ASP.NET アプリケーションでの [!INCLUDE[wf1](../../../../includes/wf1-md.md)] の使用。|ワークフローは、2つの ASP.NET アプリケーションからアクセスされます。|InternalClient / CareersWebSite|  
   
 ## <a name="data-storage"></a>データ ストレージ  
  データは、`ContosoHR` という名前の SQL Server データベースに保存されます (このデータベースを作成するためのスクリプトは `DbSetup` フォルダーにあります)。 ワークフロー インスタンスは `InstanceStore` という名前の SQL Server データベースに保存されます (インスタンス ストアを作成するためのスクリプトは [!INCLUDE[netfx_current_short](../../../../includes/netfx-current-short-md.md)] の配布に含まれています)。  
@@ -169,11 +169,11 @@ ms.locfileid: "70038160"
   
 6. ソリューションの **[careerswebsite]** を右クリックし、 **[ブラウザーで表示]** を選択します。  
   
-7. ソリューションで [ `InternalClient` **internalclient** ] を右クリックし、 **[ブラウザーで表示]** を選択して、に戻ります。  
+7. ソリューションで **[Internalclient]** を右クリックし、 **[ブラウザーで表示]** を選択して `InternalClient` に戻ります。  
   
 8. 受信トレイ トップメニューの **ジョブの投稿** リンクをクリックして、**jobpostings** セクションにアクセスします。 詳細については、以下のシナリオを参照してください。  
   
-## <a name="scenarios"></a>シナリオ  
+## <a name="scenarios"></a>監視プロセス  
   
 ### <a name="hiring-request"></a>雇用要求  
   
@@ -183,7 +183,7 @@ ms.locfileid: "70038160"
   
 3. Peter は、Michael の要求に対応します。 Peter は、この職種で要求される C# の実務経験は 3 年ではなく 5 年であると考え、その旨を知らせるコメントを送信します。  
   
-4. Michael は、Peter からのメッセージを受信し、これに対応します。Michael は、求人要求の履歴を確認し、Peter の意見に同意します。 Michael は、求人要求の C# の実務経験に関する説明を 5 年に変更し、その変更を受け入れます。  
+4. Michael は上司からメッセージを受信トレイに表示し、操作を希望しています。Michael は、位置要求の履歴を確認し、Peter に同意します。 Michael は、求人要求の C# の実務経験に関する説明を 5 年に変更し、その変更を受け入れます。  
   
 5. Peter は、Michael の変更済みの要求を確認し、これを受け入れます。 ここで、要求は、エンジニアリング部長 Tsvi Reiter の承認が必要になります。  
   
@@ -215,7 +215,7 @@ ms.locfileid: "70038160"
   
 2. ソリューションをビルドできない場合は、次の項目を確認してください。  
   
-    - への参照`ContosoHR`がプロジェクト`InternalClient`または`CareersWebSite`プロジェクトに存在しません。  
+    - `ContosoHR` への参照が、`InternalClient` プロジェクトまたは `CareersWebSite` プロジェクトにありません。  
   
 3. ソフトウェアを実行できない場合は、次の項目を確認してください。  
   
@@ -229,7 +229,7 @@ ms.locfileid: "70038160"
   
         3. Visual Studio で CTRL + SHIFT + B キーを押して、ソリューションをリビルドします。  
   
-## <a name="uninstalling"></a>アンインストール  
+## <a name="uninstalling"></a>のアンインストール  
   
 1. DbSetup フォルダーにある Cleanup.bat を実行して SQL Server インスタンス ストアを削除します。  
   

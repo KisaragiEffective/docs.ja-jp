@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c8954268-1821-4b23-b665-dbb55f2af31b
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2047929c52dbb7b0d780a4ea0f180bae48a3ce79
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 3eace2d91b3bb6e637a659b8b49a31450ebc2c42
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67750398"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76783727"
 ---
 # <a name="icordebugdatatargetgetthreadcontext-method"></a>ICorDebugDataTarget::GetThreadContext メソッド
-指定したスレッドの現在のスレッド コンテキストを返します。  
+指定されたスレッドの現在のスレッドコンテキストを返します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,22 +37,22 @@ HRESULT GetThreadContext(
   
 ## <a name="parameters"></a>パラメーター  
  `dwThreadID`  
- [in]コンテキストが取得されるスレッドの識別子。 識別子は、オペレーティング システムによって定義されます。  
+ からコンテキストを取得するスレッドの識別子。 識別子はオペレーティングシステムによって定義されます。  
   
  `contextFlags`  
- [in]コンテキストのどの部分を示すプラットフォームに依存するフラグのビットごとの組み合わせをお読みください。  
+ からコンテキストのどの部分を読み取る必要があるかを示す、プラットフォームに依存するフラグのビットごとの組み合わせ。  
   
  `contextSize`  
  [入力] `pContext` のサイズ。  
   
  `pContext`  
- [out]スレッド コンテキストを格納するバッファー。  
+ 入出力スレッドコンテキストが格納されるバッファー。  
   
-## <a name="remarks"></a>Remarks  
- Windows のプラットフォームで`pContext`必要があります、`CONTEXT`構造 (WinNT.h で定義されている) で指定されたコンピューターの種類に適した、 [icordebugdatatarget::getplatform](../../../../docs/framework/unmanaged-api/debugging/icordebugdatatarget-getplatform-method.md)メソッド。 `contextFlags` として値が同じである必要があります、`ContextFlags`のフィールド、`CONTEXT`構造体。 `CONTEXT`構造は、プロセッサ固有。 詳細については、WinNT.h でファイルを参照してください。  
+## <a name="remarks"></a>コメント  
+ Windows プラットフォームでは、`pContext` は、の `CONTEXT` 構造 (Winnt.h で定義されています) である必要があります。これは[、のコンピューター](icordebugdatatarget-getplatform-method.md)の種類に対応しています。 `contextFlags` には、`CONTEXT` 構造体の `ContextFlags` フィールドと同じ値を指定する必要があります。 `CONTEXT` 構造体はプロセッサに固有です。詳細については、「Winnt.h ファイル」を参照してください。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -64,6 +62,6 @@ HRESULT GetThreadContext(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugDataTarget インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugdatatarget-interface.md)
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
+- [ICorDebugDataTarget インターフェイス](icordebugdatatarget-interface.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)
+- [デバッグ](index.md)

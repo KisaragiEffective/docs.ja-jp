@@ -158,7 +158,7 @@
               href: obtain-mixed-text-attribute-details-using-ui-automation.md
             - name: UI オートメーションを使用したテキストのスキャン
               href: traverse-text-using-ui-automation.md
-            - name: UI オートメーションを使用した、埋め込みオブジェクトへのアクセス
+            - name: UI オートメーションを使って埋め込みオブジェクトにアクセスする
               href: access-embedded-objects-using-ui-automation.md
     - name: UI オートメーション コントロール型
       href: ui-automation-control-types.md
@@ -241,5 +241,3 @@
           href: ui-automation-support-for-the-treeitem-control-type.md
         - name: UI オートメーションによる Window コントロール型のサポート
           href: ui-automation-support-for-the-window-control-type.md
-    - name: UI Automation Specification および UI Automation Community Promise
-      href: ui-automation-specification-and-community-promise.md

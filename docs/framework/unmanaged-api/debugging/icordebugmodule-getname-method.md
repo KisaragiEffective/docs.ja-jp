@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: db499637-7ba9-421e-b8b1-35856995e80b
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a7f62385031967c164915fd31735a6d962f557fa
-ms.sourcegitcommit: 5ae5a1a9520b8b8b6164ad728d396717f30edafc
+ms.openlocfilehash: b27e7a2cdcbfc3a88a734230118d99c2dd5c700e
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70894988"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129538"
 ---
 # <a name="icordebugmodulegetname-method"></a>ICorDebugModule::GetName メソッド
 モジュールのファイル名を取得します。  
@@ -48,14 +46,14 @@ HRESULT GetName(
  入出力返された名前を格納する配列。  
   
 ## <a name="remarks"></a>Remarks  
- モジュール`GetName`のファイル名がディスク上の名前と一致する場合、メソッドは S_OK HRESULT を返します。 `GetName`動的またはメモリ内モジュールなどで、名前が使用されている場合は S_FALSE HRESULT を返します。  
+ モジュールのファイル名がディスク上の名前と一致する場合、`GetName` メソッドは S_OK HRESULT を返します。 動的またはメモリ内モジュールのような名前の場合、`GetName` は S_FALSE HRESULT を返します。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

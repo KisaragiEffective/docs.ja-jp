@@ -1,15 +1,13 @@
 ---
-title: <ImpliesType>要素 (.NET ネイティブ)
+title: <ImpliesType> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: 3abd2071-0f28-40ba-b9a0-d52bd94cd2f6
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 10fa3a0ac04038bb686311a4d86c99442c0fcf26
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 2f0ce1a1587e190627212cba07db298c12f4b30e
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049673"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128388"
 ---
 # <a name="impliestype-element-net-native"></a>\<ImpliesType > 要素 (.NET ネイティブ)
 型にポリシーを適用します (含んでいる型またはメソッドにそのポリシーが適用されている場合)。  
@@ -51,13 +49,13 @@ ms.locfileid: "71049673"
   
 ## <a name="name-attribute"></a>Name 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*type_name*|型名。 この `<ImpliesType>` 要素により表される型がそれを含んでいる `<Type>` 要素と同じ名前空間にある場合、*type_name* には名前空間なしで型の名前を含めることができます。 それ以外の場合は、*type_name* には完全修飾型名を含める必要があります。|  
   
 ## <a name="all-other-attributes"></a>その他すべての属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*policy_setting*|このポリシーの種類に適用する設定です。 指定できる値は、`All`、`Auto`、`Excluded`、`Public`、`PublicAndInternal`、`Required Public`、`Required PublicAndInternal`、および `Required All` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|  
   
@@ -99,13 +97,13 @@ ms.locfileid: "71049673"
 </Type>  
 ```  
   
- `<ImpliesType>` 要素は `<Method>` 要素内にも配置できます。これは、ジェネリック メソッドのインスタンス化が型のインスタンス化へのリフレクションを暗黙的に決定する場合があるためです。 たとえば、特定のライブラリが関連`IEnumerable<T> MakeEnumerable<T>(string spelling, T defaultValue)` <xref:System.Collections.Generic.List%601>する型および<xref:System.Array>型と共に動的にアクセスするジェネリックメソッドを考えてみます。 これは次のように表すことができます。  
+ `<ImpliesType>` 要素は `<Method>` 要素内にも配置できます。これは、ジェネリック メソッドのインスタンス化が型のインスタンス化へのリフレクションを暗黙的に決定する場合があるためです。 たとえば、特定のライブラリが関連する <xref:System.Collections.Generic.List%601> と <xref:System.Array> 型と共に動的にアクセスする `IEnumerable<T> MakeEnumerable<T>(string spelling, T defaultValue)` ジェネリックメソッドがあるとします。 これは次のように表すことができます。  
   
 ```xml  
 <Type Name="MyType">  
     <Method Name="MakeEnumerable{T}" Signature="(System.String, T)" Dynamic="Included">  
         <ImpliesType Name="T[]" Dynamic="Public" />  
-        <ImpliesType Name="System.Collections.Generic.List{T}" Dynamic="Public">  
+        <ImpliesType Name="System.Collections.Generic.List{T}" Dynamic="Public" />  
     </Method>  
 </Type>  
 ```  

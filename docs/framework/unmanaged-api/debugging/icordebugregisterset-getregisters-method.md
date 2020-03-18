@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: fdf91864-48ea-4aa6-b70c-361b7a3184c7
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: daee6c46c247bcd21073f779cada8c843947a949
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 737993ac80b26d490915af3e97fd6a9552246aee
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67747252"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76792119"
 ---
 # <a name="icordebugregistersetgetregisters-method"></a>ICorDebugRegisterSet::GetRegisters メソッド
-各レジスタの値を取得します (現在のコードを実行しているコンピューター) でビット マスクによって指定されています。  
+ビットマスクによって指定された、(現在コードを実行しているコンピューター上の) 各レジスタの値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,21 +38,21 @@ HRESULT GetRegisters (
   
 ## <a name="parameters"></a>パラメーター  
  `mask`  
- [in]値が取得するにはどのレジスタを指定するビット マスク。 各ビットは、レジスタに対応します。 ビットは 1 つに設定されている場合は、レジスタの値が取得されます。それ以外の場合、レジスタの値は取得されません。  
+ から取得するレジスタ値を指定するビットマスク。 各ビットは、レジスタに対応します。 ビットが1に設定されている場合は、レジスタの値が取得されます。それ以外の場合は、レジスタの値は取得されません。  
   
  `regCount`  
- [in]取得するレジスタの値の数。  
+ から取得するレジスタ値の数。  
   
  `regBuffer`  
- [out]配列の`CORDB_REGISTER`オブジェクト、レジスタの値を受信します。  
+ 入出力`CORDB_REGISTER` オブジェクトの配列。各オブジェクトはレジスタの値を受け取ります。  
   
-## <a name="remarks"></a>Remarks  
- 配列のサイズは、ビット マスクのいずれかに設定するビット数に等しい必要があります。 `regCount`パラメーターがレジスタの値を受け取るバッファー内の要素の数を指定します。 場合、`regCount`マスクで指定したレジスタの数の値が小さすぎる、セットから大きい番号のレジスタは切り捨てられます。 場合、`regCount`値が大きすぎて、未使用`regBuffer`要素は変更できません。  
+## <a name="remarks"></a>コメント  
+ 配列のサイズは、ビットマスクで1に設定されているビット数と同じである必要があります。 `regCount` パラメーターは、レジスタ値を受け取るバッファー内の要素の数を指定します。 `regCount` 値がマスクで示されているレジスタの数に対して小さすぎる場合、番号の大きいレジスタはセットから切り捨てられます。 `regCount` 値が大きすぎる場合、未使用の `regBuffer` 要素は変更されません。  
   
- ビット マスクが使用できないレジスタを指定する場合`GetRegisters`そのレジスタの中間の値を返します。  
+ 使用できないレジスタがビットマスクによって指定されている場合、`GetRegisters` はそのレジスタの不定値を返します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -64,5 +62,5 @@ HRESULT GetRegisters (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugRegisterSet インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugregisterset-interface.md)
-- [ICorDebugRegisterSet2 インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugregisterset2-interface.md)
+- [ICorDebugRegisterSet インターフェイス](icordebugregisterset-interface.md)
+- [ICorDebugRegisterSet2 インターフェイス](icordebugregisterset2-interface.md)

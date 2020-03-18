@@ -24,8 +24,6 @@
               href: fault-handling-in-a-flowchart-activity-using-trycatch.md
             - name: XAML からの読み込み
               href: load-from-xaml.md
-            - name: InvokeMethod アクティビティの使用
-              href: using-the-invokemethod-activity.md
             - name: Pick アクティビティの使用
               href: using-the-pick-activity.md
         - name: カスタム アクティビティ

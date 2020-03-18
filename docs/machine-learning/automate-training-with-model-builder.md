@@ -1,15 +1,14 @@
 ---
 title: モデル ビルダーの概要としくみ
 description: ML.NET モデル ビルダーを使用し、機械学習モデルを自動的にトレーニングする方法
-author: natke
-ms.date: 08/07/2019
-ms.custom: overview
-ms.openlocfilehash: 77b5e75fede1a4aa93eadcf7e21591d82f565cab
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.date: 01/07/2020
+ms.custom: overview, mlnet-tooling
+ms.openlocfilehash: cff4601843ec9ca7201ea7dbdbfbcfa18f50e46e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70929479"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79397807"
 ---
 # <a name="what-is-model-builder-and-how-does-it-work"></a>モデル ビルダーの概要としくみ
 
@@ -35,18 +34,9 @@ ML.NET モデル ビルダーは、直観的なグラフィックスでカスタ
 - 銀行取引が詐欺かどうかを検出する
 - 顧客がフィードバックした問題を社内の該当チームに送信する
 
-## <a name="choose-a-model-type"></a>モデルの種類の選択
+### <a name="which-machine-learning-scenario-is-right-for-me"></a>自分に最適な機械学習シナリオとは?
 
-モデル ビルダーでは、機械学習モデルの種類を選択する必要があります。 モデルの種類は、行おうとしている予測の種類によって異なります。
-
-数値を予測するシナリオの場合、機械学習モデルの種類は `regression` と呼ばれます。
-
-カテゴリを予測するシナリオの場合、モデルの種類は `classification` です。 分類には、次の 2 つがあります。
-
-- カテゴリが 2 つのみの場合は `binary classification`。
-- カテゴリが 3 つ以上ある場合は `multiclass classification`。
-
-### <a name="which-model-type-is-right-for-me"></a>適切なモデルの種類はどれですか?
+モデル ビルダーでは、シナリオを選択する必要があります。 シナリオの種類は、行おうとしている予測の種類によって異なります。
 
 #### <a name="predict-a-category-when-there-are-only-two-categories"></a>カテゴリを予測する (カテゴリが 2 つのみの場合)
 
@@ -54,17 +44,17 @@ ML.NET モデル ビルダーは、直観的なグラフィックスでカスタ
 
 ![不正検出、リスク軽減、アプリケーション スクリーニングなど、二項分類の例を示す図](media/binary-classification-examples.png)
 
-センチメント分析は、顧客からのフィードバックの肯定性/否定性を予測する目的で利用できます。 これは二項分類のモデルの種類の一例です。
+センチメント分析は、顧客からのフィードバックの肯定性/否定性を予測する目的で利用できます。 これは二項分類の機械学習タスクの一例です。
 
 2 つのカテゴリに分類することが自分のシナリオで求められる場合、独自のデータセットと共にこのテンプレートを使用できます。
 
 #### <a name="predict-a-category-when-there-are-three-or-more-categories"></a>カテゴリを予測する (3 つ以上のカテゴリがある場合)
 
-多クラス分類は、データを 3 つ以上のクラスに分類する目的で利用できます。 
+多クラス分類は、データを 3 つ以上のクラスに分類する目的で利用できます。
 
 ![ドキュメントと製品の分類、サポート チケットのルーティング、顧客の問題の優先度設定など、多クラス分類の例](media/multiclass-classification-examples.png)
 
-問題分類は、顧客からのフィードバック (たとえば、GitHub で) に含まれる問題を問題のタイトルや説明で分類する目的で利用できます。 これは多クラス分類のモデルの種類の一例です。
+問題分類は、顧客からのフィードバック (たとえば、GitHub で) に含まれる問題を問題のタイトルや説明で分類する目的で利用できます。 これは多クラス分類の機械学習タスクの一例です。
 
 データを 3 つ以上のカテゴリに分類する場合、シナリオに問題分類テンプレートを使用できます。
 
@@ -74,19 +64,33 @@ ML.NET モデル ビルダーは、直観的なグラフィックスでカスタ
 
 ![価格予測、売上予測、予測メンテナンスなどの回帰の例を示す図](media/regression-examples.png)
 
-価格予測は、家の場所、規模、その他の特徴を利用し、家の価格を予測する目的で利用できます。 これは回帰のモデルの種類の一例です。
+価格予測は、家の場所、規模、その他の特徴を利用し、家の価格を予測する目的で利用できます。 これは回帰の機械学習タスクの一例です。
 
 独自のデータセットで数値を予測する場合、自分のシナリオに価格予測テンプレートを使用できます。
 
-#### <a name="custom-scenario-choose-your-model-type"></a>カスタム シナリオ (モデルの種類を選択する)
+#### <a name="classify-images-into-categories"></a>イメージをカテゴリに分類する
 
-カスタム シナリオでは、自分のモデルの種類を手動で選択できます。
+このシナリオは多クラス分類の特殊なケースで、分類される入力データが一連のイメージになっています。
+
+イメージ分類を使用すると、さまざまなカテゴリのイメージを特定できます。 これには、さまざまな種類の地形、動物、製造上の不具合などが含まれます。
+
+一連のイメージがあり、イメージをさまざまなカテゴリに分類したいときは、ご自身のシナリオに合ったイメージ分類テンプレートを使用できます。
+
+#### <a name="custom-scenario"></a>カスタム シナリオ
+
+カスタム シナリオでは、自分のシナリオを手動で選択できます。
 
 ## <a name="data"></a>データ
 
-モデルの種類を選択すると、モデル ビルダーからデータセットを提供するように求められます。 このデータはモデルをトレーニングし、評価し、シナリオに最適なモデルを選択するために使用されます。
+シナリオを選択すると、モデル ビルダーからデータセットを提供するように求められます。 このデータはモデルをトレーニングし、評価し、シナリオに最適なモデルを選択するために使用されます。
 
 ![モデル ビルダーの手順を示す図](media/model-builder-steps.png)
+
+モデル ビルダーは、.tsv、.csv、.txt 形式のデータセットと、SQL データベース形式をサポートしています。 .txt ファイルがある場合、列は `,`、`;`、または `/t` で区切る必要があり、ファイルにはヘッダー行が必要です。
+
+データセットがイメージで構成されている場合、サポートされているファイルの種類は `.jpg` と `.png`です。
+
+詳細については、「[モデル ビルダーにトレーニング データを読み込む](how-to-guides/load-data-model-builder.md)」を参照してください。
 
 ### <a name="choose-the-output-to-predict-label"></a>予測する出力を選択します (ラベル)
 
@@ -109,13 +113,14 @@ ML.NET モデル ビルダーは、直観的なグラフィックスでカスタ
 
 独自のデータをまだ用意していない場合、次のいずれかのデータセットをお試しください。
 
-|シナリオ|モデルの種類|データ|group1|フィーチャー|
+|シナリオ|ML タスク|データ|group1|フィーチャー|
 |-|-|-|-|-|
 |価格の予測|回帰|[タクシーの料金データ](https://github.com/dotnet/machinelearning-samples/blob/master/datasets/taxi-fare-train.csv)|料金|乗車時間、距離|
 |異常検出|二項分類|[製品の売上データ](https://github.com/dotnet/machinelearning-samples/blob/master/samples/csharp/getting-started/AnomalyDetection_Sales/SpikeDetection/Data/product-sales.csv)|製品の売上|月|
-|センチメント分析|二項分類|[Web サイトのコメント データ](https://raw.githubusercontent.com/dotnet/machinelearning/master/test/data/wikipedia-detox-250-line-data.tsv)|ラベル (否定的なセンチメントのときは 0、肯定的なセンチメントのときは 1)|コメント、年度|
-|不正行為の検出|二項分類|[クレジット カードのデータ](https://github.com/dotnet/machinelearning-samples/blob/master/samples/csharp/getting-started/BinaryClassification_CreditCardFraudDetection/CreditCardFraudDetection.Trainer/assets/input/creditcardfraud-dataset.zip)|クラス (詐欺の場合は 1、それ以外の場合 0)|金額、V1-V28 (匿名化された特徴)|
+|感情分析|二項分類|[Web サイトのコメント データ](https://raw.githubusercontent.com/dotnet/machinelearning/master/test/data/wikipedia-detox-250-line-data.tsv)|ラベル (否定的なセンチメントのときは 0、肯定的なセンチメントのときは 1)|コメント、年度|
+|不正検出|二項分類|[クレジット カードのデータ](https://github.com/dotnet/machinelearning-samples/blob/master/samples/csharp/getting-started/BinaryClassification_CreditCardFraudDetection/CreditCardFraudDetection.Trainer/assets/input/creditcardfraud-dataset.zip)|クラス (詐欺の場合は 1、それ以外の場合 0)|金額、V1-V28 (匿名化された特徴)|
 |テキスト分類|多クラス分類|[GitHub 問題のデータ](https://github.com/dotnet/machinelearning-samples/blob/master/samples/csharp/end-to-end-apps/MulticlassClassification-GitHubLabeler/GitHubLabeler/Data/corefx-issues-train.tsv)|区分|タイトル、説明|
+|イメージ分類|多クラス分類|[花のイメージ](http://download.tensorflow.org/example_images/flower_photos.tgz)|花の種類: デイジー、タンポポ、バラ、ヒマワリ、チューリップ|イメージ データ自体|
 
 ## <a name="train"></a>トレーニング
 
@@ -127,11 +132,65 @@ ML.NET モデル ビルダーは、直観的なグラフィックスでカスタ
 
 モデル ビルダーで使用される機械学習は自動化されているため (AutoML)、トレーニング中に、ユーザーが入力したり、調整したりする必要がありません。
 
+### <a name="how-long-should-i-train-for"></a>どのくらいの時間、トレーニングしますか?
+
+モデル ビルダーは、AutoML を使用して複数のモデルを探索し、最適なパフォーマンスを発揮するモデルを見つけます。
+
+トレーニング期間を長くすると、AutoML はより広い設定範囲でさらに多くのモデルを探索できます。
+
+以下の表は、ローカル コンピューターにある一連のサンプル データセットで、優れたパフォーマンスを得るのに要した平均時間を示しています。
+
+|データセットのサイズ|トレーニングの平均時間|
+|------------|---------------------|
+|0 - 10 MB|10 秒|
+|10 - 100 MB|10 分|
+|100 - 500 MB|30 分|
+|500 MB - 1 GB|60 分|
+|1 GB 超|3 時間超|
+
+これらは参考用の数字に過ぎません。 トレーニングの正確な長さは、次の条件によって異なります。
+
+- モデルへの入力として使用されている特徴 (列) の数
+- 列の種類
+- ML タスク
+- トレーニングに使用されるマシンの CPU、ディスク、およびメモリのパフォーマンス
+
 ## <a name="evaluate"></a>評価
 
-評価は、トレーニングしたモデルを使用し、新しいテスト データで予測し、予測の精度を測定するプロセスです。
+評価は、モデルがどのくらい適切かを測定するプロセスです。 モデル ビルダーは、トレーニングしたモデルを使用して新しいテスト データで予測し、予測の精度を測定します。
 
-モデル ビルダーでは、トレーニング セットとテスト セットにトレーニング データが分割されます。 トレーニング データ (80%) はモデルのトレーニングに使用されます。テスト データ (20%) はモデルの評価のための控えとなります。 モデル ビルダーでは、メトリックを使用して、モデルがどの程度適切かを測定します。 使用される特定のメトリックは、モデルの種類によって異なります。 詳しくは、[モデルの評価メトリック](resources/metrics.md)に関する記事をご覧ください。
+モデル ビルダーでは、トレーニング セットとテスト セットにトレーニング データが分割されます。 トレーニング データ (80%) はモデルのトレーニングに使用されます。テスト データ (20%) はモデルの評価のための控えとなります。
+
+### <a name="how-do-i-understand-my-model-performance"></a>モデルのパフォーマンスを把握するには
+
+シナリオが機械学習タスクにマップされます。 各 ML タスクには、独自の評価メトリック セットがあります。
+
+#### <a name="regression-for-example-price-prediction"></a>回帰 (価格の予測など)
+
+回帰問題の既定のメトリックは RSquared で、RSquared の値の範囲は 0 から 1 です。 最適な値は 1 です。つまり、RSquared の値が 1 に近いほど、モデルのパフォーマンスが向上します。
+
+絶対損失、二乗損失、RMS 損失など、報告されるその他のメトリックは追加メトリックで、モデルのパフォーマンスを理解し、それを他の回帰モデルと比較する目的で使用できます。
+
+#### <a name="binary-classification-for-example-sentiment-analysis"></a>二項分類 (感情分析など)
+
+分類問題の既定のメトリックは正確度です。 正確度は、テスト データセットに基づいてモデルが正しく予測する比率を定めるものです。 100%、つまり 1.0 に近ければ近いほど、良いということになります。
+
+真陽性率と擬陽性率を測定する AUC (曲線下面積) など、報告されるその他のメトリックは 0.50 以上であれば、モデルは許容されます。
+
+F1 スコアなどの追加メトリックを使用すると、精度と再現率のバランスを制御できます。
+
+#### <a name="multi-class-classification-for-example-issue-classification-image-classification"></a>多クラス分類 (問題の分類、イメージの分類など)
+
+多クラス分類の既定のメトリックはマイクロ正確度です。 マイクロ正確度が 100%、つまり 1.0 に近ければ近いほど、良いということになります。
+
+多クラス分類のもう 1 つの重要なメトリックはマクロ正確度です。マイクロ正確度と同様、1.0 に近いほど良いことになります。 これらの 2 種類の正確度は次のように考えるとよいでしょう。
+
+- マイクロ正確度: 受信チケットが、どのくらいの頻度で適切なチームに分類されるか。
+- マクロ正確度: 平均的なチームが受け取るチケットが、そのチームにとって適切である頻度はどのくらいか。
+
+### <a name="more-information-on-evaluation-metrics"></a>評価メトリックの詳細
+
+詳しくは、[モデルの評価メトリック](resources/metrics.md)に関する記事をご覧ください。
 
 ## <a name="improve"></a>改善
 

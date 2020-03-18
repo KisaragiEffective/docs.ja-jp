@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 3c4a8a5a-8a46-4ac9-947f-4959bc9d6ac6
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 41513d9b6f98743bfad95e4d9606cfb4927369e6
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 0fd9409a5157e1013365c94f01631f130a76f54b
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67769793"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73131214"
 ---
 # <a name="eapicategories-enumeration"></a>EApiCategories 列挙型
-ホストが部分的に信頼されたコードでの実行をブロックできる機能のカテゴリについて説明します。  
+部分的に信頼されたコードでホストが実行をブロックできる機能のカテゴリについて説明します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -48,29 +46,29 @@ typedef enum {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`eAll`|クラスとその他で対応されるメンバーをすべて管理を指定します。`EApiCategories`フィールドは、部分的に信頼されたコードでの実行をブロックします。|  
-|`eExternalProcessMgmt`|マネージ クラスとメンバーを作成、操作、および外部プロセスの破棄を部分的に信頼されたコードの実行をブロックすることを指定します。|  
-|`eExternalThreading`|マネージ クラスとメンバーを作成、操作、および外部のスレッドの破棄を部分的に信頼されたコードの実行をブロックすることを指定します。|  
-|`eMayLeakOnAbort`|マネージ型と中止にメモリをリークでした可能性のあるメンバーを部分的に信頼されたコードの実行をブロックすることを指定します。|  
-|`eNoCategory`|部分的に信頼されたコードでの実行をブロックするマネージ コードのカテゴリがないを指定します。|  
-|`eSecurityInfrastructure`|共通言語ランタイム (CLR) のセキュリティ インフラストラクチャを部分的に信頼されたコードによって使用されるをブロックするように指定します。|  
-|`eSelfAffectingProcessMgmt`|マネージ クラスとメンバーの機能を持つホストされたプロセスに影響する可能性を部分的に信頼されたコードの実行をブロックすることを指定します。|  
-|`eSelfAffectingThreading`|マネージ クラスとメンバーの機能を持つホストされるプロセスのスレッドに影響する可能性を部分的に信頼されたコードの実行をブロックすることを指定します。|  
-|`eSharedState`|マネージ クラスおよび共有状態を公開するメンバーを部分的に信頼されたコードの実行をブロックすることを指定します。|  
-|`eSynchronization`|共通言語ランタイム クラスとユーザー コードがロックを保持するメンバーを部分的に信頼されたコードの実行をブロックすることを指定します。|  
-|`eUI`|マネージ クラスとメンバーを許可または人による操作を必要とするが部分的に信頼されたコードの実行をブロックすることを指定します。|  
+|`eAll`|他の `EApiCategories` フィールドの対象となるすべてのマネージクラスおよびメンバーが、部分的に信頼されたコードで実行されないようにすることを指定します。|  
+|`eExternalProcessMgmt`|外部プロセスの作成、操作、および破棄を許可するマネージクラスおよびメンバーが、部分的に信頼されたコードでの実行をブロックされることを指定します。|  
+|`eExternalThreading`|外部スレッドの作成、操作、および破棄を許可するマネージクラスおよびメンバーが、部分的に信頼されたコードでの実行をブロックされることを指定します。|  
+|`eMayLeakOnAbort`|中止時にメモリをリークする可能性のあるマネージ型およびメンバーが、部分的に信頼されたコードで実行されないようにブロックすることを指定します。|  
+|`eNoCategory`|部分的に信頼されたコードでは、マネージコードのカテゴリの実行をブロックしないことを指定します。|  
+|`eSecurityInfrastructure`|共通言語ランタイム (CLR) のセキュリティインフラストラクチャが、部分的に信頼されたコードによって使用されるのをブロックすることを指定します。|  
+|`eSelfAffectingProcessMgmt`|ホストされるプロセスに影響を与える可能性があるマネージクラスおよびメンバーが、部分的に信頼されたコードで実行されないように指定します。|  
+|`eSelfAffectingThreading`|ホストされているプロセスのスレッドに影響を与える可能性のあるマネージクラスおよびメンバーが、部分的に信頼されたコードでの実行をブロックされるように指定します。|  
+|`eSharedState`|マネージクラスおよび共有状態を公開するメンバーが、部分的に信頼されたコードで実行されないようにブロックすることを指定します。|  
+|`eSynchronization`|ユーザーコードがロックを保持することを許可する共通言語ランタイムクラスおよびメンバーが、部分的に信頼されたコードでの実行をブロックするように指定します。|  
+|`eUI`|人間の操作を許可または必要とするマネージクラスおよびメンバーが、部分的に信頼されたコードでの実行をブロックされることを指定します。|  
   
 ## <a name="remarks"></a>Remarks  
- [Iclrhostprotectionmanager::setprotectedcategories](../../../../docs/framework/unmanaged-api/hosting/iclrhostprotectionmanager-setprotectedcategories-method.md)メソッドは、型のパラメーターを受け取る`EApiCategories`します。  
+ [ICLRHostProtectionManager:: SetProtectedCategories](../../../../docs/framework/unmanaged-api/hosting/iclrhostprotectionmanager-setprotectedcategories-method.md)メソッドは、型 `EApiCategories`のパラメーターを受け取ります。  
   
- `EApiCategories`列挙と`SetProtectedCategories`メソッドは直接関係をマネージ<xref:System.Security.Permissions.HostProtectionAttribute?displayProperty=nameWithType>クラス。 マネージ クラスを併用、<xref:System.Security.Permissions.HostProtectionResource?displayProperty=nameWithType>列挙型、値が対応に直接、`EApiCategories`を記載したカテゴリに対応する機能を公開するマネージ型とメンバーをマークする、値`EApiCategories`。  
+ `EApiCategories` 列挙体と `SetProtectedCategories` メソッドは、マネージ <xref:System.Security.Permissions.HostProtectionAttribute?displayProperty=nameWithType> クラスに直接関連付けられます。 マネージクラスは、`EApiCategories`によって記述されたカテゴリに対応する機能を公開するマネージ型およびメンバーをマークするために、値が `EApiCategories` 値に直接対応する <xref:System.Security.Permissions.HostProtectionResource?displayProperty=nameWithType> 列挙体と共に使用されます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

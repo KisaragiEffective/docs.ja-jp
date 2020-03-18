@@ -11,19 +11,17 @@ helpviewer_keywords:
 - MDAs (managed debugging assistants), marshaling
 - invalid function pointers
 ms.assetid: 99ae44f1-783e-49a9-9009-24f54bbd0f09
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 6e3e64a720d12426fb066619b46c73402d1113e0
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 723f51e14c314bde40c34d629ba7fc4f6276c633
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052628"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217373"
 ---
 # <a name="invalidfunctionpointerindelegate-mda"></a>invalidFunctionPointerInDelegate MDA
 ネイティブ関数ポインターに対するデリゲートを作成するときに、無効な関数ポインターが渡されると、`invalidFunctionPointerInDelegate` マネージド デバッグ アシスタント (MDA) がアクティブ化されます。  
   
-## <a name="symptoms"></a>症状  
+## <a name="symptoms"></a>現象  
  関数ポインターでデリゲートを使用すると、アクセス違反または予期しないメモリの破損が発生します。  
   
 ## <a name="cause"></a>原因  
@@ -48,7 +46,7 @@ ms.locfileid: "71052628"
 </mdaConfig>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.InteropServices.MarshalAsAttribute>
 - [マネージド デバッグ アシスタントによるエラーの診断](diagnosing-errors-with-managed-debugging-assistants.md)

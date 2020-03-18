@@ -29,7 +29,7 @@ SOAP エラーは、エラー状態情報をサービスからクライアント
 [!code-csharp[FaultContractAttribute#4](../../../samples/snippets/csharp/VS_Snippets_CFX/faultcontractattribute/cs/services.cs#4)]
 [!code-vb[FaultContractAttribute#4](../../../samples/snippets/visualbasic/VS_Snippets_CFX/faultcontractattribute/vb/services.vb#4)]
 
-`GreetingFault` エラー情報をクライアントに伝達するには、適切なエラー状態をキャッチし、次のコード例に示すように、新しい <xref:System.ServiceModel.FaultException%601?displayProperty=nameWithType> オブジェクトを引数として使用して `GreetingFault` 型の新しい `GreetingFault` をスローします。 クライアントが WCF クライアントアプリケーションである場合、これはマネージ例外として、型が `GreetingFault` の @no__t 0 になります。
+`GreetingFault` エラー情報をクライアントに伝達するには、適切なエラー状態をキャッチし、次のコード例に示すように、新しい <xref:System.ServiceModel.FaultException%601?displayProperty=nameWithType> オブジェクトを引数として使用して `GreetingFault` 型の新しい `GreetingFault` をスローします。 クライアントが WCF クライアントアプリケーションの場合、これはマネージ例外として機能し、型が `GreetingFault`型の <xref:System.ServiceModel.FaultException%601?displayProperty=nameWithType> ます。
 
 [!code-csharp[FaultContractAttribute#5](../../../samples/snippets/csharp/VS_Snippets_CFX/faultcontractattribute/cs/services.cs#5)]
 [!code-vb[FaultContractAttribute#5](../../../samples/snippets/visualbasic/VS_Snippets_CFX/faultcontractattribute/vb/services.vb#5)]
@@ -39,11 +39,11 @@ SOAP エラーは、エラー状態情報をサービスからクライアント
 宣言されていないエラーの送信は、WCF アプリケーションの問題を迅速に診断およびデバッグするのに非常に役立ちますが、デバッグツールとしての有用性は制限されています。 一般的に、デバッグ時には <xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> プロパティを使用することをお勧めします。 この値を true に設定すると、クライアントはこのエラーを <xref:System.ServiceModel.FaultException%601> 型の <xref:System.ServiceModel.ExceptionDetail> 例外として認識します。
 
 > [!IMPORTANT]
-> マネージ例外によって内部アプリケーション情報が公開される可能性があるため、<xref:System.ServiceModel.ServiceBehaviorAttribute.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> または <xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> を @no__t に設定すると、WCF クライアントは、個人を特定できるまたはその他の機密情報を含む内部サービス操作例外に関する情報を取得できるようになります。参照.
+> マネージ例外によって内部アプリケーション情報が公開される可能性があるため、<xref:System.ServiceModel.ServiceBehaviorAttribute.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> または <xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> を `true` に設定すると、WCF クライアントは、個人を特定できるなどの内部サービス操作例外に関する情報を取得することができます。機密情報。
 >
-> したがって、<xref:System.ServiceModel.ServiceBehaviorAttribute.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> または <xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> を `true` に設定することは、サービス アプリケーションを一時的にデバッグする方法としてのみお勧めできます。 さらに、このようにして未処理のマネージド例外を返すメソッドの WSDL には、<xref:System.ServiceModel.FaultException%601> 型の <xref:System.ServiceModel.ExceptionDetail> のコントラクトが含まれません。 クライアントは、デバッグ情報を適切に取得するために、不明な SOAP エラー (WCF クライアントに @no__t 0 オブジェクトとして返される) の可能性を期待する必要があります。
+> したがって、<xref:System.ServiceModel.ServiceBehaviorAttribute.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> または <xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> を `true` に設定することは、サービス アプリケーションを一時的にデバッグする方法としてのみお勧めできます。 さらに、このようにして未処理のマネージド例外を返すメソッドの WSDL には、<xref:System.ServiceModel.FaultException%601> 型の <xref:System.ServiceModel.ExceptionDetail> のコントラクトが含まれません。 クライアントは、デバッグ情報を適切に取得するために、不明な SOAP エラー (<xref:System.ServiceModel.FaultException?displayProperty=nameWithType> オブジェクトとして WCF クライアントに返される) の可能性を期待する必要があります。
 
-宣言されていない SOAP エラーを送信するには、<xref:System.ServiceModel.FaultException?displayProperty=nameWithType> (つまり、ジェネリック型の <xref:System.ServiceModel.FaultException%601> でない) オブジェクトをスローし、文字列をコンストラクターに渡します。 これは、<xref:System.ServiceModel.FaultException%601.ToString%2A?displayProperty=nameWithType> メソッドを呼び出すことによって文字列を使用できる場合にスローされる <xref:System.ServiceModel.FaultException?displayProperty=nameWithType> 例外として、WCF クライアントアプリケーションに公開されます。
+宣言されていない SOAP エラーを送信するには、<xref:System.ServiceModel.FaultException?displayProperty=nameWithType> (つまり、ジェネリック型の <xref:System.ServiceModel.FaultException%601> でない) オブジェクトをスローし、文字列をコンストラクターに渡します。 これは、<xref:System.ServiceModel.FaultException%601.ToString%2A?displayProperty=nameWithType> メソッドを呼び出すことによって文字列を使用できる場合にスロー <xref:System.ServiceModel.FaultException?displayProperty=nameWithType> 例外として、WCF クライアントアプリケーションに公開されます。
 
 > [!NOTE]
 > 文字列型の SOAP エラーを宣言し、これを型パラメーターが <xref:System.ServiceModel.FaultException%601> の <xref:System.String?displayProperty=nameWithType> としてサービス内でスローすると、文字列値が <xref:System.ServiceModel.FaultException%601.Detail%2A?displayProperty=nameWithType> プロパティに割り当てられるため、<xref:System.ServiceModel.FaultException%601.ToString%2A?displayProperty=nameWithType> から使用できません。
@@ -56,18 +56,18 @@ WCF クライアントでは、クライアントアプリケーションにと�
 
 - <xref:System.ServiceModel.CommunicationException>
 
-<xref:System.TimeoutException> オブジェクトは、操作が、指定されたタイムアウト期間を超えた場合にスローされます。
+<xref:System.TimeoutException> オブジェクトは、操作が指定されたタイムアウト時間を超えた場合にスローされます。
 
-<xref:System.ServiceModel.CommunicationException> オブジェクトは、回復可能な通信エラー状態がサービスまたはクライアントで発生した場合にスローされます。
+<xref:System.ServiceModel.CommunicationException> オブジェクトは、サービスまたはクライアントのいずれかに回復可能な通信エラー状態がある場合にスローされます。
 
 <xref:System.ServiceModel.CommunicationException> クラスには、<xref:System.ServiceModel.FaultException> および一般的な <xref:System.ServiceModel.FaultException%601> 型という 2 つの重要な派生型があります。
 
-<xref:System.ServiceModel.FaultException> 例外は、予期しないエラーまたは操作コントラクト内に指定されていないエラーをリスナーが受信した場合にスローされます。この例外は、通常、サービスの <xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> プロパティを `true` に設定してアプリケーションをデバッグしている場合に発生します。
+<xref:System.ServiceModel.FaultException> 例外は、リスナーが想定されていない、または操作コントラクトで指定されていないエラーを受信した場合にスローされます。通常、このエラーは、アプリケーションのデバッグ中に、サービスの <xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> プロパティが `true`に設定されている場合に発生します。
 
-<xref:System.ServiceModel.FaultException%601> 例外は、操作コントラクト内に指定されたエラーが、双方向操作 (つまり、<xref:System.ServiceModel.OperationContractAttribute> に <xref:System.ServiceModel.OperationContractAttribute.IsOneWay%2A> が設定されている `false` 属性を持つメソッド) への応答で受信された場合に、クライアントでスローされます。
+<xref:System.ServiceModel.FaultException%601> 例外は、双方向の操作 (つまり、<xref:System.ServiceModel.OperationContractAttribute> <xref:System.ServiceModel.OperationContractAttribute.IsOneWay%2A> 属性が `false`に設定されたメソッド) への応答として操作コントラクトで指定されたエラーが受信された場合に、クライアントでスローされます。
 
 > [!NOTE]
-> WCF サービスの <xref:System.ServiceModel.ServiceBehaviorAttribute.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> または <xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> プロパティが `true` に設定されている場合、クライアントはこれを @no__t 型の宣言されていない <xref:System.ServiceModel.FaultException%601> として処理します。 クライアントは、この特定のエラーをキャッチするか、<xref:System.ServiceModel.FaultException> の catch ブロックで処理できます。
+> WCF サービスの <xref:System.ServiceModel.ServiceBehaviorAttribute.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> または <xref:System.ServiceModel.Description.ServiceDebugBehavior.IncludeExceptionDetailInFaults%2A?displayProperty=nameWithType> プロパティが `true` に設定されている場合、クライアントはこれを <xref:System.ServiceModel.ExceptionDetail>型の宣言されていない <xref:System.ServiceModel.FaultException%601> として処理します。 クライアントは、この特定のエラーをキャッチするか、<xref:System.ServiceModel.FaultException> の catch ブロックで処理できます。
 
 通常、クライアントとサービスには、<xref:System.ServiceModel.FaultException%601>、<xref:System.TimeoutException>、および <xref:System.ServiceModel.CommunicationException> の各例外だけが関係します。
 
@@ -107,12 +107,12 @@ WCF クライアントでは、クライアントアプリケーションにと�
 次のコード例は、基本的なクライアント アプリケーションで、宣言されたエラーと宣言されていないエラーを含む SOAP エラー例外を処理する方法を示しています。
 
 > [!NOTE]
-> このサンプル コードは、`using` コンストラクトを使用していません。 チャネルを閉じると例外がスローされる可能性があるため、アプリケーションでは最初に WCF クライアントを作成し、次に同じ try ブロックで WCF クライアントを開いて使用し、閉じることをお勧めします。 詳細については、「 [WCF クライアントの概要](wcf-client-overview.md)」および「 [Close と Abort を使用して wcf クライアントリソースを解放する」を](./samples/use-close-abort-release-wcf-client-resources.md)参照してください。
+> このサンプル コードは、`using` コンストラクトを使用していません。 チャネルを閉じると例外がスローされる可能性があるため、アプリケーションでは最初に WCF クライアントを作成し、次に同じ try ブロックで WCF クライアントを開いて使用し、閉じることをお勧めします。 詳細については、「 [Wcf クライアントの概要](wcf-client-overview.md)」および「 [Close と Abort を使用して wcf クライアントリソースを解放する」を](./samples/use-close-abort-release-wcf-client-resources.md)参照してください。
 
 [!code-csharp[FaultContractAttribute#3](../../../samples/snippets/csharp/VS_Snippets_CFX/faultcontractattribute/cs/client.cs#3)]
 [!code-vb[FaultContractAttribute#3](../../../samples/snippets/visualbasic/VS_Snippets_CFX/faultcontractattribute/vb/client.vb#3)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.ServiceModel.FaultException>
 - <xref:System.ServiceModel.FaultException%601>

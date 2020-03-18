@@ -8,22 +8,22 @@ helpviewer_keywords:
 - <add> element for <listeners>
 - add element for <listeners>
 ms.assetid: 81e804a3-ef11-4d39-bbde-bfa012c179e2
-ms.openlocfilehash: d89a77107e7aff65b007a69c23af34771146570c
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: eb3e9cf4a6d138998cfde865cda8ed4146be26d0
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71697333"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74088984"
 ---
-# <a name="add-element-for-listeners-for-trace"></a>\<trace > の \< リスナーの > 要素を追加し @no__t
+# <a name="add-element-for-listeners-for-trace"></a>\<リスナー > の > 要素を追加 \<\<トレース >
 リスナーを**リスナー**コレクションに追加します。  
-  
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\<system. diagnostics >** ](system-diagnostics-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t-3[ **\<trace >** ](trace-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5[ **\<listeners >** します。](listeners-element-for-trace.md)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<add>**  
-  
+
+[ **\<configuration>** ](../configuration-element.md)\
+&nbsp;&nbsp;[ **\<** ](system-diagnostics-element.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;\<[**トレース >** ](trace-element.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<[**リスナー >** ](listeners-element-for-trace.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**追加 >**
+
 ## <a name="syntax"></a>構文  
   
 ```xml  
@@ -47,7 +47,7 @@ ms.locfileid: "71697333"
   
 |要素|説明|  
 |-------------|-----------------|  
-|[\<filter>](filter-element-for-add-for-listeners-for-trace.md)|トレースの @no__t 0 コレクションのリスナーにフィルターを追加します。|  
+|[\<filter>](filter-element-for-add-for-listeners-for-trace.md)|トレースの `Listeners` コレクション内のリスナーにフィルターを追加します。|  
   
 ### <a name="parent-elements"></a>親要素  
   
@@ -58,32 +58,32 @@ ms.locfileid: "71697333"
 |`system.diagnostics`|ASP.NET 構成セクションのルート要素を指定します。|  
 |`trace`|トレース メッセージを収集、格納、およびルーティングするリスナーを保持します。|  
   
-## <a name="remarks"></a>コメント  
- @No__t-0 および <xref:System.Diagnostics.Trace> クラスは、同じ**リスナー**コレクションを共有します。 これらのクラスのいずれかのコレクションにリスナーオブジェクトを追加すると、他のクラスは同じリスナーを使用します。 リスナークラスは @no__t 0 から派生します。  
+## <a name="remarks"></a>Remarks  
+ <xref:System.Diagnostics.Debug> クラスと <xref:System.Diagnostics.Trace> クラスは、同じ**Listeners**コレクションを共有します。 これらのクラスのいずれかのコレクションにリスナーオブジェクトを追加すると、他のクラスは同じリスナーを使用します。 リスナークラスは、<xref:System.Diagnostics.TraceListener>から派生します。  
   
- トレースリスナーの @no__t 0 の属性を指定しない場合、トレースリスナーの <xref:System.Diagnostics.TraceListener.Name%2A> は既定で空の文字列 ("") になります。 アプリケーションにリスナーが1つしかない場合は、名前を指定せずにリスナーを追加し、名前に空の文字列を指定することで削除できます。 ただし、アプリケーションに複数のリスナーがある場合は、トレースリスナーごとに一意の名前を指定する必要があります。これにより、<xref:System.Diagnostics.Debug.Listeners%2A> および <xref:System.Diagnostics.Trace.Listeners%2A> のコレクション内の個々のトレースリスナーを識別して管理できます。  
+ トレースリスナーの `name` 属性を指定しない場合、トレースリスナーの <xref:System.Diagnostics.TraceListener.Name%2A> は既定で空の文字列 ("") になります。 アプリケーションにリスナーが1つしかない場合は、名前を指定せずにリスナーを追加し、名前に空の文字列を指定することで削除できます。 ただし、アプリケーションに複数のリスナーがある場合は、トレースリスナーごとに一意の名前を指定する必要があります。これにより、<xref:System.Diagnostics.Debug.Listeners%2A> コレクションと <xref:System.Diagnostics.Trace.Listeners%2A> コレクション内の個々のトレースリスナーを識別して管理できます。  
   
 > [!NOTE]
-> 同じ種類の複数のトレースリスナーを同じ名前で追加すると、その型と名前のトレースリスナーが1つだけ `Listeners` コレクションに追加されます。 ただし、複数の同じリスナーを @no__t 0 のコレクションにプログラムで追加することができます。  
+> 同じ種類の複数のトレースリスナーを同じ名前で追加すると、その型と名前のトレースリスナーが1つだけ `Listeners` コレクションに追加されます。 ただし、複数の同じリスナーを `Listeners` コレクションにプログラムで追加することができます。  
   
  **Initializedata**属性の値は、作成するリスナーの種類によって異なります。 すべてのトレースリスナーで**Initializedata**を指定する必要はありません。  
   
 > [!NOTE]
-> @No__t-0 属性を使用すると、"initializeData" 属性が宣言されていないことを示すコンパイラの警告が表示されることがあります。 この警告は、構成設定が抽象基本クラスに対して検証されるために発生します。この <xref:System.Diagnostics.TraceListener> は、`initializeData` 属性を認識しません。 通常、パラメーターを受け取るコンストラクターを持つトレースリスナーの実装では、この警告を無視できます。  
+> `initializeData` 属性を使用すると、"initializeData" 属性が宣言されていないことを示すコンパイラの警告が表示されることがあります。 この警告は、`initializeData` 属性を認識しない抽象基本クラス <xref:System.Diagnostics.TraceListener>に対して構成設定が検証されるために発生します。 通常、パラメーターを受け取るコンストラクターを持つトレースリスナーの実装では、この警告を無視できます。  
   
  次の表に、.NET Framework に含まれるトレースリスナーと、 **Initializedata**属性の値について説明します。  
   
 |トレースリスナークラス|initializeData 属性値|  
 |--------------------------|------------------------------------|  
-|<xref:System.Diagnostics.ConsoleTraceListener?displayProperty=nameWithType>|@No__t-1 コンストラクターの @no__t 0 値。  トレース出力とデバッグ出力を <xref:System.Console.Error%2A?displayProperty=nameWithType> に書き込むには、`initializeData` 属性を "`true`" に設定します。"`false`" を <xref:System.Console.Out%2A?displayProperty=nameWithType> に書き込みます。|  
-|<xref:System.Diagnostics.DelimitedListTraceListener?displayProperty=nameWithType>|@No__t の書き込み先のファイルの名前。|  
+|<xref:System.Diagnostics.ConsoleTraceListener?displayProperty=nameWithType>|<xref:System.Diagnostics.ConsoleTraceListener.%23ctor%2A> コンストラクターの `useErrorStream` 値。  `initializeData` 属性を "`true`" に設定して、トレース出力とデバッグ出力を <xref:System.Console.Error%2A?displayProperty=nameWithType>に書き込みます。 "`false`" を <xref:System.Console.Out%2A?displayProperty=nameWithType>に書き込みます。|  
+|<xref:System.Diagnostics.DelimitedListTraceListener?displayProperty=nameWithType>|<xref:System.Diagnostics.DelimitedListTraceListener> が書き込むファイルの名前。|  
 |<xref:System.Diagnostics.EventLogTraceListener?displayProperty=nameWithType>|既存のイベントログソースの名前。|  
-|<xref:System.Diagnostics.EventSchemaTraceListener?displayProperty=nameWithType>|@No__t が書き込み先となるファイルの名前。|  
-|<xref:System.Diagnostics.TextWriterTraceListener?displayProperty=nameWithType>|@No__t が書き込み先となるファイルの名前。|  
-|<xref:System.Diagnostics.XmlWriterTraceListener?displayProperty=nameWithType>|@No__t が書き込み先となるファイルの名前。|  
+|<xref:System.Diagnostics.EventSchemaTraceListener?displayProperty=nameWithType>|<xref:System.Diagnostics.EventSchemaTraceListener> が書き込むファイルの名前。|  
+|<xref:System.Diagnostics.TextWriterTraceListener?displayProperty=nameWithType>|<xref:System.Diagnostics.TextWriterTraceListener> が書き込むファイルの名前。|  
+|<xref:System.Diagnostics.XmlWriterTraceListener?displayProperty=nameWithType>|<xref:System.Diagnostics.XmlWriterTraceListener> が書き込むファイルの名前。|  
   
 ## <a name="example"></a>例  
- 次の例は、使用する方法を示します **\<追加 >** リスナーを追加する要素`MyListener`と`MyEventListener`を**リスナー**コレクション。 `MyListener` `MyListener.log` という名前のファイルを作成し、出力をファイルに書き込みます。 `MyEventListener` を入力すると、イベントログにエントリが作成されます。  
+ 次の例では、> 要素を追加して**リスナーコレクションにリスナー `MyListener`** および `MyEventListener` を追加 **\<** 方法を示します。 `MyListener` によって `MyListener.log` というファイルが作成され、出力がファイルに書き込まれます。 `MyEventListener` は、イベントログにエントリを作成します。  
   
 ```xml  
 <configuration>  

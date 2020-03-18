@@ -13,12 +13,12 @@ helpviewer_keywords:
 - overriding, Overrides keyword
 - properties [Visual Basic], overriding
 ms.assetid: 9f5e6144-ce10-465e-842b-1a8f8760af90
-ms.openlocfilehash: 7fff91d993743574d13030aa3d5cc1e462e76838
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 04f1cb27d6a8366c2dd13f8fdc1d975d382f1cfd
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64751028"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351383"
 ---
 # <a name="overrides-visual-basic"></a>Overrides (Visual Basic)
 
@@ -28,9 +28,9 @@ ms.locfileid: "64751028"
 
 - **宣言コンテキスト。** `Overrides` は、プロパティまたはプロシージャの宣言ステートメントでのみ使用できます。
 
-- **結合された修飾子。** 同じ宣言内で `Overrides` を `Shadows` または `Shared` と共に指定することはできません。 オーバーライドする要素は暗黙的にオーバーライド可能であるため、`Overridable` と `Overrides` を結合することはできません。
+- **結合された修飾子。** 同じ宣言内で `Shadows` または `Shared` と共に `Overrides` を指定することはできません。 オーバーライドする要素は暗黙的にオーバーライド可能であるため、`Overridable` と `Overrides` を結合することはできません。
 
-- **シグネチャの一致。** この宣言のシグネチャと一致する必要があります、*署名*のプロパティまたはプロシージャをオーバーライドします。 つまり、パラメーター リストには、同じ数のパラメーターを、同じ順序、同じデータ型で指定する必要があります。
+- **一致する署名。** この宣言のシグネチャは、オーバーライドするプロパティまたはプロシージャの*シグネチャ*と完全に一致する必要があります。 つまり、パラメーター リストには、同じ数のパラメーターを、同じ順序、同じデータ型で指定する必要があります。
 
   オーバーライドする宣言は、シグネチャに加え、次の点でも完全に一致している必要があります。
 
@@ -38,17 +38,17 @@ ms.locfileid: "64751028"
 
   - 戻り値の型 (戻り値がある場合)
 
-- **ジェネリック シグネチャ。** ジェネリック プロシージャでは、シグネチャに型パラメーターの数が含まれます。 したがって、オーバーライドする宣言は、その点でも基底クラスのバージョンに一致している必要があります。
+- **汎用署名。** ジェネリック プロシージャでは、シグネチャに型パラメーターの数が含まれます。 したがって、オーバーライドする宣言は、その点でも基底クラスのバージョンに一致している必要があります。
 
-- **その他の一致。** この宣言は、基底クラスのバージョンのシグネチャに一致していることに加え、次の点でも基底クラスと一致している必要があります。
+- **追加の一致。** この宣言は、基底クラスのバージョンのシグネチャに一致していることに加え、次の点でも基底クラスと一致している必要があります。
 
-  - アクセス レベル修飾子 (など[パブリック](../../../visual-basic/language-reference/modifiers/public.md))
+  - アクセスレベル修飾子 ( [Public](../../../visual-basic/language-reference/modifiers/public.md)など)
 
-  - 各パラメーターの渡し ([ByVal](../../../visual-basic/language-reference/modifiers/byval.md)または[ByRef](../../../visual-basic/language-reference/modifiers/byref.md))
+  - 各パラメーターのメカニズムを渡す ([ByVal](../../../visual-basic/language-reference/modifiers/byval.md)または[ByRef](../../../visual-basic/language-reference/modifiers/byref.md))
 
   - ジェネリック プロシージャの型パラメーターごとの制約リスト
 
-- **シャドウとオーバーライドします。** シャドウとオーバーライドは、どちらも継承された要素を再定義しますが、その方法は大きく異なります。 詳細については、次を参照してください。 [Visual Basic におけるシャドウ](../../../visual-basic/programming-guide/language-features/declared-elements/shadowing.md)します。
+- **シャドウとオーバーライド。** シャドウとオーバーライドは、どちらも継承された要素を再定義しますが、その方法は大きく異なります。 詳細については、「 [Visual Basic でのシャドウ](../../../visual-basic/programming-guide/language-features/declared-elements/shadowing.md)」を参照してください。
 
 `Overrides` を使用する場合は、ライブラリ API と C# が連携しやすくなるように、コンパイラが暗黙的に `Overloads` を追加します。
 
@@ -62,10 +62,10 @@ ms.locfileid: "64751028"
 
 ## <a name="see-also"></a>関連項目
 
-- [MustOverride](../../../visual-basic/language-reference/modifiers/mustoverride.md)
+- [MyBase](../../../visual-basic/language-reference/modifiers/mustoverride.md)
 - [NotOverridable](../../../visual-basic/language-reference/modifiers/notoverridable.md)
 - [Overridable](../../../visual-basic/language-reference/modifiers/overridable.md)
 - [キーワード](../../../visual-basic/language-reference/keywords/index.md)
-- [Visual Basic におけるシャドウ](../../../visual-basic/programming-guide/language-features/declared-elements/shadowing.md)
+- [Visual Basic でのシャドウ処理](../../../visual-basic/programming-guide/language-features/declared-elements/shadowing.md)
 - [Visual Basic におけるジェネリック型](../../../visual-basic/programming-guide/language-features/data-types/generic-types.md)
 - [型リスト](../../../visual-basic/language-reference/statements/type-list.md)

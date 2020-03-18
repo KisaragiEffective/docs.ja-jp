@@ -14,43 +14,41 @@ helpviewer_keywords:
 ms.assetid: c28d1983-83f7-46e2-990f-dbb9dc07c818
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3c3bebe8eabd4d5fd5faec21e0b0efc408353bc2
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 51d79c398c94ec355528140325da2c25422cbad9
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61796833"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73133846"
 ---
 # <a name="ihostiocompletionmanager-interface"></a>IHostIoCompletionManager インターフェイス
-共通言語ランタイム (CLR) に、ホストによって提供される I/O 完了ポートとやり取りできるようにするメソッドを提供します。  
+共通言語ランタイム (CLR) がホストによって提供される i/o 完了ポートと対話できるようにするメソッドを提供します。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[Bind メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-bind-method.md)|I/O 完了ポートへのハンドルにバインドします。|  
-|[CloseIoCompletionPort メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-closeiocompletionport-method.md)|以前の呼び出しを使用して作成されたポートを閉じる`CreateIoCompletionPort`します。|  
-|[CreateIoCompletionPort メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-createiocompletionport-method.md)|ホストが新しい I/O 完了ポートを作成することを要求します。|  
-|[GetAvailableThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-getavailablethreads-method.md)|現在の要求を処理していない I/O 完了スレッドの数を取得します。|  
-|[GetHostOverlappedSize メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-gethostoverlappedsize-method.md)|ホストが I/O 要求に追加するカスタム データのサイズを取得します。|  
-|[GetMaxThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-getmaxthreads-method.md)|I/O 要求を処理するには、ホストに割り当てることができますのスレッドの最大数を取得します。|  
-|[GetMinThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-getminthreads-method.md)|I/O 要求を処理するには、ホストを提供するスレッドの最小数を取得します。|  
-|[InitializeHostOverlapped メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-initializehostoverlapped-method.md)|ホストを I/O 要求に関するすべてのカスタム データを初期化する機会を提供します。|  
-|[SetCLRIoCompletionManager メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-setclriocompletionmanager-method.md)|により、ホストへのインターフェイス ポインターで、 [ICLRIoCompletionManager](../../../../docs/framework/unmanaged-api/hosting/iclriocompletionmanager-interface.md) CLR で実装されているインスタンス。|  
-|[SetMaxThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-setmaxthreads-method.md)|I/O 要求を処理するため、ホストに割り当てるスレッドの最大数を設定します。|  
-|[SetMinThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-setminthreads-method.md)|I/O 完了するには、ホストを割り当てるスレッドの最小数を設定します。|  
+|[Bind メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-bind-method.md)|I/o 完了ポートにハンドルをバインドします。|  
+|[CloseIoCompletionPort メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-closeiocompletionport-method.md)|以前の `CreateIoCompletionPort`の呼び出しで作成されたポートを閉じます。|  
+|[CreateIoCompletionPort メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-createiocompletionport-method.md)|ホストが新しい i/o 完了ポートを作成することを要求します。|  
+|[GetAvailableThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-getavailablethreads-method.md)|現在要求を処理していない i/o 完了スレッドの数を取得します。|  
+|[GetHostOverlappedSize メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-gethostoverlappedsize-method.md)|ホストが i/o 要求に追加しようとしているカスタムデータのサイズを取得します。|  
+|[GetMaxThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-getmaxthreads-method.md)|ホストがサービス i/o 要求に割り当てることができるスレッドの最大数を取得します。|  
+|[GetMinThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-getminthreads-method.md)|ホストが i/o 要求を処理するために提供するスレッドの最小数を取得します。|  
+|[InitializeHostOverlapped メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-initializehostoverlapped-method.md)|I/o 要求に関するカスタムデータを初期化する機会をホストに提供します。|  
+|[SetCLRIoCompletionManager メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-setclriocompletionmanager-method.md)|CLR によって実装されている[Iclrio提供マネージャー](../../../../docs/framework/unmanaged-api/hosting/iclriocompletionmanager-interface.md)インスタンスへのインターフェイスポインターをホストに提供します。|  
+|[SetMaxThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-setmaxthreads-method.md)|ホストが大量の i/o 要求を処理するスレッドの最大数を設定します。|  
+|[SetMinThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostiocompletionmanager-setminthreads-method.md)|ホストが i/o 完了に割り当てる必要があるスレッドの最小数を設定します。|  
   
 ## <a name="remarks"></a>Remarks  
- `IHostIoCompletionManager` 対応する、 `ICLRIoCompletionManager` CLR によって実装されるインターフェイス。 CLR のメソッドを呼び出して、`IHostIoCompletionManager`ハンドルをホストを提供して、ホストのメソッドを呼び出すポートにバインドする`ICLRIoCompletionManager`I/O 要求の完了を報告します。  
+ `IHostIoCompletionManager` は、CLR によって実装される `ICLRIoCompletionManager` インターフェイスに対応します。 CLR は、`IHostIoCompletionManager` のメソッドを呼び出して、ホストが提供するポートにハンドルをバインドします。また、ホストは、`ICLRIoCompletionManager` のメソッドを呼び出して、i/o 要求の完了を報告します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

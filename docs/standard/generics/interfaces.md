@@ -8,14 +8,12 @@ helpviewer_keywords:
 - generics [.NET Framework], interfaces
 - ordering comparisons [.NET Framework]
 ms.assetid: 88bf5b04-d371-4edb-ba38-01ec7cabaacf
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 09e9a51fe9c1fd25a6791cf924180329718138c8
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 704ada32d428c468d5b71a3f1390568ca586079e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69915892"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75708325"
 ---
 # <a name="generic-interfaces"></a>ジェネリック インターフェイス
 このトピックでは、ジェネリック型のファミリ間に共通する機能を提供するジェネリック インターフェイスについて概説します。  
@@ -29,7 +27,7 @@ ms.locfileid: "69915892"
 ### <a name="equality-and-ordering-comparisons"></a>等価比較と順序付け比較  
  <xref:System> 名前空間で、<xref:System.IComparable%601?displayProperty=nameWithType> と <xref:System.IEquatable%601?displayProperty=nameWithType> ジェネリック インターフェイスは、対応する非ジェネリック インターフェイスと同じように、順序付け比較と等価比較の方法をそれぞれ定義します。 型は、そのような比較の実施能力を提供するために、これらのインターフェイスを実装します。  
   
- <xref:System.Collections.Generic> 名前空間で、<xref:System.Collections.Generic.IComparer%601> と <xref:System.Collections.Generic.IEqualityComparer%601> ジェネリック インターフェイスは、<xref:System.IComparable%601?displayProperty=nameWithType> や <xref:System.IEquatable%601?displayProperty=nameWithType> ジェネリック インターフェイスを実装しない型のために、順序付け比較または等価比較を定義する方法を提供します。また、実装する型のために、それらの関係を再定義する方法も提供します。 これらのインターフェイスは、多くのジェネリック コレクション クラスのメソッドやコンストラクターで使用されます。 たとえば、ジェネリック <xref:System.Collections.Generic.IComparer%601> オブジェクトを <xref:System.Collections.Generic.SortedDictionary%602> クラスのコンストラクターに渡して、ジェネリック <xref:System.IComparable%601?displayProperty=nameWithType> を実装しない型の並べ替え順序を指定することができます。 ジェネリック <xref:System.Collections.Generic.IComparer%601> 実装を使用して配列やリストを並べ替えるための、<xref:System.Array.Sort%2A?displayProperty=nameWithType> ジェネリック静的メソッドと <xref:System.Collections.Generic.List%601.Sort%2A?displayProperty=nameWithType> インスタンス メソッドのオーバーロードがあります。  
+ <xref:System.Collections.Generic> 名前空間で、<xref:System.Collections.Generic.IComparer%601> と <xref:System.Collections.Generic.IEqualityComparer%601> ジェネリック インターフェイスは、<xref:System.IComparable%601?displayProperty=nameWithType> や <xref:System.IEquatable%601?displayProperty=nameWithType> ジェネリック インターフェイスを実装しない型のために、順序付け比較または等価比較を定義する方法を提供します。また、実装する型のために、それらの関係を再定義する方法も提供します。 これらのインターフェイスは、多くのジェネリック コレクション クラスのメソッドやコンストラクターで使用されます。 たとえば、ジェネリック <xref:System.Collections.Generic.IComparer%601> オブジェクトを <xref:System.Collections.Generic.SortedDictionary%602> クラスのコンストラクターに渡して、ジェネリック <xref:System.IComparable%601?displayProperty=nameWithType> を実装しない型の並べ替え順序を指定することができます。 ジェネリック <xref:System.Array.Sort%2A?displayProperty=nameWithType> 実装を使用して配列やリストを並べ替えるための、<xref:System.Collections.Generic.List%601.Sort%2A?displayProperty=nameWithType> ジェネリック静的メソッドと <xref:System.Collections.Generic.IComparer%601> インスタンス メソッドのオーバーロードがあります。  
   
  <xref:System.Collections.Generic.Comparer%601> と <xref:System.Collections.Generic.EqualityComparer%601> ジェネリック クラスは、<xref:System.Collections.Generic.IComparer%601> と <xref:System.Collections.Generic.IEqualityComparer%601> ジェネリック インターフェイスの実装の基本クラスを提供し、それぞれの <xref:System.Collections.Generic.Comparer%601.Default%2A?displayProperty=nameWithType> および <xref:System.Collections.Generic.EqualityComparer%601.Default%2A?displayProperty=nameWithType> プロパティによって、既定の順序付け比較と等価比較を提供します。  
   
@@ -40,9 +38,9 @@ ms.locfileid: "69915892"
   
  <xref:System.Collections.Generic.IDictionary%602> ジェネリック インターフェイスは、キー付きの取得のための手段により、<xref:System.Collections.Generic.ICollection%601> ジェネリック インターフェイスが機能拡張されたものです。 .NET Framework の基本クラス ライブラリのジェネリック ディクショナリ型は、非ジェネリック <xref:System.Collections.IDictionary> インターフェイスも実装します。  
   
- <xref:System.Collections.Generic.IEnumerable%601> ジェネリック インターフェイスは、ジェネリック列挙子の構造体を提供します。 ジェネリック列挙子によって実装される <xref:System.Collections.Generic.IEnumerator%601> ジェネリック インターフェイスは、非ジェネリック <xref:System.Collections.IEnumerator> インターフェイスを継承します。型パラメーター `T` に依存しない <xref:System.Collections.IEnumerator.MoveNext%2A> および <xref:System.Collections.IEnumerator.Reset%2A> メンバーは、非ジェネリック インターフェイスにのみ表示されます。 つまり、非ジェネリック インターフェイスのコンシューマーはすべて、ジェネリック インターフェイスも使用できます。  
+ <xref:System.Collections.Generic.IEnumerable%601> ジェネリック インターフェイスは、ジェネリック列挙子の構造体を提供します。 ジェネリック列挙子によって実装される <xref:System.Collections.Generic.IEnumerator%601> ジェネリック インターフェイスは、非ジェネリック <xref:System.Collections.IEnumerator> インターフェイスを継承します。型パラメーター <xref:System.Collections.IEnumerator.MoveNext%2A> に依存しない <xref:System.Collections.IEnumerator.Reset%2A> および `T` メンバーは、非ジェネリック インターフェイスにのみ表示されます。 つまり、非ジェネリック インターフェイスのコンシューマーはすべて、ジェネリック インターフェイスも使用できます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Collections.Generic?displayProperty=nameWithType>
 - <xref:System.Collections.ObjectModel?displayProperty=nameWithType>

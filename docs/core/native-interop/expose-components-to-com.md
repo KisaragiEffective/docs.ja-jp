@@ -8,12 +8,12 @@ helpviewer_keywords:
 ms.assetid: 21271167-fe7f-46ba-a81f-a6812ea649d4
 author: jkoritzinsky
 ms.author: jekoritz
-ms.openlocfilehash: 8f9624414a2b423bd43e8790d11b70ae1ca6286d
-ms.sourcegitcommit: 56f1d1203d0075a461a10a301459d3aa452f4f47
+ms.openlocfilehash: 301177113f67748b62ea2686615cfe5378fdc2fd
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71216231"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78157545"
 ---
 # <a name="exposing-net-core-components-to-com"></a>COM への .NET Core コンポーネントの公開
 
@@ -32,7 +32,7 @@ ms.locfileid: "71216231"
 最初の手順では、ライブラリを作成します。
 
 1. 新しいフォルダーを作成し、そのフォルダーで次のコマンドを実行します。
-    
+
     ```dotnetcli
     dotnet new classlib
     ```
@@ -76,6 +76,6 @@ GitHub の dotnet/samples リポジトリには、完全に機能する [COM サ
 
 ## <a name="additional-notes"></a>補足メモ
 
-.NET Core では、.NET Framework とは異なり、.NET Core アセンブリからの COM タイプ ライブラリ (TLB) の生成はサポートしていません。 インターフェイスのネイティブ宣言には、IDL ファイルまたは C++ ヘッダーを手動で記述する必要があります。
+.NET Core では、.NET Framework とは異なり、.NET Core アセンブリからの COM タイプ ライブラリ (TLB) の生成はサポートしていません。 このガイダンスは、COM インターフェイスのネイティブ宣言のために、IDL ファイルまたは C/C++ ヘッダーを手動で記述する方法について説明するものです。
 
-また、.NET Framework と .NET Core の両方の同じプロセスでの読み込みはサポートされていないため、.NET Core COM サーバーを .NET Framework COM クライアント プロセスに読み込むこと、またはその逆はサポートされていません。
+また、.NET Framework と .NET Core の両方を同じプロセスに読み込むと、診断が制限されます。 主にマネージド コンポーネントのデバッグが制限されます。これは、.NET Framework と .NET Core の両方を同時にデバッグすることはできないためです。 また、2 つのランタイム インスタンスはマネージド アセンブリを共有しません。 つまり、2 つのランタイム間で実際の .NET 型を共有することはできません。代わりに、すべての対話を、公開されている COM インターフェイス コントラクトに制限する必要があります。

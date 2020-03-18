@@ -3,19 +3,17 @@ title: XML ノードの種類
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: 71d03b78-6898-4ce7-b0fc-1282573f31f7
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 623583f16c23b55c16f648fedcd039ca36f73b1f
-ms.sourcegitcommit: fb78d8abbdb87144a3872cf154930157090dd933
-ms.translationtype: HT
+ms.openlocfilehash: 83b8c09323e73a9b3ba7dea8d272d7d41d03add1
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47396891"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75710090"
 ---
 # <a name="types-of-xml-nodes"></a>XML ノードの種類
 XML ドキュメントがノードのツリーとしてメモリに読み込まれると、ノードの作成時にノード型が決まります。 XML ドキュメント オブジェクト モデル (DOM) では複数のノード型が定義されています。これらのノード型は W3C (World Wide Web Consortium) で規定されているもので、セクション 1.1.1「The DOM Structure Model」に記載されています。 ノード型、ノード型に割り当てられるオブジェクト、およびそれぞれの簡単な説明を次の表に示します。  
   
-|DOM ノード型|Object|説明|  
+|DOM ノード型|オブジェクト|説明|  
 |-------------------|------------|-----------------|  
 |ドキュメント|<xref:System.Xml.XmlDocument>|ツリー内のすべてのノードのコンテナーです。 ドキュメントのルートとも呼ばれますが、常にルート要素と一致するとは限りません。|  
 |DocumentFragment|<xref:System.Xml.XmlDocumentFragment>|1 つ以上のノードを非ツリー構造で格納する一時的なバッグです。|  

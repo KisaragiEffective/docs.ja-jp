@@ -1,5 +1,5 @@
 ---
-title: '方法: オブジェクトの現在のインスタンスを参照する (Visual Basic)'
+title: '方法: オブジェクトの現在のインスタンスを参照する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - variables [Visual Basic], object
@@ -8,12 +8,12 @@ helpviewer_keywords:
 - current instance
 - object variables [Visual Basic]
 ms.assetid: 7f9b2c77-03cd-428f-adc2-b18070226e7c
-ms.openlocfilehash: 6c216dbc59bcad7a9f24bb01f856c3d29c288dbb
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: 62b22a54904a45380052d3d81d9415517d4f8d3b
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72005656"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346882"
 ---
 # <a name="how-to-refer-to-the-current-instance-of-an-object-visual-basic"></a>方法: オブジェクトの現在のインスタンスを参照する (Visual Basic)
 オブジェクトの*現在のインスタンス*は、コードが現在実行されているインスタンスです。  
@@ -29,7 +29,7 @@ ms.locfileid: "72005656"
     Me.Close()  
     ```  
   
-     @No__t-0 はオブジェクト変数のように動作しますが、宣言したり、何も割り当てたりすることはできません。 `Me` は常に現在のインスタンスを参照します。  
+     `Me` はオブジェクト変数のように動作しますが、宣言したり、何も割り当てたりすることはできません。 `Me` は常に現在のインスタンスを参照します。  
   
 ## <a name="see-also"></a>関連項目
 

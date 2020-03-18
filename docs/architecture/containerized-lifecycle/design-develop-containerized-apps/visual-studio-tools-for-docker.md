@@ -4,10 +4,10 @@ description: Visual Studio 2017 バージョン 15.7 以降で使用できる Do
 ms.date: 02/15/2019
 ms.custom: vs-dotnet
 ms.openlocfilehash: 2b6fdc33f9cf850cf9e52fca4a1a9754cd412567
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "68673879"
 ---
 # <a name="use-docker-tools-in-visual-studio-2017-on-windows"></a>Windows 上の Visual Studio 2017 で Docker ツールを使用する
@@ -31,7 +31,7 @@ Docker for Windows の最新バージョンでは、次の参考ドキュメン�
 
 **図 4-31**。 Visual Studio 2017 プロジェクトに Docker サポートを追加する
 
-### <a name="add-docker-support"></a>Docker サポートの追加
+### <a name="add-docker-support"></a>Docker サポートを追加する
 
 既存の ASP.NET Core プロジェクトに Docker サポートを追加するには、**ソリューション エクスプローラー**で **[追加]**  >  **[Docker のサポート]** の順に選択します。 プロジェクトの作成中に Docker サポートを有効にするには、図 4-32 に示すように、 **[新しいプロジェクト]** ダイアログ ボックスで **[OK]** をクリックすると開く **[新しい ASP.NET Core Web アプリケーション]** ダイアログ ボックスで、 **[Docker サポートを有効にする]** を選択します。
 
@@ -72,7 +72,7 @@ Docker サポートを追加または有効にすると、Visual Studio によ�
 
 これらのオプションの設定方法を判断する際に、次の表を参照してください。
 
-| name | 既定の設定 | 対象 | 説明 |
+| 名前 | 既定の設定 | 対象 | 説明 |
 | -----|:---------------:|:----------:| ----------- |
 | 必要な Docker イメージをプロジェクト読み込み時に自動的にプルする | オン | Docker Compose | プロジェクトを読み込むときのパフォーマンスを向上するために、Visual Studio ではバックグラウンドで Docker のプル操作が開始されます。そのため、コードを実行する準備ができたら、イメージは既にダウンロードされているかダウンロード中です。 プロジェクトを読み込んでコードを参照するだけの場合は、これをオフにして不要なコンテナー イメージをダウンロードしないようにすることができます。 |
 | コンテナーをバックグラウンドで自動的に開始する | オン | Docker Compose | また、パフォーマンスを向上するために、Visual Studio では、ユーザーがコンテナーを作成して実行するときに備えてボリュームのマウントを使用してコンテナーが作成されます。 コンテナーを作成するタイミングを制御する場合は、これをオフにします。 |

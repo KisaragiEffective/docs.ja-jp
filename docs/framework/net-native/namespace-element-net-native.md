@@ -1,15 +1,13 @@
 ---
-title: <Namespace>要素 (.NET ネイティブ)
+title: <Namespace> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: 57c614e5-18a9-4e87-bfd5-d0fe3396a192
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7be004776d2a2fd3b4c41fb21b3ac244946f2166
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: b6d7a45de14d0fb8eb2e27a02c86510f630be9e1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049426"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128260"
 ---
 # <a name="namespace-element-net-native"></a>\<Namespace > 要素 (.NET ネイティブ)
 指定した名前空間内のすべての型にランタイム リフレクション ポリシーを適用します。  
@@ -51,13 +49,13 @@ ms.locfileid: "71049426"
   
 ## <a name="name-attribute"></a>Name 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*namespace_name*|名前空間の名前。 \<Namespace> 要素が [\<Application>](application-element-net-native.md) 要素、[\<Library>](library-element-net-native.md) 要素、または [\<Assembly>](assembly-element-net-native.md) 要素の子である場合、*namespace_name* は名前空間の完全修飾名である必要があります。 \<Namespace> 要素が別の \<Namespace> 要素の子である場合、*namespace_name* は名前空間の相対名である必要があります。|  
   
 ## <a name="all-other-attributes"></a>その他すべての属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*policy_setting*|名前空間内のすべての型について、このポリシーの種類に適用する設定です。 指定できる値は、`All`、`Auto`、`Excluded`、`Public`、`PublicAndInternal`、`Required Public`、`Required PublicAndInternal`、および `Required All` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|  
   

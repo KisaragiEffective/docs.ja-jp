@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォーム DataGridView コントロールのイメージ列を操作する'
+title: DataGridView コントロールのイメージ列を操作する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,14 +10,14 @@ helpviewer_keywords:
 - image columns [Windows Forms], Windows Forms
 - DataGridView control [Windows Forms], image columns
 ms.assetid: 8a37aa75-3c6e-4893-91d0-7a5f34bfe287
-ms.openlocfilehash: 110422000fad3d52d936302cca7a3d635f44b917
-ms.sourcegitcommit: c7a7e1468bf0fa7f7065de951d60dfc8d5ba89f5
+ms.openlocfilehash: 0ec51b825c476576a224b43c5431ba230018ef7e
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65591404"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76728253"
 ---
-# <a name="how-to-work-with-image-columns-in-the-windows-forms-datagridview-control"></a>方法: Windows フォーム DataGridView コントロールのイメージ列を操作する
+# <a name="how-to-work-with-image-columns-in-the-windows-forms-datagridview-control"></a>方法 : Windows フォーム DataGridView コントロールのイメージ列を操作する
 次のコード例は、対話型のユーザー インターフェイス (UI) で <xref:System.Windows.Forms.DataGridView> イメージ列を使用する方法を示しています。 例では、<xref:System.Windows.Forms.DataGridViewImageColumn> を使用したイメージのサイズとレイアウトの可能性も示しています。  
   
 ## <a name="example"></a>例  
@@ -30,9 +30,9 @@ ms.locfileid: "65591404"
   
 - System アセンブリおよび System.Windows.Forms アセンブリへの参照。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - <xref:System.Windows.Forms.DataGridViewImageColumn>
 - [Windows フォーム DataGridView コントロールのセル、行、および列を使用したプログラミング](programming-with-cells-rows-and-columns-in-the-datagrid.md)
-- [方法: Windows フォーム DataGridView コントロールのセルにイメージを表示](how-to-display-images-in-cells-of-the-windows-forms-datagridview-control.md)
+- [方法: Windows フォーム DataGridView コントロールのセルにイメージを表示する](how-to-display-images-in-cells-of-the-windows-forms-datagridview-control.md)

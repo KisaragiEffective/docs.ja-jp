@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: d69796b4-5b6d-457c-85f6-2cf42e8a8773
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 58aaf0445fe42d083c12541056cb362f9a994944
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 25cd3e05bc80dd39d2ca558bb4dd5fb77d255f5a
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67765211"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76791396"
 ---
 # <a name="icordebugthread3getactiveinternalframes-method"></a>ICorDebugThread3::GetActiveInternalFrames メソッド
-内部フレームの配列を返します ([ICorDebugInternalFrame2](../../../../docs/framework/unmanaged-api/debugging/icordebuginternalframe2-interface.md)オブジェクト)、スタックにします。  
+スタック上の内部フレーム ([ICorDebugInternalFrame2](icordebuginternalframe2-interface.md) objects) の配列を返します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,36 +39,36 @@ HRESULT GetActiveInternalFrames
   
 ## <a name="parameters"></a>パラメーター  
  `cInternalFrames`  
- [in]期待される内部のフレーム数`ppInternalFrames`します。  
+ から`ppInternalFrames`に必要な内部フレームの数。  
   
  `pcInternalFrames`  
- [out]ポインターを`ULONG32`内部スタック フレームの数を格納しています。  
+ 入出力スタック上の内部フレームの数を格納している `ULONG32` へのポインター。  
   
  `ppInternalFrames`  
- [入力、出力]内部スタック フレームの配列のアドレスへのポインター。  
+ [入力、出力]スタック上の内部フレームの配列のアドレスへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
  このメソッドは、次の特定の HRESULT と、メソッドの失敗を示す HRESULT エラーも返します。  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|[ICorDebugInternalFrame2](../../../../docs/framework/unmanaged-api/debugging/icordebuginternalframe2-interface.md)オブジェクトが正常に作成します。|  
-|E_INVALIDARG|`cInternalFrames` 0 でないと`ppInternalFrames`は`null`、または`pcInternalFrames`は`null`します。|  
-|HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER)|`ppInternalFrames` 内部のフレームの数よりも小さくなります。|  
+|S_OK|[ICorDebugInternalFrame2](icordebuginternalframe2-interface.md)オブジェクトが正常に作成されました。|  
+|E_INVALIDARG|`cInternalFrames` が0ではなく、`ppInternalFrames` が `null`か、または `pcInternalFrames` が `null`。|  
+|HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER)|`ppInternalFrames` が内部フレームの数よりも小さくなっています。|  
   
 ## <a name="exceptions"></a>例外  
   
-## <a name="remarks"></a>Remarks  
- 内部フレームは、一時データを格納する、ランタイムによってスタックにプッシュするデータ構造です。  
+## <a name="remarks"></a>コメント  
+ 内部フレームは、一時データを格納するためにランタイムによってスタックにプッシュされるデータ構造です。  
   
- 呼び出すと`GetActiveInternalFrames`、設定する必要があります、`cInternalFrames`パラメーターを 0 (ゼロ) と`ppInternalFrames`パラメーターを null にします。 ときに`GetActiveInternalFrames`最初を返します、`pcInternalFrames`スタックには、内部のフレーム数が含まれています。  
+ 最初に `GetActiveInternalFrames`を呼び出すときは、`cInternalFrames` パラメーターを 0 (ゼロ) に設定し、`ppInternalFrames` パラメーターを null に設定する必要があります。 `GetActiveInternalFrames` 最初にを返すと、`pcInternalFrames` にはスタック上の内部フレームの数が含まれます。  
   
- `GetActiveInternalFrames` 呼び出すことが 2 番目の時間。 適切な数を渡す必要があります (`pcInternalFrames`) で、`cInternalFrames`パラメーターで適切なサイズの配列へのポインターを指定して`ppInternalFrames`します。  
+ `GetActiveInternalFrames` は、2回目に呼び出す必要があります。 `cInternalFrames` パラメーターに適切なカウント (`pcInternalFrames`) を渡し、`ppInternalFrames`で適切にサイズ設定された配列へのポインターを指定する必要があります。  
   
- 使用して、 [icordebugstackwalk::getframe](../../../../docs/framework/unmanaged-api/debugging/icordebugthread3-getactiveinternalframes-method.md)メソッドを返す実際のスタック フレーム。  
+ 実際のスタックフレームを返すには、の[テキスト](icordebugthread3-getactiveinternalframes-method.md)を使用します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -80,5 +78,5 @@ HRESULT GetActiveInternalFrames
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)
+- [デバッグ](index.md)

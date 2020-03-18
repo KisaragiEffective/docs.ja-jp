@@ -26,18 +26,18 @@ SELECT DEREF ( o.expression ) FROM Table AS o;
  参照されるエンティティの値。  
   
 ## <a name="remarks"></a>コメント  
- DEREF 演算子は参照値を逆参照し、その逆参照の結果を生成します。 たとえば、`r` が ref @ no__t-1T > 型の参照である場合、`Deref(r)` は `r` によって参照されるエンティティを生成する型 `T` の式です。 参照値が null または未解決 (つまり、参照先が存在しない) の場合、DEREF 演算子の結果は null になります。  
+ DEREF 演算子は参照値を逆参照し、その逆参照の結果を生成します。 たとえば、`r` が ref\<T > 型の参照である場合、`Deref(r)` は `T` によって参照されるエンティティを生成する型の式です。`r` 参照値が null または未解決 (つまり、参照先が存在しない) の場合、DEREF 演算子の結果は null になります。  
   
 ## <a name="example"></a>例  
  次の [!INCLUDE[esql](../../../../../../includes/esql-md.md)] クエリでは、DEREF 演算子を使用して参照値を逆参照し、その逆参照の結果を生成します。 このクエリは、AdventureWorks Sales Model に基づいています。 このクエリをコンパイルして実行するには、次の手順を実行します。  
   
-1. @No__t の手順に従います。PrimitiveType Results @ no__t-0 を返すクエリを実行します。  
+1. [「方法: PrimitiveType の結果を返すクエリを実行](../how-to-execute-a-query-that-returns-primitivetype-results.md)する」の手順に従います。  
   
 2. 次のクエリを引数として ExecutePrimitiveTypeQuery メソッドに渡します。  
   
  [!code-sql[DP EntityServices Concepts#DEREF](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#deref)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Entity SQL リファレンス](entity-sql-reference.md)
 - [REF](ref-entity-sql.md)

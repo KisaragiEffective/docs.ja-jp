@@ -14,44 +14,42 @@ helpviewer_keywords:
 ms.assetid: aa3cc15d-058e-4e6f-b03e-39569646ba47
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 0782533f773b69eeeb0b89175e5b22c61e822ed9
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 7ae978f5d2c9f7e90f4549c15a3935b441eabf04
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61986363"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74434010"
 ---
 # <a name="isymunmanagedreader-interface"></a>ISymUnmanagedReader インターフェイス
-ドキュメント、メソッド、およびシンボル ストア内の変数へのアクセスを提供するためのシンボル リーダーを表します。  
+シンボルストア内のドキュメント、メソッド、および変数へのアクセスを提供するシンボルリーダーを表します。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
 |[GetDocument メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getdocument-method.md)|ドキュメントを検索します。|  
-|[GetDocuments メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getdocuments-method.md)|シンボル ストアで定義されているすべてのドキュメントの配列を返します。|  
-|[GetDocumentVersion メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getdocumentversion-method.md)|指定されたドキュメントの指定したバージョンを取得します。|  
+|[GetDocuments メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getdocuments-method.md)|シンボルストアに定義されているすべてのドキュメントの配列を返します。|  
+|[GetDocumentVersion メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getdocumentversion-method.md)|指定したドキュメントの指定したバージョンを取得します。|  
 |[GetGlobalVariables メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getglobalvariables-method.md)|すべてのグローバル変数を返します。|  
-|[GetMethod メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getmethod-method.md)|シンボル リーダー メソッドでは、指定したメソッドのトークンを取得します。|  
-|[GetMethodByVersion メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getmethodbyversion-method.md)|メソッドのトークンと編集、コピーのバージョン番号を指定のシンボル リーダー メソッドを取得します。|  
-|[GetMethodFromDocumentPosition メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getmethodfromdocumentposition-method.md)|ドキュメント内の指定位置にブレークポイントを含むメソッドを返します。|  
-|[GetMethodsFromDocumentPosition メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getmethodsfromdocumentposition-method.md)|メソッドのドキュメントで指定された位置にブレークポイントを含む配列を返します。|  
+|[GetMethod メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getmethod-method.md)|メソッドトークンを指定して、シンボルリーダーメソッドを取得します。|  
+|[GetMethodByVersion メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getmethodbyversion-method.md)|メソッドトークンと編集およびコピーバージョン番号を指定して、シンボルリーダーメソッドを取得します。|  
+|[GetMethodFromDocumentPosition メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getmethodfromdocumentposition-method.md)|ドキュメント内の指定された位置にあるブレークポイントを含むメソッドを返します。|  
+|[GetMethodsFromDocumentPosition メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getmethodsfromdocumentposition-method.md)|メソッドの配列を返します。各メソッドには、ドキュメント内の指定された位置にあるブレークポイントが含まれています。|  
 |[GetMethodVersion メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getmethodversion-method.md)|メソッドのバージョンを取得します。|  
-|[GetNamespaces メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getnamespaces-method.md)|このシンボル ストア内のグローバル スコープで定義された名前空間を取得します。|  
-|[GetSymAttribute メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getsymattribute-method.md)|その名前に基づくカスタム属性を取得します。|  
-|[GetSymbolStoreFileName メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getsymbolstorefilename-method.md)|シンボル ストアのディスク上のファイル名を提供します。|  
-|[GetUserEntryPoint メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getuserentrypoint-method.md)|存在する場合は、モジュールのユーザー エントリ ポイントとして指定されたメソッドを返します。|  
-|[GetVariables メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getvariables-method.md)|指定した親と名前、非ローカル変数を返します。|  
-|[Initialize メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-initialize-method.md)|このリーダーが、モジュールのファイル名と共に使用すると、関連付けられるメタデータ インポーターのインターフェイスで、シンボル リーダーを初期化します。|  
+|[GetNamespaces メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getnamespaces-method.md)|このシンボルストア内のグローバルスコープで定義されている名前空間を取得します。|  
+|[GetSymAttribute メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getsymattribute-method.md)|名前に基づいてカスタム属性を取得します。|  
+|[GetSymbolStoreFileName メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getsymbolstorefilename-method.md)|シンボルストアのディスク上のファイル名を提供します。|  
+|[GetUserEntryPoint メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getuserentrypoint-method.md)|モジュールのユーザーエントリポイントとして指定されたメソッド (存在する場合) を返します。|  
+|[GetVariables メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-getvariables-method.md)|親と名前を指定して、非ローカル変数を返します。|  
+|[Initialize メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-initialize-method.md)|このリーダーが関連付けられるメタデータインポーターインターフェイスと、モジュールのファイル名を使用して、シンボルリーダーを初期化します。|  
 |[ReplaceSymbolStore メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-replacesymbolstore-method.md)|既存のシンボル ストアをデルタ シンボル ストアで置き換えます。|  
 |[UpdateSymbolStore メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-updatesymbolstore-method.md)|既存のシンボル ストアをデルタ シンボル ストアで更新します。|  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl, CorSym.h  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** CorSym .idl、CorSym .h  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [シンボル ストア診断インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/diagnostics-symbol-store-interfaces.md)
 - [ISymUnmanagedReader2 インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader2-interface.md)

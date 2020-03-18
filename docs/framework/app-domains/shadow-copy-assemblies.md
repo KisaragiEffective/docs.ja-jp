@@ -6,21 +6,19 @@ helpviewer_keywords:
 - application domains, shadow copying assemblies
 - shadow copying assemblies
 ms.assetid: de8b8759-fca7-4260-896b-5a4973157672
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: df1c86f2d75b0046af851585e943e13d668d8c55
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 9fc8a4aeeeca40f71ed9114a9db40b9a56e5fe6b
+ms.sourcegitcommit: 81ad1f09b93f3b3e6706a7f2e4ddf50ef229ea3d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71053081"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74204569"
 ---
 # <a name="shadow-copying-assemblies"></a>アセンブリのシャドウ コピー
 
 シャドウ コピーにより、アプリケーション ドメインをアンロードしなくても、アプリケーション ドメインで使用されるアセンブリを更新できます。 これは、ASP.NET サイトなど、継続的に使用可能であることが必要なアプリケーションで特に役立ちます。
 
 > [!IMPORTANT]
-> シャドウ コピーは、[!INCLUDE[win8_appname_long](../../../includes/win8-appname-long-md.md)] アプリではサポートされていません。
+> シャドウコピーは、Windows 8.x ストアアプリではサポートされていません。
 
 共通言語ランタイムは、アセンブリがアンロードされるまでファイルを更新できないように、アセンブリがロードされるときにアセンブリ ファイルをロックします。 アプリケーション ドメインからアセンブリをアンロードする唯一の方法は、アプリケーション ドメインをアンロードすることなので、通常の状況では、アセンブリを使用しているすべてのアプリケーション ドメインがアンロードされるまで、そのアセンブリをディスク上で更新することはできません。
 
@@ -84,7 +82,7 @@ ms.locfileid: "71053081"
 
 <xref:System.AppDomain> クラスには、アプリケーション ドメインでシャドウ コピーを制御するために使用できる <xref:System.AppDomain.SetShadowCopyFiles%2A> や <xref:System.AppDomain.ClearShadowCopyPath%2A> などのいくつかのメソッドがありますが、これらは .NET Framework version 2.0 では廃止された機能としてマークされています。 シャドウ コピー用にアプリケーション ドメインを構成するには、<xref:System.AppDomainSetup> クラスのプロパティを使用することをお勧めします。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.AppDomainSetup.ShadowCopyFiles%2A?displayProperty=nameWithType>
 - <xref:System.AppDomainSetup.CachePath%2A?displayProperty=nameWithType>

@@ -14,45 +14,43 @@ helpviewer_keywords:
 ms.assetid: b3a44df3-578a-4451-b55e-70c8e7695f5e
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1baeac5db41aa64380d694ebab5419229d8adb4c
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: c4f27a73022b0495b2772c0485c14a1b007dc883
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61763543"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73132644"
 ---
 # <a name="iclrtask-interface"></a>ICLRTask インターフェイス
-ホストまたは関連するタスクについて、CLR に通知を提供する共通言語ランタイム (CLR) の要求を行うことができるようにするメソッドを提供します。  
+ホストが共通言語ランタイム (CLR) の要求を行うことができるようにするメソッド、または関連付けられたタスクについて CLR に通知を提供するためのメソッドを提供します。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[Abort メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-abort-method.md)|CLR がタスクを中止する要求を現在`ICLRTask`インスタンスが表す。|  
-|[ExitTask メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-exittask-method.md)|現在のタスクが関連付けられている CLR に通知`ICLRTask`インスタンスが終了し、タスクを正常にシャット ダウンしようとしています。|  
-|[GetMemStats メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-getmemstats-method.md)|現在によって表されるタスクによってメモリ リソースの使用に関する統計情報を取得します。`ICLRTask`インスタンス。|  
-|[LocksHeld メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-locksheld-method.md)|タスクで現在保持されているロックの数を取得します。|  
-|[NeedsPriorityScheduling メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-needspriorityscheduling-method.md)|ホストが現在によって表されるタスクをスケジュールする優先度の高いを割り当てる必要があるかどうかを示す値を取得します`ICLRTask`インスタンス。|  
-|[Reset メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-reset-method.md)|ホストは、タスクを完了し、により、現在の再利用する CLR を CLR に通知`ICLRTask`を別のタスクを表すインスタンス。|  
-|[RudeAbort メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-rudeabort-method.md)|Clr は、現在によって表されるタスクを中止する`ICLRTask`インスタンスをすぐに、ファイナライザーが実行されることを保証なし。|  
-|[SetTaskIdentifier メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-settaskidentifier-method.md)|現在のタスクの一意の識別子を設定`ICLRTask`デバッグで使用するためのインスタンス。|  
-|[SwitchIn メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-switchin-method.md)|現在のタスクが表す CLR に通知`ICLRTask`インスタンスが操作可能な状態です。|  
-|[SwitchOut メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-switchout-method.md)|現在のタスクが表す CLR に通知`ICLRTask`インスタンスは操作可能な状態ではありません。|  
-|[YieldTask メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-yieldtask-method.md)|その他のタスクで使用できる CLR 作成のプロセッサ時間を要求します。 CLR には、タスクが処理時間を得ることのできる状態になる保証はありません。|  
+|[Abort メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-abort-method.md)|現在の `ICLRTask` インスタンスが表すタスクを CLR が中止するように要求します。|  
+|[ExitTask メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-exittask-method.md)|現在の `ICLRTask` インスタンスに関連付けられているタスクが終了していることを CLR に通知し、タスクを正常にシャットダウンしようとします。|  
+|[GetMemStats メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-getmemstats-method.md)|現在の `ICLRTask` インスタンスによって表されるタスクによるメモリリソースの使用に関する統計情報を取得します。|  
+|[LocksHeld メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-locksheld-method.md)|タスクに現在保持されているロックの数を取得します。|  
+|[NeedsPriorityScheduling メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-needspriorityscheduling-method.md)|現在の `ICLRTask` インスタンスによって表されるタスクを再スケジュールするために、優先順位の高いホストを割り当てる必要があるかどうかを示す値を取得します。|  
+|[Reset メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-reset-method.md)|ホストがタスクを完了したことを CLR に通知し、CLR が現在の `ICLRTask` インスタンスを再利用して別のタスクを表すことができるようにします。|  
+|[RudeAbort メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-rudeabort-method.md)|CLR が、ファイナライザーが実行されることを保証せずに、現在の `ICLRTask` インスタンスによって表されるタスクをすぐに中止します。|  
+|[SetTaskIdentifier メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-settaskidentifier-method.md)|現在の `ICLRTask` インスタンスによって表されるタスクの一意識別子を設定します。この識別子はデバッグに使用されます。|  
+|[SwitchIn メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-switchin-method.md)|現在の `ICLRTask` インスタンスによって表されるタスクが操作可能な状態であることを CLR に通知します。|  
+|[SwitchOut メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-switchout-method.md)|現在の `ICLRTask` インスタンスによって表されるタスクが操作可能な状態ではなくなったことを CLR に通知します。|  
+|[YieldTask メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask-yieldtask-method.md)|CLR がプロセッサ時間を他のタスクで使用できるようにすることを要求します。 CLR では、処理時間を生成できる状態にタスクが配置されるという保証はありません。|  
   
 ## <a name="remarks"></a>Remarks  
- `ICLRTask` Clr タスクの表現です。 コードの実行中にいつでも実行中または実行を待機して、タスクを記述できます。 ホストの呼び出し、`ICLRTask::SwitchIn`メソッドが CLR に通知するタスクを現在`ICLRTask`インスタンスを表しますが、可能な状態で。 呼び出しの後に`ICLRTask::SwitchIn`、ホストは、ランタイムへの呼び出しで指定したとおり、スレッド アフィニティが必要な場合を除く、任意のオペレーティング システム スレッドでタスクをスケジュールすることができます、 [ihosttaskmanager::beginthreadaffinity](../../../../docs/framework/unmanaged-api/hosting/ihosttaskmanager-beginthreadaffinity-method.md)と[Ihosttaskmanager::endthreadaffinity](../../../../docs/framework/unmanaged-api/hosting/ihosttaskmanager-endthreadaffinity-method.md)メソッド。 しばらくしてから、スレッドからタスクを削除し、実行されていない状態で配置するオペレーティング システムがあります。 たとえば、タスクの同期プリミティブでブロックまたは I/O 操作が完了するまで待機するたびに、これが発生可能性があります。 ホスト呼び出し[SwitchOut](../../../../docs/framework/unmanaged-api/hosting/iclrtask-switchout-method.md)タスクが現在によって表される CLR に通知する`ICLRTask`インスタンスは操作可能な状態ではありません。  
+ `ICLRTask` は、CLR のタスクを表します。 コードの実行中はいつでも、実行中または実行の待機中のいずれかのタスクを記述できます。 ホストは `ICLRTask::SwitchIn` メソッドを呼び出して、現在の `ICLRTask` インスタンスが表すタスクが操作可能な状態になったことを CLR に通知します。 `ICLRTask::SwitchIn`の呼び出しの後、ホストは任意のオペレーティングシステムスレッドでタスクをスケジュールできます。ただし、ランタイムにスレッドアフィニティが必要な場合は、 [IHostTaskManager:: BeginThreadAffinity](../../../../docs/framework/unmanaged-api/hosting/ihosttaskmanager-beginthreadaffinity-method.md)と[IHostTaskManager:: の呼び出しで指定されます。EndThreadAffinity](../../../../docs/framework/unmanaged-api/hosting/ihosttaskmanager-endthreadaffinity-method.md)メソッド。 しばらくすると、オペレーティングシステムは、スレッドからタスクを削除して、実行されていない状態にする可能性があります。 たとえば、タスクが同期プリミティブでブロックされた場合や、i/o 操作が完了するまで待機している場合に発生することがあります。 ホストは[Switchout](../../../../docs/framework/unmanaged-api/hosting/iclrtask-switchout-method.md)を呼び出して、現在の `ICLRTask` インスタンスによって表されるタスクが操作可能な状態ではなくなったことを CLR に通知します。  
   
- タスクは、通常、コードの実行の最後に終了します。 ホストを呼び出して、その時点で`ICLRTask::ExitTask`、関連付けられているを破棄する`ICLRTask`します。 ただし、タスクもとして再利用できるへの呼び出しを使用して`ICLRTask::Reset`、これにより、`ICLRTask`もう一度使用するインスタンス。 このアプローチには、繰り返し作成して、インスタンスの破棄のオーバーヘッドができないようにします。  
+ タスクは通常、コード実行の終了時に終了します。 その時点で、ホストは `ICLRTask::ExitTask` を呼び出して、関連付けられている `ICLRTask`を破棄します。 ただし、`ICLRTask::Reset`の呼び出しを使用してタスクをリサイクルすることもできます。これにより、`ICLRTask` インスタンスを再度使用できます。 この方法では、インスタンスを繰り返し作成および破棄するオーバーヘッドを回避できます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

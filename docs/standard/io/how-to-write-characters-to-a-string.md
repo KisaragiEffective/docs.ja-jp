@@ -11,25 +11,23 @@ helpviewer_keywords:
 - streams, writing characters to strings
 - I/O [.NET Framework], writing characters to strings
 ms.assetid: 1222cbeb-0760-44bf-9888-914a2a37174b
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: eb35c61b34fa571f35da6691ebe7fa2516eb2df1
-ms.sourcegitcommit: b8ace47d839f943f785b89e2fff8092b0bf8f565
+ms.openlocfilehash: ecbfa2de2c21ff79df269f74eeddfa0738e7e25c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2019
-ms.locfileid: "55674751"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78160282"
 ---
 # <a name="how-to-write-characters-to-a-string"></a>方法: 文字列への文字の書き込み
 次のコード例では、文字列の配列から同期または非同期的に文字が書き込まれます。  
   
 ## <a name="example-write-characters-synchronously-in-a-console-app"></a>例:コンソール アプリで文字を同時に書き込む  
- 次の例では、<xref:System.IO.StringWriter> を使用し、5 つの文字が <xref:System.Text.StringBuilder> オブジェクトに同時に書き込まれます。 
+ 次の例では、<xref:System.IO.StringWriter> を使用し、5 つの文字が <xref:System.Text.StringBuilder> オブジェクトに同時に書き込まれます。
   
  [!code-csharp[Conceptual.StringBuilder#9](../../../samples/snippets/csharp/VS_Snippets_CLR/Conceptual.StringBuilder/cs/example2.cs#9)]
  [!code-vb[Conceptual.StringBuilder#9](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Conceptual.StringBuilder/vb/example2.vb#9)]  
   
-## <a name="example-write-characters-asynchronously-in-a-wpf-app"></a>例:WPF アプリで文字を非同期で書き込む 
+## <a name="example-write-characters-asynchronously-in-a-wpf-app"></a>例:WPF アプリで文字を非同期で書き込む
  次の例は WPF アプリの裏側にあるコードです。 ウィンドウを読み込むと、<xref:System.Windows.Controls.TextBox> コントロールから非同期的にすべての文字を読み取り、配列に格納します。 次に、<xref:System.Windows.Controls.TextBlock> コントロールの個別の行に各文字または空白文字が非同期で書き込まれます。  
   
  [!code-csharp[StreamReaderWriter](../../../samples/snippets/csharp/VS_Snippets_Wpf/StringReaderWriter/MainWindow.xaml.cs)]

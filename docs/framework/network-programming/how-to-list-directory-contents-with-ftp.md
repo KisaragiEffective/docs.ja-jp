@@ -7,11 +7,11 @@ dev_langs:
 - vb
 ms.assetid: 130c64c9-7b7f-4672-9b3b-d946bd2616c5
 ms.openlocfilehash: 924e6731ce585f127af319fdbfbdc8c12e61c46d
-ms.sourcegitcommit: c93fd5139f9efcf6db514e3474301738a6d1d649
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/28/2018
-ms.locfileid: "50197315"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "61642621"
 ---
 # <a name="how-to-list-directory-contents-with-ftp"></a>方法: FTP でディレクトリの内容を一覧表示する
 

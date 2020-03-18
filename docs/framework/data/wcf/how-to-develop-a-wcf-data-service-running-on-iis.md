@@ -9,12 +9,12 @@ helpviewer_keywords:
 - WCF Data Services, deploying
 - WCF Data Services, hosting
 ms.assetid: f6f768c5-4989-49e3-a36f-896ab4ded86e
-ms.openlocfilehash: 89be7aa8339a4edf6d6ab9c0c243e4320d2fdfa8
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 5c75425783d3468ac42ef7cb32cd9c93e812192a
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052973"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75338348"
 ---
 # <a name="how-to-develop-a-wcf-data-service-running-on-iis"></a>方法: IIS で実行されている WCF データサービスを開発する
 
@@ -25,17 +25,17 @@ ms.locfileid: "71052973"
 
 このトピックでは、Entity Framework プロバイダーを使用してデータ サービスを作成する方法を示します。 その他のデータ サービス プロバイダーを利用することもできます。 詳細については、「 [Data Services プロバイダー](data-services-providers-wcf-data-services.md)」を参照してください。
 
-サービスを作成した後に、データ サービス リソースへのアクセスを明示的に提供する必要があります。 詳細については、「[方法 :データサービス](how-to-enable-access-to-the-data-service-wcf-data-services.md)へのアクセスを有効にします。
+サービスを作成した後に、データ サービス リソースへのアクセスを明示的に提供する必要があります。 詳細については、「[方法: データサービスへのアクセスを有効](how-to-enable-access-to-the-data-service-wcf-data-services.md)にする」を参照してください。
 
 ## <a name="create-the-aspnet-web-application-that-runs-on-iis"></a>IIS で実行される ASP.NET web アプリケーションを作成する
 
-1. Visual Studio で、 **[ファイル]** メニューの [**新しい** > **プロジェクト**] をクリックします。
+1. Visual Studio の **[ファイル]** メニューで､ **[新規作成]**  >  **[プロジェクト]** を選択します。
 
 2. **[新しいプロジェクト]** ダイアログボックスで、**インストールされている**> [ **C#ビジュアル**または**Visual Basic**] > **Web**カテゴリを選択します。
 
-3. **ASP.NET Web アプリケーション**テンプレートを選択します。
+3. **[ASP.NET Web アプリケーション]** テンプレートを選択します。
 
-4. プロジェクト`NorthwindService`の名前として「」と入力します。
+4. プロジェクトの名前として `NorthwindService` を入力します。
 
 5. **[OK]** をクリックします。
 
@@ -81,7 +81,7 @@ ms.locfileid: "71052973"
 
     1. IIS マネージャーを開き、 **[既定の Web サイト]** の下にある photoservice アプリケーションに移動します。
 
-    2. **[機能ビュー]** で、 **[認証]** をダブルクリックします。
+    2. **[機能ビュー]** で **[認証]** をダブルクリックします。
 
     3. **[認証]** ページで、 **[匿名認証]** を選択します。
 
@@ -122,19 +122,19 @@ ms.locfileid: "71052973"
 
 ## <a name="define-the-data-model"></a>データ モデルを定義する
 
-1. **ソリューションエクスプローラー**で、ASP.NET プロジェクトの名前を右クリックし、[**新しい項目**の**追加** > ] をクリックします。
+1. **ソリューションエクスプローラー**で、ASP.NET プロジェクトの名前を右クリックし、[ > **新しい項目**の**追加**] をクリックします。
 
 2. **[新しい項目の追加]** ダイアログボックスで、 **[ADO.NET Entity Data Model]** を選択します。
 
-3. データモデルの名前として「」 `Northwind.edmx`と入力します。
+3. データモデルの名前として「`Northwind.edmx`」と入力します。
 
 4. Entity Data Model ウィザードで、 **[データベースから生成]** を選択し、 **[次へ]** をクリックします。
 
 5. 次のいずれかの手順を実行して、データモデルをデータベースに接続し、 **[次へ]** をクリックします。
 
-    - データベース接続が既に構成されていない場合は、 **[新しい接続]** をクリックして新しい接続を作成します。 詳細については、「[方法 :SQL Server データベース](https://go.microsoft.com/fwlink/?LinkId=123631)への接続を作成します。 この SQL Server インスタンスには、Northwind サンプル データベースがアタッチされている必要があります。
+    - データベース接続が既に構成されていない場合は、 **[新しい接続]** をクリックして新しい接続を作成します。 詳細については、「 [How to: Create Connections to SQL Server Databases](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2008/s4yys16a(v=vs.90))」を参照してください。 この SQL Server インスタンスには、Northwind サンプル データベースがアタッチされている必要があります。
 
-         \- または -
+         \- または
 
     - Northwind データベースに接続するようにデータベース接続が既に構成されている場合は、一覧からその接続を選択します。
 
@@ -144,16 +144,16 @@ ms.locfileid: "71052973"
 
 ## <a name="create-the-data-service"></a>データ サービスを作成する
 
-1. **ソリューションエクスプローラー**で、ASP.NET プロジェクトの名前を右クリックし、[**新しい項目**の**追加** > ] をクリックします。
+1. **ソリューションエクスプローラー**で、ASP.NET プロジェクトの名前を右クリックし、[ > **新しい項目**の**追加**] をクリックします。
 
 2. **[新しい項目の追加]** ダイアログボックスで、 **[WCF Data Service]** を選択します。
 
    ![Visual Studio 2015 の WCF Data Service 項目テンプレート](./media/wcf-data-service-item-template.png)
 
    > [!NOTE]
-   > **WCF Data Service**テンプレートは visual studio 2015 で使用できますが、visual studio 2017 では使用できません。
+   > **WCF Data Service**テンプレートは visual studio 2015 で使用できますが、visual studio 2017 以降では使用できません。
 
-3. サービスの名前として「」 `Northwind`と入力します。
+3. サービスの名前として、「`Northwind`」と入力します。
 
      Visual Studio で新しいサービスの XML マークアップおよびコード ファイルが作成されます。 既定では、コード エディターのウィンドウが開きます。 **ソリューションエクスプローラー**では、サービスの名前は Northwind で、拡張子は svc.cs または .svc です。
 

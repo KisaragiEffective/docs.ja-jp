@@ -9,14 +9,12 @@ helpviewer_keywords:
 - text files produced by MSIL Disassembler
 - disassembling file for MSIL Assembler input
 ms.assetid: db27f6b2-f1ec-499e-be3a-7eecf95ca42b
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9d08d6164c00d2b5b750c9edda46a7be18153152
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: f23f8c48a31dffa7d350c872aed7505da7a36861
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71044656"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73105055"
 ---
 # <a name="ildasmexe-il-disassembler"></a>Ildasm.exe (IL 逆アセンブラー)
 

@@ -1,5 +1,5 @@
 ---
-title: '方法: セットとして機能する Windows フォーム RadioButton コントロールをグループ化する'
+title: Set RadioButton コントロールをセットとして機能するようにグループ化する
 ms.date: 03/30/2017
 helpviewer_keywords:
 - radio buttons [Windows Forms], grouping
@@ -7,25 +7,25 @@ helpviewer_keywords:
 - Windows Forms controls, grouping
 - RadioButton control [Windows Forms], grouping
 ms.assetid: 58f8fe34-50b7-49d8-a2be-c271be3c6b32
-ms.openlocfilehash: 857e61bc89e072aebcf34793d7e8504ece3318c7
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: c4b37c84bf0f93837b91c743c7681d39fd83a659
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61941311"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76732953"
 ---
-# <a name="how-to-group-windows-forms-radiobutton-controls-to-function-as-a-set"></a>方法: セットとして機能する Windows フォーム RadioButton コントロールをグループ化する
-Windows フォーム<xref:System.Windows.Forms.RadioButton>間うち 1 つだけをプロシージャまたはオブジェクトに割り当てることが、2 つ以上の設定の選択をユーザーに付与するコントロールが設計されています。 たとえばのグループ<xref:System.Windows.Forms.RadioButton>コントロールは、注文の配送業者をパッケージの選択を表示可能性がありますが、通信事業者の 1 つだけ使用されます。 そのため 1 つだけ<xref:System.Windows.Forms.RadioButton>一度に選択できる場合でも、機能グループの一部であります。  
+# <a name="how-to-group-windows-forms-radiobutton-controls-to-function-as-a-set"></a>方法 : セットとして機能する Windows フォーム RadioButton コントロールをグループ化する
+Windows フォーム <xref:System.Windows.Forms.RadioButton> コントロールは、1つのプロシージャまたはオブジェクトに割り当てることができる2つ以上の設定の中からユーザーを選択できるように設計されています。 たとえば、<xref:System.Windows.Forms.RadioButton> コントロールのグループは、注文に対して選択したパッケージキャリアを表示できますが、使用されるのは1つの配送業者だけです。 したがって、機能グループの一部であっても、一度に1つの <xref:System.Windows.Forms.RadioButton> のみ選択できます。  
   
- ラジオ ボタンをグループ化など、コンテナー内でそれらを描画することで、<xref:System.Windows.Forms.Panel>コントロール、<xref:System.Windows.Forms.GroupBox>コントロール、またはフォーム。 フォームになる 1 つのグループに直接追加されるすべてのラジオ ボタン。 個別のグループを追加するにはパネルまたはグループ ボックス内を配置する必要があります。 パネルまたはグループ ボックスの詳細については、次を参照してください。 [Panel コントロールの概要](panel-control-overview-windows-forms.md)または[GroupBox コントロールの概要](groupbox-control-overview-windows-forms.md)します。  
+ オプションボタンをグループ化するには、<xref:System.Windows.Forms.Panel> コントロール、<xref:System.Windows.Forms.GroupBox> コントロール、フォームなどのコンテナー内に描画します。 フォームに直接追加されたすべてのラジオボタンは、1つのグループになります。 個別のグループを追加するには、パネルまたはグループボックス内に配置する必要があります。 パネルまたはグループボックスの詳細については、「 [Panel コントロールの概要](panel-control-overview-windows-forms.md)」または「 [GroupBox コントロールの概要](groupbox-control-overview-windows-forms.md)」を参照してください。  
   
-### <a name="to-group-radiobutton-controls-as-a-set-to-function-independently-of-other-sets"></a>その他のセットとは無関係に関数をセットとして RadioButton コントロールをグループ化  
+### <a name="to-group-radiobutton-controls-as-a-set-to-function-independently-of-other-sets"></a>RadioButton コントロールを他のセットとは独立して機能するようにグループ化するには  
   
-1. ドラッグ、<xref:System.Windows.Forms.GroupBox>または<xref:System.Windows.Forms.Panel>コントロールから、 **Windows フォーム** タブで、**ツールボックス**フォーム上にします。  
+1. **ツールボックス**の **[Windows フォーム]** タブから <xref:System.Windows.Forms.GroupBox> または <xref:System.Windows.Forms.Panel> コントロールをフォームにドラッグします。  
   
-2. 描画<xref:System.Windows.Forms.RadioButton>のコントロールに対して、<xref:System.Windows.Forms.GroupBox>または<xref:System.Windows.Forms.Panel>コントロール。  
+2. <xref:System.Windows.Forms.GroupBox> コントロールまたは <xref:System.Windows.Forms.Panel> コントロールに <xref:System.Windows.Forms.RadioButton> コントロールを描画します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.RadioButton>
 - [RadioButton コントロールの概要](radiobutton-control-overview-windows-forms.md)

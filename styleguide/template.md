@@ -14,16 +14,16 @@ ms.prod:
 - PRODUCT VALUE
 helpviewer_keywords:
 - OFFLINE BOOK INDEX ENTRIES
-ms.openlocfilehash: 3674508c25e9a4b166f994e7ca16df04e484956b
-ms.sourcegitcommit: 1e72e2990220b3635cebc39586828af9deb72d8c
+ms.openlocfilehash: ed9fd55fd84606d2083e0576581391331769a1e6
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306358"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089277"
 ---
 # <a name="metadata-and-markdown-template"></a>メタデータとマークダウン テンプレート
 
-この dotnet/ドキュメント テンプレートには、メタデータの設定に関するガイドラインだけでなく、マークダウン構文の例が含まれています。 これを最大限に活用するには、[生のマークダウン](https://raw.githubusercontent.com/dotnet/docs/master/styleguide/template.md)と[表示ビュー](https://github.com/dotnet/docs/blob/master/styleguide/template.md)の両方を表示する必要があります (たとえば、生のマークダウンにはメタデータ ブロックが表示されますが、表示ビューには表示されません)。
+この dotnet/ドキュメント テンプレートには、メタデータの設定に関するガイドラインだけでなく、マークダウン構文の例が含まれています。 これを最大限に活用するには、[生のマークダウン](https://raw.githubusercontent.com/dotnet/docs/master/styleguide/template.md)と[表示ビュー](https://github.com/dotnet/docs/blob/master/styleguide/template.md)の両方を表示する必要があります。
 
 マークダウン ファイルを作成する場合、このテンプレートを新しいファイルにコピーして、下記のようにメタデータを記入し、上の H1 見出しを記事のタイトルに設定して、コンテンツを削除します。
 
@@ -38,7 +38,7 @@ ms.locfileid: "71306358"
 - **説明**:記事の内容を要約します。 これは通常、検索結果ページに表示されますが、検索ランキングには使用されません。 長さは、スペースを含め 115 から 145 文字にする必要があります。
 - **author** および **ms.author**:"author" フィールドには、作成者のエイリアスではなく、**GitHub ユーザー名**を含める必要があります。  一方で、**ms.author** フィールドには、Microsoft エイリアスが記載され、記事の管理者が示されている必要があります。
 - **ms.topic**:トピックの種類です。 最も一般的な値は `conceptual` であり、グローバル レベルに設定されています。 使用されるその他の一般的な値は、`tutorial`、`overview`、`reference` です。
-- **ms.devlang** では、トピックに表示される言語フィルターが定義されます。 「[サポートされる言語](#supported-languages)」セクションに、サポートされる値のリストが表示されます。 トピックの中に複数のプログラミング言語がある場合にのみ設定が必要です。 通常、コンテンツ内にあるこの値については、`csharp`、`vb`、`fsharp`、`cpp` のみを使用します。
+- **dev_langs** では、トピックに表示される言語フィルターが定義されます。 「[サポートされる言語](#supported-languages)」セクションに、サポートされる値のリストが表示されます。 トピックの中に複数のプログラミング言語がある場合にのみ設定が必要です。 通常、コンテンツ内にあるこの値については、`csharp`、`vb`、`fsharp`、`cpp` のみを使用します。
 - **ms.prod**:BI の目的に使用される製品 ID です。 これらは通常グローバル レベルに設定されているため、各記事のメタデータ ブロックには、通常は表示されません。
 - **ms.technology**:追加の BI 分類です。 サポートされる値の一部として、C# トピックの場合は `devlang-csharp`、F# トピックの場合は `devlang-fsharp`、VB トピックの場合は `devlang-visual-basic` があります。 その他のガイドについては、値が異なるため、チームのメンバーに助言を求めてください。
 - **ms.date**:MM/DD/YYYY 形式の日付です。 公開済みページに表示される日付です。前回、記事が大幅に編集されたか、"最新" であることが保証された (すなわち、記事がレビュー済みで、最新であるとみなされた) 日付を示します。
@@ -70,13 +70,15 @@ ms.locfileid: "71306358"
 
 ## <a name="headings"></a>見出し
 
-文スタイルで大文字化します。 見出しの最初の単語は常に大文字にします。ただし、タイトルまたは見出しのコロン後の単語は大文字にしないでください (例: "方法: sort")。
+文スタイルで大文字化します。 見出しの最初の単語の最初の文字、固有名詞、コロンの後の最初の文字は大文字にします (たとえば、"Tutorial: Predict prices using regression with ML.NET")。
+
+"How to" の後にはコロンを追加しないでください (たとえば、"How to sort an array" とし、"How to: Sort an array" のようにします)。
 
 見出しは atx スタイルを使用して作成する必要があります。つまり、見出しを示すために行の先頭に 1 から 6 文字のハッシュ文字 (#) を使用します。これは、HTML 見出しレベルの H1 〜 H6 に対応します。 レベル 1 とレベル 2 のヘッダーの例が上で使用されています。
 
 トピックのレベル 1 の見出し (H1) は 1 つだけにする**必要があります**。これがページ上のタイトルとして表示されます。
 
-見出しが `#` 文字で終わる場合は、タイトルを正しく表示するために末尾に余分の `#` 文字を追加する必要があります。 たとえば、`# Async Programming in F# #` のようにします。
+見出しが `#` 文字で終わっている場合は、タイトルが正しく表示されるようにエスケープする必要があります。 たとえば、`# Async programming in F\#` のようにします。
 
 レベル 2 の見出しは、ページ上タイトルの下にある "この記事内" セクションに表示されるページ上の目次を生成します。
 
@@ -140,9 +142,9 @@ UID は、完全修飾型とメンバー名に相当します。
 
 UID の後に \* (または %2A) を追加した場合、リンクは特定の API ではなく、オーバーロード ページを表します。 たとえば、[List\<T>.BinarySearch(T, IComparer\<T>)](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1.binarysearch#System_Collections_Generic_List_1_BinarySearch__0_) などの特定のオーバーロードではなく、一般的な方法で [List\<T>.BinarySearch Method](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1.binarysearch) ページにリンクする場合に使用します。 また、メンバーがオーバーロードされていない場合は、\* を使ってメンバー ページにリンクすることもできます。これにより、UID にパラメーター リストを含める必要がなくなります。
 
-特定のメソッドのオーバーロードにリンクするには、メソッドの各パラメーターの完全修飾型名を含める必要があります。 たとえば、\<xref:System.DateTime.ToString> はパラメーターなしの [DateTime.ToString](https://docs.microsoft.com/dotnet/api/system.datetime.tostring#System_DateTime_ToString) メソッドにリンクされますが、\<xref:System.DateTime.ToString(System.String,System.IFormatProvider)> は [DateTime.ToString(String,IFormatProvider)](https://docs.microsoft.com/dotnet/api/system.datetime.tostring#System_DateTime_ToString_System_String_System_IFormatProvider_) メソッドにリンクされます。 オーバーロードされた特定のメンバーの UID を `https://xref.docs.microsoft.com/autocomplete` から見つけることができます。 クエリ文字列 "?text= *\<type-member-name>* " では、UID を確認したい型またはメンバーを特定します。 たとえば、`https://xref.docs.microsoft.com/autocomplete?text=string.format` では、[String.Format](https://docs.microsoft.com/dotnet/api/system.string.format) オーバーロードが取得されます。
+特定のメソッドのオーバーロードにリンクするには、メソッドの各パラメーターの完全修飾型名を含める必要があります。 たとえば、\<xref:System.DateTime.ToString> はパラメーターなしの [DateTime.ToString](https://docs.microsoft.com/dotnet/api/system.datetime.tostring#System_DateTime_ToString) メソッドにリンクされますが、\<xref:System.DateTime.ToString(System.String,System.IFormatProvider)> は [DateTime.ToString(String,IFormatProvider)](https://docs.microsoft.com/dotnet/api/system.datetime.tostring#System_DateTime_ToString_System_String_System_IFormatProvider_) メソッドにリンクされます。 オーバーロードされた特定のメンバーの UID を <https://xref.docs.microsoft.com/autocomplete> から見つけることができます。 クエリ文字列 "?text= *\<type-member-name>* " では、UID を確認したい型またはメンバーを特定します。 たとえば、<https://xref.docs.microsoft.com/autocomplete?text=string.format> では、[String.Format](https://docs.microsoft.com/dotnet/api/system.string.format) オーバーロードが取得されます。
 
-[System.Collections.Generic.List\<T>](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) などのジェネリック型にリンクするには、` (%60) 文字に続けてジェネリック型パラメーターを使用します。 たとえば、\<xref:System.Nullable%601> は [System.Nullable\<T>](https://docs.microsoft.com/dotnet/api/system.nullable-1) 型にリンクされますが、\<xref:System.Func%602> は [System.Func\<T,TResult>](https://docs.microsoft.com/dotnet/api/system.func-2) デリゲートにリンクされます。
+[System.Collections.Generic.List\<T>](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) などのジェネリック型にリンクするには、\` (%60) 文字に続けてジェネリック型パラメーターの数字を使用します。 たとえば、\<xref:System.Nullable%601> は [System.Nullable\<T>](https://docs.microsoft.com/dotnet/api/system.nullable-1) 型にリンクされますが、\<xref:System.Func%602> は [System.Func\<T,TResult>](https://docs.microsoft.com/dotnet/api/system.func-2) デリゲートにリンクされます。
 
 次のいずれかの構文を使用できます。
 
@@ -165,7 +167,7 @@ UID の後に \* (または %2A) を追加した場合、リンクは特定の A
 UID を検索するには、2 つの方法があります。
 
 - リンク先の API ページのソースを表示して、ms.assetid 値を検索します。 個別のオーバーロード値は、ソースには示されていないため注意してください。
-- UID の検索には、次のツールを使用します: https://xref.docs.microsoft.com/autocomplete?text=tostring (tostring は、検索しようとしている API 名の一部に置き換えます)。 ツールにより、UID の任意の部分で、指定した `text` クエリ パラメーターが検索されます。 たとえば、メンバー名 (ToString)、メンバー名 (ToStri) の一部、型とメンバー名 (Double.ToString) などを検索できます。
+- UID の検索には、次のツールを使用します: <https://xref.docs.microsoft.com/autocomplete?text=tostring> (tostring は、検索しようとしている API 名の一部に置き換えます)。 ツールにより、UID の任意の部分で、指定した `text` クエリ パラメーターが検索されます。 たとえば、メンバー名 (ToString)、メンバー名 (ToStri) の一部、型とメンバー名 (Double.ToString) などを検索できます。
 
 UID に特殊文字 \`、\# または \* が含まれる場合、UID 値はそれぞれ `%60`、`%23`、`%2A` として HTML をエンコードする必要があります。 かっこがエンコードされていることもありますが、これは必須ではありません。
 
@@ -305,6 +307,7 @@ UID に特殊文字 \`、\# または \* が含まれる場合、UID 値はそ�
 |Objective-C|objc|
 |OData|odata|
 |PHP|php|
+|protobuf|protobuf|
 |PowerApps (ドット小数点区切り記号)|powerapps-dot|
 |PowerApps (コンマ小数点区切り記号)|powerapps-comma|
 |PowerShell|powershell|
@@ -319,12 +322,13 @@ UID に特殊文字 \`、\# または \* が含まれる場合、UID 値はそ�
 |VBScript|vbscript|
 |XAML|xaml|
 |XML|xml|
+|yml|yml|
 
 `csharp-interactive` 名で、C# 言語と、ブラウザーからサンプルを実行する機能を指定します。 このようなスニペットは Docker コンテナーでコンパイル、実行され、そのプログラム実行の結果がユーザーのブラウザー ウィンドウに表示されます。
 
 C# (\`\`\`csharp)、Python (\`\`\`python)、PowerShell (\`\`\`powershell) の言語 ID を使用したコード ブロックの例を次に示します。
 
-##### <a name="c9839"></a>C&#9839;
+##### <a name="c"></a>C\#
 
 ```csharp
 using System;

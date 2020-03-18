@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/26/2019
 ms.locfileid: "68513026"
 ---
-# <a name="latebound-overload-resolution-cannot-be-applied-to-procedurename-because-the-accessing-instance-is-an-interface-type"></a>アクセスするインスタンスがインターフェイス型である\<ため、遅延バインディングされたオーバーロードの解決は ' procedurename > ' に適用できません
+# <a name="latebound-overload-resolution-cannot-be-applied-to-procedurename-because-the-accessing-instance-is-an-interface-type"></a>アクセスするインスタンスがインターフェイス型であるため、遅延バインドされたオーバーロードの解決は '\<procedurename>' に適用されません
 
 コンパイラは、オーバーロードされたプロパティまたはプロシージャへの参照を解決しようとしていますが、引数`Object`が型であり、参照元のオブジェクトがインターフェイスのデータ型を持っているため、参照は失敗します。 引数`Object`は、コンパイラが参照を遅延バインディングとして解決することを強制します。
 

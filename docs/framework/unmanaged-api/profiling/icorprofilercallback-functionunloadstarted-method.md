@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: d6a5fa8b-09c6-47a5-b60e-6cf2e355df30
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: b6dd7792fe298aa1950b23053a7c5cd576b62e7b
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 2b228337a55d50b94da966b45877e2000b3c03e4
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67755897"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76866313"
 ---
 # <a name="icorprofilercallbackfunctionunloadstarted-method"></a>ICorProfilerCallback::FunctionUnloadStarted メソッド
-関数のアンロードをランタイムが開始されたことをプロファイラーに通知します。  
+ランタイムが関数のアンロードを開始したことをプロファイラーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -34,17 +32,19 @@ HRESULT FunctionUnloadStarted(
     [in] FunctionID functionId);   
 ```  
   
-## <a name="parameters"></a>パラメーター  
- `functionId`  
- [in]アンロードされている関数の ID。  
+## <a name="parameters"></a>パラメーター
+
+- `functionId`
+
+  \[] アンロードされる関数の ID。
+
+## <a name="remarks"></a>コメント  
+ このメソッドが呼び出し元に戻った後、`functionId` パラメーターの値は無効になりました。  
   
-## <a name="remarks"></a>Remarks  
- 値、`functionId`このメソッドが呼び出し元に返された後にパラメーターが無効になっています。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
-  
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -52,4 +52,4 @@ HRESULT FunctionUnloadStarted(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerCallback インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-interface.md)
+- [ICorProfilerCallback インターフェイス](icorprofilercallback-interface.md)

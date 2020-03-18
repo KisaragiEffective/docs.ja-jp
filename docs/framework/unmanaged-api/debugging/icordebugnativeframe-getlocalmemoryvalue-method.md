@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: b600b3a2-9908-42d8-8093-ab6f39e9a2c9
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9a8e5a1813a81a84eac612a53964d39b48f0c536
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: cee095003c136142052b8f946fa8227927c80ee2
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67746220"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73096868"
 ---
 # <a name="icordebugnativeframegetlocalmemoryvalue-method"></a>ICorDebugNativeFrame::GetLocalMemoryValue メソッド
-このネイティブ フレームに指定したメモリ位置に格納されているローカル変数または引数の値を取得します。  
+このネイティブフレームの指定したメモリ位置に格納されている引数またはローカル変数の値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,19 +38,19 @@ HRESULT GetLocalMemoryValue (
   
 ## <a name="parameters"></a>パラメーター  
  `address`  
- [in]A`CORDB_ADDRESS`値を格納しているメモリの場所を指定する値。  
+ から値を格納しているメモリ位置を指定する `CORDB_ADDRESS` 値。  
   
  `cbSigBlob`  
- [in]によって参照されているバイナリ メタデータ シグネチャのサイズを指定する整数、`pvSigBlob`パラメーター。  
+ から`pvSigBlob` パラメーターによって参照されるバイナリメタデータシグネチャのサイズを指定する整数。  
   
  `pvSigBlob`  
- [in]A`PCCOR_SIGNATURE`値の型のバイナリ メタデータ シグネチャを示す値。  
+ から値の型のバイナリメタデータシグネチャを指す `PCCOR_SIGNATURE` 値。  
   
  `ppValue`  
- [out]指定されたメモリ位置に格納されている取得した値を表す"ICorDebugValue"オブジェクトのアドレスへのポインター。  
+ 入出力指定されたメモリ位置に格納されている取得値を表す "ICorDebugValue" オブジェクトのアドレスへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

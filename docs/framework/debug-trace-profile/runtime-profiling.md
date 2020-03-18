@@ -11,14 +11,12 @@ helpviewer_keywords:
 - profiling applications
 - Performance Console
 ms.assetid: ccd68284-f3a8-47b8-bc3f-92e5fe3a1640
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 163022256dfbeb303a500d9c1d574054c5b550d7
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: daa2ae4fbbed78bda4648b4b3077fa7d96a9b3f3
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052299"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73121557"
 ---
 # <a name="runtime-profiling"></a>ランタイム プロファイリング
 プロファイリングは、任意の開発シナリオまたは配置シナリオでパフォーマンス データを収集する方法の 1 つです。 このセクションは、アプリケーションのパフォーマンスに関する情報の収集を必要とする開発者およびシステム管理者を対象にしています。  
@@ -42,11 +40,11 @@ ms.locfileid: "71052299"
   
 6. **[選択したオブジェクトのインスタンス]** リスト ボックスで、 **[\<すべてのインスタンス>]** をクリックして、共通言語ランタイムのパフォーマンス カウンターをグローバルに (つまり、システム全体で) 監視するように指定します。  
   
-     \- または -  
+     -または-  
   
      **[選択したオブジェクトのインスタンス]** リスト ボックスで、アプリケーション名をクリックして、そのアプリケーションのパフォーマンス カウンターを監視します。  
   
-     複数のバージョンのランタイムを区別する必要がある場合、または同じ名前を持つ複数のアプリケーション間のあいまいさを解消する必要がある場合は、レジストリ キーも変更する必要があります。 詳細については、「 [パフォーマンス カウンターとインプロセス side-by-side アプリケーション](performance-counters-and-in-process-side-by-side-applications.md)」を参照してください。  
+     複数のバージョンのランタイムを区別する必要がある場合、または同じ名前を持つ複数のアプリケーション間のあいまいさを解消する必要がある場合は、レジストリ キーも変更する必要があります。 詳細については、「 [Performance Counters and In-Process Side-By-Side Applications](performance-counters-and-in-process-side-by-side-applications.md)」を参照してください。  
   
 > [!NOTE]
 > パフォーマンス コンソールの実行中に新しいパフォーマンス カウンターがインストールされた場合は、新しいカウンターが表示されるように、パフォーマンス コンソールを停止して再起動してください。  
@@ -59,7 +57,7 @@ ms.locfileid: "71052299"
 ## <a name="reading-and-creating-performance-counters-programmatically"></a>プログラムを使用したパフォーマンス カウンターの読み取りと作成  
  .NET Framework には、パフォーマンスコンソールで使用できるのと同じパフォーマンス情報にプログラムでアクセスするために使用できるクラスが用意されています。 また、これらのクラスを使用すると、カスタム パフォーマンス カウンターを作成できます。 次の表では、.NET Framework に用意されているパフォーマンス監視クラスの一部について説明します。  
   
-|クラス|説明|  
+|インスタンス|説明|  
 |-----------|-----------------|  
 |<xref:System.Diagnostics.PerformanceCounter?displayProperty=nameWithType>|Windows NT パフォーマンス カウンター コンポーネントを表します。 既存の定義済みカウンターやカスタム カウンターを読み取ったり、カスタム カウンターにパフォーマンス データを書き込むには、このクラスを使用します。|  
 |<xref:System.Diagnostics.PerformanceCounterCategory?displayProperty=nameWithType>|コンピューター上のカウンターおよびカウンター カテゴリと対話するためのいくつかのメソッドを提供します。|  
@@ -68,4 +66,4 @@ ms.locfileid: "71052299"
   
 ## <a name="see-also"></a>関連項目
 
-- [パフォーマンス カウンター](performance-counters.md)
+- [Performance Counters](performance-counters.md)

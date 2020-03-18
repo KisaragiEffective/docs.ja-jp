@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 4c2b66fd-0595-40a3-8931-f9c4fff97ac8
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: f114d32432cccd88e36ff76ed49c610bd03f873e
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 07041d06668d474a3d30968fb623854a24ebf0eb
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67747015"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76865819"
 ---
 # <a name="icorprofilercallbackthreaddestroyed-method"></a>ICorProfilerCallback::ThreadDestroyed メソッド
 スレッドが破棄されたことをプロファイラーに通知します。  
@@ -36,15 +34,15 @@ HRESULT ThreadDestroyed(
   
 ## <a name="parameters"></a>パラメーター  
  `threadId`  
- [in]破棄されているスレッドの ID。  
+ から破棄されたスレッドの ID。  
   
 ## <a name="remarks"></a>Remarks  
- `threadId`値は、この呼び出しの時点では有効ではなくなりました。  
+ この呼び出し時に、`threadId` の値は有効ではなくなりました。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -52,5 +50,5 @@ HRESULT ThreadDestroyed(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerCallback インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-interface.md)
-- [ThreadCreated メソッド](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-threadcreated-method.md)
+- [ICorProfilerCallback インターフェイス](icorprofilercallback-interface.md)
+- [ThreadCreated メソッド](icorprofilercallback-threadcreated-method.md)

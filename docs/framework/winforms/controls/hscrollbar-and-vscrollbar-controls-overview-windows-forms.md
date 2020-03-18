@@ -1,5 +1,5 @@
 ---
-title: HScrollBar コントロールと VScrollBar コントロールの概要 (Windows フォーム)
+title: HScrollBar コントロールと VScrollBar コントロールの概要
 ms.date: 03/30/2017
 f1_keywords:
 - HScrollBar
@@ -11,31 +11,31 @@ helpviewer_keywords:
 - ScrollBar control [Windows Forms], about ScrollBar control
 - scroll bars [Windows Forms], about scroll bars
 ms.assetid: 8b307679-1cae-41d8-99aa-3d1efd207cd6
-ms.openlocfilehash: d4a7912a5781fc583357affa728f7d81059b5cf9
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: abe0c8da9723f17cb80715454f6ab7297724a21f
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61928575"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76728161"
 ---
 # <a name="hscrollbar-and-vscrollbar-controls-overview-windows-forms"></a>HScrollBar コントロールと VScrollBar コントロールの概要 (Windows フォーム)
-Windows フォーム<xref:System.Windows.Forms.ScrollBar>または垂直方向に水平方向にスクロールすることにより、アプリケーションまたはコントロール内の項目または大量の情報の長いリストを簡単にナビゲートを提供するコントロールを使用します。 スクロール バー、Windows インターフェイスの一般的な要素は、そのため、<xref:System.Windows.Forms.ScrollBar>から派生していないコントロールのコントロールが使用される多くの場合、<xref:System.Windows.Forms.ScrollableControl>クラス。 同様に、多くの開発者が組み込む選択、<xref:System.Windows.Forms.ScrollBar>独自のユーザー コントロールを作成するときを制御します。  
+Windows フォーム <xref:System.Windows.Forms.ScrollBar> コントロールを使用して、アプリケーションまたはコントロール内で水平方向または垂直方向にスクロールすることにより、項目の長い一覧または大量の情報を簡単に移動できます。 スクロールバーは Windows インターフェイスの共通要素であるため、<xref:System.Windows.Forms.ScrollBar> コントロールは、<xref:System.Windows.Forms.ScrollableControl> クラスから派生しないコントロールでよく使用されます。 同様に、多くの開発者は、独自のユーザーコントロールを作成するときに、<xref:System.Windows.Forms.ScrollBar> コントロールを組み込むことを選択します。  
   
- <xref:System.Windows.Forms.HScrollBar> (水平) と<xref:System.Windows.Forms.VScrollBar>(垂直) コントロールは、他のコントロールから独立して動作し、イベント、プロパティ、およびメソッドの独自セットがあります。 <xref:System.Windows.Forms.ScrollBar> コントロールは、テキスト ボックス、リスト ボックス、コンボ ボックス、または MDI フォームにアタッチされている組み込みのスクロール バーと同じではありません (、<xref:System.Windows.Forms.TextBox>コントロールが、<xref:System.Windows.Forms.TextBox.ScrollBars%2A>コントロールに関連付けられているスクロール バーを非表示プロパティ)。  
+ <xref:System.Windows.Forms.HScrollBar> (水平) コントロールと <xref:System.Windows.Forms.VScrollBar> (垂直) コントロールは、他のコントロールとは別に動作し、独自のイベント、プロパティ、およびメソッドのセットを持ちます。 <xref:System.Windows.Forms.ScrollBar> コントロールは、テキストボックス、リストボックス、コンボボックス、または MDI フォームに関連付けられている組み込みのスクロールバーとは異なります (<xref:System.Windows.Forms.TextBox> コントロールには、コントロールに関連付けられているスクロールバーを表示または非表示にするための <xref:System.Windows.Forms.TextBox.ScrollBars%2A> のプロパティがあります)。  
   
- <xref:System.Windows.Forms.ScrollBar>使用を制御、<xref:System.Windows.Forms.ScrollBar.Scroll>に沿ってスクロール バーのスクロール ボックス (つまみとも呼ばれます) の動きを監視するイベントです。 使用して、<xref:System.Windows.Forms.ScrollBar.Scroll>イベントがドラッグされているようにスクロール バーの値へのアクセスを提供します。  
+ <xref:System.Windows.Forms.ScrollBar> コントロールは、<xref:System.Windows.Forms.ScrollBar.Scroll> イベントを使用して、スクロールバーのスクロールボックス (つまみとも呼ばれます) の動きを監視します。 <xref:System.Windows.Forms.ScrollBar.Scroll> イベントを使用すると、ドラッグ中のスクロールバーの値にアクセスできます。  
   
 ## <a name="value-property"></a>Value プロパティ  
- <xref:System.Windows.Forms.ScrollBar.Value%2A>プロパティ (つまり、既定では、0) は、`integer`スクロール バーのスクロール ボックスの位置に対応する値。 スクロール ボックスの位置は、最小値では、(水平スクロール バー) の左端の位置または (垂直スクロール バーの上端の位置に移動します。 スクロール ボックスが最大値、一番右にスクロール ボックスの移動、または下部にある位置にある場合です。 同様に、範囲の上端と下端の中間値は、スクロール バーの途中でのスクロール ボックスのリーディング エッジを配置します。  
+ <xref:System.Windows.Forms.ScrollBar.Value%2A> プロパティ (既定では 0) は、スクロールバーのスクロールボックスの位置に対応する `integer` 値です。 スクロールボックスの位置が最小値になると、左端 (水平スクロールバーの場合) または一番上の位置 (垂直スクロールバーの場合) に移動します。 スクロールボックスが最大値になると、スクロールボックスが右端または下の位置に移動します。 同様に、範囲の下端と上端の中間にある値によって、スクロールボックスの先頭端がスクロールバーの中央に配置されます。  
   
- マウスのクリックを使用して、スクロール バーの値を変更する、だけでなく、ユーザーがバーに沿って任意の時点のスクロール ボックスをドラッグすることもできます。 結果の値は、スクロール ボックスの位置によって異なりますが、範囲の中では常に、<xref:System.Windows.Forms.ScrollBar.Minimum%2A>に<xref:System.Windows.Forms.ScrollBar.Maximum%2A>ユーザーによって設定されるプロパティ。  
+ ユーザーは、マウスクリックを使用してスクロールバーの値を変更するだけでなく、スクロールボックスをバー上の任意のポイントにドラッグすることもできます。 結果の値は、スクロールボックスの位置によって異なりますが、ユーザーによって設定されたプロパティを <xref:System.Windows.Forms.ScrollBar.Maximum%2A> するには、常に <xref:System.Windows.Forms.ScrollBar.Minimum%2A> の範囲内にあります。  
   
-## <a name="largechange-and-smallchange-properties"></a>LargeChange と SmallChange プロパティ  
- PAGE UP または PAGE DOWN キーを押すか、スクロール バーのトラック、スクロール ボックスのいずれかの側をクリックしたときに、<xref:System.Windows.Forms.ScrollBar.Value%2A>プロパティの変更で設定された値に従って、<xref:System.Windows.Forms.ScrollBar.LargeChange%2A>プロパティ。  
+## <a name="largechange-and-smallchange-properties"></a>Largechange プロパティと Smallchange プロパティ  
+ ユーザーが pageup キーまたは pagedown キーを押すか、スクロールボックスの両側のスクロールバートラックをクリックすると、<xref:System.Windows.Forms.ScrollBar.LargeChange%2A> プロパティで設定された値に従って <xref:System.Windows.Forms.ScrollBar.Value%2A> プロパティが変更されます。  
   
- キーまたはスクロール バーのボタンのクリックしたとき、ユーザーが矢印の 1 つ、<xref:System.Windows.Forms.ScrollBar.Value%2A>プロパティの変更で設定された値に従って、<xref:System.Windows.Forms.ScrollBar.SmallChange%2A>プロパティ。  
+ ユーザーがいずれかの方向キーを押すか、またはスクロールバーのボタンのいずれかをクリックすると、<xref:System.Windows.Forms.ScrollBar.SmallChange%2A> プロパティに設定されている値に従って <xref:System.Windows.Forms.ScrollBar.Value%2A> プロパティが変更されます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.HScrollBar>
 - <xref:System.Windows.Forms.VScrollBar>

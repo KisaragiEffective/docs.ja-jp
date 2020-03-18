@@ -1,18 +1,18 @@
 ---
-title: '方法: WAS で WCF サービスをホストする'
+title: '方法 : WAS で WCF サービスをホストする'
 ms.date: 03/30/2017
 ms.assetid: 9e3e213e-2dce-4f98-81a3-f62f44caeb54
-ms.openlocfilehash: b6d3ace054260de1ca649fbf4bd54156bbea24ce
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: 9945e398bbd33776cce808b44388a4415da297a1
+ms.sourcegitcommit: c01c18755bb7b0f82c7232314ccf7955ea7834db
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70972209"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75964768"
 ---
-# <a name="how-to-host-a-wcf-service-in-was"></a>方法: WAS で WCF サービスをホストする
+# <a name="how-to-host-a-wcf-service-in-was"></a>方法 : WAS で WCF サービスをホストする
 このトピックでは、Windows プロセスアクティブ化サービス (WAS) でホストされる Windows Communication Foundation (WCF) サービスを作成するために必要な基本的な手順について説明します。 WAS は、HTTP 以外のトランスポート プロトコルで動作するインターネット インフォメーション サービス (IIS) 機能を一般化した新しいプロセス アクティブ化サービスです。 WCF では、リスナーアダプターインターフェイスを使用して、WCF でサポートされている HTTP 以外のプロトコル (TCP、名前付きパイプ、メッセージキューなど) を介して受信されるアクティブ化要求を伝達します。  
   
- このホスト オプションでは、WAS アクティブ化コンポーネントのインストールと構成が正しく行われている必要がありますが、アプリケーションの一部としてホスト コードを記述する必要はありません。 WAS のインストールと構成の詳細について[は、「」を参照してください。WCF アクティブ化コンポーネント](../../../../docs/framework/wcf/feature-details/how-to-install-and-configure-wcf-activation-components.md)をインストールして構成します。  
+ このホスト オプションでは、WAS アクティブ化コンポーネントのインストールと構成が正しく行われている必要がありますが、アプリケーションの一部としてホスト コードを記述する必要はありません。 WAS のインストールと構成の詳細については、「[方法: WCF アクティブ化コンポーネントをインストールおよび構成](../../../../docs/framework/wcf/feature-details/how-to-install-and-configure-wcf-activation-components.md)する」を参照してください。  
   
 > [!WARNING]
 > Web サーバーの要求処理パイプラインをクラシック モードに設定すると、WAS のアクティブ化がサポートされません。 WAS のアクティブ化を使用する場合は、Web サーバーの要求処理パイプラインを統合モードに設定する必要があります。  
@@ -101,4 +101,4 @@ ms.locfileid: "70972209"
 ## <a name="see-also"></a>関連項目
 
 - [TCP アクティベーション](../../../../docs/framework/wcf/samples/tcp-activation.md)
-- [AppFabric のホスティング機能](https://go.microsoft.com/fwlink/?LinkId=201276)
+- [AppFabric のホスティング機能](https://docs.microsoft.com/previous-versions/appfabric/ee677189(v=azure.10))

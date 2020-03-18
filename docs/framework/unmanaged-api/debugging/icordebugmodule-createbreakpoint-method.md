@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c2541c30-fa6e-43b6-9682-77d8898f33e1
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 28d96177e839613d40e8c500e334c92b05c6e96a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 1a65f9f117ff013a1f6dc7403a5bc0c7b3dbb2c3
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67762202"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136590"
 ---
 # <a name="icordebugmodulecreatebreakpoint-method"></a>ICorDebugModule::CreateBreakpoint メソッド
-このメソッドは、.NET Framework の現在のバージョンで実装されていません。  
+このメソッドは、現在のバージョンの .NET Framework では実装されていません。  
   
 ## <a name="syntax"></a>構文  
   
@@ -35,5 +33,5 @@ HRESULT CreateBreakpoint(
 );  
 ```  
   
-## <a name="requirements"></a>必要条件  
+## <a name="requirements"></a>［要件］  
  **ヘッダー:** CorDebug.idl、CorDebug.h

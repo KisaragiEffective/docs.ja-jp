@@ -2,12 +2,12 @@
 title: デリゲートの変性 (C#)
 ms.date: 07/20/2015
 ms.assetid: 19de89d2-8224-4406-8964-2965b732b890
-ms.openlocfilehash: a65b2fb84e2eae57eecaf5307ca76fbce412d44c
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: fd1b4824dc3d8f12347e01b804a6e39fe2e086c8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72772050"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79169715"
 ---
 # <a name="variance-in-delegates-c"></a>デリゲートの変性 (C#)
 .NET Framework 3.5 では、C# のすべてのデリゲートで、メソッド シグネチャとデリゲート型を一致させるために変性 (共変性と反変性) のサポートが導入されました。 つまり、シグネチャが一致するメソッドだけでなく、デリゲート型で指定された型よりも強い派生型を返す (共変性) メソッドや、弱い派生型のパラメーターを受け取る (反変性) メソッドを、デリゲートに割り当てることができます。 これには、汎用デリゲートと非汎用デリゲートの両方が含まれます。  
@@ -36,7 +36,7 @@ public static Second ASecondRSecond(Second second)
 public static First AFirstRFirst(First first)  
 { return new First(); }  
   
-// The return type is more derived   
+// The return type is more derived
 // and the argument type is less derived.  
 public static Second AFirstRSecond(First first)  
 { return new Second(); }  
@@ -45,10 +45,10 @@ public static Second AFirstRSecond(First first)
  次のコード例は、メソッド シグネチャとデリゲート型の間の暗黙的な変換を示しています。  
   
 ```csharp  
-// Assigning a method with a matching signature   
+// Assigning a method with a matching signature
 // to a non-generic delegate. No conversion is necessary.  
 SampleDelegate dNonGeneric = ASecondRFirst;  
-// Assigning a method with a more derived return type   
+// Assigning a method with a more derived return type
 // and less derived argument type to a non-generic delegate.  
 // The implicit conversion is used.  
 SampleDelegate dNonGenericConversion = AFirstRSecond;  
@@ -56,7 +56,7 @@ SampleDelegate dNonGenericConversion = AFirstRSecond;
 // Assigning a method with a matching signature to a generic delegate.  
 // No conversion is necessary.  
 SampleGenericDelegate<Second, First> dGeneric = ASecondRFirst;  
-// Assigning a method with a more derived return type   
+// Assigning a method with a more derived return type
 // and less derived argument type to a generic delegate.  
 // The implicit conversion is used.  
 SampleGenericDelegate<Second, First> dGenericConversion = AFirstRSecond;  
@@ -81,13 +81,13 @@ public static void Test()
   
     // You can assign delegates to each other,  
     // because the type T is declared covariant.  
-    SampleGenericDelegate <Object> dObject = dString;             
+    SampleGenericDelegate <Object> dObject = dString;
 }  
 ```  
   
  変性サポートのみを使用してメソッド シグネチャをデリゲート型に一致させ、`in` キーワードと `out` キーワードを使用しない場合、同等のラムダ式かメソッドを使用すれば、デリゲートをインスタンス化できることがありますが、デリゲートを別のデリゲートに割り当てることはできません。  
   
- 次のコード例では、`String` が `Object` を継承していますが、`SampleGenericDelegate<String>` を `SampleGenericDelegate<Object>` に明示的に変換することはできません。 この問題を修正するには、ジェネリック パラメーター `T` を `out` キーワードでマークします。  
+ 次のコード例では、`SampleGenericDelegate<String>` が `SampleGenericDelegate<Object>` を継承していますが、`String` を `Object` に明示的に変換することはできません。 この問題を修正するには、ジェネリック パラメーター `T` を `out` キーワードでマークします。  
   
 ```csharp  
 public delegate T SampleGenericDelegate<T>();  
@@ -98,7 +98,7 @@ public static void Test()
   
     // You can assign the dObject delegate  
     // to the same lambda expression as dString delegate  
-    // because of the variance support for   
+    // because of the variance support for
     // matching method signatures with delegate types.  
     SampleGenericDelegate<Object> dObject = () => " ";  
   
@@ -112,9 +112,9 @@ public static void Test()
 ### <a name="generic-delegates-that-have-variant-type-parameters-in-the-net-framework"></a>.NET Framework のバリアント型パラメーターが含まれる汎用デリゲート  
  .NET Framework 4 では、既存の複数の汎用デリゲートで、ジェネリック型パラメーターに対して変性サポートが導入されました。  
   
-- <xref:System> 名前空間の `Action` デリゲート。<xref:System.Action%601>、<xref:System.Action%602> など  
+- `Action` 名前空間の <xref:System> デリゲート。<xref:System.Action%601>、<xref:System.Action%602> など  
   
-- <xref:System> 名前空間の `Func` デリゲート。<xref:System.Func%601>、<xref:System.Func%602> など  
+- `Func` 名前空間の <xref:System> デリゲート。<xref:System.Func%601>、<xref:System.Func%602> など  
   
 - <xref:System.Predicate%601> デリゲート  
   
@@ -142,7 +142,7 @@ public delegate void DContravariant<in A>(A a);
 > [!IMPORTANT]
 > C# の `ref`、`in`、`out` パラメーターを、バリアントとしてマークすることはできません。  
   
- 同じデリゲートで、型パラメーターが異なる場合は、変性と共変性の両方をサポートすることもできます。 これを次の例に示します。  
+ 同じデリゲートで、型パラメーターが異なる場合は、変性と共変性の両方をサポートすることもできます。 次の例を参照してください。  
   
 ```csharp  
 public delegate R DVariant<in A, out R>(A a);  
@@ -192,12 +192,12 @@ public static void Test()
     // DInvariant<Object> dObject = dInt;  
     // DInvariant<long> dLong = dInt;  
     // DVariant<Object> dVariantObject = dVariantInt;  
-    // DVariant<long> dVariantLong = dVariantInt;              
+    // DVariant<long> dVariantLong = dVariantInt;
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ジェネリック](../../../../standard/generics/index.md)
-- [Func および Action 汎用デリゲートでの変性の使用 (C#)](./using-variance-for-func-and-action-generic-delegates.md)
-- [方法: デリゲートを結合する (マルチキャスト デリゲート)](../../delegates/how-to-combine-delegates-multicast-delegates.md)
+- [Func および Action 汎用デリゲートでの分散の使用 (C#)](./using-variance-for-func-and-action-generic-delegates.md)
+- [デリゲートを結合する方法 (マルチキャスト デリゲート)](../../delegates/how-to-combine-delegates-multicast-delegates.md)

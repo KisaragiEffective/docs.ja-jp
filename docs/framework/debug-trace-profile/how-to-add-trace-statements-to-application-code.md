@@ -1,5 +1,5 @@
 ---
-title: '方法: アプリケーション コードにトレース ステートメントを追加する'
+title: '方法 : アプリケーション コードにトレース ステートメントを追加する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -13,17 +13,15 @@ helpviewer_keywords:
 - trace switches, conditional writes based on switches
 - WriteIf method
 ms.assetid: f3a93fa7-1717-467d-aaff-393e5c9828b4
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 4517da87603dcdd398d536cd9bf9e441430be375
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 21df0e8129505e50e6b7f29c4f4f5aea94f380e3
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052736"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217468"
 ---
-# <a name="how-to-add-trace-statements-to-application-code"></a>方法: アプリケーション コードにトレース ステートメントを追加する
-トレースで最も頻繁に使用されるメソッドは、出力をリスナーに書き込むためのメソッドです。**Write**、 **WriteIf**、 **WriteLine**、 **WriteLineIf**、 **Assert**、および**Fail**。 これらのメソッドは、次の2つのカテゴリに分けることができます。**Write**、 **WriteLine**、および**Fail**はすべて無条件に出力を生成します。一方、 **WriteIf**、 **WriteLineIf**、および**Assert**はブール条件をテストし、条件の値に基づいて書き込みまたは書き込みを行いません。 **WriteIf** と **WriteLineIf** は条件が `true` の場合に出力を生成し、**Assert** は条件が `false` の場合に出力を生成します。  
+# <a name="how-to-add-trace-statements-to-application-code"></a>方法 : アプリケーション コードにトレース ステートメントを追加する
+トレースで最も使用頻度の高いメソッドは、出力をリスナーに書き込むメソッドである **Write**、**WriteIf**、**WriteLine**、**WriteLineIf**、**Assert**、および **Fail** です。 これらのメソッドは、次の 2 つのカテゴリに分類できます。**Write**、**WriteLine**、および **Fail** はすべて出力を無条件に生成します。それに対して、**WriteIf**、**WriteLineIf**、および **Assert** はブール条件をテストし、条件の値に基づいて書き込みを行ったり行わなかったりします。 **WriteIf** と **WriteLineIf** は条件が `true` の場合に出力を生成し、**Assert** は条件が `false` の場合に出力を生成します。  
   
  トレースおよびデバッグの方法をデザインするときは、出力の表示方法について検討する必要があります。 関連のない情報で埋め尽くされた複数の **Write** ステートメントの場合、読みにくいログが作成されます。 その一方で、**WriteLine** を使用して関連のあるステートメントを別々の行に出力すると、どの情報が関連し合っているかを読み取るのが困難になる場合があります。 一般に、複数のソースからの情報を結合する場合には複数の **Write** ステートメントを使用して 1 つの情報メッセージを作成し、単一の完全なメッセージを作成する場合には **WriteLine** ステートメントを使用します。  
   
@@ -84,13 +82,13 @@ ms.locfileid: "71052736"
     > [!NOTE]
     > **Assert** は、トレースとデバッグの両方で使用できます。 この例では、呼び出し履歴を **Listeners** コレクションのリスナーに出力しています。 詳細については、「[マネージド コードのアサーション](/visualstudio/debugger/assertions-in-managed-code)」および「<xref:System.Diagnostics.Debug.Assert%2A?displayProperty=nameWithType>」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Diagnostics.Debug.WriteIf%2A?displayProperty=nameWithType>
 - <xref:System.Diagnostics.Debug.WriteLineIf%2A?displayProperty=nameWithType>
 - <xref:System.Diagnostics.Trace.WriteIf%2A?displayProperty=nameWithType>
 - <xref:System.Diagnostics.Trace.WriteLineIf%2A?displayProperty=nameWithType>
 - [アプリケーションのトレースとインストルメント](tracing-and-instrumenting-applications.md)
-- [方法: トレーススイッチを作成、初期化、および構成する](how-to-create-initialize-and-configure-trace-switches.md)
+- [方法 : トレース スイッチを作成、初期化、および構成する](how-to-create-initialize-and-configure-trace-switches.md)
 - [トレース スイッチ](trace-switches.md)
 - [トレース リスナー](trace-listeners.md)

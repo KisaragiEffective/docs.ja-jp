@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 66fcd2b8-ac66-414b-83a8-75a925e17772
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3219554cf953b8de31e236b2f484478172673f7b
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 406468fc6e2b68e8c8e1dfbd0f0f18cce3f013ab
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69915004"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76794454"
 ---
 # <a name="icordebughandlevalue-interface"></a>ICorDebugHandleValue インターフェイス
 
@@ -31,24 +29,24 @@ ms.locfileid: "69915004"
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[Dispose メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebughandlevalue-dispose-method.md)|インターフェイスポインターを明示的に`ICorDebugHandleValue`解放せずに、このオブジェクトによって参照されるハンドルを解放します。|  
-|[GetHandleType メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebughandlevalue-gethandletype-method.md)|この`ICorDebugHandleValue`によって参照されるハンドルの種類を記述する CorDebugHandleType 値を取得します。|  
+|[Dispose メソッド](icordebughandlevalue-dispose-method.md)|インターフェイスポインターを明示的に解放せずに、この `ICorDebugHandleValue` オブジェクトが参照するハンドルを解放します。|  
+|[GetHandleType メソッド](icordebughandlevalue-gethandletype-method.md)|この `ICorDebugHandleValue`によって参照されるハンドルの種類を示す CorDebugHandleType 値を取得します。|  
   
-## <a name="remarks"></a>Remarks  
- デバッグ`ICorDebugReferenceValue`対象のコードの実行が中断された場合、オブジェクトは無効になります。 は`ICorDebugHandleValue` 、明示的に解放されるまで、中断および継続による参照を保持します。  
+## <a name="remarks"></a>コメント  
+ デバッグ対象のコードの実行が中断された場合、`ICorDebugReferenceValue` オブジェクトは無効になります。 `ICorDebugHandleValue` は、明示的に解放されるまで、中断と継続を通じて参照を保持します。  
   
 > [!NOTE]
 > このインターフェイスは、コンピューター間またはプロセス間でのリモート呼び出しをサポートしていません。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

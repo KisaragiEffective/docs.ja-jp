@@ -2,7 +2,7 @@
   href: index.md
 - name: 新着記事
   href: whats-new/
-- name: 開始するには
+- name: はじめに
   href: get-started/
 - name: インストール ガイド
   href: install/
@@ -42,8 +42,6 @@
       href: configure-apps/
     - name: .NET ネイティブによるアプリのコンパイル
       href: net-native/
-    - name: Windows Identity Foundation
-      href: security/
     - name: デバッグ、トレース、およびプロファイリング
       href: debug-trace-profile/
     - name: 配置
@@ -59,7 +57,7 @@
     - name: アンマネージ API リファレンス
       href: unmanaged-api/
     - name: XAML サービス
-      href: xaml-services/
+      href: ../desktop-wpf/xaml-services/
 - name: ツール
   href: tools/
 - name: 追加のクラス ライブラリおよび API

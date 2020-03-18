@@ -1,5 +1,5 @@
 ---
-title: <list> (Visual Basic)
+title: <list>
 ms.date: 07/20/2015
 helpviewer_keywords:
 - listheader XML tag
@@ -13,14 +13,14 @@ helpviewer_keywords:
 - item XML tag
 - <term> XML tag
 ms.assetid: ec35fced-d58e-4520-a764-0691256e014b
-ms.openlocfilehash: 5d4295d485611e75e8b6c8d8f95e079654f0cfa3
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: db5c571d2f2c59419c886f6596f4e4dbd30d7baf
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524749"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352318"
 ---
-# <a name="list-visual-basic"></a>\<list > (Visual Basic)
+# <a name="list-visual-basic"></a>\<list> (Visual Basic)
 リストまたはテーブルを定義します。  
   
 ## <a name="syntax"></a>構文  
@@ -40,18 +40,18 @@ ms.locfileid: "72524749"
   
 ## <a name="parameters"></a>パラメーター  
  `type`  
- リストの型。 箇条書きの場合は "箇条書き"、番号付きリストの場合は "数値"、2列テーブルの場合は "table" にする必要があります。  
+ リストの種類。 箇条書きの場合は "箇条書き"、番号付きリストの場合は "数値"、2列テーブルの場合は "table" にする必要があります。  
   
  `term`  
- @No__t_0 が "table" の場合にのみ使用されます。 Description タグで定義されている定義対象の用語。  
+ `type` が "table" の場合にのみ使用されます。 Description タグで定義されている定義対象の用語。  
   
  `description`  
- @No__t_0 が "bullet" または "number" の場合、`description` は `type` が "table" の場合はリスト内の項目であり、`description` は `term` の定義です。  
+ `type` が "bullet" または "number" の場合、`description` は `type` が "table" の場合はリスト内の項目であり、`description` は `term`の定義です。  
   
-## <a name="remarks"></a>Remarks  
- @No__t_0 ブロックでは、テーブルまたは定義リストの見出しを定義します。 テーブルを定義する場合は、見出しに `term` のエントリを指定するだけで済みます。  
+## <a name="remarks"></a>コメント  
+ `<listheader>` ブロックでは、テーブルまたは定義リストの見出しを定義します。 テーブルを定義する場合は、見出しに `term` のエントリを指定するだけで済みます。  
   
- リスト内の各項目には、`<item>` ブロックが指定されています。 定義リストを作成する場合は、`term` と `description` の両方を指定する必要があります。 ただし、テーブル、箇条書きリスト、番号付きリストの場合は、`description` のエントリを指定するだけで済みます。  
+ リスト内の各項目には、`<item>` ブロックが指定されています。 定義リストを作成する場合は、`term` と `description`の両方を指定する必要があります。 ただし、テーブル、箇条書きリスト、番号付きリストの場合は、`description`のエントリを指定するだけで済みます。  
   
  リストまたはテーブルには、必要に応じて `<item>` ブロックをいくつでも含めることができます。  
   

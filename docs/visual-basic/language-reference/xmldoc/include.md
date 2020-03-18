@@ -1,19 +1,19 @@
 ---
-title: <include> (Visual Basic)
+title: <include>
 ms.date: 07/20/2015
 helpviewer_keywords:
 - include XML tag
 - <include> XML tag
 ms.assetid: ba8e9173-82cd-460b-8938-a075a2dfb36d
-ms.openlocfilehash: d9c1c1a50f0e3530c842a6058e288b8d2be15f95
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 2f2bebfd06d4614f05cb66834cc5bef40524ce3b
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61940908"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74348457"
 ---
-# <a name="include-visual-basic"></a>\<含める > (Visual Basic)
-型と、ソース コード内のメンバーを記述する別のファイルを参照します。  
+# <a name="include-visual-basic"></a>\<include> (Visual Basic)
+は、ソースコード内の型とメンバーを記述する別のファイルを参照します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -23,28 +23,28 @@ ms.locfileid: "61940908"
   
 ## <a name="parameters"></a>パラメーター  
  `filename`  
- 必須。 文書を含むファイルの名前。 ファイル名をパスで修飾することができます。 囲む`filename`で二重引用符 ("")。  
+ 必須。 文書を含むファイルの名前。 ファイル名をパスで修飾することができます。 `filename` を二重引用符 ("") で囲みます。  
   
  `tagpath`  
- 必須。 タグ `name` につながる `filename` 内のタグのパス。 パスを二重引用符で囲みます ("")。  
+ 必須。 タグ `filename` につながる `name` 内のタグのパス。 パスは二重引用符 ("") で囲みます。  
   
  `name`  
- 必須。 コメントの前にあるタグの名前指定子。 `Name` 必要があります、`id`します。  
+ 必須。 コメントの前にあるタグの名前指定子。 `Name` には `id`があります。  
   
  `id`  
- 必須。 コメントの前に配置するタグの ID。 ID を単一引用符で囲みます (' ')。  
+ 必須。 コメントの前に配置するタグの ID。 ID は単一引用符 (' ') で囲みます。  
   
-## <a name="remarks"></a>Remarks  
- 使用して、`<include>`タグをソース コード内のメンバーと型を記述する別のファイル内のコメントを参照してください。 これは文書化のコメントをソース コード ファイル内に直接配置する方法の代替です。  
+## <a name="remarks"></a>コメント  
+ `<include>` タグを使用して、ソースコード内の型とメンバーを記述する別のファイル内のコメントを参照します。 これは文書化のコメントをソース コード ファイル内に直接配置する方法の代替です。  
   
- `<include>`タグは、W3C XML Path Language (XPath) Version 1.0 』 を使用します。 カスタマイズする方法の詳細については、`<include>`を使用して、参照してください<https://www.w3.org/TR/xpath>します。  
+ `<include>` タグでは、W3C 勧告『 XML Path Language (XPath) バージョン1.0 が使用されています。 `<include>` の使用方法をカスタマイズする方法の詳細については、「<https://www.w3.org/TR/xpath>」を参照してください。  
   
 ## <a name="example"></a>例  
- この例では、`<include>`メンバー ドキュメントのコメントをという名前のファイルからインポートするタグ`commentFile.xml`します。  
+ この例では、`<include>` タグを使用して、`commentFile.xml`という名前のファイルからメンバードキュメントコメントをインポートします。  
   
  [!code-vb[VbVbcnXmlDocComments#4](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnXmlDocComments/VB/Class1.vb#4)]  
   
- 形式、`commentFile.xml`のとおりです。  
+ `commentFile.xml` の形式は次のとおりです。  
   
 ```xml  
 <Docs>  
@@ -59,6 +59,6 @@ ms.locfileid: "61940908"
 </Docs>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [XML のコメント用タグ](../../../visual-basic/language-reference/xmldoc/index.md)

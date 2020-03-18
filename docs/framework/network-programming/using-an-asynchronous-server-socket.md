@@ -17,12 +17,12 @@ helpviewer_keywords:
 - protocols, sockets
 - Internet, sockets
 ms.assetid: 813489a9-3efd-41b6-a33f-371d55397676
-ms.openlocfilehash: 11ed53a4e51ba6993fd4e240116b0e1de910a01e
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 467804e685d800643c421ed1aad040a842b42886
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71047046"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79180633"
 ---
 # <a name="using-an-asynchronous-server-socket"></a>非同期サーバー ソケットの使用
 非同期サーバー ソケットは、.NET Framework の非同期プログラミング モデルを使用してネットワーク サービス要求を処理します。 <xref:System.Net.Sockets.Socket> クラスは、標準の .NET Framework の非同期名前付けパターンに従います。たとえば、同期の <xref:System.Net.Sockets.Socket.Accept%2A> メソッドは非同期の <xref:System.Net.Sockets.Socket.BeginAccept%2A> メソッドと <xref:System.Net.Sockets.Socket.EndAccept%2A> メソッドに対応します。  
@@ -58,7 +58,7 @@ listener.BeginAccept(new AsyncCallback(SocketListener.AcceptCallback), listener)
   
  非同期ソケットは、システム スレッド プールの複数のスレッドを使用して、受信接続を処理します。 接続の受け入れに使用されるスレッド、各受信接続の処理に使用されるスレッド、接続からデータを受け取るために使用されるスレッドがあります。 スレッド プールが割り当てるスレッドによっては、これらのスレッドが同じスレッドになる可能性があります。 次の例では、<xref:System.Threading.ManualResetEvent?displayProperty=nameWithType> クラスがメイン スレッドの実行を停止し、実行を続行できるようになったらシグナルを送ります。  
   
- ローカル コンピューター上に非同期 TCP/IP Socket を作成し、接続の受け入れを開始する非同期メソッドの例を次に示します。 `allDone` というグローバル **ManualResetEvent** があり、メソッドが `SocketListener` というクラスのメンバーであり、`AcceptCallback` というコールバック メソッドが定義されているとします。  
+ ローカル コンピューター上に非同期 TCP/IP Socket を作成し、接続の受け入れを開始する非同期メソッドの例を次に示します。 **というグローバル**ManualResetEvent`allDone` があり、メソッドが `SocketListener` というクラスのメンバーであり、`AcceptCallback` というコールバック メソッドが定義されているとします。  
   
 ```vb  
 Public Sub StartListening()  
@@ -101,7 +101,7 @@ public void StartListening()
   
     Socket listener = new Socket(localEP.Address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);  
   
-    try 
+    try
     {  
         listener.Bind(localEP);  
         listener.Listen(10);  
@@ -125,7 +125,7 @@ public void StartListening()
 }  
 ```  
   
- accept のコールバック メソッド (前の例では `AcceptCallback`) は、処理を継続するためにメイン アプリケーション スレッドにシグナルを送り、クライアントとの接続を確立し、クライアントからデータの非同期読み取りを開始します。 次の例は、`AcceptCallback` メソッドの実装の最初の部分です。 このメソッドのセクションでは、処理を継続するためにメイン アプリケーション スレッドに信号を送り、クライアントへの接続を確立しています。 `allDone` というグローバル **ManualResetEvent** があるとします。  
+ accept のコールバック メソッド (前の例では `AcceptCallback`) は、処理を継続するためにメイン アプリケーション スレッドにシグナルを送り、クライアントとの接続を確立し、クライアントからデータの非同期読み取りを開始します。 次の例は、`AcceptCallback` メソッドの実装の最初の部分です。 このメソッドのセクションでは、処理を継続するためにメイン アプリケーション スレッドに信号を送り、クライアントへの接続を確立しています。 **というグローバル**ManualResetEvent`allDone` があるとします。  
   
 ```vb  
 Public Sub AcceptCallback(ar As IAsyncResult)  
@@ -139,14 +139,14 @@ End Sub 'AcceptCallback
 ```  
   
 ```csharp  
-public void AcceptCallback(IAsyncResult ar) 
+public void AcceptCallback(IAsyncResult ar)
 {  
     allDone.Set();  
   
     Socket listener = (Socket) ar.AsyncState;  
     Socket handler = listener.EndAccept(ar);  
   
-    // Additional code to read data goes here.    
+    // Additional code to read data goes here.
 }  
 ```  
   
@@ -162,7 +162,7 @@ End Class 'StateObject
 ```  
   
 ```csharp  
-public class StateObject 
+public class StateObject
 {  
     public Socket workSocket = null;  
     public const int BufferSize = 1024;  
@@ -173,7 +173,7 @@ public class StateObject
   
  クライアント ソケットからデータの受信を開始する `AcceptCallback` メソッドのセクションでは、まず `StateObject` クラスのインスタンスを初期化してから、<xref:System.Net.Sockets.Socket.BeginReceive%2A> メソッドを呼び出してクライアント ソケットからデータの読み取りを非同期に開始します。  
   
- `AcceptCallback` メソッドのサンプル コード全体を次に示します。 `StateObject` クラスが定義されている `allDone,` というグローバル **ManualResetEvent** があり、`ReadCallback` メソッドが `SocketListener` というクラスで定義されているとします。  
+ `AcceptCallback` メソッドのサンプル コード全体を次に示します。 **クラスが定義されている** というグローバル `allDone,`ManualResetEvent`StateObject` があり、`ReadCallback` メソッドが `SocketListener` というクラスで定義されているとします。  
   
 ```vb  
 Public Shared Sub AcceptCallback(ar As IAsyncResult)  
@@ -219,7 +219,7 @@ Public Shared Sub ReadCallback(ar As IAsyncResult)
     Dim state As StateObject = CType(ar.AsyncState, StateObject)  
     Dim handler As Socket = state.workSocket  
   
-    ' Read data from the client socket.   
+    ' Read data from the client socket.
     Dim read As Integer = handler.EndReceive(ar)  
   
     ' Data was read from the client socket.  
@@ -253,10 +253,10 @@ public static void ReadCallback(IAsyncResult ar)
         state.sb.Append(Encoding.ASCII.GetString(state.buffer,0,read));  
         handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,  
             new AsyncCallback(ReadCallback), state);  
-    } 
-    else 
+    }
+    else
     {  
-        if (state.sb.Length > 1) 
+        if (state.sb.Length > 1)
         {  
             // All the data has been read from the client;  
             // display it on the console.  
@@ -268,7 +268,7 @@ public static void ReadCallback(IAsyncResult ar)
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [同期サーバー ソケットの使用](using-a-synchronous-server-socket.md)
 - [非同期サーバー ソケットの例](asynchronous-server-socket-example.md)

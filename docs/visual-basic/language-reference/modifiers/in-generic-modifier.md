@@ -36,7 +36,7 @@ Visual Basic では、デリゲート型を指定せずに反変のインター�
 
 ## <a name="behavior"></a>動作
 
-反変の型パラメーターを持つインターフェイスを使用すると、そのインターフェイスのメソッドは、インターフェイス型パラメーターによって指定された型よりも弱い派生型の引数を受け取ることができます。 たとえば、.NET Framework 4 の <xref:System.Collections.Generic.IComparer%601> インターフェイスでは、型 T は反変であるため、`IComparer(Of Person)` 型のオブジェクトを、`Employee` が @no__t から継承している場合は特別な変換メソッドを使用せずに、`IComparer(Of Employee)` 型のオブジェクトに割り当てることができます。
+反変の型パラメーターを持つインターフェイスを使用すると、そのインターフェイスのメソッドは、インターフェイス型パラメーターによって指定された型よりも弱い派生型の引数を受け取ることができます。 たとえば、.NET Framework 4 の <xref:System.Collections.Generic.IComparer%601> インターフェイスでは、型 T は反変であるため、`Employee` から継承される場合は、特殊な変換メソッドを使用せずに、`IComparer(Of Person)` 型のオブジェクトを `IComparer(Of Employee)` 型のオブジェクトに割り当てることができます。`Person`
 
 反変のデリゲートには、型は同じでありながらより弱い派生ジェネリック型パラメーターを持つ別のデリゲートを割り当てることができます。
 
@@ -52,7 +52,7 @@ Visual Basic では、デリゲート型を指定せずに反変のインター�
 
 [!code-vb[vbVarianceKeywords#2](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/vbvariancekeywords/vb/module1.vb#2)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [ジェネリック インターフェイスの変性](../../programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces.md)
+- [ジェネリック インターフェイスの分散](../../programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces.md)
 - [Out](out-generic-modifier.md)

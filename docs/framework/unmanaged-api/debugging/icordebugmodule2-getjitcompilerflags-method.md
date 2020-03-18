@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 7212d9f4-989b-44e3-b8d4-ffc35922f6a0
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 88277be93d3a0e445e97217655d3d524962dd01d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: ab6551ba70ed4cd154b166eeb92138b6550d2cb2
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67764224"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76792977"
 ---
 # <a name="icordebugmodule2getjitcompilerflags-method"></a>ICorDebugModule2::GetJITCompilerFlags メソッド
-この ICorDebugModule2 の・ イン タイム (JIT) コンパイルを制御するフラグを取得します。  
+この ICorDebugModule2 の just-in-time (JIT) コンパイルを制御するフラグを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT GetJITCompilerFlags (
   
 ## <a name="parameters"></a>パラメーター  
  `pdwFlags`  
- [out]値へのポインター、 [CorDebugJITCompilerFlags](../../../../docs/framework/unmanaged-api/debugging/cordebugjitcompilerflags-enumeration.md) JIT コンパイルを制御する列挙体。  
+ 入出力JIT コンパイルを制御する[CorDebugJITCompilerFlags](cordebugjitcompilerflags-enumeration.md)列挙体の値へのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

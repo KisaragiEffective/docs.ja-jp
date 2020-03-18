@@ -8,18 +8,16 @@ dev_langs:
 helpviewer_keywords:
 - tasks, how to create a dynamic partitioner
 ms.assetid: c875ad12-a161-43e6-ad1c-3d6927c536a7
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5719c6afc1c5efc6138f0a4931d1725a6f20909a
-ms.sourcegitcommit: 10986410e59ff29f2ec55c6759bde3eb4d1a00cb
+ms.openlocfilehash: 3970566b4e3f51ce538c328d4e69b20ec22ec09b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424041"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73091414"
 ---
 # <a name="how-to-implement-dynamic-partitions"></a>方法: 動的パーティションを実装する
 
-次の例は、特定のオーバーロード <xref:System.Threading.Tasks.Parallel.ForEach%2A> と PLINQ から動的なパーティション分割を実装するカスタム <xref:System.Collections.Concurrent.OrderablePartitioner%601?displayProperty=nameWithType> を実装する方法を示します。  
+次の例は、特定のオーバーロード <xref:System.Collections.Concurrent.OrderablePartitioner%601?displayProperty=nameWithType> と PLINQ から動的なパーティション分割を実装するカスタム <xref:System.Threading.Tasks.Parallel.ForEach%2A> を実装する方法を示します。  
   
 ## <a name="example"></a>例
 
@@ -30,7 +28,7 @@ ms.locfileid: "66424041"
 
 これは、各チャンクが 1 つの要素で構成されるチャンク パーティション分割の例です。 一度に複数の要素を提供することにより、ロックの競合を減らし、理論的により高速なパフォーマンスを実現することができます。 ただし、チャンクが大きい場合、すべての作業が完了するまで、すべてのスレッドをビジーにするために、ある時点で追加の負荷分散ロジックが必要な場合があります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 * [PLINQ および TPL 用のカスタム パーティショナー](../../../docs/standard/parallel-programming/custom-partitioners-for-plinq-and-tpl.md)
 * [方法: 静的パーティション分割用にパーティショナーを実装する](../../../docs/standard/parallel-programming/how-to-implement-a-partitioner-for-static-partitioning.md)

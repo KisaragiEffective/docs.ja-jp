@@ -1,0 +1,246 @@
+### YamlMime:Hub
+title: .NET のドキュメント
+summary: .NET で、C#、Visual Basic、F# を使用して任意のプラットフォームでアプリケーションを作成する方法を説明します。 API リファレンス、サンプル コード、チュートリアルなどを参照します。
+brand: dotnet
+metadata:
+  title: .NET のドキュメント
+  description: .NET で、C#、Visual Basic、F# を使用して任意のプラットフォームでアプリケーションを作成する方法を説明します。 API リファレンス、サンプル コード、チュートリアルなどを参照します。
+  ms.product: dotnet
+  ms.topic: hub-page
+  ms.collection: collection
+  author: BillWagner
+  ms.author: wiwagn
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 6b23ab2f0214f23d45499fcf8ab7c3f2771be15c
+  ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 03/15/2020
+  ms.locfileid: "77452743"
+highlightedContent:
+  items:
+  - title: C# の概要。 クイック インタラクティブ スタート。
+    itemType: get-started
+    url: csharp/tutorials/intro-to-csharp/hello-world.yml
+  - title: コンソール アプリを初めて作成します。
+    itemType: tutorial
+    url: core/get-started.md
+  - title: Web アプリを初めて作成します。
+    itemType: learn
+    url: https://dotnet.microsoft.com/learn/aspnet/hello-world-tutorial/intro
+  - title: .NET の新機能に関するドキュメント
+    itemType: whats-new
+    url: whats-new/index.yml
+conceptualContent:
+  title: '.NET: フリー。 クロスプラットフォーム。 オープン ソース。'
+  summary: Web、モバイル、デスクトップ、ゲーム、IoT など、あらゆるアプリを構築するための開発者用プラットフォームです。 Windows、Linux、macOS でサポートされています。
+  items:
+  - title: オープンソースの .NET
+    summary: .NET Core について学習する
+    links:
+    - url: core/index.md
+      itemType: overview
+      text: .NET Core の概要
+    - url: core/whats-new/dotnet-core-3-1.md
+      itemType: whats-new
+      text: .NET Core 3.1 の新機能
+    - url: standard/tour.md
+      itemType: overview
+      text: .NET のツアー
+    - url: core/deploying/index.md
+      itemType: deploy
+      text: .NET Core アプリを配置する
+    - url: core/docker/build-container.md
+      itemType: tutorial
+      text: Docker を使用して .NET Core アプリをコンテナー化する
+    - url: core/tutorials/index.md
+      itemType: tutorial
+      text: チュートリアル
+  - title: .NET の概念
+    summary: .NET の基本的な概念について学習する
+    links:
+    - url: https://channel9.msdn.com/Series/NET-Core-101/What-is-NET
+      itemType: video
+      text: .NET とは何ですか?
+    - url: standard/index.md
+      itemType: overview
+      text: .NET の概要
+    - url: standard/net-standard.md
+      itemType: overview
+      text: .NET Standard
+    - url: /aspnet/core/
+      itemType: overview
+      text: ASP.NET Core
+    - url: /ef/core/
+      itemType: overview
+      text: Entity Framework Core
+    - url: standard/get-started.md
+      itemType: get-started
+      text: 作業開始
+    - url: standard/components.md
+      itemType: concept
+      text: .NET アーキテクチャ コンポーネント
+    - url: framework/index.md
+      itemType: overview
+      text: .NET Framework (Windows) アプリ
+  - title: .NET アプリを開発する
+    summary: .NET を使用して開発を始める
+    links:
+    - url: core/sdk.md
+      itemType: download
+      text: .NET Core SDK をダウンロードする
+    - url: core/tools/index.md
+      itemType: overview
+      text: .NET Core CLI の概要
+    - url: core/porting/index.md
+      itemType: how-to-guide
+      text: .NET Framework から .NET Core への移植
+    - url: core/compatibility/index.md
+      itemType: concept
+      text: .NET Core の破壊的変更
+    - url: desktop-wpf/overview/index.md
+      itemType: overview
+      text: Windows 用の .NET Core デスクトップ アプリを作成する
+    - url: standard/library-guidance/index.md
+      itemType: concept
+      text: オープンソース ライブラリのガイダンス
+  - title: .NET アーキテクチャ ガイド
+    summary: .NET の基本的な開発とアーキテクチャに関するガイダンスを読む
+    links:
+    - url: architecture/microservices/index.md
+      itemType: architecture
+      text: '.NET マイクロサービス: コンテナー化された .NET アプリのアーキテクチャ'
+    - url: architecture/modern-web-apps-azure/index.md
+      itemType: architecture
+      text: ASP.NET Core および Azure での最新の Web アプリケーションの設計
+    - url: architecture/containerized-lifecycle/index.md
+      itemType: architecture
+      text: Microsoft プラットフォームとツールでのコンテナー化された Docker アプリケーションのライフサイクル
+    - url: architecture/modernize-with-azure-containers/index.md
+      itemType: architecture
+      text: Azure クラウドおよび Windows コンテナーを使用して既存の .NET アプリケーションを最新化する
+    footerLink:
+      url: architecture/index.yml
+      text: アーキテクチャに関するすべてのガイド
+tools:
+  title: プログラミング言語
+  summary: C#、F#、または Visual Basic を使用して、.NET アプリを記述できます。
+  items:
+  - title: C ファミリの最新のオブジェクト指向でタイプ セーフのメンバー
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+    url: csharp/index.yml
+  - title: .NET 用の関数型プログラミング言語
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Fsharp.svg
+    url: fsharp/index.yml
+  - title: 読みやすい構文のわかりやすい言語
+    imageSrc: https://docs.microsoft.com/media/logos/logo_VB.svg
+    url: visual-basic/index.yml
+additionalContent:
+  sections:
+  - title: アプリケーションを作成する
+    summary: Web、モバイル、デスクトップ、ゲーム、IoT などを選択できます。
+    items:
+    - title: Web
+      links:
+      - url: /aspnet/core/getting-started
+        text: Web アプリを初めて作成する
+      - url: /aspnet/core/tutorials
+        text: ASP.NET Core チュートリアル
+      - url: /aspnet/core
+        text: ASP.NET Core とは何ですか?
+      - url: /aspnet/core/tutorials/first-mvc-app/start-mvc
+        text: Visual Studio での ASP.NET Core
+      - url: /aspnet/mvc/overview/deployment/docker-aspnetmvc
+        text: Windows コンテナーの ASP.NET MVC アプリ
+      - url: /aspnet/core/blazor/
+        text: 'Blazor: .NET を使用した対話型のクライアント側 Web UI'
+    - title: クラウドのネイティブ サービスとマイクロサービス
+      links:
+      - url: /dotnet/azure/
+        text: .NET 用 Azure のドキュメント
+      - url: /azure/storage
+        text: 記憶域
+      - url: /dotnet/fsharp/using-fsharp-on-azure/
+        text: Azure での F# の使用
+      - url: architecture/serverless/index.md
+        text: 'サーバーレス アプリ: アーキテクチャ、パターン、および Azure の実装'
+      - url: architecture/microservices/index.md
+        text: '.NET マイクロサービス: コンテナー化された .NET アプリケーションのアーキテクチャ'
+    - title: 携帯
+      links:
+      - url: /xamarin/ios/
+        text: Xamarin.iOS
+      - url: /xamarin/android
+        text: Xamarin.Android
+      - url: /xamarin/xamarin-forms
+        text: Xamarin.Forms
+    - title: デスクトップ
+      links:
+      - url: /uwp
+        text: ユニバーサル Windows アプリ
+      - url: desktop-wpf/index.md
+        text: Windows Presentation Foundation (.NET Core)
+      - url: framework/wpf/index.md
+        text: Windows Presentation Foundation (.NET Framework)
+      - url: framework/winforms/index.md
+        text: Windows フォーム
+      - url: /xamarin/mac
+        text: macOS 向けの Xamarin
+    - title: ゲーム
+      links:
+      - url: https://visualstudio.microsoft.com/vs/features/game-development/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link
+        text: Visual Studio を使用したゲーム開発
+      - url: https://docs.cryengine.com/display/CEPROG/C%23+Programming
+        text: CRYENGINE を使用して C# でゲームを構築する方法について学習する
+      - url: http://www.monogame.net/documentation/?page=main
+        text: MonoGame ライブラリを使用して C# でゲームを作成する
+      - url: https://docs.unity3d.com/Manual/index.html
+        text: Unity を使用して C# で 2D ゲームと 3D ゲームを作成する方法を学習する
+    - title: 機械学習と AI
+      links:
+      - url: machine-learning/index.yml
+        text: ML.NET を使用してカスタム AI ソリューションを構築する
+      - url: /azure/cognitive-services/
+        text: Azure Cognitive Services
+      - url: /azure/machine-learning
+        text: Azure Machine Learning
+      - url: spark/index.yml
+        text: .NET for Apache Spark
+    - title: モノのインターネット (IoT)
+      links:
+      - url: https://channel9.msdn.com/Shows/On-NET/IoT-support-for-NET-Core
+        text: '.NET の場合: .NET Core での IoT のサポートについて学習する'
+      - url: https://docs.microsoft.com/archive/msdn-magazine/2019/august/net-core-cross-platform-iot-programming-with-net-core-3-0
+        text: .NET Core 3.0 を使用したクロスプラットフォームの IoT プログラミング
+      - url: https://github.com/dotnet/iot
+        text: .NET Core の IoT ライブラリ
+      - url: https://www.nuget.org/packages/System.Device.Gpio
+        text: System.Device.Gpio NuGet パッケージ
+  - title: API リファレンス セクション
+    summary: 目的に応じて、.NET API のリファレンス ドキュメントを検索します。
+    items:
+    - title: .NET Core API リファレンス
+      summary: .NET Core の API リファレンス ドキュメント
+      url: https://docs.microsoft.com/dotnet/api/?view=netcore-3.1
+    - title: .NET Framework API リファレンス
+      summary: .NET Framework の API リファレンス ドキュメント
+      url: https://docs.microsoft.com/dotnet/api/?view=netframework-4.8
+    - title: ASP.NET Core API リファレンス
+      summary: ASP.NET Core の API リファレンス ドキュメント
+      url: https://docs.microsoft.com/dotnet/api/?view=aspnetcore-3.1
+    - title: ML.NET API リファレンス
+      summary: ML.NET の API リファレンス ドキュメント
+      url: https://docs.microsoft.com/dotnet/api/?view=ml-dotnet
+    - title: .NET for Apache Spark API リファレンス
+      summary: .NET for Apache Spark の API リファレンス ドキュメント
+      url: https://docs.microsoft.com/dotnet/api/?view=spark-dotnet
+    - title: C# 言語リファレンス
+      summary: C# 言語のリファレンスと仕様
+      url: csharp/language-reference/index.md
+    - title: F# 言語リファレンス
+      summary: F# 言語リファレンス
+      url: fsharp/language-reference/index.md
+    - title: Visual Basic の言語リファレンス
+      summary: Visual Basic 言語のリファレンスと仕様
+      url: visual-basic/language-reference/index.md
+  footer: .NET ドキュメントに投稿してください。[共同作成者ガイド](https://github.com/dotnet/Docs/blob/master/CONTRIBUTING.md)をお読みください。

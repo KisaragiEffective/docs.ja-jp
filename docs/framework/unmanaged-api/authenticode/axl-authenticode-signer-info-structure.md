@@ -2,14 +2,12 @@
 title: AXL_AUTHENTICODE_SIGNER_INFO 構造体
 ms.date: 03/30/2017
 ms.assetid: 81c0f8b4-ce35-4716-8651-b642d40648a2
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9aaa0258b53b6b39874c8c99c71ecf53cbdb8f97
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 00132bb378d69c0db9fe9d762407707346238917
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70787081"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73132509"
 ---
 # <a name="axl_authenticode_signer_info-structure"></a>AXL_AUTHENTICODE_SIGNER_INFO 構造体
 Authenticode の署名者情報を定義します。  

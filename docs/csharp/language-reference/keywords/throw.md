@@ -1,6 +1,5 @@
 ---
 title: throw - C# リファレンス
-ms.custom: seodec18
 ms.date: 03/02/2015
 f1_keywords:
 - throw
@@ -10,20 +9,18 @@ helpviewer_keywords:
 - throw expression [C#]
 - throw keyword [C#]
 ms.assetid: 5ac4feef-4b1a-4c61-aeb4-61d549e5dd42
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1e3f9ff82bdc4f35232c4ea1162050e216a9cc21
-ms.sourcegitcommit: da2dd2772fcf32b44eb18b1cbe8affd17b1753c9
+ms.openlocfilehash: 04d3138e3390627355b4b2d4e25c6b00248cec1a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71353424"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398113"
 ---
 # <a name="throw-c-reference"></a>throw (C# リファレンス)
 
 プログラムの実行中に例外が発生したことを通知します。  
   
-## <a name="remarks"></a>コメント
+## <a name="remarks"></a>解説
 
 `throw` の構文は次のとおりです。
 
@@ -31,7 +28,7 @@ ms.locfileid: "71353424"
 throw [e];
 ```
 
-ここで `e` は <xref:System.Exception?displayProperty=nameWithType> から派生したクラスのインスタンスです。 次の例では、`GetNumber` という名前のメソッドに渡された引数が内部配列の有効なインデックスに対応していない場合に、`throw` ステートメントを使用して <xref:System.IndexOutOfRangeException> をスローします。
+ここで `e` は <xref:System.Exception?displayProperty=nameWithType> から派生したクラスのインスタンスです。 次の例では、`throw` という名前のメソッドに渡された引数が内部配列の有効なインデックスに対応していない場合に、<xref:System.IndexOutOfRangeException> ステートメントを使用して `GetNumber` をスローします。
 
 [!code-csharp[csrefKeyword#1](~/samples/snippets/csharp/language-reference/keywords/throw/throw-1.cs#1)]
 
@@ -46,21 +43,21 @@ throw [e];
 [!code-csharp[csrefKeyword#3](~/samples/snippets/csharp/language-reference/keywords/throw/throw-3.cs#3)]
 
 > [!IMPORTANT]
-> `catch` ブロックで `throw e` 構文を使用すると、呼び出し元に渡す新しい例外をインスタンス化することもできます。 この場合、<xref:System.Exception.StackTrace> プロパティから使用できる、元の例外のスタック トレースが保持されません。
+> `throw e` ブロックで `catch` 構文を使用すると、呼び出し元に渡す新しい例外をインスタンス化することもできます。 この場合、<xref:System.Exception.StackTrace> プロパティから使用できる、元の例外のスタック トレースが保持されません。
 
 ## <a name="the-throw-expression"></a>`throw` 式
 
-C# 7.0 以降、`throw` は、式およびステートメントとして使用できます。 これにより、以前サポートされていなかったコンテキストでの例外のスローが可能になります。 次の設定があります。
+C# 7.0 以降、`throw` は、式およびステートメントとして使用できます。 これにより、以前サポートされていなかったコンテキストでの例外のスローが可能になります。 チェックの内容は次のとおりです
 
 - [条件演算子](../operators/conditional-operator.md)。 次の例では、`throw` 式を使用して、メソッドに空の文字列配列が渡された場合に <xref:System.ArgumentException> をスローします。 C# 7.0 より前では、このロジックが `if`/`else` ステートメントで使用されている必要があります。
 
    [!code-csharp[csrefKeyword#4](~/samples/snippets/csharp/language-reference/keywords/throw/conditional.cs#1)]
 
-- [Null 合体演算子](../operators/null-coalescing-operator.md)。 次の例では、null 合体演算子と共に `throw` 式を使用して、`Name` プロパティに割り当てられた文字列が `null` の場合に例外をスローします。
+- [ull 合体演算子](../operators/null-coalescing-operator.md)。 次の例では、null 合体演算子と共に `throw` 式を使用して、`Name` プロパティに割り当てられた文字列が `null` の場合に例外をスローします。
 
    [!code-csharp[csrefKeyword#5](~/samples/snippets/csharp/language-reference/keywords/throw/coalescing.cs#1)]
 
-- 式形式の[ラムダ](../../programming-guide/statements-expressions-operators/lambda-expressions.md)またはメソッド。 次の例では、<xref:System.DateTime> 値への変換がサポートされていないため <xref:System.InvalidCastException> をスローする、式形式のメソッドを示しています。
+- 式形式の[ラムダ](../../programming-guide/statements-expressions-operators/lambda-expressions.md)またはメソッド。 次の例では、<xref:System.InvalidCastException> 値への変換がサポートされていないため <xref:System.DateTime> をスローする、式形式のメソッドを示しています。
 
    [!code-csharp[csrefKeyword#6](~/samples/snippets/csharp/language-reference/keywords/throw/exp-bodied.cs#1)]
 
@@ -68,7 +65,7 @@ C# 7.0 以降、`throw` は、式およびステートメントとして使用�
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
 - [C# プログラミングガイド](../../programming-guide/index.md)

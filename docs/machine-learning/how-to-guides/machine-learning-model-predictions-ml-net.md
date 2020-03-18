@@ -5,12 +5,12 @@ ms.date: 09/18/2019
 author: luisquintanilla
 ms.author: luquinta
 ms.custom: mvc, how-to
-ms.openlocfilehash: f764d2147ec56f8dcc38f96d566ac746cf205650
-ms.sourcegitcommit: 9bd1c09128e012b6e34bdcbdf3576379f58f3137
+ms.openlocfilehash: 182350cc5143155133385c6fd77986b271f6db91
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799125"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73977040"
 ---
 # <a name="make-predictions-with-a-trained-model"></a>トレーニング済みモデルを使用して予測する
 
@@ -18,7 +18,7 @@ ms.locfileid: "72799125"
 
 ## <a name="create-data-models"></a>データ モデルを作成する
 
-### <a name="input-data"></a>データを入力する
+### <a name="input-data"></a>入力データ
 
 ```csharp
 public class HousingData
@@ -36,11 +36,11 @@ public class HousingData
 }
 ```
 
-### <a name="output-data"></a>データを出力する
+### <a name="output-data"></a>出力データ
 
 `Features` と `Label` の入力列名と同様に、ML.NET にはモデルによって生成される予測値列の既定の名前があります。 タスクによっては名前が異なる場合があります。
 
-このサンプルで使用されているアルゴリズムは線形回帰アルゴリズムなので、出力列の既定の名前は `Score` です。これは `PredictedPrice` プロパティの [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) 属性によって定義されます。
+このサンプルで使用されているアルゴリズムは線形回帰アルゴリズムなので、出力列の既定の名前は `Score` です。これは [ プロパティの `ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute)`PredictedPrice` 属性によって定義されます。
 
 ```csharp
 class HousingPrediction
@@ -55,7 +55,7 @@ class HousingPrediction
 1 つの予測でもバッチ予測でも、予測パイプラインをアプリケーションに読み込む必要があります。 このパイプラインには、データの前処理変換とトレーニング済みモデルの両方が含まれています。 次のコード スニペットは、`model.zip` という名前のファイルから予測パイプラインを読み込みます。
 
 ```csharp
-//Create MLContext 
+//Create MLContext
 MLContext mlContext = new MLContext();
 
 // Load Trained Model
@@ -86,7 +86,7 @@ HousingData inputData = new HousingData
 HousingPrediction prediction = predictionEngine.Predict(inputData);
 ```
 
-`prediction` オブジェクトの `Score` プロパティにアクセスすると、`150079` のような値になります。
+`Score` オブジェクトの `prediction` プロパティにアクセスすると、`150079` のような値になります。
 
 ## <a name="multiple-predictions"></a>複数の予測
 

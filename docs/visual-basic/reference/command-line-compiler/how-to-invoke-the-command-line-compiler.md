@@ -1,5 +1,5 @@
 ---
-title: '方法: コマンドラインコンパイラ (Visual Basic) を起動します。'
+title: '方法 : コマンド ライン コンパイラを起動する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - command-line arguments
@@ -7,14 +7,14 @@ helpviewer_keywords:
 - Visual Basic compiler, starting
 - command line [Visual Basic], arguments
 ms.assetid: 0fd9a8f6-f34e-4c35-a49d-9b9bbd8da4a9
-ms.openlocfilehash: a81d5b4f4eae76b0306e2d27475cb8527bda0ff2
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 3b34ebba68c9c9b2a8335822d0ffaef2a9b06d7c
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71054215"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74344259"
 ---
-# <a name="how-to-invoke-the-command-line-compiler-visual-basic"></a>方法: コマンドラインコンパイラ (Visual Basic) を起動します。
+# <a name="how-to-invoke-the-command-line-compiler-visual-basic"></a>方法: コマンド ライン コンパイラを起動する (Visual Basic)
 
 コマンドラインコンパイラを起動するには、実行可能ファイルの名前をコマンドラインに入力します (MS-DOS プロンプトとも呼ばれます)。 既定の Windows コマンドプロンプトからコンパイルする場合は、実行可能ファイルへの完全修飾パスを入力する必要があります。 この既定の動作をオーバーライドするには、Visual Studio の開発者コマンドプロンプトを使用するか、または PATH 環境変数を変更します。 どちらの方法でも、コンパイラ名を入力するだけで、任意のディレクトリからコンパイルできます。
 
@@ -28,9 +28,9 @@ ms.locfileid: "71054215"
 
 3. Visual Studio の開発者コマンドプロンプトを起動します。
 
-4. コマンドラインで、「 `vbc.exe` *sourcefilename* 」と入力し、enter キーを押します。
+4. コマンドラインで、「`vbc.exe` *Sourcefilename* 」と入力し、enter キーを押します。
 
-    たとえば、というディレクトリにソースコードを格納した場合`SourceFiles`は、コマンドプロンプトを開き、「」 `cd SourceFiles`と入力してそのディレクトリに変更します。 ディレクトリにという名前のソースファイル`Source.vb`が含まれている場合は`vbc.exe Source.vb`、「」と入力してコンパイルできます。
+    たとえば、ソースコードを `SourceFiles`という名前のディレクトリに保存した場合は、コマンドプロンプトを開き `cd SourceFiles` と入力して、そのディレクトリに変更します。 ディレクトリに `Source.vb`という名前のソースファイルが含まれている場合は、「`vbc.exe Source.vb`」と入力してコンパイルできます。
 
 ## <a name="to-set-the-path-environment-variable-to-the-compiler-for-the-windows-command-prompt"></a>Windows のコマンドプロンプト用に PATH 環境変数をコンパイラに設定するには
 
@@ -40,7 +40,7 @@ ms.locfileid: "71054215"
 
 2. **[スタート]** メニューの **[マイコンピューター]** を右クリックし、ショートカットメニューの **[プロパティ]** をクリックします。
 
-3. **[詳細設定]** タブをクリックし、 **[環境変数]** をクリックします。
+3. **[詳細]** タブをクリックして **[環境変数]** をクリックします。
 
 4. **[システム]** 変数 ペインで、一覧から **[パス]** を選択し、 **[編集]** をクリックします。
 
@@ -54,11 +54,11 @@ ms.locfileid: "71054215"
 
 1. **[スタート]** メニューの **[アクセサリ]** フォルダーをクリックし、 **Windows コマンドプロンプト**を開きます。
 
-2. コマンドラインで、「 `vbc.exe` *sourcefilename* 」と入力し、enter キーを押します。
+2. コマンドラインで、「`vbc.exe`*Sourcefilename* 」と入力し、enter キーを押します。
 
-     たとえば、というディレクトリにソースコードを格納した場合`SourceFiles`は、コマンドプロンプトを開き、「」 `cd SourceFiles`と入力してそのディレクトリに変更します。 ディレクトリにという名前のソースファイル`Source.vb`が含まれている場合は`vbc.exe Source.vb`、「」と入力してコンパイルできます。
+     たとえば、ソースコードを `SourceFiles`という名前のディレクトリに保存した場合は、コマンドプロンプトを開き `cd SourceFiles` と入力して、そのディレクトリに変更します。 ディレクトリに `Source.vb`という名前のソースファイルが含まれている場合は、「`vbc.exe Source.vb`」と入力してコンパイルできます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Visual Basic のコマンド ライン コンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
 - [条件付きコンパイル](../../../visual-basic/programming-guide/program-structure/conditional-compilation.md)

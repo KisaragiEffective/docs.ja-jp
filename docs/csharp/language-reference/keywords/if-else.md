@@ -1,6 +1,5 @@
 ---
 title: if-else - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - if_CSharpKeyword
@@ -11,12 +10,12 @@ helpviewer_keywords:
 - else keyword [C#]
 - if keyword [C#]
 ms.assetid: d9a1d562-8cf5-4bd4-9ba7-8ad970cd25b2
-ms.openlocfilehash: 18b41446eb13f4b91db86d79316a5299b0f3020a
-ms.sourcegitcommit: 621a5f6df00152006160987395b93b5b55f7ffcd
+ms.openlocfilehash: 98c1a8dceec3e5a47627841988e2d722c56fc36c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66300477"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75715260"
 ---
 # <a name="if-else-c-reference"></a>if-else (C# リファレンス)
 
@@ -50,7 +49,7 @@ if (condition)
 
 `if-else` ステートメントで、 `condition` が true に評価されると、 `then-statement` が実行されます。 `condition` が false の場合は、 `else-statement` が実行されます。 `condition` が同時に true と false に評価されることはないため、 `then-statement` ステートメントの `else-statement` と `if-else` の両方が実行されることは決してありません。 `then-statement` または `else-statement` が実行された後、制御は `if` ステートメントの後のステートメントに移ります。
 
-`else` ステートメントが含まれない `if` ステートメントで `condition` が true に評価された場合は、 `then-statement` が実行されます。 `condition` が false の場合、制御は `if` ステートメントの後のステートメントに移ります。
+`if` ステートメントが含まれない `else` ステートメントで `condition` が true に評価された場合は、 `then-statement` が実行されます。 `condition` が false の場合、制御は `if` ステートメントの後のステートメントに移ります。
 
 `then-statement` と `else-statement` はどちらも、中かっこ (`{}`) で囲まれた 1 つのステートメントまたは複数のステートメントで構成できます。 ステートメントが 1 つの場合、中かっこは省略可能ですが、使用することが推奨されます。
 
@@ -62,7 +61,7 @@ if (condition)
 
 [!code-csharp[csrefKeywordsSelection#3](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsSelection/CS/csrefKeywordsSelection.cs#3)]
 
-条件 `(m > 10)` が false に評価されると、`Result2` が表示されます。
+条件 `Result2` が false に評価されると、`(m > 10)` が表示されます。
 
 ## <a name="example"></a>例
 
@@ -82,7 +81,7 @@ if (condition)
 
 [!code-csharp[csrefKeywordsSelection#6](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsSelection/CS/csrefKeywordsSelection.cs#6)]
 
-else ブロックまたは then ブロック内のステートメントを任意の有効なステートメントにできるように、条件には任意の有効なブール式を使用できます。 `!`、`&&`、`||`、`&`、`|`、`^` などの[論理演算子](../operators/boolean-logical-operators.md)を使用して複合条件を作成できます。 次のコードに例を示します。
+else ブロックまたは then ブロック内のステートメントを任意の有効なステートメントにできるように、条件には任意の有効なブール式を使用できます。 [、](../operators/boolean-logical-operators.md)、`!`、`&&`、`||`、`&` などの`|`論理演算子`^`を使用して複合条件を作成できます。 次のコードに例を示します。
 
 ```csharp
 // NOT
@@ -135,11 +134,11 @@ if (!(m >= n || m >= p))
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# のキーワード](index.md)
-- [?:演算子](../operators/conditional-operator.md)
+- [?: 演算子](../operators/conditional-operator.md)
 - [if-else ステートメント (C++)](/cpp/cpp/if-else-statement-cpp)
 - [switch](switch.md)

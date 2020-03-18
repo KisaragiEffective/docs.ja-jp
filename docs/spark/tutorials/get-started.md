@@ -1,123 +1,230 @@
 ---
 title: .NET for Apache Spark の概要
-description: Windows で .NET Core を使用して .NET for Apache Spark アプリを実行する方法について説明します。
-ms.date: 06/27/2019
+description: Windows、macOS、Ubuntu で .NET Core を使用して .NET for Apache Spark アプリを実行する方法について説明します。
+ms.date: 01/31/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: c4dbce74d0d8c0a682250a8021d983ef2990971f
-ms.sourcegitcommit: d7c298f6c2e3aab0c7498bfafc0a0a94ea1fe23e
+ms.openlocfilehash: 7375c385245a05d7dc29d5df89d875bf6cb4141a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72250321"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79187537"
 ---
 # <a name="tutorial-get-started-with-net-for-apache-spark"></a>チュートリアル: .NET for Apache Spark の概要
 
-このチュートリアルでは、Windows で .NET Core を使用して .NET for Apache Spark アプリを実行する方法について説明します。
+このチュートリアルでは、Windows、macOS、Ubuntu で .NET Core を使用して .NET for Apache Spark アプリを実行する方法について説明します。
 
 このチュートリアルでは、次の作業を行う方法について説明します。
 
 > [!div class="checklist"]
 >
-> * .NET for Apache Spark 用に Windows 環境を準備する
-> * **Microsoft.Spark.Worker** をダウンロードする
+> * .NET for Apache Spark の環境を準備する
+> * 最初の .NET for Apache Spark アプリケーションを作成する
 > * .NET for Apache Spark アプリケーション用の単純な .NET をビルドして実行する
 
 ## <a name="prepare-your-environment"></a>環境を準備する
 
-開始する前に、コマンド ラインから `dotnet`、`java`、`mvn`、`spark-shell` を実行できることを確認してください。 環境が既に準備されている場合は、次のセクションに進むことができます。 コマンドのいずれかまたはすべてを実行できない場合は、次の手順に従います。
+アプリの作成を開始する前に、いくつかの前提条件となる依存関係を設定する必要があります。 コマンドライン環境から `dotnet`、`java`、`mvn`、`spark-shell` を実行できる場合は、環境が既に準備されているため、次のセクションに進むことができます。 コマンドのいずれかまたはすべてを実行できない場合は、次の手順を行います。
 
-1. [.NET Core 2.1x SDK](https://dotnet.microsoft.com/download/dotnet-core/2.1) をダウンロードしてインストールします。 SDK をインストールすると、`dotnet` ツールチェーンが PATH に追加されます。 PowerShell コマンド `dotnet --version` を使用して、インストールを確認します。
+### <a name="1-install-net"></a>1..NET のインストール
 
-2. 最新の更新プログラムを使用して、[Visual Studio 2017](https://www.visualstudio.com/downloads/) または [Visual Studio 2019](https://visualstudio.microsoft.com/vs/preview/) をインストールします。 Community、Professional、Enterprise のいずれかを使用できます。 Community バージョンは無料です。
+.NET アプリのビルドを開始するには、.NET SDK (ソフトウェア開発キット) をダウンロードしてインストールする必要があります。
 
-   インストール時に次のワークロードを選択します。
-      * .NET デスクトップ開発
-          * すべての必須コンポーネント
-          * .NET Framework 4.6.1 開発ツール
-      * .NET Core クロスプラットフォームの開発
-          * すべての必須コンポーネント
+[.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) をダウンロードしてインストールします。 SDK をインストールすると、`dotnet` ツールチェーンが PATH に追加されます。
 
-3. [Java 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) をインストールします。
+.NET Core SDK をインストールしたら、新しいコマンド プロンプトまたはターミナルを開き、`dotnet` を実行します。
 
-    * ご使用のオペレーティング システムに適したバージョンを選択します。 たとえば、Windows x64 マシンには、**jdk-8u201-windows-x64.exe** を選択します。
-    * PowerShell コマンド `java -version` を使用して、インストールを確認します。
+コマンドが実行され、dotnet の使用方法に関する情報が出力された場合は、次の手順に進むことができます。 `'dotnet' is not recognized as an internal or external command` エラーが発生した場合は、コマンドを実行する前に**新しい**コマンド プロンプトまたはターミナルを開いたことを確認してください。
 
-4. [Apache Maven 3.6.0 以降](https://maven.apache.org/download.cgi)をインストールします。
-    * [Apache Maven 3.6.0](http://mirror.metrocast.net/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.zip) をダウンロードします。
-    * ローカル ディレクトリに抽出します。 たとえば、`c:\bin\apache-maven-3.6.0\` のようにします。
-    * Apache Maven をご自分の [PATH 環境変数](https://www.java.com/en/download/help/path.xml)に追加します。 `c:\bin\apache-maven-3.6.0\` に抽出した場合は、`c:\bin\apache-maven-3.6.0\bin` を PATH に追加します。
-    * PowerShell コマンド `mvn -version` を使用して、インストールを確認します。
+### <a name="2-install-java"></a>2.Java のインストール
 
-5. [Apache Spark 2.3 以降](https://spark.apache.org/downloads.html)をインストールします。 Apache Spark 2.4 以降はサポートされていません。
-    * [Apache Spark 2.3 以降](https://spark.apache.org/downloads.html)をダウンロードし、[7-zip](https://www.7-zip.org/) や [WinZip](https://www.winzip.com/) などのツールを使用してローカル フォルダーに抽出します。 たとえば、`c:\bin\spark-2.3.2-bin-hadoop2.7\` に抽出します。
-    * Apache Spark をご自分の [PATH 環境変数](https://www.java.com/en/download/help/path.xml)に追加します。 `c:\bin\spark-2.3.2-bin-hadoop2.7\` に抽出した場合は、`c:\bin\spark-2.3.2-bin-hadoop2.7\bin` を PATH に追加します。
-    * `SPARK_HOME` という[新しい環境変数](https://www.java.com/en/download/help/path.xml)を追加します。 `C:\bin\spark-2.3.2-bin-hadoop2.7\` に抽出した場合は、**変数値**に `C:\bin\spark-2.3.2-bin-hadoop2.7\` を使用します。
-    * コマンド ラインから `spark-shell` を実行できることを確認します。
+Windows および macOS の場合は [Java 8.1](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)、Ubuntu の場合は [OpenJDK 8](https://openjdk.java.net/install/) をインストールします。
 
-6. [WinUtils](https://github.com/steveloughran/winutils) を設定します。
-    * [Winutils リポジトリ](https://github.com/steveloughran/winutils)から **winutils.exe** バイナリをダウンロードします。 Spark ディストリビューションをコンパイルした Hadoop のバージョンを選択します。 たとえば、**Spark 2.3.2** には **hadoop-2.7.1** を使用します。 Hadoop のバージョンは、Spark インストール フォルダー名の末尾に注釈付けされています。
-    * **winutils.exe** バイナリを任意のディレクトリに保存します。 たとえば、`c:\hadoop\bin` のようにします。
-    * **winutils.exe** 含むディレクトリを反映するように、`bin` なしで `HADOOP_HOME` を設定します。 たとえば、`c:\hadoop` のようにします。
-    * `%HADOOP_HOME%\bin` が含まれるように PATH 環境変数を設定します。
+ご使用のオペレーティング システムに適したバージョンを選択します。 たとえば、(次のように) Windows x64 マシンの場合は **jdk-8u201-windows-x64.exe**、macOS の場合は **jdk-8u231-macosx-x64.dmg** を選択します。 次に、コマンド `java` を使用してインストールを確認します。
 
-次のセクションに進む前に、コマンド ラインから `dotnet`、`java`、`mvn`、`spark-shell` を実行できることを再度確認します。
+![Java のダウンロード](https://dotnet.microsoft.com/static/images/java-jdk-downloads-windows.png?v=6BbJHoNyDO-PyYVciImr5wzh2AW_YHNcyb3p093AwPA)
 
-## <a name="download-the-microsoftsparkworker-release"></a>Microsoft.Spark.Worker リリースをダウンロードする
+### <a name="3-install-compression-software"></a>3.圧縮ソフトウェアのインストール
 
-1. .NET for Apache Spark GitHub リリース ページから、[Microsoft.Spark.Worker](https://github.com/dotnet/spark/releases) リリースをローカル コンピューターにダウンロードします。 たとえば、`c:\bin\Microsoft.Spark.Worker\` というパスにダウンロードできます。
+Apache Spark は、圧縮された .tgz ファイルとしてダウンロードされます。 [7-Zip](https://www.7-zip.org/)、[WinZip](https://www.winzip.com/) などの抽出プログラムを使用してファイルを抽出します。
 
-2. `DOTNET_WORKER_DIR` という名前の[新しい環境変数](https://www.java.com/en/download/help/path.xml)を作成し、**Microsoft.Spark.Worker** をダウンロードして抽出したディレクトリに設定します。 たとえば、`c:\bin\Microsoft.Spark.Worker` のようにします。
+### <a name="4-install-apache-spark"></a>4.Apache Spark のインストール
 
-## <a name="clone-the-net-for-apache-spark-github-repo"></a>.NET for Apache Spark GitHub リポジトリの複製
+[Apache Spark をダウンロードしてインストールします](https://spark.apache.org/downloads.html)。 バージョン 2.3.*、2.4.0、2.4.1、2.4.3、または 2.4.4 から選択する必要があります (.NET for Apache Spark は、他のバージョンの Apache Spark と互換性がありません)。
 
-次の [GitBash](https://gitforwindows.org/) コマンドを使用して、.NET for Apache Spark リポジトリをご使用のマシンに複製します。
+次の手順で使用するコマンドは、[Apache Spark 2.4.1 をダウンロードしてインストールしていること](https://archive.apache.org/dist/spark/spark-2.4.1/spark-2.4.1-bin-hadoop2.7.tgz)を前提としています。 別のバージョンを使用する場合は、**2.4.1** を適切なバージョン番号に置き換えます。 その後、 **.tar** ファイルと Apache Spark ファイルを抽出します。
+
+入れ子になった **.tar** ファイルを抽出するには、次のようにします。
+
+* ダウンロードした **spark-2.4.1-bin-hadoop2.7.tgz** ファイルを見つけます。
+* ファイルを右クリックし、 **[7-Zip] -> [ここに展開]** の順に選択します。
+* ダウンロードした **.tgz** ファイルの横に **spark-2.4.1-bin-hadoop2.7.tar** が作成されます。
+
+Apache Spark ファイルを抽出するには、次のようにします。
+
+* **spark-2.4.1-bin-hadoop2.7.tar** を右クリックし、 **[7-Zip] -> [展開]** の順に選択します。
+* **[展開先]** フィールドに「**C:\bin**」と入力します。
+* **[展開先]** フィールドの下のチェックボックスをオフにします。
+* **[OK]** を選択します。
+* Apache Spark ファイルが C:\bin\spark-2.4.1-bin-hadoop2.7\ に抽出されます。
+
+![Spark のインストール](https://dotnet.microsoft.com/static/images/spark-extract-with-7-zip.png?v=YvjUv54LIxI9FbALPC3h8zSQdyMtK2-NKbFOliG-f8M)
+
+次のコマンドを実行して、**Windows** 上で Apache Spark を検索するために使用する環境変数を設定します。
+
+```console
+setx HADOOP_HOME C:\bin\spark-2.4.1-bin-hadoop2.7\
+setx SPARK_HOME C:\bin\spark-2.4.1-bin-hadoop2.7\
+```
+
+次のコマンドを実行して、**macOS** と **Ubuntu** 上で Apache Spark を検索するために使用する環境変数を設定します。
 
 ```bash
-git clone https://github.com/dotnet/spark.git c:\github\dotnet-spark
+export SPARK_HOME=~/bin/spark-2.4.1-bin-hadoop2.7/
+export PATH="$SPARK_HOME/bin:$PATH"
+source ~/.bashrc
 ```
+
+すべてをインストールし、環境変数を設定したら、**新しい**コマンド プロンプトまたはターミナルを開き、次のコマンドを実行します。
+
+`%SPARK_HOME%\bin\spark-submit --version`
+
+コマンドが実行され、バージョン情報が出力された場合は、次の手順に進むことができます。
+
+`'spark-submit' is not recognized as an internal or external command` エラーが発生した場合は、**新しい**コマンド プロンプトを開いたことを確認してください。
+
+### <a name="5-install-net-for-apache-spark"></a>5..NET for Apache Spark のインストール
+
+.NET for Apache Spark GitHub から、[Microsoft.Spark.Worker](https://github.com/dotnet/spark/releases) リリースをダウンロードします。 たとえば、Windows マシンを使用していて、.NET Core の使用を計画している場合は、[Windows x64 netcoreapp3.1 リリースをダウンロード](https://github.com/dotnet/spark/releases/download/v0.8.0/Microsoft.Spark.Worker.netcoreapp3.1.win-x64-0.8.0.zip)します。
+
+Microsoft.Spark.Worker を抽出するには、次のようにします。
+
+* ダウンロードした **Microsoft.Spark.Worker.netcoreapp3.1.win-x64-0.8.0.zip** ファイルを見つけます。
+* 右クリックし、 **[7-Zip] -> [ここに展開]** の順に選択します。
+* **[展開先]** フィールドに「**C:\bin**」と入力します。
+* **[展開先]** フィールドの下のチェックボックスをオフにします。
+* **[OK]** を選択します。
+
+![.NET Spark のインストール](https://dotnet.microsoft.com/static/images/dotnet-for-spark-extract-with-7-zip.png?v=jwCyum9mL0mGIi4V5zC7yuvLfcj1_nL-QFFD8TClhZk)
+
+### <a name="6-install-winutils-windows-only"></a>6.WinUtils のインストール (Windows のみ)
+
+.NET for Apache Spark では、Apache Spark と共に WinUtils をインストールする必要があります。 [winutils.exe をダウンロード](https://github.com/steveloughran/winutils/blob/master/hadoop-2.7.1/bin/winutils.exe)します。 次に、WinUtils を **C:\bin\spark-2.4.1-bin-hadoop2.7\bin** にコピーします。
+
+> [!NOTE]
+> Spark インストール フォルダー名の末尾に注釈が付けられている別のバージョンの Hadoop を使用している場合は、使用している Hadoop のバージョンと互換性のある[バージョンの WinUtils を選択](https://github.com/steveloughran/winutils)します。
+
+### <a name="7-set-dotnet_worker_dir-and-check-dependencies"></a>7.DOTNET_WORKER_DIR の設定と依存関係の確認
+
+次のコマンドのいずれかを実行して `DOTNET_WORKER_DIR` 環境変数を設定します。この変数は、.NET アプリで .NET for Apache Spark を検索するために使用されます。
+
+**Windows** 上では、[新しい環境変数](https://www.java.com/en/download/help/path.xml) `DOTNET_WORKER_DIR` を作成し、Microsoft.Spark.Worker をダウンロードして抽出したディレクトリ (`C:\bin\Microsoft.Spark.Worker\` など) に設定します。
+
+**macOS** 上では、`export DOTNET_WORKER_DIR <your_path>` を使用して新しい環境変数を作成し、Microsoft.Spark.Worker をダウンロードして抽出したディレクトリ ( *~/bin/Microsoft.Spark.Worker/* など) に設定します。
+
+**Ubuntu** 上では、[新しい環境変数](https://help.ubuntu.com/community/EnvironmentVariables) `DOTNET_WORKER_DIR` を作成し、Microsoft.Spark.Worker をダウンロードして抽出したディレクトリ ( *~/bin/Microsoft.Spark.Worker* など) に設定します。
+
+最後に、次のセクションに進む前に、コマンド ラインから `dotnet`、`java`、`mvn`、`spark-shell` を実行できることを再度確認します。
 
 ## <a name="write-a-net-for-apache-spark-app"></a>.NET for Apache Spark アプリを作成する
 
-1. **Visual Studio** を開き、 **[ファイル]、[新しいプロジェクトの作成]、[コンソール アプリ (.NET Core)]** の順に移動します。 アプリケーションに「**HelloSpark**」という名前を付けます。
+### <a name="1-create-a-console-app"></a>1.コンソール アプリを作成する
 
-2. [Microsoft.Spark NuGet パッケージ](https://www.nuget.org/profiles/spark)をインストールします。 Nuget パッケージのインストールの詳細については、[NuGet パッケージをインストールするためのさまざまな方法](https://docs.microsoft.com/nuget/consume-packages/ways-to-install-a-package)に関するページを参照してください。
+コマンド プロンプトまたはターミナルで、次のコマンドを実行して、新しいコンソール アプリケーションを作成します。
 
-3. **ソリューション エクスプローラー**で、**Program.cs** を開き、次の C# コードを記述します。
+```dotnetcli
+dotnet new console -o mySparkApp
+cd mySparkApp
+```
 
-   ```csharp
-     var spark = SparkSession.Builder().GetOrCreate();
-     var df = spark.Read().Json("people.json");
-     df.Show();
-   ```
+`dotnet` コマンドで、種類が `console` の `new` アプリケーションを作成します。 `-o` パラメーターで、アプリが格納されるディレクトリ *mySparkApp* を作成し、必要なファイルを指定します。 `cd mySparkApp` コマンドで、ディレクトリを、先ほど作成したアプリ ディレクトリに変更します。
 
-4. ソリューションをビルドします。
+### <a name="2-install-nuget-package"></a>2.NuGet パッケージのインストール
+
+アプリで .NET for Apache Spark を使用するには、Microsoft.Spark パッケージをインストールします。 コマンド プロンプトまたはターミナルで、次のコマンドを実行します。
+
+`dotnet add package Microsoft.Spark --version 0.8.0`
+
+### <a name="3-code-your-app"></a>3.アプリのコーディング
+
+Visual Studio Code または任意のテキスト エディターで *Program.cs* を開き、すべてのコードを次のコードで置き換えます。
+
+```csharp
+using Microsoft.Spark.Sql;
+
+namespace MySparkApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create a Spark session.
+            SparkSession spark = SparkSession
+                .Builder()
+                .AppName("word_count_sample")
+                .GetOrCreate();
+
+            // Create initial DataFrame.
+            DataFrame dataFrame = spark.Read().Text("input.txt");
+
+            // Count words.
+            DataFrame words = dataFrame
+                .Select(Functions.Split(Functions.Col("value"), " ").Alias("words"))
+                .Select(Functions.Explode(Functions.Col("words"))
+                .Alias("word"))
+                .GroupBy("word")
+                .Count()
+                .OrderBy(Functions.Col("count").Desc());
+
+            // Show results.
+            words.Show();
+
+            // Stop Spark session.
+            spark.Stop();
+        }
+    }
+}
+```
+
+### <a name="4-create-and-add-a-data-file"></a>4.データ ファイルの作成と追加
+
+コマンド プロンプトまたはターミナルを開き、アプリ フォルダーに移動します。
+
+```bash
+cd <your-app-output-directory>
+```
+
+アプリでは、テキスト行を含むファイルが処理されます。 *mySparkApp* ディレクトリに、次のテキストを含む *input.txt* ファイルを作成します。
+
+```text
+Hello World
+This .NET app uses .NET for Apache Spark
+This .NET app counts words with Apache Spark
+```
 
 ## <a name="run-your-net-for-apache-spark-app"></a>.NET for Apache Spark アプリを実行する
 
-1. **PowerShell** を開き、ディレクトリを、アプリが格納されているフォルダーに変更します。
+1. 次のコマンドを実行して、アプリケーションをビルドします。
 
-   ```powershell
-   cd <your-app-output-directory>
+   ```dotnetcli
+   dotnet build
    ```
 
-2. 次の内容を含む **people.json** という名前のファイルを作成します。
+2. 次のコマンドを実行して、Apache Spark で実行するようにアプリケーションを送信します。
 
-   ```json
-   {"name":"Michael"}
-   {"name":"Andy", "age":30}
-   {"name":"Justin", "age":19}
+   ```console
+   spark-submit \
+   --class org.apache.spark.deploy.dotnet.DotnetRunner \
+   --master local \
+   microsoft-spark-2.4.x-<version>.jar \
+   dotnet HelloSpark.dll
    ```
 
-3. 次の PowerShell コマンドを使用して、アプリを実行します。
+   > [!NOTE]
+   > このコマンドは、Apache Spark をダウンロードして PATH 環境変数に追加し、`spark-submit` を使用できる状態であることを前提としています。 そうでなければ、完全なパスを使用する必要があります (たとえば、*C:\bin\apache-spark\bin\spark-submit* や *~/spark/bin/spark-submit*)。
 
-   ```powershell
-    spark-submit `
-    --class org.apache.spark.deploy.dotnet.DotnetRunner `
-    --master local `
-    microsoft-spark-2.4.x-<version>.jar `
-    dotnet HelloSpark.dll
-    ```
+3. アプリを実行すると、*input.txt* ファイルのワード カウント データがコンソールに書き込まれます。
 
 おめでとうございます! .NET for Apache Spark アプリの作成と実行が正常に完了しました。
 
@@ -127,8 +234,10 @@ git clone https://github.com/dotnet/spark.git c:\github\dotnet-spark
 > [!div class="checklist"]
 >
 > * .NET for Apache Spark 用に Windows 環境を準備する
-> * **Microsoft.Spark.Worker** をダウンロードする
+> * 最初の .NET for Apache Spark アプリケーションを作成する
 > * .NET for Apache Spark アプリケーション用の単純な .NET をビルドして実行する
+
+上記の手順を説明したビデオを見るには、[.NET for Apache Spark 101 ビデオ シリーズ](https://channel9.msdn.com/Series/NET-for-Apache-Spark-101/Run-Your-First-NET-for-Apache-Spark-App)を参照してください。
 
 詳細については、リソースのページを参照してください。
 > [!div class="nextstepaction"]

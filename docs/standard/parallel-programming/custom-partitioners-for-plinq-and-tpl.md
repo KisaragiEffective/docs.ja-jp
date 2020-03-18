@@ -8,14 +8,12 @@ dev_langs:
 helpviewer_keywords:
 - tasks, partitioners
 ms.assetid: 96153688-9a01-47c4-8430-909cee9a2887
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 42df511857d367859fc68e2d881dd5b5e2e0bfbc
-ms.sourcegitcommit: d6e27023aeaffc4b5a3cb4b88685018d6284ada4
+ms.openlocfilehash: 8caea6d8a97b8c0daf7c59718479ea2e12a52d78
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67662560"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73141569"
 ---
 # <a name="custom-partitioners-for-plinq-and-tpl"></a>PLINQ および TPL 用のカスタム パーティショナー
 
@@ -25,7 +23,7 @@ ms.locfileid: "67662560"
 
 データ ソースは、さまざまな方法でパーティション分割できます。 最も効率的な方法は、ソースを複数のサブシーケンスに物理的に分離するのではなく、複数のスレッドが協調して元のソース シーケンスを処理するというものです。 配列や、長さが事前にわかっている <xref:System.Collections.IList> コレクションなどの他のインデックス付きソースの場合は、"*範囲パーティション分割*" が最も簡単なパーティション分割です。 各スレッドは、一意の開始インデックスおよび終了インデックスを受け取ります。そのため、他のスレッドで上書きしたり、上書きされたりすることなく、ソースの範囲を処理できます。 範囲パーティション分割に必要なオーバーヘッドは、最初に行われる範囲を作成する作業のみです。その後は、追加の同期は不要です。 したがって、ワークロードが均等に分割されている限り、優れたパフォーマンスを実現できます。 範囲パーティション分割の欠点は、あるスレッドが早く終了した場合、他のスレッドが作業を終了するのを支援できないことです。
 
-リンク リストまたは長さがわからない他のコレクションの場合は、"*チャンク パーティション分割*" を使用できます。 チャンク パーティション分割では、並列ループまたは並列クエリ内のすべてのスレッドまたはタスクが、1 つのチャンク内のソース要素をいくつか使用し、それらのソース要素を処理し、その後追加の要素を取得します。 パーティショナーは、すべての要素が配布され、重複する要素が存在しないことを保証します。 チャンクは任意のサイズにすることができます。 たとえば、「[方法:動的パーティションを実装する](../../../docs/standard/parallel-programming/how-to-implement-dynamic-partitions.md)」で示されているパーティショナーは、1 つの要素のみを含むチャンクを作成します。 チャンクが大きすぎない限り、この種類のパーティション分割は、本質的に負荷分散を実行します。これは、スレッドへの要素の割り当てが事前に決定されないからです。 ただし、スレッドが別のチャンクを取得する必要があるたびに、パーティショナーが同期のオーバーヘッドを発生させます。 これらのケースで発生する同期の量は、チャンクのサイズに反比例します。
+リンク リストまたは長さがわからない他のコレクションの場合は、"*チャンク パーティション分割*" を使用できます。 チャンク パーティション分割では、並列ループまたは並列クエリ内のすべてのスレッドまたはタスクが、1 つのチャンク内のソース要素をいくつか使用し、それらのソース要素を処理し、その後追加の要素を取得します。 パーティショナーは、すべての要素が配布され、重複する要素が存在しないことを保証します。 チャンクは任意のサイズにすることができます。 たとえば、「[方法: 動的パーティションを実装する](../../../docs/standard/parallel-programming/how-to-implement-dynamic-partitions.md)」で示されているパーティショナーは、1 つの要素のみを含むチャンクを作成します。 チャンクが大きすぎない限り、この種類のパーティション分割は、本質的に負荷分散を実行します。これは、スレッドへの要素の割り当てが事前に決定されないからです。 ただし、スレッドが別のチャンクを取得する必要があるたびに、パーティショナーが同期のオーバーヘッドを発生させます。 これらのケースで発生する同期の量は、チャンクのサイズに反比例します。
 
 一般に、範囲パーティション分割の方が高速なのは、デリゲートの実行時間が短時間から中程度までの長さであり、ソースに多数の要素があり、かつ各パーティションの総作業量がほぼ等価である場合のみです。 したがってチャンク パーティション分割の方が、ほとんどのケースで高速です。 要素が少ないか、またはデリゲートの実行時間が長いソースでは、チャンク パーティション分割と範囲パーティション分割のパフォーマンスがほぼ等しくなります。
 
@@ -46,7 +44,7 @@ TPL パーティショナーは、動的な数のパーティションもサポ�
 
 |オーバーロード|負荷分散を使用する|
 |--------------|-------------------------|
-|<xref:System.Collections.Concurrent.Partitioner.Create%60%601%28System.Collections.Generic.IEnumerable%7B%60%600%7D%29>|Always|
+|<xref:System.Collections.Concurrent.Partitioner.Create%60%601%28System.Collections.Generic.IEnumerable%7B%60%600%7D%29>|Always (常に)|
 |<xref:System.Collections.Concurrent.Partitioner.Create%60%601%28%60%600%5B%5D%2CSystem.Boolean%29>|ブール型の引数を true と指定した場合|
 |<xref:System.Collections.Concurrent.Partitioner.Create%60%601%28System.Collections.Generic.IList%7B%60%600%7D%2CSystem.Boolean%29>|ブール型の引数を true と指定した場合|
 |<xref:System.Collections.Concurrent.Partitioner.Create%28System.Int32%2CSystem.Int32%29>|Never|
@@ -56,7 +54,7 @@ TPL パーティショナーは、動的な数のパーティションもサポ�
 
 ### <a name="configuring-static-range-partitioners-for-parallelforeach"></a>Parallel.ForEach 用の静的範囲パーティショナーの構成
 
-<xref:System.Threading.Tasks.Parallel.For%2A> ループでは、ループの本体がデリゲートとしてメソッドに提供されます。 このデリゲートを呼び出すコストは、仮想メソッドの呼び出しとほぼ同じです。 シナリオによっては、並列ループの本体が小さく、各ループ反復でデリゲートを呼び出すコストが膨大になることがあります。 そのような状況では、いずれかの <xref:System.Collections.Concurrent.Partitioner.Create%2A> オーバーロードを使用して、ソース要素に対する範囲パーティション分割の <xref:System.Collections.Generic.IEnumerable%601> を作成できます。 その後、この範囲のコレクションを、本体が通常の `for` ループで構成される <xref:System.Threading.Tasks.Parallel.ForEach%2A> メソッドに渡すことができます。 この方法の利点は、デリゲートを呼び出すコストが、要素ごとに 1 回ではなく、範囲ごとに 1 回しか発生しないことです。 基本的なパターンを次の例に示します。
+<xref:System.Threading.Tasks.Parallel.For%2A> ループでは、ループの本体がデリゲートとしてメソッドに提供されます。 このデリゲートを呼び出すコストは、仮想メソッドの呼び出しとほぼ同じです。 シナリオによっては、並列ループの本体が小さく、各ループ反復でデリゲートを呼び出すコストが膨大になることがあります。 そのような状況では、いずれかの <xref:System.Collections.Concurrent.Partitioner.Create%2A> オーバーロードを使用して、ソース要素に対する範囲パーティション分割の <xref:System.Collections.Generic.IEnumerable%601> を作成できます。 その後、この範囲のコレクションを、本体が通常の <xref:System.Threading.Tasks.Parallel.ForEach%2A> ループで構成される `for` メソッドに渡すことができます。 この方法の利点は、デリゲートを呼び出すコストが、要素ごとに 1 回ではなく、範囲ごとに 1 回しか発生しないことです。 基本的なパターンを次の例に示します。
 
 [!code-csharp[TPL_Partitioners#01](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_partitioners/cs/partitioner01.cs#01)]
 [!code-vb[TPL_Partitioners#01](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_partitioners/vb/partitionercreate01.vb#01)]
@@ -82,7 +80,7 @@ TPL パーティショナーは、動的な数のパーティションもサポ�
 |||
 |-|-|
 |<xref:System.Collections.Concurrent.OrderablePartitioner%601.GetPartitions%2A>|このメソッドは、メイン スレッドによって 1 回呼び出され、`IList(IEnumerator(TSource))` を返します。 ループまたはクエリ内の各ワーカー スレッドでは、リスト上で `GetEnumerator` を呼び出して、個別のパーティションに対する <xref:System.Collections.Generic.IEnumerator%601> を取得できます。|
-|<xref:System.Collections.Concurrent.Partitioner%601.SupportsDynamicPartitions%2A>|<xref:System.Collections.Concurrent.OrderablePartitioner%601.GetDynamicPartitions%2A> を実装した場合は `true` を返し、それ以外の場合は false を返します。|
+|<xref:System.Collections.Concurrent.Partitioner%601.SupportsDynamicPartitions%2A>|`true` を実装した場合は <xref:System.Collections.Concurrent.OrderablePartitioner%601.GetDynamicPartitions%2A> を返し、それ以外の場合は false を返します。|
 |<xref:System.Collections.Concurrent.OrderablePartitioner%601.GetDynamicPartitions%2A>|通常は <xref:System.Collections.Concurrent.OrderablePartitioner%601.GetOrderableDynamicPartitions%2A> を単純に呼び出します。|
 |<xref:System.Collections.Concurrent.OrderablePartitioner%601.GetOrderableDynamicPartitions%2A>|<xref:System.Collections.Concurrent.Partitioner%601.SupportsDynamicPartitions%2A> が `true` の場合、このメソッドを必要に応じて <xref:System.Collections.Concurrent.Partitioner%601.GetPartitions%2A> の代わりに呼び出すことができます。|
 
@@ -101,7 +99,7 @@ TPL パーティショナーは、動的な数のパーティションもサポ�
 
 パーティショナーを <xref:System.Threading.Tasks.Parallel.ForEach%2A> メソッドで使用する場合、動的な数のパーティションを返すことができる必要があります。 これは、パーティショナーがループの実行中の任意の時点で、新しいパーティションの列挙子をオンデマンドで供給できることを意味します。 基本的に、ループで新しい並列タスクを追加するたびに、そのタスク用の新しいパーティションが要求されます。 データが順序付け可能である必要がある場合は、<xref:System.Collections.Concurrent.OrderablePartitioner%601?displayProperty=nameWithType> から派生させて、各パーティション内の各項目に一意のインデックスが割り当てられるようにします。
 
-詳細および使用例については、「[方法:動的パーティションを実装する](../../../docs/standard/parallel-programming/how-to-implement-dynamic-partitions.md)」を参照してください。
+詳細および使用例については、[「方法: 動的パーティションを実装する」](../../../docs/standard/parallel-programming/how-to-implement-dynamic-partitions.md)を参照してください。
 
 ### <a name="contract-for-partitioners"></a>パーティショナーのコントラクト
 
@@ -117,17 +115,17 @@ TPL パーティショナーは、動的な数のパーティションもサポ�
 
 - 次のブール型の getter では、常に以下の値を正確に返して、出力順序が乱れないようにする必要があります。
 
-  - `KeysOrderedInEachPartition`:各パーティションは、昇順のキー インデックスを持つ要素を返します。
+  - `KeysOrderedInEachPartition`: 各パーティションは、昇順のキー インデックスを持つ要素を返します。
 
-  - `KeysOrderedAcrossPartitions`:返されるすべてのパーティションについて、パーティション *i* のキー インデックスは、パーティション *i*-1 のキー インデックスよりも大きくなります。
+  - `KeysOrderedAcrossPartitions`: 返されるすべてのパーティションについて、パーティション *i* のキー インデックスは、パーティション *i*-1 のキー インデックスよりも大きくなります。
 
-  - `KeysNormalized`:すべてのキー インデックスは、0 から始まりギャップなしで単調に増加します。
+  - `KeysNormalized`: すべてのキー インデックスは、0 から始まりギャップなしで単調に増加します。
 
 - どのインデックスも一意である必要があります。 インデックスを重複させることはできません。 この規則に従わないと、出力順序が乱れる場合があります。
 
 - どのインデックスも負数以外である必要があります。 この規則に従わないと、PLINQ または TPL が例外をスローする場合があります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [並列プログラミング](../../../docs/standard/parallel-programming/index.md)
 - [方法: 動的パーティションを実装する](../../../docs/standard/parallel-programming/how-to-implement-dynamic-partitions.md)

@@ -9,18 +9,18 @@ helpviewer_keywords:
 - assemblies [C#], compiling
 - -target compiler options [C#]
 ms.assetid: a18bbd8e-bbf7-49e7-992c-717d0eb1f76f
-ms.openlocfilehash: 073660fa732c04cdc987af5617b894a277ebcc0f
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: af7bd917f57c8752a2026fbb98aa8b22adc98db7
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70970111"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "74204513"
 ---
 # <a name="-target-c-compiler-options"></a>-target (C# コンパイラ オプション)
 **-target** コンパイラ オプションは、次の 6 つの形式のいずれかで指定できます。  
   
  [/target:appcontainerexe](./target-appcontainerexe-compiler-option.md)  
- [!INCLUDE[win8_appname_long](~/includes/win8-appname-long-md.md)] アプリの .exe ファイルを作成する場合。  
+ Windows 8.x Store アプリの .exe ファイルを作成する場合。  
   
  [/target:exe](./target-exe-compiler-option.md)  
  .exe ファイルを作成する場合。  
@@ -62,7 +62,7 @@ public class TestClass
   
  このコンパイラ オプションのプログラムによる設定の詳細については、「<xref:VSLangProj80.ProjectProperties3.OutputType%2A>」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](./index.md)
 - [プロジェクトおよびソリューションのプロパティの管理](/visualstudio/ide/managing-project-and-solution-properties)

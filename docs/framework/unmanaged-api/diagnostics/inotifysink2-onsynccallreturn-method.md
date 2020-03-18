@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c1bda761-6292-4750-a14b-7d5db8f33456
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 84fd40dbecf9a866a4ec0889cbb62c475c063475
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d2d90d33ce7a8135f40a0fb4039a2418dd1987ac
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67736224"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74435972"
 ---
 # <a name="inotifysink2onsynccallreturn-method"></a>INotifySink2::OnSyncCallReturn メソッド
-呼び出しが戻るときに呼び出されます。  
+呼び出しから制御が戻ったときに呼び出されます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,19 +38,19 @@ HRESULT OnSyncCallReturn
   
 ## <a name="parameters"></a>パラメーター  
  `in_CallID`  
- [in]返される呼び出しの ID。 参照してください[CALL_ID 構造体](../../../../docs/framework/unmanaged-api/diagnostics/call-id-structure.md)します。  
+ からから返される呼び出しの ID。 「 [CALL_ID 構造](../../../../docs/framework/unmanaged-api/diagnostics/call-id-structure.md)」を参照してください。  
   
  `in_pBuffer`  
- [in]バッファーを呼び出します。  
+ から呼び出しバッファー。  
   
  `in_BufferSize`  
- [in]呼び出しバッファーのバイト単位のサイズ。  
+ から呼び出しバッファーのサイズ (バイト単位)。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。  
+ メソッドが成功した場合は S_OK します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** ProtocolNotify2.idl  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** ProtocolNotify2  
   
 ## <a name="see-also"></a>関連項目
 

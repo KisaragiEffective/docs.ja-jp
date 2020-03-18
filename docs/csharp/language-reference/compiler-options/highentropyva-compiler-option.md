@@ -9,10 +9,10 @@ helpviewer_keywords:
 - highentropyva compiler option [C#]
 ms.assetid: eaf409b3-384e-49dd-9417-62453658f421
 ms.openlocfilehash: b710bb829f6a7591159d2f2e6bacc670d21c42d1
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69606845"
 ---
 # <a name="-highentropyva-c-compiler-options"></a>-highentropyva (C# コンパイラ オプション)

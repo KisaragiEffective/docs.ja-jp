@@ -17,14 +17,12 @@ helpviewer_keywords:
 - global assembly cache, Gacutil.exe
 - Global Assembly Cache tool
 ms.assetid: 4c7be9c8-72ae-481f-a01c-1a4716806e99
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 437d2d1bb026795dfa01a4c01ca12acf2b8f5792
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 87f3cb799ba4e406906759e1facd19d00c8bdace
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71044662"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73107501"
 ---
 # <a name="gacutilexe-global-assembly-cache-tool"></a>Gacutil.exe (グローバル アセンブリ キャッシュ ツール)
 

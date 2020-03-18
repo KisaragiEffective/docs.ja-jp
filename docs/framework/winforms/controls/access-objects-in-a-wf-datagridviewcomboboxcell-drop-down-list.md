@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの DataGridViewComboBoxCell ドロップダウン リストのオブジェクトにアクセスする'
+title: DataGridViewComboBoxCell ドロップダウンリストのオブジェクトにアクセスする
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -9,56 +9,56 @@ helpviewer_keywords:
 - combo boxes [Windows Forms], in DataGridView control
 - combo boxes [Windows Forms], accessing objects in DataGridViewComboBoxCell drop-down lists
 ms.assetid: bcbe794a-d1fa-47f8-b5a3-5f085b32097d
-ms.openlocfilehash: 8df9ef1c30704c8b0d0dc7bbec48e53252cf9ae6
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 7e76ab1ac9089778e4371f4ee65b06d5ebc570bf
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64665867"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746315"
 ---
-# <a name="how-to-access-objects-in-a-windows-forms-datagridviewcomboboxcell-drop-down-list"></a>方法: Windows フォームの DataGridViewComboBoxCell ドロップダウン リストのオブジェクトにアクセスする
-ように、<xref:System.Windows.Forms.ComboBox>コントロール、<xref:System.Windows.Forms.DataGridViewComboBoxColumn>と<xref:System.Windows.Forms.DataGridViewComboBoxCell>型では、ドロップダウン リストに任意のオブジェクトを追加できます。 この機能により、個別のコレクションの対応するオブジェクトを保存することがなく、ドロップダウン リストで複雑な状態を表すことができます。  
+# <a name="how-to-access-objects-in-a-windows-forms-datagridviewcomboboxcell-drop-down-list"></a>方法 : Windows フォームの DataGridViewComboBoxCell ドロップダウン リストのオブジェクトにアクセスする
+<xref:System.Windows.Forms.ComboBox> コントロールと同様に、<xref:System.Windows.Forms.DataGridViewComboBoxColumn> と <xref:System.Windows.Forms.DataGridViewComboBoxCell> の種類を使用すると、任意のオブジェクトをドロップダウンリストに追加できます。 この機能を使用すると、対応するオブジェクトを別のコレクションに格納しなくても、ドロップダウンリストで複雑な状態を表すことができます。  
   
- 異なり、<xref:System.Windows.Forms.ComboBox>コントロール、<xref:System.Windows.Forms.DataGridView>型がない、<xref:System.Windows.Forms.ComboBox.SelectedItem%2A>現在選択されているオブジェクトを取得するためのプロパティ。 代わりに、設定する必要があります、<xref:System.Windows.Forms.DataGridViewComboBoxColumn.ValueMember%2A?displayProperty=nameWithType>または<xref:System.Windows.Forms.DataGridViewComboBoxCell.ValueMember%2A?displayProperty=nameWithType>プロパティをビジネス オブジェクトのプロパティの名前にします。 ビジネス オブジェクトの指定されたプロパティがセルを設定すると、ユーザーは、選択、<xref:System.Windows.Forms.DataGridViewCell.Value%2A>プロパティ。  
+ <xref:System.Windows.Forms.ComboBox> コントロールとは異なり、<xref:System.Windows.Forms.DataGridView> 型には、現在選択されているオブジェクトを取得するための <xref:System.Windows.Forms.ComboBox.SelectedItem%2A> プロパティはありません。 代わりに、<xref:System.Windows.Forms.DataGridViewComboBoxColumn.ValueMember%2A?displayProperty=nameWithType> または <xref:System.Windows.Forms.DataGridViewComboBoxCell.ValueMember%2A?displayProperty=nameWithType> プロパティをビジネスオブジェクトのプロパティの名前に設定する必要があります。 ユーザーが選択を行うと、ビジネスオブジェクトの指定されたプロパティによって、セル <xref:System.Windows.Forms.DataGridViewCell.Value%2A> プロパティが設定されます。  
   
- セルの値を使用してビジネス オブジェクトを取得する、`ValueMember`プロパティは、ビジネス オブジェクト自体への参照を返すプロパティを示す必要があります。 したがって、ビジネス オブジェクトの型が自分の管理下にない場合は、継承を通じて型を拡張することによってこのようなプロパティを追加する必要があります。  
+ セル値を使用してビジネスオブジェクトを取得するには、`ValueMember` プロパティに、ビジネスオブジェクト自体への参照を返すプロパティが指定されている必要があります。 したがって、ビジネスオブジェクトの型がコントロールの下にない場合は、継承によって型を拡張することによって、このようなプロパティを追加する必要があります。  
   
- 次の手順は、ビジネス オブジェクトを含むドロップダウン リストを作成し、セルからオブジェクトを取得する方法を説明<xref:System.Windows.Forms.DataGridViewCell.Value%2A>プロパティ。  
+ 次の手順では、ビジネスオブジェクトを使用してドロップダウンリストを設定し、セル <xref:System.Windows.Forms.DataGridViewCell.Value%2A> プロパティを使用してオブジェクトを取得する方法について説明します。  
   
-### <a name="to-add-business-objects-to-the-drop-down-list"></a>ドロップダウン リストにビジネス オブジェクトを追加するには  
+### <a name="to-add-business-objects-to-the-drop-down-list"></a>ドロップダウンリストにビジネスオブジェクトを追加するには  
   
-1. 新規作成<xref:System.Windows.Forms.DataGridViewComboBoxColumn>設定とその<xref:System.Windows.Forms.DataGridViewComboBoxColumn.Items%2A>コレクション。 または、列を設定できる<xref:System.Windows.Forms.DataGridViewComboBoxColumn.DataSource%2A>プロパティをビジネス オブジェクトのコレクション。 その場合は、ただし、追加できません「未割り当て」ドロップダウン リストに、コレクション内の対応するビジネス オブジェクトを作成することがなく。  
+1. 新しい <xref:System.Windows.Forms.DataGridViewComboBoxColumn> を作成し、その <xref:System.Windows.Forms.DataGridViewComboBoxColumn.Items%2A> コレクションを設定します。 または、[列 <xref:System.Windows.Forms.DataGridViewComboBoxColumn.DataSource%2A>] プロパティをビジネスオブジェクトのコレクションに設定することもできます。 ただし、コレクション内に対応するビジネスオブジェクトを作成しなくても、ドロップダウンリストに "未割り当て" を追加することはできません。  
   
      [!code-csharp[System.Windows.Forms.DataGridViewComboBoxObjectBinding#110](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewComboBoxObjectBinding/CS/form1.cs#110)]
      [!code-vb[System.Windows.Forms.DataGridViewComboBoxObjectBinding#110](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewComboBoxObjectBinding/vb/form1.vb#110)]  
   
-2. <xref:System.Windows.Forms.DataGridViewComboBoxColumn.DisplayMember%2A> プロパティと <xref:System.Windows.Forms.DataGridViewComboBoxColumn.ValueMember%2A> プロパティを設定します。 <xref:System.Windows.Forms.DataGridViewComboBoxColumn.DisplayMember%2A> ドロップダウン リストに表示するビジネス オブジェクトのプロパティを示します。 <xref:System.Windows.Forms.DataGridViewComboBoxColumn.ValueMember%2A> ビジネス オブジェクトへの参照を返すプロパティを示します。  
+2. <xref:System.Windows.Forms.DataGridViewComboBoxColumn.DisplayMember%2A> と <xref:System.Windows.Forms.DataGridViewComboBoxColumn.ValueMember%2A> プロパティを設定します。 <xref:System.Windows.Forms.DataGridViewComboBoxColumn.DisplayMember%2A> は、ドロップダウンリストに表示するビジネスオブジェクトのプロパティを示します。 <xref:System.Windows.Forms.DataGridViewComboBoxColumn.ValueMember%2A> は、ビジネスオブジェクトへの参照を返すプロパティを示します。  
   
      [!code-csharp[System.Windows.Forms.DataGridViewComboBoxObjectBinding#115](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewComboBoxObjectBinding/CS/form1.cs#115)]
      [!code-vb[System.Windows.Forms.DataGridViewComboBoxObjectBinding#115](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewComboBoxObjectBinding/vb/form1.vb#115)]  
   
-3. ビジネス オブジェクトの種類が現在のインスタンスへの参照を返すプロパティが含まれていることを確認します。 割り当てられている値は、このプロパティの名前を指定する必要があります<xref:System.Windows.Forms.DataGridViewComboBoxColumn.ValueMember%2A>前の手順でします。  
+3. ビジネスオブジェクト型に、現在のインスタンスへの参照を返すプロパティが含まれていることを確認します。 このプロパティには、前の手順で <xref:System.Windows.Forms.DataGridViewComboBoxColumn.ValueMember%2A> に割り当てられた値を指定する必要があります。  
   
      [!code-csharp[System.Windows.Forms.DataGridViewComboBoxObjectBinding#310](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewComboBoxObjectBinding/CS/form1.cs#310)]
      [!code-vb[System.Windows.Forms.DataGridViewComboBoxObjectBinding#310](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewComboBoxObjectBinding/vb/form1.vb#310)]  
   
-### <a name="to-retrieve-the-currently-selected-business-object"></a>現在選択されているビジネス オブジェクトを取得するには  
+### <a name="to-retrieve-the-currently-selected-business-object"></a>現在選択されているビジネスオブジェクトを取得するには  
   
-- セルを取得<xref:System.Windows.Forms.DataGridViewCell.Value%2A>プロパティと、ビジネス オブジェクトの型にキャストします。  
+- セル <xref:System.Windows.Forms.DataGridViewCell.Value%2A> プロパティを取得し、ビジネスオブジェクト型にキャストします。  
   
      [!code-csharp[System.Windows.Forms.DataGridViewComboBoxObjectBinding#120](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewComboBoxObjectBinding/CS/form1.cs#120)]
      [!code-vb[System.Windows.Forms.DataGridViewComboBoxObjectBinding#120](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewComboBoxObjectBinding/vb/form1.vb#120)]  
   
 ## <a name="example"></a>例  
- 完全な例では、ドロップダウン リストでビジネス オブジェクトの使用を示します。 この例で、<xref:System.Windows.Forms.DataGridView>コントロールのコレクションにバインドする`Task`オブジェクト。 各`Task`オブジェクトには、`AssignedTo`プロパティを示す、`Employee`タスクに現在割り当てられているオブジェクト。 `Assigned To`列が表示されます、`Name`従業員、または「未割り当て」の各プロパティの値が割り当てられている、`Task.AssignedTo`プロパティの値が`null`します。  
+ 完全な例では、ドロップダウンリストでビジネスオブジェクトを使用する方法を示します。 この例では、<xref:System.Windows.Forms.DataGridView> コントロールが `Task` オブジェクトのコレクションにバインドされています。 各 `Task` オブジェクトには、そのタスクに現在割り当てられている `Employee` オブジェクトを示す `AssignedTo` プロパティがあります。 `Assigned To` 列には、割り当てられた各従業員の `Name` プロパティ値が表示されます。また、`Task.AssignedTo` プロパティ値が `null`場合は、"未割り当て" が表示されます。  
   
  この例の動作を表示するには、次の手順を実行します。  
   
-1. 割り当てを変更、`Assigned To`ドロップダウン リストから別の値を選択するか、ctrl キーを押しながらコンボ ボックス セルの 0 キーを押して列。  
+1. ドロップダウンリストから別の値を選択するか、コンボボックスのセルで CTRL + 0 キーを押して、[`Assigned To`] 列の割り当てを変更します。  
   
-2. クリックして`Generate Report`を現在の割り当てを表示します。 これを示している変更、`Assigned To`列が自動的に更新、`tasks`コレクション。  
+2. 現在の割り当てを表示するには、[`Generate Report`] をクリックします。 これは、`Assigned To` 列の変更によって `tasks` コレクションが自動的に更新されることを示しています。  
   
-3. をクリックして、`Request Status`を呼び出すボタン、`RequestStatus`メソッドは、現在の`Employee`その行に対してオブジェクト。 これは、選択したオブジェクトが正常に取得されたことを示します。  
+3. `Request Status` ボタンをクリックして、その行の現在の `Employee` オブジェクトの `RequestStatus` メソッドを呼び出します。 これは、選択したオブジェクトが正常に取得されたことを示しています。  
   
  [!code-csharp[System.Windows.Forms.DataGridViewComboBoxObjectBinding#000](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewComboBoxObjectBinding/CS/form1.cs#000)]
  [!code-vb[System.Windows.Forms.DataGridViewComboBoxObjectBinding#000](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewComboBoxObjectBinding/vb/form1.vb#000)]  
@@ -68,7 +68,7 @@ ms.locfileid: "64665867"
   
 - System アセンブリおよび System.Windows.Forms アセンブリへの参照。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - <xref:System.Windows.Forms.DataGridViewComboBoxColumn>

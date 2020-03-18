@@ -14,16 +14,14 @@ helpviewer_keywords:
 ms.assetid: cf30e27c-1f7e-43a2-ba1e-01e4137301db
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 2f236a74da04dfddef852514eccb02215ad2d15a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: eaab5b7faeac3dd0fb64f0a387f437af44e7bc12
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67752379"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76867309"
 ---
-# <a name="corprfcodeinfo-structure"></a>COR_PRF_CODE_INFO 構造体
+# <a name="cor_prf_code_info-structure"></a>COR_PRF_CODE_INFO 構造体
 メモリに格納されている 1 個の連続ブロックからなるネイティブ コードを表します。  
   
 ## <a name="syntax"></a>構文  
@@ -39,13 +37,13 @@ typedef struct _COR_PRF_CODE_INFO {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`startAddress`|コードの連続するブロックの開始アドレス。|  
+|`startAddress`|連続したコードブロックの開始アドレス。|  
 |`size`|ブロックのサイズ。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl  
+ **ヘッダー:** Corprof.idl  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -53,4 +51,4 @@ typedef struct _COR_PRF_CODE_INFO {
   
 ## <a name="see-also"></a>関連項目
 
-- [構造体のプロファイリング](../../../../docs/framework/unmanaged-api/profiling/profiling-structures.md)
+- [構造体のプロファイリング](profiling-structures.md)

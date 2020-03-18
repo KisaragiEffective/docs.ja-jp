@@ -1,6 +1,5 @@
 ---
 title: Hello World -- Windows または Mac 上での Visual Studio を使用する最初のプログラム -C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 09/12/2019
 f1_keywords:
 - cs.program
@@ -9,16 +8,16 @@ helpviewer_keywords:
 - examples [C#], Hello World
 - Hello World example [C#]
 ms.assetid: 6493182a-b0b6-4539-a719-518a168cb730
-ms.openlocfilehash: 0807e46d36a4cf031bc44ae0dc4efab79dd51d03
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 910fa4af1b4e45ce627b589a06910dc168490047
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70991342"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75712144"
 ---
 # <a name="hello-world----your-first-program"></a>Hello World -- 最初のプログラム
 
-この記事では、Visual Studio を使用して従来の "Hello World!" プログラムを 作成します。 Visual Studio は、.NET 開発向けに設計された多くの機能を備えた、本格的な統合開発環境 (IDE) です。 Visual Studio の一部の機能のみを使用して、このプログラムを作成します。 Visual Studio の詳細については、[Visual C# および Visual Basic の概要](/visualstudio/ide/getting-started-with-visual-csharp-and-visual-basic)に関するページを参照してください。
+この記事では、Visual Studio を使用して従来の "Hello World!" プログラムを 作成します。 Visual Studio は、.NET 開発向けに設計された多くの機能を備えた、本格的な統合開発環境 (IDE) です。 Visual Studio の一部の機能のみを使用して、このプログラムを作成します。 Visual Studio の詳細については、[Visual C# の概要](/visualstudio/ide/quickstart-csharp-console)に関するページを参照してください。
 
 [!INCLUDE[note_settings_general](~/includes/note-settings-general-md.md)]
 
@@ -26,7 +25,7 @@ ms.locfileid: "70991342"
 
 <!-- markdownlint-disable MD025 -->
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Visual Studio を起動します。 Windows 上に次のようなイメージが表示されます。
 
@@ -52,7 +51,7 @@ Press any key to close this window . . .
 
 任意のキーを押して、ウィンドウを閉じます。
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 Visual Studio for Mac を起動します。 Mac 上に次のようなイメージが表示されます。
 
@@ -85,7 +84,7 @@ Press any key to close this window . . .
 
 [!code-csharp[csProgGuide#32](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuide/CS/progGuide.cs#32)]
 
-テキスト ブロックを `/*` 文字と `*/` 文字で囲んでコメントにすることもできます。 これを次の例に示します。
+テキスト ブロックを `/*` 文字と `*/` 文字で囲んでコメントにすることもできます。 次の例を参照してください。
 
 [!code-csharp[csProgGuide#33](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuide/CS/progGuide.cs#33)]
 
@@ -113,9 +112,9 @@ C# コンソールアプリケーションには、`Main` メソッドが必要�
 
 コマンドライン引数の使用方法の詳細については、「[Main() とコマンドライン引数](../main-and-command-args/index.md)」にある例を参照してください。
 
-## <a name="input-and-output"></a>入出力
+## <a name="input-and-output"></a>入力と出力
 
-C# プログラムは、普通、.NET Framework のランタイムライブラリが提供する入出力サービスを使用します。 `System.Console.WriteLine("Hello World!");` 命令文では、<xref:System.Console.WriteLine%2A> メソッドを使用しています。 これは、ランタイム ライブラリの <xref:System.Console> クラスの出力メソッドの 1 つです。 文字列パラメーターを標準出力ストリームに出力し、最後に改行を付け加えます。 別の入出力操作には、他の <xref:System.Console> メソッドを使用できます。 `using System;` ディレクティブをプログラムの開始時にインクルードした場合は、完全に修飾せずに <xref:System> クラスおよびメソッドを直接使用できます。 たとえば、`Console.WriteLine` の代わりに `System.Console.WriteLine` を呼び出すことができます。
+C# プログラムは、普通、.NET Framework のランタイムライブラリが提供する入出力サービスを使用します。 `System.Console.WriteLine("Hello World!");` 命令文では、<xref:System.Console.WriteLine%2A> メソッドを使用しています。 これは、ランタイムライブラリの <xref:System.Console> クラスの出力メソッドの 1 つです。 文字列パラメーターを標準出力ストリームに出力し、最後に改行を付け加えます。 別の入出力操作には、他の <xref:System.Console> メソッドを使用できます。 `using System;` ディレクティブをプログラムの開始時にインクルードした場合は、完全に修飾せずに <xref:System> クラスおよびメソッドを直接使用できます。 たとえば、`Console.WriteLine` の代わりに `System.Console.WriteLine` を呼び出すことができます。
 
 [!code-csharp[csProgGuide#1](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuide/CS/using.cs#1)]
 
@@ -123,9 +122,9 @@ C# プログラムは、普通、.NET Framework のランタイムライブラ�
 
 入出力メソッドの詳細については、「<xref:System.IO>」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [サンプルおよびチュートリアル](../../../samples-and-tutorials/index.md)
 - [Main() とコマンドライン引数](../main-and-command-args/index.md)
-- [Visual C# と Visual Basic の概要](/visualstudio/ide/getting-started-with-visual-csharp-and-visual-basic)
+- [Visual C# 入門](/visualstudio/ide/quickstart-csharp-console)

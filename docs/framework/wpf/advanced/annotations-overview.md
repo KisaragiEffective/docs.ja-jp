@@ -9,17 +9,17 @@ helpviewer_keywords:
 - documents [WPF], annotations
 - sticky notes [WPF]
 ms.assetid: 716bf474-29bd-4c74-84a4-8e0744bdad62
-ms.openlocfilehash: dc9c4125f9ac3c44be41efe92b9e495599e5c130
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: b82c7e7300ebc295ca06d565c2fb5f6f2b28e92c
+ms.sourcegitcommit: 7bc6887ab658550baa78f1520ea735838249345e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72004037"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75636511"
 ---
 # <a name="annotations-overview"></a>注釈の概要
 用紙にメモやコメントを書くことは普通の行為であり、人はそれを当たり前のことと思っています。 そのようなメモやコメントが "注釈" です。注釈をドキュメントに追加することで情報に目印を付け、興味のある内容を強調表示し、後で参照します。 印刷したドキュメントにメモを書くことは簡単で一般的な行為ですが、電子ドキュメントに個人的なコメントを追加する機能は利用できるとしても一般的に非常に限定されています。  
   
- このトピックでは、いくつかの一般的な種類の注釈 (特に付箋と強調表示) について説明します。また、Microsoft Annotations フレームワークが Windows Presentation Foundation を通じてアプリケーションでこれらの種類の注釈を容易にする方法を示します (WPF) ドキュメントの表示コントロール。  注釈をサポートする @no__t 0 のドキュメント表示コントロールには、<xref:System.Windows.Controls.FlowDocumentReader> と <xref:System.Windows.Controls.FlowDocumentScrollViewer>、および <xref:System.Windows.Controls.DocumentViewer> や <xref:System.Windows.Controls.FlowDocumentPageViewer> などの @no__t から派生したコントロールが含まれます。  
+ このトピックでは、いくつかの一般的な種類の注釈 (特に付箋と強調表示) について説明します。また、Microsoft Annotations フレームワークが Windows Presentation Foundation を通じてアプリケーションでこれらの種類の注釈を容易にする方法を示します (WPF) ドキュメントの表示コントロール。  注釈をサポートする WPF ドキュメントの表示コントロールには、<xref:System.Windows.Controls.FlowDocumentReader> と <xref:System.Windows.Controls.FlowDocumentScrollViewer>に加えて、<xref:System.Windows.Controls.DocumentViewer> や <xref:System.Windows.Controls.FlowDocumentPageViewer>などの <xref:System.Windows.Controls.Primitives.DocumentViewerBase> から派生したコントロールが含まれます。  
 
 <a name="caf1_type_stickynotes"></a>   
 ## <a name="sticky-notes"></a>付箋  
@@ -27,7 +27,7 @@ ms.locfileid: "72004037"
   
  次の図では、蛍光ペン、テキスト付箋、インク付箋で注釈を付けていることを確認できます。  
   
- ![蛍光ペン、テキスト付箋、インク付箋による注釈](./media/caf-stickynote.jpg "CAF_StickyNote")  
+ ![強調表示、テキスト、インク付箋の注釈。](./media/caf-stickynote.jpg "CAF_StickyNote")  
   
  次は、アプリケーションで注釈サポートを有効にするためのメソッドのサンプルです。  
   
@@ -36,13 +36,13 @@ ms.locfileid: "72004037"
   
 <a name="caf1_type_callouts"></a>   
 ## <a name="highlights"></a>強調表示  
- 書面であれば、下線を引いたり、蛍光ペンでなぞったり、ドキュメント内の単語を囲んだり、余白に目印や注釈を付けたりするなど、さまざまな方法で書き込みを行い、興味のある項目を目立たせることができます。  Microsoft Annotations Framework の注釈を強調表示すると、@no__t 0 のドキュメント表示コントロールに表示される情報をマークするための同様の機能が提供されます。  
+ 書面であれば、下線を引いたり、蛍光ペンでなぞったり、ドキュメント内の単語を囲んだり、余白に目印や注釈を付けたりするなど、さまざまな方法で書き込みを行い、興味のある項目を目立たせることができます。  Microsoft Annotations Framework の注釈を強調表示すると、WPF ドキュメント表示コントロールに表示される情報をマークするための同様の機能が提供されます。  
   
  次の図は、注釈の強調表示のサンプルです。  
   
  ![注釈の強調表示](./media/caf-callouts.png "CAF_Callouts")  
   
- 通常、注釈を作成するには、まずテキストまたは目的の項目を選択し、右クリックして注釈のオプションの @no__t 0 を表示します。  次の例は、ユーザーが注釈を作成および管理するためにアクセスできるルーティングコマンドを使用して <xref:System.Windows.Controls.ContextMenu> を宣言するために使用できる @no__t 0 を示しています。  
+ 通常、注釈を作成するには、まずテキストまたは目的の項目を選択し、右クリックして注釈オプションの <xref:System.Windows.Controls.ContextMenu> を表示します。  次の例は、ユーザーが注釈を作成および管理するためにアクセスできるルーティングコマンドを使用して <xref:System.Windows.Controls.ContextMenu> を宣言するために使用できる [!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)] を示しています。  
   
  [!code-xaml[DocViewerAnnotationsXps#CreateDeleteAnnotations](~/samples/snippets/csharp/VS_Snippets_Wpf/DocViewerAnnotationsXps/CSharp/Window1.xaml#createdeleteannotations)]  
   
@@ -50,7 +50,7 @@ ms.locfileid: "72004037"
 ## <a name="data-anchoring"></a>データの固定  
  注釈フレームワークは、表示ビュー上の位置だけではなく、ユーザーが選択したデータに注釈をバインドします。 そのため、スクロールしたり、表示ウィンドウのサイズを変更したりするなど、ドキュメントの表示が変わっても、注釈はそれが固定されているデータにとどまります。 たとえば、次の図をご覧ください。選択したテキストが蛍光ペンでなぞられています。 ドキュメントの表示が変わると (スクロール、サイズ変更、拡大/縮小、その他の移動)、蛍光ペンは元のデータ選択と一緒に移動します。  
   
- ![注釈データ固定](./media/caf-dataanchoring.png "CAF_DataAnchoring")  
+ ![注釈データのアンカー](./media/caf-dataanchoring.png "CAF_DataAnchoring")  
   
 <a name="matching_annotations_with_annotated_objects"></a>   
 ## <a name="matching-annotations-with-annotated-objects"></a>注釈と注釈付きオブジェクトを照合する  
@@ -75,4 +75,4 @@ ms.locfileid: "72004037"
 - [ContextMenu の概要](../controls/contextmenu-overview.md)
 - [コマンド実行の概要](commanding-overview.md)
 - [フロー ドキュメントの概要](flow-document-overview.md)
-- [2 つのオブジェクトが等しいかどうかをテストする方法MenuItem @ no__t にコマンドを追加する
+- [方法: メニュー アイテムにコマンドを追加する](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/ms741839(v=vs.90))

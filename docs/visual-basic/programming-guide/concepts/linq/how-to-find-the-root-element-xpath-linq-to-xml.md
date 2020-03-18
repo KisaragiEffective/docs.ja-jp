@@ -1,13 +1,13 @@
 ---
-title: '方法: ルート要素を検索する (XPath LINQ to XML) (Visual Basic)'
+title: '方法 : ルート要素を検索する (XPath-LINQ to XML)'
 ms.date: 07/20/2015
 ms.assetid: 72c3aed5-9522-4454-a876-2070aad13f2e
-ms.openlocfilehash: d8ac28b698b0c61a4d9e3beea61ff8a8e1074b88
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 0e381c074a935a0cda5bd74bc456b8d7d9a495a8
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72320585"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74344606"
 ---
 # <a name="how-to-find-the-root-element-xpath-linq-to-xml-visual-basic"></a>方法: ルート要素を検索する (XPath LINQ to XML) (Visual Basic)
 このトピックでは、XPath および [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] を使用してルート要素を取得する方法について説明します。  
@@ -45,6 +45,6 @@ Results are identical
 PurchaseOrders  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [XPath ユーザーの LINQ to XML (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/linq-to-xml-for-xpath-users.md)

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 8979b7ffc09726c6588fe3ba60b916202697648f
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "72522685"
 ---
 ### <a name="signalr-hubconnectioncontext-constructors-changed"></a>SignalR:HubConnectionContext コンストラクターが変更されました
@@ -35,7 +35,7 @@ public HubConnectionContext(ConnectionContext connectionContext, HubConnectionCo
 
 新しいコンストラクターでは、新しい options オブジェクトが使用されます。 結果的に、コンストラクターや破壊的変更を増やすことなく、将来にわたり `HubConnectionContext` の機能を拡張できます。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 次のコンストラクターを使用する代わりに:
 

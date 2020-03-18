@@ -14,14 +14,12 @@ helpviewer_keywords:
 - ResetSecurity function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1636d7de8273389e785131dbc1145affd5d3b45f
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 95d91eac21e82e55af2f5e9ab181b770832f5ad0
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798256"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120211"
 ---
 # <a name="resetsecurity-function"></a>ResetSecurity 関数
 指定した偽装トークンが現在のスレッドに割り当てられます。   
@@ -43,12 +41,12 @@ HRESULT ResetSecurity (
 
 ## <a name="return-value"></a>戻り値
 
-関数が成功した場合、戻り値`S_OK`は (0) になります。
+関数が成功した場合、戻り値は `S_OK` (0) になります。
 
 関数が失敗した場合、戻り値は0以外のエラーコードです。 拡張されたエラー情報を取得するには、 [GetErrorInfo](geterrorinfo.md)関数を呼び出します。
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

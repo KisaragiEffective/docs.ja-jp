@@ -1,6 +1,5 @@
 ---
 title: while - C# リファレンス
-ms.custom: seodec18
 ms.date: 05/28/2018
 f1_keywords:
 - while_CSharpKeyword
@@ -8,22 +7,22 @@ f1_keywords:
 helpviewer_keywords:
 - while keyword [C#]
 ms.assetid: 72a0765c-6852-4aca-b327-4a11cb7f5c59
-ms.openlocfilehash: 486936ae29552891c6a58913b6d5cf9a0d725a69
-ms.sourcegitcommit: 10986410e59ff29f2ec55c6759bde3eb4d1a00cb
+ms.openlocfilehash: eb9aa2ea8d6b1c96e0be7d377f7c047194b598de
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66422485"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75712794"
 ---
 # <a name="while-c-reference"></a>while (C# リファレンス)
 
-`while` ステートメントでは、指定されたブール式が `true` と評価される間に、ステートメントまたはステートメント ブロックが実行されます。 ループの各実行の前に式が評価されるため、`while` ループは 0 回以上実行されます。 [do](do.md) ループは、これとは異なり、1 回以上実行されます。
+`while` ステートメントでは、指定されたブール式が `true` と評価される間、ステートメントまたはステートメント ブロックが実行されます。 ループの各実行の前に式が評価されるため、`while` ループは 0 回以上実行されます。 [do](do.md) ループは、これとは異なり、1 回以上実行されます。
 
 `while` ステートメント ブロック内の任意の位置で、[break](break.md) ステートメントを使用してループを抜けることができます。
 
-[continue](continue.md) ステートメントを使用すると、`while` 式の評価に直接ステップ実行できます。 式の評価が `true` の場合、ループの最初のステートメントから実行が続行されます。 それ以外の場合、実行は、ループの後の最初のステートメントから続行されます。
+`while`continue[ ステートメントを使用すると、](continue.md) 式の評価に直接ステップ実行できます。 式の評価が `true` の場合、ループの最初のステートメントから実行が続行されます。 それ以外の場合、実行は、ループの後の最初のステートメントから続行されます。
 
-また、[goto](goto.md)、[return](return.md)、[throw](throw.md) ステートメントのいずれかを使って `while` ループを終了することもできます。
+また、`while`goto[、](goto.md)return[、](return.md)throw[ ステートメントのいずれかを使って ](throw.md) ループを終了することもできます。
 
 ## <a name="example"></a>例
 
@@ -33,11 +32,11 @@ ms.locfileid: "66422485"
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳細については、「[C# 言語仕様](../language-specification/index.md)」の [while ステートメント](~/_csharplang/spec/statements.md#the-while-statement)に関するセクションを参照してください。
+詳細については、「[C# 言語仕様](~/_csharplang/spec/statements.md#the-while-statement)」の [while ステートメント](/dotnet/csharp/language-reference/language-specification/introduction)に関するセクションを参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# のキーワード](index.md)
 - [do ステートメント](do.md)

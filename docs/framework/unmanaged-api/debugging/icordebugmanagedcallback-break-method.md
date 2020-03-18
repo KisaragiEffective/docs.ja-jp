@@ -15,18 +15,16 @@ helpviewer_keywords:
 ms.assetid: 7d78a301-82b3-43b2-9d65-3cda3285ae97
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 621c5b1e32a1a21c2b0b883249c3b65fadceb5f2
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: efc9de050e34867c14f8e85e091e2b959c30f213
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65632367"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73122585"
 ---
 # <a name="icordebugmanagedcallbackbreak-method"></a>ICorDebugManagedCallback::Break メソッド
 
-デバッガーに通知時に、<xref:System.Reflection.Emit.OpCodes.Break>コード ストリームに命令を実行します。
+コードストリーム内の <xref:System.Reflection.Emit.OpCodes.Break> 命令が実行されたときに、デバッガーに通知します。
 
 ## <a name="syntax"></a>構文
 
@@ -40,14 +38,14 @@ HRESULT Break (
 ## <a name="parameters"></a>パラメーター
 
 `pAppDomain`\
-[in]中断命令を含むアプリケーション ドメインを表す ICorDebugAppDomain オブジェクトへのポインター。
+からBreak 命令を含むアプリケーションドメインを表す、コードの Appdomain オブジェクトへのポインター。
 
 `thread`\
-[in]中断命令を含むスレッドを表す ICorDebugThread オブジェクトへのポインター。
+からBreak 命令を含むスレッドを表す、コードスレッドオブジェクトへのポインター。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** CorDebug.idl、CorDebug.h
 

@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 496c3add-f60b-4073-943f-d1bcf33330cb
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 17e96f56c57d896397489e27bcc072d8e7df05ec
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: ffa1fa2f5e141728a56f1b598a1aae9602b2ac86
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796546"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73108215"
 ---
 # <a name="iassemblynamesetproperty-method"></a>IAssemblyName::SetProperty メソッド
 指定したプロパティ識別子によって参照されるプロパティの値を設定します。  
@@ -42,13 +40,13 @@ HRESULT SetProperty (
  から値が設定されるプロパティの一意の識別子。  
   
  `pvProperty`  
- からによって`PropertyId`参照されるプロパティを設定する値。  
+ から`PropertyId`によって参照されるプロパティを設定する値。  
   
  `cbProperty`  
- からの`pvProperty`サイズ (バイト単位)。  
+ から`pvProperty`のサイズ (バイト単位)。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Fusion. h  
   

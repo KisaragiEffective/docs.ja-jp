@@ -1,13 +1,13 @@
 ---
-title: '方法: 式ツリーを使用して動的クエリを作成する (Visual Basic)'
+title: '方法 : 式ツリーを使用して動的クエリをビルドする'
 ms.date: 07/20/2015
 ms.assetid: 16278787-7532-4b65-98b2-7a412406c4ee
-ms.openlocfilehash: 5cb4d99982deb48a47a25b52bc7f5e4c8634219c
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 616aa3eba1e07a92983bb5d2048a9dbae936e77c
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75346052"
 ---
 # <a name="how-to-use-expression-trees-to-build-dynamic-queries-visual-basic"></a>方法: 式ツリーを使用して動的クエリを作成する (Visual Basic)
 
@@ -17,7 +17,7 @@ LINQ では、<xref:System.Linq.Expressions.Expression%601> 型の変数に代�
 
 このトピックでは、式ツリーを使って動的な LINQ クエリを作成する方法について説明します。 動的クエリは、コンパイル時にクエリの詳細がわからない場合に便利です。 たとえば、データをフィルター処理するための述語をエンド ユーザーが指定できるユーザー インターフェイスをアプリケーションで提供することがあります。 クエリに LINQ を使うには、このようなアプリケーションでは式ツリーを使って実行時に LINQ クエリを作成する必要があります。
 
-## <a name="example"></a>例
+## <a name="example"></a>使用例
 
 次の例では、式ツリーを使って `IQueryable` データ ソースに対するクエリを作成して実行する方法を示します。 このコードは、次のクエリを表す式ツリーを作成します。
 
@@ -101,7 +101,7 @@ Next
 
 このコードでは、`Queryable.Where` メソッドに渡される述語で固定数の式を使います。 ただし、ユーザー入力に依存する可変個の述語式を結合するアプリケーションを作成することもできます。 また、ユーザーからの入力に応じて、クエリで呼び出される標準クエリ演算子を変えることもできます。
 
-## <a name="compiling-the-code"></a>コードのコンパイル
+## <a name="compile-the-code"></a>コードのコンパイル
 
 - 新しい**コンソール アプリケーション** プロジェクトを作成します。
 

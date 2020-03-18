@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: e5912ed8-e4ce-438b-8ea3-d9e4c288d109
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 62c44d0c3bd2e931b1708abb48bc9c854431419f
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 45e2348b4726447548544d975e60b93e464fb402
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67751153"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74450330"
 ---
 # <a name="imetadataassemblyimportenumexportedtypes-method"></a>IMetaDataAssemblyImport::EnumExportedTypes メソッド
-現在のメタデータ スコープ内のアセンブリ マニフェストで参照されているエクスポートされた型を列挙します。  
+現在のメタデータスコープ内のアセンブリマニフェストで参照される、エクスポートされた型を列挙します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,33 +38,33 @@ HRESULT EnumExportedTypes (
   
 ## <a name="parameters"></a>パラメーター  
  `phEnum`  
- [入力、出力]列挙子へのポインター。 これを null には値と、`EnumExportedTypes`メソッドは、最初に呼び出されます。  
+ [入力、出力]列挙子へのポインター。 `EnumExportedTypes` メソッドを初めて呼び出すときは、null 値を指定する必要があります。  
   
  `rExportedTypes`  
- [out]列挙体`mdExportedType`メタデータ トークン。  
+ 入出力`mdExportedType` メタデータトークンの列挙体。  
   
  `cMax`  
- [in]最大数`mdExportedType`トークン内に配置できる、`rExportedTypes`配列。  
+ から`rExportedTypes` 配列に格納できる `mdExportedType` トークンの最大数。  
   
  `pcTokens`  
- [out]数`mdExportedType`トークンが実際に配置`rExportedTypes`します。  
+ 入出力`rExportedTypes`に実際に配置されている `mdExportedType` トークンの数。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|`S_OK`|`EnumExportedTypes` 正常に返されます。|  
-|`S_FALSE`|トークンを列挙することはありません。 この場合、 `pcTokens` 0 に設定されます。|  
+|`S_OK`|`EnumExportedTypes` が正常に返されました。|  
+|`S_FALSE`|列挙するトークンがありません。 この場合、`pcTokens` は0に設定されます。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **プラットフォーム:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataAssemblyImport インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataassemblyimport-interface.md)

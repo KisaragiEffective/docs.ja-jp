@@ -1,12 +1,12 @@
 ---
 title: 'チュートリアル: C# を使用してオブジェクトを永続化する'
 ms.date: 04/26/2018
-ms.openlocfilehash: 5e3a327ca0a257c45de361e0b3734e0b127f9869
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: 85c5d1b711180eda5734d5860d996242c6bc89d1
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70851048"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79167571"
 ---
 # <a name="walkthrough-persisting-an-object-using-c"></a>チュートリアル: C\# を使用してオブジェクトを永続化する
 
@@ -20,7 +20,7 @@ ms.locfileid: "70851048"
 > [!IMPORTANT]
 > この例では、バイナリ形式のファイルにデータを格納します。 この形式は、パスワードやクレジット カード情報などの重要情報には使用しないでください。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 - ビルドして実行するには、[.NET Core SDK](https://dotnet.microsoft.com/download) をインストールします。
 
@@ -29,7 +29,7 @@ ms.locfileid: "70851048"
 > [!TIP]
 > コード エディターをインストールする必要がありますか。 [Visual Studio](https://visualstudio.com/downloads) をお試しください。
 
-- この例では C# 7.3 が必要です。 「[C# 言語のバージョンの選択](../../../language-reference/configure-language-version.md)」を参照してください 
+- この例では C# 7.3 が必要です。 「[C# 言語のバージョンの選択](../../../language-reference/configure-language-version.md)」を参照してください
 
 オンラインで [.NET サンプルの GitHub リポジトリ](https://github.com/dotnet/samples/tree/master/csharp/serialization)にアクセスしてサンプル コードを確認することができます。
 
@@ -41,7 +41,7 @@ ms.locfileid: "70851048"
 1. エディターでアプリケーションを開き、`Loan.cs` という名前の新しいクラスを追加します。
 1. `Loan` クラスに次のコードを追加します。
 
-[!code-csharp[Loan class definition](../../../../../samples/csharp/serialization/Loan.cs#1)]
+[!code-csharp[Loan class definition](../../../../../samples/snippets/csharp/serialization/Loan.cs#1)]
 
 また、`Loan` クラスを使用するアプリケーションも作成する必要があります。
 
@@ -49,11 +49,11 @@ ms.locfileid: "70851048"
 
 1. `Program.cs`を開きます。 次のコードを追加します。
 
-[!code-csharp[Create a loan object](../../../../../samples/csharp/serialization/Program.cs#1)]
+[!code-csharp[Create a loan object](../../../../../samples/snippets/csharp/serialization/Program.cs#1)]
 
 `PropertyChanged` イベントのイベント ハンドラーを追加し、`Loan` オブジェクトを変更して変更を表示する処理を行う数行を追加します。 この追加は次のコードで確認できます。
 
-[!code-csharp[Listening for the PropertyChanged event](../../../../../samples/csharp/serialization/Program.cs#2)]
+[!code-csharp[Listening for the PropertyChanged event](../../../../../samples/snippets/csharp/serialization/Program.cs#2)]
 
 この時点で、コードを実行して現在の出力を確認することができます。
 
@@ -69,37 +69,37 @@ New customer value: Henry Clay
 
 Loan クラスの値を永続化するには、まず、クラスを `Serializable` 属性でマークする必要があります。 Loan クラス定義の上に次のコードを追加します。
 
-[!code-csharp[Loan class definition](../../../../../samples/csharp/serialization/Loan.cs#2)]
+[!code-csharp[Loan class definition](../../../../../samples/snippets/csharp/serialization/Loan.cs#2)]
 
 <xref:System.SerializableAttribute> は、クラス内のすべての要素がファイルに永続化できることをコンパイラに示します。 `PropertyChanged` イベントは保存する必要があるオブジェクト グラフの一部を表していないので、シリアル化しないようにします。 シリアル化すると、そのイベントにアタッチされているすべてのオブジェクトがシリアル化されます。 <xref:System.NonSerializedAttribute> は、`PropertyChanged` イベント ハンドラーのフィールド宣言に追加できます。
 
-[!code-csharp[Disable serialization for the event handler](../../../../../samples/csharp/serialization/Loan.cs#3)]
+[!code-csharp[Disable serialization for the event handler](../../../../../samples/snippets/csharp/serialization/Loan.cs#3)]
 
 C# 7.3 以降、`field` のターゲット値を使用して、自動実装プロパティのバッキング フィールドに属性をアタッチできるようになりました。 次のコードでは `TimeLastLoaded` プロパティを追加し、シリアル化可能ではないとマークします。
 
-[!code-csharp[Disable serialization for an auto-implemented property](../../../../../samples/csharp/serialization/Loan.cs#4)]
+[!code-csharp[Disable serialization for an auto-implemented property](../../../../../samples/snippets/csharp/serialization/Loan.cs#4)]
 
 次に、LoanApp アプリケーションにシリアル化コードを追加します。 クラスをシリアル化してファイルに書き込むには、<xref:System.IO> 名前空間と <xref:System.Runtime.Serialization.Formatters.Binary> 名前空間を使用します。 次のコードのように、必要な名前空間への参照を追加すると、完全修飾名の入力が不要になります。
 
-[!code-csharp[Adding namespaces for serialization](../../../../../samples/csharp/serialization/Program.cs#3)]
+[!code-csharp[Adding namespaces for serialization](../../../../../samples/snippets/csharp/serialization/Program.cs#3)]
 
 次の手順では、オブジェクトの作成時にファイルからオブジェクトを逆シリアル化するコードを追加します。 次のコードのように、シリアル化されたデータのファイル名を定数としてクラスに追加します。
 
-[!code-csharp[Define the name of the saved file](../../../../../samples/csharp/serialization/Program.cs#4)]
+[!code-csharp[Define the name of the saved file](../../../../../samples/snippets/csharp/serialization/Program.cs#4)]
 
 次に、`TestLoan` オブジェクトを作成する行の後に次のコードを追加します。
 
-[!code-csharp[Read from a file if it exists](../../../../../samples/csharp/serialization/Program.cs#5)]
+[!code-csharp[Read from a file if it exists](../../../../../samples/snippets/csharp/serialization/Program.cs#5)]
 
 まず、ファイルが存在することを確認する必要があります。 ファイルが存在する場合は、バイナリ ファイルを読み取る <xref:System.IO.Stream> クラスと、ファイルを変換する <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> クラスを作成します。 ストリーム型を Loan オブジェクト型に変換する必要もあります。
 
 次に、クラスをファイルにシリアル化するコードを追加する必要があります。 `Main` メソッドの既存のコードの後に次のコードを追加します。
 
-[!code-csharp[Save the existing Loan object](../../../../../samples/csharp/serialization/Program.cs#6)]
+[!code-csharp[Save the existing Loan object](../../../../../samples/snippets/csharp/serialization/Program.cs#6)]
 
 この時点で、アプリケーションを再度ビルドして実行できます。 初めて実行すると、利率は 7.5 から始まり、7.1 に変更されます。 いったんアプリケーションを閉じて、再び実行します。 利率を変更するコードの前でも、保存済みのファイルが読み込まれ、利率は 7.1 であるというメッセージがアプリケーションから出力されます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [シリアル化 (C#)](index.md)
-- [C# プログラミング ガイド](../..//index.md)
+- [C# プログラミングガイド](../..//index.md)

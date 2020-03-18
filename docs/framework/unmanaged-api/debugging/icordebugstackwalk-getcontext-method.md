@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 081d1c95-152b-4797-8552-18453eb7b14b
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: f453e950a79b0f929ec8f813cc13eb2e01ab8c87
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9953d0f3e1a4d4cd935918f0e5721e474453ca7d
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67760926"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76791909"
 ---
 # <a name="icordebugstackwalkgetcontext-method"></a>ICorDebugStackWalk::GetContext メソッド
-現在のフレームのコンテキストを返します、 [ICorDebugStackWalk](../../../../docs/framework/unmanaged-api/debugging/icordebugstackwalk-interface.md)オブジェクト。  
+[は、テキストオブジェクト内](icordebugstackwalk-interface.md)の現在のフレームのコンテキストを返します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,16 +36,16 @@ HRESULT GetContext([in]  ULONG32 contextFlags,
   
 ## <a name="parameters"></a>パラメーター  
  `contextFlags`  
- [in]要求された (WinNT.h で定義されている) コンテキスト バッファーの内容を示すフラグです。  
+ からコンテキストバッファーの要求されたコンテンツを示すフラグ (Winnt.h で定義されています)。  
   
  `contextBufSize`  
- [in]コンテキスト バッファーの割り当てサイズ。  
+ からコンテキストバッファーに割り当てられたサイズ。  
   
  `contextSize`  
- [out]コンテキストの実際のサイズ。 この値は、コンテキスト バッファーのサイズ以下である必要があります。  
+ 入出力コンテキストの実際のサイズ。 この値は、コンテキストバッファーのサイズ以下である必要があります。  
   
  `contextBuf`  
- [out]コンテキストのバッファー。  
+ 入出力コンテキストバッファー。  
   
 ## <a name="return-value"></a>戻り値  
  このメソッドは、次の特定の HRESULT と、メソッドの失敗を示す HRESULT エラーも返します。  
@@ -55,17 +53,17 @@ HRESULT GetContext([in]  ULONG32 contextFlags,
 |HRESULT|説明|  
 |-------------|-----------------|  
 |S_OK|現在のフレームのコンテキストが正常に返されました。|  
-|E_FAIL|コンテキストは返されませんでした。|  
-|HRESULT_FROM_WIN32(ERROR_INSUFFICIENT BUFFER)|コンテキスト バッファーが小さすぎます。|  
-|CORDBG_E_PAST_END_OF_STACK|フレーム ポインターがスタックの末尾に達してそのため、追加のフレームにはアクセスできません。|  
+|E_FAIL|コンテキストを返すことができませんでした。|  
+|HRESULT_FROM_WIN32(ERROR_INSUFFICIENT BUFFER)|コンテキストバッファーが小さすぎます。|  
+|CORDBG_E_PAST_END_OF_STACK|フレームポインターは既にスタックの末尾にあります。そのため、追加のフレームにアクセスすることはできません。|  
   
 ## <a name="exceptions"></a>例外  
   
-## <a name="remarks"></a>Remarks  
- アンワインド非 volatile レジスタなどのレジスタのサブセットのみが復元されるため、コンテキストの呼び出しの時点でレジスタの状態が一致も一致しないです。  
+## <a name="remarks"></a>コメント  
+ アンワインドでは、非揮発性レジスタなどのレジスタのサブセットのみが復元されるため、呼び出し時にコンテキストがレジスタの状態と完全に一致するとは限りません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -75,5 +73,5 @@ HRESULT GetContext([in]  ULONG32 contextFlags,
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)
+- [デバッグ](index.md)

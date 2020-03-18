@@ -1,13 +1,13 @@
 ---
-title: '方法: 属性を使用してC++ C 共用体を作成する (Visual Basic)'
+title: '方法: 属性を使用してC++ C 共用体を作成する'
 ms.date: 07/20/2015
 ms.assetid: 9352a7e4-c0da-4d07-aa14-55ed43736fcb
-ms.openlocfilehash: 6595d6477d9d0838745e19eb2a44d26f6e534c70
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: acb8dc781e2872ae46e5aa058a98b3dd98f3e064
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524274"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74349499"
 ---
 # <a name="how-to-create-a-cc-union-by-using-attributes-visual-basic"></a>方法: 属性を使用してC++ C/共用体を作成する (Visual Basic)
 
@@ -69,7 +69,7 @@ Structure TestExplicit
 
 2 つの整数フィールド、`i1` および `i2` は、`lg` と同じメモリ位置を共有します。 このような構造体配置の制御は、プラットフォームを呼び出すときに便利です。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Reflection>
 - <xref:System.Attribute>

@@ -11,14 +11,12 @@ helpviewer_keywords:
 - identifying DLL functions
 - DLL functions
 ms.assetid: 3e3f6780-6d90-4413-bad7-ba641220364d
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: deae99f5bdc7c187997d4bad4957b2fcdccdc166
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 1a94bb2020b07ba8405d901f46ec4a0687e79700
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71051724"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73121973"
 ---
 # <a name="identifying-functions-in-dlls"></a>DLL 内の関数の識別
 DLL 関数の ID は、次の要素で構成されます。  
@@ -31,7 +29,7 @@ DLL 関数の ID は、次の要素で構成されます。
   
  **MessageBoxA** は、**MessageBox** 関数の ANSI のエントリ ポイントであり、**MessageBoxW** は Unicode バージョンです。 さまざまなコマンド ライン ツールを実行して、User32.dll などの特定の DLL の関数名の一覧を表示することができます。 たとえば、`dumpbin /exports user32.dll` または `link /dump /exports user32.dll` を使用して関数名を取得できます。  
   
- DLL で新しい名前を元のエントリ ポイントにマップする限り、コード内でアンマネージ関数の名前を自由に変更することができます。 マネージド ソース コードでアンマネージド DLL 関数の名前を変更する方法の詳細については、「[エントリ ポイントの指定](specifying-an-entry-point.md)」を参照してください。  
+ DLL で新しい名前を元のエントリ ポイントにマップする限り、コード内でアンマネージ関数の名前を自由に変更することができます。 マネージド ソース コードでアンマネージド DLL 関数の名前を変更する方法の詳細については、「[Specifying an Entry Point](specifying-an-entry-point.md)」(エントリ ポイントの指定) を参照してください。  
   
  プラットフォーム呼び出しにより、Windows API とその他の DLL で関数を呼び出すことによって、オペレーティング システムの重要な部分を制御できます。 Windows API に加えて、その他の多数の API と DLL を、プラットフォーム呼び出しによって使用できます。  
   
@@ -43,7 +41,7 @@ DLL 関数の ID は、次の要素で構成されます。
 |Kernel32.dll|メモリ管理とリソースの処理のための低レベルのオペレーティング システム関数。|  
 |User32.dll|メッセージの処理、タイマー、メニュー、通信用の Windows 管理関数。|  
   
- Windows API の詳細については、プラットフォーム SDK を参照してください。 プラットフォーム呼び出しで使用する .NET ベースの宣言を作成する方法を示す例については、「[プラットフォーム呼び出しによるデータのマーシャリング](marshaling-data-with-platform-invoke.md)」を参照してください。  
+ Windows API の詳細については、プラットフォーム SDK を参照してください。 プラットフォームの起動で使用する NET ベースの宣言を作成する方法を示す例については、「[プラットフォーム呼び出しによるデータのマーシャリング](marshaling-data-with-platform-invoke.md)」を参照してください。  
   
 ## <a name="see-also"></a>関連項目
 

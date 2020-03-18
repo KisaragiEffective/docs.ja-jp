@@ -1,5 +1,5 @@
 ---
-title: オーバー ロードされたプロパティとメソッド (Visual Basic)
+title: オーバーロードされたプロパティとメソッド
 ms.date: 07/20/2015
 helpviewer_keywords:
 - properties [Visual Basic], overloading
@@ -12,81 +12,81 @@ helpviewer_keywords:
 - method overloading
 - Overloads keyword [Visual Basic], overloaded members
 ms.assetid: b686fb97-e7d7-4001-afaa-6650cba08f0d
-ms.openlocfilehash: 8d7341370d9770d2e57f786ac7c68277e66a9bbd
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: a5017d371f8a01436020443b2e3466c78fc35d21
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61864872"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346089"
 ---
-# <a name="overloaded-properties-and-methods-visual-basic"></a>オーバー ロードされたプロパティとメソッド (Visual Basic)
+# <a name="overloaded-properties-and-methods-visual-basic"></a>オーバーロードされたプロパティとメソッド (Visual Basic)
 
-オーバー ロードは、1 つ以上のプロシージャ、インスタンス コンス トラクターで異なる引数の型が同じ名前のクラスのプロパティの作成です。
+オーバーロードとは、同じ名前で引数の型が異なるクラスで、複数のプロシージャ、インスタンスコンストラクター、またはプロパティを作成することです。
 
-## <a name="overloading-usage"></a>使用率をオーバー ロード
+## <a name="overloading-usage"></a>オーバーロードの使用
 
-オーバー ロードは、オブジェクト モデルで、別のデータ型を操作する手順については、同じ名前を使用しているときに特に便利です。 たとえば、いくつかの異なるデータ型を表示できるクラスがある`Display`手順のようになります。
+オーバーロードは、さまざまなデータ型を操作するプロシージャに対して、オブジェクトモデルで同じ名前を使用することが指示された場合に特に便利です。 たとえば、いくつかの異なるデータ型を表示できるクラスでは、次のような `Display` のプロシージャが存在する可能性があります。
 
 [!code-vb[VbVbalrOOP#64](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#64)]
 
-オーバー ロードが可能でない場合でも、次に示すように、同じよう各手順では、個別の名前を作成する必要は。
+オーバーロードを使用しない場合は、次に示すように、プロシージャごとに個別の名前を作成する必要があります。
 
 [!code-vb[VbVbalrOOP#65](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#65)]
 
-オーバー ロードすると、使用できるデータ型の選択肢を提供するために、プロパティまたはメソッドを使用しやすきます。 たとえば、オーバー ロード`Display`説明以前メソッドでは、次のコード行のいずれか。
+オーバーロードを使用すると、使用可能なデータ型を選択できるため、プロパティやメソッドの使用が簡単になります。 たとえば、前に説明したオーバーロードされた `Display` メソッドは、次のいずれかのコード行を使用して呼び出すことができます。
 
 [!code-vb[VbVbalrOOP#66](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#66)]
 
-実行時に、Visual Basic は、指定したパラメーターのデータ型に基づいて適切なプロシージャを呼び出します。
+実行時に、Visual Basic は、指定したパラメーターのデータ型に基づいて正しいプロシージャを呼び出します。
 
-## <a name="overloading-rules"></a>オーバー ロードの規則
+## <a name="overloading-rules"></a>オーバーロード (規則を)
 
- クラスのオーバー ロードされたメンバーを作成するには、2 つ以上のプロパティまたは同じ名前のメソッドを追加します。 派生オーバー ロードされたメンバーを除く各オーバー ロードされたメンバーはパラメーター リストが異なっている必要があり、次の項目は、プロパティまたはプロシージャをオーバー ロードとの差別化機能として使用できません。
+ クラスのオーバーロードされたメンバーを作成するには、同じ名前を持つ2つ以上のプロパティまたはメソッドを追加します。 オーバーロードされた派生メンバーを除き、オーバーロードされた各メンバーは異なるパラメーターリストを持つ必要があります。また、プロパティまたはプロシージャをオーバーロードするときに、次の項目を区別機能として使用することはできません。
 
-- 修飾子など`ByVal`または`ByRef`メンバー、またはメンバーのパラメーターに適用されています。
+- メンバーまたはメンバーのパラメーターに適用される、`ByVal` や `ByRef`などの修飾子。
 
 - パラメーターの名前
 
 - プロシージャの戻り値の型
 
-`Overloads`オーバー ロード、ときに、キーワードは省略可能ですが、メンバーを使用していずれかのオーバー ロードされた場合、`Overloads`このキーワードはキーワード、その他のすべてのオーバー ロードされたメンバーと同じ名前で指定もする必要があります。
+`Overloads` キーワードはオーバーロード時には省略可能ですが、オーバーロードされたメンバーが `Overloads` キーワードを使用している場合は、同じ名前の他のすべてのオーバーロードされたメンバーもこのキーワードを指定する必要があります。
 
-派生クラスで継承されたメンバーを同じパラメーターおよびパラメーターの型と呼ばれるプロセスを持つメンバーをオーバー ロードできます*名前とシグネチャによるシャドウ*します。 場合、`Overloads`キーワードを使用して名前とシグネチャによるシャドウ、メンバーの派生クラスの実装が、基底クラスの実装ではなく使用され、そのメンバーの他のすべてのオーバー ロードのインスタンスで使用できるときに、派生クラスです。
+派生クラスでは、同じパラメーターとパラメーターの型を持つメンバーを持つ継承されたメンバーをオーバーロードできます。これは、*名前とシグネチャによるシャドウ*処理と呼ばれるプロセスです。 名前とシグネチャでシャドウするときに `Overloads` キーワードを使用すると、基底クラスの実装ではなく、派生クラスのメンバーの実装が使用され、そのメンバーの他のすべてのオーバーロードが派生クラスのインスタンスで使用できるようになります。
 
-場合、`Overloads`と同じパラメーターおよびパラメーターの型を持つメンバーを持つ継承されたメンバーをオーバー ロード時にキーワードを省略すると、オーバー ロードが呼び出されます*名前によるシャドウ*します。 継承されたメンバーの実装を置き換える名前によるシャドウおり、その他のすべてのオーバー ロードに置き換わります、派生クラスのインスタンスを使用できなくなります。
+同じパラメーターとパラメーターの型を持つメンバーを持つ継承されたメンバーをオーバーロードするときに `Overloads` キーワードを省略すると、オーバーロードは*名前によるシャドウ*処理と呼ばれます。 名前によるシャドウ処理により、メンバーの継承された実装が置き換えられます。これにより、派生クラスのインスタンスとその他のすべてのオーバーロードが使用できなくなります。
 
-`Overloads`と`Shadows`修飾子両方では使用できません、同じプロパティまたはメソッドです。
+`Overloads` と `Shadows` の修飾子を同じプロパティまたはメソッドと共に使用することはできません。
 
 ### <a name="example"></a>例
 
-次の例は、いずれかを受け取るオーバー ロードされたメソッドを作成、`String`または`Decimal`形式の金額と販売税を含む文字列を返します。
+次の例では、金額の `String` または `Decimal` 表現を受け入れるオーバーロードされたメソッドを作成し、売上税を含む文字列を返します。
 
-#### <a name="to-use-this-example-to-create-an-overloaded-method"></a>この例を使用して、オーバー ロードされたメソッドを作成するには
+#### <a name="to-use-this-example-to-create-an-overloaded-method"></a>この例を使用して、オーバーロードされたメソッドを作成するには
 
-1. 新しいプロジェクトを開き、という名前のクラスを追加`TaxClass`します。
+1. 新しいプロジェクトを開き、`TaxClass`という名前のクラスを追加します。
 
 2. `TaxClass` クラスに次のコードを追加します。
 
     [!code-vb[VbVbalrOOP#67](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#67)]
 
-3. フォームに次の手順を追加します。
+3. 次のプロシージャをフォームに追加します。
 
     [!code-vb[VbVbalrOOP#68](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#68)]
 
-4. 呼び出し、フォームにボタンを追加、`ShowTax`プロシージャから、`Button1_Click`ボタンのイベント。
+4. フォームにボタンを追加し、ボタンの `Button1_Click` イベントから `ShowTax` プロシージャを呼び出します。
 
-5. プロジェクトを実行し、テスト、オーバー ロードされたフォーム上のボタンをクリックします。`ShowTax`プロシージャ。
+5. プロジェクトを実行し、フォームのボタンをクリックして、オーバーロードされた `ShowTax` プロシージャをテストします。
 
-実行時に、コンパイラは、使用されているパラメーターに一致する適切なオーバー ロードされた関数を選択します。 ボタンをクリックすると、オーバー ロードされたメソッドが呼び出された最初、`Price`パラメーターが文字列と、メッセージは、"価格は文字列です。 税金が $$5.12"が表示されます。 `TaxAmount` 呼び出すと、`Decimal`値を 2 回目と、メッセージ、"価格は 10 進数です。 税金が $$5.12"が表示されます。
+実行時に、コンパイラは、使用されているパラメーターに一致するオーバーロードされた適切な関数を選択します。 このボタンをクリックすると、オーバーロードされたメソッドが最初に呼び出されます。このメソッドは、文字列である `Price` パラメーターと "Price は文字列です。 税 $5.12 "が表示されます。 2回目の `Decimal` 値を使用して `TaxAmount` が呼び出されます。 "Price は Decimal です。 税 $5.12 "が表示されます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [クラスとオブジェクト](../../../../visual-basic/programming-guide/language-features/objects-and-classes/index.md)
-- [Visual Basic におけるシャドウ](../../../../visual-basic/programming-guide/language-features/declared-elements/shadowing.md)
+- [Visual Basic でのシャドウ処理](../../../../visual-basic/programming-guide/language-features/declared-elements/shadowing.md)
 - [Sub ステートメント](../../../../visual-basic/language-reference/statements/sub-statement.md)
 - [継承の基本](../../../../visual-basic/programming-guide/language-features/objects-and-classes/inheritance-basics.md)
 - [Shadows](../../../../visual-basic/language-reference/modifiers/shadows.md)
-- [ByVal](../../../../visual-basic/language-reference/modifiers/byval.md)
+- [ParamArray](../../../../visual-basic/language-reference/modifiers/byval.md)
 - [ByRef](../../../../visual-basic/language-reference/modifiers/byref.md)
 - [Overloads](../../../../visual-basic/language-reference/modifiers/overloads.md)
 - [Shadows](../../../../visual-basic/language-reference/modifiers/shadows.md)

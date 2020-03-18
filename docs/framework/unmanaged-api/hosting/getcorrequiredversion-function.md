@@ -14,19 +14,17 @@ helpviewer_keywords:
 ms.assetid: 1588fe7b-c378-4f4b-9c4b-48647f1119cc
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8597b68b75d2b5f77f68fc13c3fb78bfdae46178
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 661eb758e1651901bb56810640a68f0de0b4e851
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67736293"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136476"
 ---
 # <a name="getcorrequiredversion-function"></a>GetCORRequiredVersion 関数
-必要な共通言語ランタイム (CLR) バージョン番号を取得します。  
+必要な共通言語ランタイム (CLR) のバージョン番号を取得します。  
   
- この関数は、.NET Framework 4 では廃止されました。  
+ この関数は .NET Framework 4 で非推奨とされました。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,20 +38,20 @@ HRESULT GetCORRequiredVersion (
   
 ## <a name="parameters"></a>パラメーター  
  `pbuffer`  
- [out]バージョン番号を指定する文字列を格納するバッファー。  
+ 入出力バージョン番号を指定する文字列を格納しているバッファー。  
   
  `cchBuffer`  
- [in]バッファーのバイト単位のサイズ。  
+ からバッファーのサイズ (バイト単位)。  
   
  `dwLength`  
- [out]バッファー内のバイト数が返されます。  
+ 入出力バッファーで返されたバイト数。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

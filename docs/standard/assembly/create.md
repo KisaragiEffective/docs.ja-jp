@@ -7,14 +7,12 @@ helpviewer_keywords:
 - assemblies [.NET Framework], creating
 - multifile assemblies
 ms.assetid: 54832ee9-dca8-4c8b-913c-c0b9d265e9a4
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2dda45cca182d75bc77916cdf862ada9faead9ec
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: 81fffb2b2e1d56d6068bf6f663a13fad6968a383
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70972763"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73740506"
 ---
 # <a name="create-assemblies"></a>アセンブリを作成する
 
@@ -48,7 +46,6 @@ Visual Studio などの IDE や、Windows SDK によって提供されるコン�
 
 ## <a name="see-also"></a>関連項目
 
-- [アセンブリを使用したプログラム](program.md)
 - [アセンブリのバージョン管理](versioning.md)
 - [方法: シングルファイル アセンブリをビルドする](../../framework/app-domains/build-single-file-assembly.md)
 - [方法: マルチファイル アセンブリをビルドする](../../framework/app-domains/build-multifile-assembly.md)

@@ -15,18 +15,16 @@ helpviewer_keywords:
 ms.assetid: ec00fbdd-6451-4888-ac6f-08e1e2d9b2fd
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3691d8015f514cc20e63ad62f45e7317f56f72fb
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: e31522ffcf5dd61c1643a8c60e7573c87b834e6a
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61996009"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76788755"
 ---
 # <a name="icordebugeditandcontinuesnapshotsetpesymbolbytes-method"></a>ICorDebugEditAndContinueSnapshot::SetPESymbolBytes メソッド
 `SetPESymbolBytes` は互換性のために残されています。 このメソッドを呼び出さないでください。  
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

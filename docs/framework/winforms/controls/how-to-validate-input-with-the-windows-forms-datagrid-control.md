@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの DataGrid コントロールを使用して入力データを検証する'
+title: DataGrid コントロールを使用した入力の検証
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -11,25 +11,25 @@ helpviewer_keywords:
 - DataGrid control [Windows Forms], validating input
 - validation [Windows Forms], user input
 ms.assetid: f1e9c3a0-d0a1-4893-a615-b4b0db046c63
-ms.openlocfilehash: dc8c8f157e6673c1bddc68bfb511683e6d2b99be
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 3958089007401d2e977c9c96f07c9196e6216596
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61796475"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76728298"
 ---
-# <a name="how-to-validate-input-with-the-windows-forms-datagrid-control"></a>方法: Windows フォームの DataGrid コントロールを使用して入力データを検証する
+# <a name="how-to-validate-input-with-the-windows-forms-datagrid-control"></a>方法 : Windows フォームの DataGrid コントロールを使用して入力データを検証する
 
 > [!NOTE]
 > <xref:System.Windows.Forms.DataGridView> コントロールは、<xref:System.Windows.Forms.DataGrid> コントロールに代わると共に追加の機能を提供します。ただし、<xref:System.Windows.Forms.DataGrid> コントロールは、下位互換性を保つ目的および将来使用する目的で保持されます。 詳細については、「[Windows フォームの DataGridView コントロールと DataGrid コントロールの違いについて](differences-between-the-windows-forms-datagridview-and-datagrid-controls.md)」を参照してください。
 
-Windows フォームの使用可能な 2 種類の入力の検証は<xref:System.Windows.Forms.DataGrid>コントロール。 ユーザーがセル、整数、文字列などの許容できないデータ型の値を入力する場合は、古い値を持つ新しい無効な値が置き換えられます。 この種類の入力の検証は、自動的には行われ、カスタマイズすることはできません。
+Windows フォーム <xref:System.Windows.Forms.DataGrid> コントロールに使用できる入力検証には2種類あります。 整数の文字列など、許容できないデータ型の値をセルに入力しようとすると、新しい無効な値が古い値に置き換えられます。 この種類の入力検証は自動的に行われ、カスタマイズすることはできません。
 
-以上の値を 1、または不適切な文字列にする必要があるフィールドの値が 0 など、あらゆる許容できないデータを拒否する他の種類の入力の検証を使用できます。 これは、データセット内のイベント ハンドラーを記述することで、<xref:System.Data.DataTable.ColumnChanging>または<xref:System.Data.DataTable.RowChanging>イベント。 使用して次の例、<xref:System.Data.DataTable.ColumnChanging>イベント不正な値が"Product"列の具体的には許可されていないためです。 使用する場合があります、 <xref:System.Data.DataTable.RowChanging> 「終了日」の列の値が同じ行の「開始日」の列より後であるかを確認するためのイベント。
+その他の種類の入力検証を使用すると、許容できないデータを拒否することができます。たとえば、1以上である必要があるフィールドの0値、または不適切な文字列です。 これは、<xref:System.Data.DataTable.ColumnChanging> イベントまたは <xref:System.Data.DataTable.RowChanging> イベントのイベントハンドラーを記述することによって、データセットで実行されます。 次の例では、<xref:System.Data.DataTable.ColumnChanging> イベントを使用します。これは、特に "Product" 列に対して許容できない値が許可されないためです。 <xref:System.Data.DataTable.RowChanging> イベントを使用して、"終了日" 列の値が同じ行の "開始日" 列より後であるかどうかを確認できます。
 
 ## <a name="to-validate-user-input"></a>ユーザー入力を検証するには
 
-1. 処理するコードを記述、<xref:System.Data.DataTable.ColumnChanging>イベントを該当するテーブル。 不適切な入力が検出されたときに呼び出す、<xref:System.Data.DataRow.SetColumnError%2A>のメソッド、<xref:System.Data.DataRow>オブジェクト。
+1. 適切なテーブルの <xref:System.Data.DataTable.ColumnChanging> イベントを処理するコードを記述します。 不適切な入力が検出された場合は、<xref:System.Data.DataRow> オブジェクトの <xref:System.Data.DataRow.SetColumnError%2A> メソッドを呼び出します。
 
     ```vb
     Private Sub Customers_ColumnChanging(ByVal sender As Object, _
@@ -66,9 +66,9 @@ Windows フォームの使用可能な 2 種類の入力の検証は<xref:System
     }
     ```
 
-2. イベントにイベント ハンドラーを接続します。
+2. イベントハンドラーをイベントに接続します。
 
-    フォームのコード内で、次の場所<xref:System.Windows.Forms.Form.Load>イベントまたはそのコンス トラクター。
+    フォームの <xref:System.Windows.Forms.Form.Load> イベントまたはそのコンストラクターのいずれかに、次のコードを配置します。
 
     ```vb
     ' Assumes the grid is bound to a dataset called customersDataSet1
@@ -84,7 +84,7 @@ Windows フォームの使用可能な 2 種類の入力の検証は<xref:System
     customersDataSet1.Tables["Customers"].ColumnChanging += new DataColumnChangeEventHandler(this.Customers_ColumnChanging);
     ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGrid>
 - <xref:System.Data.DataTable.ColumnChanging>

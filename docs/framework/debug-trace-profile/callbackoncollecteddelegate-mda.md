@@ -14,19 +14,17 @@ helpviewer_keywords:
 - garbage collection, run-time errors
 - delegates [.NET Framework], garbage collection
 ms.assetid: 398b0ce0-5cc9-4518-978d-b8263aa21e5b
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: f7f5a6ef2d4e8d4a987ed74a6a04e31f87cc46f3
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: eb14e0df5396d92eb223dde2e562684c4c318295
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052930"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217566"
 ---
 # <a name="callbackoncollecteddelegate-mda"></a>callbackOnCollectedDelegate MDA
 `callbackOnCollectedDelegate` マネージド デバッグ アシスタント (MDA) は、デリゲートがマネージド コードからアンマネージド コードに関数ポインターとしてマーシャリングされ、デリゲートがガベージ コレクトされた後にその関数ポインター上にコールバックが配置された場合にアクティブ化されます。  
   
-## <a name="symptoms"></a>症状  
+## <a name="symptoms"></a>現象  
  マネージド デリゲートから取得した関数ポインターを通じてマネージド コードへの呼び出しをしようとすると、アクセス違反が発生します。 このエラーは、共通言語ランタイム (CLR) コード内でアクセス違反が発生するため、CLR のバグのように見えますが、実際には違います。  
   
  このエラーには一貫性がなく、関数ポインターでの呼び出しが成功することもあれば、失敗することもあります。 高負荷のときのみエラーが発生することがあり、ランダムな試行回数ごとに発生することもあります。  
@@ -111,7 +109,7 @@ public class Entry
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.InteropServices.MarshalAsAttribute>
 - [マネージド デバッグ アシスタントによるエラーの診断](diagnosing-errors-with-managed-debugging-assistants.md)

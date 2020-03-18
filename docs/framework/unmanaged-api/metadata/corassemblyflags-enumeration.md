@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: bb8db3b6-d81d-49fc-b74c-dbc908a9eab9
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 3532ca0a30d83aa8f61bc4397090f3d589b73257
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: fda890cee5f513ea8cf7e82e710f5451a860c49f
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67780935"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74443912"
 ---
 # <a name="corassemblyflags-enumeration"></a>CorAssemblyFlags 列挙型
 アセンブリ コンパイルに適用されるメタデータを記述する値が格納されます。  
@@ -59,32 +57,32 @@ typedef enum CorAssemblyFlags {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`afPublicKey`|アセンブリ参照が、ハッシュされていない完全な公開キーを保持していることを示します。|  
-|`afPA_None`|プロセッサ アーキテクチャが指定されていないことを示します。|  
-|`afPA_MSIL`|プロセッサ アーキテクチャがニュートラルであることを示します (PE32)。|  
-|`afPA_x86`|プロセッサ アーキテクチャは、x86 (PE32) であることを示します。|  
-|`afPA_IA64`|プロセッサ アーキテクチャは、Itanium (pe 32 +) であることを示します。|  
-|`afPA_AMD64`|プロセッサ アーキテクチャは、AMD X64 (pe 32 +) であることを示します。|  
-|`afPA_ARM`|プロセッサ アーキテクチャは、ARM (PE32) であることを示します。|  
-|`afPA_NoPlatform`|アセンブリが参照アセンブリであることを示しますつまり、すべてのアーキテクチャに適用されますが、任意のアーキテクチャ上で実行できません。 したがってと同じでは、フラグ`afPA_Mask`します。|  
-|`afPA_Specified`|プロセッサ アーキテクチャのフラグに反映させるかを示す、`AssemblyRef`レコード。|  
-|`afPA_Mask`|プロセッサ アーキテクチャを示すマスク。|  
-|`afPA_FullMask`|プロセッサ アーキテクチャの説明が含まれることを指定します。|  
-|`afPA_Shift`|プロセッサ アーキテクチャのフラグと、インデックスの間でシフト数を示します。|  
-|`afEnableJITcompileTracking`|対応する値を示します、<xref:System.Diagnostics.DebuggableAttribute.DebuggingModes>の<xref:System.Diagnostics.DebuggableAttribute>します。|  
-|`afDisableJITcompileOptimizer`|対応する値を示します、<xref:System.Diagnostics.DebuggableAttribute.DebuggingModes>の<xref:System.Diagnostics.DebuggableAttribute>します。|  
-|`afRetargetable`|実行時に、別の発行者からのアセンブリにアセンブリを再ターゲットできることを示します。|  
-|`afContentType_Mask`|コンテンツの種類を示すマスク。|  
-|`afContentType_Default`|既定のコンテンツ タイプを示します。|  
-|`afContentType_WindowsRuntime`|Windows ランタイムのコンテンツの種類を示します。|  
+|`afPublicKey`|アセンブリ参照が完全なハッシュされていない公開キーを保持していることを示します。|  
+|`afPA_None`|プロセッサアーキテクチャが指定されていないことを示します。|  
+|`afPA_MSIL`|プロセッサアーキテクチャがニュートラル (PE32) であることを示します。|  
+|`afPA_x86`|プロセッサアーキテクチャが x86 (PE32) であることを示します。|  
+|`afPA_IA64`|プロセッサアーキテクチャが Itanium (PE32 +) であることを示します。|  
+|`afPA_AMD64`|プロセッサアーキテクチャが AMD X64 (PE32 +) であることを示します。|  
+|`afPA_ARM`|プロセッサアーキテクチャが ARM (PE32) であることを示します。|  
+|`afPA_NoPlatform`|アセンブリが参照アセンブリであることを示します。つまり、アーキテクチャには適用されますが、どのアーキテクチャでも実行することはできません。 したがって、フラグは `afPA_Mask`と同じです。|  
+|`afPA_Specified`|プロセッサのアーキテクチャフラグを `AssemblyRef` レコードに反映する必要があることを示します。|  
+|`afPA_Mask`|プロセッサアーキテクチャを記述するマスク。|  
+|`afPA_FullMask`|プロセッサアーキテクチャの説明を含めることを指定します。|  
+|`afPA_Shift`|プロセッサアーキテクチャフラグのインデックスとの間のシフト数を示します。|  
+|`afEnableJITcompileTracking`|<xref:System.Diagnostics.DebuggableAttribute>の <xref:System.Diagnostics.DebuggableAttribute.DebuggingModes> に対応する値を示します。|  
+|`afDisableJITcompileOptimizer`|<xref:System.Diagnostics.DebuggableAttribute>の <xref:System.Diagnostics.DebuggableAttribute.DebuggingModes> に対応する値を示します。|  
+|`afRetargetable`|アセンブリを実行時に別のパブリッシャーからのアセンブリに再ターゲットできることを示します。|  
+|`afContentType_Mask`|コンテンツの種類を説明するマスク。|  
+|`afContentType_Default`|既定のコンテンツタイプを示します。|  
+|`afContentType_WindowsRuntime`|Windows ランタイムコンテンツの種類を示します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

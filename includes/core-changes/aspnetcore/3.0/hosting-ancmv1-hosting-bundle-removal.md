@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 04e5ca41374fc333a31f0422bc2e89f54b3cb049
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 82103d82a6f68c62f3532608718bc71b0ba126bf
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72394292"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75901797"
 ---
 ### <a name="hosting-aspnetcoremodule-v1-removed-from-windows-hosting-bundle"></a>ホスティング:AspNetCoreModule V1 が Windows ホスティング バンドルから削除されました
 
@@ -12,7 +12,7 @@ ASP.NET Core 3.0 以降では、Windows ホスティング バンドルに AspNe
 
 ANCM V2 は、ANCM OutOfProcess との下位互換性があり、ASP.NET Core 3.0 アプリでの使用をお勧めします。
 
-詳細については、[aspnet/AspNetCore#7095](https://github.com/aspnet/AspNetCore/issues/7095) を参照してください。
+ディスカッションについては、[dotnet/aspnetcore#7095](https://github.com/dotnet/aspnetcore/issues/7095) を参照してください。
 
 #### <a name="version-introduced"></a>導入されたバージョン
 
@@ -30,7 +30,7 @@ Windows ホスティング バンドルに ANCM V1 が含まれていません�
 
 ANCM V2 は、ANCM OutOfProcess との下位互換性があり、ASP.NET Core 3.0 アプリでの使用をお勧めします。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 ASP.NET Core 3.0 アプリでお使いの ANCM V2 を使用します。
 
@@ -47,7 +47,7 @@ ASP.NET Core
 
 #### <a name="affected-apis"></a>影響を受ける API
 
-なし
+None
 
 <!-- 
 

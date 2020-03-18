@@ -1,49 +1,49 @@
 ---
 title: F# コードのフォーマットに関するガイドライン
-description: 書式設定するためのガイドラインについて説明しますF#コード。
-ms.date: 02/08/2019
-ms.openlocfilehash: 8be5337d3f593c7e5a2f32cb7231cb7f759fb509
-ms.sourcegitcommit: 34593b4d0be779699d38a9949d6aec11561657ec
+description: コードを書式設定F#するためのガイドラインについて説明します。
+ms.date: 11/04/2019
+ms.openlocfilehash: 895c8211731b47bd4c59d762d5806cfc1bfe232d
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66833905"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089312"
 ---
 # <a name="f-code-formatting-guidelines"></a>F# コードのフォーマットに関するガイドライン
 
-この記事では、F# コードが実行されるように、コードを書式設定する方法に関するガイドラインを提供します。
+この記事では、コードを次のようF#に書式設定する方法に関するガイドラインを提供します。
 
-* 一般に読みやすくとして表示
-* Visual Studio のツールとその他のエディターの書式設定が適用される規則に従って、します。
-* その他のコードをオンラインに似ています
+* 一般に読みやすく表示される
+* は、Visual Studio や他のエディターの書式設定ツールによって適用された規則に従っています
+* 他のコードと同様
 
-これらのガイドラインに基づいています[F# の書式設定規則に包括的なガイド](https://github.com/dungpa/fantomas/blob/master/docs/FormattingConventions.md)によって[Anh 協力 Phan](https://github.com/dungpa)します。
+これらのガイドラインは、 [: Ahn-dung Phan](https://github.com/dungpa)による[ F#書式設定規則の包括的なガイド](https://github.com/dungpa/fantomas/blob/master/docs/FormattingConventions.md)に基づいています。
 
 ## <a name="general-rules-for-indentation"></a>インデントの一般的な規則
 
-F#既定では、有意の空白を使用します。 次のガイドラインはこれをかけることがいくつかの課題を使い分ける方法についてのガイダンスを提供するためのものです。
+F#既定では有意の空白文字が使用されます。 次のガイドラインは、このような問題の対処方法に関するガイダンスを提供することを目的としています。
 
-### <a name="using-spaces"></a>スペースを使用します。
+### <a name="using-spaces"></a>スペースの使用
 
-インデントが必要な場合は、スペース、タブではなくを使用する必要があります。 少なくとも 1 つの領域が必要です。 組織がインデントに使用する空白文字の数を指定するコーディング規則を作成できます。各レベルのインデントを設定するインデントの 2 つ、3 つまたは 4 つのスペースが一般的です。
+インデントが必要な場合は、タブではなく、スペースを使用する必要があります。 少なくとも1つのスペースが必要です。 組織では、インデントに使用するスペースの数を指定するためのコーディング標準を作成できます。インデントが発生する各レベルで、2つ、3つ、または4個のインデントが行われます。
 
-**インデントあたり 4 つのスペースをお勧めします。**
+**インデントごとに4つのスペースを推奨します。**
 
-ただし、プログラムのインデントは主観的な問題。 バリエーションが [ok] が最初の規則に従う必要がありますが、*インデントの一貫性*します。 インデントの一般的に受け入れられるスタイルを選択し、コードベース全体で体系的に使用します。
+ただし、プログラムのインデントは主観的な意味を持ちます。 バリエーションは問題ありませんが、最初に従う必要がある規則は、*インデントの一貫性*です。 一般的に受け入れられているインデントのスタイルを選択し、コードベース全体で使用します。
 
-## <a name="formatting-white-space"></a>空白文字を書式設定
+## <a name="formatting-white-space"></a>空白文字の書式設定
 
-F#機密性の高い空白などです。 適切なインデントによってカバーされて空白からほとんどのセマンティクスは、その他の考慮事項があります。
+F#は空白を区別します。 空白のほとんどのセマンティクスは適切なインデントによってカバーされますが、他にも考慮すべき点があります。
 
-### <a name="formatting-operators-in-arithmetic-expressions"></a>算術式の演算子を書式設定
+### <a name="formatting-operators-in-arithmetic-expressions"></a>算術式での演算子の書式設定
 
-二項演算式の周囲の空白を常に使用するには。
+バイナリ算術式の前後には常に空白文字を使用します。
 
 ```fsharp
 let subtractThenAdd x = x - 1 + 3
 ```
 
-単項`-`が否定されますが、値が演算子の直後に。
+単項 `-` 演算子には、常に次のように否定される値が含まれている必要があります。
 
 ```fsharp
 // OK
@@ -53,18 +53,18 @@ let negate x = -x
 let negateBad x = - x
 ```
 
-後の空白文字を追加、`-`演算子は、他のユーザーの混乱を招くことができます。
+`-` 演算子の後に空白文字を追加すると、他のユーザーの混乱を招く可能性があります。
 
-要約すると、常に重要ですが。
+要約すると、常に次のことが重要になります。
 
-* 空白文字で二項演算子のブロックの挿入
-* 単項演算子の後に末尾の空白文字があることはありません。
+* バイナリ演算子を空白で囲む
+* 単項演算子の後に末尾の空白を含めることはできません
 
-二項算術演算子のガイドラインは、特に重要です。 バイナリ ブロックの挿入に失敗する`-`演算子、特定の書式設定が選択されている項目と組み合わせたときに、単項演算子として解釈する可能性があります`-`します。
+二項算術演算子のガイドラインは特に重要です。 バイナリ `-` 演算子を囲まないと、特定の書式設定の選択肢と組み合わせると、単項 `-`として解釈される可能性があります。
 
-### <a name="surround-a-custom-operator-definition-with-white-space"></a>空白文字でカスタム演算子の定義ブロックの挿入
+### <a name="surround-a-custom-operator-definition-with-white-space"></a>カスタム演算子の定義を空白で囲む
 
-常に演算子の定義を囲む空白を使用します。
+演算子の定義を囲むには、常に空白文字を使用します。
 
 ```fsharp
 // OK
@@ -74,11 +74,11 @@ let ( !> ) x f = f x
 let (!>) x f = f x
 ```
 
-始まる任意のカスタム演算子の`*`と 1 つ以上の文字を持つ、コンパイラのあいまいさを避けるために、定義の先頭に空白文字を追加する必要があります。 このため、単に 1 つの空白文字を持つすべての演算子の定義を囲むことをお勧めします。
+`*` で始まり、複数の文字を持つカスタム演算子については、コンパイラのあいまいさを避けるために、定義の先頭に空白を追加する必要があります。 このため、すべての演算子の定義を1つの空白文字で囲むことをお勧めします。
 
-### <a name="surround-function-parameter-arrows-with-white-space"></a>空白文字で関数パラメーターの矢印を囲む
+### <a name="surround-function-parameter-arrows-with-white-space"></a>関数パラメーターの矢印を空白で囲む
 
-関数のシグネチャを定義するときに、周囲の空白を使用して、`->`シンボル。
+関数の署名を定義するときは、`->` 記号の周囲に空白文字を使用します。
 
 ```fsharp
 // OK
@@ -88,9 +88,9 @@ type MyFun = int -> int -> string
 type MyFunBad = int->int->string
 ```
 
-### <a name="surround-function-arguments-with-white-space"></a>空白文字でブロックの挿入関数の引数
+### <a name="surround-function-arguments-with-white-space"></a>関数の引数を空白で囲む
 
-関数を定義するときに、各引数の周囲の空白文字を使用します。
+関数を定義する場合は、各引数の前後に空白文字を使用します。
 
 ```fsharp
 // OK
@@ -100,11 +100,34 @@ let myFun (a: decimal) b c = a + b + c
 let myFunBad (a:decimal)(b)c = a + b + c
 ```
 
+### <a name="place-parameters-on-a-new-line-for-very-long-member-definitions"></a>非常に長いメンバー定義のために新しい行にパラメーターを配置する
+
+非常に長いメンバー定義がある場合は、パラメーターを新しい行に配置し、1つのスコープにインデントを設定します。
+
+```fsharp
+type C() =
+    member _.LongMethodWithLotsOfParameters(
+        aVeryLongType: AVeryLongTypeThatYouNeedToUse
+        aSecondVeryLongType: AVeryLongTypeThatYouNeedToUse
+        aThirdVeryLongType: AVeryLongTypeThatYouNeedToUse) =
+        // ... the body of the method follows
+```
+
+これは、コンストラクターにも適用されます。
+
+```fsharp
+type C(
+    aVeryLongType: AVeryLongTypeThatYouNeedToUse
+    aSecondVeryLongType: AVeryLongTypeThatYouNeedToUse
+    aThirdVeryLongType: AVeryLongTypeThatYouNeedToUse) =
+    // ... the body of the class follows
+```
+
 ### <a name="type-annotations"></a>型の注釈
 
-#### <a name="right-pad-function-argument-type-annotations"></a>引数型の注釈の右側を埋める関数
+#### <a name="right-pad-function-argument-type-annotations"></a>右埋め込み関数の引数の型の注釈
 
-型の注釈の引数を定義するときに、後の空白文字を使用して、`:`シンボル。
+型の注釈を持つ引数を定義する場合は、`:` の記号の後に空白文字を使用します。
 
 ```fsharp
 // OK
@@ -114,9 +137,9 @@ let complexFunction (a: int) (b: int) c = a + b + c
 let complexFunctionBad (a :int) (b :int) (c:int) = a + b + c
 ```
 
-#### <a name="surround-return-type-annotations-with-white-space"></a>空白の戻り値の型注釈がブロックの挿入
+#### <a name="surround-return-type-annotations-with-white-space"></a>戻り値の型の注釈を空白で囲む
 
-Let バインドされた関数または値型の注釈 (戻り値の型、関数の場合)、空白文字は使用前に、と後、`:`シンボル。
+Let バインド関数または値型の注釈 (関数の場合は戻り値の型) では、`:` 記号の前後に空白文字を使用します。
 
 ```fsharp
 // OK
@@ -128,16 +151,16 @@ let expensiveToComputeBad2 :int = 2
 let myFunBad (a: decimal) b c:decimal = a + b + c
 ```
 
-## <a name="formatting-blank-lines"></a>空白行を書式設定
+## <a name="formatting-blank-lines"></a>空白行の書式設定
 
-* 独立したトップレベル関数やクラスの定義 2 つの空白行を含む。
-* クラス内でメソッドの定義は、単一の空白行で区切られます。
-* 余分な空白行は、関連する関数のグループを区切る (控えめ) に使用する可能性があります。 一連の関連困ら (たとえば、ダミーの実装のセット) の間の空白行は省略できます。
-* 論理的なセクションを示すために、関数では、空白行を使用します。
+* 最上位の関数とクラスの定義を、2つの空白行で区切ります。
+* クラス内のメソッド定義は、1つの空白行で区切られます。
+* 関連する関数のグループを分離するために、余分な空白行を使用する (控えめに) ことがあります。 関連する1つの liners (たとえば、一連のダミーの実装) 間で空白行を省略することができます。
+* 論理セクションを示すには、関数の空白行を控えめに使用します。
 
 ## <a name="formatting-comments"></a>コメントの書式設定
 
-一般に ML スタイル ブロックのコメントを複数のコメントをダブル スラッシュを好みます。
+一般に、ML スタイルのブロックコメントに対しては、複数のダブルスラッシュコメントを優先します。
 
 ```fsharp
 // Prefer this style of comments when you want
@@ -149,7 +172,7 @@ let myFunBad (a: decimal) b c:decimal = a + b + c
 *)
 ```
 
-インライン コメントは、最初の文字を大文字にする必要があります。
+インラインコメントは、最初の文字を大文字にする必要があります。
 
 ```fsharp
 let f x = x + 1 // Increment by one.
@@ -157,9 +180,9 @@ let f x = x + 1 // Increment by one.
 
 ## <a name="naming-conventions"></a>名前付け規則
 
-### <a name="use-camelcase-for-class-bound-expression-bound-and-pattern-bound-values-and-functions"></a>キャメル ケースを使用して、クラス バインド、バインド式とパターン バインドの値と関数
+### <a name="use-camelcase-for-class-bound-expression-bound-and-pattern-bound-values-and-functions"></a>クラスバインド、式バインド、およびパターンバインドの値と関数にキャメルケースを使用する
 
-一般的な camelCase を使用して、すべての名前を指定できる F# スタイルには、ローカル変数として、またはパターン マッチと関数定義がバインドされています。
+これは、ローカル変数F#としてバインドされたすべての名前、またはパターン一致と関数定義でキャメルケースを使用するための一般的なスタイルです。
 
 ```fsharp
 // OK
@@ -172,7 +195,7 @@ let addIAndJ I J = I+J
 let AddIAndJ i j = i + j
 ```
 
-クラスのローカルにバインドされた関数は、camelCase を使用してもする必要があります。
+クラスのローカルバインド関数は、キャメルケースも使用する必要があります。
 
 ```fsharp
 type MyClass() =
@@ -186,9 +209,9 @@ type MyClass() =
     member x.Result = doSomething()
 ```
 
-### <a name="use-camelcase-for-module-bound-public-functions"></a>キャメル ケースを使用してバインド モジュールのパブリック関数
+### <a name="use-camelcase-for-module-bound-public-functions"></a>モジュールバインドパブリック関数にキャメルケースを使用する
 
-モジュール連結関数は、パブリック API の一部が、camelCase を使用します。
+モジュールバインド関数がパブリック API の一部である場合、キャメルケースを使用する必要があります。
 
 ```fsharp
 module MyAPI =
@@ -197,22 +220,22 @@ module MyAPI =
     let publicFunctionTwo param1 param2 param3 = ...
 ```
 
-### <a name="use-camelcase-for-internal-and-private-module-bound-values-and-functions"></a>キャメル ケースを使用して、内部、プライベート モジュール連結値および関数
+### <a name="use-camelcase-for-internal-and-private-module-bound-values-and-functions"></a>内部およびプライベートのモジュールバインド値および関数にキャメルケースを使用する
 
-プライベート モジュール連結値は、次のようには、camelCase を使用します。
+次のように、プライベートのモジュールバインド値にはキャメルケースを使用します。
 
-* スクリプトでアドホック関数
+* スクリプト内のアドホック関数
 
-* モジュールまたは型の内部実装を作成する値
+* モジュールまたは型の内部実装を構成する値
 
 ```fsharp
 let emailMyBossTheLatestResults =
     ...
 ```
 
-### <a name="use-camelcase-for-parameters"></a>パラメーターにキャメル ケースを使用します。
+### <a name="use-camelcase-for-parameters"></a>パラメーターにキャメルケースを使用する
 
-すべてのパラメーターは、.NET の名前付け規則に従って、camelCase を使用してください。
+すべてのパラメーターは、.NET の名前付け規則に従ってキャメルケースを使用する必要があります。
 
 ```fsharp
 module MyModule =
@@ -222,9 +245,9 @@ type MyClass() =
     member this.MyMethod(paramOne, paramTwo) = ...
 ```
 
-### <a name="use-pascalcase-for-modules"></a>PascalCase モジュールを使用します。
+### <a name="use-pascalcase-for-modules"></a>モジュールに対してパスワードを使用する
 
-(最上位レベル、内部、プライベートの入れ子になった) のすべてのモジュールは PascalCase を使用する必要があります。
+すべてのモジュール (最上位レベル、内部、プライベート、入れ子になっている) では、文字を使用する必要があります。
 
 ```fsharp
 module MyTopLevelModule
@@ -236,9 +259,9 @@ module Helpers =
     ...
 ```
 
-### <a name="use-pascalcase-for-type-declarations-members-and-labels"></a>PascalCase を使用して、型宣言、メンバー、およびラベル
+### <a name="use-pascalcase-for-type-declarations-members-and-labels"></a>型宣言、メンバー、およびラベルに対しては、文字を使用します。
 
-クラス、インターフェイス、構造体、列挙、デリゲート、レコード、および判別共用体がすべての名前は PascalCase です。 型およびレコード、判別共用体のラベル内のメンバーは、PascalCase を使用してもする必要があります。
+クラス、インターフェイス、構造体、列挙型、デリゲート、レコード、および判別共用体の名前は、すべて、文字を使用した名前にする必要があります。 レコードと判別共用体の型およびラベル内のメンバーも、文字を使用する必要があります。
 
 ```fsharp
 type IMyInterface =
@@ -256,19 +279,19 @@ type SchoolPerson =
     | Administrator
 ```
 
-### <a name="use-pascalcase-for-constructs-intrinsic-to-net"></a>PascalCase を使用して、.NET に固有の構成要素
+### <a name="use-pascalcase-for-constructs-intrinsic-to-net"></a>.NET に固有の構造体には、パスワードを使用する
 
-名前空間、例外、イベント、およびプロジェクト/`.dll`名も PascalCase を使用します。 だけでなく、これにより、コンシューマーに自然に感じられる他の .NET 言語から消費も発生する可能性がある .NET の名前付け規則と一致します。
+名前空間、例外、イベント、およびプロジェクト/`.dll` 名でも、使用する必要があります。 他の .NET 言語からの消費が、コンシューマーにとって自然なものであるだけでなく、発生する可能性のある .NET の名前付け規則とも一貫しています。
 
-### <a name="avoid-underscores-in-names"></a>名前にアンダー スコアを回避します。
+### <a name="avoid-underscores-in-names"></a>名前にアンダースコアを使わない
 
-従来、一部の F# ライブラリは、名前にアンダー スコアを使用するが。 ただし、これが不要になった広く受け入れられて .NET の名前付け規則と衝突ためです。 ただし、F# プログラマによってアンダー スコアは使用頻度の高い、一部の歴史的な理由と許容範囲と点が重要です。 ただし、スタイルが使用するかどうかの選択肢を持つ他のユーザーによって多くの場合、我慢しなければならないこともあります。
+これまで、 F#一部のライブラリでは、名前にアンダースコアが使用されていました。 ただし、これは .NET の名前付け規則と競合するため、広く受け入れられなくなりました。 ただし、プログラマにF#よっては、アンダースコアが頻繁に使用され、履歴上の理由により、許容範囲と尊重が重要になります。 ただし、スタイルは多くの場合、使用するかどうかを選択できる他のユーザーによって無効になっていることに注意してください。
 
-いくつかの例外には、アンダー スコアが非常に一般的であるネイティブのコンポーネントとの相互運用が含まれています。
+一部の例外には、ネイティブコンポーネントとの相互運用が含まれており、アンダースコアは非常に一般的です。
 
-### <a name="use-standard-f-operators"></a>標準的な F# 演算子を使用します。
+### <a name="use-standard-f-operators"></a>標準F#の演算子を使用する
 
-次の演算子は、F# の標準ライブラリで定義され、対応を定義する代わりに使用する必要があります。 読みやすく、慣用コードを作成する傾向が、これらの演算子の使用をお勧めします。 OCaml またはその他の関数型プログラミング言語の背景を持つ開発者は、さまざまな表現方法に慣れて可能性があります。 次の一覧は、推奨の F# 演算子をまとめたものです。
+次の演算子はF#標準ライブラリで定義されており、同等のを定義する代わりに使用する必要があります。 コードを読みやすくし、慣用的なする傾向があるため、これらの演算子を使用することをお勧めします。 OCaml または他の関数型プログラミング言語の背景を持つ開発者は、さまざまな表現方法に慣れている場合があります。 次の一覧は、推奨F#される演算子をまとめたものです。
 
 ```fsharp
 x |> f // Forward pipeline
@@ -288,23 +311,23 @@ x &&& y // Bitwise and, also for working with “flags” enumeration
 x ^^^ y // Bitwise xor, also for working with “flags” enumeration
 ```
 
-### <a name="use-prefix-syntax-for-generics-foot-in-preference-to-postfix-syntax-t-foo"></a>ジェネリックのプレフィックスの構文を使用して (`Foo<T>`) 方が優先的後置構文 (`T Foo`)
+### <a name="use-prefix-syntax-for-generics-foot-in-preference-to-postfix-syntax-t-foo"></a>後置構文 (`T Foo`) の場合は、ジェネリック (`Foo<T>`) のプレフィックス構文を使用します
 
-F#ジェネリック型の名前付けの両方、後置 ML スタイルを継承 (たとえば、 `int list`) .NET スタイルのプレフィックスと (たとえば、 `list<int>`)。 5 つの特定の型を除く、.NET スタイルを優先するには。
+F#は、ジェネリック型の名前付けの後置形式の ML スタイル (`int list`など) と、プレフィックス .NET スタイル (たとえば、`list<int>`) の両方を継承します。 次の5つの特定の種類を除き、.NET スタイルを優先します。
 
-1. F#後置形式を使用して、リスト、:`int list`なく`list<int>`します。
-2. F#オプションを使用して、後置形式:`int option`なく`option<int>`します。
-3. F#値のオプションを使用して、後置形式:`int voption`なく`voption<int>`します。
-4. F#構文の名前を使用して、配列、`int[]`なく`int array`または`array<int>`します。
-5. 参照セルを使用して`int ref`なく`ref<int>`または`Ref<int>`します。
+1. リストF#の場合は、`list<int>`ではなく、後置形式の `int list` を使用します。
+2. オプションF#には、`option<int>`ではなく、後置形式の `int option` を使用します。
+3. 値F#オプションの場合は、`voption<int>`ではなく、後置形式の `int voption` を使用します。
+4. 配列F#の場合は、`int array` または `array<int>`ではなく、構文名 `int[]` を使用します。
+5. 参照セルの場合は、`ref<int>` または `Ref<int>`ではなく `int ref` を使用します。
 
-他のすべての種類では、前置形式を使用します。
+それ以外のすべての型については、プレフィックスフォームを使用します。
 
 ## <a name="formatting-tuples"></a>タプルの書式設定
 
-タプル インスタンス化はかっこで囲まれた、する必要があり、内で使用する区切りコンマをたとえば、1 つのスペースで従う必要が: `(1, 2)`、`(x, y, z)`します。
+組のインスタンス化は、かっこで囲む必要があります。また、内の区切り記号の後には、1つのスペースを指定する必要があります (例: `(1, 2)`、`(x, y, z)`)。
 
-タプルのパターン マッチングでは、かっこを省略することがよく受け入れられます。
+通常は、組のパターンマッチングでかっこを省略することをお勧めします。
 
 ```fsharp
 let (x, y) = z // Destructuring
@@ -317,7 +340,7 @@ match x, y with
 | x, y -> 1
 ```
 
-タプルが関数の戻り値の場合は、かっこを省略することもよく受け入れられます。
+タプルが関数の戻り値の場合は、通常、かっこを省略することもできます。
 
 ```fsharp
 // OK
@@ -327,11 +350,11 @@ let update model msg =
     | _ -> model, [ msg ]
 ```
 
-要約すると、かっこで囲まれたタプルのインスタンス化、必要に応じてをパターンに一致するか、戻り値のタプルを使用する場合と見なされるかっこを回避するために問題ありません。
+まとめとして、かっこで囲まれたタプルのインスタンス化を使用しますが、パターンマッチングまたは戻り値に組を使用する場合は、かっこを使用しないことをお勧めします。
 
-## <a name="formatting-discriminated-union-declarations"></a>判別共用体の宣言の書式設定
+## <a name="formatting-discriminated-union-declarations"></a>判別共用体宣言の書式設定
 
-インデント`|`によって 4 つのスペースの種類の定義。
+4つのスペースによる型定義内のインデント `|`:
 
 ```fsharp
 // OK
@@ -349,7 +372,7 @@ type Volume =
 
 ## <a name="formatting-discriminated-unions"></a>判別共用体の書式設定
 
-複数行にわたって判別の共用体はインスタンス化されたはインデントで新しいスコープに含まれているデータを提供する必要があります。
+複数の行に分割されるインスタンス化された判別共用体は、含まれるデータにインデントを含む新しいスコープを指定する必要があります。
 
 ```fsharp
 let tree1 =
@@ -358,7 +381,7 @@ let tree1 =
          BinaryNode(BinaryValue 3, BinaryValue 4))
 ```
 
-新しい行の終わりかっこのこともできます。
+右かっこは、新しい行にも指定できます。
 
 ```fsharp
 let tree1 =
@@ -368,9 +391,9 @@ let tree1 =
     )
 ```
 
-## <a name="formatting-record-declarations"></a>レコードの宣言を書式設定
+## <a name="formatting-record-declarations"></a>レコード宣言の書式設定
 
-インデント`{`4 で定義型で空白し、同じ行にフィールド リストの先頭します。
+4つのスペースで型定義内の `{` をインデントし、同じ行でフィールドリストを開始します。
 
 ```fsharp
 // OK
@@ -396,7 +419,7 @@ type PostalAddress =
     }
 ```
 
-開始トークンを配置する、新しい行で、新しい行に終了トークンは、レコードのメンバー、またはインターフェイスの実装を宣言する場合に推奨されます。
+インターフェイスの実装やレコードのメンバーを宣言する場合は、開始トークンを新しい行に配置し、終了トークンを新しい行に配置することをお勧めします。
 
 ```fsharp
 // Declaring additional members on PostalAddress
@@ -415,15 +438,15 @@ type MyRecord =
     interface IMyInterface
 ```
 
-## <a name="formatting-records"></a>レコードを書式設定
+## <a name="formatting-records"></a>レコードの書式設定
 
-1 行では、短いレコードを記述することができます。
+短いレコードは、1行に記述できます。
 
 ```fsharp
 let point = { X = 1.0; Y = 0.0 }
 ```
 
-長いレコードは、新しい行を使用して、ラベルの必要があります。
+ラベルに新しい行を使用する必要があるレコードは次のとおりです。
 
 ```fsharp
 let rainbow =
@@ -431,10 +454,10 @@ let rainbow =
       Lackeys = ["Zippy"; "George"; "Bungle"] }
 ```
 
-開始を配置して、タブ付きトークンを新しい行に、内容、1 つのスコープ、新しい行に終了トークンがいる場合に適しています。
+次の場合は、開始トークンを新しい行に配置し、1つのスコープの上にある [コンテンツ] タブと、新しい行の終了トークンを使用することをお勧めします。
 
-* インデントの異なるスコープを使用したコード内でレコードを移動します。
-* 関数にパイプすること
+* 異なるインデントスコープを持つコード内でのレコードの移動
+* 関数にパイプする
 
 ```fsharp
 let rainbow =
@@ -464,13 +487,13 @@ let foo a =
         })
 ```
 
-リストと配列の要素の場合と同じ規則が適用されます。
+リストおよび配列要素にも同じ規則が適用されます。
 
-## <a name="formatting-copy-and-update-record-expressions"></a>レコードのコピーと更新の式を書式設定
+## <a name="formatting-copy-and-update-record-expressions"></a>コピーおよび更新レコード式の書式設定
 
-レコードのコピーと更新式はまだ、レコードのようなガイドラインが適用されます。
+コピーと更新のレコード式は依然としてレコードであるため、同様のガイドラインが適用されます。
 
-短い式は、1 行に収めることができます。
+短い式は、1行に収めることができます。
 
 ```fsharp
 let point2 = { point with X = 1; Y = 2 }
@@ -485,7 +508,7 @@ let rainbow2 =
         Lackeys = ["Zippy"; "George"; "Bungle"] }
 ```
 
-として、レコードのガイダンスとすることも、中かっこの別々 の行を割り当てるし、式の右側に 1 つのスコープにインデントを設定します。 でかっこがない場合、オプションの値をラッピングなどのいくつかの特殊なケースでする必要があります 1 行に中かっこを保持することを確認してください。
+レコードガイダンスと同様に、中かっこに個別の行を追加し、式を使用して1つのスコープを右側にインデントすることもできます。 一部の特殊なケースでは、かっこを使用せずに省略可能な値をラップする場合があることに注意してください。
 
 ```fsharp
 type S = { F1: int; F2: string }
@@ -502,18 +525,18 @@ let newState =
     }
 ```
 
-## <a name="formatting-lists-and-arrays"></a>書式設定のリストと配列
+## <a name="formatting-lists-and-arrays"></a>リストと配列の書式設定
 
-書き込み`x :: l`の前後のスペースで、`::`演算子 (`::`が空白で囲まれたため、挿入演算子)。
+`::` 演算子の前後にスペースを使用して `x :: l` を記述します (`::` は挿入演算子であり、そのためスペースで囲まれています)。
 
-リストと 1 つの行で宣言された配列は、角かっこと終わりかっこの前にスペースを入れる必要があります。
+1つの行で宣言されたリストと配列には、左角かっこの前と右角かっこの前にスペースが必要です。
 
 ```fsharp
 let xs = [ 1; 2; 3 ]
 let ys = [| 1; 2; 3; |]
 ```
 
-常に 2 つの個別の中かっこのような演算子の間に少なくとも 1 つの領域を使用します。 たとえば、間に空白のままに、`[`と`{`します。
+2つの異なるかっこで囲まれた演算子の間には、常に少なくとも1つの空白文字を使用します。 たとえば、`[` と `{`の間にはスペースを入れます。
 
 ```fsharp
 // OK
@@ -531,9 +554,9 @@ let ys = [| 1; 2; 3; |]
  { IngredientName = "Lemon"; Quantity = 1 }]
 ```
 
-リストまたは組の配列と同じガイドラインが適用されます。
+組のリストまたは配列にも同じガイドラインが適用されます。
 
-リストと複数行にわたって配列は、同様のルール、レコードと同様に従います。
+複数の行にわたって分割されるリストと配列は、レコードと同様のルールに従います。
 
 ```fsharp
 let pascalsTriangle =
@@ -550,17 +573,59 @@ let pascalsTriangle =
     |]
 ```
 
-レコードと同様、独自の行の開始タグと終了の角かっこを宣言することは簡単に移動コードと関数にパイプします。
+レコードの場合と同様に、開始角かっこと右角かっこを独自の行で宣言すると、コードの移動や関数へのパイプ処理が容易になります。
 
-## <a name="formatting-if-expressions"></a>書式設定の if 式
+プログラムによって配列とリストを生成する場合は、常に値が生成されるときに `do ... yield` より `->` を優先します。
 
-条件文のインデントは、それらを構成する式のサイズによって異なります。 場合`cond`、`e1`と`e2`短く、単純に 1 行に書き込むには。
+```fsharp
+// Preferred
+let squares = [ for x in 1..10 -> x*x ]
+
+// Not preferred
+let squares' = [ for x in 1..10 do yield x*x ]
+```
+
+以前のバージョンのF#言語では、データが条件付きで生成される場合や、連続して評価される式がある場合に `yield` を指定する必要があります。 古いF#言語バージョンでコンパイルする必要がある場合を除き、これらの `yield` キーワードは省略してください。
+
+```fsharp
+// Preferred
+let daysOfWeek includeWeekend =
+    [
+        "Monday"
+        "Tuesday"
+        "Wednesday"
+        "Thursday"
+        "Friday"
+        if includeWeekend then
+            "Saturday"
+            "Sunday"
+    ]
+
+// Not preferred
+let daysOfWeek' includeWeekend =
+    [
+        yield "Monday"
+        yield "Tuesday"
+        yield "Wednesday"
+        yield "Thursday"
+        yield "Friday"
+        if includeWeekend then
+            yield "Saturday"
+            yield "Sunday"
+    ]
+```
+
+場合によっては、`do...yield` が読みやすくなることがあります。 ただし、このような場合は主観的に考慮する必要があります。
+
+## <a name="formatting-if-expressions"></a>If 式の書式設定
+
+条件のインデントは、それらを作成する式のサイズによって異なります。 `cond`、`e1` と `e2` が短い場合は、単に1行に記述するだけです。
 
 ```fsharp
 if cond then e1 else e2
 ```
 
-いずれか`cond`、`e1`または`e2`は長くなりますが、複数行にありません。
+`cond`のいずれかの場合、`e1` または `e2` は長くなりますが、複数行にはなりません。
 
 ```fsharp
 if cond
@@ -568,7 +633,7 @@ then e1
 else e2
 ```
 
-複数行の式のいずれかの場合。
+式のいずれかが複数行の場合は、次のようになります。
 
 ```fsharp
 if cond then
@@ -577,7 +642,7 @@ else
     e2
 ```
 
-複数の条件で`elif`と`else`と同じスコープでインデントは、 `if`:
+`elif` と `else` を持つ複数の条件は、`if`と同じスコープでインデントされます。
 
 ```fsharp
 if cond1 then e1
@@ -586,9 +651,9 @@ elif cond3 then e3
 else e4
 ```
 
-### <a name="pattern-matching-constructs"></a>パターン マッチング
+### <a name="pattern-matching-constructs"></a>パターン一致のコンストラクト
 
-使用して、`|`インデントなしの一致の各句。 式が短い場合は、各部分式が単純でもある場合は、1 行を使用を検討できます。
+照合の各句に対して、インデントなしの `|` を使用します。 式が短い場合は、各部分式も単純である場合は単一行を使用することを検討してください。
 
 ```fsharp
 // OK
@@ -604,7 +669,7 @@ match l with
     | [] -> failwith "Couldn't find David"
 ```
 
-パターン マッチングの矢印の右側の式が大きすぎる場合は、次の行のインデントが設定された 1 つの手順に移動、 `match` /`|`します。
+[パターン一致] の矢印の右側にある式が大きすぎる場合は、次の行に移動して、`match`/`|`の1つの手順をインデントします。
 
 ```fsharp
 match lam with
@@ -616,7 +681,7 @@ match lam with
 
 ```
 
-パターン マッチングして以降、匿名関数の`function`、遠すぎていないインデントする必要があります一般にします。 たとえば、次のように 1 つのスコープをインデントも可能です。
+`function`から始まる匿名関数のパターンマッチングは、通常はあまりインデントされません。 たとえば、次のように1つのスコープをインデントすることは問題ありません。
 
 ```fsharp
 lambdaList
@@ -626,7 +691,7 @@ lambdaList
     | Var v -> 1)
 ```
 
-パターン マッチングで定義されている関数に`let`または`let rec`の開始後にインデントが設定された 4 つのスペースにする必要があります`let`場合でも、`function`キーワードの使用します。
+`let` または `let rec` で定義された関数でのパターンマッチングは、`function` キーワードが使用されている場合でも、`let`の開始後に4つのスペースをインデントする必要があります。
 
 ```fsharp
 let rec sizeLambda acc = function
@@ -635,11 +700,11 @@ let rec sizeLambda acc = function
     | Var v -> succ acc
 ```
 
-矢印の整列はお勧めしません。
+矢印は配置しないことをお勧めします。
 
-## <a name="formatting-trywith-expressions"></a>書式設定してみてください/式を
+## <a name="formatting-trywith-expressions"></a>Try/with 式の書式設定
 
-例外の種類に一致するパターンと同じレベルでインデントする`with`します。
+例外の種類のパターンマッチングは、`with`と同じレベルでインデントする必要があります。
 
 ```fsharp
 try
@@ -654,11 +719,11 @@ with
     printfn "A second that was a multiple of 3"
 ```
 
-## <a name="formatting-function-parameter-application"></a>関数パラメーターのアプリケーションを書式設定
+## <a name="formatting-function-parameter-application"></a>関数パラメーターアプリケーションの書式設定
 
-一般に、関数パラメーターのほとんどのアプリケーションは、同じ行に行われます。
+一般に、ほとんどの関数パラメーターアプリケーションは同じ行で実行されます。
 
-新しい行に関数にパラメーターを適用する場合は、1 つのスコープでインデントします。
+新しい行の関数にパラメーターを適用する場合は、1つのスコープでインデントします。
 
 ```fsharp
 // OK
@@ -678,7 +743,7 @@ let printVolumes x =
         (convertVolumeImperialPint x)
 ```
 
-関数の引数としてラムダ式と同じガイドラインが適用されます。 ラムダ式の本体の本文には別の行を設定できる場合は、1 つのスコープでインデント
+ラムダ式には、関数の引数と同じガイドラインが適用されます。 ラムダ式の本体の場合、本文は別の行を持つことができ、1つのスコープでインデントされます。
 
 ```fsharp
 let printListWithOffset a list1 =
@@ -694,13 +759,13 @@ let printListWithOffset a list1 =
         list1
 ```
 
-ただし、ラムダ式の本体が 1 つ以上の行の場合は、別の関数にファクタリング アウトを検討してくださいではなく 1 つの引数として関数に適用される複数行の構築します。
+ただし、ラムダ式の本体が複数行である場合は、複数行の構成要素を関数に1つの引数として適用するのではなく、別の関数にファクタリングすることを検討してください。
 
-### <a name="formatting-infix-operators"></a>挿入演算子を書式設定
+### <a name="formatting-infix-operators"></a>挿入演算子の書式設定
 
-スペースで別の演算子。 このルールの明確な例外は、`!`と`.`演算子。
+演算子はスペースで区切ります。 このルールの明確な例外は、`!` 演算子と `.` 演算子です。
 
-挿入辞の式では、[ok] を同じ列に編成します。
+挿入式は、同じ列に編成することができます。
 
 ```fsharp
 acc +
@@ -712,9 +777,9 @@ let function1 arg1 arg2 arg3 arg4 =
     arg3 + arg4
 ```
 
-### <a name="formatting-pipeline-operators"></a>パイプライン演算子を書式設定
+### <a name="formatting-pipeline-operators"></a>パイプライン演算子の書式設定
 
-パイプライン`|>`演算子は、上で動作する式の下に移動する必要があります。
+パイプライン `|>` 演算子は、操作対象の式の下にある必要があります。
 
 ```fsharp
 // Preferred approach
@@ -739,7 +804,7 @@ let methods2 = System.AppDomain.CurrentDomain.GetAssemblies()
 
 ### <a name="formatting-modules"></a>モジュールの書式設定
 
-モジュールの基準としたローカル モジュール内のコードのインデントを設定する必要がありますが、最上位レベルのモジュール内のコードはインデントされませんする必要があります。 Namespace 要素は、インデントを設定するのにはありません。
+ローカルモジュール内のコードは、モジュールに対して相対的にインデントする必要がありますが、最上位レベルのモジュール内のコードをインデントすることはできません。 名前空間要素をインデントする必要はありません。
 
 ```fsharp
 // A is a top-level module.
@@ -757,9 +822,9 @@ module A2 =
     let function2 a b = a*a - b*b
 ```
 
-### <a name="formatting-object-expressions-and-interfaces"></a>オブジェクトの式とインターフェイスの書式設定
+### <a name="formatting-object-expressions-and-interfaces"></a>オブジェクト式およびインターフェイスの書式設定
 
-同じ方法では、オブジェクトの式とインターフェイスを配置する必要があります`member`される 4 つのスペース後の分だけインデントされます。
+オブジェクトの式とインターフェイスは、4つのスペースの後にインデントを設定する `member` のと同じ方法で配置する必要があります。
 
 ```fsharp
 let comparer =
@@ -771,9 +836,9 @@ let comparer =
               reversed.CompareTo (rev s2) }
 ```
 
-### <a name="formatting-white-space-in-expressions"></a>式内の空白の書式設定
+### <a name="formatting-white-space-in-expressions"></a>式の空白の書式設定
 
-余分な空白文字を避けるためF#式。
+式に余分なスペースF#を含めないでください。
 
 ```fsharp
 // OK
@@ -783,7 +848,7 @@ spam (ham.[1])
 spam ( ham.[ 1 ] )
 ```
 
-名前付き引数も必要はありません領域を囲む、 `=`:
+名前付き引数には、`=`を囲む領域を指定することもできません。
 
 ```fsharp
 // OK
@@ -795,7 +860,7 @@ let makeStreamReader x = new System.IO.StreamReader(path = x)
 
 ## <a name="formatting-attributes"></a>属性の書式設定
 
-[属性](../language-reference/attributes.md)コンス トラクターを上に配置されます。
+[属性](../language-reference/attributes.md)はコンストラクトの上に配置されます。
 
 ```fsharp
 [<SomeAttribute>]
@@ -811,19 +876,19 @@ type MyRecord =
       Label2: string }
 ```
 
-### <a name="formatting-attributes-on-parameters"></a>パラメーターに属性を書式設定
+### <a name="formatting-attributes-on-parameters"></a>パラメーターの属性の書式設定
 
-属性は、パラメーターの場所をこともできます。 ここでは、名の前に、パラメーターとして同じ行にし、配置します。
+属性をパラメーターに配置することもできます。 この場合は、パラメーターと名前の前に次の行を配置します。
 
 ```fsharp
 // Defines a class that takes an optional value as input defaulting to false.
 type C() =
-    member __.M([<Optional; DefaultParameterValue(false)>] doSomething: bool)
+    member _.M([<Optional; DefaultParameterValue(false)>] doSomething: bool)
 ```
 
-### <a name="formatting-multiple-attributes"></a>複数の属性を書式設定
+### <a name="formatting-multiple-attributes"></a>複数の属性の書式設定
 
-パラメーターではないコンストラクトに適用されると、複数の属性は、1 行につき 1 つの属性が存在するようなに配置する必要があります。
+パラメーターではないコンストラクトに複数の属性が適用されている場合は、1行につき1つの属性が存在するように配置する必要があります。
 
 ```fsharp
 [<Struct>]
@@ -833,11 +898,11 @@ type MyRecord =
       Label2: string }
 ```
 
-同じ行に配置する必要がありで区切られた、パラメーターに適用するときに、`;`区切り記号。
+パラメーターに適用する場合は、同じ行に配置し、`;` の区切り記号で区切る必要があります。
 
-## <a name="formatting-literals"></a>書式設定リテラル
+## <a name="formatting-literals"></a>リテラルの書式設定
 
-[F#リテラル](../language-reference/literals.md)を使用して、`Literal`属性の属性を独自の行に配置し、PascalCase 名前付けを使用する必要があります。
+`Literal` 属性を使用するリテラルでは、属性をそれ自体の行に配置し、文字の名前付けを使用します。 [ F# ](../language-reference/literals.md)
 
 ```fsharp
 [<Literal>]
@@ -847,4 +912,4 @@ let Path = __SOURCE_DIRECTORY__ + "/" + __SOURCE_FILE__
 let MyUrl = "www.mywebsitethatiamworkingwith.com"
 ```
 
-属性値と同じ行を配置しないでください。
+属性を値と同じ行に配置することは避けてください。

@@ -8,18 +8,18 @@ helpviewer_keywords:
 - Optional keyword [Visual Basic], contexts
 - Optional keyword [Visual Basic]
 ms.assetid: 4571ce88-a539-4115-b230-54eb277c6aa7
-ms.openlocfilehash: 3758f17634395236abf2cd7059418bf6f8b6c062
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: a16dae35bf4bc84d95501624c4f023f390a8dda8
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68630921"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351434"
 ---
 # <a name="optional-visual-basic"></a>Optional (Visual Basic)
 
 プロシージャを呼び出すときにプロシージャ引数を省略できることを指定します。
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 省略可能なパラメーターごとに、そのパラメーターの既定値として定数式を指定する必要があります。 式が[Nothing](../../../visual-basic/language-reference/nothing.md)と評価された場合、値のデータ型の既定値がパラメーターの既定値として使用されます。
 
@@ -39,7 +39,7 @@ ms.locfileid: "68630921"
 > 省略可能なパラメーターを指定して、または使用せずにプロシージャを呼び出すと、位置または名前によって引数を渡すことができます。 詳細については、「[位置と名前による引数の引き渡し](../../../visual-basic/programming-guide/language-features/procedures/passing-arguments-by-position-and-by-name.md)」を参照してください。
 
 > [!NOTE]
-> オーバーロードを使用して、省略可能なパラメーターを持つプロシージャを定義することもできます。 省略可能なパラメーターが1つある場合は、2つのオーバーロードされたバージョンのプロシージャを定義できます。1つはパラメーターを受け取り、もう1つはパラメーターを受け入れません。 詳細については、「 [プロシージャのオーバーロード (Visual Basic)](../../../visual-basic/programming-guide/language-features/procedures/procedure-overloading.md)」を参照してください。
+> オーバーロードを使用して、省略可能なパラメーターを持つプロシージャを定義することもできます。 省略可能なパラメーターが1つある場合は、2つのオーバーロードされたバージョンのプロシージャを定義できます。1つはパラメーターを受け取り、もう1つはパラメーターを受け入れません。 詳細については、「 [Procedure Overloading](../../../visual-basic/programming-guide/language-features/procedures/procedure-overloading.md)」を参照してください。
 
 ## <a name="example"></a>例
 
@@ -70,7 +70,7 @@ End Function
 
 [!code-vb[VbVbalrKeywords#21](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrKeywords/VB/class8.vb#21)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [パラメーター リスト](../../../visual-basic/language-reference/statements/parameter-list.md)
 - [省略可能なパラメーター](../../../visual-basic/programming-guide/language-features/procedures/optional-parameters.md)

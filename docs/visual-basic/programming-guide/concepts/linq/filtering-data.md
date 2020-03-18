@@ -1,13 +1,13 @@
 ---
-title: データのフィルター処理 (Visual Basic)
+title: データのフィルター処理
 ms.date: 07/20/2015
 ms.assetid: 7749519a-7edc-49fe-aef9-6a353864af6c
-ms.openlocfilehash: 27765247daa2155e685b1cd2bfccebb3216ca672
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 81e207e451055fb2952e4bf393db067f0851afb4
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582431"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74353494"
 ---
 # <a name="filtering-data-visual-basic"></a>データのフィルター処理 (Visual Basic)
 
@@ -21,10 +21,10 @@ ms.locfileid: "72582431"
 
 ## <a name="methods"></a>メソッド
 
-|メソッド名|説明|Visual Basic クエリ式の構文|説明|
+|メソッド名|説明|Visual Basic クエリ式の構文|詳細|
 |-----------------|-----------------|------------------------------------------|----------------------|
 |OfType|指定した型にキャストできるかどうかにより、値を選択します。|該当しない。|<xref:System.Linq.Enumerable.OfType%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.OfType%2A?displayProperty=nameWithType>|
-|Where|述語関数に基づいて値を選択します。|`Where`|<xref:System.Linq.Enumerable.Where%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.Where%2A?displayProperty=nameWithType>|
+|場所|述語関数に基づいて値を選択します。|`Where`|<xref:System.Linq.Enumerable.Where%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.Where%2A?displayProperty=nameWithType>|
 
 ## <a name="query-expression-syntax-example"></a>クエリ式の構文例
 
@@ -51,7 +51,7 @@ MsgBox(sb.ToString())
 ' fox
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Linq>
 - [標準クエリ演算子の概要 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/standard-query-operators-overview.md)

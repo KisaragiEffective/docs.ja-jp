@@ -27,9 +27,9 @@ ms.locfileid: "64662100"
   
 - 値を代入します、`Function`プロシージャ名前を指定し、実行、`End Function`ステートメント。  
   
- コントロールに渡します`Exit Function`または`End Function`プロシージャ名を任意の値が割り当てられていないと、戻り値のデータ型の既定値を返します。 詳細については、「動作」を参照してください[関数ステートメント](../../../visual-basic/language-reference/statements/function-statement.md)します。  
+ 制御が`Exit Function`または`End Function`に渡り、プロシージャ名に任意の値が割り当てられていないと、戻り値のデータ型の既定値を返します。 詳細については、[Function ステートメント](../../../visual-basic/language-reference/statements/function-statement.md) の「動作」を参照してください。  
   
- 既定では、このメッセージは警告です。 警告を非表示にする方法や、警告をエラーとして扱う方法の詳細については、「 [Configuring Warnings in Visual Basic](/visualstudio/ide/configuring-warnings-in-visual-basic)」を参照してください。  
+ 既定では、このメッセージは警告です。 警告を非表示にする方法や、警告をエラーとして扱う方法の詳細については、「[Configuring Warnings in Visual Basic](/visualstudio/ide/configuring-warnings-in-visual-basic)」を参照してください。  
   
  **エラー ID:** BC42105  
   

@@ -11,15 +11,12 @@ helpviewer_keywords:
 - encoding, choosing
 - encoding, fallback strategy
 ms.assetid: bf6d9823-4c2d-48af-b280-919c5af66ae9
-author: rpetrusha
-ms.author: ronpet
-ms.custom: seodec18
-ms.openlocfilehash: 248628d9907a3984b2c06e5f2f3a1e5c2faa2a67
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 3cd461d8c56c3f31bf3ffe04acf239ecd32fe328
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70040547"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75711442"
 ---
 # <a name="character-encoding-in-net"></a>.NET での文字エンコード
 

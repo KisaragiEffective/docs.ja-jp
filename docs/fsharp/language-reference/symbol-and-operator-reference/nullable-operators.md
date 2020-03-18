@@ -1,30 +1,30 @@
 ---
 title: Null 許容の演算子
-description: 使用できる null 許容の演算子について説明します、F#プログラミング言語。
+description: F#プログラミング言語で使用できる null 許容型の演算子について説明します。
 ms.date: 05/16/2016
-ms.openlocfilehash: 79165f35258b414624174153d2cd729b301cf389
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 9c747cf5c2e07ca9f80cef741d71d892fb437b3a
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65642093"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73424041"
 ---
 # <a name="nullable-operators"></a>Null 許容の演算子
 
-Null 許容の演算子は、1 つまたは両方の側で null 許容型の数値型で動作する二項演算または比較演算子です。 Null 許容型は、実際の値の代わりに null 値が許容データベースなどのソースからデータを操作するときに頻繁に発生します。 Null 許容の演算子は、クエリ式でよく使用されます。 Null 許容の演算子の算術演算や比較では、だけでなく、null 許容型の間で変換する変換演算子を使用できます。 特定のクエリ演算子の null 許容バージョンもあります。
+Null 値を許容する演算子は、一方または両方で null 許容型の算術演算を使用する二項演算または比較演算子です。 Null 許容型は、実際の値の代わりに null を許容するデータベースなどのソースからデータを操作するときに頻繁に発生します。 クエリ式では、null 値を許容する演算子が頻繁に使用されます。 算術演算子と比較演算子に加えて、変換演算子を使用して null 許容型間で変換を行うこともできます。 特定のクエリ演算子の null 許容バージョンもあります。
 
-## <a name="table-of-nullable-operators"></a>Null 許容の演算子のテーブル
+## <a name="table-of-nullable-operators"></a>Null 値を許容する演算子の表
 
-次の表には、F# 言語でサポートされている null 許容の演算子が一覧表示します。
+次の表に、このF#言語でサポートされている null 許容の演算子を示します。
 
-|左側に null 許容型|右側に null 許容型|Null 許容の両方の側|
+|左に null 値を許容|Null 値を許容|両方の側で null 値を許容|
 |---|---|---|
-|[?>=](https://msdn.microsoft.com/library/94d29e32-a204-4f60-a527-6b0af86268f3)|[>=?](https://msdn.microsoft.com/library/0a255d8e-8cae-4160-ae61-243a5d96583f)|[?>=?](https://msdn.microsoft.com/library/3051a50f-d276-4c84-9d73-bf2efeddef94)|
-|[?>](https://msdn.microsoft.com/library/62dc0021-1312-4ac3-be87-798b60b81bb6)|[>?](https://msdn.microsoft.com/library/0ad1284b-de48-4a04-83d8-b6f13c9c8936)|[?>?](https://msdn.microsoft.com/library/dc18b6fa-30c4-47b0-9057-794439378a05)|
-|[?<=](https://msdn.microsoft.com/library/56fddf0a-e4ca-4891-a3be-fad1876be3b6)|[<=?](https://msdn.microsoft.com/library/02454a0f-30ca-4e77-ad84-ee7837461804)|[?<=?](https://msdn.microsoft.com/library/5c37c28c-0b57-4da5-be11-5a123f7e8ee4)|
-|[?<](https://msdn.microsoft.com/library/b71897f0-6e29-4c58-b0a7-a5bfa6f88917)|[<?](https://msdn.microsoft.com/library/be9ea40f-a67f-4e98-8067-a14046752e8b)|[?<?](https://msdn.microsoft.com/library/6f1962c8-5605-468c-94ae-f379ae98e17d)|
+|[? > =](https://msdn.microsoft.com/library/94d29e32-a204-4f60-a527-6b0af86268f3)|[> =?](https://msdn.microsoft.com/library/0a255d8e-8cae-4160-ae61-243a5d96583f)|[? > =?](https://msdn.microsoft.com/library/3051a50f-d276-4c84-9d73-bf2efeddef94)|
+|[>](https://msdn.microsoft.com/library/62dc0021-1312-4ac3-be87-798b60b81bb6)|[> ますか?](https://msdn.microsoft.com/library/0ad1284b-de48-4a04-83d8-b6f13c9c8936)|[? > ですか?](https://msdn.microsoft.com/library/dc18b6fa-30c4-47b0-9057-794439378a05)|
+|[? < =](https://msdn.microsoft.com/library/56fddf0a-e4ca-4891-a3be-fad1876be3b6)|[< =?](https://msdn.microsoft.com/library/02454a0f-30ca-4e77-ad84-ee7837461804)|[? < =?](https://msdn.microsoft.com/library/5c37c28c-0b57-4da5-be11-5a123f7e8ee4)|
+|[<](https://msdn.microsoft.com/library/b71897f0-6e29-4c58-b0a7-a5bfa6f88917)|[< ますか?](https://msdn.microsoft.com/library/be9ea40f-a67f-4e98-8067-a14046752e8b)|[? < ですか?](https://msdn.microsoft.com/library/6f1962c8-5605-468c-94ae-f379ae98e17d)|
 |[?=](https://msdn.microsoft.com/library/5cdc8ff6-244b-49cf-9376-69ecf249fd7c)|[=?](https://msdn.microsoft.com/library/d2102894-6a51-475d-890a-735568c31f87)|[?=?](https://msdn.microsoft.com/library/5f793f29-1084-4570-b1c1-17c1b7ef764b)|
-|[?<>](https://msdn.microsoft.com/library/3643a5a8-2ea5-4ad6-82c4-83927c3884a0)|[<>?](https://msdn.microsoft.com/library/3179aace-70c4-4911-9258-619592214976)|[?<>?](https://msdn.microsoft.com/library/5da813d8-ee75-45b8-9ef4-146dcb6d394d)|
+|[< >](https://msdn.microsoft.com/library/3643a5a8-2ea5-4ad6-82c4-83927c3884a0)|[> を < しますか?](https://msdn.microsoft.com/library/3179aace-70c4-4911-9258-619592214976)|[? < > ですか?](https://msdn.microsoft.com/library/5da813d8-ee75-45b8-9ef4-146dcb6d394d)|
 |[?+](https://msdn.microsoft.com/library/2e8ddd05-b3f3-41b3-9d73-938d9e540f3f)|[+?](https://msdn.microsoft.com/library/74772ea8-f010-493e-bdb5-ba347f2fd4f1)|[?+?](https://msdn.microsoft.com/library/57f28137-0f42-43d2-92af-cad8c6c9d05f)|
 |[?-](https://msdn.microsoft.com/library/f237a7a6-89f2-48b2-a2fe-f0b98a2bedc2)|[-?](https://msdn.microsoft.com/library/4a345c07-314a-48f1-b557-ce072583589c)|[?-?](https://msdn.microsoft.com/library/e0024142-1d2a-4607-a39c-1eb1e86fa25a)|
 |[?*](https://msdn.microsoft.com/library/519da708-5ad6-4075-9d74-d00441cd6078)|[*?](https://msdn.microsoft.com/library/04c47870-de7b-480d-98a0-f47593b4ffac)|[?*?](https://msdn.microsoft.com/library/e57057ba-9c3a-40ec-8401-150c2b25f75b)|
@@ -33,11 +33,11 @@ Null 許容の演算子は、1 つまたは両方の側で null 許容型の数�
 
 ## <a name="remarks"></a>Remarks
 
-Null 許容の演算子が含まれる、 [NullableOperators](https://msdn.microsoft.com/library/2c3633c5-3f31-4d62-a9f8-272ad6b19007)名前空間モジュール[Microsoft.FSharp.Linq](https://msdn.microsoft.com/library/4765b4e8-4006-4d8c-a405-39c218b3c82d)します。 Null 許容のデータの型は`System.Nullable<'T>`します。
+Null 許容の演算子は、 [fsharp.core](https://msdn.microsoft.com/library/4765b4e8-4006-4d8c-a405-39c218b3c82d)名前空間の[nullableoperators.](https://msdn.microsoft.com/library/2c3633c5-3f31-4d62-a9f8-272ad6b19007)モジュールに含まれています。 Null 許容型データの型は `System.Nullable<'T>`です。
 
-クエリ式で null 許容型は、値の代わりに null を許可するデータ ソースからデータを選択するときに発生します。 テーブル内の各データ列では、SQL Server データベースで null 値が許可されるかどうかを示す属性があります。 Null 値が許可されている場合、データベースから返されるデータがなどのプリミティブ データ型で表すことができない null を含めることができます`int`、`float`など。 として、データが返されますそのため、`System.Nullable<int>`の代わりに`int`、および`System.Nullable<float>`の代わりに`float`します。 実際の値を取得できます、`System.Nullable<'T>`オブジェクトを使用して、`Value`プロパティ、およびするかを判別できます、`System.Nullable<'T>`オブジェクトが呼び出すことによっての値を持つ、`HasValue`メソッド。 もう 1 つの便利なメソッドは、`System.Nullable<'T>.GetValueOrDefault`メソッドで、値、または適切な型の既定値を取得することができます。 既定値「ゼロ」値、0 などの何らかの形式は、0.0、または`false`します。
+クエリ式では、null 許容型は、値ではなく null 値を許容するデータソースからデータを選択するときに発生します。 SQL Server データベースでは、テーブル内の各データ列には、null が許可されるかどうかを示す属性があります。 Null が許容される場合、データベースから返されるデータには、`int`、`float`などのプリミティブデータ型で表すことができない null を含めることができます。 したがって、データは `int`ではなく `System.Nullable<int>` として返され、`float`ではなく `System.Nullable<float>` ます。 実際の値は、`Value` プロパティを使用して `System.Nullable<'T>` オブジェクトから取得できます。また、`HasValue` メソッドを呼び出すことによって、`System.Nullable<'T>` オブジェクトに値があるかどうかを判断できます。 もう1つの便利な方法は `System.Nullable<'T>.GetValueOrDefault` メソッドです。このメソッドを使用すると、適切な型の値または既定値を取得できます。 既定値は、0、0.0、`false`など、何らかの形式の "ゼロ" 値です。
 
-Null 許容型は、通常の変換演算子を使用して、null 非許容のプリミティブ型に変換可能性があります`int`または`float`します。 Null 許容型の変換演算子を使用して、1 つの null 許容型から別の null 許容型に変換することもできます。 適切な変換演算子がある標準のものと同じ名前が、個別のモジュールでは、 [Nullable](https://msdn.microsoft.com/library/e7a4ea13-28cc-462e-bc3a-33131ace976e)でモジュール、 [Microsoft.FSharp.Linq](https://msdn.microsoft.com/library/4765b4e8-4006-4d8c-a405-39c218b3c82d)名前空間。 通常、クエリ式を使用する場合は、この名前空間を開きます。 プレフィックスを追加することで、null 許容型の変換演算子を使用する場合、`Nullable.`に、適切な変換演算子は、次のコードに示すようにします。
+Null 許容型は、`int` や `float`などの通常の変換演算子を使用して null 非許容のプリミティブ型に変換できます。 Null 許容型に対して変換演算子を使用することにより、1つの null 許容型から別の null 許容型に変換することもできます。 適切な変換演算子の名前は標準の演算子と同じですが、 [fsharp.core](https://msdn.microsoft.com/library/4765b4e8-4006-4d8c-a405-39c218b3c82d)名前空間の null 値を[許容](https://msdn.microsoft.com/library/e7a4ea13-28cc-462e-bc3a-33131ace976e)するモジュールという別のモジュールにあります。 通常は、クエリ式を操作するときに、この名前空間を開きます。 その場合は、次のコードに示すように、適切な変換演算子にプレフィックス `Nullable.` を追加することによって、null 許容型変換演算子を使用できます。
 
 ```fsharp
 open Microsoft.FSharp.Linq
@@ -53,9 +53,9 @@ printfn "%f" (float nullableFloat)
 
 出力は `10.000000`になります。
 
-Null 許容のデータ フィールド、演算子などのクエリ`sumByNullable`クエリ式で使用するためも存在します。 Null 非許容の型のクエリ演算子は null 許容型を型と互換性のあるのため、null 許容型のデータ値を使用する場合は、適切なクエリ演算子の null 許容バージョンを使用する必要があります。 詳細については、次を参照してください。[クエリ式](../query-expressions.md)します。
+クエリ式で使用するために、`sumByNullable`など、null 値が許容されるデータフィールドのクエリ演算子も存在します。 Null 非許容型のクエリ演算子は、null 許容型との型との互換性がないため、null 許容型のデータ値を操作する場合は、適切なクエリ演算子の null 許容バージョンを使用する必要があります。 詳細については、「[クエリ式](../query-expressions.md)」を参照してください。
 
-次の例では、F# クエリ式で null 許容の演算子の使用を示しています。 最初のクエリは、null 許容の演算子では; を使用せず、クエリを記述する方法を示しています。2 番目のクエリは、null 許容の演算子を使用する同等のクエリを示しています。 このサンプル コードを使用するデータベースを設定する方法など、完全なコンテキストを参照してください。[チュートリアル。型プロバイダーを使用した SQL Database へのアクセス](../../tutorials/type-providers/accessing-a-sql-database.md)します。
+次の例では、 F#クエリ式で null 許容演算子を使用する方法を示します。 最初のクエリは、null 許容演算子を使用せずにクエリを記述する方法を示しています。2番目のクエリは、null 許容の演算子を使用する同等のクエリを示しています。 このサンプルコードを使用するようにデータベースを設定する方法など、完全なコンテキストについては、「[チュートリアル: 型プロバイダーを使用した SQL Database へのアクセス](../../tutorials/type-providers/index.md)」を参照してください。
 
 ```fsharp
 open System

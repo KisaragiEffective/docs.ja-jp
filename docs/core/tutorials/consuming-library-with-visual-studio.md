@@ -1,113 +1,89 @@
 ---
-title: Visual Studio 2017 での .NET Standard ライブラリの使用
-description: Visual Studio 2017 を使用して別のクラス ライブラリのメンバーを呼び出す .NET Core アプリケーションを構築します。
-author: BillWagner
-ms.author: wiwagn
-ms.date: 06/05/2018
+title: Visual Studio での .NET Standard ライブラリの使用
+description: Visual Studio 2019 を使用して別のクラス ライブラリのメンバーを呼び出す .NET Core アプリケーションを構築します。
+ms.date: 12/20/2019
 dev_langs:
 - csharp
 - vb
-ms.custom: vs-dotnet, seodec18
-ms.openlocfilehash: 31a9183f541afa5365862b1e89704354cf7bd527
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.custom: vs-dotnet
+ms.openlocfilehash: 4eb75f23359334ea483cba1498f1804c4b24c80c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70969297"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "76920453"
 ---
-# <a name="consume-a-net-standard-library-in-visual-studio-2017"></a>Visual Studio 2017 での .NET Standard ライブラリの使用
+# <a name="consume-a-net-standard-library-in-visual-studio"></a>Visual Studio での .NET Standard ライブラリの使用
 
-「[Visual Studio 2017 での C# と .NET Core を使用したクラス ライブラリの構築](./library-with-visual-studio.md)」または「[Visual Studio 2017 で Visual Basic と .NET Core を使用したクラス ライブラリの構築](vb-library-with-visual-studio.md)」の手順で .NET Standard クラス ライブラリを作成し、「[Visual Studio 2017 の .NET Core を使用したクラス ライブラリのテスト](testing-library-with-visual-studio.md)」でそれをテストし、ライブラリのリリース バージョンをビルドしたら、次の手順は、呼び出し元がそれを利用できるようにすることです。 これは次の 2 つの方法で実行できます。
+.NET Standard クラス ライブラリを作成してテストし、そのライブラリのリリース バージョンを構築したら、次のステップとして、それを呼び出し元が使用できるようにします。 次の 2 つの方法で行います。
 
-* ライブラリが 1 つのソリューションで使われる場合 (たとえば、1 つの大規模なアプリケーションのコンポーネントである場合)、1 つのプロジェクトとしてソリューションに含めることができます。
+- ライブラリが 1 つのソリューションで使われる場合 (たとえば、1 つの大規模なアプリケーションのコンポーネントである場合)、1 つのプロジェクトとしてソリューションに含めることができます。
+- ライブラリが一般に公開される場合は、NuGet パッケージとして配布できます。
 
-* ライブラリが一般に公開されている場合は、NuGet パッケージとして配布できます。
+このチュートリアルでは、次の作業を行う方法について説明します。
+> [!div class="checklist"]
+>
+> - .NET Standard ライブラリ プロジェクトを参照するコンソール アプリをソリューションに追加します。
+> - .NET Standard ライブラリ ロジェクトを含む NuGet パッケージを作成します。
 
-## <a name="including-a-library-as-a-project-in-a-solution"></a>ソリューション内のプロジェクトとしてライブラリを含める
+## <a name="add-a-console-app-to-your-solution"></a>ソリューションにコンソール アプリを追加する
 
-単体テストをクラス ライブラリと同じソリューションに含めたのと同様に、アプリケーションをソリューションの一部として含めることができます。 たとえば、文字列を入力するようにユーザーに要求して、最初の文字が大文字かどうかを報告するコンソール アプリケーションで、このクラス ライブラリを使うことができます。
+「[Visual Studio での .NET Standard ライブラリのテスト](testing-library-with-visual-studio.md)」で、単体テストをクラス ライブラリと同じソリューションに含めたのと同様に、アプリケーションをそのソリューションの一部として含めることができます。 たとえば、文字列を入力するようにユーザーに要求して、最初の文字が大文字かどうかを報告するコンソール アプリケーションで、このクラス ライブラリを使うことができます。
 
-<!-- markdownlint-disable MD025 -->
+1. `ClassLibraryProjects`Visual Studio での .NET Standard ライブラリの構築[に関する記事で作成した ](library-with-visual-studio.md) ソリューションを開きます。
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+1. "ShowCase" という名前の新しい .NET Core コンソール アプリケーションをソリューションに追加します。
 
-1. 「[Visual Studio 2017 での C# と .NET Core を使用したクラス ライブラリの構築](./library-with-visual-studio.md)」トピックで作成した `ClassLibraryProjects` ソリューションを開きます。 **ソリューション エクスプローラー**で **ClassLibraryProjects** ソリューションを右クリックし、コンテキスト メニューから **[追加]**  >  **[新しいプロジェクト]** の順に選びます。
+   1. **ソリューション エクスプローラー**で、ソリューションを右クリックし、 **[追加]**  >  **[新しいプロジェクト]** の順に選択します。
 
-1. **[新しいプロジェクトの追加]** ダイアログで、 **[Visual C#]** ノードを展開し、 **[.NET Core]** ノードを選択し、 **[コンソール アプリ (.NET Core)]** プロジェクト テンプレートを選択します。 **[名前]** テキスト ボックスに「ShowCase」と入力し、 **[OK]** ボタンを選びます。
+   1. **[新しいプロジェクトの追加]** ページで、検索ボックスに「**コンソール**」と入力します。 言語のリストから **[C#]** または **[Visual Basic]** を選択し、次に、プラットフォームのリストから **[すべてのプラットフォーム]** を選択します。 **[コンソール アプリ (.NET Core)]** テンプレートを選択し、 **[次へ]** を選択します。
 
-   ![Visual Studio の [新しいプロジェクトの追加] ダイアログ - C#](./media/consuming-library-with-visual-studio/add-new-project-dialog.png)
+   1. **[新しいプロジェクトの構成]** ページで、 **[プロジェクト名]** ボックスに「**ShowCase**」と入力します。 次に、 **[作成]** を選択します。
 
 1. **ソリューション エクスプローラー**で、**ShowCase** プロジェクトを右クリックして、コンテキスト メニューで **[スタートアップ プロジェクトに設定]** を選びます。
 
-   ![スタートアップ プロジェクトを設定する Visual Studio のコンテキスト メニュー - C#](./media/consuming-library-with-visual-studio/set-startup-project-context-menu.png)
+   ![スタートアップ プロジェクトを設定する Visual Studio プロジェクトのコンテキスト メニュー](./media/consuming-library-with-visual-studio/set-startup-project-context-menu.png)
 
 1. 初期状態では、プロジェクトにはクラス ライブラリへのアクセス権がありません。 プロジェクトでクラス ライブラリのメソッドを呼び出すことができるようにするには、クラス ライブラリへの参照を作成します。 **ソリューション エクスプローラー**で、`ShowCase` プロジェクトの **[依存関係]** ノードを右クリックして、 **[参照の追加]** を選びます。
 
-   ![Visual Studio プロジェクトの [参照の追加] コンテキスト メニュー - C#](./media/consuming-library-with-visual-studio/add-reference-context-menu.png)
+   ![Visual Studio の [参照の追加] コンテキスト メニュー](./media/consuming-library-with-visual-studio/add-reference-context-menu.png)
 
 1. **[参照マネージャー]** ダイアログ ボックスで、クラス ライブラリ プロジェクト **StringLibrary** を選び、 **[OK]** ボタンを選びます。
 
-   ![Visual Studio の参照の管理ダイアログ - C#](./media/consuming-library-with-visual-studio/manage-project-references.png)
+   ![StringLibrary が選択された [参照マネージャー] ダイアログ](./media/consuming-library-with-visual-studio/manage-project-references.png)
 
-1. *Program.cs* ファイルのコード ウィンドウで、すべてのコードを次のコードに置き換えます。
+1. *Program.cs* または *Program.vb* ファイルのコード ウィンドウで、すべてのコードを次のコードに置き換えます。
 
-   [!CODE-csharp[UsingClassLib#1](../../../samples/snippets/csharp/getting_started/with_visual_studio_2017/showcase.cs)]
+   [!code-csharp[UsingClassLib#1](~/samples/snippets/csharp/getting_started/with_visual_studio_2017/showcase.cs)]
+   [!code-vb[UsingClassLib#1](~/samples/snippets/core/tutorials/vb-library-with-visual-studio/showcase.vb)]
 
-   このコードでは、`row` 変数を使って、コンソール ウィンドウに書き込まれるデータの行数のカウントを維持します。 この変数が 25 以上であるときは、コードは常にコンソール ウィンドウをクリアして、ユーザーにメッセージを表示します。
+   このコードでは、`row` 変数を使って、コンソール ウィンドウに書き込まれるデータの行数のカウントを維持します。 これが 25 以上になると、コードによってコンソール ウィンドウがクリアされ、ユーザーにメッセージが表示されます。
 
-   プログラムは、ユーザーに文字列の入力を要求し、 文字列が大文字で始まるかどうかを示します。 ユーザーが文字列を入力せずに Enter キーを押すと、アプリケーションは終了し、コンソール ウィンドウが閉じます。
+   プログラムは、ユーザーに文字列の入力を要求し、 文字列が大文字で始まるかどうかを示します。 ユーザーが文字列を入力せずに Enter キーを押すと、アプリケーションが終了し、コンソール ウィンドウが閉じます。
 
-1. 必要に応じて、ツールバーを変更して、`ShowCase` プロジェクトの**デバッグ** リリースをコンパイルします。 **ShowCase** の緑色の矢印を選び、プログラムをコンパイルして実行します。
+1. 必要に応じて、ツールバーを変更して、 **プロジェクトの**デバッグ`ShowCase` リリースをコンパイルします。 **ShowCase** の緑色の矢印を選び、プログラムをコンパイルして実行します。
 
-   ![[デバッグ] ボタンを示している Visual Studio プロジェクトのツールバー - C#](./media/consuming-library-with-visual-studio/visual-studio-project-toolbar.png)
+   ![[デバッグ] ボタンを示している Visual Studio プロジェクトのツールバー](./media/consuming-library-with-visual-studio/visual-studio-project-toolbar.png)
 
-# <a name="visual-basictabvb"></a>[Visual Basic](#tab/vb)
+「[Visual Studio を使用して C# または Visual Basic .NET Core の Hello World アプリケーションをデバッグする](debugging-with-visual-studio.md)」および「[Visual Studio での .NET Core Hello World アプリケーションの発行](publishing-with-visual-studio.md)」の手順に従って、このライブラリを使うアプリケーションをデバッグして発行できます。
 
-1. 「[Visual Studio 2017 で Visual Basic と .NET Core を使用したクラス ライブラリの構築](vb-library-with-visual-studio.md)」トピックで作成した `ClassLibraryProjects` ソリューションを開きます。 **ソリューション エクスプローラー**で **ClassLibraryProjects** ソリューションを右クリックし、コンテキスト メニューから **[追加]**  >  **[新しいプロジェクト]** の順に選びます。
+## <a name="create-a-nuget-package"></a>NuGet パッケージの作成
 
-1. **[新しいプロジェクトの追加]** ダイアログで、 **[Visual Basic]** ノードを展開し、 **[.NET Core]** ノードを選択し、 **[コンソール アプリ (.NET Core)]** プロジェクト テンプレートを選択します。 **[名前]** テキスト ボックスに「ShowCase」と入力し、 **[OK]** ボタンを選びます。
+NuGet パッケージとして発行すると、クラス ライブラリが広く利用可能になります。 NuGet パッケージの作成は Visual Studio ではサポートされていません。 作成するには、.NET Core CLI コマンドを使用する必要があります。
 
-   ![Visual Studio の [新しいプロジェクトの追加] ダイアログ - Visual Basic](./media/consuming-library-with-visual-studio/add-new-vb-project-dialog.png)
+1. コンソール ウィンドウを開きます。
 
-1. **ソリューション エクスプローラー**で、**ShowCase** プロジェクトを右クリックして、コンテキスト メニューで **[スタートアップ プロジェクトに設定]** を選びます。 
+   たとえば、Windows タスク バーの検索ボックスに「**コマンド プロンプト**」と入力します。 **[コマンド プロンプト]** デスクトップ アプリを選択するか、検索結果で既に選択されている場合は、**Enter** キーを押します。
 
-   ![スタートアップ プロジェクトを設定する Visual Studio のコンテキスト メニュー - Visual Basic](./media/consuming-library-with-visual-studio/set-startup-project-context-menu.png)
+1. ライブラリのプロジェクト ディレクトリに移動します。 このディレクトリには、ソース コードおよびプロジェクト ファイル *StringLibrary.csproj* または *StringLibrary.vbproj* が含まれています。
 
-1. 初期状態では、プロジェクトにはクラス ライブラリへのアクセス権がありません。 プロジェクトでクラス ライブラリのメソッドを呼び出すことができるようにするには、クラス ライブラリへの参照を作成します。 **ソリューション エクスプローラー**で、`ShowCase` プロジェクトの **[依存関係]** ノードを右クリックして、 **[参照の追加]** を選びます。
+1. [dotnet pack](../tools/dotnet-pack.md) コマンドを実行して、 *.nupkg* 拡張子を持つパッケージを生成します。
 
-   ![Visual Studio プロジェクトの [参照の追加] コンテキスト メニュー - Visual Basic](./media/consuming-library-with-visual-studio/add-reference-context-menu.png)
-
-1. **[参照マネージャー]** ダイアログ ボックスで、クラス ライブラリ プロジェクト **StringLibrary** を選び、 **[OK]** ボタンを選びます。
-
-   ![Visual Studio の参照を管理するダイアログ - Visual Basic](./media/consuming-library-with-visual-studio/manage-project-references.png)
-
-1. *Program.vb* ファイルのコード ウィンドウで、すべてのコードを次のコードに置き換えます。
-
-    [!CODE-vb[UsingClassLib#1](../../../samples/snippets/core/tutorials/vb-library-with-visual-studio/showcase.vb)]
-
-   このコードでは、`row` 変数を使って、コンソール ウィンドウに書き込まれるデータの行数のカウントを維持します。 この変数が 25 以上であるときは、コードは常にコンソール ウィンドウをクリアして、ユーザーにメッセージを表示します。
-
-   プログラムは、ユーザーに文字列の入力を要求し、 文字列が大文字で始まるかどうかを示します。 ユーザーが文字列を入力せずに Enter キーを押すと、アプリケーションは終了し、コンソール ウィンドウが閉じます。
-
-1. 必要に応じて、ツールバーを変更して、`ShowCase` プロジェクトの**デバッグ** リリースをコンパイルします。 **ShowCase** の緑色の矢印を選び、プログラムをコンパイルして実行します。
-
-   ![ツールバーの [デバッグ] - Visual Basic](./media/consuming-library-with-visual-studio/visual-studio-project-toolbar.png)
-
----
-
-「[Visual Studio 2017 で Hello World Application をデバッグする](debugging-with-visual-studio.md)」と「[Visual Studio 2017 を使用した Hello World アプリケーションの発行](publishing-with-visual-studio.md)」の手順に従って、このライブラリを使うアプリケーションをデバッグして発行できます。
-
-## <a name="distributing-the-library-in-a-nuget-package"></a>ライブラリを NuGet パッケージで配布する
-
-NuGet パッケージとして発行すると、クラス ライブラリが広く利用可能になります。 NuGet パッケージの作成は Visual Studio ではサポートされていません。 作成するには、[`dotnet` コマンド ライン ユーティリティ](../tools/dotnet.md)を使います。
-
-1. コンソール ウィンドウが開きます。 たとえば、Windows タスク バーの **[何でも聞いてください]** テキスト ボックスに「`Command Prompt`」 (または省略して「`cmd`」) と入力し、**コマンド プロンプト** デスクトップ アプリを選ぶか、コマンド プロンプトが検索結果で選択されている場合は Enter キーを押して、コンソール ウィンドウを開きます。
-
-1. ライブラリのプロジェクト ディレクトリに移動します。 一般的なファイルの場所を再構成していない限り、*Documents\Visual Studio 2017\Projects\ClassLibraryProjects\StringLibrary* ディレクトリにあります。 このディレクトリには、ソース コードおよびプロジェクト ファイル *StringLibrary.csproj* が含まれています。
-
-1. `dotnet pack --no-build` コマンドを実行します。 `dotnet` ユーティリティにより、 *.nupkg* 拡張子を持つパッケージが生成されます。
+   ```dotnetcli
+   dotnet pack --no-build
+   ```
 
    > [!TIP]
    > *dotnet.exe* を含むディレクトリが PATH になくても、コンソール ウィンドウで「`where dotnet.exe`」と入力して、場所を検索できます。
 
-NuGet パッケージの作成の詳細については、「[クロスプラットフォーム ツールを使用して NuGet パッケージを作成する方法](../deploying/creating-nuget-packages.md)」を参照してください。
+NuGet パッケージの作成に関する詳細については、「[.NET Core CLI を使用して NuGet パッケージを作成する方法](../deploying/creating-nuget-packages.md)」をご覧ください。

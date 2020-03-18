@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 6ae2c4be-212c-4e74-9288-40a11dc26522
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: e909680428c7957da2283d13f5676329d953bf22
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d28a0c8b7ee85f023026dde6f3cc8f3a8406aa64
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781888"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74450304"
 ---
 # <a name="corfieldattr-enumeration"></a>CorFieldAttr 列挙型
 フィールドについてのメタデータを記述する値が格納されます。  
@@ -62,30 +60,30 @@ typedef enum CorFieldAttr {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`fdFieldAccessMask`|アクセシビリティに関する情報を指定します。|  
+|`fdFieldAccessMask`|アクセシビリティ情報を指定します。|  
 |`fdPrivateScope`|フィールドを参照できないことを指定します。|  
-|`fdPrivate`|フィールドが親の型からのみアクセスできることを指定します。|  
-|`fdFamANDAssem`|フィールドにそのアセンブリの派生クラスからアクセスできることを指定します。|  
-|`fdAssembly`|フィールドにそのアセンブリ内のすべての型からアクセスできることを指定します。|  
-|`fdFamily`|フィールドの型によってのみアクセスできますが、派生クラスを指定します。|  
-|`fdFamORAssem`|フィールドにそのアセンブリ内のすべての型と派生クラスによってアクセスできることを指定します。|  
-|`fdPublic`|フィールドがこのスコープの可視性を持つすべての種類でアクセスできることを指定します。|  
-|`fdStatic`|フィールドがインスタンス メンバーではなく、その型のメンバーであるを指定します。|  
-|`fdInitOnly`|初期化された後に、フィールドを変更できないことを指定します。|  
-|`fdLiteral`|フィールド値がコンパイル時定数であることを指定します。|  
-|`fdNotSerialized`|その型は、リモート処理は実行時にフィールドはシリアルされないことを指定します。|  
-|`fdSpecialName`|フィールドに、特別なことと、その名前を記述しているを指定しますか。|  
+|`fdPrivate`|フィールドがその親の型によってのみアクセス可能であることを指定します。|  
+|`fdFamANDAssem`|アセンブリ内の派生クラスによってフィールドにアクセスできることを指定します。|  
+|`fdAssembly`|アセンブリ内のすべての型からフィールドにアクセスできることを指定します。|  
+|`fdFamily`|フィールドがその型および派生クラスによってのみアクセス可能であることを指定します。|  
+|`fdFamORAssem`|派生クラスおよびそのアセンブリ内のすべての型によってフィールドにアクセスできることを指定します。|  
+|`fdPublic`|このスコープの可視性を持つすべての型からフィールドにアクセスできることを指定します。|  
+|`fdStatic`|フィールドがインスタンスメンバーではなく、その型のメンバーであることを指定します。|  
+|`fdInitOnly`|初期化後にフィールドを変更できないことを指定します。|  
+|`fdLiteral`|フィールド値がコンパイル時の定数であることを指定します。|  
+|`fdNotSerialized`|型がリモート処理されるときに、フィールドをシリアル化しないことを指定します。|  
+|`fdSpecialName`|フィールドが特別であること、およびその名前で方法が説明されていることを指定します。|  
 |`fdPinvokeImpl`|フィールドの実装が PInvoke 経由で転送されることを指定します。|  
-|`fdReservedMask`|共通言語ランタイムでは、内部使用のため予約されています。|  
-|`fdRTSpecialName`|共通言語ランタイム メタデータの内部 Api が名前のエンコーディングを確認する必要がありますように指定します。|  
-|`fdHasFieldMarshal`|フィールドにマーシャ リング情報が含まれることを指定します。|  
-|`fdHasDefault`|フィールドが既定値を持つことを指定します。|  
-|`fdHasFieldRVA`|フィールドの相対仮想アドレスを持つことを指定します。|  
+|`fdReservedMask`|共通言語ランタイムによる内部使用のために予約されています。|  
+|`fdRTSpecialName`|共通言語ランタイムメタデータの内部 Api が名前のエンコーディングを確認する必要があることを指定します。|  
+|`fdHasFieldMarshal`|フィールドにマーシャリング情報が含まれることを指定します。|  
+|`fdHasDefault`|フィールドに既定値があることを指定します。|  
+|`fdHasFieldRVA`|フィールドが相対仮想アドレスを持つことを指定します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

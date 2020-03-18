@@ -2,15 +2,15 @@
 title: セキュリティに関する注意事項 (Entity Framework)
 ms.date: 03/30/2017
 ms.assetid: 84758642-9b72-4447-86f9-f831fef46962
-ms.openlocfilehash: d9adf4ed9e340ff589117f160e370c7d1595a207
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: e2e1fc75049d41b50aa59092fe1aa21e8cdab659
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73039864"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77452488"
 ---
 # <a name="security-considerations-entity-framework"></a>セキュリティに関する注意事項 (Entity Framework)
-このトピックでは、Entity Framework アプリケーションの開発、配置、および実行に固有のセキュリティの考慮事項について説明します。 また、セキュリティで保護された .NET Framework アプリケーションを作成するための推奨事項に従ってください。 詳細については、「[セキュリティの概要](../security-overview.md)」を参照してください。  
+このトピックでは、Entity Framework アプリケーションの開発、配置、および実行に固有のセキュリティの考慮事項について説明します。 また、セキュリティで保護された .NET Framework アプリケーションを作成するための推奨事項に従ってください。 詳細については、[セキュリティの概要](../security-overview.md)に関するページを参照してください。  
   
 ## <a name="general-security-considerations"></a>セキュリティについての全般的な考慮事項  
  Entity Framework を使用するすべてのアプリケーションには、次のセキュリティの考慮事項が適用されます。  
@@ -27,7 +27,7 @@ ms.locfileid: "73039864"
  ログオン操作の際には、ユーザーのパスワードに基づく情報が、基になるデータ ソースのネットワーク ライブラリを通じてサーバーに渡されます。 悪質なプロバイダーを使用すると、ユーザーの資格情報を盗まれたり、悪質なクエリを生成されたり、結果セットを改ざんされたりする可能性があります。  
   
 #### <a name="encrypt-your-connection-to-protect-sensitive-data"></a>接続を暗号化して機密データを保護する  
- Entity Framework は、データの暗号化を直接処理しません。 ユーザーがパブリック ネットワーク経由でデータにアクセスする場合は、セキュリティを強化するためにアプリケーションでデータ ソースへの暗号化接続を確立する必要があります。 詳細については、データ ソースのセキュリティ関連のドキュメントを参照してください。 SQL Server データソースについては、「 [SQL Server への接続の暗号化](https://go.microsoft.com/fwlink/?LinkId=119544)」を参照してください。  
+ Entity Framework は、データの暗号化を直接処理しません。 ユーザーがパブリック ネットワーク経由でデータにアクセスする場合は、セキュリティを強化するためにアプリケーションでデータ ソースへの暗号化接続を確立する必要があります。 詳細については、データ ソースのセキュリティ関連のドキュメントを参照してください。 SQL Server データソースについては、「 [SQL Server への接続の暗号化](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms189067(v=sql.105))」を参照してください。  
   
 #### <a name="secure-the-connection-string"></a>接続文字列を保護する  
  アプリケーションのセキュリティを実現するうえで、データ ソースへのアクセスを保護することは、最も重要な目標の 1 つです。 保護されていない接続文字列や適切に作成されていない接続文字列は脆弱性を招く原因になります。 接続情報をテキスト形式で保存したり、メモリ内に保持したりすると、システム全体のセキュリティが損なわれる可能性があります。 接続文字列を保護するための推奨事項を以下に示します。  
@@ -81,7 +81,7 @@ ms.locfileid: "73039864"
  Entity Framework では、セキュリティアクセス許可は適用されません。ユーザーが指定したデータオブジェクトコードは、信頼されているかどうかに関係なく、処理中に呼び出されます。 データ ストアとアプリケーションでクライアントの認証および承認が行われるようにしてください。  
   
 #### <a name="restrict-access-to-all-configuration-files"></a>すべての構成ファイルへのアクセスを制限する  
- 管理者は、アプリケーションの構成を指定するすべてのファイルへの書き込みアクセスを制限する必要があります。これには、enterprisesec、config、machine.config、アプリケーション構成ファイル \<*アプリケーション*> が含まれます.exe. .config.  
+ 管理者は、enterprisesec、config、machine.config、アプリケーション構成ファイル \<*アプリケーション*> など、アプリケーションの構成を指定するすべてのファイルへの書き込みアクセスを制限する必要があります。  
   
  プロバイダーの不変名は、app.config で変更できます。クライアントアプリケーションは、厳密な名前を使用して、標準プロバイダーファクトリモデルを通じて基になるプロバイダーにアクセスする必要があります。  
   
@@ -119,11 +119,11 @@ ms.locfileid: "73039864"
  次の理由で、信頼できない可能性のある呼び出し元に公開されたメソッドから <xref:System.Linq.IQueryable%601> 型を返さないようにします。  
   
 - <xref:System.Linq.IQueryable%601> 型を公開するクエリのコンシューマーが、セキュリティ保護されたデータを公開したり結果セットのサイズを増やしたりする結果に関するメソッドを呼び出す可能性があるため。 たとえば、次のようなメソッド シグネチャについて考えてみます。  
-  
-    ```csharp  
-    public IQueryable<Customer> GetCustomer(int customerId)  
-    ```  
-  
+
+    ```csharp
+    public IQueryable<Customer> GetCustomer(int customerId)
+    ```
+
     このクエリのコンシューマーは返された `.Include("Orders")` の `IQueryable<Customer>` を呼び出し、クエリが公開を意図していないデータを取得する可能性があります。 これを回避するには、メソッドの戻り値の型を <xref:System.Collections.Generic.IEnumerable%601> に変更し、結果を具体化するメソッド (`.ToList()` など) を呼び出します。  
   
 - 結果が反復されると <xref:System.Linq.IQueryable%601> クエリが実行されるため、<xref:System.Linq.IQueryable%601> 型を公開するクエリのコンシューマーがスローされた例外をキャッチする可能性があります。 例外にコンシューマーを対象としていない情報が含まれている場合があります。  
@@ -137,7 +137,7 @@ ms.locfileid: "73039864"
 #### <a name="prevent-type-safety-violations"></a>型の安全性違反を防止する  
  タイプセーフに違反した場合、Entity Framework は、オブジェクト内のデータの整合性を保証できません。 型の安全性違反は、信頼できないアプリケーションを完全信頼のコード アクセス セキュリティで実行できるようにすると発生する可能性があります。  
   
-#### <a name="handle-exceptions"></a>例外を処理する  
+#### <a name="handle-exceptions"></a>例外を処理します。  
  try/catch ブロック内の <xref:System.Data.Objects.ObjectContext> のメソッドとプロパティにアクセスします。 例外をキャッチすると、未処理の例外によって <xref:System.Data.Objects.ObjectStateManager> のエントリまたはモデル情報 (テーブル名など) がアプリケーションのユーザーに公開されることはありません。  
   
 ## <a name="security-considerations-for-aspnet-applications"></a>ASP.NET アプリケーションのセキュリティに関する注意点  
@@ -145,7 +145,7 @@ ms.locfileid: "73039864"
 ASP.NET アプリケーションでパスを操作するときは、次の点を考慮する必要があります。  
   
 #### <a name="verify-whether-your-host-performs-path-checks"></a>ホストでパスがチェックされるかどうかを確認する  
- `|DataDirectory|` (パイプ記号で囲まれた) の置換文字列が使用される場合、ADO.NET は解決されたパスがサポートされていることを確認します。 たとえば、`DataDirectory` の後に "." を使用することはできません。 ASP.NET をホストするプロセスによって、Web アプリケーションのルート操作 (`~`) を解決するための同じチェックが実行されます。 IIS ではこのチェックが行われますが、IIS 以外のホストでは、解決されたパスがサポートされているかどうかが確認されない可能性があります。 Entity Framework アプリケーションを展開するホストの動作を把握しておく必要があります。  
+ `|DataDirectory|` (パイプ記号で囲まれた) の置換文字列が使用される場合、ADO.NET は解決されたパスがサポートされていることを確認します。 たとえば、`DataDirectory` の後に ".." を使用することはできません。 ASP.NET をホストするプロセスによって、Web アプリケーションのルート操作 (`~`) を解決するための同じチェックが実行されます。 IIS ではこのチェックが行われますが、IIS 以外のホストでは、解決されたパスがサポートされているかどうかが確認されない可能性があります。 Entity Framework アプリケーションを展開するホストの動作を把握しておく必要があります。  
   
 #### <a name="do-not-make-assumptions-about-resolved-path-names"></a>解決されるパス名を想定しない  
  ルート演算子 (`~`) と `DataDirectory` 置換文字列を解決する値は、アプリケーションの実行時には一定のままである必要がありますが、Entity Framework では、ホストがこれらの値を変更できないように制限していません。  
@@ -162,7 +162,7 @@ ADO.NET metadata service コンポーネントでは、プライベート情報�
 #### <a name="do-not-accept-metadataworkspace-objects-from-untrusted-sources"></a>信頼されていないソースから MetadataWorkspace オブジェクトを受け取らない  
  信頼されていないソースから <xref:System.Data.Metadata.Edm.MetadataWorkspace> クラスのインスタンスをアプリケーションで受け取らないようにしてください。 代わりに、それらのソースから明示的にワークスペースを作成および設定する必要があります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ADO.NET アプリケーションのセキュリティ保護](../securing-ado-net-applications.md)
 - [配置に関する注意事項](deployment-considerations.md)

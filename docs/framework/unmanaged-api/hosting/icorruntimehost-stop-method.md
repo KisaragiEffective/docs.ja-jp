@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 46a0d450-b516-4bef-8b71-8d3bf265cbed
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ca51b87e7afc8e9e48d541a32b3bd60a19a5ff70
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 5fcf8bc861b2ef0b8ea9f5a5e46585564cc26615
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69965966"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127703"
 ---
 # <a name="icorruntimehoststop-method"></a>ICorRuntimeHost::Stop メソッド
 現在のプロセスのランタイムでコードの実行を停止します。  
@@ -43,17 +41,17 @@ HRESULT Stop ();
 |HOST_E_CLRNOTAVAILABLE|CLR がプロセスに読み込まれていないか、CLR がマネージドコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
   
 ## <a name="remarks"></a>Remarks  
- 通常、 `Stop`メソッドを呼び出す必要はありません。これは、プロセスが終了したときにコードが実行を停止するためです。  
+ 通常、`Stop` メソッドを呼び出す必要はありません。これは、プロセスが終了したときにコードが実行を停止するためです。  
   
 > [!NOTE]
-> を`Stop`呼び出した後、CLR を同じプロセスに再初期化することはできません。  
+> `Stop`を呼び出した後、CLR を同じプロセスに再初期化することはできません。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** 1.0、1.1  
   

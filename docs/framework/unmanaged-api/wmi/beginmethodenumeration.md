@@ -14,16 +14,14 @@ helpviewer_keywords:
 - BeginMethodEnumeration function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8a7b93bacabdfdd0551418644a7d9a4b1643c3d9
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: be1e86e0b760ab403cf42ac19da03f84769a85cf
+ms.sourcegitcommit: 68a4b28242da50e1d25aab597c632767713a6f81
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798765"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884424"
 ---
-# <a name="beginenumeration-function"></a>BeginEnumeration 関数
+# <a name="beginmethodenumeration-function"></a>BeginMethodEnumeration 関数
 オブジェクトで使用できるメソッドの列挙を開始します。  
 
 [!INCLUDE[internalonly-unmanaged](../../../../includes/internalonly-unmanaged.md)]
@@ -60,7 +58,7 @@ HRESULT BeginMethodEnumeration (
 
 |定数  |Value  |説明  |
 |---------|---------|---------|
-|`WBEM_E_INVALID_PARAMETER` | 0x80041008 | `lEnnumFlags`が0以外で、が指定されたフラグの1つではありません。 |
+|`WBEM_E_INVALID_PARAMETER` | 0x80041008 | `lEnnumFlags` が0以外で、が指定されたフラグの1つではありません。 |
 |`WBEM_S_NO_ERROR` | 0 | 関数の呼び出しに成功しました。  |
   
 ## <a name="remarks"></a>Remarks
@@ -69,13 +67,13 @@ HRESULT BeginMethodEnumeration (
 
 このメソッド呼び出しは、現在のオブジェクトがクラス定義の場合にのみサポートされます。 インスタンスを指す[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)ポインターからは、メソッド操作を使用できません。 メソッドを列挙する順序は、 [IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)の特定のインスタンスに対して不変であることが保証されます。
 
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** WMINet_Utils  
+ **ヘッダー:** WMINet_Utils .idl  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v472plus](../../../../includes/net-current-v472plus.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [WMI およびパフォーマンスカウンター (アンマネージ API リファレンス)](index.md)

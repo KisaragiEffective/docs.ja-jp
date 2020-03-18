@@ -1,13 +1,13 @@
 ---
-title: データの並べ替え (Visual Basic)
+title: データの並べ替え
 ms.date: 07/20/2015
 ms.assetid: 6f81065c-0c89-4bf3-a6d8-442273f8810e
-ms.openlocfilehash: f8b1734597efa3134c95c9764bad7f79fd3cf1e4
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: f1d4d8afb9b6e176a7ac048ba3270ecafdce24c9
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524072"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350587"
 ---
 # <a name="sorting-data-visual-basic"></a>データの並べ替え (Visual Basic)
 
@@ -21,7 +21,7 @@ ms.locfileid: "72524072"
 
 ## <a name="methods"></a>メソッド
 
-|メソッド名|説明|Visual Basic クエリ式の構文|説明|
+|メソッド名|説明|Visual Basic クエリ式の構文|詳細|
 |-----------------|-----------------|------------------------------------------|----------------------|
 |OrderBy|値を昇順に並べ替えます。|`Order By`|<xref:System.Linq.Enumerable.OrderBy%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.OrderBy%2A?displayProperty=nameWithType>|
 |OrderByDescending|値を降順に並べ替えます。|`Order By … Descending`|<xref:System.Linq.Enumerable.OrderByDescending%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.OrderByDescending%2A?displayProperty=nameWithType>|
@@ -147,7 +147,7 @@ MsgBox(sb.ToString())
 ' brown
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Linq>
 - [標準クエリ演算子の概要 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/standard-query-operators-overview.md)

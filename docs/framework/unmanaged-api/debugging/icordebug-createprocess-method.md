@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: b6128694-11ed-46e7-bd4e-49ea1914c46a
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5d6220270634dd8e2d15787d717020b8f6f86bb9
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: cb16bae2dfe151d04c40269a8e6872ecb49b4269
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67738331"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76789006"
 ---
 # <a name="icordebugcreateprocess-method"></a>ICorDebug::CreateProcess メソッド
-プロセスと、デバッガーの制御下で、プライマリ スレッドを起動します。  
+デバッガーの制御下でプロセスとそのプライマリスレッドを起動します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -48,52 +46,52 @@ HRESULT CreateProcess (
   
 ## <a name="parameters"></a>パラメーター  
  `lpApplicationName`  
- [in]実行中のプロセスによって実行されるモジュールを指定する null で終わる文字列へのポインター。 モジュールは、呼び出し元のプロセスのセキュリティ コンテキストで実行されます。  
+ から起動されたプロセスによって実行されるモジュールを指定する、null で終わる文字列へのポインター。 モジュールは、呼び出し元プロセスのセキュリティコンテキストで実行されます。  
   
  `lpCommandLine`  
- [in]実行中のプロセスによって実行されるコマンドラインを指定する null で終わる文字列へのポインター。 アプリケーション名 (たとえば、"SomeApp.exe") は、最初の引数である必要があります。  
+ から起動されたプロセスによって実行されるコマンドラインを指定する、null で終わる文字列へのポインター。 アプリケーション名 (たとえば、"al.exe") は最初の引数である必要があります。  
   
  `lpProcessAttributes`  
- [in]Win32 へのポインター`SECURITY_ATTRIBUTES`プロセスのセキュリティ記述子を指定する構造体。 場合`lpProcessAttributes`が null の場合、既定のセキュリティ記述子は、プロセスに取得します。  
+ からプロセスのセキュリティ記述子を指定する Win32 `SECURITY_ATTRIBUTES` 構造体へのポインター。 `lpProcessAttributes` が null の場合、プロセスは既定のセキュリティ記述子を取得します。  
   
  `lpThreadAttributes`  
- [in]Win32 へのポインター`SECURITY_ATTRIBUTES`プロセスのプライマリ スレッドのセキュリティ記述子を指定する構造体。 場合`lpThreadAttributes`が null の場合、既定のセキュリティ記述子は、スレッドに取得します。  
+ からプロセスのプライマリスレッドのセキュリティ記述子を指定する Win32 `SECURITY_ATTRIBUTES` 構造体へのポインター。 `lpThreadAttributes` が null の場合、スレッドは既定のセキュリティ記述子を取得します。  
   
  `bInheritHandles`  
- [in]設定`true`、実行中のプロセスによって呼び出し元のプロセスで継承可能な各ハンドルを継承することを示すまたは`false`ハンドルを継承しないことを示します。 継承されたハンドルは、元のハンドルと同じ値とアクセス権限を持っています。  
+ から呼び出しプロセスの各継承可能なハンドルが起動されたプロセスによって継承されることを示す場合は `true` に設定します。ハンドルが継承されない場合は `false` を指定します。 継承されたハンドルは、元のハンドルと同じ値とアクセス権を持ちます。  
   
  `dwCreationFlags`  
- [in]ビットごとの組み合わせ、 [Win32 プロセス作成フラグ](https://go.microsoft.com/fwlink/?linkid=69981)優先度クラスと、実行中のプロセスの動作を制御します。  
+ から優先順位クラスと起動されたプロセスの動作を制御する[Win32 プロセス作成フラグ](/windows/win32/procthread/process-creation-flags)のビットごとの組み合わせ。  
   
  `lpEnvironment`  
- [in]新しいプロセスの環境ブロックへのポインター。  
+ から新しいプロセスの環境ブロックへのポインター。  
   
  `lpCurrentDirectory`  
- [in]プロセスの現在のディレクトリにフルパスを指定する null で終わる文字列へのポインター。 このパラメーターが null の場合、新しいプロセスは、呼び出し元プロセスとして同じの現在のドライブとディレクトリがあります。  
+ からプロセスの現在のディレクトリへの完全パスを指定する、null で終わる文字列へのポインター。 このパラメーターが null の場合、新しいプロセスは呼び出しプロセスと同じ現在のドライブとディレクトリを持ちます。  
   
  `lpStartupInfo`  
- [in]Win32 へのポインター`STARTUPINFOW`ウィンドウ ステーション、デスクトップ、標準のハンドル、および実行中のプロセスのメイン ウィンドウの外観を指定する構造体。  
+ から起動されたプロセスのメインウィンドウのウィンドウステーション、デスクトップ、標準ハンドル、および外観を指定する Win32 `STARTUPINFOW` 構造体へのポインター。  
   
  `lpProcessInformation`  
- [in]Win32 へのポインター`PROCESS_INFORMATION`を起動するプロセスに関する識別情報を指定します。  
+ から起動するプロセスに関する識別情報を指定する Win32 `PROCESS_INFORMATION` 構造体へのポインター。  
   
  `debuggingFlags`  
- [in]デバッグ オプションを指定する CorDebugCreateProcessFlags 列挙型の値。  
+ からデバッグオプションを指定する CorDebugCreateProcessFlags 列挙体の値。  
   
  `ppProcess`  
- [out]プロセスを表す ICorDebugProcess オブジェクトのアドレスへのポインター。  
+ 入出力プロセスを表す、オブジェクトのアドレスへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- このメソッドのパラメーターは、Win32 のと同じ`CreateProcess`メソッド。  
+## <a name="remarks"></a>コメント  
+ このメソッドのパラメーターは、Win32 `CreateProcess` メソッドのパラメーターと同じです。  
   
- アンマネージの混在モードのデバッグを有効にするには設定`dwCreationFlags`DEBUG_PROCESS に&#124;DEBUG_ONLY_THIS_PROCESS します。 マネージ デバッグのみを使用する場合は、これらのフラグを設定しないでください。  
+ アンマネージ混合モードのデバッグを有効にするには&#124; 、`dwCreationFlags` を DEBUG_PROCESS DEBUG_ONLY_THIS_PROCESS に設定します。 マネージデバッグのみを使用する場合は、これらのフラグを設定しないでください。  
   
- かどうか、デバッガーとプロセスをデバッグ (アタッチされたプロセス)、単一のコンソールを共有し、相互運用機能デバッグを使用する場合は、コンソールのロックを保持して、デバッグ イベントで停止にアタッチされたプロセスのことです。 デバッガーにし、コンソールを使用しようがブロックされます。 この問題を回避するで防ぐを設定、`dwCreationFlags`パラメーター。  
+ デバッガーとデバッグするプロセス (アタッチされたプロセス) が1つのコンソールを共有し、相互運用デバッグが使用されている場合、アタッチされたプロセスがコンソールロックを保持し、デバッグイベントで停止する可能性があります。 デバッガーは、コンソールの使用をブロックします。 この問題を回避するには、`dwCreationFlags` パラメーターに CREATE_NEW_CONSOLE フラグを設定します。  
   
- IA 64 ベースおよび AMD64 ベースのプラットフォームなどの Win9x と x86 以外のプラットフォームでは、相互運用機能デバッグはサポートされていません。  
+ 相互運用デバッグは、IA-64 ベースおよび AMD64 ベースのプラットフォームなど、Win9x および x86 以外のプラットフォームではサポートされていません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -103,4 +101,4 @@ HRESULT CreateProcess (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebug インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebug-interface.md)
+- [ICorDebug インターフェイス](icordebug-interface.md)

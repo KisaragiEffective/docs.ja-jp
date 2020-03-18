@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: dc0ff3e6-7e7d-4f6c-948d-52b28f5cb78c
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: e83afcf6c872927e614fce33ca96e93f0da4f497
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 247a2793bf3806f5ee38585d50b4535820dfcb69
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67778876"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74437062"
 ---
 # <a name="imetadataimportgetpropertyprops-method"></a>IMetaDataImport::GetPropertyProps メソッド
 指定したトークンによって表されるプロパティのメタデータを取得します。  
@@ -52,59 +50,59 @@ HRESULT GetPropertyProps (
   
 ## <a name="parameters"></a>パラメーター  
  `prop`  
- [in]メタデータを返すプロパティを表すトークンです。  
+ からメタデータを返すプロパティを表すトークン。  
   
  `pClass`  
- [out]プロパティを実装する型を表す TypeDef トークンへのポインター。  
+ 入出力プロパティを実装する型を表す TypeDef トークンへのポインター。  
   
  `szProperty`  
- [out]プロパティ名を保持するバッファー。  
+ 入出力プロパティ名を保持するバッファー。  
   
  `cchProperty`  
- [in]ワイド文字単位サイズ`szProperty`します。  
+ から`szProperty`のワイド文字単位のサイズ。  
   
  `pchProperty`  
- [out]返されるワイド文字数`szProperty`します。  
+ 入出力`szProperty`に返されるワイド文字数。  
   
  `pdwPropFlags`  
- [out]プロパティに適用される属性フラグのいずれかへのポインター。 この値はビットマスクから、 [CorPropertyAttr](../../../../docs/framework/unmanaged-api/metadata/corpropertyattr-enumeration.md)列挙体。  
+ 入出力プロパティに適用されている属性フラグへのポインター。 この値は、 [Corpropertyattr](../../../../docs/framework/unmanaged-api/metadata/corpropertyattr-enumeration.md)列挙子のビットマスクです。  
   
  `ppvSig`  
- [out]プロパティのメタデータ署名へのポインター。  
+ 入出力プロパティのメタデータシグネチャへのポインター。  
   
  `pbSig`  
- [out]返されるバイト数`ppvSig`します。  
+ 入出力`ppvSig`で返されたバイト数。  
   
  `pdwCPlusTypeFlag`  
- [out]プロパティの既定値である定数の型を指定するフラグ。 この値は CorElementType 列挙型です。  
+ 入出力プロパティの既定値である定数の型を指定するフラグ。 この値は CorElementType 列挙子からのものです。  
   
  `ppDefaultValue`  
- [out]このプロパティの既定値を格納するバイト数へのポインター。  
+ 入出力このプロパティの既定値を格納するバイトへのポインター。  
   
  `pcchDefaultValue`  
- [out]ワイド文字単位サイズ`ppDefaultValue`場合は、 `pdwCPlusTypeFlag` ELEMENT_TYPE_STRING; は、それ以外の場合、この値は関連はありません。 その場合、長さの`ppDefaultValue`によって指定された型から推論されます`pdwCPlusTypeFlag`します。  
+ 入出力`pdwCPlusTypeFlag` が ELEMENT_TYPE_STRING 場合、`ppDefaultValue`のワイド文字のサイズ。それ以外の場合、この値は関係ありません。 この場合、`ppDefaultValue` の長さは、`pdwCPlusTypeFlag`によって指定された型から推論されます。  
   
  `pmdSetter`  
- [out]プロパティの set アクセサー メソッドを表す MethodDef トークンへのポインター。  
+ 入出力プロパティの set アクセサーメソッドを表す MethodDef トークンへのポインター。  
   
  `pmdGetter`  
- [out]プロパティの get アクセサー メソッドを表す MethodDef トークンへのポインター。  
+ 入出力プロパティの get アクセサーメソッドを表す MethodDef トークンへのポインター。  
   
  `rmdOtherMethod`  
- [out]プロパティに関連付けられているその他のメソッドを表す MethodDef トークンの配列。  
+ 入出力プロパティに関連付けられている他のメソッドを表す MethodDef トークンの配列。  
   
  `cMax`  
- [in] `rmdOtherMethod` 配列の最大サイズ。 すべてのメソッドを保持するために十分な大きさの配列を指定しない場合は警告なしスキップされます。  
+ [in] `rmdOtherMethod` 配列の最大サイズ。 すべてのメソッドを保持するのに十分な大きさの配列を指定しなかった場合、警告なしにスキップされます。  
   
  `pcOtherMethod`  
- [out]返される MethodDef トークン数`rmdOtherMethod`します。  
+ 入出力`rmdOtherMethod`で返される MethodDef トークンの数。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

@@ -3,10 +3,10 @@ title: Visual Studio IDE およびツールの LINQ のサポート (C#)
 ms.date: 07/20/2015
 ms.assetid: c1f6cfdf-c96f-417f-acc8-4a049772ead3
 ms.openlocfilehash: a42d6711e34564f03aaf07c295bc682965513619
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69590908"
 ---
 # <a name="visual-studio-ide-and-tools-support-for-linq-c"></a>Visual Studio IDE およびツールの LINQ のサポート (C#)
@@ -24,6 +24,6 @@ Visual Studio 統合開発環境 (IDE) では、LINQ アプリケーションの
 ## <a name="visual-studio-debugger-support"></a>Visual Studio デバッガーのサポート  
  Visual Studio デバッガーは、クエリ式のデバッグをサポートしています。 詳しくは、「[LINQ のデバッグ](/visualstudio/debugger/debugging-linq)」をご覧ください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [統合言語クエリ (LINQ) (C#)](./index.md)

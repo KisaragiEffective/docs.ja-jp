@@ -2,14 +2,14 @@
 title: F# Interactive (fsi.exe) のリファレンス
 description: 対話型 ( F# fsi.exe) を使用して、コンソールでコードF#を対話形式で実行したり、 F#スクリプトを実行したりする方法について説明します。
 ms.date: 05/16/2016
-ms.openlocfilehash: 4e8521677cad5f4e62d2822837818292c55da96d
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: 9f4b5c0e7527d29e375265bb31a5de2df098f8e1
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72002068"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73419901"
 ---
-# <a name="interactive-programming-with-f"></a>F @ no__t を使用した対話型プログラミング-0
+# <a name="interactive-programming-with-f"></a>F\# を使用した対話型プログラミング
 
 > [!NOTE]
 > この記事では、現時点の Windows のエクスペリエンスについてのみ説明します。  書き換えられる予定です。
@@ -25,9 +25,9 @@ F# Interactive (fsi.exe) は、コンソールで F# コードを対話形式で
 C:\Program Files (x86)\Microsoft Visual Studio\2019\<sku>\Common7\IDE\CommonExtensions\Microsoft\FSharp
 ```
 
-`sku` は `Community`、`Professional`、または `Enterprise` のいずれかです。
+ここで `sku` は `Community`、`Professional`、`Enterprise`のいずれかです。
 
-使用できるコマンド ライン オプションについては、「[F# インタラクティブ オプション](../../language-reference/fsharp-interactive-options.md)」 (F# Interactive オプション) を参照してください。
+使用できるコマンド ライン オプションについては、「[F# Interactive Options](../../language-reference/fsharp-interactive-options.md)」 (F# Interactive オプション) を参照してください。
 
 Visual Studio で F# Interactive を実行するには、ツール バーの **[F# Interactive]** というボタンをクリックするか、**Ctrl + Alt + F** キーを使用します。 この操作により、対話形式のウィンドウが開きます。このウィンドウは、F# Interactive セッションを実行するツール ウィンドウです 対話形式のウィンドウで実行するコードを選択し、**Alt + Enter** キーの組み合わせを押す方法もあります。 F# インタラクティブが **[F# Interactive]** というツール ウィンドウで開始されます。 このショートカット キーを使用するときは、エディター ウィンドウにフォーカスがあることを確認します。
 
@@ -43,10 +43,12 @@ Visual Studio で実行する場合、F# Interactive はプロジェクトとは
 
 設定を調整することで、F# Interactive コマンド ライン引数 (オプション) を制御できます。 **[ツール]** メニューの **[オプション]** をクリックし、 **[F# ツール]** を展開します。 変更できる 2 つの設定は、F# Interactive オプションおよび 64 ビット コンピューターで F# Interactive を実行する場合にのみ関連する **64 ビット F# Interactive** 設定です。 この設定によって、32 ビットまたは 64 ビット プロセスとして実行するかどうかを決定するためにコンピューター アーキテクチャを使用する、fsi.exe または fsianycpu.exe の専用の 64 ビット バージョンを実行するかどうかが決定されます。
 
-## <a name="scripting-with-f"></a>F @ no__t を使用したスクリプト作成-0
+## <a name="scripting-with-f"></a>F\# でのスクリプト作成
+
 スクリプトで使用されるファイル拡張子は **.fsx** または **.fsscript** です。 ソース コードをコンパイルし、後でそのコンパイル済みのアセンブリを実行する代わりに、**fsi.exe** を実行し、F# ソース コードのスクリプトのファイル名を指定するだけで、F# Interactive によってコードを読み取り、リアルタイムで実行することができます。
 
 ## <a name="differences-between-the-interactive-scripting-and-compiled-environments"></a>対話型、スクリプト、およびコンパイル型の環境の相違
+
 F# Interactive でのコードのコンパイル時には、対話形式で実行しているか、スクリプトを実行しているかにかかわらず、シンボル **INTERACTIVE** が定義されます。 コンパイラでのコードのコンパイル時には、シンボル **COMPILED** が定義されます。 したがって、コンパイル モードと対話モードでコードを別にする必要がある場合は、条件付きコンパイルを行うプリプロセッサ ディレクティブを使用して、どちらを有効にするかを決定できます。
 
 F# Interactive でスクリプトを実行するときに使用できるディレクティブの中には、コンパイラを実行するときには使用できないものがあります。 次の表に、F# Interactive で使用できるディレクティブの概要を示します。
@@ -87,7 +89,7 @@ printfn "%A" (MyAssembly.myFunction 10 40)
 出力は次のとおりです。
 
 ```console
-Command line arguments: 
+Command line arguments:
 file1.fsx
 test
 90
@@ -97,5 +99,5 @@ test
 
 |Title|説明|
 |-----|-----------|
-|[F# インタラクティブ オプション](../../language-reference/fsharp-interactive-options.md)|F#対話型の fsi.exe のコマンドライン構文とオプションについて説明します。|
+|[F# Interactive オプション](../../language-reference/fsharp-interactive-options.md)|F#対話型の fsi.exe のコマンドライン構文とオプションについて説明します。|
 |[F# Interactive ライブラリ リファレンス](https://msdn.microsoft.com/visualfsharpdocs/conceptual/fsharp-interactive-library-reference)|F# Interactive でコードを実行するときに使用できるライブラリ機能について説明します。|

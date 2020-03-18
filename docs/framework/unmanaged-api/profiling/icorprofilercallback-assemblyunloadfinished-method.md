@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 53fca564-84b1-44d4-9e21-17a492d2aae7
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a75d31f0a2c844895363bb4693dbcb5aba4cce1f
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 734ae1d14d02d47c7d3126f1b4cf55dcb4ad151b
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67775510"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76866625"
 ---
 # <a name="icorprofilercallbackassemblyunloadfinished-method"></a>ICorProfilerCallback::AssemblyUnloadFinished メソッド
 アセンブリがアンロードされたことをプロファイラーに通知します。  
@@ -35,22 +33,25 @@ HRESULT AssemblyUnloadFinished(
     [in] HRESULT    hrStatus);  
 ```  
   
-## <a name="parameters"></a>パラメーター  
- `assemblyId`  
- [in]アンロードされているアセンブリを識別します。  
+## <a name="parameters"></a>パラメーター
+
+- `assemblyId`
+
+  の \[] アンロードされるアセンブリを識別します。
+
+- `hrStatus`
+
+  \[] アセンブリが正常にアンロードされたかどうかを示す HRESULT。
+
+## <a name="remarks"></a>コメント  
+ `assemblyId` の値は、 [ICorProfilerCallback:: AssemblyUnloadStarted](icorprofilercallback-assemblyunloadstarted-method.md)メソッドが返された後の情報要求に対して無効です。  
   
- `hrStatus`  
- [in]かどうか、アセンブリがアンロードされた正常を示す HRESULT。  
+ `AssemblyUnloadFinished` コールバックの後も、アセンブリのアンロードの一部が続行される場合があります。 `hrStatus` のエラー HRESULT はエラーを示します。 ただし、`hrStatus` の成功 HRESULT は、アセンブリのアンロードの最初の部分が成功したことのみを示します。  
   
-## <a name="remarks"></a>Remarks  
- 値`assemblyId`は後の情報の要求は無効です、 [icorprofilercallback::assemblyunloadstarted](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-assemblyunloadstarted-method.md)メソッドを返します。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- アセンブリのアンロードの一部が後に続ける可能性があります、`AssemblyUnloadFinished`コールバック。 エラーの HRESULT で`hrStatus`失敗を示します。 ただし、成功 HRESULT で`hrStatus`のみのアセンブリのアンロードの最初の部分が成功したことを示します。  
-  
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
-  
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -58,4 +59,4 @@ HRESULT AssemblyUnloadFinished(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerCallback インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-interface.md)
+- [ICorProfilerCallback インターフェイス](icorprofilercallback-interface.md)

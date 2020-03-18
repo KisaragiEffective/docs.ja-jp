@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 868b339b-acdb-4fe0-91c7-b85f4fba99eb
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4f4ecb700a19a4e06f9f0056881fe3cdb9753aae
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e103401b85626e53db53e1894c22b161774e5163
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737597"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73088684"
 ---
 # <a name="icordebugarrayvaluegetbaseindicies-method"></a>ICorDebugArrayValue::GetBaseIndicies メソッド
-配列内の各次元のベース インデックスを取得します。  
+配列内の各次元のベースインデックスを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,13 +37,13 @@ HRESULT GetBaseIndicies (
   
 ## <a name="parameters"></a>パラメーター  
  `cdim`  
- [in]これの次元数`ICorDebugArrayValue`オブジェクト。 この値のサイズでも、`indicies`配列のサイズがの次元数と等しいので、`ICorDebugArrayValue`オブジェクト。  
+ からこの `ICorDebugArrayValue` オブジェクトの次元数。 この値は、サイズが `ICorDebugArrayValue` オブジェクトの次元数と同じであるため、`indicies` 配列のサイズでもあります。  
   
  `indicies`  
- [out]このディメンションのベース インデックス (つまり、開始インデックス) は、それぞれの整数の配列`ICorDebugArrayValue`オブジェクト。  
+ 入出力整数の配列。各整数は、この `ICorDebugArrayValue` オブジェクトの次元のベースインデックス (つまり開始インデックス) です。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

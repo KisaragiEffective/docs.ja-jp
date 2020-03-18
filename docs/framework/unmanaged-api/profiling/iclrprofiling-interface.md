@@ -14,30 +14,28 @@ helpviewer_keywords:
 ms.assetid: 8b53ccc6-1b5e-4b30-a100-c9683d553f5a
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 86d59c86df88bc1c17e27ad020aa2db10d3fae67
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 18cbaab08d5e3a5c36bec88ca5d5e48d1367444d
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61598715"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76866742"
 ---
 # <a name="iclrprofiling-interface"></a>ICLRProfiling インターフェイス
-提供、 [iclrprofiling::attachprofiler](../../../../docs/framework/unmanaged-api/profiling/iclrprofiling-attachprofiler-method.md)メソッドで、実行中のプロセスにアタッチするプロファイラーを使用します。  
+[ICLRProfiling:: attachprofiler](iclrprofiling-attachprofiler-method.md)メソッドを提供します。これにより、実行中のプロセスにプロファイラーをアタッチできます。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[AttachProfiler メソッド](../../../../docs/framework/unmanaged-api/profiling/iclrprofiling-attachprofiler-method.md)|指定されたプロファイラーを、指定されたプロセスにアタッチします。|  
+|[AttachProfiler メソッド](iclrprofiling-attachprofiler-method.md)|指定されたプロファイラーを、指定されたプロセスにアタッチします。|  
   
 ## <a name="remarks"></a>Remarks  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -45,5 +43,5 @@ ms.locfileid: "61598715"
   
 ## <a name="see-also"></a>関連項目
 
-- [プロファイリングのインターフェイス](../../../../docs/framework/unmanaged-api/profiling/profiling-interfaces.md)
-- [ICorProfilerInfo インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-interface.md)
+- [プロファイリングのインターフェイス](profiling-interfaces.md)
+- [ICorProfilerInfo インターフェイス](icorprofilerinfo-interface.md)

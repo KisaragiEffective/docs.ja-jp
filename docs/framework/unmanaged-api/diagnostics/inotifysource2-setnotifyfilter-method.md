@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 6351fc92-b126-4af6-9bf3-0a8ce92845fc
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: abe1c8881330ebba5f7b68452cf3db0666ac20c3
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 554756bdda6e7167b013e7114e647f952cd1069d
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67736230"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74435960"
 ---
 # <a name="inotifysource2setnotifyfilter-method"></a>INotifySource2::SetNotifyFilter メソッド
-このソースで使用するための通知フィルターが割り当てられます。  
+このソースで使用する通知フィルターを割り当てます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,18 +37,18 @@ HRESULT SetNotifyFilter
   
 ## <a name="parameters"></a>パラメーター  
  `in_NotifyFilter`  
- [in]ビットごとの組み合わせ、 [NOTIFY_FILTER](../../../../docs/framework/unmanaged-api/diagnostics/notify-filter-enumeration.md)デバッガー API のコールバックを識別する列挙値。  
+ からデバッガー API のコールバックを識別する[NOTIFY_FILTER](../../../../docs/framework/unmanaged-api/diagnostics/notify-filter-enumeration.md)列挙値のビットごとの組み合わせ。  
   
  `in_pUserThreadFilter`  
- [in]ポインターを[USER_THREAD](../../../../docs/framework/unmanaged-api/diagnostics/user-thread-structure.md) API にデバッガー スレッドを識別する構造体。  
+ からデバッガー API のスレッドを識別する[USER_THREAD](../../../../docs/framework/unmanaged-api/diagnostics/user-thread-structure.md)構造体へのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。  
+ メソッドが成功した場合は S_OK します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** ProtocolNotify2.idl  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** ProtocolNotify2  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [INotifySource2 インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/inotifysource2-interface.md)
 - [INotifyConnection2 インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/inotifyconnection2-interface.md)

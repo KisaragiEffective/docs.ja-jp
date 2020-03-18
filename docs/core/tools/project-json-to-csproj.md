@@ -3,13 +3,12 @@ title: project.json と csproj の比較
 description: 「project.json 要素と csproj 要素の間のマッピング」を参照してください。
 author: natemcmaster
 ms.date: 03/13/2017
-ms.custom: seodec18
-ms.openlocfilehash: 6ac63f18bd42193e964aaeae3c54c887c9c63163
-ms.sourcegitcommit: 8f95d3a37e591963ebbb9af6e90686fd5f3b8707
+ms.openlocfilehash: abe515007b47b415ac33e3350a29edced1784d68
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56747412"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77451106"
 ---
 # <a name="a-mapping-between-projectjson-and-csproj-properties"></a>project.json プロパティと csproj プロパティの間のマッピング
 
@@ -39,7 +38,7 @@ ms.locfileid: "56747412"
 }
 ```
 
-サポート対象から除外されました。 csproj では、これはプロジェクト ファイル名により決定され、通常はディレクトリ名と一致します。 たとえば、`MyProjectName.csproj` のようにします。
+サポート対象から除外されました。 csproj では、これはプロジェクト ファイル名により決定され、通常はディレクトリ名と一致します。 たとえば、「 `MyProjectName.csproj` 」のように入力します。
 
 既定では、プロジェクト ファイル名により、`<AssemblyName>` プロパティと `<PackageId>` プロパティの値も指定されます。
 
@@ -50,7 +49,7 @@ ms.locfileid: "56747412"
 </PropertyGroup>
 ```
 
-project.json に `buildOptions\outputName` プロパティが定義されている場合、`<AssemblyName>` には `<PackageId>` 以外の値が設定されます。
+project.json に `<AssemblyName>` プロパティが定義されている場合、`<PackageId>` には `buildOptions\outputName` 以外の値が設定されます。
 詳細については、「[その他の共通ビルド オプション](#other-common-build-options)」を参照してください。
 
 ### <a name="version"></a>version
@@ -142,7 +141,7 @@ And it's really great!</Description>
 </PropertyGroup>
 ```
 
-## <a name="dependencies"></a>依存関係
+## <a name="dependencies"></a>dependencies
 
 > [!IMPORTANT]
 > 依存関係がパッケージではなく、**プロジェクト**の場合、形式は異なります。
@@ -338,7 +337,7 @@ MSBuild では、ビルド中、すべてのプロジェクトが*移植可能*�
 
 `dotnet publish --framework netcoreapp1.0 --runtime osx.10.11-x64`
 
-詳細については、「[自己完結型の展開 (SCD)](../deploying/index.md#self-contained-deployments-scd)」を参照してください。
+詳細については、「[自己完結型の展開 (SCD)](../deploying/index.md#publish-self-contained)」を参照してください。
 
 ## <a name="tools"></a>ツール
 
@@ -570,7 +569,7 @@ MSBuild でこれに相当するものは[ターゲット](/visualstudio/msbuild
 }
 ```
 
-csproj ではサポートされていません。 代わりに、*.nuspec* ファイルにコンテンツ ファイルを追加する必要があります。
+csproj ではサポートされていません。 代わりに、 *.nuspec* ファイルにコンテンツ ファイルを追加する必要があります。
 詳細については、「[Including content files](/nuget/schema/nuspec#including-content-files)」 (コンテンツ ファイルを追加する) を参照してください。
 
 ## <a name="files"></a>ファイル
@@ -629,7 +628,7 @@ MSBuild では、これは[項目](/visualstudio/msbuild/common-msbuild-project-
 
 .nupkg 内のパッケージ レイアウトは `PackagePath="path"` で変更できます。
 
-`Content` を除き、ほとんどの項目グループで、パッケージに `Pack="true"` を明示的に追加する必要があります。 MSBuild の `<IncludeContentInPack>` プロパティが既定で `true` に設定されているため、`Content` はパッケージの*コンテンツ* フォルダーに置かれます。
+`Content` を除き、ほとんどの項目グループで、パッケージに `Pack="true"` を明示的に追加する必要があります。 MSBuild の `Content` プロパティが既定で  *に設定されているため、* はパッケージの`<IncludeContentInPack>`コンテンツ`true` フォルダーに置かれます。
 詳細については、「[Including content in a package](/nuget/schema/msbuild-targets#including-content-in-a-package)」 (パッケージにコンテンツを追加する) を参照してください。
 
 `PackagePath="%(Identity)"` は、パッケージ パスをプロジェクト関連のファイル パスに設定する簡単な方法です。
@@ -674,6 +673,6 @@ MSBuild では、これは[項目](/visualstudio/msbuild/common-msbuild-project-
 </ItemGroup>
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [CLI の変更の概要](../tools/cli-msbuild-architecture.md)

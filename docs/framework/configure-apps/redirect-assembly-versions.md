@@ -69,7 +69,7 @@ ms.locfileid: "72319748"
 
 <a name="bypass_PP"></a>
 ### <a name="bypassing-publisher-policy"></a>発行者ポリシーの省略
- アプリの構成ファイルの発行者ポリシーを必要に応じてオーバーライドできます。 たとえば、下位互換性を維持しているとされる新しいアセンブリ バージョンでも、アプリを破壊する可能性があります。 発行者ポリシーを省略する場合は、アプリ構成ファイルの[@no__t 3dependentAssembly >](./file-schema/runtime/dependentassembly-element.md)要素に[@no__t 1publisherPolicy >](./file-schema/runtime/publisherpolicy-element.md)要素を追加し、 **apply**属性を**no**に設定します。これにより、以前の **[はい]** 設定。
+ アプリの構成ファイルの発行者ポリシーを必要に応じてオーバーライドできます。 たとえば、下位互換性を維持しているとされる新しいアセンブリ バージョンでも、アプリを破壊する可能性があります。 発行者ポリシーを省略する場合は、アプリ構成ファイルの[\<dependentAssembly >](./file-schema/runtime/dependentassembly-element.md)要素に[\<publisherpolicy apply >](./file-schema/runtime/publisherpolicy-element.md)要素を追加し、 **apply**属性を**no**に設定します。これにより、前の **[はい]** 設定が上書きされます。
 
  `<publisherPolicy apply="no" />`
 
@@ -152,7 +152,7 @@ ms.locfileid: "72319748"
 </assemblyBinding>
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [方法: 自動バインディング リダイレクトを有効/無効にする](how-to-enable-and-disable-automatic-binding-redirection.md)
 - [\<bindingRedirect > 要素](./file-schema/runtime/bindingredirect-element.md)

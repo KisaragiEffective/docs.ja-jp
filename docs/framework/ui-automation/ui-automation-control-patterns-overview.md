@@ -5,16 +5,16 @@ helpviewer_keywords:
 - control patterns
 - UI Automation, control patterns
 ms.assetid: cc229b33-234b-469b-ad60-f0254f32d45d
-ms.openlocfilehash: 548828f8e9948e000a15fd19a4475ef715e110d8
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: 252e6ccf6d2980610bb8879834db5bf9e3e5dd61
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73039465"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74448845"
 ---
 # <a name="ui-automation-control-patterns-overview"></a>UI オートメーション コントロール パターンの概要
 > [!NOTE]
-> このドキュメントは、[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)] 名前空間で定義されているマネージド <xref:System.Windows.Automation> クラスを使用する .NET Framework 開発者を対象としています。 [!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]の最新情報については、「 [Windows Automation API: UI Automation (Windows のオートメーション API: UI オートメーション)](https://go.microsoft.com/fwlink/?LinkID=156746)」を参照してください。  
+> このドキュメントは、[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)] 名前空間で定義されているマネージド <xref:System.Windows.Automation> クラスを使用する .NET Framework 開発者を対象としています。 [!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]の最新情報については、「 [Windows Automation API: UI オートメーション](/windows/win32/winauto/entry-uiauto-win32)」を参照してください。  
   
  この概要では、 [!INCLUDE[TLA#tla_uiautomation](../../../includes/tlasharptla-uiautomation-md.md)] コントロール パターンについて説明します。 コントロール パターンは、コントロール型や外観に関係なく、コントロールの機能を分類したり公開したりするための手段です。  
   
@@ -55,8 +55,8 @@ ms.locfileid: "73039465"
 |---------------------------|------------------------|-----------------|  
 |<xref:System.Windows.Automation.DockPattern>|<xref:System.Windows.Automation.Provider.IDockProvider>|ドッキング コンテナーにドッキングすることができるコントロールに使用されます。 たとえば、ツールバーやツール パレットです。|  
 |<xref:System.Windows.Automation.ExpandCollapsePattern>|<xref:System.Windows.Automation.Provider.IExpandCollapseProvider>|展開したり折りたたんだりできるコントロールに使用されます。 たとえば、 **[ファイル]** メニューなどアプリケーションのメニュー項目。|  
-|<xref:System.Windows.Automation.GridPattern>|<xref:System.Windows.Automation.Provider.IGridProvider>|サイズ変更や指定したセルへの移動などグリッド機能をサポートするコントロールに使用されます。 たとえば、Windows エクスプローラーの大きいアイコンの表示や [!INCLUDE[TLA#tla_word](../../../includes/tlasharptla-word-md.md)]のヘッダーのない簡単な表。|  
-|<xref:System.Windows.Automation.GridItemPattern>|<xref:System.Windows.Automation.Provider.IGridItemProvider>|グリッド内にセルを持つコントロールに使用されます。 個々のセルは GridItem パターンをサポートしている必要があります。 たとえば、 [!INCLUDE[TLA#tla_winexpl](../../../includes/tlasharptla-winexpl-md.md)] 詳細ビューの各セル。|  
+|<xref:System.Windows.Automation.GridPattern>|<xref:System.Windows.Automation.Provider.IGridProvider>|サイズ変更や指定したセルへの移動などグリッド機能をサポートするコントロールに使用されます。 たとえば、Windows エクスプローラーの大きいアイコンの表示や、Microsoft Word のヘッダーのない単純なテーブルなどです。|  
+|<xref:System.Windows.Automation.GridItemPattern>|<xref:System.Windows.Automation.Provider.IGridItemProvider>|グリッド内にセルを持つコントロールに使用されます。 個々のセルは GridItem パターンをサポートしている必要があります。 たとえば、Microsoft Windows エクスプローラーの詳細ビューの各セルです。|  
 |<xref:System.Windows.Automation.InvokePattern>|<xref:System.Windows.Automation.Provider.IInvokeProvider>|ボタンなど、呼び出すことができるコントロールに使用されます。|  
 |<xref:System.Windows.Automation.MultipleViewPattern>|<xref:System.Windows.Automation.Provider.IMultipleViewProvider>|情報、データ、子の同じセットの複数の表現の間で切り替えることができるコントロールに使用されます。 たとえば、サムネイル、タイル、アイコン、リスト、詳細ビューでデータを使用できるリスト ビュー コントロール。|  
 |<xref:System.Windows.Automation.RangeValuePattern>|<xref:System.Windows.Automation.Provider.IRangeValueProvider>|コントロールに適用できる値の範囲を持つコントロールに使用されます。 たとえば、年を含むスピン ボックス コントロールは 1900 から 2010 の範囲を持ち、月を表すスピン ボックス コントロールは 1 から 12 の範囲を持ちます。|  
@@ -64,18 +64,18 @@ ms.locfileid: "73039465"
 |<xref:System.Windows.Automation.ScrollItemPattern>|<xref:System.Windows.Automation.Provider.IScrollItemProvider>|スクロールされるリスト内に個々の項目を持つコントロールに使用されます。 たとえば、コンボ ボックス コントロールなどスクロール リストに個々の項目を持つリスト コントロール。|  
 |<xref:System.Windows.Automation.SelectionPattern>|<xref:System.Windows.Automation.Provider.ISelectionProvider>|選択コンテナー コントロールに使用されます。 たとえば、リスト ボックスやコンボ ボックス。|  
 |<xref:System.Windows.Automation.SelectionItemPattern>|<xref:System.Windows.Automation.Provider.ISelectionItemProvider>|リスト ボックスやコンボ ボックスなどの選択コンテナー コントロールの個々の項目に使用されます。|  
-|<xref:System.Windows.Automation.TablePattern>|<xref:System.Windows.Automation.Provider.ITableProvider>|グリッドとヘッダー情報を持つコントロールに使用されます。 たとえば、 [!INCLUDE[TLA#tla_xl](../../../includes/tlasharptla-xl-md.md)] ワークシートです。|  
+|<xref:System.Windows.Automation.TablePattern>|<xref:System.Windows.Automation.Provider.ITableProvider>|グリッドとヘッダー情報を持つコントロールに使用されます。 たとえば、Microsoft Excel のワークシートです。|  
 |<xref:System.Windows.Automation.TableItemPattern>|<xref:System.Windows.Automation.Provider.ITableItemProvider>|テーブル内の項目に使用されます。|  
 |<xref:System.Windows.Automation.TextPattern>|<xref:System.Windows.Automation.Provider.ITextProvider>|テキストの情報を公開するエディット コントロールとドキュメントに使用されます。|  
 |<xref:System.Windows.Automation.TogglePattern>|<xref:System.Windows.Automation.Provider.IToggleProvider>|状態を切り替えることができるコントロールに使用されます。 たとえば、チェック ボックスやチェック可能なメニュー項目。|  
 |<xref:System.Windows.Automation.TransformPattern>|<xref:System.Windows.Automation.Provider.ITransformProvider>|サイズ変更、移動、または回転を行えるコントロールに使用されます。 Transform コントロール パターンの一般的な用途は、デザイナー、フォーム、グラフィカル エディター、および描画アプリケーションでの使用です。|  
 |<xref:System.Windows.Automation.ValuePattern>|<xref:System.Windows.Automation.Provider.IValueProvider>|クライアントで、値の範囲をサポートしないコントロールで値を取得したり、設定したりできます。 たとえば、日時指定のピッカーなどがあります。|  
-|<xref:System.Windows.Automation.WindowPattern>|<xref:System.Windows.Automation.Provider.IWindowProvider>|Windows 固有の情報を、Microsoft Windows オペレーティングシステムの基本的な概念として公開します。 ウィンドウであるコントロールの例としては、トップレベルアプリケーションウィンドウ ([!INCLUDE[TLA#tla_word](../../../includes/tlasharptla-word-md.md)]、[!INCLUDE[TLA#tla_winexpl](../../../includes/tlasharptla-winexpl-md.md)]など)、マルチドキュメントインターフェイス (MDI) 子ウィンドウ、およびダイアログがあります。|  
+|<xref:System.Windows.Automation.WindowPattern>|<xref:System.Windows.Automation.Provider.IWindowProvider>|Windows 固有の情報を、Microsoft Windows オペレーティングシステムの基本的な概念として公開します。 ウィンドウであるコントロールの例としては、トップレベルアプリケーションウィンドウ (Microsoft Word、Microsoft Windows エクスプローラーなど)、マルチドキュメントインターフェイス (MDI) 子ウィンドウ、およびダイアログがあります。|  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [クライアントの UI オートメーション コントロール パターン](ui-automation-control-patterns-for-clients.md)
-- [UI オートメーション クライアントのコントロール パターン マッピング](control-pattern-mapping-for-ui-automation-clients.md)
+- [UI Automation Control Patterns for Clients](ui-automation-control-patterns-for-clients.md)
+- [Control Pattern Mapping for UI Automation Clients](control-pattern-mapping-for-ui-automation-clients.md)
 - [UI オートメーションの概要](ui-automation-overview.md)
-- [クライアントの UI オートメーション プロパティ](ui-automation-properties-for-clients.md)
-- [クライアントの UI オートメーション イベント](ui-automation-events-for-clients.md)
+- [UI Automation Properties for Clients](ui-automation-properties-for-clients.md)
+- [UI Automation Events for Clients](ui-automation-events-for-clients.md)

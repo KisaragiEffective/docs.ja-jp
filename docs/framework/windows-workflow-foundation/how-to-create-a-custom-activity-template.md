@@ -2,18 +2,18 @@
 title: '方法: カスタム アクティビティ テンプレートを作成する'
 ms.date: 03/30/2017
 ms.assetid: 6760a5cc-6eb8-465f-b4fa-f89b39539429
-ms.openlocfilehash: 4ec84658dbe3039a4d7d714f8da183e6a5eb6ca4
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: f910d1367c941dbc319421d402cae8f4194872e5
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70989709"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715254"
 ---
 # <a name="how-to-create-a-custom-activity-template"></a>方法: カスタム アクティビティ テンプレートを作成する
 
-カスタム複合アクティビティなどのアクティビティの構成のカスタマイズには、カスタム アクティビティ テンプレートが使用されるため、手動で各アクティビティを個別に作成し、そのプロパティおよびその他の設定を構成する必要はありません。 これらのカスタムテンプレートは、の[!INCLUDE[wfd1](../../../includes/wfd1-md.md)] **[ツールボックス]** または再ホストされたデザイナーから使用できるようにすることができ、ユーザーはこれから構成済みのデザインサーフェイスにドラッグできます。 [!INCLUDE[wfd2](../../../includes/wfd2-md.md)]には、このようなテンプレートの好例が用意されています。 [Sendandreceivereply テンプレートデザイナー](/visualstudio/workflow-designer/sendandreceivereply-template-designer)と、 [Messaging アクティビティデザイナー](/visualstudio/workflow-designer/messaging-activity-designers)カテゴリの[receiveandsendreply テンプレートデザイナー](/visualstudio/workflow-designer/receiveandsendreply-template-designer)です。
+カスタム複合アクティビティなどのアクティビティの構成のカスタマイズには、カスタム アクティビティ テンプレートが使用されるため、手動で各アクティビティを個別に作成し、そのプロパティおよびその他の設定を構成する必要はありません。 これらのカスタムテンプレートは、Windows ワークフローデザイナーの**ツールボックス**、または再ホストされたデザイナーから使用できます。ユーザーは、これらのテンプレートを使用して、構成済みのデザインサーフェイスにドラッグできます。 ワークフローデザイナーには、[[メッセージングアクティビティデザイナー](/visualstudio/workflow-designer/messaging-activity-designers) ] カテゴリの[sendandreceivereply テンプレートデザイナー](/visualstudio/workflow-designer/sendandreceivereply-template-designer)と[receiveandsendreply テンプレートデザイナー](/visualstudio/workflow-designer/receiveandsendreply-template-designer)の適切なテンプレートの例が付属しています。
 
- このトピックの最初の手順では、 **Delay**アクティビティのカスタムアクティビティテンプレートを作成する方法について説明します。2番目の手順[!INCLUDE[wfd2](../../../includes/wfd2-md.md)]では、カスタムテンプレートが動作することを確認するためにで使用できるようにする方法について簡単に説明します。
+ このトピックの最初の手順では、 **Delay**アクティビティ用のカスタムアクティビティテンプレートを作成する方法について説明します。2番目の手順では、カスタムテンプレートが動作するかどうかを確認するためにワークフローデザイナーで使用できるようにする方法について簡単に説明します。
 
  カスタム アクティビティ テンプレートに <xref:System.Activities.Presentation.IActivityTemplateFactory> を実装する必要があります。 このインターフェイスには単一の <xref:System.Activities.Presentation.IActivityTemplateFactory.Create%2A> メソッドがあり、このメソッドを使用して、テンプレートで使用されるアクティビティ インスタンスを作成および構成できます。
 
@@ -29,7 +29,7 @@ ms.locfileid: "70989709"
 
 4. **[テンプレート]** ウィンドウで、 **[アクティビティライブラリ]** を選択します。
 
-5. **[名前]** ボックスに「 `DelayActivityTemplate`」と入力します。
+5. **[名前]** ボックスに、「`DelayActivityTemplate`」と入力します。
 
 6. **[場所]** と **[ソリューション名]** のテキストボックスの既定値をそのまま使用し、[ **OK]** をクリックします。
 
@@ -76,7 +76,7 @@ ms.locfileid: "70989709"
 
 1. **ソリューションエクスプローラー**で DelayActivityTemplate ソリューションを右クリックし、 **[追加]** 、 **[新しいプロジェクト]** の順に選択して **[新しいプロジェクトの追加]** ダイアログボックスを開きます。
 
-2. **[ワークフローコンソールアプリケーション]** テンプレートを選択し`CustomActivityTemplateApp`、という名前を指定して、[ **OK]** をクリックします。
+2. **[ワークフローコンソールアプリケーション]** テンプレートを選択し、`CustomActivityTemplateApp`という名前を入力して、[ **OK]** をクリックします。
 
 3. **ソリューションエクスプローラー**で CustomActivityTemplateApp プロジェクトの References ディレクトリを右クリックし、 **[参照の追加]** をクリックして 参照の **[追加]** ダイアログボックスを開きます。
 
@@ -90,9 +90,9 @@ ms.locfileid: "70989709"
 
 8. Workflow1.xaml ファイルを開き、**ツールボックス**を開きます。
 
-9. **Delayactivitytemplate**カテゴリで**mydelayactivity**テンプレートを見つけます。 デザイン サーフェイスにドラッグします。 **[プロパティ]** ウィンドウで、 `Duration`プロパティが10秒に設定されていることを確認します。
+9. **Delayactivitytemplate**カテゴリで**mydelayactivity**テンプレートを見つけます。 デザイン サーフェイスにドラッグします。 **[プロパティ]** ウィンドウで、`Duration` プロパティが10秒に設定されていることを確認します。
 
-## <a name="example"></a>例
+## <a name="example"></a>使用例
  MyDelayActivity.cs ファイルには次のコードが含まれます。
 
 ```csharp
@@ -124,7 +124,7 @@ namespace DelayActivityTemplate
 }
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Activities.Presentation.IActivityTemplateFactory>
 - [ワークフロー デザイン操作のカスタマイズ](customizing-the-workflow-design-experience.md)

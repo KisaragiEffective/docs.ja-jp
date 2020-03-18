@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 3a8074f1-facc-4a3f-bb9b-d6574fc2fc74
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 39ad47ae7659734191d380d8b3c29fb1a6de6afc
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9e8139a822c877e70731e18ae5a75b83e6b7578e
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67769427"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74448954"
 ---
 # <a name="isymunmanagedmethodgetparameters-method"></a>ISymUnmanagedMethod::GetParameters メソッド
-このメソッドのパラメーターを取得します。 パラメーターは、メソッドのシグネチャで定義されている順序で返されます。  
+このメソッドのパラメーターを取得します。 パラメーターは、メソッドのシグネチャ内で定義されている順序で返されます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -42,17 +40,17 @@ HRESULT GetParameters(
  [in] `params` 配列のサイズ。  
   
  `pcParams`  
- [in]ポインターを`ULONG32`パラメーターを格納するために必要なバッファーのサイズを受け取る。  
+ からパラメーターを格納するために必要なバッファーのサイズを受け取る `ULONG32` へのポインター。  
   
  `params`  
- [out]パラメーターを受け取るバッファーへのポインター。  
+ 入出力パラメーターを受け取るバッファーへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。それ以外の場合、E_FAIL またはその他のエラー コード。  
+ メソッドが成功した場合は S_OK。それ以外の場合は、E_FAIL またはその他のエラーコードを指定します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl, CorSym.h  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** CorSym .idl、CorSym .h  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ISymUnmanagedMethod インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedmethod-interface.md)

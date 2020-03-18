@@ -1,15 +1,14 @@
 ---
 title: 機械学習の用語集
 description: ML.NET でカスタム モデルをビルドする際に役立つ機械学習の重要な用語の用語集。
-ms.custom: seodec18
 ms.topic: reference
 ms.date: 07/31/2019
-ms.openlocfilehash: cb5681f1f72776ec9a8cbcfe45519befe02b8caf
-ms.sourcegitcommit: dfd612ba454ce775a766bcc6fe93bc1d43dfda47
+ms.openlocfilehash: 32ccb6df1cb08db45ebd25a0d1c0ea4396a6c50b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72180183"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79397765"
 ---
 # <a name="machine-learning-glossary-of-important-terms"></a>機械学習の重要な用語の用語集
 
@@ -25,13 +24,13 @@ ML.NET でカスタム モデルをビルドする際に役立つ機械学習の
 
 ## <a name="binary-classification"></a>二項分類
 
-[ラベル](#label)が 2 つのクラスのうちの 1 つである[分類](#classification)です。 詳細については、トピック「[機械学習のタスク](tasks.md)」のセクションの「[二項分類](tasks.md#binary-classification)」を参照してください。
+[ラベル](#classification)が 2 つのクラスのうちの 1 つである[分類](#label)です。 詳細については、トピック「[機械学習のタスク](tasks.md#binary-classification)」のセクションの「[二項分類](tasks.md)」を参照してください。
 
-## <a name="calibration"></a>調整
+## <a name="calibration"></a>較正
 
-調整は、二項分類と多クラス分類のために、生のスコアをクラスのメンバーシップにマップするプロセスです。 一部 ML.NET トレーナーには `NonCalibrated` サフィックスがあります。 これらのアルゴリズムからは、後でクラスの確率にマップする必要がある生のスコアが生成されます。 
+調整は、二項分類と多クラス分類のために、生のスコアをクラスのメンバーシップにマップするプロセスです。 一部 ML.NET トレーナーには `NonCalibrated` サフィックスがあります。 これらのアルゴリズムからは、後でクラスの確率にマップする必要がある生のスコアが生成されます。
 
-## <a name="catalog"></a>カタログ 
+## <a name="catalog"></a>Catalog
 
 ML.NET では、カタログは、共通の目的でグループ化された拡張機能のコレクションです。
 
@@ -57,7 +56,7 @@ ML.NET では、カタログは、共通の目的でグループ化された拡�
 
 <xref:Microsoft.ML.IEstimator%601> インターフェイスを実装する ML.NET のクラス。
 
-エスティメーターは、変換 (データ準備変換と機械学習モデル トレーニング変換の両方) の仕様です。 エスティメーターを連結して、変換のパイプラインにすることができます。 エスティメーターまたはエスティメーターのパイプラインのパラメーターは、<xref:Microsoft.ML.IEstimator`1.Fit*> が呼び出されたときに学習されます。 <xref:Microsoft.ML.IEstimator`1.Fit*> の結果は[トランスフォーマー](#transformer)です。
+エスティメーターは、変換 (データ準備変換と機械学習モデル トレーニング変換の両方) の仕様です。 エスティメーターを連結して、変換のパイプラインにすることができます。 エスティメーターまたはエスティメーターのパイプラインのパラメーターは、<xref:Microsoft.ML.IEstimator%601.Fit%2A> が呼び出されたときに学習されます。 <xref:Microsoft.ML.IEstimator%601.Fit%2A> の結果は[トランスフォーマー](#transformer)です。
 
 ## <a name="extension-method"></a>拡張メソッド
 
@@ -105,7 +104,7 @@ ML.NET では、カタログは、共通の目的でグループ化された拡�
 
 ## <a name="multiclass-classification"></a>多クラス分類
 
-[ラベル](#label)が 3 つ以上のクラスのうちの 1 つである[分類](#classification)です。 詳細については、トピック「[機械学習のタスク](tasks.md)」のセクション「[多クラス分類](tasks.md#multiclass-classification)」を参照してください。
+[ラベル](#classification)が 3 つ以上のクラスのうちの 1 つである[分類](#label)です。 詳細については、トピック「[機械学習のタスク](tasks.md#multiclass-classification)」のセクション「[多クラス分類](tasks.md)」を参照してください。
 
 ## <a name="n-gram"></a>N グラム
 
@@ -140,7 +139,7 @@ ML.NET では、カタログは、共通の目的でグループ化された拡�
 
 ## <a name="regression"></a>回帰
 
-出力が実際の値 (たとえば、倍精度) である[教師あり機械学習](#supervised-machine-learning)タスクです。 例として、株価の予測などがあります。 詳細については、トピック「[機械学習のタスク](tasks.md)」のセクション「[回帰](tasks.md#regression)」を参照してください。
+出力が実際の値 (たとえば、倍精度) である[教師あり機械学習](#supervised-machine-learning)タスクです。 例として、株価の予測などがあります。 詳細については、トピック「[機械学習のタスク](tasks.md#regression)」のセクション「[回帰](tasks.md)」を参照してください。
 
 ## <a name="relative-absolute-error"></a>相対絶対誤差
 
@@ -154,7 +153,7 @@ ML.NET では、カタログは、共通の目的でグループ化された拡�
 
 [回帰](#regression)における評価メトリックであり、誤差を 2 乗した値の平均値の平方根です。
 
-## <a name="scoring"></a>スコア付け
+## <a name="scoring"></a>スコアリング
 
 スコアリングは、トレーニング済みの機械学習モデルに新しいデータを適用し、予測を生成するプロセスです。 スコアリングは推論とも呼ばれます。 モデルの種類に応じて、スコアは場合によって、未処理の値、確率、またはカテゴリになります。
 
@@ -170,7 +169,7 @@ ML.NET では、カタログは、共通の目的でグループ化された拡�
 
 <xref:Microsoft.ML.ITransformer> インターフェイスを実装する ML.NET クラス。
 
-トランスフォーマーでは、ある <xref:Microsoft.ML.IDataView> が別のものに変換されます。 トランスフォーマーを作成するには、[エスティメーター](#estimator)またはエスティメーター パイプラインをトレーニングします。 
+トランスフォーマーでは、ある <xref:Microsoft.ML.IDataView> が別のものに変換されます。 トランスフォーマーを作成するには、[エスティメーター](#estimator)またはエスティメーター パイプラインをトレーニングします。
 
 ## <a name="unsupervised-machine-learning"></a>教師なし機械学習
 

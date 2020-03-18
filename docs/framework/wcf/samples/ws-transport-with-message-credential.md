@@ -2,17 +2,17 @@
 title: メッセージ資格情報付き WS トランスポート
 ms.date: 03/30/2017
 ms.assetid: 0d092f3a-b309-439b-920b-66d8f46a0e3c
-ms.openlocfilehash: a2eade01ff3397d8f7ea790558909111c43b131d
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: cc452ade4ef7d0d2d197f058d74ca0c3d0e0230d
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69959792"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73423075"
 ---
 # <a name="ws-transport-with-message-credential"></a>メッセージ資格情報付き WS トランスポート
 このサンプルでは、メッセージに含まれるクライアント資格情報と組み合わせて SSL トランスポート セキュリティを使用する例を示します。 このサンプルでは、`wsHttpBinding` バインディングを使用します。  
   
- 既定で、`wsHttpBinding` バインディングは HTTP 通信を実現します。 トランスポート セキュリティ用に構成すると、バインディングは HTTPS 通信をサポートします。 HTTPS により、通信回線を介して送信されるメッセージについての機密性および整合性の保護が実現します。 ただし、サービスに対するクライアントの認証に使用できる一連の認証機構は、HTTPS トランスポートのサポート範囲に限定されます。 Windows Communication Foundation (WCF) には`TransportWithMessageCredential` 、この制限を克服するように設計されたセキュリティモードが用意されています。 このセキュリティ モードが構成されると、送信メッセージの機密性および整合性を実現してサービス認証を実行する、トランスポート セキュリティが使用されます。 ただし、クライアント認証は、クライアント資格情報をメッセージに直接配置することによって実行されます。 これにより、トランスポートセキュリティモードのパフォーマンス上の利点を維持しながら、クライアント認証のメッセージセキュリティモードでサポートされる任意の資格情報の種類を使用できます。  
+ 既定で、`wsHttpBinding` バインディングは HTTP 通信を実現します。 トランスポート セキュリティ用に構成すると、バインディングは HTTPS 通信をサポートします。 HTTPS により、通信回線を介して送信されるメッセージについての機密性および整合性の保護が実現します。 ただし、サービスに対するクライアントの認証に使用できる一連の認証機構は、HTTPS トランスポートのサポート範囲に限定されます。 Windows Communication Foundation (WCF) には、この制限を克服するように設計された `TransportWithMessageCredential` セキュリティモードが用意されています。 このセキュリティ モードが構成されると、送信メッセージの機密性および整合性を実現してサービス認証を実行する、トランスポート セキュリティが使用されます。 ただし、クライアント認証は、クライアント資格情報をメッセージに直接配置することによって実行されます。 これにより、トランスポートセキュリティモードのパフォーマンス上の利点を維持しながら、クライアント認証のメッセージセキュリティモードでサポートされる任意の資格情報の種類を使用できます。  
   
  このサンプルでは、サービスに対するクライアントの認証に `UserName` 資格情報が使用されます。  
   
@@ -61,7 +61,7 @@ public string GetCallerIdentity()
   
  アドレス指定では https:// スキームを使用しています。 このバインド構成により、セキュリティ モードが `TransportWithMessageCredential` に設定されます。 同じセキュリティ モードが、サービスの Web.config ファイルで指定される必要があります。  
   
- このサンプルで使用される証明書は、Makecert で作成されたテスト証明書であるため、ブラウザーからなどの https: アドレス`https://localhost/servicemodelsamples/service.svc`にアクセスしようとすると、セキュリティの警告が表示されます。 WCF クライアントがテスト証明書を使用できるようにするために、セキュリティの警告を抑制するために、クライアントに追加のコードがいくつか追加されています。 そのためのコードとそれに必要なクラスは、本運用の証明書を使用するときには不要です。  
+ このサンプルで使用される証明書は、Makecert で作成されたテスト証明書であるため、ブラウザーから https: アドレス (`https://localhost/servicemodelsamples/service.svc`など) にアクセスしようとすると、セキュリティの警告が表示されます。 WCF クライアントがテスト証明書を使用できるようにするために、セキュリティの警告を抑制するために、クライアントに追加のコードがいくつか追加されています。 そのためのコードとそれに必要なクラスは、本運用の証明書を使用するときには不要です。  
 
 ```csharp
 // WARNING: This code is only needed for test certificates such as those created by makecert. It is   
@@ -71,7 +71,7 @@ PermissiveCertificatePolicy.Enact("CN=ServiceModelSamples-HTTPS-Server");
   
  このサンプルを実行すると、操作要求および応答がクライアントのコンソール ウィンドウに表示されます。 クライアントをシャットダウンするには、クライアント ウィンドウで Enter キーを押します。  
   
-```  
+```console  
 Username authentication required.  
 Provide a valid machine or domain account. [domain\\user]  
    Enter username:   

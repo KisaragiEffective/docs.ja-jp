@@ -1,27 +1,27 @@
 ---
-title: 文字列操作の概要 (Visual Basic)
+title: 文字列操作の概要
 ms.date: 07/20/2015
 helpviewer_keywords:
 - string functions
 - manipulating strings [Visual Basic]
 - strings [Visual Basic], manipulating
 ms.assetid: 5d3197eb-fe66-417e-9e2a-20450660c9c6
-ms.openlocfilehash: db57633e2de0c4ae898c242ea754c5f5c2fcd211
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 91c3808e3b17d8e91e6b29ca7c306c61354db607
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61802597"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351656"
 ---
 # <a name="string-manipulation-summary-visual-basic"></a>文字列操作の概要 (Visual Basic)
 Visual Basic 言語のキーワードとランタイム ライブラリ メンバーを、目的と使用方法に応じて編成しました。  
   
-|アクション|言語要素|  
+|操作|Language 要素|  
 |------------|----------------------|  
 |2 つの文字列の比較|<xref:Microsoft.VisualBasic.Strings.StrComp%2A>|  
 |文字列の変換|<xref:Microsoft.VisualBasic.Strings.StrConv%2A>|  
 |文字列の反転|<xref:Microsoft.VisualBasic.Strings.InStrRev%2A>, <xref:Microsoft.VisualBasic.Strings.StrReverse%2A>|  
-|文字列をすべて小文字または大文字に変換|<xref:Microsoft.VisualBasic.Strings.Format%2A>、 <xref:Microsoft.VisualBasic.Strings.LCase%2A>、 <xref:Microsoft.VisualBasic.Strings.UCase%2A>|  
+|文字列をすべて小文字または大文字に変換|<xref:Microsoft.VisualBasic.Strings.Format%2A>、<xref:Microsoft.VisualBasic.Strings.LCase%2A>、<xref:Microsoft.VisualBasic.Strings.UCase%2A>|  
 |文字の繰り返しから成る文字列の作成|<xref:Microsoft.VisualBasic.Strings.Space%2A>, <xref:Microsoft.VisualBasic.Strings.StrDup%2A>|  
 |文字列の長さの確認|<xref:Microsoft.VisualBasic.Strings.Len%2A>|  
 |文字列の書式指定|<xref:Microsoft.VisualBasic.Strings.Format%2A>, <xref:Microsoft.VisualBasic.Strings.FormatCurrency%2A>, <xref:Microsoft.VisualBasic.Strings.FormatDateTime%2A>, <xref:Microsoft.VisualBasic.Strings.FormatNumber%2A>, <xref:Microsoft.VisualBasic.Strings.FormatPercent%2A>|  
@@ -32,7 +32,7 @@ Visual Basic 言語のキーワードとランタイム ライブラリ メン�
 |フィルター ベースの文字列配列の取得|<xref:Microsoft.VisualBasic.Strings.Filter%2A>|  
 |指定した数の部分文字列の取得|<xref:Microsoft.VisualBasic.Strings.Split%2A>, <xref:Microsoft.VisualBasic.Strings.Join%2A>|  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [キーワード](../../../visual-basic/language-reference/keywords/index.md)
 - [Visual Basic ランタイム ライブラリのメンバー](../../../visual-basic/language-reference/runtime-library-members.md)

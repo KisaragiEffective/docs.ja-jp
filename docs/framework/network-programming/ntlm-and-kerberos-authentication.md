@@ -19,12 +19,12 @@ helpviewer_keywords:
 - classes [.NET Framework], authentication
 - client authentication, NTLM
 ms.assetid: 9ef65560-f596-4469-bcce-f4d5407b55cd
-ms.openlocfilehash: ca9e1b9bf6235fdaeea25b8975155af429848ae3
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 372101763bdd84b454e6e2db3ec6cf0ebdf3f991
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71047526"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79180700"
 ---
 # <a name="ntlm-and-kerberos-authentication"></a>NTLM 認証および Kerberos 認証
 既定の NTLM 認証と Kerberos 認証は、呼び出し元のアプリケーションに関連付けられている Microsoft Windows NT ユーザー資格情報を使用して、サーバーで認証を試みます。 既定以外の NTLM 認証を使用する場合、アプリケーションは認証の種類を NTLM に設定し、次の例に示すように <xref:System.Net.NetworkCredential> オブジェクトを使用して、ユーザー名、パスワード、およびドメインをホストに渡します。  
@@ -39,7 +39,7 @@ WReq.Credentials = _
 ```csharp  
 String MyURI = "http://www.contoso.com/";  
 WebRequest WReq = WebRequest.Create (MyURI);  
-WReq.Credentials =   
+WReq.Credentials =
     new NetworkCredential(UserName, SecurelyStoredPassword, Domain);  
 ```  
   
@@ -62,7 +62,7 @@ WReq.Credentials = CredentialCache.DefaultCredentials;
 > [!NOTE]
 > NTLM 認証は、プロキシ サーバー経由では機能しません。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [基本認証とダイジェスト認証](basic-and-digest-authentication.md)
 - [インターネット認証](internet-authentication.md)

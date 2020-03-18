@@ -1,27 +1,27 @@
 ---
-title: スタイル (WPF) でアニメーション化する方法
+title: スタイルでアニメーション化する方法
 ms.date: 03/30/2017
 helpviewer_keywords:
 - animation [WPF], properties [WPF], within styles
 - styles [WPF], animating properties within
 ms.assetid: 6a791f3d-6b1f-4972-a2f9-35880bcfd954
-ms.openlocfilehash: 5fb18a2d927746c3437ec01d2a19327be373cae3
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 0b29648bf15f0046adcdee610f9565f7deb24972
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61789286"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744879"
 ---
-# <a name="how-to-animate-in-a-style"></a>スタイル内でアニメーション化する方法
+# <a name="how-to-animate-in-a-style"></a>スタイルでアニメーション化する方法
 
-この例では、スタイル内でプロパティをアニメーション化する方法を示します。 スタイル内でアニメーション化するときに、スタイルが定義されているフレームワーク要素だけを直接ターゲットにできます。 Freezable オブジェクトを対象とする必要があります「ドット ダウン」スタイルの要素のプロパティから。
+この例では、スタイル内のプロパティをアニメーション化する方法を示します。 スタイル内でアニメーション化する場合、スタイルが定義されているフレームワーク要素のみを直接対象にできます。 Freezable オブジェクトをターゲットにするには、スタイルが指定された要素のプロパティから "ドットダウン" する必要があります。
 
-次の例では、複数のアニメーションのスタイル内で定義されているし、に適用される、<xref:System.Windows.Controls.Button>します。 部分的に透明とバックエンドを不透明なから消えてしまうと、ユーザーがマウス ボタン、もう一度、繰り返し。 ユーザーがボタンをマウスを移動すると完全に不透明になります。 ボタンをクリックすると、その背景色は白を再びオレンジから変更します。 <xref:System.Windows.Media.SolidColorBrush>描画に使用されるボタンを直接ターゲットにできない、ボタンからダウン求めたによりアクセスされる<xref:System.Windows.Controls.Control.Background%2A>プロパティ。
+次の例では、いくつかのアニメーションがスタイル内で定義され、<xref:System.Windows.Controls.Button>に適用されます。 ユーザーがボタンの上にマウスを移動すると、不透明から部分的に半透明にフェードし、もう一度繰り返し戻ることができます。 ユーザーがマウスポインターをボタンの外に移動すると、完全に不透明になります。 ボタンがクリックされると、背景色がオレンジ色から白に変わり、もう一度戻るようになります。 ボタンの描画に使用される <xref:System.Windows.Media.SolidColorBrush> を直接対象にすることはできません。そのため、ボタンの <xref:System.Windows.Controls.Control.Background%2A> プロパティから、このボタンにアクセスします。
 
 ## <a name="example"></a>例
 
 [!code-xaml[timingbehaviors_snip#21](~/samples/snippets/csharp/VS_Snippets_Wpf/timingbehaviors_snip/CSharp/StyleStoryboardsExample.xaml#21)]
 
-スタイル内でアニメーション化するときに、存在しないオブジェクトはターゲットにすることことに注意してください。 たとえば、自分のスタイルを使用して、<xref:System.Windows.Media.SolidColorBrush>ボタンの背景のプロパティの設定が、ある時点で、スタイルがオーバーライドされ、ボタンの背景が設定されている、<xref:System.Windows.Media.LinearGradientBrush>します。  アニメーション化しようとして、 <xref:System.Windows.Media.SolidColorBrush> ; 例外をスローしません、アニメーションはサイレント モードで失敗します。
+スタイル内でアニメーション化する場合は、存在しないオブジェクトを対象にすることができます。 たとえば、スタイルでボタンの background プロパティを設定するために <xref:System.Windows.Media.SolidColorBrush> を使用しているときに、ある時点でスタイルがオーバーライドされ、ボタンの背景が <xref:System.Windows.Media.LinearGradientBrush>で設定されているとします。  <xref:System.Windows.Media.SolidColorBrush> をアニメーション化しようとしても、例外はスローされません。アニメーションは、単純にサイレントモードで失敗します。
 
-構文を対象とするストーリー ボードの詳細については、次を参照してください。、[ストーリー ボードの概要](storyboards-overview.md)します。 アニメーションの詳細については、次を参照してください。、[アニメーションの概要](animation-overview.md)します。 スタイルの詳細については、次を参照してください。、[スタイルとテンプレート](../controls/styling-and-templating.md)します。
+ストーリーボードターゲットの構文の詳細については、「[ストーリーボードの概要](storyboards-overview.md)」を参照してください。 アニメーションの詳細については、「[アニメーションの概要](animation-overview.md)」を参照してください。 スタイルの詳細については、「スタイル[とテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)」を参照してください。

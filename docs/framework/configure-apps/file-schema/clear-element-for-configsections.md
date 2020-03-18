@@ -1,5 +1,5 @@
 ---
-title: <clear>appSettings&gt;の<configSections>add&gt;要素
+title: <clear> の <configSections> 要素
 ms.date: 05/01/2017
 f1_keywords:
 - http://schemas.microsoft.com/.NetConfiguration/v2.0#configuration/configSections/clear
@@ -7,18 +7,16 @@ helpviewer_keywords:
 - clear Element
 - <clear> Element
 ms.assetid: 77f1d761-ff45-4001-8f36-3a3e5c41fa63
-author: rpetrusha
-ms.author: mairaw
-ms.openlocfilehash: c06fca8b83638fb47bedb21863cb9b200cd211f3
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: e8c9b0479bba839a74dff300f0766838b5d99c8d
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69927728"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77214835"
 ---
-# <a name="clear-element-for-configsections"></a>\<configsections の > \<要素をクリア >
+# <a name="clear-element-for-configsections"></a>\<configSections の > 要素をクリア \<>
 
-以前に定義されたセクションおよびセクション グループのすべてをクリアします。
+以前に定義したセクションとセクショングループをすべて消去します。
 
 [ **\<configuration>** ](configuration-element.md)   
 &nbsp;&nbsp;[ **\<configSections >** ](configsections-element-for-configuration.md)   
@@ -40,21 +38,21 @@ ms.locfileid: "69927728"
 
 |     | 説明 |
 | --- | ----------- |
-| [要素 > configsections  **\<** ](configsections-element-for-configuration.md) | 構成セクションと名前空間の宣言が含まれています。 |
+| [ **\<configSections >** Element](configsections-element-for-configuration.md) | 構成セクションと名前空間の宣言が含まれています。 |
 
 ## <a name="child-elements"></a>子要素
 
 なし
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-**\<Clear >** 要素は、現在の構成ファイルまたは構成ファイル階層の上位レベルで定義されたすべてのセクションとセクショングループをアプリケーションから削除します。
+**\<clear >** 要素は、現在の構成ファイルまたは構成ファイル階層の上位レベルで定義されたすべてのセクションとセクショングループをアプリケーションから削除します。
 
 ## <a name="example"></a>例
 
-この例では、コンピューター構成ファイルとアプリケーション構成ファイルを定義し、アプリケーション構成ファイルで **\<clear >** 要素を使用して、コンピューター構成で以前に定義したセクションをクリアする方法を示します。拡張子.
+この例では、マシン構成ファイルとアプリケーション構成ファイルを定義し、アプリケーション構成ファイルで **\<clear >** 要素を使用して、マシン構成ファイルで以前に定義したセクションをクリアする方法を示します。
 
-次のマシン構成ファイルのコードでは、アプリケーション構成ファイルの前に読み取られた **\<sampleSection >** と **\<anotherSampleSection >** の2つのセクションが宣言されています。
+次のマシン構成ファイルコードでは、アプリケーション構成ファイルの前に読み取られた2つのセクション **\<sampleSection >** と **\<anotherSampleSection >** が宣言されています。
 
 ```xml
 <!-- Machine.config file -->
@@ -71,7 +69,7 @@ ms.locfileid: "69927728"
 </configuration>
 ```
 
-次のアプリケーション構成ファイルのコードは、以前に宣言されたすべてのセクションを消去します。 アプリケーションでは、コンピューターの構成ファイルで宣言されているセクションのいずれかで設定を使用または取得することはできません。 ただし、  **\<clear >** 要素の後にあるため、他の **\<セクション >** の設定を使用できます。
+次のアプリケーション構成ファイルのコードは、以前に宣言されたすべてのセクションを消去します。 アプリケーションでは、コンピューターの構成ファイルで宣言されているセクションのいずれかで設定を使用または取得することはできません。 ただし、 **\<clear >** 要素の後にあるため、\<別の**セクション >** の設定を使用できます。
 
 ```xml
 <!-- Application configuration file -->
@@ -87,10 +85,10 @@ ms.locfileid: "69927728"
 </configuration>
 ```
 
-## <a name="configuration-file"></a>構成ファイル
+## <a name="configuration-file"></a>［構成ファイル］
 
-この要素は、アプリケーション構成ファイル、コンピューター構成ファイル (machine.config)、およびアプリケーションディレクトリレベルではない web.config ファイルで使用できます。
+この要素は、アプリケーション構成ファイル *、コンピューター構成*ファイル (machine.config)、およびアプリケーションディレクトリレベルでは*ない web.config ファイル*で使用できます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [.NET Framework の構成ファイルスキーマ](index.md)

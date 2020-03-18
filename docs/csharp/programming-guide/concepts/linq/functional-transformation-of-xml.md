@@ -2,12 +2,12 @@
 title: XML の関数型変換 (C#)
 ms.date: 07/20/2015
 ms.assetid: 0ccb9251-38d7-44e3-9b84-1b5fe25e4b59
-ms.openlocfilehash: 3c563c5dde1543c6ede53de0a9bb627f34108eaf
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 83ecd97f9319027dc50f346abf7a9888b5c23862
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69594304"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75336795"
 ---
 # <a name="functional-transformation-of-xml-c"></a>XML の関数型変換 (C#)
 このトピックでは、XML ドキュメントを変更するための純粋関数型変換の方法について説明し、手続き型の方法と比較します。  
@@ -30,10 +30,10 @@ ms.locfileid: "69594304"
   
  LINQ to XML とその他の Microsoft XML テクノロジの比較の詳細については、「[LINQ to XML およびその他の XML テクノロジ](./linq-to-xml-vs-other-xml-technologies.md)」を参照してください。  
   
- ソース ドキュメントの構造が標準的でない場合、ドキュメント中心の変換には XSLT を使用することをお勧めします。 ただし、LINQ to XML でもドキュメント中心の変換を実行できます。 詳細については、[方法:注釈を使用して XSLT スタイルの LINQ to XML ツリーを変換する (C#)](./how-to-use-annotations-to-transform-linq-to-xml-trees-in-an-xslt-style.md)」を参照してください。  
+ソース ドキュメントの構造が標準的でない場合、ドキュメント中心の変換には XSLT を使用することをお勧めします。 ただし、LINQ to XML でもドキュメント中心の変換を実行できます。 詳細については、「[注釈を使用して XSLT スタイルの LINQ to XML ツリーを変換する方法 (C#)](./how-to-use-annotations-to-transform-linq-to-xml-trees-in-an-xslt-style.md)」を参照してください。
   
 ## <a name="see-also"></a>関連項目
 
 - [純粋関数型変換の概要 (C#)](./introduction-to-pure-functional-transformations.md)
-- [チュートリアル:WordprocessingML ドキュメント内のコンテンツの操作 (C#)](./shape-of-wordprocessingml-documents.md)
+- [チュートリアル: WordprocessingML ドキュメント内のコンテンツの操作 (C#)](./shape-of-wordprocessingml-documents.md)
 - [LINQ to XML とその他の XML テクノロジ](./linq-to-xml-vs-other-xml-technologies.md)

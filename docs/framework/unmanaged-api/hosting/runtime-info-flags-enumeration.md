@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: adba37be-f775-4cdb-8919-5746ce694f33
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4bf3a0507f9f7d4d622163a55fc9c45b4a4dd0a6
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9d505b917c343c40c7fa2a7aecf3466578ae0a8d
+ms.sourcegitcommit: 7e2128d4a4c45b4274bea3b8e5760d4694569ca1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781146"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75936637"
 ---
-# <a name="runtimeinfoflags-enumeration"></a>RUNTIME_INFO_FLAGS 列挙型
-共通言語ランタイム (CLR) に関する情報を返す必要があるかを示す値が含まれています。  
+# <a name="runtime_info_flags-enumeration"></a>RUNTIME_INFO_FLAGS 列挙型
+共通言語ランタイム (CLR) に関する情報を返す必要があるかどうかを示す値を格納します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -47,17 +45,17 @@ typedef enum {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`RUNTIME_INFO_DONT_RETURN_DIRECTORY`|ディレクトリ情報を含める必要があることを示します。|  
-|`RUNTIME_INFO_DONT_RETURN_VERSION`|バージョン情報を含める必要があることを示します。|  
-|`RUNTIME_INFO_DONT_SHOW_ERROR_DIALOG`|障害発生時にエラー ダイアログ ボックスを表示しないことを示します。|  
-|`RUNTIME_INFO_IGNORE_ERROR_MODE`|示します呼び出し元の効果、 [SetErrorMode](https://go.microsoft.com/fwlink/p/?LinkId=255242) SEM_FAILCRITICALERRORS フラグを使用して関数をオーバーライドする必要があります。 つまり、抑制されるのではなく、障害発生時にインストールのダイアログ ボックスを表示する必要があります。|  
-|`RUNTIME_INFO_REQUEST_AMD64`|については、AMD 64 互換性のあるバージョンのランタイムの要求を示します。|  
-|`RUNTIME_INFO_REQUEST_IA64`|IA 64 互換性のあるランタイムのバージョンに関する情報の要求を示します。|  
-|`RUNTIME_INFO_REQUEST_X86`|X86 と互換性のあるランタイムのバージョンに関する情報の要求を示します。|  
-|`RUNTIME_INFO_UPGRADE_VERSION`|バージョンのアップグレードについてを含める必要があることを示します。|  
+|`RUNTIME_INFO_DONT_RETURN_DIRECTORY`|ディレクトリ情報を含めないことを示します。|  
+|`RUNTIME_INFO_DONT_RETURN_VERSION`|バージョン情報を含めないことを示します。|  
+|`RUNTIME_INFO_DONT_SHOW_ERROR_DIALOG`|エラーが発生したときにエラーダイアログボックスを表示しないことを示します。|  
+|`RUNTIME_INFO_IGNORE_ERROR_MODE`|SEM_FAILCRITICALERRORS フラグを使用して[SetErrorMode](/windows/win32/api/errhandlingapi/nf-errhandlingapi-seterrormode)関数を呼び出した場合の効果をオーバーライドする必要があることを示します。 つまり、エラーが発生すると、抑制されるのではなく、インストールのダイアログボックスが表示されます。|  
+|`RUNTIME_INFO_REQUEST_AMD64`|AMD-64 互換バージョンのランタイムに関する情報の要求を示します。|  
+|`RUNTIME_INFO_REQUEST_IA64`|IA-64 互換バージョンのランタイムに関する情報の要求を示します。|  
+|`RUNTIME_INFO_REQUEST_X86`|ランタイムの x86 互換バージョンに関する情報の要求を示します。|  
+|`RUNTIME_INFO_UPGRADE_VERSION`|バージョンのアップグレード情報を含める必要があることを示します。|  
   
 ## <a name="remarks"></a>Remarks  
- 次のプラットフォーム アーキテクチャ フラグは、一度に 1 つのみ指定でき、組み合わせることはできません。  
+ 次のプラットフォームアーキテクチャフラグは一度に1つだけ指定でき、組み合わせることはできません。  
   
 - RUNTIME_INFO_REQUEST_IA64  
   
@@ -65,12 +63,12 @@ typedef enum {
   
 - RUNTIME_INFO_REQUEST_X86  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

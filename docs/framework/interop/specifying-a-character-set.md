@@ -10,14 +10,12 @@ helpviewer_keywords:
 - attribute fields in platform invoke, CharSet
 - CharSet field
 ms.assetid: a8347eb1-295f-46b9-8a78-63331f9ecc50
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9ee68d0da3b7f23d4de0192da076ef6f71d6d222
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 0db1cd8d75b45f6d718168793c873e5867028269
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71051635"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73125174"
 ---
 # <a name="specifying-a-character-set"></a>文字セットの指定
 <xref:System.Runtime.InteropServices.DllImportAttribute.CharSet?displayProperty=nameWithType> フィールドは文字列のマーシャリングを制御し、DLL の関数名をプラットフォーム呼び出しが見つけるしくみを決定します。 このトピックでは、両方の動作について説明します。  

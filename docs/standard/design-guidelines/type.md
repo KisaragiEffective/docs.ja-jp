@@ -8,43 +8,35 @@ helpviewer_keywords:
 - class library design guidelines [.NET Framework], type design guidelines
 - types [.NET Framework], design guidelines
 ms.assetid: 6b49314e-8bba-43ea-97ca-4e0255812f95
-author: KrzysztofCwalina
-ms.openlocfilehash: 16f2a095f461a406eedbd2b34b0c91d3ac43bbe5
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 2a3cca0139974cbc92ce85a19db73dfb3d13d1a0
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61650103"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76743569"
 ---
 # <a name="type-design-guidelines"></a>型のデザインのガイドライン
-CLR の観点からは、型の 2 つのカテゴリがあります: 参照型と値の型: フレームワークの設計に関する詳細については、するために、それぞれに独自の特定のデザイン規則より論理的にグループの種類を分割しますが、します。  
-  
- クラスは、参照型の一般的なケースです。 ほとんどのフレームワークの型の大部分を構成します。 クラスは、豊富なオブジェクト指向の機能がサポートされるを設定して、一般的な適用性を人気を助かりました。 基底クラスと抽象クラスは、拡張機能に関連する、特殊な論理グループです。  
-  
- インターフェイスは、参照型と値の型の両方で実装できる型です。 したがって、参照型と値の型のポリモーフィックな階層のルートとして使用ができます。 さらに、インターフェイスは、CLR によってネイティブでサポートされていない複数の継承をシミュレートするために使用できます。  
-  
- 構造体の値型の一般的なケースは、小規模で単純な種類、言語プリミティブのように予約されている必要があります。  
-  
- 列挙型は、週、コンソールの色の日などの値の短いセットを定義するのに使用される値型の特殊なケースです。  
-  
- 静的クラスは、型の静的メンバーのコンテナーを意図したものです。 その他の操作へのショートカットを提供するよく使用されます。  
-  
- デリゲート、例外、属性、配列、およびコレクションは、特定の用途のためのもので、参照型のすべての特殊なケースと、この書籍での設計と使用法のガイドラインは別の場所について説明します。  
-  
- **✓ DO** 各型が適切に定義された一連の関連するメンバーは、関連付けられていない機能のランダムなコレクションだけでなくであることを確認します。  
-  
-## <a name="in-this-section"></a>このセクションの内容  
- [クラスまたは構造体の選択](../../../docs/standard/design-guidelines/choosing-between-class-and-struct.md)  
- [抽象クラスのデザイン](../../../docs/standard/design-guidelines/abstract-class.md)  
- [静的クラスのデザイン](../../../docs/standard/design-guidelines/static-class.md)  
- [インターフェイスのデザイン](../../../docs/standard/design-guidelines/interface.md)  
- [構造体のデザイン](../../../docs/standard/design-guidelines/struct.md)  
- [列挙型デザイン](../../../docs/standard/design-guidelines/enum.md)  
- [入れ子にされた型](../../../docs/standard/design-guidelines/nested-types.md)  
- *Portions © 2005, 2009 Microsoft Corporation.All rights reserved.*  
-  
- *Pearson Education, Inc. からのアクセス許可によって了承を得て転載[Framework デザイン ガイドライン。規則、手法、および再利用可能な .NET ライブラリの第 2 版のパターン](https://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)Krzysztof Cwalina、Brad 内容では、Microsoft Windows の開発シリーズの一部として、Addison-wesley Professional、2008 年 10 月 22日を公開します。*  
-  
-## <a name="see-also"></a>関連項目
+CLR の観点からは、参照型と値型のカテゴリは2つだけですが、フレームワークの設計について説明するために、型をより多くの論理グループに分割し、それぞれに固有のデザインルールを使用します。
+
+ クラスは、参照型の一般的なケースです。 多くのフレームワークでは、多くの型が構成されています。 クラスは、サポートされているオブジェクト指向の機能の豊富なセットと、その一般的な適用性を持ちます。 基本クラスと抽象クラスは、機能拡張に関連する特殊な論理グループです。
+
+ インターフェイスは、参照型と値型の両方で実装できる型です。 これにより、参照型と値型のポリモーフィック階層のルートとして機能することができます。 さらに、インターフェイスを使用して、CLR でネイティブにサポートされていない複数の継承をシミュレートすることもできます。
+
+ 構造体は値型の一般的なケースであり、言語プリミティブと同様に、小規模な単純型用に予約する必要があります。
+
+ 列挙型は、曜日やコンソールの色など、短い値のセットを定義するために使用される特殊な値型です。
+
+ 静的クラスは、静的メンバーのコンテナーとして使用される型です。 一般的に、他の操作へのショートカットを提供するために使用されます。
+
+ デリゲート、例外、属性、配列、およびコレクションは、特定の用途を想定した参照型のすべての特殊なケースであり、その設計と使用に関するガイドラインについては、このブックの別の部分で説明します。
+
+ ✔️、関連性のない機能をランダムにコレクションするだけでなく、適切に定義された一連の関連するメンバーであることを確認します。
+
+## <a name="in-this-section"></a>このセクションの内容
+ [クラスと構造体の間の](../../../docs/standard/design-guidelines/choosing-between-class-and-struct.md)[抽象クラスのデザイン](../../../docs/standard/design-guidelines/abstract-class.md)[静的クラスデザイン](../../../docs/standard/design-guidelines/static-class.md)[インターフェイス](../../../docs/standard/design-guidelines/interface.md)のデザイン[構造体](../../../docs/standard/design-guidelines/struct.md)を設計する[入れ子になった型](../../../docs/standard/design-guidelines/nested-types.md)のデザイン[Enum Design](../../../docs/standard/design-guidelines/enum.md) *© 2005, 2009 Microsoft Corporation.すべての権限が予約されています。*
+
+ *2008 年 10 月 22 日に Microsoft Windows Development シリーズの一部として、Addison-Wesley Professional によって発行された、Krzysztof Cwalina および Brad Abrams による「[Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition](https://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)」 (フレームワーク デザイン ガイドライン: 再利用可能な .NET ライブラリの規則、用法、パターン、第 2 版) から Pearson Education, Inc. の許可を得て再印刷されています。*
+
+## <a name="see-also"></a>参照
 
 - [フレームワーク デザインのガイドライン](../../../docs/standard/design-guidelines/index.md)

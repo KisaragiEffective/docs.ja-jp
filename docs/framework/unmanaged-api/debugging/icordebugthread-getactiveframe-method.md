@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 8d6d3a1a-fef6-4f2f-a22c-3bdd30d70e07
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 390a2c64508bf407296d318a47bfd2972b7ef9d9
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d623893bd77e46832b0bd823ed60c23e4eee29ba
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67762566"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73133540"
 ---
 # <a name="icordebugthreadgetactiveframe-method"></a>ICorDebugThread::GetActiveFrame メソッド
-ICorDebugThread オブジェクトでアクティブな (最新) フレームへのインターフェイス ポインターを取得します。  
+このテキストスレッドオブジェクトのアクティブな (最新の) フレームへのインターフェイスポインターを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,13 +35,13 @@ HRESULT GetActiveFrame (
   
 ## <a name="parameters"></a>パラメーター  
  `ppFrame`  
- [out]フレームを表す ICorDebugFrame インターフェイス オブジェクトのアドレスへのポインター。  
+ 入出力フレームを表す、テキストフレームインターフェイスオブジェクトのアドレスへのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- `ppFrame`パラメーターが現在アクティブなフレームがない場合は null です。  
+ 現在アクティブになっているフレームがない場合、`ppFrame` パラメーターは null になります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

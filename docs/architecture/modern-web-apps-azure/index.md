@@ -3,17 +3,19 @@ title: ASP.NET Core および Azure での最新の Web アプリケーション
 description: ASP.NET Core と Azure を使用したモノリシックな Web アプリケーションの構築に関するエンドツーエンドのガイダンスを提供するガイドです。
 author: ardalis
 ms.author: wiwagn
-ms.date: 01/30/2019
-ms.openlocfilehash: 739dd607aaa45f73e777a30c6495e329236fee17
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.date: 12/4/2019
+ms.openlocfilehash: c19e5e90cfb96463f744cfb064abe72ee5db2e9f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "70295169"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77449330"
 ---
 # <a name="architect-modern-web-applications-with-aspnet-core-and-azure"></a>ASP.NET Core および Azure での最新の Web アプリケーションの設計
 
-![最新の Web アプリケーションの設計ガイドのイメージについて説明します。](./media/index/web-application-guide-cover-image.png)
+![最新の Web アプリケーションの設計ガイドのブック カバー画像。](./media/index/web-application-guide-cover-image.png)
+
+**エディション v3.1** - ASP.NET Core 3.1 に更新
 
 発行者
 
@@ -25,7 +27,7 @@ One Microsoft Way
 
 Redmond, Washington 98052-6399
 
-Copyright © 2019 by Microsoft Corporation
+Copyright © 2020 by Microsoft Corporation
 
 All rights reserved. 本書のいかなる部分も、書面による発行者の許可なしに、いかなる形式または方法によっても、複製または伝送することを禁じます。
 
@@ -104,7 +106,7 @@ Azure でホストされる ASP.NET Core での Web アプリケーションを�
 
 これらの考慮事項と営業案件の共通理解を確保するために、チームにこのガイドを自由に転送してください。 用語の共通セットと基本原則を理解して全員が作業すると、アーキテクチャのパターンと実践方法を一貫して適用できるようになります。
 
-## <a name="references"></a>参照
+## <a name="references"></a>関連項目
 
 - **サーバー アプリ用 .NET Core と .NET Framework の選択**  
   [https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server](../../standard/choosing-core-framework-server.md)

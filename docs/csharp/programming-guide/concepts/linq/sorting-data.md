@@ -2,17 +2,17 @@
 title: データの並べ替え (C#)
 ms.date: 07/20/2015
 ms.assetid: d93fa055-2f19-46d2-9898-e2aed628f1c9
-ms.openlocfilehash: 28cf4025d0b9bca841695c9873a0ff7972726b98
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 29a5e3e685bdc73536961b7783f4986796b46bdf
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69591043"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79167908"
 ---
 # <a name="sorting-data-c"></a>データの並べ替え (C#)
 並べ替え操作では、1 つ以上の属性に基づいてシーケンスの要素を並べ替えます。 並べ替えの第 1 条件で、要素に対して一回目の並べ替えが実行されます。 第 2 条件を指定すると、第 1 条件で並べ替えられた各グループ内の要素を並べ替えることができます。  
   
- 次の図は、文字のシーケンスに対してアルファベット順の並べ替え操作を実行した結果を示しています。 
+ 次の図は、文字のシーケンスに対してアルファベット順の並べ替え操作を実行した結果を示しています。
   
  ![アルファベット順の並べ替え操作を示している図。](./media/sorting-data/alphabetical-sort-operation.png)  
   
@@ -20,13 +20,13 @@ ms.locfileid: "69591043"
   
 ## <a name="methods"></a>メソッド  
   
-|メソッド名|説明|C# のクエリ式の構文|詳細情報|  
+|メソッド名|[説明]|C# のクエリ式の構文|説明|  
 |-----------------|-----------------|---------------------------------|----------------------|  
 |OrderBy|値を昇順に並べ替えます。|`orderby`|<xref:System.Linq.Enumerable.OrderBy%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.OrderBy%2A?displayProperty=nameWithType>|  
 |OrderByDescending|値を降順に並べ替えます。|`orderby … descending`|<xref:System.Linq.Enumerable.OrderByDescending%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.OrderByDescending%2A?displayProperty=nameWithType>|  
 |ThenBy|2 番目の並べ替えを昇順で実行します。|`orderby …, …`|<xref:System.Linq.Enumerable.ThenBy%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.ThenBy%2A?displayProperty=nameWithType>|  
 |ThenByDescending|2 番目の並べ替えを降順で実行します。|`orderby …, … descending`|<xref:System.Linq.Enumerable.ThenByDescending%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.ThenByDescending%2A?displayProperty=nameWithType>|  
-|Reverse|コレクションの要素の順序を反転させます。|適用不可。|<xref:System.Linq.Enumerable.Reverse%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.Reverse%2A?displayProperty=nameWithType>|  
+|Reverse|コレクションの要素の順序を反転させます。|該当しない。|<xref:System.Linq.Enumerable.Reverse%2A?displayProperty=nameWithType><br /><br /> <xref:System.Linq.Queryable.Reverse%2A?displayProperty=nameWithType>|  
   
 ## <a name="query-expression-syntax-examples"></a>クエリ式の構文例  
   
@@ -126,10 +126,10 @@ foreach (string str in query)
 */  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Linq>
 - [標準クエリ演算子の概要 (C#)](./standard-query-operators-overview.md)
 - [orderby 句](../../../language-reference/keywords/orderby-clause.md)
-- [方法: Join 句の結果の順序指定](../../linq-query-expressions/how-to-order-the-results-of-a-join-clause.md)
-- [方法: 任意の単語またはフィールドを基準にテキスト データの並べ替えまたはフィルター処理を実行する (LINQ) (C#)](./how-to-sort-or-filter-text-data-by-any-word-or-field-linq.md)
+- [join 句の結果の順序指定](../../../linq/order-the-results-of-a-join-clause.md)
+- [任意のワードまたはフィールドを基準にテキスト データの並べ替えまたはフィルター処理を実行する方法 (LINQ) (C#)](./how-to-sort-or-filter-text-data-by-any-word-or-field-linq.md)

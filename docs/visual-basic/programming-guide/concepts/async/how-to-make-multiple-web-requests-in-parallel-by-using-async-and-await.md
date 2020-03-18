@@ -1,13 +1,13 @@
 ---
-title: Async と Await を使用して複数の Web 要求を並列実行する方法 (Visual Basic)
+title: '方法: Async と Await を使用して複数の Web 要求を並列実行する'
 ms.date: 07/20/2015
 ms.assetid: a894b99b-7cfd-4a38-adfb-20d24f986730
-ms.openlocfilehash: 9241a54b4b0d1a8871ef496d44e1e6db5581af7b
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 616efca79312883f17ba837d17a5ee9c97d15b34
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583155"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346149"
 ---
 # <a name="how-to-make-multiple-web-requests-in-parallel-by-using-async-and-await-visual-basic"></a>Async と Await を使用して複数の Web 要求を並列実行する方法 (Visual Basic)
 
@@ -51,7 +51,7 @@ Dim result = Await myTask
 
     - <xref:System.Net.Http> への参照を追加します。
 
-    - Mainwindow.xaml ファイルで、`System.Net.Http` の `Imports` ステートメントを追加します。
+    - Mainwindow.xaml ファイルで、`System.Net.Http`の `Imports` ステートメントを追加します。
 
 ### <a name="to-add-the-code"></a>コードを追加するには
 
@@ -205,7 +205,7 @@ Class MainWindow
 End Class
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [チュートリアル: Async と Await を使用した Web へのアクセス (Visual Basic)](../../../../visual-basic/programming-guide/concepts/async/walkthrough-accessing-the-web-by-using-async-and-await.md)
 - [Async および Await を使用した非同期プログラミング (Visual Basic)](../../../../visual-basic/programming-guide/concepts/async/index.md)

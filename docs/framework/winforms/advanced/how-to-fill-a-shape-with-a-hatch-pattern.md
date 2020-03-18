@@ -17,10 +17,10 @@ ms.lasthandoff: 10/15/2019
 ms.locfileid: "72320050"
 ---
 # <a name="how-to-fill-a-shape-with-a-hatch-pattern"></a>方法 : ハッチ パターンで図形を塗りつぶす
-ハッチパターンは2色から作成されます。1つは背景用で、もう1つは背景のパターンを形成する線です。 閉じた図形をハッチパターンで塗りつぶすには、@no__t 0 のオブジェクトを使用します。 次の例は、楕円にハッチパターンで塗りつぶす方法を示しています。  
+ハッチパターンは2色から作成されます。1つは背景用で、もう1つは背景のパターンを形成する線です。 閉じた図形をハッチパターンで塗りつぶすには、<xref:System.Drawing.Drawing2D.HatchBrush> オブジェクトを使用します。 次の例は、楕円にハッチパターンで塗りつぶす方法を示しています。  
   
 ## <a name="example"></a>例  
- @No__t 0 コンストラクターは、ハッチスタイル、ハッチ線の色、および背景色の3つの引数を受け取ります。 ハッチスタイル引数には、@no__t 0 の列挙型の任意の値を指定できます。 @No__t-0 列挙体に50個を超える要素があります。これらの要素のいくつかを次の一覧に示します。  
+ <xref:System.Drawing.Drawing2D.HatchBrush.%23ctor%2A> コンストラクターは、ハッチスタイル、ハッチ線の色、および背景色の3つの引数を受け取ります。 ハッチスタイル引数には、<xref:System.Drawing.Drawing2D.HatchStyle> 列挙型の任意の値を指定できます。 <xref:System.Drawing.Drawing2D.HatchStyle> 列挙体に50個を超える要素があります。これらの要素のいくつかを次の一覧に示します。  
   
 - <xref:System.Drawing.Drawing2D.HatchStyle.Horizontal>  
   
@@ -44,6 +44,6 @@ ms.locfileid: "72320050"
 ## <a name="compiling-the-code"></a>コードのコンパイル  
  前の例は、Windows フォームで使用するために設計されていて、<xref:System.Windows.Forms.PaintEventArgs> イベント ハンドラーのパラメーターである `e`<xref:System.Windows.Forms.Control.Paint> を必要とします。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ブラシを使用した図形の塗りつぶし](using-a-brush-to-fill-shapes.md)

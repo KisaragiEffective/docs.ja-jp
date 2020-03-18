@@ -14,14 +14,12 @@ helpviewer_keywords:
 - SetSecurity function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 94c76213acb66116105d181e9961a33976047ee7
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 6d27779bcfc97e1c4156b8782896e83d4754491b
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798238"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120223"
 ---
 # <a name="setsecurity-function"></a>SetSecurity 関数
 
@@ -41,20 +39,20 @@ HRESULT SetSecurity (
 ## <a name="parameters"></a>パラメーター
 
 `pNeedToReset`\
-入出力関数から制御が戻るときに、 `boolean` [resetsecurity](resetsecurity.md)関数を呼び出すことによってトークンをリセットする必要があるかどうかを示すへのポインターを格納します。
+入出力関数から制御が戻るときに、 [Resetsecurity](resetsecurity.md)関数を呼び出すことによってトークンをリセットする必要があるかどうかを示す `boolean` へのポインターを格納します。
 
 `token`\
-入出力関数から制御が戻るときに、現在のスレッドに関連付けられている偽装トークンのハンドルへのポインターを格納します。 現在のスレッドに`null`関連付けられているトークンが存在しない場合は、その値をにすることができます。 
+入出力関数から制御が戻るときに、現在のスレッドに関連付けられている偽装トークンのハンドルへのポインターを格納します。 現在のスレッドに関連付けられているトークンが存在しない場合は、その値を `null` できます。 
 
 ## <a name="return-value"></a>戻り値
 
-関数が成功した場合、戻り値`S_OK`は (0) になります。
+関数が成功した場合、戻り値は `S_OK` (0) になります。
 
 関数が失敗した場合、戻り値は0以外のエラーコードです。 拡張されたエラー情報を取得するには、 [GetErrorInfo](geterrorinfo.md)関数を呼び出します。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
  **ヘッダー:** WMINet_Utils
 

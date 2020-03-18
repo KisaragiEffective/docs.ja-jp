@@ -3,10 +3,10 @@ title: 関数型プログラミングと命令型プログラミング (C#)
 ms.date: 07/20/2015
 ms.assetid: 5e35c5a0-c949-422a-873b-fca6b2254f57
 ms.openlocfilehash: a163a62912ed2a44d6ea8cad5bc536f03343f15c
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69594317"
 ---
 # <a name="functional-programming-vs-imperative-programming-c"></a>関数型プログラミングと命令型プログラミング (C#)
@@ -20,7 +20,7 @@ ms.locfileid: "69594317"
 |特徴|命令型の方法|関数型の方法|  
 |--------------------|-------------------------|-------------------------|  
 |プログラミングの焦点|タスク (アルゴリズム) の実行方法と状態の変化の追跡方法。|目的となる情報と必要な変換。|  
-|状態の変化|重要。|存在しない。|  
+|状態変更|重要。|存在しない。|  
 |実行の順序|重要。|あまり重要ではない。|  
 |主要なフロー制御|ループ、条件、および関数 (メソッド) 呼び出し。|関数呼び出し (再帰を含む)。|  
 |主要な操作単位|構造体またはクラスのインスタンス。|ファーストクラス オブジェクトとしての関数とデータ コレクション。|  

@@ -1,5 +1,6 @@
 ---
-title: '方法: WPF アプリケーションを配置するように IIS 5.0 および IIS 6.0 を構成する'
+title: '方法 : WPF アプリケーションを配置するように IIS 5.0 および IIS 6.0 を構成する'
+titleSuffix: ''
 ms.date: 03/30/2017
 helpviewer_keywords:
 - MIME types [WPF], registering
@@ -13,18 +14,18 @@ helpviewer_keywords:
 - file extensions [WPF], registering
 - registering MIME types [WPF]
 ms.assetid: c6e8c2cb-9ba2-4e75-a0d5-180ec9639433
-ms.openlocfilehash: 3a9bf79a9d505fef53b62cb589920adcf95ae92a
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: d557ac6cd380edcbc93b5315f6356697817274bf
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611507"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76740405"
 ---
-# <a name="how-to-configure-iis-50-and-iis-60-to-deploy-wpf-applications"></a>方法: WPF アプリケーションを配置するように IIS 5.0 および IIS 6.0 を構成する
+# <a name="how-to-configure-iis-50-and-iis-60-to-deploy-wpf-applications"></a>方法 : WPF アプリケーションを配置するように IIS 5.0 および IIS 6.0 を構成する
 
-[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]アプリケーションは、適切な Multipurpose Internet Mail Extensions (MIME) の種類で構成されていれば、ほとんどの Web サーバーから展開できます。 既定では、Microsoft インターネットインフォメーションサービス (IIS) 7.0 はこれらの MIME の種類で構成されていますが、Microsoft インターネットインフォメーションサービス (IIS) 5.0 および Microsoft インターネットインフォメーションサービス (IIS) 6.0 は構成されていません。
+適切な Multipurpose Internet Mail Extensions (MIME) の種類を使用して構成されていれば、ほとんどの Web サーバーから [!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] アプリケーションを展開できます。 既定では、Microsoft インターネットインフォメーションサービス (IIS) 7.0 はこれらの MIME の種類で構成されていますが、Microsoft インターネットインフォメーションサービス (IIS) 5.0 および Microsoft インターネットインフォメーションサービス (IIS) 6.0 は構成されていません。
 
-このトピックでは、microsoft インターネットインフォメーションサービス (iis) 5.0 と microsoft インターネットインフォメーションサービス (iis) 6.0 を構成し[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]てアプリケーションを展開する方法について説明します。
+このトピックでは [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションを展開するために Microsoft インターネットインフォメーションサービス (IIS) 5.0 と Microsoft インターネットインフォメーションサービス (IIS) 6.0 を構成する方法について説明します。
 
 > [!NOTE]
 > レジストリの*UserAgent*文字列を確認して、システムに .NET Framework がインストールされているかどうかを確認できます。 *UserAgent*文字列を調べて .NET Framework がシステムにインストールされているかどうかを確認するスクリプトについては、「 [.NET Framework 3.0 がインストールされているかどうかを検出](how-to-detect-whether-the-net-framework-3-0-is-installed.md)する」を参照してください。
@@ -51,7 +52,7 @@ ms.locfileid: "69611507"
 
 クライアントのシステムのブラウザーが適切なハンドラーを読み込めるように、いくつかの MIME の種類とファイル拡張子を登録する必要があります。 次のタイプを追加する必要があります。
 
-|拡張子|[MIME の種類]|
+|拡張機能|MIME タイプ|
 |---------------|---------------|
 |.manifest|application/manifest|
 |.xaml|application/xaml+xml|
@@ -63,7 +64,7 @@ ms.locfileid: "69611507"
 > [!NOTE]
 > クライアントシステムに MIME の種類またはファイル拡張子を登録する必要はありません。 これらは Microsoft .NET Framework のインストール時に自動的に登録されます。
 
-次の Microsoft Visual Basic Scripting Edition (VBScript) のサンプルでは、必要な MIME の種類が IIS に自動的に追加されます。 スクリプトを使用するには、サーバー上の .vbs ファイルにこのコードをコピーします。 その後、コマンド ラインからファイルを実行するか、[!INCLUDE[TLA#tla_winexpl](../../../../includes/tlasharptla-winexpl-md.md)] でファイルをダブルクリックして、スクリプトを実行します。
+次の Microsoft Visual Basic Scripting Edition (VBScript) のサンプルでは、必要な MIME の種類が IIS に自動的に追加されます。 スクリプトを使用するには、サーバー上の .vbs ファイルにこのコードをコピーします。 次に、コマンドラインからファイルを実行するか、Microsoft Windows エクスプローラーでファイルをダブルクリックして、スクリプトを実行します。
 
 ```vb
 ' This script adds the necessary Windows Presentation Foundation MIME types

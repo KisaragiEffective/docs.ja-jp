@@ -1,21 +1,21 @@
 ---
-title: '方法: 中間値の計算 (Visual Basic)'
+title: '方法 : 中間値を計算する'
 ms.date: 07/20/2015
 ms.assetid: 933a97b2-dfe7-4f4d-94ad-e6e20df84abd
-ms.openlocfilehash: 63067c42da37d71ad0fc5488c68d296ac7589aec
-ms.sourcegitcommit: da2dd2772fcf32b44eb18b1cbe8affd17b1753c9
+ms.openlocfilehash: 167293a9af94a0991505b6e9edf225e6d3382bee
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71352908"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74353365"
 ---
-# <a name="how-to-calculate-intermediate-values-visual-basic"></a>方法: 中間値の計算 (Visual Basic)
+# <a name="how-to-calculate-intermediate-values-visual-basic"></a>方法: 中間値を計算する (Visual Basic)
 この例では、並べ替え、フィルタリング、および選択を実行する際に使用できる中間値を計算する方法について説明します。  
   
 ## <a name="example"></a>例  
  次の例では、`Let` 句を使用します。  
   
- この例では、XML ドキュメント、「[サンプル XML ファイル:数値データ (LINQ to XML)](../../../../visual-basic/programming-guide/concepts/linq/sample-xml-file-numerical-data-linq-to-xml.md) を使用します。  
+ この例では、「[サンプル XML ファイル: 数値データ (LINQ to XML)](../../../../visual-basic/programming-guide/concepts/linq/sample-xml-file-numerical-data-linq-to-xml.md)」の XML ドキュメントを使用します。  
   
 ```vb  
 Dim root As XElement = XElement.Load("Data.xml")  
@@ -43,7 +43,7 @@ Next
 ## <a name="example"></a>例  
  次の例は名前空間に含まれている XML 用のクエリです。これらのクエリは上の例と同じ機能を表しています。 詳細については、「[名前空間の概要」 (LINQ to XML) (Visual Basic)](namespaces-overview-linq-to-xml.md)を参照してください。  
   
- この例では、次の XML ドキュメントを使用します: [サンプル XML ファイル: 名前空間内の数値データ](../../../../visual-basic/programming-guide/concepts/linq/sample-xml-file-numerical-data-in-a-namespace.md)を使用します。  
+ この例では、「[サンプル XML ファイル: 名前空間内の数値データ](../../../../visual-basic/programming-guide/concepts/linq/sample-xml-file-numerical-data-in-a-namespace.md)」の XML ドキュメントを使用します。  
   
 ```vb  
 Imports <xmlns="http://www.adatum.com">  
@@ -74,6 +74,6 @@ End Module
 435.00  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [基本的なクエリ (LINQ to XML) (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/basic-queries-linq-to-xml.md)

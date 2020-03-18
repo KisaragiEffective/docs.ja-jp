@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: eea570d9-2e53-4320-9ea0-eb777bf9dcf3
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a89ea76d78431ae8833602588379d5150e473710
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: fcb78dd5374ff97f23d7dfea63fe33fa96836958
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69938306"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73124540"
 ---
 # <a name="iclrtaskmanagercreatetask-method"></a>ICLRTaskManager::CreateTask メソッド
 共通言語ランタイム (CLR) によって新しいタスクが作成されることを明示的に要求します。  
@@ -52,19 +50,19 @@ HRESULT CreateTask (
 |E_OUTOFMEMORY|要求されたリソースを割り当てるのに十分なメモリがありません。|  
   
 ## <a name="remarks"></a>Remarks  
- CLR は、初期化時、ユーザーコードが<xref:System.Threading>名前空間の型を使用してスレッドを作成するとき、またはスレッドプールのサイズが増加したときに、新しいタスクを自動的に作成します。 また、アンマネージコードがマネージ関数を呼び出す場合にも、タスクが作成されます。  
+ CLR は、初期化時に新しいタスクを自動的に作成します。ユーザーコードが <xref:System.Threading> 名前空間の型を使用してスレッドを作成した場合、またはスレッドプールのサイズが増加した場合に、新しいタスクを自動的に作成します。 また、アンマネージコードがマネージ関数を呼び出す場合にも、タスクが作成されます。  
   
- `CreateTask`CLR によって新しいタスクが作成されることをホストが明示的に要求できるようにします。 たとえば、ホストはこのメソッドを呼び出して、データ構造を事前に初期化できます。  
+ `CreateTask` を使用すると、ホストは CLR が新しいタスクを作成するための明示的な要求を行うことができます。 たとえば、ホストはこのメソッドを呼び出して、データ構造を事前に初期化できます。  
   
 > [!IMPORTANT]
 > 新しいタスクは中断状態で返され、ホストが明示的に[IHostTask:: Start](../../../../docs/framework/unmanaged-api/hosting/ihosttask-start-method.md)を呼び出すまで中断されたままになります。  
   
-## <a name="requirements"></a>必要条件  
- **・**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

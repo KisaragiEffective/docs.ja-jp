@@ -1,15 +1,15 @@
 ---
-title: '方法: 子要素を検索する (XPath-LINQ to XML) (C#)'
+title: 子要素を検索する方法 (XPath-LINQ to XML) (C#)
 ms.date: 07/20/2015
 ms.assetid: 4fa6182d-6196-4ed1-9c9e-82949ff89c71
-ms.openlocfilehash: bf0eac1e6d3a5c1c80269cb5bf3502ca51a4a6b0
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 37ce6c9d91d4edf2576ccddabd1d7f14a96b0a33
+ms.sourcegitcommit: fbb8a593a511ce667992502a3ce6d8f65c594edf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70253878"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74141240"
 ---
-# <a name="how-to-find-a-child-element-xpath-linq-to-xml-c"></a>方法: 子要素を検索する (XPath-LINQ to XML) (C#)
+# <a name="how-to-find-a-child-element-xpath-linq-to-xml-c"></a>子要素を検索する方法 (XPath-LINQ to XML) (C#)
 このトピックでは、XPath の子要素軸と [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] <xref:System.Xml.Linq.XContainer.Element%2A> メソッドを比較します。  
   
  XPath 式は `DeliveryNotes` です。  

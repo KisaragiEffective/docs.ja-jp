@@ -11,12 +11,12 @@ helpviewer_keywords:
 - /d compiler option [C#]
 - d compiler option [C#]
 ms.assetid: f17d7b4d-82d0-4133-8563-68cced1cac6e
-ms.openlocfilehash: cb9de387b319ff4b81dcd1ccc37f04d8b6b3123a
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 4a3622b6acc8ebe9c590b01b67074ae59396fc34
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69924793"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79173745"
 ---
 # <a name="-define-c-compiler-options"></a>-define (C# コンパイラ オプション)
 **-define** オプションは、`name` をプログラムのすべてのソース コード ファイル内のシンボルとして定義します。  
@@ -28,7 +28,7 @@ ms.locfileid: "69924793"
 ```  
   
 ## <a name="arguments"></a>引数  
- `name`、`name2`  
+ `name`, `name2`  
  定義する 1 つまたは複数のシンボルの名前。  
   
 ## <a name="remarks"></a>解説  
@@ -38,7 +38,7 @@ ms.locfileid: "69924793"
   
  **-d** は **-define** の省略形です。  
   
- **-define** では、シンボル名をセミコロンまたはコンマで区切ることにより、複数のシンボルを定義できます。 例:  
+ **-define** では、シンボル名をセミコロンまたはコンマで区切ることにより、複数のシンボルを定義できます。 次に例を示します。  
   
 ```console  
 -define:DEBUG;TUESDAY  
@@ -65,11 +65,11 @@ ms.locfileid: "69924793"
 // or uncomment the next line  
 // #define xx  
 using System;  
-public class Test   
+public class Test
 {  
-    public static void Main()   
+    public static void Main()
     {  
-        #if (xx)   
+        #if (xx)
             Console.WriteLine("xx defined");  
         #else  
             Console.WriteLine("xx not defined");  
@@ -78,7 +78,7 @@ public class Test
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](./index.md)
 - [プロジェクトおよびソリューションのプロパティの管理](/visualstudio/ide/managing-project-and-solution-properties)

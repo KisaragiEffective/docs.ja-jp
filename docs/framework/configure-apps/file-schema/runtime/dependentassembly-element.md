@@ -9,22 +9,20 @@ helpviewer_keywords:
 - dependentAssembly element
 - <dependentAssembly> element
 ms.assetid: 14e95627-dd79-4b82-ac85-e682aa3a31d8
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3a0604161ed6e7c3ead4a2e518daebc8414689af
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 33309ed89b4d31580da5de3aeb38e9e1fd8ae4d0
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252706"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73117594"
 ---
 # <a name="dependentassembly-element"></a>\<dependentAssembly > 要素
-各アセンブリのバインディング ポリシーとアセンブリの場所をカプセル化します。 アセンブリごと`dependentAssembly`に1つの要素を使用します。  
+各アセンブリのバインディング ポリシーとアセンブリの場所をカプセル化します。 アセンブリごとに1つの `dependentAssembly` 要素を使用します。  
   
 [ **\<configuration>** ](../configuration-element.md)\
-&nbsp;&nbsp;[ **\<ランタイム >** ](runtime-element.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;[ **\<assemblyBinding >** ](assemblybinding-element-for-runtime.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<dependentAssembly>**  
+&nbsp;&nbsp;[ **\<runtime>** ](runtime-element.md)\
+&nbsp; &nbsp; &nbsp; &nbsp;[ **\<assemblyBinding**](assemblybinding-element-for-runtime.md) > \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**dependentAssembly >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,7 +41,7 @@ ms.locfileid: "70252706"
   
 |要素|説明|  
 |-------------|-----------------|  
-|`assemblyIdentity`|アセンブリに関する識別情報を格納します。 この要素は、各`dependentAssembly`要素に含める必要があります。|  
+|`assemblyIdentity`|アセンブリに関する識別情報を格納します。 この要素は、各 `dependentAssembly` 要素に含める必要があります。|  
 |`codeBase`|ランタイムがコンピューターにインストールされていない場合に、共有アセンブリを見つけることができる場所を指定します。|  
 |`bindingRedirect`|1 つのアセンブリ バージョンを別のバージョンにリダイレクトします。|  
 |`publisherPolicy`|ランタイムがこのアセンブリの発行者ポリシーを適用するかどうかを指定します。|  

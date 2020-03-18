@@ -2,12 +2,12 @@
 title: 'ドメイン イベント: 設計と実装'
 description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | 集約間の通信を確立するための重要な概念であるドメイン イベントの詳細を表示する。
 ms.date: 10/08/2018
-ms.openlocfilehash: 4fe0c1fa04bbecb64783e070838ab796de4f90d6
-ms.sourcegitcommit: 10db6551ea3c971470cf5d2cc21ba1cbcefe5c55
+ms.openlocfilehash: 3bba18d4a77b47abee55c16bae8a64ed27ac9aba
+ms.sourcegitcommit: 68a4b28242da50e1d25aab597c632767713a6f81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031842"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884229"
 ---
 # <a name="domain-events-design-and-implementation"></a>ドメイン イベント: 設計と実装
 
@@ -47,11 +47,11 @@ ms.locfileid: "72031842"
 
 ある集約インスタンスに関係のあるコマンドを実行するために、1 つ以上の他の集約で他のドメイン ルールを実行する必要がある場合は、このような副作用がドメイン イベントによってトリガーされるように設計および実装する必要があります。 図 7-14 で示すように、最も重要なユース ケースの 1 つとして、ドメイン イベントを使って、同じドメイン モデル内の複数の集約の間で状態の変化を伝達する必要があります。
 
-![集約間の整合性はドメイン イベントによって達成されます。Order Aggregate により OrderStarted ドメイン イベントが送信されます。これが処理されて Buyer Aggregate が更新されます。 ](./media/image15.png)
+![Buyer の集約へのデータを制御するドメイン イベントを示す図。](./media/domain-events-design-implementation/domain-model-ordering-microservice.png)
 
 **図 7-14**。 同じドメイン内の複数の集約の間に整合性を適用するためのドメイン イベント
 
-図では、ユーザーが注文を開始すると、OrderStarted ドメイン イベントによって、ID マイクロサービスからの元のユーザー情報 (および、CreateOrder コマンドで提供された情報) を基にした、注文マイクロサービスでの Buyer オブジェクトの作成がトリガーされます。 ドメイン イベントは、注文集約が最初の場所で作成されたときに生成されます。
+図 7-14 は、集約の間の整合性がドメイン イベントによってどのように実現されるかを示しています。 ユーザーが注文を開始すると、注文の集約によって `OrderStarted` ドメイン イベントが送信されます。 OrderStarted ドメイン イベントは Buyer の集約によって処理され、ID マイクロサービスからの元のユーザー情報に基づいて (CreateOrder コマンドで指定した情報を使用して) 注文マイクロサービスに Buyer オブジェクトが作成されます。
 
 または、集約ルートを作成し、その集約 (子エンティティ) のメンバーによって生成されるイベントをサブスクライブすることもできます。 たとえば、OrderItem の各子エンティティは、品目の価格が指定された金額より高いとき、または製品品目の量が高すぎるとに、イベントを発生させることができます。 集約ルートは、これらのイベントを受け取って、グローバルな計算または集約を実行できます。
 
@@ -78,11 +78,11 @@ ms.locfileid: "72031842"
 
 図 7-15 で示すように、同じドメイン イベントから開始して、統合イベントおよびイベント バスによって接続されている複数のマイクロサービスを実行するために必要な、ドメイン内の他の集約に関連する複数のアクションまたは他のアプリケーション アクションを処理できます。
 
-![アプリケーション レイヤーでは、同じイベントに対してハンドラーが複数存在することがあります。あるハンドラーで集約間の整合性を解決し、別のハンドラーで統合イベントを公開し、他のマイクロサービスがその公開されたイベントで何かの処理を行うといったことがありえます。](./media/image16.png)
+![複数のイベント ハンドラーにデータを渡すドメイン イベントを示す図。](./media/domain-events-design-implementation/aggregate-domain-event-handlers.png)
 
 **図 7-15**。 ドメインごとに複数のアクションの処理
 
-マイクロサービスの動作にはリポジトリやアプリケーション API などのインフラストラクチャ オブジェクトを使うため、通常、イベント ハンドラーはアプリケーション レイヤーにあります。 どちらもアプリケーション レイヤーの一部であるという意味で、イベント ハンドラーはコマンド ハンドラーに似ています。 重要な相違点は、コマンドは 1 回だけ処理する必要があることです。 ドメイン イベントは、それぞれが異なる用途を持つ複数のレシーバーまたはイベント ハンドラーで受信できるため、ドメイン イベントはゼロ回または *n* 回処理される可能性があります。
+アプリケーション レイヤーでは、同じイベントに対してハンドラーが複数存在することがあります。あるハンドラーで集約間の整合性を解決し、別のハンドラーで統合イベントを公開し、他のマイクロサービスがその公開されたイベントで何かの処理を行うといったことがありえます。 マイクロサービスの動作にはリポジトリやアプリケーション API などのインフラストラクチャ オブジェクトを使うため、通常、イベント ハンドラーはアプリケーション レイヤーにあります。 どちらもアプリケーション レイヤーの一部であるという意味で、イベント ハンドラーはコマンド ハンドラーに似ています。 重要な相違点は、コマンドは 1 回だけ処理する必要があることです。 ドメイン イベントは、それぞれが異なる用途を持つ複数のレシーバーまたはイベント ハンドラーで受信できるため、ドメイン イベントはゼロ回または *n* 回処理される可能性があります。
 
 ドメイン イベントあたりのハンドラーの数には制限がないため、現在のコードに影響を与えずに必要な数だけドメイン ルールを追加できます。 たとえば、次のビジネス ルールは、いくつかのイベント ハンドラー (またはたった 1 つ) を追加するだけで簡単に実装できます。
 
@@ -145,9 +145,9 @@ eShopOnContainers では遅延アプローチを使っています。 最初に�
 ```csharp
 public abstract class Entity
 {
-     //... 
+     //...
      private List<INotification> _domainEvents;
-     public List<INotification> DomainEvents => _domainEvents; 
+     public List<INotification> DomainEvents => _domainEvents;
 
      public void AddDomainEvent(INotification eventItem)
      {
@@ -194,7 +194,7 @@ public class OrderingContext : DbContext, IUnitOfWork
         // handlers that are using the same DbContext with Scope lifetime
         // B) Right AFTER committing data (EF SaveChanges) into the DB. This makes
         // multiple transactions. You will need to handle eventual consistency and
-        // compensatory actions in case of failures.        
+        // compensatory actions in case of failures.
         await _mediator.DispatchDomainEventsAsync(this);
 
         // After this line runs, all the changes (from the Command Handler and Domain
@@ -208,7 +208,7 @@ public class OrderingContext : DbContext, IUnitOfWork
 
 全体な結果として、ドメイン イベントの生成 (単にメモリ内のリストへの追加) がイベント ハンドラーへのディスパッチから切り離されます。 さらに、使っているディスパッチャーの種類によっては、同期または非同期にイベントをディスパッチできます。
 
-ここでは、トランザクション境界が重要な意味を持つことに注意してください。 作業単位とトランザクションが複数の集約にまたがることができる場合 (EF Core とリレーショナル データベースを使っている場合など)、これはうまくいきます。 しかしながら、トランザクションが複数の集約にまたがることができない場合は (Azure CosmosDB のような NoSQL を使っている場合)、整合性を実現するための追加手順を実装する必要があります。 これは、永続性の無視がユニバーサルではないもう 1 つの理由であり、使っているストレージ システムに依存します。 
+ここでは、トランザクション境界が重要な意味を持つことに注意してください。 作業単位とトランザクションが複数の集約にまたがることができる場合 (EF Core とリレーショナル データベースを使っている場合など)、これはうまくいきます。 しかしながら、トランザクションが複数の集約にまたがることができない場合は (Azure CosmosDB のような NoSQL を使っている場合)、整合性を実現するための追加手順を実装する必要があります。 これは、永続性の無視がユニバーサルではないもう 1 つの理由であり、使っているストレージ システムに依存します。
 
 ### <a name="single-transaction-across-aggregates-versus-eventual-consistency-across-aggregates"></a>複数の集約にまたがる 1 つのトランザクションと集約の間の最終的な整合性
 
@@ -244,7 +244,7 @@ Vaughn Vernon は、『[Effective Aggregate Design.Part II:Making Aggregates Wor
 
 イベントを複数のイベント ハンドラーにマップするもう 1 つの方法は、イベントをディスパッチする場所を動的に推論できるように、IoC コンテナーへの型の登録を使うことです。 つまり、特定のイベント ハンドラーで必要な特定のイベントを知る必要があります。 図 7-16 はこのアプローチの概要です。
 
-![イベントをイベント ハンドラーに関連付ける目的で依存関係挿入を使用できます。これは MediatR で使用されるアプローチです。](./media/image17.png)
+![適切なハンドラーにイベントを送信するドメイン イベント ディスパッチャーを示す図。](./media/domain-events-design-implementation/domain-event-dispatcher.png)
 
 **図 7-16**。 IoC を使ったドメイン イベント ディスパッチャー
 
@@ -303,7 +303,7 @@ public class ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler
 
     public async Task Handle(OrderStartedDomainEvent orderStartedEvent)
     {
-        var cardTypeId = (orderStartedEvent.CardTypeId != 0) ? orderStartedEvent.CardTypeId : 1;        
+        var cardTypeId = (orderStartedEvent.CardTypeId != 0) ? orderStartedEvent.CardTypeId : 1;
         var userGuid = _identityService.GetUserIdentity();
         var buyer = await _buyerRepository.FindAsync(userGuid);
         bool buyerOriginallyExisted = (buyer == null) ? false : true;
@@ -321,7 +321,7 @@ public class ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler
                                        orderStartedEvent.CardExpiration,
                                        orderStartedEvent.Order.Id);
 
-        var buyerUpdated = buyerOriginallyExisted ? _buyerRepository.Update(buyer) 
+        var buyerUpdated = buyerOriginallyExisted ? _buyerRepository.Update(buyer)
                                                                       : _buyerRepository.Add(buyer);
 
         await _buyerRepository.UnitOfWork
@@ -341,6 +341,8 @@ public class ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler
 ## <a name="conclusions-on-domain-events"></a>ドメイン イベントのまとめ
 
 説明したように、ドメイン内での変更の副作用を明示的に実装するには、ドメイン イベントを使います。 DDD の用語では、1 つ以上の集約に副作用を明示的に実装するには、ドメイン イベントを使います。 さらに、スケーラビリティを向上させ、データベース ロックの影響を小さくする必要がある場合は、同じドメイン内の集約の間の最終的な整合性を使います。
+
+参照アプリは [MediatR](https://github.com/jbogard/MediatR) を使用して、単一のトランザクション内で、集計間のドメイン イベントを同期的に伝達します。 [RabbitMQ](https://www.rabbitmq.com/) のような AMQP 実装や [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) で、最終的な整合性を使用してドメイン イベントを非同期的に伝達することもできますが、前述のように、障害が発生した場合の補正アクションの必要性を考慮する必要があります。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

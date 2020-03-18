@@ -12,14 +12,12 @@ helpviewer_keywords:
 - implicit late binding
 - reflection, dynamically using types
 ms.assetid: db985bec-5942-40ec-b13a-771ae98623dc
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 21d0425de072c91cf7111162e405f826e00e849d
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 940f334ec6a42c4d8da461d634051ff979b8f98d
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71046092"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130263"
 ---
 # <a name="dynamically-loading-and-using-types"></a>型の動的な読み込みおよび使用
 リフレクションは、言語コンパイラで使用される、暗黙の遅延バインディングを実装するインフラストラクチャを提供します。 バインディングとは、一意に指定した型に対応する宣言 (つまり、実装) を検索するプロセスです。 このプロセスがコンパイル時ではなく、実行時に発生する場合、それは遅延バインディングと呼ばれます。 Visual Basic のコードでは、暗黙の遅延バインディングを使用できます。Visual Basic のコンパイラからは、オブジェクトの型の取得にリフレクションを使用するヘルパー メソッドが呼び出されます。 ヘルパー メソッドに渡される引数により、実行時に適切なメソッドが呼び出されます。 これらの引数は、メソッドを呼び出すインスタンス (オブジェクト)、呼び出されたメソッド名 (文字列)、呼び出されたメソッドに渡される引数 (オブジェクトの配列) です。  
@@ -66,7 +64,7 @@ End Module
   
  **BindToMethod** は、呼び出す <xref:System.Reflection.MethodBase> を返します。このような呼び出しが不可能な場合は、null 参照 (Visual Basic では **Nothing**) を返します。 通常は含まれますが、**MethodBase** の戻り値は、*match* パラメーターに含める必要はありません。  
   
- ByRef 引数が存在する場合、呼び出し元はそれらを取得することが必要な場合があります。 したがって、**BindToMethod** が引数配列を操作した場合、クライアントは、**Binder** を使用して、引数配列を元の形態に対応付けることができます。 これを行うには、呼び出し元は引数の順序が変わらないことが保証される必要があります。 引数が名前によって渡されるとき、**Binder** は呼び出し元が参照する引数配列の順序を変更します。 詳細については、「 <xref:System.Reflection.Binder.ReorderArgumentArray%2A?displayProperty=nameWithType> 」を参照してください。  
+ ByRef 引数が存在する場合、呼び出し元はそれらを取得することが必要な場合があります。 したがって、**BindToMethod** が引数配列を操作した場合、クライアントは、**Binder** を使用して、引数配列を元の形態に対応付けることができます。 これを行うには、呼び出し元は引数の順序が変わらないことが保証される必要があります。 引数が名前によって渡されるとき、**Binder** は呼び出し元が参照する引数配列の順序を変更します。 詳細については、「<xref:System.Reflection.Binder.ReorderArgumentArray%2A?displayProperty=nameWithType>」を参照してください。  
   
  利用可能なメンバーのセットは、その型と任意の基本型に定義されているメンバーです。 <xref:System.Reflection.BindingFlags> を指定した場合、いずれかのアクセシビリティのメンバーがそのセットに返されます。 **BindingFlags.NonPublic** を指定しない場合、バインダーはアクセシビリティ規則を適用する必要があります。 **Public** または **NonPublic** のバインディング フラグを指定した場合、**Instance** または **Static** バインディング フラグも指定しないと、メンバーは返されません。  
   
@@ -93,7 +91,7 @@ End Module
 |Int32|Int64、Single、Double|  
 |UInt64|Single、Double|  
 |Int64|Single、Double|  
-|Single|倍精度浮動小数点型|  
+|Single|Double|  
 |非参照型|参照型|  
   
  <xref:System.Type> クラスは、参照を特定のメンバーとして解決する **Binder** 型のパラメーターを使用する **get** メソッドを持っています。 <xref:System.Type.GetConstructor%2A?displayProperty=nameWithType>、<xref:System.Type.GetMethod%2A?displayProperty=nameWithType>、および <xref:System.Type.GetProperty%2A?displayProperty=nameWithType> は、現在の型の特定のメンバーに関するシグネチャ情報を提供して、そのメンバーを検索します。 該当するメソッドの指定されたシグネチャ情報を選択するために、<xref:System.Reflection.Binder.SelectMethod%2A?displayProperty=nameWithType> および <xref:System.Reflection.Binder.SelectProperty%2A?displayProperty=nameWithType> がコールバックされます。  

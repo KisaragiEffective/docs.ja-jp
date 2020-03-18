@@ -1,5 +1,5 @@
 ---
-title: システム情報と Windows フォーム
+title: システム情報
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,17 +10,17 @@ helpviewer_keywords:
 - user names [Windows Forms], retrieving
 - system information [Windows Forms]
 ms.assetid: 30cf43a3-8cb2-4ff3-862b-6c34576616a8
-ms.openlocfilehash: 2edc2e867259f8884467c3d5b0ae3d22ba391a77
-ms.sourcegitcommit: 4735bb7741555bcb870d7b42964d3774f4897a6e
+ms.openlocfilehash: a91e2fd8db0ef338ce30f89f11869f1b6698af3b
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66380116"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76732580"
 ---
 # <a name="system-information-and-windows-forms"></a>システム情報と Windows フォーム
-コードで決定するために、アプリケーションが実行されているコンピューターに関する情報を収集するために必要な場合があります。 たとえば、のみ、特定のネットワークのドメインに接続しているときに適用される関数がある可能性があります。ここでドメインを確認して、ドメインが存在しない場合、関数を無効にする方法する必要があります。  
+場合によっては、コードを決定するために、アプリケーションが実行されているコンピューターに関する情報を収集する必要があります。 たとえば、特定のネットワークドメインに接続されている場合にのみ適用される関数があるとします。この場合、ドメインを特定し、ドメインが存在しない場合は関数を無効にする方法が必要になります。  
   
- Windows フォーム アプリケーションを使用できる、<xref:System.Windows.Forms.SystemInformation>クラスを実行時にさまざまなコンピューターに関する考慮事項を確認します。 次の例を使用して、<xref:System.Windows.Forms.SystemInformation>を取得するクラス、<xref:System.Windows.Forms.SystemInformation.UserName%2A>と<xref:System.Windows.Forms.SystemInformation.UserDomainName%2A>:  
+ Windows フォームアプリケーションは、<xref:System.Windows.Forms.SystemInformation> クラスを使用して、実行時にコンピューターに関するさまざまなことを判断できます。 次の例は、<xref:System.Windows.Forms.SystemInformation> クラスを使用して <xref:System.Windows.Forms.SystemInformation.UserName%2A> と <xref:System.Windows.Forms.SystemInformation.UserDomainName%2A>を取得する方法を示しています。  
   
 ```vb  
 Dim User As String = Windows.Forms.SystemInformation.UserName  
@@ -38,11 +38,11 @@ MessageBox.Show("Good morning " + User + ". You are connected to "
 + Domain);
 ```  
   
- すべてのメンバー、<xref:System.Windows.Forms.SystemInformation>クラスは読み取り専用はユーザーの設定を変更することはできません。 コンピューターに接続されているモニターの数からすべての情報を返すクラスの 100 を超えるメンバーが (<xref:System.Windows.Forms.SystemInformation.MonitorCount%2A>) に Windows エクスプ ローラーのアイコンの間隔 (<xref:System.Windows.Forms.SystemInformation.IconHorizontalSpacing%2A>と<xref:System.Windows.Forms.SystemInformation.IconVerticalSpacing%2A>)。  
+ <xref:System.Windows.Forms.SystemInformation> クラスのすべてのメンバーは読み取り専用です。ユーザーの設定を変更することはできません。 クラスには100を超えるメンバーがあり、コンピューターに接続されているモニターの数 (<xref:System.Windows.Forms.SystemInformation.MonitorCount%2A>) から Windows エクスプローラーのアイコンの間隔 (<xref:System.Windows.Forms.SystemInformation.IconHorizontalSpacing%2A> と <xref:System.Windows.Forms.SystemInformation.IconVerticalSpacing%2A>) までのすべての情報が返されます。  
   
- いくつかの便利なメンバーの<xref:System.Windows.Forms.SystemInformation>クラスが含まれて<xref:System.Windows.Forms.SystemInformation.ComputerName%2A>、 <xref:System.Windows.Forms.SystemInformation.DbcsEnabled%2A>、 <xref:System.Windows.Forms.SystemInformation.PowerStatus%2A>、および<xref:System.Windows.Forms.SystemInformation.TerminalServerSession%2A>します。  
+ <xref:System.Windows.Forms.SystemInformation> クラスの便利なメンバーの中には、<xref:System.Windows.Forms.SystemInformation.ComputerName%2A>、<xref:System.Windows.Forms.SystemInformation.DbcsEnabled%2A>、<xref:System.Windows.Forms.SystemInformation.PowerStatus%2A>、<xref:System.Windows.Forms.SystemInformation.TerminalServerSession%2A>などがあります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.SystemInformation>
 - [Windows フォームでの電源管理](power-management-in-windows-forms.md)

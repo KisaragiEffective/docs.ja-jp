@@ -1,5 +1,5 @@
 ---
-title: HttpWebRequest._CoreResponse フィールド
+title: _CoreResponse HttpWebRequest フィールド
 ms.date: 01/29/2018
 topic_type:
 - apiref
@@ -10,16 +10,16 @@ api_location:
 api_type:
 - Assembly
 author: stevewhims
-ms.openlocfilehash: 3627c9bf0d72ccec3a0d6d9c7c89b62f83dcd4b4
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: d16936f6984e73a886f5f48e05b53501ced63c1b
+ms.sourcegitcommit: 9a97c76e141333394676bc5d264c6624b6f45bcf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61706066"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75740450"
 ---
-# <a name="httpwebrequestcoreresponse-field"></a>HttpWebRequest します。\_CoreResponse フィールド
+# <a name="httpwebrequest_coreresponse-field"></a>HttpWebRequest.\_CoreResponse フィールド
 
-`HttpWebRequest._CoreResponse` オブジェクトは、(いずれかを[CoreResponseData](coreresponsedata.md)または<xref:System.Exception>) HTTP 応答の解析の結果を格納します。
+`HttpWebRequest._CoreResponse` は、HTTP 応答の解析結果を含むオブジェクト ( [CoreResponseData](coreresponsedata.md)または <xref:System.Exception>) です。
 
 ## <a name="syntax"></a>構文
   
@@ -28,14 +28,14 @@ private object _CoreResponse
 ```
 
 > [!WARNING]
-> この API は、コード内で直接使用するものではありません。 代わりに、使用する必要があります、<xref:System.Diagnostics.DiagnosticSource>ネットワーク用のコードをフックします。 参照してください[DiagnosticSource ユーザー ガイド](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)します。
+> この API は、コード内で直接使用するためのものではありません。 代わりに、<xref:System.Diagnostics.DiagnosticSource> を使用してネットワークコードをフックする必要があります。 「 [DiagnosticSource User'S Guide](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)」を参照してください。
 > 
-> Microsoft はいかなる運用アプリケーションでこのクラスの使用をサポートしていません。
+> Microsoft では、どのような状況でも、実稼働アプリケーションでのこのクラスの使用はサポートしていません。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 **名前空間:** <xref:System.Net>
 
-**アセンブリ:**(System.dll) のシステム
+**アセンブリ:** システム (.dll 内)
 
-**.NET framework のバージョン:** 2.0 以降で使用可能です。
+**.NET Framework のバージョン:** 2.0 以降で使用できます。

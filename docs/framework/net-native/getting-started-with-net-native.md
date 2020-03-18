@@ -2,14 +2,12 @@
 title: .NET ネイティブの概要
 ms.date: 03/30/2017
 ms.assetid: fc9e04e8-2d05-4870-8cd6-5bd276814afc
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: de887f73a5cc3968dda7e0e4dd14493883485d2b
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 1c0c25ddf379c31a9c7b4437d36e7e0cbf1bb2f3
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049734"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128409"
 ---
 # <a name="getting-started-with-net-native"></a>.NET ネイティブの概要
 
@@ -17,7 +15,7 @@ Windows 10 用に新しい Windows アプリを作成する場合も、既存の
 
 1. [Windows 10 を対象とするユニバーサル Windows プラットフォーム (UWP) ストア アプリを開発](#Step1)し、アプリのデバッグ ビルドをテストして、そのアプリが適切に動作することを確認します。
 
-2. [追加のリフレクションおよびシリアル化の使用を処理](#Step2)します。
+2. [追加のリフレクションおよびシリアル化の使用を処理します](#Step2)。
 
 3. [リリース ビルドのアプリを展開して、テストします](#Step3)。
 
@@ -28,7 +26,7 @@ Windows 10 用に新しい Windows アプリを作成する場合も、既存の
 
 <a name="Step1"></a>
 
-## <a name="step-1-develop-and-test-debug-builds-of-your-uwp-app"></a>手順 1:UWP アプリのデバッグビルドを開発してテストする
+## <a name="step-1-develop-and-test-debug-builds-of-your-uwp-app"></a>手順 1: UWP アプリのデバッグ ビルドを開発してテストする
 
 新しいアプリを開発するか既存のアプリを移行するかに関係なく、Windows アプリについては同じ手順を実行します。
 
@@ -45,7 +43,7 @@ Windows 10 用に新しい Windows アプリを作成する場合も、既存の
 
 <a name="Step2"></a>
 
-## <a name="step-2-handle-additional-reflection-and-serialization-usage"></a>手順 2:追加のリフレクションおよびシリアル化の使用を処理する
+## <a name="step-2-handle-additional-reflection-and-serialization-usage"></a>手順 2: 追加のリフレクションおよびシリアル化の使用を処理する
 
 プロジェクト作成時に Default.rd.xml という名前のランタイム ディレクティブ ファイルがプロジェクトに自動的に追加されます。 C# で開発する場合、このファイルはプロジェクトの **Properties** フォルダーにあります。 Visual Basic で開発する場合、このファイルはプロジェクトの **My Project** フォルダーにあります。
 
@@ -60,7 +58,7 @@ Windows 10 用に新しい Windows アプリを作成する場合も、既存の
 
 - 非リフレクション ベースのシリアライザー。 <xref:System.Runtime.Serialization.DataContractSerializer>、 <xref:System.Runtime.Serialization.Json.DataContractJsonSerializer>、および <xref:System.Xml.Serialization.XmlSerializer> クラスなど、.NET Framework クラス ライブラリ内にあるシリアライザーは、リフレクションに依存しません。 ただし、これらのシリアライザーでは、シリアル化または逆シリアル化されるオブジェクトに基づいてコードが生成される必要があります。  詳しくは、「 [シリアル化とメタデータ](serialization-and-metadata.md)」の「Microsoft のシリアライザー」セクションをご覧ください。
 
-- サードパーティ シリアライザー。 サードパーティ製のシリアル化ライブラリ (最も一般的なものは newtonsoft JSON シリアライザー) であり、一般的にリフレクションに基づいており\*、オブジェクトのシリアル化と逆シリアル化をサポートするために、.xml ファイルのエントリが必要です。 詳しくは、「 [シリアル化とメタデータ](serialization-and-metadata.md)」の「サードパーティ シリアライザー」セクションをご覧ください。
+- サードパーティ シリアライザー。 サードパーティ製のシリアル化ライブラリ (最も一般的なものは Newtonsoft JSON シリアライザー) であり、一般的にリフレクションに基づいており、オブジェクトのシリアル化と逆シリアル化をサポートするために \*の .xml ファイルにエントリが必要です。 詳しくは、「 [シリアル化とメタデータ](serialization-and-metadata.md)」の「サードパーティ シリアライザー」セクションをご覧ください。
 
 **リフレクションに依存するメソッド**
 
@@ -79,17 +77,17 @@ Windows 10 用に新しい Windows アプリを作成する場合も、既存の
 
 <a name="Step3"></a>
 
-## <a name="step-3-deploy-and-test-the-release-builds-of-your-app"></a>手順 3:アプリのリリースビルドを配置およびテストする
+## <a name="step-3-deploy-and-test-the-release-builds-of-your-app"></a>手順 3: リリース ビルドのアプリを展開してテストする
 
-ランタイム ディレクティブ ファイルを更新したら、アプリのリリース ビルドを再ビルドして配置できます。 .NET ネイティブ バイナリは、プロジェクトの **[プロパティ]** ダイアログ ボックスの **[コンパイル]** タブにある **[ビルド出力パス]** テキスト ボックスに指定されているディレクトリの ILC.out サブディレクトリに配置されています。このフォルダーにないバイナリは、.NET ネイティブでコンパイルされていません。 ターゲット プラットフォームごとに、アプリを十分にテストし、失敗シナリオを含むすべてのシナリオをテストします。
+ランタイム ディレクティブ ファイルを更新したら、アプリのリリース ビルドを再ビルドして配置できます。 .NET ネイティブバイナリは、プロジェクトの **[プロパティ]** ダイアログボックスの **[コンパイル]** タブにある **[ビルド出力パス]** テキストボックスで指定されたディレクトリの ILC サブディレクトリに配置されます。このフォルダーにないバイナリはコンパイルされていません.NET ネイティブを使用します。 ターゲット プラットフォームごとに、アプリを十分にテストし、失敗シナリオを含むすべてのシナリオをテストします。
 
-アプリが正しく機能しない場合 (特に、実行時に[MissingMetadataException](missingmetadataexception-class-net-native.md)または[MissingInteropDataException](missinginteropdataexception-class-net-native.md)例外がスローされる場合) は、 [次のセクション「手順 4:見つからないメタデータ](#Step4)を手動で解決します。 初回例外を有効にすると、このようなバグの検出に役立ちます。
+アプリが正常に動作しない場合 (特に実行時に [MissingMetadataException](missingmetadataexception-class-net-native.md) 例外または [MissingInteropDataException](missinginteropdataexception-class-net-native.md) 例外をスローする場合)、次のセクション「[手順 4: メタデータの欠落を手動で解決する](#Step4)」の手順を実行してください。 初回例外を有効にすると、このようなバグの検出に役立ちます。
 
 アプリのデバッグビルドをテストしてデバッグし、 [MissingMetadataException](missingmetadataexception-class-net-native.md)例外と[MissingInteropDataException](missinginteropdataexception-class-net-native.md)例外を削除したことが確実な場合は、アプリを最適化された .NET ネイティブアプリとしてテストする必要があります。 これを行うには、アクティブ プロジェクトの構成を **[デバッグ]** から **[リリース]** に変更します。
 
 <a name="Step4"></a>
 
-## <a name="step-4-manually-resolve-missing-metadata"></a>手順 4:メタデータの欠落を手動で解決する
+## <a name="step-4-manually-resolve-missing-metadata"></a>手順 4: メタデータの欠落を手動で解決する
 
 デスクトップでは発生しない .NET ネイティブで発生する最も一般的なエラーは、ランタイムの[MissingMetadataException](missingmetadataexception-class-net-native.md)、 [MissingInteropDataException](missinginteropdataexception-class-net-native.md)、または[誤 singruntimeartifactexception](missingruntimeartifactexception-class-net-native.md)例外です。 メタデータの欠落は、予期しない動作やアプリの失敗によって判明することもあります。 このセクションでは、ランタイム ディレクティブ ファイルにディレクティブを追加することによって、これらの例外をデバッグして解決する方法を説明します。 ランタイム ディレクティブの形式については、「[ランタイム ディレクティブ (rd.xml) 構成ファイル リファレンス](runtime-directives-rd-xml-configuration-file-reference.md)」を参照してださい。 ランタイム ディレクティブを追加したら、もう一度 [アプリを展開およびテスト](#Step3) して、例外が発生しなくなるまで新しい [MissingMetadataException](missingmetadataexception-class-net-native.md)、 [MissingInteropDataException](missinginteropdataexception-class-net-native.md)、および  [MissingRuntimeArtifactException](missingruntimeartifactexception-class-net-native.md) 例外を解決する必要があります。
 
@@ -117,9 +115,9 @@ Windows 10 用に新しい Windows アプリを作成する場合も、既存の
 
 アプリのテスト時に発生する例外およびその他の問題の処理に関する具体的な例については、次のページを参照してください。
 
-- [例:データバインディング時の例外の処理](example-handling-exceptions-when-binding-data.md)
+- [例: データ バインディング時の例外の処理](example-handling-exceptions-when-binding-data.md)
 
-- [例:トラブルシューティング (動的プログラミング)](example-troubleshooting-dynamic-programming.md)
+- [例: 動的プログラミングのトラブルシューティング](example-troubleshooting-dynamic-programming.md)
 
 - [.NET ネイティブ アプリでのランタイム例外](runtime-exceptions-in-net-native-apps.md)
 

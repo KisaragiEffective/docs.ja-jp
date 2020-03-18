@@ -4,12 +4,12 @@ description: .NET for Apache Spark アプリケーションを Amazon EMR Spark 
 ms.date: 05/17/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 0eea5a40ae4643c7447e2f7281dc8b0db609ca79
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+ms.openlocfilehash: a1ff1ba4d5e855e0ac36b99b0c9d63adfaaaac1e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71117946"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73454937"
 ---
 # <a name="deploy-a-net-for-apache-spark-application-to-amazon-emr-spark"></a>.NET for Apache Spark アプリケーションを Amazon EMR Spark にデプロイする
 
@@ -71,7 +71,7 @@ ms.locfileid: "71117946"
 
 [Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html) は、AWS でのビッグ データ フレームワークの実行を簡略化する、マネージド クラスター プラットフォームです。
 
-> [!NOTE] 
+> [!NOTE]
 > Amazon EMR Spark は Linux ベースです。 そのため、Amazon EMR Spark へのアプリのデプロイに関心がある場合は、アプリが .NET Standard と互換性があることと、アプリのコンパイルに [.NET Core コンパイラ](https://dotnet.microsoft.com/download)を使用していることを確認してください。
 
 ### <a name="deploy-microsoftsparkworker"></a>Microsoft.Spark.Worker をデプロイする

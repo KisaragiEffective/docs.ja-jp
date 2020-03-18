@@ -1,13 +1,13 @@
 ---
-title: ADO.NET での接続文字列
+title: 接続文字列
 ms.date: 10/10/2018
 ms.assetid: 745c5f95-2f02-4674-b378-6d51a7ec2490
-ms.openlocfilehash: bf053c7c26435bea5b2368c81c89b73e8949b74a
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: cb0b2831a22f3fe51dd7c5bfbe51e72f266a0003
+ms.sourcegitcommit: 19014f9c081ca2ff19652ca12503828db8239d48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73040143"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76980237"
 ---
 # <a name="connection-strings-in-adonet"></a>ADO.NET での接続文字列
 
@@ -23,7 +23,7 @@ keyword1=value; keyword2=value;
 
 キーワードでは、大文字と小文字は区別されません。 ただし、データソースによっては、値によって大文字と小文字が区別されることがあります。 キーワードと値の両方に[空白文字](https://en.wikipedia.org/wiki/Whitespace_character#Unicode)を含めることができます。 キーワードおよび引用符で囲まれていない値では、先頭と末尾の空白文字は無視されます。
 
-値にセミコロン、 [Unicode 制御文字](https://en.wikipedia.org/wiki/Unicode_control_characters)、または先頭または末尾の空白が含まれている場合は、一重引用符または二重引用符で囲む必要があります。 (例:
+値にセミコロン、 [Unicode 制御文字](https://en.wikipedia.org/wiki/Unicode_control_characters)、または先頭または末尾の空白が含まれている場合は、一重引用符または二重引用符で囲む必要があります。 例:
 
 ```csharp
 Keyword=" whitespace  ";

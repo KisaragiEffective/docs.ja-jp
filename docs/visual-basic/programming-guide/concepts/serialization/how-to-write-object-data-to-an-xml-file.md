@@ -1,15 +1,15 @@
 ---
-title: '方法: オブジェクトのデータを書き込む XML ファイル (Visual Basic)'
+title: '方法: XML ファイルにオブジェクト データを書き込む'
 ms.date: 07/20/2015
 ms.assetid: f7966480-5ed2-43ac-9894-33427436de2a
-ms.openlocfilehash: 17f8463a4b905028d37a2e005562867f87f4bd2b
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 989920709428f0e9cb4ddb8aeacfc71a2df220d2
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64624357"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75345978"
 ---
-# <a name="how-to-write-object-data-to-an-xml-file-visual-basic"></a>方法: オブジェクトのデータを書き込む XML ファイル (Visual Basic)
+# <a name="how-to-write-object-data-to-an-xml-file-visual-basic"></a>方法: XML ファイルにオブジェクトデータを書き込む (Visual Basic)
 <xref:System.Xml.Serialization.XmlSerializer> クラスを使用して、クラスから XML ファイルにオブジェクトを書き込む例を次に示します。  
   
 ## <a name="example"></a>例  
@@ -37,10 +37,10 @@ Public Module XMLWrite
 End Module  
 ```  
   
-## <a name="compiling-the-code"></a>コードのコンパイル  
+## <a name="compile-the-code"></a>コードのコンパイル  
  クラスには、パラメーターのないパブリック コンストラクターが必要です。  
   
-## <a name="robust-programming"></a>信頼性の高いプログラミング  
+## <a name="robust-programming"></a>堅牢性の高いプログラミング  
  次の条件を満たす場合は、例外が発生する可能性があります。  
   
 - シリアル化されるクラスにパブリックなパラメーターなしのコンストラクターがない場合  
@@ -51,11 +51,11 @@ End Module
   
 - ディスクの空き領域がない場合 (<xref:System.IO.IOException>)  
   
-## <a name="net-framework-security"></a>.NET Framework セキュリティ  
+## <a name="net-framework-security"></a>.NET Framework のセキュリティ  
  次のコード例では、ファイルが存在しない場合は新規にファイルを作成します。 アプリケーションでファイルを作成する必要がある場合、そのアプリケーションにはフォルダーに対する `Create` アクセスが必要です。 ファイルが既に存在する場合、アプリケーションに必要なのは、より低い権限である `Write` アクセスだけです。 フォルダーに対して `Read` アクセスを許可するのではなく、可能な限りアプリケーションの配置時にファイルを作成しておき、1 つのファイルに対してのみ `Create` アクセスを許可する方が安全です。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.IO.StreamWriter>
-- [方法: XML ファイル (Visual Basic) からオブジェクト データを読み込む](../../../../visual-basic/programming-guide/concepts/serialization/how-to-read-object-data-from-an-xml-file.md)
+- [方法: XML ファイルからオブジェクト データを読み込む (Visual Basic)](../../../../visual-basic/programming-guide/concepts/serialization/how-to-read-object-data-from-an-xml-file.md)
 - [シリアル化 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/serialization/index.md)

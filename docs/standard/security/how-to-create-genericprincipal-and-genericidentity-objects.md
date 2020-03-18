@@ -1,5 +1,5 @@
 ---
-title: '方法: GenericPrincipal オブジェクトと GenericIdentity オブジェクトを作成する'
+title: '方法 : GenericPrincipal オブジェクトと GenericIdentity オブジェクトを作成する'
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 dev_langs:
@@ -11,18 +11,16 @@ helpviewer_keywords:
 - Creating GenericPrincipal Objects
 - GenericIdentity Objects
 ms.assetid: 465694cf-258b-4747-9dae-35b01a5bcdbb
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 1f768242bffe619051779f87e950138ae9fcec6c
-ms.sourcegitcommit: da2dd2772fcf32b44eb18b1cbe8affd17b1753c9
+ms.openlocfilehash: 546b4d20f7b6b7a8c448f704fefd9a39b3ebd1d7
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71353186"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75706150"
 ---
-# <a name="how-to-create-genericprincipal-and-genericidentity-objects"></a>方法: GenericPrincipal オブジェクトと GenericIdentity オブジェクトを作成する
+# <a name="how-to-create-genericprincipal-and-genericidentity-objects"></a>方法 : GenericPrincipal オブジェクトと GenericIdentity オブジェクトを作成する
 
-@No__t-0 クラスを <xref:System.Security.Principal.GenericPrincipal> クラスと共に使用して、Windows ドメインとは無関係に存在する認証スキームを作成できます。
+<xref:System.Security.Principal.GenericIdentity> クラスを <xref:System.Security.Principal.GenericPrincipal> クラスと組み合わせて使用すると、Windows ドメインに依存しない認証スキームを作成できます。
 
 ### <a name="to-create-a-genericprincipal-object"></a>GenericPrincipal オブジェクトを作成するには
 
@@ -48,7 +46,7 @@ ms.locfileid: "71353186"
     GenericPrincipal myPrincipal = new GenericPrincipal(myIdentity, myStringArray);
     ```
 
-3. 次のコードを使用して、プリンシパルを現在のスレッドに結合します。 これは、プリンシパルを複数回検証する必要がある場合、アプリケーションで実行されている他のコードによって検証する必要がある場合、または @no__t 0 オブジェクトで検証する必要がある場合に役立ちます。 このような場合でも、プリンシパル オブジェクトをスレッドに結合せずにロール ベースの検証を行うことができます。 詳細については、「[プリンシパル オブジェクトの置き換え](../../../docs/standard/security/replacing-a-principal-object.md)」を参照してください。
+3. 次のコードを使用して、プリンシパルを現在のスレッドに結合します。 これは、プリンシパルを複数回検証する必要がある場合、アプリケーションで実行されている他のコードによって検証する必要がある場合、または <xref:System.Security.Permissions.PrincipalPermission> オブジェクトで検証する必要がある場合に役立ちます。 このような場合でも、プリンシパル オブジェクトをスレッドに結合せずにロール ベースの検証を行うことができます。 詳細については、「[プリンシパル オブジェクトの置き換え](../../../docs/standard/security/replacing-a-principal-object.md)」を参照してください。
 
     ```vb
     Thread.CurrentPrincipal = myPrincipal
@@ -58,12 +56,11 @@ ms.locfileid: "71353186"
     Thread.CurrentPrincipal = myPrincipal;
     ```
 
-## <a name="example"></a>例
+## <a name="example"></a>使用例
 
 次のコード例では、**GenericPrincipal** と **GenericIdentity** のインスタンスを作成する方法を示します。 このコードは、各オブジェクトの値をコンソールに表示します。
 
 ```vb
-Imports System
 Imports System.Security.Principal
 Imports System.Threading
 

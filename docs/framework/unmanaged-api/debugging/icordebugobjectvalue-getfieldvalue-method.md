@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c96770b0-3e09-47bb-bd29-20353b043459
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0fc65f5b55082970a0cd59a6850aaaa6779d0821
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 002c6cccb3ddf29b831ba5e14baa5e51f1b82433
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67766410"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73095889"
 ---
 # <a name="icordebugobjectvaluegetfieldvalue-method"></a>ICorDebugObjectValue::GetFieldValue メソッド
-このオブジェクトの値の指定したクラスの指定したフィールドの値を取得します。  
+このオブジェクト値について、指定したクラスの指定したフィールドの値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,21 +37,21 @@ HRESULT GetFieldValue (
   
 ## <a name="parameters"></a>パラメーター  
  `pClass`  
- [in]フィールドの値を取得する対象のクラスを表す"ICorDebugClass"オブジェクトへのポインター。  
+ からフィールド値を取得する対象のクラスを表す "表示クラス" オブジェクトへのポインター。  
   
  `fieldDef`  
- [in]`mdFieldDef`フィールドを記述するメタデータを参照するトークン。  
+ からフィールドを記述するメタデータを参照する `mdFieldDef` トークン。  
   
  `ppValue`  
- [out]指定したフィールドの値を表す"ICorDebugValue"オブジェクトへのポインター。  
+ 入出力指定したフィールドの値を表す "ICorDebugValue" オブジェクトへのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- 指定された、クラス、`pClass`パラメーターに、オブジェクトの値のクラスの階層にする必要があり、フィールドはそのクラスのフィールドである必要があります。  
+ `pClass` パラメーターで指定されたクラスは、オブジェクト値のクラスの階層内に存在する必要があり、フィールドはそのクラスのフィールドである必要があります。  
   
- `GetFieldValue`汎用オブジェクトおよびジェネリック クラスのメソッドは成功します。 たとえば場合、MyDictionary\<V > ディクショナリから継承\<文字列、V >、オブジェクトの値の種類 MyDictionary\<int32 > を渡して、`ICorDebugClass`ディクショナリのオブジェクト\<K, V > はディクショナリのフィールドを正常に取得\<string, int32 > です。  
+ `GetFieldValue` メソッドは、ジェネリックオブジェクトおよびジェネリッククラスでも成功します。 たとえば、MyDictionary\<V > が Dictionary\<string, V > から継承され、オブジェクト値が MyDictionary\<int32 > 型である場合、Dictionary `ICorDebugClass` K の\<オブジェクトを渡すと、V > は次のフィールドを正常に取得します。Dictionary\<string、int32 >。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

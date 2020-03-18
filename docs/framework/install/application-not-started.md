@@ -1,15 +1,13 @@
 ---
 title: "\"このアプリケーションを開始できませんでした\" のトラブルシューティング"
 description: "\"このアプリケーションを開始できませんでした\" のダイアログ ボックスが表示された場合の対処方法を説明します。"
-author: rpetrusha
-ms.author: ronpet
 ms.date: 09/05/2019
-ms.openlocfilehash: 8fa8381f1b05445f259b4e4af5cc17fa487b2ce0
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 864c6ea23e9a048f060eee39d904bd4377be5084
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72319164"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "76965907"
 ---
 # <a name="troubleshooting-a-this-application-could-not-be-started-error-message"></a>"このアプリケーションを開始できませんでした" のエラー メッセージのトラブルシューティング
 
@@ -46,11 +44,11 @@ ms.locfileid: "72319164"
    |Windows のバージョン|.NET framework のインストール|
    |---|---|
    |Windows 10 Anniversary Update 以降のバージョン|[.NET Framework 4.8 ランタイム](https://dotnet.microsoft.com/download/dotnet-framework/net48)|
-   |Windows 10、Windows 10 November Update|[.NET Framework 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)|
+   |Windows 10、Windows 10 November Update|[.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462)|
    |Windows 8.1|[.NET Framework 4.8 ランタイム](https://dotnet.microsoft.com/download/dotnet-framework/net48)|
-   |Windows 8|[.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981)|
+   |Windows 8|[.NET Framework 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461)|
    |Windows 7 SP1|[.NET Framework 4.8 ランタイム](https://dotnet.microsoft.com/download/dotnet-framework/net48)|
-   |Windows Vista SP2|[.NET Framework 4.6](https://www.microsoft.com/download/details.aspx?id=48130)|
+   |Windows Vista SP2|[.NET Framework 4.6](https://dotnet.microsoft.com/download/dotnet-framework/net46)|
 
    > [!NOTE]
    > .NET Framework 4.8 は、Windows 10 May 2019 Update にプレインストールされています。
@@ -61,7 +59,7 @@ ms.locfileid: "72319164"
 
    ![問題を解決できない](media/application-not-started/install-3-5.png)
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [.NET Framework のシステム要件](../get-started/system-requirements.md)
 - [.NET Framework のインストール ガイド](index.md)

@@ -3,14 +3,12 @@ title: 異なるストアでの XSLT 変換
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: 369850e9-004a-45d2-b5c3-5060d9135adb
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 6a967ffe5db0b8b08adacff9085c7573867f21a4
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
-ms.translationtype: HT
+ms.openlocfilehash: 490ac30a3e4f0c50cb5d011f1d583c6e5ce9e672
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69910363"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75709661"
 ---
 # <a name="xslt-transformations-over-different-stores"></a>異なるストアでの XSLT 変換
 > [!NOTE]

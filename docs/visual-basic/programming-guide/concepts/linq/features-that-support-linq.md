@@ -1,97 +1,97 @@
 ---
-title: LINQ をサポートする Visual Basic の機能
+title: LINQ をサポートする機能
 ms.date: 07/20/2015
 helpviewer_keywords:
 - Visual Basic, LINQ features
 - LINQ [Visual Basic], features supporting LINQ
 ms.assetid: c821bb50-b6f6-4cf9-8aba-2717e465bd3a
-ms.openlocfilehash: 155d5c36483accc12d066a5530fea20a563e1498
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 57c0566f9a76715e48b20f2e6493aa1a506c64be
+ms.sourcegitcommit: 7bc6887ab658550baa78f1520ea735838249345e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61977562"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75636862"
 ---
 # <a name="visual-basic-features-that-support-linq"></a>LINQ をサポートする Visual Basic の機能
-名前[!INCLUDE[vbteclinqext](~/includes/vbteclinqext-md.md)]クエリ構文のサポートを言語で直接その他の言語を構築します、Visual Basic でのテクノロジを参照します。 [!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)]、外部データ ソースに対してクエリを新しい言語を習得する必要はありません。 Visual Basic を使用してリレーショナル データベース、XML ストア、またはオブジェクト内のデータのクエリを行うことができます。 この統合言語クエリ機能の有効に構文エラーとタイプ セーフのコンパイル時にチェックします。 この統合は、Visual Basic での高度でさまざまなクエリを記述するために必要なほとんどを既に把握しているにも確認します。  
+統合言語クエリ (LINQ) とは、クエリ構文やその他の言語構成要素を言語で直接サポートする Visual Basic のテクノロジを指します。 LINQ では、外部データソースに対してクエリを実行するための新しい言語を習得する必要はありません。 Visual Basic を使用すると、リレーショナルデータベース、XML ストア、またはオブジェクトのデータに対してクエリを実行できます。 この言語へのクエリ機能の統合により、コンパイル時に構文エラーやタイプセーフをチェックできるようになります。 また、この統合により、Visual Basic で豊富な多様なクエリを作成するために必要な知識のほとんどを把握しておくことができます。  
   
- 次のセクションでは、入門ドキュメント、コード例については、およびサンプル アプリケーションの読み取りを開始するための十分な詳細で LINQ をサポートする言語構造について説明します。 統合言語クエリを有効にする言語機能がどのように一緒に付属のより詳細な説明を検索するリンクをクリックすることもできます。 開始点としては[チュートリアル。Visual Basic でクエリを記述](../../../../visual-basic/programming-guide/concepts/linq/walkthrough-writing-queries.md)します。  
+ 以下のセクションでは、入門ドキュメント、コード例、およびサンプルアプリケーションの概要を理解できるように、LINQ をサポートするための詳細な言語構成要素について説明します。 また、リンクをクリックして、言語機能の詳細な説明を参照して、統合言語クエリを有効にすることもできます。 まず、 [「チュートリアル: Visual Basic でのクエリの作成」](../../../../visual-basic/programming-guide/concepts/linq/walkthrough-writing-queries.md)をお勧めします。  
   
 ## <a name="query-expressions"></a>クエリ式  
- Visual Basic でのクエリ式は、SQL や XQuery に似た宣言型の構文で表現できます。 コンパイル時に、クエリの構文は、標準クエリ演算子の拡張メソッドの LINQ プロバイダーの実装に対するメソッド呼び出しに変換されます。 標準クエリ演算子がスコープ内で適切な名前空間を指定することで、アプリケーション制御、`Imports`ステートメント。 Visual Basic のクエリ式の構文のようになります。  
+ Visual Basic のクエリ式は、SQL または XQuery と同様の宣言構文で表現できます。 コンパイル時に、クエリ構文は、LINQ プロバイダーによる標準クエリ演算子の拡張メソッドの実装に対するメソッド呼び出しに変換されます。 アプリケーションでは、`Imports` ステートメントを使用して適切な名前空間を指定することによって、スコープ内の標準クエリ演算子を制御します。 Visual Basic のクエリ式の構文は次のようになります。  
   
  [!code-vb[VbLINQVbFeatures#1](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#1)]  
   
- 詳細については、次を参照してください。 [Visual Basic における LINQ の概要](../../../../visual-basic/programming-guide/language-features/linq/introduction-to-linq.md)します。  
+ 詳細については、「 [Visual Basic での LINQ の概要](../../../../visual-basic/programming-guide/language-features/linq/introduction-to-linq.md)」を参照してください。  
   
 ## <a name="implicitly-typed-variables"></a>暗黙的に型指定された変数  
- 明示的に宣言し、変数を初期化するときに、型を指定する、代わりに、型をコンパイラを有効にできます。 呼ばれる*ローカル型推論*します。  
+ 変数を宣言して初期化するときに型を明示的に指定する代わりに、コンパイラが型を推論して割り当てられるようにすることができます。 これは、*ローカル型の推論*と呼ばれます。  
   
- 型を明示的に指定した変数と同様、推論される型を持つ変数を厳密に入力します。 ローカル型推論は、メソッド本文内のローカル変数を定義する場合にのみ機能します。 詳細については、次を参照してください。 [Option Infer ステートメント](../../../../visual-basic/language-reference/statements/option-infer-statement.md)と[ローカル型推論](../../../../visual-basic/programming-guide/language-features/variables/local-type-inference.md)します。  
+ 型が推論される変数は、明示的に指定した型を持つ変数と同じように、厳密に型指定されます。 ローカル型の推論は、メソッド本体内でローカル変数を定義する場合にのみ機能します。 詳細については、「[オプション推論ステートメント](../../../../visual-basic/language-reference/statements/option-infer-statement.md)と[ローカル型の推論](../../../../visual-basic/programming-guide/language-features/variables/local-type-inference.md)」を参照してください。  
   
- 次の例では、ローカル型推論を示しています。 この例を使用するに設定する必要があります`Option Infer`に`On`します。  
+ ローカル型の推論の例を次に示します。 この例を使用するには、`Option Infer` を `On`に設定する必要があります。  
   
  [!code-vb[VbLINQVbFeatures#2](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#2)]  
   
- ローカル型推論では、このセクションで後で説明して、LINQ クエリのために必要な匿名型を作成することです。  
+ ローカル型の推論では、匿名型を作成することもできます。これについては、このセクションの後半で説明します。 LINQ クエリに必要です。  
   
- 場合は次の LINQ の例で型の推定が発生する`Option Infer`か`On`または`Off`します。 コンパイル時エラーが発生します`Option Infer`は`Off`と`Option Strict`は`On`します。  
+ 次の LINQ の例では、`Option Infer` が `On` または `Off`の場合、型の推定が行われます。 `Option Infer` が `Off`、`Option Strict` が `On`場合、コンパイル時エラーが発生します。  
   
  [!code-vb[VbLINQVbFeatures#3](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#3)]  
   
 ## <a name="object-initializers"></a>オブジェクト初期化子  
- オブジェクト初期化子は、クエリの結果を保持するために匿名型を作成するときに、クエリ式で使用されます。 クエリの外部で名前付きの型のオブジェクトを初期化するために使用することがことができます。 オブジェクト初期化子を使用すると、コンス トラクターを明示的に呼び出さずに、1 行でオブジェクトを初期化できます。 という名前のクラスがあると仮定`Customer`を持つパブリック`Name`と`Phone`プロパティ、その他のプロパティと共に、オブジェクト初期化子をこの方法で使用できます。  
+ オブジェクト初期化子は、クエリの結果を保持する匿名型を作成する必要がある場合に、クエリ式で使用されます。 また、クエリの外部で名前付きの型のオブジェクトを初期化するために使用することもできます。 オブジェクト初期化子を使用すると、コンストラクターを明示的に呼び出すことなく、1行でオブジェクトを初期化できます。 パブリック `Name` と `Phone` プロパティを持つ `Customer` という名前のクラスと、その他のプロパティがあると仮定すると、オブジェクト初期化子を次のように使用できます。  
   
  [!code-vb[VbLINQVbFeatures#4](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#4)]  
   
- 詳細については、次を参照してください。[オブジェクト初期化子。名前付きの匿名型](../../../../visual-basic/programming-guide/language-features/objects-and-classes/object-initializers-named-and-anonymous-types.md)します。  
+ 詳細については、「[オブジェクト初期化子: 名前付きの型と匿名型](../../../../visual-basic/programming-guide/language-features/objects-and-classes/object-initializers-named-and-anonymous-types.md)」を参照してください。  
   
 ## <a name="anonymous-types"></a>匿名型  
- 匿名型は、クエリ結果に追加する要素にプロパティのセットを一時的にグループ化する便利な手段を提供します。 これにより、要素の名前付きのデータ型を定義することがなく、任意の順序でのクエリで使用可能なフィールドの任意の組み合わせを選択することができます。  
+ 匿名型を使用すると、一連のプロパティを一時的にクエリ結果に含める要素にグループ化することができます。 これにより、クエリ内の使用可能なフィールドの任意の組み合わせを任意の順序で選択できます。要素の名前付きデータ型を定義する必要はありません。  
   
- *匿名型*はコンパイラによって動的に構築します。 型の名前は、コンパイラによって割り当てられ、新しいコンパイルのたびに変わる可能性があります。 そのため、名前を直接使用することはできません。 匿名型は、次のように初期化されます。  
+ *匿名型*は、コンパイラによって動的に構築されます。 型の名前はコンパイラによって割り当てられ、新しいコンパイルのたびに変更される可能性があります。 そのため、名前を直接使用することはできません。 匿名型は、次の方法で初期化されます。  
   
  [!code-vb[VbLINQVbFeatures#5](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#5)]  
   
  詳細については、「[匿名型](../../../../visual-basic/programming-guide/language-features/objects-and-classes/anonymous-types.md)」を参照してください。  
   
-## <a name="extension-methods"></a>拡張メソッド  
- 拡張メソッドを使用すると、データ型またはインターフェイスの定義の外部にメソッドを追加できます。 この機能では、実際には、実際には、型を変更することがなく既存の型に新しいメソッドを追加することができます。 標準クエリ演算子は、それ自体が提供する拡張メソッドのセットを[!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)]クエリ機能を実装する任意の型<xref:System.Collections.Generic.IEnumerable%601>します。 その他の拡張機能を<xref:System.Collections.Generic.IEnumerable%601>含める<xref:System.Linq.Enumerable.Count%2A>、<xref:System.Linq.Enumerable.Union%2A>と<xref:System.Linq.Enumerable.Intersect%2A>します。  
+## <a name="extension-methods"></a>Extension のメソッド  
+ 拡張メソッドを使用すると、定義の外部からデータ型またはインターフェイスにメソッドを追加できます。 この機能を使用すると、実際に型を変更することなく、既存の型に新しいメソッドを追加できます。 標準クエリ演算子は、それ自体が、<xref:System.Collections.Generic.IEnumerable%601>を実装する任意の型に対して LINQ クエリ機能を提供する拡張メソッドのセットです。 その他の <xref:System.Collections.Generic.IEnumerable%601> の拡張機能には、<xref:System.Linq.Enumerable.Count%2A>、<xref:System.Linq.Enumerable.Union%2A>、および <xref:System.Linq.Enumerable.Intersect%2A>が含まれます。  
   
- 次の拡張メソッドを print メソッドの追加、<xref:System.String>クラス。  
+ 次の拡張メソッドは、print メソッドを <xref:System.String> クラスに追加します。  
   
  [!code-vb[VbLINQVbFeatures#6](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#6)]  
   
- メソッドは通常のインスタンス メソッドのような<xref:System.String>:  
+ メソッドは、<xref:System.String>の通常のインスタンスメソッドと同様に呼び出されます。  
   
  [!code-vb[VbLINQVbFeatures#7](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#7)]  
   
  詳細については、「[拡張メソッド](../../../../visual-basic/programming-guide/language-features/procedures/extension-methods.md)」を参照してください。  
   
 ## <a name="lambda-expressions"></a>ラムダ式  
- ラムダ式は、計算して 1 つの値を返す名前のない関数です。 名前付きの関数とは異なり、ラムダ式の定義し、同時に実行します。 次の例では、4 が表示されます。  
+ ラムダ式は、1つの値を計算して返す名前のない関数です。 名前付き関数とは異なり、ラムダ式は同時に定義および実行できます。 次の例では、4が表示されます。  
   
  [!code-vb[VbLINQVbFeatures#8](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#8)]  
   
- 変数名にラムダ式の定義を割り当てるし、名を使用して、関数を呼び出すことができます。 次の例では、4 も表示されます。  
+ ラムダ式の定義を変数名に割り当ててから、その名前を使用して関数を呼び出すことができます。 次の例では、4も表示されます。  
   
  [!code-vb[VbLINQVbFeatures#12](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#12)]  
   
- [!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)]ラムダ式の基本となる多くの標準クエリ演算子。 コンパイラなど、基本的なクエリ メソッドで定義されている計算をキャプチャするラムダ式を作成する`Where`、 `Select`、 `Order By`、 `Take While`、およびその他。  
+ LINQ では、ラムダ式は多くの標準クエリ演算子を基にしています。 コンパイラは、`Where`、`Select`、`Order By`、`Take While`などの基本的なクエリメソッドで定義されている計算をキャプチャするラムダ式を作成します。  
   
- たとえば、次のコードは、受講者の一覧から上級のすべての学生を返すクエリを定義します。  
+ たとえば、次のコードでは、学生のリストからすべての上級学生を返すクエリを定義しています。  
   
  [!code-vb[VbLINQVbFeatures#9](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#9)]  
   
- クエリの定義は次の例は、引数を指定する 2 つのラムダ式を使用して次のようなコードにコンパイル`Where`と`Select`します。  
+ クエリ定義は、次の例のようなコードにコンパイルされます。この例では、2つのラムダ式を使用して `Where` と `Select`の引数を指定しています。  
   
  [!code-vb[VbLINQVbFeatures#10](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#10)]  
   
- 使用していずれかのバージョンを実行することができます、`For Each`ループ。  
+ どちらのバージョンも、`For Each` ループを使用して実行できます。  
   
  [!code-vb[VbLINQVbFeatures#11](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbLINQVbFeatures/VB/Class1.vb#11)]  
   
- 詳細については、「[ラムダ式](../../../../visual-basic/programming-guide/language-features/procedures/lambda-expressions.md)」を参照してください。  
+ 詳しくは、「[ラムダ式](../../../../visual-basic/programming-guide/language-features/procedures/lambda-expressions.md)」をご覧ください。  
   
 ## <a name="see-also"></a>関連項目
 

@@ -1,27 +1,27 @@
 ---
-title: Visual Basic での条件付きコンパイル
+title: 条件付きコンパイル
 ms.date: 07/20/2015
 helpviewer_keywords:
 - conditional compilation [Visual Basic], about conditional compilation
 - compilation [Visual Basic], conditional
 ms.assetid: 9c35e55e-7eee-44fb-a586-dad1f1884848
-ms.openlocfilehash: 0767b2054697735c3f5190b6e30a2c80ea5288bc
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 19a2c70941a9a72574f7e624743def74b80c4e39
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72775701"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74347460"
 ---
 # <a name="conditional-compilation-in-visual-basic"></a>Visual Basic での条件付きコンパイル
 *条件付きコンパイル*では、プログラム内の特定のコードブロックが選択的にコンパイルされ、他のコードは無視されます。  
   
  たとえば、同じプログラミングタスクに対するさまざまなアプローチの速度を比較するデバッグステートメントを記述したり、アプリケーションを複数の言語用にローカライズしたりすることができます。 条件付きコンパイルステートメントは、実行時ではなくコンパイル時に実行するように設計されています。  
   
- @No__t_0 ディレクティブで条件付きでコンパイルされるコードブロックを示します。 たとえば、同じソースコードから、同じアプリケーションのフランス語とドイツ語の言語バージョンを作成するには、定義済みの定数 `FrenchVersion` と `GermanVersion` を使用して、`#If...Then` ステートメントにプラットフォーム固有のコードセグメントを埋め込みます。 次の例では、その方法を示します。  
+ `#If...Then...#Else` ディレクティブで条件付きでコンパイルされるコードブロックを示します。 たとえば、同じソースコードから、同じアプリケーションのフランス語とドイツ語の言語バージョンを作成するには、定義済みの定数 `FrenchVersion` と `GermanVersion`を使用して、`#If...Then` ステートメントにプラットフォーム固有のコードセグメントを埋め込みます。 次の例では、その方法を示します。  
   
  [!code-vb[VbVbalrConditionalComp#5](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrConditionalComp/VB/Class1.vb#5)]  
   
- コンパイル時に `FrenchVersion` 条件付きコンパイル定数の値を `True` に設定すると、フランス語バージョンの条件付きコードがコンパイルされます。 @No__t_0 定数の値を `True` に設定すると、コンパイラはドイツ語バージョンを使用します。 どちらも `True` に設定されていない場合は、最後の `Else` ブロックのコードが実行されます。  
+ コンパイル時に `FrenchVersion` 条件付きコンパイル定数の値を `True` に設定すると、フランス語バージョンの条件付きコードがコンパイルされます。 `GermanVersion` 定数の値を `True`に設定すると、コンパイラはドイツ語バージョンを使用します。 どちらも `True`に設定されていない場合は、最後の `Else` ブロックのコードが実行されます。  
   
 > [!NOTE]
 > コードを編集し、現在のブランチに含まれていない場合、条件付きコンパイルディレクティブを使用すると、オートコンプリートは機能しません。  
@@ -40,7 +40,7 @@ ms.locfileid: "72775701"
 |定数の設定方法|定数のスコープ|  
 |---|---|  
 |**プロジェクトデザイナー**|プロジェクト内のすべてのファイルに対してパブリック|  
-|コマンド ライン|コマンドラインコンパイラに渡されるすべてのファイルに対してパブリック|  
+|[パッケージ実行ユーティリティ]|コマンドラインコンパイラに渡されるすべてのファイルに対してパブリック|  
 |コード内の `#Const` ステートメント|宣言されているファイルに対してプライベート|  
   
 |プロジェクトデザイナーで定数を設定するには|  
@@ -57,7 +57,7 @@ ms.locfileid: "72775701"
   
 ## <a name="related-topics"></a>関連トピック  
   
-|Title|説明|  
+|タイトル|説明|  
 |---|---|  
 |[プログラム構造とコード規則](../../../visual-basic/programming-guide/program-structure/program-structure-and-code-conventions.md)|コードを読みやすく、保守しやすいようにするための推奨事項を示します。|  
   

@@ -1,5 +1,6 @@
 ---
-title: 'チュートリアル: WPF での Win32 コントロールのホスト'
+title: WPF での Win32 コントロールのホスト
+titleSuffix: ''
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,20 +9,20 @@ helpviewer_keywords:
 - hosting Win32 control in WPF [WPF]
 - Win32 code [WPF], WPF interoperation
 ms.assetid: a676b1eb-fc55-4355-93ab-df840c41cea0
-ms.openlocfilehash: 56f096dd7ba4feb677394cd26be9858a33842018
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: eb497a88c119dece85d61d6a32e7b86fb03b44b5
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73040813"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744935"
 ---
-# <a name="walkthrough-hosting-a-win32-control-in-wpf"></a>チュートリアル: WPF での Win32 コントロールのホスト
+# <a name="walkthrough-host-a-win32-control-in-wpf"></a>チュートリアル: WPF での Win32 コントロールのホスト
 Windows Presentation Foundation (WPF) は、アプリケーションを作成するための豊富な環境を提供します。 ただし、Win32 コードに多大な投資をしている場合は、完全に書き直すのではなく、少なくともそのコードの一部を WPF アプリケーションで再利用する方が効果的な場合があります。 Wpf は、WPF ページで Win32 ウィンドウをホストするための簡単なメカニズムを提供します。  
   
  このトピックでは、Win32 のリストボックスコントロールをホストする、 [WPF の ListBox コントロール](https://github.com/Microsoft/WPF-Samples/tree/master/Migration%20and%20Interoperability/WPFHostingWin32Control)をホストするアプリケーションについて説明します。 この一般的な手順は、Win32 ウィンドウをホストするように拡張できます。  
 
 <a name="requirements"></a>   
-## <a name="requirements"></a>［要件］  
+## <a name="requirements"></a>必要条件  
  このトピックでは、WPF と Windows API プログラミングの基本的な知識があることを前提としています。 WPF プログラミングの基本的な概要については、「[はじめに](../getting-started/index.md)」を参照してください。 Windows API プログラミングの概要については、「チャールズ Petzold 著) による特定の*プログラミングウィンドウ*」に記載されている、多くの書籍を参照してください。  
   
  このトピックに付属するサンプルはにC#実装されているため、プラットフォーム呼び出しサービス (PInvoke) を使用して Windows API にアクセスします。 PInvoke の知識は役に立ちますが、必須ではありません。  
@@ -45,7 +46,7 @@ Windows Presentation Foundation (WPF) は、アプリケーションを作成す
   
 5. ホストウィンドウを作成したら、ホストされているウィンドウの HWND を返します。 1つ以上の Win32 コントロールをホストする場合は、通常、ホストウィンドウを HWND の子として作成し、そのホストウィンドウの子コントロールを作成します。 ホストウィンドウでコントロールをラップすると、WPF ページでコントロールからの通知を簡単に受信できるようになります。これは、HWND 境界を越えた通知に関する特定の Win32 の問題を処理します。  
   
-6. 子コントロールからの通知など、ホストウィンドウに送信される選択されたメッセージを処理します。 これには、2 つの方法があります。  
+6. 子コントロールからの通知など、ホストウィンドウに送信される選択されたメッセージを処理します。 2 つの方法があります。  
   
     - ホスティングクラスでメッセージを処理する場合は、<xref:System.Windows.Interop.HwndHost> クラスの <xref:System.Windows.Interop.HwndHost.WndProc%2A> メソッドをオーバーライドします。  
   
@@ -61,7 +62,7 @@ Windows Presentation Foundation (WPF) は、アプリケーションを作成す
 ## <a name="implement-the-page-layout"></a>ページレイアウトを実装する  
  ListBox コントロールをホストする WPF ページのレイアウトは、2つの領域で構成されます。 ページの左側には、Win32 コントロールを操作するための [!INCLUDE[TLA#tla_ui](../../../../includes/tlasharptla-ui-md.md)] を提供するいくつかの WPF コントロールがホストされています。 ページの右上隅には、ホストされた ListBox コントロールの四角形の領域があります。  
   
- このレイアウトを実装するコードは非常に単純です。 ルート要素は、2つの子要素を持つ <xref:System.Windows.Controls.DockPanel> です。 1つ目は、ListBox コントロールをホストする <xref:System.Windows.Controls.Border> 要素です。 ページの右上隅に 200 x 200 の四角形があります。 2つ目は、情報を表示し、公開されている相互運用プロパティを設定することによって ListBox コントロールを操作できる、一連の WPF コントロールを含む <xref:System.Windows.Controls.StackPanel> 要素です。 <xref:System.Windows.Controls.StackPanel>の子である各要素については、これらの要素の詳細に使用されるさまざまな要素のリファレンス資料を参照してください。これらの要素の詳細については、以下のコード例に記載されていますが、ここでは説明しません (基本相互運用モデルには、これらの機能は必要ありません。サンプルにいくつかの対話機能を追加するために用意されています)。  
+ このレイアウトを実装するコードは非常に単純です。 ルート要素は、2つの子要素を持つ <xref:System.Windows.Controls.DockPanel> です。 1つ目は、ListBox コントロールをホストする <xref:System.Windows.Controls.Border> 要素です。 ページの右上隅に 200 x 200 の四角形があります。 2つ目は、情報を表示し、公開されている相互運用プロパティを設定することによって ListBox コントロールを操作できる、一連の WPF コントロールを含む <xref:System.Windows.Controls.StackPanel> 要素です。 <xref:System.Windows.Controls.StackPanel>の子である各要素のリファレンス資料を参照してください。これらの要素の詳細については、以下のコード例に記載されていますが、ここでは説明しません (基本的な相互運用モデルでは、これらの要素については説明しません)。  
   
  [!code-xaml[WPFHostingWin32Control#WPFUI](~/samples/snippets/csharp/VS_Snippets_Wpf/WPFHostingWin32Control/CSharp/Page1.xaml#wpfui)]  
   
@@ -152,7 +153,7 @@ Windows Presentation Foundation (WPF) は、アプリケーションを作成す
   
  最後に、`handled` を `true` に設定して、メッセージが処理されたことを示します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Interop.HwndHost>
 - [WPF と Win32 の相互運用性](wpf-and-win32-interoperation.md)

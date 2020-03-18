@@ -1,23 +1,23 @@
 ---
-title: さまざまな図形 (Visual Basic) での XML の射影
+title: 異なる構造の XML の射影
 ms.date: 07/20/2015
 ms.assetid: 2da7ec97-34f7-443d-9a48-b162ac58236b
-ms.openlocfilehash: e5639948cbc264a4b17cffe80de70b011e4d2a70
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 400ceafe8ca219efbbb921d573126e0ca80bbb5e
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64666122"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75344496"
 ---
-# <a name="projecting-xml-in-a-different-shape-visual-basic"></a>さまざまな図形 (Visual Basic) での XML の射影
+# <a name="projecting-xml-in-a-different-shape-visual-basic"></a>異なる構造の XML の射影 (Visual Basic)
 このトピックでは、ソース XML とは異なる構造の XML を射影する例について説明します。  
   
  一般的な XML 変換の多くは、この例のように連結されたクエリで構成されます。 通常、ある形式の XML から開始して、中間結果を匿名型または名前付き型のコレクションとして射影し、最終的にその結果をソース XML とはまったく異なる構造の XML に射影します。  
   
-## <a name="example"></a>例  
+## <a name="example"></a>使用例  
  この例では、WordprocessingML ドキュメントを処理して、WordprocessingML ドキュメントから段落ノードを取得します。 それぞれの段落のスタイルおよびテキストも特定します。 最後に、別の構造を持った XML を射影します。 この例は、このチュートリアルのこれまでの例に基づいています。 射影を行う新しいステートメントについては、以下のコード内にあるコメントで説明が示されています。  
   
- この例のソース ドキュメントの作成手順については、次を参照してください。[ソース Office Open XML ドキュメント (Visual Basic) を作成する](../../../../visual-basic/programming-guide/concepts/linq/creating-the-source-office-open-xml-document.md)します。  
+ この例のソースドキュメントを作成する手順については、「[ソースとなる Office OPEN XML ドキュメントを作成する (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/creating-the-source-office-open-xml-document.md)」を参照してください。  
   
  この例では、WindowsBase アセンブリのクラスを使用します。 また、<xref:System.IO.Packaging?displayProperty=nameWithType> 名前空間内の型を使用します。  
   
@@ -69,7 +69,7 @@ Module Module1
         Return (e.<w:r>.<w:t>).StringConcatenate(Function(element) CStr(element))  
     End Function  
   
-    ' Following function is required because VB does not support short circuit evaluation  
+    ' Following function is required because Visual Basic does not support short circuit evaluation  
     Private Function GetStyleOfParagraph(ByVal styleNode As XElement, _  
                                          ByVal defaultStyle As String) As String  
         If (styleNode Is Nothing) Then  
@@ -227,11 +227,11 @@ End Module
 </Root>  
 ```  
   
-## <a name="next-steps"></a>次の手順  
+## <a name="next-steps"></a>次のステップ  
  次の例では、クエリを実行して Word 文書内のテキストをすべて検索します。  
   
-- [Word 文書 (Visual Basic) でのテキストの検索](../../../../visual-basic/programming-guide/concepts/linq/finding-text-in-word-documents.md)  
+- [Word 文書内のテキストの検索 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/finding-text-in-word-documents.md)  
   
 ## <a name="see-also"></a>関連項目
 
-- [チュートリアル: WordprocessingML ドキュメント (Visual Basic) 内のコンテンツの操作](../../../../visual-basic/programming-guide/concepts/linq/tutorial-manipulating-content-in-a-wordprocessingml-document.md)
+- [チュートリアル: WordprocessingML ドキュメント内のコンテンツの操作 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/tutorial-manipulating-content-in-a-wordprocessingml-document.md)

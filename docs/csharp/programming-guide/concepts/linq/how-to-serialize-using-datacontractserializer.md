@@ -1,15 +1,15 @@
 ---
-title: '方法: DataContractSerializer を使用してシリアル化する (C#)'
+title: DataContractSerializer を使用してシリアル化する方法 (C#)
 ms.date: 07/20/2015
 ms.assetid: 3320ecbf-cdbe-480e-979c-2c14bbef9988
-ms.openlocfilehash: 2b4800e2c6d210d62ab3093b673898a147c1f92d
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 0b6d35a2f73ac512f05341f5aaffa61484657576
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70253344"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79168701"
 ---
-# <a name="how-to-serialize-using-datacontractserializer-c"></a>方法: DataContractSerializer を使用してシリアル化する (C#)
+# <a name="how-to-serialize-using-datacontractserializer-c"></a>DataContractSerializer を使用してシリアル化する方法 (C#)
 このトピックでは、<xref:System.Runtime.Serialization.DataContractSerializer> を使用してシリアル化および逆シリアル化を行う例について説明します。  
   
 ## <a name="example"></a>例  
@@ -36,7 +36,7 @@ public class XLinqTest
         DataContractSerializer s = new DataContractSerializer(typeof(T));  
         using (FileStream fs = File.Open("test" + typeof(T).Name + ".xml", FileMode.Create))  
         {  
-            Console.WriteLine("Testing for type: {0}", typeof(T));   
+            Console.WriteLine("Testing for type: {0}", typeof(T));
             s.WriteObject(fs, obj);  
         }  
         using (FileStream fs = File.Open("test" + typeof(T).Name + ".xml", FileMode.Open))  

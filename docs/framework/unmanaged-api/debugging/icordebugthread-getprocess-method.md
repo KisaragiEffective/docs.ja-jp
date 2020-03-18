@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 163816e7-0739-4566-b3df-cd256be8b8a4
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ad87b6552df25926b5b4184b7884c1d444c4f1be
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 8928e22b70af0360660c30289ee999a3e4c5e99e
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67769070"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73133468"
 ---
 # <a name="icordebugthreadgetprocess-method"></a>ICorDebugThread::GetProcess メソッド
-この ICorDebugThread が、一部を形成するプロセスにインターフェイス ポインターを取得します。  
+このコンポーネントがパートを形成するプロセスへのインターフェイスポインターを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT GetProcess (
   
 ## <a name="parameters"></a>パラメーター  
  `ppProcess`  
- [out]ICorDebugProcess インターフェイスを表すオブジェクトをプロセスのアドレスへのポインター。  
+ 入出力プロセスを表す、のプロセスインターフェイスオブジェクトのアドレスへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

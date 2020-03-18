@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 0f9bde1d-e306-438d-941b-d0925b322304
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 4225794740b7786c6f758c9a0953d323c31a1081
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 470b6511366cef1680eaf97f9ab376736add55c4
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67782490"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74437898"
 ---
 # <a name="imetadataimportfindmethod-method"></a>IMetaDataImport::FindMethod メソッド
-囲まれたメソッドの methoddef にポインターをトークン取得を指定した<xref:System.Type>指定した名前とメタデータ シグネチャを持つとします。  
+指定した <xref:System.Type> で囲まれ、指定された名前とメタデータシグネチャを持つメソッドの MethodDef トークンへのポインターを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,33 +39,33 @@ HRESULT FindMethod (
   
 ## <a name="parameters"></a>パラメーター  
  `td`  
- [in]`mdTypeDef`を検索するメンバーを囲む型 (クラスまたはインターフェイス) のトークン。 この値が場合`mdTokenNil`、グローバル関数、検索を実行し、します。  
+ から検索対象のメンバーを囲む型 (クラスまたはインターフェイス) の `mdTypeDef` トークン。 この値が `mdTokenNil`場合は、グローバル関数の参照が行われます。  
   
  `szName`  
- [in]検索するメソッドの名前。  
+ から検索するメソッドの名前。  
   
  `pvSigBlob`  
- [in]メソッドのバイナリ メタデータ シグネチャへのポインター。  
+ からメソッドのバイナリメタデータシグネチャへのポインター。  
   
  `cbSigBlob`  
- [in]バイト サイズ`pvSigBlob`します。  
+ から`pvSigBlob`のサイズ (バイト単位)。  
   
  `pmb`  
- [out]一致する MethodDef トークンへのポインター。  
+ 入出力一致する MethodDef トークンへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- 外側のクラスまたはインターフェイスを使用して、メソッドを指定する (`td`)、その名前 (`szName`)、および必要に応じてその署名 (`pvSigBlob`)。 クラスまたはインターフェイスで同じ名前の複数のメソッドである可能性があります。 その場合は、一意の一致を検索するメソッドのシグネチャを渡します。  
+## <a name="remarks"></a>コメント  
+ メソッドは、外側のクラスまたはインターフェイス (`td`)、その名前 (`szName`)、および必要に応じてシグネチャ (`pvSigBlob`) を使用して指定します。 クラスまたはインターフェイスに同じ名前のメソッドが複数存在する可能性があります。 その場合は、メソッドのシグネチャを渡して、一意の一致を検索します。  
   
- 渡される署名`FindMethod`生成された現在のスコープで特定のスコープにバインドされるためです。 署名は、外側のクラスまたは値の型を識別するトークンを埋め込むことができます。 トークンは、ローカルの TypeDef テーブルへのインデックスです。 現在のスコープのコンテキスト外にある実行時シグネチャを作成してを入力としてその署名を使用することはできません`FindMethod`します。  
+ シグネチャは特定のスコープにバインドされているため、`FindMethod` に渡される署名は、現在のスコープで生成される必要があります。 署名には、外側のクラスまたは値の型を識別するトークンを埋め込むことができます。 トークンは、ローカルの TypeDef テーブルのインデックスです。 現在のスコープのコンテキスト外でランタイムシグネチャを作成し、その署名を入力として使用して `FindMethod`することはできません。  
   
- `FindMethod` クラスまたはインターフェイス内で直接定義されたメソッドのみを検索します継承されたメソッドは検索しません。  
+ `FindMethod` は、クラスまたはインターフェイスで直接定義されたメソッドのみを検索します。継承されたメソッドは見つかりません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

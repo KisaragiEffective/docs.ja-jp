@@ -1,21 +1,19 @@
 ---
 title: 型のマーシャリング - .NET
 description: .NET が型をネイティブ表現にマーシャリングする方法について説明します。
-author: jkoritzinsky
-ms.author: jekoritz
 ms.date: 01/18/2019
-ms.openlocfilehash: bc44a2c63dfa3fde3e3c4197e5d1fe79857ea717
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
-ms.translationtype: HT
+ms.openlocfilehash: 91b8f3d6cb53fd7a0adea7ea9669e7459e81445f
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70929063"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75706267"
 ---
 # <a name="type-marshaling"></a>型のマーシャリング
 
 **マーシャリング**とは、マネージド コードとネイティブ コードの間でやり取りする必要がある場合に型を変換するプロセスです。
 
-マネージド コードとアンマネージド コード内の型は異なるため、マーシャリングが必要です。 マネージド コードで、たとえば、`String` があるとします。アンマネージド環境では、文字列は Unicode ("ワイド")、Unicode 以外、Null 終了、ASCII などです。既定で、P/Invoke サブシステムは、この記事で説明する既定の動作に基づいて適切な処理を実行しようと試みます。 しかし、追加の制御が必要な状況では、[MarshalAs](xref:System.Runtime.InteropServices.MarshalAsAttribute) 属性を採用して、アンマネージ側で期待する型を指定します。 たとえば、文字列を null で終わる ANSI 文字列として送信させる場合は、次のように指定できます。
+マネージド コードとアンマネージド コード内の型は異なるため、マーシャリングが必要です。 マネージコードでは、たとえば、`String`があり、アンマネージ環境の文字列には Unicode ("ワイド")、非 Unicode、null 終端、ASCII などがあります。既定では、P/Invoke サブシステムは、この記事で説明されている既定の動作に基づいて、適切な処理を試みます。 しかし、追加の制御が必要な状況では、[MarshalAs](xref:System.Runtime.InteropServices.MarshalAsAttribute) 属性を採用して、アンマネージ側で期待する型を指定します。 たとえば、文字列を null で終わる ANSI 文字列として送信させる場合は、次のように指定できます。
 
 ```csharp
 [DllImport("somenativelibrary.dll")]
@@ -64,9 +62,9 @@ static extern int MethodA([MarshalAs(UnmanagedType.LPStr)] string parameter);
 |-----------|-------------------------|---------------------|
 | `object`  | `VARIANT`               | `IUnknown*`         |
 | `System.Array` | COM インターフェイス | 使用するには `[MarshalAs]` 属性が必要です |
-| `System.ArgIterator` | `va_list` | 使用できません |
-| `System.Collections.IEnumerator` | `IEnumVARIANT*` | 使用できません |
-| `System.Collections.IEnumerable` | `IDispatch*` | 使用できません |
+| `System.ArgIterator` | `va_list` | 許可しない |
+| `System.Collections.IEnumerator` | `IEnumVARIANT*` | 許可しない |
+| `System.Collections.IEnumerable` | `IDispatch*` | 許可しない |
 | `System.DateTimeOffset` | 1601 年 1 月 1 日午前 0 時以降のティック数を表す `int64_t` || 1601 年 1 月 1 日午前 0 時以降のティック数を表す `int64_t` |
 
 一部の型は、フィールドとしてではなくパラメーターとしてのみマーシャリングできます。 このような型の一覧を次の表に示します。

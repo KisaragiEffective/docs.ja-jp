@@ -2,28 +2,28 @@
 title: 信頼できるメッセージング プロトコル バージョン 1.1
 ms.date: 03/30/2017
 ms.assetid: 0da47b82-f8eb-42da-8bfe-e56ce7ba6f59
-ms.openlocfilehash: 349c4dec8f127640d2709abcd63295aace6826df
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 9320787317131f42c4a82c6114a16fdea87567f4
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64754115"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74283313"
 ---
 # <a name="reliable-messaging-protocol-version-11"></a>信頼できるメッセージング プロトコル バージョン 1.1
 
-このトピックでは、Windows Communication Foundation (WCF) の実装の詳細を説明 WS-ReliableMessaging の 2007 年 2 月 (バージョン 1.1) プロトコルが HTTP トランスポートを使用して相互運用のために必要です。 WCF では、制約と明確にでは、このトピックで説明されている、WS-ReliableMessaging 仕様に従います。 以降では、WS-ReliableMessaging のバージョン 1.1 プロトコルを実装することに注意してください、[!INCLUDE[netfx35_long](../../../../includes/netfx35-long-md.md)]します。
+このトピックでは、HTTP トランスポートを使用した相互運用に必要な Ws-reliablemessaging 2007 (バージョン 1.1) プロトコルの Windows Communication Foundation (WCF) 実装の詳細について説明します。 WCF は、このトピックで説明する制約と説明を使用して、ws-reliablemessaging 仕様に従います。 Ws-reliablemessaging バージョン1.1 プロトコルは .NET Framework 3.5 以降で実装されることに注意してください。
 
-WS-ReliableMessaging 2007 年 2 月での WCF でプロトコルが実装されている、<xref:System.ServiceModel.Channels.ReliableSessionBindingElement>します。
+Ws-reliablemessaging 2 月2007プロトコルは、<xref:System.ServiceModel.Channels.ReliableSessionBindingElement>によって WCF に実装されます。
 
 便宜上、ここでは次のロールを使用します。
 
-- 発信側:Ws-reliable メッセージ シーケンスの作成を開始するクライアント。
+- イニシエーター : WS-Reliable メッセージ シーケンスの作成を開始するクライアント。
 
-- レスポンダー:イニシエーターの要求を受信するサービスです。
+- レスポンダー : イニシエーターの要求を受け取るサービス。
 
  このドキュメントでは、次の表に示すプレフィックスと名前空間を使用します。
 
-|プレフィックス|名前空間|
+|［プレフィックス］|Namespace|
 |-|-|
 |wsrm|http://docs.oasis-open.org/ws-rx/wsrm/200702|
 |netrm|http://schemas.microsoft.com/ws/2006/05/rm|
@@ -38,41 +38,41 @@ WS-ReliableMessaging 2007 年 2 月での WCF でプロトコルが実装され�
 
 ### <a name="sequence-creation"></a>シーケンスの作成
 
-WCF 実装`CreateSequence`と`CreateSequenceResponse`信頼性の高いメッセージングを確立するためにメッセージのシーケンスします。 以下の制約が適用されます。
+WCF では、`CreateSequence` メッセージと `CreateSequenceResponse` メッセージを実装して、信頼できるメッセージシーケンスを確立します。 以下の制約が適用されます。
 
-- B1101:WCF イニシエーターとして同じエンドポイント参照を使用して、`CreateSequence`メッセージの`ReplyTo`、`AcksTo`と`Offer/Endpoint`します。
+- B1101: WCF イニシエーターは、`CreateSequence` メッセージの `ReplyTo`、`AcksTo`、および `Offer/Endpoint`と同じエンドポイント参照を使用します。
 
-- R1102:`AcksTo`、`ReplyTo`と`Offer/Endpoint`エンドポイント参照、`CreateSequence`オクテットと一致するようにメッセージがまったく同じ文字列表現のアドレス値をいる必要があります。
+- R1102: `AcksTo` メッセージの `ReplyTo`、`Offer/Endpoint`、および `CreateSequence` の各エンドポイント参照には、オクテット単位で一致する同じ文字列表現のアドレス値が必要です。
 
-  - 確認します WCF 応答側の URI 部分、 `AcksTo`、`ReplyTo`と`Endpoint`シーケンスを作成する前に、エンドポイント参照は同じです。
+  - WCF レスポンダーは、シーケンスを作成する前に、`AcksTo`、`ReplyTo`、および `Endpoint` エンドポイント参照の URI 部分が同一であることを確認します。
 
-- R1103:`AcksTo`、`ReplyTo`と`Offer/Endpoint`エンドポイント参照、`CreateSequence`メッセージは、参照パラメーターの同じセットを持つ必要があります。
+- R1103: `AcksTo` メッセージの `ReplyTo`、`Offer/Endpoint`、および `CreateSequence` の各エンドポイント参照には、同一の参照パラメーターのセットが必要です。
 
-  - WCF は強制されませんが、その参照を前提としていますのパラメーター、 `AcksTo`、`ReplyTo`と`Offer/Endpoint`エンドポイント参照にで`CreateSequence`と同じですが、参照パラメーターを使用して、`ReplyTo`のエンドポイント参照受信確認と逆方向シーケンス メッセージ。
+  - WCF では強制されませんが、`CreateSequence` の `AcksTo`、`ReplyTo`、および `Offer/Endpoint` のエンドポイント参照の参照パラメーターが同一であることを前提としており、`ReplyTo` エンドポイント参照の参照パラメーターを使用して受信確認と逆方向シーケンスメッセージを使用していることを前提としています。
 
-- B1104:WCF のイニシエーターは、省略可能なは生成されません`Expires`または`Offer/Expires`内の要素、`CreateSequence`メッセージ。
+- B1104: WCF イニシエーターは、`CreateSequence` メッセージにオプションの `Expires` または `Offer/Expires` 要素を生成しません。
 
-- B1105:アクセスするとき、 `CreateSequence` WCF レスポンダーは、メッセージ、`Expires`値、`CreateSequence`要素として、`Expires`値、`CreateSequenceResponse`要素。 それ以外の場合、WCF 応答側の読み取り、無視、`Expires`と`Offer/Expires`値。
+- B1105: `CreateSequence` メッセージにアクセスする場合、WCF レスポンダーは `CreateSequence` 要素の `Expires` 値を `CreateSequenceResponse` 要素の `Expires` 値として使用します。 それ以外の場合、WCF レスポンダーは `Expires` と `Offer/Expires` の値を読み取り、無視します。
 
-- B1106:アクセスするとき、`CreateSequenceResponse`メッセージ、WCF のイニシエーターは省略可能な読み取り`Expires`値が、これを使用しません。
+- B1106: `CreateSequenceResponse` メッセージにアクセスする場合、WCF イニシエーターは省略可能な `Expires` 値を読み取りますが、この値は使用しません。
 
-- B1107:WCF のイニシエーターおよびレスポンダーは生成常に省略可能な`IncompleteSequenceBehavior`内の要素、`CreateSequence/Offer`と`CreateSequenceResponse`要素。
+- B1107: WCF の開始側と応答側は、常に `CreateSequence/Offer` 要素と `CreateSequenceResponse` 要素内のオプションの `IncompleteSequenceBehavior` 要素を生成します。
 
-- B1108:WCF を使用してのみ、`DiscardFollowingFirstGap`と`NoDiscard`値、`IncompleteSequenceBehavior`要素。
+- B1108: WCF は `IncompleteSequenceBehavior` 要素の `DiscardFollowingFirstGap` と `NoDiscard` の値のみを使用します。
 
   - WS-ReliableMessaging では、セッションを形成する、相関する 2 つの逆方向シーケンスを確立するために、`Offer` 機構を利用しています。
 
-- B1109:場合`CreateSequence`が含まれています、`Offer`で応答することの要素、一方向の WCF レスポンダー拒否シーケンス、`CreateSequenceResponse`せず、`Accept`要素。
+- B1109: `CreateSequence` に `Offer` 要素が含まれている場合、WCF レスポンダーの一方向は、`Accept` 要素のない `CreateSequenceResponse` で応答することによって、提供されたシーケンスを拒否します。
 
-- B1110:信頼できるメッセージング レスポンダーは、シーケンスを拒否する場合、WCF イニシエーター障害新しく確立されたシーケンスにします。
+- B1110: 信頼できるメッセージングレスポンダーが提供されたシーケンスを拒否する場合、WCF イニシエーターは新しく確立されたシーケンスをエラーにします。
 
-- B1111:場合`CreateSequence`が含まれていない、`Offer`で応答することの要素、双方向の WCF レスポンダー拒否シーケンス、`CreateSequenceRefused`エラー。
+- B1111: `CreateSequence` に `Offer` 要素が含まれていない場合、双方向の WCF レスポンダーは `CreateSequenceRefused` エラーで応答することによって提供されたシーケンスを拒否します。
 
-- R1112:使用して 2 つの逆方向シーケンスが確立されたときに、`Offer`メカニズム、`[address]`のプロパティ、`CreateSequenceResponse/Accept/AcksTo`エンドポイント参照は送信先 URI と一致する必要がありますの`CreateSequence`バイトのメッセージのバイト。
+- R1112: 2 つの逆方向シーケンスが `Offer` 機構を使用して確立された場合、`[address]` エンドポイント参照の `CreateSequenceResponse/Accept/AcksTo` プロパティは、バイト単位で `CreateSequence` メッセージの送信先 URI と一致する必要があります。
 
-- R1113:使用して 2 つの逆方向シーケンスが確立されたときに、`Offer`メカニズム、イニシエーターからレスポンダーに送られて、両方のシーケンスのすべてのメッセージは、同じエンドポイント参照に送信する必要があります。
+- R1113: 2 つの逆方向シーケンスが `Offer` 機構を使用して確立された場合、イニシエーターからレスポンダーに流れる両方のシーケンスにあるすべてのメッセージは、同じエンドポイント参照に送信される必要があります。
 
-WCF では、WS-ReliableMessaging を使用して、イニシエーターとレスポンダー間の信頼できるセッションを確立します。 WCF の WS-ReliableMessaging 実装は、一方向、要求/応答、信頼できるセッションを提供します。 双方向メッセージング パターン。 `Offer` および `CreateSequence` で WS-ReliableMessaging の `CreateSequenceResponse` 機構を使用すると、相関する 2 つの逆方向シーケンスを確立できます。また、Offer 機構は、すべてのメッセージ エンドポイントに適したセッション プロトコルを提供します。 WCF では、セッションのセッションの整合性をエンド ツー エンドの保護などのセキュリティ保証を提供するため、同じパーティ宛てのメッセージが同じ送信先に到達することを確認するは実用的です。 また、これにより、アプリケーション メッセージにシーケンス受信確認を抱き合わせることができます。 そのため、R1102、R1112、および R1113 の制約は、WCF に適用されます。
+WCF では、ws-reliablemessaging を使用して、イニシエーターとレスポンダーの間に信頼できるセッションを確立します。 WCF Ws-reliablemessaging 実装は、一方向、要求/応答、および全二重のメッセージングパターンに対して信頼できるセッションを提供します。 `Offer` および `CreateSequence` で WS-ReliableMessaging の `CreateSequenceResponse` 機構を使用すると、相関する 2 つの逆方向シーケンスを確立できます。また、Offer 機構は、すべてのメッセージ エンドポイントに適したセッション プロトコルを提供します。 WCF では、セッション整合性に対するエンドツーエンドの保護を含むこのようなセッションに対してセキュリティ保証が提供されるため、同じパーティを対象としたメッセージが同じ送信先に到着することを確認することが実用的です。 また、これにより、アプリケーション メッセージにシーケンス受信確認を抱き合わせることができます。 したがって、制約 R1102、R1112、および R1113 は WCF に適用されます。
 
 `CreateSequence` メッセージの例を次に示します。
 
@@ -128,17 +128,17 @@ WCF では、WS-ReliableMessaging を使用して、イニシエーターとレ�
 
 ### <a name="closing-a-sequence"></a>シーケンスを閉じる
 
-WCF を使用して、`CloseSequence`と`CloseSequenceResponse`信頼性の高いメッセージング ソースが開始したシャット ダウンのメッセージ。 WCF の信頼できるメッセージング送信先はシャット ダウンを開始していないと、WCF の信頼性の高いメッセージの送信元が信頼できるメッセージング送信先が開始したシャット ダウンをサポートしていません。 以下の制約が適用されます。
+WCF では、`CloseSequence` メッセージと `CloseSequenceResponse` メッセージを使用して、信頼性の高いメッセージングソースによるシャットダウンを実行します。 WCF の信頼できるメッセージの送信先はシャットダウンを開始せず、WCF Reliable Messaging source は、信頼できるメッセージングの送信先が開始したシャットダウンをサポートしていません。 以下の制約が適用されます。
 
-- B1201:WCF の信頼性の高いメッセージの送信元を常に送信、`CloseSequence`メッセージ シーケンスをシャット ダウンします。
+- B1201: WCF Reliable Messaging ソースは、シーケンスをシャットダウンするために常に `CloseSequence` メッセージを送信します。
 
-- B1202:信頼性の高いメッセージの送信元が送信する前に、シーケンス メッセージの完全な範囲の確認を待機、`CloseSequence`メッセージ。
+- B1202: 信頼できるメッセージの送信元は、`CloseSequence` メッセージを送信する前に、すべてのシーケンス メッセージの受信確認を待機します。
 
-- B1203:信頼できるメッセージング ソースに常には、省略可能な`LastMsgNumber`要素シーケンスにメッセージが含まれていない場合を除き、します。
+- B1203: 信頼できるメッセージの送信元は、シーケンスにメッセージが含まれない場合を除き、常にオプションの `LastMsgNumber` 要素を含めます。
 
-- R1204:信頼性の高いメッセージの送信先を送信してシャット ダウンを開始する必要がありますいないを`CloseSequence`メッセージ。
+- R1204: 信頼できるメッセージの送信先は、`CloseSequence` メッセージを送信してシャットダウンを開始することはできません。
 
-- B1205:受信すると、`CloseSequence`メッセージ、WCF の信頼性の高いメッセージの送信元は不完全な順序を考慮し、エラーを送信します。
+- B1205: `CloseSequence` メッセージを受信すると、WCF Reliable Messaging ソースはシーケンスが未完了と見なされ、エラーが送信されます。
 
  `CloseSequence` メッセージの例を次に示します。
 
@@ -161,7 +161,7 @@ WCF を使用して、`CloseSequence`と`CloseSequenceResponse`信頼性の高�
 </s:Envelope>
 ```
 
-例`CloseSequenceResponse`メッセージ。
+`CloseSequenceResponse` メッセージの例:
 
 ```xml
 <s:Envelope>
@@ -186,15 +186,15 @@ WCF を使用して、`CloseSequence`と`CloseSequenceResponse`信頼性の高�
 
 ### <a name="sequence-termination"></a>シーケンスの終了
 
-WCF は主に使用して、`TerminateSequence/TerminateSequenceResponse`ハンドシェイクが完了した後、`CloseSequence/CloseSequenceResponse`ハンドシェイクです。 WCF の信頼できるメッセージング送信先は終了を開始していないと、信頼性の高いメッセージの送信元が信頼できるメッセージング送信先が開始終了をサポートしていません。 以下の制約が適用されます。
+WCF は、主に `CloseSequence/CloseSequenceResponse` ハンドシェイクの完了後に `TerminateSequence/TerminateSequenceResponse` ハンドシェイクを使用します。 WCF の信頼できるメッセージの送信先は、終了を開始せず、信頼できるメッセージの送信元は、信頼できるメッセージの送信先が開始した終了をサポートしていません。 以下の制約が適用されます。
 
-- B1301:WCF イニシエーターのみを送信、`TerminateSequence`メッセージが正常に完了した後、`CloseSequence/CloseSequenceResponse`ハンドシェイクです。
+- B1301: WCF イニシエーターは、`CloseSequence/CloseSequenceResponse` ハンドシェイクが正常に完了した後、`TerminateSequence` メッセージのみを送信します。
 
-- R1302:WCF の点を検証、`LastMsgNumber`要素がすべて間で一貫性のある`CloseSequence`と`TerminateSequence`特定のシーケンスのメッセージ。 つまり、`LastMsgNumber` は、すべての `CloseSequence` メッセージおよび `TerminateSequence` メッセージに存在しないか、すべての `CloseSequence` メッセージおよび `TerminateSequence` メッセージに存在し、同一であるかのいずれかです。
+- R1302: WCF は、`LastMsgNumber` 要素が、指定されたシーケンスのすべての `CloseSequence` と `TerminateSequence` メッセージ間で一貫しているかどうかを検証します。 つまり、`LastMsgNumber` は、すべての `CloseSequence` メッセージおよび `TerminateSequence` メッセージに存在しないか、すべての `CloseSequence` メッセージおよび `TerminateSequence` メッセージに存在し、同一であるかのいずれかです。
 
-- B1303:受信するときに、`TerminateSequence`メッセージの後に、`CloseSequence/CloseSequenceResponse`ハンドシェイクで応答を信頼性の高いメッセージの送信先を`TerminateSequenceResponse`メッセージ。 信頼できるメッセージの配信元は、`TerminateSequence` メッセージを送信する前に最終受信確認を受けるため、信頼できるメッセージの送信先ではシーケンスが終了したことが確実にわかり、すぐにリソースを再要求します。
+- B1303: `TerminateSequence` ハンドシェイクの後、`CloseSequence/CloseSequenceResponse` メッセージを受け取ると、信頼できるメッセージの送信先が `TerminateSequenceResponse` メッセージで応答します。 信頼できるメッセージの配信元は、`TerminateSequence` メッセージを送信する前に最終受信確認を受けるため、信頼できるメッセージの送信先ではシーケンスが終了したことが確実にわかり、すぐにリソースを再要求します。
 
-- B1304:受信するときに、`TerminateSequence`メッセージより前のバージョンを`CloseSequence/CloseSequenceResponse`ハンドシェイクで応答を WCF の信頼性の高いメッセージの送信先を`TerminateSequenceResponse`メッセージ。 信頼できるメッセージの送信先でシーケンスが一貫していると判断した場合、信頼できるメッセージの送信先は、リソースを再要求する前にアプリケーションの送信先で指定された時間待機し、クライアントが最終受信確認を受け取ることができるようにします。 それ以外の場合は、信頼できるメッセージの送信先はすぐにリソースを再要求し、`Faulted` イベントを発生させて、不明なシーケンスの終了をアプリケーションの送信先に示します。
+- B1304: `CloseSequence/CloseSequenceResponse` ハンドシェイクの前に `TerminateSequence` メッセージを受信すると、WCF の信頼できるメッセージの送信先は `TerminateSequenceResponse` メッセージで応答します。 信頼できるメッセージの送信先でシーケンスが一貫していると判断した場合、信頼できるメッセージの送信先は、リソースを再要求する前にアプリケーションの送信先で指定された時間待機し、クライアントが最終受信確認を受け取ることができるようにします。 それ以外の場合は、信頼できるメッセージの送信先はすぐにリソースを再要求し、`Faulted` イベントを発生させて、不明なシーケンスの終了をアプリケーションの送信先に示します。
 
 `TerminateSequence` メッセージの例を次に示します。
 
@@ -217,7 +217,7 @@ WCF は主に使用して、`TerminateSequence/TerminateSequenceResponse`ハン�
 </s:Envelope>
 ```
 
-例`TerminateSequenceResponse`メッセージ。
+`TerminateSequenceResponse` メッセージの例:
 
 ```xml
 <s:Envelope>
@@ -244,7 +244,7 @@ WCF は主に使用して、`TerminateSequence/TerminateSequenceResponse`ハン�
 
 シーケンスに適用される制約を以下に示します。
 
-- B1401:WCF を生成し、アクセスのシーケンス番号より`xs:long`の最大の包含値 9223372036854775807 します。
+- B1401: WCF は、`xs:long`の最大包括値9223372036854775807を超えるシーケンス番号を生成し、それにアクセスします。
 
 `Sequence` ヘッダーの例を次に示します。
 
@@ -257,7 +257,7 @@ WCF は主に使用して、`TerminateSequence/TerminateSequenceResponse`ハン�
 
 ### <a name="request-acknowledgement"></a>受信確認の要求
 
-WCF を使用して、 `AckRequested` keep-alive 機構としてヘッダー。
+WCF では、`AckRequested` ヘッダーをキープアライブメカニズムとして使用します。
 
 `AckRequested` ヘッダーの例を次に示します。
 
@@ -269,11 +269,11 @@ WCF を使用して、 `AckRequested` keep-alive 機構としてヘッダー。
 
 ### <a name="sequenceacknowledgement"></a>SequenceAcknowledgement
 
-WCF では、Ws-reliable Messaging で提供されているシーケンス受信確認の「抱き合わせ」メカニズムを使用します。 以下の制約が適用されます。
+WCF では、WS-RELIABLEMESSAGING で提供されるシーケンス受信確認に "豚" メカニズムを使用します。 以下の制約が適用されます。
 
-- R1601:使用して 2 つの逆方向シーケンスが確立されたときに、`Offer`メカニズム、`SequenceAcknowledgement`目的の受信者に送信アプリケーション メッセージ ヘッダーを含めることができます。 リモートのエンドポイントは、追加された `SequenceAcknowledgement` ヘッダーにアクセスできる必要があります。
+- R1601: `Offer` 機構を使用して2つの逆方向シーケンスを確立すると、目的の受信者に送信されるアプリケーションメッセージに `SequenceAcknowledgement` ヘッダーが含まれる場合があります。 リモートのエンドポイントは、追加された `SequenceAcknowledgement` ヘッダーにアクセスできる必要があります。
 
-- B1602:WCF は生成されません`SequenceAcknowledgement`ヘッダーが含まれている`Nack`要素。 WCF では、その各を検証`Nack`要素は、シーケンス番号が含まれていますが、それ以外の場合は無視されます、`Nack`要素と値。
+- B1602: WCF は、`Nack` 要素を含む `SequenceAcknowledgement` ヘッダーを生成しません。 WCF は、各 `Nack` 要素にシーケンス番号が含まれていることを検証しますが、それ以外の場合は `Nack` の要素と値を無視します。
 
  `SequenceAcknowledgement` ヘッダーの例を次に示します。
 
@@ -286,11 +286,11 @@ WCF では、Ws-reliable Messaging で提供されているシーケンス受信
 
 ### <a name="ws-reliablemessaging-faults"></a>WS-ReliableMessaging エラー
 
-次は、WS-ReliableMessaging エラーの WCF 実装に適用される制約の一覧です。 以下の制約が適用されます。
+次に、WS-RELIABLEMESSAGING エラーの WCF 実装に適用される制約の一覧を示します。 以下の制約が適用されます。
 
-- B1701:WCF は生成されません`MessageNumberRollover`エラー。
+- B1701: WCF は `MessageNumberRollover` エラーを生成しません。
 
-- B1702:SOAP 1.2 では、経由でサービス エンドポイントは、接続の上限に達するし、新しい接続を処理することはできません WCF が生成されます、入れ子になった`CreateSequenceRefused`エラー サブコード`netrm:ConnectionLimitReached`次の例のようにします。
+- B1702: SOAP 1.2 では、サービスエンドポイントが接続制限に達し、新しい接続を処理できない場合、WCF は、次の例に示すように、入れ子になった `CreateSequenceRefused` fault サブコード `netrm:ConnectionLimitReached`を生成します。
 
 ```xml
 <s:Envelope>
@@ -318,9 +318,9 @@ WCF では、Ws-reliable Messaging で提供されているシーケンス受信
 
 ### <a name="ws-addressing-faults"></a>WS-Addressing エラー
 
-WS-ReliableMessaging は Ws-addressing を使用しているため、WCF の WS-ReliableMessaging 実装を生成して Ws-addressing エラーを送信する可能性があります。 このセクションでは、WCF は、明示的に生成し、WS-ReliableMessaging レイヤーで送信する Ws-addressing エラーについて説明します。
+Ws-reliablemessaging では WS-ADDRESSING を使用するため、WCF の Ws-reliablemessaging 実装で WS-ADDRESSING エラーが生成され、送信されることがあります。 このセクションでは、WCF が明示的に生成し、ws-reliablemessaging 層で送信する WS-ADDRESSING エラーについて説明します。
 
-- B1801:WCF 生成し、送信、`Message Addressing Header Required`障害、次のいずれかが true の場合。
+- B1801: WCF は、次のいずれかに該当する場合に `Message Addressing Header Required` エラーを生成して送信します。
 
   - `CreateSequence`、`CloseSequence`、または `TerminateSequence` メッセージに `MessageId` ヘッダーがない。
 
@@ -328,37 +328,37 @@ WS-ReliableMessaging は Ws-addressing を使用しているため、WCF の WS-
 
   - `CreateSequenceResponse`、`CloseSequenceResponse`、または `TerminateSequenceResponse` メッセージに `RelatesTo` ヘッダーがない。
 
-- B1802:WCF 生成し、送信、`Endpoint Unavailable`をリッスンしているエンドポイントがないことを示すエラーでアドレス指定ヘッダーの検査に基づいてシーケンスを処理することができます、`CreateSequence`メッセージ。
+- B1802: WCF は、`Endpoint Unavailable` エラーを生成して送信し、`CreateSequence` メッセージのアドレス指定ヘッダーの検査に基づいて、シーケンスを処理できるエンドポイントがリッスンしていないことを示します。
 
 ## <a name="protocol-composition"></a>プロトコル コンポジション
 
 ### <a name="composition-with-ws-addressing"></a>WS-Addressing によるコンポジション
 
-WCF には、Ws-addressing の 2 つのバージョンがサポートされています。Ws-addressing 2004/08 [WS-ADDR] と W3C Ws-addressing 1.0 の推奨事項 [WS ADDR コア] と [WS ADDR SOAP]。
+WCF は、ws-addressing の2つのバージョンをサポートしています。 ws-addressing 2004/08 [WS-ADDRESSING] と W3C WS-ADDRESSING 1.0 の推奨事項 [WS-FEDERATION-CORE] と [WS-FEDERATION-SOAP]。
 
-WS-ReliableMessaging 仕様に記載されているのは、WS-Addressing 2004/08 だけですが、使用する WS-Addressing のバージョンが制限されているわけではありません。 WCF に適用される制約の一覧を次には。
+WS-ReliableMessaging 仕様に記載されているのは、WS-Addressing 2004/08 だけですが、使用する WS-Addressing のバージョンが制限されているわけではありません。 WCF に適用される制約の一覧を次に示します。
 
-- R2101:Ws-addressing 2004/08 と Ws-addressing 1.0 の両方を Ws-reliablemessaging で使用できます。
+- R2101: WS-Addressing 2004/08 と WS-Addressing 1.0 の両方を WS-ReliableMessaging で使用できます。
 
-- R2102:特定の WS-ReliableMessaging シーケンス、またはを使用して関連付けられた逆方向シーケンスのペアを 1 つのバージョンの Ws-addressing を使用する必要があります、`Offer`メカニズム。
+- R2102: 特定の WS-ReliableMessaging シーケンス、または `Offer` 機構を使用して関連付けられた逆方向シーケンスのペアでは、同じバージョンの WS-Addressing を使用する必要があります。
 
 ### <a name="composition-with-soap"></a>SOAP によるコンポジション
 
-WCF では、SOAP 1.1 と Ws-reliablemessaging で SOAP 1.2 の両方の使用をサポートします。
+WCF では、WS-TRUST Messaging で SOAP 1.1 と SOAP 1.2 の両方を使用できます。
 
 ### <a name="composition-with-ws-security-and-ws-secureconversation"></a>WS-Security と WS-SecureConversation によるコンポジション
 
-WCF は、Ws-secure Conversation をセキュリティで保護されたトランスポート (HTTPS)、Ws-security によるコンポジション、およびコンポジションを使用して、WS-ReliableMessaging シーケンスを保護を提供します。 WS-ReliableMessaging 1.1 プロトコル、WS-Security 1.1、および WS-Secure Conversation 1.3 プロトコルは一緒に使う必要があります。 WCF に適用される制約の一覧を次には。
+WCF は、セキュリティで保護されたトランスポート (HTTPS)、WS-SECURITY によるコンポジション、および WS-SECURITY によるメッセージ交換を使用した構成を使用して、ws-reliablemessaging シーケンスを保護します。 WS-ReliableMessaging 1.1 プロトコル、WS-Security 1.1、および WS-Secure Conversation 1.3 プロトコルは一緒に使う必要があります。 WCF に適用される制約の一覧を次に示します。
 
-- R2301:WCF では、個々 のメッセージの整合性だけでなく、WS-ReliableMessaging シーケンスの整合性と機密性を保護するには、Ws-secure Conversation を使用する必要がある必要があります。
+- R2301: 個々のメッセージの整合性と機密性だけでなく、ws-reliablemessaging シーケンスの整合性を保護するために、WCF では、WS-SECURITY メッセージ交換を使用する必要があります。
 
-- R2302:AWS-WS-ReliableMessaging シーケンスを確立する前にメッセージ交換をセキュリティで保護されたセッションを確立する必要があります。
+- R2302:WS-ReliableMessaging シーケンスを確立する前に、WS-SecureConversation セッションを確立する必要があります。
 
-- R2303:WS-ReliableMessaging シーケンスの有効期間がセッションの有効期間、Ws-secure Conversation を超えた場合、 `SecurityContextToken` Ws-secure Conversation は、対応する Ws-secure Conversation の更新のバインドを使用して更新する必要がありますを使用して確立されます。
+- R2303: WS-ReliableMessaging シーケンスの有効期間が WS-SecureConversation セッションの有効期間よりも長い場合は、対応する WS-SecureConversation Renewal バインディングを使用して、WS-SecureConversation によって確立された `SecurityContextToken` を更新する必要があります。
 
-- B2304:WS-ReliableMessaging シーケンスまたは相関する逆方向シーケンスのペアは、常に 1 つが Ws-secureconversation セッションにバインドします。
+- B2304:WS-ReliableMessaging シーケンスまたは相関する逆方向シーケンスのペアは、必ず同じ WS-SecureConversation セッションにバインドされます。
 
-- R2305:WCF 応答側がある必要がありますで Ws-secure Conversation で構成されているときに、`CreateSequence`メッセージが含まれて、`wsse:SecurityTokenReference`要素と`wsrm:UsesSequenceSTR`ヘッダー。
+- R2305: セキュリティで保護されたメッセージ交換で構成されている場合、WCF レスポンダーでは、`CreateSequence` メッセージに `wsse:SecurityTokenReference` 要素と `wsrm:UsesSequenceSTR` ヘッダーが含まれている必要があります。
 
  `UsesSequenceSTR` ヘッダーの例を次に示します。
 
@@ -368,33 +368,33 @@ WCF は、Ws-secure Conversation をセキュリティで保護されたトラ�
 
 ### <a name="composition-with-ssltls-sessions"></a>SSL/TLS セッションによるコンポジション
 
-WCF は、SSL/TLS セッションによるコンポジションをサポートしていません。
+WCF では、SSL/TLS セッションを使用した構成はサポートされません。
 
-- B2401:WCF は生成されません、`wsrm:UsesSequenceSSL`ヘッダー。
+- B2401: WCF は `wsrm:UsesSequenceSSL` ヘッダーを生成しません。
 
-- R2402:信頼性の高いメッセージングの発信側が送信する必要があります、`CreateSequence`メッセージである、 `wsrm:UsesSequenceSSL` WCF レスポンダーにヘッダー。
+- R2402: 信頼できるメッセージングイニシエーターは、`wsrm:UsesSequenceSSL` ヘッダーを持つ `CreateSequence` メッセージを WCF レスポンダーに送信することはできません。
 
 ### <a name="composition-with-ws-policy"></a>WS-Policy によるコンポジション
 
-WCF には、Ws-policy の 2 つのバージョンがサポートされています。Ws-policy 1.2 および Ws-policy 1.5 の場合は。
+WCF では、ws-policy 1.2 と WS-POLICY 1.5 の2つのバージョンがサポートされています。
 
 ## <a name="ws-reliablemessaging-ws-policy-assertion"></a>WS-ReliableMessaging の WS-Policy アサーション
 
-WS-ReliableMessaging の Ws-policy アサーションを使用する WCF`wsrm:RMAssertion`エンドポイントの機能を記述します。 WCF に適用される制約の一覧を次には。
+WCF では、ws-reliablemessaging の ws-policy アサーション `wsrm:RMAssertion` を使用して、エンドポイントの機能を記述します。 WCF に適用される制約の一覧を次に示します。
 
-- B3001:WCF のアタッチ`wsrmn:RMAssertion`Ws-policy アサーションを`wsdl:binding`要素。 WCF では、両方の添付ファイルを`wsdl:binding`と`wsdl:port`要素。
+- B3001: WCF `wsrmn:RMAssertion` WS-POLICY アサーションを `wsdl:binding` の要素にアタッチします。 WCF では、`wsdl:binding` の添付ファイルと `wsdl:port` 要素の両方がサポートされています。
 
-- B3002:WCF では生成されません、`wsp:Optional`タグ。
+- B3002: WCF は `wsp:Optional` タグを生成しません。
 
-- B3003:アクセスするとき、 `wsrmp:RMAssertion` Ws-policy アサーションでは、WCF は無視されます、`wsp:Optional`タグ付けし、WS-RM ポリシーを必須として扱われます。
+- B3003: WS-POLICY アサーション `wsrmp:RMAssertion` アクセスすると、WCF は `wsp:Optional` タグを無視し、WS-FEDERATION ポリシーを必須として扱います。
 
-- R3004:WCF を指定するポリシーを受け付けません WCF は、SSL/TLS セッションでは構成できません、ため`wsrmp:SequenceTransportSecurity`します。
+- R3004: WCF は SSL/TLS セッションで構成されないため、WCF は `wsrmp:SequenceTransportSecurity`を指定するポリシーを受け入れません。
 
-- B3005:WCF は常に生成、`wsrmp:DeliveryAssurance`要素。
+- B3005: WCF は常に `wsrmp:DeliveryAssurance` 要素を生成します。
 
-- B3006:WCF は常を指定します、`wsrmp:ExactlyOnce`配信が保証されます。
+- B3006: WCF は常に `wsrmp:ExactlyOnce` 配信保証を指定します。
 
-- B3007:WCF が生成されます、WS-ReliableMessaging アサーションの以下のプロパティを読み取るし、WCF の上にコントロールを提供します`ReliableSessionBindingElement`:。
+- B3007: WCF は、ws-reliablemessaging アサーションの次のプロパティを生成して読み取り、WCF`ReliableSessionBindingElement`でそれらを制御します。
 
   - `netrmp:InactivityTimeout`
 
@@ -420,11 +420,11 @@ WS-ReliableMessaging の Ws-policy アサーションを使用する WCF`wsrm:RM
 
 ## <a name="flow-control-ws-reliablemessaging-extension"></a>WS-ReliableMessaging のフロー制御拡張
 
-WCF では、WS-ReliableMessaging の機能拡張を使用して、シーケンス メッセージ フローを省略可能なさらに厳密な制御を提供します。
+WCF では、ws-reliablemessaging 拡張機能を使用して、シーケンスメッセージフローに対してさらに厳密な制御を提供します。
 
-フロー制御が有効になって、<xref:System.ServiceModel.Channels.ReliableSessionBindingElement.FlowControlEnabled?displayProperty=nameWithType>プロパティを`true`します。 WCF に適用される制約の一覧を次には。
+フロー制御を有効にするには、<xref:System.ServiceModel.Channels.ReliableSessionBindingElement.FlowControlEnabled?displayProperty=nameWithType> プロパティを `true`に設定します。 WCF に適用される制約の一覧を次に示します。
 
-- B4001:信頼できるメッセージング フロー制御を有効にすると、WCF が生成されます、`netrm:BufferRemaining`内の要素拡張の要素、`SequenceAcknowledgement`ヘッダー、次の例に示すようにします。
+- B4001: 信頼できるメッセージングフロー制御が有効になっている場合、WCF は、次の例に示すように、`SequenceAcknowledgement` ヘッダーの要素拡張に `netrm:BufferRemaining` 要素を生成します。
 
   ```xml
   <wsrm:SequenceAcknowledgement>
@@ -434,136 +434,136 @@ WCF では、WS-ReliableMessaging の機能拡張を使用して、シーケン�
   </wsrm:SequenceAcknowledgement>
   ```
 
-- B4002:信頼できるメッセージング フロー制御が有効になっている場合でも、WCF は必要ありません、`netrm:BufferRemaining`内の要素、`SequenceAcknowledgement`ヘッダー。
+- B4002: 信頼できるメッセージングフロー制御が有効になっている場合でも、WCF では `SequenceAcknowledgement` ヘッダーに `netrm:BufferRemaining` 要素は必要ありません。
 
-- B4003:信頼できるメッセージング送信先の WCF を使用して`netrm:BufferRemaining`を新しいメッセージの数にする方法を示すために入れることができます。
+- B4003: WCF Reliable Messaging Destination は `netrm:BufferRemaining` を使用して、バッファーできる新しいメッセージの数を示します。
 
-- B4004:When 信頼できるメッセージング フロー制御が有効になっているの値を使用する WCF の信頼性の高いメッセージング ソース`netrm:BufferRemaining`スロットル メッセージを転送します。
+- B4004: 信頼できるメッセージングフロー制御を有効にすると、WCF Reliable Messaging Source は `netrm:BufferRemaining` の値を使用してメッセージ転送を調整します。
 
-- B4005:WCF が生成されます`netrm:BufferRemaining`整数 0 ~ 4096 の範囲、範囲の値し、0 までの整数値を読み取ると`xs:int`の`maxInclusive`214748364 の値します。
+- B4005: WCF では、0 ~ 4096 の整数値 `netrm:BufferRemaining` 生成され、0 ~ `xs:int`の `maxInclusive` 値214748364を含む整数値が読み取られます。
 
 ## <a name="message-exchange-patterns"></a>メッセージ交換パターン
 
-このセクションでは、WS-ReliableMessaging をさまざまなメッセージ交換パターンを使用する場合、WCF の動作が説明します。 各メッセージ交換パターンについて、次の 2 つの展開シナリオを考えます。
+このセクションでは、ws-reliablemessaging をさまざまなメッセージ交換パターンに使用する場合の WCF の動作について説明します。 各メッセージ交換パターンについて、次の 2 つの展開シナリオを考えます。
 
-- アドレス不可能なイニシエーター:イニシエーターが; ファイアウォールの背後にはレスポンダーは、HTTP 応答でのみイニシエーターにメッセージを配信できます。
+- アドレス不可能なイニシエーター : イニシエーターはファイアウォールの内側にあります。レスポンダーは HTTP 応答でのみイニシエーターにメッセージを配信できます。
 
-- アドレス指定可能なイニシエーター:イニシエーターおよびレスポンダーは HTTP 要求を送信します。つまり、2 つの逆方向の HTTP 接続を確立できます。
+- アドレス可能なイニシエーター : イニシエーターとレスポンダーの両方に HTTP 要求を送信できます。つまり、逆方向の 2 つの HTTP 接続を確立できます。
 
 ### <a name="one-way-non-addressable-initiator"></a>一方向 : アドレス不可能なイニシエーター
 
-#### <a name="binding"></a>バインディング
+#### <a name="binding"></a>バインド
 
-WCF には、1 つの HTTP チャネル経由で 1 つのシーケンスを使用して、一方向メッセージ交換パターンが用意されています。 WCF では、HTTP 要求を使用してレスポンダーからイニシエーターにすべてのメッセージを送信する応答側および HTTP 応答に、発信側からのすべてメッセージを送信します。
+WCF は、1つの HTTP チャネルで1つのシーケンスを使用して、一方向のメッセージ交換パターンを提供します。 WCF は、HTTP 要求を使用して、発信側から応答側にすべてのメッセージを送信し、応答側から発信側にすべてのメッセージを送信します。
 
 #### <a name="createsequence-exchange"></a>CreateSequence の交換
 
-WCF 発信側が送信を`CreateSequence`なしでメッセージ`Offer`要素は、HTTP 要求で想定されている、 `CreateSequenceResponse` HTTP 応答でメッセージ。 WCF 応答側はシーケンスを作成し、送信、`CreateSequenceResponse`のないメッセージ`Accept`HTTP 応答での要素。
+WCF イニシエーターは、HTTP 要求に `Offer` 要素のない `CreateSequence` メッセージを転送し、HTTP 応答に `CreateSequenceResponse` メッセージを要求します。 WCF レスポンダーは、シーケンスを作成し、HTTP 応答に `Accept` 要素を持たない `CreateSequenceResponse` メッセージを転送します。
 
 #### <a name="sequenceacknowledgement"></a>SequenceAcknowledgement
 
-WCF のイニシエーターを除くすべてのメッセージの返信の受信確認の処理、`CreateSequence`メッセージとエラー メッセージ。 WCF 応答側が常にすべてのシーケンスに、HTTP 応答でスタンドアロンの受信確認を送信し、`AckRequested`メッセージ。
+WCF イニシエーターは、`CreateSequence` メッセージとエラーメッセージを除くすべてのメッセージの応答に対する受信確認を処理します。 WCF レスポンダーは、すべてのシーケンスメッセージと `AckRequested` メッセージに対して、HTTP 応答に対してスタンドアロンの受信確認を常に転送します。
 
 #### <a name="closesequence-exchange"></a>CloseSequence の交換
 
-WCF の発信側の送信、 `CloseSequence` 、HTTP 要求でメッセージ、 `CreateSequenceResponse` HTTP 応答でメッセージ。 WCF 応答側の送信、`CloseSequenceResponse`で HTTP 応答メッセージ。
+WCF イニシエーターは、HTTP 要求で `CloseSequence` メッセージを送信し、HTTP 応答で `CreateSequenceResponse` メッセージを想定します。 WCF レスポンダーは、HTTP 応答で `CloseSequenceResponse` メッセージを送信します。
 
 #### <a name="terminatesequence-exchange"></a>TerminateSequence の交換
 
-WCF の発信側の送信、 `TerminateSequence` 、HTTP 要求でメッセージ、 `TerminateSequenceResponse` HTTP 応答でメッセージ。 WCF 応答側の送信、`TerminateSequenceResponse`で HTTP 応答メッセージ。
+WCF イニシエーターは、HTTP 要求で `TerminateSequence` メッセージを送信し、HTTP 応答で `TerminateSequenceResponse` メッセージを想定します。 WCF レスポンダーは、HTTP 応答で `TerminateSequenceResponse` メッセージを送信します。
 
 ### <a name="one-way-addressable-initiator"></a>一方向 : アドレス可能なイニシエーター
 
-#### <a name="binding"></a>バインディング
+#### <a name="binding"></a>バインド
 
-WCF は、1 つに 1 つのシーケンスを使用して一方向メッセージ交換パターンを提供します。 受信と送信の 1 つの HTTP チャネル。 WCF では、HTTP 要求を使用して、すべてのメッセージを送信します。 すべての HTTP 応答に、空の本文と HTTP 202 ステータス コードが含まれます。
+WCF では、1つの受信と送信の HTTP チャネルを1つのシーケンスを使用して、一方向のメッセージ交換パターンを提供します。 WCF は、HTTP 要求を使用してすべてのメッセージを送信します。 すべての HTTP 応答に、空の本文と HTTP 202 ステータス コードが含まれます。
 
 #### <a name="createsequence-exchange"></a>CreateSequence の交換
 
-WCF の発信側が送信を`CreateSequence`メッセージなしで`Offer`HTTP 要求での要素。 WCF 応答側はシーケンスを作成し、送信、`CreateSequenceResponse`メッセージなしで`Accept`HTTP 要求での要素。
+WCF イニシエーターは、HTTP 要求に `Offer` 要素のない `CreateSequence` メッセージを送信します。 WCF レスポンダーは、シーケンスを作成し、HTTP 要求に `Accept` 要素を持たない `CreateSequenceResponse` メッセージを送信します。
 
 ### <a name="duplex-addressable-initiator"></a>双方向 : アドレス可能なイニシエーター
 
-#### <a name="binding"></a>バインディング
+#### <a name="binding"></a>バインド
 
-WCF では、2 つを使用して、完全に非同期の双方向メッセージ交換パターンをシーケンス 1 つ以上用意されています受信と送信の 1 つの HTTP チャネル。 このメッセージ交換パターンは、限定された方法で `Request/Reply`、`Addressable` イニシエーター メッセージ交換パターンに組み込むことができます。 WCF では、HTTP 要求を使用して、すべてのメッセージを送信します。 すべての HTTP 応答に、空の本文と HTTP 202 ステータス コードが含まれます。
+WCF は、1つの受信と1つの送信 HTTP チャネルに対して2つのシーケンスを使用して、完全に非同期の双方向メッセージ交換パターンを提供します。 このメッセージ交換パターンは、限定された方法で `Request/Reply`、`Addressable` イニシエーター メッセージ交換パターンに組み込むことができます。 WCF では、HTTP 要求を使用してすべてのメッセージを送信します。 すべての HTTP 応答に、空の本文と HTTP 202 ステータス コードが含まれます。
 
 #### <a name="createsequence-exchange"></a>CreateSequence の交換
 
-WCF の発信側が送信を`CreateSequence`メッセージである、 `Offer` HTTP 要求での要素。 WCF 応答側により、`CreateSequence`が、`Offer`要素: シーケンスを作成し、送信、`CreateSequenceResponse`メッセージである、`Accept`要素。
+WCF イニシエーターは、HTTP 要求で `Offer` 要素を使用して `CreateSequence` メッセージを送信します。 WCF レスポンダーは、`CreateSequence` が `Offer` 要素を持つことを保証し、シーケンスを作成し、`Accept` 要素を使用して `CreateSequenceResponse` メッセージを送信します。
 
 #### <a name="sequence-lifetime"></a>シーケンスの有効期間
 
-2 つのシーケンスは、WCF は、1 つの完全な双方向セッションとして扱います。
+WCF では、2つのシーケンスが1つの完全な二重セッションとして扱われます。
 
-1 つのシーケンスをフォールトするエラーを生成すると WCF には、両方のシーケンスをフォールトするリモート エンドポイントが必要です。 WCF の障害を 1 つのシーケンスをフォールトするエラーを読んだときに両方のシーケンスします。
+1つのシーケンスに障害が発生したエラーが生成されると、WCF は、リモートエンドポイントが両方のシーケンスをフォールトすることを想定しています。 1つのシーケンスで障害が発生したエラーを読み取ると、WCF は両方のシーケンスをエラーにします。
 
-WCF は、送信シーケンスを閉じるし、受信シーケンスでのメッセージの処理を続行することができます。 逆に、WCF は、受信シーケンスの終了を処理して、送信シーケンスでメッセージを送信し続けます。
+WCF は、その送信シーケンスを終了し、受信シーケンスでメッセージを処理し続けることができます。 逆に、WCF では、受信シーケンスの終了を処理し、送信シーケンスでメッセージを送信し続けることができます。
 
 ### <a name="request-reply-and-one-way-non-addressable-initiator"></a>要求/応答および一方向のアドレス不可能なイニシエーター
 
-#### <a name="binding"></a>バインディング
+#### <a name="binding"></a>バインド
 
-WCF は、一方向と、要求/応答メッセージ交換のパターンを使用して 2 つのシーケンスの 1 つの HTTP チャネル。 WCF では、HTTP 要求を使用してレスポンダーからイニシエーターにすべてのメッセージを送信する応答側および HTTP 応答に、発信側からのすべてメッセージを送信します。
+WCF は、1つの HTTP チャネルで2つのシーケンスを使用して、一方向および要求/応答メッセージ交換パターンを提供します。 WCF は、HTTP 要求を使用して、発信側から応答側にすべてのメッセージを送信し、応答側から発信側にすべてのメッセージを送信します。
 
 #### <a name="createsequence-exchange"></a>CreateSequence の交換
 
-WCF の発信側が送信、`CreateSequence`メッセージである、 `Offer` 、HTTP 要求で要素が必要ですが、 `CreateSequenceResponse` HTTP 応答でメッセージ。 WCF 応答側はシーケンスを作成し、送信、`CreateSequenceResponse`メッセージである、 `Accept` HTTP 応答での要素。
+WCF イニシエーターは、HTTP 要求で `Offer` 要素を持つ `CreateSequence` メッセージを転送し、HTTP 応答に `CreateSequenceResponse` メッセージを要求します。 WCF レスポンダーは、シーケンスを作成し、HTTP 応答で `Accept` 要素を使用して `CreateSequenceResponse` メッセージを転送します。
 
 #### <a name="one-way-message"></a>一方向のメッセージ
 
-一方向メッセージ交換を正常に完了するには、WCF のイニシエーターは HTTP 要求で要求シーケンス メッセージ送信し、スタンドアロンの受信`SequenceAcknowledgement`で HTTP 応答メッセージ。 `SequenceAcknowledgement` は、送信されたメッセージの受信確認を行う必要があります。
+一方向メッセージ交換を正常に完了するために、WCF イニシエーターは HTTP 要求で要求シーケンスメッセージを送信し、HTTP 応答でスタンドアロンの `SequenceAcknowledgement` メッセージを受信します。 `SequenceAcknowledgement` は、送信されたメッセージの受信確認を行う必要があります。
 
-WCF 応答側は、受信確認、エラー、または空の本文と HTTP 202 ステータス コードを含む応答で要求に返信があります。
+WCF レスポンダーは、受信確認、エラー、または空の本文と HTTP 202 状態コードを持つ応答で要求に応答できます。
 
 #### <a name="two-way-messages"></a>双方向のメッセージ
 
-双方向のメッセージ交換プロトコルを正常に完了するは、WCF イニシエーターは、HTTP 要求で要求シーケンス メッセージを送信し、HTTP 応答で応答シーケンス メッセージを受信します。 応答では、送信された要求シーケンス メッセージの受信確認を行う `SequenceAcknowledgement` を送信する必要があります。
+双方向メッセージ交換プロトコルを正常に完了するために、WCF イニシエーターは HTTP 要求で要求シーケンスメッセージを送信し、HTTP 応答で応答シーケンスメッセージを受信します。 応答では、送信された要求シーケンス メッセージの受信確認を行う `SequenceAcknowledgement` を送信する必要があります。
 
-WCF 応答側は、アプリケーション応答、エラー、または空の本文と HTTP 202 ステータス コードを含む応答で要求に返信があります。
+WCF レスポンダーは、アプリケーション応答、エラー、または空の本文と HTTP 202 状態コードを持つ応答で要求に応答できます。
 
 一方向のメッセージが存在することと、アプリケーション応答のタイミングもあるため、要求シーケンス メッセージのシーケンス番号と応答メッセージのシーケンス番号には相関関係はありません。
 
 #### <a name="retrying-replies"></a>応答の再試行
 
-WCF は、双方向メッセージ交換プロトコルの相関関係の HTTP 要求-応答の相関関係に依存します。 このため、WCF のイニシエーターは、停止されませんが、要求シーケンス メッセージが受信確認されるときに、要求シーケンス メッセージの再試行ではなく HTTP 応答を実行すると、 `SequenceAcknowledgement`、アプリケーション応答、またはエラー。 WCF 応答側は、応答が関連付けられている要求の HTTP 応答で応答を再試行します。
+WCF は、双方向のメッセージ交換プロトコルの相関関係について、HTTP 要求/応答の相関関係に依存します。 このため、要求シーケンスメッセージが受信確認されたときに、HTTP 応答に `SequenceAcknowledgement`、アプリケーション応答、またはエラーが含まれる場合、WCF イニシエーターは要求シーケンスメッセージの再試行を停止しません。 WCF レスポンダーは、応答が関連付けられている要求の HTTP 応答で応答を再試行します。
 
 #### <a name="closesequence-exchange"></a>CloseSequence の交換
 
-WCF のイニシエーターを送信するすべての応答シーケンス メッセージおよび一方向の要求シーケンスのすべてのメッセージに対する受信確認を受信した後、 `CloseSequence` 、HTTP 要求で要求シーケンス メッセージ、 `CloseSequenceResponse` HTTP 応答でします。
+WCF イニシエーターは、すべての一方向の要求シーケンスメッセージのすべての応答シーケンスメッセージと受信確認を受信した後、HTTP 要求で要求シーケンスの `CloseSequence` メッセージを転送し、HTTP 応答で `CloseSequenceResponse` を想定します。
 
-要求シーケンスを終了すると、暗黙的に応答シーケンスが終了します。 WCF イニシエーターには、応答シーケンスの最後が含まれています。 つまり`SequenceAcknowledgement`上、`CloseSequence`メッセージと応答シーケンスがない、 `CloseSequence` exchange。
+要求シーケンスを終了すると、暗黙的に応答シーケンスが終了します。 これは、WCF イニシエーターが `CloseSequence` メッセージに応答シーケンスの最終 `SequenceAcknowledgement` を含め、応答シーケンスに `CloseSequence` 交換がないことを意味します。
 
-WCF 応答側により、すべての返信は、受信確認し、送信、`CloseSequenceResponse`で HTTP 応答メッセージ。
+WCF レスポンダーは、すべての応答が確認され、HTTP 応答で `CloseSequenceResponse` メッセージを送信することを保証します。
 
 #### <a name="terminatesequence-exchange"></a>TerminateSequence の交換
 
-受信した後、`CloseSequenceResponse`メッセージ、WCF の発信側の送信、 `TerminateSequence` 、HTTP 要求で要求シーケンス メッセージ、 `TerminateSequenceResponse` HTTP 応答でします。
+`CloseSequenceResponse` メッセージを受信すると、WCF イニシエーターは HTTP 要求で要求シーケンスの `TerminateSequence` メッセージを送信し、HTTP 応答に `TerminateSequenceResponse` を要求します。
 
-`CloseSequence` 交換と同じように、要求シーケンスを終了すると、暗黙的に応答シーケンスが終了します。 WCF イニシエーターには、応答シーケンスの最後が含まれています。 つまり`SequenceAcknowledgement`上、`TerminateSequence`メッセージと応答シーケンスがない、 `TerminateSequence` exchange。
+`CloseSequence` 交換と同じように、要求シーケンスを終了すると、暗黙的に応答シーケンスが終了します。 これは、WCF イニシエーターが `TerminateSequence` メッセージに応答シーケンスの最終 `SequenceAcknowledgement` を含め、応答シーケンスに `TerminateSequence` 交換がないことを意味します。
 
-WCF 応答側の送信、`TerminateSequenceResponse`で HTTP 応答メッセージ。
+WCF レスポンダーは、HTTP 応答で `TerminateSequenceResponse` メッセージを送信します。
 
 ### <a name="requestreply-addressable-initiator"></a>要求/応答 : アドレス可能なイニシエーター
 
-#### <a name="binding"></a>バインディング
+#### <a name="binding"></a>バインド
 
-WCF は、要求/応答メッセージ交換パターンを使用して 2 つのシーケンスの 1 つ以上受信と送信の 1 つの HTTP チャネル。 このメッセージ交換パターンは、限定された方法で `Duplex, Addressable` イニシエーター メッセージ交換パターンに組み込むことができます。 WCF では、HTTP 要求を使用して、すべてのメッセージを送信します。 すべての HTTP 応答に、空の本文と HTTP 202 ステータス コードが含まれます。
+WCF は、1つの受信および1つの送信 HTTP チャネルに対して2つのシーケンスを使用して、要求/応答メッセージ交換パターンを提供します。 このメッセージ交換パターンは、限定された方法で `Duplex, Addressable` イニシエーター メッセージ交換パターンに組み込むことができます。 WCF は、HTTP 要求を使用してすべてのメッセージを送信します。 すべての HTTP 応答に、空の本文と HTTP 202 ステータス コードが含まれます。
 
 #### <a name="createsequence-exchange"></a>CreateSequence の交換
 
-WCF の発信側が送信を`CreateSequence`メッセージである、 `Offer` HTTP 要求での要素。 WCF 応答側により、`CreateSequence`が、`Offer`要素: シーケンスを作成し、送信、`CreateSequenceResponse`メッセージである、`Accept`要素。
+WCF イニシエーターは、HTTP 要求で `Offer` 要素を使用して `CreateSequence` メッセージを送信します。 WCF レスポンダーは、`CreateSequence` に `Offer` 要素があることを確認し、シーケンスを作成し、`Accept` 要素を使用して `CreateSequenceResponse` メッセージを送信します。
 
 #### <a name="requestreply-correlation"></a>要求/応答の相関関係
 
 次の状況は、すべての相関関係にある要求/応答で発生します。
 
-- WCF により、すべてのアプリケーション要求メッセージの熊、`ReplyTo`エンドポイント参照と`MessageId`します。
+- WCF では、すべてのアプリケーション要求メッセージに `ReplyTo` エンドポイント参照と `MessageId`が確実に適用されます。
 
-- WCF では、各アプリケーション要求メッセージのとしてローカル エンドポイント参照を適用`ReplyTo`します。 ローカル エンドポイント参照は、イニシエーターの `CreateSequence` メッセージの `ReplyTo` であり、レスポンダーの `CreateSequence` メッセージの `To` です。
+- WCF は、各アプリケーション要求メッセージの `ReplyTo`としてローカルエンドポイント参照を適用します。 ローカル エンドポイント参照は、イニシエーターの `CreateSequence` メッセージの `ReplyTo` であり、レスポンダーの `CreateSequence` メッセージの `To` です。
 
-- WCF により、その着信要求メッセージの熊、`MessageId`と`ReplyTo`します。
+- WCF では、受信要求メッセージに `MessageId` と `ReplyTo`が確実に保持されます。
 
-- WCF により、`ReplyTo`に定義されているすべてのアプリケーション要求メッセージのエンドポイント参照の URI がローカル エンドポイント参照に一致します。
+- WCF は、すべてのアプリケーション要求メッセージの `ReplyTo` エンドポイント参照の URI が、前に定義したローカルエンドポイント参照と一致することを保証します。
 
-- WCF では、すべての応答が正しい負うことにより、`RelatesTo`と`To`に従ってヘッダー`wsa`要求/応答の相関ルール。
+- WCF では、すべての応答に、`wsa` 要求/応答の相関関係規則に従って、正しい `RelatesTo` と `To` ヘッダーが確実に適用されます。

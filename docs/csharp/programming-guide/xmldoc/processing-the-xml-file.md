@@ -1,25 +1,24 @@
 ---
 title: XML ファイルの処理 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - XML processing [C#]
 - XML [C#], processing
 ms.assetid: 60c71193-9dac-4cd3-98c5-100bd0edcc42
-ms.openlocfilehash: bb713fbc5ddd3737cb629c5c09c25ff2980c73dc
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: bc72cade9ce6edddb88d741a3424405bba0a7ad8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72523379"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "76793391"
 ---
 # <a name="processing-the-xml-file-c-programming-guide"></a>XML ファイルの処理 (C# プログラミング ガイド)
 
 コンパイラは、ドキュメントを生成するためにタグ付けされたコードのコンストラクトごとに、ID 文字列を生成します。 (コードをタグ付けする方法については、[ドキュメント コメント用の推奨タグ](./recommended-tags-for-documentation-comments.md)に関するページを参照してください。)ID 文字列によって、コンストラクトは一意に識別されます。 XML ファイルを処理するプログラムは、ID 文字列を使用して、対応する .NET Framework のメタデータまたはドキュメントを適用するリフレクション項目を識別できます。
 
- XML ファイルは、コードの階層表現ではなく、要素ごとに生成された ID のフラット リストです。
+XML ファイルは、コードの階層表現ではなく、要素ごとに生成された ID のフラット リストです。
 
- コンパイラは、次の規則に基づいて ID 文字列を生成します。
+コンパイラは、次の規則に基づいて ID 文字列を生成します。
 
 - 文字列に空白文字は含まれません。
 
@@ -28,7 +27,7 @@ ms.locfileid: "72523379"
     |文字|説明|
     |---------------|-----------------|
     |N|名前空間<br /><br /> ドキュメント コメントを名前空間に追加することはできませんが、名前空間への cref 参照を行うことはできます (サポートされている場合)。|
-    |T|型: クラス、インターフェイス、構造体、列挙、デリゲート|
+    |T|型: クラス、インターフェイス、構造体、列挙型、またはデリゲート|
     |F|フィールド|
     |P|プロパティ (インデクサーまたはその他のインデックス付きプロパティを含む)|
     |M|メソッド (コンストラクター、演算子などの特殊なメソッドを含む)|
@@ -41,7 +40,7 @@ ms.locfileid: "72523379"
 
   - 基本データ型。 通常の型 (ELEMENT_TYPE_CLASS または ELEMENT_TYPE_VALUETYPE) は、型の完全修飾名で表されます。
 
-  - 組み込みの型 (たとえば、ELEMENT_TYPE_I4、ELEMENT_TYPE_OBJECT、ELEMENT_TYPE_STRING、ELEMENT_TYPE_TYPEDBYREF や、 ELEMENT_TYPE_VOID) は、対応する完全な型の完全修飾名として表されます。 たとえば、System.Int32 や System.TypedReference です。
+  - (ELEMENT_TYPE_I4、ELEMENT_TYPE_OBJECT、ELEMENT_TYPE_STRING、ELEMENT_TYPE_TYPEDBYREF、および ELEMENT_TYPE_VOID などの) 組み込み型は、対応する完全な型の完全修飾名で表されます。 たとえば、System.Int32 や System.TypedReference です。
 
   - ELEMENT_TYPE_PTR は、修飾される型に続けて '\*' と表されます。
 

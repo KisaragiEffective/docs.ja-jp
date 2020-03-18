@@ -1,6 +1,5 @@
 ---
 title: override 修飾子 - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - override
@@ -8,12 +7,12 @@ f1_keywords:
 helpviewer_keywords:
 - override keyword [C#]
 ms.assetid: dd1907a8-acf8-46d3-80b9-c2ca4febada8
-ms.openlocfilehash: bbdbcaf466e0b4dca4b78902ca9e7a49b02ac718
-ms.sourcegitcommit: 093571de904fc7979e85ef3c048547d0accb1d8a
+ms.openlocfilehash: acad3aa3b196c184132ad1acdf52b18a799b0896
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70394232"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75713249"
 ---
 # <a name="override-c-reference"></a>override (C# リファレンス)
 
@@ -31,7 +30,7 @@ ms.locfileid: "70394232"
 
 `override` 宣言は、`virtual` メソッドのアクセシビリティを変更できません。 `override` メソッドと `virtual` メソッドの両方に、同じ[アクセス レベル修飾子](access-modifiers.md)が必要です。
 
-`override` メソッドの修飾に、修飾子 `new`、`static`、または `virtual` は使用できません。
+`new` メソッドの修飾に、修飾子 `static`、`virtual`、または `override` は使用できません。
 
 オーバーライドするプロパティの宣言では、継承されるプロパティとまったく同じアクセス修飾子、型、および名前を指定する必要があります。オーバーライドされるプロパティは、`virtual`、`abstract`、または `override` である必要があります。
 
@@ -47,13 +46,13 @@ ms.locfileid: "70394232"
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [継承](../../programming-guide/classes-and-structs/inheritance.md)
 - [C# のキーワード](index.md)
-- [修飾子](modifiers.md)
+- [修飾子](index.md)
 - [abstract](abstract.md)
 - [virtual](virtual.md)
 - [new (修飾子)](new-modifier.md)

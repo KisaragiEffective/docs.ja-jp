@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 78232e6f-ae18-4cfa-a6cd-e79471cf9d76
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1201ac0dca9cbd48c24b2621eba079ae672fd310
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: f2c881603cfa0e4b3d2dc8d1e996631b51d1e850
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737843"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73134715"
 ---
 # <a name="icordebugappdomaingetobject-method"></a>ICorDebugAppDomain::GetObject メソッド
-共通言語ランタイム (CLR) のアプリケーション ドメインにインターフェイス ポインターを取得します。  
+共通言語ランタイム (CLR) アプリケーションドメインへのインターフェイスポインターを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,16 +35,16 @@ HRESULT GetObject (
   
 ## <a name="parameters"></a>パラメーター  
  `ppObject`  
- [out]CLR のアプリケーション ドメインを表す ICorDebugValue インターフェイス オブジェクトのアドレスへのポインター。  
+ 入出力CLR アプリケーションドメインを表す ICorDebugValue インターフェイスオブジェクトのアドレスへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- マネージ場合<xref:System.AppDomain?displayProperty=nameWithType>このアプリケーション ドメインのオブジェクトが作成されていないメソッドを返します`S_FALSE`配置`NULL`で`*ppObject`します。  
+ このアプリケーションドメインに対してマネージ <xref:System.AppDomain?displayProperty=nameWithType> オブジェクトが構築されていない場合、メソッドは `S_FALSE` を返し、`NULL` を `*ppObject`に配置します。  
   
 ## <a name="remarks"></a>Remarks  
- マネージ プロセス内の各アプリケーション ドメインがあります<xref:System.AppDomain?displayProperty=nameWithType>それを表す、ランタイム内のオブジェクト。 この関数は、この管理に対応する ICorDebugValue インターフェイス オブジェクトを取得します<xref:System.AppDomain?displayProperty=nameWithType>オブジェクト。  
+ プロセス内の各アプリケーションドメインは、それを表すランタイムにマネージ <xref:System.AppDomain?displayProperty=nameWithType> オブジェクトを持つことができます。 この関数は、このマネージ <xref:System.AppDomain?displayProperty=nameWithType> オブジェクトに対応する ICorDebugValue インターフェイスオブジェクトを取得します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

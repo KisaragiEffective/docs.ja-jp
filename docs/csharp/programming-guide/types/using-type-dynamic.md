@@ -1,17 +1,16 @@
 ---
 title: dynamic 型の使用 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - dynamic [C#], about dynamic type
 - dynamic type [C#]
 ms.assetid: 3828989d-c967-4a51-b948-857ebc8fdf26
-ms.openlocfilehash: aef64f538aecb0fc5dadec850020d7c01d02ccbd
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: c5ac5b3692266010f0be8672ef744baaa32e6a03
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72523553"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75711858"
 ---
 # <a name="using-type-dynamic-c-programming-guide"></a>dynamic 型の使用 (C# プログラミング ガイド)
 
@@ -34,13 +33,13 @@ C# 4 では、`dynamic` という新しい型が導入されています。 こ�
 * `dynamic` から別の型への変換。
 * `dynamic` 型の引数を含むコンストラクターの呼び出し。
 
-たとえば、次の宣言の `testInstance` の型は、`dynamic` ではなく、`ExampleClass` です。
+たとえば、次の宣言の `testInstance` の型は、`ExampleClass` ではなく、`dynamic` です。
 
 [!code-csharp[CsProgGuideTypes#52](~/samples/snippets/csharp/VS_Snippets_VBCSharp/CsProgGuideTypes/CS/usingdynamic.cs#52)]
 
 次の「変換」のセクションに変換例を示します。
 
-## <a name="conversions"></a>変換
+## <a name="conversions"></a>コンバージョン
 
 動的オブジェクトとその他の型との変換は簡単です。 そのため、開発者は動的な動作と動的でない動作を切り替えることができます。
 
@@ -74,9 +73,9 @@ C# 4 には、Office オートメーション API などの COM API との相互
 
 ## <a name="related-topics"></a>関連トピック
 
-|Title|説明|
+|タイトル|[説明]|
 |-----------|-----------------|
-|[dynamic](../../language-reference/keywords/dynamic.md)|`dynamic` キーワードの使用法について説明します。|
+|[dynamic](../../language-reference/builtin-types/reference-types.md)|`dynamic` キーワードの使用法について説明します。|
 |[動的言語ランタイムの概要](../../../framework/reflection-and-codedom/dynamic-language-runtime-overview.md)|DLR の概要について説明します。DLR は動的言語の一連のサービスを共通言語ランタイム (CLR) に追加するランタイム環境です。|
 |[チュートリアル: 動的オブジェクトの作成と使用](walkthrough-creating-and-using-dynamic-objects.md)|動的なカスタム オブジェクト、および `IronPython` ライブラリにアクセスするプロジェクトを作成するための詳細な手順について説明します。|
-|[方法: Visual C# の機能を使用して Office 相互運用オブジェクトにアクセスする](../interop/how-to-access-office-onterop-objects.md)|名前付き引数と省略可能な引数、`dynamic` 型、および Office API オブジェクトへのアクセスを簡単にするその他の強化機能を使用するプロジェクトを作成する方法について説明します。|
+|[C# の機能を使用して Office 相互運用オブジェクトにアクセスする方法](../interop/how-to-access-office-onterop-objects.md)|名前付き引数と省略可能な引数、`dynamic` 型、および Office API オブジェクトへのアクセスを簡単にするその他の強化機能を使用するプロジェクトを作成する方法について説明します。|

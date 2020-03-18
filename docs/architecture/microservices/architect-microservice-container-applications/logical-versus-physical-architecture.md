@@ -3,10 +3,10 @@ title: 論理アーキテクチャと物理アーキテクチャ
 description: 論理アーキテクチャと物理アーキテクチャの違いを理解します。
 ms.date: 09/20/2018
 ms.openlocfilehash: 8d1bfca190eb9b18d46625fa4afdec963eb07054
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "71834399"
 ---
 # <a name="logical-architecture-versus-physical-architecture"></a>論理アーキテクチャと物理アーキテクチャ

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: ecd786e8-f9a4-4190-a6ef-af18e8c6d654
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 270fdecb6afbf252b7d0531cab0f18dded44298d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b5da781f148c23efcc909ad65e198e4f3c6fe5b5
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777123"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74447874"
 ---
 # <a name="imetadataemit2savedeltatostream-method"></a>IMetaDataEmit2::SaveDeltaToStream メソッド
-エディット コンティニュの現在のセッションからの変更を指定したストリームに保存します。  
+現在のエディットコンティニュセッションから、指定されたストリームに変更を保存します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,17 +36,17 @@ HRESULT SaveDeltaToStream (
   
 ## <a name="parameters"></a>パラメーター  
  `pIStream`  
- [in]変更の保存先となる書き込み可能なストリームへのインターフェイス ポインター。  
+ から変更を保存する書き込み可能なストリームへのインターフェイスポインター。  
   
  `dwSaveFlags`  
- [in] 予約されています。 この値は 0 である必要があります。  
+ [in] 予約されています。 この値は0にする必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

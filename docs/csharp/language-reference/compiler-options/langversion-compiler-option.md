@@ -8,12 +8,12 @@ helpviewer_keywords:
 - -langversion compiler option [C#]
 - langversion compiler option [C#]
 ms.assetid: 3fb00b05-a0ff-4782-b313-13a4c0f62d94
-ms.openlocfilehash: 81cf336f94815dd3f2c88995eb34ae03b8220097
-ms.sourcegitcommit: dfd612ba454ce775a766bcc6fe93bc1d43dfda47
+ms.openlocfilehash: 007b10f6f27233c43caad4c1910e3d1158682950
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179920"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "76920367"
 ---
 # <a name="-langversion-c-compiler-options"></a>-langversion (C# コンパイラ オプション)
 
@@ -27,8 +27,9 @@ ms.locfileid: "72179920"
 
 ## <a name="arguments"></a>引数
 
- `option`  
- 有効な値は、
+`option`
+
+有効な値は、
 
 |オプション|意味|
 |------------|-------------|
@@ -52,12 +53,12 @@ ms.locfileid: "72179920"
 ## <a name="remarks"></a>解説
 
 C# アプリケーションで参照されるメタデータは、 **-langversion** コンパイラ オプションの対象になりません。
-  
+
 C# コンパイラのバージョンごとに言語仕様の拡張機能が含まれているため、 **-langversion** は、コンパイラの以前のバージョンと同じ機能を提供しません。
 
 さらに、C# バージョンの更新は、一般的に主要な .NET Framework のリリースと一致しますが、新しい構文および機能は必ずしも特定のフレームワーク バージョンに関連付けられていません。 新機能では、C# リビジョンと共にリリースされる新しいコンパイラの更新プログラムを確実に必要としますが、各特定機能には、独自の最小の .NET API または共通言語ランタイムの要件があり、この要件によって、NuGet パッケージやその他のライブラリを含めることで下位レベルのフレームワークで実行できるようになります。
 
-使用する **-langversion** の設定に関係なく、現在のバージョンの共通言語ランタイムを使用して .exe や .dll を作成します。 1 つの例外は、 **-langversion:ISO-1** の下で機能する、フレンド アセンブリと [-moduleassemblyname (C# コンパイラ オプション)](./moduleassemblyname-compiler-option.md) です。  
+使用する **-langversion** の設定に関係なく、現在のバージョンの共通言語ランタイムを使用して .exe や .dll を作成します。 1 つの例外は、[-langversion:ISO-1](./moduleassemblyname-compiler-option.md) の下で機能する、フレンド アセンブリと **-moduleassemblyname (C# コンパイラ オプション)** です。
 
 C# 言語バージョンを指定するその他の方法については、[C# 言語のバージョンの選択](../configure-language-version.md)に関するトピックを参照してください。
 
@@ -65,15 +66,15 @@ C# 言語バージョンを指定するその他の方法については、[C# �
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-|Version|Link|説明|
+|バージョン|リンク|[説明]|
 |-------|----|-----------|
 |C# 7.0 以降||現在使用できません|
-|C# 6.0|[リンク](../language-specification/index.md)|C# 言語仕様バージョン 6 - 非公式ドラフト: .NET Foundation|
-|C# 5.0|[PDF のダウンロード](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-334.pdf)|Standard ECMA-334 5th Edition|
-|C# 3.0|[DOC のダウンロード](https://download.microsoft.com/download/3/8/8/388e7205-bc10-4226-b2a8-75351c669b09/CSharp%20Language%20Specification.doc)|C# 言語仕様バージョン 3.0:Microsoft Corporation|
-|C# 2.0|[PDF のダウンロード](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-334%204th%20edition%20June%202006.pdf)|Standard ECMA-334 4th Edition|
-|C# 1.2|[DOC のダウンロード](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-334%202nd%20edition%20December%202002.pdf)|C# 言語仕様バージョン 1.2:Microsoft Corporation|
-|C# 1.0|[DOC のダウンロード](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-334%201st%20edition%20December%202001.pdf)|C# 言語仕様バージョン 1.0:Microsoft Corporation|
+|C# 6.0|[リンク](/dotnet/csharp/language-reference/language-specification/introduction)|C# 言語仕様バージョン 6 - 非公式ドラフト: .NET Foundation|
+|C# 5.0|[[Download PDF]\(PDF をダウンロード\)](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-334.pdf)|Standard ECMA-334 5th Edition|
+|C# 3.0|[DOC のダウンロード](https://download.microsoft.com/download/3/8/8/388e7205-bc10-4226-b2a8-75351c669b09/CSharp%20Language%20Specification.doc)|C# 言語仕様バージョン 3.0: Microsoft Corporation|
+|C# 2.0|[[Download PDF]\(PDF をダウンロード\)](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-334%204th%20edition%20June%202006.pdf)|Standard ECMA-334 4th Edition|
+|C# 1.2|[DOC のダウンロード](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-334%202nd%20edition%20December%202002.pdf)|C# 言語仕様バージョン 1.2: Microsoft Corporation|
+|C# 1.0|[DOC のダウンロード](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-334%201st%20edition%20December%202001.pdf)|C# 言語仕様バージョン 1.0: Microsoft Corporation|
 
 ## <a name="minimum-sdk-version-needed-to-support-all-language-features"></a>すべての言語機能をサポートするために必要な SDK の最小バージョン
 
@@ -93,7 +94,7 @@ C# 言語バージョンを指定するその他の方法については、[C# �
 |C# 2| Microsoft Visual Studio/Build Tools 2005、またはバンドルされている .Net Framework 2.0 コンパイラ |
 |C# 1.0/1.2 | Microsoft Visual Studio/Build Tools .NET 2002 またはバンドルされている .NET Framework 1.0 コンパイラ |
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](index.md)
 - [プロジェクトおよびソリューションのプロパティの管理](/visualstudio/ide/managing-project-and-solution-properties)

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 78dad5e4-8e2e-400f-bec3-92ff0205cd82
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ec9b4867ad19f25e35ca31c007c0d238b949abab
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d552b694787b5d9f0d5adc399eda6f75df93c385
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67762224"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76793021"
 ---
 # <a name="icordebugmoduleenableclassloadcallbacks-method"></a>ICorDebugModule::EnableClassLoadCallbacks メソッド
-コントロールかどうか、 [icordebugmanagedcallback::loadclass](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-loadclass-method.md)と[icordebugmanagedcallback::unloadclass](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-unloadclass-method.md)このモジュールのコールバックが呼び出されます。  
+このモジュールに対して、" [UnloadClass](icordebugmanagedcallback-unloadclass-method.md) " コール[バック:: loadclass](icordebugmanagedcallback-loadclass-method.md)との各コールバックを呼び出すかどうかを制御します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,15 +35,15 @@ HRESULT EnableClassLoadCallbacks(
   
 ## <a name="parameters"></a>パラメーター  
  `bClassLoadCallbacks`  
- [in]この値に設定`true`共通言語ランタイム (CLR) に呼び出しを有効にする、`ICorDebugManagedCallback::LoadClass`と`ICorDebugManagedCallback::UnloadClass`メソッド、関連するイベントが発生するとします。  
+ からこの値を `true` に設定すると、共通言語ランタイム (CLR) が、関連付けられたイベントが発生したときに `ICorDebugManagedCallback::LoadClass` および `ICorDebugManagedCallback::UnloadClass` メソッドを呼び出すことができるようになります。  
   
- 既定値は`false`非動的モジュール。 値は常に`true`動的モジュールを変更することはできません。  
+ 既定値は、非動的モジュールの場合は `false` です。 動的モジュールの値は常に `true`、変更することはできません。  
   
-## <a name="remarks"></a>Remarks  
- `ICorDebugManagedCallback::LoadClass`と`ICorDebugManagedCallback::UnloadClass`コールバックは、動的モジュールが常に有効し、無効にすることはできません。  
+## <a name="remarks"></a>コメント  
+ `ICorDebugManagedCallback::LoadClass` と `ICorDebugManagedCallback::UnloadClass` のコールバックは動的モジュールに対して常に有効であり、無効にすることはできません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

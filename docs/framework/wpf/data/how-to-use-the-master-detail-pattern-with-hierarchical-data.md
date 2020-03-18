@@ -1,42 +1,42 @@
 ---
-title: '方法: 階層データでマスター詳細パターンを使用する'
+title: '方法 : 階層データでマスター詳細パターンを使用する'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - data binding [WPF], Master-Detail data paradigm
 - Master-Detail data paradigm
 ms.assetid: 11429b9e-058d-4084-bfb6-2cf209c8ddf7
-ms.openlocfilehash: e0bbb24b07fdc1c362e2be43d69d189defbc27a4
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: e4183ddc3868a1568662853b46e05348df129092
+ms.sourcegitcommit: 22be09204266253d45ece46f51cc6f080f2b3fd6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61931894"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73733479"
 ---
-# <a name="how-to-use-the-master-detail-pattern-with-hierarchical-data"></a>方法: 階層データでマスター詳細パターンを使用する
+# <a name="how-to-use-the-master-detail-pattern-with-hierarchical-data"></a>方法 : 階層データでマスター詳細パターンを使用する
 この例では、マスター/詳細シナリオを実装する方法を示します。  
   
 ## <a name="example"></a>例  
- この例で`LeagueList`のコレクションである`Leagues`します。 各`League`が、`Name`と一連の`Divisions`、および各`Division`名は、一連の`Teams`します。 各`Team`チームの名前します。  
+ この例では、`LeagueList` は `Leagues`のコレクションです。 各 `League` には `Divisions`の `Name` とコレクションがあり、各 `Division` には名前と `Teams`のコレクションがあります。 各 `Team` にはチーム名があります。  
   
  [!code-xaml[MasterDetail#HowTo1](~/samples/snippets/visualbasic/VS_Snippets_Wpf/MasterDetail/VisualBasic/Page1.xaml#howto1)]  
 [!code-xaml[MasterDetail#HowTo2](~/samples/snippets/visualbasic/VS_Snippets_Wpf/MasterDetail/VisualBasic/Page1.xaml#howto2)]  
   
- 次に示すのは、この例のスクリーンショットです。 `Divisions` <xref:System.Windows.Controls.ListBox>の選択項目が自動的に追跡、 `Leagues` <xref:System.Windows.Controls.ListBox>し、対応するデータを表示します。 `Teams` <xref:System.Windows.Controls.ListBox>他の 2 つの選択項目を追跡<xref:System.Windows.Controls.ListBox>コントロール。  
+ 次に示すのは、この例のスクリーンショットです。 `Divisions` <xref:System.Windows.Controls.ListBox> によって、`Leagues` <xref:System.Windows.Controls.ListBox> の選択が自動的に追跡され、対応するデータが表示されます。 `Teams` <xref:System.Windows.Controls.ListBox> は、他の2つの <xref:System.Windows.Controls.ListBox> コントロールでの選択を追跡します。  
   
- ![マスターを示すスクリーン ショット&#45;詳細のシナリオ例。](./media/how-to-use-the-master-detail-pattern-with-hierarchical-data/databinding-master-detail-scenario.png)  
+ ![マスター&#45;詳細シナリオの例を示すスクリーンショット。](./media/how-to-use-the-master-detail-pattern-with-hierarchical-data/databinding-master-detail-scenario.png)  
   
- この例では、2 つの処理は次のとおりです。  
+ この例では、次の2つの点に注意してください。  
   
-1. 3 つ<xref:System.Windows.Controls.ListBox>コントロールは、同じソースにバインドします。 設定する、<xref:System.Windows.Data.Binding.Path%2A>するデータのレベルを指定するバインドのプロパティ、<xref:System.Windows.Controls.ListBox>を表示します。  
+1. 3つの <xref:System.Windows.Controls.ListBox> コントロールは、同じソースにバインドされます。 バインドの <xref:System.Windows.Data.Binding.Path%2A> プロパティを設定して、<xref:System.Windows.Controls.ListBox> に表示するデータのレベルを指定します。  
   
-2. 設定する必要があります、<xref:System.Windows.Controls.Primitives.Selector.IsSynchronizedWithCurrentItem%2A>プロパティを`true`で、<xref:System.Windows.Controls.ListBox>コントロールを追跡して選択します。 このプロパティ設定によって、選択した項目として常に設定されている、<xref:System.Windows.Controls.ItemCollection.CurrentItem%2A>します。 また場合、<xref:System.Windows.Controls.ListBox>からデータを取得しますが、<xref:System.Windows.Data.CollectionViewSource>の選択と通貨を自動的に同期されます。  
+2. <xref:System.Windows.Controls.Primitives.Selector.IsSynchronizedWithCurrentItem%2A> プロパティは、追跡する選択範囲の <xref:System.Windows.Controls.ListBox> コントロールで `true` するように設定する必要があります。 このプロパティを設定すると、選択した項目が常に <xref:System.Windows.Controls.ItemCollection.CurrentItem%2A>として設定されます。 また、<xref:System.Windows.Controls.ListBox> が <xref:System.Windows.Data.CollectionViewSource>からデータを取得する場合は、選択と通貨が自動的に同期されます。  
   
- 使用する場合に、この手法は若干異なります[!INCLUDE[TLA2#tla_xml](../../../../includes/tla2sharptla-xml-md.md)]データ。 例については、次を参照してください。[階層 XML データでマスター詳細パターンを使用して](how-to-use-the-master-detail-pattern-with-hierarchical-xml-data.md)します。  
+ XML データを使用する場合、この手法は少し異なります。 例については、「[階層 XML データでマスター詳細パターンを使用する](how-to-use-the-master-detail-pattern-with-hierarchical-xml-data.md)」を参照してください。  
   
 ## <a name="see-also"></a>関連項目
 
 - <xref:System.Windows.HierarchicalDataTemplate>
 - [コレクションにバインドして選択に基づく情報を表示する](how-to-bind-to-a-collection-and-display-information-based-on-selection.md)
-- [データ バインディングの概要](data-binding-overview.md)
+- [データ バインディングの概要](../../../desktop-wpf/data/data-binding-overview.md)
 - [データ テンプレートの概要](data-templating-overview.md)
 - [方法トピック](data-binding-how-to-topics.md)

@@ -2,14 +2,13 @@
 title: サーバー アプリ用 .NET Core と .NET Framework の選択
 description: .NET でのサーバー アプリのビルド時に考慮する必要がある .NET の実装に関するガイドです。
 author: cartermp
-ms.author: mairaw
 ms.date: 06/19/2018
-ms.openlocfilehash: e5df362231b0786a58a4c3c9ae8f5a167930a12e
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 0b6bf4c2eb66aa4de497923a0a16b65a955ba6fc
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70799257"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78159976"
 ---
 # <a name="choosing-between-net-core-and-net-framework-for-server-apps"></a>サーバー アプリ用 .NET Core と .NET Framework の選択
 
@@ -38,7 +37,7 @@ ms.locfileid: "70799257"
 
 複数のプラットフォーム (Windows、Linux、macOS ) で実行する必要があるアプリケーション (Web/サービス) の場合は、.NET Core を使用します。
 
-.NET Core は、開発ワークステーションとして前述のオペレーティング システムをサポートしています。 Visual Studio では、Windows および macOS 用の統合開発環境 (IDE) が用意されています。 また、macOS、Linux、および Windows 上で動作する Visual Studio Code も使用できます。 Visual Studio Code は、IntelliSense、デバッグなどの .NET Core をサポートしています。 Sublime、Emacs、VI など、ほとんどのサード パーティ製エディターは、.NET Core で動作します。 これらのサード パーティ製エディターでは、[Omnisharp](https://www.omnisharp.net/) を使用して、エディターを IntelliSense にします。 さらに、コード エディターをまったく使用せずに、サポートされているすべてのプラットフォームで利用可能な [.NET Core CLI ツール](../core/tools/index.md)を直接使用することもできます。
+.NET Core は、開発ワークステーションとして前述のオペレーティング システムをサポートしています。 Visual Studio では、Windows および macOS 用の統合開発環境 (IDE) が用意されています。 また、macOS、Linux、および Windows 上で動作する Visual Studio Code も使用できます。 Visual Studio Code は、IntelliSense、デバッグなどの .NET Core をサポートしています。 Sublime、Emacs、VI など、ほとんどのサード パーティ製エディターは、.NET Core で動作します。 これらのサード パーティ製エディターでは、[Omnisharp](https://www.omnisharp.net/) を使用して、エディターを IntelliSense にします。 また、コード エディターをまったく使用せずに、サポートされているすべてのプラットフォームで利用可能な [.NET Core CLI](../core/tools/index.md) を直接使用することもできます。
 
 ### <a name="microservices-architecture"></a>マイクロサービス アーキテクチャ
 
@@ -76,7 +75,7 @@ Docker コンテナーは、オンプレミスの Linux または Windows イン
 
 ライブラリは、短期間で .NET Standard を採用しています。 .NET Standard を使用すると、.NET Core を含め、すべての .NET 実装全体でコードを共有できます。 .NET Standard 2.0 を使用すれば、さらに簡単です。
 
-- API サーフェスがはるかに大きくなりました。 
+- API サーフェスがはるかに大きくなりました。
 - .NET Framework 互換モードが導入されました。 この互換モードにより、.NET Standard/.NET Core プロジェクトは .NET Framework ライブラリを参照できます。 互換モードの詳細については、「[Announcing .NET Standard 2.0](https://devblogs.microsoft.com/dotnet/announcing-net-standard-2-0/)」(.NET Standard 2.0 のお知らせ) を参照してください。
 
 そのため、ライブラリまたは NuGet パッケージが、.NET Standard/.NET Core で使用できないテクノロジを使用している場合にのみ、.NET Framework を使用する必要があります。
@@ -87,7 +86,7 @@ Docker コンテナーは、オンプレミスの Linux または Windows イン
 
 - ASP.NET Web フォーム アプリケーション:ASP.NET Web フォームは、.NET Framework でのみ使用できます。 ASP.NET Core は、ASP.NET Web フォームに使用できません。 ASP.NET Web フォームが .NET Core で使用できるようになる予定はありません。
 
-- ASP.NET Web ページ アプリケーション:ASP.NET Web ページは、ASP.NET Core に含まれていません。 
+- ASP.NET Web ページ アプリケーション:ASP.NET Web ページは、ASP.NET Core に含まれていません。
 
 - WCF サービスの実装。 現在のところ、.NET Core から WCF サービスを利用する [WCF クライアント ライブラリ](https://github.com/dotnet/wcf)がある場合でも、WCF サーバーの実装は .NET Framework でのみ可能です。 このシナリオは .NET Core の現在の計画に含まれていませんが、将来に向けて検討中です。
 
@@ -95,7 +94,7 @@ Docker コンテナーは、オンプレミスの Linux または Windows イン
 
 - 言語のサポート:Visual Basic と F# は現在 .NET Core でサポートされていますが、サポートされないプロジェクトの種類もあります。 サポートされるプロジェクト テンプレートの一覧については、[dotnet new のテンプレート オプション](../core/tools/dotnet-new.md#arguments)に関するセクションを参照してください。
 
-公式のロードマップに加え、.NET Core に移植される予定のフレームワークが他にもあります。 詳細な一覧については、[port-to-core](https://github.com/dotnet/corefx/issues?q=is%3Aopen+is%3Aissue+label%3Aport-to-core) とマークされている CoreFX の論点を参照してください。 この一覧は、Microsoft がそれらのコンポーネントを .NET Core に導入する予定ではありません。 単に、コミュニティからの希望をまとめたものです。 `port-to-core` とマークされているいずれかのコンポーネントに関心がある場合は、GitHub のディスカッションに参加してください。 また、一覧に欠けている点があるとお考えの場合は、[CoreFX リポジトリ](https://github.com/dotnet/corefx/issues/new)に登録してください。
+公式のロードマップに加え、.NET Core に移植される予定のフレームワークが他にもあります。 詳細な一覧については、[port-to-core](https://github.com/dotnet/corefx/issues?q=is%3Aopen+is%3Aissue+label%3Aport-to-core) とマークされている CoreFX の論点を参照してください。 この一覧は、Microsoft がそれらのコンポーネントを .NET Core に導入する予定ではありません。 単に、コミュニティからの希望をまとめたものです。 `port-to-core` とマークされているいずれかのコンポーネントに関心がある場合は、GitHub のディスカッションに参加してください。 また、何か足りないと感じた場合は、[.NET リポジトリ](https://github.com/dotnet/runtime/issues/new)で新しい案件を作成してください。
 
 ### <a name="a-need-to-use-a-platform-that-doesnt-support-net-core"></a>.NET Core をサポートしていないプラットフォームを使用する必要性
 

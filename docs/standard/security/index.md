@@ -9,14 +9,12 @@ helpviewer_keywords:
 - security [.NET Framework]
 - security [.NET]
 ms.assetid: 9a9621d7-8883-4a4f-a874-65e8e09e20a6
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 0c3c7eb20bb3368205dab4c7e03b6b80d09a2121
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 2e4c289d7049fb587cdc9a4928f98852483fde5f
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72775269"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75705994"
 ---
 # <a name="security-in-net"></a>.NET でのセキュリティ
 

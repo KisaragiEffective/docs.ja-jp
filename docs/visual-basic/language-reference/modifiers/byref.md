@@ -1,5 +1,5 @@
 ---
-title: ByRef (Visual Basic)
+title: ByRef
 ms.date: 07/20/2015
 f1_keywords:
 - vb.ByRef
@@ -8,26 +8,26 @@ helpviewer_keywords:
 - ByRef keyword [Visual Basic]
 - ByRef keyword [Visual Basic], contexts
 ms.assetid: 4692e032-46f3-4e41-b0fa-3004364d9138
-ms.openlocfilehash: e553f350ea95f04996496b65f98f277795838e25
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 12c2f7c52986d49a761167536f04e61d0904ecbb
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61800836"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351604"
 ---
 # <a name="byref-visual-basic"></a>ByRef (Visual Basic)
-呼び出されたプロシージャが呼び出し元のコードで引数を基になる変数の値を変更できるように、引数が渡されることを指定します。  
+呼び出されたプロシージャが呼び出し元のコードの引数の基になる変数の値を変更できるように、引数が渡されることを指定します。  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
  `ByRef` 修飾子は、次のコンテキストで使用できます。  
   
- [Declare ステートメント](../../../visual-basic/language-reference/statements/declare-statement.md)  
+ [Declare Statement](../../../visual-basic/language-reference/statements/declare-statement.md)  
   
  [Function ステートメント](../../../visual-basic/language-reference/statements/function-statement.md)  
   
  [Sub ステートメント](../../../visual-basic/language-reference/statements/sub-statement.md)  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [キーワード](../../../visual-basic/language-reference/keywords/index.md)
 - [引数の値渡しと参照渡し](../../../visual-basic/programming-guide/language-features/procedures/passing-arguments-by-value-and-by-reference.md)

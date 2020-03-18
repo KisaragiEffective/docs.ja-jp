@@ -1,5 +1,5 @@
 ---
-title: '方法: Visual Basic での配列の並べ替え'
+title: '方法: 配列を並べ替える'
 ms.date: 07/20/2015
 f1_keywords:
 - Array.Sort
@@ -7,12 +7,12 @@ helpviewer_keywords:
 - arrays [Visual Basic], sorting
 - examples [Visual Basic], arrays
 ms.assetid: 9289aeaa-9626-4698-94a7-1d1fd3702b87
-ms.openlocfilehash: 467d1bcce6bda2feb5a8e59c152cb292d753e79b
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: 3fb9af8de0fc86075fdccd64506c855c1c720660
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71700974"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351852"
 ---
 # <a name="how-to-sort-an-array-in-visual-basic"></a>方法: Visual Basic で配列を並べ替える
 
@@ -20,7 +20,7 @@ ms.locfileid: "71700974"
 
 ## <a name="example"></a>例
 
-この例では、`zooAnimals` という名前の @no__t 0 オブジェクトの配列を宣言し、それを設定して、アルファベット順に並べ替えます。
+この例では、`zooAnimals`という名前の `String` オブジェクトの配列を宣言し、それを設定して、アルファベット順に並べ替えます。
   
 ```vb
 Private Sub SortAnimals()
@@ -40,7 +40,7 @@ End Sub
 - 配列は多次元 (<xref:System.RankException> クラス) です。
 - 配列の1つ以上の要素が <xref:System.IComparable> インターフェイス (<xref:System.InvalidOperationException> クラス) を実装していません。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Array.Sort%2A?displayProperty=nameWithType>
 - [配列](index.md)

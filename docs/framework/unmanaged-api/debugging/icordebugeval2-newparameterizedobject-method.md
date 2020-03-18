@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 3d705463-e640-4249-8036-4e8206d03cfe
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: aae5f4c79acd6f92d42c2890ba64fa66e1b4bfbe
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 5d01ab0b6b5d489b2181056129e22661a50108a3
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67753594"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73084843"
 ---
 # <a name="icordebugeval2newparameterizedobject-method"></a>ICorDebugEval2::NewParameterizedObject メソッド
-新しいパラメーター化された型のオブジェクトをインスタンス化して、オブジェクトのコンス トラクター メソッドを呼び出します。  
+新しいパラメーター化された型オブジェクトをインスタンス化し、オブジェクトのコンストラクターメソッドを呼び出します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,25 +39,25 @@ HRESULT NewParameterizedObject (
   
 ## <a name="parameters"></a>パラメーター  
  `pConstructor`  
- [in]ICorDebugFunction を表すオブジェクトをインスタンス化されるオブジェクトのコンス トラクターへのポインター。  
+ からインスタンス化するオブジェクトのコンストラクターを表す、のオブジェクトへのポインター。  
   
  `nTypeArgs`  
- [in]型引数の数が渡されます。  
+ から渡された型引数の数。  
   
  `ppTypeArgs`  
- [in]ICorDebugType を表すオブジェクトをインスタンス化されているオブジェクトの型引数が指す各ポインターの配列。  
+ からポインターの配列。各ポインターは、インスタンス化されているオブジェクトの型引数を表す、テキスト型のオブジェクトを指します。  
   
  `nArgs`  
- [in]コンス トラクターに渡された引数の数。  
+ からコンストラクターに渡された引数の数。  
   
  `ppArgs`  
- [in]コンス トラクターに渡される引数の値を表す ICorDebugValue オブジェクトを指す各ポインターの配列。  
+ からポインターの配列。各ポインターは、コンストラクターに渡される引数値を表す ICorDebugValue オブジェクトを指します。  
   
 ## <a name="remarks"></a>Remarks  
- オブジェクトのコンス トラクターがかかる場合があります<xref:System.Type>パラメーター。  
+ オブジェクトのコンストラクターは <xref:System.Type> パラメーターを受け取ることができます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

@@ -1,16 +1,17 @@
 ---
-title: Iterators
+title: 反復子
 description: 組み込み C# の反復子を使用して、独自のカスタム反復子メソッドを作成する方法について説明します。
 ms.date: 06/20/2016
+ms.technology: csharp-advanced-concepts
 ms.assetid: 5cf36f45-f91a-4fca-a0b7-87f233e108e9
-ms.openlocfilehash: c378ceb651eed7e7a3d8c738bd4b2b3cf7de2a0f
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 1933ecf83e9fa234f9b88c815d8ab527997c97f2
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72773872"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398725"
 ---
-# <a name="iterators"></a>Iterators
+# <a name="iterators"></a>反復子
 
 プログラムを記述するうえで、ほとんどのプログラムに必要になるのがコレクションの反復処理です。 反復処理が必要な場合は、コレクション内のすべての項目を調べるコードを記述します。
 
@@ -27,7 +28,7 @@ C# 言語には、上記の両方のシナリオに対応するための機能�
 
 ## <a name="iterating-with-foreach"></a>foreach を使用した反復処理
 
-コレクションの列挙処理は単純です。`foreach` キーワードによってコレクション内の要素ごとに埋め込みステートメントを 1 回実行し、コレクションを列挙します。
+コレクションの列挙方法は単純です。`foreach` キーワードによってコレクション内の要素ごとに埋め込みステートメントを 1 回実行し、コレクションを列挙します。
 
 ```csharp
 foreach (var item in collection)

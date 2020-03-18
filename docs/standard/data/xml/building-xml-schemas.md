@@ -7,14 +7,12 @@ dev_langs:
 - vb
 - cpp
 ms.assetid: 8a5ea56c-0140-4b51-8997-875ae6a8e0cb
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: e8c8e1b0d9a79ff22f3194e86cd580f3a7e199b2
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
-ms.translationtype: HT
+ms.openlocfilehash: c921331b00fe137d4ad52d62951e8c161768dfae
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69962028"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75711143"
 ---
 # <a name="building-xml-schemas"></a>XML スキーマの作成
 <xref:System.Xml.Schema?displayProperty=nameWithType> 名前空間のクラスは、W3C (World Wide Web Consortium) 勧告『XML Schema』で定義された構造に割り当てられ、メモリ内に XML スキーマを作成する場合に使用できます。  

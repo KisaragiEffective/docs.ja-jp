@@ -2,15 +2,15 @@
 title: UriTemplate と UriTemplateTable
 ms.date: 03/30/2017
 ms.assetid: 5cbbe03f-4a9e-4d44-9e02-c5773239cf52
-ms.openlocfilehash: f51d6fa5c78d97cf11a3c0005be7656013b30e90
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: da34753867db17fd8ea1bd36bc705b3518d6d650
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69955280"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73976009"
 ---
 # <a name="uritemplate-and-uritemplatetable"></a>UriTemplate と UriTemplateTable
-Web 開発者は、サービスの応答先となる URI の形状とレイアウトを記述できる必要があります。 Windows Communication Foundation (WCF) では、開発者が自分の Uri を制御できるように、2つの新しいクラスが追加されました。 <xref:System.UriTemplate>と<xref:System.UriTemplateTable>は、WCF における URI ベースのディスパッチエンジンの基礎となります。 これらのクラスは、独自に使用することもできます。これにより、開発者は、WCF サービスを実装することなく、テンプレートと URI マッピング機構を利用できます。  
+Web 開発者は、サービスの応答先となる URI の形状とレイアウトを記述できる必要があります。 Windows Communication Foundation (WCF) では、開発者が自分の Uri を制御できるように、2つの新しいクラスが追加されました。 <xref:System.UriTemplate> と <xref:System.UriTemplateTable> は、WCF の URI ベースのディスパッチエンジンの基礎となります。 これらのクラスは、独自に使用することもできます。これにより、開発者は、WCF サービスを実装することなく、テンプレートと URI マッピング機構を利用できます。  
   
 ## <a name="templates"></a>テンプレート  
  テンプレートとは、一連の相対 URI を記述する方法です。 次の表の URI テンプレートのセットは、各種気象情報を取得するシステムがどのように定義されているかを示しています。  
@@ -57,13 +57,11 @@ Web 開発者は、サービスの応答先となる URI の形状とレイア�
 ### <a name="template-string-syntax"></a>テンプレート文字列の構文  
  テンプレートには、パス、クエリ (省略可能)、およびフラグメント (省略可能) の 3 つの部分があります。 テンプレートの一例を次に示します。  
   
-```  
-"/weather/{state}/{city}?forecast={length)#frag1  
-```  
+`"/weather/{state}/{city}?forecast={length)#frag1`  
   
  パスは "/weather/{state}/{city}"、クエリは "?forecast={length}、フラグメントは "#frag1" でそれぞれ構成されています。  
   
- パス式では、先頭と末尾のスラッシュは省略可能です。 クエリ式とフラグメント式は、いずれも式全体を省略できます。 パスは、'/' で区切られた一連のセグメントで構成されます。各セグメントには、リテラル値、変数名 ({中かっこ} で記述)、またはワイルド\*カード (' ' として記述) を含めることができます。 上記のテンプレートでは、"/weather/" セグメントがリテラル値で、"{state}" と "{city}" が変数です。 変数の名前は中かっこの内容から取得され、後で具象値に置き換えて*終了 URI*を作成できます。 ワイルドカードは省略可能ですが、URI の末尾でのみ使用できます。この場合、"残りのパス" と論理的に一致します。  
+ パス式では、先頭と末尾のスラッシュは省略可能です。 クエリ式とフラグメント式は、いずれも式全体を省略できます。 パスは、'/' で区切られた一連のセグメントで構成されます。各セグメントには、リテラル値、変数名 ({中かっこ} で記述)、またはワイルドカード ('\*' として記述) を含めることができます。 上記のテンプレートでは、"/weather/" セグメントがリテラル値で、"{state}" と "{city}" が変数です。 変数の名前は中かっこの内容から取得され、後で具象値に置き換えて*終了 URI*を作成できます。 ワイルドカードは省略可能ですが、URI の末尾でのみ使用できます。この場合、"残りのパス" と論理的に一致します。  
   
  クエリ式が存在する場合は、' & ' で区切られた一連の順序付けられていない名前と値のペアを指定します。 クエリ式の要素には、リテラル ペア (x=2) または変数ペア (x={var}) を指定できます。 変数を指定できるのはクエリ式の右辺のみです。 ({someName} = {someValue}) は指定できません。 対になっていない値 (?x) は使用できません。 空のクエリ式と、1 つの '?' だけで構成されたクエリ式は同じものです (いずれも "任意のクエリ" を意味します)。  
   
@@ -81,9 +79,9 @@ Web 開発者は、サービスの応答先となる URI の形状とレイア�
   
 - "{shoe}/boat"  
   
-- "{shoe}/{boat}/bed/{quilt}"  
+- "{靴}/{boat}/bed/{quilt}"  
   
-- "shoe/{boat}"  
+- "靴/{ボート}"  
   
 - "靴/{ボート}/\*"  
   
@@ -93,7 +91,7 @@ Web 開発者は、サービスの応答先となる URI の形状とレイア�
   
 - "靴/{ボート}? x = {ベッド} & y = バンド"  
   
-- "?x={shoe}"  
+- "? x = {靴}"  
   
 - "靴? x = 3 & y = {var}  
   
@@ -124,19 +122,17 @@ Web 開発者は、サービスの応答先となる URI の形状とレイア�
   
  無効なパス セグメントの例を次に示します。  
   
-- /{} -変数には名前を付ける必要があります。  
+- /{}-変数には名前を付ける必要があります。  
   
 - /{shoe}{boat} – 変数はリテラルによって分割されている必要があります。  
   
 ### <a name="matching-and-compound-path-segments"></a>照合と複合パス セグメント  
- 複合パス セグメントを使用すると、1 つのパス セグメント内に複数の変数を含む UriTemplate を定義できます。 たとえば、次のテンプレート文字列があるとします。"Addresses/{state}。{city} "2 つの変数 (都道府県と市) が同じセグメント内で定義されています。 このテンプレートは、など`http://example.com/Washington.Redmond`の url と一致しますが、のような`http://example.com/Washington.Redmond.Microsoft`url にも一致します。 後者の場合、州変数には "ワシントン" が含まれ、city 変数には "Redmond. Microsoft" が含まれます。 この場合、任意のテキスト ('/' 以外) が {city} 変数と一致することになります。 "Extra" テキストと一致しないテンプレートが必要な場合は、次の例のように、変数を別のテンプレートセグメントに配置します。"Addresses/{state}/{city}。  
+ 複合パス セグメントを使用すると、1 つのパス セグメント内に複数の変数を含む UriTemplate を定義できます。 たとえば、次のテンプレート文字列の場合は "Addresses/{state}" となります。{city} "2 つの変数 (都道府県と市) が同じセグメント内で定義されています。 このテンプレートは、`http://example.com/Washington.Redmond` などの URL と一致しますが、`http://example.com/Washington.Redmond.Microsoft`のような URL にも一致します。 後者の場合、州変数には "ワシントン" が含まれ、city 変数には "Redmond. Microsoft" が含まれます。 この場合、任意のテキスト ('/' 以外) が {city} 変数と一致することになります。 "Extra" テキストと一致しないテンプレートが必要な場合は、"Addresses/{state}/{city}" のように、別のテンプレートセグメントに変数を配置します。  
   
 ### <a name="named-wildcard-segments"></a>名前付きワイルドカード セグメント  
  名前付きワイルドカードセグメントは、ワイルドカード文字 '\*' で始まる変数名を持つ任意のパス変数セグメントです。 次のテンプレート文字列には、"shoe" という名前付きワイルドカード セグメントが含まれています。  
   
-```  
-"literal/{*shoe}"  
-```  
+`"literal/{*shoe}"`  
   
  ワイルドカード セグメントは、次の規則に従う必要があります。  
   
@@ -192,7 +188,7 @@ foreach (string key in m1.BoundVariables.AllKeys)
 ```  
   
 > [!NOTE]
-> などの uri `http://localhost:8000///`が、前のコードに記載されているテンプレートと一致しません`http://localhost:8000/` 。ただし、などの uri は、のようになります。  
+> `http://localhost:8000///` などの URI が、前のコードに記載されているテンプレートと一致しません。ただし、`http://localhost:8000/` などの URI は同じです。  
   
  テンプレートを使用して URI を作成する場合に、既定値のある変数がどのように処理されるかを次のコードに示します。  
   
@@ -230,7 +226,7 @@ Console.WriteLine("Bound URI: {0}", boundUri);
   
 - `UriTemplate t = new UriTemplate("{shoe=1}/{boat=null}");`
 
- 既定値がの`null`無効なテンプレート文字列を次に示します。  
+ 既定値が `null`の無効なテンプレート文字列を次に示します。  
   
 - `UriTemplate t = new UriTemplate("{shoe=null}/boat"); // null default must be in the right most path segment`
   

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 017c8ab4-4c09-4754-9935-5b0b49cabecb
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: b1e7181f50d94fa417bf9d00c3531747cefca82c
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 145fdde302e7e942ea77049b3faeabf60894dd94
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781476"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74448409"
 ---
 # <a name="imetadatatablesgetnextblob-method"></a>IMetaDataTables::GetNextBlob メソッド
-テーブル内には、次のバイナリ ラージ オブジェクト (BLOB) のインデックスを取得します。  
+テーブル内の次のバイナリラージオブジェクト (BLOB) のインデックスを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,21 +36,21 @@ HRESULT GetNextBlob (
   
 ## <a name="parameters"></a>パラメーター  
  `ixBlob`  
- [in]Blob の列から返されるインデックス。  
+ からBlob の列から返されるインデックス。  
   
  `pNext`  
- [out]次の BLOB のインデックスへのポインター。  
+ 入出力次の BLOB のインデックスを指すポインターです。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataTables インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadatatables-interface.md)
 - [IMetaDataTables2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadatatables2-interface.md)

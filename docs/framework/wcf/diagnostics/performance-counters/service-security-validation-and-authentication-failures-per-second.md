@@ -1,16 +1,16 @@
 ---
-title: サービス:1 秒あたりのセキュリティ検証と認証エラー
+title: 'サービス : 1 秒あたりのセキュリティ検証と認証エラー'
 ms.date: 03/30/2017
 ms.assetid: 4af18009-e778-490b-9ba6-e76485285830
-ms.openlocfilehash: 2caebed85a28004ef038beee7d07c05a23da53c0
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: f3f27100afb7390a68d99421cad6f43d9abaccd5
+ms.sourcegitcommit: 5d769956a04b6d68484dd717077fabc191c21da5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64613681"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76163866"
 ---
-# <a name="service-security-validation-and-authentication-failures-per-second"></a>サービス:1 秒あたりのセキュリティ検証と認証エラー
-カウンター名:セキュリティ検証と 1 秒あたりの認証エラー。  
+# <a name="service-security-validation-and-authentication-failures-per-second"></a>サービス : 1 秒あたりのセキュリティ検証と認証エラー
+カウンター名 : 1 秒あたりのセキュリティ検証と認証エラー  
   
 ## <a name="description"></a>説明  
  このカウンターは、"承認されていないセキュリティ呼び出し" カウンターでカウントの対象とならないセキュリティ上の問題が原因でメッセージが拒否されるたびにインクリメントされます。 この問題には、次のようなものがあります。  
@@ -29,6 +29,6 @@ ms.locfileid: "64613681"
   
 - TLSNEGO/SPNEGO ハンドシェイク中にエラーが発生した。  
   
- このカウンターは、パフォーマンス カウンター型[PERF_COUNTER_COUNTER](https://go.microsoft.com/fwlink/?LinkID=94649)、次の数式を使用して、その値が計算されます  
+ このカウンターは、次の式を使用して計算された値を持つパフォーマンスカウンターの種類[PERF_COUNTER_COUNTER](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc740048(v=ws.10))です。  
   
  (N 1 - N 0 ) / ( (D 1 -D 0 ) / F)

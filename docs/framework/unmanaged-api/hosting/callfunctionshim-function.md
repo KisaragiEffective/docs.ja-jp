@@ -14,19 +14,17 @@ helpviewer_keywords:
 ms.assetid: 37118465-ddf3-41f0-bf27-335b72777e63
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 31d93ac427ec67726c9456d623aeb683c9029ccd
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d39e15a2ba71ba0c0147482259f5618dcb5d298b
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67773760"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73192091"
 ---
 # <a name="callfunctionshim-function"></a>CallFunctionShim 関数
 指定したライブラリ内の関数を、名前とパラメーターを指定して呼び出します。  
   
- この関数は、.NET Framework 4 では廃止されました。  
+ この関数は .NET Framework 4 で非推奨とされました。  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,29 +41,29 @@ HRESULT CallFunctionShim (
   
 ## <a name="parameters"></a>パラメーター  
  `szDllName`  
- [in]関数を含むライブラリの名前。  
+ から関数を格納しているライブラリの名前。  
   
  `szFunctionName`  
- [in]関数の名前。  
+ から関数の名前。  
   
  `lpvArgument1`  
- [in]関数に渡す最初の引数。  
+ から関数に渡す1番目の引数。  
   
  `lpvArgument2`  
- [in]関数に渡す 2 番目の引数。  
+ から関数に渡す2番目の引数。  
   
  `szVersion`  
- [in]関数を含むライブラリのバージョン。  
+ から関数が含まれているライブラリのバージョン。  
   
  `pvReserved`  
- [in]将来使用するために予約されています。 このパラメーターに 0 を渡します。  
+ から将来使用するために予約されています。 このパラメーターに0を渡します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

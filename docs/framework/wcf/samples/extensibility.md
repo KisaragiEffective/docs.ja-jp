@@ -2,21 +2,21 @@
 title: 機能拡張
 ms.date: 03/30/2017
 ms.assetid: cd7ddffc-a261-44aa-bd50-33c1c74f0df0
-ms.openlocfilehash: af6bbb5ea703c83ec38b97fae5a6f4bd266479b3
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 099d36c52207e462692ddaa6bcc4800686066594
+ms.sourcegitcommit: fbb8a593a511ce667992502a3ce6d8f65c594edf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61969339"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74140698"
 ---
 # <a name="extensibility"></a>機能拡張
-このセクションには、カスタム拡張機能と Windows Communication Foundation (WCF) の他の機能を処理するサンプルが含まれています。  
+このセクションには、Windows Communication Foundation (WCF) のカスタム機能拡張とその他の機能に関するサンプルが含まれています。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [チャネル拡張](../../../../docs/framework/wcf/samples/channels-extensibility.md)  
  カスタム チャネルの例を示します。  
   
- [探索の機能拡張](../../../../docs/framework/wcf/samples/discovery-extensibility.md)  
+ [探索の機能拡張](/previous-versions/dotnet/netframework-4.0/dd807503(v%3dvs.100))  
  カスタム探索の例を示します。  
   
  [インスタンス化拡張](../../../../docs/framework/wcf/samples/instancing-extensibility.md)  
@@ -44,7 +44,7 @@ ms.locfileid: "61969339"
  拡張ポイントでカスタムのメッセージのデータ形式を使用する方法を示します。  
   
  [カスタム メッセージ フィルター](../../../../docs/framework/wcf/samples/custom-message-filter.md)  
- Windows Communication Foundation (WCF) を使用してエンドポイントにメッセージをディスパッチするメッセージ フィルターを置換する方法を示します。  
+ Windows Communication Foundation (WCF) がメッセージをエンドポイントにディスパッチするために使用するメッセージフィルターを置き換える方法を示します。  
   
  [カスタム サービス ホスト](../../../../docs/framework/wcf/samples/custom-service-host.md)  
  <xref:System.ServiceModel.ServiceHost> クラスから派生したカスタムのサービス ホストを使用して、サービスの実行時動作を変更する方法を示します。  
@@ -53,10 +53,10 @@ ms.locfileid: "61969339"
  シリアル化、逆シリアル化、スキーマのエクスポート、スキーマのインポートなどのプロセスを、データ コントラクト サロゲート クラスを使用してカスタマイズする方法を示します。  
   
  [エラー処理およびレポートに対する制御の拡張](../../../../docs/framework/wcf/samples/extending-control-over-error-handling-and-reporting.md)  
- エラー処理およびを使用して WCF サービスのエラー報告に対する制御を拡張する方法を示します、<xref:System.ServiceModel.Dispatcher.IErrorHandler>インターフェイス。  
+ <xref:System.ServiceModel.Dispatcher.IErrorHandler> インターフェイスを使用して、WCF サービスのエラー処理およびエラー報告に対する制御を拡張する方法を示します。  
   
  [メッセージ インスペクター](../../../../docs/framework/wcf/samples/message-inspectors.md)  
  クライアントとサービスのメッセージ インスペクターを実装して構成する方法を示します。  
   
  [WebContentTypeMapper](../../../../docs/framework/wcf/samples/webcontenttypemapper-sample.md)  
- 新しいコンテンツの種類を WCF メッセージ本文の形式にマップする方法を示します。
+ 新しいコンテンツタイプを WCF メッセージ本文形式にマップする方法を示します。

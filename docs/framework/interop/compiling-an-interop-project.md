@@ -9,14 +9,12 @@ helpviewer_keywords:
 - interoperation with unmanaged code, exposing COM components
 - COM interop, exposing COM components
 ms.assetid: 6fcf6588-5e25-41af-b4ae-780974f2c3df
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5bc92eb9d4b7b0ae5db56303f3fbfa991c58e06a
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 32102910ae674a97e941e1346a1898585f503527
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72523829"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73123684"
 ---
 # <a name="compiling-an-interop-project"></a>相互運用プロジェクトのコンパイル
 

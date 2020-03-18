@@ -1,17 +1,16 @@
 ---
 title: 固定サイズ バッファー - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 04/20/2018
 helpviewer_keywords:
 - fixed size buffers [C#]
 - unsafe buffers [C#]
 - unsafe code [C#], fixed size buffers
-ms.openlocfilehash: 5bfd9f3f559e4780b910a2e5a3430b08a2183ee3
-ms.sourcegitcommit: 34593b4d0be779699d38a9949d6aec11561657ec
+ms.openlocfilehash: 9005c425badc5a4ed74e6af3447e563daf61229e
+ms.sourcegitcommit: 44a7cd8687f227fc6db3211ccf4783dc20235e51
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66833497"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77627800"
 ---
 # <a name="fixed-size-buffers-c-programming-guide"></a>固定サイズ バッファー (C# プログラミング ガイド)
 
@@ -21,9 +20,9 @@ C# では、[fixed](../../language-reference/keywords/fixed-statement.md) ステ
 private fixed char name[30];
 ```
 
-## <a name="remarks"></a>コメント
+## <a name="remarks"></a>Remarks
 
-セーフ コードでは、配列を含む C# 構造体に配列要素が含まれません。 この場合、構造体には、配列の要素ではなく、その参照が格納されます。 [unsafe](../../language-reference/keywords/unsafe.md) のコード ブロックで使われている [struct](../../language-reference/keywords/struct.md) に、固定サイズの配列を埋め込むことができます。
+セーフ コードでは、配列を含む C# 構造体に配列要素が含まれません。 この場合、構造体には、配列の要素ではなく、その参照が格納されます。 [unsafe](../../language-reference/keywords/unsafe.md) のコード ブロックで使われている [struct](../../language-reference/builtin-types/struct.md) に、固定サイズの配列を埋め込むことができます。
 
 次の `struct` のサイズは 8 バイトです。 `pathName` 配列は参照です。
 
@@ -33,11 +32,11 @@ private fixed char name[30];
 
 [!code-csharp[Struct with embedded inline array](../../../../samples/snippets/csharp/keywords/FixedKeywordExamples.cs#7)]
 
-要素数 128 の `char` 配列のサイズは 256 バイトです。 固定サイズの [char](../../language-reference/keywords/char.md) 型バッファーは、エンコーディングに関係なく常に、1 文字あたり 2 バイトを消費します。 これは、char 型のバッファーが、`CharSet = CharSet.Auto` または `CharSet = CharSet.Ansi` で API メソッドや構造体にマーシャリングされたときにも当てはまります。 詳細については、「<xref:System.Runtime.InteropServices.CharSet>」を参照してください。
+要素数 128 の `char` 配列のサイズは 256 バイトです。 固定サイズの [char](../../language-reference/builtin-types/char.md) 型バッファーは、エンコーディングに関係なく常に、1 文字あたり 2 バイトを消費します。 これは、char 型のバッファーが、`CharSet = CharSet.Auto` または `CharSet = CharSet.Ansi` で API メソッドや構造体にマーシャリングされたときにも当てはまります。 詳細については、「<xref:System.Runtime.InteropServices.CharSet>」を参照してください。
 
 上記の例は、固定せずに `fixed` フィールドにアクセスする方法を示しています。この方法は C# 7.3 以降から使用できます。
 
-一般的な固定サイズの配列としては、他にも [bool](../../language-reference/keywords/bool.md) 配列があります。 `bool` 配列内の要素のサイズは常に 1 バイトです。 `bool` 配列は、ビット配列やバッファーの作成には適していません。
+一般的な固定サイズの配列としては、他にも [bool](../../language-reference/builtin-types/bool.md) 配列があります。 `bool` 配列内の要素のサイズは常に 1 バイトです。 `bool` 配列は、ビット配列やバッファーの作成には適していません。
 
 > [!NOTE]
 > C# コンパイラおよび共通言語ランタイム (CLR) は、[stackalloc](../../language-reference/operators/stackalloc.md) を使って作成されたメモリを除き、バッファー オーバーランのセキュリティ チェックを実行しません。 その他のアンセーフ コードと同様、十分な注意が必要です。

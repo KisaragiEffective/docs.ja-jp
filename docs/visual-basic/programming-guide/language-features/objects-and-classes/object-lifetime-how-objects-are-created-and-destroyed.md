@@ -1,5 +1,5 @@
 ---
-title: オブジェクトの有効期間:オブジェクトの作成方法と破棄方法 (Visual Basic)
+title: 'オブジェクトの有効期間 : オブジェクトの作成と破棄'
 ms.date: 07/20/2015
 f1_keywords:
 - vb.Constructor
@@ -22,14 +22,14 @@ helpviewer_keywords:
 - Sub Dispose destructor
 - garbage collection [Visual Basic], Visual Basic
 ms.assetid: f1ee8458-b156-44e0-9a8a-5dd171648cd8
-ms.openlocfilehash: 932f56a9a277360b11c551aaa1faf819f8e07fe6
-ms.sourcegitcommit: bbfcc913c275885381820be28f61efcf8e83eecc
+ms.openlocfilehash: 8d9647fa490077f9f6ef82f30eccc4d5ee271985
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68796675"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346105"
 ---
-# <a name="object-lifetime-how-objects-are-created-and-destroyed-visual-basic"></a>オブジェクトの有効期間:オブジェクトの作成方法と破棄方法 (Visual Basic)
+# <a name="object-lifetime-how-objects-are-created-and-destroyed-visual-basic"></a>オブジェクトの有効期間: オブジェクトの作成と破棄 (Visual Basic)
 
 クラスのインスタンス (オブジェクト) を作成するには、`New` キーワードを使用します。 新しいオブジェクトを使用する前に、多くの場合、そのオブジェクトに対して初期化タスクを実行する必要があります。 一般的な初期化タスクとして、ファイルを開く、データベースに接続する、レジストリ キーの値を読み取る、などがあります。 Visual Basic は、*コンストラクター*と呼ばれるプロシージャ (初期化の制御を可能にする特別なメソッド) を使用して、新しいオブジェクトの初期化を制御します。
 
@@ -37,11 +37,11 @@ ms.locfileid: "68796675"
 
 ## <a name="using-constructors-and-destructors"></a>コンストラクターとデストラクターの使用
 
-コンストラクターとデストラクターは、オブジェクトの作成および破棄を制御します。 Visual Basic `Sub New`の`Sub Finalize`およびプロシージャは、 `Class_Initialize`オブジェクトの初期化と破棄を行います`Class_Terminate` 。 Visual Basic 6.0 以前のバージョンで使用されているメソッドとメソッドを置き換えます。
+コンストラクターとデストラクターは、オブジェクトの作成および破棄を制御します。 オブジェクトを初期化および破棄する Visual Basic の `Sub New` と `Sub Finalize` の手順を説明します。これらは Visual Basic 6.0 以前のバージョンで使用されている `Class_Initialize` および `Class_Terminate` メソッドを置き換えます。
 
 ### <a name="sub-new"></a>Sub New
 
-`Sub New` コンストラクターは、クラスの作成時に 1 回だけ実行できます。 同じクラスまたは派生クラスから別のコンストラクターの最初のコード行以外の任意の場所で、明示的に呼び出すことはできません。 また、`Sub New` メソッド内のコードは常に、クラス内の他のすべてのコードより先に実行されます。 クラスのプロシージャを`Sub New` `Sub New`明示的に定義していない場合、Visual Basic は実行時にコンストラクターを暗黙的に作成します。
+`Sub New` コンストラクターは、クラスの作成時に 1 回だけ実行できます。 同じクラスまたは派生クラスから別のコンストラクターの最初のコード行以外の任意の場所で、明示的に呼び出すことはできません。 また、`Sub New` メソッド内のコードは常に、クラス内の他のすべてのコードより先に実行されます。 クラスの `Sub New` プロシージャを明示的に定義していない場合、Visual Basic は、実行時に `Sub New` コンストラクターを暗黙的に作成します。
 
 クラスのコンストラクターを作成するには、クラス定義の任意の場所に `Sub New` という名前のプロシージャを作成します。 パラメーター化されたコンストラクターを作成するには、次のコードに示すように、他のプロシージャの引数を指定する場合と同じく、`Sub New` に引数の名前とデータ型を指定します。
 
@@ -51,9 +51,9 @@ ms.locfileid: "68796675"
 
 [!code-vb[VbVbalrOOP#116](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/WhidbeyStuff.vb#116)]
 
-別のクラスから派生したクラスを定義するときは、基本クラスにパラメーターを受け取らないアクセス可能なコンストラクターがある場合を除き、コンストラクターの 1 行目で基本クラスのコンストラクターを呼び出す必要があります。 たとえば、上記のコンストラクターを含む基本クラスの呼び出しは、`MyBase.New(s)` になります。 それ以外`MyBase.New`の場合、は省略可能であり、Visual Basic ランタイムが暗黙的に呼び出します。
+別のクラスから派生したクラスを定義するときは、基本クラスにパラメーターを受け取らないアクセス可能なコンストラクターがある場合を除き、コンストラクターの 1 行目で基本クラスのコンストラクターを呼び出す必要があります。 たとえば、上記のコンストラクターを含む基本クラスの呼び出しは、`MyBase.New(s)` になります。 それ以外の場合、`MyBase.New` は省略可能であり、Visual Basic ランタイムは暗黙的にそれを呼び出します。
 
-親オブジェクトのコンストラクターを呼び出すコードを記述した後、追加の初期化コードを `Sub New` プロシージャに追加できます。 `Sub New`は、パラメーター化されたコンストラクターとして呼び出されたときには、引数を受け取ることができます。 このようなパラメーターは、コンストラクターを呼び出すプロシージャ (たとえば、`Dim AnObject As New ThisClass(X)`) から渡されます。
+親オブジェクトのコンストラクターを呼び出すコードを記述した後、追加の初期化コードを `Sub New` プロシージャに追加できます。 パラメーター化されたコンストラクターとして呼び出された場合、`Sub New` は引数を受け取ることができます。 このようなパラメーターは、コンストラクターを呼び出すプロシージャ (たとえば、`Dim AnObject As New ThisClass(X)`) から渡されます。
 
 ### <a name="sub-finalize"></a>Sub Finalize
 
@@ -64,14 +64,14 @@ ms.locfileid: "68796675"
 
 `Finalize` デストラクターは、所属先のクラスまたは派生クラスからのみ呼び出し可能な保護されたメソッドです。 `Finalize` はオブジェクトが破棄されるときに自動的に呼び出されるため、派生クラスの `Finalize` 実装の外部から `Finalize` を明示的に呼び出す必要はありません。
 
-オブジェクトが nothing に設定されるとすぐに実行される `Class_Terminate` と異なり、通常、オブジェクトがスコープを失ってから Visual Basic が `Finalize` デストラクターを呼び出すまでに遅延が発生します。 Visual Basic .net では、2つ目の種類<xref:System.IDisposable.Dispose%2A?displayProperty=nameWithType>のデストラクターを使用できます。これは、いつでも明示的に呼び出してリソースをすぐに解放できます。
+オブジェクトが nothing に設定されるとすぐに実行される `Class_Terminate` と異なり、通常、オブジェクトがスコープを失ってから Visual Basic が `Finalize` デストラクターを呼び出すまでに遅延が発生します。 Visual Basic .NET では、2つ目の種類のデストラクター (<xref:System.IDisposable.Dispose%2A?displayProperty=nameWithType>) を使用できます。これは、いつでも明示的に呼び出してリソースをすぐに解放できます。
 
 > [!NOTE]
 > `Finalize` デストラクターからは例外をスローしません。これは、その例外をアプリケーションで処理できないために、アプリケーションが異常終了する可能性があるためです。
 
 ### <a name="how-new-and-finalize-methods-work-in-a-class-hierarchy"></a>クラス階層での New メソッドおよび Finalize メソッドの動作
 
-クラスのインスタンスが作成されると、そのオブジェクト内に `New` という名前のプロシージャが存在する場合、共通言語ランタイム (CLR) はそのプロシージャを実行しようとします。 `New` は、オブジェクトの他のコードを実行する前に新しいオブジェクトを初期化するために使用される、`constructor`と呼ばれる種類のプロシージャです。 `New` コンストラクターを使用すると、ファイルを開く、データベースに接続する、変数を初期化するなど、オブジェクトを使用する前に実行する必要があるタスクを管理できます。
+クラスのインスタンスが作成されると、そのオブジェクト内に `New` という名前のプロシージャが存在する場合、共通言語ランタイム (CLR) はそのプロシージャを実行しようとします。 `New` は、オブジェクト内の他のコードを実行する前に新しいオブジェクトを初期化するために使用される `constructor` と呼ばれるプロシージャの一種です。 `New` コンストラクターを使用すると、ファイルを開く、データベースに接続する、変数を初期化するなど、オブジェクトを使用する前に実行する必要があるタスクを管理できます。
 
 派生クラスのインスタンスが作成されると、まず基本クラスの `Sub New` コンストラクターが実行され、続いて派生クラスのコンストラクターが実行されます。 このように動作するのは、`Sub New` コンストラクターの最初のコード行では、`MyBase.New()` 構文を使用して、クラス階層の自身のすぐ上位にあるクラスのコンストラクターを呼び出すためです。 `Sub New` コンストラクターはその後、基本クラスのコンストラクターに到達するまで、クラス階層のクラスごとに呼び出されます。 その時点で、基本クラスのコンストラクター内のコードが実行され、続いてすべての派生クラスの各コンストラクター内のコードが実行され、最後にほとんどの派生クラス内のコードが実行されます。
 
@@ -85,7 +85,7 @@ ms.locfileid: "68796675"
 
 クラスのインスタンスは、多くの場合、Windows ハンドルやデータベース接続など、CLR では管理されないリソースを制御します。 これらのリソースは、オブジェクトがガベージ コレクターによって破棄されるときに解放されるように、クラスの `Finalize` メソッドで破棄する必要があります。 ただし、ガベージ コレクターは、CLR でより多くの空きメモリが必要な場合にのみ、オブジェクトを破棄します。 つまり、オブジェクトがスコープ外になるまで、リソースが解放されない可能性があります。
 
-ガベージ コレクションを補足するために、クラスが <xref:System.IDisposable> インターフェイスを実装している場合には、システム リソースを積極的に管理するためのメカニズムをクラスに用意することができます。 <xref:System.IDisposable> には <xref:System.IDisposable.Dispose%2A> という 1 つのメソッドがあり、クライアントはオブジェクトの使用を終了するときにこのメソッドを呼び出す必要があります。 <xref:System.IDisposable.Dispose%2A> メソッドを使用して、すぐにリソースを解放し、ファイルおよびデータベース接続の終了などのタスクを実行できます。 `Finalize` デストラクターとは異なり、<xref:System.IDisposable.Dispose%2A> メソッドは自動的には呼び出されません。 リソースをすぐに解放するときには、クラスのクライアントが <xref:System.IDisposable.Dispose%2A> を明示的に呼び出す必要があります。
+ガベージ コレクションを補足するために、クラスが <xref:System.IDisposable> インターフェイスを実装している場合には、システム リソースを積極的に管理するためのメカニズムをクラスに用意することができます。 <xref:System.IDisposable> には、オブジェクトの使用が終了したときにクライアントが呼び出すメソッドとして、<xref:System.IDisposable.Dispose%2A>が1つあります。 <xref:System.IDisposable.Dispose%2A> メソッドを使用して、すぐにリソースを解放し、ファイルおよびデータベース接続の終了などのタスクを実行できます。 `Finalize` デストラクターとは異なり、<xref:System.IDisposable.Dispose%2A> メソッドは自動的には呼び出されません。 リソースをすぐに解放するときには、クラスのクライアントが <xref:System.IDisposable.Dispose%2A> を明示的に呼び出す必要があります。
 
 ### <a name="implementing-idisposable"></a>IDisposable の実装
 

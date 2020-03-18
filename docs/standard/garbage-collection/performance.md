@@ -6,50 +6,30 @@ helpviewer_keywords:
 - garbage collection, troubleshooting
 - garbage collection, performance
 ms.assetid: c203467b-e95c-4ccf-b30b-953eb3463134
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a0d21ab8af3669575a451644deb2b3572fdb7651
-ms.sourcegitcommit: da2dd2772fcf32b44eb18b1cbe8affd17b1753c9
+ms.openlocfilehash: 72cf742aae26f9441229b355dc6e70da7a5fc9cd
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71354029"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75900579"
 ---
 # <a name="garbage-collection-and-performance"></a>ガベージ コレクションとパフォーマンス
 
-<a name="top"></a> ここでは、ガベージ コレクションおよびメモリ使用に関連する問題について説明します。 マネージド ヒープに関する問題について取り上げ、ガベージ コレクションによるアプリケーションに対する影響を最小限に抑える方法を説明します。 問題を調査するために使用できる手順のリンクを問題ごとに示してあります。
-
-このトピックは、次のセクションで構成されています。
-
-- [パフォーマンス分析ツール](#performance_analysis_tools)
-
-- [パフォーマンスに関する問題のトラブルシューティング](#troubleshooting_performance_issues)
-
-- [トラブルシューティングのガイドライン](#troubleshooting_guidelines)
-
-- [パフォーマンス チェックの手順](#performance_check_procedures)
-
-<a name="performance_analysis_tools"></a>
+ここでは、ガベージ コレクションおよびメモリ使用に関連する問題について説明します。 マネージド ヒープに関する問題について取り上げ、ガベージ コレクションによるアプリケーションに対する影響を最小限に抑える方法を説明します。 問題を調査するために使用できる手順のリンクを問題ごとに示してあります。
 
 ## <a name="performance-analysis-tools"></a>パフォーマンス分析ツール
 
-以下のセクションでは、メモリ使用とガベージ コレクションに関する問題を調査するために使用できるツールについて説明します。 このトピックの後半で説明する[手順](#performance_check_procedures)では、これらのツールを使用します。
-
-<a name="perf_counters"></a>
+以下のセクションでは、メモリ使用とガベージ コレクションに関する問題を調査するために使用できるツールについて説明します。 このトピックの後半で説明する[手順](#performance-check-procedures)では、これらのツールを使用します。
 
 ### <a name="memory-performance-counters"></a>メモリ パフォーマンス カウンター
 
 パフォーマンス カウンターを使用してパフォーマンス データを収集できます。 手順については、「[ランタイム プロファイリング](../../../docs/framework/debug-trace-profile/runtime-profiling.md)」を参照してください。 ガベージ コレクターに関する情報は、.NET CLR Memory カテゴリのパフォーマンス カウンターから提供されます。詳細については、「[.NET Framework のパフォーマンス カウンター](../../../docs/framework/debug-trace-profile/performance-counters.md)」を参照してください。
-
-<a name="sos"></a>
 
 ### <a name="debugging-with-sos"></a>SOS キーを使ったデバッグ
 
 [Windows デバッガー (WinDbg)](/windows-hardware/drivers/debugger/index) を使用して、マネージド ヒープのオブジェクトを検査できます。
 
 WinDbg をインストールするには、「[Download Debugging Tools for Windows](/windows-hardware/drivers/debugger/debugger-download-tools)」 (Windows 用デバッグ ツールのダウンロード) ページから Windows 用デバッグ ツールをインストールします。
-
-<a name="etw"></a>
 
 ### <a name="garbage-collection-etw-events"></a>ガベージ コレクション ETW イベント
 
@@ -63,8 +43,6 @@ Windows イベント トレーシング (ETW) は、.NET Framework のプロフ�
 
 ETW イベント ログは効率的であり、ガベージ コレクションに関連するパフォーマンスの問題がマスクされることはありません。 ETW イベントと組み合わせてプロセス独自のイベントを提供できます。 ログを記録すると、アプリケーションのイベントとガベージ コレクションのイベントの両方を相互に関連付けて、ヒープの問題がいつどのようにして発生するかを特定できます。 たとえば、サーバー アプリケーションでは、クライアント要求の開始時と終了時にイベントを提供することができます。
 
-<a name="profiling_api"></a>
-
 ### <a name="the-profiling-api"></a>プロファイル API
 
 共通言語ランタイム (CLR) のプロファイル インターフェイスは、ガベージ コレクションの影響を受けたオブジェクトに関する詳細な情報を提供します。 プロファイラーでは、ガベージ コレクションの開始時と終了時に通知を受け取り、 各ジェネレーションにおけるオブジェクトの識別情報など、マネージド ヒープのオブジェクトに関するレポートを提供することができます。 詳細については、「[プロファイルの概要](../../../docs/framework/unmanaged-api/profiling/profiling-overview.md)」を参照してください。
@@ -74,10 +52,6 @@ ETW イベント ログは効率的であり、ガベージ コレクション�
 ### <a name="application-domain-resource-monitoring"></a>アプリケーション ドメインのリソース監視
 
 .NET Framework 4 以降では、アプリケーション ドメインのリソース監視 (ARM) によって、ホストで CPU とメモリのアプリケーション ドメインによる使用状況を監視できるようになります。 詳細については、「[アプリケーション ドメインのリソース監視](../../../docs/standard/garbage-collection/app-domain-resource-monitoring.md)」を参照してください。
-
-[ページのトップへ](#top)
-
-<a name="troubleshooting_performance_issues"></a>
 
 ## <a name="troubleshooting-performance-issues"></a>パフォーマンスに関する問題のトラブルシューティング
 
@@ -99,7 +73,7 @@ ETW イベント ログは効率的であり、ガベージ コレクション�
 
 <a name="Issue_OOM"></a>
 
-### <a name="issue-an-out-of-memory-exception-is-thrown"></a>問題: メモリ不足の例外がスローされる
+### <a name="issue-an-out-of-memory-exception-is-thrown"></a>問題:メモリ不足の例外がスローされる
 
 <xref:System.OutOfMemoryException> マネージド例外がスローされる正当な状況としては、次の 2 つがあります。
 
@@ -123,7 +97,7 @@ ETW イベント ログは効率的であり、ガベージ コレクション�
 
 <a name="Issue_TooMuchMemory"></a>
 
-### <a name="issue-the-process-uses-too-much-memory"></a>問題: プロセスによるメモリ使用量が多すぎる
+### <a name="issue-the-process-uses-too-much-memory"></a>問題:プロセスによるメモリ使用量が多すぎる
 
 一般的な前提として、メモリ使用量が多すぎる場合については、Windows タスク マネージャーの **[パフォーマンス]** タブのメモリ使用量の表示で確認できます。 ただし、この表示はワーキング セットに関するもので、仮想メモリの使用量に関する情報ではありません。
 
@@ -137,7 +111,7 @@ ETW イベント ログは効率的であり、ガベージ コレクション�
 
 <a name="Issue_NotFastEnough"></a>
 
-### <a name="issue-the-garbage-collector-does-not-reclaim-objects-fast-enough"></a>問題: ガベージ コレクターによるオブジェクトの解放に時間がかかる
+### <a name="issue-the-garbage-collector-does-not-reclaim-objects-fast-enough"></a>問題:ガベージ コレクターによるオブジェクトの解放に時間がかかる
 
 ガベージ コレクションでオブジェクトが通常どおりに解放されていないように見える場合は、それらのオブジェクトに対する強い参照がないかどうかを確認する必要があります。
 
@@ -149,7 +123,7 @@ ETW イベント ログは効率的であり、ガベージ コレクション�
 
 <a name="Issue_Fragmentation"></a>
 
-### <a name="issue-the-managed-heap-is-too-fragmented"></a>問題: マネージド ヒープが過度に断片化される
+### <a name="issue-the-managed-heap-is-too-fragmented"></a>問題:マネージド ヒープが過度に断片化される
 
 断片化レベルは、ジェネレーションに割り当てられたメモリの合計に占める空き領域の割合として計算されます。 ジェネレーション 2 の場合、許容される断片化レベルは 20% 以下です。 ジェネレーション 2 は非常に大きくなる可能性があるため、断片化の割合の方が絶対値より重要になります。
 
@@ -179,7 +153,7 @@ ETW イベント ログは効率的であり、ガベージ コレクション�
 
 <a name="Issue_LongPauses"></a>
 
-### <a name="issue-garbage-collection-pauses-are-too-long"></a>問題: ガベージ コレクションの一時停止が長すぎる
+### <a name="issue-garbage-collection-pauses-are-too-long"></a>問題:ガベージ コレクションの一時停止が長すぎる
 
 ガベージ コレクションはソフト リアルタイムで動作するため、アプリケーションはある程度の一時停止に耐えられなければなりません。 ソフト リアルタイムの基準では、95% の操作が時間どおりに完了する必要があります。
 
@@ -197,13 +171,13 @@ ETW イベント ログは効率的であり、ガベージ コレクション�
 
 <a name="Issue_Gen0"></a>
 
-### <a name="issue-generation-0-is-too-big"></a>問題: ジェネレーション 0 が大きすぎる
+### <a name="issue-generation-0-is-too-big"></a>問題:ジェネレーション 0 が大きすぎる
 
 64 ビット システムでは、ジェネレーション 0 のオブジェクトの数が増える傾向があります。ワークステーションのガベージ コレクションではなくサーバーのガベージ コレクションを使用している場合は特にその傾向が強くなります。 それらの環境では、ジェネレーション 0 のガベージ コレクションをトリガーするしきい値が高いので、ジェネレーション 0 のコレクションが非常に大きくなる可能性があるためです。 アプリケーションで、ガベージ コレクションがトリガーされる前により多くのメモリを割り当てると、パフォーマンスが向上します。
 
 <a name="Issue_HighCPU"></a>
 
-### <a name="issue-cpu-usage-during-a-garbage-collection-is-too-high"></a>問題: ガベージ コレクションの実行時の CPU 使用率が高すぎる
+### <a name="issue-cpu-usage-during-a-garbage-collection-is-too-high"></a>問題:ガベージ コレクションの実行時の CPU 使用率が高すぎる
 
 ガベージ コレクションの実行時には CPU 使用率が高くなります。 ガベージ コレクションに大量の処理時間が費やされている場合は、コレクションの発生頻度が高すぎるか、コレクションの継続時間が長すぎます。 マネージド ヒープに対するオブジェクトの割り当ての速度を上げるとガベージ コレクションの発生頻度が高くなります。 割り当ての速度を下げるとガベージ コレクションの発生頻度が低くなります。
 
@@ -214,10 +188,6 @@ ETW イベント ログは効率的であり、ガベージ コレクション�
 |パフォーマンス チェック|
 |------------------------|
 |[CPU の使用率が高いのはガベージ コレクションのためかどうかを確認する。](#HighCPU)<br /><br /> [ガベージ コレクションの終了時にブレークポイントを設定する。](#GenBreak)|
-
-[ページのトップへ](#top)
-
-<a name="troubleshooting_guidelines"></a>
 
 ## <a name="troubleshooting-guidelines"></a>トラブルシューティングのガイドライン
 
@@ -260,10 +230,6 @@ ETW イベント ログは効率的であり、ガベージ コレクション�
   これにより、ジェネレーション 2 のオブジェクトがガベージ コレクションのために解放された後に **RestartEE** が実行されると、実行が中断されます。
 
   サーバーのガベージ コレクションでは、**RestartEE** を呼び出すスレッドは 1 つだけなので、ジェネレーション 2 のガベージ コレクションの実行中に 1 回だけブレークポイントが発生します。
-
-[ページのトップへ](#top)
-
-<a name="performance_check_procedures"></a>
 
 ## <a name="performance-check-procedures"></a>パフォーマンス チェックの手順
 
@@ -361,7 +327,7 @@ ETW イベント ログは効率的であり、ガベージ コレクション�
 
   この例では、最も大きな空き領域のサイズは約 24000 KB (16 進形式では 3A980) です。 これは、ガベージ コレクターのセグメントに必要なサイズよりはるかに小さいサイズです。
 
-  または
+  \- または -
 
 - **vmstat** コマンドを使用します。
 

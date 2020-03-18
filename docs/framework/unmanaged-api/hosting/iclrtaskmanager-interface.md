@@ -14,37 +14,35 @@ helpviewer_keywords:
 ms.assetid: 2bd55e0c-001b-41fd-b29d-f01670fe8216
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 19ef7cb78791496de76e5741f8254ee88563c776
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: e25a6a03a836b8b4964b8260c974c8e8d8d9998d
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61763374"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73092188"
 ---
 # <a name="iclrtaskmanager-interface"></a>ICLRTaskManager インターフェイス
-共通言語ランタイム (CLR) にホストを明示的に要求を許可するメソッドが新しいタスクを作成し、現在実行中のタスクを取得および地理的な言語とタスクのカルチャ設定を提供します。  
+ホストが、共通言語ランタイム (CLR) が新しいタスクを作成し、現在実行中のタスクを取得し、タスクの地理的言語とカルチャを設定することを明示的に要求するメソッドを提供します。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[CreateTask メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-createtask-method.md)|CLR を新規に作成を明示的に要求[ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)インスタンス。|  
-|[GetCurrentTask メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-getcurrenttask-method.md)|取得、`ICLRTask`現在実行しているタスクを表すインスタンス。|  
-|[GetCurrentTaskType メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-getcurrenttasktype-method.md)|現在実行しているタスクの種類を取得します。|  
-|[SetLocale メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-setlocale-method.md)|ホストが現在実行中のタスクのロケール識別子を変更したことを CLR に通知します。|  
-|[SetUILocale メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-setuilocale-method.md)|ホストが現在実行中のタスクのユーザー インターフェイスのロケール識別子を変更したことを共通言語ランタイムに通知します。|  
+|[CreateTask メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-createtask-method.md)|CLR が新しい[ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)インスタンスを作成することを明示的に要求します。|  
+|[GetCurrentTask メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-getcurrenttask-method.md)|現在実行中のタスクを表す `ICLRTask` インスタンスを取得します。|  
+|[GetCurrentTaskType メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-getcurrenttasktype-method.md)|現在実行中のタスクの種類を取得します。|  
+|[SetLocale メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-setlocale-method.md)|現在実行中のタスクのロケール識別子がホストによって変更されたことを CLR に通知します。|  
+|[SetUILocale メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtaskmanager-setuilocale-method.md)|現在実行中のタスクのユーザーインターフェイスのロケール識別子がホストによって変更されたことを、共通言語ランタイムに通知します。|  
   
 ## <a name="remarks"></a>Remarks  
- ホスト環境で実行されている各タスクは、ホスト側の両方の表現を持つ (インスタンスの[IHostTask](../../../../docs/framework/unmanaged-api/hosting/ihosttask-interface.md)) と CLR 側 (インスタンスの[ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md))。 ホストまたは CLR には、タスクの作成を開始できますが、ホスト側の表現は、ホストとタスクに関する CLR の間の通信を成功させるのに対応する CLR 側表現を関連付ける必要があります。 2 つのオブジェクトは作成され、オペレーティング システム スレッドで実行するマネージ コードにインスタンス化する必要があります。  
+ ホスト環境で実行されている各タスクは、ホスト側 ( [IHostTask](../../../../docs/framework/unmanaged-api/hosting/ihosttask-interface.md)のインスタンス) と CLR 側 ( [ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)のインスタンス) の両方で表現されます。 ホストまたは CLR がタスクの作成を開始することはできますが、ホストと CLR の間でタスクに関して正常に通信できるように、ホスト側表現を対応する CLR 側表現に関連付ける必要があります。 マネージコードをオペレーティングシステムのスレッドで実行するには、2つのオブジェクトを作成してインスタンス化する必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

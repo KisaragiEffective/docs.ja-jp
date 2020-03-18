@@ -16,14 +16,12 @@ helpviewer_keywords:
 - global applications, localizability
 - localizing resources
 ms.assetid: 3aee2fbb-de47-4e37-8fe4-ddebb9719247
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8645f77c8d03a475fe0fcc49f3e6d5e28829f9e9
-ms.sourcegitcommit: acd8ed14fe94e9d4e3a7fb685fe83d05e941073c
+ms.openlocfilehash: b286bdd2c5d7b03a0a2b5f94478e252da6cd0ae2
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56442959"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73120864"
 ---
 # <a name="localizability-review"></a>ローカライズ化の確認
 
@@ -61,7 +59,7 @@ ms.locfileid: "56442959"
    [!code-vb[Conceptual.Localizability#1](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.localizability/vb/ismetric1.vb#1)]
 
 <a name="test"></a>
-## <a name="test-your-application"></a>アプリケーションをテストする
+## <a name="test-your-application"></a>アプリケーションのテスト
 
 アプリケーションをローカライズする前に、各言語版のオペレーティング システム上で各種言語データを使用してアプリケーションをテストする必要があります。 この時点では、ほとんどのユーザー インターフェイスはローカライズされていませんが、次のような問題を検出できます。
 
@@ -79,7 +77,7 @@ ms.locfileid: "56442959"
 
 アプリケーションの開発時にグローバリゼーションの推奨事項に従い、カルチャに依存した機能を正しく処理し、テスト中に発生したローカライズの問題を特定して対処した場合は、次の手順である[ローカライズ](../../../docs/standard/globalization-localization/localization.md)に進むことができます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [グローバライズとローカライズ](../../../docs/standard/globalization-localization/index.md)
 - [ローカリゼーション](../../../docs/standard/globalization-localization/localization.md)

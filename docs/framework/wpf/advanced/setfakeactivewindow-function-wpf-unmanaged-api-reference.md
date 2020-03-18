@@ -1,5 +1,6 @@
 ---
-title: SetFakeActiveWindow 関数 (WPF のアンマネージ API リファレンス)
+title: SetFakeActiveWindow 関数-WPF アンマネージ API リファレンス
+titleSuffix: ''
 ms.date: 03/30/2017
 dev_langs:
 - cpp
@@ -8,17 +9,17 @@ api_name:
 api_location:
 - PresentationHost_v0400.dll
 ms.assetid: a69118be-63b0-445c-9fb6-ab8cc958e531
-ms.openlocfilehash: d83833a0f18f94f3aa590896f0a1eb4c53dc16d5
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 9282ec6f4c6fb9c1410ca07e707db98a02d0b02a
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62053406"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76731727"
 ---
-# <a name="setfakeactivewindow-function-wpf-unmanaged-api-reference"></a>SetFakeActiveWindow 関数 (WPF のアンマネージ API リファレンス)
-この API は、Windows Presentation Foundation (WPF) インフラストラクチャをサポートしているし、コードから直接使用するものではありません。  
+# <a name="setfakeactivewindow-function-wpf-unmanaged-api-reference"></a>SetFakeActiveWindow 関数 (WPF アンマネージ API リファレンス)
+この API は、Windows Presentation Foundation (WPF) インフラストラクチャをサポートします。独自に作成したコードから直接使用するためのものではありません。  
   
- Windows Presentation Foundation (WPF) インフラストラクチャによって windows の管理に使用します。  
+ Windows management の Windows Presentation Foundation (WPF) インフラストラクチャで使用されます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -33,12 +34,12 @@ void __stdcall SetFakeActiveWindow(
  ウィンドウ ハンドル。  
   
 ## <a name="requirements"></a>必要条件  
- **プラットフォーム:** 参照してください[.NET Framework システム要件](../../get-started/system-requirements.md)します。  
+ **プラットフォーム:** 「 [.NET Framework のシステム要件](../../get-started/system-requirements.md)」を参照してください。  
   
- **DLL:** PresentationHost_v0400.dll  
+ **DLL:** PresentationHost_v0400 .dll  
   
- **.NET framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
+ **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [WPF のアンマネージ API リファレンス](wpf-unmanaged-api-reference.md)

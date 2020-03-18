@@ -1,20 +1,20 @@
 ---
-title: レジストリの概要 (Visual Basic)
+title: レジストリの概要
 ms.date: 07/20/2015
 helpviewer_keywords:
 - registry [Visual Basic]
 ms.assetid: 6e90eb8a-1a4e-4387-8a68-9287dc7875e8
-ms.openlocfilehash: 88b9c530da3da39c0d70d9d8e90626bd5e133cf3
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 6564b4c3ad2025da4ebaeaca84e23c97a85f007d
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61802430"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351683"
 ---
 # <a name="registry-summary-visual-basic"></a>レジストリの概要 (Visual Basic)
-Visual Studio 言語のキーワードとランタイム ライブラリ メンバー目的ごとに整理されを使用します。  
+Visual Studio の言語キーワードとランタイムライブラリメンバーは、目的と使用によって整理されています。  
   
- `My` 機能を使用すると、これらの要素を使用するよりもレジストリ操作の生産性とパフォーマンスが格段に向上します。 詳細については、「 <xref:Microsoft.VisualBasic.MyServices.RegistryProxy> 」を参照してください。  
+ `My` 機能を使用すると、これらの要素を使用するよりもレジストリ操作の生産性とパフォーマンスが格段に向上します。 詳細については、「 <xref:Microsoft.VisualBasic.MyServices.RegistryProxy>」を参照してください。  
   
 |**動作**|**言語要素**|  
 |----------------|--------------------------|  

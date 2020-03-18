@@ -12,22 +12,22 @@ helpviewer_keywords:
 - data transformations [LINQ in C#]
 - LINQ [C#], type relationships
 ms.assetid: 99118938-d47c-4d7e-bb22-2657a9f95268
-ms.openlocfilehash: 42519a74be1bd6934bc7a3304d154321697d128c
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 41853e6858fae9e8d449aeed95a6a84f343d5874
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69591011"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75635614"
 ---
 # <a name="type-relationships-in-linq-query-operations-c"></a>LINQ クエリ操作での型の関係 (C#)
-クエリを効果的に記述するには、クエリ操作全体における変数の型の相互関係を理解する必要があります。 これらの関係を理解しておくと、このドキュメント内の [!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] のサンプルやコード例を理解しやすくなります。 また、`var` を使用して変数を暗黙的に型指定した場合に、背後でどのような処理が行われるかを理解することもできます。  
+クエリを効果的に記述するには、クエリ操作全体における変数の型の相互関係を理解する必要があります。 これらの関係を理解しておくと、このドキュメント内の LINQ のサンプルやコード例を理解しやすくなります。 また、`var` を使用して変数を暗黙的に型指定した場合に、背後でどのような処理が行われるかを理解することもできます。  
   
- [!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] のクエリ操作は、データ ソース、クエリ自体、およびクエリの実行において厳密に型指定されます。 クエリの変数の型には、データ ソース内の要素の型および `foreach` ステートメントの反復変数の型との互換性が必要です。 この厳密な型指定により、コンパイル時に型のエラーが検出され、実際にエラーが発生する前にそのエラーを修正できます。  
+ LINQ クエリ操作は、データ ソース、クエリ自体、およびクエリの実行において厳密に型指定されます。 クエリの変数の型には、データ ソース内の要素の型および `foreach` ステートメントの反復変数の型との互換性が必要です。 この厳密な型指定により、コンパイル時に型のエラーが検出され、実際にエラーが発生する前にそのエラーを修正できます。  
   
  これらの型の関係を示すために、後の例の大部分では、すべての変数に明示的な型指定を使用しています。 最後の例では、[var](../../../language-reference/keywords/var.md) を使用して暗黙的な型指定を行う場合でも、同じ基本原則が適用されることを示します。  
   
 ## <a name="queries-that-do-not-transform-the-source-data"></a>ソース データを変換しないクエリ  
- 次の図は、データの変換を行わない [!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] to Objects クエリ操作を示しています。 ソースには文字列のシーケンスが含まれているので、クエリ出力も文字列のシーケンスです。  
+ 次の図は、データの変換を行わない LINQ to Objects クエリ操作を示しています。 ソースには文字列のシーケンスが含まれているので、クエリ出力も文字列のシーケンスです。  
   
  ![LINQ クエリ内のデータ型の関係を示す図。](./media/type-relationships-in-linq-query-operations/linq-query-data-type-relation.png)  
   

@@ -1,5 +1,5 @@
 ---
-title: ICorDebugVariableHome::GetSlotIndex メソッド
+title: 'いい変数 Home:: GetSlotIndex メソッド'
 ms.date: 03/30/2017
 api_name:
 - ICorDebugVariableHome.GetSlotIndex
@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 966da50d-5665-4fff-bf7b-1c72bbadd9a4
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 199c3ba5d5b9588db4c665070b4dec6266cefc2e
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 542bfa05c55ef224d1b9111f9af6c069e9e23542
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67760348"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76790968"
 ---
-# <a name="icordebugvariablehomegetslotindex-method"></a>ICorDebugVariableHome::GetSlotIndex メソッド
-ローカル変数のマネージ スロット インデックスを取得します。  
+# <a name="icordebugvariablehomegetslotindex-method"></a>いい変数 Home:: GetSlotIndex メソッド
+ローカル変数のマネージドスロットインデックスを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,21 +35,21 @@ HRESULT GetSlotIndex(
   
 ## <a name="parameters"></a>パラメーター  
  `pSlotIndex`  
- [out]ローカル変数のスロット インデックスへのポインター。  
+ 入出力ローカル変数のスロットインデックスへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
  メソッドは、次の値を返します。  
   
-|値|説明|  
+|Value|説明|  
 |-----------|-----------------|  
-|`S_OK`|メソッドの呼び出しでのスロット インデックス値が返されました`pSlotIndex`します。|  
-|`E_FAIL`|現在[ICorDebugVariableHome](../../../../docs/framework/unmanaged-api/debugging/icordebugvariablehome-interface.md)インスタンスは、関数の引数を表します。|  
+|`S_OK`|メソッド呼び出しによって `pSlotIndex`でスロットインデックス値が返されました。|  
+|`E_FAIL`|現在のは、[関数の引数](icordebugvariablehome-interface.md)を表します。|  
   
-## <a name="remarks"></a>Remarks  
- スロット インデックスは、このローカル変数のメタデータの取得に使用できます。  
+## <a name="remarks"></a>コメント  
+ このローカル変数のメタデータを取得するために、スロットインデックスを使用できます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -61,4 +59,4 @@ HRESULT GetSlotIndex(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugVariableHome インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugvariablehome-interface.md)
+- [ICorDebugVariableHome インターフェイス](icordebugvariablehome-interface.md)

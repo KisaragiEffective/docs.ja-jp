@@ -1,5 +1,5 @@
 ---
-title: TabControl コントロール (Windows フォーム)
+title: TabControl コントロール
 ms.date: 03/30/2017
 helpviewer_keywords:
 - TabControl control [Windows Forms]
@@ -10,12 +10,12 @@ helpviewer_keywords:
 - property pages [Windows Forms], creating
 - tab dialog boxes
 ms.assetid: 915091af-93ac-4d3d-8283-738dd2d21ea7
-ms.openlocfilehash: d00dbe1e450a2d4316709e92eff7dab488b36045
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: c4f310629342e5302021bbc7dc5f92d473377397
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61755377"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76742816"
 ---
 # <a name="tabcontrol-control-windows-forms"></a>TabControl コントロール (Windows フォーム)
 Windows フォーム `TabControl` は、ノートの仕切りや書類キャビネットのフォルダー セットのラベルに似た、複数のタブを表示します。 タブには画像やその他のコントロールを含めることができます。 プロパティ ページを作成するには、`TabControl` を使用します。  
@@ -24,21 +24,21 @@ Windows フォーム `TabControl` は、ノートの仕切りや書類キャビ�
  [TabControl コントロールの概要](tabcontrol-control-overview-windows-forms.md)  
  このコントロールについて、および主な機能とプロパティについて説明します。  
   
- [方法: タブ ページにコントロールを追加します。](how-to-add-a-control-to-a-tab-page.md)  
+ [方法: タブ ページにコントロールを追加する](how-to-add-a-control-to-a-tab-page.md)  
  タブ ページにコントロールを表示するための手順を示します。  
   
- [方法: Windows フォーム tabcontrol のタブ追加および削除](how-to-add-and-remove-tabs-with-the-windows-forms-tabcontrol.md)  
+ [方法: Windows フォーム TabControl のタブを追加および削除する](how-to-add-and-remove-tabs-with-the-windows-forms-tabcontrol.md)  
  デザイナーまたはコードのタブを追加および削除する方法を説明します。  
   
- [方法: Windows フォーム TabControl の外観を変更します。](how-to-change-the-appearance-of-the-windows-forms-tabcontrol.md)  
+ [方法: Windows フォーム TabControl の表示形式を変更する](how-to-change-the-appearance-of-the-windows-forms-tabcontrol.md)  
  個々のタブの外観に影響するプロパティを調整するための手順を示します。  
   
- [方法: タブ ページを無効にします。](how-to-disable-tab-pages.md)  
+ [方法: タブ ページを無効化する](how-to-disable-tab-pages.md)  
  ユーザーの資格情報に基づいて、タブのページへのアクセスを制限する方法について説明します。  
   
- 参照してください[方法。デザイナーを使用して Windows フォーム tabcontrol のタブ追加および削除](add-and-remove-tabs-with-wf-tabcontrol-using-the-designer.md)、[方法。デザイナーを使用してタブ ページにコントロールを追加します。](how-to-add-a-control-to-a-tab-page-using-the-designer.md)  
+ 「[方法: デザイナーを使用して Windows フォーム TabControl を使用してタブを追加および削除](add-and-remove-tabs-with-wf-tabcontrol-using-the-designer.md)する」、「[方法: デザイナーを使用してタブページにコントロールを追加](how-to-add-a-control-to-a-tab-page-using-the-designer.md)する」も参照してください。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.TabControl> クラス  
  このクラスについて説明し、すべてのメンバーへのリンクの一覧を示します。  
   

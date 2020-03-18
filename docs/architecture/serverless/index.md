@@ -4,16 +4,16 @@ description: サーバーレス アーキテクチャについて説明します
 author: JEREMYLIKNESS
 ms.author: jeliknes
 ms.date: 06/26/2018
-ms.openlocfilehash: af930ba3d704e9bbf22f03ad6a4a547c5fbff4d3
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 9dea7dbccb5c9e125f792e6a7287a7dd2fad26f1
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72522851"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73093547"
 ---
 # <a name="serverless-apps-architecture-patterns-and-azure-implementation"></a>サーバーレス アプリ: アーキテクチャ、パターン、および Azure の実装
 
-![サーバーレス アプリの電子ブックのカバーを示すスクリーン ショット。](./media/index/serverless-apps-cover.jpg)
+![サーバーレス アプリの e-book のカバーを示すスクリーン ショット。](./media/index/serverless-apps-cover.jpg)
 
 > 次の場所でダウンロードできます: <https://aka.ms/serverless-ebook>
 
@@ -43,17 +43,17 @@ Mac および macOS は Apple Inc. の商標です。
 
 作成者:
 
-> **[Jeremy Likness](https://twitter.com/jeremylikness)** 、シニア クラウド デベロッパー アドボケイト、APEX、Microsoft Corp.
+> **[Jeremy Likness](https://twitter.com/jeremylikness)** 、上級クラウド アドボケイト、Microsoft Corp.
 
 共同作成者:
 
-> **[Cecil Phillip](https://twitter.com/cecilphillip)** 、クラウド デベロッパー アドボケイト II、APEX、Microsoft Corp.
+> **[Cecil Phillip](https://twitter.com/cecilphillip)** 、上級クラウド アドボケイト、Microsoft Corp.
 
 編集者:
 
-> **[Bill Wagner](https://twitter.com/billwagner)** 、シニア コンテンツ開発者、APEX、Microsoft Corp.
+> **[Bill Wagner](https://twitter.com/billwagner)** 、シニア コンテンツ開発者、Microsoft Corp.
 
-> **[Maira Wenzel](https://twitter.com/mairacw)** 、シニア コンテンツ開発者、APEX、Microsoft Corp.
+> **[Maira Wenzel](https://twitter.com/mairacw)** 、シニア コンテンツ開発者、Microsoft Corp.
 
 参加者とレビュー担当者:
 

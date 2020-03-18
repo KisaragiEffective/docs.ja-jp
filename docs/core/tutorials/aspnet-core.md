@@ -2,13 +2,12 @@
 title: ASP.NET Core の概要
 description: ASP.NET Core のドキュメントのチュートリアルでは、ASP.NET Core の詳細を説明します。
 ms.date: 06/20/2016
-ms.custom: seodec18
-ms.openlocfilehash: 2f256796bab461a20a3d88465db12e564a119604
-ms.sourcegitcommit: 5d9f4b805787f890ca6e0dc7ea30a43018bc9cbb
+ms.openlocfilehash: ade7d2ca8a4dcec555d0052e60fb13bba7a7380c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788233"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75714096"
 ---
 # <a name="get-started-with-aspnet-core"></a>ASP.NET Core の概要
 

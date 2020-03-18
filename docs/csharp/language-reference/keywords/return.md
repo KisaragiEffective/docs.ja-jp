@@ -1,6 +1,5 @@
 ---
 title: return ステートメント - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - return_CSharpKeyword
@@ -9,12 +8,12 @@ helpviewer_keywords:
 - return statement [C#]
 - return keyword [C#]
 ms.assetid: 6da6e152-5b58-4448-8f3f-470dd0617ecd
-ms.openlocfilehash: a845ce257bf7f0cf0e64d6815b2278f6cec946e7
-ms.sourcegitcommit: d6e27023aeaffc4b5a3cb4b88685018d6284ada4
+ms.openlocfilehash: 116bad7a1f9f61311d287c575b52547d63c9e1c0
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67661615"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75713132"
 ---
 # <a name="return-c-reference"></a>return (C# リファレンス)
 
@@ -32,9 +31,9 @@ ms.locfileid: "67661615"
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# のキーワード](index.md)
 - [return ステートメント](/cpp/cpp/return-statement-cpp)

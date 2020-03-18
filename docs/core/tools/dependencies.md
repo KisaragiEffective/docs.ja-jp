@@ -1,70 +1,82 @@
 ---
-title: .NET Core ツールでの依存関係の管理
-description: .NET Core ツールで依存関係を管理する方法について説明します。
-ms.date: 03/06/2017
-ms.custom: seodec18
-ms.openlocfilehash: ef2de666ee3e6a06ab62f45afe3c624bbbb44ac4
-ms.sourcegitcommit: 438919211260bb415fc8f96ca3eabc33cf2d681d
+title: .NET Core の依存関係を管理する
+description: .NET Core アプリケーションのプロジェクトの依存関係を管理する方法について説明します。
+no-loc:
+- dotnet add package
+- dotnet remove package
+- dotnet list package
+ms.date: 02/25/2020
+ms.openlocfilehash: 367be7eb04d58bffc0846de1d035a5801e8d9376
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59611927"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398041"
 ---
-# <a name="managing-dependencies-with-net-core-sdk-10"></a>.NET Core SDK 1.0 での依存関係の管理
+# <a name="manage-dependencies-in-net-core-applications"></a>.NET Core アプリケーションの依存関係を管理する
 
-.NET Core プロジェクトでの project.json から csproj と MSBuild への移行では、多額の投資も行われ、その結果、プロジェクト ファイルとアセットが統合され、依存関係を追跡できるようになりました。 .NET Core プロジェクトでの依存関係の追跡は、project.json と似ています。 NuGet の依存関係を追跡するための独立した JSON または XML ファイルはありません。 この変更により、`<PackageReference>` と呼ばれる別の*参照*の型も csproj 構文に導入されました。 
+この記事では、プロジェクト ファイルを編集するか、CLI を使用して依存関係を追加および削除する方法について説明します。
 
-ここでは、新しい参照型について説明します。 また、この新しい参照型を使ってプロジェクトにパッケージの依存関係を追加する方法も示します。 
+## <a name="the-packagereference-element"></a>\<PackageReference> 要素
 
-## <a name="the-new-packagereference-element"></a>新しい \<PackageReference> 要素
-`<PackageReference>` の基本的な構造は次のとおりです。
+`<PackageReference>` プロジェクト ファイル要素の構造は次のとおりです。
 
 ```xml
 <PackageReference Include="PACKAGE_ID" Version="PACKAGE_VERSION" />
 ```
 
-MSBuild に詳しい場合は、既に存在する他の参照型と似ていることが分かります。 重要なのは、`Include` ステートメントではプロジェクトに追加するパッケージ ID を指定することです。 `<Version>` 子要素は取得するバージョンを指定します。 バージョンは、[NuGet のバージョン ルール](/nuget/create-packages/dependency-versions#version-ranges)に従って指定します。
+`Include` 属性では、プロジェクトに追加するパッケージの ID を指定します。 `Version` 属性では、取得するバージョンを指定します。 バージョンは、[NuGet のバージョン ルール](/nuget/create-packages/dependency-versions#version-ranges)に従って指定します。
 
 > [!NOTE]
-> `csproj` の構文に詳しくない場合は、詳細について、[MSBuild プロジェクトのリファレンス](/visualstudio/msbuild/msbuild-project-file-schema-reference) ドキュメントを参照してください。  
+> プロジェクト ファイルの構文に詳しくない場合は、詳細について、[MSBuild プロジェクトのリファレンス](/visualstudio/msbuild/msbuild-project-file-schema-reference) ドキュメントを参照してください。
 
-特定のターゲットでのみ使用可能な依存関係を追加するには、次の例のような条件を使用します。
+次の例に示すように、条件を使用して、特定のターゲットでのみ使用できる依存関係を追加します。
 
 ```xml
 <PackageReference Include="PACKAGE_ID" Version="PACKAGE_VERSION" Condition="'$(TargetFramework)' == 'netcoreapp2.1'" />
 ```
 
-これは、ビルドがその特定のターゲットに対して行われる場合にのみ依存関係が有効であることを意味します。 条件の `$(TargetFramework)` は、プロジェクトで設定されている MSBuild プロパティです。 最も一般的な .NET Core アプリケーションの場合、これを行う必要はありません。 
+前の例の依存関係は、指定されたターゲットでビルドが行われている場合にのみ有効です。 条件の `$(TargetFramework)` は、プロジェクトで設定される MSBuild プロパティです。 最も一般的な .NET Core アプリケーションの場合、これを行う必要はありません。
 
-## <a name="adding-a-dependency-to-your-project"></a>プロジェクトへの依存関係の追加
-簡単に依存関係をプロジェクトに追加できます。 ここでは、Json.NET バージョン `9.0.1` をプロジェクトに追加する方法の例を示します。 もちろん、NuGet の他の依存関係にも適用できます。 
+## <a name="add-a-dependency-by-editing-the-project-file"></a>プロジェクト ファイルを編集して依存関係を追加する
 
-プロジェクト ファイルを開くと、2 つ以上の `<ItemGroup>` ノードがあります。 ノードの 1 つには `<PackageReference>` 要素が既にあります。 このノードに新しい依存関係を追加することも、新しいノードを追加することもできます。結果は同じなので開発者次第です。 
-
-この例では、`dotnet new console` によって削除される既定のテンプレートを使います。 これは、簡単なコンソール アプリケーションです。 プロジェクトを開き、最初に `<PackageReference>` が既に存在する `<ItemGroup>` を探します。 次に、以下のコードをそれに追加します。
+依存関係を追加するには、`<ItemGroup>` 要素内に `<PackageReference>` 要素を追加します。 既存の `<ItemGroup>` に追加するか、新しく作成することができます。 次の例では、`dotnet new console` によって作成された既定のコンソール アプリケーション プロジェクトを使用しています。
 
 ```xml
-<PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-```
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
-その後、プロジェクトを保存し、`dotnet restore` コマンドを実行して依存関係をインストールします。 
-
-[!INCLUDE[DotNet Restore Note](~/includes/dotnet-restore-note.md)]
-
-完全なプロジェクトは次のようになります。
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
   </ItemGroup>
+
 </Project>
 ```
 
-## <a name="removing-a-dependency-from-the-project"></a>プロジェクトからの依存関係の削除
-プロジェクト ファイルから依存関係を削除するには、プロジェクト ファイルから `<PackageReference>` を削除するだけです。
+## <a name="add-a-dependency-by-using-the-cli"></a>CLI を使用して依存関係を追加する
+
+依存関係を追加するには、次の例に示すように、[dotnet add package](dotnet-add-package.md) コマンドを実行します。
+
+```dotnetcli
+dotnet add package Microsoft.EntityFrameworkCore
+```
+
+## <a name="remove-a-dependency-by-editing-the-project-file"></a>プロジェクト ファイルを編集して依存関係を削除する
+
+依存関係を削除するには、プロジェクト ファイルから `<PackageReference>` 要素を削除します。
+
+## <a name="remove-a-dependency-by-using-the-cli"></a>CLI を使用して依存関係を削除する
+
+依存関係を削除するには、次の例に示すように、[dotnet remove package](dotnet-remove-package.md) コマンドを実行します。
+
+```dotnetcli
+dotnet remove package Microsoft.EntityFrameworkCore
+```
+
+## <a name="see-also"></a>関連項目
+
+* [プロジェクト ファイル内の NuGet パッケージ](../project-sdk/msbuild-props.md#nuget-packages)
+* [dotnet list package コマンド](dotnet-remove-package.md)

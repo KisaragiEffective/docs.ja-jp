@@ -1,23 +1,23 @@
 ---
-title: Visual Basic 言語の機能
+title: 言語機能
 ms.date: 07/20/2015
 helpviewer_keywords:
 - Visual Basic code, elements of
 - Visual Basic code
 ms.assetid: b0b21730-298c-47e6-9a2f-cc81f628067b
-ms.openlocfilehash: 975bec73235b3b8f82088325e0d4abc50ce6b1dd
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 0c8496d4e452da92e0ae994f0b246cc16723c06e
+ms.sourcegitcommit: 7bc6887ab658550baa78f1520ea735838249345e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62053783"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75636576"
 ---
 # <a name="visual-basic-language-features"></a>Visual Basic 言語の機能
-次のトピックでは、紹介し、Visual Basic では、オブジェクト指向のプログラミング言語の重要なコンポーネントについて説明します。 フォームとコントロールを使用してアプリケーションのユーザー インターフェイスを作成した後、アプリケーションの動作を定義するコードを作成する必要があります。 最新のプログラミング言語と Visual Basic では、さまざまな一般的なプログラミング構成要素と言語要素がサポートされています。  
+次のトピックでは、オブジェクト指向プログラミング言語である Visual Basic の重要なコンポーネントについて説明します。 フォームとコントロールを使用してアプリケーションのユーザー インターフェイスを作成した後、アプリケーションの動作を定義するコードを作成する必要があります。 最新のプログラミング言語と同様に、Visual Basic では、一般的なプログラミング構造や言語要素を数多くサポートしています。  
   
- 他の言語でプログラミングしたことがある場合、このセクションで説明されている内容の大半はすでに知っている可能性があります。 構造のほとんどは、他の言語と似ていますが、Visual Basic のイベント ドリブンの特質は微妙な違いについて説明します。  
+ 他の言語でプログラミングしたことがある場合、このセクションで説明されている内容の大半はすでに知っている可能性があります。 ほとんどのコンストラクトは他の言語の構造と似ていますが、Visual Basic のイベント駆動型の性質にはいくつかの微妙な違いがあります。  
   
- プログラミングの経験がない場合、このセクションの説明は、コードを記述するための基礎を紹介するものになります。 基本を理解すると、Visual Basic を使用して強力なアプリケーションを作成できます。  
+ プログラミングの経験がない場合、このセクションの説明は、コードを記述するための基礎を紹介するものになります。 基本を理解したら、Visual Basic を使用して強力なアプリケーションを作成できます。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [配列](../../../visual-basic/programming-guide/language-features/arrays/index.md)  
@@ -54,7 +54,7 @@ ms.locfileid: "62053783"
  インターフェイスの概要と、アプリケーションでの使用方法について説明します。  
   
  [LINQ](../../../visual-basic/programming-guide/language-features/linq/index.md)  
- [!INCLUDE[vbteclinqext](~/includes/vbteclinqext-md.md)] の機能とプログラミングの概要を説明するトピックへのリンクを示します。  
+ 統合言語クエリ (LINQ) の機能とプログラミングに関するトピックへのリンクを示します。  
   
  [クラスとオブジェクト](../../../visual-basic/programming-guide/language-features/objects-and-classes/index.md)  
  オブジェクトとクラスの概要、使用方法、相互関係、オブジェクトとクラスによって公開されるプロパティ、メソッド、イベントについて説明します。  
@@ -62,7 +62,7 @@ ms.locfileid: "62053783"
  [演算子および式](../../../visual-basic/programming-guide/language-features/operators-and-expressions/index.md)  
  値を保持する要素を操作するコード要素、それらを効率的に使用する方法、およびそれらを組み合わせて新しい値を取得する方法について説明します。  
   
- [プロシージャ](../../../visual-basic/programming-guide/language-features/procedures/index.md)  
+ [手順](../../../visual-basic/programming-guide/language-features/procedures/index.md)  
  `Sub`、`Function`、`Property`、`Operator` の各プロシージャと、再帰プロシージャやオーバーロード プロシージャなどの高度なトピックについて説明します。  
   
  [ステートメント](../../../visual-basic/programming-guide/language-features/statements.md)  
@@ -77,7 +77,7 @@ ms.locfileid: "62053783"
  [XML](../../../visual-basic/programming-guide/language-features/xml/index.md)  
  Visual Basic での XML の使用方法について説明しているトピックへのリンクを示します。  
   
-## <a name="related-sections"></a>関連項目
+## <a name="related-sections"></a>関連セクション
 
  [コレクション](../../../visual-basic/programming-guide/concepts/collections.md)  
  .NET Framework で提供されているコレクションの種類について説明します。 単純なコレクションおよびキーと値のペアのコレクションを使用する方法を示します。  

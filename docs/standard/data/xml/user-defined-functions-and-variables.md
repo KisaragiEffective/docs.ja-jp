@@ -6,14 +6,12 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 4772f20e-1e7f-496e-93c2-1484473be555
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: c2ce474dac44de1ac72811ecd3bc294ba57ce40a
-ms.sourcegitcommit: 3d5d33f384eeba41b2dff79d096f47ccc8d8f03d
-ms.translationtype: HT
+ms.openlocfilehash: 7040c2ccf6e3bfc6efcbec3505c633c6c3c6508f
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33570471"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75710064"
 ---
 # <a name="user-defined-functions-and-variables"></a>ユーザー定義の関数と変数
 <xref:System.Xml.XPath.XPathNavigator> クラスは、<xref:System.Xml.XPath.XPathDocument> データの操作に使用されるメソッドのセットを提供します。 XPath クエリ式で使用する拡張関数および変数を実装することで、標準の XPath 関数を補完できます。 <xref:System.Xml.XPath.XPathExpression.SetContext%2A> メソッドは、<xref:System.Xml.Xsl.XsltContext> から派生した、ユーザー定義のコンテキストを受け取ることができます。 ユーザー定義の関数は、カスタム コンテキストで解決されます。  

@@ -8,10 +8,10 @@ helpviewer_keywords:
 - pathmap compiler option [C#]
 - /pathmap compiler option [C#]
 ms.openlocfilehash: 48e96d2ec2ccbea83d573c0eb3630b1591c407a9
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69606630"
 ---
 # <a name="-pathmap-c-compiler-options"></a>-pathmap (C# コンパイラ オプション)
@@ -44,13 +44,13 @@ ms.locfileid: "69606630"
 
 ## <a name="example"></a>例
 
-ディレクトリ **C:\\work\\tests** 内の `t.cs` をコンパイルし、出力ではそのディレクトリを **\publish** にマップします。
+ディレクトリ `t.cs`C:**work\\tests\\ 内の**  をコンパイルし、出力ではそのディレクトリを **\publish** にマップします。
 
 ```console
 csc -pathmap:C:\work\tests=\publish t.cs
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](./index.md)
 - [プロジェクトおよびソリューションのプロパティの管理](/visualstudio/ide/managing-project-and-solution-properties)

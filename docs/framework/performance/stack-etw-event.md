@@ -5,14 +5,12 @@ helpviewer_keywords:
 - stack event [.NET Framework]
 - ETW, stack event (CLR)
 ms.assetid: f612fa5b-4b62-4593-a19e-85c9b1018dce
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 5dc23f5105b589d5b74c9ea6b7f40b84c2b04e6a
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: f3014a04ba7cacbe37b6706e2919ffd7de19aa65
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71046167"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75715916"
 ---
 # <a name="stack-etw-event"></a>スタック ETW イベント
 イベントの発生後にスタック トレースを生成するには、スタック イベントを他のイベントと併用する必要があります。 ランタイム プロバイダーが有効になると、ログに記録されます。 これは頻度が非常に高いイベントです。別のランタイム イベントが発生するたびに発生するためです。 そのような理由から、このイベントの使用には注意が必要です。  
@@ -25,13 +23,13 @@ ms.locfileid: "71046167"
   
  次の表に、イベント情報を示します。  
   
-|イベント|イベント ID|いつ発生するか|  
+|Event|イベント ID|いつ発生するか|  
 |-----------|--------------|-----------------|  
 |`CLRStackWalk`|82|他のイベントを併用し、イベント後にスタック トレースを生成します。|  
   
  次の表に、イベント データを示します。  
   
-|フィールド名|データの種類|説明|  
+|フィールド名|データ型|説明|  
 |----------------|---------------|-----------------|  
 |ClrInstanceID|win:Uint16|一意のランタイム識別子。|  
 |Reserved1|win:UInt8|予約済み。|  

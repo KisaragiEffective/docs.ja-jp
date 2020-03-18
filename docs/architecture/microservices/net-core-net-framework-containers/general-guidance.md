@@ -2,12 +2,12 @@
 title: 一般的なガイダンス
 description: '.NET マイクロサービス: コンテナー化された .NET アプリケーションのアーキテクチャ | 一般的なガイダンス'
 ms.date: 09/11/2018
-ms.openlocfilehash: 0981cb16d5aa2036391caba0cf6ad3ac5c44ed6f
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: 2fa66d7593b764a8df4d9acc20f93d3f8fb26174
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68675799"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73089650"
 ---
 # <a name="general-guidance"></a>一般的なガイダンス
 
@@ -37,7 +37,7 @@ Docker で .NET Framework を使用すると、展開に関する問題を最小
 
 ### <a name="additional-resources"></a>その他の技術情報
 
-- **電子ブック:Modernize existing .NET Framework applications with Azure and Windows Containers (Azure および Windows コンテナーで既存の .NET Framework アプリケーションを最新化する)**  
+- **電子書籍: Modernize existing .NET Framework applications with Azure and Windows Containers (Azure および Windows コンテナーで既存の .NET Framework アプリケーションを最新化する)**  
     https://aka.ms/liftandshiftwithcontainersebook
 
 - **サンプル アプリ:Windows コンテナーを使用した従来の ASP.NET Web アプリの最新化**  

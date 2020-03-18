@@ -1,5 +1,5 @@
 ---
-title: CorDebugGenerationTypes 列挙型
+title: CorDebugGenerationTypes 列挙体
 ms.date: 03/30/2017
 api_name:
 - CorDebugGenerationTypes
@@ -14,16 +14,14 @@ helpviewer_keywords:
 ms.assetid: 9f25b64f-eedd-4ae5-8b0e-cfdfb9b6c5d8
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 193f5ffe96e89a00bed8a3c88ee346ba3ea9f2b4
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 6133b34a60fd06c1b75d69783760741b8de62071
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67740018"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76789340"
 ---
-# <a name="cordebuggenerationtypes-enumeration"></a>CorDebugGenerationTypes 列挙型
+# <a name="cordebuggenerationtypes-enumeration"></a>CorDebugGenerationTypes 列挙体
 マネージド ヒープ上のメモリ領域の生成を指定します。  
   
 ## <a name="syntax"></a>構文  
@@ -44,12 +42,12 @@ typedef enum CorDebugGenerationTypes {
 |`CorDebug_Gen0`|ジェネレーション 0。|  
 |`CorDebug_Gen1`|ジェネレーション 1。|  
 |`CorDebug_Gen2`|ジェネレーション 2。|  
-|`CorDebug_LOH`|大きなオブジェクト ヒープ。|  
+|`CorDebug_LOH`|大きなオブジェクトヒープ。|  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -59,4 +57,4 @@ typedef enum CorDebugGenerationTypes {
   
 ## <a name="see-also"></a>関連項目
 
-- [列挙型のデバッグ](../../../../docs/framework/unmanaged-api/debugging/debugging-enumerations.md)
+- [列挙型のデバッグ](debugging-enumerations.md)

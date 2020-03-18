@@ -2,12 +2,12 @@
 title: デザイナーのホスト変更
 ms.date: 03/30/2017
 ms.assetid: b676ad31-5f64-4d84-9a36-b4d7113a2f4d
-ms.openlocfilehash: ecbea5822825cca5f3f5cf40e20d5d249b17b07c
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: f98b1823c74471c96f6d4b67ec47637bb0785d8f
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70038189"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715233"
 ---
 # <a name="designer-rehosting"></a>デザイナーのホスト変更
 デザイナーのホスト変更は、カスタム アプリケーション内でワークフロー デザイン キャンバスをホストすることを示す一般的なシナリオです。 多くのユーザーにとって、使い慣れたホスト アプリケーションは Visual Studio ですが、アプリケーションでワークフロー デザイナーを表示すると役立つ場合があるシナリオも数多くあります。  
@@ -16,7 +16,7 @@ ms.locfileid: "70038189"
   
 - ユーザーが限られたアクティビティ セットを使用してプロセスをカスタマイズできるようにするアプリケーション。  
   
- このような種類のアプリケーションをサポートするために、ワークフロー デザイナーが .NET Framework に付属しており、WPF アプリケーション内でホストするか、適切な WPF ホスト コードを使用して WinForms アプリケーション内でホストすることができます。 このサンプルでは、次のことを示します。  
+ このような種類のアプリケーションをサポートするために、ワークフロー デザイナーが .NET Framework に付属しており、WPF アプリケーション内でホストするか、適切な WPF ホスト コードを使用して WinForms アプリケーション内でホストすることができます。 このサンプルでは、次の方法を示します。  
   
 - WF デザイナーのホスト変更方法。  
   
@@ -40,7 +40,7 @@ ms.locfileid: "70038189"
 </Grid>  
 ```  
   
- 次に、このサンプルではデザイナーを作成し、そのプライマリ <xref:System.Activities.Presentation.WorkflowDesigner.View%2A> および <xref:System.Activities.Presentation.WorkflowDesigner.PropertyInspectorView%2A> をユーザー インターフェイスの適切なコンテナーに関連付けます。 次の例に示すいくつかのコード行について説明します。 この<xref:System.Activities.Core.Presentation.DesignerMetadata.Register%2A>呼び出しは、.NET Framework に出荷されたアクティビティの既定のアクティビティデザイナーを関連付けるために必要です。 <xref:System.Activities.Presentation.WorkflowDesigner.Load%2A> は、編集する WF 項目を渡すために呼び出されます。 最後に、<xref:System.Activities.Presentation.WorkflowDesigner.View%2A> (プライマリ キャンバス) および <xref:System.Activities.Presentation.WorkflowDesigner.PropertyInspectorView%2A> (プロパティ グリッド) がユーザー インターフェイス画面に配置されます。  
+ 次に、このサンプルではデザイナーを作成し、そのプライマリ <xref:System.Activities.Presentation.WorkflowDesigner.View%2A> および <xref:System.Activities.Presentation.WorkflowDesigner.PropertyInspectorView%2A> をユーザー インターフェイスの適切なコンテナーに関連付けます。 次の例に示すいくつかのコード行について説明します。 .NET Framework に出荷されたアクティビティの既定のアクティビティデザイナーを関連付けるには、<xref:System.Activities.Core.Presentation.DesignerMetadata.Register%2A> 呼び出しが必要です。 <xref:System.Activities.Presentation.WorkflowDesigner.Load%2A> は、編集する WF 項目を渡すために呼び出されます。 最後に、<xref:System.Activities.Presentation.WorkflowDesigner.View%2A> (プライマリ キャンバス) および <xref:System.Activities.Presentation.WorkflowDesigner.PropertyInspectorView%2A> (プロパティ グリッド) がユーザー インターフェイス画面に配置されます。  
   
 ```csharp  
 protected override void OnInitialized(EventArgs e)  
@@ -125,6 +125,6 @@ protected override void OnInitialized(EventArgs e)
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WF\Basic\DesignerRehosting\Basic`

@@ -1,20 +1,19 @@
 ---
 title: コンストラクターの使用 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - constructors [C#], about constructors
 ms.assetid: 464253b2-fd5d-469a-836d-df0fdf2a43f7
-ms.openlocfilehash: dab8466b4d40e318bbb9915c06ce4ac836c0ead0
-ms.sourcegitcommit: 2d792961ed48f235cf413d6031576373c3050918
+ms.openlocfilehash: 7c227b61c6d5b4ead00fced0dba046b90683fde1
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2019
-ms.locfileid: "70205429"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77626413"
 ---
 # <a name="using-constructors-c-programming-guide"></a>コンストラクターの使用 (C# プログラミング ガイド)
 
-[クラス](../../language-reference/keywords/class.md)または[構造体](../../language-reference/keywords/struct.md)を作成する際には、コンストラクターが呼び出されます。 コンストラクターの名前はクラスまたは構造体と同じで、通常は、このコンストラクターによって、新しいオブジェクトのデータ メンバーが初期化されます。  
+[クラス](../../language-reference/keywords/class.md)または[構造体](../../language-reference/builtin-types/struct.md)を作成する際には、コンストラクターが呼び出されます。 コンストラクターの名前はクラスまたは構造体と同じで、通常は、このコンストラクターによって、新しいオブジェクトのデータ メンバーが初期化されます。  
   
  次の例では、`Taxi` というクラスが、簡単なコンストラクターを使用して定義された後、 [new](../../language-reference/operators/new-operator.md) 演算子によってインスタンス化されます。 `Taxi` コンストラクターは、新しいオブジェクトに対してメモリが割り当てられるとすぐに、`new` 演算子によって呼び出されます。  
   
@@ -30,7 +29,7 @@ ms.locfileid: "70205429"
   
  詳細については、「[プライベート コンストラクター](./private-constructors.md)」を参照してください。  
   
- [struct](../../language-reference/keywords/struct.md) 型のコンストラクターはクラス コンストラクターに似ていますが、`structs` には、明示的なパラメーターなしのコンストラクターを含めることができません。パラメーターなしのコンストラクターは、コンパイラによって自動的に提供されるためです。 このコンストラクターは、`struct` 内の各フィールドを既定値に初期化します。 詳細については、「[既定値の一覧表](../../language-reference/keywords/default-values-table.md)」を参照してください。 ただし、このパラメーターなしのコンストラクターは、`struct` が `new` によってインスタンス化される場合にのみ呼び出されます。 たとえば、次のコードでは、<xref:System.Int32> のパラメーターなしのコンストラクターが使用されるため、整数が確実に初期化されます。  
+ [struct](../../language-reference/builtin-types/struct.md) 型のコンストラクターはクラス コンストラクターに似ていますが、`structs` には、明示的なパラメーターなしのコンストラクターを含めることができません。パラメーターなしのコンストラクターは、コンパイラによって自動的に提供されるためです。 このコンストラクターは、`struct` 内の各フィールドを[既定値](../../language-reference/builtin-types/default-values.md)に初期化します。 ただし、このパラメーターなしのコンストラクターは、`struct` が `new` によってインスタンス化される場合にのみ呼び出されます。 たとえば、次のコードでは、<xref:System.Int32> のパラメーターなしのコンストラクターが使用されるため、整数が確実に初期化されます。  
   
 ```csharp  
 int i = new int();  
@@ -67,7 +66,7 @@ Console.WriteLine("{0}, {1}", a, b);
   
  [!code-csharp[csProgGuideObjects#56](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideObjects/CS/Objects.cs#56)]  
   
- この例では、コンストラクターのブロックを実行する前に、基底クラスのコンストラクターを呼び出しています。 `base` キーワードは、パラメーターの有無に関係なく使用できます。 コンストラクターのパラメーターは、`base` のパラメーターまたは式の一部として使用できます。 詳細については、「[base](../../language-reference/keywords/base.md)」を参照してください。  
+ この例では、コンストラクターのブロックを実行する前に、基底クラスのコンストラクターを呼び出しています。 `base` キーワードは、パラメーターの有無に関係なく使用できます。 コンストラクターのパラメーターは、`base` のパラメーターまたは式の一部として使用できます。 詳細については、「 [base](../../language-reference/keywords/base.md)」を参照してください。  
   
  派生クラスで基底クラスのコンストラクターが `base` キーワードを使用して明示的に呼び出されていない場合、パラメーターなしのコンストラクター (存在する場合) は暗黙的に呼び出されます。 つまり、次に示すコンストラクターの宣言は実質的に同じです。  
   
@@ -91,11 +90,11 @@ Console.WriteLine("{0}, {1}", a, b);
   
 ## <a name="c-language-specification"></a>C# 言語仕様  
 
-詳細については、「[C# 言語仕様](../../language-reference/language-specification/index.md)」の[インスタンス コンストラクター](~/_csharplang/spec/classes.md#instance-constructors)と[静的コンストラクター](~/_csharplang/spec/classes.md#static-constructors)に関するセクションを参照してください。 言語仕様は、C# の構文と使用法に関する信頼性のある情報源です。
+詳細については、「[C# 言語仕様](~/_csharplang/spec/classes.md#instance-constructors)」の[インスタンス コンストラクター](~/_csharplang/spec/classes.md#static-constructors)と[静的コンストラクター](/dotnet/csharp/language-reference/language-specification/introduction)に関するセクションを参照してください。 言語仕様は、C# の構文と使用法に関する信頼性のある情報源です。
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [クラスと構造体](./index.md)
 - [コンストラクター](./constructors.md)
 - [ファイナライザー](./destructors.md)

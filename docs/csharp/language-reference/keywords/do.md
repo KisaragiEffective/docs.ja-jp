@@ -1,6 +1,5 @@
 ---
 title: do - C# リファレンス
-ms.custom: seodec18
 ms.date: 05/28/2018
 f1_keywords:
 - do_CSharpKeyword
@@ -8,12 +7,12 @@ f1_keywords:
 helpviewer_keywords:
 - do keyword [C#]
 ms.assetid: 50725f79-9ba6-4898-aa78-6e331568a1bb
-ms.openlocfilehash: 5566965e77feb9d46584146829284e9e0be71539
-ms.sourcegitcommit: 10986410e59ff29f2ec55c6759bde3eb4d1a00cb
+ms.openlocfilehash: 38224ce70c19ff67ad80b99d3da52155849f1341
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66422043"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75713597"
 ---
 # <a name="do-c-reference"></a>do (C# リファレンス)
 
@@ -21,9 +20,9 @@ ms.locfileid: "66422043"
 
 `do` ステートメント ブロック内の任意の位置で、[break](break.md) ステートメントを使用してループを抜けることができます。
 
-[continue](continue.md) ステートメントを使用すると、`while` 式の評価に直接ステップ実行できます。 式の評価が `true` の場合、ループの最初のステートメントから実行が続行されます。 それ以外の場合、実行は、ループの後の最初のステートメントから続行されます。
+`while`continue[ ステートメントを使用すると、](continue.md) 式の評価に直接ステップ実行できます。 式の評価が `true` の場合、ループの最初のステートメントから実行が続行されます。 それ以外の場合、実行は、ループの後の最初のステートメントから続行されます。
 
-また、[goto](goto.md)、[return](return.md)、[throw](throw.md) ステートメントのいずれかを使って `do-while` ループを終了することもできます。
+また、`do-while`goto[、](goto.md)return[、](return.md)throw[ ステートメントのいずれかを使って ](throw.md) ループを終了することもできます。
 
 ## <a name="example"></a>例
 
@@ -33,11 +32,11 @@ ms.locfileid: "66422043"
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳細については、「[C# 言語仕様](../language-specification/index.md)」の [do ステートメント](~/_csharplang/spec/statements.md#the-do-statement)に関するセクションを参照してください。
+詳細については、「[C# 言語仕様](~/_csharplang/spec/statements.md#the-do-statement)」の [do ステートメント](/dotnet/csharp/language-reference/language-specification/introduction)に関するセクションを参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# のキーワード](index.md)
 - [while ステートメント](while.md)

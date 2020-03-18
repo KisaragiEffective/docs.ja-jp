@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 3a912787-f139-43ca-a841-8bbda3107ecf
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 76d341aca7c96e5932a1fc155ccaee17ce6585da
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 1db4c4ab7e47e223a492e08297ac3cedcb3a27eb
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70777004"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74445607"
 ---
 # <a name="setassemblyfile-method"></a>SetAssemblyFile メソッド
 ビルドされるアセンブリの名前を割り当てます。 非バインドモジュールの生成時には使用しません。  
@@ -51,12 +49,12 @@ HRESULT SetAssemblyFile(
  結果として得られるアセンブリの ID へのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合、S_OK を返します。  
+ メソッドが成功した場合は S_OK を返します。  
   
-## <a name="requirements"></a>必要条件  
+## <a name="requirements"></a>要件  
  Alink. h が必要です。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IALink インターフェイス](ialink-interface.md)
 - [IALink2 インターフェイス](ialink2-interface.md)

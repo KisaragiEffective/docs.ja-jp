@@ -7,12 +7,12 @@ helpviewer_keywords:
 - Internet, .NET Framework Internet services
 - Network Resources
 ms.assetid: 8d455610-67a0-4fa8-a62f-7747064a9256
-ms.openlocfilehash: 230825c5259807cf693179878a45aeb3fdcbf0ac
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 1e7f0123ab07fd4e83eea957b72bf79eeeecef2b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71047993"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74204695"
 ---
 # <a name="network-programming-in-the-net-framework"></a>.NET Framework のネットワーク プログラミング
 Microsoft .NET Framework は、アプリケーションにすばやく簡単に統合できる、複数層の拡張可能なインターネット サービスのマネージド実装を提供します。 ネットワーク アプリケーションは、プラグ可能なプロトコルを基に自動的に新しいインターネット プロトコルを使用するように作成することも、ソケット レベルでネットワークを使用できるように Windows ソケット インターフェイスのマネージド実装を使用することもできます。  
@@ -80,12 +80,12 @@ Microsoft .NET Framework は、アプリケーションにすばやく簡単に�
  IPv6 および Teredo を使用する NAT トラバースをサポートするために、 <xref:System.Net?displayProperty=nameWithType>、 <xref:System.Net.NetworkInformation?displayProperty=nameWithType>、および <xref:System.Net.Sockets?displayProperty=nameWithType> 名前空間に追加された強化機能について説明します。  
   
  [Windows ストア アプリのネットワーク分離](network-isolation-for-windows-store-apps.md)  
- <xref:System.Net>、 <xref:System.Net.Http>、および <xref:System.Net.Http.Headers> 名前空間のクラスを [!INCLUDE[win8_appname_long](../../../includes/win8-appname-long-md.md)] アプリケーションで使用したときのネットワーク分離の影響について説明します。  
+ <xref:System.Net>、 <xref:System.Net.Http>、および <xref:System.Net.Http.Headers> 名前空間のクラスを Windows 8.x ストア アプリで使用したときのネットワーク分離の影響について説明します。  
   
  [ネットワーク プログラミングのサンプル](network-programming-samples.md)  
  <xref:System.Net>、 <xref:System.Net.Cache>、 <xref:System.Net.Configuration>、 <xref:System.Net.Mail>、 <xref:System.Net.Mime>、 <xref:System.Net.NetworkInformation>、 <xref:System.Net.PeerToPeer>、 <xref:System.Net.Security>、 <xref:System.Net.Sockets> 名前空間のクラスを使用する、ダウンロード可能なネットワーク プログラミング サンプルへのリンク。  
   
-## <a name="reference"></a>関連項目  
+## <a name="reference"></a>リファレンス  
  <xref:System.Net?displayProperty=nameWithType>  
  最近のネットワークで使用されている多くのプロトコル用の単純なプログラミング インターフェイスを提供します。 この名前空間の <xref:System.Net.WebRequest?displayProperty=nameWithType> および <xref:System.Net.WebResponse?displayProperty=nameWithType> クラスは、プラグ可能なプロトコルの基礎です。  
   
@@ -126,7 +126,7 @@ Microsoft .NET Framework は、アプリケーションにすばやく簡単に�
  WebSocket インターフェイスのマネージド実装を開発者に提供します。  
   
  <xref:System.Uri?displayProperty=nameWithType>  
- URI (Uniform Resource Identifier) のオブジェクト表現を可能にし、URI の一部へ簡単にアクセスできるようにします。  
+ URI (Uniform Resource Identifier) をオブジェクトとして表現することによって、その構成要素に簡単にアクセスできるようにします。  
   
  <xref:System.Security.Authentication.ExtendedProtection?displayProperty=nameWithType>  
  アプリケーションの拡張保護を使用した認証をサポートします。  
@@ -134,7 +134,7 @@ Microsoft .NET Framework は、アプリケーションにすばやく簡単に�
  <xref:System.Security.Authentication.ExtendedProtection.Configuration?displayProperty=nameWithType>  
  アプリケーションの拡張保護を使用した認証の構成をサポートします。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [.NET Framework でのトランスポート層セキュリティ (TLS) のベスト プラクティス](tls.md)
 - [ネットワーク プログラミング方法のトピック](network-programming-how-to-topics.md)

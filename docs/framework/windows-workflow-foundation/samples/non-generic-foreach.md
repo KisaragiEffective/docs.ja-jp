@@ -2,12 +2,12 @@
 title: 非ジェネリックの ForEach
 ms.date: 03/30/2017
 ms.assetid: 576cd07a-d58d-4536-b514-77bad60bff38
-ms.openlocfilehash: cb040d8bd5fbb34cc00b246f2e51789866fd8e78
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 93a6b1d815ef6478974ceadf8ad935be2a3bdea5
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70989035"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75338652"
 ---
 # <a name="non-generic-foreach"></a>非ジェネリックの ForEach
 [!INCLUDE[netfx_current_long](../../../../includes/netfx-current-long-md.md)] のツールボックスには、制御フロー アクティビティのセットが用意されています。これには、<xref:System.Activities.Statements.ForEach%601> コレクションを反復処理できる <xref:System.Collections.Generic.IEnumerable%601> が含まれています。  
@@ -17,7 +17,7 @@ ms.locfileid: "70989035"
  このサンプルでは、非ジェネリックの <xref:System.Activities.Statements.ForEach%601> アクティビティとそのデザイナーを実装する方法を示します。 このアクティビティは、<xref:System.Collections.ArrayList> の反復処理に使用できます。  
   
 ## <a name="foreach-activity"></a>ForEach アクティビティ  
- C# および VB の `foreach` ステートメントは、コレクションの要素を列挙し、コレクションの各要素に対して埋め込みステートメントを実行します。 [!INCLUDE[wf1](../../../../includes/wf1-md.md)] に相当する `foreach` のアクティビティは、<xref:System.Activities.Statements.ForEach%601> および <xref:System.Activities.Statements.ParallelForEach%601> です。 <xref:System.Activities.Statements.ForEach%601> アクティビティには、値のリストと本体が含まれます。 実行時に、リストが反復処理されて、リスト内の値ごとに本体が実行されます。  
+ / C#Visual Basic `foreach` ステートメントは、コレクションの要素を列挙し、コレクションの各要素に対して埋め込みステートメントを実行します。 [!INCLUDE[wf1](../../../../includes/wf1-md.md)] に相当する `foreach` のアクティビティは、<xref:System.Activities.Statements.ForEach%601> および <xref:System.Activities.Statements.ParallelForEach%601> です。 <xref:System.Activities.Statements.ForEach%601> アクティビティには、値のリストと本体が含まれます。 実行時に、リストが反復処理されて、リスト内の値ごとに本体が実行されます。  
   
  ほとんどの場合、ジェネリック バージョンのアクティビティを使用することをお勧めします。ジェネリック バージョンのアクティビティは、そのアクティビティを使用するシナリオの大半に対応し、コンパイル時の型チェックが実現するためです。 非ジェネリック バージョンは、非ジェネリックの <xref:System.Collections.IEnumerable> インターフェイスを実装する型を反復処理するために使用できます。  
   
@@ -67,12 +67,12 @@ Activity sampleUsage =
    };  
 ```  
   
-|条件|Message|Severity|例外の種類|  
+|状態|[メッセージ]|Severity|例外の種類|  
 |---------------|-------------|--------------|--------------------|  
-|値が `null` である|必須のアクティビティ引数 'Values' の値が指定されませんでした。|Error|<xref:System.InvalidOperationException>|  
+|値が `null` である|必須のアクティビティ引数 'Values' の値が指定されませんでした。|エラー|<xref:System.InvalidOperationException>|  
   
 ## <a name="foreach-designer"></a>ForEach デザイナー  
- サンプルのアクティビティ デザイナーは、組み込みの <xref:System.Activities.Statements.ForEach%601> アクティビティ用に提供されているデザイナーに外観が似ています。 デザイナーは、[**サンプル**の**非ジェネリックアクティビティ**] カテゴリの [ツールボックス] に表示されます。 デザイナーのツールボックスには**ForEachWithBodyFactory**という名前が付けられ<xref:System.Activities.Presentation.IActivityTemplateFactory>ます。これは、アクティビティがツールボックスでを公開<xref:System.Activities.ActivityAction>するためです。これにより、適切に構成されたを持つアクティビティが作成されます。  
+ サンプルのアクティビティ デザイナーは、組み込みの <xref:System.Activities.Statements.ForEach%601> アクティビティ用に提供されているデザイナーに外観が似ています。 デザイナーは、[**サンプル**の**非ジェネリックアクティビティ**] カテゴリの [ツールボックス] に表示されます。 デザイナーのツールボックスには**ForEachWithBodyFactory**という名前が付けられます。これは、アクティビティがツールボックス内の <xref:System.Activities.Presentation.IActivityTemplateFactory> を公開し、適切に構成された <xref:System.Activities.ActivityAction>を持つアクティビティを作成するためです。  
   
 ```csharp  
 public sealed class ForEachWithBodyFactory : IActivityTemplateFactory  
@@ -101,13 +101,13 @@ public sealed class ForEachWithBodyFactory : IActivityTemplateFactory
   
     2. **デザイナ Testclient**デザイナー内でアクティビティを使用する方法を示します。  
   
-2. プロジェクトをビルドして実行します。  
+2. プロジェクトをビルドおよび実行します。  
   
 > [!IMPORTANT]
 > サンプルは、既にコンピューターにインストールされている場合があります。 続行する前に、次の (既定の) ディレクトリを確認してください。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WF\Scenario\ActivityLibrary\NonGenericForEach`

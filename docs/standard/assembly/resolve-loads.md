@@ -8,18 +8,16 @@ helpviewer_keywords:
 - assemblies [.NET Framework], loading
 - application domains, resolving assembly loads
 ms.assetid: 5099e549-f4fd-49fb-a290-549edd456c6a
-author: rpetrusha
-ms.author: ronpet
 dev_langs:
 - csharp
 - vb
 - cpp
-ms.openlocfilehash: ee9ce292b18c75893dae46582dc5bb966981a614
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: d6314fae266505fbb4410aaaa351973070ab3811
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70972607"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78156440"
 ---
 # <a name="resolve-assembly-loads"></a>アセンブリ読み込みを解決する
 .NET では、アセンブリの読み込みをより細かく制御する必要があるアプリケーションのために、<xref:System.AppDomain.AssemblyResolve?displayProperty=nameWithType> イベントが用意されています。 アプリケーションでこのイベントを処理することにより、通常のプローブ パスの外部から読み込みコンテキストにアセンブリを読み込んだり、アセンブリの複数のバージョンから読み込むものを選んだり、動的アセンブリを生成してそれを返したりすることができます。 ここでは、<xref:System.AppDomain.AssemblyResolve> イベントの処理について説明します。  
@@ -83,7 +81,7 @@ using namespace System::Reflection;
 ref class Example
 {
 internal:
-    static Assembly^ MyHandler(Object^ source, ResolveEventArgs^ e) 
+    static Assembly^ MyHandler(Object^ source, ResolveEventArgs^ e)
     {
         Console::WriteLine("Resolving {0}", e->Name);
         return Assembly::Load(e->Name);
@@ -100,7 +98,7 @@ void main()
         Object^ obj = ad->CreateInstanceAndUnwrap(
             "MyAssembly, version=1.2.3.4, culture=neutral, publicKeyToken=null",
             "MyType");
-    } 
+    }
     catch (Exception^ ex)
     {
         Console::WriteLine(ex->Message);
@@ -135,19 +133,19 @@ class BadExample
             object obj = ad.CreateInstanceAndUnwrap(
                 "MyAssembly, version=1.2.3.4, culture=neutral, publicKeyToken=null",
                 "MyType");
-        } 
+        }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
     }
 
-    static Assembly MyHandler(object source, ResolveEventArgs e) 
+    static Assembly MyHandler(object source, ResolveEventArgs e)
     {
         Console.WriteLine("Resolving {0}", e.Name);
         return Assembly.Load(e.Name);
     }
-} 
+}
 
 /* This example produces output similar to the following:
 
@@ -162,13 +160,12 @@ Process is terminated due to StackOverflowException.
 ```
 
 ```vb
-Imports System
 Imports System.Reflection
 
 Class BadExample
 
     Shared Sub Main()
-    
+
         Dim ad As AppDomain = AppDomain.CreateDomain("Test")
         AddHandler ad.AssemblyResolve, AddressOf MyHandler
 

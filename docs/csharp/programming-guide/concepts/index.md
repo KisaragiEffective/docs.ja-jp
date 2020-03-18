@@ -3,10 +3,10 @@ title: プログラミングの概念 (C#)
 ms.date: 07/20/2015
 ms.assetid: 3227afd5-4794-484b-b83b-0f1f94a0476b
 ms.openlocfilehash: 3fcb1ca76c49919b00b74d955b7aadaa2e882f2a
-ms.sourcegitcommit: 1b020356e421a9314dd525539da12463d980ce7a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "70168340"
 ---
 # <a name="programming-concepts-c"></a>プログラミングの概念 (C#)
@@ -14,7 +14,7 @@ ms.locfileid: "70168340"
   
 ## <a name="in-this-section"></a>このセクションの内容  
   
-|Title|説明|  
+|タイトル|[説明]|  
 |-----------|-----------------|  
 |[.NET のアセンブリ](../../../standard/assembly/index.md)|アセンブリを作成および使用する方法について説明します。|  
 |[Async および Await を使用した非同期プログラミング (C#)](./async/index.md)|C# の [async](../../language-reference/keywords/async.md) および [await](../../language-reference/operators/await.md) キーワードを使用して非同期ソリューションを記述する方法を説明します。 チュートリアルが含まれています。|  

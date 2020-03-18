@@ -8,15 +8,15 @@ helpviewer_keywords:
 - WCF Data Services, configuring
 - WCF Data Services, Windows Communication Foundation
 ms.assetid: b48f42ce-22ce-4f8d-8f0d-f7ddac9125ee
-ms.openlocfilehash: 15122984dbaf3245436ff21836065c05131f71d1
-ms.sourcegitcommit: 5ae5a1a9520b8b8b6164ad728d396717f30edafc
+ms.openlocfilehash: 3abcd901bcb8a175aa6f30e53b142cbbde56a579
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70894321"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73975239"
 ---
 # <a name="hosting-the-data-service-wcf-data-services"></a>データ サービスのホスティング (WCF Data Services)
-WCF Data Services を使用すると、データを[!INCLUDE[ssODataFull](../../../../includes/ssodatafull-md.md)]フィードとして公開するサービスを作成できます。 このデータ サービスは、<xref:System.Data.Services.DataService%601> から継承されたクラスとして定義されます。 このクラスは、要求メッセージを処理し、データソースに対して更新を実行し、OData が必要とする応答メッセージを生成するために必要な機能を提供します。 ただし、データサービスは、受信 HTTP 要求のネットワークソケットにバインドしてリッスンすることはできません。 この機能要件のため、データ サービスはホスティング コンポーネントに依存します。
+WCF Data Services を使用すると、データを Open Data Protocol (OData) フィードとして公開するサービスを作成できます。 このデータ サービスは、<xref:System.Data.Services.DataService%601> から継承されたクラスとして定義されます。 このクラスは、要求メッセージを処理し、データソースに対して更新を実行し、OData が必要とする応答メッセージを生成するために必要な機能を提供します。 ただし、データサービスは、受信 HTTP 要求のネットワークソケットにバインドしてリッスンすることはできません。 この機能要件のため、データ サービスはホスティング コンポーネントに依存します。
 
  データ サービス ホストは、データ サービスに代わって次のタスクを実行します。
 
@@ -32,7 +32,7 @@ WCF Data Services を使用すると、データを[!INCLUDE[ssODataFull](../../
 
 - ASP.NET アプリケーション。
 
-- 自己ホスト型 WCF サービスをサポートするマネージ アプリケーション
+- 自己ホスト型 WCF サービスをサポートするマネージド アプリケーション
 
 - その他のカスタム データ サービス ホスト
 

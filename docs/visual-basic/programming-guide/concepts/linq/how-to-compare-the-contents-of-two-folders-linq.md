@@ -1,13 +1,13 @@
 ---
-title: '方法: 2 つのフォルダーの内容を比較する (LINQ) (Visual Basic)'
+title: '方法: 2 つのフォルダーの内容を比較する (LINQ)'
 ms.date: 07/20/2015
 ms.assetid: 903c7e9a-f48d-4a07-a8a8-5450d2646efa
-ms.openlocfilehash: 36128af71bb494a48e52564befe84fa7c7ffc3c0
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 05031466eeafae2dc63db36e9380034ddf9cbf15
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75337542"
 ---
 # <a name="how-to-compare-the-contents-of-two-folders-linq-visual-basic"></a>方法: 2 つのフォルダーの内容を比較する (LINQ) (Visual Basic)
 
@@ -24,7 +24,7 @@ ms.locfileid: "72582855"
 
 ここに示す `FileComparer` クラスは、標準クエリ演算子と共に、カスタム比較演算子クラスを使用する方法を示します。 このクラスは、実際のシナリオで使用することは想定されていません。 各フォルダーの内容が同一であるかどうかを判断するために、各ファイルの名前と長さ (バイト) を使用するだけです。 実際のシナリオでは、この比較演算子を変更して、より厳密に等しいかどうかをチェックします。
 
-## <a name="example"></a>例
+## <a name="example"></a>使用例
 
 ```vb
 Module CompareDirs
@@ -114,9 +114,9 @@ Module CompareDirs
 End Module
 ```
 
-## <a name="compiling-the-code"></a>コードのコンパイル
+## <a name="compile-the-code"></a>コードのコンパイル
 
-VB.NET コンソールアプリケーションプロジェクトを作成します。このプロジェクトには、名前空間の `Imports` ステートメントが含まれています。
+System. Linq 名前空間の `Imports` ステートメントを使用して、Visual Basic コンソールアプリケーションプロジェクトを作成します。
 
 ## <a name="see-also"></a>関連項目
 

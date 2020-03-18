@@ -3,12 +3,12 @@ title: 構文変換の概要 (Roslyn API)
 description: 構文ツリーの走査、クエリおよびウォークに関する概要。
 ms.date: 06/01/2018
 ms.custom: mvc
-ms.openlocfilehash: bbd56f445a9f06b530a7d094b06f60e6123788da
-ms.sourcegitcommit: a970268118ea61ce14207e0916e17243546a491f
+ms.openlocfilehash: 5045dca839daba1070b34720e72cc9c4f7b94828
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67306931"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "78240611"
 ---
 # <a name="get-started-with-syntax-transformation"></a>構文変換の概要
 
@@ -36,7 +36,7 @@ Visual Studio を起動し、新しい C# の **Stand-Alone Code Analysis Tool**
 
 `Program.cs` ファイルの先頭に次の using ディレクティブを追加して、<xref:Microsoft.CodeAnalysis.CSharp.SyntaxFactory> クラスのファクトリ メソッドと <xref:System.Console> のメソッドをインポートし、後で修飾せずに使用できるようにします。
 
-[!code-csharp[import the SyntaxFactory class](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#StaticUsings "import the Syntax Factory class and the System.Console class")]
+[!code-csharp[import the SyntaxFactory class](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#StaticUsings "import the Syntax Factory class and the System.Console class")]
 
 `using System.Collections.Generic;` ステートメントを表すツリーをビルドするための**名前構文ノード**を作成します。 <xref:Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax> は、C# に現れる 4 つの型の基底クラスです。 これらの 4 つの型の名前を組み合わせて、C# 言語中に出現するすべての名前を作成できます。
 
@@ -47,17 +47,17 @@ Visual Studio を起動し、新しい C# の **Stand-Alone Code Analysis Tool**
 
 <xref:Microsoft.CodeAnalysis.CSharp.SyntaxFactory.IdentifierName(System.String)> メソッドを使用して、<xref:Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax> ノードを作成します。 `Program.cs` で、`Main` メソッドに次のコードを追加します。
 
-[!code-csharp[create the system identifier](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#CreateIdentifierName "Create and display the system name identifier")]
+[!code-csharp[create the system identifier](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#CreateIdentifierName "Create and display the system name identifier")]
 
 上のコードでは、<xref:Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax> オブジェクトを作成して変数 `name` に割り当てます。 Roslyn API の多くは、関連の型を使用しやすくするために基底クラスを返します。 <xref:Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax> である変数 `name` は、<xref:Microsoft.CodeAnalysis.CSharp.Syntax.QualifiedNameSyntax> をビルドするときに再利用できます。 サンプルをビルドするときに、型の推定を使用しないでください。 このプロジェクトではそのステップを自動化します。
 
 これで名前が作成されました。 次に、<xref:Microsoft.CodeAnalysis.CSharp.Syntax.QualifiedNameSyntax> をビルドして、ツリー内にさらに多くのノードをビルドします。 新しいツリーでは、`name` を名前の左側として使用し、`Collections` 名前空間の新しい <xref:Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax> を <xref:Microsoft.CodeAnalysis.CSharp.Syntax.QualifiedNameSyntax> の右側として使用します。 `program.cs` に次のコードを追加します。
 
-[!code-csharp[create the collections identifier](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#CreateQualifiedIdentifierName "Build the System.Collections identifier")]
+[!code-csharp[create the collections identifier](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#CreateQualifiedIdentifierName "Build the System.Collections identifier")]
 
 コードを再度実行し、結果を確認します。 コードを表すノードのツリーをビルドします。 このパターンを繰り返して、名前空間 `System.Collections.Generic` の <xref:Microsoft.CodeAnalysis.CSharp.Syntax.QualifiedNameSyntax> をビルドします。 `Program.cs` に次のコードを追加します。
 
-[!code-csharp[create the full identifier](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#CreateFullNamespace "Build the System.Collections.Generic identifier")]
+[!code-csharp[create the full identifier](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#CreateFullNamespace "Build the System.Collections.Generic identifier")]
 
 プログラムを再度実行して、追加するコード用のツリーがビルドされたことを確認します。
 
@@ -67,26 +67,26 @@ Visual Studio を起動し、新しい C# の **Stand-Alone Code Analysis Tool**
 
 次のステップでは、(小規模な) プログラム全体を表すツリーを作成した後で、それを変更します。 `Program` クラスの先頭に次のコードを追加します。
 
-[!code-csharp[create a parse tree](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#DeclareSampleCode "Create a tree that represents a small program")]
+[!code-csharp[create a parse tree](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#DeclareSampleCode "Create a tree that represents a small program")]
 
 > [!NOTE]
 > このコード例では、`System.Collections.Generic` 名前空間ではなく `System.Collections` 名前空間を使用します。
 
 次に、`Main` メソッドの末尾に、テキストを解析してツリーを作成する次のコードを追加します。
 
-[!code-csharp[create a parse tree](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#CreateParseTree "Create a tree that represents a small program")]
+[!code-csharp[create a parse tree](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#CreateParseTree "Create a tree that represents a small program")]
 
 この例では、<xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax.WithName(Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax)?displayProperty=NameWithType> メソッドを使用して、<xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> ノード内の名前を先ほどのコードで作成した名前に置き換えます。
 
 名前 `System.Collections` を先ほどのコードで作成した名前に置き換えるには、<xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax.WithName(Microsoft.CodeAnalysis.CSharp.Syntax.NameSyntax)> メソッドを使用して新しい <xref:Microsoft.CodeAnalysis.CSharp.Syntax.UsingDirectiveSyntax> ノードを作成します。 `Main` メソッドの末尾に次のコードを追加します。
 
-[!code-csharp[create a new subtree](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#BuildNewUsing "Create the subtree with the replaced namespace")]
+[!code-csharp[create a new subtree](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#BuildNewUsing "Create the subtree with the replaced namespace")]
 
 プログラムを実行し、出力を注意深く見てください。 ルート ツリーに `newusing` が配置されていません。 元のツリーは変更されていません。
 
 新しいツリーを作成するために、<xref:Microsoft.CodeAnalysis.SyntaxNodeExtensions.ReplaceNode%2A> 拡張メソッドを使用した次のコードを追加します。 新しいツリーが、既存のインポートを更新された `newUsing` ノードで置き換えた結果として作成されます。 この新しいツリーを既存の `root` に割り当てます。
 
-[!code-csharp[create a new root tree](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#TransformTree "Create the transformed root tree with the replaced namespace")]
+[!code-csharp[create a new root tree](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/ConstructionCS/Program.cs#TransformTree "Create the transformed root tree with the replaced namespace")]
 
 再びプログラムを実行します。 今度は、ツリーに `System.Collections.Generic` 名前空間が正しくインポートされます。
 
@@ -100,15 +100,15 @@ Visual Studio を起動し、新しい C# の **Stand-Alone Code Analysis Tool**
 
 `TypeInferenceRewriter.cs` ファイルに次の using ディレクティブを追加します。
 
-[!code-csharp[add necessary usings](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#AddUsings "Add required usings")]
+[!code-csharp[add necessary usings](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#AddUsings "Add required usings")]
 
 次に、`TypeInferenceRewriter` クラスで <xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter> クラスを拡張します。
 
-[!code-csharp[add base class](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#BaseClass "Add base class")]
+[!code-csharp[add base class](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#BaseClass "Add base class")]
 
 次のコードを追加して、<xref:Microsoft.CodeAnalysis.SemanticModel> を保持する読み取り専用の private フィールドを宣言し、コンストラクター内で初期化します。 このフィールドは、後で型の推定を使用できる場所を特定するために必要になります。
 
-[!code-csharp[initialize members](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#Construction "Declare and initialize member variables")]
+[!code-csharp[initialize members](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#Construction "Declare and initialize member variables")]
 
 <xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter.VisitLocalDeclarationStatement(Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax)> メソッドをオーバーライドします。
 
@@ -140,25 +140,25 @@ Type variable;
 
 次のコードを `VisitLocalDeclarationStatement` メソッドの本体に追加して、これらの形式の宣言の書き換えをスキップするようにします。
 
-[!code-csharp[exclude other declarations](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#Exclusions "Exclude variables declarations not processed by this sample")]
+[!code-csharp[exclude other declarations](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#Exclusions "Exclude variables declarations not processed by this sample")]
 
 このメソッドは、`node` パラメーターを変更せずに返すことにより、書き換えが行われないことを示します。 いずれの `if` 式も true でない場合、ノードは初期化で可能な宣言を表します。 以下のステートメントを追加して、宣言で指定されている型の名前を抽出し、それを <xref:Microsoft.CodeAnalysis.SemanticModel> フィールドを使用してバインドして、型のシンボルを取得できるようにします。
 
-[!code-csharp[extract type name](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#ExtractTypeSymbol "Extract the type name specified by the declaration")]
+[!code-csharp[extract type name](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#ExtractTypeSymbol "Extract the type name specified by the declaration")]
 
 さらに、次のステートメントを追加して、初期化子式をバインドします。
 
-[!code-csharp[bind initializer](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#BindInitializer "Bind the initializer expressions")]
+[!code-csharp[bind initializer](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#BindInitializer "Bind the initializer expressions")]
 
 最後に、次の `if` ステートメントを追加して、初期化子式の型が指定の型と一致した場合に既存の型名を `var` キーワードで置き換えるようにします。
 
-[!code-csharp[ReplaceNode](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#ReplaceNode "Replace the initializer node")]
+[!code-csharp[ReplaceNode](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/TypeInferenceRewriter.cs#ReplaceNode "Replace the initializer node")]
 
 宣言では初期化子式が基底クラスまたはインターフェイスにキャストされる場合があるので、この条件が必要です。 必要な場合は、割り当ての左側の型と右側の型が一致しません。 このようなケースで明示的な型を削除すると、プログラムのセマンティクスが変わってしまいます。 `var` はコンテキスト キーワードであるため、`var` はキーワードではなく識別子として指定されます。 垂直方向の空白とインデントを維持するために、先頭および末尾のトリビア (空白) が古い型名から `var` キーワードへと転送されています。 型名は実際には宣言ステートメントの孫であるため、`With*` よりも `ReplaceNode` を使用して <xref:Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax> を変換するほうが簡単です。
 
 これで `TypeInferenceRewriter` が完成しました。 `Program.cs` ファイルに戻って例を完成させましょう。 テスト用の <xref:Microsoft.CodeAnalysis.Compilation> を作成し、そこから <xref:Microsoft.CodeAnalysis.SemanticModel> を取得します。 その <xref:Microsoft.CodeAnalysis.SemanticModel> を使用して、`TypeInferenceRewriter` を試します。 このステップは最後に実行します。 それまでの間、テスト用のコンパイルを表すプレースホルダー変数を宣言しておきます。
 
-[!code-csharp[DeclareCompilation](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/Program.cs#DeclareTestCompilation "Declare the test compilation")]
+[!code-csharp[DeclareCompilation](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/Program.cs#DeclareTestCompilation "Declare the test compilation")]
 
 しばらくすると、`CreateTestCompilation` メソッドが存在しないことを通知するエラーの波線が表示されます。 **Ctrl + .** キーを押して電球を開き、Enter キーを押して **[メソッド スタブの生成]** コマンドを呼び出します。 このコマンドにより、`Program` クラス内に `CreateTestCompilation` メソッドのメソッド スタブが生成されます。 このメソッドについては後で説明します。
 
@@ -166,17 +166,17 @@ Type variable;
 
 テスト用の <xref:Microsoft.CodeAnalysis.Compilation> 内の各 <xref:Microsoft.CodeAnalysis.SyntaxTree> を反復処理する次のコードを記述します。 処理ごとに、そのツリーの <xref:Microsoft.CodeAnalysis.SemanticModel> を持った 新しい `TypeInferenceRewriter` が初期化されます。
 
-[!code-csharp[IterateTrees](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/Program.cs#IterateTrees "Iterate all the source trees in the test compilation")]
+[!code-csharp[IterateTrees](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/Program.cs#IterateTrees "Iterate all the source trees in the test compilation")]
 
 作成した `foreach` ステートメント内に次のコードを追加して、各ソース ツリーで変換が実行されるようにします。 このコードは、何らかの編集が行われた場合に、変換された新しいツリーを条件付きで書き出します。 リライターは、型の推定を使用して単純化される可能性があるローカル変数宣言が 1 つ以上見つかった場合にのみ、ツリーを変更します。
 
-[!code-csharp[TransformTrees](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/Program.cs#TransformTrees "Transform and save any trees that are modified by the rewriter")]
+[!code-csharp[TransformTrees](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/Program.cs#TransformTrees "Transform and save any trees that are modified by the rewriter")]
 
 `File.WriteAllText` コードの下に波線が表示されるはずです。 電球を選択し、必要な `using System.IO;` ステートメントを追加します。
 
 完了までもう少しです。 最後の 1 ステップは、<xref:Microsoft.CodeAnalysis.Compilation> の作成です。 このクイック スタートでは型の推定を一度も使用していないので、テスト ケースとするには完璧です。 残念ながら、C# プロジェクト ファイルからコンパイルを作成する方法については、このチュートリアルの対象外です。 しかし幸いなことに、これまでの手順に慎重に従ってきたならば希望が持てます。 `CreateTestCompilation` メソッドの内容を次のコードに置き換えます。 このクイック スタートで説明したプロジェクトに偶然にも一致するテスト用コンパイルが作成されます。
 
-[!code-csharp[CreateTestCompilation](../../../../samples/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/Program.cs#CreateTestCompilation "Create a test compilation using the code written for this quickstart.")]
+[!code-csharp[CreateTestCompilation](../../../../samples/snippets/csharp/roslyn-sdk/SyntaxTransformationQuickStart/TransformationCS/Program.cs#CreateTestCompilation "Create a test compilation using the code written for this quickstart.")]
 
 幸運を祈ってプロジェクトを実行しましょう。 Visual Studio で、 **[デバッグ]**  >  **[デバッグの開始]** を選択します。 Visual Studio で、プロジェクト内のファイルが変更されたという通知が表示されるはずです。 **[すべてに適用]** をクリックして、変更されたファイルをリロードします。 それらを調べて成果を確認しましょう。 明示的で冗長な型指定子がすべてなくなるとどれほどコードがすっきり見えるかに注目してください。
 

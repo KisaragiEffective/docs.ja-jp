@@ -2,13 +2,14 @@
 title: ローカル関数とラムダ式の比較
 description: ローカル関数がラムダ式よりも適した選択肢となり得る理由について。
 ms.date: 06/27/2016
+ms.technology: csharp-advanced-concepts
 ms.assetid: 368d1752-3659-489a-97b4-f15d87e49ae3
-ms.openlocfilehash: 7577950314f8c57fba635db8b2bcd69e8d427dc3
-ms.sourcegitcommit: 438919211260bb415fc8f96ca3eabc33cf2d681d
+ms.openlocfilehash: 13cc3fe47bbcd6a465347a6c991b2006586c78fa
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59611446"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79173342"
 ---
 # <a name="local-functions-compared-to-lambda-expressions"></a>ローカル関数とラムダ式の比較
 
@@ -45,7 +46,7 @@ int M()
 コンパイラは、呼び出し時に `LocalFunction` が `y` を確実に割り当てるかどうかを確認できます。 `return` ステートメントの前に `LocalFunction` が呼び出されるため、`y` は `return` ステートメントで確実に割り当てられます。
 
 分析例を使用する分析では、4 つ目の違いを確認できます。
-ローカル関数では、その使用に応じて、ラムダ式では常に必要なヒープの割り当てを回避できます。 ローカル関数がデリゲートに変換されておらず、ローカル関数でキャプチャされたいずれの変数も、デリゲートに変換された他のラムダやローカル関数でキャプチャされていない場合、コンパイラはヒープの割り当てを回避できます。 
+ローカル関数では、その使用に応じて、ラムダ式では常に必要なヒープの割り当てを回避できます。 ローカル関数がデリゲートに変換されておらず、ローカル関数でキャプチャされたいずれの変数も、デリゲートに変換された他のラムダやローカル関数でキャプチャされていない場合、コンパイラはヒープの割り当てを回避できます。
 
 次の非同期の例について考えます。
 

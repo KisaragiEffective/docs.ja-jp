@@ -1,17 +1,15 @@
 ---
-title: 軽減策:パスの正規化
+title: '軽減策: パスの正規化'
 ms.date: 03/30/2017
 ms.assetid: 158d47b1-ba6d-4fa6-8963-a012666bdc31
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: bc5ea69d80a225adfc2f409e8303ee1c241398db
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 61c8eec2043aa2fb9309ee6052e27fc2c91c6c6a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70779338"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79181229"
 ---
-# <a name="mitigation-path-normalization"></a>軽減策:パスの正規化
+# <a name="mitigation-path-normalization"></a>軽減策: パスの正規化
 .NET Framework 4.6.2 以降を対象とするアプリから、.NET Framework のパスの正規化が変更されています。  
   
 ## <a name="what-is-path-normalization"></a>パスの正規化とは  
@@ -44,12 +42,12 @@ ms.locfileid: "70779338"
   
 .NET Framework 4.6.1 以前のバージョンを対象とするアプリが .NET Framework 4.6.2 以降で実行される場合、この変更の影響は受けません。  
   
-## <a name="mitigation"></a>軽減策  
+## <a name="mitigation"></a>対応策  
  .NET Framework 4.6.2 以降を対象とするアプリの場合、アプリケーション構成ファイルの [\<runtime>](../configure-apps/file-schema/runtime/runtime-element.md) セクションに次を追加することでこの変更を無効にし、従来の正規化を使用できます。  
   
 ```xml  
 <runtime>  
-    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=true" />    
+    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=true" />
 </runtime>  
 ```  
   
@@ -57,10 +55,10 @@ ms.locfileid: "70779338"
   
 ```xml  
 <runtime>  
-    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=false" />    
+    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=false" />
 </runtime>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [変更の再ターゲット](retargeting-changes-in-the-net-framework-4-6-2.md)
+- [アプリケーションの互換性](application-compatibility.md)

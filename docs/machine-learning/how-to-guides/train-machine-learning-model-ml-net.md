@@ -5,12 +5,12 @@ ms.date: 08/29/2019
 author: luisquintanilla
 ms.author: luquinta
 ms.custom: mvc, how-to, title-hack-0625
-ms.openlocfilehash: fc735f28bad91b9714d7e6bf2a9c7c620acacc4d
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: 0e0f43225b9bf243c31b3095817bdcbdb3123012
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70929342"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73976761"
 ---
 # <a name="train-and-evaluate-a-model"></a>モデルのトレーニングと評価
 
@@ -82,7 +82,7 @@ HousingData[] housingData = new HousingData[]
 };
 ```
 
-[`TrainTestSplit`](xref:Microsoft.ML.DataOperationsCatalog.TrainTestSplit*) メソッドを使用して、データをトレーニング セットとテスト セットに分割します。 結果は、2 つの [`IDataView`](xref:Microsoft.ML.IDataView) メンバー (トレーニング セット用とテスト セット用) が含まれる [`TrainTestData`](xref:Microsoft.ML.DataOperationsCatalog.TrainTestData) オブジェクトになります。 データ分割の割合は、`testFraction` パラメーターによって決まります。 以下のスニペットは、テスト セットの元のデータの 20% を保持しています。
+[`TrainTestSplit`](xref:Microsoft.ML.DataOperationsCatalog.TrainTestSplit*) メソッドを使用して、データをトレーニング セットとテスト セットに分割します。 結果は、2 つの [`TrainTestData`](xref:Microsoft.ML.DataOperationsCatalog.TrainTestData) メンバー (トレーニング セット用とテスト セット用) が含まれる [`IDataView`](xref:Microsoft.ML.IDataView) オブジェクトになります。 データ分割の割合は、`testFraction` パラメーターによって決まります。 以下のスニペットは、テスト セットの元のデータの 20% を保持しています。
 
 ```csharp
 DataOperationsCatalog.TrainTestData dataSplit = mlContext.Data.TrainTestSplit(data, testFraction: 0.2);
@@ -98,9 +98,9 @@ ML.NET のアルゴリズムには、入力列の型に制約があります。 
 
 ### <a name="working-with-expected-column-types"></a>予想される列の型を使用する
 
-ML.NET の機械学習アルゴリズムは、入力として既知のサイズの float 型のベクターを想定しています。 すべてのデータが既に数値形式であり、一緒に処理されることが意図されている場合 (つまり、画像のピクセル)、データ モデルに [`VectorType`](xref:Microsoft.ML.Data.VectorTypeAttribute) 属性を適用します。 
+ML.NET の機械学習アルゴリズムは、入力として既知のサイズの float 型のベクターを想定しています。 すべてのデータが既に数値形式であり、一緒に処理されることが意図されている場合 (つまり、画像のピクセル)、データ モデルに [`VectorType`](xref:Microsoft.ML.Data.VectorTypeAttribute) 属性を適用します。
 
-データがすべて数値ではなく、各列に異なるデータ変換が個別に適用される場合は、すべての列が処理された後に [`Concatenate`](xref:Microsoft.ML.TransformExtensionsCatalog.Concatenate*) メソッドを使用して、個々の列すべてを、新しい列に出力される 1 つの特徴ベクターに結合します。 
+データがすべて数値ではなく、各列に異なるデータ変換が個別に適用される場合は、すべての列が処理された後に [`Concatenate`](xref:Microsoft.ML.TransformExtensionsCatalog.Concatenate*) メソッドを使用して、個々の列すべてを、新しい列に出力される 1 つの特徴ベクターに結合します。
 
 次のスニペットは、`Size` 列と `HistoricalPrices` 列を 1 つの特徴ベクターにまとめ、それを `Features` という名前の新しい列に出力します。 スケールに違いがあるため、データを正規化するように [`NormalizeMinMax`](xref:Microsoft.ML.NormalizationCatalog.NormalizeMinMax*) が `Features` 列に適用されます。
 
@@ -121,9 +121,9 @@ IDataView transformedTrainingData = dataPrepTransformer.Transform(trainData);
 
 ### <a name="working-with-default-column-names"></a>既定の列名を使用する
 
-何も指定されていない場合、ML.NET アルゴリズムでは既定の列名が使用されます。 すべてのトレーナーには、アルゴリズムの入力用に `featureColumnName` というパラメーターがあり、適用可能な場合は `labelColumnName` という予期される値のパラメーターもあります。 既定では、これらの値はそれぞれ `Features` と `Label` です。 
+何も指定されていない場合、ML.NET アルゴリズムでは既定の列名が使用されます。 すべてのトレーナーには、アルゴリズムの入力用に `featureColumnName` というパラメーターがあり、適用可能な場合は `labelColumnName` という予期される値のパラメーターもあります。 既定では、これらの値はそれぞれ `Features` と `Label` です。
 
-前処理中に [`Concatenate`](xref:Microsoft.ML.TransformExtensionsCatalog.Concatenate*) メソッドを使用して `Features` という名前の新しい列を作成すると、前処理済みの `IDataView` に既に存在するため、アルゴリズムのパラメーターで特徴列の名前を指定する必要がなくなります。 このラベル列は `CurrentPrice` ですが、データ モデルでは [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) 属性が使用されているため、ML.NET によって `CurrentPrice` 列の名前が `Label` に変更され、機械学習アルゴリズム エスティメーターに `labelColumnName` パラメーターを指定する必要がなくなります。 
+前処理中に [`Concatenate`](xref:Microsoft.ML.TransformExtensionsCatalog.Concatenate*) メソッドを使用して `Features` という名前の新しい列を作成すると、前処理済みの `IDataView` に既に存在するため、アルゴリズムのパラメーターで特徴列の名前を指定する必要がなくなります。 このラベル列は `CurrentPrice` ですが、データ モデルでは [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) 属性が使用されているため、ML.NET によって `CurrentPrice` 列の名前が `Label` に変更され、機械学習アルゴリズム エスティメーターに `labelColumnName` パラメーターを指定する必要がなくなります。
 
 既定の列名を使用しない場合は、後続のスニペットで示すように、機械学習アルゴリズム エスティメーターを定義するときに、特徴列とラベル列の名前をパラメーターとして渡します。
 
@@ -145,21 +145,21 @@ var trainedModel = sdcaEstimator.Fit(transformedTrainingData);
 
 ## <a name="extract-model-parameters"></a>モデル パラメーターを抽出する
 
-モデルがトレーニングされた後、検査または再トレーニングのために学習済みの [`ModelParameters`](xref:Microsoft.ML.Trainers.ModelParametersBase%601) を抽出します。 [`LinearRegressionModelParameters`](xref:Microsoft.ML.Trainers.LinearRegressionModelParameters) には、トレーニング済みモデルの偏り係数、学習済み係数、または重みが用意されています。 
+モデルがトレーニングされた後、検査または再トレーニングのために学習済みの [`ModelParameters`](xref:Microsoft.ML.Trainers.ModelParametersBase%601) を抽出します。 [`LinearRegressionModelParameters`](xref:Microsoft.ML.Trainers.LinearRegressionModelParameters) には、トレーニング済みモデルの偏り係数、学習済み係数、または重みが用意されています。
 
 ```csharp
 var trainedModelParameters = trainedModel.Model as LinearRegressionModelParameters;
 ```
 
 > [!NOTE]
-> 他のモデルには、それぞれのタスクに固有のパラメーターがあります。 たとえば、[K-Means アルゴリズム](xref:Microsoft.ML.Trainers.KMeansTrainer)では重心に基づいてデータがクラスターに配置され、[`KMeansModelParameters`](xref:Microsoft.ML.Trainers.KMeansModelParameters) にはその学習済みの重心を格納するプロパティが含まれます。 詳細については、[`Microsoft.ML.Trainers` API ドキュメント](xref:Microsoft.ML.Trainers)を参照し、名前に `ModelParameters` を含むクラスを探します。 
+> 他のモデルには、それぞれのタスクに固有のパラメーターがあります。 たとえば、[K-Means アルゴリズム](xref:Microsoft.ML.Trainers.KMeansTrainer)では重心に基づいてデータがクラスターに配置され、[`KMeansModelParameters`](xref:Microsoft.ML.Trainers.KMeansModelParameters) にはその学習済みの重心を格納するプロパティが含まれます。 詳細については、[`Microsoft.ML.Trainers` API ドキュメント](xref:Microsoft.ML.Trainers)を参照し、名前に `ModelParameters` を含むクラスを探します。
 
 ## <a name="evaluate-model-quality"></a>モデルの品質を評価する
 
 最適なパフォーマンスを発揮するモデルを選択するには、テスト データでそのパフォーマンスを評価することが重要です。 [`Evaluate`](xref:Microsoft.ML.RegressionCatalog.Evaluate*) メソッドを使用して、トレーニング済みモデルのさまざまなメトリックを測定します。
 
 > [!NOTE]
-> `Evaluate` メソッドによって生成されるメトリックは、実行された機械学習タスクによって異なります。 詳細については、[`Microsoft.ML.Data` API ドキュメント](xref:Microsoft.ML.Data)を参照し、名前に `Metrics` を含むクラスを探します。 
+> `Evaluate` メソッドによって生成されるメトリックは、実行された機械学習タスクによって異なります。 詳細については、[`Microsoft.ML.Data` API ドキュメント](xref:Microsoft.ML.Data)を参照し、名前に `Metrics` を含むクラスを探します。
 
 ```csharp
 // Measure trained model performance
@@ -174,9 +174,9 @@ RegressionMetrics trainedModelMetrics = mlContext.Regression.Evaluate(testDataPr
 double rSquared = trainedModelMetrics.RSquared;
 ```
 
-前のコード サンプルの内容は次のとおりです。  
+前のコード サンプルの内容は次のとおりです。
 
-1. テスト データ セットは、以前に定義されたデータ準備変換を使用して前処理されます。 
+1. テスト データ セットは、以前に定義されたデータ準備変換を使用して前処理されます。
 2. トレーニング済み機械学習モデルは、テスト データに基づいて予測するために使用されます。
 3. `Evaluate` メソッドでは、テスト データ セットの `CurrentPrice` 列の値を新しく出力された予測の `Score` 列と比較して、回帰モデルのメトリックを計算します。そのうちの 1 つである R-2 乗値は `rSquared` 変数に格納されます。
 

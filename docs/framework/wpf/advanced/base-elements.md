@@ -6,23 +6,23 @@ f1_keywords:
 helpviewer_keywords:
 - base elements [WPF]
 ms.assetid: 55034aa5-3c1d-442a-8293-f4692d8ea6ae
-ms.openlocfilehash: a1f7105ee6590314eb2ebbfa52b511f55f83dc05
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: d0d3c5198c6c4146cf92201b08781041043c4a72
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61926413"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73453600"
 ---
 # <a name="base-elements"></a>基本要素
-4 つの主要クラス--<xref:System.Windows.UIElement>、 <xref:System.Windows.ContentElement>、 <xref:System.Windows.FrameworkElement>、および<xref:System.Windows.FrameworkContentElement>--WPF プログラミングで使用可能な要素の共通の機能の大きな割合を実装します。 これら 4 つクラスは、基本要素クラスとしてに、この SDK で呼ばれます。  
+4つの主要なクラス (<xref:System.Windows.UIElement>、<xref:System.Windows.ContentElement>、<xref:System.Windows.FrameworkElement>、および <xref:System.Windows.FrameworkContentElement>) は、WPF プログラミングで使用できる共通の要素機能のかなりの割合を実装します。 この SDK では、この4つのクラスが基本要素クラスとして参照されています。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [基本要素の概要](base-elements-overview.md)  
  [Freezable オブジェクトの概要](freezable-objects-overview.md)  
  [配置、余白、パディングの概要](alignment-margins-and-padding-overview.md)  
- [方法トピック](base-elements-how-to-topics.md)  
+ [方法のトピック](base-elements-how-to-topics.md)  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>参照先  
  <xref:System.Windows.UIElement>  
   
  <xref:System.Windows.ContentElement>  
@@ -35,9 +35,9 @@ ms.locfileid: "61926413"
  [WPF アーキテクチャ](wpf-architecture.md)  
   [WPF の XAML](xaml-in-wpf.md)  
   [要素のツリーおよびシリアル化](element-tree-and-serialization.md)  
-  [Properties](properties-wpf.md)  
+  [プロパティ](properties-wpf.md)  
   [イベント](events-wpf.md)  
   [入力](input-wpf.md)  
   [リソース](resources-wpf.md)  
-  [スタイルとテンプレート](../controls/styling-and-templating.md)  
+  [スタイルとテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)  
   [スレッド モデル](threading-model.md)

@@ -11,21 +11,21 @@ helpviewer_keywords:
 - logs, trace
 - destination for tracing output
 ms.assetid: 5fff458c-51a6-4134-ba47-8a6137ddc41e
-ms.openlocfilehash: 62a24e45339b93af2c62db440f0611f16705116d
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 61ffd422463ca70cc34c39dd216ce8e660809dcb
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71048536"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79180879"
 ---
 # <a name="enabling-network-tracing"></a>ネットワークのトレースの有効化
 ネットワークのトレースでは、メソッド呼び出しについての情報、およびマネージド アプリケーションによって生成されるネットワーク トラフィックについての情報にアクセスできます。 アプリケーションでネットワーク トレースを有効にするには、次のタスクを実行する必要があります。  
   
-- トレースを有効にしてコードをコンパイルします。 「[方法:トレースとデバッグを指定して条件付きコンパイルを実行する](../debug-trace-profile/how-to-compile-conditionally-with-trace-and-debug.md)」で、トレースを有効にするために必要なコンパイラ スイッチの詳細を参照してください。  
+- トレースを有効にしてコードをコンパイルします。 トレースを有効にするために必要なコンパイラ スイッチの詳細については、「[方法 : トレースとデバッグを指定して条件付きコンパイルを実行する](../debug-trace-profile/how-to-compile-conditionally-with-trace-and-debug.md)」を参照してください。  
   
 - トレースの出力先を指定します。  
   
-- ネットワークのトレースの動作を構成します。 「[方法:ネットワークのトレースを構成する](how-to-configure-network-tracing.md)」で、詳細を参照してください。  
+- ネットワークのトレースの動作を構成します。 詳細については、「[方法: ネットワークのトレースを構成する](how-to-configure-network-tracing.md)」を参照してください。  
   
  最も一般的なトレース先 (トレース リスナーとも呼ばれます) は、既定のリスナーとログ ファイルです。  
   
@@ -40,12 +40,12 @@ ms.locfileid: "71048536"
   <trace autoflush="true" indentsize="4">  
     <listeners>  
       <add name="file" type="System.Diagnostics.TextWriterTraceListener" initializeData="trace.log"/>  
-    </listeners>   
+    </listeners>
   </trace>  
 </system.diagnostics>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ネットワークのトレースの解釈](interpreting-network-tracing.md)
 - [.NET Framework のネットワークのトレース](network-tracing.md)

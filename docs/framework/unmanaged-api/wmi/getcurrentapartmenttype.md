@@ -14,14 +14,12 @@ helpviewer_keywords:
 - GetCurrentApartmentType function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ff64be47802a46979818ab54cc3efb4112dd05e0
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 6ecd2b49d6850a8fae25ddca54f855fdda2ccabb
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798615"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120347"
 ---
 # <a name="getcurrentapartmenttype-function"></a>GetCurrentApartmentType 関数
 呼び出し元が実行されているアパートメントの種類が取得されます。   
@@ -51,7 +49,7 @@ HRESULT GetCurrentApartmentType (
 
 ## <a name="return-value"></a>戻り値
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `S_OK` | 0 | 関数は正常に完了しました。 |
 | `E_FAIL` | 0x80000008 | 呼び出し元がアパートメント内で実行されていません。 |
@@ -60,8 +58,8 @@ HRESULT GetCurrentApartmentType (
 
 この関数は、 [IComThreadingInfo:: GetCurrentApartmentType](/windows/desktop/api/objidlbase/nf-objidlbase-icomthreadinginfo-getcurrentapartmenttype)メソッドの呼び出しをラップします。
 
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

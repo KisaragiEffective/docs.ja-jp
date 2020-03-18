@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 55cb673a-e240-43a6-a406-6912e7c0fe66
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d3aa76b88d89e83c400b3f372d846c1a31add255
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 80836cbbf82a97ccd6dc7251e5cbe934e0cbe66f
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67761481"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76777279"
 ---
 # <a name="icordebugmanagedcallbackloadassembly-method"></a>ICorDebugManagedCallback::LoadAssembly メソッド
-共通言語ランタイム (CLR) アセンブリが正常にアンロードされたことをデバッガーに通知します。  
+共通言語ランタイム (CLR) アセンブリが正常に読み込まれたことをデバッガーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,13 +36,13 @@ HRESULT LoadAssembly (
   
 ## <a name="parameters"></a>パラメーター  
  `pAppDomain`  
- [in]先のアセンブリが読み込まれたアプリケーション ドメインを表す ICorDebugAppDomain オブジェクトへのポインター。  
+ からアセンブリが読み込まれたアプリケーションドメインを表す、のオブジェクトへのポインター。  
   
  `pAssembly`  
- [in]アセンブリを表す ICorDebugAssembly オブジェクトへのポインター。  
+ からアセンブリを表す、オブジェクトへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -54,5 +52,5 @@ HRESULT LoadAssembly (
   
 ## <a name="see-also"></a>関連項目
 
-- [UnloadAssembly メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-unloadassembly-method.md)
-- [ICorDebugManagedCallback インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-interface.md)
+- [UnloadAssembly メソッド](icordebugmanagedcallback-unloadassembly-method.md)
+- [ICorDebugManagedCallback インターフェイス](icordebugmanagedcallback-interface.md)

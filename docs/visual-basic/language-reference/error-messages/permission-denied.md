@@ -1,27 +1,27 @@
 ---
-title: アクセス許可は拒否されました。(Visual Basic)
+title: アクセス許可は拒否されました
 ms.date: 07/20/2015
 f1_keywords:
 - vbrID70
 ms.assetid: 71f46756-f522-4814-aab4-492bf9924245
-ms.openlocfilehash: ad75c556748bf5c0f9cef55310c4ffa7b01fd458
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 410301a1e99040fc617ab1bf1e851329ab3072d2
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61920836"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74347002"
 ---
 # <a name="permission-denied-visual-basic"></a>アクセス許可は拒否されました。(Visual Basic)
-しようとは、書き込み保護されているディスクに書き込む、またはロックされたファイルにアクセスしました。  
+書き込み禁止ディスクに書き込もうとしたか、ロックされたファイルにアクセスしようとしました。  
   
 ## <a name="to-correct-this-error"></a>このエラーを解決するには  
   
-1. 書き込みで保護されたファイルを開くには、ファイルの書き込み保護属性を変更します。  
+1. 書き込み禁止ファイルを開くには、ファイルの書き込み保護属性を変更します。  
   
-2. 別のプロセスでは、ファイルがロックされないことを確認し、ファイルを開き、他のプロセスでは、それを解放するまでに待機します。  
+2. 別のプロセスによってファイルがロックされていないことを確認し、他のプロセスによってファイルが解放されるまで待機します。  
   
-3. レジストリにアクセスするには、ユーザーのアクセス許可がこの種類のレジストリのアクセスを含めることを確認します。  
+3. レジストリにアクセスするには、ユーザーのアクセス許可にこの種類のレジストリアクセスが含まれていることを確認します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [エラーの種類](../../../visual-basic/programming-guide/language-features/error-types.md)

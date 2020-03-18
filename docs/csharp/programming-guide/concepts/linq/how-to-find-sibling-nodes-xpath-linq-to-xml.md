@@ -1,15 +1,15 @@
 ---
-title: '方法: 兄弟ノードを検索する (XPath-LINQ to XML) (C#)'
+title: 兄弟ノードを検索する方法 (XPath-LINQ to XML) (C#)
 ms.date: 07/20/2015
 ms.assetid: e2c73d10-a8ca-4e11-b5aa-d055de285874
-ms.openlocfilehash: 6c7509ea0667bb84d62ee804f4d232d74fa7f6e0
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: c201dcea5e6d148ae0998eb27d4e42df5b15309f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70253611"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79169208"
 ---
-# <a name="how-to-find-sibling-nodes-xpath-linq-to-xml-c"></a>方法: 兄弟ノードを検索する (XPath-LINQ to XML) (C#)
+# <a name="how-to-find-sibling-nodes-xpath-linq-to-xml-c"></a>兄弟ノードを検索する方法 (XPath-LINQ to XML) (C#)
 特定の名前を持つノードのすべての兄弟を検索する場合があります。 コンテキスト ノードも特定の名前を持つ場合は、結果のコレクションにコンテキスト ノードが含まれることがあります。  
   
  XPath 式を次に示します。  
@@ -19,12 +19,12 @@ ms.locfileid: "70253611"
 ## <a name="example"></a>例  
  この例では、最初に `Book` 要素を検索し、次に `Book` という名前の兄弟要素をすべて検索します。 結果のコレクションにはコンテキスト ノードが含まれます。  
   
- この例では、XML ドキュメント、「[サンプル XML ファイル:書籍 (LINQ to XML)](./sample-xml-file-books-linq-to-xml.md)」。  
+ この例では、「[サンプル XML ファイル: 書籍 (LINQ to XML)](./sample-xml-file-books-linq-to-xml.md)」の XML ドキュメントを使用します。  
   
 ```csharp  
 XDocument books = XDocument.Load("Books.xml");  
   
-XElement book =   
+XElement book =
     books  
     .Root  
     .Elements("Book")  
@@ -59,7 +59,7 @@ Results are identical
   <Genre>Computer</Genre>  
   <Price>44.95</Price>  
   <PublishDate>2000-10-01</PublishDate>  
-  <Description>An in-depth look at creating applications   
+  <Description>An in-depth look at creating applications
       with XML.</Description>  
 </Book>  
 <Book id="bk102">  
@@ -68,8 +68,8 @@ Results are identical
   <Genre>Fantasy</Genre>  
   <Price>5.95</Price>  
   <PublishDate>2000-12-16</PublishDate>  
-  <Description>A former architect battles corporate zombies,   
-      an evil sorceress, and her own childhood to become queen   
+  <Description>A former architect battles corporate zombies,
+      an evil sorceress, and her own childhood to become queen
       of the world.</Description>  
 </Book>  
 ```  

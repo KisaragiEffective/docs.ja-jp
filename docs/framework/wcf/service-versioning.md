@@ -2,12 +2,12 @@
 title: サービスのバージョン管理
 ms.date: 03/30/2017
 ms.assetid: 37575ead-d820-4a67-8059-da11a2ab48e2
-ms.openlocfilehash: 68c41f2c349dbceb318976ee26db58fd00dae872
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 3f9fd87eacf67a1b23568dcf87df086e935879ba
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72321484"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73423687"
 ---
 # <a name="service-versioning"></a>サービスのバージョン管理
 ビジネス ニーズの変化、情報テクノロジの要件、その他の問題への対処などのさまざまな理由により、サービスの初期導入後と、場合によっては有効期間中に数回、サービス (およびサービスが公開するエンドポイント) を変更することが必要になる場合があります。 変更が発生するたびに、新しいバージョンのサービスが導入されます。 このトピックでは、Windows Communication Foundation (WCF) でバージョン管理を行う方法について説明します。  
@@ -132,7 +132,7 @@ ms.locfileid: "72321484"
   
  このような方法の 1 つとして、インターフェイスを使用して各データ コントラクトのメンバーを定義し、インターフェイスを実装するデータ コントラクト クラスではなく、インターフェイスの観点で内部実装コードを作成します。 サービスのバージョン 1 の次のコードは、`IPurchaseOrderV1` インターフェイスと `PurchaseOrderV1` を示しています。  
   
-```  
+```csharp  
 public interface IPurchaseOrderV1  
 {  
     string OrderId { get; set; }  
@@ -153,7 +153,7 @@ public class PurchaseOrderV1 : IPurchaseOrderV1
   
  サービス コントラクトの操作は、`PurchaseOrderV1` の観点で作成されますが、実際のビジネス ロジックは、`IPurchaseOrderV1` の観点です。 次のコードに示すように、バージョン 2 には、新しい `IPurchaseOrderV2` インターフェイスと `PurchaseOrderV2` クラスが含まれています。  
   
-```  
+```csharp
 public interface IPurchaseOrderV2  
 {  
     DateTime OrderDate { get; set; }  

@@ -27,9 +27,9 @@ ms.locfileid: "64661711"
   
 - 値を含める、 [Return ステートメント](../../../visual-basic/language-reference/statements/return-statement.md)します。  
   
- コントロールに渡します`Exit Property`または`End Get`プロパティ名の後に任意の値が割り当てられていないと、`Get`プロパティのデータ型の既定値を返します。 詳細については、「動作」を参照してください[関数ステートメント](../../../visual-basic/language-reference/statements/function-statement.md)します。  
+ 制御が`Exit Property`または`End Get`に渡り、プロパティ名に値が割り当てられていないと、`Get`プロシージャはプロパティのデータ型の既定値を返します。 詳細については、[Function ステートメント](../../../visual-basic/language-reference/statements/function-statement.md)の「動作」を参照してください。  
   
- 既定では、このメッセージは警告です。 警告を非表示にする方法や、警告をエラーとして扱う方法の詳細については、「 [Configuring Warnings in Visual Basic](/visualstudio/ide/configuring-warnings-in-visual-basic)」を参照してください。  
+ 既定では、このメッセージは警告です。 警告を非表示にする方法や、警告をエラーとして扱う方法の詳細については、「[Configuring Warnings in Visual Basic](/visualstudio/ide/configuring-warnings-in-visual-basic)」を参照してください。  
   
  **エラー ID:** BC42107  
   

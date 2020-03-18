@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 87360a52-90b1-4ada-80c0-589a556116d8
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: fa872453ed72a3095c135aa25e81284610ad2436
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: d7126222bd23548ec7013ba234c3f3eebbc8e374
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69910221"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76788632"
 ---
 # <a name="icordebugheapvalue2-interface"></a>ICorDebugHeapValue2 インターフェイス
 
@@ -31,22 +29,22 @@ ms.locfileid: "69910221"
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[CreateHandle メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugheapvalue2-createhandle-method.md)|この`ICorDebugHeapValue2`オブジェクトに対して指定された型のハンドルを作成します。|  
+|[CreateHandle メソッド](icordebugheapvalue2-createhandle-method.md)|この `ICorDebugHeapValue2` オブジェクトに対して指定された型のハンドルを作成します。|  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
   
 > [!NOTE]
 > このインターフェイスは、コンピューター間またはプロセス間でのリモート呼び出しをサポートしていません。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

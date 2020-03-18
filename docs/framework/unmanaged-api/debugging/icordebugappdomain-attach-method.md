@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 0358b84a-4236-4c34-945b-4babff7df570
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9d30b6cb083cc2f92bcbe089bf8e990fedd8e8f7
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 66ec64b1a855a3d31f14f3ef29dde0b82361f5d7
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67738097"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73133980"
 ---
 # <a name="icordebugappdomainattach-method"></a>ICorDebugAppDomain::Attach メソッド
-アプリケーション ドメインに、デバッガーをアタッチします。  
+デバッガーをアプリケーションドメインにアタッチします。  
   
 ## <a name="syntax"></a>構文  
   
@@ -34,10 +32,10 @@ HRESULT Attach ();
 ```  
   
 ## <a name="remarks"></a>Remarks  
- アプリケーション ドメイン イベントを受信して、アプリケーション ドメインのデバッグを有効にするには、デバッガーをアタッチする必要があります。  
+ イベントを受信し、アプリケーションドメインのデバッグを有効にするには、デバッガーがアプリケーションドメインにアタッチされている必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

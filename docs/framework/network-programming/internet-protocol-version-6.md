@@ -9,10 +9,10 @@ helpviewer_keywords:
 - Internet Protocol version 6
 ms.assetid: e6fa8ebd-010a-4c48-a5ec-a5102c53c06f
 ms.openlocfilehash: 367db4fa4e585d6066009dbd1afacb154829319a
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "71047876"
 ---
 # <a name="internet-protocol-version-6"></a>インターネット プロトコル バージョン 6
@@ -42,9 +42,9 @@ ms.locfileid: "71047876"
   
 - 組み込み認証と機密性。  
   
- 詳細については、「[IPv6 アドレス指定](ipv6-addressing.md)」、「[IPv6 のルーティング](ipv6-routing.md)」、「[IPv6 の自動構成](ipv6-auto-configuration.md)」、「[IPv6 の有効化と無効化](enabling-and-disabling-ipv6.md)」、および「[方法:IPv6 のサポートを有効にするようにコンピューター構成ファイルを変更する](how-to-modify-the-computer-configuration-file-to-enable-ipv6-support.md)」を参照してください。  
+ 詳細については、「[IPv6 アドレス指定](ipv6-addressing.md)」、「[IPv6 のルーティング](ipv6-routing.md)」、「[IPv6 の自動構成](ipv6-auto-configuration.md)」、「[IPv6 の有効化と無効化](enabling-and-disabling-ipv6.md)」、および「[方法: IPv6 のサポートを有効にするようにコンピューター構成ファイルを変更する](how-to-modify-the-computer-configuration-file-to-enable-ipv6-support.md)」を参照してください。  
   
-## <a name="references"></a>関連項目  
+## <a name="references"></a>References  
  [インターネット技術標準化委員会 (IETF)](https://www.ietf.org/) Web サイトで検索できる厳選した RFC ドキュメントを次に示します。  
   
 - RFC 1287、Towards the Future Internet Architecture (将来のインターネットアーキテクチャに向けて)  
@@ -57,7 +57,7 @@ ms.locfileid: "71047876"
   
  [IP バージョン 6 (IPv6)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379498%28v=ws.10%29) でも IPv6 関連の情報を見つけることができます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IPv6 ソケットのサンプル](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.0/ms180981%28v=vs.85%29)
 - [ネットワーク プログラミングのサンプル](network-programming-samples.md)

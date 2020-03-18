@@ -2,12 +2,12 @@
 title: C# の概要 - 開発ツールに対する理解を深める
 description: この記事では、コンピューターで C# アプリケーションと .NET アプリケーションを開発するためのツールの基礎を提供します。
 ms.date: 10/23/2018
-ms.openlocfilehash: b18c71c54e4450902f576a1074058abcd5e8aa91
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.openlocfilehash: 0b1df9e733eef92b1eeb0a7f3ba3ba49602f219d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71834087"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79156572"
 ---
 # <a name="become-familiar-with-the-net-development-tools"></a>.NET 開発ツールに対する理解を深める
 
@@ -26,25 +26,25 @@ Windows、Linux、または macOS 上でローカルの開発環境を設定す�
 
 最初に次のいずれかのチュートリアルを選択します。
 
-## <a name="numbers-in-cnumbers-in-csharp-localmd"></a>[C# における数値](numbers-in-csharp-local.md)
+## <a name="numbers-in-c"></a>[C# における数値](numbers-in-csharp-local.md)
 
-[C# における数値](numbers-in-csharp-local.md)チュートリアルでは、コンピューターに数値が格納されるしくみとさまざまな数値型で計算するしくみが紹介されます。 丸めの基本と C# を使用した数学計算方法を学習します。
+「[C# における数値](numbers-in-csharp-local.md)」チュートリアルでは、コンピューターが数値を格納する方法と、異なる数値型で計算を実行する方法について説明します。 丸めの基本と C# を使用した数学計算方法を学習します。
 
-このチュートリアルでは、[Hello world](hello-world.yml) レッスンを修了していることが前提条件となります。
+このチュートリアルでは、「[Hello World](hello-world.yml)」レッスンが終了していることを前提としています。
 
-## <a name="branches-and-loopsbranches-and-loops-localmd"></a>[分岐とループ](branches-and-loops-local.md)
+## <a name="branches-and-loops"></a>[分岐とループ](branches-and-loops-local.md)
 
-[分岐とループ](branches-and-loops-local.md) チュートリアルでは、変数に格納されている値に基づき、コード実行のさまざまなパスを選択することの基本を説明します。 プログラムが決定して異なる操作を選択する上で基本となる、制御フローの基礎を学習します。
+「[分岐とループ](branches-and-loops-local.md)」のチュートリアルでは、変数に格納された値に基づいて、さまざまなパスでコードを実行するための基礎について説明します。 プログラムが決定して異なる操作を選択する上で基本となる、制御フローの基礎を学習します。
 
-このチュートリアルでは、[Hello world](hello-world.yml) レッスンと [C# における数値](numbers-in-csharp-local.md)レッスンを修了していることが前提条件となります。
+このチュートリアルでは、「[Hello World](hello-world.yml)」レッスンと「[C# における数値](numbers-in-csharp-local.md)」レッスンを終了していることを前提としています。
 
-## <a name="list-collectionarrays-and-collectionsmd"></a>[リスト コレクション](arrays-and-collections.md)
+## <a name="list-collection"></a>[リスト コレクション](arrays-and-collections.md)
 
-「[リスト コレクション](arrays-and-collections.md)」レッスンでは、データのシーケンスを格納するリスト コレクション型について説明します。 項目の追加方法や削除方法、項目の検索方法、リストを並べ替える方法を学習します。 さまざまな種類のリストを紹介します。 
+「[リスト コレクション](arrays-and-collections.md)」レッスンでは、データのシーケンスを格納するリスト コレクション型について説明します。 項目の追加方法や削除方法、項目の検索方法、リストを並べ替える方法を学習します。 さまざまな種類のリストを紹介します。
 
-このチュートリアルでは、上に挙げたレッスンを修了していることを前提としています。
+このチュートリアルでは、上に挙げたレッスンを終了していることを前提としています。
 
-## <a name="introduction-to-classesintroduction-to-classesmd"></a>[クラスの概要](introduction-to-classes.md)
+## <a name="introduction-to-classes"></a>[クラスの概要](introduction-to-classes.md)
 
 この C# 概要の最後のチュートリアルはお使いのコンピューターでのみ実行できます。自分のローカル開発環境と .NET Core を使用する必要があります。
 コンソール アプリケーションを構築し、C# 言語に含まれるオブジェクト指向の基本的な機能について学習します。

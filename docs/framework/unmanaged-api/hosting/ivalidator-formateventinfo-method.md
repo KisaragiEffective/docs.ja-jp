@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 4c0c7477-05ba-461b-b21b-cbfba95f1db1
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 31329a8674a9991a3f306eeff44ee3437ad64a5c
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9b3a6bab8672f3ef3fca5f89c60b03a43477cce5
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779432"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73123307"
 ---
 # <a name="ivalidatorformateventinfo-method"></a>IValidator::FormatEventInfo メソッド
-指定した検証エラーに対応するエラー メッセージを取得します。  
+指定した検証エラーに対応するエラーメッセージを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,25 +39,25 @@ HRESULT FormatEventInfo(
   
 ## <a name="parameters"></a>パラメーター  
  `hVECode`  
- [in]検証のエラー ハンドラーに渡された HRESULT 値。  
+ から検証エラーハンドラーに渡された HRESULT 値。  
   
  `Context`  
- [in]A`VEContext`検証エラーに関するコンテキスト情報を格納しているインスタンス。  
+ から検証エラーに関するコンテキスト情報を格納している `VEContext` インスタンス。  
   
  `msg`  
- [入力、出力]返されたエラー メッセージを含む文字列。  
+ [入力、出力]返されたエラーメッセージを含む文字列。  
   
  `ulMaxLength`  
- [in]エラー メッセージの最大長。  
+ からエラーメッセージの最大長。  
   
  `psa`  
- [in]エラーを説明する追加のパラメーターを格納するセーフ配列。  
+ からエラーを説明する追加のパラメーターを格納しているセーフ配列。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** IValidator.idl, IValidator.h  
+ **ヘッダー:** IValidator、IValidator  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  

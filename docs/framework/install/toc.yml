@@ -1,27 +1,27 @@
 - name: インストール ガイド
   href: index.md
   items:
-    - name: Windows 10 と Windows Server 2016 に .NET Framework をインストールする
-      href: on-windows-10.md
-    - name: Windows 8.1 と Windows Server 2012 R2 に .NET Framework をインストールする
-      href: on-windows-8-1.md
-    - name: Windows 8 と Windows Server 2012 に .NET Framework をインストールする
-      href: on-windows-8.md
-    - name: Windows 7 SP1 と Windows Server 2008 R2 に .NET Framework をインストールする
-      href: on-windows-7.md
-    - name: Windows Vista と Windows Server 2008 に .NET Framework をインストールする
-      href: on-windows-vista.md
-    - name: Windows XP と Windows Server 2003 に .NET Framework をインストールする
-      href: on-windows-xp.md
     - name: 開発者向けインストール ガイド
       href: guide-for-developers.md
+    - name: Windows 10 および Windows Server 2016
+      href: on-windows-10.md
+    - name: Windows 8.1 および Windows Server 2012 R2
+      href: on-windows-8-1.md
+    - name: Windows 8 と Windows Server 2012
+      href: on-windows-8.md
+    - name: Windows 7 SP1 および Windows Server 2008 R2
+      href: on-windows-7.md
+    - name: Windows Vista および Windows Server 2008
+      href: on-windows-vista.md
+    - name: Windows XP および Windows Server 2003
+      href: on-windows-xp.md
     - name: .NET Framework を修復する
       href: repair.md
-    - name: .NET Framework のインストールおよびアンインストールのブロックのトラブルシューティング
+    - name: インストールとアンインストールのトラブルシューティング
       href: troubleshoot-blocked-installations-and-uninstallations.md
-    - name: '''このアプリケーションを開始できませんでした'' メッセージのトラブルシューティング'
+    - name: '"このアプリケーションを開始できませんでした" のトラブルシューティング'
       href: application-not-started.md
-    - name: Windows 8、Windows 8.1、および Windows 10 への .NET Framework 3.5 のインストール
+    - name: Windows 8 から Windows 10 での .NET Framework 3.5
       href: dotnet-35-windows-10.md
-    - name: Windows 8、Windows 8.1、または Windows 10 での .NET Framework 1.1 アプリの実行
+    - name: Windows 8 から Windows 10 での .NET Framework 1.1 アプリ
       href: run-net-framework-1-1-apps.md

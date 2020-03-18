@@ -2,16 +2,15 @@
 title: フレームワーク ライブラリ
 description: 多くの一般的な型、アプリ固有の型、アルゴリズム、ユーティリティの機能の実装を提供しているライブラリについて説明します。
 author: richlander
-ms.author: ronpet
 ms.date: 06/20/2016
 ms.technology: dotnet-standard
 ms.assetid: 7b77b6c1-8367-4602-bff3-91e4c05ac643
-ms.openlocfilehash: 494ac194fe8dc9554c6e0d1d87ba2ed613d1d16b
-ms.sourcegitcommit: d6e27023aeaffc4b5a3cb4b88685018d6284ada4
+ms.openlocfilehash: d4444b6d080afa92a4e7fd9f30c5f9358f02f0ef
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67663227"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78159235"
 ---
 # <a name="framework-libraries"></a>フレームワーク ライブラリ
 
@@ -27,15 +26,15 @@ BCL は最も基本的な型およびユーティリティの機能を提供し�
 
 .NET には、すべてのプログラムで (さまざまな程度で) 使用されるプリミティブ型のセットが含まれています。 これらの型には、数値、文字列、バイト、および任意のオブジェクトなどのデータが含まれています。 C# 言語には、これらの型のキーワードが含まれています。 これらの型のサンプル セットを、一致する C# キーワードとともに以下に示します。
 
-* <xref:System.Object?displayProperty=nameWithType> ([object](../csharp/language-reference/keywords/object.md)): CLR 型システムの最も基本の基底クラス。 型階層のルートです。
+* <xref:System.Object?displayProperty=nameWithType> ([object](../csharp/language-reference/builtin-types/reference-types.md#the-object-type)): CLR 型システムの最も基本の基底クラス。 型階層のルートです。
 * <xref:System.Int16?displayProperty=nameWithType> ([short](../csharp/language-reference/builtin-types/integral-numeric-types.md)): 16 ビットの符号付き整数型。 符号なしの <xref:System.UInt16> も存在します。
 * <xref:System.Int32?displayProperty=nameWithType> ([int](../csharp/language-reference/builtin-types/integral-numeric-types.md)): 32 ビットの符号付き整数型。 符号なしの [UInt32](../csharp/language-reference/builtin-types/integral-numeric-types.md) も存在します。
 * <xref:System.Single?displayProperty=nameWithType> ([float](../csharp/language-reference/builtin-types/floating-point-numeric-types.md)): 32 ビット浮動小数点型。
 * <xref:System.Decimal?displayProperty=nameWithType> ([decimal](../csharp/language-reference/builtin-types/floating-point-numeric-types.md)): 128 ビットの 10 進数型。
 * <xref:System.Byte?displayProperty=nameWithType> ([byte](../csharp/language-reference/builtin-types/integral-numeric-types.md)): メモリのバイトを表す符号なし 8 ビット整数。
-* <xref:System.Boolean?displayProperty=nameWithType> ([bool](../csharp/language-reference/keywords/bool.md)): `true` または `false` を表すブール型。
-* <xref:System.Char?displayProperty=nameWithType> ([char](../csharp/language-reference/keywords/char.md)): Unicode 文字を表す 16 ビットの数値型。
-* <xref:System.String?displayProperty=nameWithType> ([string](../csharp/language-reference/keywords/string.md)): 一連の文字を表します。 `char[]` とは異なりますが、`string` で各 `char` にインデックスを付けることができます。
+* <xref:System.Boolean?displayProperty=nameWithType> ([bool](../csharp/language-reference/builtin-types/bool.md)): `true` または `false` を表すブール型。
+* <xref:System.Char?displayProperty=nameWithType> ([char](../csharp/language-reference/builtin-types/char.md)): Unicode 文字を表す 16 ビットの数値型。
+* <xref:System.String?displayProperty=nameWithType> ([string](../csharp/language-reference/builtin-types/reference-types.md#the-string-type)): 一連の文字を表します。 `char[]` とは異なりますが、`char` で各 `string` にインデックスを付けることができます。
 
 ## <a name="data-structures"></a>データ構造
 
@@ -53,7 +52,7 @@ BCL は最も基本的な型およびユーティリティの機能を提供し�
 
 * <xref:System.Net.Http.HttpClient>: URI で識別されるリソースに HTTP 要求を送信し、そのリソースから HTTP 応答を受信するための基底クラスを提供する API です。
 * <xref:System.Xml.Linq.XDocument>: LINQ を使用して XML ドキュメントのロードと照会をするための API です。
-* <xref:System.IO.StreamReader>: ファイルを読み取るための API です。 
+* <xref:System.IO.StreamReader>: ファイルを読み取るための API です。
 * <xref:System.IO.StreamWriter>: ファイルを書き込むための API です。
 
 ## <a name="app-model-apis"></a>アプリ モデル API

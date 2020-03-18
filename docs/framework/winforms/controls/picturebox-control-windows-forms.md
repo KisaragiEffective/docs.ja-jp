@@ -1,35 +1,35 @@
 ---
-title: PictureBox コントロール (Windows フォーム)
+title: PictureBox コントロール
 ms.date: 03/30/2017
 helpviewer_keywords:
 - PictureBox control [Windows Forms]
 - image controls [Windows Forms]
 - images [Windows Forms], adding to PictureBox control
 ms.assetid: f900eb93-25d5-40e5-b5df-b3cea0e831b6
-ms.openlocfilehash: 06633583bf99d9888ec7f9180b503a46f2451691
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 34e6e7a58e8a022d1359281ddfbe1a90a7ab5593
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61903215"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744233"
 ---
 # <a name="picturebox-control-windows-forms"></a>PictureBox コントロール (Windows フォーム)
-Windows フォーム`PictureBox`ビットマップ、GIF、JPEG、メタファイル、またはアイコンの形式でグラフィックスを表示するコントロールを使用します。  
+Windows フォーム `PictureBox` コントロールは、ビットマップ、GIF、JPEG、メタファイル、またはアイコン形式でグラフィックスを表示するために使用されます。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [PictureBox コントロールの概要](picturebox-control-overview-windows-forms.md)  
  このコントロールについて、および主な機能とプロパティについて説明します。  
   
- [方法: 実行時にサイズまたは画像の配置を変更します。](how-to-modify-the-size-or-placement-of-a-picture-at-run-time-windows-forms.md)  
- 内容について説明します、<xref:System.Windows.Forms.PictureBox.SizeMode%2A>プロパティと設定する方法。  
+ [方法: 実行時にピクチャのサイズまたは配置を変更する](how-to-modify-the-size-or-placement-of-a-picture-at-run-time-windows-forms.md)  
+ <xref:System.Windows.Forms.PictureBox.SizeMode%2A> プロパティの動作と設定方法について説明します。  
   
- [方法: 実行時にピクチャを設定します。](how-to-set-pictures-at-run-time-windows-forms.md)  
- 表示および実行時に画像をオフにする方法について説明します。  
+ [方法: 実行時にピクチャを設定する](how-to-set-pictures-at-run-time-windows-forms.md)  
+ 実行時に画像を表示およびクリアする方法について説明します。  
   
- [方法: デザイナーを使用してピクチャを読み込む.](how-to-load-a-picture-using-the-designer-windows-forms.md)  
- 読み込むフォームのデザイン時に画像を表示する方法について説明します。  
+ [方法: デザイナーを使用してピクチャを読み込む](how-to-load-a-picture-using-the-designer-windows-forms.md)  
+ デザイン時にフォームに画像を読み込んで表示する方法について説明します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.PictureBox>  
  このクラスについて説明し、すべてのメンバーへのリンクの一覧を示します。  
   

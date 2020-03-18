@@ -5,28 +5,28 @@ helpviewer_keywords:
 - WCF Data Services, quick-start example
 - WCF Data Services, Entity Data Model (EDM) service
 ms.assetid: 7b18ca1e-d4d6-4c7a-afb9-ce3cebb98a8d
-ms.openlocfilehash: df6806cd77e7ff109d79f7ba61866763de4c7fc1
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 43cd34ad02f1e2d212ff5e2ff4694591fbed52e5
+ms.sourcegitcommit: 7088f87e9a7da144266135f4b2397e611cf0a228
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70790367"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75900960"
 ---
 # <a name="quickstart-wcf-data-services"></a>クイック スタート (WCF Data Services)
 
-このクイックスタートでは、 [!INCLUDE[ssODataFull](../../../../includes/ssodatafull-md.md)] [はじめに](getting-started-with-wcf-data-services.md)のトピックをサポートする一連のタスクを使用して WCF Data Services とについて理解することができます。
+このクイックスタートでは、[はじめに](getting-started-with-wcf-data-services.md)のトピックをサポートする一連のタスクを通じて、WCF Data Services と Open Data Protocol (OData) について理解することができます。
 
 ## <a name="what-youll-learn"></a>学習する内容
 
 このクイックスタートの最初のタスクでは、データサービスを作成して、Northwind サンプルデータベースから OData フィードを公開する方法を示します。 後のトピックでは、Web ブラウザーを使用して OData フィードにアクセスします。また、クライアントライブラリを使用して OData フィードを使用する Windows Presentation Foundation (WPF) クライアントアプリケーションを作成します。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>[前提条件]
 
 このクイック スタートを最後まで行うには、次のコンポーネントがインストールされている必要があります。
 
 - Visual Studio
 
-- SQL Server のインスタンス。 これには、visual Studio 2015 の既定のインストールに含まれる SQL Server Express、または Visual Studio 2017 の**データストレージと処理**ワークロードの一部として含まれるが含まれます。
+- SQL Server のインスタンス。 これには SQL Server Express が含まれます。これは、Visual Studio 2015 の既定のインストールに含まれているか、Visual Studio 2017 以降の**データストレージと処理**ワークロードの一部として含まれています。
 
 - Northwind サンプル データベース。 このサンプル データベースをダウンロードするには、ダウンロード ページ「 [SQL Server 用サンプル データベース](https://go.microsoft.com/fwlink/?linkid=24758)」を参照してください。
 
@@ -45,9 +45,9 @@ ms.locfileid: "70790367"
  OData フィードを使用する WPF アプリを作成し、データを Windows コントロールにバインドして、バインドされたコントロールのデータを変更した後、変更内容をデータサービスに送り返します。
 
 > [!NOTE]
-> クイック スタートを完了したプロジェクト ファイルは、「 [WCF Data Services ドキュメントのサンプル](https://go.microsoft.com/fwlink/?LinkId=179994) 」ページからダウンロードできます。
+> クイックスタートの完成したバージョンのプロジェクトファイルは、 [GitHub](https://github.com/microsoftarchive/msdn-code-gallery-community-s-z/tree/master/WCF%20Data%20Services%20Quickstart%20(OData%20Service%20and%20WPF%20Client))からダウンロードできます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ:
 
 > [!div class="nextstepaction"]
 > [クイックスタートを開始する](creating-the-data-service.md)

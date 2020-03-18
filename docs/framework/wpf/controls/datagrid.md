@@ -10,17 +10,17 @@ helpviewer_keywords:
 - DataGrid [WPF], customizing the appearance of
 - DataGrid columns [WPF], using
 ms.assetid: bf89ea63-79b6-422b-bc9f-0485ad803216
-ms.openlocfilehash: dda712d58a4ff956de074ecd416402ba0aece5f4
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: f0887f36990de483139a9fde1472a78737cb7b72
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61912237"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73460386"
 ---
 # <a name="datagrid"></a>DataGrid
-<xref:System.Windows.Controls.DataGrid>コントロールでは、表示および SQL database、LINQ クエリ、またはその他のバインド可能なデータ ソースからなど、さまざまなソースからデータを編集することができます。 詳しくは、「[バインディング ソースの概要](../data/binding-sources-overview.md)」をご覧ください。  
+<xref:System.Windows.Controls.DataGrid> コントロールを使用すると、SQL データベース、LINQ クエリ、またはその他のバインド可能なデータソースなど、さまざまなソースのデータを表示および編集できます。 詳しくは、「[Binding Sources Overview](../data/binding-sources-overview.md)」(バインディング ソースの概要) をご覧ください。  
   
- 列がなど、コントロールのテキストを表示できます、 <xref:System.Windows.Controls.ComboBox>、またはイメージ、ボタン、またはテンプレートに含まれるすべてのコンテンツなどの他の WPF コンテンツ。 使用することができます、<xref:System.Windows.Controls.DataGridTemplateColumn>テンプレートで定義されているデータを表示します。 次の表では、既定で用意されている列の型を示します。  
+ 列はテキストやコントロールを表示できます。 具体的には、 <xref:System.Windows.Controls.ComboBox>、またはその他の WPF コンテンツとして、画像、ボタン、またはテンプレートに含まれるすべてのコンテンツがあります。 <xref:System.Windows.Controls.DataGridTemplateColumn> を使用して、テンプレートで定義されているデータを表示することができます。 次の表に、既定で提供される列の型を示します。  
   
 |生成された列の型|データの種類|  
 |---------------------------|---------------|  
@@ -29,38 +29,38 @@ ms.locfileid: "61912237"
 |<xref:System.Windows.Controls.DataGridComboBoxColumn>|<xref:System.Enum>|  
 |<xref:System.Windows.Controls.DataGridHyperlinkColumn>|<xref:System.Uri>|  
   
- <xref:System.Windows.Controls.DataGrid> セルのフォント、色、サイズなどの外観をカスタマイズできます。 <xref:System.Windows.Controls.DataGrid> その他の WPF コントロールのすべてのスタイルとテンプレートの機能をサポートしています。 <xref:System.Windows.Controls.DataGrid> 既定とカスタマイズ可能な動作の編集、並べ替え、および検証も含まれています。  
+ <xref:System.Windows.Controls.DataGrid> は、セルのフォント、色、サイズなどの外観でカスタマイズできます。 <xref:System.Windows.Controls.DataGrid> は、他の WPF コントロールのすべてのスタイル設定とテンプレート機能をサポートしています。 <xref:System.Windows.Controls.DataGrid> には、編集、並べ替え、検証のための既定の動作とカスタマイズ可能な動作も含まれています。  
   
- 次の表では、いくつかの一般的なタスクの一覧表示されます<xref:System.Windows.Controls.DataGrid>とそれを実現する方法。 関連する API を表示するには、詳細情報とサンプル コードを取得できます。  
+ 次の表に、<xref:System.Windows.Controls.DataGrid> の一般的なタスクとその実行方法を示します。 関連する API を表示すると、詳細情報とサンプルコードを確認できます。  
   
-|シナリオ|方法|  
+|通信の種類|方法|  
 |--------------|--------------|  
-|代替背景色|設定、 <xref:System.Windows.Controls.ItemsControl.AlternationIndex%2A> 2 以上のプロパティを割り当てます、<xref:System.Windows.Media.Brush>を<xref:System.Windows.Controls.DataGrid.RowBackground%2A>と<xref:System.Windows.Controls.DataGrid.AlternatingRowBackground%2A>プロパティ。|  
-|セルと行の選択の動作を定義します。|<xref:System.Windows.Controls.DataGrid.SelectionMode%2A> プロパティと <xref:System.Windows.Controls.DataGrid.SelectionUnit%2A> プロパティを設定します。|  
-|ヘッダーとセル、および行の外観をカスタマイズします。|新しい適用<xref:System.Windows.Style>を<xref:System.Windows.Controls.DataGrid.ColumnHeaderStyle%2A>、 <xref:System.Windows.Controls.DataGrid.RowHeaderStyle%2A>、 <xref:System.Windows.Controls.DataGrid.CellStyle%2A>、または<xref:System.Windows.Controls.DataGrid.RowStyle%2A>プロパティ。|  
-|サイズ変更オプションを設定します。|設定、 <xref:System.Windows.FrameworkElement.Height%2A>、 <xref:System.Windows.FrameworkElement.MaxHeight%2A>、 <xref:System.Windows.FrameworkElement.MinHeight%2A>、 <xref:System.Windows.FrameworkElement.Width%2A>、 <xref:System.Windows.FrameworkElement.MaxWidth%2A>、または<xref:System.Windows.FrameworkElement.MinWidth%2A>プロパティ。 詳細については、次を参照してください。 [DataGrid コントロールのサイズ変更オプション](sizing-options-in-the-datagrid-control.md)します。|  
-|項目にアクセスする選択|チェック、 <xref:System.Windows.Controls.DataGrid.SelectedCells%2A> 、選択したセルを取得するプロパティと<xref:System.Windows.Controls.Primitives.MultiSelector.SelectedItems%2A>プロパティを選択した行を取得します。 詳細については、「 <xref:System.Windows.Controls.DataGrid.SelectedCells%2A> 」を参照してください。|  
-|エンドユーザーの相互作用をカスタマイズします。|設定、 <xref:System.Windows.Controls.DataGrid.CanUserAddRows%2A>、 <xref:System.Windows.Controls.DataGrid.CanUserDeleteRows%2A>、 <xref:System.Windows.Controls.DataGrid.CanUserReorderColumns%2A>、 <xref:System.Windows.Controls.DataGrid.CanUserResizeColumns%2A>、 <xref:System.Windows.Controls.DataGrid.CanUserResizeRows%2A>、および<xref:System.Windows.Controls.DataGrid.CanUserSortColumns%2A>プロパティ。|  
-|キャンセルまたは自動で生成された列の変更|処理、<xref:System.Windows.Controls.DataGrid.AutoGeneratingColumn>イベント。|  
-|列を固定します。|設定、<xref:System.Windows.Controls.DataGrid.FrozenColumnCount%2A>プロパティを 1 に設定して、左端の位置に移動、列、<xref:System.Windows.Controls.DataGridColumn.DisplayIndex%2A>プロパティを 0 にします。|  
-|XML データをデータ ソースとして使用します。|バインド、<xref:System.Windows.Controls.ItemsControl.ItemsSource%2A>上、<xref:System.Windows.Controls.DataGrid>項目のコレクションを表す XPath クエリにします。 内の各列を作成、<xref:System.Windows.Controls.DataGrid>します。 項目のソースのプロパティを取得するクエリへのバインドで、XPath を設定して、各列をバインドします。 例については、「<xref:System.Windows.Controls.DataGridTextColumn>」を参照してください。|  
+|背景色を交互にする|<xref:System.Windows.Controls.ItemsControl.AlternationIndex%2A> プロパティを2以上に設定してから、<xref:System.Windows.Media.Brush> を <xref:System.Windows.Controls.DataGrid.RowBackground%2A> および <xref:System.Windows.Controls.DataGrid.AlternatingRowBackground%2A> プロパティに割り当てます。|  
+|セルと行の選択の動作を定義する|<xref:System.Windows.Controls.DataGrid.SelectionMode%2A> プロパティと <xref:System.Windows.Controls.DataGrid.SelectionUnit%2A> プロパティを設定します。|  
+|ヘッダー、セル、および行の外観をカスタマイズする|<xref:System.Windows.Controls.DataGrid.ColumnHeaderStyle%2A>、<xref:System.Windows.Controls.DataGrid.RowHeaderStyle%2A>、<xref:System.Windows.Controls.DataGrid.CellStyle%2A>、または <xref:System.Windows.Controls.DataGrid.RowStyle%2A> の各プロパティに新しい <xref:System.Windows.Style> を適用します。|  
+|サイズ変更オプションの設定|<xref:System.Windows.FrameworkElement.Height%2A>、<xref:System.Windows.FrameworkElement.MaxHeight%2A>、<xref:System.Windows.FrameworkElement.MinHeight%2A>、<xref:System.Windows.FrameworkElement.Width%2A>、<xref:System.Windows.FrameworkElement.MaxWidth%2A>、または <xref:System.Windows.FrameworkElement.MinWidth%2A> の各プロパティを設定します。 詳細については、「 [DataGrid コントロールのサイズ変更オプション](sizing-options-in-the-datagrid-control.md)」を参照してください。|  
+|選択した項目へのアクセス|選択したセルを取得するには <xref:System.Windows.Controls.DataGrid.SelectedCells%2A> プロパティを、選択した行を取得するには <xref:System.Windows.Controls.Primitives.MultiSelector.SelectedItems%2A> プロパティをオンにします。 詳細については、「<xref:System.Windows.Controls.DataGrid.SelectedCells%2A>」を参照してください。|  
+|エンドユーザーの操作をカスタマイズする|<xref:System.Windows.Controls.DataGrid.CanUserAddRows%2A>、<xref:System.Windows.Controls.DataGrid.CanUserDeleteRows%2A>、<xref:System.Windows.Controls.DataGrid.CanUserReorderColumns%2A>、<xref:System.Windows.Controls.DataGrid.CanUserResizeColumns%2A>、<xref:System.Windows.Controls.DataGrid.CanUserResizeRows%2A>、および <xref:System.Windows.Controls.DataGrid.CanUserSortColumns%2A> の各プロパティを設定します。|  
+|自動生成された列のキャンセルまたは変更|<xref:System.Windows.Controls.DataGrid.AutoGeneratingColumn> イベントを処理します。|  
+|列を固定する|[<xref:System.Windows.Controls.DataGrid.FrozenColumnCount%2A>] プロパティを1に設定し、[<xref:System.Windows.Controls.DataGridColumn.DisplayIndex%2A>] プロパティを0に設定して、列を左端の位置に移動します。|  
+|データソースとして XML データを使用する|<xref:System.Windows.Controls.DataGrid> の <xref:System.Windows.Controls.ItemsControl.ItemsSource%2A> を、項目のコレクションを表す XPath クエリにバインドします。 <xref:System.Windows.Controls.DataGrid>に各列を作成します。 各列をバインドするには、バインドの XPath を、アイテムソースのプロパティを取得するクエリに設定します。 例については、「<xref:System.Windows.Controls.DataGridTextColumn>」を参照してください。|  
   
 ## <a name="related-topics"></a>関連トピック  
   
-|タイトル|説明|  
+|Title|説明|  
 |-----------|-----------------|  
-|[チュートリアル: DataGrid コントロールでの SQL Server データベースのデータを表示](walkthrough-display-data-from-a-sql-server-database-in-a-datagrid-control.md)|エンティティ フレームワーク要素を追加する新しい WPF プロジェクトをセットアップ、設定、ソース内のデータを表示する方法について説明します、<xref:System.Windows.Controls.DataGrid>します。|  
-|[方法: DataGrid コントロールに行の詳細を追加します。](how-to-add-row-details-to-a-datagrid-control.md)|行の詳細を作成する方法について説明します、<xref:System.Windows.Controls.DataGrid>します。|  
-|[方法: DataGrid コントロールに検証を実装します。](how-to-implement-validation-with-the-datagrid-control.md)|値を検証する方法について説明します<xref:System.Windows.Controls.DataGrid>セルと行、および検証のフィードバックを表示します。|  
-|[DataGrid コントロールの既定のキーボード動作とマウス動作](default-keyboard-and-mouse-behavior-in-the-datagrid-control.md)|対話する方法について説明します、<xref:System.Windows.Controls.DataGrid>キーボードとマウスを使用して制御します。|  
-|[方法: グループ、並べ替え、およびデータ グリッド コントロールでデータのフィルター選択](how-to-group-sort-and-filter-data-in-the-datagrid-control.md)|データを表示する方法について説明します、<xref:System.Windows.Controls.DataGrid>でさまざまな方法でグループ化、並べ替え、およびデータのフィルター処理します。|  
-|[DataGrid コントロールのサイズ変更方法](sizing-options-in-the-datagrid-control.md)|絶対と自動サイズ設定を制御する方法について説明します、<xref:System.Windows.Controls.DataGrid>します。|  
+|[チュートリアル: DataGrid コントロールで SQL Server データベースのデータを表示する](walkthrough-display-data-from-a-sql-server-database-in-a-datagrid-control.md)|新しい WPF プロジェクトを設定する方法、Entity Framework 要素を追加する方法、ソースを設定する方法、およびデータを <xref:System.Windows.Controls.DataGrid>で表示する方法について説明します。|  
+|[方法: DataGrid コントロールに行の詳細を追加する](how-to-add-row-details-to-a-datagrid-control.md)|<xref:System.Windows.Controls.DataGrid>の行の詳細を作成する方法について説明します。|  
+|[方法: DataGrid コントロールを使用して検証を実装する](how-to-implement-validation-with-the-datagrid-control.md)|セルと行 <xref:System.Windows.Controls.DataGrid> の値を検証し、検証のフィードバックを表示する方法について説明します。|  
+|[DataGrid コントロールの既定のキーボード動作とマウス動作](default-keyboard-and-mouse-behavior-in-the-datagrid-control.md)|キーボードとマウスを使用して、<xref:System.Windows.Controls.DataGrid> コントロールと対話する方法について説明します。|  
+|[方法: DataGrid コントロールでデータをグループ化、並べ替え、およびフィルター処理する](how-to-group-sort-and-filter-data-in-the-datagrid-control.md)|データをグループ化、並べ替え、およびフィルター処理することによって、<xref:System.Windows.Controls.DataGrid> のデータをさまざまな方法で表示する方法について説明します。|  
+|[DataGrid コントロールのサイズ変更方法](sizing-options-in-the-datagrid-control.md)|<xref:System.Windows.Controls.DataGrid>の絶対サイズと自動サイズを制御する方法について説明します。|  
   
 ## <a name="see-also"></a>関連項目
 
 - <xref:System.Windows.Controls.DataGrid>
 - [スタイルとテンプレート](styling-and-templating.md)
-- [データ バインディングの概要](../data/data-binding-overview.md)
+- [データ バインディングの概要](../../../desktop-wpf/data/data-binding-overview.md)
 - [データ テンプレートの概要](../data/data-templating-overview.md)
 - [コントロール](index.md)
 - [WPF のコンテンツ モデル](wpf-content-model.md)

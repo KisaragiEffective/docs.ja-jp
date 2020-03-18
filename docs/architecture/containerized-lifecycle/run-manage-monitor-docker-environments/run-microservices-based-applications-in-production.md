@@ -3,10 +3,10 @@ title: 実稼働環境で構成される microservices ベースのアプリケ�
 description: 運用環境でコンテナーベースのアプリケーションを実行するための主要なコンポーネントについて説明します
 ms.date: 02/15/2019
 ms.openlocfilehash: 69df3d39a00b91cbe59c96e5fcab841a60943bcc
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "68672919"
 ---
 # <a name="run-composed-and-microservices-based-applications-in-production-environments"></a>実稼働環境で構成される microservices ベースのアプリケーションを実行する

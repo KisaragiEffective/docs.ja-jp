@@ -1,5 +1,5 @@
 ---
-title: 拡張メソッド (Visual Basic)
+title: 拡張メソッド
 ms.date: 07/20/2015
 f1_keywords:
 - vb.ExtensionMethods
@@ -7,24 +7,24 @@ helpviewer_keywords:
 - extending data types [Visual Basic]
 - extension methods [Visual Basic]
 ms.assetid: b8020aae-374d-46a9-bcb7-8cc2390b93b6
-ms.openlocfilehash: d988ab36703bc20e6960d4b8ecc7a476d95ee9bc
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: a88756fce9137f89db1b6b8b007d528e98381830
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72396008"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74341172"
 ---
 # <a name="extension-methods-visual-basic"></a>拡張メソッド (Visual Basic)
 
 拡張メソッドを使用すると、開発者は、新しい派生型を作成せずに既に定義されているデータ型にカスタム機能を追加できます。 拡張メソッドを使用すると、既存の型のインスタンスメソッドと同じように呼び出すことができるメソッドを作成できます。
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-拡張メソッドになるのは、`Sub` プロシージャと `Function` プロシージャだけです。 拡張プロパティ、拡張フィールド、拡張イベントを定義することはできません。 すべての拡張メソッドは、<xref:System.Runtime.CompilerServices?displayProperty=nameWithType> 名前空間の拡張属性 `<Extension>` でマークする必要があり、[モジュール](../../../language-reference/statements/module-statement.md)で定義する必要があります。 拡張メソッドがモジュール外で定義されている場合、Visual Basic コンパイラによってエラー [BC36551](../../../misc/bc36551.md)が生成されます。 "拡張メソッドはモジュール内でのみ定義できます"。
+拡張メソッドになるのは、`Sub` プロシージャと `Function` プロシージャだけです。 拡張プロパティ、拡張フィールド、拡張イベントを定義することはできません。 すべての拡張メソッドは、<xref:System.Runtime.CompilerServices?displayProperty=nameWithType> 名前空間から `<Extension>` 拡張属性でマークする必要があり、[Module](../../../language-reference/statements/module-statement.md)で定義する必要があります。 拡張メソッドがモジュール外で定義されている場合、Visual Basic コンパイラによってエラー [BC36551](../../../misc/bc36551.md)が生成されます。 "拡張メソッドはモジュール内でのみ定義できます"。
 
 拡張メソッド定義の最初のパラメーターでは、そのメソッドが拡張するデータ型を指定します。 メソッドが実行されると、最初のパラメーターは、そのメソッドを呼び出すデータ型のインスタンスにバインディングされます。
 
-@No__t-0 属性は、Visual Basic [`Module`](../../../language-reference/statements/module-statement.md)、 [`Sub`](../../../language-reference/statements/sub-statement.md)、または[`Function`](../../../language-reference/statements/function-statement.md)にのみ適用できます。 @No__t-0 または `Structure` に適用した場合、Visual Basic コンパイラによってエラー [BC36550](../../../language-reference/error-messages/extension-attribute-can-be-applied-only-to-module-sub-or-function-declarations.md)が生成されます。 "' Extension ' 属性は ' Module '、' Sub '、または ' Function ' 宣言にのみ適用できます。
+`Extension` 属性は、Visual Basic [`Module`](../../../language-reference/statements/module-statement.md)、 [`Sub`](../../../language-reference/statements/sub-statement.md)、または[`Function`](../../../language-reference/statements/function-statement.md)にのみ適用できます。 `Class` または `Structure`に適用した場合、Visual Basic コンパイラによってエラー [BC36550](../../../language-reference/error-messages/extension-attribute-can-be-applied-only-to-module-sub-or-function-declarations.md)が生成されます。 "' Extension ' 属性は ' Module '、' Sub '、または ' Function ' 宣言にのみ適用できます。
 
 ## <a name="example"></a>例
 
@@ -32,7 +32,7 @@ ms.locfileid: "72396008"
 
 [!code-vb[VbVbalrExtensionMethods#1](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrExtensionMethods/VB/StringExtensions.vb#1)]
 
-拡張メソッド定義に拡張属性 `<Extension()>` を設定している点に注目してください。 メソッドが定義されているモジュールに拡張属性を設定するかどうかは任意ですが、それぞれの拡張メソッドにはこの設定が必要です。 拡張属性にアクセスするためには、<xref:System.Runtime.CompilerServices> をインポートする必要があります。
+拡張メソッド定義に拡張属性 `<Extension()>` を設定している点に注目してください。 メソッドが定義されているモジュールに拡張属性を設定するかどうかは任意ですが、それぞれの拡張メソッドにはこの設定が必要です。 拡張属性にアクセスするには、<xref:System.Runtime.CompilerServices> をインポートする必要があります。
 
 拡張メソッドはモジュール内でのみ宣言できます。 通常、拡張メソッドを定義するモジュールと拡張メソッドを呼び出すモジュールは、別々になります。 必要に応じて、拡張メソッドが含まれているモジュールをインポートすることによって、そのモジュールをスコープの中に入れます。 `Print` が含まれているモジュールをスコープの中に入れたら、引数を使用しない通常のインスタンス メソッド (`ToUpper` など) の場合と同じ要領でそのメソッドを呼び出すことができます。
 
@@ -180,4 +180,4 @@ Instance method
 - [省略可能なパラメーター](optional-parameters.md)
 - [パラメーター配列](parameter-arrays.md)
 - [属性の概要](../../concepts/attributes/index.md)
-- [Visual Basic 内のスコープ](../declared-elements/scope.md)
+- [Visual Basic におけるスコープ](../declared-elements/scope.md)

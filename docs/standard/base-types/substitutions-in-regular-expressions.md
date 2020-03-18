@@ -13,30 +13,28 @@ helpviewer_keywords:
 - constructs, substitutions
 - substitutions
 ms.assetid: d1f52431-1c7d-4dc6-8792-6b988256892e
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4b079809fa76097cd575d96c70d17d1c6c85e3a1
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 3562bd113ae4c9a3f721d8858a5d3625ef548d3a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69968539"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78160080"
 ---
 # <a name="substitutions-in-regular-expressions"></a>正規表現での置換
-<a name="Top"></a> 置換は、置換パターン内でのみ認識される言語要素です。 置換では、正規表現パターンを使用して、入力文字列内の一致するテキストを置換するテキストの全体または一部を定義します。 置換パターンは、1 個以上の置換と、リテラル文字で構成されます。 置換パターンは、 <xref:System.Text.RegularExpressions.Regex.Replace%2A?displayProperty=nameWithType> パラメーターを持つ `replacement` メソッドのオーバーロードおよび <xref:System.Text.RegularExpressions.Match.Result%2A?displayProperty=nameWithType> メソッドに対して用意されています。 メソッドは、一致するパターンを、 `replacement` パラメーターで定義されているパターンで置換します。  
+置換は、置換パターン内でのみ認識される言語要素です。 置換では、正規表現パターンを使用して、入力文字列内の一致するテキストを置換するテキストの全体または一部を定義します。 置換パターンは、1 個以上の置換と、リテラル文字で構成されます。 置換パターンは、 <xref:System.Text.RegularExpressions.Regex.Replace%2A?displayProperty=nameWithType> パラメーターを持つ `replacement` メソッドのオーバーロードおよび <xref:System.Text.RegularExpressions.Match.Result%2A?displayProperty=nameWithType> メソッドに対して用意されています。 メソッドは、一致するパターンを、 `replacement` パラメーターで定義されているパターンで置換します。  
   
  .NET Framework では、次の表に示す置換要素が定義されています。  
   
 |代入|説明|  
 |------------------|-----------------|  
-|$ *number*|*number*で識別されるキャプチャ グループに一致する最後の部分文字列を置換文字列に含めます。 *number* は 10 進値です。 詳細については、「 [番号付きグループの置換](#Numbered)」を参照してください。|  
-|${ *name* }|`(?<`*name*`> )` で指定された名前付きグループに一致する最後の部分文字列を置換文字列に含めます。 詳細については、「 [名前付きグループの置換](#Named)」を参照してください。|  
-|$$|置換文字列に 1 つの "$" リテラルを含めます。 詳細については、「 ["$" 文字の置換](#DollarSign)」を参照してください。|  
-|$&|一致した文字列全体のコピーを置換文字列に含めます。 詳細については、「 [一致した文字列全体の置換](#EntireMatch)」を参照してください。|  
-|$\`|一致した場所より前にある入力文字列のテキストすべてを置換文字列に含めます。 詳細については、「 [一致した文字列より前にあるテキストの置換](#BeforeMatch)」を参照してください。|  
-|$'|一致した場所より後にある入力文字列のテキストすべてを置換文字列に含めます。 詳細については、「 [一致した文字列より後にあるテキストの置換](#AfterMatch)」を参照してください。|  
-|$+|最後にキャプチャされたグループを置換文字列に含めます。 詳細については、「 [キャプチャされた最後のグループの置換](#LastGroup)」を参照してください。|  
-|$_|入力文字列全体を置換文字列に含めます。 詳細については、「 [入力文字列全体の置換](#EntireString)」を参照してください。|  
+|$ *number*|*number*で識別されるキャプチャ グループに一致する最後の部分文字列を置換文字列に含めます。 *number* は 10 進値です。 詳細については、「 [番号付きグループの置換](#substituting-a-numbered-group)」を参照してください。|  
+|${ *name* }|`(?<`*name*`> )` で指定された名前付きグループに一致する最後の部分文字列を置換文字列に含めます。 詳細については、「 [名前付きグループの置換](#substituting-a-named-group)」を参照してください。|  
+|$$|置換文字列に 1 つの "$" リテラルを含めます。 詳細については、「 ["$" 文字の置換](#substituting-a--character)」を参照してください。|  
+|$&|一致した文字列全体のコピーを置換文字列に含めます。 詳細については、「 [一致した文字列全体の置換](#substituting-the-entire-match)」を参照してください。|  
+|$\`|一致した場所より前にある入力文字列のテキストすべてを置換文字列に含めます。 詳細については、「 [一致した文字列より前にあるテキストの置換](#substituting-the-text-before-the-match)」を参照してください。|  
+|$'|一致した場所より後にある入力文字列のテキストすべてを置換文字列に含めます。 詳細については、「 [一致した文字列より後にあるテキストの置換](#substituting-the-text-after-the-match)」を参照してください。|  
+|$+|最後にキャプチャされたグループを置換文字列に含めます。 詳細については、「 [キャプチャされた最後のグループの置換](#substituting-the-last-captured-group)」を参照してください。|  
+|$\_|入力文字列全体を置換文字列に含めます。 詳細については、「 [入力文字列全体の置換](#substituting-the-entire-input-string)」を参照してください。|  
   
 ## <a name="substitution-elements-and-replacement-patterns"></a>置換要素と置換パターン  
  置換構成体は、置換パターンで認識される特殊な構成体です。 文字エスケープやピリオド (`.`) など、任意の文字に一致する他の正規表現言語要素はいずれもサポートされていません。 同様に、置換言語要素は置換パターン内でのみ認識され、正規表現パターン内では有効ではありません。  
@@ -45,12 +43,11 @@ ms.locfileid: "69968539"
   
 > [!NOTE]
 > 正規表現の中で置換パターンに似た機能を利用するには、前方参照を使用します。 前方参照の詳細については、「 [前方参照構成体](../../../docs/standard/base-types/backreference-constructs-in-regular-expressions.md)」を参照してください。  
-  
-<a name="Numbered"></a>   
+
 ## <a name="substituting-a-numbered-group"></a>番号付きグループの置換  
  `$`*number* 言語要素は、 *number* キャプチャ グループに一致する最後の部分文字列を置換文字列に含めます。 *number* は、キャプチャ グループのインデックスです。 たとえば、置換パターン `$1` は、一致した部分文字列がキャプチャされた最初のグループに置き換えられることを示します。 番号付きキャプチャ グループの詳細については、「 [Grouping Constructs](../../../docs/standard/base-types/grouping-constructs-in-regular-expressions.md)」を参照してください。  
   
- `$` 以降のすべての数字が、 *number* グループに所属すると解釈されます。 そうしたくない場合は、代わりに名前付きグループを使用できます。 たとえば、 `${1}1` の代わりに、置換文字列 `$11` を使用して、最初のキャプチャ グループの値と数字 "1" を置換文字列として定義できます。 詳細については、「 [名前付きグループの置換](#Named)」を参照してください。  
+ `$` 以降のすべての数字が、 *number* グループに所属すると解釈されます。 そうしたくない場合は、代わりに名前付きグループを使用できます。 たとえば、 `${1}1` の代わりに、置換文字列 `$11` を使用して、最初のキャプチャ グループの値と数字 "1" を置換文字列として定義できます。 詳細については、「 [名前付きグループの置換](#substituting-a-named-group)」を参照してください。  
   
  `(?<`*name*`>)` 構文を使用して名前が明示的に割り当てられていないキャプチャ グループには、1 から開始する番号が左から右の順に割り当てられます。 名前付きグループにも、最後の名前のないグループのインデックスよりも 1 つ大きい数値から開始する番号が、左から右へと順に割り当てられます。 たとえば、正規表現 `(\w)(?<digit>\d)`では、 `digit` という名前付きグループのインデックスは 2 です。  
   
@@ -71,10 +68,7 @@ ms.locfileid: "69968539"
 |`[.,]?`|0 個または 1 個のピリオドまたはコンマと一致します。|  
 |`\d*`|0 個以上の 10 進数と一致します。|  
 |`(\s?\d+[.,]?\d*)`|空白の後に 1 つ以上の 10 進数、0 個または 1 個のピリオドまたはコンマ、さらに 0 個以上の 10 進数が続くパターンに一致します。 これが最初のキャプチャ グループです。 置換パターンは `$1`であるため、 <xref:System.Text.RegularExpressions.Regex.Replace%2A?displayProperty=nameWithType> メソッドを呼び出すと、一致する部分文字列全体がこのキャプチャされたグループに置き換えられます。|  
-  
- [ページのトップへ](#Top)  
-  
-<a name="Named"></a>   
+
 ## <a name="substituting-a-named-group"></a>名前付きグループの置換  
  `${`*name*`}` 言語要素は、 *name* キャプチャ グループに一致する最後の部分文字列を置換します。ここで、 *name* は `(?<`*name*`>)` 言語要素で定義されているキャプチャ グループの名前です。 名前付きキャプチャ グループの詳細については、「 [Grouping Constructs](../../../docs/standard/base-types/grouping-constructs-in-regular-expressions.md)」を参照してください。  
   
@@ -97,10 +91,7 @@ ms.locfileid: "69968539"
 |`[.,]?`|0 個または 1 個のピリオドまたはコンマと一致します。|  
 |`\d*`|0 個以上の 10 進数と一致します。|  
 |`(?<amount>\s?\d[.,]?\d*)`|空白の後に 1 つ以上の 10 進数、0 個または 1 個のピリオドまたはコンマ、さらに 0 個以上の 10 進数が続くパターンに一致します。 これは、 `amount`という名前のキャプチャ グループです。 置換パターンは `${amount}`であるため、 <xref:System.Text.RegularExpressions.Regex.Replace%2A?displayProperty=nameWithType> メソッドを呼び出すと、一致する部分文字列全体がこのキャプチャされたグループに置き換えられます。|  
-  
- [ページのトップへ](#Top)  
-  
-<a name="DollarSign"></a>   
+
 ## <a name="substituting-a--character"></a>"$" 文字の置換  
  `$$` の置換は、リテラル文字 "$" を置換文字列に挿入します。  
   
@@ -118,8 +109,7 @@ ms.locfileid: "69968539"
 |`\.`|ピリオド (桁区切り記号) と一致します。|  
 |`(\d+)`|1 個以上の 10 進数と一致します。 これが 3 番目のキャプチャ グループです。|  
 |`(\.(\d+))?`|ピリオドの後に 1 つ以上の 10 進数が続くパターンの 0 回または 1 回の出現と一致します。 これが 2 番目のキャプチャ グループです。|  
-  
-<a name="EntireMatch"></a>   
+
 ## <a name="substituting-the-entire-match"></a>一致した文字列全体の置換  
  `$&` の置換は、一致した文字列全体を置換文字列に含めます。 通常は、一致した文字列の先頭または末尾に部分文字列を追加するために使用されます。 たとえば、 `($&)` という置換パターンは、一致した各文字列の先頭と末尾にかっこを追加します。 一致する文字列がない場合、 `$&` の置換は無効です。  
   
@@ -137,10 +127,7 @@ ms.locfileid: "69968539"
 |`$`|入力文字列の末尾と一致します。|  
   
  `"$&"` という置換パターンは、各一致文字列の先頭と末尾にリテラルの一重引用符を追加します。  
-  
- [ページのトップへ](#Top)  
-  
-<a name="BeforeMatch"></a>   
+
 ## <a name="substituting-the-text-before-the-match"></a>一致した文字列より前にあるテキストの置換  
  ``$` `` の置換は、一致した場所より前にある入力文字列全体で一致した文字列を置換します。 つまり、一致した場所までの入力文字列を複製し、一致したテキストを削除します。 結果文字列では、一致したテキストに続くテキストは変更されません。 入力文字列に複数の一致文字列がある場合、置換テキストは、テキストが前の一致で置換された文字列からではなく、元の入力文字列から派生します \(具体的な例を次に示します。\)一致する文字列がない場合、 ``$` `` の置換は無効です。  
   
@@ -157,11 +144,8 @@ ms.locfileid: "69968539"
 |2|5|aa1bb|aaaabb**aa1bb**cc3dd4ee5|  
 |3|8|aa1bb2cc|aaaabbaa1bbcc**aa1bb2cc**dd4ee5|  
 |4|11|aa1bb2cc3dd|aaaabbaa1bbccaa1bb2ccdd**aa1bb2cc3dd**ee5|  
-|5|14|aa1bb2cc3dd4ee|aaaabbaa1bbccaa1bb2ccddaa1bb2cc3ddee**aa1bb2cc3dd4ee**|  
-  
- [ページのトップへ](#Top)  
-  
-<a name="AfterMatch"></a>   
+|5|14|aa1bb2cc3dd4ee|aaaabbaa1bbccaa1bb2ccddaa1bb2cc3ddee**aa1bb2cc3dd4ee**|
+
 ## <a name="substituting-the-text-after-the-match"></a>一致した文字列より後にあるテキストの置換  
  `$'` の置換は、一致した場所より後にある入力文字列全体で一致した文字列を置換します。 つまり、一致した場所より後にある入力文字列を複製し、一致したテキストを削除します。 結果文字列では、一致したテキストより前にあるテキストは変更されません。 一致する文字列がない場合、  `$'` の置換は無効です。  
   
@@ -179,10 +163,7 @@ ms.locfileid: "69968539"
 |3|8|dd4ee5|aabb2cc3dd4ee5bbcc3dd4ee5cc**dd4ee5**dd4ee5|  
 |4|11|ee5|aabb2cc3dd4ee5bbcc3dd4ee5ccdd4ee5dd**ee5**ee5|  
 |5|14|<xref:System.String.Empty?displayProperty=nameWithType>|aabb2cc3dd4ee5bbcc3dd4ee5ccdd4ee5ddee5ee|  
-  
- [ページのトップへ](#Top)  
-  
-<a name="LastGroup"></a>   
+
 ## <a name="substituting-the-last-captured-group"></a>キャプチャされた最後のグループの置換  
  `$+` の置換は、キャプチャされた最後のグループで一致した文字列を置換します。 キャプチャされたグループがない場合、またはキャプチャされた最後のグループの値が <xref:System.String.Empty?displayProperty=nameWithType>の場合、 `$+` の置換は無効です。  
   
@@ -200,10 +181,7 @@ ms.locfileid: "69968539"
 |`\s`|空白文字と一致します。|  
 |`\1`|キャプチャされた最初のグループと一致します。|  
 |`\b`|ワード境界で照合を終了します。|  
-  
- [ページのトップへ](#Top)  
-  
-<a name="EntireString"></a>   
+
 ## <a name="substituting-the-entire-input-string"></a>入力文字列全体の置換  
  `$_` の置換は、一致した文字列を入力文字列全体で置換します。 つまり、一致したテキストを削除し、一致したテキストを含む文字列全体でそのテキストを置換します。  
   

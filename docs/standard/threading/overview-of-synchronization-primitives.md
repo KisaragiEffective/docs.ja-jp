@@ -8,14 +8,12 @@ helpviewer_keywords:
 - threading [.NET],synchronizing threads
 - managed threading
 ms.assetid: b782bcb8-da6a-4c6a-805f-2eb46d504309
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 31d5df6521b7c420943a7d3d0efcf6e4bee2d3a2
-ms.sourcegitcommit: cdf67135a98a5a51913dacddb58e004a3c867802
+ms.openlocfilehash: 43f78c914b7cb01f9b0de4c258d5882548e52790
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69666288"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73106593"
 ---
 # <a name="overview-of-synchronization-primitives"></a>同期プリミティブの概要
 
@@ -89,7 +87,7 @@ ms.locfileid: "69666288"
 
 <xref:System.Threading.SemaphoreSlim> は軽量であり、<xref:System.Threading.Semaphore> の代わりに使用され、単一のプロセス境界内の同期化でのみ使用できます。
 
-Windows では、プロセス間同期で <xref:System.Threading.Semaphore> を使用できます。 そのためには、名前または <xref:System.Threading.Semaphore.OpenExisting%2A?displayProperty=nameWithType> メソッドを指定する [Semaphore コンストラクター](<xref:System.Threading.Semaphore.%23ctor%2A>)のいずれかを使用して、名前付きシステム セマフォを表す <xref:System.Threading.Semaphore> インスタンスを作成します。 <xref:System.Threading.SemaphoreSlim> では、名前付きシステム セマフォはサポートされていません。
+Windows では、プロセス間同期で <xref:System.Threading.Semaphore> を使用できます。 そのためには、名前または <xref:System.Threading.Semaphore> メソッドを指定する [Semaphore コンストラクター](<xref:System.Threading.Semaphore.%23ctor%2A>)のいずれかを使用して、名前付きシステム セマフォを表す <xref:System.Threading.Semaphore.OpenExisting%2A?displayProperty=nameWithType> インスタンスを作成します。 <xref:System.Threading.SemaphoreSlim> では、名前付きシステム セマフォはサポートされていません。
 
 詳細については、「[Semaphore と SemaphoreSlim](semaphore-and-semaphoreslim.md)」の記事と、<xref:System.Threading.Semaphore> または <xref:System.Threading.SemaphoreSlim> API リファレンスを参照してください。
 
@@ -107,10 +105,10 @@ Windows では、プロセス間同期で <xref:System.Threading.Semaphore> を�
 
 シグナル状態になった <xref:System.Threading.EventWaitHandle> の動作は、そのリセット モードによって異なります。
 
-- <xref:System.Threading.EventResetMode.AutoReset?displayProperty=nameWithType> フラグで作成された <xref:System.Threading.EventWaitHandle> では、単一の待ちスレッドが解放された後、自動的にリセットされます。 これは、シグナル状態になるたびに 1 つのスレッドのみが通れる回転ドアのようなものです。 <xref:System.Threading.EventWaitHandle> から派生する、<xref:System.Threading.AutoResetEvent?displayProperty=nameWithType> クラスはその動作を表します。
-- <xref:System.Threading.EventResetMode.ManualReset?displayProperty=nameWithType> フラグで作成された <xref:System.Threading.EventWaitHandle> は、その <xref:System.Threading.EventWaitHandle.Reset%2A> メソッドが呼び出されるまで、シグナル状態のままです。 これは、シグナル状態になるまで閉じられ、誰かが閉めるまで開いたままになっている門のようなものです。 <xref:System.Threading.EventWaitHandle> から派生する、<xref:System.Threading.ManualResetEvent?displayProperty=nameWithType> クラスはその動作を表します。 <xref:System.Threading.ManualResetEventSlim?displayProperty=nameWithType> クラスは軽量であり、<xref:System.Threading.ManualResetEvent> の代わりに使用できます。
+- <xref:System.Threading.EventWaitHandle> フラグで作成された <xref:System.Threading.EventResetMode.AutoReset?displayProperty=nameWithType> では、単一の待ちスレッドが解放された後、自動的にリセットされます。 これは、シグナル状態になるたびに 1 つのスレッドのみが通れる回転ドアのようなものです。 <xref:System.Threading.AutoResetEvent?displayProperty=nameWithType> から派生する、<xref:System.Threading.EventWaitHandle> クラスはその動作を表します。
+- <xref:System.Threading.EventWaitHandle> フラグで作成された <xref:System.Threading.EventResetMode.ManualReset?displayProperty=nameWithType> は、その <xref:System.Threading.EventWaitHandle.Reset%2A> メソッドが呼び出されるまで、シグナル状態のままです。 これは、シグナル状態になるまで閉じられ、誰かが閉めるまで開いたままになっている門のようなものです。 <xref:System.Threading.ManualResetEvent?displayProperty=nameWithType> から派生する、<xref:System.Threading.EventWaitHandle> クラスはその動作を表します。 <xref:System.Threading.ManualResetEventSlim?displayProperty=nameWithType> クラスは軽量であり、<xref:System.Threading.ManualResetEvent> の代わりに使用できます。
 
-Windows では、プロセス間同期で <xref:System.Threading.EventWaitHandle> を使用できます。 そのためには、名前または <xref:System.Threading.EventWaitHandle.OpenExisting%2A?displayProperty=nameWithType> メソッドを指定する [EventWaitHandle コンストラクター](<xref:System.Threading.EventWaitHandle.%23ctor%2A>)のいずれかを使用して、名前付きシステム同期イベントを表す <xref:System.Threading.EventWaitHandle> インスタンスを作成します。
+Windows では、プロセス間同期で <xref:System.Threading.EventWaitHandle> を使用できます。 そのためには、名前または <xref:System.Threading.EventWaitHandle> メソッドを指定する [EventWaitHandle コンストラクター](<xref:System.Threading.EventWaitHandle.%23ctor%2A>)のいずれかを使用して、名前付きシステム同期イベントを表す <xref:System.Threading.EventWaitHandle.OpenExisting%2A?displayProperty=nameWithType> インスタンスを作成します。
 
 詳細については、「[EventWaitHandle](eventwaithandle.md)」の記事を参照してください。 API リファレンスについては、<xref:System.Threading.EventWaitHandle>、<xref:System.Threading.AutoResetEvent>、<xref:System.Threading.ManualResetEvent>、および <xref:System.Threading.ManualResetEventSlim> に関する記述を参照してください。
 
@@ -142,7 +140,7 @@ Windows では、プロセス間同期で <xref:System.Threading.EventWaitHandle
 
 詳細については、「[SpinWait](spinwait.md)」の記事と、<xref:System.Threading.SpinWait> API リファレンスを参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Collections.Concurrent?displayProperty=nameWithType>
 - [スレッド セーフなコレクション](../collections/thread-safe/index.md)

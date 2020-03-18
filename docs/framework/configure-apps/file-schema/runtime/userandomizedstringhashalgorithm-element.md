@@ -8,16 +8,14 @@ helpviewer_keywords:
 - UseRandomizedStringHashAlgorithm element
 - <UseRandomizedStringHashAlgorithm> element
 ms.assetid: c08125d6-56cc-4b23-b482-813ff85dc630
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 49b53dcd4db7e0ac1e9079e763b8ed76c1088e0e
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 3863bc1376d89ef804022fb9c87fac3a25fc910f
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252198"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73968845"
 ---
-# <a name="userandomizedstringhashalgorithm-element"></a>\<UseRandomizedStringHashAlgorithm> 要素
+# <a name="userandomizedstringhashalgorithm-element"></a>\<UseRandomizedStringHashAlgorithm > 要素
 共通言語ランタイムがアプリケーション ドメインごとに文字列のハッシュ コードを計算するかどうかを判定します。  
   
 [ **\<configuration>** ](../configuration-element.md)\
@@ -42,7 +40,7 @@ ms.locfileid: "70252198"
   
 ## <a name="enabled-attribute"></a>enabled 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |`0`|共通言語ランタイムは、アプリケーション ドメインごとに文字列のハッシュ コードを計算しません。1 つのアルゴリズムを使用して文字列のハッシュ コードを計算します。 既定値です。|  
 |`1`|共通言語ランタイムは、アプリケーション ドメインごとに文字列のハッシュ コードを計算します。 異なるアプリケーション ドメインや異なるプロセスで同一の文字列のハッシュ コードは異なります。|  
@@ -72,7 +70,7 @@ ms.locfileid: "70252198"
   
  構成ファイルを指定せずにこの例を実行すると、次のような出力が表示されます。 文字列のハッシュ コードが 2 つアプリケーション ドメインで同じであることに注意してください。  
   
-```  
+```console
 String 'This is a string.' in domain 'PerDomain.exe': 941BCEAC  
 String 'This is a string.' in domain 'NewDomain': 941BCEAC  
 ```  
@@ -90,7 +88,7 @@ String 'This is a string.' in domain 'NewDomain': 941BCEAC
   
  構成ファイルが存在する場合、次の出力が表示されます。  
   
-```  
+```console
 String 'This is a string.' in domain 'PerDomain.exe': 5435776D  
 String 'This is a string.' in domain 'NewDomain': 75CC8236  
 ```  

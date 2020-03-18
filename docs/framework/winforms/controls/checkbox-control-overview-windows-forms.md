@@ -1,5 +1,5 @@
 ---
-title: CheckBox コントロールの概要 (Windows フォーム)
+title: CheckBox コントロールの概要
 ms.date: 03/30/2017
 f1_keywords:
 - CheckBox
@@ -8,25 +8,25 @@ helpviewer_keywords:
 - data binding [Windows Forms], checkbox controls
 - check boxes [Windows Forms], about check boxes
 ms.assetid: 085a4e0b-9046-473f-b141-d0edddfb2ebb
-ms.openlocfilehash: 2a18327d9836d1dbbcd5d5d6e73f217637736d20
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: b42816cf1bc0ce1ab6db0a2a436b17b0d4370d59
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61938971"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76737093"
 ---
 # <a name="checkbox-control-overview-windows-forms"></a>CheckBox コントロールの概要 (Windows フォーム)
 Windows フォーム <xref:System.Windows.Forms.CheckBox> コントロールは、特定の条件がオンかオフかを示します。 一般的に、はい/いいえ、または True/False の選択肢をユーザーに提示するために使用されます。 ユーザーが 1 つ以上選択可能な複数の選択肢を表示するために、チェック ボックス コントロールをグループの中で使用できます。  
   
- チェック ボックス コントロールは、各ユーザーによって行われた選択範囲を示すために使用がそのラジオ ボタン コントロールに似ています。 これらとはそのグループ内の 1 つだけのラジオ ボタンを一度に選択できます。 チェック ボックス コントロールで、ただし、任意の数のチェック ボックスを選択できます。  
+ チェックボックスコントロールは、ユーザーが選択した項目を示すために使用されるという点で、オプションボタンコントロールに似ています。 グループ内のラジオボタンは一度に1つしか選択できないという点で異なります。 ただし、チェックボックスコントロールを使用すると、任意の数のチェックボックスをオンにできます。  
   
- チェック ボックスは、単純データ バインディングを使用してデータベース内の要素に接続することがあります。 複数のチェック ボックスを使用してグループ化する可能性があります、<xref:System.Windows.Forms.GroupBox>コントロール。 これは、機能は、グループ化されたコントロールの周囲をまとめて移動して、フォーム デザイナーであるため視覚的な外観とユーザー インターフェイスのデザインに便利です。 詳細については、次を参照してください。 [Windows フォーム データ バインディング](../windows-forms-data-binding.md)と[GroupBox コントロール](groupbox-control-windows-forms.md)します。  
+ チェックボックスは、単純なデータバインディングを使用してデータベース内の要素に接続されている場合があります。 複数のチェックボックスは、<xref:System.Windows.Forms.GroupBox> コントロールを使用してグループ化することができます。 これは、視覚的な外観やユーザーインターフェイスのデザインに役立ちます。グループ化されたコントロールはフォームデザイナー上で一緒に移動できるためです。 詳細については、「[データバインディング](../windows-forms-data-binding.md)と[GroupBox コントロール](groupbox-control-windows-forms.md)の Windows フォーム」を参照してください。  
   
- <xref:System.Windows.Forms.CheckBox>コントロールに 2 つの重要なプロパティがある<xref:System.Windows.Forms.CheckBox.Checked%2A>と<xref:System.Windows.Forms.CheckBox.CheckState%2A>します。 <xref:System.Windows.Forms.CheckBox.Checked%2A>プロパティは、どちらかを返します`true`または`false`します。 <xref:System.Windows.Forms.CheckBox.CheckState%2A>プロパティは、どちらかを返します<xref:System.Windows.Forms.CheckState.Checked>または<xref:System.Windows.Forms.CheckState.Unchecked>; 場合、<xref:System.Windows.Forms.CheckBox.ThreeState%2A>プロパティに設定されて`true`、<xref:System.Windows.Forms.CheckBox.CheckState%2A>を返すことも<xref:System.Windows.Forms.CheckState.Indeterminate>します。 中間の状態で淡色表示を示す、オプションは使用できません、ボックスが表示されます。  
+ <xref:System.Windows.Forms.CheckBox> コントロールには、<xref:System.Windows.Forms.CheckBox.Checked%2A> と <xref:System.Windows.Forms.CheckBox.CheckState%2A>という2つの重要なプロパティがあります。 <xref:System.Windows.Forms.CheckBox.Checked%2A> プロパティは、`true` または `false`のいずれかを返します。 <xref:System.Windows.Forms.CheckBox.CheckState%2A> プロパティは、<xref:System.Windows.Forms.CheckState.Checked> または <xref:System.Windows.Forms.CheckState.Unchecked>のいずれかを返します。または、<xref:System.Windows.Forms.CheckBox.ThreeState%2A> プロパティが `true`に設定されている場合、<xref:System.Windows.Forms.CheckBox.CheckState%2A> は <xref:System.Windows.Forms.CheckState.Indeterminate>も返すことがあります。 不確定状態では、オプションが使用できないことを示す淡色表示のボックスが表示されます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.CheckBox>
-- [方法: Windows フォームの CheckBox コントロールでオプションを設定します。](how-to-set-options-with-windows-forms-checkbox-controls.md)
-- [方法: Windows フォーム CheckBox のクリックに応答します。](how-to-respond-to-windows-forms-checkbox-clicks.md)
+- [方法: Windows フォームの CheckBox コントロールでオプションを設定する](how-to-set-options-with-windows-forms-checkbox-controls.md)
+- [方法: Windows フォームの CheckBox のクリックに応答する](how-to-respond-to-windows-forms-checkbox-clicks.md)
 - [CheckBox コントロール](checkbox-control-windows-forms.md)

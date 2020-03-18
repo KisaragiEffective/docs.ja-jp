@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 8684cd06-ad3e-48ef-832e-15320e1f43a2
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 62e2be44165472e2fbf368f61b865d39a5e9fc28
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 14356a12c944ef93dba5e7b818d3ee5cf5adc607
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72395465"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73125418"
 ---
 # <a name="icordebugcontrollercontinue-method"></a>ICorDebugController::Continue メソッド
 
@@ -39,7 +37,7 @@ HRESULT Continue (
 ## <a name="parameters"></a>パラメーター
 
 `fIsOutOfBand`  
-から帯域外イベントから続行する場合は `true` に設定します。それ以外の場合は、を `false` に設定します。
+から帯域外イベントから続行する場合は `true` に設定します。それ以外の場合は、を `false`に設定します。
 
 ## <a name="remarks"></a>Remarks
 
@@ -49,7 +47,7 @@ HRESULT Continue (
 
 *帯域内イベント*は、マネージイベント、またはデバッガーがプロセスのマネージ状態との対話をサポートする通常のアンマネージイベントのいずれかです。 この場合、デバッガーは、`fOutOfBand` パラメーターが `false` に設定された状態で[ICorDebugUnmanagedCallback::D Eのイベント](icordebugunmanagedcallback-debugevent-method.md)コールバックを受け取ります。
 
-*アウトオブバンドイベント*は、イベントによってプロセスが停止されている間に、プロセスのマネージ状態との相互作用が不可能なアンマネージイベントです。 この場合、デバッガーは、`fOutOfBand` パラメーターが `true` に設定された @no__t 0 コールバックを受け取ります。
+*アウトオブバンドイベント*は、イベントによってプロセスが停止されている間に、プロセスのマネージ状態との相互作用が不可能なアンマネージイベントです。 この場合、デバッガーは、`fOutOfBand` パラメーターが `true`に設定された `ICorDebugUnmanagedCallback::DebugEvent` コールバックを受け取ります。
 
 ## <a name="requirements"></a>［要件］
 

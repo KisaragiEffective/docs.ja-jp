@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: d16703fd-518f-412e-92cb-74433d11032e
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 5c6ac7dabd2dfcc7829fd42389c0a6c261fe456d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: c315e2ae2753b59b4e277764d27c3fb3388b515c
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781869"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74445419"
 ---
 # <a name="corfileflags-enumeration"></a>CorFileFlags 列挙型
-呼び出しで定義されているファイルの種類を記述する値を含む[imetadataassemblyemit::definefile](../../../../docs/framework/unmanaged-api/metadata/imetadataassemblyemit-definefile-method.md)します。  
+[IMetaDataAssemblyEmit::D efineFile](../../../../docs/framework/unmanaged-api/metadata/imetadataassemblyemit-definefile-method.md)への呼び出しで定義されているファイルの種類を記述する値を格納します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,16 +39,16 @@ typedef enum CorFileFlags {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`ffContainsMetaData`|ファイルがリソース ファイルではないことを示します。|  
-|`ffContainsNoMetaData`|場合によっては、リソース ファイル、ファイルにメタデータが含まれていないことを示します。|  
+|`ffContainsMetaData`|は、ファイルがリソースファイルではないことを示します。|  
+|`ffContainsNoMetaData`|ファイル (場合によってはリソースファイル) にメタデータが含まれていないことを示します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

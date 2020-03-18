@@ -1,16 +1,16 @@
 ---
-title: .NET Security Analyzer - .NET
-description: .NET Framework Analyzer パッケージの .NET Security Analyzer を利用し、セキュリティ上のリスクを見つけ、対処する方法について説明します。
+title: .NET Framework アナライザー - .NET
+description: .NET Framework Analyzer パッケージの .NET Framework Analyzers を利用し、セキュリティ上のリスクを見つけ、対処する方法について説明します。
 author: billwagner
 ms.author: wiwagn
 ms.date: 01/25/2018
 ms.technology: dotnet-standard
-ms.openlocfilehash: da5e72b96fec35404e7e9ae7930f3430143487d2
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: dd69671e709549fe0ad0f582e4d09b43f7321df2
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70929306"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78155998"
 ---
 # <a name="the-net-framework-analyzer"></a>.NET Framework Analyzer
 
@@ -20,13 +20,14 @@ ms.locfileid: "70929306"
 
 ## <a name="installing-and-configuring-the-net-framework-analyzer"></a>.NET Framework Analyzer をインストールし、構成する
 
-.NET Security Analyzer は、それを実行するすべてのプロジェクトで、NuGet パッケージとしてインストールする必要があります。 1 人の開発者がそれをプロジェクトに追加すれば十分です。 アナライザー パッケージはプロジェクト依存関係であり、更新済みのソリューションが与えられると、あらゆる開発者のコンピューターで実行されます。
+.NET Framework Analyzer は、それを実行するすべてのプロジェクトで、NuGet パッケージとしてインストールする必要があります。 1 人の開発者がそれをプロジェクトに追加すれば十分です。 アナライザー パッケージはプロジェクト依存関係であり、更新済みのソリューションが与えられると、あらゆる開発者のコンピューターで実行されます。
 
-.NET Framework Analyzer は [Microsoft.NetFramework.Analyzers](https://www.nuget.org/packages/Microsoft.NetFramework.Analyzers/) NuGet パッケージで配布されます。 このパッケージは、.NET Framework に固有のアナライザーのみ提供します。これにはセキュリティ アナライザーが含まれています。 多くの場合、[Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers) NuGet パッケージが必要になります。 FxCopAnalyzers 集合パッケージには、Framework.Analyzers パッケージに含まれているすべてのフレームワーク アナライザーと次のアナライザーが含まれています。
+.NET Framework Analyzer は [Microsoft.NetFramework.Analyzers](https://www.nuget.org/packages/Microsoft.NetFramework.Analyzers/) NuGet パッケージで配布されます。 このパッケージは、.NET Framework に固有のアナライザーのみ提供します。これにはセキュリティ アナライザーが含まれています。 多くの場合、[Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers) NuGet パッケージが必要になります。
+FxCopAnalyzers 集合パッケージには、Framework.Analyzers パッケージに含まれているすべてのフレームワーク アナライザーと次のアナライザーが含まれています。
 
-- [Microsoft.CodeQuality.Analyzers](https://www.nuget.org/packages/Microsoft.CodeQuality.Analyzers):.NET Standard API の一般的なガイダンスを提供します。
-- [Microsoft.NetCore.Analyzers](https://www.nuget.org/packages/Microsoft.NetCore.Analyzers):アナライザー固有の .NET Core API を提供します。
-- [Text.Analyzers](https://www.nuget.org/packages/Text.Analyzers):コメントなど、コードとして含まれているテキストのガイダンスを提供します。
+- [Microsoft.CodeQuality.Analyzers](https://www.nuget.org/packages/Microsoft.CodeQuality.Analyzers): .NET Standard API の一般的なガイダンスを提供します。
+- [Microsoft.NetCore.Analyzers](https://www.nuget.org/packages/Microsoft.NetCore.Analyzers): アナライザー固有の .NET Core API を提供します。
+- [Text.Analyzers](https://www.nuget.org/packages/Text.Analyzers): コメントなど、コードとして含まれているテキストのガイダンスを提供します。
 
 これをインストールするには、プロジェクトを右クリックし、"依存関係の管理" を選択します。
 NuGet エクスプローラーから、"NetFramework Analyzer" を探します。あるいは、"Fx Cop Analyzer" がよければそれを探します。 ソリューションのすべてのプロジェクトで安定した最新のバージョンをインストールします。
@@ -44,17 +45,17 @@ NuGet パッケージがインストールされたら、ソリューション�
 
 アナライザーはソリューションのコードを調べ、問題があれば警告の一覧を出します。
 
-### <a name="ca1058-types-should-not-extend-certain-base-types"></a>CA1058:型は、一定の基本型を拡張することはできません
+### <a name="ca1058-types-should-not-extend-certain-base-types"></a>CA1058: 型は、一定の基本型を拡張することはできません
 
-.NET Framework には、直接の派生元にしてはいけない型がいくつかあります。 
+.NET Framework には、直接の派生元にしてはいけない型がいくつかあります。
 
 **カテゴリ:** デザイン
 
 **重要度:** 警告
 
-追加情報:[CA:1058:型は、一定の基本型を拡張することはできません](/visualstudio/code-quality/ca1058-types-should-not-extend-certain-base-types)
+追加情報: [CA1058: 型は、一定の基本型を拡張することはできません](/visualstudio/code-quality/ca1058-types-should-not-extend-certain-base-types)
 
-### <a name="ca2153-do-not-catch-corrupted-state-exceptions"></a>CA2153:破損状態例外をキャッチしないでください
+### <a name="ca2153-do-not-catch-corrupted-state-exceptions"></a>CA2153: 破損状態例外はキャッチしないでください
 
 破損状態例外をキャッチすると、エラー (アクセス違反など) が隠され、結果的に実行状態に一貫性がなくなり、攻撃者にとってシステムが攻撃しやすくなります。 その代わりに、より具体的な例外型セットをキャッチして処理するか、例外を再スローします。
 
@@ -62,9 +63,9 @@ NuGet パッケージがインストールされたら、ソリューション�
 
 **重要度:** 警告
 
-追加情報: [## CA2153:破損状態例外をキャッチしないでください](/visualstudio/code-quality/ca2153-avoid-handling-corrupted-state-exceptions)
+追加情報: [## CA2153: 破損状態例外はキャッチしないでください](/visualstudio/code-quality/ca2153-avoid-handling-corrupted-state-exceptions)
 
-### <a name="ca2229-implement-serialization-constructors"></a>CA2229:シリアル化コンストラクターを実装します
+### <a name="ca2229-implement-serialization-constructors"></a>CA2229: シリアル化コンストラクターを実装します
 
 アナライザーは、<xref:System.Runtime.Serialization.ISerializable> インターフェイスを実装する型を作成すると、この警告を出します。ただし、必須のシリアル化コンストラクターを定義しません。 この規則違反を修正するには、シリアル化コンストラクターを実装します。 シールされたクラスの場合、コンストラクターをプライベートにするか、プロテクトにします。 シリアル化コンストラクターには次のシグネチャがあります。
 
@@ -79,33 +80,33 @@ public class MyItemType
 }
 ```
 
-**カテゴリ:** 使用法
+**カテゴリ:** 使用
 
 **重要度:** 警告
 
-追加情報:[CA2229: シリアル化コンストラクターを実装します](/visualstudio/code-quality/ca2229-implement-serialization-constructors)
+追加情報: [CA2229: シリアル化コンストラクターを実装します](/visualstudio/code-quality/ca2229-implement-serialization-constructors)
 
-### <a name="ca2235-mark-all-non-serializable-fields"></a>CA2235:すべてのシリアル化不可能なフィールドを設定します
+### <a name="ca2235-mark-all-non-serializable-fields"></a>CA2235: すべてのシリアル化不可能なフィールドを設定します
 
 シリアル化できない型のインスタンス フィールドが、シリアル化できる型で宣言されています。 この警告を解決するには、そのフィールドを <xref:System.NonSerializedAttribute> で明示的にマークする必要があります。
 
-**カテゴリ:** 使用法
+**カテゴリ:** 使用
 
 **重要度:** 警告
 
-追加情報:[CA2235:すべてのシリアル化不可能なフィールドを設定します](/visualstudio/code-quality/ca2235-mark-all-non-serializable-fields)
+追加情報: [CA2235: すべてのシリアル化不可能なフィールドを設定します](/visualstudio/code-quality/ca2235-mark-all-non-serializable-fields)
 
-### <a name="ca2237-mark-iserializable-types-with-serializable"></a>CA2237:ISerializable 型を Serializable に設定します
+### <a name="ca2237-mark-iserializable-types-with-serializable"></a>CA2237: ISerializable 型を Serializable に設定します
 
 型が共通言語ランタイムでシリアル化できると認識されるようにするには、型を <xref:System.SerializableAttribute> 属性でマークする必要があります。型が <xref:System.Runtime.Serialization.ISerializable> インターフェイスの実装を通じてカスタムのシリアル化ルーチンを使用している場合でも、マークする必要があります。
 
-**カテゴリ:** 使用法
+**カテゴリ:** 使用
 
 **重要度:** 警告
 
-追加情報:[CA2237:ISerializable 型を Serializable に設定します](/visualstudio/code-quality/ca2237-mark-iserializable-types-with-serializableattribute)
+追加情報: [CA2237: ISerializable 型を Serializable に設定します](/visualstudio/code-quality/ca2237-mark-iserializable-types-with-serializableattribute)
 
-### <a name="ca3075-insecure-dtd-processing-in-xml"></a>CA3075:XML での DTD 処理が安全ではありません
+### <a name="ca3075-insecure-dtd-processing-in-xml"></a>CA3075: XML の安全ではない DTD の処理
 
 安全ではない <xref:System.Xml.XmlReaderSettings.DtdProcessing%2A> インスタンスを使用する場合、または外部エンティティ ソースを参照する場合、パーサーは信頼されていない入力を受け入れ、攻撃者に機密情報を漏えいしてしまう可能性があります。  
 
@@ -113,9 +114,9 @@ public class MyItemType
 
 **重要度:** 警告
 
-追加情報:[A3075:XML での DTD 処理が安全ではありません](/visualstudio/code-quality/ca2237-mark-iserializable-types-with-serializableattribute)
+追加情報: [A3075: XML の安全ではない DTD 処理](/visualstudio/code-quality/ca2237-mark-iserializable-types-with-serializableattribute)
 
-### <a name="ca5350-do-not-use-weak-cryptographic-algorithms"></a>CA5350:脆弱な暗号アルゴリズムを使用しないでください
+### <a name="ca5350-do-not-use-weak-cryptographic-algorithms"></a>CA5350: 脆弱な暗号アルゴリズムを使用しないでください
 
 時間の経過と共に攻撃が高度になり、暗号アルゴリズムが弱体化します。 この暗号アルゴリズムの型と用途によっては、暗号の力がさらに弱まり、攻撃者が暗号化メッセージを読んだり、改ざんしたり、電子署名を偽造したり、ハッシュしたコンテンツを改ざんしたり、その他の面でこのアルゴリズムを基礎とする暗号システムを攻撃したりすることを許します。 暗号化には、AES アルゴリズムを利用します (AES-256、AES-192、AES-128 が許容されます)。キーの長さは 128 ビット以上にします。 ハッシュには、SHA-2 512、SHA-2 384、SHA-2 256 などの SHA-2 群のハッシュ関数を利用します。
 
@@ -123,9 +124,9 @@ public class MyItemType
 
 **重要度:** 警告
 
-追加情報:[CA5350:脆弱な暗号アルゴリズムを使用しないでください](/visualstudio/code-quality/ca5350-do-not-use-weak-cryptographic-algorithms)
+追加情報: [CA5350: 脆弱な暗号アルゴリズムを使用しないでください](/visualstudio/code-quality/ca5350-do-not-use-weak-cryptographic-algorithms)
 
-### <a name="ca5351-do-not-use-broken-cryptographic-algorithms"></a>CA5351:破られた暗号アルゴリズムを使用しないでください
+### <a name="ca5351-do-not-use-broken-cryptographic-algorithms"></a>CA5351 破られた暗号アルゴリズムを使用しないでください
 
 コンピューターを利用してこのアルゴリズムを突破する攻撃が存在します。 攻撃者は、本来守られるはずの暗号を突破できます。 この暗号アルゴリズムの型と用途によっては、攻撃者が暗号化メッセージを読んだり、改ざんしたり、電子署名を偽造したり、ハッシュしたコンテンツを改ざんしたり、その他の面でこのアルゴリズムを基礎とする暗号システムを攻撃したりすることを許します。 暗号化には、AES アルゴリズムを利用します (AES-256、AES-192、AES-128 が許容されます)。キーの長さは 128 ビット以上にします。 ハッシュには、SHA512、SHA384、SHA256 などの SHA-2 群のハッシュ関数を利用します。 デジタル署名には、RSA か ECDSA を利用します。RSA の場合、キーの長さを 2048 ビット以上にします。ECDSA の場合、キーの長さを 256 ビット以上にします。
 
@@ -133,4 +134,4 @@ public class MyItemType
 
 **重要度:** 警告
 
-追加情報:[CA5351:破られた暗号アルゴリズムを使用しないでください](/visualstudio/code-quality/ca5351-do-not-use-broken-cryptographic-algorithms)
+追加情報: [CA5351: 破られた暗号アルゴリズムを使用しないでください](/visualstudio/code-quality/ca5351)

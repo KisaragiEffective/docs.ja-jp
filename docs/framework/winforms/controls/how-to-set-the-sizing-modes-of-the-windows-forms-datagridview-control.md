@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォーム DataGridView コントロールのサイズ変更モードを設定する'
+title: DataGridView コントロールのサイズ変更モードを設定する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,14 +8,14 @@ helpviewer_keywords:
 - data grids [Windows Forms], setting sizing modes
 - DataGridView control [Windows Forms], sizing modes
 ms.assetid: e9ad15e6-b4bb-44aa-a767-3738e9db1651
-ms.openlocfilehash: 76d71a7c3c37f53854cf4fd9c6d8300831572d51
-ms.sourcegitcommit: c7a7e1468bf0fa7f7065de951d60dfc8d5ba89f5
+ms.openlocfilehash: 15b084afa4149ac43d40aeae7f35f0eaff5ac0e1
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65591633"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76738394"
 ---
-# <a name="how-to-set-the-sizing-modes-of-the-windows-forms-datagridview-control"></a>方法: Windows フォーム DataGridView コントロールのサイズ変更モードを設定する
+# <a name="how-to-set-the-sizing-modes-of-the-windows-forms-datagridview-control"></a>方法 : Windows フォーム DataGridView コントロールのサイズ変更モードを設定する
 次の手順では、<xref:System.Windows.Forms.DataGridView> コントロールおよびコントロール内の特定の列に対して使用できるサイズ変更オプションをカスタマイズまたは組み合わせる一般的なシナリオを示します。  
   
 ### <a name="to-create-a-fixed-width-column"></a>固定幅の列を作成するには  
@@ -56,7 +56,7 @@ ms.locfileid: "65591633"
   
 - System アセンブリおよび System.Windows.Forms アセンブリへの参照。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - <xref:System.Windows.Forms.DataGridViewColumn.AutoSizeMode%2A?displayProperty=nameWithType>

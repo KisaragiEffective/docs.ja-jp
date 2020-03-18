@@ -18,7 +18,7 @@ ms.locfileid: "70247221"
 |-----------|-----------------|  
 |[SQL と CLR の型マッピング](sql-clr-type-mapping.md)|CLR 型と SQL Server 型のマッピングを、行列形式で示します。|  
 |[基本データ型](basic-data-types.md)|.NET Framework との動作の違いをまとめます。|  
-|[ブール データ型](boolean-data-types.md)|.NET Framework との動作の違いをまとめます。|  
+|[Boolean データ型](boolean-data-types.md)|.NET Framework との動作の違いをまとめます。|  
 |[null セマンティクス](null-semantics.md)|null および null 許容に関する問題が記載されている [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] トピックへのリンクを示します。|  
 |[数値演算子および比較演算子](numeric-and-comparison-operators.md)|.NET Framework との動作の違いをまとめます。|  
 |[シーケンス演算子](sequence-operators.md)|.NET Framework との動作の違いをまとめます。|  

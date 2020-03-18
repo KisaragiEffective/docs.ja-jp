@@ -8,14 +8,12 @@ helpviewer_keywords:
 - registration-free COM interop, configuring .NET-based components
 - activation, registration-free
 ms.assetid: 32f8b7c6-3f73-455d-8e13-9846895bd43b
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: baabff187fb8a22aea37c4fb4c1dc11a680d3bb8
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
-ms.translationtype: HT
+ms.openlocfilehash: 61f5f0f3ec9a4386fa12e7511b4a518f2b56a21c
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70853856"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73123666"
 ---
 # <a name="how-to-configure-net-framework-based-com-components-for-registration-free-activation"></a>方法: 登録を必要としないアクティベーション用の .NET Framework ベースの COM コンポーネントを構成する
 .NET Framework ベースのコンポーネントの登録を必要としないアクティベーションは、COM コンポーネントの場合よりも少しだけ複雑です。 セットアップには 2 つのマニフェストが必要です。  
@@ -105,15 +103,15 @@ ms.locfileid: "70853856"
   
 4. アセンブリ内の各クラスを指定します。 マネージド アセンブリ内の各クラスを一意に識別するには `<clrClass>` 要素を使用します。 この要素は、`<assembly>` 要素のサブ要素であり、次の表に示す属性を持っています。  
   
-    |属性|説明|必須|  
+    |属性|説明|必要|  
     |---------------|-----------------|--------------|  
-    |`clsid`|アクティブにするクラスを指定する識別子。|はい|  
-    |`description`|ユーザーにコンポーネントを説明する文字列。 既定では文字列は空です。|いいえ|  
-    |`name`|マネージド クラスを表す文字列。|はい|  
-    |`progid`|遅延バインディングによるアクティベーションで使用される識別子。|いいえ|  
-    |`threadingModel`|COM スレッド モデル。 "Both" が既定値です。|いいえ|  
-    |`runtimeVersion`|使用する共通言語ランタイム (CLR: Common Language Runtime) のバージョンを指定します。 この属性を指定せず、CLR がまだ読み込まれていない場合は、インストールされている最新の CLR (CLR Version 4 よりも前のバージョン) でコンポーネントが読み込まれます。 v1.0.3705、v1.1.4322、または v2.0.50727 を指定すると、インストールされている最新の CLR バージョン (CLR Version 4 よりも前のバージョン。通常は v2.0.50727) に自動的にロールフォワードされます。 別のバージョンの CLR が既に読み込まれていて、指定されたバージョンをインプロセスで並行して (side-by-side で) 読み込むことができる場合は、指定されたバージョンが読み込まれます。それ以外の場合は、読み込まれた CLR が使用されます。 これにより、読み込みエラーが発生する可能性があります。|いいえ|  
-    |`tlbid`|クラスに関する型情報を格納するタイプ ライブラリの識別子。|いいえ|  
+    |`clsid`|アクティブにするクラスを指定する識別子。|[はい]|  
+    |`description`|ユーザーにコンポーネントを説明する文字列。 既定では文字列は空です。|Ｘ|  
+    |`name`|マネージド クラスを表す文字列。|[はい]|  
+    |`progid`|遅延バインディングによるアクティベーションで使用される識別子。|Ｘ|  
+    |`threadingModel`|COM スレッド モデル。 "Both" が既定値です。|Ｘ|  
+    |`runtimeVersion`|使用する共通言語ランタイム (CLR: Common Language Runtime) のバージョンを指定します。 この属性を指定せず、CLR がまだ読み込まれていない場合は、インストールされている最新の CLR (CLR Version 4 よりも前のバージョン) でコンポーネントが読み込まれます。 v1.0.3705、v1.1.4322、または v2.0.50727 を指定すると、インストールされている最新の CLR バージョン (CLR Version 4 よりも前のバージョン。通常は v2.0.50727) に自動的にロールフォワードされます。 別のバージョンの CLR が既に読み込まれていて、指定されたバージョンをインプロセスで並行して (side-by-side で) 読み込むことができる場合は、指定されたバージョンが読み込まれます。それ以外の場合は、読み込まれた CLR が使用されます。 これにより、読み込みエラーが発生する可能性があります。|Ｘ|  
+    |`tlbid`|クラスに関する型情報を格納するタイプ ライブラリの識別子。|Ｘ|  
   
      属性タグはすべて大文字と小文字が区別されます。 OLE/COM オブジェクト ビューアー (Oleview.exe) で、エクスポートされたアセンブリのタイプ ライブラリを表示することによって、CLSID、ProgID、スレッド モデル、およびランタイムのバージョンを取得できます。  
   

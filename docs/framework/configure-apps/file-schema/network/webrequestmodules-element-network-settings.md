@@ -15,11 +15,11 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71697461"
 ---
-# <a name="webrequestmodules-element-network-settings"></a>\<webRequestModules > 要素 (ネットワーク設定)
+# <a name="webrequestmodules-element-network-settings"></a>\<webRequestModules> 要素 (ネットワーク設定)
 ネットワークホストから情報を要求するために使用するモジュールを指定します。  
   
 [ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **@no__t 47 >** ](system-net-element-network-settings.md)  
+&nbsp;&nbsp;[ **\<system.net>** ](system-net-element-network-settings.md)  
 &nbsp; @ no__t-1 @ no__t @ no__t @ no__t-4webRequestModules >  
   
 ## <a name="syntax"></a>構文  

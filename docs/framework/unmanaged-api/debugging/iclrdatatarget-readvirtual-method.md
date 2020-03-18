@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: da3769eb-1828-4aa1-b9ed-db4842136a43
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: f7911d09c97c5401bff827ca5fb0a8766933778f
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 83e2d1231b85086c2e65813cf427df3de36405b7
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67738670"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76785311"
 ---
 # <a name="iclrdatatargetreadvirtual-method"></a>ICLRDataTarget::ReadVirtual メソッド
-指定されたバッファーに指定された仮想メモリ アドレスからのデータを読み取ります。  
+指定された仮想メモリアドレスから指定されたバッファーにデータを読み取ります。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,21 +39,21 @@ HRESULT ReadVirtual (
   
 ## <a name="parameters"></a>パラメーター  
  `address`  
- [in]仮想メモリ アドレスを格納する CLRDATA_ADDRESS します。  
+ から仮想メモリアドレスを格納する CLRDATA_ADDRESS。  
   
  `buffer`  
- [out]データを受け取るバッファーへのポインター。  
+ 入出力データを受け取るバッファーへのポインター。  
   
  `bytesRequested`  
- [in]バッファーの長さ。  
+ からバッファーの長さ。  
   
  `bytesRead`  
- [out]返されるバイト数へのポインター。  
+ 入出力返されたバイト数へのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** ClrData.idl、ClrData.h  
+ **ヘッダー:** ClrData .idl, ClrData .h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -63,4 +61,4 @@ HRESULT ReadVirtual (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICLRDataTarget インターフェイス](../../../../docs/framework/unmanaged-api/debugging/iclrdatatarget-interface.md)
+- [ICLRDataTarget インターフェイス](iclrdatatarget-interface.md)

@@ -7,18 +7,16 @@ helpviewer_keywords:
 - assemblies [.NET Framework], strong-named
 - assembly binding, strong-named
 ms.assetid: 4c6a406a-b5eb-44fa-b4ed-4e95bb95a813
-author: rpetrusha
-ms.author: ronpet
 dev_langs:
 - csharp
 - vb
 - cpp
-ms.openlocfilehash: 324cd42a2781202f19e7e1cb5055d571f0c58cf5
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: adda4ed2ab5c59e3518b8e724044529a79840ad0
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70972613"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78156479"
 ---
 # <a name="how-to-reference-a-strong-named-assembly"></a>方法: 厳密な名前のアセンブリを参照する
 通常、厳密な名前付きアセンブリ内にある型またはリソースを参照するプロセスは透過的です。 コンパイル時 (事前バインディング) または実行時に参照を作成できます。  
@@ -46,12 +44,12 @@ csc /t:library myAssembly.cs /reference:myLibAssembly.dll
   
 <xref:System.Reflection.Assembly.Load%2A?displayProperty=nameWithType> メソッドまたは <xref:System.Reflection.Assembly.GetType%2A?displayProperty=nameWithType> メソッドを使用するなどの方法で、実行時に厳密な名前付きアセンブリ参照を作成する場合は、参照される厳密な名前付きアセンブリの表示名を使用する必要があります。 表示名の構文は次のとおりです。  
 
-\<*assembly name*> **,** \<*version number*> **,** \<*culture*> **,** \<*public key token*>  
+\<*アセンブリ名*> **、** \<*バージョン番号*> **、** \<*カルチャ*> **、** \<*公開キー トークン*>  
 
 次に例を示します。  
 
 ```console
-myDll, Version=1.1.0.0, Culture=en, PublicKeyToken=03689116d3a4ae33   
+myDll, Version=1.1.0.0, Culture=en, PublicKeyToken=03689116d3a4ae33
 ```  
 
 この例では、`PublicKeyToken` は 16 進形式の公開キートークンです。 カルチャの値がない場合は、`Culture=neutral` を使用します。  
@@ -75,11 +73,11 @@ Dim myDll As Assembly = _
 
 特定のアセンブリの 16 進形式の公開キーと公開キー トークンは、次の[厳密名 (Sn.exe)](../../framework/tools/sn-exe-strong-name-tool.md) コマンドを使用して出力できます。  
 
-**sn -Tp \<** *assembly* **>**  
+**sn -Tp \<** *アセンブリ* **>**  
 
 公開キーファイルがある場合は、代わりに次のコマンドを使用できます (コマンド ライン オプションの大文字と小文字の違いに注意してください)。  
 
-**sn -tp \<** *public key file* **>**  
+**sn -tp \<** *公開キー ファイル* **>**  
 
 ## <a name="see-also"></a>関連項目
 

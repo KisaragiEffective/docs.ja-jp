@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 7797562d-7b4c-4bd9-8b93-f35e0e2869e4
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b1aabc5783e66893d13aed60e04d7ea5f6547c68
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 19d6a76d62680be91a7b9721912ca528edde7511
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67773571"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73126755"
 ---
 # <a name="iclrassemblyidentitymanagergetbindingidentityfromfile-method"></a>ICLRAssemblyIdentityManager::GetBindingIdentityFromFile メソッド
-指定したファイル パスにあるアセンブリのデータをバインドするアセンブリ id を取得します。  
+指定したファイルパスにあるアセンブリのアセンブリ id バインドデータを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,39 +38,39 @@ HRESULT GetBindingIdentityFromFile(
   
 ## <a name="parameters"></a>パラメーター  
  `pwzFilePath`  
- [in]評価するファイルへのパス。  
+ から評価されるファイルへのパス。  
   
  `dwFlags`  
- [in]値、 [ECLRAssemblyIdentityFlags](../../../../docs/framework/unmanaged-api/hosting/eclrassemblyidentityflags-enumeration.md)アセンブリの id の種類を示す列挙体。 将来の機能拡張を提供します。 CLR_ASSEMBLY_IDENTITY_FLAGS_DEFAULT は、共通言語ランタイム (CLR) バージョン 2.0 をサポートする唯一の値です。  
+ からアセンブリの id 型を示す[Eclrassemblyidentity flags](../../../../docs/framework/unmanaged-api/hosting/eclrassemblyidentityflags-enumeration.md)列挙体の値。 将来の拡張のために提供されます。 CLR_ASSEMBLY_IDENTITY_FLAGS_DEFAULT は、共通言語ランタイム (CLR) バージョン2.0 でサポートされている唯一の値です。  
   
  `pwzBuffer`  
- [out]非透過的なアセンブリの id データを格納するバッファー。  
+ 入出力非透過アセンブリ id データを格納しているバッファー。  
   
  `pcchBufferSize`  
- [入力、出力]サイズへのポインター`pwzBuffer`します。  
+ [入力、出力]`pwzBuffer`のサイズへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|メソッドが正常に返されます。|  
-|E_INVALIDARG|指定された`pwzFilePath`が null です。|  
-|ERROR_INSUFFICIENT_BUFFER|サイズ`pwzBuffer`が小さすぎます。|  
-|HOST_E_CLRNOTAVAILABLE|プロセスに CLR が読み込まれていないか、CLR は状態をマネージ コードを実行または呼び出しを正常に処理ができません。|  
-|HOST_E_TIMEOUT|呼び出しがタイムアウトになりました。|  
+|S_OK|メソッドが正常に返されました。|  
+|E_INVALIDARG|指定された `pwzFilePath` が null です。|  
+|ERROR_INSUFFICIENT_BUFFER|`pwzBuffer` のサイズが小さすぎます。|  
+|HOST_E_CLRNOTAVAILABLE|CLR がプロセスに読み込まれていないか、CLR がマネージドコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
+|HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
-|HOST_E_ABANDONED|イベントがキャンセルされましたブロックされたスレッドまたはファイバーが待機しています。|  
-|E_FAIL|不明な致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、CLR は、プロセス内で使用可能ではなくなりました。 メソッドをホストする後続の呼び出しには、HOST_E_CLRNOTAVAILABLE が返されます。|  
+|HOST_E_ABANDONED|ブロックされたスレッドまたはファイバーが待機しているときに、イベントが取り消されました。|  
+|E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、そのプロセス内で CLR は使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
 ## <a name="remarks"></a>Remarks  
- `GetBindingIdentityFromFile` 通常は 2 回呼び出されます。 最初の呼び出しには、null 値が指定されています`pwzBuffer`、メソッドは、適切なサイズを返しますと`pcchBufferSize`します。 2 番目の呼び出しは、適切に割り当てられたバッファーを提供し、完了時にデータを実際のバッファーでメソッドを返します。  
+ 通常、`GetBindingIdentityFromFile` は2回呼び出されます。 最初の呼び出しでは `pwzBuffer`に null 値が指定され、メソッドは `pcchBufferSize`で適切なサイズを返します。 2番目の呼び出しでは、適切に割り当てられたバッファーが提供され、メソッドは完了時に実際のバッファーデータと共にを返します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

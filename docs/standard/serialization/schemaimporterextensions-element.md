@@ -6,12 +6,12 @@ helpviewer_keywords:
 - schemaImporterExtensions element
 - <schemaImporterExtensions> element
 ms.assetid: 465ef2a0-f909-4ac1-9a56-0ead5c849698
-ms.openlocfilehash: 43f8439708c73e8e5241a923360caf549bf09d8b
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 5ed80ac370e34d6b62bb2b601cb7bd978228a302
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62017965"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78159820"
 ---
 # <a name="schemaimporterextensions-element"></a>\<schemaImporterExtensions > 要素
 XSD の型を .NET Framework の型にマッピングするために <xref:System.Xml.Serialization.XmlSchemaImporter> によって使用される型を含みます。 構成ファイルの詳細については、「[構成ファイル スキーマ](../../../docs/framework/configure-apps/file-schema/index.md)」を参照してください。  
@@ -26,13 +26,13 @@ XSD の型を .NET Framework の型にマッピングするために <xref:Syste
   
 ## <a name="child-elements"></a>子要素  
   
-|要素|説明|  
+|要素|Description|  
 |-------------|-----------------|  
-|[\<追加 > 要素の\<schemaImporterExtensions >](../../../docs/standard/serialization/add-element-for-schemaimporterextensions.md)|マッピングを作成するために <xref:System.Xml.Serialization.XmlSchemaImporter> によって使用される型を追加します。|  
+|[\<Schema> Terextensions の要素を追加 \<>](../../../docs/standard/serialization/add-element-for-schemaimporterextensions.md)|マッピングを作成するために <xref:System.Xml.Serialization.XmlSchemaImporter> によって使用される型を追加します。|  
   
 ## <a name="parent-elements"></a>親要素  
   
-|要素|説明|  
+|要素|Description|  
 |-------------|-----------------|  
 |[\<system.xml.serialization> 要素](../../../docs/standard/serialization/system-xml-serialization-element.md)|XML シリアル化を制御する最上位の要素です。|  
   
@@ -42,19 +42,19 @@ XSD の型を .NET Framework の型にマッピングするために <xref:Syste
 ```xml  
 <system.xml.serialization>  
     <schemaImporterExtensions>  
-        <add name = "MobileCapabilities" type =   
-        "System.Web.Mobile.MobileCapabilities,   
-        System.Web.Mobile, Version - 2.0.0.0, Culture = neutral,   
+        <add name = "MobileCapabilities" type =
+        "System.Web.Mobile.MobileCapabilities,
+        System.Web.Mobile, Version - 2.0.0.0, Culture = neutral,
         PublicKeyToken = b03f5f6f11d40a3a" />  
     </schemaImporterExtensions>  
 </system.xml.serialization>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Xml.Serialization.XmlSchemaImporter>
 - <xref:System.Xml.Serialization.Configuration.DateTimeSerializationSection.DateTimeSerializationMode>
 - [構成ファイル スキーマ](../../../docs/framework/configure-apps/file-schema/index.md)
 - [\<dateTimeSerialization> 要素](../../../docs/standard/serialization/datetimeserialization-element.md)
-- [\<追加 > 要素の\<schemaImporterExtensions >](../../../docs/standard/serialization/add-element-for-schemaimporterextensions.md)
+- [\<Schema> Terextensions の要素を追加 \<>](../../../docs/standard/serialization/add-element-for-schemaimporterextensions.md)
 - [\<system.xml.serialization> 要素](../../../docs/standard/serialization/system-xml-serialization-element.md)

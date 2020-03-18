@@ -14,14 +14,12 @@ helpviewer_keywords:
 - GetObjectText function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d47fcd59204a4d114fc9f0dc5bc4550ba1681f33
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 412e1ad503fa0e0b4f813298c0ac96ae80098c06
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798508"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102451"
 ---
 # <a name="getobjecttext-function"></a>GetObjectText 関数
 管理オブジェクトフォーマット (MOF) 構文におけるオブジェクトのテキスト形式のレンダリングを返します。
@@ -48,16 +46,16 @@ HRESULT GetObjectText (
 から[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスへのポインター。
 
 `lFlags`  
-から通常は0です。 ( `WBEM_FLAG_NO_FLAVORS`または 0x1) が指定されている場合、修飾子は伝達またはフレーバー情報なしに含まれます。
+から通常は0です。 `WBEM_FLAG_NO_FLAVORS` (または 0x1) が指定されている場合、修飾子は伝達またはフレーバー情報なしに含まれます。
 
 `pstrObjectText`   
-入出力`null` On エントリへのポインター。 返されると、オブジェクトの`BSTR` MOF 構文レンダリングを含む新しく割り当てられた。  
+入出力エントリの `null` へのポインター。 返されると、オブジェクトの MOF 構文レンダリングを含む、新しく割り当てられた `BSTR`。  
 
 ## <a name="return-value"></a>戻り値
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_E_FAILED` | 0x80041001 | 一般的なエラーが発生しました。 |
 |`WBEM_E_INVALID_PARAMETER` | 0x80041008 | パラメーターが有効ではありません。 |
@@ -73,12 +71,12 @@ HRESULT GetObjectText (
 次のアルゴリズムは、メソッドのパラメーターのテキストを再構築するために使用されます。
 
 1. パラメーターは、識別子の値の順序で再シーケンスされます。
-1. `[in]` および`[out]`として指定されたパラメーターは、1つのパラメーターに結合されます。
+1. `[in]` と `[out]` として指定されたパラメーターは、1つのパラメーターに結合されます。
  
-`pstrObjectText`は、関数が呼び出され`null`たときにへのポインターである必要があります。ポインターが割り当て解除されないため、メソッド呼び出しの前に有効な文字列を指すことはできません。
+関数が呼び出された場合、`pstrObjectText` は `null` へのポインターである必要があります。ポインターが割り当て解除されないため、メソッドの呼び出しより前に有効な文字列をポイントすることはできません。
 
-## <a name="requirements"></a>必要条件  
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

@@ -2,20 +2,18 @@
 title: .NET Native とコンパイル
 ms.date: 03/30/2017
 ms.assetid: e38ae4f3-3e3d-42c3-a4b8-db1aa9d84f85
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1a15d30ea4d6e0f4456460248e96428419117d85
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: cf5c9f05b2f2cb4ca15e4add5b53bc9bdca757a3
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049436"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128242"
 ---
 # <a name="net-native-and-compilation"></a>.NET Native とコンパイル
 
 .NET Framework を対象にした Windows 8.1 アプリケーションと Windows デスクトップ アプリケーションは特定のプログラミング言語で記述し、中間言語 (IL: Intermediate Language) にコンパイルされます。 実行時には、メソッドが初めて実行される直前に JIT (Just-In-Time) コンパイラによって IL がローカル コンピューターのネイティブ コードにコンパイルされます。 それとは対照的に、.NET ネイティブ ツール チェーンでは、コンパイル時にソース コードをネイティブ コードに変換します。 このトピックでは、.NET ネイティブを、.NET Framework アプリをコンパイルする他のテクノロジと比較します。また、.NET ネイティブがネイティブ コードをどのように生成するのかについて実践的な概要を説明しますので、.NET ネイティブでコンパイルしたコードで発生する例外が JIT でコンパイルしたコードでは発生しない理由を理解するために役立ちます。
 
-## <a name="net-native-generating-native-binaries"></a>.NET ネイティブ:ネイティブバイナリの生成
+## <a name="net-native-generating-native-binaries"></a>.NET ネイティブ: ネイティブ バイナリを生成する
 
 .NET Framework を対象にしていても、.NET ネイティブ ツール チェーンを使用してコンパイルされないアプリケーションは、次のようなアプリケーション アセンブリで構成されます。
 

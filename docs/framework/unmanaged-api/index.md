@@ -7,14 +7,12 @@ helpviewer_keywords:
 - native API reference [.NET Framework]
 - unmanaged API reference [.NET Framework]
 ms.assetid: 9aa000ee-c04c-492c-ae4f-83ecdf4fdbbe
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 677bee7319a80e405098f0dd5c8684765806c5f7
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: f7dd78b889129998dee31a22f5dd23325613b8ea
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796872"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73092025"
 ---
 # <a name="unmanaged-api-reference"></a>アンマネージ API リファレンス
 このセクションには、ランタイム ホスト、コンパイラ、逆アセンブラー、難読化ツール、デバッガー、プロファイラーなど、マネージ コード関連のアプリケーションが使用できるアンマネージ API に関する情報が含まれています。  

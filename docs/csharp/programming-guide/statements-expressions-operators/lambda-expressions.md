@@ -1,6 +1,5 @@
 ---
 title: ラムダ式 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/29/2019
 helpviewer_keywords:
 - lambda expressions [C#]
@@ -9,12 +8,12 @@ helpviewer_keywords:
 - expression lambda [C#]
 - expressions [C#], lambda
 ms.assetid: 57e3ba27-9a82-4067-aca7-5ca446b7bf93
-ms.openlocfilehash: 1a608a9102e5fb19e40294761c0de98f7e008133
-ms.sourcegitcommit: 1b020356e421a9314dd525539da12463d980ce7a
+ms.openlocfilehash: c549b9fcc91401aed846afd39e656b60e16afb74
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70168977"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75937600"
 ---
 # <a name="lambda-expressions-c-programming-guide"></a>ラムダ式 (C# プログラミング ガイド)
 
@@ -42,7 +41,7 @@ ms.locfileid: "70168977"
 
 [!code-csharp-interactive[lambda is expression tree](~/samples/snippets/csharp/programming-guide/lambda-expressions/Introduction.cs#ExpressionTree)]
 
-ラムダ式は、デリゲート型または式ツリーのインスタンスを必要とするすべてのコードで使用できます。たとえば、<xref:System.Threading.Tasks.Task.Run(System.Action)?displayProperty=nameWithType> メソッドの引数として使用すると、バックグラウンドで実行する必要があるコードを渡すことができます。 また、次の例に示すように、[LINQ クエリ式](../../linq/index.md)を作成する場合にもラムダ式を使用できます。
+ラムダ式は、デリゲート型または式ツリーのインスタンスを必要とするすべてのコードで使用できます。たとえば、<xref:System.Threading.Tasks.Task.Run(System.Action)?displayProperty=nameWithType> メソッドの引数として使用すると、バックグラウンドで実行する必要があるコードを渡すことができます。 また、次の例に示すように、[C# で LINQ](../../linq/index.md) を作成する場合にもラムダ式を使用できます。
 
 [!code-csharp-interactive[lambda is argument in LINQ](~/samples/snippets/csharp/programming-guide/lambda-expressions/Introduction.cs#Argument)]
 
@@ -234,4 +233,4 @@ customers.Where(c => c.City == "London");
 - [ローカル関数とラムダ式の比較](../../local-functions-vs-lambdas.md)
 - [暗黙的に型指定されるラムダ式](../../implicitly-typed-lambda-expressions.md)
 - [Visual Studio 2008 C# Samples (Visual Studio 2008 の C# サンプル) (LINQ サンプル クエリ ファイルと XQuery プログラムを参照してください)](https://code.msdn.microsoft.com/Visual-Studio-2008-C-d295cdba)
-- [Recursive lambda expressions (再帰的なラムダ式)](https://blogs.msdn.microsoft.com/madst/2007/05/11/recursive-lambda-expressions/)
+- [Recursive lambda expressions (再帰的なラムダ式)](https://docs.microsoft.com/archive/blogs/madst/recursive-lambda-expressions)

@@ -9,12 +9,12 @@ metadata:
   level: Beginner
   displayType: two-column
   interactive: csharp
-  ms.openlocfilehash: fb08cef284a016dd65c99a1efb0a661624a731f1
-  ms.sourcegitcommit: dfd612ba454ce775a766bcc6fe93bc1d43dfda47
+  ms.openlocfilehash: f7fd68120defbfcda6ac11e14bc749bf4d69c109
+  ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 10/09/2019
-  ms.locfileid: "72179009"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "73969384"
 items:
 - durationInMinutes: 1
   content: >
@@ -22,7 +22,7 @@ items:
 - title: リストを作成する
   durationInMinutes: 2
   content: >
-    対話型ウィンドウで次のコードを実行します。 そのためには、対話型ウィンドウで次のコード ブロックを入力し (`<name>` を自分の名前に置き換えて)、**[実行]** をクリックします。
+    対話型ウィンドウで次のコードを実行します。 **[Enter focus mode]\(フォーカス モードを入力する\)** ボタンを選択します。 次に、対話型ウィンドウで次のコード ブロックを入力し (`<name>` を自分の名前に置き換えて)、**[実行]** を選択します。
 
 
     ```csharp
@@ -44,7 +44,7 @@ items:
     文字列のリストを作成し、そのリストに 3 つの名前を追加し、それらの名前をすべて大文字で出力しました。 先のチュートリアルで学習した概念を使用して、リストをループしています。
 
 
-    名前を表示するコードは、[文字列補間](../../language-reference/tokens/interpolated.md)機能を使用します。 `string` の前に文字 `$` を配置すると、文字列宣言に C# コードを埋め込むことができます。 実際の文字列は、生成する値でその C# コードを置き換えます。 この例では、<xref:System.String.ToUpper%2A?displayProperty=nameWithType> メソッドを呼び出したため、文字列は `{name.ToUpper()}` をそれぞれの名前に置き換え、文字を大文字に変換しています。
+    名前を表示するコードは、[文字列補間](../../language-reference/tokens/interpolated.md)機能を使用します。 `string` の前に文字 `$` を配置すると、文字列宣言に C# コードを埋め込むことができます。 実際の文字列は、生成する値でその C# コードを置き換えます。 この例では、`{name.ToUpper()}` メソッドを呼び出したため、文字列は <xref:System.String.ToUpper%2A?displayProperty=nameWithType> をそれぞれの名前に置き換え、文字を大文字に変換しています。
 
 
     続けて確認していきましょう。
@@ -106,7 +106,7 @@ items:
     ```
 
 
-    もう一度 **[実行]** をクリックして結果を確認します。 C# ではインデックスは 0 から始まるため、有効なインデックスの最大値はリスト内の項目の数より 1 小さくなります。
+    もう一度 **[実行]** を選択して結果を確認します。 C# ではインデックスは 0 から始まるため、有効なインデックスの最大値はリスト内の項目の数より 1 小さくなります。
 
 
     > [!NOTE]

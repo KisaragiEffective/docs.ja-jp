@@ -1,17 +1,17 @@
 ---
 title: dotnet list package コマンド
 description: "\"dotnet list package\" コマンドでは、プロジェクトまたはソリューションのパッケージ参照を列挙する便利なオプションが提供されています。"
-ms.date: 06/26/2019
-ms.openlocfilehash: fe95f3898c5bd85956f4312eb4d20259227e9ff0
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+ms.date: 02/14/2020
+ms.openlocfilehash: 1cb52b8de10b2eef2ef7465f04316e9446318763
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71117731"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "78157233"
 ---
 # <a name="dotnet-list-package"></a>dotnet list package
 
-[!INCLUDE [topic-appliesto-net-core-22plus](../../../includes/topic-appliesto-net-core-22plus.md)]
+**この記事の対象:** ✔️ .NET Core 2.2 SDK 以降のバージョン
 
 ## <a name="name"></a>name
 
@@ -20,20 +20,20 @@ ms.locfileid: "71117731"
 ## <a name="synopsis"></a>構文
 
 ```dotnetcli
-dotnet list [<PROJECT>|<SOLUTION>] package [--config] [--framework] [--highest-minor] [--highest-patch] 
+dotnet list [<PROJECT>|<SOLUTION>] package [--config] [--framework] [--highest-minor] [--highest-patch]
    [--include-prerelease] [--include-transitive] [--interactive] [--outdated] [--source]
 dotnet list package [-h|--help]
 ```
 
-## <a name="description"></a>説明
+## <a name="description"></a>[説明]
 
-`dotnet list package` コマンドでは、特定のプロジェクトまたはソリューションのすべての NuGet パッケージ参照を列挙する便利なオプションが提供されています。 このコマンドで処理するために必要なアセットを用意するには、最初にプロジェクトをビルドする必要があります。 次の例では、[SentimentAnalysis](https://github.com/dotnet/samples/tree/master/machine-learning/tutorials/SentimentAnalysis) プロジェクトに対する `dotnet list package` コマンドの出力を示します。
+`dotnet list package` コマンドでは、特定のプロジェクトまたはソリューションのすべての NuGet パッケージ参照を列挙する便利なオプションが提供されています。 このコマンドで処理するために必要なアセットを用意するには、最初にプロジェクトをビルドする必要があります。 次の例では、`dotnet list package`SentimentAnalysis[ プロジェクトに対する ](https://github.com/dotnet/samples/tree/master/machine-learning/tutorials/SentimentAnalysis) コマンドの出力を示します。
 
 ```output
 Project 'SentimentAnalysis' has the following package references
    [netcoreapp2.1]:
    Top-level Package               Requested   Resolved
-   > Microsoft.ML                  0.11.0      0.11.0
+   > Microsoft.ML                  1.4.0       1.4.0
    > Microsoft.NETCore.App   (A)   [2.1.0, )   2.1.0
 
 (A) : Auto-referenced package.
@@ -46,27 +46,21 @@ Project 'SentimentAnalysis' has the following package references
 ```output
 The following sources were used:
    https://api.nuget.org/v3/index.json
+   C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
 
 Project `SentimentAnalysis` has the following updates to its packages
    [netcoreapp2.1]:
    Top-level Package      Requested   Resolved   Latest
-   > Microsoft.ML         0.11.0      0.11.0     1.0.0-preview
+   > Microsoft.ML         1.4.0       1.4.0      1.5.0-preview
 ```
 
-プロジェクトに推移的依存関係があるかどうかを確認する必要がある場合は、`--include-transitive` オプションを使用します。 推移的依存関係は、プロジェクトに追加したパッケージがさらに別のパッケージに依存している場合に発生します。 次の例では、[HelloPlugin](https://github.com/dotnet/samples/tree/master/core/extensions/AppWithPlugin/HelloPlugin) プロジェクトに対して `dotnet list package --include-transitive` コマンドを実行した出力を示します、最上位のパッケージと、それらが依存しているパッケージが表示されています。
+プロジェクトに推移的依存関係があるかどうかを確認する必要がある場合は、`--include-transitive` オプションを使用します。 推移的依存関係は、プロジェクトに追加したパッケージがさらに別のパッケージに依存している場合に発生します。 次の例では、`dotnet list package --include-transitive`HelloPlugin[ プロジェクトに対して ](https://github.com/dotnet/samples/tree/master/core/extensions/AppWithPlugin/HelloPlugin) コマンドを実行した出力を示します、最上位のパッケージと、それらが依存しているパッケージが表示されています。
 
 ```output
 Project 'HelloPlugin' has the following package references
    [netcoreapp3.0]:
-   Top-level Package                      Requested                    Resolved
-   > Microsoft.NETCore.Platforms    (A)   [3.0.0-preview3.19128.7, )   3.0.0-preview3.19128.7
-   > Microsoft.WindowsDesktop.App   (A)   [3.0.0-preview3-27504-2, )   3.0.0-preview3-27504-2
-
-   Transitive Package               Resolved
-   > Microsoft.NETCore.Targets      2.0.0
-   > PluginBase                     1.0.0
-
-(A) : Auto-referenced package.
+   Transitive Package      Resolved
+   > PluginBase            1.0.0
 ```
 
 ## <a name="arguments"></a>引数
@@ -77,61 +71,61 @@ Project 'HelloPlugin' has the following package references
 
 ## <a name="options"></a>オプション
 
-* **`--config <SOURCE>`**
+- **`--config <SOURCE>`**
 
   より新しいパッケージを検索するときに使用する NuGet ソース。 `--outdated` オプションが必要です。
 
-* **`--framework <FRAMEWORK>`**
+- **`--framework <FRAMEWORK>`**
 
   指定した[ターゲット フレームワーク](../../standard/frameworks.md)に該当するパッケージのみを表示します。 複数のフレームワークを指定するには、オプションを複数回繰り返します。 たとえば、`--framework netcoreapp2.2 --framework netstandard2.0` のように指定します。
 
-* **`-h|--help`**
+- **`-h|--help`**
 
   コマンドの短いヘルプを印刷します。
 
-* **`--highest-minor`**
+- **`--highest-minor`**
 
   新しいパッケージを検索するときに、メジャー バージョン番号が一致するパッケージのみを考慮します。 `--outdated` オプションが必要です。
 
-* **`--highest-patch`**
+- **`--highest-patch`**
 
   新しいパッケージを検索するときに、メジャー バージョン番号とマイナー バージョン番号が一致するパッケージのみを考慮します。 `--outdated` オプションが必要です。
 
-* **`--include-prerelease`**
+- **`--include-prerelease`**
 
   新しいパッケージを検索するときに、プレリリース バージョンのパッケージを考慮します。 `--outdated` オプションが必要です。
 
-* **`--include-transitive`**
+- **`--include-transitive`**
 
   最上位のパッケージに加えて、推移的なパッケージを一覧表示します。 このオプションを指定すると、最上位のパッケージが依存しているパッケージの一覧が表示されます。
 
-* **`--interactive`**
+- **`--interactive`**
 
   コマンドを停止して、ユーザーの入力または操作のために待機させることができます。 たとえば、認証を完了する場合があります。 .NET Core 3.0 SDK 以降で使用できます。
 
-* **`--outdated`**
+- **`--outdated`**
 
   より新しいバージョンを使用できるパッケージを一覧表示します。
 
-* **`-s|--source <SOURCE>`**
+- **`-s|--source <SOURCE>`**
 
   より新しいパッケージを検索するときに使用する NuGet ソース。 `--outdated` オプションが必要です。
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
-* 特定のプロジェクトのパッケージ参照を一覧表示します。
+- 特定のプロジェクトのパッケージ参照を一覧表示します。
 
   ```dotnetcli
   dotnet list SentimentAnalysis.csproj package
   ```
 
-* プレリリース バージョンを含め、さらに新しいバージョンを使用できるパッケージ参照を一覧表示します。
+- プレリリース バージョンを含め、さらに新しいバージョンを使用できるパッケージ参照を一覧表示します。
 
   ```dotnetcli
   dotnet list package --outdated --include-prerelease
   ```
 
-* 特定のターゲット フレームワークのパッケージ参照を一覧表示します。
+- 特定のターゲット フレームワークのパッケージ参照を一覧表示します。
 
   ```dotnetcli
   dotnet list package --framework netcoreapp3.0

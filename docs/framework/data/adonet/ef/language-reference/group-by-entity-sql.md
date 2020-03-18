@@ -23,7 +23,7 @@ ms.locfileid: "71833777"
  グループ化の実行対象となる有効なクエリ式。 `expression` には、プロパティを指定することも、FROM 句から返されたプロパティを参照する非集計式を指定することもできます。 GROUP BY 句内の各式は、等価かどうかを比較できる型に評価される必要があります。 通常、これらの型は数値、文字列、日付などのスカラー プリミティブです。 コレクション別にグループ化することはできません。  
   
 ## <a name="remarks"></a>コメント  
- SELECT 句に集計関数が含まれている場合 \<select list > では、group BY によって各グループの集計値が計算されます。 GROUP BY を指定する場合は、選択リスト内の非集計式内の各プロパティ名が GROUP BY リストに含まれるか、GROUP BY 式が選択リスト式に正確に一致する必要があります。  
+ Select 句に集計関数が含まれている場合 \<選択リスト > では、group BY によって各グループの集計値が計算されます。 GROUP BY を指定する場合は、選択リスト内の非集計式内の各プロパティ名が GROUP BY リストに含まれるか、GROUP BY 式が選択リスト式に正確に一致する必要があります。  
   
 > [!NOTE]
 > ORDER BY 句を指定しない場合、GROUP BY 句でグループが返される順序には特に決まりはありません。 データの特定の順序を指定するには、常に ORDER BY 句を使用することをお勧めします。  
@@ -62,13 +62,13 @@ GROUP BY 1   -- BAD, a constant is not allowed
 ## <a name="example"></a>例  
  次の Entity SQL クエリでは、GROUP BY 演算子を使用して、クエリによって返されるオブジェクトをグループ化するよう指定します。 このクエリは、AdventureWorks Sales Model に基づいています。 このクエリをコンパイルして実行するには、次の手順を実行します。  
   
-1. @No__t の手順に従います。PrimitiveType Results @ no__t-0 を返すクエリを実行します。  
+1. [「方法: PrimitiveType の結果を返すクエリを実行](../how-to-execute-a-query-that-returns-primitivetype-results.md)する」の手順に従います。  
   
 2. 次のクエリを引数として `ExecutePrimitiveTypeQuery` メソッドに渡します。  
   
  [!code-sql[DP EntityServices Concepts#GROUPBY](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#groupby)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Entity SQL リファレンス](entity-sql-reference.md)
 - [クエリ式](query-expressions-entity-sql.md)

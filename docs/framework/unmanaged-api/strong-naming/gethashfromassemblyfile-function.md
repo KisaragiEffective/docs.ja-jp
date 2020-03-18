@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 751ed69f-b7ab-4e07-80de-e17ca9319b0c
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9f984d44d0a8acb85562a58653dfd2882053a0ce
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 866b34acae333f043d8e13f4d0ebd55f32046334
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70799278"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73140731"
 ---
 # <a name="gethashfromassemblyfile-function"></a>GetHashFromAssemblyFile 関数
 指定したハッシュ アルゴリズムを使用して、指定したアセンブリ ファイルのハッシュ値が取得されます。  
@@ -51,17 +49,17 @@ HRESULT GetHashFromAssemblyFile (
  入出力返されたハッシュバッファー。  
   
  `cchHash`  
- から要求された最大`pbHash`サイズ。  
+ から要求された `pbHash`の最大サイズ。  
   
  `pchHash`  
- 入出力の`pbHash`返されたサイズ (バイト単位)。  
+ 入出力`pbHash`の返されたサイズ (バイト単位)。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** StrongName  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

@@ -13,12 +13,12 @@ helpviewer_keywords:
 - public type information [C#]
 - -reference compiler option [C#]
 ms.assetid: 8d13e5b0-abf6-4c46-bf71-2daf2cd0a6c4
-ms.openlocfilehash: 247fb222eaacdb5ee60df2dded3a857f0395eb34
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 3e6a999d528be111ba2b92886f4e6e3ebf185d5c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69606577"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79173667"
 ---
 # <a name="-reference-c-compiler-options"></a>-reference (C# コンパイラ オプション)
 **-reference** オプションを指定すると、コンパイラは指定されたファイルの [public](../keywords/public.md) 型の情報を現在のプロジェクトにインポートし、指定されたアセンブリ ファイルからメタデータを参照できるようにします。  
@@ -40,7 +40,7 @@ ms.locfileid: "69606577"
 ## <a name="remarks"></a>解説  
  複数のファイルからインポートするには、ファイルごとに **-reference** オプションを指定します。  
   
- インポートするファイルは、マニフェストが含まれている必要があります。出力ファイルは、[-target:module](./target-module-compiler-option.md) 以外のいずれかの [-target](./target-compiler-option.md) オプションでコンパイルされている必要があります。  
+ インポートするファイルは、マニフェストが含まれている必要があります。出力ファイルは、[-target:module](./target-compiler-option.md) 以外のいずれかの [-target](./target-module-compiler-option.md) オプションでコンパイルされている必要があります。  
   
  **-r** は **-reference** の省略形です。  
   
@@ -61,7 +61,7 @@ ms.locfileid: "69606577"
  既定では、よく使われる .NET Framework アセンブリを参照する csc 応答 (.rsp) ファイルが使われます。 コンパイラが csc.rsp を使わないようにする場合は、[-noconfig](./noconfig-compiler-option.md) を指定します。  
   
 > [!NOTE]
-> Visual Studio では、 **[参照の追加]** ダイアログ ボックスを使います。 詳細については、[方法:参照マネージャーを使用して参照を追加または削除する](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager) `-reference` を使った場合と **[参照の追加]** ダイアログ ボックスを使った場合で、参照の追加の動作が同じになるようにするには、追加するアセンブリの **[相互運用型の埋め込み]** プロパティを **[False]** に設定します。 このプロパティの既定値は **[True]** です。  
+> Visual Studio では、 **[参照の追加]** ダイアログ ボックスを使います。 詳細については、「 [How to: Add or Remove References By Using the Reference Manager](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager)」を参照してください。 `-reference` を使った場合と **[参照の追加]** ダイアログ ボックスを使った場合で、参照の追加の動作が同じになるようにするには、追加するアセンブリの **[相互運用型の埋め込み]** プロパティを **[False]** に設定します。 このプロパティの既定値は **[True]** です。  
   
 ## <a name="example"></a>例  
  この例では、[extern alias](../keywords/extern-alias.md) 機能を使う方法を示します。  
@@ -80,19 +80,19 @@ extern alias GridV2;
 // Using statements go here.  
 ```  
   
- このようにすると、コントロール名にプレフィックス `GridV1` を付けることで、`grid.dll` のグリッド コントロールを参照できます。次に示すのはその例です。  
+ このようにすると、コントロール名にプレフィックス `grid.dll` を付けることで、`GridV1` のグリッド コントロールを参照できます。次に示すのはその例です。  
   
 ```csharp  
 GridV1::Grid  
 ```  
   
- さらに、コントロール名にプレフィックス `GridV2` を付けることで、`grid20.dll` のグリッド コントロールを参照できます。次に示すのはその例です。  
+ さらに、コントロール名にプレフィックス `grid20.dll` を付けることで、`GridV2` のグリッド コントロールを参照できます。次に示すのはその例です。  
   
 ```csharp  
-GridV2::Grid   
+GridV2::Grid
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](./index.md)
 - [プロジェクトおよびソリューションのプロパティの管理](/visualstudio/ide/managing-project-and-solution-properties)

@@ -9,20 +9,18 @@ helpviewer_keywords:
 - Dispose method
 - garbage collection, Dispose method
 ms.assetid: eb4e1af0-3b48-4fbc-ad4e-fc2f64138bf9
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 964c788c5fc1ac791ed3ddd20c9c5c972d07b2c1
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: a7e03a833886a1486e0dc081d6ef059791a464b5
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70106888"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78156336"
 ---
 # <a name="implementing-a-dispose-method"></a>Dispose メソッドの実装
 
 アプリケーションによって使用されるアンマネージ リソースを解放するための <xref:System.IDisposable.Dispose%2A> メソッドを実装します。 .NET のガベージ コレクターは、アンマネージ メモリの割り当てや解放を行いません。  
   
-[Dispose パターン](../../../docs/standard/design-guidelines/dispose-pattern.md)と呼ばれる、オブジェクトを破棄するパターンによって、オブジェクトの有効期間に順番が付けられます。 Dispose パターンは、ファイルおよびパイプ ハンドル、レジストリ ハンドル、待機ハンドル、アンマネージ メモリ ブロックのポインターなど、アンマネージ リソースにアクセスするオブジェクトでのみ使用されます。 これは、使用されていないマネージド オブジェクトの解放にはガベージ コレクターが非常に有効ですが、アンマネージド オブジェクトは解放できないためです。  
+[Dispose パターン](implementing-dispose.md)と呼ばれる、オブジェクトを破棄するパターンによって、オブジェクトの有効期間に順番が付けられます。 Dispose パターンは、ファイルおよびパイプ ハンドル、レジストリ ハンドル、待機ハンドル、アンマネージ メモリ ブロックのポインターなど、アンマネージ リソースにアクセスするオブジェクトでのみ使用されます。 これは、使用されていないマネージド オブジェクトの解放にはガベージ コレクターが非常に有効ですが、アンマネージド オブジェクトは解放できないためです。  
   
 Dispose パターンには 2 種類あります。  
   
@@ -105,7 +103,7 @@ Dispose パターンには 2 種類あります。
   
 ## <a name="implementing-the-dispose-pattern-for-a-derived-class"></a>派生クラスでの Dispose パターンの実装
 
-<xref:System.IDisposable> インターフェイスを実装するクラスから派生したクラスは、<xref:System.IDisposable> の基底クラスでの実装が派生クラスに継承されるため、<xref:System.IDisposable.Dispose%2A?displayProperty=nameWithType> を実装しないでください。 代わりに、派生クラスで Dispose パターンを実装するには、以下の項目を用意します。  
+<xref:System.IDisposable> インターフェイスを実装するクラスから派生したクラスは、<xref:System.IDisposable> の基底クラスでの実装が派生クラスに継承されるため、<xref:System.IDisposable.Dispose%2A?displayProperty=nameWithType> を実装しないでください。 代わりに、派生クラスのリソースを解放するには、次の項目を用意します。  
   
 - 基底クラスのメソッドをオーバーライドして、派生クラスのリソースを解放する実際の作業を実行する `protected Dispose(Boolean)` メソッド。 このメソッドは、基底クラスの `Dispose(Boolean)` メソッドも呼び出して、引数の破棄状態を渡す必要があります。  
   
@@ -127,7 +125,7 @@ Dispose パターンには 2 種類あります。
 > [!NOTE]
 > C# では、[デストラクター](../../csharp/programming-guide/classes-and-structs/destructors.md)を定義することによって、<xref:System.Object.Finalize%2A?displayProperty=nameWithType> をオーバーライドします。  
   
-<a name="SafeHandles"></a>   
+<a name="SafeHandles"></a>
 ## <a name="using-safe-handles"></a>セーフ ハンドルの使用
 
 オブジェクトのファイナライザーのコードを記述することは、正しく行わないと問題が発生する可能性がある複雑なタスクです。 そのため、ファイナライザーを実装するのではなく、<xref:System.Runtime.InteropServices.SafeHandle?displayProperty=nameWithType> オブジェクトを構築することをお勧めします。  
@@ -144,7 +142,7 @@ Dispose パターンには 2 種類あります。
   
 - 待機ハンドルのための <xref:Microsoft.Win32.SafeHandles.SafeWaitHandle> クラス。  
   
-<a name="base"></a>   
+<a name="base"></a>
 ## <a name="using-a-safe-handle-to-implement-the-dispose-pattern-for-a-base-class"></a>セーフ ハンドルを使用した基底クラスでの Dispose パターンの実装
 
 次の例は、セーフ ハンドルを使用してアンマネージ リソースをカプセル化する、基底クラス `DisposableStreamResource` での Dispose パターンを示します。 例では、`DisposableResource` を使用して、開いているファイルを表す <xref:Microsoft.Win32.SafeHandles.SafeFileHandle> オブジェクトをラップする <xref:System.IO.Stream> クラスを定義しています。 `DisposableResource` メソッドには、ファイル ストリームの合計バイト数を返す `Size` プロパティも含まれています。  
@@ -152,7 +150,7 @@ Dispose パターンには 2 種類あります。
 [!code-csharp[Conceptual.Disposable#9](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.disposable/cs/base1.cs#9)]
 [!code-vb[Conceptual.Disposable#9](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.disposable/vb/base1.vb#9)]  
   
-<a name="derived"></a>   
+<a name="derived"></a>
 ## <a name="using-a-safe-handle-to-implement-the-dispose-pattern-for-a-derived-class"></a>セーフ ハンドルを使用した派生クラスでの Dispose パターンの実装
 
 次の例は、前の例で挙げた `DisposableStreamResource2` クラスを継承した派生クラス `DisposableStreamResource` での Dispose パターンを示します。 このクラスは `WriteFileInfo` メソッドを追加し、<xref:Microsoft.Win32.SafeHandles.SafeFileHandle> オブジェクトを使用して書き込み可能ファイル ハンドルをラップしています。  
@@ -169,4 +167,4 @@ Dispose パターンには 2 種類あります。
 - <xref:System.Runtime.InteropServices.SafeHandle?displayProperty=nameWithType>
 - <xref:System.Object.Finalize%2A?displayProperty=nameWithType>
 - [方法: クラスと構造体を定義および使用する (C++/CLI)](/cpp/dotnet/how-to-define-and-consume-classes-and-structs-cpp-cli)
-- [Dispose パターン](../../../docs/standard/design-guidelines/dispose-pattern.md)
+- [Dispose パターン](implementing-dispose.md)

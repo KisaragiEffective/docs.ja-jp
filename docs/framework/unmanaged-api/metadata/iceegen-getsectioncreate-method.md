@@ -15,19 +15,17 @@ helpviewer_keywords:
 ms.assetid: 154b2460-59ce-4874-a9f2-1b3353486ac5
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 3de3a9c152f3074339dba330b7827cf795a7e537
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 2c3c3a0168216902e5982b7d0193e72acc2bdf47
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67745976"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74448095"
 ---
 # <a name="iceegengetsectioncreate-method"></a>ICeeGen::GetSectionCreate メソッド
-生成し、指定した名前とフラグの値を使用してコードのセクションを取得します。  
+指定された名前とフラグ値を使用して、コードセクションを生成して取得します。  
   
- このメソッドは廃止され、使用する必要があります。  
+ このメソッドは互換性のために残されています。使用しないでください。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,26 +39,26 @@ HRESULT GetSectionCreate (
   
 ## <a name="parameters"></a>パラメーター  
  `name`  
- [in]作成するセクションの名前を指定する文字列へのポインター。  
+ から作成するセクションの名前を指定する文字列へのポインター。  
   
  `flags`  
- [in]オプションを指定するフラグ。  
+ からオプションを指定するフラグ。  
   
  `section`  
- [out]新しく作成されたコード セクションへのポインター。  
+ 入出力新しく作成されたコードセクションへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- 呼び出す`GetSectionCreate`別の方法で処理されない特別なセクションの要件がある場合にのみです。  
+## <a name="remarks"></a>コメント  
+ 他のメソッドによって処理されない特殊なセクション要件がある場合にのみ、`GetSectionCreate` を呼び出します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ICeeGen インターフェイス](../../../../docs/framework/unmanaged-api/metadata/iceegen-interface.md)

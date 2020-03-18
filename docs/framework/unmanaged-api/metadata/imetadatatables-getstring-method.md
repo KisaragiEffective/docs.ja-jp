@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 895c35cf-b95d-4e3b-93b5-cfc1cf9044fc
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 3f817fa3f24bebf3303c656bd02c4d93d1d1431b
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 055499230f500cb7249746e1acbf46b4548d25bc
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781398"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74426798"
 ---
 # <a name="imetadatatablesgetstring-method"></a>IMetaDataTables::GetString メソッド
-参照の現在のスコープ内のテーブル列から、指定したインデックス位置にある文字列を取得します。  
+現在の参照スコープのテーブル列から、指定したインデックス位置にある文字列を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,17 +36,17 @@ HRESULT GetString (
   
 ## <a name="parameters"></a>パラメーター  
  `ixString`  
- [in][次へ] の値の検索を開始する位置のインデックス。  
+ から次の値の検索を開始する位置のインデックス。  
   
  `ppString`  
- [out]返される文字列値へのポインターへのポインター。  
+ 入出力返された文字列値へのポインターへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

@@ -7,14 +7,12 @@ helpviewer_keywords:
 - GetHashCode method
 - hash codes, calculating
 ms.assetid: 3a5f38d1-ebc8-44de-aaeb-2929f6e6b48f
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ef814d1b5f32359033e8a19999d6271677315fff
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 413eb6c6e61b509135601c65cf045eabd849e8b3
+ms.sourcegitcommit: 32a575bf4adccc901f00e264f92b759ced633379
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252418"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74802115"
 ---
 # <a name="netfx45_cultureawarecomparergethashcode_longstrings-element"></a>\<NetFx45_CultureAwareComparerGetHashCode_LongStrings> 要素
 
@@ -30,9 +28,9 @@ ms.locfileid: "70252418"
 <NetFx45_CultureAwareComparerGetHashCode_LongStrings enabled="0|1">
 ```
 
-## <a name="attributes-and-elements"></a>属性および要素
+## <a name="attributes-and-elements"></a>属性と要素
 
-以降のセクションでは、属性、子要素、および親要素について説明します。
+次のセクションでは、属性、子要素、親要素について説明します。
 
 ### <a name="attributes"></a>属性
 
@@ -42,14 +40,14 @@ ms.locfileid: "70252418"
 
 ## <a name="enabled-attribute"></a>enabled 属性
 
-|値|説明|
+|Value|説明|
 |-----------|-----------------|
-|0|共通言語ランタイムが <xref:System.StringComparer.GetHashCode%2A?displayProperty=nameWithType> メソッドに可変メモリを割り当ててハッシュ コードを計算します。 既定値です。|
+|0|共通言語ランタイムが <xref:System.StringComparer.GetHashCode%2A?displayProperty=nameWithType> メソッドに可変メモリを割り当ててハッシュ コードを計算します。 これは既定です。|
 |1|共通言語ランタイムが <xref:System.StringComparer.GetHashCode%2A?displayProperty=nameWithType> メソッドに固定メモリを割り当ててハッシュ コードを計算します。|
 
 ### <a name="child-elements"></a>子要素
 
-なし。
+ありません。
 
 ### <a name="parent-elements"></a>親要素
 
@@ -63,9 +61,9 @@ ms.locfileid: "70252418"
 既定では、共通言語ランタイムが <xref:System.StringComparer.GetHashCode%2A?displayProperty=nameWithType> メソッドに可変メモリを割り当て、メソッドが非常に長い文字列 (数メガバイト以上) のハッシュ コードを計算しようとすると <xref:System.ArgumentException> 例外がスローされることがあります。 この要素をアプリケーション構成ファイルに追加し、 `enabled` 属性を 1 に設定すると、 <xref:System.StringComparer.GetHashCode%2A?displayProperty=nameWithType> メソッドでハッシュ コードの計算時に固定メモリを割り当てる別のアルゴリズムを使用することを指定できます。
 
 > [!IMPORTANT]
-> `<NetFx45_CultureAwareComparerGetHashCode_LongStrings>` 要素は [!INCLUDE[win8](../../../../../includes/win8-md.md)] 以降のバージョンでは使用されません。
+> `<NetFx45_CultureAwareComparerGetHashCode_LongStrings>` 要素は、Windows 8 以降のバージョンでは使用されません。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.StringComparer.GetHashCode%2A?displayProperty=nameWithType>
 - [ランタイム設定スキーマ](index.md)

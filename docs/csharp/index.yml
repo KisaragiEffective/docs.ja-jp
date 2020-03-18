@@ -1,0 +1,115 @@
+### YamlMime:Landing
+title: C# 関連のドキュメント
+summary: .NET プラットフォームで C# プログラミング言語を使用してアプリケーションを記述する方法について説明します。
+metadata:
+  title: C# 関連のドキュメント - はじめに、チュートリアル、リファレンス。
+  description: C# プログラミングを学ぶ - ビギナー開発者、C# を初めて使用する開発者、および C# / .NET の上級開発者向け
+  ms.topic: landing-page
+  ms.date: 11/19/2019
+  ms.openlocfilehash: 2bec49d0832a7d00d0fea247166a9ec073f37e11
+  ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 03/15/2020
+  ms.locfileid: "75339170"
+landingContent:
+- title: C# によるプログラミングの学習
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: オンライン、対話的な Hello World
+      url: tutorials/intro-to-csharp/hello-world.yml
+    - text: C# での算術と数値
+      url: tutorials/intro-to-csharp/numbers-in-csharp.yml
+    - text: 入門用のチュートリアル
+      url: tutorials/intro-to-csharp/index.md
+    - text: Visual Studio を使用して C# アプリを作成する
+      url: https://docs.microsoft.com/visualstudio/get-started/csharp/tutorial-console
+  - linkListType: video
+    links:
+    - text: C# とは何ですか?
+      url: https://channel9.msdn.com/Series/CSharp-101/What-is-C/player
+    - text: C# 101 ビデオ シリーズ
+      url: https://aka.ms/dotnet3-csharp
+  - linkListType: download
+    links:
+    - text: .NET Core SDK をダウンロードする
+      url: https://dotnet.microsoft.com/download
+- title: C# の基礎
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: C# のツアー
+      url: tour-of-csharp/index.md
+    - text: インサイド C# プログラム
+      url: programming-guide/inside-a-program/index.md
+    - text: Main() とコマンド ライン引数
+      url: programming-guide/main-and-command-args/index.md
+  - linkListType: concept
+    links:
+    - text: C# および .NET 型システム
+      url: programming-guide/types/index.md
+    - text: 統合言語クエリ (LINQ)
+      url: linq/index.md
+    - text: async と await
+      url: programming-guide/concepts/async/index.md
+  - linkListType: tutorial
+    links:
+    - text: オブジェクト指向の継承
+      url: tutorials/inheritance.md
+    - text: LINQ を使用してデータを照会する
+      url: tutorials/working-with-linq.md
+    - text: 文字列補間を使用したテキストの書式設定
+      url: tutorials/string-interpolation.md
+    - text: すべてのチュートリアルを表示
+      url: tutorials/index.md
+- title: C# 8.0 の新機能
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: C# 8.0 の新機能
+      url: whats-new/csharp-8.md
+  - linkListType: overview
+    links:
+    - text: パターン マッチング
+      url: pattern-matching.md
+    - text: null 許容参照型
+      url: nullable-references.md
+  - linkListType: concept
+    links:
+    - text: null 値を許容するように API に注釈を付ける
+      url: nullable-attributes.md
+  - linkListType: tutorial
+    links:
+    - text: 非同期ストリームの使用と生成
+      url: tutorials/generate-consume-asynchronous-stream.md
+    - text: null 許容参照型を使用して開発する
+      url: tutorials/nullable-reference-types.md
+    - text: null 許容参照型を使用するように既存のコードをアップグレードする
+      url: tutorials/upgrade-to-nullable-references.md
+    - text: アルゴリズムの表現力を高めるためにパターン マッチングを使用する
+      url: tutorials/pattern-matching.md
+    - text: 既定のインターフェイス メンバーでインターフェイスを安全にバージョン管理する
+      url: tutorials/default-interface-methods-versions.md
+    - text: 既定のインターフェイス メンバーを使用した機能の混合
+      url: tutorials/mixins-with-default-interface-methods.md
+    - text: 範囲とインデックスを使用したサブセットの操作
+      url: tutorials/ranges-indexes.md
+  - linkListType: reference
+    links:
+    - text: C# コンパイラでの破壊的変更
+      url: whats-new/breaking-changes.md
+- title: C# 言語リファレンス
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 言語のリファレンス
+      url: language-reference/index.md
+    - text: C# のキーワード
+      url: language-reference/keywords/index.md
+    - text: C# 演算子
+      url: language-reference/operators/index.md
+    - text: 言語バージョンの構成
+      url: language-reference/configure-language-version.md
+    - text: C# 言語仕様
+      url: ../../_csharplang/spec/introduction.md

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 2576c449-388d-4434-a0e1-9f53991e11b6
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: c455b5196ceafef924de59e9134b89ed62455520
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 5214298c6ad9594548ab45ed583cb5b14ce1f30d
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737226"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74441767"
 ---
 # <a name="imetadataemitsetclasslayout-method"></a>IMetaDataEmit::SetClassLayout メソッド
-前回の呼び出しで定義されているクラスのフィールドのレイアウトが完了すると[DefineTypeDef メソッド](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-definetypedef-method.md)します。  
+以前に呼び出した[Typedef メソッド](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-definetypedef-method.md)の呼び出しで定義されたクラスのフィールドのレイアウトを完了します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,36 +38,36 @@ HRESULT SetClassLayout (
   
 ## <a name="parameters"></a>パラメーター  
  `td`  
- [in]`mdTypeDef`クラスに配置されることを示すトークン。  
+ からレイアウトするクラスを指定する `mdTypeDef` トークン。  
   
  `dwPackSize`  
- [in]パッキング サイズ:1、2、4、8 または 16 バイト数。 パッキング サイズには、横にあるフィールド間のバイト数です。  
+ からパッキングサイズは1、2、4、8、または16バイトです。 パッキングサイズは、隣接するフィールド間のバイト数です。  
   
  `rFieldOffsets`  
- [in]配列の[COR_FIELD_OFFSET](../../../../docs/framework/unmanaged-api/metadata/cor-field-offset-structure.md)構造体、クラスのフィールドとフィールドのオフセットされている場合、クラス内でそれぞれを指定します。 終了、配列の`mdTokenNil`します。  
+ から[COR_FIELD_OFFSET](../../../../docs/framework/unmanaged-api/metadata/cor-field-offset-structure.md)構造体の配列。各構造体は、クラスのフィールドと、クラス内のフィールドのオフセットを指定します。 `mdTokenNil`で配列を終了します。  
   
  `ulClassSize`  
- [in]クラスのバイト単位のサイズ。  
+ からクラスのサイズ (バイト単位)。  
   
-## <a name="remarks"></a>Remarks  
- クラスが最初に呼び出すことによって定義されている、 [imetadataemit::definetypedef](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-definetypedef-method.md)メソッド、およびクラスのフィールドの 3 つのレイアウトのいずれかを指定する: 自動、順次、または明示的な。 通常、自動レイアウトを使用し、ランタイムでフィールドをレイアウトする最善の方法を選択できるようにします。  
+## <a name="remarks"></a>コメント  
+ クラスを最初に定義するには、 [IMetaDataEmit::D efineTypeDef](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-definetypedef-method.md)メソッドを呼び出し、クラスのフィールドに対して3つのレイアウト (automatic、シーケンシャル、explicit) のいずれかを指定します。 通常は、自動レイアウトを使用し、フィールドをレイアウトする最適な方法をランタイムが選択できるようにします。  
   
- ただし、フィールドをアンマネージ コードが使用する配置に従ってレイアウトたい場合があります。 この場合、レイアウトがシーケンシャルまたは明示的のいずれかと呼び出しを選択`SetClassLayout`フィールドのレイアウトを完了します。  
+ ただし、アンマネージコードが使用する配置に従って、フィールドをレイアウトすることが必要になる場合があります。 この場合は、シーケンシャルまたは明示的なレイアウトを選択し `SetClassLayout` を呼び出して、フィールドのレイアウトを完成させます。  
   
-- シーケンシャル レイアウト:パッキング サイズを指定します。 本来のサイズまたはパッキング サイズより小さなオフセット フィールドのいずれかの結果のいずれかに従って、フィールドが配置されます。 設定`rFieldOffsets`と`ulClassSize`をゼロにします。  
+- シーケンシャルレイアウト: パッキングサイズを指定します。 フィールドは、自然サイズまたはパッキングサイズのいずれかに従って整列されます。どちらの場合も、フィールドのオフセットは小さくなります。 `rFieldOffsets` と `ulClassSize` を0に設定します。  
   
-- 明示的なレイアウト:各フィールドのオフセットを指定するか、クラスのサイズとパッキング サイズを指定します。  
+- 明示的なレイアウト: 各フィールドのオフセットを指定するか、クラスのサイズとパッキングサイズを指定します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MSCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataEmit インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-interface.md)
 - [IMetaDataEmit2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-interface.md)

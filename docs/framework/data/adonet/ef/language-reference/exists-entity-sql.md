@@ -26,20 +26,20 @@ ms.locfileid: "71833836"
  EXISTS の結果を否定することを指定します。  
   
 ## <a name="return-value"></a>戻り値  
- コレクションが空でない場合は `true`、それ以外の場合は `false` です。  
+ コレクションが空でない場合は `true` します。それ以外の場合は、`false`ます。  
   
 ## <a name="remarks"></a>コメント  
- EXISTS は、[!INCLUDE[esql](../../../../../../includes/esql-md.md)] の集合演算子の 1 つです。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] のすべての集合演算子は左から右に評価されます。 @No__t 0 の set 演算子の優先順位については、「 [EXCEPT](except-entity-sql.md)」を参照してください。  
+ EXISTS は、[!INCLUDE[esql](../../../../../../includes/esql-md.md)] の集合演算子の 1 つです。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] のすべての集合演算子は左から右に評価されます。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] 集合演算子の優先順位情報については、「 [EXCEPT](except-entity-sql.md)」を参照してください。  
   
 ## <a name="example"></a>例  
  次の Entity SQL クエリでは、EXISTS 演算子を使用して、コレクションが空かどうかを調べます。 このクエリは、AdventureWorks Sales Model に基づいています。 このクエリをコンパイルして実行するには、次の手順を実行します。  
   
-1. @No__t の手順に従います。StructuralType Results @ no__t-0 を返すクエリを実行します。  
+1. 「 [How to: Execute a Query that Returns StructuralType Results](../how-to-execute-a-query-that-returns-structuraltype-results.md)」の手順に従います。  
   
 2. 次のクエリを引数として `ExecuteStructuralTypeQuery` メソッドに渡します。  
   
  [!code-sql[DP EntityServices Concepts#EXISTS](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#exists)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Entity SQL リファレンス](entity-sql-reference.md)

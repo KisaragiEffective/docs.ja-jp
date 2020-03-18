@@ -1,18 +1,18 @@
 ---
 title: close と abort を使用して WCF クライアントのリソースを解放する
-description: Dispose は失敗し、ネットワークが失敗したときに例外をスローすることができます。 動作が望ましくない可能性があります。 代わりに、閉じるを使用し、ネットワークが失敗したときに、クライアントのリソースを解放する中止します。
+description: ネットワークに障害が発生すると、Dispose は失敗し、例外がスローされます。 これにより、望ましくない動作が発生する可能性があります。 ネットワークに障害が発生したときに、クライアントリソースを解放するには、Close と Abort を使用します。
 ms.date: 11/12/2018
 ms.assetid: aff82a8d-933d-4bdc-b0c2-c2f7527204fb
-ms.openlocfilehash: 58f828d9cd85806f5f04c349a7de18828ab5f6f2
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 38861252a470f71a6fa88554e289344e2918d710
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62007574"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715332"
 ---
-# <a name="close-and-abort-release-resources-safely-when-network-connections-have-dropped"></a>終了、中止のネットワーク接続が削除されるときに安全に、リソースを解放
+# <a name="close-and-abort-release-resources-safely-when-network-connections-have-dropped"></a>ネットワーク接続が切断されたときに解放リソースを安全に閉じ、中止する
 
-このサンプルを使用して、`Close`と`Abort`型指定されたクライアントを使用する場合は、リソースをクリーンアップする方法。 `using`ステートメントでは、ネットワーク接続が堅牢なときに例外が発生します。 このサンプルがに基づいて、 [Getting Started](../../../../docs/framework/wcf/samples/getting-started-sample.md)電卓サービスを実装します。 この例では、クライアントはコンソール アプリケーション (.exe) であり、サービスはインターネット インフォメーション サービス (IIS) によってホストされます。
+このサンプルでは、型指定されたクライアントを使用するときに、`Close` および `Abort` メソッドを使用してリソースをクリーンアップする方法を示します。 `using` ステートメントは、ネットワーク接続が堅牢でない場合に例外を発生させます。 このサンプルは、電卓サービスを実装する[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいています。 この例では、クライアントはコンソール アプリケーション (.exe) であり、サービスはインターネット インフォメーション サービス (IIS) によってホストされます。
 
 > [!NOTE]
 > このサンプルのセットアップ手順とビルド手順については、このトピックの最後を参照してください。
@@ -46,7 +46,7 @@ using (CalculatorClient client = new CalculatorClient())
 
 `Dispose`() は "最後の" ブロック内で発生するので、`ApplicationException`() が失敗した場合、`Dispose` は using ブロックの外側には表示されません。 外側のコードで、`ApplicationException` の発生時期を認識できるよう考慮されている場合は、この例外をマスクすると、"using" コンストラクトが問題の原因となる場合があります。
 
-最後に、このサンプルでは、`DemonstrateCleanupWithExceptions` で例外が発生した場合に正しくクリーンアップする方法を示します。 ここでは、try/catch ブロックを使用してエラーを報告し、`Abort` を呼び出します。 参照してください、[予想例外](../../../../docs/framework/wcf/samples/expected-exceptions.md)クライアントの呼び出しから例外をキャッチする詳細についてはサンプルです。
+最後に、このサンプルでは、`DemonstrateCleanupWithExceptions` で例外が発生した場合に正しくクリーンアップする方法を示します。 ここでは、try/catch ブロックを使用してエラーを報告し、`Abort` を呼び出します。 クライアント呼び出しから例外をキャッチする方法の詳細については、[予想される例外](../../../../docs/framework/wcf/samples/expected-exceptions.md)のサンプルを参照してください。
 
 ```csharp
 try
@@ -73,7 +73,7 @@ catch (Exception e)
 ```
 
 > [!NOTE]
-> ステートメントと ServiceHost を使用します。多くの自己ホスト アプリケーションでは、サービスをホストして少々、ServiceHost.Close がほとんどこのようなアプリケーションを使用して、安全に使用できるように、例外がスロー ステートメントを ServiceHost と共にします。 ただし、ServiceHost.Close では `CommunicationException` がスローされる場合があることに注意してください。したがって、ServiceHost を閉じた後でアプリケーションを続行する場合は、using ステートメントを使用せずに前のパターンに従う必要があります。
+> using ステートメントと ServiceHost: 多くの自己ホスト アプリケーションでは、サービスをホストする以外の処理はほとんど行われず、ServiceHost.Close から例外がスローされることはほとんどありません。したがって、このようなアプリケーションでは、using ステートメントを ServiceHost と共に使用しても安全です。 ただし、ServiceHost.Close では `CommunicationException` がスローされる場合があることに注意してください。したがって、ServiceHost を閉じた後でアプリケーションを続行する場合は、using ステートメントを使用せずに前のパターンに従う必要があります。
 
 このサンプルを実行すると、操作応答と例外がクライアントのコンソール ウィンドウに表示されます。
 
@@ -81,7 +81,7 @@ catch (Exception e)
 
 クライアント プロセスから予期される出力は次のとおりです。
 
-```
+```console
 =
 = Demonstrating problem:  closing brace of using statement can throw.
 =
@@ -105,17 +105,17 @@ Press <ENTER> to terminate client.
 
 ### <a name="to-set-up-build-and-run-the-sample"></a>サンプルをセットアップ、ビルド、および実行するには
 
-1. 実行したことを確認、 [Windows Communication Foundation サンプルの 1 回限りのセットアップ手順](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)します。
+1. [Windows Communication Foundation サンプルの1回限りのセットアップ手順](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)を実行したことを確認します。
 
 2. ソリューションの C# 版または Visual Basic .NET 版をビルドするには、「 [Building the Windows Communication Foundation Samples](../../../../docs/framework/wcf/samples/building-the-samples.md)」の手順に従います。
 
-3. 1 つまたは複数コンピュータ構成では、サンプルを実行する手順については、 [Windows Communication Foundation サンプルの実行](../../../../docs/framework/wcf/samples/running-the-samples.md)します。
+3. サンプルを単一コンピューター構成または複数コンピューター構成で実行するには、「 [Windows Communication Foundation サンプルの実行](../../../../docs/framework/wcf/samples/running-the-samples.md)」の手順に従います。
 
 > [!IMPORTANT]
 > サンプルは、既にコンピューターにインストールされている場合があります。 続行する前に、次の (既定の) ディレクトリを確認してください。
 >
 > `<InstallDrive>:\WF_WCF_Samples`
 >
-> このディレクトリが存在しない場合に移動[Windows Communication Foundation (WCF) と .NET Framework 4 向けの Windows Workflow Foundation (WF) サンプル](https://go.microsoft.com/fwlink/?LinkId=150780)すべて Windows Communication Foundation (WCF) をダウンロードして[!INCLUDE[wf1](../../../../includes/wf1-md.md)]サンプル。 このサンプルは、次のディレクトリに格納されます。
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
 >
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Client\UsingUsing`

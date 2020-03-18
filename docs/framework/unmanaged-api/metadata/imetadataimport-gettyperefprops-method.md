@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 01837955-ce1e-4068-b338-fd473bd77d1d
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a4d8829c9cb2818eafe98809c9a0d5fd8109d076
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 6ea7605e062eb77e0488b3a9561c4d83be16fa7d
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67778826"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74436714"
 ---
 # <a name="imetadataimportgettyperefprops-method"></a>IMetaDataImport::GetTypeRefProps メソッド
-関連付けられているメタデータを取得、<xref:System.Type>指定した TypeRef トークンによって参照されています。  
+指定した TypeRef トークンによって参照される <xref:System.Type> に関連付けられているメタデータを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,30 +39,30 @@ HRESULT GetTypeRefProps (
   
 ## <a name="parameters"></a>パラメーター  
  `tr`  
- [in]メタデータを返す型を表す TypeRef トークンです。  
+ からメタデータを返す型を表す TypeRef トークン。  
   
  `ptkResolutionScope`  
- [out]これで、参照が行われるスコープへのポインター。 この値は、AssemblyRef または ModuleRef トークンです。  
+ 入出力参照が行われるスコープへのポインター。 この値は、AssemblyRef または ModuleRef トークンです。  
   
  `szName`  
- [out]型名を含むバッファー。  
+ 入出力型名を格納しているバッファー。  
   
  `cchName`  
- [in]要求されたサイズのワイド文字単位`szName`します。  
+ から`szName`のワイド文字で要求されたサイズ。  
   
  `pchName`  
- [out]ワイド文字で返されるサイズ`szName`します。  
+ 入出力`szName`のワイド文字で返されたサイズ。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataImport インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-interface.md)
 - [IMetaDataImport2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport2-interface.md)

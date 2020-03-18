@@ -1,5 +1,5 @@
 ---
-title: My.Forms および My.WebServices が提供する既定のオブジェクト インスタンス (Visual Basic)
+title: My.Forms と My.WebServices が提供する既定のオブジェクト インスタンス
 ms.date: 07/20/2015
 helpviewer_keywords:
 - My.WebServices object [Visual Basic], developing applications
@@ -7,26 +7,28 @@ helpviewer_keywords:
 - rapid application development (RAD), My.Forms
 - rapid application development (RAD), My.WebServices
 ms.assetid: de930027-9108-4f0c-b97c-5e7db4d6ef79
-ms.openlocfilehash: ca31e1c40c77bf7f42d246019d81f4ffaed646e8
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: d06df4bd023892429b2aaefdd624398a6546d06d
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62014454"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74330215"
 ---
 # <a name="default-object-instances-provided-by-myforms-and-mywebservices-visual-basic"></a>My.Forms および My.WebServices が提供する既定のオブジェクト インスタンス (Visual Basic)
-[My.Forms](../../../visual-basic/language-reference/objects/my-forms-object.md)と[My.WebServices](../../../visual-basic/language-reference/objects/my-webservices-object.md)オブジェクトは、フォーム、データ ソース、およびアプリケーションによって使用される XML Web サービスへのアクセスを提供します。 コレクションを提供することによってこれを実現*既定インスタンス*のこれらの各オブジェクト。  
+
+My.forms オブジェクトと[My](../../../visual-basic/language-reference/objects/my-webservices-object.md) Web Web サービス[オブジェクトは、](../../../visual-basic/language-reference/objects/my-forms-object.md)アプリケーションで使用されるフォーム、データソース、および XML Web サービスへのアクセスを提供します。 これらの操作は、これらの各オブジェクトの*既定のインスタンス*のコレクションを提供することによって行います。  
   
 ## <a name="default-instances"></a>既定のインスタンス  
- 既定のインスタンスがインスタンスには、ランタイムによって提供されする必要はありませんが、クラスの宣言およびインスタンスを使用して、`Dim`と`New`ステートメント。 次の例は、どのようにする可能性がありますが宣言およびインスタンスのインスタンスを<xref:System.Windows.Forms.Form>と呼ばれるクラス`Form1`、どのようにこの既定のインスタンスを取得することができました<xref:System.Windows.Forms.Form>クラスを通じて`My.Forms`します。  
+
+ 既定のインスタンスは、ランタイムによって提供されるクラスのインスタンスであり、`Dim` および `New` ステートメントを使用して宣言およびインスタンス化する必要はありません。 次の例では、`Form1`と呼ばれる <xref:System.Windows.Forms.Form> クラスのインスタンスを宣言およびインスタンス化し、`My.Forms`を通じてこの <xref:System.Windows.Forms.Form> クラスの既定のインスタンスを取得できるようになった方法を示します。  
   
  [!code-vb[VbVbcnMy#5](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnMy/VB/Class1.vb#5)]  
   
  [!code-vb[VbVbcnMy#6](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnMy/VB/Class1.vb#6)]  
   
- `My.Forms`オブジェクトの既定のインスタンスのコレクションを返すすべて`Form`プロジェクト内に存在するクラス。 同様に、`My.WebServices`アプリケーションへの参照を作成したすべての Web サービスのプロキシ クラスの既定のインスタンスを提供します。  
+ `My.Forms` オブジェクトは、プロジェクトに存在するすべての `Form` クラスの既定のインスタンスのコレクションを返します。 同様に、`My.WebServices` は、アプリケーションで参照を作成したすべての Web サービスに対して、プロキシクラスの既定のインスタンスを提供します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [My.Forms オブジェクト](../../../visual-basic/language-reference/objects/my-forms-object.md)
 - [My.WebServices オブジェクト](../../../visual-basic/language-reference/objects/my-webservices-object.md)

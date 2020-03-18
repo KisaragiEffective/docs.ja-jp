@@ -1,5 +1,5 @@
 ---
-title: Visual Basic の Main プロシージャ
+title: メインのプロシージャ
 ms.date: 07/20/2015
 f1_keywords:
 - vb.Main
@@ -8,17 +8,17 @@ helpviewer_keywords:
 - Main method [Visual Basic]
 - main function
 ms.assetid: f0db283e-f283-4464-b521-b90858cc1b44
-ms.openlocfilehash: 1c76e3ade0b383727c3241fdaf5ae44b677559c8
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 61cd397b82b4bb9a8b24a1a7d30eaea68e37368f
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72775693"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74347355"
 ---
 # <a name="main-procedure-in-visual-basic"></a>Visual Basic の Main プロシージャ
-すべての Visual Basic アプリケーションには、`Main` と呼ばれるプロシージャを含める必要があります。 この手順は、アプリケーションの開始点と全体的な制御として機能します。 .NET Framework は、アプリケーションが読み込まれ、それに制御を渡す準備ができたときに、`Main` プロシージャを呼び出します。 Windows フォームアプリケーションを作成する場合を除き、独自に実行するアプリケーションの場合は、`Main` の手順を記述する必要があります。
+すべての Visual Basic アプリケーションには、`Main`と呼ばれるプロシージャを含める必要があります。 この手順は、アプリケーションの開始点と全体的な制御として機能します。 .NET Framework は、アプリケーションが読み込まれ、それに制御を渡す準備ができたときに、`Main` プロシージャを呼び出します。 Windows フォームアプリケーションを作成する場合を除き、独自に実行するアプリケーションの場合は、`Main` の手順を記述する必要があります。
 
- `Main` には、最初に実行されるコードが含まれています。 @No__t_0 では、プログラムの開始時に最初に読み込まれるフォームを特定し、アプリケーションのコピーが既にシステムで実行されているかどうかを確認したり、アプリケーションの一連の変数を設定したり、アプリケーションが必要とするデータベースを開いたりすることができます。
+ `Main` には、最初に実行されるコードが含まれています。 `Main`では、プログラムの開始時に最初に読み込まれるフォームを特定し、アプリケーションのコピーが既にシステムで実行されているかどうかを確認したり、アプリケーションの一連の変数を設定したり、アプリケーションが必要とするデータベースを開いたりすることができます。
 
 ## <a name="requirements-for-the-main-procedure"></a>Main プロシージャの要件
  独自の (通常は拡張子 .exe) で実行されるファイルには、`Main` プロシージャが含まれている必要があります。 ライブラリ (拡張子 .dll など) は独自には実行されず、`Main` の手順は必要ありません。 作成できるさまざまな種類のプロジェクトの要件は次のとおりです。
@@ -30,10 +30,10 @@ ms.locfileid: "72775693"
 - クラスライブラリには `Main` プロシージャは必要ありません。 これには、Windows コントロールライブラリと Web コントロールライブラリが含まれます。 Web アプリケーションはクラスライブラリとして配置されます。
 
 ## <a name="declaring-the-main-procedure"></a>Main プロシージャの宣言
- @No__t_0 プロシージャを宣言するには、次の4つの方法があります。 引数を受け取ることも、それ以外の値を返すこともできます。
+ `Main` プロシージャを宣言するには、次の4つの方法があります。 引数を受け取ることも、それ以外の値を返すこともできます。
 
 > [!NOTE]
-> クラスで `Main` を宣言する場合は、`Shared` キーワードを使用する必要があります。 モジュールでは、`Main` を `Shared` する必要はありません。
+> クラスで `Main` を宣言する場合は、`Shared` キーワードを使用する必要があります。 モジュールでは、`Main` を `Shared`する必要はありません。
 
 - 最も簡単な方法は、引数を取らず、値を返さない `Sub` プロシージャを宣言することです。
 
@@ -108,7 +108,7 @@ ms.locfileid: "72775693"
     End Module
     ```
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:Microsoft.VisualBasic.Interaction.MsgBox%2A>
 - <xref:System.Array.Length%2A>

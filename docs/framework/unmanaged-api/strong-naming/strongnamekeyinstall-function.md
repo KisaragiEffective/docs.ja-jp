@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: e32fd546-7757-4681-be3d-658e93281e50
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 353898b72f41acd0c49a43ff05e54f61b99444c4
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 9e441d4da64e9704fbda2368d2b07289aaea610a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70799000"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73125196"
 ---
 # <a name="strongnamekeyinstall-function"></a>StrongNameKeyInstall 関数
 
@@ -42,31 +40,31 @@ BOOLEAN StrongNameKeyInstall (
 ## <a name="parameters"></a>パラメーター
 
 `wszKeyContainer`\
-からキーコンテナーの名前。 `wszKeyContainer`は空でない文字列である必要があります。
+からキーコンテナーの名前。 `wszKeyContainer` は空でない文字列である必要があります。
 
 `pbKeyBlob`\
 からバイナリキーペア。
 
 `cbKeyBlob`\
-からの`pbKeyBlob`サイズ (バイト単位)。
+から`pbKeyBlob`のサイズ (バイト単位)。
 
 ## <a name="return-value"></a>戻り値
 
-`true`正常に完了した場合は。それ以外`false`の場合は。
+正常に完了した場合は `true`。それ以外の場合は、`false`ます。
 
 ## <a name="remarks"></a>Remarks
 
 キーコンテナーを削除するには、 [StrongNameKeyDelete](strongnamekeydelete-function.md)関数を使用します。
 
-関数が正常に完了しない場合は、[StrongNameErrorInfo](strongnameerrorinfo-function.md) 関数を呼び出して、最後に生成されたエラーを取得します。`StrongNameKeyInstall`
+`StrongNameKeyInstall` 関数が正常に完了しない場合は、 [StrongNameErrorInfo](strongnameerrorinfo-function.md)関数を呼び出して、最後に生成されたエラーを取得します。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** StrongName
 
-**ライブラリ**Mscoree.dll にリソースとして含まれています
+**ライブラリ:** Mscoree.dll にリソースとして含まれています
 
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]
 

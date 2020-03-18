@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: bab363d1-b859-47a4-9884-5661c611cce7
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4316412cec26ae5698918ff65b2da65de9f36ff2
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 2fa429979faa04518397cf58aaa62d3e45230a76
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779613"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73133841"
 ---
 # <a name="ihostiocompletionmanagergetavailablethreads-method"></a>IHostIoCompletionManager::GetAvailableThreads メソッド
-現在要求の処理はありませんが、ホストによって管理されるスレッドの合計数の I/O 完了スレッドの数を取得します。  
+ホストによって管理されているスレッドの合計数に対する i/o 完了スレッドの数を取得します。これは現在、要求を処理していません。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,29 +35,29 @@ HRESULT GetAvailableThreads (
   
 ## <a name="parameters"></a>パラメーター  
  `pdwAvailableIoCompletionThreads`  
- [out]I/O 完了スレッド、ホストによって管理されるサービス要求を現在利用できる数へのポインター。  
+ 入出力現在サービス要求で使用できるホストによって管理されている i/o 完了スレッドの数へのポインター。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`GetAvailableThreads` 正常に返されます。|  
-|HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) は、プロセスに読み込まれていないか、CLR は状態をマネージ コードを実行または呼び出しを正常に処理ができません。|  
-|HOST_E_TIMEOUT|呼び出しがタイムアウトになりました。|  
+|S_OK|`GetAvailableThreads` が正常に返されました。|  
+|HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) がプロセスに読み込まれていないか、CLR がマネージコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
+|HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
-|HOST_E_ABANDONED|イベントがキャンセルされましたブロックされたスレッドまたはファイバーが待機しています。|  
-|E_FAIL|不明な致命的なエラーが発生しました。 メソッドには、E_FAIL が返される、ときに、CLR は、プロセス内で使用可能ではなくなりました。 メソッドをホストする後続の呼び出しには、HOST_E_CLRNOTAVAILABLE が返されます。|  
-|E_NOTIMPL|ホストがの実装を提供しない`GetAvailableThreads`します。|  
+|HOST_E_ABANDONED|ブロックされたスレッドまたはファイバーが待機しているときに、イベントが取り消されました。|  
+|E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、そのプロセス内で CLR は使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
+|E_NOTIMPL|ホストに `GetAvailableThreads`の実装が用意されていません。|  
   
 ## <a name="remarks"></a>Remarks  
- ホストは、実装、パフォーマンス、スケーラビリティなどの理由で、I/O 完了スレッド プールのサイズを排他的に制御を必要な場合があります。 そのため、ホストは、実装する必要はありません`GetAvailableThreads`します。 この場合、ホストは、このメソッドから E_NOTIMPL を返す必要があります。  
+ ホストは、実装、パフォーマンス、スケーラビリティなどの理由から、i/o 完了スレッドプールのサイズを排他的に制御することが必要な場合があります。 そのため、ホストは `GetAvailableThreads`を実装する必要はありません。 この場合、ホストはこのメソッドから E_NOTIMPL を返す必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

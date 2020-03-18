@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 85f50b221e7ecb1ebd6fa539894ab7aabed8d362
-ms.sourcegitcommit: b5c59eaaf8bf48ef3ec259f228cb328d6d4c0ceb
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "67540111"
 ---
 ### <a name="install-the-global-tool"></a>グローバル ツールをインストールする

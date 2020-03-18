@@ -1,18 +1,18 @@
 ---
-title: '方法: XML ファイル (Visual Basic) からオブジェクト データを読み込む'
+title: '方法: XML ファイルからオブジェクト データを読み込む'
 ms.date: 07/20/2015
 ms.assetid: 1e1423bf-74a4-4dde-a3bb-ae1bfc0a68ed
-ms.openlocfilehash: b1e9033d7aba8b4f423f29cd4fb4f7efbbe17a29
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: efd5fb72487c92bcccf1fc797106f93c0d2a39fc
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64624367"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75345990"
 ---
-# <a name="how-to-read-object-data-from-an-xml-file-visual-basic"></a>方法: XML ファイル (Visual Basic) からオブジェクト データを読み込む
+# <a name="how-to-read-object-data-from-an-xml-file-visual-basic"></a>方法: XML ファイルからオブジェクトデータを読み取る (Visual Basic)
 次の例では、<xref:System.Xml.Serialization.XmlSerializer> クラスを使用して、XML ファイルに以前に書き込まれたオブジェクト データを読み込みます。  
   
-## <a name="example"></a>例  
+## <a name="example"></a>使用例  
   
 ```vb  
 Public Class Book  
@@ -29,14 +29,14 @@ Public Sub ReadXML()
 End Sub  
 ```  
   
-## <a name="compiling-the-code"></a>コードのコンパイル  
- ファイル名 "c:\temp\SerializationOverview.xml" を、シリアル化されたデータを含むファイルの名前に置き換えます。 データのシリアル化の詳細については、「[方法:XML ファイル (Visual Basic) にオブジェクト データを書き込む](../../../../visual-basic/programming-guide/concepts/serialization/how-to-write-object-data-to-an-xml-file.md)します。  
+## <a name="compile-the-code"></a>コードのコンパイル  
+ ファイル名 "c:\temp\SerializationOverview.xml" を、シリアル化されたデータを含むファイルの名前に置き換えます。 データのシリアル化の詳細については、「[方法: XML ファイルにオブジェクトデータを書き込む (Visual Basic)](../../../../visual-basic/programming-guide/concepts/serialization/how-to-write-object-data-to-an-xml-file.md)」を参照してください。  
   
  クラスには、パラメーターのないパブリック コンストラクターが必要です。  
   
  パブリック プロパティとパブリック フィールドだけが逆シリアル化されます。  
   
-## <a name="robust-programming"></a>信頼性の高いプログラミング  
+## <a name="robust-programming"></a>堅牢性の高いプログラミング  
  次の条件を満たす場合は、例外が発生する可能性があります。  
   
 - シリアル化されるクラスにパブリックなパラメーターなしのコンストラクターがない場合  
@@ -51,6 +51,6 @@ End Sub
 ## <a name="see-also"></a>関連項目
 
 - <xref:System.IO.StreamWriter>
-- [方法: オブジェクトのデータを書き込む XML ファイル (Visual Basic)](../../../../visual-basic/programming-guide/concepts/serialization/how-to-write-object-data-to-an-xml-file.md)
+- [方法: XML ファイルにオブジェクト データを書き込む (Visual Basic)](../../../../visual-basic/programming-guide/concepts/serialization/how-to-write-object-data-to-an-xml-file.md)
 - [シリアル化 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/serialization/index.md)
-- [Visual Basic プログラミング ガイド](../../../../visual-basic/programming-guide/index.md)
+- [Visual Basic のプログラミング ガイド](../../../../visual-basic/programming-guide/index.md)

@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: a5ed2fd0-c7d2-4603-aaca-5d0caad92675
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9897e396424b9076da8f30c61b5a14cfa9539690
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: f6abb59c3aaec40a4e7b228b8c69147a2d454431
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70795424"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73108877"
 ---
 # <a name="create_asm_name_obj_flags-enumeration"></a>CREATE_ASM_NAME_OBJ_FLAGS 列挙型
 [Createassemblynameobject](createassemblynameobject-function.md)関数によって構築されるときに、 [IAssemblyName Interface](iassemblyname-interface.md)オブジェクトの属性を指定します。  
@@ -47,10 +45,10 @@ typedef enum {
 |`CANOF_PARSE_DISPLAY_NAME`|渡されたパラメーターがテキスト形式の id であることを示します。|  
 |`CANOF_SET_DEFAULT_VALUES`|いくつかの既定値を設定します。|  
 |`CANOF_VERIFY_FRIEND_ASSEMBLYNAME`|フレンドアセンブリの規則 (名前と公開キーのみ) を確認します。 このメンバーは内部でのみ使用されます。|  
-|`CANOF_PARSE_FRIEND_DISPLAY_NAME`|フラグ`CANOF_PARSE_DISPLAY_NAME` と`CANOF_VERIFY_FRIEND_ASSEMBLYNAME`フラグの組み合わせ。 このメンバーは内部でのみ使用されます。|  
+|`CANOF_PARSE_FRIEND_DISPLAY_NAME`|`CANOF_PARSE_DISPLAY_NAME` フラグと `CANOF_VERIFY_FRIEND_ASSEMBLYNAME` フラグの組み合わせ。 このメンバーは内部でのみ使用されます。|  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Fusion. h  
   

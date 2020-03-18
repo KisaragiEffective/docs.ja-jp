@@ -8,14 +8,12 @@ api_location:
 api_type:
 - DLLExport
 ms.assetid: 8029633c-b6e4-4665-a7c2-89607c3247ef
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 357a2ca0ffc733adb14a21624cbe28fb754c8240
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: a233e0b8d17b9ee61b1991086f794c9fb20f89e1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70776731"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099837"
 ---
 # <a name="certfreeauthenticodesignerinfo-function"></a>CertFreeAuthenticodeSignerInfo 関数
 [AXL_AUTHENTICODE_SIGNER_INFO](axl-authenticode-signer-info-structure.md)構造体に割り当てられたリソースを解放します。  

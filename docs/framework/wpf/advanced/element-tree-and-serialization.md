@@ -8,12 +8,12 @@ helpviewer_keywords:
 - serialization [WPF]
 - tree [WPF]
 ms.assetid: 8f57e879-180b-421f-b3d0-ac007ff2ce80
-ms.openlocfilehash: 4c178213e08add247311f0b71517ed292bd6658a
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: afddaab6a7f5e9ef445da48d013ace59b84611cd
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61962441"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73460475"
 ---
 # <a name="element-tree-and-serialization"></a>要素のツリーおよびシリアル化
 WPF プログラミングの各要素は、多くの場合、ある種の相互ツリー リレーションシップにあります。 たとえば、XAML で作成するアプリケーション UI は、オブジェクト ツリーとして概念化できます。 要素のツリーはさらに、論理ツリーとビジュアル ツリーという 2 つのツリーに分割できます。これらのツリーは異なるものですが、同時に並列関係である場合もありまます。 WPF でのシリアル化には、これら 2 つのツリーの状態およびアプリケーション状態の保存と、ファイル (通常は XAML) へのその書き込みが含まれます。  
@@ -22,9 +22,9 @@ WPF プログラミングの各要素は、多くの場合、ある種の相互�
  [WPF のツリー](trees-in-wpf.md)  
  [XamlWriter.Save のシリアル化の制限](serialization-limitations-of-xamlwriter-save.md)  
  [オブジェクト ツリーに存在しないオブジェクト要素の初期化](initialization-for-object-elements-not-in-an-object-tree.md)  
- [方法トピック](element-tree-and-serialization-how-to-topics.md)  
+ [方法のトピック](element-tree-and-serialization-how-to-topics.md)  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>参照先  
  <xref:System.Windows.Markup>  
   
  <xref:System.Windows.LogicalTreeHelper>  
@@ -35,9 +35,9 @@ WPF プログラミングの各要素は、多くの場合、ある種の相互�
  [WPF アーキテクチャ](wpf-architecture.md)  
   [WPF の XAML](xaml-in-wpf.md)  
   [基本要素](base-elements.md)  
-  [Properties](properties-wpf.md)  
+  [プロパティ](properties-wpf.md)  
   [イベント](events-wpf.md)  
   [入力](input-wpf.md)  
   [リソース](resources-wpf.md)  
-  [スタイルとテンプレート](../controls/styling-and-templating.md)  
+  [スタイルとテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)  
   [スレッド モデル](threading-model.md)

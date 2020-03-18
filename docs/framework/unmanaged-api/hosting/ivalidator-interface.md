@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: b297e3b0-20f9-478f-b707-5e2eecb2b5b2
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2f516bf1f19e4d4a77e2d6af834a1c3d4e34c327
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 1a732e59d539c330f91e8665e81dc4771b40e2d0
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61765350"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73123286"
 ---
 # <a name="ivalidator-interface"></a>IValidator インターフェイス
 ポータブル実行可能 (PE) イメージを検証し、検証エラーを報告するためのメソッドを提供します。  
@@ -30,15 +28,15 @@ ms.locfileid: "61765350"
   
 |メソッド|説明|  
 |------------|-----------------|  
-|検証|指定された PE または Microsoft intermediate language (MSIL) ファイルを検証します。|  
-|FormatEventInfo|指定した検証エラーに対応するエラー メッセージを取得します。|  
+|検証|指定された PE または Microsoft 中間言語 (MSIL) ファイルを検証します。|  
+|FormatEventInfo|指定した検証エラーに対応するエラーメッセージを取得します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** IValidator.idl, IValidator.h  
+ **ヘッダー:** IValidator、IValidator  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

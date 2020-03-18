@@ -1,29 +1,29 @@
 ---
-title: WPF での Win32 コンテンツのホスト
+title: Win32 コンテンツのホスト
 ms.date: 03/30/2017
 helpviewer_keywords:
 - interoperability [WPF], tutorials
 - Win32 code [WPF], WPF interoperation
 - interoperability [WPF], Win32
 ms.assetid: 3cc8644a-34f3-4082-9ddc-77623e4df2d8
-ms.openlocfilehash: 3b6e30a612c87880121c227c85c4bd6a7ef31f40
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: b3113d9f3146e1590363dc9db6f751a429dda74b
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920236"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76747014"
 ---
 # <a name="hosting-win32-content-in-wpf"></a>WPF での Win32 コンテンツのホスト
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
 「 [WPF と Win32 の相互運用」を](wpf-and-win32-interoperation.md)参照してください。
 
 ## <a name="a-walkthrough-of-win32-inside-windows-presentation-framework-hwndhost"></a>Windows Presentation Framework 内部の Win32 のチュートリアル (HwndHost)
 
-[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーション内の [!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] コンテンツを再利用するには <xref:System.Windows.Interop.HwndHost>を使用します。これは、Hwnd を [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツのように表示するコントロールです。 <xref:System.Windows.Interop.HwndSource>と同様に、<xref:System.Windows.Interop.HwndHost> は簡単に使用できます。 <xref:System.Windows.Interop.HwndHost> から派生し、`BuildWindowCore` および `DestroyWindowCore` メソッドを実装し、<xref:System.Windows.Interop.HwndHost> 派生クラスをインスタンス化して [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーション内に配置します。
+[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーション内で Win32 コンテンツを再利用するには、<xref:System.Windows.Interop.HwndHost>を使用します。これは、Hwnd を [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツのように表示するコントロールです。 <xref:System.Windows.Interop.HwndSource>と同様に、<xref:System.Windows.Interop.HwndHost> は簡単に使用できます。 <xref:System.Windows.Interop.HwndHost> から派生し、`BuildWindowCore` および `DestroyWindowCore` メソッドを実装し、<xref:System.Windows.Interop.HwndHost> 派生クラスをインスタンス化して [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーション内に配置します。
 
-[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] ロジックが既にコントロールとしてパッケージ化されている場合、`BuildWindowCore` の実装は `CreateWindow`の呼び出しよりもわずかです。 たとえば、でC++[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] LISTBOX コントロールを作成するには、次のようにします。
+Win32 ロジックが既にコントロールとしてパッケージ化されている場合、`BuildWindowCore` の実装は、`CreateWindow`の呼び出しよりもわずかです。 たとえば、でC++Win32 LISTBOX コントロールを作成するには、次のようにします。
 
 ```cpp
 virtual HandleRef BuildWindowCore(HandleRef hwndParent) override {
@@ -46,7 +46,7 @@ virtual void DestroyWindowCore(HandleRef hwnd) override {
 }
 ```
 
-しかし、[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] コードがそれほど自己完結していないとします。 その場合は、[[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)]] ダイアログボックスを作成し、その内容を大きな [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションに埋め込むことができます。 このサンプルでは、Visual Studio とC++でこれを示していますが、これは別の言語またはコマンドラインでも実行できます。
+しかし、Win32 コードがそれほど自己完結していないとしたら、 その場合は、Win32 ダイアログボックスを作成し、その内容を大きな [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションに埋め込むことができます。 このサンプルでは、Visual Studio とC++でこれを示していますが、これは別の言語またはコマンドラインでも実行できます。
 
 まず、 C++ DLL プロジェクトにコンパイルされた単純なダイアログを使用します。
 
@@ -68,7 +68,7 @@ virtual void DestroyWindowCore(HandleRef hwnd) override {
 
 ### <a name="turn-the-dialog-into-a-control"></a>ダイアログをコントロールに変換する
 
-WS_CHILD スタイルと DS_CONTROL スタイルを使用して、ダイアログボックスを子 HWND にすることができます。 ダイアログが定義されているリソースファイル (.rc) に移動し、ダイアログの定義の先頭を見つけます。
+WS_CHILD と DS_CONTROL スタイルを使用して、ダイアログボックスを子 HWND にすることができます。 ダイアログが定義されているリソースファイル (.rc) に移動し、ダイアログの定義の先頭を見つけます。
 
 ```text
 IDD_DIALOG1 DIALOGEX 0, 0, 303, 121
@@ -81,7 +81,7 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 STYLE DS_SETFONT | WS_CHILD | WS_BORDER | DS_CONTROL
 ```
 
-この操作では、自己完結型のコントロールに完全にパッケージ化されません。[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] で特定のメッセージを処理できるように、`IsDialogMessage()` を呼び出す必要がありますが、コントロールを変更すると、そのようなコントロールを別の HWND 内に簡単に配置できます。
+この操作では、自己完結型のコントロールに完全にパッケージ化されません。Win32 で特定のメッセージを処理できるように、`IsDialogMessage()` を呼び出す必要がありますが、コントロールを変更すると、そのコントロールを別の HWND 内に簡単に配置できます。
 
 ## <a name="subclass-hwndhost"></a>サブクラス HwndHost
 
@@ -120,7 +120,7 @@ public ref class MyHwndHost : public HwndHost, IKeyboardInputSink {
         }
 ```
 
-ここでは、`CreateDialog` を使用して、実際にはコントロールであるダイアログボックスを作成します。 これは DLL 内で呼び出された最初のメソッドの1つであるため、後で定義する関数を呼び出すことによって、標準 [!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] の初期化を実行する必要もあります。 `InitializeGlobals()`と呼ばれます。
+ここでは、`CreateDialog` を使用して、実際にはコントロールであるダイアログボックスを作成します。 これは DLL 内で呼び出された最初のメソッドの1つであるため、後で定義する関数を呼び出すことによって、標準の Win32 初期化も実行する必要があります (`InitializeGlobals()`と呼ばれます)。
 
 ```cpp
 bool initialized = false;
@@ -140,7 +140,7 @@ bool initialized = false;
 
 ### <a name="override-translateaccelerator-method-to-handle-dialog-keys"></a>TranslateAccelerator メソッドをオーバーライドしてダイアログキーを処理します
 
-このサンプルを今実行した場合、ダイアログコントロールが表示されますが、ダイアログボックスを機能させるためのダイアログボックスを表示するすべてのキーボード処理が無視されます。 `TranslateAccelerator` の実装 (<xref:System.Windows.Interop.HwndHost> 実装するインターフェイス `IKeyboardInputSink`から) をオーバーライドする必要があります。 このメソッドは、アプリケーションが WM_KEYDOWN と WM_SYSKEYDOWN を受け取ると呼び出されます。
+このサンプルを今実行した場合、ダイアログコントロールが表示されますが、ダイアログボックスを機能させるためのダイアログボックスを表示するすべてのキーボード処理が無視されます。 `TranslateAccelerator` の実装 (<xref:System.Windows.Interop.HwndHost> 実装するインターフェイス `IKeyboardInputSink`から) をオーバーライドする必要があります。 このメソッドは、アプリケーションが WM_KEYDOWN と WM_SYSKEYDOWN を受信したときに呼び出されます。
 
 ```cpp
 #undef TranslateAccelerator
@@ -201,7 +201,7 @@ bool initialized = false;
 
 したがって、`TranslateAcceleratorW` メソッドではなく、`TranslateAccelerator` メソッドを定義してください。
 
-同様に、アンマネージ winuser .h メッセージとマネージ `Microsoft::Win32::MSG` 構造体の両方があります。 C++`::`演算子を使用して、2つを明確に区別できます。
+同様に、アンマネージ winuser .h メッセージとマネージ `Microsoft::Win32::MSG` 構造体の両方があります。 C++ `::` 演算子を使用して、2つを明確に区別できます。
 
 ```cpp
 virtual bool TranslateAccelerator(System::Windows::Interop::MSG% msg,
@@ -231,7 +231,7 @@ Both MSGs have the same data, but sometimes it is easier to work with the unmana
 }
 ```
 
-`TranslateAccelerator`に戻ります。 基本的な原則は、[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)] 関数 `IsDialogMessage` を呼び出して、可能な限り多くの作業を行うことですが、`IsDialogMessage` はダイアログの外部にアクセスすることはできません。 ダイアログの周囲のユーザータブとして、tab キーを使用してダイアログの最後のコントロールを実行したときに、`IKeyboardInputSite::OnNoMoreStops`を呼び出すことによって、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] の部分にフォーカスを設定する必要があります。
+`TranslateAccelerator`に戻ります。 基本的な原則は、Win32 関数 `IsDialogMessage` を呼び出してできるだけ多くの作業を行うことですが、`IsDialogMessage` はダイアログの外部にはアクセスできません。 ダイアログの周囲のユーザータブとして、tab キーを使用してダイアログの最後のコントロールを実行したときに、`IKeyboardInputSite::OnNoMoreStops`を呼び出すことによって、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] の部分にフォーカスを設定する必要があります。
 
 ```cpp
 // Win32's IsDialogMessage() will handle most of the tabbing, but doesn't know
@@ -253,7 +253,7 @@ if (m.message == WM_KEYDOWN && m.wParam == VK_TAB) {
 }
 ```
 
-最後に、`IsDialogMessage` を呼び出します。 しかし、`TranslateAccelerator` メソッドの役割の1つは、キー入力を処理したかどうか [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] 指示することです。 処理しなかった場合、入力イベントは、アプリケーションの他の部分をトンネルおよびバブルできます。 ここでは、[!INCLUDE[TLA2#tla_win32](../../../../includes/tla2sharptla-win32-md.md)]でのキーボード messange 処理と入力アーキテクチャの性質を明らかにします。 残念ながら、`IsDialogMessage` は、特定のキー入力を処理するかどうかを何も返しません。 さらに悪いことに、キーストロークを処理する必要がない `DispatchMessage()` が呼び出されます。  そのため、`IsDialogMessage`をリバースエンジニアリングし、処理することがわかっているキーに対してのみ呼び出す必要があります。
+最後に、`IsDialogMessage` を呼び出します。 しかし、`TranslateAccelerator` メソッドの役割の1つは、キー入力を処理したかどうか [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] 指示することです。 処理しなかった場合、入力イベントは、アプリケーションの他の部分をトンネルおよびバブルできます。 ここでは、Win32 のキーボード messange 処理と入力アーキテクチャの性質を明らかにします。 残念ながら、`IsDialogMessage` は、特定のキー入力を処理するかどうかを何も返しません。 さらに悪いことに、キーストロークを処理する必要がない `DispatchMessage()` が呼び出されます。  そのため、`IsDialogMessage`をリバースエンジニアリングし、処理することがわかっているキーに対してのみ呼び出す必要があります。
 
 ```cpp
 // Only call IsDialogMessage for keys it will do something with.
@@ -368,6 +368,6 @@ public partial class Window1 : Window {
 
 ![実行中の WPF アプリのスクリーンショット。](./media/hosting-win32-content-in-wpf/windows-presentation-foundation-application.png)
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [WPF と Win32 の相互運用性](wpf-and-win32-interoperation.md)

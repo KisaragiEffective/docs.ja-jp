@@ -1,5 +1,5 @@
 ---
-title: If...Then...Else ステートメント (Visual Basic)
+title: If...Then...Else ステートメント
 ms.date: 04/16/2018
 f1_keywords:
 - vb.ElseIf
@@ -21,12 +21,12 @@ helpviewer_keywords:
 - If function [Visual Basic], and If...Then...Else statements
 - Else statement [Visual Basic]
 ms.assetid: 790068a2-1307-4e28-8a72-be5ebda099e9
-ms.openlocfilehash: db81a1c41809b563d5f9d0777c3feb064c5e540b
-ms.sourcegitcommit: 093571de904fc7979e85ef3c048547d0accb1d8a
+ms.openlocfilehash: f505755caeb9cc3cfeeb1ba83b6de15f48314103
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70400709"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351163"
 ---
 # <a name="ifthenelse-statement-visual-basic"></a>If...Then...Else ステートメント (Visual Basic)
 
@@ -50,7 +50,7 @@ If condition Then [ statements ] [ Else [ elsestatements ] ]
 
 ## <a name="quick-links-to-example-code"></a>コード例へのクイックリンク
 
-この記事には、 `If`...`Then`...`Else`ステートメント:
+この記事には、`If`...`Then`...`Else` ステートメントの使用方法を示す例がいくつか含まれています。
 
 - [複数行構文の例](#multi-line)
 - [入れ子になった構文の例](#nested)
@@ -59,54 +59,54 @@ If condition Then [ statements ] [ Else [ elsestatements ] ]
 ## <a name="parts"></a>指定項目
 
 `condition` \
-必須。 条件. `True`は`Boolean`、、、またはに暗黙的に変換可能なデータ型に評価される必要があります。 `False`
+必須。 条件. は、`True` または `False`、または `Boolean`に暗黙的に変換できるデータ型に評価される必要があります。
 
-式が[Nothing](../../../visual-basic/language-reference/nothing.md)に`False`評価される[null 許容](../../../visual-basic/programming-guide/language-features/data-types/nullable-value-types.md) `Boolean`変数である場合、条件は式がで`ElseIf`あるかのように処理され、ブロックが存在する場合`Else`は評価され、ブロックは存在する場合は実行されます。
+式が[Nothing](../../../visual-basic/language-reference/nothing.md)に評価される[null 許容](../../../visual-basic/programming-guide/language-features/data-types/nullable-value-types.md)型の `Boolean` 変数の場合、条件は式が `False`として扱われ、`ElseIf` ブロックが存在する場合は評価され、存在する場合は `Else` ブロックが実行されます。
 
 `Then` \
 単一行の構文では必須です。複数行の構文では省略可能です。
 
 `statements` \
-任意。 次の1つまた`If`は複数のステートメントをフォローしています...`Then`が`condition`に評価`True`される場合に実行される。
+省略可。 `condition` が `True`に評価された場合に実行される `If`...`Then` の後に続く1つ以上のステートメント。
 
 `elseifcondition` \
-が存在`ElseIf`する場合は必須です。 条件. `True`は`Boolean`、、、またはに暗黙的に変換可能なデータ型に評価される必要があります。 `False`
+`ElseIf` が存在する場合は必須です。 条件. は、`True` または `False`、または `Boolean`に暗黙的に変換できるデータ型に評価される必要があります。
 
 `elseifstatements` \
-任意。 次の1つまた`ElseIf`は複数のステートメントをフォローしています...`Then`が`elseifcondition`に評価`True`される場合に実行される。
+省略可。 `elseifcondition` が `True`に評価された場合に実行される `ElseIf`...`Then` の後に続く1つ以上のステートメント。
 
 `elsestatements` \
-任意。 前`condition`のまたは`elseifcondition`式がと評価`True`されなかった場合に実行される1つ以上のステートメント。
+省略可。 前の `condition` または `elseifcondition` 式が `True`に評価されなかった場合に実行される1つ以上のステートメント。
 
 `End If` \
-の`If`複数行バージョンを終了します...`Then`...`Else`ブロック。
+複数行バージョンの `If`...`Then`...`Else` ブロックを終了します。
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 ### <a name="multiline-syntax"></a>複数行の構文
 
-`If`When...`Then`...ステートメントが検出されました。がテストされています。`condition` `Else` `Then`が`condition` の`True`場合は、次のステートメントが実行されます。 `ElseIf`が`condition` の場合、各ステートメント(存在する場合)は順番に評価されます。`False` が見つかると、関連付けられ`ElseIf`たの直後にあるステートメントが実行されます。 `True` `elseifcondition` `ElseIf`がに`elseifcondition`評価されない場合、またはステートメントが存在しない`Else`場合は、次のステートメントが実行されます。 `True` 、 `Then` `End If`、または`Else`に続くステートメントを実行すると、次のステートメントで実行が続行されます。 `ElseIf`
+`If`...`Then`...`Else` ステートメントが検出されると、`condition` がテストされます。 `condition` が `True`場合、`Then` に続くステートメントが実行されます。 `condition` が `False`場合は、各 `ElseIf` ステートメント (存在する場合) が順番に評価されます。 `True` `elseifcondition` が見つかると、関連付けられた `ElseIf` の直後にあるステートメントが実行されます。 `elseifcondition` が `True`に評価されない場合、または `ElseIf` ステートメントが存在しない場合は、`Else` に続くステートメントが実行されます。 `Then`、`ElseIf`、または `Else`の後に続くステートメントを実行すると、次の `End If`に続くステートメントで実行が続行されます。
 
-句`ElseIf` と`Else`句はどちらも省略可能です。 必要な数`ElseIf` `If`の句を含めることができます...`Then`...ステートメントですが、句の後に`Else`句を記述することはできません`ElseIf`。 `Else` `If`...`Then`...`Else`ステートメントは、入れ子にすることができます。
+`ElseIf` 句と `Else` 句は両方とも省略可能です。 `If``Then`...`Else` ステートメントには、必要な数の `ElseIf` 句を指定できますが、`ElseIf` 句の後に `Else` 句を指定することはできません。 `If`...`Then`...`Else` ステートメントは、入れ子にすることができます。
 
-複数行構文`If`では、ステートメントが1行目の唯一のステートメントである必要があります。 、 `ElseIf` 、`Else`および`End If`の各ステートメントの前には、行ラベルだけを指定できます。 `If`...`Then`...ブロックは`End If`ステートメントで終了する必要があります。 `Else`
+複数行構文では、`If` ステートメントが1行目の唯一のステートメントである必要があります。 `ElseIf`、`Else`、および `End If` ステートメントの前には、行ラベルだけを付けることができます。 `If`...`Then`...`Else` ブロックは、`End If` ステートメントで終了する必要があります。
 
 > [!TIP]
-> [Select...Case ステートメント](../../../visual-basic/language-reference/statements/select-case-statement.md)をいくつかの値を持つ 1 つの式を評価するときにさらに便利な場合があります。
+> [選択...Case ステートメント](../../../visual-basic/language-reference/statements/select-case-statement.md)は、複数の可能な値を含む単一の式を評価する場合に便利です。
 
 ### <a name="single-line-syntax"></a>単一行の構文
 
 単一行構文を使用すると、コードを含む単一の条件を使用して、true の場合に実行できます。 ただし、複数行の構文では、より多くの構造と柔軟性が提供され、読み取り、保守、デバッグが簡単になります。
 
-ステートメントが単`Then`一行`If`であるかどうかを判断するために、キーワードの後に続く内容を確認します。 コメント以外のものが`Then`同じ行にある場合、ステートメントは単一行`If`のステートメントとして扱われます。 が`Then`存在しない場合は、複数行`If`の先頭にする必要があります...`Then`...`Else`.
+ステートメントが単一行の `If`であるかどうかを判断するために、`Then` キーワードの後に続くものは次のとおりです。 同じ行の `Then` の後にコメント以外のものがある場合、ステートメントは単一行の `If` ステートメントとして扱われます。 `Then` が存在しない場合は、複数行の `If`.`Then`..`Else`を開始する必要があります。
 
-単一行構文では、... の結果として複数の`If`ステートメントを実行できます。`Then`決定。 すべてのステートメントは、同じ行にあり、コロンで区切られている必要があります。
+単一行構文では、`If`...`Then` 決定の結果として複数のステートメントを実行できます。 すべてのステートメントは、同じ行にあり、コロンで区切られている必要があります。
 
 ## <a name="multiline-syntax-example"></a>複数行構文の例
 
 <a name="multi-line"></a>
 
-次の例では、 `If`... の複数行構文の使用方法を示しています。`Then`...`Else`ステートメント。
+次の例では、`If`...`Then`...`Else` ステートメントの複数行構文の使用方法を示します。
 
 [!code-vb[VbVbalrStatements#101](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/class6.vb#101)]
 
@@ -114,7 +114,7 @@ If condition Then [ statements ] [ Else [ elsestatements ] ]
 
 <a name="nested"></a>
 
-次の例には`If`、入れ子になった...`Then`...`Else`ステートメント。
+次の例には、入れ子になった `If`...`Then`...`Else` ステートメントが含まれています。
 
 [!code-vb[VbVbalrStatements#102](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/class6.vb#102)]
 
@@ -124,7 +124,7 @@ If condition Then [ statements ] [ Else [ elsestatements ] ]
 
 [!code-vb[VbVbalrStatements#103](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrStatements/VB/class6.vb#103)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:Microsoft.VisualBasic.Interaction.Choose%2A>
 - <xref:Microsoft.VisualBasic.Interaction.Switch%2A>

@@ -3,6 +3,8 @@
   items:
     - name: セキュリティの基本概念
       href: key-security-concepts.md
+    - name: .NET Core FIPS 準拠
+      href: fips-compliance.md
     - name: ロール ベース セキュリティ
       href: role-based-security.md
       items:

@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 84f83921-64cb-49e3-ac8b-22a0b77b18a8
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 49e7b73559e8def890f8df8f596fbe8ad5bb5d3b
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: ed45e06297b77ea60304cdcfe1b08e97f9e4c085
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70777485"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74446590"
 ---
 # <a name="assemblyoptions-enumeration"></a>AssemblyOptions 列挙体
 アセンブリオプションを列挙します。  
@@ -64,7 +62,7 @@ typedef enum _AssemblyOptions {
 |optAssemOS|"DwOSPlatformId" としてエンコードされた文字列。|  
 |optAssemProcessor|ULONG|  
 |optAssemLocale|String-アセンブリロケールを格納します。|  
-|optAssemVersion|文字列エンコードの形式:"メジャー. マイナー. ビルド. リビジョン"。|  
+|optAssemVersion|"Major. Minor. Build. Revision" としてエンコードされた文字列。|  
 |optAssemCompany|文字列-会社を含みます。|  
 |optAssemProduct|文字列-製品名が含まれます。|  
 |optAssemProductVersion|文字列 (InformationalVersion とも呼ばれます)。|  
@@ -79,11 +77,11 @@ typedef enum _AssemblyOptions {
 |optAssemSatelliteVer|"Major. Minor. Build. Revision" としてエンコードされた文字列。|  
 |optlastassemoopt|要素数のカウンター。|  
   
-## <a name="requirements"></a>必要条件  
+## <a name="requirements"></a>要件  
  **ヘッダー:** alink  
   
  **ライブラリ**: alink  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Al.exe (アセンブリ リンカー)](../../tools/al-exe-assembly-linker.md)

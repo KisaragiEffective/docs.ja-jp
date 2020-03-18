@@ -10,14 +10,12 @@ helpviewer_keywords:
 - operating systems supported
 - hardware requirements
 ms.assetid: 298275e2-da1d-4618-9f74-6a3567832350
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 6f867b53f168a394515a1b1eaa6575a72dfb8d91
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: f853663bef4dd0de7ac61e706dedf8c6a19b5b51
+ms.sourcegitcommit: 8c99457955fc31785b36b3330c4ab6ce7984a7ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052009"
+ms.lasthandoff: 12/29/2019
+ms.locfileid: "75545012"
 ---
 # <a name="net-framework-system-requirements"></a>.NET Framework のシステム要件
 
@@ -64,8 +62,8 @@ ms.locfileid: "71052009"
 | Windows 10 Anniversary Update | 32 ビットおよび 64 ビット | .NET Framework 4.6.2 |.NET Framework 4.7<br/><br/>.NET Framework 4.7.1<br/><br/>.NET Framework 4.7.2<br/><br/>.NET Framework 4.8  |
 | Windows 10 の 11 月更新版 | 32 ビットおよび 64 ビット | .NET Framework 4.6.1 | .NET Framework 4.6.2 |
 | Windows 10 | 32 ビットおよび 64 ビット | .NET Framework 4.6 | .NET Framework 4.6.1 <br/><br/> .NET Framework 4.6.2 |
-| [!INCLUDE[win81](../../../includes/win81-md.md)] | 32 ビット、64 ビット、および ARM | .NET Framework 4.5.1 | .NET Framework 4.5.2<br /><br /> .NET Framework 4.6<br /><br /> .NET Framework 4.6.1<br /><br /> .NET Framework 4.6.2<br /><br />.NET Framework 4.7<br/><br/>.NET Framework 4.7.1<br/><br/>.NET Framework 4.7.2<br/><br/>.NET Framework 4.8 |
-| [!INCLUDE[win8](../../../includes/win8-md.md)] | 32 ビット、64 ビット、および ARM | .NET Framework 4.5 | .NET Framework 4.5.1<br /><br />.NET Framework 4.5.2<br /><br /> .NET Framework 4.6<br /><br /> .NET Framework 4.6.1 |
+| Windows 8.1 | 32 ビット、64 ビット、および ARM | .NET Framework 4.5.1 | .NET Framework 4.5.2<br /><br /> .NET Framework 4.6<br /><br /> .NET Framework 4.6.1<br /><br /> .NET Framework 4.6.2<br /><br />.NET Framework 4.7<br/><br/>.NET Framework 4.7.1<br/><br/>.NET Framework 4.7.2<br/><br/>.NET Framework 4.8 |
+| Windows 8 | 32 ビット、64 ビット、および ARM | .NET Framework 4.5 | .NET Framework 4.5.1<br /><br />.NET Framework 4.5.2<br /><br /> .NET Framework 4.6<br /><br /> .NET Framework 4.6.1 |
 | Windows 7 SP1|32 ビットおよび 64 ビット | -- | .NET Framework 4<br /><br /> .NET Framework 4.5<br /><br /> .NET Framework 4.5.1<br /><br /> .NET Framework 4.5.2<br /><br /> .NET Framework 4.6<br /><br /> .NET Framework 4.6.1<br /><br /> .NET Framework 4.6.2<br /><br />.NET Framework 4.7<br/><br/>.NET Framework 4.7.1<br/><br/>.NET Framework 4.7.2<br/><br/>.NET Framework 4.8 |
 | Windows Vista SP2|32 ビットおよび 64 ビット | -- | .NET Framework 4<br /><br /> .NET Framework 4.5<br /><br /> .NET Framework 4.5.1<br /><br /> .NET Framework 4.5.2<br /><br /> .NET Framework 4.6 |
 | Windows XP |32 ビットおよび 64 ビット | -- | .NET Framework 4 |
@@ -78,7 +76,7 @@ ms.locfileid: "71052009"
 
 - .NET Framework 4 は、IA64 プラットフォームもサポートしています。
 
-- すべてのプラットフォームについて最大限の互換性とセキュリティが得られるように、[Windows Update Web サイト](https://go.microsoft.com/fwlink/?LinkId=168461)から入手できる最新の Windows Service Pack にアップグレードし、重要な更新プログラムをインストールすることをお勧めします。
+- すべてのプラットフォームについて最大限の互換性とセキュリティが得られるように、[Windows Update](https://support.microsoft.com/help/12373/windows-update-faq) から入手できる最新の Windows Service Pack にアップグレードし、重要な更新プログラムをインストールすることをお勧めします。
 
 - 64 ビット オペレーティング システムでは、.NET Framework は WOW64 (64 ビット コンピューター上での 32 ビット処理) とネイティブ 64 ビット処理の両方をサポートしています。
 
@@ -98,7 +96,7 @@ ms.locfileid: "71052009"
 
  **注:**
 
-- [!INCLUDE[winserver8](../../../includes/winserver8-md.md)] に .NET Framework 4.5 が含まれているため、個別にインストールする必要はありません。 同様に、[!INCLUDE[winblue_server_2](../../../includes/winblue-server-2-md.md)] には .NET Framework 4.5.1 が含まれています。
+- Windows Server 2012 には .NET Framework 4.5 が含まれているため、これを個別にインストールする必要はありません。 同様に、Windows Server 2012 R2 には .NET Framework 4.5.1 が含まれています。
 
 - .NET Framework は、Windows Server 2008 R2 SP1 以降の Server Core ロールを限定付きでサポートしています。 サポートされない API の一覧については、「[Server Core .NET Functionality](https://docs.microsoft.com/previous-versions//dd745015(v=vs.85))」 (Server Core .NET 機能) を参照してください。
 
@@ -106,7 +104,7 @@ ms.locfileid: "71052009"
 
 - Windows Server 2008 SP2 では、.NET Framework は、Server Core ロールでサポートされていません。
 
-- すべてのプラットフォームについて最大限の互換性とセキュリティが得られるように、[Windows Update Web サイト](https://go.microsoft.com/fwlink/?LinkId=168461)から入手できる最新の Windows Service Pack にアップグレードし、重要な更新プログラムを適用することをお勧めします。 一部のオペレーティング システムでは、最新の Windows Service Pack のインストールが必要になる場合があります。
+- すべてのプラットフォームについて最大限の互換性とセキュリティが得られるように、[Windows Update](https://support.microsoft.com/help/12373/windows-update-faq) から入手できる最新の Windows Service Pack と重要な更新プログラムにアップグレードすることをお勧めします。 一部のオペレーティング システムでは、最新の Windows Service Pack のインストールが必要になる場合があります。
 
 - 64 ビット オペレーティング システムでは、.NET Framework は WOW64 (64 ビット コンピューター上での 32 ビット処理) とネイティブ 64 ビット処理の両方をサポートしています。
 

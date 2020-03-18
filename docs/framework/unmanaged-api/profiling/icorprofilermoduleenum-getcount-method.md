@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: f0a4a5e0-4689-474b-b0f4-37ca0639c918
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 44d3fee49ae74c69b49029208588f4894e250f78
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 772a7c08c934fda59a2764e1fbe22d3d2b08a620
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67775210"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76861503"
 ---
 # <a name="icorprofilermoduleenumgetcount-method"></a>ICorProfilerModuleEnum::GetCount メソッド
 アプリケーションによって読み込まれたマネージド モジュールの数を取得します。  
@@ -35,12 +33,12 @@ HRESULT GetCount([out] ULONG * pcelt);
   
 ## <a name="parameters"></a>パラメーター  
  `celt`  
- [out]コレクション内のランタイム モジュールの数。  
+ 入出力コレクション内のランタイムモジュールの数。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -48,5 +46,5 @@ HRESULT GetCount([out] ULONG * pcelt);
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerModuleEnum インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilermoduleenum-interface.md)
-- [プロファイリングのインターフェイス](../../../../docs/framework/unmanaged-api/profiling/profiling-interfaces.md)
+- [ICorProfilerModuleEnum インターフェイス](icorprofilermoduleenum-interface.md)
+- [プロファイリングのインターフェイス](profiling-interfaces.md)

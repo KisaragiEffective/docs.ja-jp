@@ -14,20 +14,18 @@ helpviewer_keywords:
 ms.assetid: 4c5c4df0-43f3-4830-a01b-8d029806f2c4
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 3fed44fe814ec873cffb1aa4006e11445f8e03db
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 8521452d6cd39a6a89b8c83f208fedfc390c21fb
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69965768"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74432227"
 ---
 # <a name="imaptoken-interface"></a>IMapToken インターフェイス
 アセンブリ間のマッピング機能を提供します。  
   
 > [!NOTE]
-> インターフェイス`IMapToken`は、クライアントによって実装される必要があります。  
+> `IMapToken` インターフェイスは、クライアントによって実装される必要があります。  
   
 ## <a name="methods"></a>メソッド  
   
@@ -35,12 +33,12 @@ ms.locfileid: "69965768"
 |------------|-----------------|  
 |[Map メソッド](../../../../docs/framework/unmanaged-api/metadata/imaptoken-map-method.md)|メタデータシグネチャを使用して、2つのアセンブリ間のリレーションシップをマップします。|  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Cor  
   
- **ライブラリ**Mscoree.dll のリソースとして使用されます。  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

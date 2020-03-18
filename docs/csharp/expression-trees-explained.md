@@ -2,13 +2,14 @@
 title: 式ツリーの説明
 description: 式ツリーについて、また、外部実行のためのアルゴリズム変換と実行前のコード検査で式ツリーがいかに役立つかについて説明します。
 ms.date: 06/20/2016
+ms.technology: csharp-advanced-concepts
 ms.assetid: bbcdd339-86eb-4ae5-9911-4c214a39a92d
-ms.openlocfilehash: c5d4b2ad54fab547567d430f11a31542a11d03f3
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: 12093e9c9246c87cc5ea3aedaca6ba34acacce4d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104807"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73036993"
 ---
 # <a name="expression-trees-explained"></a>式ツリーの説明
 

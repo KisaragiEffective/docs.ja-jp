@@ -1,17 +1,15 @@
 ---
-title: <Property>要素 (.NET ネイティブ)
+title: <Property> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: ad4ba56d-3bcb-4c10-ba90-1cc66e2175a1
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 54daf15c593327bf3255f40f6eb6931ffc8bd3c6
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: b9bc89804a872dddf1a56c2a3dadc9c3df4f5fd1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049312"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128208"
 ---
-# <a name="property-element-net-native"></a>\<プロパティ > 要素 (.NET ネイティブ)
+# <a name="property-element-net-native"></a>プロパティ > 要素の \<(.NET ネイティブ)
 プロパティにランタイム リフレクション ポリシーを適用します。  
   
 ## <a name="syntax"></a>構文  
@@ -37,13 +35,13 @@ ms.locfileid: "71049312"
   
 ## <a name="name-attribute"></a>Name 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*method_name*|プロパティ名。 プロパティの型は、親の [\<Type>](type-element-net-native.md) または [\<TypeInstantiation>](typeinstantiation-element-net-native.md) 要素により定義されます。|  
   
 ## <a name="all-other-attributes"></a>その他すべての属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*policy_setting*|プロパティのこのポリシーの種類に適用する設定です。 指定できる値は、`Auto`、`Excluded`、`Included`、および `Required` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|  
   
@@ -75,7 +73,7 @@ ms.locfileid: "71049312"
   
  このファイルは、`All` クラスの `Activate` ポリシーに `Book` 値を適用します。これにより、リフレクションを介してクラス コンストラクターにアクセスできるようになります。 `Browse` クラスの `Book` ポリシーは、その親名前空間から継承されます。 これは `Required Public` に設定され、メタデータが実行時に使用できるようになります。  
   
- この例のソース コードを次に示します。 変数`outputBlock`は、コントロール<xref:Windows.UI.Xaml.Controls.TextBlock>を表します。  
+ この例のソース コードを次に示します。 `outputBlock` 変数は、<xref:Windows.UI.Xaml.Controls.TextBlock> コントロールを表します。  
   
  [!code-csharp[ProjectN_Reflection#6](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn_reflection/cs/property1.cs#6)]  
   

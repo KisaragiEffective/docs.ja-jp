@@ -13,12 +13,12 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2019
 ms.locfileid: "70252484"
 ---
-# <a name="memorycache-element-cache-settings"></a>\<memoryCache > 要素 (キャッシュ設定)
+# <a name="memorycache-element-cache-settings"></a>\<memoryCache> 要素 (キャッシュ設定)
 <xref:System.Runtime.Caching.MemoryCache> クラスに基づくキャッシュを構成するために使用される要素を定義します。 <xref:System.Runtime.Caching.Configuration.MemoryCacheElement> クラスは、キャッシュの構成に使用できる [memoryCache](memorycache-element-cache-settings.md) 要素を定義します。 <xref:System.Runtime.Caching.MemoryCache> クラスの複数のインスタンスを、単一のアプリケーションで使用できます。 構成ファイル内の各 `memoryCache` 要素には、指定した <xref:System.Runtime.Caching.MemoryCache> インスタンスの設定を含むことができます。  
   
 [ **\<configuration>** ](../configuration-element.md)\
-&nbsp;&nbsp;[ **\<> のキャッシュ**](system-runtime-caching-element-cache-settings.md)\
-&nbsp;&nbsp;&nbsp;&nbsp; **\<memoryCache >**  
+&nbsp;&nbsp;[ **\<system.runtime.caching>** ](system-runtime-caching-element-cache-settings.md)
+&nbsp;&nbsp;&nbsp;&nbsp; **\<memoryCache>**  
   
 ## <a name="syntax"></a>構文  
   
@@ -94,5 +94,5 @@ ms.locfileid: "70252484"
 ## <a name="see-also"></a>関連項目
 
 - <xref:System.Runtime.Caching.MemoryCache>
-- [\<system.string > 要素 (キャッシュ設定)](system-runtime-caching-element-cache-settings.md)
-- [\<namedCaches > 要素 (キャッシュ設定)](namedcaches-element-cache-settings.md)
+- [\<system.string> 要素 (キャッシュ設定)](system-runtime-caching-element-cache-settings.md)
+- [\<namedCaches> 要素 (キャッシュ設定)](namedcaches-element-cache-settings.md)

@@ -14,30 +14,28 @@ helpviewer_keywords:
 ms.assetid: 8adbf092-c3ba-4bee-b25b-0de6e43a4ce5
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 32f27d6c15a99282eee20d2563a4ca741238d846
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 466b0ceec8ce9c9800393f96055730ecafc153b3
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61638516"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120544"
 ---
 # <a name="iclrreferenceassemblyenum-interface"></a>ICLRReferenceAssemblyEnum インターフェイス
-ホスト ファイルまたはアセンブリの id データを作成し、それらの id を理解したりしなくても、共通言語ランタイム (CLR) の内部を使用してストリームによって参照されるアセンブリのセットを操作できるようにするメソッドを提供します。  
+共通言語ランタイム (CLR) の内部にあるアセンブリ id データを使用して、ファイルまたはストリームによって参照されるアセンブリのセットをホストが操作できるようにするメソッドを提供します。これらの id を作成したり、理解したりする必要はありません。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[Get メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrreferenceassemblyenum-get-method.md)|指定したインデックス位置にあるアセンブリの id を取得します。|  
+|[Get メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrreferenceassemblyenum-get-method.md)|指定されたインデックス位置にあるアセンブリ id を取得します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

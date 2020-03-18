@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 00be4789-ac63-4397-b2ec-1629a5c5a585
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: e47b1807e51427487d6af2f96ff5af437c4653eb
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: c1792ed0f15f8cfb62567593c9694453650f0bb9
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67760948"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74436323"
 ---
 # <a name="imetadataassemblyimportgetmanifestresourceprops-method"></a>IMetaDataAssemblyImport::GetManifestResourceProps メソッド
-指定したメタデータ シグネチャを持つマニフェスト リソースのプロパティのセットを取得します。  
+指定されたメタデータシグネチャを持つマニフェストリソースのプロパティのセットを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,35 +41,35 @@ HRESULT GetManifestResourceProps (
   
 ## <a name="parameters"></a>パラメーター  
  `mdmr`  
- [in]`mdManifestResource`プロパティを取得する対象のリソースを表すトークン。  
+ からプロパティを取得する対象のリソースを表す `mdManifestResource` トークン。  
   
  `szName`  
- [out]リソースの名前。  
+ 入出力リソースの名前。  
   
  `cchName`  
- [in]ワイド文字単位のサイズの`szName`します。  
+ から`szName`のサイズ (ワイド文字単位)。  
   
  `pchName`  
- [out]実際に返されるワイド文字数へのポインター`szName`します。  
+ 入出力`szName`に実際に返されるワイド文字数へのポインター。  
   
  `ptkImplementation`  
- [out]ポインター、`mdFile`トークンまたは`mdAssemblyRef`リソースを格納するファイルまたはアセンブリをそれぞれ表すトークン。  
+ 入出力リソースを格納しているファイルまたはアセンブリを表す、`mdFile` トークンまたは `mdAssemblyRef` トークンへのポインター。  
   
  `pdwOffset`  
- [out]リソース ファイル内の先頭までのオフセットを指定する値へのポインター。  
+ 入出力ファイル内のリソースの先頭へのオフセットを指定する値へのポインター。  
   
  `pdwResourceFlags`  
- [out]リソースに適用されるメタデータを記述するフラグをへのポインター。 フラグの値は、1 つ以上の組み合わせ[CorManifestResourceFlags](../../../../docs/framework/unmanaged-api/metadata/cormanifestresourceflags-enumeration.md)値。  
+ 入出力リソースに適用されるメタデータを記述するフラグへのポインター。 Flags 値は、1つ以上の[Cormanifestresourceflags](../../../../docs/framework/unmanaged-api/metadata/cormanifestresourceflags-enumeration.md)値を組み合わせたものです。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataAssemblyImport インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataassemblyimport-interface.md)

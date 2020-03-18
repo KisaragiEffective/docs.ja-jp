@@ -7,10 +7,10 @@ helpviewer_keywords:
 - Internet, caching
 ms.assetid: fc258a40-f370-434f-ae09-4a8cb11ddaeb
 ms.openlocfilehash: 7e131963999db3e3d5e0e6f3fa110da36e6452a1
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "71048884"
 ---
 # <a name="cache-management-for-network-applications"></a>ネットワーク アプリケーションのキャッシュ管理
@@ -35,6 +35,6 @@ ms.locfileid: "71048884"
  [ネットワーク アプリケーションでのキャッシュの構成](configuring-caching-in-network-applications.md)  
  キャッシュ ポリシーとキャッシュを使用する要求をプログラムで作成する方法について説明します。  
   
-## <a name="reference"></a>関連項目  
+## <a name="reference"></a>リファレンス  
  <xref:System.Net.Cache>  
  取得したリソースのキャッシュ ポリシーを <xref:System.Net.WebRequest>、<xref:System.Net.HttpWebRequest>、および <xref:System.Net.FtpWebRequest> クラスを使用して定義するために使用する型および列挙体を定義します。

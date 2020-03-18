@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 8d4ff73e-739b-40f6-9349-359fbc99c2f9
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1085bec812d797d3fbe4ea63ef447d4c466149f2
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 12c00ed009e0e57436a71aed256b07a58ba68a32
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69965056"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73138346"
 ---
 # <a name="cor_gc_stats-structure"></a>COR_GC_STATS 構造体
 共通言語ランタイム (CLR) のガベージコレクション機構に関する統計情報を提供します。  
@@ -61,9 +59,9 @@ typedef struct _COR_GC_STATS {
 |`KBytesPromotedFromGen1`|ジェネレーション1からジェネレーション2に昇格されたオブジェクトのサイズ (kb 単位)。|  
   
 ## <a name="remarks"></a>Remarks  
- [ICLRGCManager:: getstats](../../../../docs/framework/unmanaged-api/hosting/iclrgcmanager-getstats-method.md)メソッドでは、 `Flags`設定する統計を指定するために、 `COR_GC_STATS`構造体のフィールドを[COR_GC_STAT_TYPES](../../../../docs/framework/unmanaged-api/hosting/cor-gc-stat-types-enumeration.md)列挙の1つ以上の値に設定する必要があります。  
+ [ICLRGCManager:: GetStats](../../../../docs/framework/unmanaged-api/hosting/iclrgcmanager-getstats-method.md)メソッドでは、`COR_GC_STATS` 構造体の `Flags` フィールドを、設定する統計を指定するために、 [COR_GC_STAT_TYPES](../../../../docs/framework/unmanaged-api/hosting/cor-gc-stat-types-enumeration.md)列挙の1つ以上の値に設定する必要があります。  
   
- 次の表は、この構造体によって提供される統計を、 `COR_GC_COUNTS`と`COR_GC_MEMORYUSAGE`の2つの [COR_GC_STAT_TYPES](../../../../docs/framework/unmanaged-api/hosting/cor-gc-stat-types-enumeration.md) 列挙値にマップします。  
+ 次の表は、この構造体によって提供される統計を、`COR_GC_COUNTS` と `COR_GC_MEMORYUSAGE`の2つの[COR_GC_STAT_TYPES](../../../../docs/framework/unmanaged-api/hosting/cor-gc-stat-types-enumeration.md)列挙値にマップしています。  
   
 |指定された COR_GC_COUNTS|指定された COR_GC_MEMORYUSAGE|  
 |----------------------------------|---------------------------------------|  
@@ -77,12 +75,12 @@ GCStats.Flags = COR_GC_COUNTS | COR_GC_MEMORYUSAGE;
 pCLRGCManager->GetStats(&GCStats);  
 ```  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** GCHost  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

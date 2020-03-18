@@ -6,14 +6,12 @@ helpviewer_keywords:
 - common language runtime, application domains
 - runtime, application domains
 ms.assetid: c6d99815-e022-4d2c-9420-1d7ab5b9d504
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 11774620dba03cc980ec3e2e2d3bd1a855dc6295
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: d6bbc2648608e9542158e0f281984174447633a4
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71053054"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73119727"
 ---
 # <a name="using-application-domains"></a>アプリケーション ドメインの使用
 
@@ -50,7 +48,7 @@ ms.locfileid: "71053054"
 [アセンブリ読み込みの解決](../../standard/assembly/resolve-loads.md)  
 <xref:System.AppDomain.AssemblyResolve?displayProperty=nameWithType> イベントを使用してアセンブリの読み込みエラーを解決する方法について説明します。  
   
-## <a name="reference"></a>関連項目  
+## <a name="reference"></a>辞書／辞典／その他  
 
 <xref:System.AppDomain>  
 アプリケーション ドメインを表現します。 アプリケーション ドメインの作成と制御に使用するメソッドについて説明します。  

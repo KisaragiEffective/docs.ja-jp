@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 97f15656-8677-4079-8553-a1d8603355d6
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: f4cea67587e4a33b4b9f8cbaa23cb7d299004a46
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e7b3d5bd53bb9e4d6b897bfbf109c1f7307224cd
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67736164"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74442509"
 ---
 # <a name="inotifysink2onsynccallout-method"></a>INotifySink2::OnSyncCallOut メソッド
-呼び出しがないときに呼び出されます。  
+呼び出しがタイムアウトしたときに呼び出されます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,19 +38,19 @@ HRESULT OnSyncCallOut
   
 ## <a name="parameters"></a>パラメーター  
  `in_CallID`  
- [in]呼び出しの ID。参照してください[CALL_ID 構造体](../../../../docs/framework/unmanaged-api/diagnostics/call-id-structure.md)します。  
+ から発信する呼び出しの ID。「 [CALL_ID 構造](../../../../docs/framework/unmanaged-api/diagnostics/call-id-structure.md)」を参照してください。  
   
  `out_ppBuffer`  
- [out]バッファーを呼び出します。  
+ 入出力呼び出しバッファー。  
   
  `out_pBufferSize`  
- [out]呼び出しバッファーのバイト単位のサイズ。  
+ 入出力呼び出しバッファーのサイズ (バイト単位)。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。  
+ メソッドが成功した場合は S_OK します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** ProtocolNotify2.idl  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** ProtocolNotify2  
   
 ## <a name="see-also"></a>関連項目
 

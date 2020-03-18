@@ -1,25 +1,25 @@
 ---
-title: '方法: WCF アクティブ化コンポーネントをインストールして設定する'
+title: '方法 : WCF アクティブ化コンポーネントをインストールして設定する'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - HTTP activation [WCF]
 ms.assetid: 33a7054a-73ec-464d-83e5-b203aeded658
-ms.openlocfilehash: 70eab39e4bb24dfd1cdd6abc5216e50126ef1f4c
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: e71664b4361ba28a50b29499585b20a8adbaefd2
+ms.sourcegitcommit: c01c18755bb7b0f82c7232314ccf7955ea7834db
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70972182"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75964466"
 ---
-# <a name="how-to-install-and-configure-wcf-activation-components"></a>方法: WCF アクティブ化コンポーネントをインストールして設定する
+# <a name="how-to-install-and-configure-wcf-activation-components"></a>方法 : WCF アクティブ化コンポーネントをインストールして設定する
 
-このトピックでは、で[!INCLUDE[wv](../../../../includes/wv-md.md)] Windows プロセスアクティブ化サービス (WAS) をに設定して、HTTP ネットワークプロトコルでは通信しない Windows Communication Foundation (WCF) サービスをホストするために必要な手順について説明します。 以降の各セクションで、この構成に関する手順について概説します。
+このトピックでは、windows Vista で Windows プロセスアクティブ化サービス (WAS) をセットアップして、HTTP ネットワークプロトコルでは通信しない Windows Communication Foundation (WCF) サービスをホストするために必要な手順について説明します。 以降の各セクションで、この構成に関する手順について概説します。
 
 - WCF アクティブ化コンポーネントをインストール (または、のインストールを確認) します。
 
-- 非 HTTP プロトコルをサポートようにする WAS を構成します。 次の手順では、TCP アクティベーション用に [!INCLUDE[wv](../../../../includes/wv-md.md)] を構成します。
+- 非 HTTP プロトコルをサポートようにする WAS を構成します。 次の手順では、TCP ライセンス認証用に Windows Vista を構成します。
 
-WAS をインストールして構成し[た後、「」を参照してください。Was で](../../../../docs/framework/wcf/feature-details/how-to-host-a-wcf-service-in-was.md) wcf サービスをホストする手順では、was を使用する非 HTTP エンドポイントを公開する wcf サービスを作成します。
+WAS をインストールして構成した後、「 [How to: Host a Wcf service IN was](../../../../docs/framework/wcf/feature-details/how-to-host-a-wcf-service-in-was.md) 」を参照して、was を使用する非 HTTP エンドポイントを公開する wcf サービスを作成する手順を参照してください。
 
 ## <a name="to-install-the-wcf-non-http-activation-components"></a>WCF 非 HTTP アクティブ化コンポーネントをインストールするには
 
@@ -52,7 +52,7 @@ WAS をインストールして構成し[た後、「」を参照してくださ
     ```
 
     > [!NOTE]
-    > このコマンドはテキスト 1 行です。 このコマンドにより、\<と`net.tcp://localhost/<WCF Application>`の両方`http://localhost/<WCF Application>`を使用して、/*WCF アプリケーション*> アプリケーションにアクセスできるようになります。
+    > このコマンドはテキスト 1 行です。 このコマンドは、`http://localhost/<WCF Application>` と `net.tcp://localhost/<WCF Application>`の両方を使用して、/\<*WCF アプリケーション*> アプリケーションにアクセスできるようにします。
 
      このサンプル用に追加した net.tcp サイト バインディングを削除します。
 
@@ -106,4 +106,4 @@ WAS をインストールして構成し[た後、「」を参照してくださ
 - [TCP アクティベーション](../../../../docs/framework/wcf/samples/tcp-activation.md)
 - [MSMQ アクティベーション](../../../../docs/framework/wcf/samples/msmq-activation.md)
 - [NamedPipe アクティベーション](../../../../docs/framework/wcf/samples/namedpipe-activation.md)
-- [AppFabric のホスティング機能](https://go.microsoft.com/fwlink/?LinkId=201276)
+- [AppFabric のホスティング機能](https://docs.microsoft.com/previous-versions/appfabric/ee677189(v=azure.10))

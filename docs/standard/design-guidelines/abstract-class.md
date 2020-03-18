@@ -10,34 +10,34 @@ helpviewer_keywords:
 - classes [.NET Framework], design guidelines
 - type design guidelines, classes
 ms.assetid: d3646e6d-5c1f-4922-8fb0-ec5effb30d60
-author: KrzysztofCwalina
-ms.openlocfilehash: 6eec3bb4575b89c6476e6c3410050c705141777f
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 018dd353024e75e9819f5a97008f2f422ecad291
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61785555"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76739062"
 ---
 # <a name="abstract-class-design"></a>抽象クラスのデザイン
-**X** 抽象型に public または protected のコンストラクターを定義しないでください。  
-  
- コンストラクターは、ユーザーがその型のインスタンスを作成する必要がないならば public であるべきではありません。 抽象型のインスタンスを作成することはできないので、public なコンストラクターを持つ抽象型は設計が間違っており、ユーザーに誤解を招きます。  
-  
- **✓** 抽象クラスには、protected または internal のコンストラクターを定義してください。  
-  
- protected コンストラクターはより一般的で、派生型が作成された時に基底クラスが独自の初期化を実行できるようにします。  
-  
- internal コンストラクターは、その具象実装をアセンブリ内部に制限するために用いることができます。  
-  
- **✓** 出荷する抽象クラスから継承する具象型を少なくとも 1 つ提供してください。  
-  
- こうすることにより、抽象クラスのデザインを検証できます。 たとえば、<xref:System.IO.FileStream?displayProperty=nameWithType>は<xref:System.IO.Stream?displayProperty=nameWithType>の具象実装です。  
-  
- *Portions © 2005, 2009 Microsoft Corporation.All rights reserved.*  
-  
- *Pearson Education, Inc. からのアクセス許可によって了承を得て転載[Framework デザイン ガイドライン。規則、手法、および再利用可能な .NET ライブラリの第 2 版のパターン](https://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)Krzysztof Cwalina、Brad 内容では、Microsoft Windows の開発シリーズの一部として、Addison-wesley Professional、2008 年 10 月 22日を公開します。*  
-  
-## <a name="see-also"></a>関連項目
+
+抽象型では、パブリックまたは保護された内部コンストラクターを定義 ❌ ません。
+
+ コンストラクターは、ユーザーがその型のインスタンスを作成する必要がないならば public であるべきではありません。 抽象型のインスタンスを作成することはできないので、public なコンストラクターを持つ抽象型は設計が間違っており、ユーザーに誤解を招きます。
+
+ ✔️は、抽象クラスで protected コンストラクターまたは internal コンストラクターを定義します。
+
+ protected コンストラクターはより一般的で、派生型が作成された時に基底クラスが独自の初期化を実行できるようにします。
+
+ internal コンストラクターは、その具象実装をアセンブリ内部に制限するために用いることができます。
+
+ ✔️は、出荷する各抽象クラスから継承される具象型を少なくとも1つ指定する必要があります。
+
+ こうすることにより、抽象クラスのデザインを検証できます。 たとえば、<xref:System.IO.FileStream?displayProperty=nameWithType> は <xref:System.IO.Stream?displayProperty=nameWithType> 抽象クラスの実装です。
+
+ *©2005、2009 Microsoft Corporation の部分。すべての権限が予約されています。*
+
+ *2008 年 10 月 22 日に Microsoft Windows Development シリーズの一部として、Addison-Wesley Professional によって発行された、Krzysztof Cwalina および Brad Abrams による「[Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition](https://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)」 (フレームワーク デザイン ガイドライン: 再利用可能な .NET ライブラリの規則、用法、パターン、第 2 版) から Pearson Education, Inc. の許可を得て再印刷されています。*
+
+## <a name="see-also"></a>参照
 
 - [型デザインのガイドライン](../../../docs/standard/design-guidelines/type.md)
 - [フレームワーク デザインのガイドライン](../../../docs/standard/design-guidelines/index.md)

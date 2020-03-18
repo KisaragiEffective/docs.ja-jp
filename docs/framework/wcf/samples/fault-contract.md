@@ -2,12 +2,12 @@
 title: エラー コントラクト
 ms.date: 03/30/2017
 ms.assetid: b31b140e-dc3b-408b-b3c7-10b6fe769725
-ms.openlocfilehash: 907497101c13e1f62ff2abb5da563178c9643c6c
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: d8ea7010bef389b49f68c811565a641a580e230a
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70039661"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74716953"
 ---
 # <a name="fault-contract"></a>エラー コントラクト
 エラー コントラクトのサンプルでは、エラー情報をサービスからクライアントに通信する方法を示します。 このサンプルは[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいており、内部例外をエラーに変換するためにサービスに追加のコードが追加されています。 クライアントは 0 による除算を試行し、サービスを強制的にエラー状態にします。  
@@ -113,7 +113,7 @@ catch (FaultException<MathFault> e)
 </behaviors>  
 ```  
   
- さらに、構成ファイル内のサービスの`behaviorConfiguration`属性を "CalculatorServiceBehavior" に設定することにより、この動作をサービスに関連付ける必要があります。  
+ さらに、構成ファイル内のサービスの `behaviorConfiguration` 属性を "CalculatorServiceBehavior" に設定することにより、この動作をサービスに関連付ける必要があります。  
   
  こうしたエラーをクライアントでキャッチするには、非ジェネリックの <xref:System.ServiceModel.FaultException> をキャッチする必要があります。  
   
@@ -132,6 +132,6 @@ catch (FaultException<MathFault> e)
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Contract\Service\Faults`  

@@ -37,7 +37,7 @@
             - name: WCF 開発者向け ASP.NET Core gRPC
               tocHref: /dotnet/architecture/grpc-for-wcf-developers/
               topicHref: /dotnet/architecture/grpc-for-wcf-developers/index
-        - name: .NET のガイド
+        - name: .NET ガイド
           tocHref: /dotnet/standard/
           topicHref: /dotnet/standard/index
           items:
@@ -56,16 +56,19 @@
             - name: .NET における基本型の操作
               tocHref: /dotnet/standard/base-types/
               topicHref: /dotnet/standard/base-types/index
-            - name: コレクションとデータ構造体
+            - name: コレクションとデータ構造
               tocHref: /dotnet/standard/collections/
               topicHref: /dotnet/standard/collections/index
               items:
                 - name: スレッド セーフなコレクション
                   tocHref: /dotnet/standard/collections/thread-safe/
                   topicHref: /dotnet/standard/collections/thread-safe/index
-            - name: .NET による複数のプラットフォームの開発
+            - name: .NET での複数のプラットフォームでの開発
               tocHref: /dotnet/standard/cross-platform/
               topicHref: /dotnet/standard/cross-platform/index
+            - name: Microsoft.Data.Sqlite
+              tocHref: /dotnet/standard/data/sqlite/
+              topicHref: /dotnet/standard/data/sqlite/index
             - name: XML ドキュメントと XML データ
               tocHref: /dotnet/standard/data/xml/
               topicHref: /dotnet/standard/data/xml/index
@@ -87,7 +90,7 @@
             - name: .NET のジェネリック
               tocHref: /dotnet/standard/generics/
               topicHref: /dotnet/standard/generics/index
-            - name: グローバライズとローカライズ
+            - name: グローバリゼーションとローカリゼーション
               tocHref: /dotnet/standard/globalization-localization/
               topicHref: /dotnet/standard/globalization-localization/index
             - name: ファイルおよびストリーム入出力
@@ -111,16 +114,61 @@
             - name: マネージド スレッド処理
               tocHref: /dotnet/standard/threading/
               topicHref: /dotnet/standard/threading/index
-        - name: .NET Core のガイド
+        - name: .NET Core ガイド
           tocHref: /dotnet/core/
           topicHref: /dotnet/core/index
           items:
+            - name: インストール ガイド
+              tocHref: /dotnet/core/install/
+              topicHref: /dotnet/core/install/index
+            - name: 新機能
+              tocHref: /dotnet/core/whats-new/
+              topicHref: /dotnet/core/whats-new/dotnet-core-3-0
+            - name: 互換性に影響する変更
+              tocHref: /dotnet/core/compatibility/
+              topicHref: /dotnet/core/compatibility/index
+            - name: チュートリアル
+              tocHref: /dotnet/core/tutorials/
+              topicHref: /dotnet/core/tutorials/index
+            - name: ランタイム構成
+              tocHref: /dotnet/core/run-time-config/
+              topicHref: /dotnet/core/run-time-config/index
+            - name: ネイティブ相互運用性
+              tocHref: /dotnet/core/native-interop/
+              topicHref: /dotnet/core/native-interop/expose-components-to-com
+            - name: 移行
+              tocHref: /dotnet/core/migration/
+              topicHref: /dotnet/core/migration/index
+            - name: 配置
+              tocHref: /dotnet/core/deploying/
+              topicHref: /dotnet/core/deploying/index
+            - name: Docker
+              tocHref: /dotnet/core/docker/
+              topicHref: /dotnet/core/docker/introduction
+            - name: 診断ツール
+              tocHref: /dotnet/core/diagnostics/
+              topicHref: /dotnet/core/diagnostics/index
+            - name: 単体テスト
+              tocHref: /dotnet/core/testing/
+              topicHref: /dotnet/core/testing/index
+            - name: バージョン管理
+              tocHref: /dotnet/core/versions/
+              topicHref: /dotnet/core/versions/index
+            - name: SDK プロジェクト
+              tocHref: /dotnet/core/project-sdk/
+              topicHref: /dotnet/core/project-sdk/overview
             - name: ツール
               tocHref: /dotnet/core/tools/
               topicHref: /dotnet/core/tools/index
-            - name: 互換性
-              tocHref: /dotnet/core/compatibility/
-              topicHref: /dotnet/core/compatibility/index
+            - name: その他のツール
+              tocHref: /dotnet/core/additional-tools/
+              topicHref: /dotnet/core/additional-tools/index
+            - name: 移植
+              tocHref: /dotnet/core/porting/
+              topicHref: /dotnet/core/porting/index
+            - name: 依存関係の読み込み
+              tocHref: /dotnet/core/dependency-loading/
+              topicHref: /dotnet/core/dependency-loading/overview
         - name: .NET Framework
           tocHref: /dotnet/framework/
           topicHref: /dotnet/framework/index
@@ -128,13 +176,13 @@
             - name: アドインおよび拡張機能
               tocHref: /dotnet/framework/add-ins/
               topicHref: /dotnet/framework/add-ins/index
-            - name: 追加の API
+            - name: その他の API
               tocHref: /dotnet/framework/additional-apis/
               topicHref: /dotnet/framework/additional-apis/index
             - name: アプリケーション ドメインとアセンブリ
               tocHref: /dotnet/framework/app-domains/
               topicHref: /dotnet/framework/app-domains/index
-            - name: 構成ファイルを使用してアプリを構成する方法
+            - name: 構成ファイルを使用したアプリの構成
               tocHref: /dotnet/framework/configure-apps/
               topicHref: /dotnet/framework/configure-apps/index
               items:
@@ -157,7 +205,7 @@
                     - name: スタートアップ設定スキーマ
                       tocHref: /dotnet/framework/configure-apps/file-schema/startup/
                       topicHref: /dotnet/framework/configure-apps/file-schema/startup/index
-                    - name: トレースおよびデバッグ設定のスキーマ
+                    - name: トレースおよびデバッグ設定スキーマ
                       tocHref: /dotnet/framework/configure-apps/file-schema/trace-debug/
                       topicHref: /dotnet/framework/configure-apps/file-schema/trace-debug/index
                     - name: WCF 構成スキーマ
@@ -172,13 +220,13 @@
                     - name: Windows Identity Foundation 構成スキーマ
                       tocHref: /dotnet/framework/configure-apps/file-schema/windows-identity-foundation/
                       topicHref: /dotnet/framework/configure-apps/file-schema/windows-identity-foundation/index
-                    - name: Windows Workflow Foundation の構成スキーマ
+                    - name: Windows Workflow Foundation 構成スキーマ
                       tocHref: /dotnet/framework/configure-apps/file-schema/windows-workflow-foundation
                       topicHref: /dotnet/framework/configure-apps/file-schema/windows-workflow-foundation/index
                     - name: Windows フォームの構成セクション
                       tocHref: /dotnet/framework/configure-apps/file-schema/winforms/
                       topicHref: /dotnet/framework/configure-apps/file-schema/winforms/index
-            - name: .NET Framework におけるデータとモデリング
+            - name: データとモデリング
               tocHref: /dotnet/framework/data/
               topicHref: /dotnet/framework/data/index
               items:
@@ -212,19 +260,19 @@
             - name: デバッグ、トレース、およびプロファイリング
               tocHref: /dotnet/framework/debug-trace-profile/
               topicHref: /dotnet/framework/debug-trace-profile/index
-            - name: .NET Framework の配置
+            - name: .NET Framework の展開
               tocHref: /dotnet/framework/deployment/
               topicHref: /dotnet/framework/deployment/index
-            - name: Docker を使用した .NET Framework アプリケーションの展開
+            - name: Docker を使用した .NET Framework アプリの展開
               tocHref: /dotnet/framework/docker/
               topicHref: /dotnet/framework/docker/index
-            - name: 開始するには
+            - name: 作業開始
               tocHref: /dotnet/framework/get-started/
               topicHref: /dotnet/framework/get-started/index
             - name: インストール ガイド
               tocHref: /dotnet/framework/install/
               topicHref: /dotnet/framework/install/index
-            - name: アンマネージ コードとの相互運用
+            - name: アンマネージド コードとの相互運用
               tocHref: /dotnet/framework/interop/
               topicHref: /dotnet/framework/interop/index
             - name: MEF (Managed Extensibility Framework)
@@ -236,21 +284,18 @@
             - name: .NET ネイティブによるアプリのコンパイル
               tocHref: /dotnet/framework/net-native/
               topicHref: /dotnet/framework/net-native/index
-            - name: .NET Framework のネットワーク プログラミング
+            - name: ネットワーク プログラミング
               tocHref: /dotnet/framework/network-programming/
               topicHref: /dotnet/framework/network-programming/index
             - name: .NET Framework のパフォーマンス
               tocHref: /dotnet/framework/performance/
               topicHref: /dotnet/framework/performance/index
-            - name: .NET Framework の動的プログラミング
+            - name: 動的プログラミング
               tocHref: /dotnet/framework/reflection-and-codedom/
               topicHref: /dotnet/framework/reflection-and-codedom/index
-            - name: デスクトップ アプリケーションのリソース
+            - name: デスクトップ アプリのリソース
               tocHref: /dotnet/framework/resources/
               topicHref: /dotnet/framework/resources/index
-            - name: .NET Framework におけるセキュリティ
-              tocHref: /dotnet/framework/security/
-              topicHref: /dotnet/framework/security/index
             - name: .NET Framework ツール
               tocHref: /dotnet/framework/tools/
               topicHref: /dotnet/framework/tools/index
@@ -261,7 +306,7 @@
               tocHref: /dotnet/framework/unmanaged-api/
               topicHref: /dotnet/framework/unmanaged-api/index
               items:
-                - name: ALink API (アンマネージ API リファレンス)
+                - name: ALink API (アンマネージド API リファレンス)
                   tocHref: /dotnet/framework/unmanaged-api/alink/
                   topicHref: /dotnet/framework/unmanaged-api/alink/index
                 - name: Authenticode (アンマネージ API リファレンス)
@@ -302,13 +347,13 @@
                     - name: ETW を使用した分析トレース
                       tocHref: /dotnet/framework/wcf/diagnostics/etw/
                       topicHref: /dotnet/framework/wcf/diagnostics/etw/index
-                    - name: WCF のイベント ログ
+                    - name: WCF でのイベント ログ
                       tocHref: /dotnet/framework/wcf/diagnostics/event-logging/
                       topicHref: /dotnet/framework/wcf/diagnostics/event-logging/index
                     - name: 例外リファレンス
                       tocHref: /dotnet/framework/wcf/diagnostics/exceptions-reference/
                       topicHref: /dotnet/framework/wcf/diagnostics/exceptions-reference/index
-                    - name: WCF パフォーマンス カウンター
+                    - name: WCF のパフォーマンス カウンター
                       tocHref: /dotnet/framework/wcf/diagnostics/performance-counters/
                       topicHref: /dotnet/framework/wcf/diagnostics/performance-counters/index
                     - name: トレース
@@ -323,7 +368,7 @@
                 - name: WCF 機能の詳細
                   tocHref: /dotnet/framework/wcf/feature-details/
                   topicHref: /dotnet/framework/wcf/feature-details/index
-                - name: Windows Communication Foundation (WCF) サンプル
+                - name: Windows Communication Foundation (WCF) のサンプル
                   tocHref: /dotnet/framework/wcf/samples/
                   topicHref: /dotnet/framework/wcf/samples/index
             - name: .NET Framework の新機能
@@ -353,7 +398,7 @@
               tocHref: /dotnet/framework/wpf/
               topicHref: /dotnet/framework/wpf/index
               items:
-                - name: 詳細設定 (Windows Presentation Foundation)
+                - name: 詳細設定
                   tocHref: /dotnet/framework/wpf/advanced/
                   topicHref: /dotnet/framework/wpf/advanced/index
                 - name: アプリケーション開発
@@ -365,7 +410,7 @@
                 - name: データ
                   tocHref: /dotnet/framework/wpf/data/
                   topicHref: /dotnet/framework/wpf/data/index
-                - name: 概要 (WPF)
+                - name: WPF の使用を開始する
                   tocHref: /dotnet/framework/wpf/getting-started/
                   topicHref: /dotnet/framework/wpf/getting-started/index
                 - name: グラフィックスとマルチメディア
@@ -374,11 +419,11 @@
             - name: XAML サービス
               tocHref: /dotnet/framework/xaml-services/
               topicHref: /dotnet/framework/xaml-services/index
-        - name: デスクトップ ガイド - WPF
+        - name: デスクトップ ガイド ‐ WPF
           tocHref: /dotnet/desktop-wpf/
           topicHref: /dotnet/desktop-wpf/index
           items:
-            - name: 作業の開始
+            - name: 作業開始
               tocHref: /visualstudio/get-started/csharp/tutorial-wpf
               topicHref: /dotnet/desktop-wpf/getting-started/index
             - name: 移行
@@ -387,14 +432,14 @@
             - name: データ バインディング
               tocHref: /dotnet/desktop-wpf/data
               topicHref: /dotnet/desktop-wpf/data/index
-        - name: 'C# のガイド'
+        - name: 'C# ガイド'
           tocHref: /dotnet/csharp/
           topicHref: /dotnet/csharp/index
           items:
             - name: 'C# の概要'
               tocHref: /dotnet/csharp/tutorials/intro-to-csharp/
               topicHref: /dotnet/csharp/tutorials/intro-to-csharp/index
-            - name: 作業の開始
+            - name: 作業開始
               tocHref: /dotnet/csharp/getting-started/
               topicHref: /dotnet/csharp/getting-started/index
             - name: チュートリアル
@@ -406,12 +451,6 @@
             - name: 新機能
               tocHref: /dotnet/csharp/whats-new/
               topicHref: /dotnet/csharp/whats-new/index
-            - name: Interactive
-              tocHref: /dotnet/csharp/interactive/
-              topicHref: /dotnet/csharp/interactive/index
-            - name: 概念
-              tocHref: /dotnet/csharp/concepts/
-              topicHref: /dotnet/csharp/concepts/index
             - name: .NET Compiler Platform SDK
               tocHref: /dotnet/csharp/roslyn-sdk/
               topicHref: /dotnet/csharp/roslyn-sdk/index
@@ -452,9 +491,6 @@
                 - name: 相互運用性
                   tocHref: /dotnet/csharp/programming-guide/interop/
                   topicHref: /dotnet/csharp/programming-guide/interop/index
-                - name: LINQ
-                  tocHref: /dotnet/csharp/programming-guide/linq/
-                  topicHref: /dotnet/csharp/programming-guide/linq/index
                 - name: Main() とコマンド ライン引数
                   tocHref: /dotnet/csharp/programming-guide/main-and-command-args/
                   topicHref: /dotnet/csharp/programming-guide/main-and-command-args/index
@@ -495,7 +531,7 @@
                 - name: 文字列
                   tocHref: /dotnet/csharp/programming-guide/strings/
                   topicHref: /dotnet/csharp/programming-guide/strings/index
-                - name: 種類
+                - name: 型
                   tocHref: /dotnet/csharp/programming-guide/types/
                   topicHref: /dotnet/csharp/programming-guide/types/index
                 - name: アンセーフ コードとポインター
@@ -547,14 +583,14 @@
         - name: 'F# のガイド'
           tocHref: /dotnet/fsharp/
           topicHref: /dotnet/fsharp/index
-        - name: Visual Basic のガイド
+        - name: Visual Basic ガイド
           tocHref: /dotnet/visual-basic/
           topicHref: /dotnet/visual-basic/index
           items:
             - name: 作業開始
               tocHref: /dotnet/visual-basic/getting-started/
               topicHref: /dotnet/visual-basic/getting-started/index
-            - name: アプリケーションの開発
+            - name: アプリケーションを開発する
               tocHref: /dotnet/visual-basic/developing-apps/
               topicHref: /dotnet/visual-basic/developing-apps/index
             - name: プログラミングの概念
@@ -640,7 +676,7 @@
             - name: 言語リファレンス
               tocHref: /dotnet/visual-basic/language-reference/
               topicHref: /dotnet/visual-basic/language-reference/index
-            - name: 参照
+            - name: 関連項目
               tocHref: /dotnet/visual-basic/reference/
               topicHref: /dotnet/visual-basic/reference/index
         - name: ML.NET ガイド

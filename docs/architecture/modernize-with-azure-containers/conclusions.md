@@ -1,31 +1,31 @@
 ---
 title: まとめ
-description: Azure クラウドおよび Windows コンテナーで既存の .NET アプリケーションを最新化する |わかり
+description: Azure Cloud と Windows コンテナーで既存の .NET アプリケーションを最新化する | 結論
 ms.date: 10/26/2017
 ms.openlocfilehash: c7c4042b224577238ae74bd786d4803e487998e7
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
-ms.translationtype: MT
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69578485"
 ---
 # <a name="conclusions"></a>まとめ
 
-- コンテナーベースのソリューションでは、最終的にコストの節約効果が得られます。 コンテナーは、運用環境での依存関係の欠如によって生じる摩擦を取り除くため、デプロイの問題に対するソリューションです。 これらの問題を削除することで、開発/テスト、DevOps、運用の各操作が大幅に改善されます。
+- コンテナーベースのソリューションでは、最終的にコストの節約効果が得られます。 コンテナーにより、運用環境での依存関係の欠如によって生じる摩擦が取り除かれるため、デプロイの問題に対するソリューションです。 これらの問題が取り除かれると、Dev/Test、DevOps、運用の各操作が大幅に改善されます。
 
 - Docker コンテナーは、サーバー ベースのアプリケーションまたはサービスの配置の標準的な単位になっています。
 
-- 運用環境では、orchestrator (Kubernetes など) を使用して、スケーラブルなコンテナーベースのアプリケーションをホストする必要があります。
+- 運用環境の場合、スケーラブルなコンテナーベースのアプリケーションをホストするには、オーケストレーター (Kubernetes など) を使用しする必要があります。
 
-- コンテナーをホストする Azure Vm は、小規模な開発/テスト環境をクラウドに作成するための迅速で簡単な方法です。
+- コンテナーをホストする Azure VM は、クラウドで小規模な Dev/Test 環境を作る迅速でシンプルな方法です。
 
-- 既存のアプリケーションから Azure にリレーショナルデータベースを移行する場合、既定では Azure SQL Database Managed Instance が推奨されます。
+- 既存のアプリケーションから Azure にリレーショナル データベースを移行するとき、Azure SQL Database Managed Instance が既定で推奨されています。
 
-- Visual Studio 2017 と Image2Docker は、Windows コンテナーで既存の .NET アプリケーションの最新化を開始するための基本的なツールです。これには、作業の開始に関する曲線を加速させる必要があります。
+- Windows コンテナーを利用して既存の .NET アプリケーションの最新化を始めるとき、Visual Studio 2017 と Image2Docker が基本のツールになります。入門学習曲線を加速します。
 
-- コンテナー化されたアプリケーションを運用環境に配置するときは、Azure DevOps Services や Jenkins のように、CI/CD パイプライン用の DevOps カルチャと DevOps ツールを常に作成または採用します。
+- コンテナー化されたアプリケーションを運用環境に配置するとき、Azure DevOps Services や Jenkins など、CI/CD パイプライン向けの DevOps カルチャと DevOps ツールを常に作成するか、導入します。
 
-- Microsoft Azure は、Windows コンテナー、クラウドインフラストラクチャ、PaaS サービスを使用して既存の .NET Framework アプリケーションを最新化するための最も包括的で完全な環境を提供します。
+- Microsoft Azure により、Windows コンテナー、クラウド インフラストラクチャ、PaaS サービスを使用して既存の .NET Framework アプリケーションを最新化するための最も包括的で完全な環境が提供されます。
 
 >[!div class="step-by-step"]
->[前へ](walkthroughs-technical-get-started-overview.md)
+>[[戻る]](walkthroughs-technical-get-started-overview.md)

@@ -1,51 +1,51 @@
 ---
-title: '方法: Visual Basic での別のプロシージャに渡す'
+title: '方法: プロシージャを別のプロシージャに渡す'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - AddressOf operator [Visual Basic]
 - delegates [Visual Basic], passing procedures
 ms.assetid: 5adbba15-5a1d-413f-ab3e-3ff6cc0a4669
-ms.openlocfilehash: 312c0e0f100e85256ad4ca856ccf7f35dbaa36dc
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 300489935ce54d78b989d09211a7f6ba95c2f514
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61973285"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74345247"
 ---
-# <a name="how-to-pass-procedures-to-another-procedure-in-visual-basic"></a>方法: Visual Basic での別のプロシージャに渡す
-この例では、プロシージャを別のプロシージャに渡すデリゲートを使用する方法を示します。  
+# <a name="how-to-pass-procedures-to-another-procedure-in-visual-basic"></a>方法 : Visual Basic でプロシージャを別のプロシージャに渡す
+この例では、デリゲートを使用してプロシージャを別のプロシージャに渡す方法を示します。  
   
- デリゲートは、Visual Basic での他の種類のように使用できる型です。 `AddressOf`演算子プロシージャ名に適用する場合は、デリゲート オブジェクトを返します。  
+ デリゲートは、Visual Basic の他の型と同様に使用できる型です。 `AddressOf` 演算子は、プロシージャ名に適用されるときにデリゲートオブジェクトを返します。  
   
- この例では、プロシージャを別のプロシージャを使用して取得への参照を受け取ることができます delegate パラメーターを持つ、`AddressOf`演算子。  
+ この例には、`AddressOf` 演算子で取得した別のプロシージャへの参照を受け取ることができるデリゲートパラメーターを持つプロシージャがあります。  
   
-### <a name="create-the-delegate-and-matching-procedures"></a>デリゲートと一致するプロシージャを作成します。  
+### <a name="create-the-delegate-and-matching-procedures"></a>デリゲートと一致するプロシージャを作成する  
   
-1. という名前のデリゲートを作成する`MathOperator`します。  
+1. `MathOperator`という名前のデリゲートを作成します。  
   
      [!code-vb[VbVbalrDelegates#1](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrDelegates/VB/Class1.vb#1)]  
   
-2. という名前のプロシージャを作成する`AddNumbers`パラメーターと戻り値のものと一致する`MathOperator`署名が一致するようにします。  
+2. シグネチャが一致するように、パラメーターと戻り値が `MathOperator`と一致する `AddNumbers` という名前のプロシージャを作成します。  
   
      [!code-vb[VbVbalrDelegates#2](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrDelegates/VB/Class1.vb#2)]  
   
-3. という名前のプロシージャを作成する`SubtractNumbers`と一致するシグネチャを持つ`MathOperator`します。  
+3. `MathOperator`に一致する署名を持つ `SubtractNumbers` という名前のプロシージャを作成します。  
   
      [!code-vb[VbVbalrDelegates#3](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrDelegates/VB/Class1.vb#3)]  
   
-4. という名前のプロシージャを作成`DelegateTest`をパラメーターとしてデリゲートを取得します。  
+4. デリゲートをパラメーターとして受け取る `DelegateTest` という名前のプロシージャを作成します。  
   
-     この手順への参照を受け入れることができる`AddNumbers`または`SubtractNumbers`、署名が一致しているため、`MathOperator`署名します。  
+     署名が `MathOperator` シグネチャと一致するため、このプロシージャは `AddNumbers` または `SubtractNumbers`への参照を受け入れることができます。  
   
      [!code-vb[VbVbalrDelegates#4](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrDelegates/VB/Class1.vb#4)]  
   
-5. という名前のプロシージャを作成する`Test`を呼び出す`DelegateTest`のデリゲートが 1 回`AddNumbers`をパラメーターとして、もう一度のデリゲートと`SubtractNumbers`をパラメーターとして。  
+5. パラメーターとして `AddNumbers` のデリゲートを使用して `DelegateTest` を1回呼び出す `Test` という名前のプロシージャを作成し、さらに、パラメーターとして `SubtractNumbers` のデリゲートを使用します。  
   
      [!code-vb[VbVbalrDelegates#5](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrDelegates/VB/Class1.vb#5)]  
   
-     ときに`Test`が呼び出されると、その最初の結果を表示`AddNumbers`に機能している`5`と`3`8 であります。 結果、`SubtractNumbers`に作用する`9`と`3`が表示されたら、6 であります。  
+     `Test` が呼び出されると、最初に `5` および `3`(8) で動作している `AddNumbers` の結果が表示されます。 次に、`9` と `3` に作用する `SubtractNumbers` の結果が表示されます。これは6です。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [デリゲート](../../../../visual-basic/programming-guide/language-features/delegates/index.md)
 - [AddressOf 演算子](../../../../visual-basic/language-reference/operators/addressof-operator.md)

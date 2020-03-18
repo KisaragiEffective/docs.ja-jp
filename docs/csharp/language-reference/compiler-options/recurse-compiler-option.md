@@ -9,10 +9,10 @@ helpviewer_keywords:
 - -recurse compiler option [C#]
 ms.assetid: 4e8212e5-04e3-45b1-8a42-41bc50e683b0
 ms.openlocfilehash: c82e3019e1a1e3ba45a7000312b54b9d7f64a2db
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69606743"
 ---
 # <a name="-recurse-c-compiler-options"></a>-recurse (C# コンパイラ オプション)
@@ -25,7 +25,7 @@ ms.locfileid: "69606743"
 ```  
   
 ## <a name="arguments"></a>引数  
- `dir` (省略可能)  
+ `dir` (省略可)  
  検索を開始するディレクトリ。 指定しない場合は、プロジェクト ディレクトリから検索されます。  
   
  `file`  
@@ -51,7 +51,7 @@ csc *.cs
 csc -target:library -out:dir2.dll -recurse:dir1\dir2\*.cs  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](./index.md)
 - [プロジェクトおよびソリューションのプロパティの管理](/visualstudio/ide/managing-project-and-solution-properties)

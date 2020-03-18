@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 63a7d47a-0d54-4e29-9767-9f09feaa38b7
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 04b8ac6751024e64cc866fce1cfe72fb42e41200
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 4380b8a3803e164aab7318821a9dbde32ecc3a0b
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67760435"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76781752"
 ---
 # <a name="icordebugmanagedcallbackexitprocess-method"></a>ICorDebugManagedCallback::ExitProcess メソッド
-プロセスが終了していることをデバッガーに通知します。  
+プロセスが終了したことをデバッガーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,17 +35,17 @@ HRESULT ExitProcess (
   
 ## <a name="parameters"></a>パラメーター  
  `pProcess`  
- [in]プロセスを表す ICorDebugProcess オブジェクトへのポインター。  
+ からプロセスを表す、のオブジェクトへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- 継続することはできません、`ExitProcess`イベント。 このイベントは、プロセスが停止するのに見えますが他のイベントに非同期的に発生可能性があります。 これは、停止している間、通常の外的要因により、プロセスが終了した場合に発生します。  
+## <a name="remarks"></a>コメント  
+ `ExitProcess` イベントから続行することはできません。 このイベントは、プロセスの停止中に、他のイベントに非同期に発生する場合があります。 これは、プロセスが停止中に終了した場合に発生する可能性があります。通常は、何らかの外部強制が原因です。  
   
- 共通言語ランタイム (CLR) では、マネージ コールバックをディスパッチは既に場合、そのコールバックが返された後に、このイベントはまで延期されます。  
+ 共通言語ランタイム (CLR) がマネージコールバックのディスパッチを既に行っている場合、このイベントは、そのコールバックが返されるまで遅延されます。  
   
- `ExitProcess`イベントは、シャット ダウン時に呼び出されることが保証される唯一の終了/アンロード イベント。  
+ `ExitProcess` イベントは、シャットダウン時に呼び出されることが保証されている唯一の終了/アンロードイベントです。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -57,4 +55,4 @@ HRESULT ExitProcess (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugManagedCallback インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-interface.md)
+- [ICorDebugManagedCallback インターフェイス](icordebugmanagedcallback-interface.md)

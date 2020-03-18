@@ -2,13 +2,14 @@
 title: 式ツリーのまとめ
 description: 式ツリーを使用して、コードをデータとして解釈する動的なプログラムを作成し、そのコードに基づいて新しい機能を構築する方法についてまとめます。
 ms.date: 06/20/2016
+ms.technology: csharp-advanced-concepts
 ms.assetid: eb687ebd-1149-4453-9fc1-12a084495a66
-ms.openlocfilehash: 99b9463df096d3aada19ed7995b04ef4bd41c179
-ms.sourcegitcommit: 0be8a279af6d8a43e03141e349d3efd5d35f8767
+ms.openlocfilehash: 513244a987e295c81cfb5d00d9a0cfd6912074e0
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59148630"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79145892"
 ---
 # <a name="expression-trees-summary"></a>式ツリーのまとめ
 
@@ -18,7 +19,7 @@ ms.locfileid: "59148630"
 
 式ツリーを調べれば、アルゴリズムの目的を理解することができます。 そのコードを調べるだけではなく、 元のコードの変更バージョンを表す新しい式ツリーを構築することができます。
 
-また式ツリーは、アルゴリズムを参照して、そのアルゴリズムを別の言語や環境に変換するためにも使用できます。 
+また式ツリーは、アルゴリズムを参照して、そのアルゴリズムを別の言語や環境に変換するためにも使用できます。
 
 ## <a name="limitations"></a>制限事項
 

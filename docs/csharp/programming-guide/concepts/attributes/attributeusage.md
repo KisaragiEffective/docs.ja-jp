@@ -2,24 +2,24 @@
 title: AttributeUsage (C#)
 ms.date: 04/25/2018
 ms.openlocfilehash: a3a82e33d7259ec56ec3e907bc3d4d9f8a01167d
-ms.sourcegitcommit: 6b308cf6d627d78ee36dbbae8972a310ac7fd6c8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54589312"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "61668719"
 ---
 # <a name="attributeusage-c"></a>AttributeUsage (C#)
 
 カスタム属性クラスの使用方法を決定します。 <xref:System.AttributeUsageAttribute> は、カスタム属性定義に適用する属性です。 `AttributeUsage` 属性を使用すると、以下を制御できます。
 
 - 適用できるプログラム要素属性。 使用法を制限しない限り、属性は以下のプログラム要素のいずれかに適用できます。
-  - アセンブリ
+  - アセンブリ (assembly)
   - name
-  - フィールド
-  - event
-  - メソッド
+  - のフィールド
+  - イベント
+  - method
   - param
-  - property
+  - プロパティ
   - return
   - 型
 - 1 つのプログラム要素に属性を複数回適用できるかどうか。
@@ -47,7 +47,7 @@ C# 7.3 以降、プロパティ、または自動実装バッキング フィー
 
 [!code-csharp[Create and use an attribute that can be applied multiple times](../../../../../samples/snippets/csharp/attributes/MultiUseAttribute.cs#1)]
 
-この例では、`AllowMultiple` が `true` に設定されているので、`MultiUseAttribute` を繰り返し適用できます。 示されているどちらの形式でも、複数の属性を適用できます。
+この例では、`MultiUseAttribute` が `AllowMultiple` に設定されているので、`true` を繰り返し適用できます。 示されているどちらの形式でも、複数の属性を適用できます。
 
 <xref:System.AttributeUsageAttribute.Inherited> が `false` の場合、属性は属性クラスから派生したクラスに継承されません。 次に例を示します。
 
@@ -55,7 +55,7 @@ C# 7.3 以降、プロパティ、または自動実装バッキング フィー
 
 この例で、`NonInheritedAttribute` は継承によって `DClass` に適用されません。
 
-## <a name="remarks"></a>コメント
+## <a name="remarks"></a>解説
 
 `AttributeUsage` 属性は、1 回だけ使用できる属性です。同じクラスに複数回適用することはできません。 `AttributeUsage` は <xref:System.AttributeUsageAttribute> の別名です。
 
@@ -63,11 +63,11 @@ C# 7.3 以降、プロパティ、または自動実装バッキング フィー
 
 ## <a name="example"></a>例
 
-次の例を見ると、<xref:System.AttributeUsageAttribute> 属性に対する <xref:System.AttributeUsageAttribute.Inherited> 引数と <xref:System.AttributeUsageAttribute.AllowMultiple> 引数の効果、およびクラスに適用されているカスタム属性の列挙方法がわかります。
+次の例を見ると、<xref:System.AttributeUsageAttribute.Inherited> 属性に対する <xref:System.AttributeUsageAttribute.AllowMultiple> 引数と <xref:System.AttributeUsageAttribute> 引数の効果、およびクラスに適用されているカスタム属性の列挙方法がわかります。
 
 [!code-csharp[Applying and querying attributes](../../../../../samples/snippets/csharp/attributes/Program.cs#1)]
 
-## <a name="sample-output"></a>出力例
+## <a name="sample-output"></a>サンプル出力
 
 ```text
 Attributes on Base Class:
@@ -79,11 +79,11 @@ ThirdAttribute
 SecondAttribute
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Attribute>
 - <xref:System.Reflection>
-- [C# プログラミング ガイド](../..//index.md)
+- [C# プログラミングガイド](../..//index.md)
 - [属性](../../../..//standard/attributes/index.md)
 - [リフレクション (C#)](../reflection.md)
 - [属性](index.md)

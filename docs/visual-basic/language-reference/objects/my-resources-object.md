@@ -1,5 +1,5 @@
 ---
-title: My.Resources オブジェクト (Visual Basic)
+title: My.Resources オブジェクト
 ms.date: 07/20/2015
 f1_keywords:
 - My.Resources
@@ -8,72 +8,72 @@ f1_keywords:
 helpviewer_keywords:
 - My.Resources object
 ms.assetid: 34c3f2dc-7b87-432c-9d5f-17ea666bb266
-ms.openlocfilehash: 02e29b17404da0e868973364b0b17b5c4ca418c6
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 7f5d81194123ad2151a494a3cb79aa1955e0fdad
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64647626"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350327"
 ---
 # <a name="myresources-object"></a>My.Resources オブジェクト
 アプリケーションのリソースにアクセスするためのプロパティとクラスを提供します。  
   
-## <a name="remarks"></a>Remarks  
- `My.Resources`オブジェクト、アプリケーションのリソースへのアクセスを提供でき、動的にアプリケーションのリソースを取得します。 詳細については、次を参照してください。[アプリケーション リソースの管理 (.NET)](/visualstudio/ide/managing-application-resources-dotnet)します。  
+## <a name="remarks"></a>コメント  
+ `My.Resources` オブジェクトは、アプリケーションのリソースへのアクセスを提供し、アプリケーションのリソースを動的に取得できるようにします。 詳細については、「[アプリケーションリソースの管理 (.net)](/visualstudio/ide/managing-application-resources-dotnet)」を参照してください。  
   
- `My.Resources`オブジェクトはグローバル リソースのみを公開します。 フォームに関連付けられているリソース ファイルへのアクセスは行いません。 フォームのフォーム リソースにアクセスする必要があります。  
+ `My.Resources` オブジェクトは、グローバルリソースのみを公開します。 フォームに関連付けられたリソースファイルへのアクセスは提供されません。 フォームリソースには、フォームからアクセスする必要があります。  
   
- アプリケーションのカルチャ固有のリソース ファイルにアクセスすることができます、`My.Resources`オブジェクト。 既定で、`My.Resources`オブジェクトのカルチャに一致するリソース ファイルからリソースを調べ、<xref:Microsoft.VisualBasic.ApplicationServices.ApplicationBase.UICulture%2A>プロパティ。 ただし、この動作をオーバーライドし、リソースに使用する特定のカルチャを指定できます。 詳細については、「[デスクトップ アプリケーションのリソース](../../../framework/resources/index.md)」を参照してください。  
+ `My.Resources` オブジェクトから、アプリケーションのカルチャ固有のリソースファイルにアクセスできます。 既定では、`My.Resources` オブジェクトは、<xref:Microsoft.VisualBasic.ApplicationServices.ApplicationBase.UICulture%2A> プロパティのカルチャに一致するリソースファイルからリソースを検索します。 ただし、この動作をオーバーライドして、リソースに使用する特定のカルチャを指定することができます。 詳細については、「[デスクトップ アプリケーションのリソース](../../../framework/resources/index.md)」を参照してください。  
   
-## <a name="properties"></a>プロパティ  
- プロパティ、`My.Resources`オブジェクトは、アプリケーションのリソースへの読み取り専用アクセスを提供します。 を追加または削除のリソースを使用して、**プロジェクト デザイナー**します。 使用して追加のリソースにアクセスすることができます、**プロジェクト デザイナー**を使用して`My.Resources.` *resourceName*します。  
+## <a name="properties"></a>[プロパティ]  
+ `My.Resources` オブジェクトのプロパティは、アプリケーションのリソースへの読み取り専用アクセスを提供します。 リソースを追加または削除するには、**プロジェクトデザイナー**を使用します。 **プロジェクトデザイナー**によって追加されたリソースにアクセスするには *、`My.Resources.`リソースを使用します*。  
   
- 追加またはでプロジェクトを選択してリソース ファイルを削除することができますも**ソリューション エクスプ ローラー**クリック**新しい項目の追加**または**既存項目の追加**から、 **プロジェクト**メニュー。 使用して、この方法で追加のリソースにアクセスすることができます`My.Resources.` *resourceFileName*`.`*resourceName*します。  
+ また、**ソリューションエクスプローラー**でプロジェクトを選択し、 **[プロジェクト]** メニューの **[新しい項目の追加]** または **[既存項目の追加]** をクリックして、リソースファイルを追加または削除することもできます。 この方法で追加されたリソースにアクセスするには、`My.Resources.`*Resourcefilename* *`.`を使用します*。  
   
- 各リソースには、名前、カテゴリ、および値、およびこれらのリソースの設定は、リソースにアクセスするプロパティを表示する方法を決定、`My.Resources`オブジェクト。 追加するリソースの**プロジェクト デザイナー**:  
+ 各リソースには名前、カテゴリ、および値があり、これらのリソースの設定によって、リソースにアクセスするためのプロパティが `My.Resources` オブジェクトにどのように表示されるかが決まります。 **プロジェクトデザイナー**に追加されたリソースの場合:  
   
-- 名前は、プロパティの名前を決定します。  
+- 名前によって、プロパティの名前が決まります。  
   
-- リソース データは、プロパティの値  
+- リソースデータはプロパティの値です。  
   
-- カテゴリは、プロパティの型を決定します。  
+- カテゴリによって、プロパティの種類が決まります。  
   
-|Category|プロパティのデータ型|  
+|カテゴリ|プロパティのデータ型|  
 |---|---|  
 |**文字列**|[String](../../../visual-basic/language-reference/data-types/string-data-type.md)|  
 |**イメージ**|<xref:System.Drawing.Bitmap>|  
 |**アイコン**|<xref:System.Drawing.Icon>|  
-|**オーディオ**|<xref:System.IO.UnmanagedMemoryStream><br /><br /> <xref:System.IO.UnmanagedMemoryStream>クラスから派生、<xref:System.IO.Stream>クラス、メソッドなど、ストリームを確認すると、使用できるように、<xref:Microsoft.VisualBasic.Devices.Audio.Play%2A>メソッド。|  
-|**ファイル**|-   [文字列](../../../visual-basic/language-reference/data-types/string-data-type.md)テキスト ファイル。<br />-   <xref:System.Drawing.Bitmap> イメージ ファイル。<br />-   <xref:System.Drawing.Icon> アイコン ファイル。<br />-   <xref:System.IO.UnmanagedMemoryStream> 音声ファイル。|  
-|**その他**|デザイナーの内の情報によって決まります**型**列。|  
+|**オーディオ**|<xref:System.IO.UnmanagedMemoryStream><br /><br /> <xref:System.IO.UnmanagedMemoryStream> クラスは <xref:System.IO.Stream> クラスから派生するので、<xref:Microsoft.VisualBasic.Devices.Audio.Play%2A> メソッドなどのストリームを受け取るメソッドで使用できます。|  
+|**ファイル**|テキストファイルの[文字列](../../../visual-basic/language-reference/data-types/string-data-type.md)を -   します。<br />イメージファイルの <xref:System.Drawing.Bitmap> を -   します。<br />アイコンファイルの <xref:System.Drawing.Icon> を -   します。<br />サウンドファイルの <xref:System.IO.UnmanagedMemoryStream> を -   します。|  
+|**その他**|デザイナーの**Type**列の情報によって決定されます。|  
   
 ## <a name="classes"></a>クラス  
- `My.Resources`オブジェクト クラスと共有のプロパティとして各リソース ファイルを公開します。 クラス名は、リソース ファイルの名前と同じです。 前のセクションで説明した、リソース ファイル内のリソースは、クラスのプロパティとして公開されます。  
+ `My.Resources` オブジェクトは、各リソースファイルを共有プロパティを持つクラスとして公開します。 クラス名は、リソースファイルの名前と同じです。 前のセクションで説明したように、リソースファイル内のリソースはクラスのプロパティとして公開されます。  
   
 ## <a name="example"></a>例  
- この例では、指定された文字列リソースをフォームのタイトルを設定`Form1Title`アプリケーション リソース ファイルにします。 例を動作させるには、アプリケーションがという名前の文字列をいる必要があります`Form1Title`リソース ファイル。  
+ この例では、フォームのタイトルを、アプリケーションリソースファイル内の `Form1Title` という名前の文字列リソースに設定します。 この例を使用するには、アプリケーションのリソースファイルに `Form1Title` という名前の文字列が必要です。  
   
  [!code-vb[VbVbalrMyResources#1](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrMyResources/VB/Form1.vb#1)]  
   
 ## <a name="example"></a>例  
- この例では、フォームのアイコンを設定するという名前のアイコン`Form1Icon`アプリケーションのリソース ファイルに格納されています。 例を動作させるには、アプリケーションがという名前のアイコンをいる必要があります`Form1Icon`リソース ファイル。  
+ この例では、フォームのアイコンを、アプリケーションのリソースファイルに格納されている `Form1Icon` という名前のアイコンに設定します。 この例を使用するには、アプリケーションのリソースファイルに `Form1Icon` という名前のアイコンが必要です。  
   
  [!code-vb[VbVbalrMyResources#2](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrMyResources/VB/Form1.vb#2)]  
   
 ## <a name="example"></a>例  
- この例では、フォームの背景イメージを設定という名前のイメージ リソースを`Form1Background`、アプリケーション リソース ファイルであります。 この例を動作させるには、アプリケーションがという名前のイメージ リソースを必要`Form1Background`リソース ファイル。  
+ この例では、フォームの背景画像を、アプリケーションリソースファイル内の `Form1Background`という名前のイメージリソースに設定します。 この例を使用するには、アプリケーションのリソースファイルに `Form1Background` という名前のイメージリソースが必要です。  
   
  [!code-vb[VbVbalrMyResources#3](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrMyResources/VB/Form1.vb#3)]  
   
 ## <a name="example"></a>例  
- この例は、オーディオという名前のリソースとして格納されているサウンドを再生`Form1Greeting`でアプリケーションのリソース ファイル。 例を動作させるには、アプリケーションにオーディオという名前のリソースが必要`Form1Greeting`リソース ファイル。 `My.Computer.Audio.Play`メソッドは Windows フォーム アプリケーションでのみ使用できます。  
+ この例では、アプリケーションのリソースファイルに `Form1Greeting` という名前のオーディオリソースとして格納されているサウンドを再生します。 この例を使用するには、アプリケーションのリソースファイルに `Form1Greeting` という名前のオーディオリソースが必要です。 `My.Computer.Audio.Play` メソッドは、Windows フォームアプリケーションに対してのみ使用できます。  
   
  [!code-vb[VbVbalrMyResources#4](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrMyResources/VB/Form1.vb#4)]  
   
 ## <a name="example"></a>例  
- この例では、アプリケーションの文字列リソースのフランス語のカルチャのバージョンを取得します。 リソースが名前付き`Message`します。 カルチャを変更するが、`My.Resources`オブジェクトを使用して、この例では<xref:Microsoft.VisualBasic.ApplicationServices.ApplicationBase.ChangeUICulture%2A>します。  
+ この例では、アプリケーションの文字列リソースのフランス語カルチャバージョンを取得します。 リソースには `Message`という名前が付けられます。 `My.Resources` オブジェクトが使用するカルチャを変更するために、この例では <xref:Microsoft.VisualBasic.ApplicationServices.ApplicationBase.ChangeUICulture%2A>を使用します。  
   
- この例を動作させるには、アプリケーションがという名前の文字列をいる必要があります`Message`でのリソース ファイル、およびアプリケーションが必要にリソース ファイルで、Resources.fr-fr.resx のフランス語のカルチャのバージョン。 アプリケーションには、リソース ファイルのフランス語のカルチャのバージョンがない場合、`My.Resource`オブジェクトは、既定のカルチャのリソース ファイルからリソースを取得します。  
+ この例を使用するには、アプリケーションのリソースファイルに `Message` という名前の文字列が必要です。また、アプリケーションには、そのリソースファイル Resources.fr のフランス語カルチャバージョンが必要です。 アプリケーションにフランス語カルチャバージョンのリソースファイルがない場合、`My.Resource` オブジェクトは、既定のカルチャリソースファイルからリソースを取得します。  
   
  [!code-vb[VbVbalrMyResources#10](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrMyResources/VB/Form1.vb#10)]  
   

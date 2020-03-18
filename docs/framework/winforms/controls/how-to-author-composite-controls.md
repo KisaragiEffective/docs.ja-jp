@@ -1,5 +1,5 @@
 ---
-title: '方法: 複合コントロールを作成する'
+title: '方法 : 複合コントロールを作成する'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - UserControl class [Windows Forms], creating composite controls
@@ -7,17 +7,17 @@ helpviewer_keywords:
 - user controls [Windows Forms], inheriting from
 - composite controls [Windows Forms], creating
 ms.assetid: 79c9cf05-5ab6-4a18-886d-88a64748b098
-author: gewarren
-ms.author: gewarren
+author: jillre
+ms.author: jillfra
 manager: jillfra
-ms.openlocfilehash: 08cb07ceebf08b3096415f9b7370e2d955152cb6
-ms.sourcegitcommit: 121ab70c1ebedba41d276e436dd2b1502748a49f
+ms.openlocfilehash: 42ea424507b89576df8099fd4849dd2665135a55
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70015934"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73459437"
 ---
-# <a name="how-to-author-composite-controls"></a>方法: 複合コントロールの作成
+# <a name="how-to-author-composite-controls"></a>方法: 複合コントロールを作成する
 
 複合コントロールはさまざまな方法で使用できます。 Windows デスクトップ アプリケーション プロジェクトの一部として複合コントロールを作成し、プロジェクト内のフォーム上でのみ使用することができます。 または、Windows コントロール ライブラリ プロジェクトで複合コントロールを作成し、プロジェクトをアセンブリにコンパイルして、他のプロジェクトで使用することもできます。 また、それらを継承し、ビジュアル継承を使用して、特殊な目的ですばやくカスタマイズすることもできます。
 
@@ -82,5 +82,5 @@ ms.locfileid: "70015934"
 - [チュートリアル: 複合コントロールの作成](walkthrough-authoring-a-composite-control-with-visual-csharp.md)
 - [チュートリアル: Windows フォームコントロールからの継承](walkthrough-inheriting-from-a-windows-forms-control-with-visual-csharp.md)
 - [コントロールの種類に関するアドバイス](control-type-recommendations.md)
-- [方法: Windows フォームの作成者コントロール](how-to-author-controls-for-windows-forms.md)
+- [方法: Windows フォームのコントロールを作成する](how-to-author-controls-for-windows-forms.md)
 - [さまざまなカスタム コントロール](varieties-of-custom-controls.md)

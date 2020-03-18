@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: aa20ac3d-6f60-4aa2-91c5-f3a86f82eba8
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ec9c4f3afb8f3b7e75e22874996d57d29ce8cf16
-ms.sourcegitcommit: 3caa92cb97e9f6c31f21769c7a3f7c4304024b39
+ms.openlocfilehash: f37bf545553045b9737b7057feed78e1f06ace4d
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71274214"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099464"
 ---
 # <a name="cor_array_layout-structure"></a>COR_ARRAY_LAYOUT 構造体
 メモリ内の配列オブジェクトのレイアウトに関する情報が提供されます。  
@@ -54,17 +52,17 @@ typedef struct COR_ARRAY_LAYOUT {
 |`numRanks`|配列内のランクの数。|  
 |`rankOffset`|ランクの開始位置を示すオフセット。|  
   
-## <a name="remarks"></a>コメント  
- この`rankSize`フィールドは、多次元配列内のランクのサイズを指定します。 これは、1次元配列に対しても正確です。  
+## <a name="remarks"></a>Remarks  
+ `rankSize` フィールドは、多次元配列内のランクのサイズを指定します。 これは、1次元配列に対しても正確です。  
   
- の`numRanks`値は、1次元`N`配列の場合は1、次元の`N`多次元配列の場合は1になります。  
+ `numRanks` の値は、1次元配列の場合は1、`N` 次元の多次元配列の場合は `N` です。  
   
-## <a name="requirements"></a>要件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v45plus](../../../../includes/net-current-v45plus-md.md)]  
   

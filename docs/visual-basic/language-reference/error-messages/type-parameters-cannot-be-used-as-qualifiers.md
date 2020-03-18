@@ -42,5 +42,5 @@ End Function
 ## <a name="see-also"></a>関連項目
 
 - [宣言された要素の参照](../../programming-guide/language-features/declared-elements/references-to-declared-elements.md)
-- [Generic Types in Visual Basic](../../programming-guide/language-features/data-types/generic-types.md)
+- [Visual Basic におけるジェネリック型](../../programming-guide/language-features/data-types/generic-types.md)
 - [型リスト](../statements/type-list.md)

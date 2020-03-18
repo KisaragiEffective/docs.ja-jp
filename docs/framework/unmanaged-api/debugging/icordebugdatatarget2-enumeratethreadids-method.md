@@ -2,14 +2,12 @@
 title: ICorDebugDataTarget2::EnumerateThreadIDs メソッド
 ms.date: 03/30/2017
 ms.assetid: af02460f-2a45-496e-bc4e-a1ac4f80fe11
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1dc5f8b7fa308bdb0fb270c11e044244839a7b47
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 74d4905f2b386f8e0345e4300dd2c8c6d0c882ea
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69910288"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76783650"
 ---
 # <a name="icordebugdatatarget2enumeratethreadids-method"></a>ICorDebugDataTarget2::EnumerateThreadIDs メソッド
 アクティブなスレッド ID の一覧を返します。  
@@ -34,19 +32,19 @@ HRESULT EnumerateThreadIDs(
  pThreadIDs  
  スレッド識別子の配列。  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
   
 > [!NOTE]
 > このメソッドは .NET ネイティブでのみ使用できます。  
   
-## <a name="requirements"></a>必要条件  
- **・** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。**ヘッダー:** CorDebug .idl、CorDebug. h  
+## <a name="requirements"></a>要件  
+ **プラットフォーム:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。**ヘッダー:** CorDebug .idl、CorDebug. h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_46_native](../../../../includes/net-46-native-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugDataTarget2 インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugdatatarget2-interface.md)
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [ICorDebugDataTarget2 インターフェイス](icordebugdatatarget2-interface.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

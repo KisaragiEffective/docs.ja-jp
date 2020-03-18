@@ -14,14 +14,12 @@ helpviewer_keywords:
 - special characters
 - IDENTIFIER
 ms.assetid: d90b1e39-9115-4f2a-81c0-05e7e74e5580
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 656b82daffc62824ed663ea7080bd6d20cd0dadc
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 707c71482196d789ed9a88db34af048ec57734fb
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71045815"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130028"
 ---
 # <a name="specifying-fully-qualified-type-names"></a>完全修飾型名の指定
 
@@ -128,7 +126,7 @@ IDENTIFIER の一部として使用する場合、次のトークンを区切る
 |\\*|ポインター型。|
 |\\[|配列次元の区切り文字。|
 |\\]|配列次元の区切り文字。|
-|\\。|配列の指定内にピリオドを使用する場合にのみ、ピリオドの前にバックスラッシュを使用します。 NamespaceSpec 内のピリオドにはバックスラッシュを使用できません。|
+|\\.|配列の指定内にピリオドを使用する場合にのみ、ピリオドの前にバックスラッシュを使用します。 NamespaceSpec 内のピリオドにはバックスラッシュを使用できません。|
 |\\\|文字列リテラルとして必要な場合のバックスラッシュ。|
 
 AssemblyNameSpec を除くすべての TypeSpec コンポーネントで、スペースは関係があります。 AssemblyNameSpec の場合、',' 区切り文字の前にあるスペースは関係がありますが、',' の後のスペースは無視されます。
@@ -149,7 +147,7 @@ AssemblyNameSpec を除くすべての TypeSpec コンポーネントで、ス�
 |**PublicKey**|完全な公開鍵|16 進数形式の完全な公開鍵の文字列値。 プライベート アセンブリを明示的に指定するには、null 参照を指定します (Visual Basic では **Nothing**)。|
 |**PublicKeyToken**|公開鍵トークン (完全な公開鍵の 8 バイト ハッシュ)|16 進数形式の公開鍵トークンの文字列値。 プライベート アセンブリを明示的に指定するには、null 参照を指定します (Visual Basic では **Nothing**)。|
 |**カルチャ**|アセンブリのカルチャ|RFC 1766 形式のアセンブリのカルチャ。言語に依存しない (非サテライト) アセンブリの場合は "neutral"。|
-|**カスタム**|カスタム バイナリ ラージ オブジェクト (BLOB)。 現在、 [ネイティブ イメージ ジェネレーター (Ngen)](../tools/ngen-exe-native-image-generator.md) で生成されたアセンブリでのみ使用されています。|アセンブリがインストールされていることをアセンブリ キャッシュに通知するために Native Image Generator ツールに使用されているカスタム文字列は、ネイティブ イメージです。そのため、ネイティブ イメージ キャッシュにインストールされます。 zap 文字列とも呼ばれます。|
+|**カスタム**|カスタム バイナリ ラージ オブジェクト (BLOB)。 現在、 [Native Image Generator (Ngen)](../tools/ngen-exe-native-image-generator.md) で生成されたアセンブリでのみ使用されています。|アセンブリがインストールされていることをアセンブリ キャッシュに通知するために Native Image Generator ツールに使用されているカスタム文字列は、ネイティブ イメージです。そのため、ネイティブ イメージ キャッシュにインストールされます。 zap 文字列とも呼ばれます。|
 
 次に、カルチャが既定で単純な名前のアセンブリの**AssemblyName** の例を示します。
 

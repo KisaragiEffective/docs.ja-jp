@@ -3,23 +3,22 @@ title: パッケージ、メタパッケージ、フレームワーク - .NET Co
 description: パッケージ、メタパッケージ、フレームワークの用語を説明します。
 author: richlander
 ms.date: 06/20/2016
-ms.custom: seodec18
-ms.openlocfilehash: 7b019686df195a8cebdce126f7a0b2d22548dc0e
-ms.sourcegitcommit: 992f80328b51b165051c42ff5330788627abe973
+ms.openlocfilehash: 657519edf1c0860ee3222c71ce85723e19029a9d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275767"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79397933"
 ---
 # <a name="packages-metapackages-and-frameworks"></a>パッケージ、メタパッケージ、フレームワーク
 
-.NET Core は、NuGet パッケージで作成されたプラットフォームです。 製品のエクスペリエンスには、粒度の細かいパッケージの定義から恩恵を受けるものもあれば、粒度の粗いパッケージの定義から恩恵を受けるものもあります。 この二重性に対応するために、製品は、粒度の細かいパッケージ セットとして配布され、かつ、俗に[メタパッケージ](#metapackages)と呼ばれるパッケージの種類を使用して粒度の粗いチャンク単位で配布されます。
+.NET Core は、NuGet パッケージで作成されたプラットフォームです。 製品のエクスペリエンスには、粒度の細かいパッケージの定義から恩恵を受けるものもあれば、粒度の粗いパッケージの定義から恩恵を受けるものもあります。 この二重性に対応するために、.NET Core は、粒度の細かいパッケージ セットとして配布され、かつ、俗に[メタパッケージ](#metapackages)と呼ばれるパッケージの種類を使用して粒度の粗いチャンク単位で配布されます。
 
-各 .NET Core パッケージは、フレームワークとして表現される、複数の .NET 実装での実行に対応しています。 このようなフレームワークには、`net46` (.NET Framework に相当する) のような従来のフレームワークもあれば、 フレームワークを定義するために新しいモデルを確立し、"パッケージ ベースのフレームワーク" と見なすことができる新しいフレームワークもあります。 パッケージ ベースのフレームワークは、完全にパッケージとして形成および定義されるので、パッケージとフレームワークの間に強力なリレーションシップが形成されます。
+各 .NET Core パッケージは、フレームワークとして表現される、複数の .NET 実装での実行に対応しています。 このようなフレームワークには、`net46` (.NET Framework に相当する) のような従来のフレームワークもあれば、 フレームワークを定義するために新しいモデルを確立し、"パッケージ ベースのフレームワーク" と見なすことができる新しいフレームワークもあります。 パッケージ ベースのフレームワークは、完全にパッケージとして作成および定義されるので、パッケージとフレームワークの間に強力なリレーションシップが形成されます。
 
 ## <a name="packages"></a>パッケージ
 
-.NET core は、プリミティブ、上位レベルのデータ型、アプリ コンポジション型、および一般的なユーティリティを提供する一連のパッケージに分割されます。 これらのパッケージはいずれも、同じ名前の単一アセンブリです。 たとえば、[System.Runtime](https://www.nuget.org/packages/System.Runtime) には、System.Runtime.dll が含まれています。 
+.NET core は、プリミティブ、上位レベルのデータ型、アプリ コンポジション型、および一般的なユーティリティを提供する一連のパッケージに分割されます。 これらのパッケージはいずれも、同じ名前の単一アセンブリです。 たとえば、[System.Runtime パッケージ](https://www.nuget.org/packages/System.Runtime)には、System.Runtime.dll が含まれています。
 
 粒度の細かい方法でパッケージを定義することには、次の利点があります。
 
@@ -39,7 +38,7 @@ ms.locfileid: "72275767"
 - [System.Linq](https://www.nuget.org/packages/System.Linq) - オブジェクトに対するクエリの種類のセットです。`Enumerable` や <xref:System.Linq.ILookup%602> などがあります。
 - [System.Reflection](https://www.nuget.org/packages/System.Reflection) - 読み込み、検査、およびアクティブ化の種類のセットです。<xref:System.Reflection.Assembly>、<xref:System.Reflection.TypeInfo>、<xref:System.Reflection.MethodInfo> などがあります。
 
-通常、各パッケージを含めるより[メタパッケージ](#metapackages)を含める方がより簡単であり、より堅牢です。 ただし、単一のパッケージが必要な場合、下の例のように追加できます。[System.Runtime](https://www.nuget.org/packages/System.Runtime/) パッケージを参照しています。 
+通常、各パッケージを含めるより[メタパッケージ](#metapackages)を含める方がより簡単であり、より堅牢です。 ただし、単一のパッケージが必要な場合、下の例のように追加できます。[System.Runtime](https://www.nuget.org/packages/System.Runtime/) パッケージを参照しています。
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -54,24 +53,24 @@ ms.locfileid: "72275767"
 
 ## <a name="metapackages"></a>メタパッケージ
 
-メタパッケージは、統合して意味をなすパッケージ セットを記述するための NuGet パッケージの規則です。 メタパッケージでは、パッケージ間に依存関係を設定して、パッケージ セットを表現します。 メタパッケージでは必要に応じて、フレームワークを指定して、このパッケージ セットのフレームワークを確立することができます。 
+メタパッケージは、統合して意味をなすパッケージ セットを記述するための NuGet パッケージの規則です。 メタパッケージでは、このパッケージのセットを表すために、それらを依存関係にします。 メタパッケージを使うと、必要に応じて、フレームワークを指定して、パッケージのセットのフレームワークを確立することができます。
 
 .NET Core ツールの以前のバージョンは (project.json ツールと csproj-based ツールの両方)、既定では、フレームワークとメタパッケージの両方を指定していました。 ただし、現時点では、各メタパッケージがターゲット フレームワークに関連付けられるように、ターゲット フレームワークによってメタパッケージが暗黙的に参照されます。 たとえば、`netstandard1.6` フレームワークは NetStandard.Library バージョン 1.6.0 メタパッケージを参照します。 同様に、`netcoreapp2.1` フレームワークは Microsoft.NETCore.App バージョン 2.1.0 メタパッケージを参照します。 詳細については、「[Implicit metapackage package reference in the .NET Core SDK](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md)」 (.NET Core SDK のメタパッケージの暗黙的パッケージ参照) を参照してください。
 
-フレームワークをターゲットにし、メタパッケージを暗黙的に参照することは、各依存パッケージの参照を 1 つのジェスチャとして追加することを実質的に意味します。 これらのパッケージのライブラリはすべて、IntelliSense (または同様のエクスペリエンス) とアプリの公開で利用できます。  
+フレームワークをターゲットにし、メタパッケージを暗黙的に参照することは、各依存パッケージの参照を 1 つのジェスチャとして追加することを実質的に意味します。 これらのパッケージのライブラリはすべて、IntelliSense (または同様のエクスペリエンス) とアプリの公開で利用できます。
 
 メタパッケージを使用する利点は次のとおりです。
 
-- 一連の粒度の細かいパッケージを参照するのに便利なユーザー エクスペリエンスを提供できます。 
+- 一連の粒度の細かいパッケージを参照するのに便利なユーザー エクスペリエンスを提供できます。
 - テストされ一体となって優れた機能を発揮するパッケージ セット (特定のバージョンを含む) を定義できます。
 
 .NET Standard のメタパッケージ:
 
-- [NETStandard.Library](https://www.nuget.org/packages/NETStandard.Library) - ".NET Standard" に含まれるライブラリを記述したものです。 .NET Standard をサポートするすべての .NET 実装 (.NET Framework、.NET Core および Mono など) に適用されます。 "netstandard" フレームワークを確立します。
+- [NETStandard.Library](https://www.nuget.org/packages/NETStandard.Library) - .NET Standard に含まれるライブラリを記述したものです。 .NET Standard をサポートするすべての .NET 実装 (.NET Framework、.NET Core、Mono など) に適用されます。 `netstandard` フレームワークを確立します。
 
 主な .NET Core メタパッケージ:
 
-- [Microsoft.NETCore.App](https://www.nuget.org/packages/Microsoft.NETCore.App) - .NET Core 配布に含まれるライブラリについて記述します。 [`.NETCoreApp` フレームワーク](https://github.com/dotnet/core-setup/blob/release/1.1.0/pkg/projects/Microsoft.NETCore.App/Microsoft.NETCore.App.pkgproj)を確立します。 よりサイズの小さな `NETStandard.Library` に依存します。
+- [Microsoft.NETCore.App](https://www.nuget.org/packages/Microsoft.NETCore.App) - .NET Core 配布に含まれるライブラリについて記述します。 `.NETCoreApp` フレームワークを確立します。 よりサイズの小さな `NETStandard.Library` に依存します。
 - [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) - ASP.NET Core と Entity Framework Core からのパッケージで、サポートされているすべてのパッケージが含まれます。ただし、サードパーティの依存関係が含まれるものを除きます。 詳細については、「[ASP.NET Core 2.1 以降に対応した Microsoft.AspNetCore.App メタパッケージ](/aspnet/core/fundamentals/metapackage-app)」を参照してください。
 - [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) - ASP.NET Core、Entity Framework Core、および ASP.NET Core と Entity Framework Core によって使用される内部依存関係およびサード パーティの依存関係からの、サポートされるすべてのパッケージが含まれます。 詳しくは、「[ASP.NET Core 2.x 用 Microsoft.AspNetCore.All メタパッケージ](/aspnet/core/fundamentals/metapackage)」をご覧ください。
 - [Microsoft.NETCore.Portable.Compatibility](https://www.nuget.org/packages/Microsoft.NETCore.Portable.Compatibility) - mscorlib ベースのポータブル クラス ライブラリ (PCL) を .NET Core で実行できるようにするための互換性ファサードのセットです。
@@ -88,9 +87,9 @@ ms.locfileid: "72275767"
 
 上記フレームワークの最初の 2 つの例は、フレームワークの 2 種類の定義方法を示したものであるので、この 2 つを比べることには意義があります。
 
-`.NETFramework,Version=4.6` フレームワークは、.NET Framework 4.6 で使用できる API を表します。 .NET Framework 4.6 参照アセンブリでコンパイルされたライブラリを生成し、NuGet パッケージの net46 lib フォルダーに置かれているそれらのライブラリを配布することができます。 このフレームワークは、.NET Framework 4.6 を対象とするアプリ、または .NET Framework 4.6 と互換性のあるアプリで使用されます。 これは、すべてのフレームワークの従来のしくみです。
+- `.NETFramework,Version=4.6` フレームワークは、.NET Framework 4.6 で使用できる API を表します。 .NET Framework 4.6 参照アセンブリでコンパイルされたライブラリを生成し、NuGet パッケージの net46 lib フォルダーに置かれているそれらのライブラリを配布することができます。 このフレームワークは、.NET Framework 4.6 を対象とするアプリ、または .NET Framework 4.6 と互換性のあるアプリで使用されます。 これは、すべてのフレームワークの従来のしくみです。
 
-`.NETStandard,Version=1.3` フレームワークは、パッケージ ベースのフレームワークです。 これは、フレームワークに関して API を定義して公開するためにフレームワークを対象とするパッケージに依存します。
+- `.NETStandard,Version=1.3` フレームワークは、パッケージ ベースのフレームワークです。 これは、フレームワークに関して API を定義して公開するためにフレームワークを対象とするパッケージに依存します。
 
 ## <a name="package-based-frameworks"></a>パッケージ ベースのフレームワーク
 
@@ -132,14 +131,14 @@ ms.locfileid: "72275767"
 </Project>
 ```
 
-`netstandard1.3` を対象とするのに `NETStandard.Library` のバージョン 1.6.0 を使用するのは、奇妙に思えるかもしれません。 これは、メタパッケージでは古い `netstandard` バージョンのサポートが継続されていることから、使用例として有効です。 メタパッケージのバージョン 1.6.0 が標準とされている状況で、これをすべてのライブラリ (`netstandard` の各種バージョンを対象とする) で使用する場合が考えられます。 この方法を使用した場合、`NETStandard.Library` 1.6.0 を復元する必要があるだけで、それより前のバージョンの復元は必要ありません。 
+`netstandard1.3` を対象とするのに `NETStandard.Library` のバージョン 1.6.0 を使用するのは、奇妙に思えるかもしれません。 これは、メタパッケージでは古い `netstandard` バージョンのサポートが継続されていることから、使用例として有効です。 メタパッケージのバージョン 1.6.0 が標準とされている状況で、これをすべてのライブラリ (`netstandard` の各種バージョンを対象とする) で使用する場合が考えられます。 この方法を使用した場合、`NETStandard.Library` 1.6.0 を復元する必要があるだけで、それより前のバージョンの復元は必要ありません。
 
-逆は無効になります (`netstandard1.6` を対象とするが、`NETStandard.Library` のバージョン 1.3.0 を使用する)。 上位フレームワークと下位メタパッケージの組み合わせを対象とすることはできません。下位バージョンのメタパッケージはその上位フレームワークに対して資産を公開しないことが理由です。 メタパッケージのバージョン管理スキームは、メタパッケージが、記述したフレームワークの最上位バージョンと一致することをアサートします。 バージョン管理スキームにより、`netstandard1.6` 資産が含まれている場合、`NETStandard.Library` の最初のバージョンは v1.6.0 となります。 上記の例では対称性を考慮して v1.3.0 が使用されていますが、実際には存在しません。
+逆は無効になります (`netstandard1.6` を対象とするが、`NETStandard.Library` のバージョン 1.3.0 を使用する)。 上位フレームワークと下位メタパッケージの組み合わせを対象とすることはできません。下位バージョンのメタパッケージはその上位フレームワークに対して資産を公開しないことが理由です。 メタパッケージのバージョン管理スキームは、メタパッケージが、記述したフレームワークの最上位バージョンと一致することをアサートします。 バージョン管理スキームにより、`NETStandard.Library` 資産が含まれている場合、`netstandard1.6` の最初のバージョンは v1.6.0 となります。 (前の例と対称の場合、ここでは v 1.3.0 が使用されますが、実際には存在しません)。
 
 ### <a name="net-core-application"></a>.NET Core アプリケーション
 
-.NET Core アプリケーション ([ターゲット フレームワーク モニカー](../standard/frameworks.md): `netcoreapp`) フレームワークは、.NET Core 配布に付属のパッケージおよび関連する API と、.NET Core 配布によって提供されるコンソール アプリケーション モデルを表します。 .NET Core アプリは、コンソール アプリケーション モデルを対象とすることから、.NET Core での実行のみを意図するライブラリとして、このフレームワークを使用する必要があります。 このフレームワークを使用すると、アプリとライブラリは .NET Core でのみの実行に限定されます。 
+.NET Core アプリケーション ([ターゲット フレームワーク モニカー](../standard/frameworks.md): `netcoreapp`) フレームワークは、.NET Core 配布に付属のパッケージおよび関連する API と、.NET Core 配布によって提供されるコンソール アプリケーション モデルを表します。 .NET Core アプリは、コンソール アプリケーション モデルを対象とすることから、.NET Core での実行のみを意図するライブラリとして、このフレームワークを使用する必要があります。 このフレームワークを使用すると、アプリとライブラリは .NET Core でのみの実行に限定されます。
 
-`Microsoft.NETCore.App` メタパッケージは、`netcoreapp` フレームワークを対象とします。 これは、約 60 のライブラリにアクセスできるようにします (約 40 個は `NETStandard.Library` パッケージによって提供され、さらに約 20 個の追加分)。 `netcoreapp` または互換性を持つフレームワーク (`netstandard` など) を対象とする追加のライブラリを参照することで、追加の API にアクセスできます。 
+`Microsoft.NETCore.App` メタパッケージは、`netcoreapp` フレームワークを対象とします。 これは、約 60 のライブラリにアクセスできるようにします (約 40 個は `NETStandard.Library` パッケージによって提供され、さらに約 20 個の追加分)。 `netcoreapp` または互換性を持つフレームワーク (`netstandard` など) を対象とする追加のライブラリを参照することで、追加の API にアクセスできます。
 
-`Microsoft.NETCore.App` によって提供される追加ライブラリの大部分も、依存関係がほかの `netstandard` ライブラリによって満足されるならば、`netstandard` を対象とします。 つまり、`netstandard` ライブラリは、それらのパッケージを依存関係として参照することもできます。 
+`Microsoft.NETCore.App` によって提供される追加ライブラリの大部分も、依存関係がほかの `netstandard` ライブラリによって満足されるならば、`netstandard` を対象とします。 つまり、`netstandard` ライブラリは、それらのパッケージを依存関係として参照することもできます。

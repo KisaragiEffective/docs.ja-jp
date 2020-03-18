@@ -1,29 +1,29 @@
 ---
-title: '方法: デザイナーを使って Windows フォーム コントロールを型にバインドする'
+title: デザイナーを使用してコントロールを型にバインドする
 ms.date: 03/30/2017
 helpviewer_keywords:
 - controls [Windows Forms], binding to a type
 - BindingSource component [Windows Forms], binding to a type
 - types [Windows Forms], binding controls to
 ms.assetid: 5ab984b5-c2d0-4638-a572-1c84013e8746
-ms.openlocfilehash: 5069d7d3b5ef4c5b05159dac521d32f5be8abdd1
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 2257489e123ceeea819ad3538952db51b726c7e5
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70046038"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76742019"
 ---
-# <a name="how-to-bind-a-windows-forms-control-to-a-type-using-the-designer"></a>方法: デザイナーを使って Windows フォーム コントロールを型にバインドする
+# <a name="how-to-bind-a-windows-forms-control-to-a-type-using-the-designer"></a>方法 : デザイナーを使って Windows フォーム コントロールを型にバインドする
 
-データをやり取りするコントロールを作成する際、オブジェクトではなく型にコントロールをバインドすることが必要な場合があります。 データを使用できないが、データ バインド コントロールで型のパブリック インターフェイスからデータを表示する必要がある場合、通常はデザイン時にコントロールを型にバインドする必要があります。 次の手順では、型にバインド<xref:System.Windows.Forms.BindingSource>される新しいを作成する方法と、型のプロパティの1つをの<xref:System.Windows.Forms.TextBox.Text%2A> <xref:System.Windows.Forms.TextBox>プロパティにバインドする方法について説明します。
+データをやり取りするコントロールを作成する際、オブジェクトではなく型にコントロールをバインドすることが必要な場合があります。 データを使用できないが、データ バインド コントロールで型のパブリック インターフェイスからデータを表示する必要がある場合、通常はデザイン時にコントロールを型にバインドする必要があります。 次の手順では、型にバインドされている新しい <xref:System.Windows.Forms.BindingSource> を作成し、その型のプロパティの1つを <xref:System.Windows.Forms.TextBox>の <xref:System.Windows.Forms.TextBox.Text%2A> プロパティにバインドする方法について説明します。
 
 ### <a name="to-bind-the-bindingsource-to-a-type"></a>BindingSource を型にバインドするには
 
-1. Windows フォームプロジェクトを作成します ([**ファイル** > ] [**新しい** > **プロジェクト** > ] **[ビジュアルC# ]** または [ **Visual Basic** > **クラシックデスクトップ** > ] **Windows フォームアプリケーション**)。
+1. Windows フォームプロジェクトを作成します (**ファイル** > **新しい** > **プロジェクト** >  **C# Visual**または**Visual Basic** > **クラシックデスクトップ** > **Windows フォームアプリケーション**)。
 
-2. **デザイン**ビューで、コンポーネントを<xref:System.Windows.Forms.BindingSource>フォームにドラッグします。
+2. **デザイン**ビューで、<xref:System.Windows.Forms.BindingSource> コンポーネントをフォームにドラッグします。
 
-3. **[プロパティ]** ウィンドウで、 <xref:System.Windows.Forms.BindingSource.DataSource%2A>プロパティの矢印をクリックします。
+3. **[プロパティ]** ウィンドウで、[<xref:System.Windows.Forms.BindingSource.DataSource%2A>] プロパティの矢印をクリックします。
 
 4. **DataSource UI 型エディター**で、 **[プロジェクト データ ソースの追加]** をクリックします。
 
@@ -35,7 +35,7 @@ ms.locfileid: "70046038"
 
       \- または -
 
-    - バインド先となる型が、現在、参照の一覧にはなく、別のアセンブリにある場合は、 **[参照の追加]** をクリックして **[プロジェクト]** タブをクリックします。目的のビジネス オブジェクトを含むプロジェクトを選択して **[OK]** をクリックします。 このプロジェクトは、アセンブリの一覧に表示されるため、ノードを展開し、目的の型を探して選択します。
+    - バインド先の型が、現在参照の一覧にない別のアセンブリにある場合は、 **[参照の追加]** をクリックし、 **[プロジェクト]** タブをクリックします。必要なビジネスオブジェクトが含まれているプロジェクトを選択し、 **[OK]** をクリックします。 このプロジェクトは、アセンブリの一覧に表示されるため、ノードを展開し、目的の型を探して選択します。
 
       > [!NOTE]
       > フレームワークまたは Microsoft アセンブリの型にバインドする場合は、 **[Microsoft または System で始まるアセンブリを表示しない]** チェックボックスをオフにします。
@@ -48,12 +48,12 @@ ms.locfileid: "70046038"
 
 2. **[プロパティ]** ウィンドウで **(DataBindings)** ノードを展開します。
 
-3. プロパティの<xref:System.Windows.Forms.TextBox.Text%2A>横にある矢印をクリックします。
+3. <xref:System.Windows.Forms.TextBox.Text%2A> プロパティの横にある矢印をクリックします。
 
-4. **DataSource UI 型エディター**で、前に追加し<xref:System.Windows.Forms.BindingSource>たのノードを展開し、の<xref:System.Windows.Forms.TextBox.Text%2A> <xref:System.Windows.Forms.TextBox>プロパティにバインドするバインドされた型のプロパティを選択します。
+4. **DATASOURCE UI 型エディター**で、前に追加した <xref:System.Windows.Forms.BindingSource> のノードを展開し、<xref:System.Windows.Forms.TextBox>の <xref:System.Windows.Forms.TextBox.Text%2A> プロパティにバインドするバインドされた型のプロパティを選択します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [BindingSource コンポーネント](bindingsource-component.md)
-- [方法: Windows フォームコントロールを型にバインドする](how-to-bind-a-windows-forms-control-to-a-type.md)
+- [方法: Windows フォーム コントロールを型にバインドする](how-to-bind-a-windows-forms-control-to-a-type.md)
 - [Visual Studio でのデータへのコントロールのバインド](/visualstudio/data-tools/bind-controls-to-data-in-visual-studio)

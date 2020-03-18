@@ -11,20 +11,18 @@ helpviewer_keywords:
 - resx files
 - .resx files
 ms.assetid: cb8bc835-9221-4888-af53-1a4f5fad6c48
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: df7ce0795daabdf34f46e20460bef23e7c486467
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 2cfb2d9874b34eef78fe462e0270fd70307a9f61
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71043903"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75715701"
 ---
 # <a name="winresexe-windows-resource-localization-editor"></a>Winres.exe (Windows Resource Localization Editor)
 
 Windows Resource Localization Editor (Winres.exe) は、ビジュアル レイアウト ツールです。ローカリゼーションの専門家は、このツールにより、フォームで使用される Windows フォームのユーザー インターフェイス (UI) リソースのローカライズが楽になります。 Winres.exe への入力として使用される .resx ファイルおよび .resources ファイルは、Microsoft Visual Studio などのビジュアル デザイン環境を使用して作成できます。 .NET Framework アプリケーションにおけるリソースの配置については、「[デスクトップ アプリケーションのリソース](../resources/index.md)」を参照してください。
 
-Winres.exe が Visual Studio と共にインストールされます。 ツールを実行するには、Visual Studio 用の開発者コマンド プロンプトを使用します。 詳細については、「[Visual Studio 用開発者コマンド プロンプト](developer-command-prompt-for-vs.md)」を参照してください。
+Winres.exe が Visual Studio と共にインストールされます。 ツールを実行するには、Visual Studio 用の開発者コマンド プロンプトを使用します。 詳細については、「[コマンド プロンプト](developer-command-prompt-for-vs.md)」を参照してください。
 
 ## <a name="syntax"></a>構文
 
@@ -35,11 +33,11 @@ winres /?
 
 ## <a name="arguments"></a>引数
 
-|引数|説明|
+|引数|[説明]|
 |--------------|-----------------|
 |`resourceFile`|ローカライズするリソース ファイル。 このファイルは Visual Studio デザイナーで作成した、Windows フォームの .resx ファイルまたは .resources ファイルである必要があります。 Winres.exe では、汎用的な .resx ファイルまたは .resources ファイルは開くことができません。|
 
-|オプション|説明|
+|オプション|[説明]|
 |------------|-----------------|
 |**/?**|このツールのコマンド構文とオプションを表示します。|
 
@@ -90,9 +88,9 @@ Winres.exe には、以下の機能があります。
 
 使用している .NET Framework と共にリリースされた Winres.exe のバージョンを使用する必要があります。 次の表は、互換性のあるバージョンの一覧です。
 
-|Visual Studio|.NET Framework|Winres.exe|
+|Visual Studio|.NET Framework|Winres.exe|
 |-------------------|--------------------|----------------|
-|Visual Studio .NET 2002|1|1|
+|Visual Studio .NET 2002|1.0|1.0|
 |Visual Studio .NET 2003|1.1|1.1|
 |Visual Studio 2005|2.0|2.0|
 |Visual Studio 2008|3.0 と 3.5|3.0 と 3.5|
@@ -102,7 +100,7 @@ Winres.exe には、以下の機能があります。
 > [!NOTE]
 > VSFM には、Visual Studio 互換であるという長所がありますが、変更点だけをリソース ファイルに格納するため、Winres.exe で VSFM を使用するには、現在のリソース ファイルの親ファイルが同じディレクトリに存在する必要があります。 たとえば、ドイツ語のリソース ファイル `TestApp.de-DE.resources` を編集している場合は、既定のリソース ファイル `TestApp.resx` が存在する必要があり、ときにはカルチャ ニュートラルなリソース ファイル `TestApp.de.resources` も必要となることがあります。
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 ### <a name="to-localize-a-resx-or-resources-file-associated-with-a-form"></a>フォームに関連付けられた .resx ファイルまたは .resources ファイルをローカライズするには
 
@@ -137,7 +135,7 @@ Winres.exe には、以下の機能があります。
 
    ツールによってファイルが保存される場合は、ローカライズされたリソース ファイルに対してランタイムが予測した名前付け規則が使用されます。 たとえば、`TestApp.resources` をドイツのドイツ語用にローカライズする場合、ファイルは `TestApp.de-DE.resources` という名前で保存されます。 `TestApp.resx` をドイツのドイツ語用にローカライズする場合、ファイルは `TestApp.de-DE.resx` という名前で保存されます。 リソースの名前付け規則について詳しくは、「[リソースのパッケージ化と配置](../resources/packaging-and-deploying-resources-in-desktop-apps.md)」を参照してください。 ランタイムで使用される定義済みカルチャ名の一覧については、「<xref:System.Globalization.CultureInfo> クラス」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.ComponentModel.LocalizableAttribute>
 - <xref:System.Globalization.CultureInfo>

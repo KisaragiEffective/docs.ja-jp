@@ -9,12 +9,12 @@ helpviewer_keywords:
 - data binding [WPF], validation of binding
 - binding [WPF], validation of
 ms.assetid: eb98b33d-9866-49ae-b981-bc5ff20d607a
-ms.openlocfilehash: 7a1a8df78a785066992472c7de37f958ae3467f1
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: 245b05d9cfa7ca66dec310bd9a5291def0101d19
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920156"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73459110"
 ---
 # <a name="how-to-implement-binding-validation"></a>方法 : バインディングの検証の実装
 
@@ -41,9 +41,9 @@ ms.locfileid: "72920156"
 
 完全な例については、「[バインドの検証のサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Data%20Binding/BindValidation)」を参照してください。
   
-カスタム <xref:System.Windows.Controls.Validation.ErrorTemplate%2A> を指定しない場合、検証エラーが発生したときにユーザーに視覚的なフィードバックを提供するために、既定のエラーテンプレートが表示されることに注意してください。 詳しくは、「[データ バインドの概要](data-binding-overview.md)」の「データの検証」をご覧ください。 さらに [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] は、バインディング ソース プロパティの更新中にスローされる例外をキャッチするための、組み込みの検証規則を提供します。 詳細については、「<xref:System.Windows.Controls.ExceptionValidationRule>」を参照してください。
+カスタム <xref:System.Windows.Controls.Validation.ErrorTemplate%2A> を指定しない場合、検証エラーが発生したときにユーザーに視覚的なフィードバックを提供するために、既定のエラーテンプレートが表示されることに注意してください。 詳しくは、「[データ バインドの概要](../../../desktop-wpf/data/data-binding-overview.md)」の「データの検証」をご覧ください。 さらに [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] は、バインディング ソース プロパティの更新中にスローされる例外をキャッチするための、組み込みの検証規則を提供します。 詳細については、「<xref:System.Windows.Controls.ExceptionValidationRule>」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 
-- [データ バインディングの概要](data-binding-overview.md)
+- [データ バインディングの概要](../../../desktop-wpf/data/data-binding-overview.md)
 - [方法トピック](data-binding-how-to-topics.md)

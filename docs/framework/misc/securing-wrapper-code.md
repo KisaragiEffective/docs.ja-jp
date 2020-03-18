@@ -7,14 +7,12 @@ helpviewer_keywords:
 - secure coding, wrapper code
 - code security, wrapper code
 ms.assetid: 1df6c516-5bba-48bd-b450-1070e04b7389
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: ee78c1c1f92515472bb3ea3ce77405a5e3447fd9
-ms.sourcegitcommit: 2d792961ed48f235cf413d6031576373c3050918
+ms.openlocfilehash: 3d38a4d4fd33798cf5987f5ce67305725ad9daec
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2019
-ms.locfileid: "70206108"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77215844"
 ---
 # <a name="securing-wrapper-code"></a>ラッパー コードの保護
 [!INCLUDE[net_security_note](../../../includes/net-security-note-md.md)]  
@@ -76,13 +74,13 @@ ms.locfileid: "70206108"
 - [LinkDemand](link-demands.md)はジャストインタイム (JIT) コンパイル時に発生し、直前の呼び出し元だけをチェックします。 このセキュリティ チェックでは、呼び出し元の呼び出し元はチェックされません。 このチェックに合格すると、呼び出し元が何度も呼び出す場合であってもさらにセキュリティ オーバーヘッドが生じることはありません。 ただし、おびき寄せによる攻撃からの保護機能はありません。 **LinkDemand**を使用すると、テストに合格してコードを参照できるすべてのコードは、承認されたコードを使用して悪意のあるコードからを呼び出すことができるため、セキュリティが損なわれる可能性があります。 したがって、可能性のあるすべての弱点を完全に回避できる場合を除き、 **LinkDemand**は使用しないでください。  
   
     > [!NOTE]
-    > .NET Framework 4 では、リンク確認要求はアセンブリの<xref:System.Security.SecurityCriticalAttribute> <xref:System.Security.SecurityRuleSet.Level2>属性に置き換えられています。 は<xref:System.Security.SecurityCriticalAttribute> 、完全信頼のリンク確認要求に相当します。ただし、継承規則にも影響します。 この変更の詳細については、「[透過的セキュリティコード、レベル 2](security-transparent-code-level-2.md)」を参照してください。  
+    > .NET Framework 4 では、リンク確認要求は <xref:System.Security.SecurityRuleSet.Level2> アセンブリの <xref:System.Security.SecurityCriticalAttribute> 属性に置き換えられています。 <xref:System.Security.SecurityCriticalAttribute> は、完全信頼のリンク確認要求と同じです。ただし、継承規則にも影響します。 この変更の詳細については、「[透過的セキュリティコード、レベル 2](security-transparent-code-level-2.md)」を参照してください。  
   
  **LinkDemand**を使用する場合に必要な追加の注意事項は、個別にプログラミングする必要があります。セキュリティシステムは、適用に役立ちます。 どのようなミスもセキュリティを脆弱化します。 作成したコードを使用する、承認されたすべてのコード側で、次の措置を行うことによって追加セキュリティを実装する責任があります。  
   
 - 呼び出し元のコードがクラスまたはアセンブリにアクセスするのを制限します。  
   
-- 呼び出されるコードに現れる呼び出し元のコードで同じセキュリティ チェックを配置し、呼び出し元にその実行義務を課します。 たとえば<xref:System.Security.Permissions.SecurityPermissionFlag.UnmanagedCode> 、フラグが指定されたの**linkdemand** <xref:System.Security.Permissions.SecurityPermission>で保護されたメソッドを呼び出すコードを記述する場合、メソッドは、このに対して**linkdemand** (または**要求**の方が強力) を作成する必要があります。役割. 例外は、コード内の他のセキュリティ保護メカニズム (要求など) を使用して、コードで**LinkDemand**によって保護されたメソッドを使用する場合に、安全であると判断された場合に発生します。 前述の例外的なケースでは、呼び出し側で、基になるコードでのセキュリティ保護の脆弱性に対処する必要があります。  
+- 呼び出されるコードに現れる呼び出し元のコードで同じセキュリティ チェックを配置し、呼び出し元にその実行義務を課します。 たとえば、<xref:System.Security.Permissions.SecurityPermissionFlag.UnmanagedCode> フラグが指定されている <xref:System.Security.Permissions.SecurityPermission> の**linkdemand**で保護されたメソッドを呼び出すコードを記述する場合、メソッドはこのアクセス許可に対して**linkdemand** (または、より強力な**要求**) を作成する必要があります。 例外は、コード内の他のセキュリティ保護メカニズム (要求など) を使用して、コードで**LinkDemand**によって保護されたメソッドを使用する場合に、安全であると判断された場合に発生します。 前述の例外的なケースでは、呼び出し側で、基になるコードでのセキュリティ保護の脆弱性に対処する必要があります。  
   
 - 呼び出し元のコードが、呼び出し先のコードに成り代わって、保護されているコードを呼び出すことがないようにしてください。 つまり、呼び出し元は承認されたコードに対して、保護されているコードに特定のパラメーターを渡したり、結果を送り返させたりすることはできません。  
   
@@ -101,6 +99,6 @@ ms.locfileid: "70206108"
   
 - 実装する型とインターフェイス。 一貫してリンク要求を使用する必要があります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [安全なコーディングのガイドライン](../../standard/security/secure-coding-guidelines.md)

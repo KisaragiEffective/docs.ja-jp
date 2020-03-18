@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c5e6216f-ae3d-4697-9688-66b69c1251ec
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 4f3883b0cd1b7aca6265b738eace483c81eb37b9
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: beb697d80417b937876a0887e4376341185a47d9
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67760145"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74447209"
 ---
 # <a name="imetadataassemblyimportgetfileprops-method"></a>IMetaDataAssemblyImport::GetFileProps メソッド
-指定したメタデータ シグネチャを持つファイルのプロパティを取得します。  
+指定したメタデータシグネチャを持つファイルのプロパティを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,32 +41,32 @@ HRESULT GetFileProps (
   
 ## <a name="parameters"></a>パラメーター  
  `mdf`  
- [in]`mdFile`プロパティを取得する対象のファイルを表すメタデータ トークン。  
+ からプロパティを取得する対象のファイルを表す `mdFile` メタデータトークン。  
   
  `szName`  
- [out]ファイルの簡易名。  
+ 入出力ファイルの簡易名。  
   
  `cchName`  
- [in]ワイド文字単位のサイズの`szName`します。  
+ から`szName`のサイズ (ワイド文字単位)。  
   
  `pchName`  
- [out]実際に返されるワイド文字数`szName`します。  
+ 入出力`szName`に実際に返されるワイド文字数。  
   
  `ppbHashValue`  
- [out]ハッシュ値へのポインター。 これは、ファイルの sha-1 アルゴリズムを使用して、ハッシュです。  
+ 入出力ハッシュ値へのポインター。 これは、ファイルの SHA-1 アルゴリズムを使用したハッシュです。  
   
  `pcbHashValue`  
- [out]返されたハッシュ値のワイド文字の数。  
+ 入出力返されたハッシュ値のワイド文字の数。  
   
  `pdwFileFlags`  
- [out]ファイルに適用されるメタデータを記述するフラグへのポインター。 フラグの値は、1 つ以上の組み合わせ[CorFileFlags](../../../../docs/framework/unmanaged-api/metadata/corfileflags-enumeration.md)値。  
+ 入出力ファイルに適用されるメタデータを記述するフラグへのポインター。 Flags 値は、1つまたは複数の[Corfileflags](../../../../docs/framework/unmanaged-api/metadata/corfileflags-enumeration.md)値を組み合わせたものです。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **プラットフォーム:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

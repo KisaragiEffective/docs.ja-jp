@@ -3,10 +3,10 @@ title: 証明書の選択と検証
 ms.date: 03/30/2017
 ms.assetid: c933aca2-4cd0-4ff1-9df9-267143f25a6f
 ms.openlocfilehash: aea47360ab1bb9dad446a5a7b19a91ea688953c4
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "71048747"
 ---
 # <a name="certificate-selection-and-validation"></a>証明書の選択と検証
@@ -16,7 +16,7 @@ ms.locfileid: "71048747"
  証明書は、公開キー、属性 (バージョン番号、シリアル番号、有効期限など)、および証明機関のデジタル署名を含む ASCII バイト ストリームです。 証明書は、暗号化された接続を確立するため、またはサーバーに対してクライアントを認証するために使用されます。  
   
 ## <a name="client-certificate-selection-and-validation"></a>クライアント証明書の選択と検証  
- クライアントは、特定の SSL 接続に 1 つまたは複数の証明書を選択できます。 クライアント証明書は、Web サーバーまたは SMTP メール サーバーとの SSL 接続と関連付けることができます。 クライアントは、<xref:System.Security.Cryptography.X509Certificates.X509Certificate> または <xref:System.Security.Cryptography.X509Certificates.X509Certificate2> クラス オブジェクトのコレクションに証明書を追加します。 たとえば、電子メールを使用する場合、証明書コレクションは、<xref:System.Net.Mail.SmtpClient> クラスの <xref:System.Net.Mail.SmtpClient.ClientCertificates%2A> プロパティと関連付けられた <xref:System.Security.Cryptography.X509Certificates.X509CertificateCollection> のインスタンスです。 <xref:System.Net.HttpWebRequest> クラスには類似した <xref:System.Net.HttpWebRequest.ClientCertificates%2A> プロパティがあります。  
+ クライアントは、特定の SSL 接続に 1 つまたは複数の証明書を選択できます。 クライアント証明書は、Web サーバーまたは SMTP メール サーバーとの SSL 接続と関連付けることができます。 クライアントは、<xref:System.Security.Cryptography.X509Certificates.X509Certificate> または <xref:System.Security.Cryptography.X509Certificates.X509Certificate2> クラス オブジェクトのコレクションに証明書を追加します。 たとえば、電子メールを使用する場合、証明書コレクションは、<xref:System.Security.Cryptography.X509Certificates.X509CertificateCollection> クラスの <xref:System.Net.Mail.SmtpClient.ClientCertificates%2A> プロパティと関連付けられた <xref:System.Net.Mail.SmtpClient> のインスタンスです。 <xref:System.Net.HttpWebRequest> クラスには類似した <xref:System.Net.HttpWebRequest.ClientCertificates%2A> プロパティがあります。  
   
  <xref:System.Security.Cryptography.X509Certificates.X509Certificate> クラスと <xref:System.Security.Cryptography.X509Certificates.X509Certificate2> クラスの主な違いは、秘密キーが <xref:System.Security.Cryptography.X509Certificates.X509Certificate> クラスの証明書ストアに存在する必要がある点です。  
   
@@ -52,7 +52,7 @@ ms.locfileid: "71048747"
   
  これらのツールに加え、<xref:System.Security.Cryptography.X509Certificates.X509Certificate> クラスと <xref:System.Security.Cryptography.X509Certificates.X509Certificate2> クラスには、ファイル システムから証明書を読み込むメソッドがあります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ネットワーク プログラミングにおけるセキュリティ](security-in-network-programming.md)
 - [.NET Framework のネットワーク プログラミング](index.md)

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 0863f644-58e8-45a0-b0c3-a28e99b20938
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7a15e3ab0d50763ad53b1caa921035239868fec1
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 2b64122489481c6b0fde605015720d0a56ba8fe2
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67761237"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76788323"
 ---
 # <a name="icordebugmanagedcallbackupdatemodulesymbols-method"></a>ICorDebugManagedCallback::UpdateModuleSymbols メソッド
-共通言語ランタイム モジュールのシンボルが変更されたことをデバッガーに通知します。  
+共通言語ランタイムモジュールのシンボルが変更されたことをデバッガーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,23 +37,23 @@ HRESULT UpdateModuleSymbols (
   
 ## <a name="parameters"></a>パラメーター  
  `pAppDomain`  
- [in]シンボルが変更されたが、モジュールを格納しているアプリケーション ドメインを表す ICorDebugAppDomain オブジェクトへのポインター。  
+ からシンボルが変更されたモジュールを含むアプリケーションドメインを表す、コードのオブジェクトへのポインター。  
   
  `pModule`  
- [in]シンボルが変更されたが、モジュールを表す ICorDebugModule オブジェクトへのポインター。  
+ からシンボルが変更されたモジュールを表す、のモジュールオブジェクトへのポインター。  
   
  `pSymbolStream`  
- [in]Win32 COM へのポインター`IStream`変更されたシンボルを含むオブジェクト。  
+ から変更されたシンボルを格納している Win32 COM `IStream` オブジェクトへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- このメソッドは、呼び出すことによって、モジュールのシンボルのデバッガーのビューを更新する機会を提供します。 [isymunmanagedreader::updatesymbolstore](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-updatesymbolstore-method.md)または[isymunmanagedreader::replacesymbolstore](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-replacesymbolstore-method.md)します。  
+## <a name="remarks"></a>コメント  
+ このメソッドは、 [ISymUnmanagedReader::::](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-updatesymbolstore-method.md) ISymUnmanagedReader [:::: 置き換え esyman store](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-replacesymbolstore-method.md)を呼び出すことによって、モジュールのシンボルのデバッガービューを更新する機会を提供します。  
   
- このコールバックでは、同じモジュールの複数回は発生します。  
+ このコールバックは、同じモジュールに対して複数回発生する可能性があります。  
   
- デバッガーは、ソース レベルのブレークポイントがバインドされていないをバインドしようとする必要があります。  
+ デバッガーは、バインドされていないソースレベルのブレークポイントをバインドしようとします。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -65,4 +63,4 @@ HRESULT UpdateModuleSymbols (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugManagedCallback インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-interface.md)
+- [ICorDebugManagedCallback インターフェイス](icordebugmanagedcallback-interface.md)

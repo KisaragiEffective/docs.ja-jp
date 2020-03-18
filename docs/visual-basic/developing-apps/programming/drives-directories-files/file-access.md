@@ -1,5 +1,5 @@
 ---
-title: Visual Basic におけるファイル アクセス
+title: ファイル アクセス
 ms.date: 07/20/2015
 helpviewer_keywords:
 - file access
@@ -14,17 +14,19 @@ helpviewer_keywords:
 - I/O [Visual Basic]
 - sequential access
 ms.assetid: 231533bf-d049-4345-befa-3fb78fe6517d
-ms.openlocfilehash: f9cbb255dea8c6915951b5099f40bfd0ba66c8aa
-ms.sourcegitcommit: 3d5d33f384eeba41b2dff79d096f47ccc8d8f03d
+ms.openlocfilehash: 22bcd0f1f3acb0c0ad899b83ad2d879ead948f12
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33583306"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74348897"
 ---
 # <a name="file-access-with-visual-basic"></a>Visual Basic におけるファイル アクセス
+
 `My.Computer.FileSystem` オブジェクトには、ファイルとフォルダーを操作するツールが用意されています。 そのプロパティ、メソッド、イベントを使用すると、ファイルとフォルダーの作成、コピー、移動、調査、削除が可能になります。 `My.Computer.FileSystem` は、下位互換性のために Visual Basic に用意されているレガシ関数 (`FileOpen`、`FileClose`、`Input`、`InputString`、`LineInput` など) よりもパフォーマンスが優れています。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
+
  [ファイルの読み取り](../../../../visual-basic/developing-apps/programming/drives-directories-files/reading-from-files.md)  
  `My.Computer.FileSystem` オブジェクトを使用したファイルからの読み込みに関するトピックを一覧表示します  
   

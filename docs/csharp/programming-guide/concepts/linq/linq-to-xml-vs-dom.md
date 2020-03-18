@@ -2,12 +2,12 @@
 title: LINQ to XML およびDOM (C#)
 ms.date: 07/20/2015
 ms.assetid: 51c0e3d2-c047-4e6a-a423-d61a882400b7
-ms.openlocfilehash: 68d380873e71d767ddd60f8f9d0f4b82846d1371
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 92d0da494829d57517d52fe93a3cbcf1398fdbe4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69591772"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79168390"
 ---
 # <a name="linq-to-xml-vs-dom-c"></a>LINQ to XML およびDOM (C#)
 このセクションでは、[!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] と、現在主流の XML プログラミング API である W3C ドキュメント オブジェクト モデル (DOM) との主な違いについて説明します。  
@@ -23,11 +23,11 @@ XmlElement name = doc.CreateElement("Name");
 name.InnerText = "Patrick Hines";  
 XmlElement phone1 = doc.CreateElement("Phone");  
 phone1.SetAttribute("Type", "Home");  
-phone1.InnerText = "206-555-0144";          
+phone1.InnerText = "206-555-0144";
 XmlElement phone2 = doc.CreateElement("Phone");  
 phone2.SetAttribute("Type", "Work");  
-phone2.InnerText = "425-555-0145";          
-XmlElement street1 = doc.CreateElement("Street1");          
+phone2.InnerText = "425-555-0145";
+XmlElement street1 = doc.CreateElement("Street1");
 street1.InnerText = "123 Main St";  
 XmlElement city = doc.CreateElement("City");  
 city.InnerText = "Mercer Island";  
@@ -59,7 +59,7 @@ XElement contacts =
     new XElement("Contacts",  
         new XElement("Contact",  
             new XElement("Name", "Patrick Hines"),  
-            new XElement("Phone", "206-555-0144",   
+            new XElement("Phone", "206-555-0144",
                 new XAttribute("Type", "Home")),  
             new XElement("phone", "425-555-0145",  
                 new XAttribute("Type", "Work")),  
@@ -105,7 +105,7 @@ doc.AppendChild(name);
  DOM にはその他に、ノードの名前を変更できないという問題もあります。 ノード名の変更が必要な場合は、新しいノードを作成し、そこにすべての子ノードをコピーする必要があります。この場合、元のノード固有の特性は失われます。 [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、この問題を回避するために、ノードに対して <xref:System.Xml.Linq.XName> プロパティを設定できます。  
   
 ## <a name="static-method-support-for-loading-xml"></a>XML を読み込むための静的メソッドのサポート  
- [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、インスタンス メソッドの代わりに静的メソッドを使用して XML を読み込むことができます。 これにより、読み込みと解析が簡略化されます。 詳細については、[方法:ファイルから XML を読み込む (C#)](./how-to-load-xml-from-a-file.md)」を参照してください。  
+ [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、インスタンス メソッドの代わりに静的メソッドを使用して XML を読み込むことができます。 これにより、読み込みと解析が簡略化されます。 詳細については、「[ファイルから XML を読み込む方法 (C#)](./how-to-load-xml-from-a-file.md)」を参照してください。  
   
 ## <a name="removal-of-support-for-dtd-constructs"></a>DTD の構成要素に関するサポートの削除  
  [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、XML プログラミングのさらなる簡略化のために、エンティティとエンティティ参照のサポートが削除されています。 エンティティの管理は複雑で、ほとんど利用されていません。 これらのサポートを削除することにより、パフォーマンスが向上し、プログラミング インターフェイスが簡略化されます。 [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] ツリーが設定されると、すべての DTD エンティティが展開されます。  
@@ -114,7 +114,7 @@ doc.AppendChild(name);
  [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] には、`XmlDocumentFragment` クラスに対応する要素はありません。 ただし、`XmlDocumentFragment` の概念は、多くの場合、<xref:System.Xml.Linq.XNode> の <xref:System.Collections.Generic.IEnumerable%601> または <xref:System.Xml.Linq.XElement> の <xref:System.Collections.Generic.IEnumerable%601> として型指定されたクエリの結果によって処理できます。  
   
 ## <a name="support-for-xpathnavigator"></a>XPathNavigator のサポート  
- [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、<xref:System.Xml.XPath?displayProperty=nameWithType> 名前空間の拡張メソッドによって <xref:System.Xml.XPath.XPathNavigator> がサポートされています。 詳細については、<xref:System.Xml.XPath.Extensions?displayProperty=nameWithType> を参照してください。  
+ [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、<xref:System.Xml.XPath?displayProperty=nameWithType> 名前空間の拡張メソッドによって <xref:System.Xml.XPath.XPathNavigator> がサポートされています。 詳細については、「<xref:System.Xml.XPath.Extensions?displayProperty=nameWithType>」を参照してください。  
   
 ## <a name="support-for-white-space-and-indentation"></a>空白とインデントのサポート  
  [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、空白の処理が DOM より単純化されています。  
@@ -129,7 +129,7 @@ doc.AppendChild(name);
  [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] 要素は、注釈の拡張可能なセットをサポートしています。 このサポートは、スキーマの情報、要素が UI にバインドされているかどうかの情報、またはアプリケーション固有のその他の情報など、要素に関するさまざまな情報を追跡する場合に利用できます。 詳細については、「[LINQ to XML 注釈](./linq-to-xml-annotations.md)」を参照してください。  
   
 ## <a name="support-for-schema-information"></a>スキーマ情報のサポート  
- [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、<xref:System.Xml.Schema?displayProperty=nameWithType> 名前空間の拡張メソッドによって XSD 検証がサポートされています。 これにより、XML ツリーが XSD に準拠しているかどうかを検証できます。 また、スキーマ検証後の情報セット (PSVI) を使用して XML ツリーを設定できます。 詳細については、[方法:XSD を使用して検証する](./how-to-validate-using-xsd-linq-to-xml.md)」と <xref:System.Xml.Schema.Extensions> を参照してください。  
+[!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、<xref:System.Xml.Schema?displayProperty=nameWithType> 名前空間の拡張メソッドによって XSD 検証がサポートされています。 これにより、XML ツリーが XSD に準拠しているかどうかを検証できます。 また、スキーマ検証後の情報セット (PSVI) を使用して XML ツリーを設定できます。 詳細については、「[XSD を使用して検証する方法](./how-to-validate-using-xsd-linq-to-xml.md)」および「<xref:System.Xml.Schema.Extensions>」を参照してください。
   
 ## <a name="see-also"></a>関連項目
 

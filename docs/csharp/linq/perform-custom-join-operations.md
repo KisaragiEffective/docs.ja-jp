@@ -4,11 +4,11 @@ description: C# でカスタムの LINQ 結合操作を実行する方法につ�
 ms.date: 12/01/2016
 ms.assetid: 56a2a4a5-7299-497d-b3c3-23c848678911
 ms.openlocfilehash: 7051007c67bd64cd11ede2f4d5352ce3d497255f
-ms.sourcegitcommit: 5dcfeb59179e81071f54840d4902cbe00b184294
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857867"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "61659853"
 ---
 # <a name="perform-custom-join-operations"></a>カスタム結合操作の実行
 
@@ -25,7 +25,7 @@ ms.locfileid: "54857867"
  等結合ではない結合を実行するには、複数の `from` 句を使用して、各データ ソースを個別に導入することができます。 その後、`where` 句の述語式を各ソースの範囲変数に適用します。 式は、メソッド呼び出しの形式にすることもできます。
 
 > [!NOTE]
-> このようなカスタム結合操作を、複数の `from` 句を使用した内部コレクションへのアクセスと混同しないでください。 詳細については、「[join 句](../language-reference/keywords/join-clause.md)」を参照してください。
+> このようなカスタム結合操作を、複数の `from` 句を使用した内部コレクションへのアクセスと混同しないでください。 詳しくは、「[join 句](../language-reference/keywords/join-clause.md)」をご覧ください。
 
 ## <a name="example"></a>例
 
@@ -41,7 +41,7 @@ ms.locfileid: "54857867"
 
 [!code-csharp[csProgGuideLINQ#13](~/samples/snippets/csharp/concepts/linq/how-to-perform-custom-join-operations_2.cs)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [統合言語クエリ (LINQ)](index.md)
 - [join 句](../language-reference/keywords/join-clause.md)

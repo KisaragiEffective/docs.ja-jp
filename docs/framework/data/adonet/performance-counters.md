@@ -1,16 +1,16 @@
 ---
-title: ADO.NET でのパフォーマンス カウンター
+title: パフォーマンス カウンタ
 ms.date: 03/30/2017
 dev_langs:
 - csharp
 - vb
 ms.assetid: 0b121b71-78f8-4ae2-9aa1-0b2e15778e57
-ms.openlocfilehash: a529cae724d24b47d856f86744eebe87d68cb158
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 985951180a5c8ee09460b7fe4bf3213b986c3bb6
+ms.sourcegitcommit: 19014f9c081ca2ff19652ca12503828db8239d48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70783303"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76980068"
 ---
 # <a name="performance-counters-in-adonet"></a>ADO.NET でのパフォーマンス カウンター
 ADO.NET 2.0 では、<xref:System.Data.SqlClient> と <xref:System.Data.OracleClient> の両方をサポートする新しいパフォーマンス カウンターが導入されました。 以前のバージョンの ADO.NET で利用されていた <xref:System.Data.SqlClient> のパフォーマンス カウンターは非推奨とされ、このトピックで説明する新しいパフォーマンス カウンターに置き換えられました。 ADO.NET のパフォーマンス カウンターを使用することで、アプリケーションやそれによって使用される接続リソースのステータスを監視できます。 パフォーマンス カウンターは、Windows パフォーマンス モニターを使って監視できるほか、<xref:System.Diagnostics.PerformanceCounter> 名前空間の <xref:System.Diagnostics> クラスを使用することでプログラムから監視することもできます。  
@@ -24,19 +24,19 @@ ADO.NET 2.0 では、<xref:System.Data.SqlClient> と <xref:System.Data.OracleCl
 |`HardDisconnectsPerSecond`|データベース サーバーに対する 1 秒あたりの切断数。|  
 |`NumberOfActiveConnectionPoolGroups`|アクティブな一意の接続プール グループの数。 このカウンターは、AppDomain に見つかった一意の接続文字列数によって制御されます。|  
 |`NumberOfActiveConnectionPools`|接続プールの合計数。|  
-|`NumberOfActiveConnections`|現在使用中のアクティブな接続の数。 **注:** 既定では、このパフォーマンス カウンターが無効にされています。 このパフォーマンスカウンターを有効にするには、「[既定値を](#ActivatingOffByDefault)使用したアクティブ化」を参照してください。|  
-|`NumberOfFreeConnections`|接続プール内の利用可能な接続数。 **注:** 既定では、このパフォーマンス カウンターが無効にされています。 このパフォーマンスカウンターを有効にするには、「[既定値を](#ActivatingOffByDefault)使用したアクティブ化」を参照してください。|  
+|`NumberOfActiveConnections`|現在使用中のアクティブな接続の数。 **注:** このパフォーマンスカウンターは、既定では有効になっていません。 このパフォーマンスカウンターを有効にするには、「[既定値を](#ActivatingOffByDefault)使用したアクティブ化」を参照してください。|  
+|`NumberOfFreeConnections`|接続プール内の利用可能な接続数。 **注:** このパフォーマンスカウンターは、既定では有効になっていません。 このパフォーマンスカウンターを有効にするには、「[既定値を](#ActivatingOffByDefault)使用したアクティブ化」を参照してください。|  
 |`NumberOfInactiveConnectionPoolGroups`|排除対象としてマークされた一意の接続プール グループの数。 このカウンターは、AppDomain に見つかった一意の接続文字列数によって制御されます。|  
 |`NumberOfInactiveConnectionPools`|最近のアクティビティが存在せず、破棄待ち状態となっている、アクティブでない接続プールの数。|  
 |`NumberOfNonPooledConnections`|プールされていないアクティブな接続の数。|  
 |`NumberOfPooledConnections`|接続プール インフラストラクチャによって管理されているアクティブな接続の数。|  
 |`NumberOfReclaimedConnections`|アプリケーションによって `Close` も `Dispose` も呼び出されなかった場合に、ガベージ コレクションによって回収された接続の数。 接続を明示的に閉じるか破棄しないと、パフォーマンスが低下します。|  
 |`NumberOfStasisConnections`|現在アクションの完了を待っている (そのためにアプリケーションからは使用できない) 接続の数。|  
-|`SoftConnectsPerSecond`|接続プールからプルされているアクティブな接続の数。 **注:** 既定では、このパフォーマンス カウンターが無効にされています。 このパフォーマンスカウンターを有効にするには、「[既定値を](#ActivatingOffByDefault)使用したアクティブ化」を参照してください。|  
-|`SoftDisconnectsPerSecond`|接続プールに戻されているアクティブな接続の数。 **注:** 既定では、このパフォーマンス カウンターが無効にされています。 このパフォーマンスカウンターを有効にするには、「[既定値を](#ActivatingOffByDefault)使用したアクティブ化」を参照してください。|  
+|`SoftConnectsPerSecond`|接続プールからプルされているアクティブな接続の数。 **注:** このパフォーマンスカウンターは、既定では有効になっていません。 このパフォーマンスカウンターを有効にするには、「[既定値を](#ActivatingOffByDefault)使用したアクティブ化」を参照してください。|  
+|`SoftDisconnectsPerSecond`|接続プールに戻されているアクティブな接続の数。 **注:** このパフォーマンスカウンターは、既定では有効になっていません。 このパフォーマンスカウンターを有効にするには、「[既定値を](#ActivatingOffByDefault)使用したアクティブ化」を参照してください。|  
   
 ### <a name="connection-pool-groups-and-connection-pools"></a>接続プール グループと接続プール  
- Windows 認証 (統合セキュリティ) を使用している場合、`NumberOfActiveConnectionPoolGroups` と `NumberOfActiveConnectionPools` の両方のパフォーマンス カウンターを監視する必要があります。 なぜなら、接続プール グループは接続文字列単位でマップされるためです。 統合セキュリティを使用した場合、接続文字列にマップされた接続プールの他に、個々の Windows ID 用に別々のプールが作成されます。 たとえば、同じ AppDomain に属する Fred と Julie が、どちらも `"Data Source=MySqlServer;Integrated Security=true"` という接続文字列を使用した場合、その接続文字列に対応した接続プール グループが作成され、それに加えて、2 つのプール (Fred 用と Julie 用) が作成されます。 John とマーサが同じ SQL Server ログインを`"Data Source=MySqlServer;User Id=lowPrivUser;Password=Strong?Password"`持つ接続文字列を使用している場合は、 **lowprivuser** id に対して1つのプールのみが作成されます。  
+ Windows 認証 (統合セキュリティ) を使用している場合、`NumberOfActiveConnectionPoolGroups` と `NumberOfActiveConnectionPools` の両方のパフォーマンス カウンターを監視する必要があります。 なぜなら、接続プール グループは接続文字列単位でマップされるためです。 統合セキュリティを使用した場合、接続文字列にマップされた接続プールの他に、個々の Windows ID 用に別々のプールが作成されます。 たとえば、同じ AppDomain に属する Fred と Julie が、どちらも `"Data Source=MySqlServer;Integrated Security=true"` という接続文字列を使用した場合、その接続文字列に対応した接続プール グループが作成され、それに加えて、2 つのプール (Fred 用と Julie 用) が作成されます。 John とマーサが同じ SQL Server ログインを持つ接続文字列を使用している場合は `"Data Source=MySqlServer;User Id=lowPrivUser;Password=Strong?Password"`、 **Lowprivuser** id に対して1つのプールのみが作成されます。  
   
 <a name="ActivatingOffByDefault"></a>   
 ### <a name="activating-off-by-default-counters"></a>既定ではオフになっているカウンターのアクティブ化  
@@ -57,7 +57,7 @@ ADO.NET 2.0 では、<xref:System.Data.SqlClient> と <xref:System.Data.OracleCl
 > [!NOTE]
 > この例では、SQL Server に含まれるサンプルの**AdventureWorks**データベースを使用します。 サンプル コードの接続文字列は、データベースがローカル コンピューターにインストールされていること、SqlExpress というインスタンス名で実行されていること、接続文字列に指定された情報と一致する SQL Server ログインが作成済みであることを想定しています。 既定のセキュリティ設定を使用するようにサーバーが構成されている場合、そのままでは Windows 認証しか許可されないため、SQL Server ログインを有効にする必要があります。 接続文字列は環境に合わせて変更してください。  
   
-### <a name="example"></a>例  
+### <a name="example"></a>使用例  
   
 ```vb  
 Option Explicit On  

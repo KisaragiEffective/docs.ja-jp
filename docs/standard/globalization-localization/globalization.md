@@ -13,14 +13,12 @@ helpviewer_keywords:
 - application development [.NET Framework], globalization
 - culture, globalization
 ms.assetid: 4e919934-6b19-42f2-b770-275a4fae87c9
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ce2f127858305a96b358c1661b98a359ae565f57
-ms.sourcegitcommit: da2dd2772fcf32b44eb18b1cbe8affd17b1753c9
+ms.openlocfilehash: 953d8d3055dff48cd943b748771f20803a4d6573
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393120"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120901"
 ---
 # <a name="globalization"></a>グローバリゼーション
 

@@ -11,10 +11,10 @@ helpviewer_keywords:
 - protocols, pluggable
 ms.assetid: 9810c177-973e-43d7-823c-14960bd625ea
 ms.openlocfilehash: 6bee864f8d24076d16f226c29d61801e856739d9
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "71048610"
 ---
 # <a name="deriving-from-webrequest"></a>WebRequest からの派生
@@ -22,7 +22,7 @@ ms.locfileid: "71048610"
   
  プロトコル固有のクラスがプラグ可能なプロトコルとして使用されるようにするには、クラスが <xref:System.Net.IWebRequestCreate> インターフェイスを実装する、およびそれを <xref:System.Net.WebRequest.RegisterPrefix%2A?displayProperty=nameWithType> メソッドに登録するという 2 つの条件を満たす必要があります。 クラスは、**WebRequest** のすべての抽象メソッドとプロパティをオーバーライドし、プラグ可能なインターフェイスを提供する必要があります。  
   
- **WebRequest** インスタンスは 1 回限りの使用を意図しており、別の要求を作成する場合は、新しい **WebRequest** を作成します。 **WebRequest** は、開発者がテンプレート **WebRequest** をシリアル化して、そのテンプレートを追加の要求用に再構成できるように、<xref:System.Runtime.Serialization.ISerializable> インターフェイスをサポートしています。  
+ **WebRequest** インスタンスは 1 回限りの使用を意図しており、別の要求を作成する場合は、新しい **WebRequest** を作成します。 **WebRequest** は、開発者がテンプレート <xref:System.Runtime.Serialization.ISerializable>WebRequest **をシリアル化して、そのテンプレートを追加の要求用に再構成できるように、** インターフェイスをサポートしています。  
   
 ## <a name="iwebrequest-create-method"></a>IWebRequest Create メソッド  
  <xref:System.Net.IWebRequestCreate.Create%2A> メソッドは、プロトコル固有のクラスの新しいインスタンスの初期化を行います。 新しい **WebRequest** が作成されると、<xref:System.Net.WebRequest.Create%2A?displayProperty=nameWithType> メソッドは要求された URI を **RegisterPrefix** メソッドに登録されている URI プレフィックスと照合します。 適切なプロトコル固有の子孫の **Create** メソッドは、プロトコル固有のフィールドを変更することなく、プロトコルの標準的な要求/応答のトランザクションを実行できる子孫の初期化されたインスタンスを返す必要があります。  
@@ -68,7 +68,7 @@ ms.locfileid: "71048610"
  **Timeout** プロパティの設定は、プロトコル固有のクラスがタイムアウト プロセスを実装する場合にのみ意味があります。  
   
 ## <a name="abort-method"></a>Abort メソッド  
- <xref:System.Net.WebRequest.Abort%2A> メソッドは、保留中のサーバーへの非同期要求をキャンセルします。 要求がキャンセルされた後に、**GetResponse**、**BeginGetResponse**、**EndGetResponse**、**GetRequestStream**、**BeginGetRequestStream**、**EndGetRequestStream** のいずれかを呼び出すと、<xref:System.Net.WebExceptionStatus> に設定された <xref:System.Net.WebException.Status%2A> プロパティで <xref:System.Net.WebException> がスローされます。  
+ <xref:System.Net.WebRequest.Abort%2A> メソッドは、保留中のサーバーへの非同期要求をキャンセルします。 要求がキャンセルされた後に、**GetResponse**、**BeginGetResponse**、**EndGetResponse**、**GetRequestStream**、**BeginGetRequestStream**、**EndGetRequestStream** のいずれかを呼び出すと、<xref:System.Net.WebException> に設定された <xref:System.Net.WebException.Status%2A> プロパティで <xref:System.Net.WebExceptionStatus> がスローされます。  
   
 ## <a name="begingetrequeststream-and-endgetrequeststream-methods"></a>BeginGetRequestStream メソッドと EndGetRequestStream メソッド  
  <xref:System.Net.WebRequest.BeginGetRequestStream%2A> メソッドは、サーバーへのデータのアップロードに使用されるストリームへの非同期要求を開始します。 <xref:System.Net.WebRequest.EndGetRequestStream%2A> メソッドは非同期要求を完了し、要求されたストリームを返します。 これらのメソッドは標準の .NET Framework 非同期パターンを使用して、**GetRequestStream** メソッドを実装します。  
@@ -88,7 +88,7 @@ ms.locfileid: "71048610"
   
  **GetResponse** メソッドは、受信した応答を含めるための適切な **WebResponse** の子孫を作成します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Net.WebRequest>
 - <xref:System.Net.HttpWebRequest>

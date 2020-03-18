@@ -3,13 +3,13 @@ title: ML.NET CLI によるテレメトリ収集
 description: 分析のために使用状況の情報を収集する ML.NET CLI テレメトリ機能、収集されるデータ、機能を無効にする方法について説明します。 また、.NET の使用許諾契約と Microsoft GDPR 準拠に関する情報のリンクも紹介します。
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.custom: ''
-ms.openlocfilehash: 77a24416a8008d36006c293cb174b5a8c2f516b7
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.custom: mlnet-tooling
+ms.openlocfilehash: 99e11acba343cc689c3219ca9316144fc62cd618
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70929277"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78849745"
 ---
 # <a name="telemetry-collection-by-the-mlnet-cli"></a>ML.NET CLI によるテレメトリ収集
 
@@ -17,7 +17,7 @@ ms.locfileid: "70929277"
 
 ## <a name="how-microsoft-uses-the-data"></a>Microsoft によるデータの使用方法
 
-製品チームは、ツールの改善方法を理解するために ML.NET CLI のテレメトリ データを使用しています。 たとえば、お客様が特定の機械学習タスクをあまり使用しない場合、製品チームはその理由を調査し、その結果を使用して機能開発の優先順位を決定します。 ML.NET CLI のテレメトリは、クラッシュやコードの異常などの問題のデバッグにも役立ちます。 
+製品チームは、ツールの改善方法を理解するために ML.NET CLI のテレメトリ データを使用しています。 たとえば、お客様が特定の機械学習タスクをあまり使用しない場合、製品チームはその理由を調査し、その結果を使用して機能開発の優先順位を決定します。 ML.NET CLI のテレメトリは、クラッシュやコードの異常などの問題のデバッグにも役立ちます。
 
 製品チームはこの分析情報に感謝していますが、このデータを送信したくない方がいらっしゃることも理解しています。 [テレメトリを無効にする方法についてはこちらを参照してください。](#opt-out-of-data-collection)
 
@@ -57,6 +57,7 @@ ML.NET CLI のテレメトリ機能は既定で有効です。
 データは [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) テクノロジを使用して Microsoft サーバーに安全に送信され、制限されたアクセスの下で保持され、厳格なセキュリティ コントロールの下で安全な [Azure Storage](https://azure.microsoft.com/services/storage/) システムから使用されます。
 
 ### <a name="data-points-not-collected"></a>収集されないデータ ポイント
+
 テレメトリ機能では、以下は収集 "*されません*"。
 
 - ユーザー名などの個人データ

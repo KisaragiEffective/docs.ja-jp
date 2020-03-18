@@ -1,17 +1,17 @@
 ---
-title: -out (Visual Basic)
+title: -out
 ms.date: 07/20/2015
 helpviewer_keywords:
 - /out compiler option [Visual Basic]
 - -out compiler option [Visual Basic]
 - out compiler option [Visual Basic]
 ms.assetid: 9f148c15-0909-4cb8-a2db-777f8a8b45ae
-ms.openlocfilehash: 6b005ac26e3fffad350cb4ce52f7757c9fff2ac1
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: 67366e13e4dceea4772d0730222413cb25b4e8b7
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72005334"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352390"
 ---
 # <a name="-out-visual-basic"></a>-out (Visual Basic)
 出力ファイルの名前を指定します。  
@@ -24,7 +24,7 @@ ms.locfileid: "72005334"
   
 ## <a name="arguments"></a>引数  
   
-|項目|定義|  
+|用語|Definition|  
 |---|---|  
 |`filename`|必須。 コンパイラによって作成される出力ファイルの名前。 ファイル名にスペースが含まれている場合は、名前を引用符 ("") で囲みます。|  
   
@@ -35,17 +35,17 @@ ms.locfileid: "72005334"
   
 |Visual Studio 統合開発環境でを設定するには|  
 |---|  
-|1. **ソリューション エクスプローラー**でプロジェクトを選択します。 **[プロジェクト]** メニューの **[プロパティ]** をクリックします。 <br />2. **[アプリケーション]** タブをクリックします。<br />3. **[アセンブリ名]** ボックスの値を変更します。|  
+|1.**ソリューションエクスプローラー**でプロジェクトを選択します。 **[プロジェクト]** メニューの **[プロパティ]** をクリックします。 <br />2. **[アプリケーション]** タブをクリックします。<br />3. **[アセンブリ名]** ボックスの値を変更します。|  
   
 ## <a name="example"></a>例  
- 次のコードでは `T2.vb` をコンパイルし、出力ファイル `T2.exe` を作成します。  
+ 次のコードは `T2.vb` をコンパイルし、出力ファイル `T2.exe`を作成します。  
   
 ```console
 vbc t2.vb -out:t3.exe  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [Visual Basic のコマンド ライン コンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
+- [Visual Basic コマンドラインコンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
 - [-target (Visual Basic)](../../../visual-basic/reference/command-line-compiler/target.md)
-- [コンパイル コマンド ラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)
+- [コンパイルコマンドラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)

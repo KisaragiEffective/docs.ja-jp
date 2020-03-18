@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 0b1b432a-d234-4002-839b-81366c3a8bdc
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d5fbf83690f616556774e8f279e1077fccdb8baf
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 497a115b980bb58a3906fda68d7ff564efe78089
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779909"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127838"
 ---
 # <a name="iclrvalidatorvalidate-method"></a>ICLRValidator::Validate メソッド
-ポータブル実行可能 (PE) または Microsoft intermediate language (MSIL) で指定されたファイルを検証します。  
+指定されたファイル内のポータブル実行可能 (PE) または Microsoft 中間言語 (MSIL) を検証します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -44,46 +42,46 @@ HRESULT Validate (
   
 ## <a name="parameters"></a>パラメーター  
  `veh`  
- [in]ポインター、`IVEHandler`検証エラーを処理するインスタンス。  
+ から検証エラーを処理する `IVEHandler` インスタンスへのポインター。  
   
  `ulAppDomainId`  
- [in]現在の識別子<xref:System.AppDomain>します。  
+ から現在の <xref:System.AppDomain>の識別子。  
   
  `ulFlags`  
- [in]組み合わせた[ValidatorFlags](../../../../docs/framework/unmanaged-api/hosting/validatorflags-enumeration.md)を実行する検証の種類を示す値。  
+ から実行する必要のある検証の種類を示す、 [Validatorflags](../../../../docs/framework/unmanaged-api/hosting/validatorflags-enumeration.md)値の組み合わせ。  
   
  `ulMaxError`  
- [in]検証を終了する前に許可されるエラーの最大数。  
+ から検証を終了するまでに許容されるエラーの最大数。  
   
  `token`  
- [in]使用されていません。  
+ から未使用.  
   
  `fileName`  
- [in]検証するファイルの名前。  
+ から検証するファイルの名前。  
   
  `pe`  
- [in]ファイル バッファーへのポインター。  
+ からファイルバッファーへのポインター。  
   
  `ulSize`  
- [in]検証するファイルのバイト単位のサイズ。  
+ から検証するファイルのサイズ (バイト単位)。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`Validate` 正常に返されます。|  
-|HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) は、プロセスに読み込まれていないか、CLR は状態をマネージ コードを実行または呼び出しを正常に処理ができません。|  
-|HOST_E_TIMEOUT|呼び出しがタイムアウトになりました。|  
+|S_OK|`Validate` が正常に返されました。|  
+|HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) がプロセスに読み込まれていないか、CLR がマネージコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
+|HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
-|HOST_E_ABANDONED|イベントがキャンセルされましたブロックされたスレッドまたはファイバーが待機しています。|  
-|E_FAIL|不明な致命的なエラーが発生しました。 メソッドには、E_FAIL が返される、ときに、CLR は、プロセス内で使用可能ではなくなりました。 メソッドをホストする後続の呼び出しには、HOST_E_CLRNOTAVAILABLE が返されます。|  
+|HOST_E_ABANDONED|ブロックされたスレッドまたはファイバーが待機しているときに、イベントが取り消されました。|  
+|E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、そのプロセス内で CLR は使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** IValidator.idl, IValidator.h  
+ **ヘッダー:** IValidator、IValidator  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

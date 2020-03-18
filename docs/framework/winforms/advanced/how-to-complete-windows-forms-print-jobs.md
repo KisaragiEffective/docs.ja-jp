@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの印刷ジョブを完了する'
+title: 印刷ジョブの完了
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -9,21 +9,21 @@ helpviewer_keywords:
 - print jobs [Windows Forms], completing in Windows Forms
 - printing [Windows Forms], print jobs
 ms.assetid: 23ec74f7-34c5-4710-82a0-ee2914518548
-ms.openlocfilehash: a95e07596a10e67d32fdd0af036a14e8d66390c7
-ms.sourcegitcommit: 7e129d879ddb42a8b4334eee35727afe3d437952
+ms.openlocfilehash: b8ef4fa05b2107247181e82b72389f9503507135
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66053031"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746498"
 ---
-# <a name="how-to-complete-windows-forms-print-jobs"></a>方法: Windows フォームの印刷ジョブを完了する
-多くの場合、ワード プロセッサや他の印刷に関連するアプリケーションは、印刷ジョブが完了したユーザーにメッセージを表示するオプションを提供します。 処理することにより、Windows フォーム内でこの機能を行うことができます、<xref:System.Drawing.Printing.PrintDocument.EndPrint>のイベント、<xref:System.Drawing.Printing.PrintDocument>コンポーネント。  
+# <a name="how-to-complete-windows-forms-print-jobs"></a>方法 : Windows フォームの印刷ジョブを完了する
+多くの場合、印刷を伴うワードプロセッサやその他のアプリケーションには、印刷ジョブが完了したことをユーザーに示すオプションが用意されています。 <xref:System.Drawing.Printing.PrintDocument> コンポーネントの <xref:System.Drawing.Printing.PrintDocument.EndPrint> イベントを処理することによって、この機能を Windows フォームに提供できます。  
   
- 次の手順で Windows ベースのアプリケーションを作成することが必要です、<xref:System.Drawing.Printing.PrintDocument>コンポーネントをこれは、Windows ベースのアプリケーションから印刷を有効にする標準的な方法です。 使用して Windows フォームからの印刷の詳細については、<xref:System.Drawing.Printing.PrintDocument>コンポーネントを参照してください[方法。標準の Windows フォーム印刷ジョブを作成](how-to-create-standard-windows-forms-print-jobs.md)です。  
+ 次の手順では、<xref:System.Drawing.Printing.PrintDocument> コンポーネントを含む Windows ベースのアプリケーションを作成しておく必要があります。これは、Windows ベースのアプリケーションからの印刷を有効にするための標準的な方法です。 <xref:System.Drawing.Printing.PrintDocument> コンポーネントを使用した Windows フォームからの印刷の詳細については、「[方法: 標準 Windows フォーム印刷ジョブを作成する](how-to-create-standard-windows-forms-print-jobs.md)」を参照してください。  
   
 ### <a name="to-complete-a-print-job"></a>印刷ジョブを完了するには  
   
-1. 設定、<xref:System.Drawing.Printing.PrintDocument.DocumentName%2A>のプロパティ、<xref:System.Drawing.Printing.PrintDocument>コンポーネント。  
+1. <xref:System.Drawing.Printing.PrintDocument> コンポーネントの <xref:System.Drawing.Printing.PrintDocument.DocumentName%2A> プロパティを設定します。  
   
     ```vb  
     PrintDocument1.DocumentName = "MyTextFile"  
@@ -39,7 +39,7 @@ ms.locfileid: "66053031"
   
 2. <xref:System.Drawing.Printing.PrintDocument.EndPrint> イベントを処理するコードを記述します。  
   
-     次のコード例では、メッセージ ボックスが表示されます、ドキュメントの印刷が完了したことを示します。  
+     次のコード例では、ドキュメントの印刷が完了したことを示すメッセージボックスが表示されます。  
   
     ```vb  
     Private Sub PrintDocument1_EndPrint(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintEventArgs) Handles PrintDocument1.EndPrint  
@@ -66,7 +66,7 @@ ms.locfileid: "66053031"
        }  
     ```  
   
-     (VisualC#とビジュアルC++)イベント ハンドラーを登録するフォームのコンス トラクターでは、次のコードを配置します。  
+     (ビジュアルC#とビジュアルC++)フォームのコンストラクターに次のコードを配置して、イベントハンドラーを登録します。  
   
     ```csharp  
     this.printDocument1.EndPrint += new  
@@ -80,7 +80,7 @@ ms.locfileid: "66053031"
        (this, &Form1::printDocument1_EndPrint);  
     ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Drawing.Printing.PrintDocument>
 - [Windows フォームにおける印刷のサポート](windows-forms-print-support.md)

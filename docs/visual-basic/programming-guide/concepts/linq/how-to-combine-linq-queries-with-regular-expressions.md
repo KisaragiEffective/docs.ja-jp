@@ -1,21 +1,24 @@
 ---
-title: '方法: LINQ クエリと正規表現を組み合わせる (Visual Basic)'
+title: LINQ クエリと正規表現を組み合わせる方法
 ms.date: 07/20/2015
 ms.assetid: 3da1bd10-b0d8-4d5b-a637-966891c13592
-ms.openlocfilehash: cdcd4d604f36ec8ed4211d90c976ff8b35d4a0dc
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: a091418be1f7cc30d42a98f80ebae2d36d29b5d8
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75337557"
 ---
-# <a name="how-to-combine-linq-queries-with-regular-expressions-visual-basic"></a>方法: LINQ クエリと正規表現を組み合わせる (Visual Basic)
+# <a name="how-to-combine-linq-queries-with-regular-expressions-visual-basic"></a>LINQ クエリと正規表現を組み合わせる方法 (Visual Basic)
 
 この例では、<xref:System.Text.RegularExpressions.Regex> クラスを使用して正規表現を作成し、テキスト文字列内の複雑な一致を取得する方法を示します。 LINQ クエリを使用すると、正規表現で検索する必要のあるファイルだけをフィルターで抽出したり、結果の形式を指定したりするのが簡単になります。
 
-## <a name="example"></a>例
+## <a name="example"></a>使用例
 
 ```vb
+Imports System.IO
+Imports System.Text.RegularExpressions
+
 Class LinqRegExVB
 
     Shared Sub Main()
@@ -27,11 +30,10 @@ Class LinqRegExVB
         'Dim startFolder As String = "C:\Program Files (x86)\Microsoft Visual Studio\2017\"
 
         ' Take a snapshot of the file system.
-        Dim fileList As IEnumerable(Of System.IO.FileInfo) = GetFiles(startFolder)
+        Dim fileList As IEnumerable(Of FileInfo) = GetFiles(startFolder)
 
         ' Create a regular expression to find all things "Visual".
-        Dim searchTerm As System.Text.RegularExpressions.Regex =
-            New System.Text.RegularExpressions.Regex("Visual (Basic|C#|C\+\+|Studio)")
+        Dim searchTerm As New Regex("Visual (Basic|C#|C\+\+|Studio)")
 
         ' Search the contents of each .htm file.
         ' Remove the where clause to find even more matches!
@@ -42,11 +44,11 @@ Class LinqRegExVB
         ' generic IEnumerable collection.
         Dim queryMatchingFiles = From afile In fileList
                                 Where afile.Extension = ".htm"
-                                Let fileText = System.IO.File.ReadAllText(afile.FullName)
+                                Let fileText = File.ReadAllText(afile.FullName)
                                 Let matches = searchTerm.Matches(fileText)
                                 Where (matches.Count > 0)
                                 Select Name = afile.FullName,
-                                       Matches = From match As System.Text.RegularExpressions.Match In matches
+                                       Matches = From match As Match In matches
                                                  Select match.Value
 
         ' Execute the query.
@@ -71,10 +73,10 @@ Class LinqRegExVB
 
     ' Function to retrieve a list of files. Note that this is a copy
     ' of the file information.
-    Shared Function GetFiles(ByVal root As String) As IEnumerable(Of System.IO.FileInfo)
+    Shared Function GetFiles(root As String) As IEnumerable(Of FileInfo)
         Return From file In My.Computer.FileSystem.GetFiles(
                    root, FileIO.SearchOption.SearchAllSubDirectories, "*.*")
-               Select New System.IO.FileInfo(file)
+               Select New FileInfo(file)
     End Function
 
 End Class
@@ -82,11 +84,11 @@ End Class
 
 `RegEx` 検索で返された <xref:System.Text.RegularExpressions.MatchCollection> オブジェクトのクエリを実行することも可能です。 この例では、一致した各文字列の値のみが結果として生成されています。 しかし、LINQ を使用して、各種のフィルター処理、並べ替え、グループ化をそのコレクションに対して実行することもできます。 <xref:System.Text.RegularExpressions.MatchCollection> が非ジェネリック <xref:System.Collections.IEnumerable> コレクションなので、クエリで範囲変数の型を明示的に記述する必要があります。
 
-## <a name="compiling-the-code"></a>コードのコンパイル
+## <a name="compile-the-code"></a>コードのコンパイル
 
-VB.NET コンソールアプリケーションプロジェクトを作成します。このプロジェクトには、名前空間の `Imports` ステートメントが含まれています。
+Visual Basic コンソールアプリケーションプロジェクトを作成し、コードサンプルをコピーして貼り付け、プロジェクトプロパティのスタートアップオブジェクトの値を調整します。
 
 ## <a name="see-also"></a>関連項目
 
-- [LINQ と文字列 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/linq-and-strings.md)
-- [LINQ とファイル ディレクトリ (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/linq-and-file-directories.md)
+- [LINQ と文字列 (Visual Basic)](linq-and-strings.md)
+- [LINQ とファイル ディレクトリ (Visual Basic)](linq-and-file-directories.md)

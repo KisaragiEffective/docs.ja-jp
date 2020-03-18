@@ -2,12 +2,12 @@
 title: WCF 開発ツールの使用
 ms.date: 03/30/2017
 ms.assetid: 054adb87-c244-4d5a-83d1-0b2b44bd454b
-ms.openlocfilehash: 27cefb1ca1f4748f0d074ffdcd47cd6faa29da00
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 8253a9136b2310deeb7c6d162a9f190c13ba02da
+ms.sourcegitcommit: a4f9b754059f0210e29ae0578363a27b9ba84b64
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72320271"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74837728"
 ---
 # <a name="using-the-wcf-development-tools"></a>WCF 開発ツールの使用
 このセクションでは、WCFservice の開発に役立つ Visual Studio 開発ツールについて説明します。  
@@ -37,15 +37,15 @@ ms.locfileid: "72320271"
 ## <a name="using-the-tools-without-administrator-privilege"></a>管理特権を必要としないツールの使用  
  管理者特権を持たないユーザーが WCF サービスを開発できるようにするには、Visual Studio のインストール時に、名前空間 "http://+:8731/Design_Time_Addresses" に対して ACL (Access Control リスト) が作成されます。 この ACL は (UI) に設定され、コンピューターにログオンしているすべての対話ユーザーが含まれます。 管理者は、この ACL にユーザーを追加または削除したり、追加のポートを開いたりできます。この ACL によって、既定の構成で、WCF テンプレートまたは WF テンプレートでデータを送受信できるようになります。 また、ユーザーは、管理者特権を付与せずに、WCF サービスの自動ホスト (Wcfsvchost.exe) を使用することもできます。  
   
- システム特権のある管理者アカウントで [!INCLUDE[wv](../../../includes/wv-md.md)] の Netsh.exe ツールを使用すると、アクセスを変更できます。 Netsh.exe の使用例を次に示します。  
+ アクセス権を変更するには、管理者特権で Windows Vista の Netsh.exe ツールを使用します。 Netsh.exe の使用例を次に示します。  
   
-```  
+```console  
 netsh http add urlacl url=http://+:8001/MyService user=<domain>\<user>  
 ```  
   
- Netsh.exe の詳細については、「 [Netsh.exe ツールとコマンドラインスイッチの使用方法](https://go.microsoft.com/fwlink/?LinkId=97877)」を参照してください。  
+ Netsh.exe の詳細については、「 [Netsh.exe ツールとコマンドラインスイッチの使用方法](https://docs.microsoft.com/previous-versions/tn-archive/bb490939(v=technet.10))」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [WCF Visual Studio テンプレート](wcf-vs-templates.md)
 - [WCF サービス ホスト (WcfSvcHost.exe)](wcf-service-host-wcfsvchost-exe.md)

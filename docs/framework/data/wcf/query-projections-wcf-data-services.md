@@ -10,22 +10,22 @@ helpviewer_keywords:
 - query projection [WCF Data Services]
 - WCF Data Services, querying
 ms.assetid: a09f4985-9f0d-48c8-b183-83d67a3dfe5f
-ms.openlocfilehash: 8128fd3cab0ca20da87a1a98c2657aefab96beaf
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 764ea6a77ba267e691d48bc72d17c02f6b3c18ca
+ms.sourcegitcommit: 7088f87e9a7da144266135f4b2397e611cf0a228
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70779816"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75900971"
 ---
 # <a name="query-projections-wcf-data-services"></a>クエリ射影 (WCF Data Services)
 
-プロジェクションは、エンティティの特定[!INCLUDE[ssODataFull](../../../../includes/ssodatafull-md.md)]のプロパティのみが応答で返されるように指定することによって、クエリによって返されるフィードのデータ量を減らすためのメカニズムをに提供します。 詳細については[、「OData:システムクエリオプション ($select)](https://go.microsoft.com/fwlink/?LinkId=186076)を選択します。
+射影では、Open Data Protocol (OData) のメカニズムを使用して、エンティティの特定のプロパティのみが応答で返されるように指定することによって、クエリによって返されるフィードのデータ量を削減します。 詳細については、セクション4.8 を参照してください。 [URI 規則 (OData バージョン 2.0)](https://www.odata.org/documentation/odata-version-2-0/uri-conventions/)のシステムクエリオプション ($select) を選択します。
 
 このトピックでは、クエリ射影を定義する方法、エンティティ型、エンティティ型以外の要件、射影された結果に対する更新、射影された型の作成について説明すると共に、射影に関する注意事項をリストします。
 
 ## <a name="defining-a-query-projection"></a>クエリ射影の定義
 
-クエリに射影句を追加するには、URI で`$select`クエリオプションを使用するか、LINQ クエリで[select](../../../csharp/language-reference/keywords/select-clause.md)句 ([select](../../../visual-basic/language-reference/queries/select-clause.md) in Visual Basic) を使用します。 返されたエンティティ データは、クライアント上のエンティティ型またはエンティティ型以外に射影できます。 このトピックでは、LINQ クエリで `select` 句を使用する例を取り上げます。
+クエリに射影句を追加するには、URI で `$select` クエリオプションを使用するか、LINQ クエリで[select](../../../csharp/language-reference/keywords/select-clause.md)句 (Visual Basic で[選択](../../../visual-basic/language-reference/queries/select-clause.md)) を使用します。 返されたエンティティ データは、クライアント上のエンティティ型またはエンティティ型以外に射影できます。 このトピックでは、LINQ クエリで `select` 句を使用する例を取り上げます。
 
 > [!IMPORTANT]
 > 射影された型に対して行った更新を保存すると、データ サービスでデータの損失が発生する場合があります。 詳細については、「[射影の考慮事項](#considerations)」を参照してください。
@@ -38,7 +38,7 @@ ms.locfileid: "70779816"
 
 - 型に `ID` という名前のプロパティがある場合。
 
-- 型に*type*`ID`という名前のプロパティがある場合は。 *type*が型の名前である場合は。
+- 型に*型*`ID`という名前のプロパティがある*場合は、type が型*の名前になります。
 
 既定では、クライアントで定義された型にクエリ結果を射影した場合、射影で要求されたプロパティがクライアント型に存在する必要があります。 ただし、`true` の <xref:System.Data.Services.Client.DataServiceContext.IgnoreMissingProperties%2A> プロパテに <xref:System.Data.Services.Client.DataServiceContext> という値を指定した場合、射影で指定されたプロパティがクライアント型に含まれる必要はありません。
 
@@ -70,9 +70,9 @@ ms.locfileid: "70779816"
    [!code-csharp[Astoria Northwind Client#ProjectWithInitializer](~/samples/snippets/csharp/VS_Snippets_Misc/astoria_northwind_client/cs/source.cs#projectwithinitializer)]
    [!code-vb[Astoria Northwind Client#ProjectWithInitializer](~/samples/snippets/visualbasic/VS_Snippets_Misc/astoria_northwind_client/vb/source.vb#projectwithinitializer)]
 
-- エンティティの種類:サポート状況
+- エンティティ型: サポートされています
 
-- 非エンティティ型:サポート状況
+- 非エンティティ型: サポートされています
 
 **コンストラクターを使用して新しい射影インスタンスを作成する**
 
@@ -81,10 +81,9 @@ ms.locfileid: "70779816"
    [!code-csharp[Astoria Northwind Client#ProjectWithConstructor](~/samples/snippets/csharp/VS_Snippets_Misc/astoria_northwind_client/cs/source.cs#projectwithconstructor)]
    [!code-vb[Astoria Northwind Client#ProjectWithConstructor](~/samples/snippets/visualbasic/VS_Snippets_Misc/astoria_northwind_client/vb/source.vb#projectwithconstructor)]
 
-- エンティティの種類:
-  <xref:System.NotSupportedException> 発生
+- エンティティ型: <xref:System.NotSupportedException> が発生します。
 
-- 非エンティティ型:サポート状況
+- 非エンティティ型: サポートされています
 
 **プロジェクションを使用してプロパティ値を変換する**
 
@@ -93,9 +92,9 @@ ms.locfileid: "70779816"
    [!code-csharp[Astoria Northwind Client#ProjectWithTransform](~/samples/snippets/csharp/VS_Snippets_Misc/astoria_northwind_client/cs/source.cs#projectwithtransform)]
    [!code-vb[Astoria Northwind Client#ProjectWithTransform](~/samples/snippets/visualbasic/VS_Snippets_Misc/astoria_northwind_client/vb/source.vb#projectwithtransform)]
 
-- エンティティの種類:この変換は、エンティティ型では混乱の原因となり、別のエンティティに属するデータ ソース内のデータを上書きする可能性があるため、サポートされません。 <xref:System.NotSupportedException> 発生
+- エンティティ型: この変換は、混乱を招く可能性があり、別のエンティティに属するデータソースのデータを上書きする可能性があるため、エンティティ型ではサポートされていません。 <xref:System.NotSupportedException> 発生
 
-- 非エンティティ型:サポート状況
+- 非エンティティ型: サポートされています
 
 <a name="considerations"></a>
 
@@ -113,9 +112,9 @@ ms.locfileid: "70779816"
 
 - 射影にナビゲーション プロパティが含まれる場合、<xref:System.Data.Services.Client.DataServiceQuery%601.Expand%2A> メソッドを呼び出す必要はなく、関連オブジェクトが暗黙的に読み込まれます。 射影されたクエリでの <xref:System.Data.Services.Client.DataServiceQuery%601.Expand%2A> メソッドの使用はサポートされません。
 
-- クライアント上のクエリ射影クエリは、要求 URI の `$select` クエリ オプションを使用するように変換されます。 [!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)] クエリ オプションをサポートしない `$select` の以前のバージョンに対して、射影のあるクエリを実行すると、エラーが返されます。 これは、データ サービスの  <xref:System.Data.Services.DataServiceBehavior.MaxProtocolVersion%2A> の <xref:System.Data.Services.DataServiceBehavior> が <xref:System.Data.Services.Common.DataServiceProtocolVersion.V1> という値に設定されている場合にも発生します。 詳細については、「[データサービスのバージョン管理](data-service-versioning-wcf-data-services.md)」を参照してください。
+- クライアント上のクエリ射影クエリは、要求 URI の `$select` クエリ オプションを使用するように変換されます。 `$select` クエリオプションをサポートしていない以前のバージョンの WCF Data Services に対して射影を使用したクエリを実行すると、エラーが返されます。 これは、データ サービスの  <xref:System.Data.Services.DataServiceBehavior.MaxProtocolVersion%2A> の <xref:System.Data.Services.DataServiceBehavior> が <xref:System.Data.Services.Common.DataServiceProtocolVersion.V1> という値に設定されている場合にも発生します。 詳細については、「[データサービスのバージョン管理](data-service-versioning-wcf-data-services.md)」を参照してください。
 
-詳細については、「[方法 :プロジェクトのクエリ](how-to-project-query-results-wcf-data-services.md)結果。
+詳細については、「[方法: クエリ結果を射影する](how-to-project-query-results-wcf-data-services.md)」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 

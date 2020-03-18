@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 97e493f5-3a62-4ec7-b42f-4af57bf71f57
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: fd8f71ca75a795ab86c61140eacbbcfb0a18b590
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 166f6bb50849df8550871958d7034fdf2a841abb
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737806"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73089116"
 ---
 # <a name="icordebugappdomain2getarrayorpointertype-method"></a>ICorDebugAppDomain2::GetArrayOrPointerType メソッド
-指定した型、ポインター、または指定した型への参照の配列を取得します。  
+指定した型、または指定した型へのポインターまたは参照の配列を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,19 +38,19 @@ HRESULT GetArrayOrPointerType (
   
 ## <a name="parameters"></a>パラメーター  
  `elementType`  
- [in]CorElementType 列挙型 (配列、ポインター、または参照) を作成する基になるネイティブな型を指定する値。  
+ から作成する基になるネイティブ型 (配列、ポインター、または参照) を指定する CorElementType 列挙体の値。  
   
  `nRank`  
- [in]配列のランク (つまり、ディメンションの数)。 場合、この値は 0 には`elementType`ポインターまたは参照型を指定します。  
+ から配列のランク (次元の数)。 `elementType` がポインターまたは参照型を指定する場合、この値は0にする必要があります。  
   
  `pTypeArg`  
- [in]配列の型を表す ICorDebugType オブジェクトへのポインター、ポインター、または参照を作成します。  
+ から作成される配列、ポインター、または参照の型を表す、の型のオブジェクトへのポインター。  
   
  `ppType`  
- [out]アドレスへのポインター、`ICorDebugType`構築された配列、ポインター型、または参照を表すオブジェクトを入力します。  
+ 入出力構築された配列、ポインター型、または参照型を表す `ICorDebugType` オブジェクトのアドレスへのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- 値*elementType*次のいずれかを指定する必要があります。  
+ *ElementType*の値には、次のいずれかを指定する必要があります。  
   
 - ELEMENT_TYPE_PTR  
   
@@ -60,10 +58,10 @@ HRESULT GetArrayOrPointerType (
   
 - ELEMENT_TYPE_ARRAY または ELEMENT_TYPE_SZARRAY  
   
- 場合の値*elementType* ELEMENT_TYPE_PTR または ELEMENT_TYPE_BYREF、 *nRank* 0 にする必要があります。  
+ *ElementType*の値が ELEMENT_TYPE_PTR または ELEMENT_TYPE_BYREF の場合、 *nrank*は0にする必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

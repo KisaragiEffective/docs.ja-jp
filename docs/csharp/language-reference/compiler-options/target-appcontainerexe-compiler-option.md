@@ -2,15 +2,15 @@
 title: -target:appcontainerexe (C# コンパイラ オプション)
 ms.date: 07/20/2015
 ms.assetid: e7e62229-23ea-4e53-bef5-380d951bf95f
-ms.openlocfilehash: 09ae01d95138b72a0012f294189d288fc71c74b2
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 64661e72f9efe190606cadd93558678cb849e8cc
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69606524"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "74204533"
 ---
 # <a name="-targetappcontainerexe-c-compiler-options"></a>-target:appcontainerexe (C# コンパイラ オプション)
-**-target:appcontainerexe** コンパイラ オプションを使用すると、アプリケーション コンテナーで実行する必要のある Windows 実行可能ファイル (.exe) がコンパイラによって作成されます。 このオプションは [-target:winexe](./target-winexe-compiler-option.md) に相当しますが、[!INCLUDE[win8_appname_long](~/includes/win8-appname-long-md.md)] アプリ用に設計されています。  
+**-target:appcontainerexe** コンパイラ オプションを使用すると、アプリケーション コンテナーで実行する必要のある Windows 実行可能ファイル (.exe) がコンパイラによって作成されます。 このオプションは [-target:winexe](./target-winexe-compiler-option.md) に相当しますが、Windows 8.x Store アプリ用に設計されています。  
   
 ## <a name="syntax"></a>構文  
   
@@ -31,7 +31,7 @@ ms.locfileid: "69606524"
   
 2. **[アプリケーション]** タブの **[出力の種類]** ボックスの一覧で、 **[Windows ストア アプリ]** をクリックします。  
   
-     このオプションは [!INCLUDE[win8_appname_long](~/includes/win8-appname-long-md.md)] アプリケーション テンプレートでのみ使用できます。  
+     このオプションは、Windows 8.x Store アプリ テンプレートでのみ使用できます。  
   
  このコンパイラ オプションをプログラムで設定する方法については、「<xref:VSLangProj80.ProjectProperties3.OutputType%2A>」を参照してください。  
   
@@ -42,7 +42,7 @@ ms.locfileid: "69606524"
 csc -target:appcontainerexe filename.cs  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [-target (C# コンパイラ オプション)](./target-compiler-option.md)
 - [-target:winexe (C# コンパイラ オプション)](./target-winexe-compiler-option.md)

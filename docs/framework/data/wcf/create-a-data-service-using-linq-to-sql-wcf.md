@@ -1,5 +1,5 @@
 ---
-title: '方法: LINQ to SQL データソース (WCF Data Services) を使用してデータサービスを作成する'
+title: '方法: LINQ to SQL データ ソースを使用してデータ サービスを作成する (WCF Data Services)'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,20 +8,20 @@ helpviewer_keywords:
 - WCF Data Services, LINQ to SQL
 - WCF Data Services, providers
 ms.assetid: 3b01c2fd-8c6e-4bf5-b38f-9e61bdc3c328
-ms.openlocfilehash: 6489e451f3790e38ea821104fd2aca5a8c091ba6
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: cde5b9903a1fd164ce106a6a408ac4bb79976642
+ms.sourcegitcommit: 32a575bf4adccc901f00e264f92b759ced633379
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052998"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74802286"
 ---
-# <a name="how-to-create-a-data-service-using-a-linq-to-sql-data-source-wcf-data-services"></a>方法: LINQ to SQL データソース (WCF Data Services) を使用してデータサービスを作成する
+# <a name="how-to-create-a-data-service-using-a-linq-to-sql-data-source-wcf-data-services"></a>方法: LINQ to SQL データ ソースを使用してデータ サービスを作成する (WCF Data Services)
 
-WCF Data Services は、エンティティデータをデータサービスとして公開します。 リフレクションプロバイダーを使用すると、 <xref:System.Linq.IQueryable%601>実装を返すメンバーを公開するクラスに基づくデータモデルを定義できます。 データ ソース内のデータに更新を加えるには、これらのクラスも <xref:System.Data.Services.IUpdatable> インターフェイスを実装する必要があります。 詳細については、「 [Data Services プロバイダー](data-services-providers-wcf-data-services.md)」を参照してください。 このトピックでは、リフレクション プロバイダーを使用して Northwind サンプル データベースにアクセスする LINQ to SQL クラスを作成する方法と、これらのデータ クラスに基づくデータ サービスを作成する方法について説明します。
+WCF Data Services は、エンティティデータをデータサービスとして公開します。 リフレクションプロバイダーを使用すると、<xref:System.Linq.IQueryable%601> の実装を返すメンバーを公開するクラスに基づくデータモデルを定義できます。 データ ソース内のデータに更新を加えるには、これらのクラスも <xref:System.Data.Services.IUpdatable> インターフェイスを実装する必要があります。 詳細については、「 [Data Services プロバイダー](data-services-providers-wcf-data-services.md)」を参照してください。 このトピックでは、リフレクション プロバイダーを使用して Northwind サンプル データベースにアクセスする LINQ to SQL クラスを作成する方法と、これらのデータ クラスに基づくデータ サービスを作成する方法について説明します。
 
 ## <a name="to-add-linq-to-sql-classes-to-a-project"></a>LINQ to SQL クラスをプロジェクトに追加するには
 
-1. C# Visual Basic またはアプリケーション内から、 **[プロジェクト]** メニューの [**新しい項目**の**追加** > ] をクリックします。
+1. C# Visual Basic またはアプリケーション内から、 **[プロジェクト]** メニューの [ > **新しい項目**の**追加**] をクリックします。
 
 2. **[LINQ to SQL クラス]** テンプレートをクリックします。
 
@@ -31,7 +31,7 @@ WCF Data Services は、エンティティデータをデータサービスと�
 
      Northwind.dbml ファイルがプロジェクトに追加され、オブジェクト リレーショナル デザイナー (O/R デザイナー) が開きます。
 
-5. **サーバー**/**データベースエクスプローラー**で、Northwind の下の  `Customers` **テーブル** を展開し、テーブルをオブジェクトリレーショナルデザイナー (O/R デザイナー) にドラッグします。
+5. [**サーバー**/**データベースエクスプローラー**で、Northwind] の下の **[テーブル]** を展開し、`Customers` テーブルをオブジェクトリレーショナルデザイナー (O/R デザイナー) にドラッグします。
 
      `Customer` エンティティ クラスが作成され、デザイン サーフェイスに表示されます。
 
@@ -48,14 +48,14 @@ WCF Data Services は、エンティティデータをデータサービスと�
 
 ### <a name="to-create-a-data-service-by-using-a-linq-to-sql-based-data-model"></a>LINQ to SQL ベースのデータ モデルを使用してデータ サービスを作成するには
 
-1. **ソリューションエクスプローラー**で、ASP.NET プロジェクトの名前を右クリックし、[**新しい項目**の**追加** > ] をクリックします。
+1. **ソリューションエクスプローラー**で、ASP.NET プロジェクトの名前を右クリックし、[ > **新しい項目**の**追加**] をクリックします。
 
 2. **[新しい項目の追加]** ダイアログボックスで、 **[Web]** カテゴリの **[WCF Data Service]** テンプレートを選択します。
 
    ![Visual Studio 2015 の WCF Data Service 項目テンプレート](./media/wcf-data-service-item-template.png)
 
    > [!NOTE]
-   > **WCF Data Service**テンプレートは visual studio 2015 で使用できますが、visual studio 2017 では使用できません。
+   > **WCF Data Service**テンプレートは visual studio 2015 で使用できますが、visual studio 2017 以降では使用できません。
 
 3. サービスの名前を指定し、[ **OK]** をクリックします。
 
@@ -72,8 +72,8 @@ WCF Data Services は、エンティティデータをデータサービスと�
 
 6. Web ブラウザーを使用して Northwind .svc データサービスをテストするには、「 [Web ブラウザーからサービスにアクセス](accessing-the-service-from-a-web-browser-wcf-data-services-quickstart.md)する」の手順に従います。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [方法: ADO.NET Entity Framework データソースを使用してデータサービスを作成する](create-a-data-service-using-an-adonet-ef-data-wcf.md)
-- [方法: リフレクションプロバイダーを使用してデータサービスを作成する](create-a-data-service-using-rp-wcf-data-services.md)
+- [方法: ADO.NET Entity Framework データ ソースを使用してデータ サービスを作成する](create-a-data-service-using-an-adonet-ef-data-wcf.md)
+- [方法: リフレクション プロバイダーを使用してデータ サービスを作成する](create-a-data-service-using-rp-wcf-data-services.md)
 - [Data Services プロバイダー](data-services-providers-wcf-data-services.md)

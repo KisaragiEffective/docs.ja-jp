@@ -6,14 +6,12 @@ helpviewer_keywords:
 - hosting global static functions [.NET Framework]
 - unmanaged global static functions [.NET Framework], hosting
 ms.assetid: 4e4ad69d-9343-4f6a-aed8-fe0335a3b979
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 10e01dfd70d40ecfe6b1c9c36da8923734fb9220
-ms.sourcegitcommit: 155012a8a826ee8ab6aa49b1b3a3b532e7b7d9bd
+ms.openlocfilehash: 8eac9dd21cbcfa357ca36cd56445355ffb872cb2
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66490288"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73126984"
 ---
 # <a name="hosting-global-static-functions"></a>ホスト グローバル静的関数
 ここでは、.NET Framework ホスト API で使用されるアンマネージ ホスト関数について説明します。  
@@ -23,7 +21,7 @@ ms.locfileid: "66490288"
  .NET Framework 4 で導入された関数について説明します。  
   
  [非推奨の CLR ホスト関数](../../../../docs/framework/unmanaged-api/hosting/deprecated-clr-hosting-functions.md)  
- .NET Framework 1.1 および 2.0 では、.NET Framework 4 では非推奨とされたで導入された機能について説明します。  
+ .NET Framework 1.1 および2.0 で導入された関数について説明します。 .NET Framework 4 では非推奨とされます。  
   
 ## <a name="related-sections"></a>関連項目  
  [ホスト コクラス](../../../../docs/framework/unmanaged-api/hosting/hosting-coclasses.md)  

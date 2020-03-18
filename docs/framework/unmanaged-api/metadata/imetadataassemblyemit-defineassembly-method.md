@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: a0637d66-74bf-4f2d-8137-9ff838bccece
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: d53409e0be43dbf5d0cf7ba0fcbc170e2117f6a1
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 20628e708261076c6e172ff30c366a0d69c2e0f2
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67745814"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74432127"
 ---
 # <a name="imetadataassemblyemitdefineassembly-method"></a>IMetaDataAssemblyEmit::DefineAssembly メソッド
-作成、`Assembly`指定されたアセンブリのメタデータを含むを構造体し、関連付けられたメタデータ トークンを返します。  
+指定したアセンブリのメタデータを含む `Assembly` 構造体を作成し、関連付けられているメタデータトークンを返します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,38 +41,38 @@ HRESULT DefineAssembly (
   
 ## <a name="parameters"></a>パラメーター  
  `pbPublicKey`  
- [in]アセンブリの厳密に名前がない場合は、アセンブリ、または NULL の発行元を識別する公開キー。  
+ からアセンブリの発行元を識別する公開キー。アセンブリに厳密な名前が付けられていない場合は NULL。  
   
  `cbPublicKey`  
- [in]バイト サイズ`pbPublicKey`します。  
+ から`pbPublicKey`のサイズ (バイト単位)。  
   
  `uHashAlgId`  
- [in]Sha-1 アルゴリズムを指定するには、アセンブリ、または NULL でファイルの暗号化に使用するハッシュ アルゴリズムの識別子。  
+ からアセンブリ内のファイルを暗号化するために使用するハッシュアルゴリズムの識別子。または、SHA-1 アルゴリズムを指定する場合は NULL。  
   
  `szName`  
- [in]アセンブリの人間が判読できるテキストの名前。 この値は 1024 文字を超えない必要があります。  
+ からユーザーが判読できる、アセンブリのテキスト名。 この値は、1024文字を超えないようにする必要があります。  
   
  `pMetaData`  
- [in]アセンブリのバージョン、プラットフォーム、およびロケール情報を含む ASSEMBLYMETADATA インスタンスへのポインター。  
+ からアセンブリのバージョン、プラットフォーム、およびロケール情報を格納している ASSEMBLYMETADATA インスタンスへのポインター。  
   
  `dwAssemblyFlags`  
- [in]組み合わせた[CorAssemblyFlags](../../../../docs/framework/unmanaged-api/metadata/corassemblyflags-enumeration.md)アセンブリの機能を記述する値。  
+ からアセンブリの機能を記述する[Corassemblyflags](../../../../docs/framework/unmanaged-api/metadata/corassemblyflags-enumeration.md)値の組み合わせ。  
   
  `pmda`  
- [out]メタデータ トークンへのポインター。  
+ 入出力メタデータトークンへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- 1 つだけ`Assembly`メタデータ構造体は、マニフェスト内で定義することができます。  
+## <a name="remarks"></a>コメント  
+ マニフェスト内で定義できる `Assembly` メタデータ構造は1つだけです。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataAssemblyEmit インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataassemblyemit-interface.md)

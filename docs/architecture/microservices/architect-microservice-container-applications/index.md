@@ -3,10 +3,10 @@ title: コンテナーとマイクロサービス ベースのアプリケーシ
 description: コンテナーとマイクロサービス ベースのアプリケーションの設計は簡単ではないため、真剣に考える必要があります。 この章では主要な概念について説明します。
 ms.date: 09/20/2018
 ms.openlocfilehash: aff30c907f1140b94dbcae330ed7cb633b0a744b
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "70295019"
 ---
 # <a name="architecting-container-and-microservice-based-applications"></a>コンテナーとマイクロサービス ベースのアプリケーションの設計

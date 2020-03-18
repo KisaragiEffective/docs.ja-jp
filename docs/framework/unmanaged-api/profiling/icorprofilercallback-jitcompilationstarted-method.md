@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 31782b36-d311-4518-8f45-25f65385af5b
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a5ba90ce4523fcc55fca3f84a78fa4cfeb6a93f0
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e05cb944ea4f3a9ca718dc22c6cd726b6a516ea9
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67782825"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76866235"
 ---
 # <a name="icorprofilercallbackjitcompilationstarted-method"></a>ICorProfilerCallback::JITCompilationStarted メソッド
-ジャストイン タイム (JIT) コンパイラが関数のコンパイルを開始されたことをプロファイラーに通知します。  
+Just-in-time (JIT) コンパイラが関数のコンパイルを開始したことをプロファイラーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,22 +35,22 @@ HRESULT JITCompilationStarted(
   
 ## <a name="parameters"></a>パラメーター  
  `functionId`  
- [in]コンパイルの開始を関数の ID。  
+ からコンパイルを開始する関数の ID。  
   
  `fIsSafeToBlock`  
- [in]プロファイラーをブロックしているかどうかを示す値は、ランタイムの操作に影響されます。 値が`true`ブロックにより、ランタイムでこのコールバックから返される呼び出し元のスレッドを待機する場合は、それ以外の場合、`false`します。  
+ からプロファイラーに対して、ブロックがランタイムの操作に影響を与えるかどうかを示す値。 この値は、ブロックによって、呼び出し元のスレッドがこのコールバックから戻るまでランタイムが待機する場合に `true` ます。それ以外の場合は、`false`ます。  
   
- 値が`true`ランタイムは害を及ぼしません、プロファイリングの結果の傾斜を実行できます。  
+ `true` の値はランタイムに害を及ぼすことはありませんが、プロファイルの結果をスキューできます。  
   
-## <a name="remarks"></a>Remarks  
- 1 つ以上のペアを受信することは`JITCompilationStarted`と[icorprofilercallback::jitcompilationfinished](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-jitcompilationfinished-method.md)ランタイムを呼び出して、各関数の方法により、ハンドル クラスのコンス トラクター。 たとえば、ランタイムの JIT コンパイル メソッド A、開始しますが、クラス B のクラス コンス トラクターを実行する必要があります。 ランタイムの JIT コンパイルではそのため、クラス B のコンス トラクターが実行されるとします。 コンス トラクターが実行されている、メソッド、メソッドを再度 JIT コンパイルに A、A への呼び出しになります。 このシナリオでは、メソッド A の最初の JIT コンパイルが停止します。 ただし、JIT コンパイル メソッド A に両方の試行は、JIT コンパイル イベントで報告されます。 プロファイラーを呼び出すことによってメソッド A 用の Microsoft intermediate language (MSIL) コードを置き換える場合は、 [icorprofilerinfo::setilfunctionbody](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-setilfunctionbody-method.md)メソッドでは、両方を行う必要があります`JITCompilationStarted`イベントが同じ MSIL ブロックの使用可能性がありますします。  
+## <a name="remarks"></a>コメント  
+ ランタイムがクラスコンストラクターを処理する方法によって、各関数に対して複数の `JITCompilationStarted` と[ICorProfilerCallback:: JITCompilationFinished](icorprofilercallback-jitcompilationfinished-method.md)呼び出しのペアを受け取ることができます。 たとえば、ランタイムは JIT コンパイルメソッド A を開始しますが、クラス B のクラスコンストラクターを実行する必要があります。 このため、ランタイムは、クラス B のコンストラクターを JIT でコンパイルして実行します。 コンストラクターが実行されている間、メソッド a が呼び出されます。これにより、メソッド A が再度 JIT コンパイルされます。 このシナリオでは、メソッド A の最初の JIT コンパイルが停止します。 ただし、JIT コンパイルメソッド A の両方の試行は、JIT コンパイルイベントを使用して報告されます。 プロファイラーは、 [ICorProfilerInfo:: SetILFunctionBody](icorprofilerinfo-setilfunctionbody-method.md)メソッドを呼び出すことによってメソッド A の Microsoft 中間言語 (MSIL) コードを置き換える必要がある場合、両方の `JITCompilationStarted` イベントに対してこれを行う必要がありますが、両方に同じ msil ブロックを使用する場合があります。  
   
- プロファイラーは、場合、2 つのスレッドではコールバックを行う同時に JIT コールバックのシーケンスをサポートする必要があります。 たとえば、スレッド A が呼び出す`JITCompilationStarted`します。 ただし、スレッド A 呼び出しの前に`JITCompilationFinished`、スレッド B 呼び出し[icorprofilercallback::exceptionsearchfunctionenter](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-exceptionsearchfunctionenter-method.md)スレッド A にから関数の ID を持つ`JITCompilationStarted`コールバック。 関数の ID がまだされないこと有効が表示されるためへの呼び出し`JITCompilationFinished`プロファイラーがまだ受信したされません。 ただし、このような場合は、関数の ID は有効です。  
+ 2つのスレッドが同時にコールバックを作成する場合、プロファイラーは JIT コールバックのシーケンスをサポートする必要があります。 たとえば、スレッド A は `JITCompilationStarted`を呼び出します。 ただし、スレッド A が `JITCompilationFinished`を呼び出す前に、スレッド B は、スレッド A の `JITCompilationStarted` コールバックからの関数 ID を使用して[ICorProfilerCallback:: ExceptionSearchFunctionEnter](icorprofilercallback-exceptionsearchfunctionenter-method.md)を呼び出します。 `JITCompilationFinished` の呼び出しがまだプロファイラーによって受信されていないため、関数 ID がまだ有効ではないように見えることがあります。 ただし、このような場合は、関数 ID が有効です。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -60,5 +58,5 @@ HRESULT JITCompilationStarted(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerCallback インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-interface.md)
-- [JITCompilationFinished メソッド](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-jitcompilationfinished-method.md)
+- [ICorProfilerCallback インターフェイス](icorprofilercallback-interface.md)
+- [JITCompilationFinished メソッド](icorprofilercallback-jitcompilationfinished-method.md)

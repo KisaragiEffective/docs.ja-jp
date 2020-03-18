@@ -1,13 +1,13 @@
 ---
 title: 値オブジェクトの実装
 description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | 新しい Entity Framework 機能を使用し、値オブジェクトを実装する方法の詳細とオプション。
-ms.date: 10/08/2018
-ms.openlocfilehash: b2f7b0f36fea25c25edd47731d9387810bd2b44d
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.date: 01/30/2020
+ms.openlocfilehash: 4ace5c141b1cbd2dcfefb7ea7165a4006b130479
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68674149"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77502508"
 ---
 # <a name="implement-value-objects"></a>値オブジェクトを実装する
 
@@ -17,7 +17,7 @@ ms.locfileid: "68674149"
 
 図 7-13 は、Order 集計内の Address 値オブジェクトを示しています。
 
-![Order 集計内の Address 値オブジェクト。](./media/image14.png)
+![Order 集計内の Address 値オブジェクトを示す図。](./media/implement-value-objects/value-object-within-aggregate.png)
 
 **図 7-13**。 Order 集計内の Address 値オブジェクト
 
@@ -131,13 +131,13 @@ public class Address : ValueObject
 
 ご覧のように、Address のこの値オブジェクト実装では ID が与えられません。そのため、Address クラスでも、ValueObject クラスでも ID フィールドがありません。
 
-Entity Framework で使用するクラスに ID フィールドを置かないことは、EF Core 2.0 までは不可能でした。ID のない値オブジェクトの実装が大幅に改善されます。 これについては次のセクションで説明します。
+Entity Framework (EF) で使用するクラスに ID フィールドを置かないことは、EF Core 2.0 までは不可能でした。これにより、ID のない値オブジェクトの実装が大幅に改善されます。 これについては次のセクションで説明します。
 
-不変である値オブジェクトは読み取り専用 (get-only プロパティなど) にすべきであるという意見が出るかもしれませんが、そのとおりです。 しかしながら、値オブジェクトは通常、シリアル化/逆シリアル化されてメッセージ キューを通過します。読み取り専用であれば、デシリアライザーによる値の割り当てが停止します。そのため、十分に実用的な範囲で読み取り専用になるプライベート セットとして残します。
+不変である値オブジェクトは読み取り専用 (つまり get-only プロパティ) にすべきであるという意見が出るかもしれませんが、そのとおりです。 しかしながら、値オブジェクトは通常、シリアル化/逆シリアル化されてメッセージ キューを通過します。読み取り専用であれば、デシリアライザーによる値の割り当てが停止します。そのため、十分に実用的な範囲で読み取り専用になるプライベート セットとして残します。
 
-## <a name="how-to-persist-value-objects-in-the-database-with-ef-core-20"></a>EF Core 2.0 でデータベース内の値オブジェクトを永続化する方法
+## <a name="how-to-persist-value-objects-in-the-database-with-ef-core-20-and-later"></a>EF Core 2.0 以降でデータベース内の値オブジェクトを永続化する方法
 
-ここまでは、ドメイン モデルで値オブジェクトを定義する方法について説明しました。 それでは、通常は ID のあるエンティティをターゲットとする Entity Framework (EF) Core を使用して、データベースに永続化するにはどうすればよいでしょうか。
+ここまでは、ドメイン モデルで値オブジェクトを定義する方法について説明しました。 それでは、通常は ID のあるエンティティをターゲットとする Entity Framework Core を使用して、データベースに永続化するにはどうすればよいでしょうか。
 
 ### <a name="background-and-older-approaches-using-ef-core-11"></a>EF Core 1.1 を使用する背景と以前のアプローチ
 
@@ -160,11 +160,11 @@ void ConfigureAddress(EntityTypeBuilder<Address> addressConfiguration)
 
 ただし、その値オブジェクトのデータベースへの永続化は、別のテーブルの通常のエンティティと同様に実行されていました。
 
-EF Core 2.0 には、値オブジェクトを永続化するための新しく優れた方法があります。
+EF Core 2.0 以降には、値オブジェクトを永続化するための新しく優れた方法があります。
 
-## <a name="persist-value-objects-as-owned-entity-types-in-ef-core-20"></a>EF Core 2.0 で所有エンティティ型として値オブジェクトを永続化する
+## <a name="persist-value-objects-as-owned-entity-types-in-ef-core-20-and-later"></a>EF Core 2.0 以降で所有エンティティ型として値オブジェクトを永続化する
 
-DDD の標準の値オブジェクト パターンと EF Core の所有エンティティ型の間にいくつかのギャップがあるとしても、現在は EF Core 2.0 を使用して値オブジェクトを永続化する方法が最善です。 制限事項については、このセクションの末尾を参照してください。
+DDD の標準の値オブジェクト パターンと EF Core の所有エンティティ型の間にいくつかのギャップがあるとしても、現在は EF Core 2.0 以降を使用して値オブジェクトを永続化する方法が最善です。 制限事項については、このセクションの末尾を参照してください。
 
 所有エンティティ型の機能は、EF Core バージョン 2.0 以降に追加されました。
 
@@ -178,7 +178,7 @@ DDD の標準の値オブジェクト パターンと EF Core の所有エンテ
 
 - これらを指すナビゲーション プロパティ
 
-- 所有型のコレクションの場合は、独立したコンポーネント (EF Core 2.0 ではまだサポートされておらず、2.2 でサポートされる予定です)。
+- 所有型のコレクションの場合は、独立したコンポーネント (EF Core 2.2 以降でサポートされています)。
 
 たとえば、eShopOnContainers の Ordering ドメイン モデルでは、Order エンティティの一部である Address 値オブジェクトは、所有者エンティティ (Order エンティティ) 内の所有エンティティ型として実装されます。 Address は、ドメイン モデルに定義されている ID プロパティのない型です。 特定の注文の配送先住所を指定するために、Order 型のプロパティとして使用されます。
 
@@ -275,7 +275,7 @@ public class Address
 
 - スタック内の所有型インスタンスの ID (キー) は、所有者型の ID と所有型の定義のコンポジットです。
 
-#### <a name="owned-entities-capabilities"></a>所有エンティティの機能:
+#### <a name="owned-entities-capabilities"></a>所有エンティティの機能
 
 - 所有型は、他の所有 (入れ子にされた所有型) エンティティまたは非所有 (他のエンティティに対する通常の参照ナビゲーション プロパティ) エンティティを参照できます。
 
@@ -283,17 +283,17 @@ public class Address
 
 - テーブル分割は規約で設定されますが、ToTable を使用して所有型を別のテーブルにマップすることでオプト アウトすることができます。
 
-- Eager の読み込みは、所有型に対して自動的に実行されます。つまり、クエリで Include () を呼び出す必要はありません。
+- Eager の読み込みは、所有型に対して自動的に実行されます。つまり、クエリで `.Include()` を呼び出す必要はありません。
 
-- EF Core 2.1 の時点では、属性 \[Owned\] で構成可能
+- EF Core 2.1 以降で、`[Owned]` 属性 を使用して構成できます。
 
-#### <a name="owned-entities-limitations"></a>所有エンティティの制限事項:
+- 所有型のコレクションを処理できます (バージョン2.2 以降を使用)。
 
-- 所有型の DbSet\<T\> を作成することはできません (仕様)。
+#### <a name="owned-entities-limitations"></a>所有エンティティの制限事項
 
-- 所有型に対して ModelBuilder.Entity\<T\>() を呼び出すことはできません (現時点では仕様)。
+- 所有型の `DbSet<T>` を作成することはできません (仕様)。
 
-- 所有型のコレクションはまだありません (EF Core 2.1 の時点では未サポートですが、2.2 でサポートされる予定)。
+- 所有型で `ModelBuilder.Entity<T>()` を呼び出すことはできません (現在は仕様です)。
 
 - 同じテーブル内の所有者とマップされている (つまり、テーブル分割を使用している) 省略可能な (つまり、null を許容する) 所有型はサポートされていません。 これはプロパティごとにマッピングが行われるためです。全体としての null 複合値を個別に見張ることはしません。
 
@@ -316,11 +316,14 @@ public class Address
 - **Vaughn Vernon。ドメイン駆動型設計の実装** (書籍、値オブジェクトについての記載あり) \
   <https://www.amazon.com/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577/>
 
+- **所有エンティティ型** \
+  <https://docs.microsoft.com/ef/core/modeling/owned-entities>
+
 - **シャドウ プロパティ** \
-  [https://docs.microsoft.com/ef/core/modeling/shadow-properties](/ef/core/modeling/shadow-properties)
+  <https://docs.microsoft.com/ef/core/modeling/shadow-properties>
 
 - **複合型と値オブジェクト**。 EF Core GitHub リポジトリのディスカッション ([問題] タブ) \
-  <https://github.com/aspnet/EntityFramework/issues/246>
+  <https://github.com/dotnet/efcore/issues/246>
 
 - **ValueObject.cs.** eShopOnContainers の基底値オブジェクト クラス。 \
   <https://github.com/dotnet-architecture/eShopOnContainers/blob/dev/src/Services/Ordering/Ordering.Domain/SeedWork/ValueObject.cs>

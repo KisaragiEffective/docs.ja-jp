@@ -5,20 +5,20 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 252ed666-0679-4eea-b71b-2f14117ef443
-ms.openlocfilehash: ed9149eb5b88d648c02863e0fb0101e5503e1c73
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 3cc879e97438138554f1d39cf588e01bfbba28a6
+ms.sourcegitcommit: 7bc6887ab658550baa78f1520ea735838249345e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70782143"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75634704"
 ---
 # <a name="frequently-asked-questions"></a>よく寄せられる質問
 
-ここでは、[!INCLUDE[vbteclinq](../../../../../../includes/vbteclinq-md.md)] を実装するときに発生する可能性のある一般的な問題の対処法について説明します。
+以下のセクションでは、LINQ を実装するときに発生する可能性のある一般的な問題について説明します。
 
 [トラブルシューティング](troubleshooting.md)では、その他の問題に対処します。
 
-## <a name="cannot-connect"></a>接続できない
+## <a name="cannot-connect"></a>接続できません
 
 Q. データベースに接続できません。
 
@@ -30,7 +30,7 @@ Q. データベース内のデータを変更しましたが、アプリケー�
 
 A: 変更結果をデータベースに保存するために、必ず <xref:System.Data.Linq.DataContext.SubmitChanges%2A> を呼び出してください。
 
-## <a name="database-connection-open-how-long"></a>データベース接続:時間を開きますか?
+## <a name="database-connection-open-how-long"></a>データベース接続: どれほどの時間開いているか
 
 Q. データベース接続が開いている時間は、どれほどですか。
 
@@ -62,7 +62,7 @@ A: [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] には、
 
 Q. 戻り値が `MAX()` によって計算されるストアド プロシージャがあります。 ストアドプロシージャを O/R デザイナー画面にドラッグすると、戻り値が正しくありません。
 
-A. [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] には、ストアド プロシージャを介して、データベースによって生成される値を返す方法が 2 つあります。
+A: [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] には、ストアド プロシージャを介して、データベースによって生成される値を返す方法が 2 つあります。
 
 - 出力結果に名前を付ける。
 
@@ -114,7 +114,7 @@ end
 
 ## <a name="serialization-errors"></a>シリアル化のエラー
 
-Q. シリアル化しようとすると、次のエラーが表示されます。"Type ' system.string. ChangeTracker + StandardChangeTracker '...がシリアル化可能として設定されていません。 "
+Q. シリアル化しようとすると、次のエラーが表示されます。 "型 ' System. Data. ChangeTracker + StandardChangeTracker '...がシリアル化可能として設定されていません。 "
 
 A: [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] のコード生成では、<xref:System.Runtime.Serialization.DataContractSerializer> のシリアル化がサポートされます。 <xref:System.Xml.Serialization.XmlSerializer> および <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> はサポートされません。 詳細については、「[Serialization](serialization.md)」 (シリアル化) を参照してください。
 
@@ -122,19 +122,19 @@ A: [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] のコー
 
 Q. いくつかのテーブルを共有する複数の DBML ファイルが存在する場合は、コンパイラ エラーが発生します。
 
-A. コンテキストの**名前空間**と**エンティティの名前**空間のプロパティをオブジェクトリレーショナルデザイナーから、各 DBML ファイルの個別の値に設定します。 この手法により、名前および名前空間の競合を防ぐことができます。
+A: コンテキストの**名前空間**と**エンティティの名前**空間のプロパティをオブジェクトリレーショナルデザイナーから、各 DBML ファイルの個別の値に設定します。 この手法により、名前および名前空間の競合を防ぐことができます。
 
 ## <a name="avoiding-explicit-setting-of-database-generated-values-on-insert-or-update"></a>挿入または更新で、データベース生成値を明示的に設定しなくても良いようにする
 
 Q. あるデータベース テーブルに `DateCreated` という列があり、その既定値は SQL `Getdate()` です。 [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] を使用して新しいレコードを挿入しようとすると、値が `NULL` に設定されます。 データベースの既定値が設定されるようにするには、どうしたらいいですか。
 
-A: ID 列 (自動インクリメント)、rowguidcol 列 (データベースが生成した GUID)、およびタイムスタンプ列の場合は、[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] が、このような状況に自動的に対処します。 それ以外の場合は、プロパティと<xref:System.Data.Linq.Mapping.ColumnAttribute.IsDbGenerated%2A>プロパティ<xref:System.Data.Linq.Mapping.ColumnAttribute.AutoSync%2A>を= <xref:System.Data.Linq.Mapping.AutoSync.Always> = 手動で/設定`true`する必要があります。 <xref:System.Data.Linq.Mapping.AutoSync.OnInsert> / <xref:System.Data.Linq.Mapping.AutoSync.OnUpdate>
+A: ID 列 (自動インクリメント)、rowguidcol 列 (データベースが生成した GUID)、およびタイムスタンプ列の場合は、[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] が、このような状況に自動的に対処します。 それ以外の場合は、手動で <xref:System.Data.Linq.Mapping.ColumnAttribute.IsDbGenerated%2A>=`true` <xref:System.Data.Linq.Mapping.ColumnAttribute.AutoSync%2A>を設定し、=<xref:System.Data.Linq.Mapping.AutoSync.Always>/<xref:System.Data.Linq.Mapping.AutoSync.OnInsert>/<xref:System.Data.Linq.Mapping.AutoSync.OnUpdate> プロパティを手動で設定する必要があります。
 
 ## <a name="multiple-dataloadoptions"></a>複数の DataLoadOptions
 
 Q. 最初の読み込みオプションを上書きせずに、追加の読み込みオプションを指定できますか?
 
-A: はい。 次の例のように、最初のオプションは上書きされません。
+A: ［はい、 次の例のように、最初のオプションは上書きされません。
 
 ```vb
 Dim dlo As New DataLoadOptions()
@@ -152,19 +152,19 @@ dlo.LoadWith<Order>(o => o.OrderDetails);
 
 Q. SQL Server Compact 3.5 データベースからテーブルをドラッグすると、エラーが発生します。
 
-A. オブジェクトリレーショナルデザイナーは SQL Server Compact 3.5 をサポートしていませ[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)]んが、ランタイムはこれをサポートしています。 この場合、独自のエンティティ クラスを作成して適切な属性を追加する必要があります。
+A: オブジェクトリレーショナルデザイナーは、[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] ランタイムでは SQL Server Compact 3.5 をサポートしていません。 この場合、独自のエンティティ クラスを作成して適切な属性を追加する必要があります。
 
 ## <a name="errors-in-inheritance-relationships"></a>継承関係でのエラー
 
 Q. オブジェクトリレーショナルデザイナーでツールボックスの継承図形を使用して2つのエンティティを接続しましたが、エラーが発生しました。
 
-A. 関係を作成するだけでは不十分です。 識別子の列、基本クラスの識別子の値、派生クラスの識別子の値などの情報を提供する必要があります。
+A: 関係を作成するだけでは不十分です。 識別子の列、基本クラスの識別子の値、派生クラスの識別子の値などの情報を提供する必要があります。
 
 ## <a name="provider-model"></a>プロバイダー モデル
 
 Q. パブリック プロバイダー モデルを利用できますか?
 
-A: いいえ。使用可能なパブリック プロバイダー モデルはありません。 現時点では、 [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)]は SQL Server と SQL Server Compact 3.5 のみをサポートしています。
+A: いいえ。使用可能なパブリック プロバイダー モデルはありません。 現時点では、[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] は SQL Server と SQL Server Compact 3.5 のみをサポートしています。
 
 ## <a name="sql-injection-attacks"></a>SQL 注入攻撃
 
@@ -182,7 +182,7 @@ A: これは高度なシナリオですが、以下の手順に従ってくだ�
 
 2. 部分クラスを追加します。 読み取り専用メンバー用のパラメーターを使ってコンストラクターを作成します。
 
-3. 既定の <xref:System.Data.Linq.Mapping.UpdateCheck> 値 (<xref:System.Data.Linq.Mapping.UpdateCheck.Never>) がアプリケーションにとって適切な値かどうかをレビューします。
+3. 既定の <xref:System.Data.Linq.Mapping.UpdateCheck> 値 (<xref:System.Data.Linq.Mapping.UpdateCheck.Never>) がアプリケーションにとって適切な値かどうかを検討します。
 
     > [!CAUTION]
     > Visual Studio でオブジェクトリレーショナルデザイナーを使用している場合は、変更が上書きされる可能性があります。
@@ -191,9 +191,9 @@ A: これは高度なシナリオですが、以下の手順に従ってくだ�
 
 Q. System.Data.Linq は、部分的に信頼されているコードが使用できるようにマークされていますか?
 
-A. はい。このアセンブリは、 <xref:System.Security.AllowPartiallyTrustedCallersAttribute>属性でマークされた .NET Framework アセンブリの中にあります。 このマークがない場合、.NET Framework 内のアセンブリは、完全に信頼されたコードによってのみ使用されることを意図しています。
+A: はい、<xref:System.Security.AllowPartiallyTrustedCallersAttribute> 属性でマークされた .NET Framework アセンブリの中にあります。 このマークがない場合、.NET Framework 内のアセンブリは、完全に信頼されたコードによってのみ使用されることを意図しています。
 
-部分的に信頼さ[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)]れた呼び出し元を許可する場合の[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)]主なシナリオは、*信頼*の構成が中程度の Web アプリケーションからアセンブリにアクセスできるようにすることです。
+部分的に信頼された呼び出し元を許可する [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] の主なシナリオは、*信頼*の構成が Medium である Web アプリケーションから [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] アセンブリにアクセスできるようにすることです。
 
 ## <a name="mapping-data-from-multiple-tables"></a>複数のテーブルからのデータのマッピング
 
@@ -202,7 +202,7 @@ Q. エンティティに、複数のテーブルから取得されたデータ�
 A: データベース内にビューを作成して、エンティティをそのビューにマップすることができます。 [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] は、テーブル用と同じ SQL をビュー用に生成します。
 
 > [!NOTE]
-> このシナリオでのビューの使用には、制限があります。 この手法は、<xref:System.Data.Linq.Table%601> に対して実行される操作が、基になるビューでサポートされるような場合に、最も安全に機能します。 どのような操作が意図されるかは、開発者だけが知っています。 たとえば、ほとんどのアプリケーションは読み取り専用であり、別のコード可能`Create`な数値はビューに対してストアドプロシージャを使用することによってのみ操作を実行/ / `Update` `Delete`します。
+> このシナリオでのビューの使用には、制限があります。 この手法は、<xref:System.Data.Linq.Table%601> に対して実行される操作が、基になるビューでサポートされるような場合に、最も安全に機能します。 どのような操作が意図されるかは、開発者だけが知っています。 たとえば、ほとんどのアプリケーションは読み取り専用であり、もう1つの処理可能な数値は、ビューに対してストアドプロシージャを使用することによってのみ、`Create`/`Update`/`Delete` 操作を実行します。
 
 ## <a name="connection-pooling"></a>接続プール
 
@@ -216,7 +216,7 @@ A: <xref:System.Data.Linq.DataContext> のインスタンスは再使用しな�
 
 Q. データベース内の値を格納するために、<xref:System.Data.Linq.DataContext> の 1 つのインスタンスを使用しました。 しかし、同じデータベースに対する 2 番目の <xref:System.Data.Linq.DataContext> では、更新された値が反映されません。 2 番目の <xref:System.Data.Linq.DataContext> インスタンスは、キャッシュされた値を返すようです。
 
-A: この動作は意図されたものです。 [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] は、最初のインスタンスと同じインスタンス/値を返し続けます。 更新の際には、オプティミスティック同時実行が使用されます。 元のデータを使ってデータベースの現在の状態を検査し、実際に未変更であることをアサートします。 変更されている場合は競合が発生するため、アプリケーションでそれを解決する必要があります。 1 つのオプションとして、アプリケーションは、元の状態をデータベースの現在の状態にリセットして、更新を再試行できます。 詳細については、「[方法 :変更の競合](how-to-manage-change-conflicts.md)を管理します。
+A: この動作は意図されたものです。 [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] は、最初のインスタンスと同じインスタンス/値を返し続けます。 更新の際には、オプティミスティック コンカレンシーが使用されます。 元のデータを使ってデータベースの現在の状態を検査し、実際に未変更であることをアサートします。 変更されている場合は競合が発生するため、アプリケーションでそれを解決する必要があります。 1 つのオプションとして、アプリケーションは、元の状態をデータベースの現在の状態にリセットして、更新を再試行できます。 詳細については、「[方法: 変更の競合を管理する](how-to-manage-change-conflicts.md)」を参照してください。
 
 また、<xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A> を false に設定することもできます。この場合、キャッシュと変更追跡が無効になります。 その後は、クエリを実行するたびに最新の値を取得できます。
 

@@ -8,14 +8,12 @@ helpviewer_keywords:
 - runtime callable wrappers
 - interoperation with unmanaged code, COM wrappers
 ms.assetid: 7e542583-1e31-4e10-b523-8cf2f29cb4a4
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a460ac730db85dfa8d4a8ee6949a168bc228193d
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
-ms.translationtype: HT
+ms.openlocfilehash: 0b448379fba965060fdf3bf067e65374f40d1fc2
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68631386"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78156011"
 ---
 # <a name="runtime-callable-wrapper"></a>ランタイム呼び出し可能ラッパー
 共通言語ランタイムは、ランタイム呼び出し可能ラッパー (RCW) と呼ばれるプロキシを介して COM オブジェクトを公開します。 .NET クライアントでは RCW が普通のオブジェクトとして示されますが、その主な機能は、.NET クライアントと COM オブジェクトの間で呼び出しをマーシャリングすることです。  
@@ -33,9 +31,9 @@ ms.locfileid: "68631386"
  標準ラッパーは、組み込みのマーシャリング規則を適用します。 たとえば、.NET クライアントが文字列型を引数の一部としてアンマネージ オブジェクトに渡すとき、ラッパーは文字列を BSTR 型に変換します。 COM オブジェクトが、マネージド呼び出し元に BSTR を返す場合、呼び出し元は文字列を受信します。 クライアントとサーバーはどちらも、それぞれが使い慣れているデータを送受信します。 その他の型は、変換する必要がありません。 たとえば、標準的なラッパーはマネージド コードとアンマネージド コードの間で、型を変換しないで 4 バイトの整数を常に受け渡しします。  
   
 ## <a name="marshaling-selected-interfaces"></a>選択したインターフェイスのマーシャリング  
- [ランタイム呼び出し可能ラッパー](runtime-callable-wrapper.md) (RCW) の主な目標は、マネージドとアンマネージドのプログラミング モデルの違いを見えなくすることです。 次の図に示すように、RCW は選択された COM インターフェイスを .NET クライアントに公開することなく使用して、シームレスな移行を実現します。 
+ [ランタイム呼び出し可能ラッパー](runtime-callable-wrapper.md) (RCW) の主な目標は、マネージドとアンマネージドのプログラミング モデルの違いを見えなくすることです。 次の図に示すように、RCW は選択された COM インターフェイスを .NET クライアントに公開することなく使用して、シームレスな移行を実現します。
 
- 次の図は、COM インターフェイスとランタイム呼び出し可能ラッパーを示しています。 
+ 次の図は、COM インターフェイスとランタイム呼び出し可能ラッパーを示しています。
   
  ![ランタイム呼び出し可能ラッパーとインターフェイスのスクリーンショット。](./media/runtime-callable-wrapper/runtime-callable-wrapper-interfaces.gif)  
   
@@ -43,7 +41,7 @@ ms.locfileid: "68631386"
   
  RCW は、それがラップするオブジェクトによって公開されている、次の表にリストされたインターフェイスを使用します。  
   
-|Interface|説明|  
+|インターフェイス|Description|  
 |---------------|-----------------|  
 |**IDispatch**|リフレクションによる COM オブジェクトへの遅延バインディングのために使用します。|  
 |**IErrorInfo**|エラー、そのソース、ヘルプ ファイル、ヘルプ コンテキスト、およびエラーを定義したインターフェイスの GUID (.NET クラスでは常に **GUID_NULL**) に関する説明文を示します。|  
@@ -52,13 +50,13 @@ ms.locfileid: "68631386"
   
  必要に応じて、RCW はそれがラップするオブジェクトによって公開されている、次の表にリストされたインターフェイスを使用することもできます。  
   
-|Interface|説明|  
+|インターフェイス|Description|  
 |---------------|-----------------|  
 |**IConnectionPoint** と **IConnectionPointContainer**|RCW は、接続ポイントのイベント スタイルを公開するオブジェクトを、デリゲート ベースのイベントに変換します。|  
 |**IDispatchEx** (.NET Framework のみ) |クラスが **IDispatchEx** を実装する場合、RCW は **IExpando** を実装します。 **IDispatchEx** インターフェイスは、**IDispatch** インターフェイスの拡張版で、**IDispatch** とは異なり、列挙、追加、削除、および大文字小文字を区別したメンバーの呼び出しが可能になります。|  
 |**IEnumVARIANT**|列挙をサポートする COM 型がコレクションとして扱われることを可能にします。|  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [COM ラッパー](com-wrappers.md)
 - [COM 呼び出し可能ラッパー](com-callable-wrapper.md)

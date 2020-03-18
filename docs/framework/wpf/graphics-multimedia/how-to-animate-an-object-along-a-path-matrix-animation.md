@@ -1,5 +1,5 @@
 ---
-title: '方法: パスに沿ってオブジェクトをアニメーション化する (行列アニメーション)'
+title: '方法 : パスに沿ってオブジェクトをアニメーション化する (行列アニメーション)'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,34 +8,34 @@ helpviewer_keywords:
 - animation [WPF], objects along paths (matrix animation)
 - matrix animation [WPF]
 ms.assetid: 7000e697-1414-468c-b915-cf66062fc49e
-ms.openlocfilehash: 3c90d20cac60004aa9876d9fe8d213d33c5a6883
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 7dfc233fe60e1cea293edc44a2bba79dc6962f7c
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64651436"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77452910"
 ---
-# <a name="how-to-animate-an-object-along-a-path-matrix-animation"></a>方法: パスに沿ってオブジェクトをアニメーション化する (行列アニメーション)
-この例は、使用する方法を示します、<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath>で定義されているパスに沿ってオブジェクトをアニメーション化するクラス、<xref:System.Windows.Media.PathGeometry>します。  
+# <a name="how-to-animate-an-object-along-a-path-matrix-animation"></a>方法 : パスに沿ってオブジェクトをアニメーション化する (行列アニメーション)
+この例では、<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath> クラスを使用して、<xref:System.Windows.Media.PathGeometry>によって定義されたパスに沿ってオブジェクトをアニメーション化する方法を示します。  
   
 ## <a name="example"></a>例  
  次の例では、以下の処理を実行し、パスに沿ってオブジェクトをアニメーション化します。  
   
-- 適用対象を<xref:System.Windows.Media.MatrixTransform>移動するには、オブジェクトにします。  
+- オブジェクトを移動するために、オブジェクトに <xref:System.Windows.Media.MatrixTransform> を適用します。  
   
-- 使用してパスを定義、<xref:System.Windows.Media.PathGeometry>します。  
+- <xref:System.Windows.Media.PathGeometry>を使用してパスを定義します。  
   
-- 作成、<xref:System.Windows.Media.Animation.MatrixAnimationUsingPath>をアニメーション化するために使用して、<xref:System.Windows.Media.Matrix>のプロパティ、<xref:System.Windows.Media.MatrixTransform>します。 <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath>は、<xref:System.Windows.Media.PathGeometry>しを使用して生成<xref:System.Windows.Media.Matrix>値。  
+- <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath> を作成し、それを使用して <xref:System.Windows.Media.MatrixTransform>の <xref:System.Windows.Media.Matrix> プロパティをアニメーション化します。 <xref:System.Windows.Media.Animation.MatrixAnimationUsingPath> は <xref:System.Windows.Media.PathGeometry> を受け取り、それを使用して <xref:System.Windows.Media.Matrix> 値を生成します。  
   
  [!code-xaml[PathAnimationGallery_snippet#MatrixAnimationUsingPathWholePage](~/samples/snippets/csharp/VS_Snippets_Wpf/PathAnimationGallery_snippet/CS/matrixanimationusingpathexample.xaml#matrixanimationusingpathwholepage)]  
   
  [!code-csharp[PathAnimationGallery_procedural_snip#MatrixAnimationUsingPathWholePage](~/samples/snippets/csharp/VS_Snippets_Wpf/PathAnimationGallery_procedural_snip/CSharp/MatrixAnimationUsingPathExample.cs#matrixanimationusingpathwholepage)]
  [!code-vb[PathAnimationGallery_procedural_snip#MatrixAnimationUsingPathWholePage](~/samples/snippets/visualbasic/VS_Snippets_Wpf/PathAnimationGallery_procedural_snip/VisualBasic/MatrixAnimationUsingPathExample.vb#matrixanimationusingpathwholepage)]  
   
- サンプル全体については、次を参照してください。[パス アニメーションのサンプル](https://go.microsoft.com/fwlink/?LinkID=160028)します。 ジオメトリック パスの詳細については、次を参照してください。、[ジオメトリの概要](geometry-overview.md)します。  
+ 完全なサンプルについては、「[パスアニメーションのサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Animation/PathAnimations)」を参照してください。 ジオメトリックパスの詳細については、「 [Geometry の概要](geometry-overview.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [アニメーションの概要](animation-overview.md)
-- [パス アニメーションのサンプル](https://go.microsoft.com/fwlink/?LinkID=160028)
+- [パス アニメーションのサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Animation/PathAnimations)
 - [パス アニメーションに関する「方法」トピック](path-animation-how-to-topics.md)

@@ -1,23 +1,23 @@
 ---
-title: Null 条件演算子 (Visual Basic)
+title: Null 条件演算子
 ms.date: 10/19/2018
 helpviewer_keywords:
 - null-conditional operators [Visual Basic]
 - ?. operator [Visual Basic]
 - ?[] operator [C#]
 - ?[] operator [Visual Basic]
-ms.openlocfilehash: 40cb63705eda563b4c3cfd30fa9836a8f632dccf
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 003f579a7128bbe2462b7fbe7057de03e61bfbe6
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72581632"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74348289"
 ---
 # <a name="-and--null-conditional-operators-visual-basic"></a>?. そして。() null 条件演算子 (Visual Basic)
 
-メンバーアクセス (`?.`) 操作またはインデックス (`?()`) 操作を実行する前に、左側のオペランドの値を null (`Nothing`) に対してテストします。左側のオペランドが `Nothing` に評価された場合に `Nothing` を返します。 通常、値型を返す式では、null 条件演算子は <xref:System.Nullable%601> を返します。
+メンバーアクセス (`?.`) 操作またはインデックス (`?()`) 操作を実行する前に、左側のオペランドの値を null (`Nothing`) に対してテストします。左側のオペランドが `Nothing`に評価された場合に `Nothing` を返します。 通常、値型を返す式では、null 条件演算子は <xref:System.Nullable%601>を返します。
 
-これらの演算子を使用すると、特にデータ構造への降順で、null チェックを処理するコードを記述しやすくなります。 (例:
+これらの演算子を使用すると、特にデータ構造への降順で、null チェックを処理するコードを記述しやすくなります。 次に例を示します。
 
 ```vb
 ' Nothing if customers is Nothing
@@ -57,13 +57,13 @@ Dim customer = FindCustomerByID(123) 'customer will be Nothing if not found.
 If customer?.IsAllowedFreeShipping Then ApplyFreeShippingToOrders(customer)
 ```
 
-Null 条件演算子はショートサーキットです。  条件付きメンバーアクセスとインデックス操作のチェーンの1つの操作が `Nothing` を返す場合、チェーンの残りの実行は停止します。  次の例では、`A`、`B`、または `C` が `Nothing` に評価される場合、`C(E)` は評価されません。
+Null 条件演算子はショートサーキットです。  条件付きメンバーアクセスとインデックス操作のチェーンの1つの操作が `Nothing`を返す場合、チェーンの残りの実行は停止します。  次の例では、`A`、`B`、または `C` が `Nothing`に評価される場合、`C(E)` は評価されません。
 
 ```vb
-A?.B?.C?(E);
+A?.B?.C?(E)
 ```
 
-Null 条件メンバーアクセスのもう1つの用途は、はるかに少ないコードでスレッドセーフな方法でデリゲートを呼び出すことです。  次の例では、`NewsBroadcaster` と `NewsReceiver` の2つの型を定義しています。 ニュース項目は `NewsBroadcaster.SendNews` デリゲートによって受信者に送信されます。
+Null 条件メンバーアクセスのもう1つの用途は、はるかに少ないコードでスレッドセーフな方法でデリゲートを呼び出すことです。  次の例では、`NewsBroadcaster` と `NewsReceiver`の2つの型を定義しています。 ニュース項目は `NewsBroadcaster.SendNews` デリゲートによって受信者に送信されます。
 
 ```vb
 Public Module NewsBroadcaster
@@ -91,7 +91,7 @@ Public Class NewsReceiver
 End Class
 ```
 
-@No__t_0 の呼び出しリストに要素がない場合、`SendNews` デリゲートは <xref:System.NullReferenceException> をスローします。 Null 条件演算子の前に、次のようなコードは、デリゲート呼び出しリストが `Nothing` されていないことを保証しています。
+`SendNews` の呼び出しリストに要素がない場合、`SendNews` デリゲートは <xref:System.NullReferenceException>をスローします。 Null 条件演算子の前に、次のようなコードは、デリゲート呼び出しリストが `Nothing`されていないことを保証しています。
 
 ```vb
 SendNews = SendNews.Combine({SendNews, client})
@@ -107,7 +107,7 @@ SendNews = SendNews.Combine({SendNews, client})
 SendNews?.Invoke("Just in...")
 ```
 
-コンパイラが `SendNews` を評価するためのコードを一度しか生成せず、一時変数に結果が保持されるため、新しい方法はスレッド セーフです。 null 条件デリゲート呼び出し構文 `SendNews?(String)` がないため、`Invoke` メソッドを明示的に呼び出す必要があります。
+コンパイラが `SendNews` を評価するためのコードを一度しか生成せず、一時変数に結果が保持されるため、新しい方法はスレッド セーフです。 null 条件デリゲート呼び出し構文 `Invoke` がないため、`SendNews?(String)` メソッドを明示的に呼び出す必要があります。
 
 ## <a name="see-also"></a>関連項目
 

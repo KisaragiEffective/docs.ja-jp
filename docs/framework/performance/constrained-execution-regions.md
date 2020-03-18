@@ -5,14 +5,12 @@ helpviewer_keywords:
 - constrained execution regions
 - CERs
 ms.assetid: 99354547-39c1-4b0b-8553-938e8f8d1808
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a0561ff5212fd6bc4e9015bea8da1d1082dd027e
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: fde2bab99f156ddffec678022a58e7b14e0af01e
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71046693"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75716172"
 ---
 # <a name="constrained-execution-regions"></a>制約された実行領域
 制約された実行領域 (CER) は、信頼性のあるマネージド コードを作成するための機構の一部です。 CER は、領域内のコードが領域全体で実行されるのを防ぐ帯域外の例外を、共通言語ランタイム (CLR) がスローすることが制約された領域を定義します。 その領域内では、ユーザー コードは、帯域外の例外がスローされることになるコードの実行を制約されます。 <xref:System.Runtime.CompilerServices.RuntimeHelpers.PrepareConstrainedRegions%2A> メソッドは `try` ブロックの直前にある必要があります。このメソッドによって、`catch`、`finally`、`fault` の各ブロックが制約された実行領域としてマークされます。 制約された領域としてマークされると、コードは信頼性の高いコントラクトでのみ他のコードを呼び出す必要があります。また、コードは、エラーを処理する準備ができている場合を除き、準備されていないメソッドや信頼性のないメソッドの割り当てや仮想呼び出しを行うことはできません。 CLR は、CER で実行されるコードのスレッドの中止を遅らせます。  
@@ -49,9 +47,9 @@ ms.locfileid: "71046693"
 ### <a name="reliability-guarantees"></a>信頼性の保証  
  <xref:System.Runtime.ConstrainedExecution.Cer> 列挙値によって表される信頼性の保証は、特定のメソッドの信頼度を次のように示します。  
   
-- <xref:System.Runtime.ConstrainedExecution.Cer.MayFail>。 例外的な条件下で、メソッドは失敗する可能性があります。 この場合、メソッドは呼び出し元のメソッドに成功したか失敗したかを報告します。 メソッドが戻り値を確実に報告できるように、メソッドは CER に含まれている必要があります。  
+- <xref:System.Runtime.ConstrainedExecution.Cer.MayFail>. 例外的な条件下で、メソッドは失敗する可能性があります。 この場合、メソッドは呼び出し元のメソッドに成功したか失敗したかを報告します。 メソッドが戻り値を確実に報告できるように、メソッドは CER に含まれている必要があります。  
   
-- <xref:System.Runtime.ConstrainedExecution.Cer.None>。 メソッド、型、またはアセンブリには CER の概念がないため、状態の破損を大幅に軽減しなければ、CER 内での呼び出しが安全ではない可能性が最も高くなります。 この値では、CER の保証を利用しません。 これは以下を意味します。  
+- <xref:System.Runtime.ConstrainedExecution.Cer.None>. メソッド、型、またはアセンブリには CER の概念がないため、状態の破損を大幅に軽減しなければ、CER 内での呼び出しが安全ではない可能性が最も高くなります。 この値では、CER の保証を利用しません。 これは以下を意味します。  
   
     1. 例外的な条件下で、メソッドが失敗する可能性があります。  
   
@@ -61,18 +59,18 @@ ms.locfileid: "71046693"
   
     4. メソッド、型、またはアセンブリの成功が明示的に識別されていない場合、暗黙的に <xref:System.Runtime.ConstrainedExecution.Cer.None> として識別されます。  
   
-- <xref:System.Runtime.ConstrainedExecution.Cer.Success>。 例外的な条件下で、メソッドは成功することが保証されます。 このレベルの信頼性を実現するには、メソッドが CER 以外の領域内から呼び出される場合でも、呼び出されるメソッドの周辺に CER を常に構築する必要があります。 成功の判断は主観的なものですが、メソッドが意図したとおりに実行された場合、そのメソッドは成功ということになります。 たとえば、Count を `ReliabilityContractAttribute(Cer.Success)` でマークした場合、CER での実行時に、常に <xref:System.Collections.ArrayList> の要素数が返され、内部フィールドを不明な状態のままにすることはできないことを意味します。  <xref:System.Threading.Interlocked.CompareExchange%2A> メソッドも同様に成功としてマークされますが、その成功は競合状態によって値を新しい値に置き換えることができなかったことを意味する場合があります。  重要な点は、メソッドが文書化されたとおりに動作することと、正しいにもかかわらず信頼性のないコードの外観以外の異常な動作を予測して CER コードを記述する必要はないということです。  
+- <xref:System.Runtime.ConstrainedExecution.Cer.Success>. 例外的な条件下で、メソッドは成功することが保証されます。 このレベルの信頼性を実現するには、メソッドが CER 以外の領域内から呼び出される場合でも、呼び出されるメソッドの周辺に CER を常に構築する必要があります。 成功の判断は主観的なものですが、メソッドが意図したとおりに実行された場合、そのメソッドは成功ということになります。 たとえば、Count を `ReliabilityContractAttribute(Cer.Success)` でマークした場合、CER での実行時に、常に <xref:System.Collections.ArrayList> の要素数が返され、内部フィールドを不明な状態のままにすることはできないことを意味します。  <xref:System.Threading.Interlocked.CompareExchange%2A> メソッドも同様に成功としてマークされますが、その成功は競合状態によって値を新しい値に置き換えることができなかったことを意味する場合があります。  重要な点は、メソッドが文書化されたとおりに動作することと、正しいにもかかわらず信頼性のないコードの外観以外の異常な動作を予測して CER コードを記述する必要はないということです。  
   
 ### <a name="corruption-levels"></a>破損レベル  
  <xref:System.Runtime.ConstrainedExecution.Consistency> 列挙値によって表される破損レベルは、特定の環境で状態がどの程度破損する可能性があるかを示します。  
   
-- <xref:System.Runtime.ConstrainedExecution.Consistency.MayCorruptAppDomain>。 例外的な条件下で、共通言語ランタイム (CLR) は、現在のアプリケーション ドメインにおける状態の一貫性に関して一切保証しません。  
+- <xref:System.Runtime.ConstrainedExecution.Consistency.MayCorruptAppDomain>. 例外的な条件下で、共通言語ランタイム (CLR) は、現在のアプリケーション ドメインにおける状態の一貫性に関して一切保証しません。  
   
-- <xref:System.Runtime.ConstrainedExecution.Consistency.MayCorruptInstance>。 例外的な条件下で、メソッドは状態の破損を現在のインスタンスに限定することが保証されます。  
+- <xref:System.Runtime.ConstrainedExecution.Consistency.MayCorruptInstance>. 例外的な条件下で、メソッドは状態の破損を現在のインスタンスに限定することが保証されます。  
   
 - <xref:System.Runtime.ConstrainedExecution.Consistency.MayCorruptProcess>。例外的な条件下で、CLR は状態の一貫性に関して一切保証しません。つまり、条件によってプロセスが破損する可能性があります。  
   
-- <xref:System.Runtime.ConstrainedExecution.Consistency.WillNotCorruptState>。 例外的な条件下で、メソッドは状態を破損しないことが保証されます。  
+- <xref:System.Runtime.ConstrainedExecution.Consistency.WillNotCorruptState>. 例外的な条件下で、メソッドは状態を破損しないことが保証されます。  
   
 ## <a name="reliability-trycatchfinally"></a>信頼性の try/catch/finally  
  信頼性の `try/catch/finally` は、予測可能性の保証がアンマネージ バージョンと同じレベルである例外処理機構です。 `catch/finally` ブロックは CER です。 ブロック内のメソッドには事前準備が必要であり、中断不可能である必要があります。  

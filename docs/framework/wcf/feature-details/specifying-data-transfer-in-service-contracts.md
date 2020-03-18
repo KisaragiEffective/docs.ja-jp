@@ -7,12 +7,12 @@ dev_langs:
 helpviewer_keywords:
 - service contracts [WCF], data transfer
 ms.assetid: 7c5a26c8-89c9-4bcb-a4bc-7131e6d01f0c
-ms.openlocfilehash: 47544cf74b4fa09fd8ee868ea940ef24a453840e
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.openlocfilehash: 50f2444764ddb212513550ff0a62fcfecab2c45a
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71834647"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75347990"
 ---
 # <a name="specifying-data-transfer-in-service-contracts"></a>サービス コントラクトでのデータ転送の指定
 Windows Communication Foundation (WCF) は、メッセージングインフラストラクチャと考えることができます。 サービス操作では、メッセージを受信し、それらのメッセージを処理し、送信することができます。 メッセージは、操作コントラクトを使用して記述されます。 たとえば、次のようなコントラクトがあるとします。  
@@ -87,7 +87,7 @@ Public Interface IAirfareQuoteService
 End Interface  
 ```  
   
- 場合によっては、使用する型のシリアル化に `DataContractSerializer` が適さないことがあります。 WCF では、代替のシリアル化エンジンである @no__t 0 がサポートされています。これは、パラメーターをシリアル化するためにも使用できます。 <xref:System.Xml.Serialization.XmlSerializer> では、`XmlAttributeAttribute` などの属性を使用することによって、結果の XML をより細かく制御できます。 特定の操作やサービス全体で <xref:System.Xml.Serialization.XmlSerializer> を使用するように切り替えるには、<xref:System.ServiceModel.XmlSerializerFormatAttribute> 属性を操作またはサービスに適用します。 以下に例を示します。  
+ 場合によっては、使用する型のシリアル化に `DataContractSerializer` が適さないことがあります。 WCF では、代替のシリアル化エンジンである <xref:System.Xml.Serialization.XmlSerializer>をサポートしています。これは、パラメーターをシリアル化するためにも使用できます。 <xref:System.Xml.Serialization.XmlSerializer> では、`XmlAttributeAttribute` などの属性を使用することによって、結果の XML をより細かく制御できます。 特定の操作やサービス全体で <xref:System.Xml.Serialization.XmlSerializer> を使用するように切り替えるには、<xref:System.ServiceModel.XmlSerializerFormatAttribute> 属性を操作またはサービスに適用します。 例:  
   
 ```csharp  
 [ServiceContract]  
@@ -141,13 +141,13 @@ public float GetAirfare(
 ```  
   
 ## <a name="describing-empty-messages"></a>空のメッセージの記述  
- 空の要求メッセージを記述するには、入力パラメーターや参照パラメーターを一切指定しません。 C# の場合:  
+ 空の要求メッセージを記述するには、入力パラメーターや参照パラメーターを一切指定しません。 たとえば、 C#次のようになります。  
   
  `[OperationContract]`  
   
  `public int GetCurrentTemperature();`  
   
- VB の場合:  
+ たとえば、Visual Basic の場合は次のようになります。  
   
  `<OperationContract()>`  
   
@@ -464,7 +464,7 @@ End Interface
 ```  
   
 ### <a name="serialization-behaviors"></a>シリアル化の動作  
- WCF では、特定の操作に使用されているシリアライザーに応じて自動的に接続される、@no__t 0 と <xref:System.ServiceModel.Description.XmlSerializerOperationBehavior> の2つの動作が使用できます。 これらの動作は自動的に適用されるため、通常、これらの動作を意識する必要はありません。  
+ WCF では、特定の操作に使用されているシリアライザーに応じて自動的に接続される、<xref:System.ServiceModel.Description.DataContractSerializerOperationBehavior> と <xref:System.ServiceModel.Description.XmlSerializerOperationBehavior> の2つの動作が使用できます。 これらの動作は自動的に適用されるため、通常、これらの動作を意識する必要はありません。  
   
  ただし、`DataContractSerializerOperationBehavior` には、`MaxItemsInObjectGraph`、`IgnoreExtensionDataObject`、および `DataContractSurrogate` の 3 つのプロパティがあり、これらを使用してシリアル化プロセスをカスタマイズできます。 最初の 2 つのプロパティの意味は、前のセクションの説明と同じです。 `DataContractSurrogate` プロパティを使用すると、シリアル化プロセスをカスタマイズおよび拡張するための強力な機構であるデータ コントラクト サロゲートを有効にできます。 詳細については、「[データコントラクトサロゲート](../../../../docs/framework/wcf/extending/data-contract-surrogates.md)」を参照してください。  
   
@@ -564,7 +564,7 @@ Dim serviceHost As ServiceHost = New ServiceHost(GetType(IDataService))
   
  シナリオによっては、組み込みのシリアライザーでは不十分な場合があります。 ただし、ほとんどの場合、<xref:System.Runtime.Serialization.XmlObjectSerializer> と <xref:System.Runtime.Serialization.DataContractSerializer> の派生元である <xref:System.Runtime.Serialization.NetDataContractSerializer> 抽象クラスを使用できます。  
   
- 前の 3 つのケース (.NET 型の保存、オブジェクト グラフの保存、および `XmlObjectSerializer` ベースの完全なカスタム シリアル化) では、必ずカスタム シリアライザーをプラグインする必要があります。 これを行うには、次の手順を実行します。  
+ 前の 3 つのケース (.NET 型の保存、オブジェクト グラフの保存、および `XmlObjectSerializer` ベースの完全なカスタム シリアル化) では、必ずカスタム シリアライザーをプラグインする必要があります。 具体的には、次の手順を実行します。  
   
 1. <xref:System.ServiceModel.Description.DataContractSerializerOperationBehavior> から派生する独自の動作を記述します。  
   
@@ -577,5 +577,5 @@ Dim serviceHost As ServiceHost = New ServiceHost(GetType(IDataService))
 ## <a name="see-also"></a>関連項目
 
 - [XmlSerializer クラスの使用](../../../../docs/framework/wcf/feature-details/using-the-xmlserializer-class.md)
-- [2 つのオブジェクトが等しいかどうかをテストする方法ストリーミングを有効にする](../../../../docs/framework/wcf/feature-details/how-to-enable-streaming.md)
-- [2 つのオブジェクトが等しいかどうかをテストする方法クラスまたは構造体の基本的なデータコントラクトを作成する @ no__t-0
+- [方法 : ストリーミングを有効にする](../../../../docs/framework/wcf/feature-details/how-to-enable-streaming.md)
+- [方法 : クラスまたは構造体に基本的なデータ コントラクトを作成する](../../../../docs/framework/wcf/feature-details/how-to-create-a-basic-data-contract-for-a-class-or-structure.md)

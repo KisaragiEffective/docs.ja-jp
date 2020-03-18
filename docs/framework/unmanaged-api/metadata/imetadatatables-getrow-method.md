@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: a7408d51-0bce-45a2-b58f-da4660bbc039
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 98fc95c618a7a06f5e6c219d7707af291770c06a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9ac6eba18ae23dc80a8dc90383aa67cfe41b39ff
+ms.sourcegitcommit: 7e2128d4a4c45b4274bea3b8e5760d4694569ca1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781407"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75937405"
 ---
 # <a name="imetadatatablesgetrow-method"></a>IMetaDataTables::GetRow メソッド
-指定したテーブルのインデックス位置にある表に、指定した行インデックス位置にある行を取得します。  
+指定したテーブルインデックスにあるテーブル内の指定した行インデックスにある行を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,25 +37,26 @@ HRESULT GetRow (
   
 ## <a name="parameters"></a>パラメーター  
  `ixTbl`  
- [in]行の取得元となるテーブルのインデックス。  
+ から行の取得元となるテーブルのインデックス。  
   
  `rid`  
- [in]取得する行のインデックス。  
+ から取得する行のインデックス。  
   
  `ppRow`  
- [out]行へのポインターへのポインター。  
+ 入出力行へのポインターへのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- お勧めしません、このメソッドを使用して一貫性のある結果を返さないためです。 GUID の表については、ドキュメントを参照して、共通言語基盤 (CLI)、特に"第 2 部。メタデータの定義およびセマンティクス"。 ドキュメントはオンラインで入手できます。MSDN の「[ECMA C# and Common Language Infrastructure Standards](https://go.microsoft.com/fwlink/?LinkID=99212)」 (ECMA の C# および共通言語基盤の標準規格) と、ECMA のインターナショナル Web サイトにある「[Standard ECMA-335 - Common Language Infrastructure (CLI)](https://go.microsoft.com/fwlink/?LinkID=65552)」を参照してください。  
+
+  このメソッドは、一貫性のある結果を返さないため、使用しないことをお勧めします。 GUID テーブルの詳細については、共通言語基盤 (CLI) のドキュメント (特に「パーティション II: メタデータの定義とセマンティクス」) を参照してください。 ドキュメントはオンラインで入手できます。「 [ecma C#および共通言語基盤の標準](../../../standard/components.md#applicable-standards)と[標準 ECMA-335-共通言語基盤 (CLI)](http://www.ecma-international.org/publications/standards/Ecma-335.htm)」を参照してください。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
- **.NET framework のバージョン**  [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
+ **.NET Framework のバージョン**  [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 

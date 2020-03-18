@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: cdeda721-b214-4503-a291-c70b68b5f36b
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 38542ec28cce9687dc3ed824f9d449f3070976da
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 5e3619d12b9377a8482254703d3d97d0348a013b
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737303"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127168"
 ---
 # <a name="icordebugassemblygetname-method"></a>ICorDebugAssembly::GetName メソッド
-アセンブリの名前を取得しますこの`ICorDebugAssembly`インスタンスが表す。  
+この `ICorDebugAssembly` インスタンスが表すアセンブリの名前を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -42,16 +40,16 @@ HRESULT GetName (
  [in] `szName` 配列のサイズ。  
   
  `pcchName`  
- [out]名前の実際の長さを指定する整数へのポインター。  
+ 入出力名前の実際の長さを指定する整数へのポインター。  
   
  `szName`  
- [out]名前を格納する配列。  
+ 入出力名前を格納する配列。  
   
 ## <a name="remarks"></a>Remarks  
- `GetName`メソッドは、アセンブリの完全なパスとファイル名を返します。  
+ `GetName` メソッドは、アセンブリの完全なパスとファイル名を返します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

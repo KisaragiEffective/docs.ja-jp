@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 38cd4e16-fbb2-471c-aa73-ac51a1931ad2
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 1baee71b5b8575f51eb54fbc8a037a5dddd24500
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 842d6c0deb90bc45cb59454fb30fcc3544d742f1
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67782531"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74437941"
 ---
 # <a name="imetadataimportfindfield-method"></a>IMetaDataImport::FindField メソッド
-囲まれたフィールドの FieldDef にポインターをトークン取得を指定した<xref:System.Type>指定した名前とメタデータ シグネチャを持つとします。  
+指定した <xref:System.Type> で囲まれ、指定された名前とメタデータシグネチャを持つフィールドの FieldDef トークンへのポインターを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,37 +39,37 @@ HRESULT FindField (
   
 ## <a name="parameters"></a>パラメーター  
  `td`  
- [in]クラスまたはインターフェイスを検索するフィールドを囲む TypeDef トークンです。 この値が場合`mdTokenNil`、グローバル変数の検索を実行します。  
+ から検索対象のフィールドを囲むクラスまたはインターフェイスの TypeDef トークン。 この値が `mdTokenNil`場合は、グローバル変数に対して参照が行われます。  
   
  `szName`  
- [in]検索するフィールドの名前。  
+ から検索するフィールドの名前。  
   
  `pvSigBlob`  
- [in]フィールドのバイナリ メタデータ シグネチャへのポインター。  
+ からフィールドのバイナリメタデータシグネチャへのポインター。  
   
  `cbSigBlob`  
- [in]バイト サイズ`pvSigBlob`します。  
+ から`pvSigBlob`のサイズ (バイト単位)。  
   
  `pmb`  
- [out]一致する FieldDef トークンへのポインター。  
+ 入出力一致する FieldDef トークンへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- 外側のクラスまたはインターフェイスを使用して、フィールドを指定する (`td`)、その名前 (`szName`)、および必要に応じてその署名 (`pvSigBlob`)。  
+## <a name="remarks"></a>コメント  
+ フィールドは、外側のクラスまたはインターフェイス (`td`)、その名前 (`szName`)、および必要に応じて署名 (`pvSigBlob`) を使用して指定します。  
   
- 渡される署名`FindField`生成された現在のスコープで特定のスコープにバインドされるためです。 署名は、外側のクラスまたは値の型を識別するトークンを埋め込むことができます。 (トークンは、ローカルの TypeDef テーブルへのインデックス) です。 現在のスコープのコンテキスト外にあるランタイムのシグネチャを作成してへの入力としてその署名を使用することはできません`FindField`します。  
+ シグネチャは特定のスコープにバインドされているため、`FindField` に渡される署名は、現在のスコープで生成される必要があります。 署名には、外側のクラスまたは値の型を識別するトークンを埋め込むことができます。 (トークンは、ローカルの TypeDef テーブルのインデックスです)。 現在のスコープのコンテキスト外でランタイムシグネチャを作成し、その署名を `FindField`の入力として使用することはできません。  
   
- `FindField` クラスまたはインターフェイス内で直接定義されたフィールドのみを検索します。継承されたフィールドは検索しません。  
+ `FindField` は、クラスまたはインターフェイスで直接定義されたフィールドのみを検索します。継承されたフィールドは見つかりません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataImport インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-interface.md)
 - [IMetaDataImport2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport2-interface.md)

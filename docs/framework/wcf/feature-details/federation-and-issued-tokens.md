@@ -6,15 +6,15 @@ helpviewer_keywords:
 - issued tokens [WCF]
 - federation [WCF], issued tokens
 ms.assetid: 4c31ee7d-a820-4067-8b84-a83049021bb6
-ms.openlocfilehash: 5ea30c2e9593f289c91a47cc082becf47dedc450
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: d566388279f9210f70ebdb5c42512aea0425a47e
+ms.sourcegitcommit: c01c18755bb7b0f82c7232314ccf7955ea7834db
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61856454"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75964593"
 ---
 # <a name="federation-and-issued-tokens"></a>フェデレーションと発行済みトークン
-Windows Communication Foundation (WCF) で、Ws-federation および Ws-trust 仕様を実装するサービスを安全に通信するクライアントを作成できます。 これらの仕様では、異なる信頼領域間での認証と承認を可能にする機構を提供するために、XML、SOAP、および Web サービス記述言語 (WSDL: Web Services Description Language) が使用されます。  
+Windows Communication Foundation (WCF) を使用すると、WS-FEDERATION および WS-TRUST 仕様を実装するサービスと安全に通信するクライアントを作成できます。 これらの仕様では、異なる信頼領域間での認証と承認を可能にする機構を提供するために、XML、SOAP、および Web サービス記述言語 (WSDL: Web Services Description Language) が使用されます。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [フェデレーション](../../../../docs/framework/wcf/feature-details/federation.md)  
@@ -23,28 +23,28 @@ Windows Communication Foundation (WCF) で、Ws-federation および Ws-trust �
  [フェデレーションと信頼](../../../../docs/framework/wcf/feature-details/federation-and-trust.md)  
  フェデレーション サービスまたはクライアントを作成するときに注意する必要がある設計上の問題を示します。  
   
- [方法: フェデレーション クライアントを作成します。](../../../../docs/framework/wcf/feature-details/how-to-create-a-federated-client.md)  
- WCF を使用したフェデレーション クライアントの作成の基本について説明します。  
+ [方法 : フェデレーション クライアントを作成する](../../../../docs/framework/wcf/feature-details/how-to-create-a-federated-client.md)  
+ WCF を使用したフェデレーションクライアントの作成の基本について説明します。  
   
- [方法: フェデレーション サービスで資格情報を構成します。](../../../../docs/framework/wcf/feature-details/how-to-configure-credentials-on-a-federation-service.md)  
+ [方法 : フェデレーション サービスで資格情報を設定する](../../../../docs/framework/wcf/feature-details/how-to-configure-credentials-on-a-federation-service.md)  
  フェデレーション サービスを作成する手順を説明します。  
   
- [方法: WSFederationHttpBinding を作成します。](../../../../docs/framework/wcf/feature-details/how-to-create-a-wsfederationhttpbinding.md)  
+ [方法 : WSFederationHttpBinding を作成する](../../../../docs/framework/wcf/feature-details/how-to-create-a-wsfederationhttpbinding.md)  
  `WSFederationHttpBinding` を使用するクライアントおよびサービスを構成する方法を説明します。  
   
- [方法: セキュリティ トークン サービスを作成します。](../../../../docs/framework/wcf/feature-details/how-to-create-a-security-token-service.md)  
+ [方法 : セキュリティ トークン サービスを作成する](../../../../docs/framework/wcf/feature-details/how-to-create-a-security-token-service.md)  
  セキュリティ トークン サービスを作成する手順を説明します。  
   
  [SAML (Security Assertions Markup Language) トークンとクレーム](../../../../docs/framework/wcf/feature-details/saml-tokens-and-claims.md)  
  多様なクレームの種類を作成できる拡張可能な SAML (Security Assertions Markup Language) トークンについて説明します。  
   
- [方法: ローカル発行者を構成します。](../../../../docs/framework/wcf/feature-details/how-to-configure-a-local-issuer.md)  
+ [方法 : ローカル発行者を設定する](../../../../docs/framework/wcf/feature-details/how-to-configure-a-local-issuer.md)  
  セキュリティ トークンのローカル発行者の作成方法を説明します。  
   
- [方法: WSFederationHttpBinding のセキュリティで保護されたセッションを無効にします。](../../../../docs/framework/wcf/feature-details/how-to-disable-secure-sessions-on-a-wsfederationhttpbinding.md)  
+ [方法 : WSFederationHttpBinding のセキュリティで保護されたセッションを無効にする](../../../../docs/framework/wcf/feature-details/how-to-disable-secure-sessions-on-a-wsfederationhttpbinding.md)  
  `WSFederationHttpBinding` のセキュリティで保護されたセッションを無効にする方法を説明します。 クライアントごとにセッションが必要になる Web ファームを作成する場合には、セキュリティで保護されたセッションを無効化する必要があります。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>参照先  
  <xref:System.IdentityModel.Claims>  
   
  <xref:System.ServiceModel.ServiceAuthorizationManager>  
@@ -65,4 +65,4 @@ Windows Communication Foundation (WCF) で、Ws-federation および Ws-trust �
 
 - [承認](../../../../docs/framework/wcf/feature-details/authorization-in-wcf.md)
 - [カスタム トークン](../../../../docs/framework/wcf/extending/custom-tokens.md)
-- [Windows Server App Fabric のセキュリティ モデル](https://go.microsoft.com/fwlink/?LinkID=201279&clcid=0x409)
+- [Windows Server App Fabric のセキュリティモデル](https://docs.microsoft.com/previous-versions/appfabric/ee677202(v=azure.10))

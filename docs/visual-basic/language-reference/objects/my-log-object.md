@@ -1,27 +1,27 @@
 ---
-title: My.Log オブジェクト (Visual Basic)
+title: My.Log オブジェクト
 ms.date: 07/20/2015
 helpviewer_keywords:
 - My.Log object
 ms.assetid: 309b14b4-8875-4b2f-9661-a734b8cbff07
-ms.openlocfilehash: 6f0f7d51c31c674d70d40b7cd9a717aa5a1b0f4c
-ms.sourcegitcommit: c4dfe37032c64a1fba2cc3d5947550d79f95e3b5
+ms.openlocfilehash: 7e40a07449f803790009580071c187713d784bb0
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67041689"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350666"
 ---
 # <a name="mylog-object"></a>My.Log オブジェクト
-プロパティとイベントと例外の情報をアプリケーションのログ リスナーに書き込むためのメソッドを提供します。  
+イベントと例外の情報をアプリケーションのログリスナーに書き込むためのプロパティとメソッドを提供します。  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
  `My.Log` オブジェクトのメソッドとプロパティについては、「 <xref:Microsoft.VisualBasic.Logging.AspLog>」をご覧ください。  
   
- `My.Log`オブジェクトは、ASP.NET アプリケーションでのみ使用します。 クライアント アプリケーションでは、使用して[My.Application.Log オブジェクト](../../../visual-basic/language-reference/objects/my-application-log-object.md)します。  
+ `My.Log` オブジェクトは、ASP.NET アプリケーションでのみ使用できます。 クライアントアプリケーションの場合は、 [My. .Log オブジェクト](../../../visual-basic/language-reference/objects/my-application-log-object.md)を使用します。  
   
-## <a name="requirements"></a>必要条件  
+## <a name="requirements"></a>要件  
  **名前空間:** <xref:Microsoft.VisualBasic.Logging>  
   
  **クラス:** <xref:Microsoft.VisualBasic.Logging.AspLog>  
   
- **アセンブリ:** Visual Basic ランタイム ライブラリ (Microsoft.VisualBasic.dll)
+ **アセンブリ:** Visual Basic ランタイムライブラリ (Microsoft... .dll)

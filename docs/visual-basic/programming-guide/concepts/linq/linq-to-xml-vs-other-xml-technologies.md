@@ -1,20 +1,20 @@
 ---
-title: LINQ to XML およびその他の XML Technologies2
+title: LINQ to XML とその他の XML Technologies2
 ms.date: 07/20/2015
 ms.assetid: 72ce3a82-ffc6-488c-98e7-b9b40f3591ec
-ms.openlocfilehash: 80d3d034454d4de74e8aafd41679b82d111e6f3e
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 35d2be530c63cdbc09631c5dfc036558bb9851bc
+ms.sourcegitcommit: 7bc6887ab658550baa78f1520ea735838249345e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62021207"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75636618"
 ---
-# <a name="linq-to-xml-vs-other-xml-technologies"></a>LINQ to XML およびその他の XML テクノロジ
+# <a name="linq-to-xml-vs-other-xml-technologies"></a>LINQ to XML とその他の XML テクノロジ
 ここでは、[!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] を他の XML テクノロジ (<xref:System.Xml.XmlReader>、XSLT、MSXML、および XmlLite) と比較します。 使用するテクノロジを決定するときに、ここで説明する情報を参照してください。  
   
- [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] とドキュメント オブジェクト モデル (DOM) の比較については、「[LINQ to XML および(Visual Basic) の DOM](../../../../visual-basic/programming-guide/concepts/linq/linq-to-xml-vs-dom.md)します。  
+ [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] とドキュメントオブジェクトモデル (DOM) の比較については、「 [LINQ to XML と dom (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/linq-to-xml-vs-dom.md)」を参照してください。  
   
-## <a name="linq-to-xml-vs-xmlreader"></a>LINQ to XML およびXmlReader  
+## <a name="linq-to-xml-vs-xmlreader"></a>LINQ to XML と XmlReader  
  <xref:System.Xml.XmlReader> は、高速、前方参照専用、非キャッシュのパーサーです。  
   
  [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] は <xref:System.Xml.XmlReader> の上位に実装され、緊密に統合されています。 ただし、<xref:System.Xml.XmlReader> は単独で使用することもできます。  
@@ -23,7 +23,7 @@ ms.locfileid: "62021207"
   
  一方、多数の小さい XML ドキュメントを解析するシステムを構築する際に、ドキュメントがそれぞれ異なる場合は、生産性の向上という観点から [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] を使用します。  
   
-## <a name="linq-to-xml-vs-xslt"></a>LINQ to XML およびXSLT  
+## <a name="linq-to-xml-vs-xslt"></a>LINQ to XML と XSLT  
  [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] と XSLT は、どちらも広範な XML ドキュメント変換機能を備えています。 XSLT は、ルール ベースの宣言型の方法です。 高度な XSLT プログラミングでは、ステートレスな方法が重視される関数型のプログラミング スタイルで XSLT を記述します。 変換は、副作用なしで実装される純粋関数を使用して記述できます。 このルール ベース (関数型) の方法に精通している開発者は多くありません。また、修得するのは難しく、相当の学習時間を要する場合があります。  
   
  XSLT は、パフォーマンスの高いアプリケーションを生成する、生産性の高いシステムとして利用できます。 たとえば、Web 関連の大企業の中には、さまざまなデータ ソースを基に取得した XML から HTML を生成するための手段として XSLT を使用している企業もあります。 XSLT を CLR コードにコンパイルするマネージド XSLT エンジンは、一部のシナリオではネイティブ XSLT エンジンより高いパフォーマンスを発揮します。  
@@ -38,19 +38,19 @@ ms.locfileid: "62021207"
   
  XSLT は XML であるため、プログラムで操作できます。  
   
-## <a name="linq-to-xml-vs-msxml"></a>LINQ to XML およびMSXML  
+## <a name="linq-to-xml-vs-msxml"></a>LINQ to XML と MSXML  
  MSXML は、Microsoft Windows に付属する、XML 処理のための COM ベース テクノロジです。 MSXML は DOM をネイティブで実装し、XPath と XSLT をサポートしています。 MSXML には、非キャッシュの SAX2 イベントベース パーサーも含まれています。  
   
  MSXML はパフォーマンスが高く、セキュリティもほとんどのシナリオで既定で確保されます。また、Internet Explorer でアクセスできるため、AJAX スタイルのアプリケーションでクライアント側での XML の処理を実行できます。 MSXML は、C++、JavaScript、Visual Basic 6.0 など、COM をサポートするすべてのプログラミング言語から使用できます。  
   
  ただし共通言語ランタイム (CLR) に基づくマネージド コードで使用することは推奨されません。  
   
-## <a name="linq-to-xml-vs-xmllite"></a>LINQ to XML およびXmlLite  
+## <a name="linq-to-xml-vs-xmllite"></a>LINQ to XML と XmlLite  
  XmlLite は、非キャッシュ、前方参照専用のプル パーサーで、 主に C++ で使用されます。 マネージド コードで使用することは推奨されません。  
   
  XmlLite の最大の利点は、ほとんどのシナリオで、軽量かつ高速で安全な XML パーサーとして利用できることです。 XmlLite は脅威の対象となる要素がほとんどないため、 信頼されていないドキュメントを解析し、サービス拒否攻撃やデータ漏洩攻撃などからの保護が必要な場合は、優れた方法となります。  
   
- XmlLite は、[!INCLUDE[vbteclinqext](~/includes/vbteclinqext-md.md)] と統合されていません。 [!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] の利用動機となるプログラミングの生産性の向上はもたらされません。  
+ XmlLite は、統合言語クエリ (LINQ) と統合されていません。 これにより、プログラマの生産性が向上することはありません。これは、LINQ のスタブ force です。  
   
 ## <a name="see-also"></a>関連項目
 

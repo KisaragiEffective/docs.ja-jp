@@ -57,7 +57,7 @@ Windows 資格情報によるサービスのセキュリティ保護は、完全
 
 3. <xref:System.Type> という名前の 2 つ目の `serviceType` 変数を作成し、その変数に実装されたコントラクトの型 (`Calculator`) を割り当てます。
 
-4. <xref:System.Uri> という名前で、サービスのベース アドレスが指定された `baseAddress` クラスのインスタンスを作成します。 ベース アドレスには、トランスポートに一致するスキームを指定する必要があります。 この場合、トランスポートスキームは HTTP であり、アドレスには、特別な Uniform Resource Identifier (URI) "localhost" とポート番号 (8036)、およびベースエンドポイントアドレス ("serviceModelSamples/): `http://localhost:8036/serviceModelSamples/` が含まれます。
+4. <xref:System.Uri> という名前で、サービスのベース アドレスが指定された `baseAddress` クラスのインスタンスを作成します。 ベース アドレスには、トランスポートに一致するスキームを指定する必要があります。 この場合、トランスポートスキームは HTTP であり、アドレスには、特別な Uniform Resource Identifier (URI) "localhost" とポート番号 (8036)、およびベースエンドポイントアドレス ("serviceModelSamples/): `http://localhost:8036/serviceModelSamples/`が含まれます。
 
 5. <xref:System.ServiceModel.ServiceHost> 変数と `serviceType` 変数を指定して、`baseAddress` クラスのインスタンスを作成します。
 
@@ -78,7 +78,7 @@ Windows 資格情報によるサービスのセキュリティ保護は、完全
 
 #### <a name="to-use-a-binding-in-a-client-with-code"></a>コードによってクライアントでバインディングを使用するには
 
-1. SvcUtil.exe ツールを使用して、サービスのメタデータからプロキシ コードを生成します。 詳細については、「[方法: クライアントを作成](how-to-create-a-wcf-client.md)する」を参照してください。 生成されたプロキシコードは @no__t 0 クラスから継承されます。これにより、すべてのクライアントに、WCF サービスと通信するために必要なコンストラクター、メソッド、およびプロパティが確実に与えられます。 この例では、生成されたコードに、`CalculatorClient` インターフェイスを実装した `ICalculator` クラスが追加されるので、サービス コードとの互換が可能になります。
+1. SvcUtil.exe ツールを使用して、サービスのメタデータからプロキシ コードを生成します。 詳細については、「[方法: クライアントを作成](how-to-create-a-wcf-client.md)する」を参照してください。 生成されたプロキシコードは <xref:System.ServiceModel.ClientBase%601> クラスから継承されます。これにより、すべてのクライアントに、WCF サービスと通信するために必要なコンストラクター、メソッド、およびプロパティが確実に与えられます。 この例では、生成されたコードに、`CalculatorClient` インターフェイスを実装した `ICalculator` クラスが追加されるので、サービス コードとの互換が可能になります。
 
 2. この手順のコードは、クライアント プログラムの `Main` メソッドの先頭に挿入します。
 
@@ -106,13 +106,13 @@ Windows 資格情報によるサービスのセキュリティ保護は、完全
 
 #### <a name="to-enable-transfer-security-on-a-service-in-a-windows-domain-using-configuration"></a>構成を使用して Windows ドメインのサービスで転送セキュリティを有効にするには
 
-1. 構成ファイルの[\<bindings >](../configure-apps/file-schema/wcf/bindings.md) element セクションに[\<wshttpbinding >](../configure-apps/file-schema/wcf/wshttpbinding.md)要素を追加します。
+1. 構成ファイルの[\<binding >](../configure-apps/file-schema/wcf/bindings.md) element セクションに[\<wsHttpBinding >](../configure-apps/file-schema/wcf/wshttpbinding.md)要素を追加します。
 
-2. < @No__t-0 > 要素を < `WSHttpBinding` > 要素に追加し、`configurationName` 属性をアプリケーションに適した値に設定します。
+2. <`WSHttpBinding`> 要素に <`binding`> 要素を追加し、`configurationName` 属性をアプリケーションに適した値に設定します。
 
-3. < @No__t 0 > 要素を追加し、`mode` 属性を Message に設定します。
+3. > 要素`security`< を追加し、`mode` 属性を Message に設定します。
 
-4. < @No__t 0 > 要素を追加し、`clientCredentialType` 属性を Windows に設定します。
+4. > 要素`message`< を追加し、`clientCredentialType` 属性を Windows に設定します。
 
 5. サービスの構成ファイルで、`<bindings>` セクションを次のコードに置き換えます。 サービス構成ファイルがまだない場合は、「Using binding [To Configure service and](using-bindings-to-configure-services-and-clients.md)client」を参照してください。
 
@@ -136,7 +136,7 @@ Windows 資格情報によるサービスのセキュリティ保護は、完全
 
 1. SvcUtil.exe ツールを使用して、サービスのメタデータからプロキシ コードと構成ファイルを生成します。 詳細については、「[方法: クライアントを作成](how-to-create-a-wcf-client.md)する」を参照してください。
 
-2. 生成された構成ファイルの[\< バインド >](../configure-apps/file-schema/wcf/bindings.md)セクションを、前のセクションの構成コードに置き換えます。
+2. 生成された構成ファイルの[\<バインド >](../configure-apps/file-schema/wcf/bindings.md)セクションを、前のセクションの構成コードに置き換えます。
 
 3. 手順コードは、クライアント プログラムの `Main` メソッドの先頭に挿入します。
 
@@ -155,7 +155,7 @@ Windows 資格情報によるサービスのセキュリティ保護は、完全
 [!code-csharp[c_SecureWindowsClient#0](../../../samples/snippets/csharp/VS_Snippets_CFX/c_securewindowsclient/cs/secureclient.cs#0)]
 [!code-vb[c_SecureWindowsClient#0](../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_securewindowsclient/vb/secureclient.vb#0)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.ServiceModel.WSHttpBinding>
 - [ServiceModel メタデータ ユーティリティ ツール (Svcutil.exe)](servicemodel-metadata-utility-tool-svcutil-exe.md)

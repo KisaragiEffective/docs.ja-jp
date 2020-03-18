@@ -1,38 +1,38 @@
 ---
-title: Windows コンテナーを Azure Container Instances (ACI) に展開する場合
-description: Azure クラウドおよび Windows コンテナーで既存の .NET アプリケーションを最新化する |Windows コンテナーを Azure Container Instances (ACI) に展開する場合
+title: Azure Container Instances (ACI) に Windows コンテナーをデプロイするタイミング
+description: Azure Cloud と Windows コンテナーで既存の .NET アプリケーションを最新化する | Azure Container Instances (ACI) に Windows コンテナーをデプロイするタイミング
 ms.date: 04/29/2018
 ms.openlocfilehash: 3b6ae1ced9c4e01f5ab400e2575947a396064ebd
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
-ms.translationtype: MT
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69577935"
 ---
-# <a name="when-to-deploy-windows-containers-to-azure-container-instances-aci"></a>Windows コンテナーを Azure Container Instances (ACI) に展開する場合
+# <a name="when-to-deploy-windows-containers-to-azure-container-instances-aci"></a>Azure Container Instances (ACI) に Windows コンテナーをデプロイするタイミング
 
-主な価値の提案は、コンテナーをすぐにデプロイでき、その環境を維持する必要がなく、基になるオペレーティングシステムまたは Vm をアップグレード/修正する必要がないことです。これはすべて透過的で、デプロイするだけです。 Azure Container Instancesコンテナーをすぐに使用可能な環境にします。
+Azure Container Instances の主な価値提案は、それにコンテナーをすぐにデプロイできるということ、その環境を保守管理する必要がないこと、基礎となるオペレーティング システムや VM をアップグレードしたり、パッチを適用したりする必要がないこと、すべてが透過的であり、利用者に求められることはすぐに使える環境にコンテナーをデプロイすることだけであることです。
 
-ACI を使用する理由とシナリオは、コンテナーで Azure Vm を使用する場合の主なシナリオに似ています。基本的に、Azure Container Instances を使用する主なシナリオは次のとおりです。
+ACI を使用する理由とシナリオは、Azure VM と共にコンテナーを使用する主なシナリオに似ています。そのため、基本的に、Azure Container Instances を使用する主なシナリオは次のようになります。
 
-- **開発/テストシナリオ**
+- **Dev/Test シナリオ**
 - **タスクの自動化**
 - **CI/CD エージェント**
-- **小/小数点以下のバッチ処理**
-- **単純な web アプリ**
+- **小規模/スケール バッチ処理**
+- **単純な Web アプリ**
 
-単純な web apps シナリオは、ACI の公正なシナリオですが、ACI ではコンテナーイメージごとに1つのコンテナーインスタンスしか持つことができないため、高可用性はなく、スケーラビリティも制限されています。
+単純な Web アプリ シナリオは ACI にとって妥当なシナリオではありますが、ACI では、コンテナー イメージあたりコンテナー インスタンスが 1 つに限られるため、可用性が高くなく、スケーラビリティが限られることを考慮してください。
 
-ただし、1つのコンテナーインスタンスだけを提供するため、ACI がインフラストラクチャと見なされる場合でも、Windows Server を使用した通常の Azure Vm と比較して大きな利点があります。 ACI を使用すると、コンテナーを自己保守環境にデプロイするだけで、これらのコンテナーに対して料金が請求されます。 Vm を管理/更新/修正する必要はありません。そのため、コンテナーで Vm を使用している可能性のあるほとんどのシナリオでは、はるかに優れたプラットフォームとなります。 ACI を使用すると、コンテナーをデプロイするだけで、コンテナーをデプロイするだけで VM 環境を作成する必要がなくなります。
+ただし、1 つだけコンテナー インスタンスを提供するため、ACI をインフラストラクチャとして見なすとしても、通常の Azure VM と Windows Server の組み合わせと比べ、大きな利点があります。 ACI を使用するとき、コンテナーを自己保守環境にデプロイし、そのコンテナーに対してのみ料金を支払います。 VM を管理/更新/パッチ適用する必要はありません。そのため、VM と共にコンテナーを使用するようなほとんどのシナリオで、はるかに優れたプラットフォームとなります。 ACI の使用は単純であり、コンテナーをデプロイするだけです。VM 環境を作る必要はありません。
 
 Azure Container Instances (ACI) の主な利点は次のとおりです。
 
 - サーバーを管理せずにコンテナーを実行する
-- コンテナーの俊敏性をオンデマンドで向上
-- 1つのコマンドを使用して、従来よりもシンプルで高速な方法でコンテナーをクラウドにデプロイできます。
-- ハイパーバイザー分離を使用したアプリケーションのセキュリティ保護
+- オンデマンド コンテナーでアジリティが向上する
+- コンテナーをクラウドにデプロイする作業が 1 回の命令で終わり、前例のないくらい単純で速い
+- ハイパーバイザー分離というセキュリティでアプリケーションを保護する
 
-つまり、ACI を使用すると、仮想マシンを管理したり、新しいツールを習得したりすることなく、アプリを迅速に開発できます。 これは、クラウドで実行されているコンテナー内のアプリケーションにすぎません。
+つまり、ACI を使用すると、仮想マシンを管理したり、新しいツールを習得したりすることなく、アプリを短期間で開発できます。 自分のアプリケーションをコンテナーに入れ、クラウドで実行するだけです。
 
 > [!div class="step-by-step"]
 > [前へ](when-to-deploy-windows-containers-to-azure-vms-iaas-cloud.md)

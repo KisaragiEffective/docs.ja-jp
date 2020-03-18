@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの StatusBar コントロールでクリックされたパネルを確認する'
+title: StatusBar コントロールでクリックされたパネルを確認する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -13,27 +13,27 @@ helpviewer_keywords:
 - PanelClick event [Windows Forms], determining panel clicked
 - Panel control [Windows Forms], determining click
 ms.assetid: d14c6092-04b2-4a07-8ddf-0dd11277ff5f
-ms.openlocfilehash: 6229d8965949641105cd0e9708474c3249d52d1d
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 94619f8bd426a42e5dafa0db99880e20d24f9963
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69965717"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746012"
 ---
-# <a name="how-to-determine-which-panel-in-the-windows-forms-statusbar-control-was-clicked"></a>方法: Windows フォームの StatusBar コントロールでクリックされたパネルを確認する
+# <a name="how-to-determine-which-panel-in-the-windows-forms-statusbar-control-was-clicked"></a>方法 : Windows フォームの StatusBar コントロールでクリックされたパネルを確認する
 > [!IMPORTANT]
-> <xref:System.Windows.Forms.StatusBar> <xref:System.Windows.Forms.StatusBarPanel> <xref:System.Windows.Forms.StatusBar>コントロール<xref:System.Windows.Forms.StatusStrip>と<xref:System.Windows.Forms.ToolStripStatusLabel>コントロールは、および<xref:System.Windows.Forms.StatusBarPanel>コントロールに対して、機能の置き換えと追加を行います。ただし、コントロールとコントロールは、下位互換性と将来の使用の両方のために保持されます。し.  
+> <xref:System.Windows.Forms.StatusStrip> コントロールと <xref:System.Windows.Forms.ToolStripStatusLabel> コントロールは、<xref:System.Windows.Forms.StatusBar> および <xref:System.Windows.Forms.StatusBarPanel> コントロールに対して機能を置き換え、追加します。ただし、<xref:System.Windows.Forms.StatusBar> および <xref:System.Windows.Forms.StatusBarPanel> のコントロールは、下位互換性と将来の使用の両方のために保持されます (選択した場合)。  
   
- ユーザーのクリックに応答するように[StatusBar コントロール](statusbar-control-windows-forms.md)コントロールをプログラミングするには、 <xref:System.Windows.Forms.StatusBar.PanelClick>イベント内で case ステートメントを使用します。 イベントには、クリック<xref:System.Windows.Forms.StatusBarPanel>されたへの参照を含む引数 (パネル引数) が含まれています。 この参照を使用して、クリックされたパネルのインデックスを特定し、それに応じてプログラムを作成できます。  
+ ユーザーのクリックに応答するように[StatusBar コントロール](statusbar-control-windows-forms.md)コントロールをプログラミングするには、<xref:System.Windows.Forms.StatusBar.PanelClick> イベント内で case ステートメントを使用します。 イベントには、クリックされた <xref:System.Windows.Forms.StatusBarPanel>への参照を含む引数 (panel 引数) が含まれています。 この参照を使用して、クリックされたパネルのインデックスを特定し、それに応じてプログラムを作成できます。  
   
 > [!NOTE]
-> <xref:System.Windows.Forms.StatusBar>コントロール`true`の<xref:System.Windows.Forms.StatusBar.ShowPanels%2A>プロパティがに設定されていることを確認します。  
+> <xref:System.Windows.Forms.StatusBar> コントロールの <xref:System.Windows.Forms.StatusBar.ShowPanels%2A> プロパティが `true`に設定されていることを確認します。  
   
 ### <a name="to-determine-which-panel-was-clicked"></a>クリックされたパネルを確認するには  
   
-1. `switch case` `Select Case` C# C++イベントハンドラーでは、(Visual Basic) または (visual または visual) ステートメントを使用して、クリックされたパネルを判別します。これを行うには、イベント引数でクリックしたパネルのインデックスを調べます。 <xref:System.Windows.Forms.StatusBar.PanelClick>  
+1. <xref:System.Windows.Forms.StatusBar.PanelClick> イベントハンドラーで、`Select Case` (Visual Basic) または `switch case` (Visual C#または visual C++) ステートメントを使用して、クリックされたパネルを判別します。これを行うには、イベント引数でクリックしたパネルのインデックスを調べます。  
   
-     次のコード例では<xref:System.Windows.Forms.StatusBar> 、コントロール、 `StatusBarPanel1` `StatusBar1`、 `StatusBarPanel2`およびという2つ<xref:System.Windows.Forms.StatusBarPanel>のオブジェクトのプレゼンスをフォームに指定する必要があります。  
+     次のコード例では、<xref:System.Windows.Forms.StatusBar> コントロール、`StatusBar1`、および2つの <xref:System.Windows.Forms.StatusBarPanel> オブジェクト、`StatusBarPanel1` および `StatusBarPanel2`の存在をフォーム上に指定する必要があります。  
   
     ```vb  
     Private Sub StatusBar1_PanelClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.StatusBarPanelClickEventArgs) Handles StatusBar1.PanelClick  
@@ -93,10 +93,10 @@ ms.locfileid: "69965717"
        (this, &Form1::statusBar1_PanelClick);  
     ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.StatusBar>
 - <xref:System.Windows.Forms.ToolStripStatusLabel>
-- [方法: ステータスバーパネルのサイズを設定する](how-to-set-the-size-of-status-bar-panels.md)
-- [チュートリアル: 実行時のステータスバー情報の更新](walkthrough-updating-status-bar-information-at-run-time.md)
+- [方法: ステータス バー パネルのサイズを設定する](how-to-set-the-size-of-status-bar-panels.md)
+- [チュートリアル: ステータス バー情報の実行時更新](walkthrough-updating-status-bar-information-at-run-time.md)
 - [StatusBar コントロールの概要](statusbar-control-overview-windows-forms.md)

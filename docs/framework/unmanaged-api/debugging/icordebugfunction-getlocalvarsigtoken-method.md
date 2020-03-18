@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 31e53494-bcc9-4981-91a4-f7e0f02cad48
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: e03e7a965bc923d91cb0c83a9ea8ea5899da63a9
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: c159a175ddd380015cc2dc21637c8b63fd3caea6
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67754662"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73137889"
 ---
 # <a name="icordebugfunctiongetlocalvarsigtoken-method"></a>ICorDebugFunction::GetLocalVarSigToken メソッド
-この ICorDebugFunction インスタンスで表される関数のローカル変数シグネチャのメタデータ トークンを取得します。  
+このによって表される関数の、ローカル変数シグネチャのメタデータトークンを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT GetLocalVarSigToken (
   
 ## <a name="parameters"></a>パラメーター  
  `pmdSig`  
- [out]ポインター、 `mdSignature` 、この関数のローカル変数シグネチャのトークンまたは`mdSignatureNil`この関数にローカル変数が存在しません。  
+ 入出力この関数のローカル変数シグネチャの `mdSignature` トークンへのポインター。または、この関数にローカル変数がない場合は `mdSignatureNil`。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

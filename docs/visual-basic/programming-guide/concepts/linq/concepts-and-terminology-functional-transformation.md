@@ -1,13 +1,13 @@
 ---
-title: 概念と用語 (関数型変換) (Visual Basic)
+title: 概念と用語 (関数型変換)
 ms.date: 07/20/2015
 ms.assetid: 24fd244d-ebae-4721-8858-89bb544aea0b
-ms.openlocfilehash: 763321d99edf404ee17e8ec29af5424a378f83b1
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: efc1fc5bb738e3d5d9d3fa2a8226c37da69c045c
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70046606"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74345707"
 ---
 # <a name="concepts-and-terminology-functional-transformation-visual-basic"></a>概念と用語 (関数型変換) (Visual Basic)
 このトピックでは、純粋関数型変換の概念と用語について説明します。 データの変換に対して関数型変換の方法を使用すると、多くの場合、従来の命令型のプログラミングよりすばやいプログラミングが可能になります。また、さまざまな表現を使用した、デバッグや保守の容易なコードが生成されます。
@@ -35,11 +35,11 @@ ms.locfileid: "70046606"
 
 これまで、ML、Scheme、Haskell、F# などの汎用関数型プログラミング言語に対する関心は、主に学術的な分野に限られていました。 Visual Basic では常に純粋関数型変換を作成できましたが、その難しさはほとんどのプログラマにとって魅力的な選択肢にはなりませんでした。 ただし、新しいバージョンの Visual Basic では、ラムダ式や型推論などの新しい言語構成要素によって、関数型プログラミングがはるかに簡単で生産性の高いものになります。
 
-関数型プログラミングの詳細については、「[関数型プログラミングと命令型プログラミング (Visual Basic](../../../../visual-basic/programming-guide/concepts/linq/functional-programming-vs-imperative-programming.md))。
+関数型プログラミングの詳細については、「[関数型プログラミングと命令型プログラミング (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/functional-programming-vs-imperative-programming.md)」を参照してください。
 
 #### <a name="domain-specific-fp-languages"></a>特定領域の FP 言語
 
-広く採用されるに至らなかった汎用関数型プログラミング言語に比べると、特定領域の関数型プログラミング言語は成功していると言えます。 たとえば、カスケード スタイル シート (CSS) は多くの Web ページのルック アンド フィールの決定に利用されていますし、Extensible Stylesheet Language Transformations (XSLT) スタイル シートは XML データ操作に広く利用されています。 XSLT について詳しくは、「[XSLT 変換](../../../../standard/data/xml/xslt-transformations.md)」を参照してください。
+広く採用されるに至らなかった汎用関数型プログラミング言語に比べると、特定領域の関数型プログラミング言語は成功していると言えます。 たとえば、カスケード スタイル シート (CSS) は多くの Web ページのルック アンド フィールの決定に利用されていますし、Extensible Stylesheet Language Transformations (XSLT) スタイル シートは XML データ操作に広く利用されています。 XSLT について詳しくは、「[XSLT 変換](../../../../standard/data/xml/xslt-transformations.md)」をご覧ください。
 
 ## <a name="terminology"></a>用語
 
@@ -55,7 +55,7 @@ ms.locfileid: "70046606"
 
 詳細については、「[ラムダ式](../../../../visual-basic/programming-guide/language-features/procedures/lambda-expressions.md)」を参照してください。
 
-表す
+コレクション \
 データの構造化されたセットです。コレクション内のデータは同じ型であるのが一般的です。 コレクションで LINQ との互換性を確保するには、<xref:System.Collections.IEnumerable> インターフェイスか <xref:System.Linq.IQueryable> インターフェイス (または対応するジェネリック インターフェイスである <xref:System.Collections.Generic.IEnumerator%601> か <xref:System.Linq.IQueryable%601>) を実装する必要があります。
 
 タプル (匿名型) \
@@ -63,7 +63,7 @@ ms.locfileid: "70046606"
 
 詳細については、「[匿名型](../../../../visual-basic/programming-guide/language-features/objects-and-classes/anonymous-types.md)」を参照してください。
 
-型の推論 (暗黙の型指定) \
+型推論 (暗黙の型指定) \
 明示的な型宣言がない場合に変数の型を特定するコンパイラの機能です。
 
 詳細については、「[ローカル型の推論](../../../../visual-basic/programming-guide/language-features/variables/local-type-inference.md)」を参照してください。
@@ -75,7 +75,7 @@ ms.locfileid: "70046606"
 
 これらの言語機能は、このセクション全体にわたってサンプル コードで使用されています。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [純粋関数型変換の概要 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/introduction-to-pure-functional-transformations.md)
 - [関数型プログラミングと命令型プログラミング (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/functional-programming-vs-imperative-programming.md)

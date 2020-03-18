@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: fdebc1f3-b62e-4d9e-b775-8ccaa8ecb250
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: bdab1fd10be8fd245f4348798232964721b4487a
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: f3bb978b8358992fd9aa7da922e28efc1ed1a951
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70777341"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74446483"
 ---
 # <a name="emitmanifest-method"></a>EmitManifest メソッド
 最終的なマニフェストを出力します。 他のすべてのファイルをインポートし、すべてのオプションを設定した後に、このメソッドを呼び出します。 バインドされていないモジュールに対しては、このメソッドを呼び出さないでください。  
@@ -48,9 +46,9 @@ HRESULT EmitManifest(
  必要に応じて、アセンブリマニフェストトークンを受け取ります。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合、S_OK を返します。  
+ メソッドが成功した場合は S_OK を返します。  
   
-## <a name="requirements"></a>必要条件  
+## <a name="requirements"></a>要件  
  Alink. h が必要です。  
   
 ## <a name="see-also"></a>関連項目

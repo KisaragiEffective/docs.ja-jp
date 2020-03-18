@@ -1,21 +1,21 @@
 ---
 title: 匿名のレコード
-description: コンストラクトを使用して、データの操作に役立つ言語機能、匿名のレコードを使用する方法について説明します。
+description: データの操作に役立つ言語機能である、コンストラクトを使用して匿名レコードを使用する方法について説明します。
 ms.date: 06/12/2019
-ms.openlocfilehash: e576210d4fb76ccfd09f8feb157ef4542aa94ccf
-ms.sourcegitcommit: c4dfe37032c64a1fba2cc3d5947550d79f95e3b5
+ms.openlocfilehash: 061fd3279c84b9a3161c687d9392947ee7ce9c83
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67041806"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453027"
 ---
 # <a name="anonymous-records"></a>匿名のレコード
 
-匿名のレコードは、単純な集計の名前付きの値を使用する前に宣言する必要はありません。 構造体、または参照型として宣言できます。 既定では参照型です。
+匿名レコードは、使用前に宣言する必要のない名前付きの値の単純な集計です。 これらは、構造体または参照型として宣言できます。 既定では、これらは参照型です。
 
 ## <a name="syntax"></a>構文
 
-次の例では、匿名のレコードの構文を示します。 項目の区切りとして`[item]`は省略可能です。
+次の例は、匿名レコードの構文を示しています。 `[item]` として区切られた項目は省略可能です。
 
 ```fsharp
 // Construct an anonymous record
@@ -30,12 +30,11 @@ let function-name (arg-name: [struct] {| Label1: Type1; Label2: Type2; ...|}) ..
 
 ## <a name="basic-usage"></a>基本的な使用方法
 
-匿名のレコードが最適なとして考えるF#レコードの種類をインスタンス化する前に宣言する必要はありません。
+匿名レコードは、インスタンス化のF#前に宣言する必要のないレコードの種類として考えられます。
 
-たとえば、ここで、関数とやり取りする方法が生成されます匿名のレコード。
+たとえば、匿名レコードを生成する関数と対話する方法を次に示します。
 
 ```fsharp
-
 open System
 
 let getCircleStats radius =
@@ -51,7 +50,7 @@ printfn "Circle with radius: %f has diameter %f, area %f, and circumference %f"
     r stats.Diameter stats.Area stats.Circumference
 ```
 
-次の例の展開では、前に、`printCircleStats`匿名のレコードの入力として受け取る関数。
+次の例では、前の例でを展開して、匿名レコードを入力として受け取る `printCircleStats` 関数を使用します。
 
 ```fsharp
 open System
@@ -72,7 +71,7 @@ let stats = getCircleStats r
 printCircleStats r stats
 ```
 
-呼び出す`printCircleStats`匿名のレコード種類の入力の型はコンパイルに失敗すると、同じ「形状」がないとします。
+入力型と同じ "shape" を持たない匿名レコード型を使用して `printCircleStats` を呼び出すと、コンパイルに失敗します。
 
 ```fsharp
 printCircleStats r {| Diameter = 2.0; Area = 4.0; MyCircumference = 12.566371 |}
@@ -80,9 +79,9 @@ printCircleStats r {| Diameter = 2.0; Area = 4.0; MyCircumference = 12.566371 |}
 // '["Area"; "Circumference"; "Diameter"]' and '["Area"; "Diameter"; "MyCircumference"]'
 ```
 
-## <a name="struct-anonymous-records"></a>構造体の匿名のレコード
+## <a name="struct-anonymous-records"></a>構造体の匿名レコード
 
-匿名のレコードは、構造体で、オプションとして定義することも`struct`キーワード。 構造体の匿名のレコードの作成と、前の例を次の例には。
+匿名レコードは、省略可能な `struct` キーワードを使用して構造体として定義することもできます。 次の例では、構造体の匿名レコードを生成して使用することにより、前のコードを強化します。
 
 ```fsharp
 open System
@@ -107,7 +106,7 @@ printCircleStats r stats
 
 ### <a name="structness-inference"></a>Structness の推論
 
-構造体の匿名のレコードについても、「structness の推定」を指定する必要がない場所、`struct`呼び出しサイトにキーワードを指定します。 Elide するこの例で、`struct`キーワードを呼び出すときに`printCircleStats`:
+構造体の匿名レコードでは、呼び出しサイトで `struct` キーワードを指定する必要がない "structness 推定" も許可されます。 この例では、`printCircleStats`を呼び出すときに `struct` キーワードの使用を解除します。
 
 ```fsharp
 
@@ -118,11 +117,11 @@ let printCircleStats r (stats: struct {| Area: float; Circumference: float; Diam
 printCircleStats r {| Area = 4.0; Circumference = 12.6; Diameter = 12.6 |}
 ```
 
-逆のパターンで指定する`struct`入力の型が構造体の匿名レコードの場合にコンパイルに失敗します。
+逆パターン-入力型が構造体の匿名レコードでない場合に `struct` を指定すると、コンパイルに失敗します。
 
-## <a name="embedding-anonymous-records-within-other-types"></a>その他の種類内の匿名のレコードの埋め込み
+## <a name="embedding-anonymous-records-within-other-types"></a>他の型の中に匿名レコードを埋め込む
 
-宣言すると便利な[判別共用体](discriminated-unions.md)がの場合はレコード。 レコード内のデータが判別共用体と同じ型の場合は、相互に再帰すべての種類を定義する必要があります。 匿名のレコードを使用してこの制限を回避できます。 例は、次に上にあるパターンと一致する型と関数。
+ケースがレコードである[判別共用体](discriminated-unions.md)を宣言すると便利です。 ただし、レコード内のデータが判別共用体と同じ型である場合は、すべての型を相互に再帰的に定義する必要があります。 匿名レコードを使用すると、この制限を回避できます。 パターンが一致する型と関数の例を次に示します。
 
 ```fsharp
 type FullName = { FirstName: string; LastName: string }
@@ -140,23 +139,23 @@ let getFirstName e =
     | Executive ex -> ex.Name.FirstName
 ```
 
-## <a name="copy-and-update-expressions"></a>コピーして、式の更新
+## <a name="copy-and-update-expressions"></a>式のコピーと更新
 
-匿名のレコードでの構築をサポートする[コピーして、式を更新](copy-and-update-record-expressions.md)します。 たとえば、ここでは、1 つの既存のコピーを匿名のレコードの新しいインスタンスを作成する方法のデータ。
+匿名レコードは[、コピー式および更新式](copy-and-update-record-expressions.md)を使用した構築をサポートします。 たとえば、既存のデータをコピーする匿名レコードの新しいインスタンスを作成する方法を次に示します。
 
 ```fsharp
 let data = {| X = 1; Y = 2 |}
 let data' = {| data with Y = 3 |}
 ```
 
-ただし、名前付きのレコードとは異なり匿名のレコード、コピーではまったく別のフォームを構築し、式を更新できます。 次の例は、前の例から同じ匿名レコードを受け取り、新しい匿名のレコードに展開すること。
+ただし、名前付きレコードとは異なり、匿名レコードでは、コピーと更新の式を使用して、まったく異なる形式を構築できます。 次の例では、前の例と同じ匿名レコードを取得し、新しい匿名レコードに展開します。
 
 ```fsharp
 let data = {| X = 1; Y = 2 |}
 let expandedData = {| data with Z = 3 |} // Gives {| X=1; Y=2; Z=3 |}
 ```
 
-名前付きのレコードのインスタンスからの匿名のレコードを作成することもします。
+名前付きレコードのインスタンスから匿名レコードを構築することもできます。
 
 ```fsharp
 type R = { X: int }
@@ -164,7 +163,7 @@ let data = { X = 1 }
 let data' = {| data with Y = 2 |} // Gives {| X=1; Y=2 |}
 ```
 
-参照と構造体の匿名のレコードとの間データをコピーすることもできます。
+参照および構造体の匿名レコードとの間でデータをコピーすることもできます。
 
 ```fsharp
 // Copy data from a reference record into a struct anonymous record
@@ -184,22 +183,22 @@ let data2 = {| r1 with Y = 1 |}
 let data3 = struct {| data2 with Z = r2.X |}
 ```
 
-## <a name="properties-of-anonymous-records"></a>匿名のレコードのプロパティ
+## <a name="properties-of-anonymous-records"></a>匿名レコードのプロパティ
 
-匿名のレコードでは、さまざまな使用方法を完全に理解に不可欠な特性があります。
+匿名レコードには、それらの使用方法を十分に理解するために不可欠ないくつかの特性があります。
 
-### <a name="anonymous-records-are-nominal"></a>匿名のレコードが標準
+### <a name="anonymous-records-are-nominal"></a>匿名レコードは公称
 
-匿名のレコードが[標準型](https://en.wikipedia.org/wiki/Nominal_type_system)します。 という名前とは考えて[レコード](records.md)事前宣言を必要としない種類 (これは、公称も)。
+匿名レコードは[公称型](https://en.wikipedia.org/wiki/Nominal_type_system)です。 これらは、アップフロント宣言を必要としない名前付き[レコード](records.md)型 (公称でもあります) として考えるのが最適です。
 
-匿名のレコードの 2 つの宣言は次の例を検討してください。
+次の例では、2つの匿名レコード宣言を考えてみます。
 
 ```fsharp
 let x = {| X = 1 |}
 let y = {| Y = 1 |}
 ```
 
-`x`と`y`値が異なる型であるし、は相互に互換性がありません。 等値性が解除され、同等ではありません。 これを示すためには、名前付きのレコードを同等検討してください。
+`x` と `y` の値の型が異なり、相互に互換性がありません。 これらは equatable ではなく、比較できません。 これを説明するために、同等の名前付きレコードを考えてみましょう。
 
 ```fsharp
 type X = { X: int }
@@ -209,11 +208,11 @@ let x = { X = 1 }
 let y = { Y = 1 }
 ```
 
-型と同等のグループまたは比較に関連しているときに、対応する名前付きのレコードと比較した場合、匿名のレコードに関する本質的に異なるものはないです。
+型の等価性または比較に関係する場合、匿名レコードの名前付きレコードと比較しても、本質的に異なることはありません。
 
-### <a name="anonymous-records-use-structural-equality-and-comparison"></a>匿名のレコードを使用して、構造的等値と比較
+### <a name="anonymous-records-use-structural-equality-and-comparison"></a>匿名レコードは構造的等価性と比較を使用する
 
-レコードの種類と同様に匿名のレコードは、構造的等値性と比較します。 これは、すべての構成要素の型をサポートして等値と比較のようなレコードの種類の場合は true のみ。 等値または比較をサポートするには、2 つの匿名のレコードは、同じ「形状」する必要があります。
+レコードの種類と同様に、匿名レコードは構造的に equatable と比較できます。 これは、すべての構成型が、レコード型などの等値と比較をサポートしている場合にのみ当てはまります。 等値または比較をサポートするには、2つの匿名レコードの "shape" が同じである必要があります。
 
 ```fsharp
 {| a = 1+1 |} = {| a = 2 |} // true
@@ -223,25 +222,25 @@ let y = { Y = 1 }
 {| a = 1 + 1 |} = {| a = 2;  b = 1|}
 ```
 
-### <a name="anonymous-records-are-serializable"></a>匿名のレコードはシリアル化
+### <a name="anonymous-records-are-serializable"></a>匿名レコードはシリアル化可能
 
-名前付きのレコードを含む場合と同様、匿名のレコードをシリアル化することができます。 例を次に示しますを使用して[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/):
+名前付きレコードの場合と同様に、匿名レコードをシリアル化できます。 [Newtonsoft. Json](https://www.nuget.org/packages/Newtonsoft.Json/)を使用した例を次に示します。
 
 ```fsharp
 open Newtonsoft.Json
 
-let phillip = {| name="Phillip"; age=28 |}
-JsonConvert.SerializeObject(phillip)
+let phillip' = {| name="Phillip"; age=28 |}
+let philStr = JsonConvert.SerializeObject(phillip') 
 
-let phillip = JsonConvert.DeserializeObject<{|name: string; age: int|}>(str)
+let phillip = JsonConvert.DeserializeObject<{|name: string; age: int|}>(philStr)
 printfn "Name: %s Age: %d" phillip.name phillip.age
 ```
 
-匿名のレコードは、シリアル化または逆シリアル化型を事前にドメインを定義することがなく、ネットワーク経由で軽量のデータを送信するために便利です。
+匿名レコードは、シリアル化または逆シリアル化された型のドメインを事前に定義しなくても、ネットワーク経由で軽量データを送信する場合に便利です。
 
-### <a name="anonymous-records-interoperate-with-c-anonymous-types"></a>匿名のレコードとの相互運用C#匿名型
+### <a name="anonymous-records-interoperate-with-c-anonymous-types"></a>匿名レコードと匿名C#型の相互運用
 
-使用を必要とする .NET API を使用することは[C#匿名型](../../csharp/programming-guide/classes-and-structs/anonymous-types.md)します。 C#匿名型は匿名のレコードを使用して相互に簡単です。 次の例では、匿名のレコードを使用して呼び出す方法を示しています、 [LINQ](../../csharp/programming-guide/concepts/linq/index.md)オーバー ロードを匿名型を必要とします。
+匿名型を使用する必要がある .net API を使用することができます。 [ C# ](../../csharp/programming-guide/classes-and-structs/anonymous-types.md) C#匿名型は、匿名レコードを使用してと相互運用するのが簡単です。 次の例は、匿名レコードを使用して、匿名型を必要とする[LINQ](../../csharp/programming-guide/concepts/linq/index.md)オーバーロードを呼び出す方法を示しています。
 
 ```fsharp
 open System.Linq
@@ -252,26 +251,26 @@ for ng in nameGrouping do
     printfn "%s has first letter %c" ng.Name ng.FirstLetter
 ```
 
-さまざまな .NET 全体で使用される匿名型を渡すことの使用を要求する他の Api があります。 匿名のレコードは、それらを操作するためのツールです。
+.NET で使用される他の多くの Api では、匿名型を渡す必要があります。 匿名レコードは、それらを操作するためのツールです。
 
 ## <a name="limitations"></a>制限事項
 
-匿名のレコードでは、その使用方法にいくつかの制限があります。 設計、本質的なものが、他のユーザーは結果セットのサイズを変更します。
+匿名レコードの使用にはいくつかの制限があります。 設計に固有のものもあれば、変更に対応しているものもあります。
 
-### <a name="limitations-with-pattern-matching"></a>パターン マッチングの制限事項
+### <a name="limitations-with-pattern-matching"></a>パターン一致に関する制限事項
 
-匿名のレコードは、名前付きのレコードとは異なり、パターン マッチングをサポートしていません。 次の 3 つの理由があります。
+匿名レコードは、名前付きレコードとは異なり、パターンマッチングをサポートしていません。 次の3つの理由があります。
 
-1. パターンは、すべてのフィールドの名前付きのレコードの種類とは異なり、匿名のレコードを考慮する必要があります。 匿名のレコードは構造型のサブタイプをサポートしていません: 標準型があるためにです。
-2. ため (1) はありません、パターン一致式でその他のパターンを指定する機能をそれぞれ個別のパターンは匿名の異なるレコードの種類を示すようにします。
-3. (3) のため、匿名のレコード パターンは「ドット」表記の使用よりも詳細になります。
+1. パターンでは、名前付きレコードの種類とは異なり、匿名レコードのすべてのフィールドを考慮する必要があります。 これは、匿名レコードでは構造的サブタイプがサポートされていないためです。これは、標準型です。
+2. (1) のため、パターン一致式に追加のパターンを含めることはできません。これは、個別のパターンがそれぞれ異なる匿名レコードの種類を示すためです。
+3. (3) のため、匿名レコードパターンは、"ドット" 表記を使用した場合よりも詳細です。
 
-オープン言語提案がある[コンテキストが限定でパターン マッチングを許可する](https://github.com/fsharp/fslang-suggestions/issues/713)します。
+コンテキストが制限されている場合、[パターンマッチングを可能](https://github.com/fsharp/fslang-suggestions/issues/713)にするためのオープン言語の提案があります。
 
-### <a name="limitations-with-mutability"></a>可変性の制約
+### <a name="limitations-with-mutability"></a>互換性に関する制限事項
 
-現時点で匿名のレコードを定義することは`mutable`データ。 [言語の修正候補を開く](https://github.com/fsharp/fslang-suggestions/issues/732)変更可能なデータを許可します。
+現時点では、`mutable` データを含む匿名レコードを定義することはできません。 変更可能なデータを許可する[オープン言語の推奨](https://github.com/fsharp/fslang-suggestions/issues/732)事項があります。
 
-### <a name="limitations-with-struct-anonymous-records"></a>構造体の匿名のレコードの制限事項
+### <a name="limitations-with-struct-anonymous-records"></a>構造体の匿名レコードに関する制限事項
 
-匿名のレコードを構造体を宣言することはできません`IsByRefLike`または`IsReadOnly`します。 [言語の修正候補を開く](https://github.com/fsharp/fslang-suggestions/issues/712)の`IsByRefLike`と`IsReadOnly`匿名のレコード。
+`IsByRefLike` または `IsReadOnly`として構造体の匿名レコードを宣言することはできません。 匿名レコードを `IsByRefLike` および `IsReadOnly` するには、に対する[オープン言語の候補](https://github.com/fsharp/fslang-suggestions/issues/712)があります。

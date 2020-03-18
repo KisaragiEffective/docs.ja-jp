@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 36605067-33d3-4579-9c72-fb0e551ab0f1
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 41bd4c0bb4e84b6d6f267e24808baafa57f71882
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 0c622e0eba27f501446d2b7d9d264ee0834e869c
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67771108"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73133613"
 ---
 # <a name="icordebugthreadcreateeval-method"></a>ICorDebugThread::CreateEval メソッド
-ICorDebugEval を収集し、この ICorDebugThread の機能を公開するオブジェクトを作成します。  
+このスレッドの機能を収集して公開する、表示されるオブジェクトを作成します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,13 +35,13 @@ HRESULT CreateEval (
   
 ## <a name="parameters"></a>パラメーター  
  `ppEval`  
- [out]アドレスへのポインター、`ICorDebugEval`を収集し、このスレッドの機能を公開するオブジェクト。  
+ 入出力このスレッドの機能を収集して公開する `ICorDebugEval` オブジェクトのアドレスへのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- 評価のオブジェクトは、計算を実行する前に、スレッドで新しいチェーンにプッシュされます。 これは、現在実行中のスレッドで評価が完了するまで計算を中断します。  
+ 評価オブジェクトは、計算を実行する前に、スレッドに新しいチェーンをプッシュします。 これにより、評価が完了するまで、スレッドで現在実行されている計算が中断されます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

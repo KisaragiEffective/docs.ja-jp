@@ -10,23 +10,21 @@ helpviewer_keywords:
 - container tags, <publisherPolicy> element
 - <publisherPolicy> element
 ms.assetid: 4613407e-d0a8-4ef2-9f81-a6acb9fdc7d4
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: cc206e584440778858e61fc0bab51fc8ffa2009a
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 89fa8a991cc7d0352eb0a13cdfd3a6063ea468e7
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252381"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73115843"
 ---
 # <a name="publisherpolicy-element"></a>\<Publisherpolicy apply > 要素
 ランタイムが発行元ポリシーを適用するかどうかを指定します。  
   
 [ **\<configuration>** ](../configuration-element.md)\
-&nbsp;&nbsp;[ **\<ランタイム >** ](runtime-element.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;[ **\<assemblyBinding >** ](assemblybinding-element-for-runtime.md)\
+&nbsp;&nbsp;[ **\<runtime>** ](runtime-element.md)\
+&nbsp; &nbsp; &nbsp; &nbsp;[ **\<assemblyBinding**](assemblybinding-element-for-runtime.md) > \
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ **\<dependentAssembly >** ](dependentassembly-element.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<Publisherpolicy apply >**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**publisherpolicy apply >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -60,18 +58,18 @@ ms.locfileid: "70252381"
 |-------------|-----------------|  
 |`assemblyBinding`|アセンブリ バージョンのリダイレクトおよびアセンブリの位置に関する情報が含まれます。|  
 |`configuration`|共通言語ランタイムおよび .NET Framework アプリケーションで使用されるすべての構成ファイルのルート要素です。|  
-|`dependentAssembly`|各アセンブリのバインディング ポリシーとアセンブリの場所をカプセル化します。 アセンブリごと`<dependentAssembly>`に1つの要素を使用します。|  
+|`dependentAssembly`|各アセンブリのバインディング ポリシーとアセンブリの場所をカプセル化します。 アセンブリごとに1つの `<dependentAssembly>` 要素を使用します。|  
 |`runtime`|アセンブリのバインディングとガベージ コレクションに関する情報が含まれています。|  
   
 ## <a name="remarks"></a>Remarks  
- コンポーネントベンダーがアセンブリの新しいバージョンをリリースする場合、ベンダーには発行者ポリシーを含めることができるため、以前のバージョンを使用するアプリケーションでは新しいバージョンが使用されるようになりました。 特定のアセンブリに対して発行者ポリシーを適用するかどうかを指定するには、  **\<publisherpolicy apply >** 要素を **\<dependentAssembly >** 要素に配置します。  
+ コンポーネントベンダーがアセンブリの新しいバージョンをリリースする場合、ベンダーには発行者ポリシーを含めることができるため、以前のバージョンを使用するアプリケーションでは新しいバージョンが使用されるようになりました。 特定のアセンブリに対して発行者ポリシーを適用するかどうかを指定するには、 **\<publisherpolicy apply >** 要素を **\<dependentAssembly >** 要素に配置します。  
   
  **適用**属性の既定の設定は **[はい]** です。 **適用**属性を [**いいえ** **]** に設定すると、アセンブリの以前のすべての設定がオーバーライドされます。  
   
- アプリケーション構成ファイルの[ \<publisherpolicy apply apply = "no"/>](publisherpolicy-element.md)要素を使用して、アプリケーションが発行者ポリシーを明示的に無視するためのアクセス許可が必要です。 権限は、 <xref:System.Security.Permissions.SecurityPermissionFlag> <xref:System.Security.Permissions.SecurityPermission>にフラグを設定することによって付与されます。 詳細については、「[アセンブリバインディングリダイレクトのセキュリティアクセス許可](../../assembly-binding-redirection-security-permission.md)」を参照してください。  
+ アプリケーションがアプリケーション構成ファイルの[\<publisherpolicy apply apply = "no"/>](publisherpolicy-element.md)要素を使用して発行者ポリシーを明示的に無視するためのアクセス許可が必要です。 このアクセス許可は、<xref:System.Security.Permissions.SecurityPermission>に <xref:System.Security.Permissions.SecurityPermissionFlag> フラグを設定することによって付与されます。 詳細については、「[アセンブリバインディングリダイレクトのセキュリティアクセス許可](../../assembly-binding-redirection-security-permission.md)」を参照してください。  
   
 ## <a name="example"></a>例  
- 次の例では、アセンブリの発行者ポリシー `myAssembly`をオフにします。  
+ 次の例では、アセンブリの発行者ポリシーをオフにし、`myAssembly`します。  
   
 ```xml  
 <configuration>  

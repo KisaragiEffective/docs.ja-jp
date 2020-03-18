@@ -5,14 +5,12 @@ helpviewer_keywords:
 - ETW, CLR providers
 - CLR ETW providers
 ms.assetid: 0beafad4-b2c8-47f4-b342-83411d57a51f
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 93a0271c521de6e390e323d92e93a5e7bf94444f
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: dbdd4ad862ae300c330dc56a82fcd65b866855b6
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71046736"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75716185"
 ---
 # <a name="clr-etw-providers"></a>CLR ETW プロバイダー
 共通言語ランタイム (CLR: Common Language Runtime) には、ランタイム プロバイダーとランダウン プロバイダーという 2 つのプロバイダーがあります。  
@@ -37,7 +35,7 @@ ms.locfileid: "71046736"
   
  通常は、プロセスが開始される前に ETW のログを有効にし、プロセスの終了後にログを無効にしますが、 プロセスの実行中に ETW ログを有効にする場合もあります。その場合は、そのプロセスについて追加の情報が必要です。 たとえば、シンボルを解決するには、ログを有効にする前に既に読み込まれていたメソッドのメソッド イベントを記録する必要があります。  
   
- `DCStart` イベントと `DCEnd` イベントは、データの収集が開始されたときと停止されたときのプロセスの状態をキャプチャします (状態とは、既に Just-In-Time コンパイルされているメソッド、既に読み込まれているアセンブリなど、高レベルの情報を指します)。これらの 2 つのイベントを使用すると、そのプロセスで既に行われたことに関する情報 (どのメソッドが Just-In-Time コンパイルされたかなど) を取得できます。  
+ `DCStart` イベントと `DCEnd` イベントは、データの収集が開始されたときと停止されたときのプロセスの状態をキャプチャします (状態とは、既に just-in-time (JIT) コンパイルされたメソッドや読み込まれたアセンブリなど、高レベルの情報を指します)。この2つのイベントでは、プロセスで既に発生した内容に関する情報を提供できます。たとえば、どのメソッドが JIT コンパイルされたかなどです。  
   
  ランダウン プロバイダーで発生するイベントは、名前に `DC`、`DCStart`、`DCEnd`、または `DCInit` を含むイベントだけです。 また、これらのイベントはランダウン プロバイダーでしか発生しません。  
   

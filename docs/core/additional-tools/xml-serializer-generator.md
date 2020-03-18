@@ -4,13 +4,13 @@ description: Microsoft XML Serializer Generator の概要。 XML Serializer Gene
 author: mlacouture
 ms.date: 01/19/2017
 ms.topic: tutorial
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 403651978667c8cf531c3f87f1156f67206fb490
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.custom: mvc
+ms.openlocfilehash: 094dd1227033e167050ad73121b3005a592a0ae4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72522820"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75714521"
 ---
 # <a name="using-microsoft-xml-serializer-generator-on-net-core"></a>.NET Core で Microsoft XML Serializer Generator を使用する
 
@@ -26,9 +26,9 @@ ms.locfileid: "72522820"
 
 .NET Framework の [Xml シリアライザー ジェネレーター (sgen.exe)](../../standard/serialization/xml-serializer-generator-tool-sgen-exe.md) と同様に、[Microsoft.XmlSerializer.Generator NuGet パッケージ](https://www.nuget.org/packages/Microsoft.XmlSerializer.Generator)は .NET Core および .NET Standard プロジェクト用の同等のものです。 アセンブリに含まれる型の XML シリアル化アセンブリを作成することで、<xref:System.Xml.Serialization.XmlSerializer> を使用してその型のオブジェクトをシリアル化または逆シリアル化するときの XML シリアル化の起動パフォーマンスを改善します。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
-このチュートリアルを完了するには、次のものが必要です。
+このチュートリアルを完了するには、以下が必要です。
 
 - [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) 以降。
 - 任意のコード エディター。
@@ -101,7 +101,7 @@ public class MyClass
 var serializer = new System.Xml.Serialization.XmlSerializer(typeof(MyClass));
 ```
 
-### <a name="build-and-run-the-application"></a>アプリケーションのビルドと実行
+### <a name="build-and-run-the-application"></a>アプリケーションの構築と実行
 
 *MyApp* フォルダー内のままで、[`dotnet run`](../tools/dotnet-run.md) を介してアプリケーションを実行すると、事前生成されたシリアライザーが実行時に自動的に読み込まれ、使用されます。
 
@@ -128,8 +128,8 @@ dotnet run
 > - クラスと XmlSerializer を追加しました。
 > - アプリケーションをビルドして実行しました。
 
-## <a name="related-resources"></a>関連資料
+## <a name="related-resources"></a>関連リソース
 
 - [XML シリアル化の概要](../../standard/serialization/introducing-xml-serialization.md)
-- [方法: XmlSerializer を使用してシリアル化する (C#)](../../csharp/programming-guide/concepts/linq/how-to-serialize-using-xmlserializer.md)
+- [XmlSerializer を使用してシリアル化する方法 (C#)](../../csharp/programming-guide/concepts/linq/how-to-serialize-using-xmlserializer.md)
 - [方法: XmlSerializer を使用してシリアル化する (Visual Basic)](../../visual-basic/programming-guide/concepts/linq/how-to-serialize-using-xmlserializer.md)

@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: e0d0a680915f14c2d33f1864ad5ad05aff3dde5f
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 31e7f84a787d255a474f4c2b1fa3068903dbed52
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72393974"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75901579"
 ---
 ### <a name="http-headernames-constants-changed-to-static-readonly"></a>HTTP:HeaderNames の定数を静的読み取り専用に変更
 
 ASP.NET Core 3.0 Preview 5 以降、<xref:Microsoft.Net.Http.Headers.HeaderNames?displayProperty=fullName> のフィールドが `const` から `static readonly` に変更されました。
 
-ディスカッションについては、[aspnet/aspnet/AspNetCore#9514](https://github.com/aspnet/AspNetCore/issues/9514) を参照してください。
+ディスカッションについては、[dotnet/aspnetcore#9514](https://github.com/dotnet/aspnetcore/issues/9514) を参照してください。
 
 #### <a name="version-introduced"></a>導入されたバージョン
 
@@ -31,7 +31,7 @@ ASP.NET Core 3.0 Preview 5 以降、<xref:Microsoft.Net.Http.Headers.HeaderNames
 * アセンブリ境界を越えて値が埋め込まれるのを防ぎ、必要に応じて値を修正できるようにします。
 * 参照の等価性チェックの高速化を可能にします。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 3\.0 に対して再コンパイルします。 これらのフィールドを次の方法で使用しているソース コードはそれを実行できなくなりました。
 

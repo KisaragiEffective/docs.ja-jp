@@ -2,13 +2,14 @@
 title: パターン マッチング機能を使用してデータ型を拡張する
 description: この高度なチュートリアルでは、パターン マッチング手法を使用して、別々に作成されたデータとアルゴリズムを使用して機能を作成する方法を示します。
 ms.date: 03/13/2019
+ms-technology: csharp-whats-new
 ms.custom: mvc
-ms.openlocfilehash: 036a6bcda04771eb8cf3699af8756e83bb144389
-ms.sourcegitcommit: 8b8dd14dde727026fd0b6ead1ec1df2e9d747a48
+ms.openlocfilehash: df1054d8e0ec2b2539e6a1d00bf353d8ca927397
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71332352"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79156533"
 ---
 # <a name="tutorial-using-pattern-matching-features-to-extend-data-types"></a>チュートリアル: パターン マッチング機能を使用してデータ型を拡張する
 
@@ -40,7 +41,7 @@ C# 7 で、基本的なパターン マッチング機能が導入されまし�
 
 この簡単な説明から、このシステムをモデル化するオブジェクト階層をすぐに思い描くことができます。 ただし、データは、他の車両登録管理システムなどの複数のソースから送信されます。 これらのシステムでは異なるクラスを使用してデータがモデル化されているため、使用できる単一のオブジェクト モデルはありません。 このチュートリアルでは、次のコードに示すように、簡略化されたクラスを使用して外部システムからの車両データをモデル化します。
 
-[!code-csharp[ExternalSystems](~/samples/csharp/tutorials/patterns/start/toll-calculator/ExternalSystems.cs)]
+[!code-csharp[ExternalSystems](~/samples/snippets/csharp/tutorials/patterns/start/toll-calculator/ExternalSystems.cs)]
 
 GitHub の [dotnet/samples](https://github.com/dotnet/samples/tree/master/csharp/tutorials/patterns/start) リポジトリから、スタート コードをダウンロードすることができます。 さまざまなシステムからの車両クラスがあり、異なる名前空間に存在していることがわかります。 `System.Object` を除いて、利用できる共通基底クラスはありません。
 
@@ -240,7 +241,7 @@ vehicle switch
     DeliveryTruck t when (t.GrossWeightClass > 5000) => 10.00m + 5.00m,
     DeliveryTruck t when (t.GrossWeightClass < 3000) => 10.00m - 2.00m,
     DeliveryTruck t => 10.00m,
-    
+
     { }     => throw new ArgumentException(message: "Not a known vehicle type", paramName: nameof(vehicle)),
     null    => throw new ArgumentNullException(nameof(vehicle))
 };
@@ -336,17 +337,17 @@ private static bool IsWeekDay(DateTime timeOfToll) =>
 
 このメソッドは機能しますが、繰り返しが含まれています。 次のコードに示すように簡略化できます。
 
-[!code-csharp[IsWeekDay](~/samples/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#IsWeekDay)]
+[!code-csharp[IsWeekDay](~/samples/snippets/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#IsWeekDay)]
 
 次に、時間をブロックに分類する同様の関数を追加します。
 
-[!code-csharp[GetTimeBand](~/samples/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#GetTimeBand)]
+[!code-csharp[GetTimeBand](~/samples/snippets/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#GetTimeBand)]
 
 上記のメソッドでは、パターン マッチングは使用されていません。 使い慣れた `if` ステートメントの連鎖を使用するほうがわかりやすくなります。 プライベート `enum` を追加して、時間の各範囲を個別の値に変換します。
 
 これらのメソッドを作成したら、別の `switch` 式と**タプル パターン**を使用して、割増料金を計算できます。 全部で 16 のアームがある `switch` 式を作成できます。
 
-[!code-csharp[FullTuplePattern](~/samples/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#TuplePatternOne)]
+[!code-csharp[FullTuplePattern](~/samples/snippets/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#TuplePatternOne)]
 
 上記のコードは機能しますが、簡略化できます。 週末の 8 つの組み合わせは、同じ通行料金になります。 8 つのすべてを、次の行に置き換えることができます。
 
@@ -379,7 +380,7 @@ public decimal PeakTimePremium(DateTime timeOfToll, bool inbound) =>
 
 最後に、通常料金を支払う 2 つのラッシュの時間帯は削除できます。 これらのアームを削除した後、最後の switch アーム内の `false` を破棄 (`_`)  に置き換えることができます。 次のメソッドが完成します。
 
-[!code-csharp[SimplifiedTuplePattern](../../../samples/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#FinalTuplePattern)]
+[!code-csharp[SimplifiedTuplePattern](../../../samples/snippets/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#FinalTuplePattern)]
 
 この例では、パターン マッチングの利点の 1 つに注目しています。パターンの分岐は、順序正しく評価されます。 前のほうの分岐で後ろにあるいずれかの case が処理されるようにパターンを並べ替えると、コンパイラによって到達できないコードに関する警告が表示されます。 これらの言語ルールによって、コードが変化しないという自信を持って、前述した簡略化を簡単に実行できます。
 

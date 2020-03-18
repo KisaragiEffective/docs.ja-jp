@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 4dc6c80d-b694-480b-a378-d5b18420ce17
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 45b6b8593331801dd237d0a730afbd5a6a714bbf
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 786ff6895383fc18dcfedb26fab344f80f04c1df
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67774179"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73138208"
 ---
 # <a name="esymbolreadingpolicy-enumeration"></a>ESymbolReadingPolicy 列挙型
-プログラム データベース (PDB) ファイルを読み取るためのポリシーを設定する値が含まれています。  
+プログラムデータベース (PDB) ファイルを読み取るためのポリシーを設定する値が含まれます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,19 +38,19 @@ typedef enum {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`eSymbolReadingAlways`|デバッガーが PDB ファイルを常に読み取ることを指定します。|  
-|`eSymbolReadingFullTrustOnly`|デバッガーが完全に信頼されたアセンブリに関連付けられた PDB ファイルのみを読み取ることを指定します。|  
-|`eSymbolReadingNever`|デバッガーが PDB ファイルを読み取るしないことを指定します。|  
+|`eSymbolReadingAlways`|デバッガーが常に PDB ファイルを読み取る必要があることを指定します。|  
+|`eSymbolReadingFullTrustOnly`|デバッガーが、完全に信頼されたアセンブリに関連付けられている PDB ファイルのみを読み取るように指定します。|  
+|`eSymbolReadingNever`|デバッガーが PDB ファイルを読み取らないように指定します。|  
   
 ## <a name="remarks"></a>Remarks  
- `ESymbolReadingPolicy`列挙で使用されますが、 [iclrdebugmanager::setsymbolreadingpolicy](../../../../docs/framework/unmanaged-api/hosting/iclrdebugmanager-setsymbolreadingpolicy-method.md)メソッド。  
+ `ESymbolReadingPolicy` 列挙体は、 [ICLRDebugManager:: SetSymbolReadingPolicy](../../../../docs/framework/unmanaged-api/hosting/iclrdebugmanager-setsymbolreadingpolicy-method.md)メソッドと共に使用されます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

@@ -5,16 +5,14 @@ helpviewer_keywords:
 - <NetFx40_PInvokeStackResilience> element
 - NetFx40_PInvokeStackResilience element
 ms.assetid: 39fb1588-72a4-4479-af74-0605233b68bd
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8f4dffe5428ccb7541055fa4f3f335f57deaf2ec
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 86f50aafe0b21d5080288e09ac7118ca1e4c939a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252426"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73116158"
 ---
-# <a name="netfx40_pinvokestackresilience-element"></a>\<NetFx40_PInvokeStackResilience> 要素
+# <a name="netfx40_pinvokestackresilience-element"></a>\<NetFx40_PInvokeStackResilience > 要素
 
 ランタイムが実行時の不適切なプラットフォーム呼び出し宣言を自動的に修正するかどうかを指定します。これにより、マネージド コードとアンマネージド コード間の遷移が遅くなります。
 
@@ -40,7 +38,7 @@ ms.locfileid: "70252426"
 
 ## <a name="enabled-attribute"></a>enabled 属性
 
-|値|説明|
+|[値]|説明|
 |-----------|-----------------|
 |`0`|ランタイムは、.NET Framework 4 で導入された高速な相互運用マーシャリングアーキテクチャを使用します。これは、不適切なプラットフォーム呼び出し宣言を検出して修正するものではありません。 既定値です。|
 |`1`|ランタイムは、不適切なプラットフォーム呼び出し宣言を検出して修正する低速の遷移を使用します。|
@@ -64,7 +62,7 @@ ms.locfileid: "70252426"
 
 開発中に不適切な宣言を簡単に検出できるように、Visual Studio のデバッグエクスペリエンスが改善されました。 デバッガーがアタッチされた状態でアプリケーションを実行すると、 [pInvokeStackImbalance](../../../debug-trace-profile/pinvokestackimbalance-mda.md) managed デバッグアシスタント (MDA) によって、不適切なプラットフォーム呼び出し宣言が通知されます。
 
-再コンパイルできないコンポーネントをアプリケーションで使用していて、無効なプラットフォーム呼び出し宣言を持つシナリオに対処する`NetFx40_PInvokeStackResilience`には、要素を使用できます。 この要素をアプリケーション構成ファイル`enabled="1"`に追加するには、以前のバージョンの .NET Framework の動作で互換性モードを使用します。これにより、移行速度が低下します。 以前のバージョンの .NET Framework に対してコンパイルされたアセンブリは、自動的にこの互換モードに設定され、この要素は必要ありません。
+再コンパイルできないコンポーネントがアプリケーションで使用されていて、不適切なプラットフォーム呼び出し宣言がある場合は、`NetFx40_PInvokeStackResilience` 要素を使用できます。 この要素をアプリケーション構成ファイルに追加すると `enabled="1"` が、以前のバージョンの .NET Framework の動作と互換性モードになり、移行速度が低下します。 以前のバージョンの .NET Framework に対してコンパイルされたアセンブリは、自動的にこの互換モードに設定され、この要素は必要ありません。
 
 ## <a name="configuration-file"></a>構成ファイル
 

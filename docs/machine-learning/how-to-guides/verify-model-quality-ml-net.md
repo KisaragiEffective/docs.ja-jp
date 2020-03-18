@@ -3,14 +3,14 @@ title: 機械学習モデルの品質を評価するメトリックを計算す�
 description: ML.NET を使用して機械学習モデルの品質を評価および検証するメトリックを計算する方法について説明します。
 ms.date: 03/05/2019
 ms.custom: mvc,how-to
-ms.openlocfilehash: 529003913b166c966e131b006800f944096605b7
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: d6409307cd283ae67d7546c4dc6e19e6089a0766
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70855565"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73975839"
 ---
-# <a name="calculate-metrics-to-evaluate-machine-learning-model-quality"></a>機械学習モデルの品質を評価するメトリックを計算する 
+# <a name="calculate-metrics-to-evaluate-machine-learning-model-quality"></a>機械学習モデルの品質を評価するメトリックを計算する
 
 > [!NOTE]
 > このトピックは現在プレビュー中の ML.NET について述べており、内容が変更される場合があります。 詳細については、[ML.NET](https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet) に関するページを参照してください。

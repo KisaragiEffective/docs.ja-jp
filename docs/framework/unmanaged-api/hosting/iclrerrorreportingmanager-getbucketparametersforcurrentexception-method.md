@@ -15,19 +15,17 @@ helpviewer_keywords:
 ms.assetid: a13ec8a6-8e18-4acb-8054-77f5b1a0e0b9
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 276a69deecccc91b3c511403c2bd0d5c0baabd9d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b24f8ed4f5e2c6e0022f5599f2ab8c44a30a561a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67772806"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129274"
 ---
 # <a name="iclrerrorreportingmanagergetbucketparametersforcurrentexception-method"></a>ICLRErrorReportingManager::GetBucketParametersForCurrentException メソッド
-呼び出し元のスレッドで現在の例外のワトソン バケットを取得します。  
+呼び出し元のスレッドで現在の例外の Watson バケットを取得します。  
   
- A*バケット*は同じコードの欠陥に関連するエラー データのコレクションです。 *ワトソン博士*例外に関連付けられているデータ収集および分析のためのテクノロジのセットを指します。  
+ *バケット*は、同じコード障害に関連するエラーデータのコレクションです。 *Watson*は、例外に関連付けられているデータを収集および分析するための一連のテクノロジを指します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,14 +37,14 @@ HRESULT GetBucketParametersForCurrentException(
   
 ## <a name="parameters"></a>パラメーター  
  `pParams`  
- [out]ポインターを[BucketParameters](../../../../docs/framework/unmanaged-api/hosting/bucketparameters-structure.md)例外のエラー データを含む構造体。  
+ 入出力例外のエラーデータを格納している[BucketParameters](../../../../docs/framework/unmanaged-api/hosting/bucketparameters-structure.md)構造体へのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

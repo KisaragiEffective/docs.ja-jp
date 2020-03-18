@@ -2,19 +2,20 @@
 title: C# で既定のインターフェイス メソッドを使用してインターフェイスを安全に更新する
 description: この高度なチュートリアルでは、既存のインターフェイスを実装するすべてのクラスと構造体を損なうことなく、そのインターフェイスの定義に新しい機能を安全に追加する方法について説明します。
 ms.date: 05/06/2019
+ms.technlogy: csharp-advanced-concepts
 ms.custom: mvc
-ms.openlocfilehash: 71fce2594dbf5ef3175a6b9bdf4e6edba754bb84
-ms.sourcegitcommit: 992f80328b51b165051c42ff5330788627abe973
+ms.openlocfilehash: 650aea78b421783b3f249b3670578aa60e800ab2
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275987"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79156780"
 ---
-# <a name="tutorial-update-interfaces-with-default-interface-methods-in-c-80"></a>チュートリアル:C# 8.0 で既定のインターフェイス メソッドを使用してインターフェイスを更新する
+# <a name="tutorial-update-interfaces-with-default-interface-methods-in-c-80"></a>チュートリアル: C# 8.0 で既定のインターフェイス メソッドを使用してインターフェイスを更新する
 
 .NET Core 3.0 上の C# 8.0 以降では、インターフェイスのメンバーを宣言するときに実装を定義できます。 最も一般的なシナリオは、数え切れないほどのクライアントから既にリリースされ、使用されているインターフェイスにメンバーを安全に追加することです。
 
-このチュートリアルで学習する内容は次のとおりです。
+このチュートリアルでは、次の作業を行う方法について説明します。
 
 > [!div class="checklist"]
 >
@@ -30,15 +31,15 @@ ms.locfileid: "72275987"
 
 このチュートリアルは、カスタマー リレーションシップ ライブラリのバージョン 1 から始まります。 [GitHub 上の サンプル リポジトリ](https://github.com/dotnet/samples/tree/master/csharp/tutorials/default-interface-members-versions/starter/customer-relationship)でスターター アプリケーションを入手できます。 このライブラリを構築した会社の目的は、既存のアプリケーションを使用している顧客がライブラリを採用することでした。 ライブラリのユーザーが実装できる最小限のインターフェイス定義が用意されました。 顧客向けのインターフェイス定義は次のとおりです。
 
-[!code-csharp[InitialCustomerInterface](~/samples/csharp/tutorials/default-interface-members-versions/starter/customer-relationship/ICustomer.cs?name=SnippetICustomerVersion1)]
+[!code-csharp[InitialCustomerInterface](~/samples/snippets/csharp/tutorials/default-interface-members-versions/starter/customer-relationship/ICustomer.cs?name=SnippetICustomerVersion1)]
 
 注文を表す 2 つ目のインターフェイスを定義しました。
 
-[!code-csharp[InitialOrderInterface](~/samples/csharp/tutorials/default-interface-members-versions/starter/customer-relationship/IOrder.cs?name=SnippetIorderVersion1)]
+[!code-csharp[InitialOrderInterface](~/samples/snippets/csharp/tutorials/default-interface-members-versions/starter/customer-relationship/IOrder.cs?name=SnippetIorderVersion1)]
 
 チームは、これらのインターフェイスからユーザー向けのライブラリを構築し、顧客にとってより良いエクスペリエンスを作り出すことができました。 目標は、既存の顧客との関係を深め、新しい顧客との関係を改善することでした。
 
-次回のリリースのためにライブラリをアップグレードする時期になりました。 求められている機能の 1 つは、注文数が多い顧客向けにロイヤルティ割引を有効にすることです。 この新しいロイヤルティ割引は、顧客が注文するたびに適用されます。 この特定の割引は、各顧客のプロパティです。 `ICustomer` の各実装で、ロイヤルティ割引に対して異なるルールを設定できます。 
+次回のリリースのためにライブラリをアップグレードする時期になりました。 求められている機能の 1 つは、注文数が多い顧客向けにロイヤルティ割引を有効にすることです。 この新しいロイヤルティ割引は、顧客が注文するたびに適用されます。 この特定の割引は、各顧客のプロパティです。 `ICustomer` の各実装で、ロイヤルティ割引に対して異なるルールを設定できます。
 
 この機能を追加する最も自然な方法は、ロイヤルティ割引を適用するメソッドを使用して `ICustomer` インターフェイスを拡張することです。 この設計の提案から、経験豊富な開発者の間で次のような懸念が起こりました。「リリース済みのインターフェイスは変更できません。 これは破壊的変更です」 C# 8.0 では、インターフェイスをアップグレードするための "*既定のインターフェイス実装*" が追加されました。 ライブラリ作成者はインターフェイスに新しいメンバーを追加し、それらのメンバーに既定の実装を指定することができます。
 
@@ -52,15 +53,15 @@ ms.locfileid: "72275987"
 
 まず、実装に新しいメソッドを追加します。
 
-[!code-csharp[InitialOrderInterface](~/samples/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/ICustomer.cs?name=SnippetLoyaltyDiscountVersionOne)]
+[!code-csharp[InitialOrderInterface](~/samples/snippets/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/ICustomer.cs?name=SnippetLoyaltyDiscountVersionOne)]
 
 ライブラリ作成者は、実装を確認する最初のテストを作成しました。
 
-[!code-csharp[TestDefaultImplementation](~/samples/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/Program.cs?name=SnippetTestDefaultImplementation)]
+[!code-csharp[TestDefaultImplementation](~/samples/snippets/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/Program.cs?name=SnippetTestDefaultImplementation)]
 
 テストの次の部分に注目してください。
 
-[!code-csharp[TestDefaultImplementation](~/samples/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/Program.cs?name=SnippetHighlightCast)]
+[!code-csharp[TestDefaultImplementation](~/samples/snippets/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/Program.cs?name=SnippetHighlightCast)]
 
 `SampleCustomer` から `ICustomer` へのキャストは必須です。 `SampleCustomer` クラスから `ComputeLoyaltyDiscount` の実装を提供する必要はありません。これは `ICustomer` インターフェイスによって提供されます。 ただし、`SampleCustomer` クラスはそのインターフェイスからメンバーを継承しません。 そのルールは変わっていません。 インターフェイスで宣言および実装されているメソッドを呼び出すには、変数をインターフェイスの型 (この例では `ICustomer`) 似する必要があります。
 
@@ -68,25 +69,25 @@ ms.locfileid: "72275987"
 
 なかなかのスタートです。 ただし、既定の実装は制限が厳しすぎます。 このシステムの多くの利用者は、異なる購入数のしきい値、異なる長さのメンバーシップ、または異なる割引率を選択する可能性があります。 これらのパラメーターを設定する方法を用意することで、より多くの顧客とって優れたアップグレード エクスペリエンスを提供できます。 既定の実装を制御するこれら 3 つのパラメーターを設定する静的メソッドを追加しましょう。
 
-[!code-csharp[VersionTwoImplementation](~/samples/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/ICustomer.cs?name=SnippetLoyaltyDiscountVersionTwo)]
+[!code-csharp[VersionTwoImplementation](~/samples/snippets/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/ICustomer.cs?name=SnippetLoyaltyDiscountVersionTwo)]
 
 このわずかなコード フラグメントには、新しい言語機能が多数見られます。 インターフェイスには、フィールドやメソッドなどの静的メンバーを含めることができるようになりました。 さまざまなアクセス修飾子も使用できます。 追加のフィールドはプライベートであり、新しいメソッドはパブリックです。 どの修飾子もインターフェイス メンバーに使用できます。
 
 ロイヤルティ割引の計算に一般的な数式を使用する (ただしパラメーターは異なる) アプリケーションでは、カスタム実装を用意する必要がありません。静的メソッドを介して引数を設定できます。 たとえば、次のコードでは、メンバーシップが 1 か月を超えるすべての顧客に報酬を与える "顧客感謝" を設定します。
 
-[!code-csharp[SetLoyaltyThresholds](~/samples/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/Program.cs?name=SnippetSetLoyaltyThresholds)]
+[!code-csharp[SetLoyaltyThresholds](~/samples/snippets/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/Program.cs?name=SnippetSetLoyaltyThresholds)]
 
 ## <a name="extend-the-default-implementation"></a>既定の実装を拡張する
 
-これまでに追加したコードでは、ユーザーが既定の実装のようなものを希望しているシナリオ、または関係のない一連のルールを指定するシナリオに便利な実装を提供しました。 最後の機能として、コードを少しリファクターして、ユーザーが既定の実装を基に構築したくなるようなシナリオに対応しましょう。 
+これまでに追加したコードでは、ユーザーが既定の実装のようなものを希望しているシナリオ、または関係のない一連のルールを指定するシナリオに便利な実装を提供しました。 最後の機能として、コードを少しリファクターして、ユーザーが既定の実装を基に構築したくなるようなシナリオに対応しましょう。
 
 新規顧客を引き付けたいスタートアップ企業があるとします。 新規顧客の最初の注文には 50% 割引が提供されます。 それ以外の場合、既存の顧客は標準の割引を受けます。 このインターフェイスを実装するすべてのクラスが実装内でコードを再利用できるように、ライブラリ作成者は既定の実装を `protected static` メソッドに移行する必要があります。 インターフェイス メンバーの既定の実装では、この共有メソッドも呼び出されます。
 
-[!code-csharp[VersionTwoImplementation](~/samples/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/ICustomer.cs?name=SnippetFinalVersion)]
+[!code-csharp[VersionTwoImplementation](~/samples/snippets/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/ICustomer.cs?name=SnippetFinalVersion)]
 
 このインターフェイスを実装するクラスの実装では、オーバーライドによって静的ヘルパー メソッドを呼び出し、そのロジックを拡張して "新規顧客" の割引を提供することができます。
 
-[!code-csharp[VersionTwoImplementation](~/samples/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/SampleCustomer.cs?name=SnippetOverrideAndExtend)]
+[!code-csharp[VersionTwoImplementation](~/samples/snippets/csharp/tutorials/default-interface-members-versions/finished/customer-relationship/SampleCustomer.cs?name=SnippetOverrideAndExtend)]
 
 [GitHub 上の サンプル リポジトリ](https://github.com/dotnet/samples/tree/master/csharp/tutorials/default-interface-members-versions/finished/customer-relationship)で完成したコード全体を確認できます。 [GitHub 上の サンプル リポジトリ](https://github.com/dotnet/samples/tree/master/csharp/tutorials/default-interface-members-versions/starter/customer-relationship)でスターター アプリケーションを入手できます。
 

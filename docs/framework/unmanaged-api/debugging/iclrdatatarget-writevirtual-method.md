@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: d627e8b7-a605-40ac-b9bb-da9a3f1b66d9
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a0ad4b7e907412aced911d7869ffce81eb867448
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 4382d3c9f69df2808f8cd0aaf7f8eaf19bc9891e
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67738505"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76793675"
 ---
 # <a name="iclrdatatargetwritevirtual-method"></a>ICLRDataTarget::WriteVirtual メソッド
-指定された仮想メモリ アドレスには、指定したバッファーからデータを書き込みます。  
+指定されたバッファーから指定された仮想メモリアドレスにデータを書き込みます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,21 +39,21 @@ HRESULT WriteVirtual (
   
 ## <a name="parameters"></a>パラメーター  
  `address`  
- [in]仮想メモリ アドレスを格納する CLRDATA_ADDRESS します。  
+ から仮想メモリアドレスを格納する CLRDATA_ADDRESS。  
   
  `buffer`  
- [in]書き込むデータを格納するバッファーへのポインター。  
+ から書き込まれるデータを格納するバッファーへのポインター。  
   
  `bytesRequested`  
- [in]書き込むバイト数。  
+ から書き込むバイト数。  
   
  `bytesWritten`  
- [out]実際に書き込まれたバイト数へのポインター。  
+ 入出力書き込まれた実際のバイト数へのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** ClrData.idl、ClrData.h  
+ **ヘッダー:** ClrData .idl, ClrData .h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -63,4 +61,4 @@ HRESULT WriteVirtual (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICLRDataTarget インターフェイス](../../../../docs/framework/unmanaged-api/debugging/iclrdatatarget-interface.md)
+- [ICLRDataTarget インターフェイス](iclrdatatarget-interface.md)

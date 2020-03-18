@@ -15,19 +15,17 @@ helpviewer_keywords:
 ms.assetid: 71f362a9-8fe2-47ce-9302-05a645cf3d7d
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9861de733a9acb43c7e2a4b4941f9945fc5f0ba7
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e01698d2d8491b2496bb664c13dca97964cd1481
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67758380"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136946"
 ---
 # <a name="corlaunchapplication-function"></a>CorLaunchApplication 関数
 指定したネットワーク パスのアプリケーションを、指定したマニフェストとその他のアプリケーション データを使用して起動します。  
   
- この関数は、.NET Framework 4 では廃止されました。  
+ この関数は .NET Framework 4 で非推奨とされました。  
   
 ## <a name="syntax"></a>構文  
   
@@ -45,32 +43,32 @@ HRESULT CorLaunchApplication (
   
 ## <a name="parameters"></a>パラメーター  
  `dwClickOnceHost`  
- [in]値、 [HOST_TYPE](../../../../docs/framework/unmanaged-api/hosting/host-type-enumeration.md)が起動して、アプリケーション ホストの種類を指定する列挙体。  
+ からアプリケーションを起動しているホストの種類を指定する[HOST_TYPE](../../../../docs/framework/unmanaged-api/hosting/host-type-enumeration.md)列挙体の値。  
   
  `pwzAppFullName`  
- [in]起動しているアプリケーションの完全名。  
+ から起動されるアプリケーションの完全な名前。  
   
  `dwManifestPaths`  
- [in]アプリケーションのマニフェストのパスの数。  
+ からアプリケーションのマニフェストパスの数。  
   
  `ppwzManifestPaths`  
- [in]起動しているアプリケーションのマニフェストへのパスを指定の文字列の配列。  
+ から文字列の配列。それぞれが、起動されるアプリケーションのマニフェストへのパスを指定します。  
   
  `dwActivationData`  
- [in]起動しているアプリケーションのデータ項目をアクティブ化の数。  
+ から起動されるアプリケーションのアクティブ化データ項目の数。  
   
  `ppwzActivationData`  
- [in]起動しているアプリケーションのライセンス認証データ項目は、それぞれの文字列の配列。  
+ から文字列の配列。各文字列は、起動されるアプリケーションのアクティベーションデータ項目です。  
   
  `lpProcessInformation`  
- [out]これで、アプリケーションが読み込まれたプロセスに関する情報へのポインター。  
+ 入出力アプリケーションが読み込まれたプロセスに関する情報へのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

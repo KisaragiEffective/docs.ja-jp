@@ -1,32 +1,32 @@
 ---
-title: ErrorProvider コンポーネント (Windows フォーム)
+title: ErrorProvider コンポーネント
 ms.date: 03/30/2017
 helpviewer_keywords:
 - error messages [Windows Forms], displaying
 - errors [Windows Forms]
 - ErrorProvider component [Windows Forms]
 ms.assetid: c0f2e231-c5c9-413d-a507-75af2db499b6
-ms.openlocfilehash: 314d386ed69c8c14d90b4fa8abb61f19b0465890
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 70d830dab9e34523d08293e9bf761451bea2c7be
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61971975"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76745770"
 ---
 # <a name="errorprovider-component-windows-forms"></a>ErrorProvider コンポーネント (Windows フォーム)
-Windows フォーム`ErrorProvider`コンポーネントを使用して、問題がある非侵入型の方法でユーザーを表示します。 通常、フォーム上のユーザー入力の検証またはデータセット内のエラーを表示すると組み合わせて使用されます。  
+Windows フォーム `ErrorProvider` コンポーネントを使用して、問題が発生していない非侵入的な方法でユーザーを表示します。 通常は、フォームでのユーザー入力の検証、またはデータセット内のエラーの表示と組み合わせて使用されます。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [ErrorProvider コンポーネントの概要](errorprovider-component-overview-windows-forms.md)  
- このコンポーネントの用途、主な機能、およびプロパティについて説明します。  
+ このコンポーネントの概要と主な機能とプロパティについて説明します。  
   
- [方法: Windows フォーム ErrorProvider コンポーネントを使用してフォーム検証のエラー アイコンを表示します。](display-error-icons-for-form-validation-with-wf-errorprovider.md)  
- プロバイダーのコンポーネントのエラーによってユーザーの入力を検証するための手順を示します。  
+ [方法: Windows フォーム ErrorProvider コンポーネントを使用してフォーム検証でエラー アイコンを表示する](display-error-icons-for-form-validation-with-wf-errorprovider.md)  
+ エラープロバイダーコンポーネントを使用してユーザー入力を検証する方法を示します。  
   
- [方法: Windows フォーム ErrorProvider コンポーネントで DataSet 内のエラーの表示](view-errors-within-a-dataset-with-wf-errorprovider-component.md)  
- エラーのプロバイダー コンポーネントを使用して、データ エラーを表示する手順を示します。  
+ [方法: Windows フォーム ErrorProvider コンポーネントで DataSet 内にエラーを表示する](view-errors-within-a-dataset-with-wf-errorprovider-component.md)  
+ エラープロバイダーコンポーネントを使用してデータエラーを表示する方法について説明します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.ErrorProvider>  
  このクラスについて説明し、すべてのメンバーへのリンクの一覧を示します。  
   

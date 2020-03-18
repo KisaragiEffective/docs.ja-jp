@@ -1,15 +1,15 @@
 ---
-title: 方法:複数のソースからオブジェクト コレクションにデータを設定する (LINQ) (C#)
+title: 複数のソースからオブジェクト コレクションにデータを設定する方法 (LINQ) (C#)
 ms.date: 06/12/2018
 ms.assetid: 8ad7d480-b46c-4ccc-8c57-76f2d04ccc6d
-ms.openlocfilehash: c00257db7f3c06cab55cd48f7472f07dd7b2a664
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 3d841e5ca25afde94674af0fedc9a824c382be5b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69593059"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75345755"
 ---
-# <a name="how-to-populate-object-collections-from-multiple-sources-linq-c"></a>方法:複数のソースからオブジェクト コレクションにデータを設定する (LINQ) (C#)
+# <a name="how-to-populate-object-collections-from-multiple-sources-linq-c"></a>複数のソースからオブジェクト コレクションにデータを設定する方法 (LINQ) (C#)
 
 この例では、さまざまなソースから一連の新しい型にデータをマージする方法を示します。
 
@@ -18,7 +18,7 @@ ms.locfileid: "69593059"
 
 ## <a name="to-create-the-data-file"></a>データ ファイルを作成するには
 
-names.csv ファイルと scores.csv ファイルをプロジェクト フォルダーにコピーします。このとき、「[方法:異種ファイルのコンテンツを結合する (LINQ) (C#)](./how-to-join-content-from-dissimilar-files-linq.md)」の説明に従います。
+「[異種ファイルのコンテンツを結合する方法 (LINQ) (C#)](./how-to-join-content-from-dissimilar-files-linq.md)」の説明に従って、names.csv ファイルと scores.csv ファイルをプロジェクト フォルダーにコピーします。
 
 ## <a name="example"></a>例
 
@@ -41,8 +41,8 @@ class PopulateCollection
 {
     static void Main()
     {
-        // These data files are defined in How to: Join Content from
-        // Dissimilar Files (LINQ).
+        // These data files are defined in How to join content from
+        // dissimilar files (LINQ).
 
         // Each line of names.csv consists of a last name, a first name, and an
         // ID number, separated by commas. For example, Omelchenko,Svetlana,111
@@ -139,7 +139,7 @@ foreach (var student in queryNamesScores2)
 }
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [LINQ と文字列 (C#)](./linq-and-strings.md)
 - [オブジェクト初期化子とコレクション初期化子](../../classes-and-structs/object-and-collection-initializers.md)

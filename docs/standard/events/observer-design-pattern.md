@@ -12,14 +12,12 @@ helpviewer_keywords:
 - IObservable(Of T) interface
 - observer design pattern [.NET Framework]
 ms.assetid: 3680171f-f522-453c-aa4a-54f755a78f88
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 06dbc4b7124aa873fd8471794fa25b0f47f8ce3d
-ms.sourcegitcommit: d6e27023aeaffc4b5a3cb4b88685018d6284ada4
+ms.openlocfilehash: 817337cec604a431f9f7d4eacb04378ee0d3c227
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67663577"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73131573"
 ---
 # <a name="observer-design-pattern"></a>オブサーバー デザイン パターン
 
@@ -63,14 +61,14 @@ ms.locfileid: "67663577"
 
 - `flights` - 飛行機の便と、各便に割り当てられた手荷物の受け取り場所のコレクション。
 
-どちらのコレクションも、`BaggageHandler` クラスのコンストラクターでインスタンス化されるジェネリック <xref:System.Collections.Generic.List%601> オブジェクトによって表されます。 `BaggageHandler` クラスのソース コードを次の例に示します。
+どちらのコレクションも、<xref:System.Collections.Generic.List%601> クラスのコンストラクターでインスタンス化されるジェネリック `BaggageHandler` オブジェクトによって表されます。 `BaggageHandler` クラスのソース コードを次の例に示します。
 
 [!code-csharp[Conceptual.ObserverDesignPattern#2](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.observerdesignpattern/cs/provider.cs#2)]
 [!code-vb[Conceptual.ObserverDesignPattern#2](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.observerdesignpattern/vb/provider.vb#2)]
 
 更新された情報を受け取るクライアントは、`BaggageHandler.Subscribe` メソッドを呼び出します。 以前に通知をサブスクライブしたことがないクライアントの場合は、クライアントの <xref:System.IObserver%601> の実装への参照が `observers` コレクションに追加されます。
 
-オーバーロードされた `BaggageHandler.BaggageStatus` メソッドは、特定の便の手荷物が処理中であるか処理済みになったかを通知するために呼び出されます。 処理中の場合は、飛行機の便の番号、出発空港、および手荷物の受け取り場所がメソッドに渡されます。 処理済みの場合は、飛行機の便の番号のみがメソッドに渡されます。 手荷物が処理中の場合、メソッドは、渡された `BaggageInfo` の情報が `flights` コレクションに存在するかどうかを確認します。 存在しない場合は、メソッドによりその情報が追加され、各オブザーバーの `OnNext` メソッドが呼び出されます。 荷物を降ろさない便の場合、メソッドは、その便の情報が `flights` コレクションに格納されているかどうかを確認します。 格納されている場合、メソッドは、各オブザーバーの `OnNext` メソッドを呼び出し、`flights` コレクションから `BaggageInfo` オブジェクトを削除します。
+オーバーロードされた `BaggageHandler.BaggageStatus` メソッドは、特定の便の手荷物が処理中であるか処理済みになったかを通知するために呼び出されます。 処理中の場合は、飛行機の便の番号、出発空港、および手荷物の受け取り場所がメソッドに渡されます。 処理済みの場合は、飛行機の便の番号のみがメソッドに渡されます。 手荷物が処理中の場合、メソッドは、渡された `BaggageInfo` の情報が `flights` コレクションに存在するかどうかを確認します。 存在しない場合は、メソッドによりその情報が追加され、各オブザーバーの `OnNext` メソッドが呼び出されます。 荷物を降ろさない便の場合、メソッドは、その便の情報が `flights` コレクションに格納されているかどうかを確認します。 格納されている場合、メソッドは、各オブザーバーの `OnNext` メソッドを呼び出し、`BaggageInfo` コレクションから `flights` オブジェクトを削除します。
 
 1 日の最終便が到着して手荷物の処理が完了すると、`BaggageHandler.LastBaggageClaimed` メソッドが呼び出されます。 このメソッドは、各オブザーバーの `OnCompleted` メソッドを呼び出して、すべての通知が完了したことを示します。その後、`observers` コレクションをクリアします。
 
@@ -79,12 +77,12 @@ ms.locfileid: "67663577"
 [!code-csharp[Conceptual.ObserverDesignPattern#3](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.observerdesignpattern/cs/provider.cs#3)]
 [!code-vb[Conceptual.ObserverDesignPattern#3](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.observerdesignpattern/vb/provider.vb#3)]
 
-次の例は、`ArrivalsMonitor` という名前の <xref:System.IObserver%601> の実装を示しています。これは、手荷物受取所の情報を表示する基本クラスです。 情報は、出発地名のアルファベット順に表示されます。 `ArrivalsMonitor` のメソッドは、`overridable` (Visual Basic) または `virtual` (C#) としてマークされているため、派生クラスによりすべてオーバーライドできます。
+次の例は、<xref:System.IObserver%601> という名前の `ArrivalsMonitor` の実装を示しています。これは、手荷物受取所の情報を表示する基本クラスです。 情報は、出発地名のアルファベット順に表示されます。 `ArrivalsMonitor` のメソッドは、`overridable` (Visual Basic) または `virtual` (C#) としてマークされているため、派生クラスによりすべてオーバーライドできます。
 
 [!code-csharp[Conceptual.ObserverDesignPattern#4](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.observerdesignpattern/cs/observer.cs#4)]
 [!code-vb[Conceptual.ObserverDesignPattern#4](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.observerdesignpattern/vb/observer.vb#4)]
 
-`ArrivalsMonitor` クラスには、`Subscribe` メソッドと `Unsubscribe` メソッドが含まれています。 `Subscribe` メソッドにより、このクラスは、<xref:System.IObservable%601.Subscribe%2A> の呼び出しから返された <xref:System.IDisposable> の実装をプライベート変数に保存できます。 `Unsubscribe` メソッドにより、このクラスは、プロバイダーの <xref:System.IDisposable.Dispose%2A> の実装を呼び出して通知のサブスクリプションを解除できます。 `ArrivalsMonitor` は、<xref:System.IObserver%601.OnNext%2A>、<xref:System.IObserver%601.OnError%2A>、<xref:System.IObserver%601.OnCompleted%2A> の各メソッドの実装も提供します。 そのうち、かなりの量のコードが含まれるのは <xref:System.IObserver%601.OnNext%2A> の実装だけです。 このメソッドは、到着便の出発空港と手荷物の受け取り場所に関する情報を並べ替えて保持する、プライベートなジェネリック <xref:System.Collections.Generic.List%601> オブジェクトを操作します。 `BaggageHandler` クラスから新しい便の到着が報告されると、<xref:System.IObserver%601.OnNext%2A> メソッドの実装はその便に関する情報をリストに追加します。 `BaggageHandler` クラスからその便の手荷物の処理が完了したことが報告されると、<xref:System.IObserver%601.OnNext%2A> メソッドはその便をリストから削除します。 変更が発生するたびに、リストが並べ替えられてコンソールに表示されます。
+`ArrivalsMonitor` クラスには、`Subscribe` メソッドと `Unsubscribe` メソッドが含まれています。 `Subscribe` メソッドにより、このクラスは、<xref:System.IDisposable> の呼び出しから返された <xref:System.IObservable%601.Subscribe%2A> の実装をプライベート変数に保存できます。 `Unsubscribe` メソッドにより、このクラスは、プロバイダーの <xref:System.IDisposable.Dispose%2A> の実装を呼び出して通知のサブスクリプションを解除できます。 `ArrivalsMonitor` は、<xref:System.IObserver%601.OnNext%2A>、<xref:System.IObserver%601.OnError%2A>、<xref:System.IObserver%601.OnCompleted%2A> の各メソッドの実装も提供します。 そのうち、かなりの量のコードが含まれるのは <xref:System.IObserver%601.OnNext%2A> の実装だけです。 このメソッドは、到着便の出発空港と手荷物の受け取り場所に関する情報を並べ替えて保持する、プライベートなジェネリック <xref:System.Collections.Generic.List%601> オブジェクトを操作します。 `BaggageHandler` クラスから新しい便の到着が報告されると、<xref:System.IObserver%601.OnNext%2A> メソッドの実装はその便に関する情報をリストに追加します。 `BaggageHandler` クラスからその便の手荷物の処理が完了したことが報告されると、<xref:System.IObserver%601.OnNext%2A> メソッドはその便をリストから削除します。 変更が発生するたびに、リストが並べ替えられてコンソールに表示されます。
 
 次の例に含まれているアプリケーション エントリ ポイントは、`BaggageHandler` クラスのインスタンスと、`ArrivalsMonitor` クラスの 2 つのインスタンスを作成し、`BaggageHandler.BaggageStatus` メソッドを使用して到着便に関する情報を追加および削除します。 いずれの場合も、オブザーバーが更新を受け取って、手荷物受取所の情報を正しく表示します。
 
@@ -93,7 +91,7 @@ ms.locfileid: "67663577"
 
 ## <a name="related-topics"></a>関連トピック
 
-|Title|説明|
+|タイトル|[説明]|
 |-----------|-----------------|
 |[オブザーバー デザイン パターンのベスト プラクティス](../../../docs/standard/events/observer-design-pattern-best-practices.md)|オブザーバー デザイン パターンを実装するアプリケーションを開発するときのベスト プラクティスについて説明します。|
 |[方法: プロバイダーを実装する](../../../docs/standard/events/how-to-implement-a-provider.md)|温度監視アプリケーションのプロバイダーを実装するための手順について説明します。|

@@ -14,42 +14,40 @@ helpviewer_keywords:
 ms.assetid: b5a22ebc-0582-49de-91f9-97a3d9789290
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 518248651de6d8afdf25692c5f48da52b11eb0f7
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 47c6dd9045636bcfbe07c909fec3fda515d28ee8
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61763400"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73124526"
 ---
 # <a name="iclrtask2-interface"></a>ICLRTask2 インターフェイス
-すべての機能を提供、 [ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)インターフェイスは、さらに、現在のスレッドが遅延するスレッドの中止できるようにするメソッドを提供します。  
+には、 [ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)インターフェイスのすべての機能が用意されています。また、には、現在のスレッドでスレッドの中止を遅延させることができるメソッドが用意されています。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[BeginPreventAsyncAbort メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask2-beginpreventasyncabort-method.md)|新しいスレッドの遅延は、現在のスレッドで要求を中止します。|  
-|[EndPreventAsyncAbort メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask2-endpreventasyncabort-method.md)|保留中のスレッドで発生するスレッドの中止要求を現在のスレッドの中止または新規作成できます。|  
+|[BeginPreventAsyncAbort メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask2-beginpreventasyncabort-method.md)|現在のスレッドの新しいスレッド中止要求を遅延します。|  
+|[EndPreventAsyncAbort メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrtask2-endpreventasyncabort-method.md)|新しいまたは保留中のスレッド中止要求に対して、現在のスレッドでのスレッドの中止を許可します。|  
   
 ## <a name="remarks"></a>Remarks  
- `ICLRTask2`インターフェイスの継承、`ICLRTask`インターフェイスし、ホストが失敗する必要がありますしないコードの領域を保護するために、スレッドの中止を遅延できるようにするメソッドを追加します。 呼び出す`BeginPreventAsyncAbort`、現在のスレッドと呼び出し元のスレッド中止を遅延カウンターをインクリメント`EndPreventAsyncAbort`デクリメントこと。 呼び出す`BeginPreventAsyncAbort`と`EndPreventAsyncAbort`入れ子にすることができます。 カウンターが 0 より大きい場合に限り、現在のスレッドのスレッドの中止が遅延します。  
+ `ICLRTask2` インターフェイスは、`ICLRTask` インターフェイスを継承し、ホストがスレッドの中止を遅延させて、失敗しないコードの領域を保護できるようにするメソッドを追加します。 `BeginPreventAsyncAbort` を呼び出すと、現在のスレッドの遅延スレッド中止カウンターがインクリメントされ、`EndPreventAsyncAbort` を呼び出すとデクリメントされます。 `BeginPreventAsyncAbort` および `EndPreventAsyncAbort` の呼び出しは入れ子にすることができます。 カウンターがゼロより大きい限り、現在のスレッドのスレッド中止は遅延されます。  
   
- 場合呼び出し`BeginPreventAsyncAbort`と`EndPreventAsyncAbort`が対になっていない、することは、現在のスレッドにスレッドの中止を配信できない状態に到達します。  
+ `BeginPreventAsyncAbort` と `EndPreventAsyncAbort` の呼び出しがペアになっていない場合、現在のスレッドにスレッド中止を配信できない状態になる可能性があります。  
   
- 遅延自体を中止するスレッドを有効になりません。  
+ 遅延は、それ自体を中止するスレッドには適用されません。  
   
- この機能によって公開される機能は、仮想マシン (VM) で内部的に使用されます。 これらのメソッドの誤用によっては、VM の未定義の動作があります。 たとえば、呼び出し`EndPreventAsyncAbort`最初に呼び出さず`BeginPreventAsyncAbort`VM がインクリメントしていたときに、カウンターを 0 に設定でした。 同様に、内部カウンターは、オーバーフローはチェックされません。 ホストと VM の両方でインクリメントされますので、その整数の制限を超えている場合、結果として得られる動作は指定されていません。  
+ この機能によって公開されている機能は、仮想マシン (VM) によって内部的に使用されます。 これらの方法を誤用すると、VM で特定できない動作が発生する可能性があります。 たとえば、最初に `BeginPreventAsyncAbort` を呼び出さずに `EndPreventAsyncAbort` を呼び出すと、VM が以前にインクリメントしたときにカウンターを0に設定できます。 同様に、内部カウンターのオーバーフローはチェックされません。 ホストと VM の両方によってインクリメントされるために整数の制限を超えた場合、結果として得られる動作は指定されません。  
   
- 継承されたメンバーに関する情報の`ICLRTask`このインターフェイスの他の使用の詳細についてを参照してください。 および、 [ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)インターフェイス。  
+ `ICLRTask` から継承されたメンバーと、このインターフェイスの他の用途については、「 [ICLRTask](../../../../docs/framework/unmanaged-api/hosting/iclrtask-interface.md)インターフェイス」を参照してください。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

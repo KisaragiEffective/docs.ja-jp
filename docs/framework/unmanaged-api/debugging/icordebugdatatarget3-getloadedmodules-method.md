@@ -2,14 +2,12 @@
 title: ICorDebugDataTarget3::GetLoadedModules メソッド
 ms.date: 03/30/2017
 ms.assetid: 9a48c05b-1949-416e-933c-52549b6fcf5e
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 120b839b2b11c85f42bb1a0ae4701de0dea33879
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: d4c22146422085daa4dc9d90ae5b3735a12500c2
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69912833"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76793553"
 ---
 # <a name="icordebugdatatarget3getloadedmodules-method"></a>ICorDebugDataTarget3::GetLoadedModules メソッド
 これまでに読み込まれたモジュールの一覧を取得します。  
@@ -32,23 +30,23 @@ HRESULT GetLoadedModules(
  [out] 情報が返された対象モジュールの数へのポインター。  
   
  `pLoadedModules`  
- 入出力読み込まれたモジュールに関する情報を提供する[ICorDebugLoadedModule](../../../../docs/framework/unmanaged-api/debugging/icordebugloadedmodule-interface.md)オブジェクトの配列へのポインター。  
+ 入出力読み込まれたモジュールに関する情報を提供する[ICorDebugLoadedModule](icordebugloadedmodule-interface.md)オブジェクトの配列へのポインター。  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
   
 > [!NOTE]
 > このメソッドは .NET ネイティブでのみ使用できます。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_46_native](../../../../includes/net-46-native-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugDataTarget3 インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugdatatarget3-interface.md)
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [ICorDebugDataTarget3 インターフェイス](icordebugdatatarget3-interface.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

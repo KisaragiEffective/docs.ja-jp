@@ -8,14 +8,12 @@ dev_langs:
 helpviewer_keywords:
 - PLINQ queries, how to use execution mode
 ms.assetid: e52ff26c-c5d3-4fab-9fec-c937fb387963
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 705b6bc364e2ecf00c3629814228157c90017a8b
-ms.sourcegitcommit: 37616676fde89153f563a485fc6159fc57326fc2
+ms.openlocfilehash: c602aba6e18f80b007b15cd61dfd2b48a36dd2c8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69988450"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73139242"
 ---
 # <a name="how-to-specify-the-execution-mode-in-plinq"></a>方法: PLINQ の実行モードを指定する
 この例では、PLINQ に既定のヒューリスティックをバイパスさせ、クエリのシェイプに関係なくクエリを並列化する方法を示します。  
@@ -32,7 +30,7 @@ ms.locfileid: "69988450"
 ## <a name="compiling-the-code"></a>コードのコンパイル  
  このコードをコピーして [PLINQ Data Sample](../../../docs/standard/parallel-programming/plinq-data-sample.md) に貼り付けて、`Main` からメソッドを呼び出します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Linq.ParallelEnumerable.AsSequential%2A>
 - [Parallel LINQ (PLINQ)](../../../docs/standard/parallel-programming/parallel-linq-plinq.md)

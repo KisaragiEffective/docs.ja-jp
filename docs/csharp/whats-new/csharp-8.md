@@ -2,12 +2,12 @@
 title: C# 8.0 の新機能 - C# ガイド
 description: C# 8.0 で使用できる新しい機能の概要を説明します。
 ms.date: 09/20/2019
-ms.openlocfilehash: 12e41a3bca981d04f7b29970eba1f737254f2b58
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 540b95beaf00c17812a3b602602504278be69b0e
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72579133"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74429391"
 ---
 # <a name="whats-new-in-c-80"></a>C# 8.0 の新機能
 
@@ -31,6 +31,8 @@ C# 8.0 では、C# 言語に次の機能と機能強化が追加されていま�
 - [入れ子になった式の stackalloc](#stackalloc-in-nested-expressions)
 - [verbatim 補間文字列の拡張](#enhancement-of-interpolated-verbatim-strings)
 
+C# 8.0 は **.NET Core 3.x** と **.NET Standard 2.1** でサポートされています。 詳細については、「[C# 言語のバージョン管理](../language-reference/configure-language-version.md)」を参照してください。
+
 この記事の以降では、これらの機能について簡単に説明します。 詳細な記事がある場合は、それらのチュートリアルと概要へのリンクが提供されています。 `dotnet try` グローバル ツールを使って、これらの機能をご自身の環境で調べることができます。
 
 1. [dotnet try](https://github.com/dotnet/try/blob/master/README.md#setup) グローバル ツールをインストールします。
@@ -40,7 +42,7 @@ C# 8.0 では、C# 言語に次の機能と機能強化が追加されていま�
 
 ## <a name="readonly-members"></a>読み取り専用メンバー
 
-構造体の任意のメンバーに `readonly` 修飾子を適用できます。 これは、メンバーによって状態が変更されないことを示します。 `readonly` 修飾子を `struct` 宣言に適用するよりも詳細になります。  次の変更可能な構造体を検討します。
+構造体のメンバーに `readonly` 修飾子を適用できます。 これは、メンバーが状態を変更しないことを示します。 `readonly` 修飾子を `struct` 宣言に適用するよりも詳細になります。  次の変更可能な構造体を検討します。
 
 ```csharp
 public struct Point
@@ -54,26 +56,28 @@ public struct Point
 }
 ```
 
-ほとんどの構造体と同様に、`ToString()` メソッドでは、状態を変更しません。 それを示すには、`ToString()` の宣言に修飾子 `readonly` を追加します。
+`ToString()` メソッドでは、ほとんどの構造体と同様に状態を変更しません。 それを示すには、`ToString()` の宣言に修飾子 `readonly` を追加します。
 
 ```csharp
 public readonly override string ToString() =>
     $"({X}, {Y}) is {Distance} from the origin";
 ```
 
-上記の変更により、`ToString` が `readonly` とマークされていない `Distance` プロパティにアクセスするため、コンパイラの警告が生成されます。
+`ToString` が `readonly` とマークされていない `Distance` プロパティにアクセスするため、上記の変更により、コンパイラの警告が生成されます。
 
 ```console
 warning CS8656: Call to non-readonly member 'Point.Distance.get' from a 'readonly' member results in an implicit copy of 'this'
 ```
 
-コンパイラからは、防御用のコピーを作成する必要があるときに警告されます。  `Distance` プロパティでは状態を変更しないため、宣言に `readonly` 修飾子を追加することで、この警告を修正できます。
+コンパイラからは、防御用のコピーを作成する必要があるときに警告されます。  `Distance` プロパティでは状態を変更しないため、次のように宣言に `readonly` 修飾子を追加することで、この警告を修正できます。
 
 ```csharp
 public readonly double Distance => Math.Sqrt(X * X + Y * Y);
 ```
 
-`readonly` 修飾子は読み取り専用プロパティに必要であることに注意してください。 コンパイラでは、`get` アクセサーが状態を変更しないことを想定していないため、`readonly` を明示的に宣言する必要があります。 コンパイラによって、`readonly` メンバーによって状態が変更されないというルールが適用されます。 次のメソッドは、`readonly` 修飾子を削除しない限りコンパイルされません。
+`readonly` 修飾子は読み取り専用プロパティに必要であることに注意してください。 コンパイラでは、`get` アクセサーが状態を変更しないことを想定していないため、`readonly` を明示的に宣言する必要があります。 自動実装プロパティは例外です。このコンパイラは、自動実装されたすべてのゲッターを readonly として処理します。したがって、ここでは、`X` および `Y` プロパティに `readonly` 修飾子を追加する必要はありません。
+
+コンパイラによって、`readonly` メンバーによって状態が変更されないというルールが適用されます。 次のメソッドは、`readonly` 修飾子を削除しない限りコンパイルされません。
 
 ```csharp
 public readonly void Translate(int xOffset, int yOffset)
@@ -83,7 +87,7 @@ public readonly void Translate(int xOffset, int yOffset)
 }
 ```
 
-この機能により、設計の意図を指定し、コンパイラによってそれが適用され、その意図に基づいて最適化が行われるようにすることができます。
+この機能により、設計の意図を指定し、コンパイラによってそれが適用され、その意図に基づいて最適化が行われるようにすることができます。 読み取り専用メンバーの詳細については、[`readonly`](../language-reference/keywords/readonly.md#readonly-member-examples) の言語リファレンスに関する記事を参照してください。
 
 ## <a name="default-interface-methods"></a>既定のインターフェイス メソッド
 
@@ -169,7 +173,7 @@ public static RGBColor FromRainbowClassic(Rainbow colorBand)
 
 ### <a name="property-patterns"></a>プロパティ パターン
 
-**プロパティ パターン**を使用すると、調査対象のオブジェクトのプロパティと照合することができます。 購入者の住所に基づいて消費税を計算する必要がある eコマース サイトについて考えます。 そのような計算は、`Address` クラスの核心的な役割ではありません。 時間とともに、おそらくは住所の形式の変更より頻繁に、変更されます。 消費税の金額は、住所の `State` プロパティに依存します。 次のメソッドでは、プロパティ パターンを使用して、住所と価格から消費税を計算しています。
+**プロパティ パターン**を使用すると、調査対象のオブジェクトのプロパティと照合することができます。 購入者の住所に基づいて消費税を計算する必要がある eコマース サイトについて考えます。 そのような計算は、`Address` クラスの主な役割ではありません。 時間とともに、おそらくは住所の形式の変更より頻繁に、変更されます。 消費税の金額は、住所の `State` プロパティに依存します。 次のメソッドでは、プロパティ パターンを使用して、住所と価格から消費税を計算しています。
 
 ```csharp
 public static decimal ComputeSalesTax(Address location, decimal salePrice) =>
@@ -252,7 +256,7 @@ static Quadrant GetQuadrant(Point point) => point switch
 };
 ```
 
-前の switch での破棄パターンは、`x` または `y` のどちらか一方が 0 のときに一致しますが、両方とも 0 のときには一致しません。 switch 式は、値を生成するか、または例外をスローする必要があります。 どのケースとも一致しない場合、switch 式は例外をスローします。 可能性のあるすべてのケースが switch 式でカバーされていない場合、コンパイラで警告が生成されます。
+前の switch での破棄パターンは、`x` または `y` のどちらか一方が 0 のときに一致しますが、両方とも 0 のときには一致しません。 switch 式は、値を生成するか、または例外をスローする必要があります。 どのケースとも一致しない場合、switch 式は例外をスローします。 可能性のあるすべてのケースが switch 式で網羅されていない場合、コンパイラで警告が生成されます。
 
 この[パターン マッチングの高度なチュートリアル](../tutorials/pattern-matching.md)で、パターン マッチング手法を確認できます。
 
@@ -345,7 +349,7 @@ int M()
 
 ## <a name="disposable-ref-structs"></a>破棄可能な ref 構造体
 
-`ref` 修飾子付きで宣言されている `struct` ではインターフェイスを実装できないので、<xref:System.IDisposable> を実装できません。 したがって、`ref struct` を破棄できるようにするには、アクセス可能な `void Dispose()` メソッドを持っている必要があります。 これは、`readonly ref struct` 宣言にも当てはまります。
+`ref` 修飾子付きで宣言されている `struct` ではインターフェイスを実装できないので、<xref:System.IDisposable> を実装できません。 したがって、`ref struct` を破棄できるようにするには、アクセス可能な `void Dispose()` メソッドを持っている必要があります。 この機能は、`readonly ref struct` 宣言にも当てはまります。
 
 ## <a name="nullable-reference-types"></a>null 許容参照型
 
@@ -429,7 +433,7 @@ Console.WriteLine($"The last word is {words[^1]}");
 // writes "dog"
 ```
 
-次のコードでは、単語 "quick"、"brown"、"fox" から成る部分範囲が作成されます。 それには、`words[1]` から `words[3]` までが含まれます。 要素 `words[4]` は範囲内ではありません。
+次のコードでは、単語 "quick"、"brown"、"fox" から成る部分範囲が作成されます。 それには、`words[1]` から `words[3]` までが含まれます。 要素 `words[4]` が範囲内にありません。
 
 ```csharp
 var quickBrownFox = words[1..4];
@@ -485,7 +489,7 @@ Console.WriteLine(i);  // output: 17
 
 ## <a name="unmanaged-constructed-types"></a>構築されたアンマネージド型
 
-C# 7.3 以前では、構築された型 (1 つ以上の型引数を含む型) を[アンマネージド型](../language-reference/builtin-types/unmanaged-types.md)にすることはできません。 C# 8.0 以降、アンマネージド型のフィールドのみが含まれている場合、構築された値型はアンマネージドになります。
+C# 7.3 以前では、構築された型 (少なくとも 1 つの型引数を含む型) は[アンマネージド型](../language-reference/builtin-types/unmanaged-types.md)にできません。 C# 8.0 以降、アンマネージド型のフィールドのみが含まれている場合、構築された値型はアンマネージドになります。
 
 たとえば、次の `Coords<T>` ジェネリック型の定義があるとします。
 

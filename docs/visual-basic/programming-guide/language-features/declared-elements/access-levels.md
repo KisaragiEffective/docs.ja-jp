@@ -1,5 +1,5 @@
 ---
-title: Visual Basic でのアクセス レベル
+title: アクセス レベル
 ms.date: 05/10/2018
 helpviewer_keywords:
 - members [Visual Basic], accessing in Visual Basic
@@ -14,12 +14,12 @@ helpviewer_keywords:
 - Private access modifier
 - declared elements [Visual Basic], access level
 ms.assetid: 6e06c1ab-fd78-47f0-83a8-1152780b5e1a
-ms.openlocfilehash: d1548f7850c68bc3c5422cf9d8d3d30eaa4aa8f3
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: 33a218a2acc3c876428d6c9a887280a559f84323
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73035887"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74348679"
 ---
 # <a name="access-levels-in-visual-basic"></a>Visual Basic でのアクセス レベル
 
@@ -27,7 +27,7 @@ ms.locfileid: "73035887"
 
 ## <a name="public"></a>Public
 
-宣言ステートメント内の[Public](../../../language-reference/modifiers/public.md)キーワードは、同じプロジェクト内の任意の場所のコード、プロジェクトを参照する他のプロジェクト、およびプロジェクトからビルドされた任意のアセンブリから、要素にアクセスできることを指定します。 次のコードは、`Public` の宣言の例を示しています。
+宣言ステートメント内の [Public](../../../language-reference/modifiers/public.md) キーワードは、同じプロジェクト内の任意の場所のコード、プロジェクトを参照する他のプロジェクト、およびプロジェクトからビルドされた任意のアセンブリから、要素にアクセスできることを指定します。 次のコードは、`Public` の宣言の例を示しています。
 
 ```vb
 Public Class ClassForEverybody
@@ -37,7 +37,7 @@ Public Class ClassForEverybody
   
 ## <a name="protected"></a>Protected
 
-宣言ステートメント内の[Protected](../../../language-reference/modifiers/protected.md)キーワードは、同じクラス内から、またはこのクラスから派生したクラスからのみ要素にアクセスできることを指定します。 次のコードは、`Protected` の宣言の例を示しています。
+宣言ステートメント内の [Protected](../../../language-reference/modifiers/protected.md) キーワードは、同じクラス内から、またはこのクラスから派生したクラスからのみ要素にアクセスできることを指定します。 次のコードは、`Protected` の宣言の例を示しています。
 
 ```vb
 Protected Class ClassForMyHeirs
@@ -47,7 +47,7 @@ Protected Class ClassForMyHeirs
 
 ## <a name="friend"></a>Friend
 
-宣言ステートメントの[Friend](../../../language-reference/modifiers/friend.md)キーワードは、要素がアセンブリの外部からではなく、同じアセンブリ内からアクセスできることを指定します。 次のコードは、`Friend` の宣言の例を示しています。
+宣言ステートメントの [Friend](../../../language-reference/modifiers/friend.md) キーワードは、要素がアセンブリの外部からではなく、同じアセンブリ内からアクセスできることを指定します。 次のコードは、`Friend` の宣言の例を示しています。
 
 ```vb
 Friend stringForThisProject As String
@@ -57,7 +57,7 @@ Friend stringForThisProject As String
 
 ## <a name="protected-friend"></a>Protected Friend
 
-宣言ステートメントで[Protected Friend](../../../language-reference/modifiers/protected-friend.md)キーワードを組み合わせると、派生クラスまたは同じアセンブリ内、またはその両方から要素にアクセスできることが指定されます。 次のコードは、`Protected Friend` の宣言の例を示しています。
+宣言ステートメントで [Protected Friend](../../../language-reference/modifiers/protected-friend.md) キーワードを組み合わせると、派生クラスまたは同じアセンブリ内、またはその両方から要素にアクセスできることが指定されます。 次のコードは、`Protected Friend` の宣言の例を示しています。
 
 ```vb
 Protected Friend stringForProjectAndHeirs As String
@@ -67,7 +67,7 @@ Protected Friend stringForProjectAndHeirs As String
 
 ## <a name="private"></a>Private
 
-宣言ステートメントの[Private](../../../language-reference/modifiers/private.md)キーワードは、同じモジュール、クラス、または構造体内からのみ要素にアクセスできることを指定します。 次のコードは、`Private` の宣言の例を示しています。
+宣言ステートメントの [Private](../../../language-reference/modifiers/private.md) キーワードは、同じモジュール、クラス、または構造体内からのみ要素にアクセスできることを指定します。 次のコードは、`Private` の宣言の例を示しています。
 
 ```vb
 Private _numberForMeOnly As Integer
@@ -79,7 +79,7 @@ Private _numberForMeOnly As Integer
 
 ## <a name="private-protected"></a>Private Protected
 
-宣言ステートメント内の[Private Protected](../../../language-reference/modifiers/private-protected.md)キーワードの組み合わせは、同じクラス内から、および親クラスと同じアセンブリ内にある派生クラスからのみ、要素にアクセスできることを指定します。 `Private Protected` アクセス修飾子は Visual Basic 15.5 以降でサポートされています。
+宣言ステートメント内の [Private Protected](../../../language-reference/modifiers/private-protected.md) キーワードの組み合わせは、同じクラス内から、および親クラスと同じアセンブリ内にある派生クラスからのみ、要素にアクセスできることを指定します。 `Private Protected` アクセス修飾子は Visual Basic 15.5 以降でサポートされています。
 
 次の例は、`Private Protected` 宣言を示しています。
 
@@ -105,7 +105,7 @@ Private Protected internalValue As Integer
 </PropertyGroup>
 ```
 
-詳細について[は、「Visual Basic 言語バージョンの設定](../../../language-reference/configure-language-version.md)」を参照してください。
+詳細については、「[Visual Basic の言語バージョンの設定](../../../language-reference/configure-language-version.md)」を参照してください。
 
 ## <a name="access-modifiers"></a>アクセス修飾子
 
@@ -113,12 +113,12 @@ Private Protected internalValue As Integer
 
 |アクセス修飾子|付与されたアクセスレベル|このアクセスレベルで宣言できる要素|この修飾子を使用できる宣言コンテキスト|
 |---------------------|--------------------------|-----------------------------------------------------|----------------------------------------------------------------|
-|`Public`|有無<br /><br /> パブリック要素を参照できるすべてのコードは、それにアクセスできます。|インターフェイス<br /><br /> モジュール<br /><br /> クラス<br /><br /> 構造体<br /><br /> 構造体のメンバー<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|ソースファイル<br /><br /> Namespace<br /><br /> Interface<br /><br /> Module<br /><br /> インスタンス<br /><br /> 構造体|
-|`Protected`|Derivational:<br /><br /> 保護された要素を宣言するクラスのコード、またはプロテクト要素から派生したクラスは、要素にアクセスできます。|インターフェイス<br /><br /> クラス<br /><br /> 構造体<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|インスタンス|
-|`Friend`|アセンブリ:<br /><br /> フレンド要素を宣言するアセンブリ内のコードがそれにアクセスできる|インターフェイス<br /><br /> モジュール<br /><br /> クラス<br /><br /> 構造体<br /><br /> 構造体のメンバー<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|ソースファイル<br /><br /> Namespace<br /><br /> Interface<br /><br /> Module<br /><br /> インスタンス<br /><br /> 構造体|
-|`Protected` `Friend`|`Protected` と `Friend`の和集合:<br /><br /> 同じクラスのコード、または保護された friend 要素と同じアセンブリ、または要素のクラスから派生した任意のクラス内のコードは、このコードにアクセスできます|インターフェイス<br /><br /> クラス<br /><br /> 構造体<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|インスタンス|
-|`Private`|宣言コンテキスト:<br /><br /> 含まれている型内のコードを含む、プライベート要素を宣言する型のコードは、要素にアクセスできます。|インターフェイス<br /><br /> クラス<br /><br /> 構造体<br /><br /> 構造体のメンバー<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|Module<br /><br /> インスタンス<br /><br /> 構造体|
-|`Private Protected`|プライベートに保護された要素を宣言するクラスのコード、または bas クラスと同じアセンブリ内に存在する派生クラスのコード。|インターフェイス<br /><br /> クラス<br /><br /> 構造体<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|インスタンス|
+|`Public`|有無<br /><br /> パブリック要素を参照できるすべてのコードは、それにアクセスできます。|インターフェイス<br /><br /> モジュール<br /><br /> クラス<br /><br /> 構造体<br /><br /> 構造体のメンバー<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|ソース ファイル<br /><br /> Namespace<br /><br /> インターフェイス<br /><br /> モジュール<br /><br /> クラス<br /><br /> 構造体|
+|`Protected`|Derivational:<br /><br /> 保護された要素を宣言するクラスのコード、またはプロテクト要素から派生したクラスは、要素にアクセスできます。|インターフェイス<br /><br /> クラス<br /><br /> 構造体<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|クラス|
+|`Friend`|アセンブリ:<br /><br /> フレンド要素を宣言するアセンブリ内のコードがそれにアクセスできる|インターフェイス<br /><br /> モジュール<br /><br /> クラス<br /><br /> 構造体<br /><br /> 構造体のメンバー<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|ソース ファイル<br /><br /> Namespace<br /><br /> インターフェイス<br /><br /> モジュール<br /><br /> クラス<br /><br /> 構造体|
+|`Protected` `Friend`|`Protected` と `Friend`の和集合:<br /><br /> 同じクラスのコード、または保護された friend 要素と同じアセンブリ、または要素のクラスから派生した任意のクラス内のコードは、このコードにアクセスできます|インターフェイス<br /><br /> クラス<br /><br /> 構造体<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|クラス|
+|`Private`|宣言コンテキスト:<br /><br /> 含まれている型内のコードを含む、プライベート要素を宣言する型のコードは、要素にアクセスできます。|インターフェイス<br /><br /> クラス<br /><br /> 構造体<br /><br /> 構造体のメンバー<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|モジュール<br /><br /> クラス<br /><br /> 構造体|
+|`Private Protected`|プライベートに保護された要素を宣言するクラスのコード、または bas クラスと同じアセンブリ内に存在する派生クラスのコード。|インターフェイス<br /><br /> クラス<br /><br /> 構造体<br /><br /> 手順<br /><br /> プロパティ<br /><br /> メンバー変数<br /><br /> 定数<br /><br /> 列挙<br /><br /> イベント<br /><br /> 外部宣言<br /><br /> デリゲート|クラス|
 
 ## <a name="see-also"></a>関連項目
 
@@ -128,7 +128,7 @@ Private Protected internalValue As Integer
 - [宣言された要素の参照](references-to-declared-elements.md)
 - [宣言された要素の特性](declared-element-characteristics.md)
 - [Visual Basic の有効期間](lifetime.md)
-- [Visual Basic 内のスコープ](scope.md)
+- [Visual Basic におけるスコープ](scope.md)
 - [方法: 変数の可用性を制御する](how-to-control-the-availability-of-a-variable.md)
 - [変数](../variables/index.md)
 - [変数宣言](../variables/variable-declaration.md)

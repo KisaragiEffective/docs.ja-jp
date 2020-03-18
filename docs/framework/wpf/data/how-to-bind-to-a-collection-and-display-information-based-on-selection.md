@@ -1,5 +1,5 @@
 ---
-title: '方法: コレクションにバインドして選択に基づく情報を表示する'
+title: '方法 : コレクションにバインドして選択に基づく情報を表示する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,37 +10,37 @@ helpviewer_keywords:
 - data binding [WPF], selecting data for views
 - data binding [WPF], binding to collections
 ms.assetid: 952a7d76-dd29-49e5-86f5-32c4530e70eb
-ms.openlocfilehash: bb7d4c89e63982a3052857dcb50d04d36d9517dd
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 032a1d98e1aa80ea755f5922f79d43a796e9697e
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61967948"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73459150"
 ---
-# <a name="how-to-bind-to-a-collection-and-display-information-based-on-selection"></a>方法: コレクションにバインドして選択に基づく情報を表示する
-データ バインドがある場合、単純なマスター詳細シナリオで<xref:System.Windows.Controls.ItemsControl>など、<xref:System.Windows.Controls.ListBox>します。 ユーザー選択に基づいて、選択した項目の詳細についてを表示します。 この例では、このシナリオを実装する方法を示します。  
+# <a name="how-to-bind-to-a-collection-and-display-information-based-on-selection"></a>方法 : コレクションにバインドして選択に基づく情報を表示する
+単純なマスター/詳細シナリオでは、<xref:System.Windows.Controls.ListBox>などのデータバインド <xref:System.Windows.Controls.ItemsControl> があります。 ユーザーの選択に基づいて、選択した項目に関する詳細情報を表示します。 この例は、このシナリオを実装する方法を示しています。  
   
 ## <a name="example"></a>例  
- この例で`People`は、<xref:System.Collections.ObjectModel.ObservableCollection%601>の`Person`クラス。 これは、`Person`クラスには、3 つのプロパティが含まれています: `FirstName`、 `LastName`、および`HomeTown`、すべての種類の`string`します。  
+ この例では、`People` は `Person` クラスの <xref:System.Collections.ObjectModel.ObservableCollection%601> です。 この `Person` クラスには、`FirstName`、`LastName`、および `HomeTown`の3つのプロパティが含まれています。すべての型 `string`です。  
   
  [!code-xaml[CollectionBinding#Source](~/samples/snippets/csharp/VS_Snippets_Wpf/CollectionBinding/CSharp/Window1.xaml#source)]  
 [!code-xaml[CollectionBinding#UI](~/samples/snippets/csharp/VS_Snippets_Wpf/CollectionBinding/CSharp/Window1.xaml#ui)]  
   
- <xref:System.Windows.Controls.ContentControl> 、次を使用して<xref:System.Windows.DataTemplate>を定義する方法の情報を`Person`が表示されます。  
+ <xref:System.Windows.Controls.ContentControl> は、`Person` の情報の表示方法を定義する次の <xref:System.Windows.DataTemplate> を使用します。  
   
  [!code-xaml[CollectionBinding#DetailTemplate](~/samples/snippets/csharp/VS_Snippets_Wpf/CollectionBinding/CSharp/Window1.xaml#detailtemplate)]  
   
- この例の生成のスクリーン ショットを次に示します。 <xref:System.Windows.Controls.ContentControl>選択されているユーザーの他のプロパティを示しています。  
+ 次に、この例で生成される内容のスクリーンショットを示します。 <xref:System.Windows.Controls.ContentControl> には、選択したユーザーの他のプロパティが表示されます。  
   
- ![コレクションへのバインディング](./media/databinding-collectionbindingsample.png "DataBinding_CollectionBindingSample")  
+ ![コレクションへのバインド](./media/databinding-collectionbindingsample.png "DataBinding_CollectionBindingSample")  
   
- この例では、2 つの処理は次のとおりです。  
+ この例では、次の2つの点に注意してください。  
   
-1. <xref:System.Windows.Controls.ListBox>と<xref:System.Windows.Controls.ContentControl>を同じソースにバインドします。 <xref:System.Windows.Data.Binding.Path%2A>両方のコントロールは、コレクション オブジェクト全体にバインドするため、どちらのバインドのプロパティが指定されていません。  
+1. <xref:System.Windows.Controls.ListBox> と <xref:System.Windows.Controls.ContentControl> は同じソースにバインドされます。 両方のコントロールがコレクションオブジェクト全体にバインドされるため、両方のバインドの <xref:System.Windows.Data.Binding.Path%2A> プロパティは指定されません。  
   
-2. 設定する必要があります、<xref:System.Windows.Controls.Primitives.Selector.IsSynchronizedWithCurrentItem%2A>プロパティを`true`これが機能します。 このプロパティ設定によって、選択した項目として常に設定されている、<xref:System.Windows.Controls.ItemCollection.CurrentItem%2A>します。 また場合、<xref:System.Windows.Controls.ListBox>からデータを取得しますが、<xref:System.Windows.Data.CollectionViewSource>の選択と通貨を自動的に同期されます。  
+2. これを機能させるには、<xref:System.Windows.Controls.Primitives.Selector.IsSynchronizedWithCurrentItem%2A> プロパティを `true` に設定する必要があります。 このプロパティを設定すると、選択した項目が常に <xref:System.Windows.Controls.ItemCollection.CurrentItem%2A>として設定されます。 また、<xref:System.Windows.Controls.ListBox> が <xref:System.Windows.Data.CollectionViewSource>からデータを取得する場合は、選択と通貨が自動的に同期されます。  
   
- なお、`Person`オーバーライド、`ToString`メソッドは次の方法です。 既定で、<xref:System.Windows.Controls.ListBox>呼び出し`ToString`バインドのコレクション内の各オブジェクトの文字列表現を表示します。 その理由は各`Person`の最初の名前として表示されます、<xref:System.Windows.Controls.ListBox>します。  
+ `Person` クラスは、次のように `ToString` メソッドをオーバーライドすることに注意してください。 既定では、<xref:System.Windows.Controls.ListBox> は `ToString` を呼び出し、バインドされたコレクション内の各オブジェクトの文字列形式を表示します。 そのため、各 `Person` が <xref:System.Windows.Controls.ListBox>の名として表示されます。  
   
  [!code-csharp[CollectionBinding#ToString](~/samples/snippets/csharp/VS_Snippets_Wpf/CollectionBinding/CSharp/Data.cs#tostring)]
  [!code-vb[CollectionBinding#ToString](~/samples/snippets/visualbasic/VS_Snippets_Wpf/CollectionBinding/VisualBasic/Person.vb#tostring)]  
@@ -49,6 +49,6 @@ ms.locfileid: "61967948"
 
 - [階層データでマスター詳細パターンを使用する](how-to-use-the-master-detail-pattern-with-hierarchical-data.md)
 - [階層 XML データでマスター詳細パターンを使用する](how-to-use-the-master-detail-pattern-with-hierarchical-xml-data.md)
-- [データ バインディングの概要](data-binding-overview.md)
+- [データ バインディングの概要](../../../desktop-wpf/data/data-binding-overview.md)
 - [データ テンプレートの概要](data-templating-overview.md)
 - [方法トピック](data-binding-how-to-topics.md)

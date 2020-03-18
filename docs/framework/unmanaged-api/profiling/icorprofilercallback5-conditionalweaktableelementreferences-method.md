@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 532c7a02-a9de-4cea-bb2b-7f470da594de
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 08b35dd1744dbbb64d202718b61a9db5684d3bc3
-ms.sourcegitcommit: 4735bb7741555bcb870d7b42964d3774f4897a6e
+ms.openlocfilehash: ad721d28f6a7dc6ae0370ce10178990cb02fb9f9
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66380363"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74430051"
 ---
 # <a name="icorprofilercallback5conditionalweaktableelementreferences-method"></a>ICorProfilerCallback5::ConditionalWeakTableElementReferences メソッド
 
@@ -48,7 +46,7 @@ HRESULT ConditionalWeakTableElementReferences(
 [入力] それぞれが依存ハンドル ペアのプライマリ要素の `ObjectID` を含む、オブジェクト ID の配列。
 
 `valueRefIds`\
-[入力] それぞれが依存ハンドル ペアのセカンダリ要素の `ObjectID` を含む、オブジェクト ID の配列。 (`keyRefIds[i]`保持`valueRefIds[i]`アライブ)。
+[入力] それぞれが依存ハンドル ペアのセカンダリ要素の `ObjectID` を含む、オブジェクト ID の配列。 (`keyRefIds[i]` は `valueRefIds[i]` 生きています)。
 
 `rootIds`\
 [入力] ガーベッジ コレクション ルートについての追加情報を含む整数を指し示す `GCHandleID` 値の配列
@@ -57,7 +55,7 @@ HRESULT ConditionalWeakTableElementReferences(
 
 ## <a name="example"></a>例
 
-次のコード例は、実装する方法を示します[ICorProfilerCallback5](icorprofilercallback5-interface.md)このメソッドを使用します。
+次のコード例は、 [ICorProfilerCallback5](icorprofilercallback5-interface.md)を実装し、このメソッドを使用する方法を示しています。
 
 ```cpp
 HRESULT Callback5Impl::ConditionalWeakTableElementReferences(
@@ -80,18 +78,18 @@ HRESULT Callback5Impl::ConditionalWeakTableElementReferences(
 }
 ```
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-プロファイラーは、.NET Framework 4.5 またはそれ以降のバージョンの実装、 [ICorProfilerCallback5](icorprofilercallback5-interface.md)インターフェイスとレコードで指定された依存関係、`ConditionalWeakTableElementReferences`メソッド。 `ICorProfilerCallback5` によって表されるライブ オブジェクト間の依存関係の完全なセットを提供します。`ConditionalWeakTable`エントリ。 これらの依存関係と、メンバーのフィールドで指定された参照、 [icorprofilercallback::objectreferences](icorprofilercallback-objectreferences-method.md)メソッドは、マネージ プロファイラーがライブ オブジェクトの完全なオブジェクト グラフを生成するを有効にします。
+.NET Framework 4.5 以降のバージョンのプロファイラーは、 [ICorProfilerCallback5](icorprofilercallback5-interface.md)インターフェイスを実装し、`ConditionalWeakTableElementReferences` メソッドによって指定された依存関係を記録します。 `ICorProfilerCallback5` `ConditionalWeakTable` エントリによって表されるライブオブジェクト間の依存関係の完全なセットを提供します。 これらの依存関係および[ICorProfilerCallback:: ObjectReferences](icorprofilercallback-objectreferences-method.md)メソッドによって指定されたメンバーフィールド参照を使用すると、マネージプロファイラーでライブオブジェクトの完全オブジェクトグラフを生成できます。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
-**プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。
 
-**ヘッダー:** CorProf.idl、CorProf.h
+**ヘッダー** : CorProf.idl、CorProf.h
 
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v45plus](../../../../includes/net-current-v45plus-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ICorProfilerCallback5 インターフェイス](icorprofilercallback5-interface.md)

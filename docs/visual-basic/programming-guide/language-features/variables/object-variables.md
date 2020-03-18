@@ -1,5 +1,5 @@
 ---
-title: Visual Basic におけるオブジェクト変数
+title: オブジェクト変数
 ms.date: 07/20/2015
 helpviewer_keywords:
 - object variables [Visual Basic], about object variables
@@ -7,26 +7,26 @@ helpviewer_keywords:
 - objects [Visual Basic], accessing
 - object variables [Visual Basic]
 ms.assetid: 6169a196-2b13-4ba5-a205-154bc1b87844
-ms.openlocfilehash: cc5be13293a89e73d1790e94a99d7936f1711e12
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 7eb860bc732f923316b8ce1d7b94ecdb368bfec3
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61961235"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351792"
 ---
 # <a name="object-variables-in-visual-basic"></a>Visual Basic におけるオブジェクト変数
 
-値を直接格納するだけでなく、変数は、オブジェクトを参照できます。 同じ理由から、変数に任意の値を代入するには、変数にオブジェクトを割り当てます。
+変数は、値を直接格納するだけでなく、オブジェクトを参照することもできます。 変数に値を代入するのと同じ理由で、オブジェクトを変数に代入します。
 
-- 変数名は、多くの場合、短くしてメソッドと、オブジェクト自体へのアクセスに必要なプロパティの完全なパスよりも覚えやすくします。
+- 多くの場合、変数名は、オブジェクト自体にアクセスするために必要なメソッドとプロパティの完全なパスよりも短く、覚えやすくなります。
 
-- オブジェクトを参照する変数を使用するは、必要なメソッドやプロパティを使って繰り返しオブジェクト自体へのアクセスよりも効率的です。
+- オブジェクトを参照する変数を使用する方が、必要なメソッドやプロパティを通じてオブジェクト自体に繰り返しアクセスするよりも効率的です。
 
-- コードの実行中に他のオブジェクトを参照する変数を変更することができます。
+- 変数を変更して、コードの実行中に他のオブジェクトを参照することができます。
 
-## <a name="making-code-shorter"></a>コードを短く
+## <a name="making-code-shorter"></a>コードを短くする
 
-オブジェクト変数を使用すると、入力するのに必要がコードを短きます。 次の例では、メソッドとプロパティの完全なパスを使用して、アクセスする、<xref:System.Windows.Forms.Control>オブジェクト。
+オブジェクト変数を使用すると、入力するコードを短くすることができます。 次の例では、メソッドとプロパティの完全パスを使用して、<xref:System.Windows.Forms.Control> オブジェクトにアクセスします。
 
 ```vb
 ' Assume Me is a valid Form, or replace Me with a valid Form.
@@ -35,7 +35,7 @@ Me.ActiveForm.ActiveControl.Location = New Point(100, 100)
 Me.ActiveForm.ActiveControl.Show()
 ```
 
-このコードを短くし、コントロールのオブジェクト変数を使用する場合は、実行を高速化できます。 割り当てる特定のクラスでオブジェクト変数を宣言する必要があります (`Control`この場合)。 オブジェクトを変数に代入すると参照するオブジェクトを扱うときとまったく同じように扱うことができます。 設定またはオブジェクトのプロパティを取得またはそのメソッドのいずれかを使用できます。 次の例では、オブジェクト変数を使用して、前の例のコードを簡略化します。
+コントロールにオブジェクト変数を使用すると、このコードを短縮し、実行速度を上げることができます。 オブジェクト変数は、代入する特定のクラス (この場合は`Control`) を使用して宣言する必要があります。 変数にオブジェクトを割り当てると、参照先のオブジェクトを扱う場合とまったく同じように処理できます。 オブジェクトのプロパティを設定または取得することも、そのメソッドを使用することもできます。 次の例では、オブジェクト変数を使用して、前の例のコードを簡略化します。
 
 ```vb
 Dim ctrlActv As System.Windows.Forms.Control = Me.ActiveForm.ActiveControl
@@ -44,10 +44,10 @@ ctrlActv.Location = New Point(100, 100)
 ctrlActv.Show()
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [変数宣言](../../../../visual-basic/programming-guide/language-features/variables/variable-declaration.md)
-- [方法: 長い修飾パスを持つオブジェクトへのアクセスを高速化します。](../../../../visual-basic/programming-guide/language-features/variables/how-to-speed-up-access-to-an-object-with-a-long-qualification-path.md)
+- [方法 : 長い修飾パスを持つオブジェクトへのアクセス時間を短縮する](../../../../visual-basic/programming-guide/language-features/variables/how-to-speed-up-access-to-an-object-with-a-long-qualification-path.md)
 - [オブジェクト変数の宣言](../../../../visual-basic/programming-guide/language-features/variables/object-variable-declaration.md)
 - [オブジェクト変数の代入](../../../../visual-basic/programming-guide/language-features/variables/object-variable-assignment.md)
 - [オブジェクト変数の値](../../../../visual-basic/programming-guide/language-features/variables/object-variable-values.md)

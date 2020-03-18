@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 843c904a-8176-4d8f-bd47-b4d4c29f4c5c
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 5bc14c36563badb73ac9f9d955ea0c00f5330b4a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 94d1aa5bba87e8ca11b58bdf89a697e1ccf500b1
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777348"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74428025"
 ---
 # <a name="isymunmanagedwriterdefineglobalvariable-method"></a>ISymUnmanagedWriter::DefineGlobalVariable メソッド
-1 つのグローバル変数を定義します。  
+1つのグローバル変数を定義します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,36 +41,36 @@ HRESULT DefineGlobalVariable(
   
 ## <a name="parameters"></a>パラメーター  
  `name`  
- [in]ポインター、`WCHAR`グローバル変数の名前を定義します。  
+ からグローバル変数名を定義する `WCHAR` へのポインター。  
   
  `attributes`  
- [in]グローバル変数の属性。  
+ からグローバル変数属性。  
   
  `cSig`  
- [in]A`ULONG32`の文字数、サイズを示す、`signature`バッファー。  
+ から`signature` バッファーのサイズを文字数で示す `ULONG32`。  
   
  `signature`  
- [in]グローバル変数シグネチャ。  
+ からグローバル変数シグネチャ。  
   
  `addrKind`  
- [in]アドレスの種類。  
+ からアドレスの種類。  
   
  `addr1`  
- [in]パラメーター指定の最初のアドレス。  
+ からパラメーター指定の最初のアドレス。  
   
  `addr2`  
- [in]パラメーター指定の 2 番目のアドレス。  
+ からパラメーター指定の2番目のアドレス。  
   
  `addr3`  
- [in]パラメーター指定の 3 番目のアドレス。  
+ からパラメーター指定の3番目のアドレス。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。それ以外の場合、E_FAIL またはその他のエラー コード。  
+ メソッドが成功した場合は S_OK。それ以外の場合は、E_FAIL またはその他のエラーコードを指定します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl, CorSym.h  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** CorSym .idl、CorSym .h  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ISymUnmanagedWriter インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedwriter-interface.md)
 - [DefineLocalVariable メソッド](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedwriter-definelocalvariable-method.md)

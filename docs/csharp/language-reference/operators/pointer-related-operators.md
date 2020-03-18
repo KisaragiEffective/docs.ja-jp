@@ -20,12 +20,12 @@ helpviewer_keywords:
 - pointer increment [C#]
 - pointer decrement [C#]
 - pointer comparison [C#]
-ms.openlocfilehash: 830aef8546191df3df4a70e350ba561367a9e474
-ms.sourcegitcommit: 463f3f050cecc0b6403e67f19a61f870fb8e7b7d
+ms.openlocfilehash: 9851fcd056eeee33b8f3d7e9d541f9fa43b36d29
+ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68512353"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73036157"
 ---
 # <a name="pointer-related-operators-c-reference"></a>ポインターに関連する演算子 (C# リファレンス)
 
@@ -48,7 +48,7 @@ ms.locfileid: "68512353"
 
 [!code-csharp[address of local](~/samples/csharp/language-reference/operators/PointerOperators.cs#AddressOf)]
 
-`&` 演算子のオペランドは、固定変数である必要があります。 "*固定*" 変数とは、[ガベージ コレクター](../../../standard/garbage-collection/index.md)の操作によって影響を受けない記憶域の場所に存在する変数です。 前の例では、ローカル変数 `number` はスタックに存在するので固定変数です。 ガベージ コレクターによって影響を受ける可能性がある (たとえば再配置) 記憶域の場所にある変数は、"*移動可能*" 変数と呼ばれます。 オブジェクト フィールドや配列の要素は、移動可能変数の例です。 [fixed](../keywords/fixed-statement.md) ステートメントで移動可能変数を "固定" または "ピン留め" した場合は、移動可能変数のアドレスを取得できます。 取得したアドレスは、`fixed` ステートメント ブロックの期間だけ有効です。 `fixed` ステートメントと `&` 演算子を使う方法の例を次に示します。
+`&` 演算子のオペランドは、固定変数である必要があります。 "*固定*" 変数とは、[ガベージ コレクター](../../../standard/garbage-collection/index.md)の操作によって影響を受けない記憶域の場所に存在する変数です。 前の例では、ローカル変数 `number` はスタックに存在するので固定変数です。 ガベージ コレクターによって影響を受ける可能性がある (たとえば再配置) 記憶域の場所にある変数は、"*移動可能*" 変数と呼ばれます。 オブジェクト フィールドや配列の要素は、移動可能変数の例です。 [`fixed` ステートメント](../keywords/fixed-statement.md)で移動可能変数を "固定" または "ピン留め" した場合は、移動可能変数のアドレスを取得できます。 取得したアドレスは、`fixed` ステートメントのブロック内でのみ有効です。 `fixed` ステートメントと `&` 演算子の使い方の例を次に示します。
 
 [!code-csharp[address of fixed](~/samples/csharp/language-reference/operators/PointerOperators.cs#AddressOfFixed)]
 
@@ -70,7 +70,7 @@ ms.locfileid: "68512353"
 
 ## <a name="pointer-member-access-operator--"></a>ポインター メンバー アクセス演算子 ->
 
-`->` 演算子では、[ポインターの間接参照](#pointer-indirection-operator-)と[メンバー アクセス](member-access-operators.md#member-access-operator-)が組み合わされます。 つまり、`x` が `T*` 型のポインターで、`y` が `T` のアクセス可能なメンバーである場合に、次のような形式の式を考えます
+`->` 演算子では、[ポインターの間接参照](#pointer-indirection-operator-)と[メンバー アクセス](member-access-operators.md#member-access-operator-)が組み合わされます。 つまり、`x` が `T*` 型のポインターで、`y` が `T` 型のアクセス可能なメンバーである場合に、次のような形式の式を考えます
 
 ```csharp
 x->y
@@ -166,7 +166,7 @@ x->y
 
 演算子の優先順位によって定められた評価の順序を変更するには、かっこ `()` を使用します。
 
-優先度順に並べられた C# 演算子の完全な一覧については、「[C# 演算子](index.md)」を参照してください。
+優先度順に並べられた C# 演算子の完全な一覧については、「[C# 演算子](index.md)」の記事の「[演算子の優先順位](index.md#operator-precedence)」のセクションを参照してください。
 
 ## <a name="operator-overloadability"></a>演算子のオーバーロード可/不可
 

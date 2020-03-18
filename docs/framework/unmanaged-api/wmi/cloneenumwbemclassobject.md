@@ -14,14 +14,12 @@ helpviewer_keywords:
 - CloneEnumWbemClassObject function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1605314f94fd82d2a2cd7be105dde9e273f607bc
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 9d2442161aaa83693a33f9efc230c09b8c4426e2
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798699"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128733"
 ---
 # <a name="cloneenumwbemclassobject-function"></a>CloneEnumWbemClassObject 関数
 列挙型内での位置を維持して、列挙子の論理コピーが作成されます。
@@ -68,7 +66,7 @@ HRESULT CloneEnumWbemClassObject (
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_E_FAILED` | 0x80041001 | 一般的なエラーが発生しました。 |
 | `WBEM_E_INVALID_PARAMETER` | 0x80041008 | パラメーターが無効です。 |
@@ -88,8 +86,8 @@ HRESULT CloneEnumWbemClassObject (
 
 例については、 [IEnumWbemClassObject:: Clone](/windows/desktop/api/wbemcli/nf-wbemcli-ienumwbemclassobject-clone)メソッドを参照してください。
 
-## <a name="requirements"></a>必要条件
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+## <a name="requirements"></a>［要件］
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
  **ヘッダー:** WMINet_Utils
 

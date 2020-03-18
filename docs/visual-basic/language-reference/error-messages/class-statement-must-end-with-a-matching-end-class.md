@@ -27,5 +27,5 @@ ms.locfileid: "64602413"
   
 ## <a name="see-also"></a>関連項目
 
-- [終了\<キーワード > ステートメント](../../../visual-basic/language-reference/statements/end-keyword-statement.md)
+- [End \<keyword> ステートメント](../../../visual-basic/language-reference/statements/end-keyword-statement.md)
 - [Class ステートメント](../../../visual-basic/language-reference/statements/class-statement.md)

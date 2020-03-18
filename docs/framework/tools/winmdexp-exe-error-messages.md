@@ -157,23 +157,21 @@ helpviewer_keywords:
 - Windows Runtime Metadata Export Tool, error messages
 - error messages, Winmdexp.exe
 ms.assetid: 8271973c-deba-47a6-8e5e-04ce63f146ad
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ad4ea3b2d5fb828c425f30e76244772f5ca9a11a
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: e99bdd106c845964f63915c87617e30eb51488f4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71043974"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74447300"
 ---
 # <a name="winmdexpexe-error-messages"></a>Winmdexp.exe のエラー メッセージ
-Visual Studio 2012 で **Windows ランタイム コンポーネント** テンプレートを使用すると、ビルド プロセスで [Winmdexp.exe (Windows ランタイム メタデータ エクスポート ツール)](winmdexp-exe-windows-runtime-metadata-export-tool.md) が呼び出されるため、Winmdexp.exe のエラー メッセージが **[エラー一覧]** に表示されます。 Winmdexp.exe は `/target:winmdobj` オプションでコンパイルされるモジュールで動作します。 コンパイルされたモジュールが入力として必要となるため、コンパイルが成功した場合を除き、そのエラー メッセージは表示されません。  
+Visual Studio 2012 で [Windows ランタイム コンポーネント](winmdexp-exe-windows-runtime-metadata-export-tool.md) テンプレートを使用すると、ビルド プロセスで **Winmdexp.exe (Windows ランタイム メタデータ エクスポート ツール)** が呼び出されるため、Winmdexp.exe のエラー メッセージが **[エラー一覧]** に表示されます。 Winmdexp.exe は `/target:winmdobj` オプションでコンパイルされるモジュールで動作します。 コンパイルされたモジュールが入力として必要となるため、コンパイルが成功した場合を除き、そのエラー メッセージは表示されません。  
   
- エラー メッセージは、報告されるエラー条件への対処に必要なすべての情報が含まれるように設計されています。 ただし、一部の問題ではメッセージに収まりきらない、より多くの情報が必要となります。 追加の情報は、Windows デベロッパー センターの「[Windows ランタイム コンポーネントのエラー条件の診断](https://go.microsoft.com/fwlink/p/?LinkId=251127)」で確認できます。  
+ エラー メッセージは、報告されるエラー条件への対処に必要なすべての情報が含まれるように設計されています。 ただし、一部の問題ではメッセージに収まりきらない、より多くの情報が必要となります。 追加の情報は、「[Windows ランタイム コンポーネントのエラー条件の診断](https://docs.microsoft.com/previous-versions/hh977010(v=vs.110))」で確認できます。  
   
- エラーがこの記事では取り上げられていない場合や、問題に対処するために十分な情報がメッセージに含まれていないと感じる場合は、該当する記事のフィードバック リンクを使用してエラー メッセージをお送りください。 また、[Microsoft Connect Web サイト](https://go.microsoft.com/fwlink/p/?LinkId=251130)でバグを報告できます。 [MSDN フォーラム](https://go.microsoft.com/fwlink/p/?LinkId=251129)で詳細な情報を参照することもできます。  
+ エラーがこの記事では取り上げられていない場合や、問題に対処するために十分な情報がメッセージに含まれていないと感じる場合は、該当する記事のフィードバック リンクを使用してエラー メッセージをお送りください。 また、[開発者コミュニティ Web サイト](https://developercommunity.visualstudio.com/)でバグを報告できます。 [MSDN フォーラム](https://social.msdn.microsoft.com/Forums/)で詳細な情報を参照することもできます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Winmdexp.exe (Windows ランタイム メタデータのエクスポート ツール)](winmdexp-exe-windows-runtime-metadata-export-tool.md)
-- [Windows ランタイム コンポーネントのエラー条件の診断](https://go.microsoft.com/fwlink/p/?LinkId=251127)
+- [Windows ランタイム コンポーネントのエラー条件の診断](https://docs.microsoft.com/previous-versions/hh977010(v=vs.110))

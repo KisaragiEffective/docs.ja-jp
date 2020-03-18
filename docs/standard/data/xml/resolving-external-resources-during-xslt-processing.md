@@ -6,14 +6,12 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 3a59d31c-0ec5-4de6-a2a9-558531c8116e
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 0bcd45a97ab0f0b0ac462d50c18fb68f9d7bd386
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
-ms.translationtype: HT
+ms.openlocfilehash: 58407d5f0c6e602af15f5b19b9a19cc6379b9af7
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64590024"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75710285"
 ---
 # <a name="resolving-external-resources-during-xslt-processing"></a>XSLT 処理中の外部リソースの解決
 XSLT 変換中には、外部リソースの解決が必要になる場合があります。  
@@ -38,7 +36,7 @@ XSLT 変換中には、外部リソースの解決が必要になる場合があ
   
 - 外部リソースにアクセスできないようにする場合は、<xref:System.Xml.XmlResolver> の引数に `null` を指定します。  
   
-## <a name="example"></a>例  
+## <a name="example"></a>使用例  
  ネットワーク リソースに格納されているスタイル シートをコンパイルする例を次に示します。 <xref:System.Xml.XmlUrlResolver> オブジェクトには、スタイル シートにアクセスするのに必要な資格情報を指定します。  
   
  [!code-csharp[XslCompiledTransform.Load#11](../../../../samples/snippets/csharp/VS_Snippets_Data/XslCompiledTransform.Load/CS/Xslt_Load_v2.cs#11)]

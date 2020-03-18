@@ -9,18 +9,18 @@ helpviewer_keywords:
 - navigation topologies [WPF]
 - dynamically-generated topology
 ms.assetid: 5d5ee837-629a-4933-869a-186dc22ac43d
-ms.openlocfilehash: 5d9b09085ed8057f53cae9f9177682b01e698f6d
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 5679bac06b87b3c4e50cbc4a238d7daf3e33a564
+ms.sourcegitcommit: 7bc6887ab658550baa78f1520ea735838249345e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72580716"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75636277"
 ---
 # <a name="navigation-topologies-overview"></a>ナビゲーション トポロジの概要
-<a name="introduction"></a>この概要では、[!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] のナビゲーショントポロジの概要について説明します。 3 つの一般的なナビゲーション トポロジをサンプルと共に説明します。  
+<a name="introduction"></a>この概要では、WPF のナビゲーショントポロジの概要について説明します。 3 つの一般的なナビゲーション トポロジをサンプルと共に説明します。  
   
 > [!NOTE]
-> このトピックを読む前に、ページ関数を使用した [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] での構造化ナビゲーションの概念について理解しておく必要があります。 これらのトピックの詳細については、「[構造化ナビゲーションの概要](structured-navigation-overview.md)」を参照してください。  
+> このトピックを読む前に、ページ関数を使用した WPF での構造化ナビゲーションの概念について理解しておく必要があります。 これらのトピックの詳細については、「[構造化ナビゲーションの概要](structured-navigation-overview.md)」を参照してください。  
   
  このトピックは、次のセクションで構成されています。  
   
@@ -36,7 +36,7 @@ ms.locfileid: "72580716"
   
 <a name="Navigation_Topologies"></a>   
 ## <a name="navigation-topologies"></a>ナビゲーション トポロジ  
- @No__t_0 では、通常、ナビゲーションがクリックされたときに他のページに移動するページ (<xref:System.Windows.Controls.Page>) とハイパーリンク (<xref:System.Windows.Documents.Hyperlink>) で構成されます。 移動先のページは、uniform resource identifier (Uri) によって識別されます (「 [WPF のパック uri](pack-uris-in-wpf.md)」を参照してください)。 ページ、ハイパーリンク、および uniform resource identifier (Uri) を示す次の簡単な例を考えてみます。  
+ WPF では、通常、ナビゲーションはページ (<xref:System.Windows.Controls.Page>)<xref:System.Windows.Documents.Hyperlink>で構成され、クリックすると他のページに移動します。 移動先のページは、uniform resource identifier (Uri) によって識別されます (「 [WPF のパック uri](pack-uris-in-wpf.md)」を参照してください)。 ページ、ハイパーリンク、および uniform resource identifier (Uri) を示す次の簡単な例を考えてみます。  
   
  [!code-xaml[NavigationTopologiesOverviewSnippets#Page1](~/samples/snippets/csharp/VS_Snippets_Wpf/NavigationTopologiesOverviewSnippets/CS/Page1.xaml#page1)]  
   
@@ -66,7 +66,7 @@ ms.locfileid: "72580716"
   
  固定線形トポロジを使用するナビゲーションの一般的な動作は、次のとおりです。  
   
-- 呼び出し元ページから起動ページにナビゲートします。起動ページでは、ウィザードを初期化し、ウィザードの最初のページにナビゲートします。 呼び出し元ページは最初のウィザードページを直接呼び出すことができるため、ランチャーページ ([!INCLUDE[TLA2#tla_ui](../../../../includes/tla2sharptla-ui-md.md)] の <xref:System.Windows.Navigation.PageFunction%601>) は必要ありません。 ただし、起動ページを使用すると、ウィザードの初期化プロセスを簡略化でき、特に初期化が複雑な場合に便利です。  
+- 呼び出し元ページから起動ページにナビゲートします。起動ページでは、ウィザードを初期化し、ウィザードの最初のページにナビゲートします。 呼び出し元ページは最初のウィザードページを直接呼び出すことができるため、ランチャーページ ([!INCLUDE[TLA2#tla_ui](../../../../includes/tla2sharptla-ui-md.md)]の <xref:System.Windows.Navigation.PageFunction%601>) は必要ありません。 ただし、起動ページを使用すると、ウィザードの初期化プロセスを簡略化でき、特に初期化が複雑な場合に便利です。  
   
 - ユーザーは、[戻る] ボタンと [進む] ボタン (またはハイパーリンク) を使用して、ページ間を移動できます。  
   
@@ -94,7 +94,7 @@ ms.locfileid: "72580716"
   
  固定階層構造内のページのシーケンスは実行時に決定されますが、ユーザー エクスペリエンスは固定線形トポロジの場合と同じです。  
   
-- 呼び出し元ページから起動ページにナビゲートします。起動ページでは、ウィザードを初期化し、ウィザードの最初のページにナビゲートします。 呼び出し元ページは最初のウィザードページを直接呼び出すことができるため、ランチャーページ ([!INCLUDE[TLA2#tla_ui](../../../../includes/tla2sharptla-ui-md.md)] の <xref:System.Windows.Navigation.PageFunction%601>) は必要ありません。 ただし、起動ページを使用すると、ウィザードの初期化プロセスを簡略化でき、特に初期化が複雑な場合に便利です。  
+- 呼び出し元ページから起動ページにナビゲートします。起動ページでは、ウィザードを初期化し、ウィザードの最初のページにナビゲートします。 呼び出し元ページは最初のウィザードページを直接呼び出すことができるため、ランチャーページ ([!INCLUDE[TLA2#tla_ui](../../../../includes/tla2sharptla-ui-md.md)]の <xref:System.Windows.Navigation.PageFunction%601>) は必要ありません。 ただし、起動ページを使用すると、ウィザードの初期化プロセスを簡略化でき、特に初期化が複雑な場合に便利です。  
   
 - ユーザーは、[戻る] ボタンと [進む] ボタン (またはハイパーリンク) を使用して、ページ間を移動できます。  
   
@@ -124,7 +124,7 @@ ms.locfileid: "72580716"
   
  このナビゲーション シーケンスは、動的生成トポロジと呼ばれます。 ユーザーにとっては、他のナビゲーション トポロジと同様に、ユーザー エクスペリエンスは前述のトポロジと同じです。  
   
-- 呼び出し元ページから起動ページにナビゲートします。起動ページでは、ウィザードを初期化し、ウィザードの最初のページにナビゲートします。 呼び出し元ページは最初のウィザードページを直接呼び出すことができるため、ランチャーページ ([!INCLUDE[TLA2#tla_ui](../../../../includes/tla2sharptla-ui-md.md)] の <xref:System.Windows.Navigation.PageFunction%601>) は必要ありません。 ただし、起動ページを使用すると、ウィザードの初期化プロセスを簡略化でき、特に初期化が複雑な場合に便利です。  
+- 呼び出し元ページから起動ページにナビゲートします。起動ページでは、ウィザードを初期化し、ウィザードの最初のページにナビゲートします。 呼び出し元ページは最初のウィザードページを直接呼び出すことができるため、ランチャーページ ([!INCLUDE[TLA2#tla_ui](../../../../includes/tla2sharptla-ui-md.md)]の <xref:System.Windows.Navigation.PageFunction%601>) は必要ありません。 ただし、起動ページを使用すると、ウィザードの初期化プロセスを簡略化でき、特に初期化が複雑な場合に便利です。  
   
 - ユーザーは、[戻る] ボタンと [進む] ボタン (またはハイパーリンク) を使用して、ページ間を移動できます。  
   

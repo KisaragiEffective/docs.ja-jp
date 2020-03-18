@@ -1,21 +1,19 @@
 ---
 title: .NET Framework Developer Pack または再頒布可能パッケージをインストールするには
 ms.custom: updateeachrelease
-ms.date: 04/18/2019
+ms.date: 01/17/2020
 helpviewer_keywords:
 - .NET Framework redistributable package, downloading
 - .NET Framework, installing
 - installing .NET Framework
 - installation [.NET Framework]
 ms.assetid: daf9d9d5-84ac-4bd9-a864-27665ffd0f5c
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0c1a14f0ee36341c9579683f711ae78fc4df3f97
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.openlocfilehash: 66643021ce4939505af24cf3a72ab194662a15f7
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71833653"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79398605"
 ---
 # <a name="install-the-net-framework-for-developers"></a>開発者向けの .NET Framework のインストール
 
@@ -28,25 +26,25 @@ ms.locfileid: "71833653"
 
 [!INCLUDE[net-framework-4-versions](../../../includes/net-framework-4x-versions.md)]
 
-.NET Framework の各バージョンの詳細と、コンピューターにどのバージョンがインストールされているかを判別する方法については、「[.NET Framework のバージョンおよび依存関係](../migration-guide/versions-and-dependencies.md)」と「[方法:インストールされている .NET Framework バージョンを確認する](../migration-guide/how-to-determine-which-versions-are-installed.md)」を参照してください。
+.NET Framework の各バージョンの詳細と、コンピューターにどのバージョンがインストールされているかを判別する方法については、「[.NET Framework のバージョンおよび依存関係](../migration-guide/versions-and-dependencies.md)」と「[方法: インストールされている .NET Framework バージョンを確認する](../migration-guide/how-to-determine-which-versions-are-installed.md)」を参照してください。
 
 > [!NOTE]
 > .NET Framework 3.5 の詳細については、「[Windows 8、Windows 8.1、および Windows 10 への .NET Framework 3.5 のインストール](dotnet-35-windows-10.md)」を参照してください。
 
 次の表をクイック リンクとして使用し、詳細を参照してください。 インストール前に .NET Framework のシステム要件を確認するには、「[システム要件](../get-started/system-requirements.md)」を参照してください。 トラブルシューティングの方法は、「[トラブルシューティング](troubleshoot-blocked-installations-and-uninstallations.md)」を参照してください。
 
-|.NET Framework のバージョン|Developer のインストール|再頒布可能なインストール|プラットフォームのサポート|
-|----------------------------|----------------------------|----------------------------------|----------------------|
-|**4.8**|[.NET Framework 4.8 Developer Pack](https://go.microsoft.com/fwlink/?linkid=2088517)|[ダウンロード センター 4.8 Web インストーラー](http://go.microsoft.com/fwlink/?LinkId=2085155)<br/><br/>[ダウンロード センター 4.8 オフライン インストーラー](https://go.microsoft.com/fwlink/?linkid=2088631)|**このバージョンを含む製品:**<br/><br/>Windows 10 May 2019 Update<br /><br /> **インストール可能なバージョン:**<br/><br/>Windows 10 October 2018 Update<br/>Windows 10 April 2018 Update<br/>Windows 10 Fall Creators Update<br/>Windows 10 Creators Update <br /> Windows 10 Anniversary Update<br /> Windows 8.1 以前<br /> Windows Server 2019<br/>Windows Server、バージョン 1809<br/>Windows Server、バージョン 1803<br /><br/> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)||
-|**4.7.2**|[.NET Framework 4.7.2 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=874338)|[ダウンロード センター 4.7.2 Web インストーラー](https://go.microsoft.com/fwlink/?LinkId=863262)<br/><br/>[ダウンロード センター 4.7.2 オフライン インストーラー](https://go.microsoft.com/fwlink/?LinkId=863265)|**このバージョンを含む製品:** <br/><br/>Windows 10 October 2018 Update<br/>Windows 10 April 2018 Update<br/>Windows Server 2019<br/>Windows Server、バージョン 1809<br/>Windows Server、バージョン 1803<br /><br /> **インストール可能なバージョン:**<br/> <br/>Windows 10 Fall Creators Update<br/>Windows 10 Creators Update <br /> Windows 10 Anniversary Update<br /> Windows 8.1 以前<br /> Windows Server バージョン 1709 以前<br /><br/> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)||
-|**4.7.1**|[.NET Framework 4.7.1 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=852105)|[4.7.1 Web インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/?LinkId=852095)<br /><br /> [4.7.1 オフライン インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/?LinkId=852107)|**このバージョンを含む製品:** <br/><br/>Windows 10 Fall Creators Update<br/>Windows Server、バージョン 1709<br /><br /> **インストール可能なバージョン:**<br/><br/> Windows 10 Creators Update <br /> Windows 10 Anniversary Update<br /> Windows 8.1 以前<br /> Windows Server 2016 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)||
-|**4.7**|[NET Framework 4.7 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=825319)|[4.7 Web インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/?LinkId=825299)<br /><br /> [4.7 オフライン インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/?LinkId=825303)|**このバージョンを含む製品:** <br/><br/>Windows 10 Creators Update<br /><br /> **インストール可能なバージョン:**<br /><br/> Windows 10 Anniversary Update<br /> Windows 8.1 以前<br /> Windows Server 2016 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)||
-|**4.6.2**|[NET Framework 4.6.2 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=780617)|[4.6.2 Web インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/?LinkId=780597)<br /><br /> [4.6.2 オフライン インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/?LinkId=780601)|**このバージョンを含む製品:** <br/><br /> Windows 10 Anniversary Update<br /><br /> **インストール可能なバージョン:**<br /><br/> Windows 10 の 11 月更新版 <br/> Windows 10 <br /> Windows 8.1 以前<br /> Windows Server 2012 R2 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
-|**4.6.1**|[NET Framework 4.6.1 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=690706)|[4.6.1 Web インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/?LinkId=671729)<br /><br /> [4.6.1 オフライン インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/?LinkId=671744)|**インストール可能なバージョン:**<br /><br/> Windows 10 <br /> Windows 8.1 以前<br /> Windows Server 2012 R2 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
-|**4.6**|Visual Studio 2015 に含まれる<br /><br /> [Microsoft .NET Framework 4.6 Targeting Pack](https://go.microsoft.com/fwlink/?LinkId=528261)|[4.6 Web インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/?LinkId=528259)<br /><br /> [4.6 オフライン インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/?LinkId=528233)|**このバージョンを含む製品:** <br/><br /> Windows 10 <br />[Visual Studio 2015](https://my.visualstudio.com/Downloads?q=visual%20studio%202015)<br /><br /> **インストール可能なバージョン:**<br /><br/> Windows 8.1 以前<br /> Windows Server 2012 R2 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
-|**4.5.2**|[Microsoft .NET Framework 4.5.2 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=397702)<br /><br /> Visual Studio 2013、Visual Studio 2012 または他の IDE での使用|[4.5.2 Web インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/p/?LinkId=397703)<br /><br /> [4.5.2 オフライン インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/p/?LinkId=397706)|**インストール可能なバージョン:**<br /><br/> Windows 8.1 以前<br /> Windows Server 2012 R2 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
-|**4.5.1**|[Microsoft .NET Framework 4.5.1 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=324213)<br /><br /> Visual Studio 2013、Visual Studio 2012 または他の IDE での使用|[4.5.1 Web インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/p/?LinkId=310158)<br /><br /> [4.5.1 オフライン インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/p/?LinkId=310159)|**このバージョンを含む製品:**<br /> <br/>[!INCLUDE[win81](../../../includes/win81-md.md)]<br /> Windows Server 2012 R2<br /> [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)<br /><br /> **インストール可能なバージョン:**<br /><br/> [!INCLUDE[win8](../../../includes/win8-md.md)] 以前<br /> [!INCLUDE[winserver8](../../../includes/winserver8-md.md)] 以前<br />(完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
-|**4.5**|Visual Studio 2012 に含まれる<br /><br /> Windows 8 SDK の一部としても入手可能|[4.5 Web インストーラーのダウンロード ページ](https://go.microsoft.com/fwlink/p/?LinkId=245484)|**このバージョンを含む製品:** <br/><br /> [!INCLUDE[win8](../../../includes/win8-md.md)]<br /> [!INCLUDE[winserver8](../../../includes/winserver8-md.md)]<br /> [Visual Studio 2012](https://my.visualstudio.com/Downloads?q=visual%20studio%202012)<br /><br /> **インストール可能なバージョン:**<br/><br /> Windows 7 以前<br /> Windows Server 2008 SP2 以前<br />(完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
+| .NET Framework のバージョン | インストーラー (Developer Pack およびランタイム) | プラットフォームのサポート |
+| ---------------------- | -------------------------------------- | ---------------- |
+|**4.8**   | [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)    | **このバージョンを含む製品:**<br/><br/>Windows 10 May 2019 Update<br/>[Visual Studio 2019 (16.3 更新プログラム)](https://my.visualstudio.com/Downloads?q=visual%20studio%202017)<br/><br/> **インストール可能なバージョン:**<br/><br/>Windows 10 October 2018 Update<br/>Windows 10 April 2018 Update<br/>Windows 10 Fall Creators Update<br/>Windows 10 Creators Update <br /> Windows 10 Anniversary Update<br /> Windows 8.1 以前<br /> Windows Server 2019<br/>Windows Server、バージョン 1809<br/>Windows Server、バージョン 1803<br /><br/> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)||
+|**4.7.2** | [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) | **このバージョンを含む製品:** <br/><br/>Windows 10 October 2018 Update<br/>Windows 10 April 2018 Update<br/>Windows Server 2019<br/>Windows Server、バージョン 1809<br/>Windows Server、バージョン 1803<br/>[Visual Studio 2017 (15.8 更新プログラム)](https://my.visualstudio.com/Downloads?q=visual%20studio%202017)<br/><br/> **インストール可能なバージョン:**<br/> <br/>Windows 10 Fall Creators Update<br/>Windows 10 Creators Update <br /> Windows 10 Anniversary Update<br /> Windows 8.1 以前<br /> Windows Server バージョン 1709 以前<br /><br/> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)||
+|**4.7.1** | [.NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471) | **このバージョンを含む製品:** <br/><br/>Windows 10 Fall Creators Update<br/>Windows Server、バージョン 1709<br/>[Visual Studio 2017 (15.5 更新プログラム)](https://my.visualstudio.com/Downloads?q=visual%20studio%202017)<br/><br/> **インストール可能なバージョン:**<br/><br/> Windows 10 Creators Update <br /> Windows 10 Anniversary Update<br /> Windows 8.1 以前<br /> Windows Server 2016 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)||
+|**4.7**   | [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net47)    | **このバージョンを含む製品:** <br/><br/>Windows 10 Creators Update<br/>[Visual Studio 2017 (15.3 更新プログラム)](https://my.visualstudio.com/Downloads?q=visual%20studio%202017)<br/><br/> **インストール可能なバージョン:**<br /><br/> Windows 10 Anniversary Update<br /> Windows 8.1 以前<br /> Windows Server 2016 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)||
+|**4.6.2** | [.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462) | **このバージョンを含む製品:** <br/><br/>Windows 10 Anniversary Update<br /><br /> **インストール可能なバージョン:**<br /><br/> Windows 10 の 11 月更新版 <br/> Windows 10 <br /> Windows 8.1 以前<br /> Windows Server 2012 R2 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
+|**4.6.1** | [.NET Framework 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461) | **このバージョンを含む製品:** <br/><br/>[Visual Studio 2015 Update 2](https://my.visualstudio.com/Downloads?q=visual%20studio%202015)<br/><br/>**インストール可能なバージョン:**<br /><br/> Windows 10 <br /> Windows 8.1 以前<br /> Windows Server 2012 R2 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
+|**4.6**   | [.NET Framework 4.6](https://dotnet.microsoft.com/download/dotnet-framework/net46)    | **このバージョンを含む製品:** <br/><br/> Windows 10 <br />[Visual Studio 2015](https://my.visualstudio.com/Downloads?q=visual%20studio%202015)<br /><br /> **インストール可能なバージョン:**<br /><br/> Windows 8.1 以前<br /> Windows Server 2012 R2 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
+|**4.5.2** | [.NET Framework 4.5.2](https://dotnet.microsoft.com/download/dotnet-framework/net452) | **インストール可能なバージョン:**<br/><br/> Windows 8.1 以前<br /> Windows Server 2012 R2 以前<br /> (完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
+|**4.5.1** | [.NET Framework 4.5.1](https://dotnet.microsoft.com/download/dotnet-framework/net451) | **このバージョンを含む製品:**<br/><br/>Windows 8.1<br /> Windows Server 2012 R2<br /> [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)<br /><br /> **インストール可能なバージョン:**<br /><br/> Windows 8 以前<br /> Windows Server 2012 以前<br />(完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
+|**4.5**   | [.NET Framework 4.5](https://dotnet.microsoft.com/download/dotnet-framework/net45)    | **このバージョンを含む製品:** <br/><br/>Windows 8<br /> Windows Server 2012<br /> [Visual Studio 2012](https://my.visualstudio.com/Downloads?q=visual%20studio%202012)<br /><br /> **インストール可能なバージョン:**<br/><br /> Windows 7 以前<br /> Windows Server 2008 SP2 以前<br />(完全な一覧については、「[システム要件](../get-started/system-requirements.md)」を参照してください)|
 
 .NET Framework の特定のバージョンの **Developer Pack** は、利用可能な場合には、サポートされているすべてのプラットフォームにインストールできます。
 
@@ -70,23 +68,15 @@ ms.locfileid: "71833653"
 
 .NET Framework 4.5.1 または 4.5.2 の Developer Pack、.NET Framework 4.6 の Targeting Pack、.NET Framework 4.6.1、4.6.2、4.7、4.7.1、4.7.2、4.8 の Developer Pack では、Visual Studio などの統合開発環境で使用する .NET Framework の特定のバージョンの参照アセンブリ、言語パック、IntelliSense ファイルが提供されます。  Visual Studio を使用している場合、Developer Pack または Targeting Pack をインストールすると、新しいプロジェクトを作成するときに .NET Framework のインストール済みバージョンがターゲットの選択肢に追加されます。  次のいずれかを選択します。
 
-- [Microsoft .NET Framework 4.8 Developer Pack](https://go.microsoft.com/fwlink/?linkid=2088517)
-
-- [Microsoft .NET Framework 4.7.2 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=874338)
-
-- [Microsoft .NET Framework 4.7.1 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=852105)
-
-- [Microsoft .NET Framework 4.7 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=825319)
-
-- [Microsoft .NET Framework 4.6.2 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=780617)
-
-- [Microsoft .NET Framework 4.6.1 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=690706)
-
-- [Microsoft .NET Framework 4.6 Targeting Pack](https://go.microsoft.com/fwlink/?LinkId=528261)
-
-- [.NET Framework 4.5.2 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=397702) により、Windows 8.1 以前、Visual Studio 2013、Visual Studio 2012、または他の IDE にバージョン 4.5.2 をインストールします。
-
-- [.NET Framework 4.5.1 Developer Pack](https://go.microsoft.com/fwlink/?LinkId=324213) により、Visual Studio 2012 または他の IDE にバージョン 4.5.1 をインストールします。
+- [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472)
+- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471)
+- [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net47)
+- [.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462)
+- [.NET Framework 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461)
+- [.NET Framework 4.6](https://dotnet.microsoft.com/download/dotnet-framework/net46)
+- [.NET Framework 4.5.2](https://dotnet.microsoft.com/download/dotnet-framework/net452) (Windows 8.1 以前、Visual Studio 2013、Visual Studio 2012、または他の IDE にバージョン 4.5.2 をインストールするため)。
+- [.NET Framework 4.5.1](https://dotnet.microsoft.com/download/dotnet-framework/net451) (Visual Studio 2012 または他の IDE にバージョン 4.5.1 をインストールするため)。
 
 開発者パックのダウンロード ページから、 **[ダウンロード]** を選択します。 次に、 **[実行]** または **[保存]** をクリックし、表示される指示に従います。 .NET Framework の特定のバージョンの Developer Pack または Targeting Pack をインストールすることもできます。これを行うには、次の図に示されているように、Visual Studio インストーラーで、 **[.NET デスクトップ開発]** ワークロードのオプションのコンポーネントから選択します。
 
@@ -112,25 +102,16 @@ Web インストーラーとオフライン インストーラーはどちらも
 
 1. インストールする .NET Framework のバージョンのダウンロード ページを開きます。
 
-   - .NET Framework 4.8 ([Web インストーラー](https://go.microsoft.com/fwlink/?LinkId=2085155)または[オフライン インストーラー](https://go.microsoft.com/fwlink/?linkid=2088631))
-
-   - .NET Framework 4.7.2 ([Web インストーラー](https://go.microsoft.com/fwlink/?LinkId=863262)または[オフライン インストーラー](https://go.microsoft.com/fwlink/p/?LinkId=863265))
-
-   - .NET Framework 4.7.1 ([Web インストーラー](https://go.microsoft.com/fwlink/?LinkId=852095)または[オフライン インストーラー](https://go.microsoft.com/fwlink/p/?LinkId=852107))
-
-   - .NET Framework 4.7 ([Web インストーラー](https://go.microsoft.com/fwlink/?LinkId=825299)または[オフライン インストーラー](https://go.microsoft.com/fwlink/p/?LinkId=825303))
-
-   - .NET Framework 4.6.2 ([Web インストーラー](https://go.microsoft.com/fwlink/?LinkId=780597)または[オフライン インストーラー](https://go.microsoft.com/fwlink/p/?LinkId=780601))
-
-   - .NET Framework 4.6.1 ([Web インストーラー](https://go.microsoft.com/fwlink/?LinkId=671729)または[オフライン インストーラー](https://go.microsoft.com/fwlink/p/?LinkId=671744))
-
-   - .NET framework 4.6 ([Web インストーラー](https://go.microsoft.com/fwlink/?LinkId=528259)または[オフライン インストーラー](https://go.microsoft.com/fwlink/p/?LinkId=528233))
-
-   - .NET Framework 4.5.2 ([Web インストーラー](https://go.microsoft.com/fwlink/p/?LinkId=397703)または[オフライン インストーラー](https://go.microsoft.com/fwlink/p/?LinkId=397706))
-
-   - .NET Framework 4.5.1 ([Web インストーラー](https://go.microsoft.com/fwlink/p/?LinkId=310158)または[オフライン インストーラー](https://go.microsoft.com/fwlink/p/?LinkId=310159))
-
-   - [.NET Framework 4.5](https://go.microsoft.com/fwlink/p/?LinkId=245484)
+   - [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)
+   - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472)
+   - [.NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471)
+   - [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net47)
+   - [.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462)
+   - [.NET Framework 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461)
+   - [.NET Framework 4.6](https://dotnet.microsoft.com/download/dotnet-framework/net46)
+   - [.NET Framework 4.5.2](https://dotnet.microsoft.com/download/dotnet-framework/net452)
+   - [.NET Framework 4.5.1](https://dotnet.microsoft.com/download/dotnet-framework/net451)
+   - [.NET Framework 4.5](https://dotnet.microsoft.com/download/dotnet-framework/net45)
 
 1. ダウンロード ページの言語を選択します。 このオプションによって、.NET Framework のローカライズされたリソースがダウンロードされるわけではありません。これは、ダウンロード ページに表示されるテキストにのみ影響します。
 
@@ -151,15 +132,13 @@ Web インストーラーとオフライン インストーラーはどちらも
 
 **インストールに関する注意事項:**
 
-- .NET Framework 4.5.1 と 4.5.2、および .NET Framework 4.6、4.6.1、4.6.2、4.7、4.7.1、4.7.2、4.8 は、.NET Framework 4.5 に対するインプレース更新です。
+- .NET Framework 4.0 は、.NET Framework 4.5 以降のバージョンによって置き換えられます。 .NET Framework 4 がインストールされたシステムにこれらのバージョンをインストールすると、アセンブリが置き換えられます。
 
-- .NET Framework 4.5、そのポイント リリース、.NET Framework 4.6 とそのポイント リリース、.NET Framework 4.7 とそのポイント リリース、.NET Framework 4.8 では、.NET Framework 4 を置き換えます。 .NET Framework 4 がインストールされたシステムにこれらのバージョンをインストールすると、アセンブリが置き換えられます。
+- .NET Framework 4.5 以降のバージョンをアンインストールすると、前に存在していた .NET Framework 4 ファイルも削除されます。 .NET Framework 4 に戻る場合は、そのバージョンとすべての更新プログラムを再インストールする必要があります。 「[.NET Framework 4 のインストール](https://go.microsoft.com/fwlink/p/?LinkId=230665)」を参照してください。
 
-- .NET Framework 4.5、そのポイント リリース、.NET Framework 4.6 とそのポイント リリース、.NET Framework 4.7 とそのポイント リリース、.NET Framework 4.8 をアンインストールすると、既存の .NET Framework 4 のファイルも削除されます。 .NET Framework 4 に戻る場合は、そのバージョンとすべての更新プログラムを再インストールする必要があります。 「[.NET Framework 4 のインストール](https://go.microsoft.com/fwlink/p/?LinkId=230665)」を参照してください。
+- .NET Framework 4.5 以降のバージョンをインストールするには、管理者資格情報が必要です。
 
-- .NET Framework 4.5、そのポイント リリース、.NET Framework 4.6 とそのポイント リリース、.NET Framework 4.7 とそのポイント リリース、.NET Framework 4.8 をインストールするには、管理者資格情報が必要です。
-
-- .NET Framework 4.5 再頒布可能パッケージは、2012 年 10 月 9 に更新されています。この更新により、Microsoft によって生成および署名されたファイルへのデジタル署名が途中で有効期限切れになるという、デジタル証明書の不適切なタイムスタンプに関連する問題が解決しました。 2012 年 8 月 16 日付けの .NET Framework 4.5 再頒布可能パッケージをインストールしていた場合は、[Microsoft ダウンロード センター](https://go.microsoft.com/fwlink/p/?LinkId=245484)から最新の再頒布可能パッケージを入手して更新を行うことをお勧めします。 この問題について詳しくは、「[マイクロソフト セキュリティ アドバイザリ (2749655)](https://docs.microsoft.com/security-updates/SecurityAdvisories/2012/2749655)」および「[サポート技術情報 2770445](https://support.microsoft.com/kb/2770445)」をご覧ください。
+- .NET Framework 4.5 再頒布可能パッケージは、2012 年 10 月 9 に更新されています。この更新により、Microsoft によって生成および署名されたファイルへのデジタル署名が途中で有効期限切れになるという、デジタル証明書の不適切なタイムスタンプに関連する問題が解決しました。 2012 年 8 月 16 日付けの .NET Framework 4.5 再頒布可能パッケージを以前にインストールしていた場合は、[.NET Framework ダウンロード ページ](https://dotnet.microsoft.com/download/dotnet-framework/net45)から最新の再頒布可能パッケージを入手して更新することをお勧めします。 この問題について詳しくは、「[マイクロソフト セキュリティ アドバイザリ (2749655)](https://docs.microsoft.com/security-updates/SecurityAdvisories/2012/2749655)」および「[サポート技術情報 2770445](https://support.microsoft.com/kb/2770445)」をご覧ください。
 
 ## <a name="to-install-language-packs"></a>言語パックのインストール
 
@@ -170,25 +149,16 @@ Web インストーラーとオフライン インストーラーはどちらも
 
 1. インストールした .NET Framework のバージョンに対応する言語パックのダウンロード ページを開きます。
 
-    - [.NET Framework 4.8 言語パック](http://go.microsoft.com/fwlink/?LinkId=2053984)
-
-    - [.NET Framework 4.7.2 の言語パック](https://go.microsoft.com/fwlink/?LinkID=863258)
-
-    - [.NET Framework 4.7.1 の言語パック](https://go.microsoft.com/fwlink/?LinkID=852090)
-
-    - [.NET Framework 4.7 の言語パック](https://go.microsoft.com/fwlink/?LinkID=825306)
-
-    - [.NET Framework 4.6.2 言語パック](https://go.microsoft.com/fwlink/?LinkID=780604)
-
-    - [.NET Framework 4.6.1 言語パック](https://go.microsoft.com/fwlink/?LinkID=671747)
-
-    - [.NET Framework 4.6 言語パック](https://go.microsoft.com/fwlink/?LinkID=528314)
-
-    - [.NET Framework 4.5.2 言語パック](https://go.microsoft.com/fwlink/?LinkId=397701)
-
-    - [.NET Framework 4.5.1 言語パック](https://go.microsoft.com/fwlink/?LinkId=322101)
-
-    - [.NET Framework 4.5 言語パック](https://go.microsoft.com/fwlink/p/?LinkId=245451)
+   - [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)
+   - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472)
+   - [.NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471)
+   - [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net47)
+   - [.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462)
+   - [.NET Framework 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461)
+   - [.NET Framework 4.6](https://dotnet.microsoft.com/download/dotnet-framework/net46)
+   - [.NET Framework 4.5.2](https://dotnet.microsoft.com/download/dotnet-framework/net452)
+   - [.NET Framework 4.5.1](https://dotnet.microsoft.com/download/dotnet-framework/net451)
+   - [.NET Framework 4.5](https://dotnet.microsoft.com/download/dotnet-framework/net45)
 
 2. 言語の一覧で、ダウンロードする言語を選択し、その言語でページを再び読み込まれるまで数秒待ちます。
 
@@ -196,23 +166,23 @@ Web インストーラーとオフライン インストーラーはどちらも
 
 サポートしている言語の一覧を次の表に示します。
 
-| 言語              | culture |
+| 言語              | カルチャ |
 | --------------------- | :-----: |
 | アラビア語                | ar      |
 | チェコ語                 | cs      |
 | デンマーク語                | da      |
-| オランダ語                 | nl      |
-| フィンランド語               | fi      |
-| 英語 (米国)         | en-US   |
+| Dutch                 | nl      |
+| Finnish               | fi      |
+| 英語 (米国)         | ja-JP   |
 | フランス語                | fr      |
-| ドイツ語                | de      |
+| German                | de      |
 | ギリシャ語                 | el      |
 | ヘブライ語                | he      |
-| ハンガリー語             | hu      |
+| Hungarian             | hu      |
 | イタリア語               | it      |
 | 日本語              | ja      |
 | 韓国語                | ko      |
-| ノルウェー語             | Ｘ      |
+| ノルウェー語             | no      |
 | ポーランド語                | pl      |
 | ポルトガル語 (ブラジル)   | pt-BR   |
 | ポルトガル語 (ポルトガル) | pt-PT   |
@@ -223,7 +193,7 @@ Web インストーラーとオフライン インストーラーはどちらも
 | 繁体字中国語   | zh-CHT  |
 | トルコ語               | tr      |
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - .NET Framework での経験がない場合は、[概要](../get-started/overview.md)を参照して、主な概念とコンポーネントの概要を確認してください。
 
@@ -233,11 +203,11 @@ Web インストーラーとオフライン インストーラーはどちらも
 
 - アプリと一緒に .NET Framework を配置する場合に影響を与える変更点については、「[.NET Framework 4.5 のインストール中のシステム再起動の削減](../deployment/reducing-system-restarts.md)」を参照してください。
 
-- .NET Framework 4 から .NET Framework 4.5 またはそのいずれかのポイント リリースへのアプリの移行の詳細については、[移行ガイド](../migration-guide/index.md)を参照してください。
+- .NET Framework 4 から .NET Framework 4.5 以降のバージョンへのアプリの移行の詳細については、[移行ガイド](../migration-guide/index.md)を参照してください。
 
-- .NET Framework のソース コードをオンラインで参照するには、[.NET Framework の参照ソース](https://referencesource.microsoft.com/)に関するページを参照してください。 この参照ソースは、[GitHub](https://github.com/Microsoft/referencesource) から入手することもできます。 [リファレンス ソースをダウンロード](https://referencesource.microsoft.com/download.html)してオフラインで表示したり、デバッグ中にソース (パッチや更新を含む) をステップ実行したりできます。 詳細については、ブログ記事「[A new look for .NET Reference Source (.NET Reference Source の新しい外観)](https://devblogs.microsoft.com/dotnet/a-new-look-for-net-reference-source/)」を参照してください。
+- .NET Framework のソース コードをオンラインで参照するには、[.NET Framework の参照ソース](https://referencesource.microsoft.com/)に関するページを参照してください。 この参照ソースは、[GitHub](https://github.com/Microsoft/referencesource) から入手することもできます。 [リファレンス ソースをダウンロード](https://referencesource.microsoft.com/download.html)してオフラインで表示したり、デバッグ中にソース (パッチや更新を含む) をステップ実行したりできます。 詳細については、ブログ記事「[A new look for .NET Reference Source](https://devblogs.microsoft.com/dotnet/a-new-look-for-net-reference-source/)」 (.NET Reference Source の新しい外観) を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [配置ガイド (開発者向け)](../deployment/deployment-guide-for-developers.md)
 - [配置ガイド (管理者向け)](../deployment/guide-for-administrators.md)

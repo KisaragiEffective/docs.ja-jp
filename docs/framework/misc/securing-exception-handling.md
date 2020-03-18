@@ -9,17 +9,15 @@ helpviewer_keywords:
 - secure coding, exception handling
 - exception handling, security
 ms.assetid: 1f3da743-9742-47ff-96e6-d0dd1e9e1c19
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 256d9c9b825081e3bcfafd6e0e09de825d046d20
-ms.sourcegitcommit: 5ae5a1a9520b8b8b6164ad728d396717f30edafc
+ms.openlocfilehash: e0465f2eb6be61e161f5e6b8cadf629a53f11906
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70894547"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77215786"
 ---
 # <a name="securing-exception-handling"></a>例外処理の保護
-Visual C と Visual Basic では、スタックをさらにフィルター式の実行前に、**finally**ステートメント。 **キャッチ**に関連付けられているブロックの後にそのフィルターが実行される、**finally**ステートメント。 詳細については、「[ユーザーフィルター例外の使用](../../standard/exceptions/using-user-filtered-exception-handlers.md)」を参照してください。 このセクションでは、この順序のセキュリティへの影響について説明します。 フィルター ステートメントで順序を示す次の擬似コード例を検討してくださいと**finally**ステートメントを実行します。  
+ビジュアルC++と Visual Basic では、スタックのさらに上にあるフィルター式は、 **finally**ステートメントの前に実行されます。 このフィルターに関連付けられている**catch**ブロックは、 **finally**ステートメントの後に実行されます。 詳細については、「[ユーザーフィルター例外の使用](../../standard/exceptions/using-user-filtered-exception-handlers.md)」を参照してください。 このセクションでは、この順序のセキュリティへの影響について説明します。 次の擬似コード例は、フィルターステートメントと**finally**ステートメントの実行順序を示しています。  
   
 ```cpp  
 void Main()   
@@ -60,7 +58,7 @@ Finally
 Catch  
 ```  
   
- フィルターを実行する前に、**finally**ステートメントでは、セキュリティの問題は状態を他のコードの実行が活用かかる場合がありますを変更することによってもたらされるようにします。 例:  
+ このフィルターは、 **finally**ステートメントの前に実行されるので、他のコードの実行によって発生する可能性がある状態変更を行うすべてのものによって、セキュリティの問題が発生する可能性があります。 例 :  
   
 ```cpp  
 try   
@@ -116,7 +114,7 @@ Thread.CurrentThread.CurrentUICulture)
 End Class  
 ```  
   
- 修正プログラムがここでは、既存をラップする**try**/**finally**ブロックを**try**/**catch**ブロックです。 簡単に把握、 **catch、throw**既存句**try**/**finally**の次の例に示すように、ブロックで、問題が解決しません。  
+ この場合の適切な修正は、 **try**/**catch**ブロックで既存の**try**/**finally**ブロックをラップすることです。 次の例に示すように、 **catch throw**句を既存の**try**/**finally**ブロックに導入するだけでは問題は解決されません。  
   
 ```cpp  
 YourObject.YourMethod()  
@@ -136,9 +134,9 @@ YourObject.YourMethod()
 }  
 ```  
   
- 問題が解決しない、**finally**する前にステートメントが実行されていない、`FilterFunc`コントロールを取得します。  
+ `FilterFunc` が制御を取得する前に**finally**ステートメントが実行されていないため、問題は解決されません。  
   
- 次の例は、ことを確認して問題を修正、**finally**句が呼び出し元の例外フィルター ブロックの例外を提供する前に実行します。  
+ 次の例では、呼び出し元の例外フィルターブロックを例外として使用する前に**finally**句が実行されていることを確認して、問題を修正します。  
   
 ```cpp  
 YourObject.YourMethod()  
@@ -160,6 +158,6 @@ YourObject.YourMethod()
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [安全なコーディングのガイドライン](../../standard/security/secure-coding-guidelines.md)

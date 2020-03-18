@@ -1,16 +1,16 @@
 ---
-title: Windows フォーム アプリケーションの拡張
+title: アプリを強化する
 ms.date: 03/30/2017
 helpviewer_keywords:
 - Windows Forms, enhancing
 - Windows Forms, adding features
 ms.assetid: 733d1219-d6ad-4256-a55b-9eccf47f5a06
-ms.openlocfilehash: 82847add5b35fe767d42ee88d7754f789174e434
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 6c9287870d0a3852cf8dda21c4bd249eca09c114
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61942910"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744829"
 ---
 # <a name="enhancing-windows-forms-applications"></a>Windows フォーム アプリケーションの拡張
 Windows フォームには、ユーザーの固有のニーズに合わせて、Windows ベースのアプリケーションを強化するために使用できる多くの機能が含まれます。 次のトピックは、これらの機能とその使用方法について説明します。  
@@ -31,10 +31,10 @@ Windows フォームには、ユーザーの固有のニーズに合わせて、
  [Windows フォーム アプリケーションにおけるネットワーク](networking-in-windows-forms-applications.md)  
  Windows フォームのネットワーキングを使用する方法について説明したトピックへのリンクが含まれます。  
   
- [Windows フォーム アプリケーションのグローバル化](globalizing-windows-forms.md)  
+ [Windows フォームアプリケーションのグローバル化](globalizing-windows-forms.md)  
  Windows フォーム アプリケーションをグローバル化する方法を示すトピックへのリンクが含まれます。  
   
- [Windows フォームとアンマネージ アプリケーション](windows-forms-and-unmanaged-applications.md)  
+ [Windows Forms and Unmanaged Applications](windows-forms-and-unmanaged-applications.md)  
  Windows フォーム アプリケーションから COM コンポーネントにアクセスする方法について説明したトピックへのリンクを示します。  
   
  [システム情報と Windows フォーム](system-information-and-windows-forms.md)  

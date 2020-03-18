@@ -1,15 +1,13 @@
 ---
 title: .NET Core 2.0 の新機能
 description: .NET Core の新機能について。
-author: rpetrusha
-ms.author: ronpet
 ms.date: 08/13/2017
-ms.openlocfilehash: c208f565bebedc06e244de1f6554129f21c77b8c
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: 115b3adc72b6798c6a7bac9cc18044a8822808a6
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70849935"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79397843"
 ---
 # <a name="whats-new-in-net-core-20"></a>.NET Core 2.0 の新機能
 
@@ -138,7 +136,7 @@ Visual Studio のプロジェクトを再ターゲットするには、そのプ
 
 コードを変更すると常に、Live Unit Testing は影響を受ける単体テストをバックグラウンドで自動的に実行して、テスト結果とコード カバレッジをライブで Visual Studio 環境に表示します。 .NET core 2.0 では現在、Live Unit Testing がサポートされています。 以前は、.NET Framework アプリケーションでのみ Live Unit Testing が使用できました。
 
-詳細については、「[Visual Studio 2017 での Live Unit Testing](/visualstudio/test/live-unit-testing)」と「[Live Unit Testing についてよく寄せられる質問](/visualstudio/test/live-unit-testing-faq)」をご覧ください。
+詳細については、「[Visual Studio での Live Unit Testing](/visualstudio/test/live-unit-testing)」と「[Live Unit Testing に関する FAQ](/visualstudio/test/live-unit-testing-faq)」をご覧ください。
 
 ### <a name="better-support-for-multiple-target-frameworks"></a>複数のターゲット フレームワークのサポートを向上
 

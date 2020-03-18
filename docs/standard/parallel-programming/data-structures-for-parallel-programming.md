@@ -5,14 +5,12 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - data structures, multi-threading
 ms.assetid: bdc82f2f-4754-45a1-a81e-fe2e9c30cef9
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 87ea2cbb46aca87af15b2c12321322c1b048df56
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: a2271feae78100940b4ecac3c42c9bfefa7e1769
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64625586"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73123147"
 ---
 # <a name="data-structures-for-parallel-programming"></a>並列プログラミング向けのデータ構造
 .NET Framework バージョン 4 では、同時実行コレクション クラスのセット、軽量な同期プリミティブ、遅延初期化用の型など、並列プログラミングに役立つ複数の新しい型が導入されています。 これらの型は、タスク並列ライブラリや PLINQ などの任意のマルチスレッド アプリケーション コードで使うことができます。  
@@ -22,7 +20,7 @@ ms.locfileid: "64625586"
   
  次の表は、新しい同時実行コレクション クラスの一覧です。  
   
-|型|説明|  
+|[種類]|[説明]|  
 |----------|-----------------|  
 |<xref:System.Collections.Concurrent.BlockingCollection%601?displayProperty=nameWithType>|<xref:System.Collections.Concurrent.IProducerConsumerCollection%601?displayProperty=nameWithType> を実装するスレッド セーフなコレクションに、ブロッキングと範囲指定の機能を提供します。 利用できるスロットがない場合、またはコレクションがいっぱいの場合は、プロデューサー スレッドがブロックします。 コレクションが空の場合は、コンシューマー スレッドがブロックします。 この型は、コンシューマーとプロデューサーによる非ブロッキング アクセスもサポートします。 <xref:System.Collections.Concurrent.BlockingCollection%601> は、基底クラスとして、または <xref:System.Collections.Generic.IEnumerable%601> をサポートする任意のコレクション クラスにブロッキングと範囲指定を提供するバッキング ストアとして、使うことができます。|  
 |<xref:System.Collections.Concurrent.ConcurrentBag%601?displayProperty=nameWithType>|スケーラブルな追加と取得の操作を提供するスレッドセーフなバッグの実装です。|  
@@ -37,7 +35,7 @@ ms.locfileid: "64625586"
   
  次の表は、新しい同期型の一覧です。  
   
-|型|説明|  
+|[種類]|[説明]|  
 |----------|-----------------|  
 |<xref:System.Threading.Barrier?displayProperty=nameWithType>|各タスクが到着を通知し、一部または全部のタスクが到着するまでブロックすることができるポイントを提供することにより、複数のスレッドが 1 つのアルゴリズムで並列に動作できるようにします。 詳細については、「[バリア](../../../docs/standard/threading/barrier.md)」を参照してください|  
 |<xref:System.Threading.CountdownEvent?displayProperty=nameWithType>|簡単なランデブー メカニズムを提供することにより、フォークと結合のシナリオを簡略化します。 詳しくは、「[CountdownEvent](../../../docs/standard/threading/countdownevent.md)」をご覧ください。|  
@@ -57,7 +55,7 @@ ms.locfileid: "64625586"
   
  次の表は、遅延初期化型の一覧です。  
   
-|型|説明|  
+|[種類]|[説明]|  
 |----------|-----------------|  
 |<xref:System.Lazy%601?displayProperty=nameWithType>|軽量でスレッドセーフの遅延初期化を提供します。|  
 |<xref:System.Threading.ThreadLocal%601?displayProperty=nameWithType>|スレッドごとに遅延初期化された値を提供し、各スレッドは初期化関数を遅延して呼び出します。|  
@@ -66,9 +64,9 @@ ms.locfileid: "64625586"
  詳細については、「[限定的な初期化](../../../docs/framework/performance/lazy-initialization.md)」を参照してください。  
   
 ## <a name="aggregate-exceptions"></a>例外集約  
- <xref:System.AggregateException?displayProperty=nameWithType> 型を使うと、別のスレッドで同時にスローされた複数の例外をキャプチャし、1 つの例外として結合スレッドに戻すことができます。 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 型、<xref:System.Threading.Tasks.Parallel?displayProperty=nameWithType> 型、PLINQ は、この目的に <xref:System.AggregateException> を広範に使います。 詳細については、「[例外処理](../../../docs/standard/parallel-programming/exception-handling-task-parallel-library.md)」および「[方法:PLINQ クエリの例外を処理する](../../../docs/standard/parallel-programming/how-to-handle-exceptions-in-a-plinq-query.md)」をご覧ください。  
+ <xref:System.AggregateException?displayProperty=nameWithType> 型を使うと、別のスレッドで同時にスローされた複数の例外をキャプチャし、1 つの例外として結合スレッドに戻すことができます。 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 型、<xref:System.Threading.Tasks.Parallel?displayProperty=nameWithType> 型、PLINQ は、この目的に <xref:System.AggregateException> を広範に使います。 詳細については、「[例外処理](../../../docs/standard/parallel-programming/exception-handling-task-parallel-library.md)」および「[方法: PLINQ クエリの例外を処理する](../../../docs/standard/parallel-programming/how-to-handle-exceptions-in-a-plinq-query.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Collections.Concurrent?displayProperty=nameWithType>
 - <xref:System.Threading?displayProperty=nameWithType>

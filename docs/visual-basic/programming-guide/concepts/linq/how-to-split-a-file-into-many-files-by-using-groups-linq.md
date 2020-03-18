@@ -1,13 +1,13 @@
 ---
-title: '方法: グループを使用してファイルを複数のファイルに分割する (LINQ) (Visual Basic)'
+title: '方法: グループを使用して 1 つのファイルを複数のファイルに分割する (LINQ)'
 ms.date: 07/20/2015
 ms.assetid: 5e8b2a2b-0b1d-4933-8a2b-03e91dfaf77f
-ms.openlocfilehash: d438da7eb50e13c23a9c1b77a74f19fba8d95e04
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 07d53c9afca88cd3156c7fc8fcfab5ac7ca24f25
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524061"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348025"
 ---
 # <a name="how-to-split-a-file-into-many-files-by-using-groups-linq-visual-basic"></a>方法: グループを使用してファイルを複数のファイルに分割する (LINQ) (Visual Basic)
 
@@ -45,7 +45,7 @@ ms.locfileid: "72524061"
     El Yassir, Mehdi
     ```
 
-## <a name="example"></a>例
+## <a name="example"></a>使用例
 
 ```vb
 Class SplitWithGroups
@@ -116,9 +116,9 @@ End Class
 
 このプログラムは、データ ファイルとしてグループごとに異なるファイルを同じフォルダーに書き込みます。
 
-## <a name="compiling-the-code"></a>コードのコンパイル
+## <a name="compile-the-code"></a>コードのコンパイル
 
-VB.NET コンソールアプリケーションプロジェクトを作成します。このプロジェクトには、名前空間の `Imports` ステートメントが含まれています。
+System. Linq 名前空間の `Imports` ステートメントを使用して、Visual Basic コンソールアプリケーションプロジェクトを作成します。
 
 ## <a name="see-also"></a>関連項目
 

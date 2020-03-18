@@ -1,5 +1,5 @@
 ---
-title: '方法: TraceSource とフィルターをトレース リスナーと共に使用する'
+title: '方法 : TraceSource とフィルターをトレース リスナーと共に使用する'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - initializing trace listeners
@@ -14,19 +14,17 @@ helpviewer_keywords:
 - trace listeners, filters
 - trace listeners, initializing
 ms.assetid: 21dc2169-947d-453a-b0e2-3dac3ba0cc9f
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a1e214266b66f390fecffe802270a4181a6d7a7f
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 53cdce767d437c47aab94e883381954f8cf70653
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052692"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77215918"
 ---
-# <a name="how-to-use-tracesource-and-filters-with-trace-listeners"></a>方法: TraceSource とフィルターをトレース リスナーと共に使用する
+# <a name="how-to-use-tracesource-and-filters-with-trace-listeners"></a>方法 : TraceSource とフィルターをトレース リスナーと共に使用する
 .NET Framework Version 2.0 の新機能の 1 つは、強化されたトレース システムです。 基本的な前提は変更されていません。トレース メッセージはスイッチ経由でリスナーに送信され、関連付けられている出力メディアに、データを報告します。 バージョン 2.0 の主な違いは、<xref:System.Diagnostics.TraceSource> クラスのインスタンスを介してトレースを開始できることです。 <xref:System.Diagnostics.TraceSource> は、拡張されたトレース システムとして機能することを目的としており、以前の <xref:System.Diagnostics.Trace> トレース クラスと <xref:System.Diagnostics.Debug> トレース クラスの静的メソッドの代わりに使用できます。 使い慣れた <xref:System.Diagnostics.Trace> クラスと <xref:System.Diagnostics.Debug> クラスがまだ存在していますが、推奨される方法は、<xref:System.Diagnostics.TraceSource> クラスを使用したトレースです。  
   
- このトピックでは、アプリケーション構成ファイルと組み合わせた <xref:System.Diagnostics.TraceSource> の使用方法について説明します。  可能であれば、推奨されませんが、構成ファイルを使用せずに <xref:System.Diagnostics.TraceSource> を使用してトレースすることもできます。 構成ファイルを使用しないトレースの詳細に[ついては、「」を参照してください。トレースソース](how-to-create-and-initialize-trace-sources.md)を作成および初期化します。  
+ このトピックでは、アプリケーション構成ファイルと組み合わせた <xref:System.Diagnostics.TraceSource> の使用方法について説明します。  可能であれば、推奨されませんが、構成ファイルを使用せずに <xref:System.Diagnostics.TraceSource> を使用してトレースすることもできます。 構成ファイルを使わずにトレースする方法の詳細については、「[How to: Create and Initialize Trace Sources](how-to-create-and-initialize-trace-sources.md)」(方法: トレース ソースを作成し初期化する) を参照してください。  
   
 ### <a name="to-create-and-initialize-your-trace-source"></a>トレース ソースを作成して初期化するには  
   
@@ -163,11 +161,11 @@ ms.locfileid: "71052692"
     }  
     ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Diagnostics.TraceSource>
 - <xref:System.Diagnostics.TextWriterTraceListener>
 - <xref:System.Diagnostics.ConsoleTraceListener>
 - <xref:System.Diagnostics.EventTypeFilter>
-- [方法: トレースソースの作成と初期化](how-to-create-and-initialize-trace-sources.md)
+- [方法: トレース ソースを作成し初期化する](how-to-create-and-initialize-trace-sources.md)
 - [トレース リスナー](trace-listeners.md)

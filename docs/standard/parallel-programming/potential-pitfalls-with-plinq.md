@@ -8,22 +8,20 @@ dev_langs:
 helpviewer_keywords:
 - PLINQ queries, pitfalls
 ms.assetid: 75a38b55-4bc4-488a-87d5-89dbdbdc76a2
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2b996b09ed3973125d4d848d5e00c18ab02a6967
-ms.sourcegitcommit: 58fc0e6564a37fa1b9b1b140a637e864c4cf696e
+ms.openlocfilehash: 3ddc0c013335e6a7b4708a5dd8be0b2247b2f60c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57673744"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74716254"
 ---
 # <a name="potential-pitfalls-with-plinq"></a>PLINQ の非利便性
 
 PLINQ を使用すると、多くの場合、連続した LINQ to Objects クエリのパフォーマンスが大幅に向上します。 ただし、クエリの実行を並列化すると、複雑性が増すため、シーケンシャルなコードにおいて一般的でない問題、またはめったにない問題を引き起こす場合があります。 このトピックでは、PLINQ クエリを記述するときに回避すべき点について示します。
 
-## <a name="do-not-assume-that-parallel-is-always-faster"></a>並列処理が常に高速であると思い込まない
+## <a name="dont-assume-that-parallel-is-always-faster"></a>並列処理が常に高速であると思い込まない
 
-並列化することで、PLINQ クエリの実行速度が同等の LINQ to Objects より遅くなる場合があります。 基本的な経験則では、ソース要素が少なく、高速ユーザー デリゲートを使用するクエリの速度が大幅に向上することはほとんどありません。 ただし、パフォーマンスには多くの要因が関係するため、実際の結果を測定してから、PLINQ を使用するかどうかを決定することをお勧めします。 詳細については、「[Understanding Speedup in PLINQ (PLINQ での高速化について)](../../../docs/standard/parallel-programming/understanding-speedup-in-plinq.md)」を参照してください。
+並列化することで、PLINQ クエリの実行速度が同等の LINQ to Objects より遅くなる場合があります。 基本的な経験則では、ソース要素が少なく、高速ユーザー デリゲートを使用するクエリの速度が大幅に向上することはほとんどありません。 ただし、パフォーマンスには多くの要因が関係するため、実際の結果を測定してから、PLINQ を使用するかどうかを決定することをお勧めします。 詳細については、「[Understanding Speedup in PLINQ (PLINQ での高速化について)](understanding-speedup-in-plinq.md)」を参照してください。
 
 ## <a name="avoid-writing-to-shared-memory-locations"></a>共有メモリの位置への書き込みを回避する
 
@@ -31,22 +29,22 @@ PLINQ を使用すると、多くの場合、連続した LINQ to Objects クエ
 
 ## <a name="avoid-over-parallelization"></a>過剰な並列化を回避する
 
-`AsParallel` を使用することで、ソース コレクションのパーティション分割とワーカー スレッドの同期によるオーバーヘッド コストが発生します。 並列化の利点は、コンピューター上のプロセッサ数によってさらに制限されます。 1 つのプロセッサで複数の計算主体のスレッドを実行しても、高速化は実現しません。 そのため、クエリを過剰に並列処理しないように注意する必要があります。
+`AsParallel` のメソッドを使用することで、ソース コレクションのパーティション分割とワーカー スレッドの同期によるオーバーヘッド コストが発生します。 並列化の利点は、コンピューター上のプロセッサ数によってさらに制限されます。 1 つのプロセッサで複数の計算主体のスレッドを実行しても、高速化は実現しません。 そのため、クエリを過剰に並列処理しないように注意する必要があります。
 
 過剰な並列化が発生する可能性が特に高い一般的な状況は、次のスニペットで示すように、入れ子になったクエリの場合です。
 
-[!code-csharp[PLINQ#20](../../../samples/snippets/csharp/VS_Snippets_Misc/plinq/cs/plinqsamples.cs#20)]
-[!code-vb[PLINQ#20](../../../samples/snippets/visualbasic/VS_Snippets_Misc/plinq/vb/plinq2_vb.vb#20)]
+[!code-csharp[PLINQ#20](~/samples/snippets/csharp/VS_Snippets_Misc/plinq/cs/plinqsamples.cs#20)]
+[!code-vb[PLINQ#20](~/samples/snippets/visualbasic/VS_Snippets_Misc/plinq/vb/plinq2_vb.vb#20)]
 
 この場合、次の条件のうち 1 つ以上該当しない限り、外側のデータ ソース (customers) のみを並列化することをお勧めします。
 
 - 内部データ ソース (cust.Orders) が非常に長い。
 
-- 各順序で高負荷の計算を実行している  (この例に示す操作の負荷は大きくありません)。
+- 各順序で高負荷の計算を実行している (この例に示す操作の負荷は大きくありません)。
 
 - 対象システムに、`cust.Orders` でクエリを並列化することで生成されるスレッドの数を十分に処理できるプロセッサが存在している。
 
-どの場合も、最適なクエリの形式を決定する最善の方法は、テストおよび測定することです。 詳細については、「[方法 :PLINQ クエリのパフォーマンスを測定する](../../../docs/standard/parallel-programming/how-to-measure-plinq-query-performance.md)」をご覧ください。
+どの場合も、最適なクエリの形式を決定する最善の方法は、テストおよび測定することです。 詳細については、[PLINQ クエリのパフォーマンスを測定する](../../../docs/standard/parallel-programming/how-to-measure-plinq-query-performance.md)」をご覧ください。
 
 ## <a name="avoid-calls-to-non-thread-safe-methods"></a>スレッド セーフでないメソッドの呼び出しを回避する
 
@@ -71,23 +69,21 @@ a.AsParallel().Where(...).OrderBy(...).Select(...).ForAll(x => fs.Write(x));
 
 ## <a name="avoid-unnecessary-ordering-operations"></a>不要な並べ替え操作を回避する
 
-PLINQ を使用して 1 つのクエリを並列で実行すると、ソース シーケンスがパーティションに分割され、複数のスレッド上で同時に操作できるようになります。 既定では、パーティションが処理される順序と生成される結果は予測できません (`OrderBy` などの演算子を除く)。 PLINQ に、ソース シーケンスの順序を維持するように指示することもできますが、この操作はパフォーマンスの低下を招きます。 推奨される手順は、できる限り、順序の維持に依存しないようにクエリを構成することです。 詳細については、「[Order Preservation in PLINQ (PLINQ における順序維持)](../../../docs/standard/parallel-programming/order-preservation-in-plinq.md)」を参照してください。
+PLINQ を使用して 1 つのクエリを並列で実行すると、ソース シーケンスがパーティションに分割され、複数のスレッド上で同時に操作できるようになります。 既定では、パーティションが処理される順序と生成される結果は予測できません (`OrderBy` などの演算子を除く)。 PLINQ に、ソース シーケンスの順序を維持するように指示することもできますが、この操作はパフォーマンスの低下を招きます。 推奨される手順は、できる限り、順序の維持に依存しないようにクエリを構成することです。 詳細については、「[Order Preservation in PLINQ (PLINQ における順序維持)](order-preservation-in-plinq.md)」を参照してください。
 
 ## <a name="prefer-forall-to-foreach-when-it-is-possible"></a>できる限り ForEach より ForAll を優先する
 
 PLINQ では複数のスレッドで 1 つのクエリを実行しますが、`foreach` ループ (Visual Basic の場合は `For Each`) の結果を処理する場合、クエリ結果は 1 つのスレッドにマージされてから列挙子によって連続してアクセスされる必要があります。 これが避けられない場合もありますが、できる限り `ForAll` メソッドを使用して各スレッドで固有の結果を出力できるようにします。たとえば、<xref:System.Collections.Concurrent.ConcurrentBag%601?displayProperty=nameWithType> などのスレッド セーフなコレクションに書き込みます。
 
-つまり、同じ問題が <xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=nameWithType> にも適用されます。つまり、`source.AsParallel().Where().ForAll(...)` が以下のものよりも強く求められます。
+同じイシューが <xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=nameWithType> に適用されます。 つまり、`source.AsParallel().Where().ForAll(...)` が `Parallel.ForEach(source.AsParallel().Where(), ...)` よりも強く求められます。
 
-`Parallel.ForEach(source.AsParallel().Where(), ...)`。
+## <a name="be-aware-of-thread-affinity-issues"></a>スレッド アフィニティのイシューに注意する
 
-## <a name="be-aware-of-thread-affinity-issues"></a>スレッド アフィニティの問題に注意する
+シングル スレッド アパートメント (STA) コンポーネント向けの COM 相互運用性、Windows フォーム、Windows Presentation Foundation (WPF) などの一部のテクノロジでは、特定のスレッド上で実行するコードを必要とするスレッド アフィニティが制限される場合があります。 たとえば、Windows フォームと WPF では、コントロールへのアクセスは、そのコントロールが作成されたスレッド上でしか行うことができません。 PLINQ クエリで Windows フォーム コントロールの共有状態にアクセスしようとすると、デバッガーを実行中である場合は例外が発生します (この設定はオフにできます)。ただし、クエリが UI スレッドで処理される場合、コードは 1 つのスレッドでのみ実行されるので、クエリ結果を列挙する `foreach` ループからコントロールにアクセスできます。
 
-シングル スレッド アパートメント (STA) コンポーネント向けの COM 相互運用性、Windows フォーム、Windows Presentation Foundation (WPF) などの一部のテクノロジでは、特定のスレッド上で実行するコードを必要とするスレッド アフィニティが制限される場合があります。 たとえば、Windows フォームと WPF では、コントロールへのアクセスは、そのコントロールが作成されたスレッド上でしか行うことができません。 PLINQ クエリで Windows フォーム コントロールの共有状態にアクセスしようとすると、デバッガーを実行中である場合は例外が発生します  (この設定はオフにできます)。ただし、クエリが UI スレッドで処理される場合、コードは 1 つのスレッドでのみ実行されるので、クエリ結果を列挙する `foreach` ループからコントロールにアクセスできます。
+## <a name="dont-assume-that-iterations-of-foreach-for-and-forall-always-execute-in-parallel"></a>ForEach、For および ForAll のイテレーションが必ず並列実行されているとは限らない
 
-## <a name="do-not-assume-that-iterations-of-foreach-for-and-forall-always-execute-in-parallel"></a>ForEach、For および ForAll のイテレーションが必ず並列実行されているとは限らない
-
-<xref:System.Threading.Tasks.Parallel.For%2A?displayProperty=nameWithType>、<xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=nameWithType>、または <xref:System.Linq.ParallelEnumerable.ForAll%2A> の各ループにおける個々の反復処理が必ずしも並列実行されるとは限らないことに注意してください。 そのため、イテレーションの並列実行の正確性、または特定の順序でのイテレーションの実行の正確性に依存するコードを記述しないでください。
+<xref:System.Threading.Tasks.Parallel.For%2A?displayProperty=nameWithType>、<xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=nameWithType>、または <xref:System.Linq.ParallelEnumerable.ForAll%2A> の各ループにおける個々のイテレーションが必ずしも並列実行されるとは限らないことに注意してください。 そのため、イテレーションの並列実行の正確性、または特定の順序でのイテレーションの実行の正確性に依存するコードを記述しないでください。
 
 たとえば、次のコードはデッドロックが起こる可能性があります。
 
@@ -127,4 +123,4 @@ Enumerable.Range(0, Environment.ProcessorCount * 100).AsParallel().ForAll((j) =>
 
 ## <a name="see-also"></a>関連項目
 
-- [Parallel LINQ (PLINQ)](../../../docs/standard/parallel-programming/parallel-linq-plinq.md)
+- [Parallel LINQ (PLINQ)](parallel-linq-plinq.md)

@@ -15,19 +15,17 @@ helpviewer_keywords:
 ms.assetid: 4401546e-4d48-453f-a1fb-b2ebda54df5c
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2455c896ebdc12f2bb92a30d55745f7bd5bc308a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b0a2e5f259fe1ee566f9cc25152b2d2a1f740bea
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67765521"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120336"
 ---
 # <a name="iclrruntimeinfogetruntimedirectory-method"></a>ICLRRuntimeInfo::GetRuntimeDirectory メソッド
-このインターフェイスに関連付けられている共通言語ランタイム (CLR) のインストール ディレクトリを取得します。  
+このインターフェイスに関連付けられている共通言語ランタイム (CLR) のインストールディレクトリを取得します。  
   
- このメソッドは、 [GetCORSystemDirectory](../../../../docs/framework/unmanaged-api/hosting/getcorsystemdirectory-function.md) .NET Framework バージョン 2.0、3.0、および 3.5 で提供される関数。  
+ このメソッドは、.NET Framework バージョン2.0、3.0、および3.5 で提供される[Getcorsystemdirectory](../../../../docs/framework/unmanaged-api/hosting/getcorsystemdirectory-function.md)関数よりも優先されます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,10 +37,10 @@ HRESULT GetRuntimeDirectory(
   
 ## <a name="parameters"></a>パラメーター  
  `pwzBuffer`  
- [out]CLR のインストール ディレクトリを返します。 インストール パスは、完全修飾;たとえば、"c:\windows\microsoft.net\framework\v1.0.3705\\"。  
+ 入出力CLR インストールディレクトリを返します。 インストールパスは完全修飾されています。たとえば、"c:\windows\microsoft.net\framework\v1.0.3705\\" のようになります。  
   
  `pchBuffer`  
- [入力、出力]サイズを示す`pwzBuffer`バッファー オーバーランを回避します。 場合`pwzBuffer`が null、`pchBuffer`の必要なサイズを返します`pwzBuffer`します。  
+ [入力、出力]バッファーオーバーランを回避するための `pwzBuffer` のサイズを指定します。 `pwzBuffer` が null の場合、`pchBuffer` は `pwzBuffer`の必要なサイズを返します。  
   
 ## <a name="return-value"></a>戻り値  
  このメソッドは、次の特定の HRESULT と、メソッドの失敗を示す HRESULT エラーも返します。  
@@ -54,12 +52,12 @@ HRESULT GetRuntimeDirectory(
   
 ## <a name="remarks"></a>Remarks  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MetaHost.h  
+ **ヘッダー:** メタホスト .h  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

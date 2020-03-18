@@ -2,19 +2,20 @@
 documentType: LandingData
 title: .NET アプリケーション アーキテクチャ ガイダンス
 metadata:
-  document_id: na
   title: .NET アプリケーション アーキテクチャ ガイダンス
   meta.description: 'Learn about recommended practices for architecting, designing and building .NET software.'
   ms.topic: landing-page
-  ms.date: 06/12/2019
+  ms.date: 10/22/2019
 abstract:
   description: 無料のアプリケーション アーキテクチャ ガイダンスを使用して、運用環境に対応した .NET アプリを構築する方法について説明します。
 sections:
-  - title: 参照できる電子書籍
+  - title: 公開された電子書籍
     items:
+      - html: <ul><li><p><a href="grpc-for-wcf-developers/index">WCF 開発者向け ASP.NET Core gRPC</a></p>
+      - html: <p>このガイドでは、gRPC について説明しており、各概念をそれに相当する WCF の機能に関連付けています。また、既存の WCF アプリを gRPC に移行する方法を紹介しています。</p></li></ul>
       - html: <ul><li><p><a href="containerized-lifecycle/index">Microsoft プラットフォームとツールでコンテナー化された Docker アプリケーションのライフサイクル</a></p>
       - html: <p>このガイドは、Visual Studio と Microsoft Azure を使用し、コンテナー化された Docker アプリケーションを開発し、検証し、デプロイするための推奨ライフサイクル プロセスを端から端まで紹介するものです。</p></li></ul>
-      - html: <ul><li><p><a href="modernize-with-azure-containers/index">Azure クラウドおよび Windows コンテナーで既存の .NET アプリケーションを最新にする</a></p>
+      - html: <ul><li><p><a href="modernize-with-azure-containers/index">Azure クラウドおよび Windows コンテナーを使用して既存の .NET アプリケーションを最新化する</a></p>
       - html: <p>このガイドは、Azure クラウドと Windows コンテナーに既存の Web アプリケーションを移行する計画の概要です。 コード計画、データ移行、オーケストレーター、CI/CD プロセスについて説明します。</p></li></ul>
       - html: <ul><li><p><a href="modern-web-apps-azure/index">ASP.NET Core および Azure での最新の Web アプリケーションの設計</a></p>
       - html: <p>このガイドは、ASP.NET アプリケーションや ASP.NET Core アプリケーションを構築し、Azure でホストするための推奨設計/デプロイ プロセスの概要になっています。</p></li></ul>
@@ -22,3 +23,9 @@ sections:
       - html: <p>このガイドでは、マイクロサービス ベースのアプリケーションの開発とコンテナーを使用してこれらを管理する方法を紹介します。 .NET Core と Docker のコンテナーを使用したアーキテクチャの設計と実装アプローチについて説明します。</p></li></ul>
       - html: '<ul><li><p><a href="serverless/index">サーバーレス アプリ: アーキテクチャ、パターン、および Azure の実装</a></p>'
       - html: <p>これは、Azure を使用した例を使って、サーバーレス アプリケーションを構築するためのガイドです。 さまざまなアーキテクチャと設計アプローチ、サーバーレスに含まれる利点と課題について説明し、サーバーレス アプリのシナリオとユース ケースを提供します。</p></li></ul>
+  - title: 電子書籍のプレビュー
+    items:
+      - html: <ul><li><p><a href="cloud-native/index">Azure 向けクラウド ネイティブ .NET アプリの設計</a></p>
+      - html: <p>このガイドでは、クラウド ネイティブとは何かを定義し、クラウドネイティブの基本原則を使用して構築されたサンプル アプリを紹介し、ほとんどのクラウドネイティブ アプリケーションに共通するトピックについて説明します。</p></li></ul>
+      - html: <ul><li><p><a href="blazor-for-web-forms-developers/index">ASP.NET Web Forms 開発者向け Blazor</a></p>
+      - html: <p>ASP.NET Web Forms 開発者向け Blazor の概要を説明します。 Blazor と .NET Core を使用し、使い慣れた簡単な方法で、.NET を含むフルスタック Web アプリを構築する方法について説明します。</p></li></ul>

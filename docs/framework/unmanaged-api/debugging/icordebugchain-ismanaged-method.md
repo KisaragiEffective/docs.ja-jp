@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 17b389a0-1a4d-4e8a-8613-9bc1769930f9
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7e14ff1cd85810a0b2f9e14c3ab4c8d12d883d17
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 481f6d08e11a5f315c64b3d58df4ab291fa42e78
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67745620"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73123848"
 ---
 # <a name="icordebugchainismanaged-method"></a>ICorDebugChain::IsManaged メソッド
-このチェーンがマネージ コードを実行しているかどうかを示す値を取得します。  
+このチェーンでマネージコードが実行されているかどうかを示す値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT IsManaged (
   
 ## <a name="parameters"></a>パラメーター  
  `pManaged`  
- [out]`true`このチェーンには、マネージ コードが実行されている場合は、それ以外の場合、`false`します。  
+ [out] このチェーンでマネージコードが実行されている場合は `true`。それ以外の場合は、`false`ます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

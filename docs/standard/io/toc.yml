@@ -64,5 +64,7 @@
           href: how-to-use-named-pipes-for-network-interprocess-communication.md
     - name: パイプライン
       href: pipelines.md
+    - name: バッファーを操作する
+      href: buffers.md
     - name: メモリ マップト ファイル
       href: memory-mapped-files.md

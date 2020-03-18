@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 5e13446c-0271-446c-924a-9072c0e6eeae
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ff7c77a27e9be58e9702c3a5e3f990863dc83901
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 50722bb855c8bc8bcfdc1b405a5bbc2fa057c52c
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67763627"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129516"
 ---
 # <a name="icordebugmodulegetprocess-method"></a>ICorDebugModule::GetProcess メソッド
-このモジュールを格納しているプロセスを取得します。  
+このモジュールの格納プロセスを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT GetProcess (
   
 ## <a name="parameters"></a>パラメーター  
  `ppProcess`  
- [out]このモジュールを格納しているプロセスを表す ICorDebugProcess オブジェクトのアドレスへのポインター。  
+ 入出力このモジュールを含んでいるプロセスを表す、オブジェクトのアドレスへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

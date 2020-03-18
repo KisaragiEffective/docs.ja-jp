@@ -1,13 +1,13 @@
 ---
-title: '方法: XmlReader から XML フラグメントをストリーム配信する (Visual Basic)'
+title: '方法 : XmlReader から XML フラグメントをストリーム出力する'
 ms.date: 07/20/2015
 ms.assetid: f67ce598-4a12-4dcb-9a07-24deca02a111
-ms.openlocfilehash: 3edb9cbbe9b649a5b4d232a3937e6f322b4a6b7d
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.openlocfilehash: 42d3edb390035d20f506388974000aa204312109
+ms.sourcegitcommit: 7bc6887ab658550baa78f1520ea735838249345e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71835146"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75636797"
 ---
 # <a name="how-to-stream-xml-fragments-from-an-xmlreader-visual-basic"></a>方法: XmlReader から XML フラグメントをストリーム配信する (Visual Basic)
 大きな XML ファイルを処理する必要があるときに、XML ツリー全体をメモリに読み込むことができない場合があります。 このトピックでは、<xref:System.Xml.XmlReader> を使用してフラグメントをストリーム出力する方法について説明します。  
@@ -18,12 +18,12 @@ ms.locfileid: "71835146"
   
  部分ツリーを作成する場合は、<xref:System.Xml.XmlReader> をインスタンス化し、<xref:System.Xml.Linq.XElement> ツリーに変換するノード上にリーダーを配置し、<xref:System.Xml.Linq.XElement> オブジェクトを作成します。  
   
- トピック「[方法:ヘッダー情報にアクセスできる XML フラグメント (Visual Basic) をストリーム配信する ](../../../../visual-basic/programming-guide/concepts/linq/how-to-stream-xml-fragments-with-access-to-header-information.md) には、より複雑なドキュメントをストリーム配信する方法に関する情報と例が含まれています。  
+ トピック「[方法: ヘッダー情報にアクセスする XML フラグメントをストリームする (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/how-to-stream-xml-fragments-with-access-to-header-information.md) 」には、より複雑なドキュメントをストリーム配信する方法に関する情報と例が含まれています。  
   
- トピック「[方法:大きな XML ドキュメントのストリーミング変換を実行する (Visual Basic) ](../../../../visual-basic/programming-guide/concepts/linq/how-to-perform-streaming-transform-of-large-xml-documents.md) には LINQ to XML を使用して非常に大きな XML ドキュメントを変換しながら、メモリフットプリントを小さくする例が含まれています。  
+ トピック「[方法: 大きな Xml ドキュメントのストリーミング変換を実行する (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/how-to-perform-streaming-transform-of-large-xml-documents.md) 」では、LINQ to XML を使用して非常に大きな xml ドキュメントを変換しながら、メモリフットプリントを小さくする例を紹介します。  
   
-## <a name="example"></a>例  
- 次の例では、カスタムの軸メソッドを作成します。 このメソッドに対してクエリを実行するには、[!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] クエリを使用します。 カスタムの軸メソッド `StreamRootChildDoc` は、`Child` 要素が繰り返し出現するドキュメントを読み取るために特に設計されたメソッドです。  
+## <a name="example"></a>使用例  
+ 次の例では、カスタムの軸メソッドを作成します。 LINQ クエリを使用してクエリを実行できます。 カスタムの軸メソッド `StreamRootChildDoc` は、`Child` 要素が繰り返し出現するドキュメントを読み取るために特に設計されたメソッドです。  
   
 ```vb  
 Module Module1  
@@ -147,5 +147,5 @@ ccc
   
 ## <a name="see-also"></a>関連項目
 
-- [チュートリアル: Visual Basic @ no__t に IEnumerable (Of T) を実装する
+- [チュートリアル: Visual Basic での IEnumerable (Of T) の実装](../../../../visual-basic/programming-guide/language-features/control-flow/walkthrough-implementing-ienumerable-of-t.md)
 - [XML の解析 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/parsing-xml.md)

@@ -1,15 +1,15 @@
 ---
-title: '方法: 単一の属性を取得する (LINQ to XML) (C#)'
+title: 単一の属性を取得する方法 (LINQ to XML) (C#)
 ms.date: 07/20/2015
 ms.assetid: 1b6b07b9-933f-47e9-874e-e790cab49dc5
-ms.openlocfilehash: d8c8d0e3a99f94c4404f0ab23a5edf082be77952
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 830a7be24702b6037ac62471060fbe49d8ded598
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70253405"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79168714"
 ---
-# <a name="how-to-retrieve-a-single-attribute-linq-to-xml-c"></a>方法: 単一の属性を取得する (LINQ to XML) (C#)
+# <a name="how-to-retrieve-a-single-attribute-linq-to-xml-c"></a>単一の属性を取得する方法 (LINQ to XML) (C#)
 このトピックでは、属性名を指定して要素の単一の属性を取得する方法について説明します。 これは、特定の属性を持つ要素を検索するクエリ式を記述する場合に便利です。  
   
  <xref:System.Xml.Linq.XElement.Attribute%2A> クラスの <xref:System.Xml.Linq.XElement> メソッドは、指定された名前を持つ <xref:System.Xml.Linq.XAttribute> を返します。  
@@ -43,7 +43,7 @@ work
 ```  
   
 ## <a name="example"></a>例  
- 属性の値を取得する場合は、<xref:System.Xml.Linq.XElement> オブジェクトを使用して行う場合と同じように、その属性をキャストできます。 次に例を示します。  
+ 属性の値を取得する場合は、<xref:System.Xml.Linq.XElement> オブジェクトを使用して行う場合と同じように、その属性をキャストできます。 例を次に示します。  
   
 ```csharp  
 XElement cust = new XElement("PhoneNumbers",  
@@ -54,7 +54,7 @@ XElement cust = new XElement("PhoneNumbers",
         new XAttribute("type", "work"),  
         "555-555-6666")  
 );  
-IEnumerable<XElement> elList =   
+IEnumerable<XElement> elList =
     from el in cust.Descendants("Phone")  
     select el;  
 foreach (XElement el in elList)  
@@ -68,7 +68,7 @@ home
 work  
 ```  
   
- [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、`string`、`bool`、`bool?`、`int`、`int?`、`uint`、`uint?`、`long`、`long?`、`ulong`、`ulong?`、`float`、`float?`、`double`、`double?`、`decimal`、`decimal?`、`DateTime`、`DateTime?`、`TimeSpan`、`TimeSpan?`、`GUID`、および `GUID?` に対する <xref:System.Xml.Linq.XAttribute> クラスのための明示的なキャスト演算子が用意されています。  
+ [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] では、<xref:System.Xml.Linq.XAttribute>、`string`、`bool`、`bool?`、`int`、`int?`、`uint`、`uint?`、`long`、`long?`、`ulong`、`ulong?`、`float`、`float?`、`double`、`double?`、`decimal`、`decimal?`、`DateTime`、`DateTime?`、`TimeSpan`、`TimeSpan?`、および `GUID` に対する `GUID?` クラスのための明示的なキャスト演算子が用意されています。  
   
 ## <a name="example"></a>例  
  上記と同じコードを使用して、名前空間内の属性を取得する例を次に示します。 詳細については、「[名前空間の概要 (LINQ to XML)](namespaces-overview-linq-to-xml.md)」を参照してください。  
@@ -97,6 +97,6 @@ home
 work  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [LINQ to XML 軸 (C#)](./linq-to-xml-axes-overview.md)

@@ -1,15 +1,15 @@
 ---
 title: 'チュートリアル: 製品売上の異常を検出する'
 description: 製品売上データの異常検出アプリケーションを構築する方法について説明します。 このチュートリアルでは、Visual Studio 2019 の C# を使って .NET Core コンソール アプリケーションを作成します。
-ms.date: 07/17/2019
+ms.date: 11/15/2019
 ms.topic: tutorial
 ms.custom: mvc, title-hack-0612
-ms.openlocfilehash: ed75f1ba0b102ba73eb5671667b5731519c12eb0
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: fe2904dee349f32feb115ea533adbb4b1d8b7140
+ms.sourcegitcommit: 81ad1f09b93f3b3e6706a7f2e4ddf50ef229ea3d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70929052"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74204941"
 ---
 # <a name="tutorial-detect-anomalies-in-product-sales-with-mlnet"></a>チュートリアル: ML.NET で製品売上の異常を検出する
 
@@ -28,7 +28,7 @@ ms.locfileid: "70929052"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [Visual Studio 2017 15.6 以降](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)が ".NET Core クロスプラット フォーム開発" とともにインストールされていること。
+* [Visual Studio 2017 バージョン 15.6 以降](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)が ".NET Core クロスプラットフォーム開発" ワークロードと共にインストールされている。
 
 * [product-sales.csv データセット](https://raw.githubusercontent.com/dotnet/machinelearning-samples/master/samples/csharp/getting-started/AnomalyDetection_Sales/SpikeDetection/Data/product-sales.csv)
 
@@ -44,7 +44,7 @@ ms.locfileid: "70929052"
 
 3. **Microsoft.ML NuGet パッケージ**をインストールします。
 
-    ソリューション エクスプローラーで、プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。 [パッケージ ソース] として "nuget.org" を選択します。[参照] タブを選択し、「**Microsoft.ML**」を検索します。一覧から **v1.0.0** パッケージを選択し、 **[インストール]** ボタンを選択します。 **[変更のプレビュー]** ダイアログの **[OK]** を選択します。表示されているパッケージのライセンス条項に同意する場合は、 **[ライセンスの同意]** ダイアログの **[同意する]** を選択します。 **Microsoft.ML.TimeSeries v0.12.0** についてもこれらの手順を繰り返します。
+    ソリューション エクスプローラーで、プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。 [パッケージ ソース] として [nuget.org] を選択します。[参照] タブを選択し、「**Microsoft.ML**」を検索し、 **[インストール]** ボタンを選択します。 **[変更のプレビュー]** ダイアログの **[OK]** を選択します。表示されているパッケージのライセンス条項に同意する場合は、 **[ライセンスの同意]** ダイアログの **[同意する]** を選択します。 **Microsoft.ML.TimeSeries** についてもこれらの手順を繰り返します。
 
 4. *Program.cs* の先頭に次の `using` ステートメントを追加します。
 
@@ -127,7 +127,7 @@ ML.NET 内のデータは、[IDataView クラス](xref:Microsoft.ML.IDataView)�
 
 異常検出によって、予期しない、または通常とは異なるイベントや動作にフラグが立てられます。 これは、問題を探す場所の手がかりとなり、"これはおかしいだろうか" という問いの答えを見つけるために役立ちます。
 
-![これはおかしいだろうか](./media/sales-anomaly-detection/anomalydetection.png)
+!["これはおかしいだろうか" 異常検出の例。](./media/sales-anomaly-detection/time-series-anomaly-detection.png)
 
 異常検出は、時系列データの異常値 (指定された入力の時系列上で、動作が予期されたものではない点、つまり "おかしい" 点) を検出するプロセスです。
 
@@ -152,7 +152,7 @@ ML.NET では、[独立した同一分散のデータセット](https://en.wikip
 
 スパイク検出の目的は、時系列データ値の大部分と大きく異なる突然の一時的なバーストを特定することです。 このような疑わしいまれな項目、イベント、または観測値を適時に検出して最小限に抑えることが重要です。 次のようなアプローチを利用すると、停電、サイバー攻撃、バイラル Web コンテンツなど、さまざまな異常を検出できます。 次の図は、時系列データセットのスパイクの例です。
 
-![SpikeDetection](./media/sales-anomaly-detection/SpikeDetection.png)
+![2 つのスパイク検出を示すスクリーンショット。](./media/sales-anomaly-detection/two-spike-detections.png)
 
 ### <a name="add-the-createemptydataview-method"></a>CreateEmptyDataView () メソッドを追加する
 
@@ -266,7 +266,7 @@ Alert   Score   P-Value
 
 `Change points` は、レベルの変化や傾向など、時系列のイベント ストリームの値分布の永続的な変化です。 こうした永続的な変化は、`spikes` よりもはるかに長く続き、壊滅的なイベントを示している可能性があります。 通常、`Change points` は目視ではわかりませんが、次のような方法を使用してデータから検出できます。  次の図は、変化点検出の例です。
 
-![ChangePointDetection](./media/sales-anomaly-detection/ChangePointDetection.png)
+![2 つの変更点検出を示すスクリーンショット。](./media/sales-anomaly-detection/change-point-detection.png)
 
 ### <a name="create-the-detectchangepoint-method"></a>DetectChangepoint() メソッドを作成します。
 

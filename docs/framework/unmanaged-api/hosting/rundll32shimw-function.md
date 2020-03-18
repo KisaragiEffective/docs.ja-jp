@@ -14,19 +14,17 @@ helpviewer_keywords:
 ms.assetid: 9ea07b57-96e2-44df-8711-8fe6c119087f
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 569efa9d14ef10d8c5cf735091778a6c78882815
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e661bd82ecf6d804e852cca4a4478084edf303c5
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781160"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73141505"
 ---
 # <a name="rundll32shimw-function"></a>RunDll32ShimW 関数
 指定されたコマンドを実行します。  
   
- この関数は、.NET Framework 4 では廃止されました。  
+ この関数は .NET Framework 4 で非推奨とされました。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,23 +39,23 @@ HRESULT RunDll32ShimW (
   
 ## <a name="parameters"></a>パラメーター  
  `hwnd`  
- [in]コマンドの出力が表示されます ウィンドウへのハンドル。  
+ からコマンドの出力が表示されるウィンドウへのハンドル。  
   
  `hinst`  
- [in]コマンドが含まれているライブラリへのハンドル。  
+ からコマンドが格納されているライブラリへのハンドル。  
   
  `lpszCmdLine`  
- [in]実行するコマンドを指定する文字列。  
+ から実行するコマンドを指定する文字列です。  
   
  `nCmdShow`  
- [in]出力ウィンドウの表示モードを指定する整数。  
+ から出力ウィンドウの表示モードを指定する整数。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

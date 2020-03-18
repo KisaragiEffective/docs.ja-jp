@@ -9,10 +9,10 @@ helpviewer_keywords:
 - -nowarn compiler option [C#]
 ms.assetid: 6dcbc5e8-ae67-4566-9df3-f63cfdd9c4e4
 ms.openlocfilehash: fa3079bf1431ba1a16b5a2eef0dd5500fe95909c
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69606621"
 ---
 # <a name="-nowarn-c-compiler-options"></a>-nowarn (C# コンパイラ オプション)
@@ -25,7 +25,7 @@ ms.locfileid: "69606621"
 ```  
   
 ## <a name="arguments"></a>引数  
- `number1`、`number2`  
+ `number1`, `number2`  
  コンパイラで表示しないようにする警告番号。  
   
 ## <a name="remarks"></a>解説  
@@ -51,7 +51,7 @@ ms.locfileid: "69606621"
   
  このコンパイラ オプションをプログラムで設定する方法については、「<xref:VSLangProj80.ProjectProperties3.DelaySign%2A>」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](./index.md)
 - [プロジェクトおよびソリューションのプロパティの管理](/visualstudio/ide/managing-project-and-solution-properties)

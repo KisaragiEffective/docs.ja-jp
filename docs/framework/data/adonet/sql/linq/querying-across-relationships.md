@@ -33,7 +33,7 @@ ms.locfileid: "72003319"
   
  この錯覚を維持するために、[!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] は*遅延読み込み*と呼ばれる手法を実装しています。 詳細については、「[遅延読み込みと即時読み込み](deferred-versus-immediate-loading.md)」を参照してください。  
   
- 次の SQL クエリを検討して、`CustomerID` @ no__t @ no__t ペアの一覧を射影します。  
+ 次の SQL クエリを検討して、`CustomerID`-`OrderID` のペアの一覧を射影します。  
   
 ```sql
 SELECT t0.CustomerID, t1.OrderID  
@@ -42,16 +42,16 @@ FROM   Customers AS t0 INNER JOIN
 WHERE  (t0.City = @p0)  
 ```  
   
- [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] を使用して同じ結果を得るには、`Orders` クラスに既に存在する `Customer` プロパティ参照を使用します。 @No__t-0 参照は、次のコードのように、クエリを実行するために必要な情報を提供し、`CustomerID` @ no__t @ no__t の2つのペアを射影します。  
+ [!INCLUDE[vbtecdlinq](../../../../../../includes/vbtecdlinq-md.md)] を使用して同じ結果を得るには、`Orders` クラスに既に存在する `Customer` プロパティ参照を使用します。 `Orders` リファレンスは、次のコードのように、クエリを実行し、`OrderID` のペア -`CustomerID`を射影するために必要な情報を提供します。  
   
  [!code-csharp[DLinqQueryConcepts#5](../../../../../../samples/snippets/csharp/VS_Snippets_Data/DLinqQueryConcepts/cs/Program.cs#5)]
  [!code-vb[DLinqQueryConcepts#5](../../../../../../samples/snippets/visualbasic/VS_Snippets_Data/DLinqQueryConcepts/vb/Module1.vb#5)]  
   
- 逆の操作も可能です。 つまり、`Orders` にクエリを実行し、その `Customer` リレーションシップ参照を使用して、関連付けられた `Customer` オブジェクトに関する情報にアクセスできます。 次のコードでは、以前と同じ @no__t 0 @ no__t @ no__t のペアをプロジェクトに射影していますが、今度は `Customers` ではなく `Orders` を照会しています。  
+ 逆の操作も可能です。 つまり、`Orders` にクエリを実行し、その `Customer` リレーションシップ参照を使用して、関連付けられた `Customer` オブジェクトに関する情報にアクセスできます。 次のコードでは、前と同じように `OrderID` ペア -同じ `CustomerID`を射影しますが、今回は `Customers`ではなく `Orders` に対してクエリを実行します。  
   
  [!code-csharp[DLinqQueryConcepts#6](../../../../../../samples/snippets/csharp/VS_Snippets_Data/DLinqQueryConcepts/cs/Program.cs#6)]
  [!code-vb[DLinqQueryConcepts#6](../../../../../../samples/snippets/visualbasic/VS_Snippets_Data/DLinqQueryConcepts/vb/Module1.vb#6)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [クエリの概念](query-concepts.md)

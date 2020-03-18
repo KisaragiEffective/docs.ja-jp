@@ -16,14 +16,12 @@ helpviewer_keywords:
 ms.assetid: 80dbbbf8-54fc-4894-b74a-0179d3201083
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d696326ff8861ed8496474f76e9eaf89b4ead3e8
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: f089769f854bad5d3e572e0307734e06e72ca89c
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70795390"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73108566"
 ---
 # <a name="createinstallreferenceenum-function"></a>CreateInstallReferenceEnum 関数
 指定したアセンブリへのアプリケーションの参照のリストを表す[Iinstallreferenceenum](iinstallreferenceenum-interface.md)インスタンスへのポインターを取得します。  
@@ -41,7 +39,7 @@ HRESULT CreateInstallReferenceEnum (
   
 ## <a name="parameters"></a>パラメーター  
  `ppRefEnum`  
- 入出力返され`IInstallReferenceEnum`たポインター。  
+ 入出力返された `IInstallReferenceEnum` ポインター。  
   
  `pName`  
  から参照を列挙する対象のアセンブリを識別する[IAssemblyName](iassemblyname-interface.md) 。  
@@ -50,14 +48,14 @@ HRESULT CreateInstallReferenceEnum (
  から列挙子の動作に影響を与えるフラグ。  
   
  `pvReserved`  
- [入力] 将来の機能拡張に備えて予約されています。 `pvReserved`null 参照である必要があります。  
+ [入力] 将来の機能拡張に備えて予約されています。 `pvReserved` は null 参照である必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Fusion. h  
   
- **ライブラリ**Fusion .dll と Mscorwks.dll。 Mscorwks.dll の代わりに Fusion を使用して、正しいバージョンの .NET Framework を対象としていることを確認してください。  
+ **ライブラリ:** Fusion .dll と Mscorwks.dll。 Mscorwks.dll の代わりに Fusion を使用して、正しいバージョンの .NET Framework を対象としていることを確認してください。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

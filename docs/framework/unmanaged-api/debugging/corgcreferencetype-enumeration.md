@@ -1,5 +1,5 @@
 ---
-title: CorGCReferenceType 列挙型
+title: CorGCReferenceType 列挙体
 ms.date: 03/30/2017
 api_name:
 - CorGCReferenceType
@@ -14,16 +14,14 @@ helpviewer_keywords:
 ms.assetid: d9f16439-5a36-4474-8ffd-4f0b2c2bb686
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3cbecd5be9b1ac7c08e6970933a48eeb95f01a22
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 17d47b6242bb12ff5ca3cfbde3e4ec183b9c19fc
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67739377"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76793874"
 ---
-# <a name="corgcreferencetype-enumeration"></a>CorGCReferenceType 列挙型
+# <a name="corgcreferencetype-enumeration"></a>CorGCReferenceType 列挙体
 ガベージ コレクトされる必要のあるオブジェクトのソースを識別します。  
   
 ## <a name="syntax"></a>構文  
@@ -53,28 +51,28 @@ typedef enum {
 |メンバー名|説明|  
 |-----------------|-----------------|  
 |`CorHandleStrong`|オブジェクト ハンドル テーブルからの強い参照へのハンドル。|  
-|`CorHandleStrongPinning`|オブジェクト ハンドル テーブルから固定された強い参照へのハンドル。|  
-|`CorHandleWeakShort`|オブジェクト ハンドル テーブルからの弱い参照をへのハンドル。|  
-|`CorHandleWeakRefCount`|オブジェクト ハンドル テーブルから弱い参照カウント オブジェクトへのハンドル。|  
-|`CorHandleStrongRefCount`|オブジェクト ハンドル テーブルから参照カウント オブジェクトへのハンドル。|  
-|`CorHandleStrongDependent`|オブジェクト ハンドル テーブルから、依存オブジェクトへのハンドル。|  
+|`CorHandleStrongPinning`|オブジェクトハンドルテーブルからの固定された強い参照へのハンドル。|  
+|`CorHandleWeakShort`|オブジェクトハンドルテーブルからの弱い参照へのハンドル。|  
+|`CorHandleWeakRefCount`|オブジェクトハンドルテーブルからの弱い参照カウントオブジェクトへのハンドル。|  
+|`CorHandleStrongRefCount`|オブジェクトハンドルテーブルからの参照カウントオブジェクトへのハンドル。|  
+|`CorHandleStrongDependent`|オブジェクトハンドルテーブルからの依存オブジェクトへのハンドル。|  
 |`CorHandleStrongAsyncPinned`|オブジェクト ハンドル テーブルからの非同期固定オブジェクト。|  
 |`CorHandleStrongSizedByref`|ガベージ コレクション時に、すべてのオブジェクトおよびオブジェクト ルートの集合的なクロージャの概算サイズを保持する強力なハンドル。|  
-|`CorReferenceStack`|マネージ スタックからの参照。|  
-|`CorReferenceFinalizer`|ファイナライザー キューからの参照。|  
-|CorHandleStrongOnly|ハンドル テーブルからの強い参照のみを返します。 この値は使用、 [icordebugprocess 5::enumeratehandles](../../../../docs/framework/unmanaged-api/debugging/icordebugprocess5-enumeratehandles-method.md)メソッドのみです。|  
-|`CorHandleWeakOnly`|ハンドル テーブルからの弱い参照のみを返します。 この値は使用、 [icordebugprocess 5::enumeratehandles](../../../../docs/framework/unmanaged-api/debugging/icordebugprocess5-enumeratehandles-method.md)メソッドのみです。|  
-|`CorHandleAll`|ハンドル テーブルからすべての参照を返します。 この値は使用、 [icordebugprocess 5::enumeratehandles](../../../../docs/framework/unmanaged-api/debugging/icordebugprocess5-enumeratehandles-method.md)メソッドのみです。|  
+|`CorReferenceStack`|マネージスタックからの参照。|  
+|`CorReferenceFinalizer`|ファイナライザーキューからの参照。|  
+|CorHandleStrongOnly|ハンドルテーブルからの強い参照だけを返します。 この値は、 [ICorDebugProcess5:: EnumerateHandles](icordebugprocess5-enumeratehandles-method.md)メソッドによってのみ使用されます。|  
+|`CorHandleWeakOnly`|ハンドルテーブルからの弱い参照だけを返します。 この値は、 [ICorDebugProcess5:: EnumerateHandles](icordebugprocess5-enumeratehandles-method.md)メソッドによってのみ使用されます。|  
+|`CorHandleAll`|Handle テーブルからすべての参照を返します。 この値は、 [ICorDebugProcess5:: EnumerateHandles](icordebugprocess5-enumeratehandles-method.md)メソッドによってのみ使用されます。|  
   
-## <a name="remarks"></a>Remarks  
- `CorGCReferenceType`列挙体は次のように使用します。  
+## <a name="remarks"></a>コメント  
+ `CorGCReferenceType` 列挙体は次のように使用されます。  
   
-- 値として、`type`のフィールド、 [COR_GC_REFERENCE](../../../../docs/framework/unmanaged-api/debugging/cor-gc-reference-structure.md)構造の参照またはハンドルのソースを示します。  
+- [COR_GC_REFERENCE](cor-gc-reference-structure.md)構造体の `type` フィールドの値として、参照またはハンドルのソースを示します。  
   
-- として、`types`への引数、 [icordebugprocess 5::enumeratehandles](../../../../docs/framework/unmanaged-api/debugging/icordebugprocess5-enumeratehandles-method.md)メソッド、列挙体に含めるハンドルの種類を指定します。  
+- [ICorDebugProcess5:: EnumerateHandles](icordebugprocess5-enumeratehandles-method.md)メソッドの `types` 引数として、列挙体に含めるハンドルの種類を指定します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -84,4 +82,4 @@ typedef enum {
   
 ## <a name="see-also"></a>関連項目
 
-- [列挙型のデバッグ](../../../../docs/framework/unmanaged-api/debugging/debugging-enumerations.md)
+- [列挙型のデバッグ](debugging-enumerations.md)

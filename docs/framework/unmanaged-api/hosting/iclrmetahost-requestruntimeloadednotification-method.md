@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 0d5ccc4d-0193-41f5-af54-45d7b70d5321
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 539f69c33b67ad1a8a514062c5d777deaced1599
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 23f868bba2dc058d99f1c5c09e9b311b1ff3634a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69965008"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73140892"
 ---
 # <a name="iclrmetahostrequestruntimeloadednotification-method"></a>ICLRMetaHost::RequestRuntimeLoadedNotification メソッド
 共通言語ランタイム (CLR) のバージョンが最初に読み込まれたが、まだ開始されていないときに呼び出されることが保証されているコールバック関数を提供します。 このメソッドは、 [Lockclrversion](../../../../docs/framework/unmanaged-api/hosting/lockclrversion-function.md)関数よりも優先されます。  
@@ -78,23 +76,23 @@ typedef void (__stdcall *RuntimeLoadedCallbackFnPtr)(
     typedef HRESULT (__stdcall *CallbackThreadUnsetFnPtr)();  
     ```  
   
- ホストの読み込みまたは再入によって別のランタイムの読み込みが発生する場合`pfnCallbackThreadSet`は`pfnCallbackThreadUnset` 、コールバック関数で指定されたパラメーターとパラメーターを次のように使用する必要があります。  
+ ホストの読み込みまたは再入によって別のランタイムの読み込みが必要になった場合は、コールバック関数で指定された `pfnCallbackThreadSet` パラメーターと `pfnCallbackThreadUnset` パラメーターを次のように使用する必要があります。  
   
-- `pfnCallbackThreadSet`このような読み込みが試行される前に、ランタイムの読み込みを発生させる可能性のあるスレッドによって呼び出される必要があります。  
+- このような負荷が試行される前に、ランタイムの読み込みを発生させる可能性のあるスレッドによって `pfnCallbackThreadSet` を呼び出す必要があります。  
   
-- `pfnCallbackThreadUnset`は、スレッドがこのようなランタイム読み込みを行わなくなる場合 (および最初のコールバックから戻る前) に呼び出す必要があります。  
+- スレッドがこのようなランタイム読み込みを行わなくなる (および最初のコールバックから戻る前に) 場合は、`pfnCallbackThreadUnset` を呼び出す必要があります。  
   
-- `pfnCallbackThreadSet`と`pfnCallbackThreadUnset`はどちらも再入不可能です。  
+- `pfnCallbackThreadSet` と `pfnCallbackThreadUnset` は両方とも再入可能ではありません。  
   
 > [!NOTE]
-> ホストアプリケーションは、 `pfnCallbackThreadSet` `pCallbackFunction`パラメーターの`pfnCallbackThreadUnset`スコープ外でおよびを呼び出すことはできません。  
+> ホストアプリケーションは、`pCallbackFunction` パラメーターのスコープ外で `pfnCallbackThreadSet` および `pfnCallbackThreadUnset` を呼び出すことはできません。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** メタホスト .h  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

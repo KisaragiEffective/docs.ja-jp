@@ -1,35 +1,35 @@
 ---
 title: Docker ベースのアプリケーションの開発プロセス
-description: Docker ベースのアプリケーションの開発のオプションに関する大まかな概要を確認します。 マルチ プラットフォームのサポート (Windows、Mac、Linux) のため、Windows 用 Visual Studio、Visual Studio for Mac、または Visual Studio Code のうち好みのものを使います。
-ms.date: 09/27/2018
-ms.openlocfilehash: 6299d67299948dce1081a211b350e657b2c1b951
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+description: Docker ベースのアプリケーションの開発のオプションに関する概要を確認します。 マルチ プラットフォームのサポート (Windows、macOS、Linux) のため、Windows 用 Visual Studio、Visual Studio for Mac、または Visual Studio Code のうち好みのものを使います。
+ms.date: 01/30/2020
+ms.openlocfilehash: 799aa6fc742a8fb763ec5a7ae3cf3f70f89bed6d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72770135"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77502719"
 ---
 # <a name="development-process-for-docker-based-applications"></a>Docker ベースのアプリケーションの開発プロセス
 
-*Visual Studio と Visual Studio Tools for Docker を使用して IDE に重点を置くか、Docker CLI と Visual Studio Code を使用して CLI/エディターに重点を置くか、好みの方法でコンテナー化された .NET アプリケーションを開発します。*
+*Visual Studio と Visual Studio Tools for Docker を使用した統合開発環境 (IDE)、または Docker CLI と Visual Studio Code を使用した CLI/エディターのお好きな方法でコンテナー化された .NET アプリケーションを開発します。*
 
 ## <a name="development-environment-for-docker-apps"></a>Docker アプリの開発環境
 
-### <a name="development-tool-choices-ide-or-editor"></a>開発ツールの選択:IDE またはエディター
+### <a name="development-tool-choices-ide-or-editor"></a>開発ツールの選択: IDE またはエディター
 
 完全で強力な IDE または軽量でアジャイルなエディターのどちらを選んでも、Microsoft では Docker アプリケーションの開発に使用できるツールが用意されています。
 
-**Visual Studio (Windows 版)。** Visual Studio を使って Docker ベースのアプリケーションを開発する場合は、既に組み込まれている Docker 用ツールに付属する Visual Studio 2017 バージョン 15.7 以降を使うことをお勧めします。 Tools for Docker を使用して、ターゲットの Docker 環境で直接アプリケーションの開発、実行、および検証ができます。 F5 キーを押すと、Docker ホスト内で直接アプリケーション (1 つのコンテナー、または複数のコンテナー) を実行してデバックできます。または、CTRL キーを押しながら F5 キーを押すと、コンテナーを再構築しなくても、アプリケーションを編集して更新できます。 これは、Docker ベース アプリを開発する場合の最も強力な選択肢です。
+**Visual Studio (Windows 版)。** Visual Studio での Docker ベースの .NET Core 3.1 アプリケーションの開発には、Visual Studio 2019 バージョン 16.4 以降が必要です。 Visual Studio 2019 には、既に Docker 用のツールが組み込まれています。 Tools for Docker を使用して、ターゲットの Docker 環境で直接アプリケーションの開発、実行、および検証ができます。 F5 キーを押すと、Docker ホスト内で直接アプリケーション (1 つのコンテナー、または複数のコンテナー) を実行してデバックできます。または、CTRL キーを押しながら F5 キーを押すと、コンテナーを再構築しなくても、アプリケーションを編集して更新できます。 これは、Docker ベース アプリを開発する場合の最も強力な選択肢です。
 
-**Visual Studio for Mac。** これは macOS で動作する IDE であり、Xamarin Studio が進化したものです。2017 年中頃から Docker をサポートしています。 これは、強力な IDE を使用したい Mac コンピューターで作業する開発者にとって好ましい選択肢です。
+**Visual Studio for Mac。** これは macOS で動作する、Xamarin Studio を進化させた IDE です。 .NET Core 3.1 で開発する場合、バージョン 8.4 以降が必要です。 これは、強力な IDE を使用したい macOS コンピューターで作業する開発者にとって好ましい選択肢です。
 
-**Visual Studio Code と Docker CLI**。 任意の開発言語をサポートする軽量なクロスプラット フォーム エディターを選択すると、Microsoft Visual Studio Code (VS Code) と Docker CLI を使用することができます。 これは、Mac、Linux、および Windows のクロスプラット フォーム開発アプローチです。 さらに、Visual Studio Code は、Dockerfiles の IntelliSense などの Docker の拡張機能や、エディターから Docker コマンドを実行するショートカット タスクをサポートします。
+**Visual Studio Code と Docker CLI**。 すべての開発言語をサポートする軽量なクロスプラット フォーム エディターがよい場合は、Visual Studio Code と Docker CLI を使用してください。 これは、macOS、Linux、Windows 向けのクロスプラット フォーム開発アプローチです。 さらに、Visual Studio Code は、Dockerfiles の IntelliSense などの Docker の拡張機能や、エディターから Docker コマンドを実行するショートカット タスクをサポートします。
 
 [Docker Desktop Community Edition (CE)](https://hub.docker.com/search/?type=edition&offering=community) をインストールすることで、1 つの Docker CLI を使用して Windows と Linux の両方のアプリを構築することができます。
 
-### <a name="additional-resources"></a>その他の技術情報
+### <a name="additional-resources"></a>その他のリソース
 
-- **Visual Studio**。 公式サイト。 \
+- **Visual Studio**. 公式サイト。 \
   [https://visualstudio.microsoft.com/vs/](https://visualstudio.microsoft.com/vs/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link)
 
 - **Visual Studio Code**。 公式サイト。 \

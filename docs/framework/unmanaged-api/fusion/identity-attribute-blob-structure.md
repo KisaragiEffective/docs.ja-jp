@@ -16,17 +16,15 @@ helpviewer_keywords:
 ms.assetid: af14ae5f-d226-47dd-ba90-8fc6e6605d4d
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 58ee2764d2e2c4c4e21effa3e0c3551a2e145f40
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 212a9f46dd33f98abd31e7a78c7a830cb3386cb6
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796503"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73108007"
 ---
 # <a name="identity_attribute_blob-structure"></a>IDENTITY_ATTRIBUTE_BLOB 構造体
-アセンブリ内の1つの属性に関する情報を格納し、 `DWORD`3 つので構成されます。 各`DWORD`は、 [IEnumIDENTITY_ATTRIBUTE](ienumidentity-attribute-interface.md)インターフェイスの`CurrentIntoBuffer`メソッドによって生成される文字バッファーへのオフセットです。  
+アセンブリ内の1つの属性に関する情報を格納し、3つの `DWORD`で構成されます。 各 `DWORD` は、 [IEnumIDENTITY_ATTRIBUTE](ienumidentity-attribute-interface.md)インターフェイスの `CurrentIntoBuffer` メソッドによって生成される文字バッファーへのオフセットです。  
   
 ## <a name="syntax"></a>構文  
   
@@ -47,15 +45,15 @@ typedef struct _IDENTITY_ATTRIBUTE_BLOB {
 |`ofsValue`|文字バッファーへの3番目のオフセット。 この場所は、属性の値の開始を示します。|  
   
 ## <a name="sample"></a>サンプル  
- 次の例は、最終的に構造が設定`IDENTITY_ATTRIBUTE_BLOB`される基本的な手順を示しています。  
+ 次の例では、最終的に `IDENTITY_ATTRIBUTE_BLOB` 構造が設定される基本的な手順を示します。  
   
 1. アセンブリの[IReferenceIdentity](ireferenceidentity-interface.md)を取得します。  
   
-2. `IReferenceIdentity::EnumAttributes` メソッドを呼び出し、[IEnumIDENTITY_ATTRIBUTE](ienumidentity-attribute-interface.md) を取得します。  
+2. `IReferenceIdentity::EnumAttributes` メソッドを呼び出し、 [IEnumIDENTITY_ATTRIBUTE](ienumidentity-attribute-interface.md)を取得します。  
   
-3. 文字バッファーを作成し、それを`IDENTITY_ATTRIBUTE_BLOB`構造体としてキャストします。  
+3. 文字バッファーを作成し、`IDENTITY_ATTRIBUTE_BLOB` 構造体としてキャストします。  
   
-4. インターフェイスのメソッドを`CurrentIntoBuffer`呼び出します。 `IEnumIDENTITY_ATTRIBUTE` このメソッドは、属性`Namespace` `Name`、、および`Value`を文字バッファーにコピーします。 これらの文字列への3つのオフセットは、 `IDENTITY_ATTRIBUTE_BLOB`構造体で使用できるようになります。  
+4. `IEnumIDENTITY_ATTRIBUTE` インターフェイスの `CurrentIntoBuffer` メソッドを呼び出します。 このメソッドは、`Namespace`、`Name`、および `Value` の属性を文字バッファーにコピーします。 これらの文字列への3つのオフセットが `IDENTITY_ATTRIBUTE_BLOB` 構造で使用できるようになります。  
   
 ```cpp  
 // EnumAssemblyAttributes.cpp : main project file.  
@@ -222,7 +220,7 @@ Exit:
 ```  
   
 ### <a name="to-run-the-sample"></a>サンプルを実行するには  
- C:\\> EnumAssemblyAttributes.exe C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\System.dll  
+ C:\\> EnumAssemblyAttributes .exe C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\System.dll  
   
 ### <a name="sample-output"></a>出力例  
  Culture = ニュートラル  
@@ -235,8 +233,8 @@ Exit:
   
  Version = 2.0.0.0  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** 分離 .h  
   

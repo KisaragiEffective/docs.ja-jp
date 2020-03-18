@@ -8,23 +8,23 @@ helpviewer_keywords:
 - controls [WPF], ContextMenu
 - ContextMenu controls [WPF], about ContextMenu controls
 ms.assetid: 16909c42-799a-4561-91e0-7d69dcfeea91
-ms.openlocfilehash: 1818718d3ca9e8f56da99d6e504b41b217bfd980
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: b973d47711632f4c0fe56f042545598272c79d2d
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62053263"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77124365"
 ---
 # <a name="contextmenu-overview"></a>ContextMenu の概要
-<xref:System.Windows.Controls.ContextMenu>クラスは、特定のコンテキストを使用して機能を公開する要素を表します<xref:System.Windows.Controls.Menu>します。 通常、ユーザーが公開する、<xref:System.Windows.Controls.ContextMenu>で、[!INCLUDE[TLA#tla_ui](../../../../includes/tlasharptla-ui-md.md)]をマウスのボタンを右クリックします。 このトピックでは、<xref:System.Windows.Controls.ContextMenu>要素で使用する方法の例を示します[!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)]とコード。  
+<xref:System.Windows.Controls.ContextMenu> クラスは、コンテキスト固有の <xref:System.Windows.Controls.Menu>を使用して機能を公開する要素を表します。 通常、ユーザーはマウスボタンを右クリックして、[!INCLUDE[TLA#tla_ui](../../../../includes/tlasharptla-ui-md.md)] 内の <xref:System.Windows.Controls.ContextMenu> を公開します。 このトピックでは、<xref:System.Windows.Controls.ContextMenu> 要素について説明し、[!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)] およびコードでの使用方法の例を示します。  
 
 <a name="contextmenu_control"></a>   
 ## <a name="contextmenu-control"></a>ContextMenu コントロール  
- A<xref:System.Windows.Controls.ContextMenu>が特定のコントロールにアタッチされています。 <xref:System.Windows.Controls.ContextMenu>要素では、コマンドまたはなどで、特定のコントロールに関連するオプションを指定する項目の一覧をユーザーに表示することができます、<xref:System.Windows.Controls.Button>します。 ユーザーがコントロールを右クリックすると、メニューが表示されます。 通常をクリックすると、<xref:System.Windows.Controls.MenuItem>サブメニューを開くまたはによりアプリケーションは、コマンドを実行します。  
+ <xref:System.Windows.Controls.ContextMenu> が特定のコントロールにアタッチされています。 <xref:System.Windows.Controls.ContextMenu> 要素を使用すると、特定のコントロールに関連付けられているコマンドやオプション (<xref:System.Windows.Controls.Button>など) を指定する項目の一覧をユーザーに表示できます。 ユーザーがコントロールを右クリックすると、メニューが表示されます。 通常、<xref:System.Windows.Controls.MenuItem> をクリックするとサブメニューが表示され、アプリケーションはコマンドを実行します。  
   
 <a name="creating_contextmenus"></a>   
 ## <a name="creating-contextmenus"></a>ContextMenu の作成  
- 次の例を作成する方法を示して、<xref:System.Windows.Controls.ContextMenu>サブメニューのあります。 <xref:System.Windows.Controls.ContextMenu>コントロールは、ボタン コントロールに関連付けられています。  
+ 次の例は、サブメニューを使用して <xref:System.Windows.Controls.ContextMenu> を作成する方法を示しています。 <xref:System.Windows.Controls.ContextMenu> コントロールは、ボタンコントロールにアタッチされます。  
   
  [!code-xaml[ContextMenu#1](~/samples/snippets/csharp/VS_Snippets_Wpf/ContextMenu/CSharp/Pane1.xaml#1)]  
   
@@ -33,9 +33,9 @@ ms.locfileid: "62053263"
   
 <a name="applying_styles_to_contextmenu"></a>   
 ## <a name="applying-styles-to-a-contextmenu"></a>ContextMenu へのスタイルの適用  
- コントロールを使用して<xref:System.Windows.Style>の動作と外観を大幅に変更することができます、<xref:System.Windows.Controls.ContextMenu>カスタム コントロールを記述することがなく。 視覚プロパティの設定に加えて、コントロールの一部にスタイルを適用することもできます。 たとえば、コントロールのパーツの動作を変更するには、プロパティを使用してまたは、パーツを追加したりのレイアウトを変更、<xref:System.Windows.Controls.ContextMenu>します。 次の例では、いくつかの方法でスタイルを追加<xref:System.Windows.Controls.ContextMenu>コントロール。  
+ コントロール <xref:System.Windows.Style>を使用すると、カスタムコントロールを記述しなくても、<xref:System.Windows.Controls.ContextMenu> の外観と動作を大幅に変更することができます。 視覚プロパティの設定に加えて、コントロールの一部にスタイルを適用することもできます。 たとえば、プロパティを使用してコントロールの一部の動作を変更することも、<xref:System.Windows.Controls.ContextMenu>のレイアウトにパーツを追加したり、レイアウトを変更したりすることもできます。 次の例では、<xref:System.Windows.Controls.ContextMenu> コントロールにスタイルを追加する方法をいくつか示します。  
   
- 最初の例では、`SimpleSysResources` という名前のスタイルを定義し、スタイルで現在のシステム設定を使用する方法を示します。 例では、<xref:System.Windows.SystemColors.MenuHighlightBrushKey%2A>として、<xref:System.Windows.Controls.Control.Background%2A>色と<xref:System.Windows.SystemColors.MenuTextBrushKey%2A>として、<xref:System.Windows.Controls.Control.Foreground%2A>の色、<xref:System.Windows.Controls.ContextMenu>します。  
+ 最初の例では、`SimpleSysResources` という名前のスタイルを定義し、スタイルで現在のシステム設定を使用する方法を示します。 この例では、<xref:System.Windows.SystemColors.MenuHighlightBrushKey%2A> を <xref:System.Windows.Controls.Control.Background%2A> の色として割り当て、<xref:System.Windows.Controls.ContextMenu>の <xref:System.Windows.Controls.Control.Foreground%2A> の色として <xref:System.Windows.SystemColors.MenuTextBrushKey%2A> します。  
   
 ```xaml  
 <Style x:Key="SimpleSysResources" TargetType="{x:Type MenuItem}">  
@@ -46,7 +46,7 @@ ms.locfileid: "62053263"
 </Style>  
 ```  
   
- 次の例では、<xref:System.Windows.Trigger>の外観を変更する要素を<xref:System.Windows.Controls.Menu>上で発生したイベントに応答、<xref:System.Windows.Controls.ContextMenu>します。 ユーザーが、メニューの外観にマウスを移動するときに、<xref:System.Windows.Controls.ContextMenu>項目を変更します。  
+ 次の例では、<xref:System.Windows.Trigger> 要素を使用して、<xref:System.Windows.Controls.ContextMenu>で発生したイベントに応答して <xref:System.Windows.Controls.Menu> の外観を変更します。 ユーザーがメニューの上にマウスを移動すると、<xref:System.Windows.Controls.ContextMenu> 項目の外観が変わります。  
   
 ```xaml  
 <Style x:Key="Triggers" TargetType="{x:Type MenuItem}">  
@@ -60,7 +60,7 @@ ms.locfileid: "62053263"
 </Style>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Controls.ContextMenu>
 - <xref:System.Windows.Style>
@@ -68,4 +68,4 @@ ms.locfileid: "62053263"
 - <xref:System.Windows.Controls.MenuItem>
 - [ContextMenu](contextmenu.md)
 - [ContextMenu のスタイルとテンプレート](contextmenu-styles-and-templates.md)
-- [WPF Controls Gallery Sample](https://go.microsoft.com/fwlink/?LinkID=160053)
+- [WPF Controls Gallery Sample](https://github.com/Microsoft/WPF-Samples/tree/master/Getting%20Started/ControlsAndLayout)

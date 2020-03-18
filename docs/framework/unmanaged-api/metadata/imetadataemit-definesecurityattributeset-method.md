@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 27064ca2-4186-4433-90a7-3b297785e891
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 0f7c5378490dce93599086819ee6fc806c707aa2
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b98fab6c6127c3f78151d3b84160d4ca0434b6cd
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777495"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74428248"
 ---
 # <a name="imetadataemitdefinesecurityattributeset-method"></a>IMetaDataEmit::DefineSecurityAttributeSet メソッド
-指定したトークンによって参照されるオブジェクトにアタッチするセキュリティ権限のセットを作成します。  
+指定したトークンによって参照されるオブジェクトにアタッチするセキュリティアクセス許可のセットを作成します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,27 +38,27 @@ HRESULT DefineSecurityAttributeSet (
   
 ## <a name="parameters"></a>パラメーター  
  `tkObj`  
- [in]セキュリティ情報が接続されているトークンです。  
+ からセキュリティ情報がアタッチされるトークン。  
   
  `rSecAttrs`  
- [in]配列の`COR_SECATTR`構造体。  
+ から`COR_SECATTR` 構造体の配列。  
   
  `cSecAttrs`  
- [in]要素数`rSecAttrs`します。  
+ から`rSecAttrs`内の要素の数。  
   
  `pulErrorAttr`  
- [out]メソッドが失敗した場合にインデックスを指定します。`rSecAttrs`の問題の原因となった要素。  
+ 入出力メソッドが失敗した場合は、問題の原因となった要素の `rSecAttrs` のインデックスを指定します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MSCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataEmit インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-interface.md)
 - [IMetaDataEmit2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-interface.md)

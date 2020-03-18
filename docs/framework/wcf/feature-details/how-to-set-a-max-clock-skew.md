@@ -1,5 +1,5 @@
 ---
-title: '方法: 時刻のずれの最大値を設定する'
+title: '方法 : 時刻のずれの最大値を設定する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,14 +8,14 @@ helpviewer_keywords:
 - MaxClockSkew property
 - WCF, custom bindings
 ms.assetid: 491d1705-eb29-43c2-a44c-c0cf996f74eb
-ms.openlocfilehash: 3bcd128e6e9f53f662dd3fc99336b5b45faebf5f
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 96afa61d32e1ba744c9f3dbbeeb7fb2e55157f4c
+ms.sourcegitcommit: fbb8a593a511ce667992502a3ce6d8f65c594edf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69943115"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74141659"
 ---
-# <a name="how-to-set-a-max-clock-skew"></a>方法: 時刻のずれの最大値を設定する
+# <a name="how-to-set-a-max-clock-skew"></a>方法 : 時刻のずれの最大値を設定する
 時刻が重要な要素となる機能は、2 台のコンピューターで時刻の設定が異なっていると失敗する可能性があります。 この可能性を減らすには、`MaxClockSkew` プロパティを <xref:System.TimeSpan> に設定します。 このプロパティは、次の 2 つのクラスで使用できます。  
   
  <xref:System.ServiceModel.Channels.LocalClientSecuritySettings>  
@@ -23,14 +23,14 @@ ms.locfileid: "69943115"
  <xref:System.ServiceModel.Channels.LocalServiceSecuritySettings>  
   
 > [!IMPORTANT]
-> セキュリティで保護された通信を`MaxClockSkew`行うには、サービスまたはクライアントをブートストラップするときに、プロパティに対する変更を行う必要があります。 これを行うには、 <xref:System.ServiceModel.Channels.SecurityBindingElement> <xref:System.ServiceModel.Security.Tokens.SecureConversationSecurityTokenParameters.BootstrapSecurityBindingElement%2A?displayProperty=nameWithType>プロパティによって返されるのプロパティを設定する必要があります。  
+> セキュリティで保護されたメッセージ交換を行うには、サービスまたはクライアントをブートストラップするときに、`MaxClockSkew` プロパティへの変更を行う必要があります。 これを行うには、<xref:System.ServiceModel.Security.Tokens.SecureConversationSecurityTokenParameters.BootstrapSecurityBindingElement%2A?displayProperty=nameWithType> プロパティによって返される <xref:System.ServiceModel.Channels.SecurityBindingElement> のプロパティを設定する必要があります。  
   
  システム提供のバインディングの 1 つでこのプロパティを変更するには、バインディングのコレクションでセキュリティ バインド要素を見つけて、`MaxClockSkew` プロパティを新しい値に設定する必要があります。 <xref:System.ServiceModel.Channels.SecurityBindingElement> から派生される 2 つのクラスは、<xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement> クラスおよび <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement> クラスです。 コレクションからセキュリティ バインディングを取得する場合は、`MaxClockSkew` プロパティを正しく設定するために、これらの型のどちらかにキャストする必要があります。 次の例では、<xref:System.ServiceModel.WSHttpBinding> を使用していますが、これは <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement> を使用します。 システム指定の各バインディングで使用するセキュリティバインディングの種類を指定する一覧については、「[システム指定](../../../../docs/framework/wcf/system-provided-bindings.md)のバインディング」を参照してください。  
   
 ## <a name="to-create-a-custom-binding-with-a-new-clock-skew-value-in-code"></a>コードを使用して時刻のずれの新しい値を持つカスタム バインドを作成するには  
   
 > [!WARNING]
-> コード内の次の名前空間への参照<xref:System.ServiceModel.Channels>を追加<xref:System.Security.Permissions>します<xref:System.ServiceModel.Security.Tokens>。、 <xref:System.ServiceModel.Description>、、および。  
+> コード内の次の名前空間への参照 (<xref:System.ServiceModel.Channels>、<xref:System.ServiceModel.Description>、<xref:System.Security.Permissions>、および <xref:System.ServiceModel.Security.Tokens>) を追加します。  
   
 1. <xref:System.ServiceModel.WSHttpBinding> クラスのインスタンスを作成し、セキュリティ モードを <xref:System.ServiceModel.SecurityMode.Message?displayProperty=nameWithType> に設定します。  
   
@@ -51,19 +51,19 @@ ms.locfileid: "69943115"
   
 ## <a name="to-set-the-maxclockskew-in-configuration"></a>構成で MaxClockSkew を設定するには  
   
-1. Bindings > 要素セクションに[> customBinding \<](../../../../docs/framework/configure-apps/file-schema/wcf/custombinding.md)を作成します。 [ \<](../../../../docs/framework/configure-apps/file-schema/wcf/bindings.md)  
+1. [\<binding >](../../../../docs/framework/configure-apps/file-schema/wcf/bindings.md) element セクションに[\<customBinding >](../../../../docs/framework/configure-apps/file-schema/wcf/custombinding.md)を作成します。  
   
-2. バインド > 要素を作成し、属性を適切な値に設定します。`name` [ \<](../../../../docs/framework/misc/binding.md) `MaxClockSkewBinding` に設定する方法の例を次に示します。  
+2. [\<バインド >](../../configure-apps/file-schema/wcf/bindings.md)要素を作成し、`name` 属性を適切な値に設定します。 `MaxClockSkewBinding` に設定する方法の例を次に示します。  
   
-3. エンコーディング要素を追加します。 次の例では、 [ \<textmessageencoding >](../../../../docs/framework/configure-apps/file-schema/wcf/textmessageencoding.md)を追加します。  
+3. エンコーディング要素を追加します。 次の例では、 [\<textMessageEncoding >](../../../../docs/framework/configure-apps/file-schema/wcf/textmessageencoding.md)を追加します。  
   
-4. セキュリティ > 要素を追加し、属性を適切な設定に設定します。`authenticationMode` [ \<](../../../../docs/framework/configure-apps/file-schema/wcf/security-of-custombinding.md) 次の例では、この属性を `Kerberos` に設定して、サービスが Windows 認証を使用するように指定しています。  
+4. [\<セキュリティ >](../../../../docs/framework/configure-apps/file-schema/wcf/security-of-custombinding.md)要素を追加し、`authenticationMode` 属性を適切な設定に設定します。 次の例では、この属性を `Kerberos` に設定して、サービスが Windows 認証を使用するように指定しています。  
   
-5. `maxClockSkew` `"##:##:##"` [ Localservicesettings>を追加し、属性を\<](../../../../docs/framework/configure-apps/file-schema/wcf/localservicesettings-element.md)の形式の値に設定します。 次の例では 7 分に設定しています。 必要に応じて、 [ \<localservicesettings >](../../../../docs/framework/configure-apps/file-schema/wcf/localservicesettings-element.md)を追加`maxClockSkew`し、属性を適切な設定に設定します。  
+5. [\<localServiceSettings >](../../../../docs/framework/configure-apps/file-schema/wcf/localservicesettings-element.md)を追加し、`maxClockSkew` 属性を `"##:##:##"`の形式の値に設定します。 次の例では 7 分に設定しています。 必要に応じて、 [\<localServiceSettings >](../../../../docs/framework/configure-apps/file-schema/wcf/localservicesettings-element.md)を追加し、`maxClockSkew` 属性を適切な設定に設定します。  
   
-6. transport 要素を追加します。 次の例では、 [ \<httptransport >](../../../../docs/framework/configure-apps/file-schema/wcf/httptransport.md)を使用します。  
+6. transport 要素を追加します。 次の例では、 [\<httpTransport >](../../../../docs/framework/configure-apps/file-schema/wcf/httptransport.md)を使用します。  
   
-7. セキュリティで保護された通信を行うには、 [ \<secureConversationBootstrap >](../../../../docs/framework/configure-apps/file-schema/wcf/secureconversationbootstrap.md)要素のブートストラップでセキュリティ設定を行う必要があります。  
+7. セキュリティで保護された通信を行うには、 [\<secureConversationBootstrap >](../../../../docs/framework/configure-apps/file-schema/wcf/secureconversationbootstrap.md)要素のブートストラップでセキュリティ設定を行う必要があります。  
   
     ```xml  
     <bindings>  
@@ -89,4 +89,4 @@ ms.locfileid: "69943115"
 - <xref:System.ServiceModel.Channels.LocalClientSecuritySettings>
 - <xref:System.ServiceModel.Channels.LocalServiceSecuritySettings>
 - <xref:System.ServiceModel.Channels.CustomBinding>
-- [方法: 設定を使用してカスタムバインディングを作成する](../../../../docs/framework/wcf/feature-details/how-to-create-a-custom-binding-using-the-securitybindingelement.md)
+- [方法 : SecurityBindingElement を使用してカスタム バインディングを作成する](../../../../docs/framework/wcf/feature-details/how-to-create-a-custom-binding-using-the-securitybindingelement.md)

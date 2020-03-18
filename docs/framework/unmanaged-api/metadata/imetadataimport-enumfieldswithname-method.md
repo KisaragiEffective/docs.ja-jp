@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 42145e8d-000f-4d0b-ae43-c08201190fa2
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 71a2c7a61d573c1e17d0e8fefcd34d60e05ed3c5
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b240be3e5b0127de42cea43dd8e89a2cc656b28e
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67780478"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74449518"
 ---
 # <a name="imetadataimportenumfieldswithname-method"></a>IMetaDataImport::EnumFieldsWithName メソッド
 指定した名前を持つ指定した型の FieldDef トークンを列挙します。  
@@ -45,36 +43,36 @@ HRESULT EnumFieldsWithName (
  [入力、出力]列挙子へのポインター。  
   
  `cl`  
- [in]フィールドが列挙型のトークンです。  
+ からフィールドを列挙する型のトークン。  
   
  `szName`  
- [in]列挙体のスコープを制限するフィールド名です。  
+ から列挙型のスコープを制限するフィールド名。  
   
  `rFields`  
- [out]配列の FieldDef トークンを格納するために使用します。  
+ 入出力FieldDef トークンを格納するために使用される配列。  
   
  `cMax`  
  [in] `rFields` 配列の最大サイズ。  
   
  `pcTokens`  
- [out]実際に返される FieldDef トークン数`rFields`します。  
+ 入出力`rFields`で返された FieldDef トークンの実際の数。  
   
-## <a name="remarks"></a>Remarks  
- 異なり[imetadataimport::enumfields](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-enumfields-method.md)、`EnumFieldsWithName`を指定した名前を持たないすべてのフィールドのトークンを破棄します。  
+## <a name="remarks"></a>コメント  
+ [IMetaDataImport:: EnumFields](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-enumfields-method.md)とは異なり、`EnumFieldsWithName` は、指定された名前のないすべてのフィールドトークンを破棄します。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|`S_OK`|`EnumFieldsWithName` 正常に返されます。|  
-|`S_FALSE`|列挙するフィールドはありません。 その場合は、`pcTokens`は 0 です。|  
+|`S_OK`|`EnumFieldsWithName` が正常に返されました。|  
+|`S_FALSE`|列挙するフィールドがありません。 この場合、`pcTokens` は0になります。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

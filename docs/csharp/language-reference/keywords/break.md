@@ -1,6 +1,5 @@
 ---
 title: break ステートメント - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - break
@@ -8,12 +7,12 @@ f1_keywords:
 helpviewer_keywords:
 - break keyword [C#]
 ms.assetid: be2571ed-efb0-4965-b122-81e5b09db0b9
-ms.openlocfilehash: 2628da73364cf94a52e2862d349243c100d4afaf
-ms.sourcegitcommit: dfd612ba454ce775a766bcc6fe93bc1d43dfda47
+ms.openlocfilehash: ef276fd9e8da0ea25695c5afdf06a300bbd2a123
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179935"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75713752"
 ---
 # <a name="break-c-reference"></a>break (C# リファレンス)
 
@@ -27,7 +26,7 @@ ms.locfileid: "72179935"
 
 ## <a name="example"></a>例
 
-次に示すのは、[switch](./switch.md) ステートメントで `break` を使用する例です。
+次に示すのは、`break`switch[ ステートメントで ](./switch.md) を使用する例です。
 
 [!code-csharp[csrefKeywordsJump#2](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsJump/CS/csrefKeywordsJump.cs#2)]
 
@@ -46,7 +45,7 @@ Sorry, invalid selection.
 
 ## <a name="example"></a>例
 
-この例で、`break` ステートメントは、ループの各繰り返し時に現在の分岐を抜けるためだけに使用されています。 ループ自体は、入れ子になった [switch](./switch.md) ステートメントに属する `break` のインスタンスの影響は受けません。
+この例で、`break` ステートメントは、ループの各繰り返し時に現在の分岐を抜けるためだけに使用されています。 ループ自体は、入れ子になった `break`switch[ ステートメントに属する ](./switch.md) のインスタンスの影響は受けません。
 
 [!code-csharp[csrefKeywordsJump#8](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsJump/CS/csrefKeywordsJump.cs#8)]
 
@@ -54,9 +53,9 @@ Sorry, invalid selection.
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# のキーワード](./index.md)
 - [switch](./switch.md)

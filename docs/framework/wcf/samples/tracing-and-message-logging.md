@@ -4,12 +4,12 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - Tracing and logging
 ms.assetid: a4f39bfc-3c5e-4d51-a312-71c5c3ce0afd
-ms.openlocfilehash: a58541b7d50d83d1e39d7c9dd9c58be4111ec494
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 448eef6ea147b725600b774026155acc1fca6d36
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70038733"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77094866"
 ---
 # <a name="tracing-and-message-logging"></a>トレースとメッセージ ログ
 このサンプルでは、トレースとメッセージ ログを有効にする方法を示します。 結果のトレースとメッセージログは、[サービストレースビューアーツール (svctraceviewer.exe)](../../../../docs/framework/wcf/service-trace-viewer-tool-svctraceviewer-exe.md)を使用して表示されます。 このサンプルは、[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいています。  
@@ -18,7 +18,7 @@ ms.locfileid: "70038733"
 > このサンプルのセットアップ手順とビルド手順については、このトピックの最後を参照してください。  
   
 ## <a name="tracing"></a>トレース  
- Windows Communication Foundation (WCF) は、 <xref:System.Diagnostics>名前空間で定義されているトレース機構を使用します。 このトレース モデルのトレース データは、アプリケーションが実装するトレース ソースによって作成されます。 各ソースは、名前によって識別されます。 トレース コンシューマでは、情報を取得するトレース ソースのトレース リスナが作成されます。 トレース データを受け取るには、トレース ソースのリスナを作成する必要があります。 WCF では、サービスモデルのトレースソース`switchValue`を設定することによって、サービスまたはクライアントの構成ファイルに次のコードを追加することで、これを行うことができます。  
+ Windows Communication Foundation (WCF) は、<xref:System.Diagnostics> 名前空間で定義されているトレース機構を使用します。 このトレース モデルのトレース データは、アプリケーションが実装するトレース ソースによって作成されます。 各ソースは、名前によって識別されます。 トレース コンシューマでは、情報を取得するトレース ソースのトレース リスナが作成されます。 トレース データを受け取るには、トレース ソースのリスナを作成する必要があります。 WCF では、サービスモデルのトレースソース `switchValue`を設定することによって、サービスまたはクライアントの構成ファイルに次のコードを追加することで、これを行うことができます。  
   
 ```xml  
 <system.diagnostics>  
@@ -46,7 +46,7 @@ ms.locfileid: "70038733"
  トレースソースの詳細については、「トレースの[構成](../../../../docs/framework/wcf/diagnostics/tracing/configuring-tracing.md)」トピックの「トレースソース」セクションを参照してください。  
   
 ## <a name="activity-tracing-and-propagation"></a>アクティビティのトレースと伝達  
- クライアントとサービス`propagateActivity`の両方`true`の`system.ServiceModel`トレースソースでを有効にし、をに設定すると、エンドポイント内のアクティビティ間で、処理の論理単位(アクティビティ)内のトレースの相関関係が提供されます(`ActivityTracing`アクティビティ間の転送を通じて)、および複数のエンドポイントにまたがるアクティビティ (アクティビティ ID の伝達を通じて)。  
+ クライアントとサービスの両方について `system.ServiceModel` トレースソースの `true` に設定されている `ActivityTracing` 有効にし `propagateActivity` すると、処理の論理単位 (アクティビティ) 内、エンドポイント内のアクティビティ (アクティビティの転送を含む)、および複数のエンドポイントにまたがるアクティビティ (アクティビティ ID の伝達を通じて) の間でトレースが関連付けられます。  
   
  3 つの機構 (アクティビティ、転送、および伝達) により、サービス トレース ビューア ツールを使用してエラーの根本原因をより迅速に見つけることができます。 詳細については、「[サービストレースビューアーを使用した相関トレースの表示」および「トラブルシューティング](../../../../docs/framework/wcf/diagnostics/tracing/using-service-trace-viewer-for-viewing-correlated-traces-and-troubleshooting.md)」を参照してください。  
   
@@ -128,11 +128,11 @@ ms.locfileid: "70038733"
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Management\TracingAndLogging`  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [トレース](../../../../docs/framework/wcf/diagnostics/tracing/index.md)
-- [AppFabric の監視のサンプル](https://go.microsoft.com/fwlink/?LinkId=193959)
+- [追跡](../../../../docs/framework/wcf/diagnostics/tracing/index.md)
+- [AppFabric の監視のサンプル](https://docs.microsoft.com/previous-versions/appfabric/ff383407(v=azure.10))

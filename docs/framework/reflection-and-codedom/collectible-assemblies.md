@@ -6,14 +6,12 @@ helpviewer_keywords:
 - reflection, dynamic assembly
 - assemblies, collectible
 - collectible assemblies, retrieving
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b26da264b2da40e19db4bc5e3b3575505f5c979c
-ms.sourcegitcommit: 6b308cf6d627d78ee36dbbae8972a310ac7fd6c8
-ms.translationtype: HT
+ms.openlocfilehash: 85eacff22cf2e1c0b8c3d74a4971de035dfafbe4
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54637743"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130292"
 ---
 # <a name="collectible-assemblies-for-dynamic-type-generation"></a>動的な型生成のための収集可能なアセンブリ
 
@@ -31,18 +29,18 @@ ms.locfileid: "54637743"
  
 - `T` を型引数の 1 つとして含んでいるジェネリック型のインスタンス。 これには、そのコレクションが空の場合も含め、`T` のジェネリック コレクションを含みます。
 
-- `T` を表す <xref:System.Type> または <xref:System.Reflection.Emit.TypeBuilder> のインスタンス。 
+- <xref:System.Type> を表す <xref:System.Reflection.Emit.TypeBuilder> または `T` のインスタンス。 
 
    > [!IMPORTANT]
-   > アセンブリの一部を表すオブジェクトは、すべて解放する必要があります。 `T` を定義した <xref:System.Reflection.Emit.ModuleBuilder> は <xref:System.Reflection.Emit.TypeBuilder> への参照を保持し、<xref:System.Reflection.Emit.AssemblyBuilder> オブジェクトは <xref:System.Reflection.Emit.ModuleBuilder> への参照を保持します。したがって、これらのオブジェクトへの参照は解放する必要があります。 `T` の構築に使用された <xref:System.Reflection.Emit.LocalBuilder> や <xref:System.Reflection.Emit.ILGenerator> が存在している場合も、アンロードは行われません。
+   > アセンブリの一部を表すオブジェクトは、すべて解放する必要があります。 <xref:System.Reflection.Emit.ModuleBuilder> を定義した `T` は <xref:System.Reflection.Emit.TypeBuilder> への参照を保持し、<xref:System.Reflection.Emit.AssemblyBuilder> オブジェクトは <xref:System.Reflection.Emit.ModuleBuilder> への参照を保持します。したがって、これらのオブジェクトへの参照は解放する必要があります。 <xref:System.Reflection.Emit.LocalBuilder> の構築に使用された <xref:System.Reflection.Emit.ILGenerator> や `T` が存在している場合も、アンロードは行われません。
 
-- 実行コードから到達できる動的に定義された別の型 `T1` による、`T` への静的参照。 たとえば、`T1` が `T` から派生している場合や、`T` が `T1` のメソッドのパラメーターの型である場合があります。
+- 実行コードから到達できる動的に定義された別の型 `T` による、`T1` への静的参照。 たとえば、`T1` が `T` から派生している場合や、`T` が `T1` のメソッドのパラメーターの型である場合があります。
  
-- `T` に属する静的フィールドに対する **ByRef**。
+- **に属する静的フィールドに対する**ByRef`T`。
 
-- `T` または `T` のコンポーネントを参照する <xref:System.RuntimeTypeHandle>、<xref:System.RuntimeFieldHandle>、または <xref:System.RuntimeMethodHandle>。
+- <xref:System.RuntimeTypeHandle> または <xref:System.RuntimeFieldHandle> のコンポーネントを参照する <xref:System.RuntimeMethodHandle>、`T`、または `T`。
 
-- `T` を表す <xref:System.Type> オブジェクトへのアクセスに間接または直接に使用できるリフレクション オブジェクトのインスタンス。 たとえば、`T` の <xref:System.Type> オブジェクトは、要素型が `T` である配列型や、`T` を型引数として持つジェネリック型から取得できます。 
+- <xref:System.Type> を表す `T` オブジェクトへのアクセスに間接または直接に使用できるリフレクション オブジェクトのインスタンス。 たとえば、<xref:System.Type> の `T` オブジェクトは、要素型が `T` である配列型や、`T` を型引数として持つジェネリック型から取得できます。 
 
 - 任意のスレッドの呼び出し履歴にあるメソッド `M`。この `M` は、`T` のメソッド、またはアセンブリで定義されているモジュール レベルのメソッドです。
 
@@ -80,6 +78,6 @@ ms.locfileid: "54637743"
 - **スレッドの静的データ**       
    スレッドの静的変数はサポートされません。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [動的メソッドおよびアセンブリの出力](emitting-dynamic-methods-and-assemblies.md)

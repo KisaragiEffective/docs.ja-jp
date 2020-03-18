@@ -32,7 +32,7 @@ WCF では、<xref:System.ServiceModel.EndpointAddress> は、WS-ADDRESSING 標�
 
 - パス : /mathservice.svc/secureEndpoint
 
-EPR モデルの一部では、各エンドポイント参照は、追加の識別情報を追加する複数の参照パラメーターを伝達できます。 WCF では、これらの参照パラメーターは @no__t 0 クラスのインスタンスとしてモデル化されます。
+EPR モデルの一部では、各エンドポイント参照は、追加の識別情報を追加する複数の参照パラメーターを伝達できます。 WCF では、これらの参照パラメーターは <xref:System.ServiceModel.Channels.AddressHeader> クラスのインスタンスとしてモデル化されます。
 
 サービスのエンドポイント アドレスはコードを使用して強制的に指定するか、構成を介して宣言として指定できます。 設置済みサービスのバインドおよびアドレスは一般的に、サービスの開発中に使用されるものとは異なるので、コード内でエンドポイントを定義することは通常、実用的ではありません。 一般に、サービス エンドポイントの定義にはコードではなく、構成を使用する方がより実用的です。 バインディング情報とアドレス情報をコードに含めないことで、変更時にアプリケーションの再コンパイルや再展開を行う必要がなくなります。 エンドポイントがコードまたは構成で指定されていない場合、ランタイムは、サービスで実装されたコントラクトごとに、1 つの既定のエンドポイントを各ベース アドレスに追加します。
 
@@ -42,13 +42,13 @@ IIS でホストする場合、ユーザーは <xref:System.ServiceModel.Service
 
 ## <a name="defining-endpoint-addresses-in-configuration"></a>構成によるエンドポイント アドレスの定義
 
-構成ファイルでエンドポイントを定義するには、 [\< エンドポイント >](../configure-apps/file-schema/wcf/endpoint-element.md)要素を使用します。
+構成ファイルでエンドポイントを定義するには、 [\<エンドポイント >](../configure-apps/file-schema/wcf/endpoint-element.md)要素を使用します。
 
 [!code-xml[S_UEHelloWorld#5](../../../samples/snippets/common/VS_Snippets_CFX/s_uehelloworld/common/serviceapp2.config#5)]
 
-@No__t-0 メソッドが呼び出された場合 (つまり、ホストアプリケーションがサービスを開始しようとしたとき)、システムは "UE-V" を指定する name 属性を持つ[@no__t 2 ~ 2 のサービス >](../configure-apps/file-schema/wcf/service.md)要素を検索します。HelloService ". [@No__t-1service >](../configure-apps/file-schema/wcf/service.md)要素が見つかった場合、システムは指定されたクラスを読み込み、構成ファイルに指定されているエンドポイント定義を使用してエンドポイントを作成します。 このしくみによって、2 行のコードでサービスを読み込んで開始でき、バインディングとアドレス指定情報をコード外に維持することができます。 この方法の利点は、アプリケーションを再度コンパイルしたり、展開したりすることなく、この 2 つの情報を変更できる点です。
+<xref:System.ServiceModel.Channels.CommunicationObject.Open%2A> メソッドが呼び出されると (つまり、ホストアプリケーションがサービスを開始しようとしたとき)、システムは "UE-V" を指定する name 属性を持つ[\<サービス >](../configure-apps/file-schema/wcf/service.md)要素を検索します。HelloService ". [\<サービス >](../configure-apps/file-schema/wcf/service.md)要素が見つかった場合、システムは指定されたクラスを読み込み、構成ファイルに指定されているエンドポイント定義を使用してエンドポイントを作成します。 このしくみによって、2 行のコードでサービスを読み込んで開始でき、バインディングとアドレス指定情報をコード外に維持することができます。 この方法の利点は、アプリケーションを再度コンパイルしたり、展開したりすることなく、この 2 つの情報を変更できる点です。
 
-省略可能なヘッダーは[\< > のヘッダー](../configure-apps/file-schema/wcf/headers-element.md)で宣言されています。 次に示すのは、2つのヘッダーを区別する構成ファイル内のサービスのエンドポイントを指定するために使用される要素の例です。 "Gold" クライアントから `http://tempuri1.org/` と "Standard" クライアントは `http://tempuri2.org/` です。 このサービスを呼び出すクライアントには、構成ファイルに適切な[\< ヘッダー >](../configure-apps/file-schema/wcf/headers-element.md)が含まれている必要があります。
+省略可能なヘッダーは、 [>\<ヘッダー](../configure-apps/file-schema/wcf/headers-element.md)で宣言されます。 2 つのヘッダーを区別する構成ファイルでサービスのエンドポイントを指定するための要素の例を次に示します:"Gold"クライアントから `http://tempuri1.org/` と「標準」のクライアントから `http://tempuri2.org/` です。 このサービスを呼び出すクライアントには、構成ファイルに適切な[\<ヘッダー >](../configure-apps/file-schema/wcf/headers-element.md)が含まれている必要があります。
 
 [!code-xml[S_UEHelloWorld#1](../../../samples/snippets/common/VS_Snippets_CFX/s_uehelloworld/common/serviceapp.config#1)]
 
@@ -86,7 +86,7 @@ Web サービス記述言語 (WSDL) では、エンドポイント アドレス�
 
 エンドポイントを明示的に指定しない場合、<xref:System.ServiceModel.ServiceHostBase.AddDefaultEndpoints%2A> を呼び出す前に、<xref:System.ServiceModel.ServiceHost> で <xref:System.ServiceModel.Channels.CommunicationObject.Open%2A> を呼び出すことによって、既定のエンドポイントを引き続き追加できます。 既定のエンドポイントについては、「[Simplified Configuration](simplified-configuration.md)」 (簡易構成) と「[Simplified Configuration for WCF Services](./samples/simplified-configuration-for-wcf-services.md)」 (WCF サービスの簡易構成) を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.ServiceModel.EndpointAddress>
 - [サービス ID と認証](./feature-details/service-identity-and-authentication.md)

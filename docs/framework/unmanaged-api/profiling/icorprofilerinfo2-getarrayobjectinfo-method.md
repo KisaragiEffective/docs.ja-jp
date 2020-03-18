@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: bda75017-739f-4ce5-9000-f3b526e8473c
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 3ebf8c736cdd1362cae1b1e0b734ce14bea49b18
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 839cd574e5352b74b47cd6242d5706bc6405d439
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67751885"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76862920"
 ---
 # <a name="icorprofilerinfo2getarrayobjectinfo-method"></a>ICorProfilerInfo2::GetArrayObjectInfo メソッド
-配列オブジェクトに関する詳細な情報を取得します。  
+配列オブジェクトに関する詳細情報を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,27 +38,27 @@ HRESULT GetArrayObjectInfo(
   
 ## <a name="parameters"></a>パラメーター  
  `objectId`  
- [in]有効な配列オブジェクトの ID。  
+ から有効な配列オブジェクトの ID。  
   
  `cDimensions`  
- [in]配列のランク (次元数)。  
+ から配列のランク (次元数)。  
   
  `pDimensionSizes`  
- [out]各配列の次元のサイズを表す整数を格納する配列。  
+ 入出力それぞれが配列の次元のサイズを表す整数を格納している配列。  
   
  `pDimensionLowerBounds`  
- [out]整数を含む配列、配列の次元の下限を表す各バインドされています。  
+ 入出力それぞれが配列の次元の下限を表す整数を格納している配列。  
   
  `ppData`  
- [out]に従ってレイアウトは、配列の生バッファーのアドレスへのポインター、C++規則。  
+ 入出力C++規則に従ってレイアウトされる、配列の生バッファーのアドレスへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- `pDimensionSizes`と`pDimensionLowerBounds`は並列配列は、各配列内の同じインデックス位置にある要素は、同じエンティティの特性。  
+## <a name="remarks"></a>コメント  
+ `pDimensionSizes` と `pDimensionLowerBounds` は並列配列であるため、各配列内の同じインデックスにある要素は同じエンティティの特性です。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -68,5 +66,5 @@ HRESULT GetArrayObjectInfo(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerInfo インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-interface.md)
-- [ICorProfilerInfo2 インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo2-interface.md)
+- [ICorProfilerInfo インターフェイス](icorprofilerinfo-interface.md)
+- [ICorProfilerInfo2 インターフェイス](icorprofilerinfo2-interface.md)

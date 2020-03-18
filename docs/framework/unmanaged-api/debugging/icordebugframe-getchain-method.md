@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: e28e51d3-8f73-494f-bcd4-48bac239fbe1
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 64de770676cdd02375e854acb8af7feecb28dfeb
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9677fd14f50cf93eac7eeaef784082d45e8884c7
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67754113"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73137686"
 ---
 # <a name="icordebugframegetchain-method"></a>ICorDebugFrame::GetChain メソッド
-このフレームの一部であるチェーンにポインターを取得します。  
+このフレームが含まれているチェーンへのポインターを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT GetChain (
   
 ## <a name="parameters"></a>パラメーター  
  `ppChain`  
- [out]このフレームを含むチェーンを表す ICorDebugChain オブジェクトのアドレスへのポインター。  
+ 入出力このフレームを含むチェーンを表す、のオブジェクトのアドレスへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

@@ -1,15 +1,15 @@
 ---
 title: WCF Web Service Reference を追加する
 description: .NET Framework プロジェクトのサービス参照の追加と同様に、.NET Core プロジェクトと ASP.NET Core プロジェクトの機能を追加する Microsoft WCF Web Service Reference Provider Tool の概要。
-author: mlacouture
-ms.date: 04/19/2018
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 5c5759dcc0f428c763eddb84f3d3652fbc548cb2
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+author: dasetser
+ms.date: 10/29/2019
+ms.custom: mvc
+ms.openlocfilehash: cdd6b457d289dd7b752c97c5645f0797f24b72aa
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72522232"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75715683"
 ---
 # <a name="use-the-wcf-web-service-reference-provider-tool"></a>WCF Web Service Reference Provider ツールを使用する
 
@@ -18,9 +18,9 @@ ms.locfileid: "72522232"
 > [!IMPORTANT]
 > 信頼できるソースのサービスのみを参照してください。 信頼できないソースの参照を追加すると、セキュリティが損なわれる可能性があります。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
-- [Visual Studio 2017 15.5](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) 以降のバージョン
+- [Visual Studio 2017 バージョン 15.5](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) 以降のバージョン。
 
 ## <a name="how-to-use-the-extension"></a>拡張機能の使用方法
 
@@ -76,12 +76,16 @@ ms.locfileid: "72522232"
 
 これらのプロセスが完了すると、生成された WCF クライアントの種類のインスタンスを作成し、サービス操作を呼び出すことができます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="see-also"></a>参照
 
-### <a name="feedback--questions"></a>フィードバックと質問
+- [Windows Communication Foundation アプリケーション入門](../../framework/wcf/getting-started-tutorial.md)
+- [Visual Studio での Windows Communication Foundation サービスと WCF データ サービス](/visualstudio/data-tools/windows-communication-foundation-services-and-wcf-data-services-in-visual-studio)
+- [WCF supported features on .NET Core](https://github.com/dotnet/wcf/blob/master/release-notes/SupportedFeatures-v2.1.0.md) (.NET Core でサポートされる WCF の機能)
 
-質問やフィードバックがありましたら、[GitHub で問題を提起してください](https://github.com/dotnet/wcf/issues/new)。 [GitHub の WCF リポジトリ](https://github.com/dotnet/wcf/issues?utf8=%E2%9C%93&q=is:issue%20label:tooling)で既存の質問や問題を確認することもできます。
+## <a name="feedback--questions"></a>フィードバックと質問
 
-### <a name="release-notes"></a>リリース ノート
+ご不明な点またはフィードバックについては、[Developer Community](https://developercommunity.visualstudio.com/) で[問題の報告](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) ツールを使用して報告してください。
+
+## <a name="release-notes"></a>リリース ノート
 
 - 既知の問題を含む最新のリリース情報については、[リリース ノート](https://github.com/dotnet/wcf/blob/master/release-notes/WCF-Web-Service-Reference-notes.md)のページを参照してください。

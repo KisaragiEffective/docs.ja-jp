@@ -7,14 +7,14 @@ f1_keywords:
 helpviewer_keywords:
 - BC31019
 ms.assetid: 0845b245-11bb-46fd-95ca-f6cef3c318ef
-ms.openlocfilehash: e0a00c4f57e45d65ff46fb9487a603a67d5a9e5c
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 087735722fcd4dd789e25aacf6eeefffb490dac5
+ms.sourcegitcommit: 5a28f8eb071fcc09b045b0c4ae4b96898673192e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64620596"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73198192"
 ---
-# <a name="unable-to-write-to-output-file-filename-error"></a>出力ファイルに書き込めません '\<filename >':\<エラー >。
+# <a name="unable-to-write-to-output-file-filename-error"></a>出力ファイル '\<filename > ' に書き込めません: \<エラー >
 ファイルの作成で問題が発生しました。  
   
  出力ファイルを書き込み用に開くことができません。 ファイル (または、そのファイルが格納されているフォルダー) は、別のプロセスによって排他的に開かれているか、読み取り専用属性が設定されている可能性があります。  
@@ -33,11 +33,11 @@ ms.locfileid: "64620596"
   
 1. プログラムをもう一度コンパイルし、エラーがまだ発生するかどうか確認します。  
   
-2. エラーが引き続き発生する場合は、作業内容を保存し、Visual Studio を再起動します。  
+2. エラーが引き続き発生する場合は、作業内容を保存し、Visual Studio を再起動してください。  
   
 3. エラーが引き続き発生する場合は、コンピューターを再起動します。  
   
-4. エラーが再発する場合は、Visual Basic を再インストールします。  
+4. エラーが引き続き発生する場合は、Visual Basic を再インストールします。  
   
 5. 再インストールした後にエラーが続く場合は、マイクロソフト プロダクト サポート サービスに通知してください。  
   
@@ -45,18 +45,18 @@ ms.locfileid: "64620596"
   
 1. 対象のフォルダーを開きます。  
   
-2. をクリックして、**ビュー**アイコンを選択し、**詳細**します。  
+2. **[表示]** アイコンをクリックし、 **[詳細]** を選択します。  
   
-3. 列ヘッダーを右クリックして選択**属性**ドロップダウン リストから。  
+3. 列ヘッダーを右クリックし、ドロップダウンリストから **[属性]** を選択します。  
   
 ### <a name="to-change-the-attributes-of-a-file-or-folder"></a>ファイルやフォルダーの属性を変更するには  
   
-1. **ファイル エクスプ ローラー**をファイルまたはフォルダーを右クリックして**プロパティ**します。  
+1. **ファイルエクスプローラー**で、ファイルまたはフォルダーを右クリックし、 **[プロパティ]** を選択します。  
   
-2. **属性**のセクション、**全般**タブで、、**読み取り専用**ボックス。  
+2. **[全般**] タブの **[属性]** セクションで、 **[読み取り]** 専用 チェックボックスをオフにします。  
   
 3. **[OK]** を押します。  
   
 ## <a name="see-also"></a>関連項目
 
-- [ご意見](/visualstudio/ide/talk-to-us)
+- [ご意見](/visualstudio/ide/feedback-options)

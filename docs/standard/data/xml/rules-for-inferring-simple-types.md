@@ -3,14 +3,12 @@ title: 単純型を推論するときの規則
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: 394624d6-4da0-430a-8a88-46efe40f14de
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 15e7692abfe06ec9e9f91a3b229bf99971eaecc1
-ms.sourcegitcommit: 6b308cf6d627d78ee36dbbae8972a310ac7fd6c8
-ms.translationtype: HT
+ms.openlocfilehash: 17429e77f7764873e607a8feaa62da1cc6e014a4
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54550501"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75710233"
 ---
 # <a name="rules-for-inferring-simple-types"></a>単純型を推論するときの規則
 <xref:System.Xml.Schema.XmlSchemaInference> クラスが属性と要素のデータ型を推論する方法を説明します。  
@@ -37,11 +35,11 @@ ms.locfileid: "54550501"
 |unsignedLong|0 ～ 18446744073709551615 の整数|  
 |整数|先頭に "-" 記号が付く可能性がある有限桁の数値。|  
 |decimal|精度が 0 ～ 28 桁の数値。|  
-|float|小数点数。指数を表す整数値を伴った、省略可能な "E" または "e" を付ける表記法もあります。 仮数部の範囲は -16777216 ～ 16777216 です。 指数部の範囲は -149 ～ 104 です。<br /><br /> float では、無限大および非数を表す特殊値が使用可能です。 float の特殊値は、0、-0、INF、-INF、NaN です。|  
-|double|仮数部の範囲が -9007199254740992 ～ 9007199254740992 で、指数部の範囲が -1075 ～ 970 である点を除いて、float と同じです。<br /><br /> double では、無限大および非数を表す特殊値が使えます。 float の特殊値は、0、-0、INF、-INF、NaN です。|  
+|フローティング|小数点数。指数を表す整数値を伴った、省略可能な "E" または "e" を付ける表記法もあります。 仮数部の範囲は -16777216 ～ 16777216 です。 指数部の範囲は -149 ～ 104 です。<br /><br /> float では、無限大および非数を表す特殊値が使用可能です。 float の特殊値は、0、-0、INF、-INF、NaN です。|  
+|二重線|仮数部の範囲が -9007199254740992 ～ 9007199254740992 で、指数部の範囲が -1075 ～ 970 である点を除いて、float と同じです。<br /><br /> double では、無限大および非数を表す特殊値が使えます。 float の特殊値は、0、-0、INF、-INF、NaN です。|  
 |duration|W3C の持続時間形式|  
 |dateTime|W3C の日付時刻形式|  
-|時間|W3C の時刻形式|  
+|time|W3C の時刻形式|  
 |date|年に使用できる値は 0001 ～ 9999 に制限されています。|  
 |gYearMonth|W3C のグレゴリオ暦の年月形式|  
 |string|1 つ以上の Unicode 文字|  

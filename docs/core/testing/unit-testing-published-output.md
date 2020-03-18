@@ -4,13 +4,12 @@ description: dotnet vstest コマンドを使用して、ソース コードで�
 author: kendrahavens
 ms.author: kehavens
 ms.date: 10/18/2017
-ms.custom: seodec18
-ms.openlocfilehash: 93b2e1a433b5d5b9694257d4d12e47d9107f4cd7
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+ms.openlocfilehash: 7618d37782de3a16f1963380bbb56945fb73e8eb
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71117029"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75714266"
 ---
 # <a name="test-published-output-with-dotnet-vstest"></a>パブリッシュされた出力を dotnet vstest でテストします
 
@@ -34,7 +33,7 @@ dotnet vstest out/MyProject.Tests.dll
 ```
 
 > [!NOTE]
-> メモ:アプリが `netcoreapp` 以外のフレームワークを対象とする場合でも、対象のフレームワークでフレームワーク フラグを付けて渡すことで `dotnet vstest` コマンドを実行できます。 たとえば、`dotnet vstest <MyPublishedTests>.dll  --Framework:".NETFramework,Version=v4.6"` のようにします。 Visual Studio 2017 Update 5 では、望ましいフレームワークが自動的に検出されます。
+> メモ:アプリが `netcoreapp` 以外のフレームワークを対象とする場合でも、対象のフレームワークでフレームワーク フラグを付けて渡すことで `dotnet vstest` コマンドを実行できます。 たとえば、`dotnet vstest <MyPublishedTests>.dll --Framework:".NETFramework,Version=v4.6"` のようにします。 Visual Studio 2017 Update 5 以降では、望ましいフレームワークが自動的に検出されます。
 
 ## <a name="see-also"></a>関連項目
 

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 3a3a9446-7a4e-4836-9b27-5c536c15993d
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7d23b2371e7cc3c9d1e91af061c19b4fb0dbc69e
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9600573a0a730cee10247d5644d587e75856cdd9
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779690"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73141184"
 ---
 # <a name="iclrhostbindingpolicymanagerevaluatepolicy-method"></a>ICLRHostBindingPolicyManager::EvaluatePolicy メソッド
-ホストに代わってバインディング ポリシーを評価します。  
+ホストの代わりにバインドポリシーを評価します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -42,45 +40,45 @@ HRESULT EvaluatePolicy (
   
 ## <a name="parameters"></a>パラメーター  
  `pwzReferenceIdentity`  
- [in]ポリシーの評価する前にアセンブリへの参照。  
+ からポリシー評価の前のアセンブリへの参照。  
   
  `pbApplicationPolicy`  
- [in]ポリシー データを格納しているバッファーへのポインター。  
+ からポリシーデータを格納しているバッファーへのポインター。  
   
  `cbAppPolicySize`  
- [in]サイズ、`pbApplicationPolicy`バッファー。  
+ から`pbApplicationPolicy` バッファーのサイズ。  
   
  `pwzPostPolicyReferenceIdentity`  
- [out]新しいポリシー データの評価した後、アセンブリへの参照。  
+ 入出力新しいポリシーデータを評価した後のアセンブリへの参照。  
   
  `pcchPostPolicyReferenceIdentity`  
- [入力、出力]新しいポリシー データの評価後アセンブリの id の参照をバッファーのサイズへのポインター。  
+ [入力、出力]新しいポリシーデータを評価した後のアセンブリ id 参照バッファーのサイズへのポインター。  
   
  `pdwPoliciesApplied`  
- [out]論理 OR の組み合わせへのポインター [EBindPolicyLevels](../../../../docs/framework/unmanaged-api/hosting/ebindpolicylevels-enumeration.md)ポリシーが適用されていることを示す値。  
+ 入出力適用されているポリシーを示す[Ebindpolicylevels](../../../../docs/framework/unmanaged-api/hosting/ebindpolicylevels-enumeration.md)値の論理和の組み合わせへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
 |S_OK|評価が正常に完了しました。|  
-|E_INVALIDARG|いずれか`pwzReferenceIdentity`または`pbApplicationPolicy`は null 参照です。|  
+|E_INVALIDARG|`pwzReferenceIdentity` または `pbApplicationPolicy` のいずれかが null 参照です。|  
 |ERROR_INSUFFICIENT_BUFFER|`cbAppPolicySize` が小さすぎます。|  
-|HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) は、プロセスに読み込まれていないか、CLR は状態をマネージ コードを実行または呼び出しを正常に処理ができません。|  
-|HOST_E_TIMEOUT|呼び出しがタイムアウトになりました。|  
+|HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) がプロセスに読み込まれていないか、CLR がマネージコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
+|HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
-|HOST_E_ABANDONED|イベントがキャンセルされましたブロックされたスレッドまたはファイバーが待機しています。|  
-|E_FAIL|不明な致命的なエラーが発生しました。 メソッドには、E_FAIL が返された、後に、CLR は、プロセス内で使用可能ではなくなりました。 メソッドをホストする後続の呼び出しには、HOST_E_CLRNOTAVAILABLE が返されます。|  
+|HOST_E_ABANDONED|ブロックされたスレッドまたはファイバーが待機しているときに、イベントが取り消されました。|  
+|E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された後は、そのプロセス内で CLR を使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
 ## <a name="remarks"></a>Remarks  
- `EvaluatePolicy`メソッドを使用するホスト固有のアセンブリを維持するためにバインディング ポリシーに影響を与えるホスト バージョン管理の要件。 ポリシー エンジン自体は、CLR 内に残ります。  
+ `EvaluatePolicy` メソッドを使用すると、ホストは、ホスト固有のアセンブリのバージョン管理要件を維持するために、バインドポリシーに影響を与えることができます。 ポリシーエンジン自体は CLR 内に残ります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

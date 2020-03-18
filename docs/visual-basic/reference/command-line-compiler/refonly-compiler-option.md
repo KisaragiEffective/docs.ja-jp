@@ -1,5 +1,5 @@
 ---
-title: -refonly (Visual Basic)
+title: -refonly
 ms.date: 03/16/2018
 f1_keywords:
 - -refonly
@@ -7,12 +7,12 @@ helpviewer_keywords:
 - /refonly compiler option [Visual Basic]
 - -refonly compiler option [Visual Basic]
 - refonly compiler option [Visual Basic]
-ms.openlocfilehash: 8e64989ac1410b51991027ffcb33e8dae0c0284b
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: b906178abf8d159083d95e41448596d512e857de
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72775564"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74348573"
 ---
 # <a name="-refonly-visual-basic"></a>-refonly (Visual Basic)
 
@@ -26,16 +26,16 @@ ms.locfileid: "72775564"
 -refonly
 ```
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 Visual Basic では、バージョン15.3 以降の `-refonly` スイッチがサポートされています。
 
-参照アセンブリは、ライブラリのパブリック API サーフェイスを表すために必要な最小限のメタデータのみを含む、特殊な種類のアセンブリです。 これには、ビルドツールでアセンブリを参照するときに重要なすべてのメンバーの宣言が含まれますが、API コントラクトに影響を与えないプライベートメンバーのすべてのメンバー実装と宣言は除外されます。 詳細については、「.NET での[参照アセンブリ](../../../standard/assembly/reference-assemblies.md)」ガイドを参照してください。
+参照アセンブリは、ライブラリのパブリック API サーフェイスを表すために必要最小限のメタデータのみを含む特殊なアセンブリです。 これには、ビルド ツールでアセンブリを参照するときに重要なすべてのメンバーの宣言が含まれます。ただし、すべてのメンバーの実装と、その API コントラクトに影響を与えないプライベート メンバーの宣言は除外されます。 詳細については、.NET のガイドの「[参照アセンブリ](../../../standard/assembly/reference-assemblies.md)」を参照してください。
 
 `-refonly` オプションと [`-refout`](refout-compiler-option.md) オプションは同時に指定できません。
 
 ## <a name="see-also"></a>関連項目
 
 - [/refout](refout-compiler-option.md)
-- [Visual Basic のコマンド ライン コンパイラ](index.md)
-- [コンパイル コマンド ラインのサンプル](sample-compilation-command-lines.md)
+- [Visual Basic コマンドラインコンパイラ](index.md)
+- [コンパイルコマンドラインのサンプル](sample-compilation-command-lines.md)

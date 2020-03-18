@@ -6,80 +6,78 @@ helpviewer_keywords:
 - debugging structures [.NET Framework]
 - structures [.NET Framework debugging]
 ms.assetid: 173ba2c2-ab34-49ae-b6a8-e5c49882bf05
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 45a4b5c2a65ae7e4c01ffc3977875e598d076557
-ms.sourcegitcommit: 5bc85ad81d96b8dc2a90ce53bada475ee5662c44
+ms.openlocfilehash: a18094fb2621478dbdb4bbf672df436234112ed0
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67025931"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76793750"
 ---
 # <a name="debugging-structures"></a>デバッグ構造体
 
 このセクションでは、デバッグ API が使用するアンマネージ構造体について説明します。
 
 ## <a name="in-this-section"></a>このセクションの内容
- [CLRDATA_ADDRESS_RANGE 構造](../../../../docs/framework/unmanaged-api/debugging/clrdata-address-range-structure.md)アドレスの範囲を定義します。
+ [CLRDATA_ADDRESS_RANGE 構造体](clrdata-address-range-structure.md)アドレス範囲を定義します。
 
- [CLRDATA_IL_ADDRESS_MAP 構造](../../../../docs/framework/unmanaged-api/debugging/clrdata-il-address-map-structure.md)アドレスへのマッピングから、IL を定義します。
+ [CLRDATA_IL_ADDRESS_MAP 構造体](clrdata-il-address-map-structure.md)IL とアドレスのマッピングを定義します。
 
- [CLR_DEBUGGING_VERSION 構造体](../../../../docs/framework/unmanaged-api/debugging/clr-debugging-version-structure.md)デバッグのための共通言語ランタイム (CLR) の製品バージョンを定義します。
+ [CLR_DEBUGGING_VERSION 構造体](clr-debugging-version-structure.md)デバッグのために共通言語ランタイム (CLR) の製品バージョンを定義します。
 
- [CodeChunkInfo 構造体](../../../../docs/framework/unmanaged-api/debugging/codechunkinfo-structure.md)メモリ内のコードの 1 つのチャンクを表します。
+ [CodeChunkInfo 構造体](codechunkinfo-structure.md)メモリ内の1つのコードチャンクを表します。
 
- [COR_ACTIVE_FUNCTION](cor-active-function-structure.md)スレッドのフレームで現在アクティブな関数についての情報が含まれています。
+ [COR_ACTIVE_FUNCTION](cor-active-function-structure.md)スレッドのフレームで現在アクティブになっている関数に関する情報を格納します。
 
- [COR_ARRAY_LAYOUT 構造体](../../../../docs/framework/unmanaged-api/debugging/cor-array-layout-structure.md)メモリ内配列オブジェクトのレイアウトに関する情報を提供します。
+ [COR_ARRAY_LAYOUT 構造体](cor-array-layout-structure.md)メモリ内の配列オブジェクトのレイアウトに関する情報を提供します。
 
- [COR_DEBUG_IL_TO_NATIVE_MAP](cor-debug-il-to-native-map-structure.md) Microsoft intermediate language (MSIL) にマップするために使用されるオフセットがネイティブ コードにコードが含まれます。
+ [COR_DEBUG_IL_TO_NATIVE_MAP](cor-debug-il-to-native-map-structure.md)Microsoft 中間言語 (MSIL) コードをネイティブコードにマップするために使用されるオフセットを格納します。
 
- [COR_DEBUG_STEP_RANGE](cor-debug-step-range-structure.md)コードの範囲に関するオフセット情報が含まれています。
+ [COR_DEBUG_STEP_RANGE](cor-debug-step-range-structure.md)コード範囲のオフセット情報を格納します。
 
- [COR_FIELD 構造体](../../../../docs/framework/unmanaged-api/debugging/cor-field-structure.md)オブジェクトのフィールドに関する情報を提供します。
+ [COR_FIELD 構造体](cor-field-structure.md)オブジェクトのフィールドに関する情報を提供します。
 
- [COR_GC_REFERENCE 構造体](../../../../docs/framework/unmanaged-api/debugging/cor-gc-reference-structure.md)ガベージ コレクトされるオブジェクトに関する情報が含まれています。
+ [COR_GC_REFERENCE 構造体](cor-gc-reference-structure.md)ガベージコレクトされるオブジェクトに関する情報を格納します。
 
- [COR_HEAPINFO 構造体](../../../../docs/framework/unmanaged-api/debugging/cor-heapinfo-structure.md)列挙可能かどうかなど、ガベージ コレクション ヒープに関する全般情報を提供します。
+ [COR_HEAPINFO 構造体](cor-heapinfo-structure.md)列挙可能かどうかなど、ガベージコレクションヒープに関する一般的な情報を提供します。
 
- [COR_HEAPOBJECT 構造体](../../../../docs/framework/unmanaged-api/debugging/cor-heapobject-structure.md)マネージ ヒープのオブジェクトに関する情報を提供します。
+ [COR_HEAPOBJECT 構造体](cor-heapobject-structure.md)マネージヒープ上のオブジェクトに関する情報を提供します。
 
- [COR_IL_MAP](cor-il-map-structure.md)関数の相対的なオフセットの変更を指定します。
+ [COR_IL_MAP](cor-il-map-structure.md)関数の相対オフセットの変更を指定します。
 
- [COR_SEGMENT 構造体](../../../../docs/framework/unmanaged-api/debugging/cor-segment-structure.md)マネージ ヒープのメモリの領域に関する情報が含まれています。
+ [COR_SEGMENT 構造体](cor-segment-structure.md)マネージヒープのメモリ領域に関する情報を格納します。
 
- [COR_TYPEID 構造体](../../../../docs/framework/unmanaged-api/debugging/cor-typeid-structure.md)型識別子が含まれています。
+ [COR_TYPEID 構造体](cor-typeid-structure.md)型識別子を格納します。
 
- [COR_TYPE_LAYOUT 構造体](../../../../docs/framework/unmanaged-api/debugging/cor-type-layout-structure.md)メモリ内のオブジェクトのレイアウトに関する情報を提供します。
+ [COR_TYPE_LAYOUT 構造体](cor-type-layout-structure.md)メモリ内のオブジェクトのレイアウトに関する情報を提供します。
 
- [COR_VERSION](cor-version-structure.md)共通言語ランタイムの標準的な 4 部構成のバージョン番号を格納します。
+ [COR_VERSION](cor-version-structure.md)共通言語ランタイムの標準の4部構成のバージョン番号を格納します。
 
- [CorDebugBlockingObject 構造体](../../../../docs/framework/unmanaged-api/debugging/cordebugblockingobject-structure.md)スレッドとスレッドがブロックされている理由の理由をブロックしているオブジェクトを定義します。
+ [CorDebugBlockingObject 構造体](cordebugblockingobject-structure.md)スレッドをブロックするオブジェクトと、スレッドがブロックされる理由を定義します。
 
- [CorDebugEHClause 構造体](../../../../docs/framework/unmanaged-api/debugging/cordebugehclause-structure.md)の中間言語 (IL) の特定の例外処理 (EH) 句を表します。
+ [CorDebugEHClause 構造体](cordebugehclause-structure.md)指定された中間言語 (IL) の例外処理 (EH) 句を表します。
 
- [CorDebugExceptionObjectStackFrame 構造体](../../../../docs/framework/unmanaged-api/debugging/cordebugexceptionobjectstackframe-structure.md)表しますスタック フレームの情報を例外オブジェクト。
+ [CorDebugExceptionObjectStackFrame 構造体](cordebugexceptionobjectstackframe-structure.md)例外オブジェクトからのスタックフレーム情報を表します。
 
- [CorDebugGuidToTypeMapping 構造体](../../../../docs/framework/unmanaged-api/debugging/cordebugguidtotypemapping-structure.md)、対応する Windows ランタイムの GUID にマップ[ICorDebugType](../../../../docs/framework/unmanaged-api/debugging/icordebugtype-interface.md)オブジェクト。
+ [Cordebugguidtotypemapping 構造体](cordebugguidtotypemapping-structure.md)Windows ランタイム GUID を対応する[テキスト](icordebugtype-interface.md)オブジェクトにマップします。
 
- [DacpGetModuleAddress 構造](../../../../docs/framework/unmanaged-api/debugging/dacpgetmoduleaddress-structure.md)モジュール アドレス要求のコンテナーを定義します。
+ [DacpGetModuleAddress 構造体](dacpgetmoduleaddress-structure.md)モジュールアドレス要求のコンテナーを定義します。
 
- [DacpMethodDescData 構造](../../../../docs/framework/unmanaged-api/debugging/dacpmethoddescdata-structure.md)トランスポートのバッファーをメソッドのランタイム情報を定義します。
+ [DacpMethodDescData 構造体](dacpmethoddescdata-structure.md)メソッドのランタイム情報のトランスポートバッファーを定義します。
 
- [DacpModuleData 構造](../../../../docs/framework/unmanaged-api/debugging/dacpmoduledata-structure.md)トランスポートのバッファーをモジュールのランタイム情報を定義します。
+ [Dacpmoduledata 構造体](dacpmoduledata-structure.md)モジュールのランタイム情報のトランスポートバッファーを定義します。
 
- [DacpReJitData 構造](../../../../docs/framework/unmanaged-api/debugging/dacprejitdata-structure.md)プロファイラー インストルメント メソッドに関する基本情報を定義します。
+ [DacpReJitData 構造体](dacprejitdata-structure.md)プロファイラーによってインストルメント化された特定のメソッドに関する基本情報を定義します。
 
- [StackTrace_SimpleContext 構造体](../../../../docs/framework/unmanaged-api/debugging/stacktrace-simplecontext-structure.md)フルの代わりに使用できる単純なコンテキスト`CONTEXT`構造体。
+ [StackTrace_SimpleContext 構造体](stacktrace-simplecontext-structure.md)完全な `CONTEXT` 構造の代わりに使用できる単純なコンテキストを提供します。
 
-## <a name="related-sections"></a>関連項目
+## <a name="related-sections"></a>関連セクション
 
- [デバッグ コクラス](../../../../docs/framework/unmanaged-api/debugging/debugging-coclasses.md)
+ [デバッグ コクラス](debugging-coclasses.md)
 
- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+ [デバッグ インターフェイス](debugging-interfaces.md)
 
- [デバッグ グローバル静的関数](../../../../docs/framework/unmanaged-api/debugging/debugging-global-static-functions.md)
+ [デバッグ グローバル静的関数](debugging-global-static-functions.md)
 
- [列挙型のデバッグ](../../../../docs/framework/unmanaged-api/debugging/debugging-enumerations.md)
+ [列挙型のデバッグ](debugging-enumerations.md)
 
- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
+ [デバッグ](index.md)

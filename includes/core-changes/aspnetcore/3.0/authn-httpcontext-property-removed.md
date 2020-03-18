@@ -1,20 +1,20 @@
 ---
-ms.openlocfilehash: 2945465bb6a3a362dc640641056712dffd73d559
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 60ebcd9fc9ca18c33d31b82ba5020426d22a7d5a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72394260"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75901922"
 ---
-### <a name="authentication-httpcontextauthentication-property-removed"></a>認証: HttpContext.Authentication プロパティが削除されました
+### <a name="authentication-httpcontextauthentication-property-removed"></a>認証:HttpContext.Authentication プロパティが削除されました
 
 `HttpContext` の非推奨の `Authentication` プロパティが削除されました。
 
 #### <a name="change-description"></a>変更の説明
 
-[aspnet/AspNetCore#6504](https://github.com/aspnet/AspNetCore/pull/6504) の一部として、`HttpContext` の非推奨の `Authentication` プロパティが削除されました。 2\.0 以降、`Authentication` プロパティは非推奨になりました。 この非推奨のプロパティを使用して新しい置換 API にコードを移行するために、[移行ガイド](/aspnet/core/migration/1x-to-2x/identity-2x?view=aspnetcore-2.2#use-httpcontext-authentication-extensions)が発行されました。 古い ASP.NET Core 1.x 認証スタックに関連する残りの未使用のクラス/API が、コミット [aspnet/AspNetCore@d7a7c65](https://github.com/aspnet/AspNetCore/commit/d7a7c65) で削除されました。
+[dotnet/aspnetcore#6504](https://github.com/dotnet/aspnetcore/pull/6504) の一部として、`HttpContext` の非推奨の `Authentication` プロパティが削除されました。 2\.0 以降、`Authentication` プロパティは非推奨になりました。 この非推奨のプロパティを使用して新しい置換 API にコードを移行するために、[移行ガイド](/aspnet/core/migration/1x-to-2x/identity-2x?view=aspnetcore-2.2#use-httpcontext-authentication-extensions)が発行されました。 古い ASP.NET Core 1.x 認証スタックに関連する残りの未使用のクラス/API が、コミット [dotnet/aspnetcore@d7a7c65](https://github.com/dotnet/aspnetcore/commit/d7a7c65) で削除されました。
 
-詳細については、[aspnet/AspNetCore#6533](https://github.com/aspnet/AspNetCore/issues/6533) を参照してください。
+ディスカッションについては、[dotnet/aspnetcore#6533](https://github.com/dotnet/aspnetcore/issues/6533) を参照してください。
 
 #### <a name="version-introduced"></a>導入されたバージョン
 
@@ -24,7 +24,7 @@ ms.locfileid: "72394260"
 
 ASP.NET Core 1.0 API が <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions?displayProperty=fullName> の拡張メソッドに置き換えられました。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 [移行ガイド](/aspnet/core/migration/1x-to-2x/identity-2x?view=aspnetcore-2.2#use-httpcontext-authentication-extensions)を参照してください。
 

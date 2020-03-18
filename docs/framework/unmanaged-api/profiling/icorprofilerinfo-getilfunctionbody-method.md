@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: e29b46bc-5fdc-4894-b0c2-619df4b65ded
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 484fb5b8398e3ebd61d1c300afec1536ee1dc0c5
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 8160bb5b9ca5e0a4e22a1a831e978eaf125e7605
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67780609"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870493"
 ---
 # <a name="icorprofilerinfogetilfunctionbody-method"></a>ICorProfilerInfo::GetILFunctionBody メソッド
-開始位置のヘッダーとして、Microsoft intermediate language (MSIL) コードでメソッドの本体にポインターを取得します。  
+Microsoft 中間言語 (MSIL) コード内のメソッドの本文へのポインターを、ヘッダーを開始位置として取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,26 +37,26 @@ HRESULT GetILFunctionBody(
   
 ## <a name="parameters"></a>パラメーター  
  `moduleId`  
- [in]関数が存在するモジュールの ID。  
+ から関数が存在するモジュールの ID。  
   
  `methodId`  
- [in]メソッドのメタデータ トークン。  
+ からメソッドのメタデータトークン。  
   
  `ppMethodHeader`  
- [out]メソッドのヘッダーへのポインター。  
+ 入出力メソッドのヘッダーへのポインター。  
   
  `pcbMethodSize`  
- [out]メソッドのサイズを指定する整数。  
+ 入出力メソッドのサイズを指定する整数。  
   
-## <a name="remarks"></a>Remarks  
- メソッドは、中で、モジュールによって制限されます。 `GetILFunctionBody`メソッドが共通言語ランタイム (CLR) によって読み込まれている前に、MSIL コードをツールへのアクセスを付与するように設計、目的のインスタンスを検索するメソッドのメタデータ トークンを使用します。  
+## <a name="remarks"></a>コメント  
+ メソッドは、それが存在するモジュールによってスコープが設定されます。 `GetILFunctionBody` メソッドは、MSIL コードが共通言語ランタイム (CLR) によって読み込まれる前に、ツールにアクセスできるように設計されているため、メソッドのメタデータトークンを使用して目的のインスタンスを検索します。  
   
- `GetILFunctionBody` CORPROF_E_FUNCTION_NOT_IL HRESULT を返す場合、`methodId`せず、任意の MSIL コード (など、抽象メソッドまたはプラットフォーム (PInvoke) のメソッドを呼び出す) メソッドを指します。  
+ `methodId` が MSIL コード (抽象メソッドや platform invoke (PInvoke) メソッドなど) を含まないメソッドを指している場合、`GetILFunctionBody` は CORPROF_E_FUNCTION_NOT_IL HRESULT を返すことができます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -66,4 +64,4 @@ HRESULT GetILFunctionBody(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerInfo インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-interface.md)
+- [ICorProfilerInfo インターフェイス](icorprofilerinfo-interface.md)

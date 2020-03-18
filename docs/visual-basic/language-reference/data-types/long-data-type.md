@@ -1,5 +1,5 @@
 ---
-title: Long 型 (Visual Basic)
+title: Long 型
 ms.date: 01/31/2018
 f1_keywords:
 - vb.Long
@@ -20,26 +20,26 @@ helpviewer_keywords:
 - data types [Visual Basic], assigning
 - Long data type
 ms.assetid: b4770c34-1804-4f8c-b512-c10b0893e516
-ms.openlocfilehash: efbe54c2495d05e8fe215690f60ba3c7ea9cfef6
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 16d7409c802e97b1f33474d810134db4d9f0ad6c
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582528"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74343972"
 ---
 # <a name="long-data-type-visual-basic"></a>Long データ型 (Visual Basic)
 
 -9223372036854775808 ~ 9223372036854775807 (9.2... E + 18) の値の範囲内で、64ビット (8 バイト) の符号付き整数を保持します。
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-@No__t_0 データ型を使用して、`Integer` データ型には大きすぎる整数値を格納します。
+`Long` データ型を使用して、`Integer` データ型には大きすぎる整数値を格納します。
 
 `Long` の既定値は 0 です。
 
 ## <a name="literal-assignments"></a>リテラルの代入
 
-@No__t_0 変数は、10進リテラル、16進リテラル、8進数リテラル、または (Visual Basic 2017 で始まる) バイナリリテラルを割り当てることによって、宣言および初期化できます。 整数リテラルが `Long` の範囲外にある場合 (つまり、<xref:System.Int64.MinValue?displayProperty=nameWithType> より小さいか、<xref:System.Int64.MaxValue?displayProperty=nameWithType> より大きい場合)、コンパイル エラーが発生します。
+`Long` 変数は、10進リテラル、16進リテラル、8進数リテラル、または (Visual Basic 2017 で始まる) バイナリリテラルを割り当てることによって、宣言および初期化できます。 整数リテラルが `Long` の範囲外にある場合 (つまり、<xref:System.Int64.MinValue?displayProperty=nameWithType> より小さいか、<xref:System.Int64.MaxValue?displayProperty=nameWithType> より大きい場合)、コンパイル エラーが発生します。
 
 次の例では、整数 4,294,967,296 を 10 進リテラル、16 進リテラル、バイナリ リテラルで表したものが、`Long` 値に割り当てられています。
 
@@ -52,7 +52,7 @@ Visual Basic 2017 以降では、次の例に示すように、アンダース�
 
 [!code-vb[long](../../../../samples/snippets/visualbasic/language-reference/data-types/numeric-literals.vb#LongS)]
 
-Visual Basic 15.5 以降では、アンダースコア文字 (`_`) をプレフィックスと16進数、バイナリ、または8進数の間の先頭の区切り記号として使用することもできます。 (例:
+Visual Basic 15.5 以降では、アンダースコア文字 (`_`) をプレフィックスと16進数、バイナリ、または8進数の間の先頭の区切り記号として使用することもできます。 次に例を示します。
 
 ```vb
 Dim number As Long = &H_0FAC_0326_1489_D68C
@@ -70,11 +70,11 @@ Dim number = &H_0FAC_0326_1489_D68CL
 
 - **相互運用に関する考慮事項。** .NET Framework 用に作成されていないコンポーネント (たとえば、オートメーションや COM オブジェクト) とやり取りする場合は、他の環境で `Long` が異なるデータ幅 (32 ビット) を持っていることに注意してください。 このようなコンポーネントに32ビットの引数を渡す場合は、新しい Visual Basic コードで `Long` の代わりに `Integer` として宣言します。
 
-- **広げ.** @No__t_0 のデータ型は、`Decimal`、`Single`、または `Double` に拡大変換されます。 これは、`Long` エラーを発生させることなく、これらの型のいずれかに <xref:System.OverflowException?displayProperty=nameWithType> を変換できることを意味します。
+- **広げ.** `Long` のデータ型は、`Decimal`、`Single`、または `Double`に拡大変換されます。 これは、`Long` エラーを発生させることなく、これらの型のいずれかに <xref:System.OverflowException?displayProperty=nameWithType> を変換できることを意味します。
 
 - **文字を入力します。** あるリテラルにリテラルの型文字 `L` を付けると、そのリテラルは `Long` に変換されます。 ある識別子に識別子の型文字 `&` を付けると、その識別子は整数型 (`Long`) に変換されます。
 
-- **フレームワークの種類。** .NET Framework において対応する型は、<xref:System.Int64?displayProperty=nameWithType> 構造体です。
+- **Framework のデータ型。** .NET Framework において対応する型は、<xref:System.Int64?displayProperty=nameWithType> 構造体です。
 
 ## <a name="see-also"></a>関連項目
 
@@ -82,6 +82,6 @@ Dim number = &H_0FAC_0326_1489_D68CL
 - [データの種類](../../../visual-basic/language-reference/data-types/index.md)
 - [Integer データ型](../../../visual-basic/language-reference/data-types/integer-data-type.md)
 - [Short データ型](../../../visual-basic/language-reference/data-types/short-data-type.md)
-- [データ型変換関数](../../../visual-basic/language-reference/functions/type-conversion-functions.md)
+- [CString](../../../visual-basic/language-reference/functions/type-conversion-functions.md)
 - [変換の概要](../../../visual-basic/language-reference/keywords/conversion-summary.md)
 - [データ型の有効な使用方法](../../../visual-basic/programming-guide/language-features/data-types/efficient-use-of-data-types.md)

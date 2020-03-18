@@ -1,13 +1,13 @@
 ---
 title: F# のコーディング規則
 description: コードを記述F#するときの一般的なガイドラインと表現方法について説明します。
-ms.date: 10/22/2019
-ms.openlocfilehash: 6700f64aa61308cbfc0b7a38724d69a281a088db
-ms.sourcegitcommit: 9bd1c09128e012b6e34bdcbdf3576379f58f3137
+ms.date: 01/15/2020
+ms.openlocfilehash: ca86bcf714d2fb4ee5f173ee54ba12c317f9abe7
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799104"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76737827"
 ---
 # <a name="f-coding-conventions"></a>F# のコーディング規則
 
@@ -36,7 +36,7 @@ type MyClass() =
     ...
 ```
 
-トップレベルモジュールの使用は、からF#のみ呼び出された場合には異なる場合C#がありますが、コンシューマーにとっては、`MyCode`モジュールで`MyClass`を修飾する必要があるため、呼び出し元が驚かれる可能性があります。
+トップレベルモジュールの使用は、からF#のみ呼び出された場合には異なる場合C#がありますが、コンシューマーにとっては、`MyCode` モジュールで `MyClass` を修飾する必要があるため、呼び出し元が驚かれる可能性があります。
 
 ```fsharp
 // Bad!
@@ -48,7 +48,7 @@ type MyClass() =
 
 ### <a name="carefully-apply-autoopen"></a>慎重に `[<AutoOpen>]` を適用する
 
-`[<AutoOpen>]` コンストラクトは、呼び出し元が使用できるもののスコープを汚染ことができます。また、その結果は "マジック" になります。 通常、これは適切な方法ではありません。 このルールの例外はF#コアライブラリ自体です (ただし、これは少しの議論でもあります)。
+`[<AutoOpen>]` コンストラクトは、呼び出し元が使用できるもののスコープを汚染ことができます。また、その結果は "マジック" になります。 これは適切な方法ではありません。 このルールの例外はF#コアライブラリ自体です (ただし、これは少しの議論でもあります)。
 
 ただし、パブリック api のヘルパー機能があり、パブリック api とは別に整理する必要がある場合に便利です。
 
@@ -89,9 +89,9 @@ let parsed = StringTokenization.parse s // Must qualify to use 'parse'
 
 ### <a name="sort-open-statements-topologically"></a>`open` ステートメントの並べ替え位相的
 
-でF#は、`open`ステートメントを含め、宣言の順序が重要になります。 これはとC#は異なります。`using`および`using static`の効果は、ファイル内のステートメントの順序に依存しません。
+でF#は、`open` ステートメントを含め、宣言の順序が重要になります。 これはとC#は異なります。 `using` および `using static` の効果は、ファイル内のステートメントの順序に依存しません。
 
-でF#は、スコープ内で開かれた要素は、既に存在する他の要素をシャドウできます。 これは、`open` ステートメントの順序を変更すると、コードの意味が変更される可能性があることを意味します。 結果として、すべての `open` ステートメント (英数字順など) の任意の並べ替えを使用することは、通常は推奨されません。ようを使用すると、想定した動作が異なる場合があります。
+でF#は、スコープ内で開かれた要素は、既に存在する他の要素をシャドウできます。 これは、`open` ステートメントの順序を変更すると、コードの意味が変更される可能性があることを意味します。 その結果、すべての `open` ステートメント (英数字順など) の任意の並べ替えを行うことは推奨されません。ようを使用すると、必要に応じて異なる動作が生成されます。
 
 代わりに、[位相的](https://en.wikipedia.org/wiki/Topological_sorting)を並べ替えることをお勧めします。つまり、`open` ステートメントは、システムの_層_が定義されている順序で並べ替えます。 異なるトポロジレイヤー内で英数字の並べ替えを行うこともできます。
 
@@ -172,8 +172,8 @@ module MyApi =
 
 ```fsharp
 type MyParametricApi(dep1, dep2, dep3) =
-    member __.Function1 arg1 = doStuffWith dep1 dep2 dep3 arg1
-    member __.Function2 arg2 = doStuffWith dep1 dep2 dep3 arg2
+    member _.Function1 arg1 = doStuffWith dep1 dep2 dep3 arg1
+    member _.Function2 arg2 = doStuffWith dep1 dep2 dep3 arg2
 ```
 
 これにより、次のことが可能になります。
@@ -189,7 +189,7 @@ type MyParametricApi(dep1, dep2, dep3) =
 
 ### <a name="represent-error-cases-and-illegal-state-in-types-intrinsic-to-your-domain"></a>ドメインに固有の型のエラーケースと無効な状態を表します。
 
-[判別共用体](../language-reference/discriminated-unions.md)をF#使用すると、によって、型システム内の問題のあるプログラムの状態を表すことができます。 (例:
+[判別共用体](../language-reference/discriminated-unions.md)をF#使用すると、によって、型システム内の問題のあるプログラムの状態を表すことができます。 次に例を示します。
 
 ```fsharp
 type MoneyWithdrawalResult =
@@ -224,7 +224,7 @@ let handleWithdrawal amount =
 
 例外を発生させるF#ためにで使用できる主な構成要素は、次の優先順位で考慮する必要があります。
 
-| 機能 | 構文 | 目的 |
+| Function | 構文 | 目的 |
 |----------|--------|---------|
 | `nullArg` | `nullArg "argumentName"` | 指定された引数名を使用して `System.ArgumentNullException` を発生させます。 |
 | `invalidArg` | `invalidArg "argumentName" "message"` | 指定された引数名とメッセージを使用して `System.ArgumentException` を発生させます。 |
@@ -239,7 +239,7 @@ let handleWithdrawal amount =
 
 ### <a name="using-exception-handling-syntax"></a>例外処理構文の使用
 
-F#では、`try...with`構文を使用した例外パターンがサポートされています。
+F#では、`try...with` 構文を使用した例外パターンがサポートされています。
 
 ```fsharp
 try
@@ -320,7 +320,7 @@ let tryReadAllTextIfPresent (path : string) =
 
 ## <a name="partial-application-and-point-free-programming"></a>部分的なアプリケーションとポイントフリープログラミング
 
-F#部分アプリケーションをサポートします。したがって、ポイントフリースタイルでプログラミングするさまざまな方法がサポートされます。 これは、モジュール内でのコードの再利用や何らかの実装に役立ちますが、一般に公開するものではありません。 一般に、ポイントフリープログラミングは、それ自体とは関係がありません。そのため、スタイルに専念ない人にとって重要な認知バリアを追加できます。
+F#部分アプリケーションをサポートします。したがって、ポイントフリースタイルでプログラミングするさまざまな方法がサポートされます。 これは、モジュール内でのコードの再利用や何らかの実装に役立ちますが、パブリックに公開するものではありません。 一般に、ポイントフリープログラミングは、それ自体とは関係がありません。そのため、スタイルに専念ない人にとって重要な認知バリアを追加できます。
 
 ### <a name="do-not-use-partial-application-and-currying-in-public-apis"></a>パブリック Api で部分的なアプリケーションとカリー化を使用しない
 
@@ -373,7 +373,7 @@ module Transactions =
         ...
 
 type Transactor(ctx, currentBalance) =
-    member __.ExecuteTransaction(txnType) =
+    member _.ExecuteTransaction(txnType) =
         Transactions.doTransaction ctx txtType currentBalance
         ...
 ```
@@ -401,8 +401,8 @@ open TransactionsTestingUtil.TransactionsTestable
 
 let testableContext =
     { new ITransactionContext with
-        member __.TheFirstMember() = ...
-        member __.TheSecondMember() = ... }
+        member _.TheFirstMember() = ...
+        member _.TheSecondMember() = ... }
 
 let transactionRoutine = getTestableTransactionRoutine testableContext
 
@@ -437,17 +437,124 @@ F#には、.NET ランタイムで使用できるものから継承された[ア
 
 * 汎用型パラメーターには、パラメーターを使用して名前を付けることを検討してください。
 
-    これは .NET での作業を行うための一般的な方法であるため、スネークケースやキャメルケースではなく、パスワードを使用することをお勧めします。
+    これは .NET での作業を行うための一般的な方法であるため、snake_case またはキャメルケースではなく、パスワードを使用することをお勧めします。
 
 最後に、または大規模なコードベースを初めて使用するF#ユーザーにとっては、自動汎化が常に行われるとは限りません。 汎用のコンポーネントを使用する場合、認識オーバーヘッドが発生します。 さらに、自動的に一般化された関数がさまざまな入力型で使用されていない場合 (そのように使用することを意図している場合のみ)、その時点でジェネリックになるという実際の利点はありません。 記述しているコードが実際にジェネリックになるかどうかを常に考慮してください。
 
 ## <a name="performance"></a>パフォーマンス
 
-F#既定では、値は変更できません。これにより、特定のクラスのバグ (特に同時実行性と並列処理を伴うもの) を回避できます。 ただし、場合によっては、実行時間やメモリの割り当てを最適 (または妥当な方法で) 効率よく実現するために、状態のインプレース変化を使用して作業の範囲を実装することをお勧めします。 これは、`mutable`キーワードを使用したでF#のオプトインに使用できます。
+### <a name="prefer-structs-for-small-data-types"></a>小さいデータ型に対して構造体を優先する
 
-ただし、の `mutable` を使用F#すると、機能的な純度があると思われる場合があります。 これは、純度から[参照透明度](https://en.wikipedia.org/wiki/Referential_transparency)までの予測を調整する場合には問題ありません。 参照透明度-純度ではない-関数を記述F#する場合の最終的な目標です。 これにより、パフォーマンスクリティカルなコード用の変異型の実装に対して機能インターフェイスを記述できます。
+構造体 (値型とも呼ばれます) を使用すると、多くの場合、オブジェクトの割り当てが回避されるため、一部のコードのパフォーマンスが向上します。 ただし、構造体は常に "高速に進む" ボタンではありません。構造体のデータのサイズが16バイトを超えた場合、データをコピーすると、参照型を使用するよりも多くの CPU 時間が消費される可能性があります。
 
-### <a name="wrap-mutable-code-in-immutable-interfaces"></a>変更可能なコードを変更できないインターフェイスにラップする
+構造体を使用する必要があるかどうかを判断するには、次の条件を考慮してください。
+
+- データのサイズが16バイト以下の場合。
+- これらのデータ型の多くが、実行中のプログラムのメモリに常駐している可能性が高い場合。
+
+最初の条件が適用される場合は、通常、構造体を使用する必要があります。 両方とも適用される場合は、ほとんどの場合、構造体を使用する必要があります。 前の条件が適用される場合もありますが、構造体の使用は参照型を使用するよりも適切ではなく、最悪の場合もあります。 ただし、このような変更を行う場合は常に測定することが重要です。また、想定または直感には作用しません。
+
+#### <a name="prefer-struct-tuples-when-grouping-small-value-types"></a>小さい値の型をグループ化するときに構造体の組を優先する
+
+次の2つの関数について考えてみます。
+
+```fsharp
+let rec runWithTuple t offset times =
+    let offsetValues x y z offset =
+        (x + offset, y + offset, z + offset)
+
+    if times <= 0 then
+        t
+    else
+        let (x, y, z) = t
+        let r = offsetValues x y z offset
+        runWithTuple r offset (times - 1)
+
+let rec runWithStructTuple t offset times =
+    let offsetValues x y z offset =
+        struct(x + offset, y + offset, z + offset)
+
+    if times <= 0 then
+        t
+    else
+        let struct(x, y, z) = t
+        let r = offsetValues x y z offset
+        runWithStructTuple r offset (times - 1)
+```
+
+これらの関数を[BenchmarkDotNet](https://benchmarkdotnet.org/)のような統計ベンチマークツールでベンチマークする場合は、構造体のタプルを使用する `runWithStructTuple` 関数が40% 高速に実行され、メモリが割り当てられないことがわかります。
+
+ただし、これらの結果は、常に独自のコードには当てはまりません。 関数を `inline`としてマークすると、参照タプルを使用しているコードがいくつかの追加の最適化を受ける可能性があります。または、割り当てられるコードが単に最適化されている可能性があります。 パフォーマンスに懸念がある場合は常に結果を測定し、想定または直感に基づいて動作することはありません。
+
+#### <a name="prefer-struct-records-when-the-data-type-is-small"></a>データ型が小さい場合に構造体レコードを優先する
+
+前述の経験則では、レコードの[ F#種類](../language-reference/records.md)も保持しています。 これらを処理する次のデータ型と関数について考えてみます。
+
+```fsharp
+type Point = { X: float; Y: float; Z: float }
+
+[<Struct>]
+type SPoint = { X: float; Y: float; Z: float }
+
+let rec processPoint (p: Point) offset times =
+    let inline offsetValues (p: Point) offset =
+        { p with X = p.X + offset; Y = p.Y + offset; Z = p.Z + offset }
+
+    if times <= 0 then
+        p
+    else
+        let r = offsetValues p offset
+        processPoint r offset (times - 1)
+
+let rec processStructPoint (p: SPoint) offset times =
+    let inline offsetValues (p: SPoint) offset =
+        { p with X = p.X + offset; Y = p.Y + offset; Z = p.Z + offset }
+
+    if times <= 0 then
+        p
+    else
+        let r = offsetValues p offset
+        processStructPoint r offset (times - 1)
+```
+
+これは前の組コードに似ていますが、今回の例ではレコードとインライン内部関数を使用します。
+
+これらの関数を[BenchmarkDotNet](https://benchmarkdotnet.org/)のような統計ベンチマークツールでベンチマークすると、`processStructPoint` が約60% 高速に実行され、マネージヒープには何も割り当てられません。
+
+#### <a name="prefer-struct-discriminated-unions-when-the-data-type-is-small"></a>データ型が小さい場合に構造体の判別共用体を優先する
+
+構造体の[ F# ](../language-reference/discriminated-unions.md)組とレコードを使用したパフォーマンスに関する前の観察でも、判別共用体が保持されます。 次のコードについて考えてみましょう。
+
+```fsharp
+    type Name = Name of string
+    
+    [<Struct>]
+    type SName = SName of string
+
+    let reverseName (Name s) =
+        s.ToCharArray()
+        |> Array.rev
+        |> string
+        |> Name
+
+    let structReverseName (SName s) =
+        s.ToCharArray()
+        |> Array.rev
+        |> string
+        |> SName
+```
+
+ドメインのモデリングには、このような単一ケースの判別共用体を定義するのが一般的です。 これらの関数を[BenchmarkDotNet](https://benchmarkdotnet.org/)のような統計ベンチマークツールでベンチマークする場合、`structReverseName` は小さい文字列の `reverseName` よりも約25% 高速に実行されることがわかります。 大きな文字列の場合は、どちらも同じを実行します。 そのため、この場合は、常に構造体を使用することをお勧めします。 既に説明したように、は常に測定し、想定または直感には作用しません。
+
+前の例では、struct 判別共用体がパフォーマンスを向上させたことが示されていましたが、ドメインをモデル化する場合は、より大きな判別共用体を使用するのが一般的です。 このような大規模なデータ型は、それに対する操作に応じて構造体である場合には、より多くのコピーが関係する可能性があるため、実行できない可能性があります。
+
+### <a name="functional-programming-and-mutation"></a>関数型プログラミングと変異
+
+F#既定では、値は変更できません。これにより、特定のクラスのバグ (特に同時実行性と並列処理を伴うもの) を回避できます。 ただし、場合によっては、実行時間やメモリの割り当てを最適 (または妥当な方法で) 効率よく実現するために、状態のインプレース変化を使用して作業の範囲を実装することをお勧めします。 これは、`mutable` キーワードを使用したでF#のオプトインに使用できます。
+
+の `mutable` を使用F#すると、機能的な純度があると思われるかもしれません。 これは理解しやすいものですが、パフォーマンスの目標に関しては、あらゆる場所で機能的な純度を持つことができます。 妥協点は、呼び出し元が関数を呼び出したときの動作を気にする必要がないように、変異をカプセル化することです。 これにより、パフォーマンスクリティカルなコードのために、変異型の実装に対して機能インターフェイスを記述できます。
+
+#### <a name="wrap-mutable-code-in-immutable-interfaces"></a>変更可能なコードを変更できないインターフェイスにラップする
 
 参照の透明性を目標として、パフォーマンスが重要な関数の変更可能な underbelly を公開しないコードを記述することが重要です。 たとえば、次のコードでは、 F#コアライブラリの `Array.contains` 関数を実装しています。
 
@@ -465,7 +572,7 @@ let inline contains value (array:'T[]) =
 
 この関数を複数回呼び出しても、基になる配列が変更されることはありません。また、使用中に変更可能な状態を維持する必要もありません。 その中のほぼすべてのコード行で変異が使用されていても、透過的に透過的になります。
 
-### <a name="consider-encapsulating-mutable-data-in-classes"></a>変更可能なデータをクラスにカプセル化することを検討する
+#### <a name="consider-encapsulating-mutable-data-in-classes"></a>変更可能なデータをクラスにカプセル化することを検討する
 
 前の例では、変更可能なデータを使用して操作をカプセル化するために単一の関数を使用しています これは、より複雑なデータセットには必ずしも十分ではありません。 次の一連の関数について考えてみます。
 
@@ -495,15 +602,15 @@ open System.Collections.Generic
 type Closure1Table() =
     let t = Dictionary<Item0, HashSet<TerminalIndex>>()
 
-    member __.Add(key, value) =
+    member _.Add(key, value) =
         if not (t.ContainsKey(key)) then
             t.Add(key, value)
         else
             t.[key] <- value
 
-    member __.Count = t.Count
+    member _.Count = t.Count
 
-    member __.Contains(key, value) =
+    member _.Contains(key, value) =
         match t.TryGetValue(key) with
         | (true, v) -> v.Equals(value)
         | (false, _) -> false
@@ -511,9 +618,9 @@ type Closure1Table() =
 
 `Closure1Table` は、基になる変異ベースのデータ構造をカプセル化するため、呼び出し元が基になるデータ構造を維持することはできません。 クラスは、呼び出し元に詳細情報を公開せずに、変異ベースのデータとルーチンをカプセル化するための強力な方法です。
 
-### <a name="prefer-let-mutable-to-reference-cells"></a>セルの参照に `let mutable` を優先する
+#### <a name="prefer-let-mutable-to-reference-cells"></a>セルの参照に `let mutable` を優先する
 
-参照セルは、値自体ではなく、値への参照を表す方法です。 パフォーマンスクリティカルなコードに使用することもできますが、通常は推奨されません。 次に例を示します。
+参照セルは、値自体ではなく、値への参照を表す方法です。 パフォーマンスクリティカルなコードには使用できますが、推奨されません。 次の例を確認してください。
 
 ```fsharp
 let kernels =
@@ -565,10 +672,10 @@ F#では、オブジェクトとオブジェクト指向 (OO) の概念が完全
 * 自動プロパティ
 * `IDisposable` と `IEnumerable` の実装
 * 型拡張
-* イベント
+* events
 * 構造体
 * デリゲート
-* 列挙体
+* 列挙型
 
 **一般に、これらの機能を使用する必要がない場合は、次のようにしてください。**
 

@@ -20,14 +20,12 @@ helpviewer_keywords:
 - waiting for asynchronous calls
 - status information [.NET Framework], asynchronous operations
 ms.assetid: 41972034-92ed-450a-9664-ab93fcc6f1fb
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 342af20b78ae996bb61c6b563ecf42137ee51022
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 06df584f0120fbd4978e18647854a3ee844a2095
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64629102"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73105125"
 ---
 # <a name="calling-synchronous-methods-asynchronously"></a>同期メソッドの非同期呼び出し
 

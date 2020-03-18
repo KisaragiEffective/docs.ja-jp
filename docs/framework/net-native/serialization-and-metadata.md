@@ -2,14 +2,12 @@
 title: シリアル化とメタデータ
 ms.date: 03/30/2017
 ms.assetid: 619ecf1c-1ca5-4d66-8934-62fe7aad78c6
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ec8180da9637ec2b2c4e1b432773b4f9f1ac908b
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 1805b6ca06d584237303d1366222419da3e8b9ef
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049180"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128123"
 ---
 # <a name="serialization-and-metadata"></a>シリアル化とメタデータ
 
@@ -47,7 +45,7 @@ ms.locfileid: "71049180"
   
 ### <a name="typeof-used-outside-the-constructor"></a>コンストラクターの外部で使用される typeof
 
- 次のコードのように、これらのシリアル化クラスC#のコンストラクターを呼び出し、コンストラクターの<xref:System.Type>パラメーターに指定された式の外側で[typeof](../../csharp/language-reference/operators/type-testing-and-cast.md#typeof-operator)演算子を使用した場合、.NET ネイティブコンパイラは型を解決できません。  
+ 次のコードのように、これらのシリアル化クラスC#のコンストラクターを呼び出し、コンストラクターの <xref:System.Type> パラメーターに指定された式の外側で[typeof](../../csharp/language-reference/operators/type-testing-and-cast.md#typeof-operator)演算子を使用すると、.NET ネイティブコンパイラは型を解決できません。  
   
  [!code-csharp[ProjectN#6](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn/cs/serialize1.cs#6)]  
   
@@ -57,7 +55,7 @@ ms.locfileid: "71049180"
 <Type Name="DataSet" Browse="Required Public" />  
 ```  
   
- 同様に、のような<xref:System.Xml.Serialization.XmlSerializer.%23ctor%28System.Type%2CSystem.Type%5B%5D%29?displayProperty=nameWithType>コンストラクターを呼び出し、次のコードのように、シリアル化する追加<xref:System.Type>のオブジェクトの配列を指定すると、.NET ネイティブコンパイラはこれらの型を解決できません。  
+ 同様に、次のコードのように、<xref:System.Xml.Serialization.XmlSerializer.%23ctor%28System.Type%2CSystem.Type%5B%5D%29?displayProperty=nameWithType> などのコンストラクターを呼び出して、シリアル化する追加の <xref:System.Type> オブジェクトの配列を指定すると、.NET ネイティブコンパイラはこれらの型を解決できません。  
   
  [!code-csharp[ProjectN#7](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn/cs/serialize1.cs#7)]  
   
@@ -73,5 +71,5 @@ ms.locfileid: "71049180"
 
 - [ランタイム ディレクティブ (rd.xml) 構成ファイル リファレンス](runtime-directives-rd-xml-configuration-file-reference.md)
 - [ランタイム ディレクティブ要素](runtime-directive-elements.md)
-- [\<> 要素を入力します](type-element-net-native.md)
+- [\<Type > 要素](type-element-net-native.md)
 - [\<Namespace > 要素](namespace-element-net-native.md)

@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 694c0fa0-7011-41a9-9dfd-f0e16ea574b5
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 9fb1dff80fccc920540d370797441b3a019d766c
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 5f83cb96e39b257a1d35786130cd5ed31d071de7
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67780920"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74443871"
 ---
 # <a name="corattributetargets-enumeration"></a>CorAttributeTargets 列挙型
 属性を適用できるアプリケーション要素を指定します。  
@@ -64,35 +62,35 @@ typedef enum CorAttributeTargets
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`catAssembly`|属性は、アセンブリに適用できます。|  
-|`catModule`|属性は、ポータブル実行可能ファイル (.dll または .exe) モジュールに適用できます。|  
-|`catClass`|属性は、クラスに適用できます。|  
-|`catStruct`|構造体に属性を適用できます。つまり、値を入力します。|  
-|`catEnum`|属性は、列挙体に適用できます。|  
-|`catConstructor`|属性は、コンス トラクターに適用できます。|  
-|`catMethod`|属性は、メソッドに適用できます。|  
-|`catProperty`|属性は、プロパティに適用できます。|  
-|`catField`|属性は、フィールドに適用できます。|  
-|`catEvent`|属性は、イベントに適用できます。|  
-|`catInterface`|属性は、インターフェイスに適用できます。|  
-|`catParameter`|属性は、パラメーターに適用できます。|  
-|`catDelegate`|属性は、デリゲートに適用できます。|  
-|`catGenericParameter`|属性は、ジェネリック パラメーターに適用できます。|  
-|`catAll`|属性は、任意のアプリケーション要素に適用できます。|  
+|`catAssembly`|アセンブリに属性を適用できます。|  
+|`catModule`|属性は、移植可能な実行可能ファイル (.dll または .exe) モジュールに適用できます。|  
+|`catClass`|クラスに属性を適用できます。|  
+|`catStruct`|構造体に属性を適用できます。つまり、値型です。|  
+|`catEnum`|属性を列挙に適用できます。|  
+|`catConstructor`|コンストラクターに属性を適用できます。|  
+|`catMethod`|メソッドに属性を適用できます。|  
+|`catProperty`|属性をプロパティに適用できます。|  
+|`catField`|フィールドに属性を適用できます。|  
+|`catEvent`|イベントに属性を適用できます。|  
+|`catInterface`|インターフェイスに属性を適用できます。|  
+|`catParameter`|パラメーターに属性を適用できます。|  
+|`catDelegate`|デリゲートに属性を適用できます。|  
+|`catGenericParameter`|ジェネリックパラメーターに属性を適用できます。|  
+|`catAll`|任意のアプリケーション要素に属性を適用できます。|  
 |`catClassMembers`|属性は、クラスのメンバーに適用できます。|  
   
-## <a name="remarks"></a>Remarks  
- `CorAttributeTargets`列挙値は、任意の組み合わせを取得するビットごとの OR 演算と組み合わせることができます。  
+## <a name="remarks"></a>コメント  
+ `CorAttributeTargets` 列挙値をビットごとの OR 演算と組み合わせて、適切な組み合わせを取得できます。  
   
- `CorAttributeTargets`マネージ対応<xref:System.AttributeTargets?displayProperty=nameWithType>列挙体。  
+ `CorAttributeTargets` は、マネージ <xref:System.AttributeTargets?displayProperty=nameWithType> 列挙体と同じです。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

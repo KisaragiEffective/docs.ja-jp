@@ -8,12 +8,12 @@ helpviewer_keywords:
 - what's new [Visual Basic]
 - Visual Basic, what's new
 ms.assetid: d7e97396-7f42-4873-a81c-4ebcc4b6ca02
-ms.openlocfilehash: f5630f7947125dd5eb8a5b58e79add1aec4c689b
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 45763504c2d25596b0adfb4b8a0236b332d89e8c
+ms.sourcegitcommit: 32a575bf4adccc901f00e264f92b759ced633379
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72774918"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74802053"
 ---
 # <a name="whats-new-for-visual-basic"></a>Visual Basic の新機能
 
@@ -206,13 +206,13 @@ C# 7.0 以降の C# は参照戻り値に対応しています。 つまり、�
 
 ## <a name="visual-basic-14"></a>Visual Basic 14
 
-[nameof](../../csharp/language-reference/operators/nameof.md)
+[NameOf](../language-reference/operators/nameof.md)
 
 文字列をハードコーディングせずにエラー メッセージで使用するための型またはメンバーの非修飾文字列名を取得できます。  これにより、リファクタリングするときにコードは正しい状態を保てます。  この機能は、またモデル-ビュー-コントローラーの MVC のリンクをフックし、プロパティ変更イベントを発生させるためにも役立ちます。
 
 [文字列補間](../../visual-basic/programming-guide/language-features/strings/interpolated-strings.md)
 
-文字列補間式を使用して、文字列を構築することができます。  補間文字列式は、式が含まれているテンプレート文字列のように見えます。  引数に関しては、補間文字列は[複合書式指定](../../standard/base-types/composite-format.md)より理解しやすくなっています。
+文字列補間式を使用して、文字列を構築することができます。  補間文字列式は、式が含まれているテンプレート文字列のように見えます。  引数に関しては、補間文字列は[複合書式指定](../../standard/base-types/composite-formatting.md)より理解しやすくなっています。
 
 [Null 条件メンバー アクセスとインデックス作成](../language-reference/operators/null-conditional-operators.md)
 
@@ -291,4 +291,5 @@ End Interface
 
 ## <a name="see-also"></a>関連項目
 
-- [Visual Studio 2017 の新機能](/visualstudio/ide/whats-new-in-visual-studio)
+- [Visual Studio 2017 の新機能](/visualstudio/ide/whats-new-visual-studio-2017)
+- [Visual Studio 2019 の新機能](/visualstudio/ide/whats-new-visual-studio-2019)

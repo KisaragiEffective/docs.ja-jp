@@ -15,16 +15,16 @@ topic_type:
 - apiref
 author: hoyosjs
 ms.author: juhoyosa
-ms.openlocfilehash: 97079b824dbd0e056374af4173e49304babd6c32
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: cc54664ea8ad61005de3f3fae7407946d1c861b2
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67739134"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76793842"
 ---
 # <a name="dacpmethoddescdata-structure"></a>DacpMethodDescData 構造体
 
-トランスポートのバッファー、メソッドのランタイム情報を定義します。
+メソッドのランタイム情報のトランスポートバッファーを定義します。
 
 [!INCLUDE[debugging-api-recommended-note](../../../../includes/debugging-api-recommended-note.md)]
 
@@ -56,35 +56,35 @@ struct DacpMethodDescData
 
 | メンバー                       | 説明                                                                                     |
 | ---------------------------- | ----------------------------------------------------------------------------------------------- |
-| `bHasNativeCode`             | ランタイムがメソッドの特定のインスタンスを作成して使用可能なネイティブ コードを持つかどうかを示します。 |
-| `bIsDynamic`                 | メソッドが、簡易コード生成を動的に生成されるかどうかを示します。           |
-| `wSlotNumber`                | メソッドの表に、メソッドのスロット番号。                                                   |
-| `NativeCodeAddr`             | メソッドの最初のネイティブ アドレス。                                                            |
-| `data`                       | ランタイムによって内部的に使用するバッファーへのポインター。                                             |
-| `MethodDescPtr`              | ポインター、`MethodDesc`ランタイム。                                                     |
-| `nativeCodeInfo`             | メソッドを追跡するために、ランタイムによって内部的に使用するバッファーへのポインター。                            |
-| `moduleInfo`                 | モジュールは、ランタイムによって内部的に使用するバッファーへのポインター。                      |
-| `MDToken`                    | 指定されたメソッドに関連付けられているトークンです。                                                         |
-| `payloadGC`                  | ランタイムによって内部的に使用するガベージ コレクション バッファーへのポインター。                          |
-| `payloadGC2`                 | ランタイムによって内部的に使用するガベージ コレクション バッファーへのポインター。                          |
-| `managedDynamicMethodObject` | 動的メソッドの場合、ランタイムはこのバッファー内部的に追跡情報をします。     |
-| `requestedIP`                | ネイティブ コードのアドレスが指定されているとき、要求につき構造体を設定するために使用します。                    |
-| `rejitDataCurrent`           | インストルメント化された最新バージョンのメソッドについて説明します。                                   |
-| `rejitDataRequested`         | 要求されたネイティブのアドレスの Rejit 情報。                                             |
-| `cJittedRejitVersions`       | メソッドは実装を通じて rejitted された回数。                           |
+| `bHasNativeCode`             | メソッドの特定のインスタンス化に対してランタイムにネイティブコードがあるかどうかを示します。 |
+| `bIsDynamic`                 | 軽量コード生成によってメソッドが動的に生成されるかどうかを示します。           |
+| `wSlotNumber`                | メソッドテーブル内のメソッドのスロット番号。                                                   |
+| `NativeCodeAddr`             | メソッドの初期ネイティブアドレス。                                                            |
+| `data`                       | ランタイムによって内部的に使用されるバッファーへのポインター。                                             |
+| `MethodDescPtr`              | ランタイム内の `MethodDesc` へのポインター。                                                     |
+| `nativeCodeInfo`             | メソッドを追跡するためにランタイムによって内部的に使用されるバッファーへのポインター。                            |
+| `moduleInfo`                 | モジュール情報のランタイムによって内部的に使用されるバッファーへのポインター。                      |
+| `MDToken`                    | 指定したメソッドに関連付けられているトークン。                                                         |
+| `payloadGC`                  | ランタイムによって内部的に使用されるガベージコレクションバッファーへのポインター。                          |
+| `payloadGC2`                 | ランタイムによって内部的に使用されるガベージコレクションバッファーへのポインター。                          |
+| `managedDynamicMethodObject` | メソッドが動的である場合、ランタイムは情報追跡のためにこのバッファーを内部的に使用します。     |
+| `requestedIP`                | ネイティブコードアドレスが指定された場合に、要求ごとに構造体を設定するために使用されます。                    |
+| `rejitDataCurrent`           | メソッドのインストルメント化された最新バージョンに関する情報。                                   |
+| `rejitDataRequested`         | 要求されたネイティブアドレスの rejit 情報。                                             |
+| `cJittedRejitVersions`       | メソッドがインストルメンテーションによって rejitted された回数。                           |
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-この構造は、ランタイム内に収めるし、任意のヘッダーまたはライブラリ ファイルでは公開されません。 これを使用するには、上で指定した構造を定義します。
+この構造体はランタイム内に存在し、ヘッダーまたはライブラリファイルを介して公開されることはありません。 これを使用するには、前に示したように構造体を定義します。
 
-## <a name="requirements"></a>必要条件
-**プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
-**ヘッダー:** なし  
-**ライブラリ:** なし  
+## <a name="requirements"></a>要件
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
+**ヘッダー:** 存在  
+**ライブラリ:** 存在  
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v47plus](../../../../includes/net-current-v47plus.md)]  
 
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
-- [デバッグ構造体](../../../../docs/framework/unmanaged-api/debugging/debugging-structures.md)
+- [デバッグ](index.md)
+- [デバッグ構造体](debugging-structures.md)
 - [共有のデータ型](../../../../docs/framework/unmanaged-api/common-data-types-unmanaged-api-reference.md)

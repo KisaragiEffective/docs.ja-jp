@@ -6,14 +6,12 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 23a763ea-8348-4244-9f8c-a4280b870b47
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 22cf168c660349bda16c59aec4824e3283430807
-ms.sourcegitcommit: c4e9d05644c9cb89de5ce6002723de107ea2e2c4
+ms.openlocfilehash: 7413c3fae7d7189ec8dca43b0c77f6b56158f416
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65877939"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78159469"
 ---
 # <a name="how-to-convert-between-net-framework-and-windows-runtime-streams-windows-only"></a>方法: .NET Framework ストリームと Windows ランタイム ストリームの間で変換を行う (Windows のみ)
 
@@ -30,7 +28,7 @@ Windows ランタイム ストリームから .NET Framework ストリームに�
   
 - <xref:System.IO.WindowsRuntimeStreamExtensions.AsStreamForRead%2A?displayProperty=nameWithType> は、Windows ランタイムの入力ストリームを UWP アプリ用 .NET のマネージド ストリームに変換します。
 
-Windows ランタイムでは、読み取り専用、書き込み専用、または読み取りと書き込みをサポートするストリームの種類が提供されています。 Windows ランタイム ストリームを .NET Framework ストリームに変換するとき、これらの機能は維持されます。 さらに、Windows ランタイム ストリームを .NET Framework ストリームに変換してから元に戻すと、元の Windows ランタイム インスタンスに戻ります。 
+Windows ランタイムでは、読み取り専用、書き込み専用、または読み取りと書き込みをサポートするストリームの種類が提供されています。 Windows ランタイム ストリームを .NET Framework ストリームに変換するとき、これらの機能は維持されます。 さらに、Windows ランタイム ストリームを .NET Framework ストリームに変換してから元に戻すと、元の Windows ランタイム インスタンスに戻ります。
 
 変換する Windows ランタイム ストリームの機能と一致する変換メソッドを使用することをお勧めします。 ただし、<xref:Windows.Storage.Streams.IRandomAccessStream> は読み取りも書き込みも可能なので (<xref:Windows.Storage.Streams.IOutputStream> と <xref:Windows.Storage.Streams.IInputStream> の両方を実装しているので)、変換メソッドでは元のストリームの機能が維持されます。 たとえば、<xref:System.IO.WindowsRuntimeStreamExtensions.AsStreamForRead%2A?displayProperty=nameWithType> を使用して <xref:Windows.Storage.Streams.IRandomAccessStream> を変換しても、変換された .NET Framework ストリームが読み取り可能に制限されるわけではありません。 書き込みも可能です。
 

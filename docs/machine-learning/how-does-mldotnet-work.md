@@ -1,42 +1,46 @@
 ---
 title: ML.NET の概要とそのしくみ
 description: ML.NET を使用すると、オンラインまたはオフラインのどちらのシナリオでも、.NET アプリケーションに機械学習を追加できます。 この機能により、データを使った自動予測をアプリケーションで利用できるようになります。ML.NET を使うためにネットワークに接続する必要はありません。 この記事では、ML.NET の機械学習の基本について説明します。
-ms.date: 09/27/2019
+ms.date: 11/5/2019
 ms.topic: overview
 ms.custom: mvc
-ms.author: nakersha
-author: natke
-ms.openlocfilehash: 1ae6b82ada841ad172cbe6a59b667aaaf619e714
-ms.sourcegitcommit: 35da8fb45b4cca4e59cc99a5c56262c356977159
+ms.openlocfilehash: 169250adf81992ad0025e78eb9c8f151107bcf40
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71592046"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79185862"
 ---
 # <a name="what-is-mlnet-and-how-does-it-work"></a>ML.NET の概要とそのしくみ
 
-ML.NET を使用すると、オンラインまたはオフラインのどちらのシナリオでも、.NET アプリケーションに機械学習を追加できます。 この機能により、データを使った自動予測をアプリケーションで利用できるようになります。ネットワークに接続する必要はありません。 この記事では、ML.NET の機械学習の基本について説明します。
+ML.NET を使用すると、オンラインまたはオフラインのどちらのシナリオでも、.NET アプリケーションに機械学習を追加できます。 この機能により、データを使う自動予測をアプリケーションに利用できるようになります。 機械学習アプリケーションでは、明示的なプログラミングを必要とする代わりに、データ内のパターンを利用して予測を行います。
+
+ML.NET の中心となるのは、機械学習**モデル**です。 このモデルでは、入力データを予測に変換するために必要な手順が指定されます。 .ML.NET を使用すると、アルゴリズムを指定してカスタム モデルをトレーニングすることができます。または、事前トレーニング済みの TensorFlow および ONNX モデルをインポートすることもできます。
+
+モデルを用意したら、それをアプリケーションに追加して予測を行うことができます。
 
 ML.NET は、.NET Core を使用して Windows、Linux、macOS 上で動作します。また、.NET Framework を使用して Windows 上で動作します。 64 ビットはすべてのプラットフォームでサポートされています。 TensorFlow、LightGBM、および ONNX 関連の機能を除き、32 ビットは Windows 上でサポートされています。
 
-ML.NET を使用して作成できる予測の種類の例を次に示します。
+ML.NET で行うことができる予測の種類の例を次に示します。
 
 |||
 |-|-|
-|分類/カテゴリ化|カスタマー フィードバックを自動的に肯定的なカテゴリと否定的なカテゴリに分類する|
-|回帰/連続値の予測|サイズと場所に基づいて住宅の価格を予測する|
+|分類/カテゴリ|顧客からのフィードバックを肯定的なカテゴリと否定的なカテゴリに自動的に分割します|
+|回帰/予測の連続値|サイズと場所に基づいて住宅の価格を予測する|
 |異常検出|不正な銀行取引を検出する |
-|推奨事項|以前の購入に基づいてオンラインの買い物客が購入する可能性がある商品を提案する|
+|Recommendations|以前の購入に基づいて、オンラインの顧客が購入する商品を提案します|
+|時系列/シーケンシャル データ|天気/製品売上を予測する|
+|イメージ分類|病状を医療画像で分類する|
 
 ## <a name="hello-mlnet-world"></a>ML.NET の基本
 
-次のスニペットのコードは、最も簡単な ML.NET アプリケーションの例です。 この例では、住宅のサイズと価格のデータを使用して住宅価格を予測する線形回帰モデルを構築します。 実際のアプリケーションでは、データとモデルははるかに複雑になります。
+次のスニペットのコードは、最も簡単な ML.NET アプリケーションの例です。 この例では、住宅のサイズと価格のデータを使用して住宅価格を予測する線形回帰モデルを構築します。
 
  ```csharp
     using System;
     using Microsoft.ML;
     using Microsoft.ML.Data;
-    
+
     class Program
     {
         public class HouseData
@@ -44,17 +48,17 @@ ML.NET を使用して作成できる予測の種類の例を次に示します�
             public float Size { get; set; }
             public float Price { get; set; }
         }
-    
+
         public class Prediction
         {
             [ColumnName("Score")]
             public float Price { get; set; }
         }
-    
+
         static void Main(string[] args)
         {
             MLContext mlContext = new MLContext();
-    
+
             // 1. Import or create training data
             HouseData[] houseData = {
                 new HouseData() { Size = 1.1F, Price = 1.2F },
@@ -66,10 +70,10 @@ ML.NET を使用して作成できる予測の種類の例を次に示します�
             // 2. Specify data preparation and model training pipeline
             var pipeline = mlContext.Transforms.Concatenate("Features", new[] { "Size" })
                 .Append(mlContext.Regression.Trainers.Sdca(labelColumnName: "Price", maximumNumberOfIterations: 100));
-    
+
             // 3. Train model
             var model = pipeline.Fit(trainingData);
-    
+
             // 4. Make a prediction
             var size = new HouseData() { Size = 2.5F };
             var price = mlContext.Model.CreatePredictionEngine<HouseData, Prediction>(model).Predict(size);
@@ -78,7 +82,7 @@ ML.NET を使用して作成できる予測の種類の例を次に示します�
 
             // Predicted price for size: 2500 sq ft= $261.98k
         }
-    } 
+    }
 ```
 
 ## <a name="code-workflow"></a>コードのワークフロー
@@ -93,17 +97,17 @@ ML.NET を使用して作成できる予測の種類の例を次に示します�
 - モデルを **ITransformer** オブジェクトに読み込む
 - **CreatePredictionEngine.Predict()** を呼び出して予測を行う
 
-![データ生成、パイプライン開発、モデル トレーニング、モデル評価、およびモデル使用のためのコンポーネントを含む ML.NET アプリケーション開発フロー](./media/mldotnet-annotated-workflow.png) 
+![データ生成、パイプライン開発、モデル トレーニング、モデル評価、およびモデル使用のためのコンポーネントを含む ML.NET アプリケーション開発フロー](./media/mldotnet-annotated-workflow.png)
 
 これらの概念についてもう少し詳しく掘り下げてみましょう。
 
-## <a name="machine-learning-model"></a>機械学習モデル
+## <a name="machine-learning-model"></a>Machine Learning モデル
 
 ML.NET モデルは、予測される出力に到達するために入力データに対して実行される変換を含むオブジェクトです。
 
 ### <a name="basic"></a>Basic
 
-最も基本的なモデルは、前述の住宅価格の例のように、ある連続的な数量が別の連続的な数量と比例する 2 次元の線形回帰です。 
+最も基本的なモデルは、前述の住宅価格の例のように、ある連続的な数量が別の連続的な数量と比例する 2 次元の線形回帰です。
 
 ![バイアスと重みのパラメーターがある線形回帰モデル](./media/linear-regression-model.svg)
 
@@ -113,13 +117,13 @@ ML.NET モデルは、予測される出力に到達するために入力デー�
 
 より複雑なモデルでは、取引の説明文を使用して金融取引をカテゴリに分類します。
 
-各取引の説明を特徴セットに分類するには、冗長な単語と文字を削除し、単語と文字の組み合わせを数えます。 特徴セットは、トレーニング データ内の一連のカテゴリに基づいて線形モデルをトレーニングするために使用されます。 新しい説明がトレーニング セット内の説明に似ているほど、同じカテゴリに割り当てられる可能性が高くなります。 
+各取引の説明を特徴セットに分類するには、冗長な単語と文字を削除し、単語と文字の組み合わせを数えます。 特徴セットは、トレーニング データ内の一連のカテゴリに基づいて線形モデルをトレーニングするために使用されます。 新しい説明がトレーニング セット内の説明に似ているほど、同じカテゴリに割り当てられる可能性が高くなります。
 
 ![テキスト分類モデル](./media/text-classification-model.svg)
 
 住宅価格モデルとテキスト分類モデルはどちらも**線形**モデルです。 データの性質や解決対象の問題に応じて、**デシジョン ツリー** モデル、**一般化加法**モデルなどを使用することもできます。 モデルの詳細については、[タスク](./resources/tasks.md)に関する記事を参照してください。
 
-## <a name="data-preparation"></a>データ準備
+## <a name="data-preparation"></a>データの準備
 
 ほとんどの場合、利用できるデータは、機械学習モデルのトレーニングにそのまま使用するために適していません。 生データは使用前に準備するか前処理して、モデルのパラメーターを見つける必要があります。 文字列値から数値表現へのデータの変換が必要な場合があります。 入力データには冗長な情報が含まれる場合があります。 入力データの次元の縮小または拡大が必要な場合があります。 データの正規化またはスケールが必要な場合があります。
 
@@ -131,7 +135,7 @@ ML.NET モデルは、予測される出力に到達するために入力デー�
 
 ## <a name="model-evaluation"></a>モデル評価
 
-トレーニングを完了したモデルが今後の予測にどのくらい役立つかは、どうすればわかるでしょうか。 ML.NET を使用すると、いくつかの新しいテスト データに対してモデルを評価できます。 
+トレーニングを完了したモデルが今後の予測にどのくらい役立つかは、どうすればわかるでしょうか。 ML.NET を使用すると、いくつかの新しいテスト データに対してモデルを評価できます。
 
 機械学習タスクの種類ごとに、テスト データ セットに対するモデルの正確度と精度の評価に使用されるメトリックがあります。
 
@@ -148,7 +152,7 @@ ML.NET モデルは、予測される出力に到達するために入力デー�
 
         var testHouseDataView = mlContext.Data.LoadFromEnumerable(testHouseData);
         var testPriceDataView = model.Transform(testHouseDataView);
-                
+
         var metrics = mlContext.Regression.Evaluate(testPriceDataView, labelColumnName: "Price");
 
         Console.WriteLine($"R^2: {metrics.RSquared:0.##}");
@@ -169,7 +173,7 @@ ML.NET アプリケーションは <xref:Microsoft.ML.MLContext> オブジェク
 |||||
 |-|-|-|-|
 |データの読み込みと保存||<xref:Microsoft.ML.DataOperationsCatalog>||
-|データ準備||<xref:Microsoft.ML.TransformsCatalog>||
+|データの準備||<xref:Microsoft.ML.TransformsCatalog>||
 |トレーニングのアルゴリズム|二項分類|<xref:Microsoft.ML.BinaryClassificationCatalog>||
 ||多クラス分類|<xref:Microsoft.ML.MulticlassClassificationCatalog>||
 ||異常検出|<xref:Microsoft.ML.AnomalyDetectionCatalog>||
@@ -177,7 +181,7 @@ ML.NET アプリケーションは <xref:Microsoft.ML.MLContext> オブジェク
 ||予測|<xref:Microsoft.ML.ForecastingCatalog>||
 ||ランキング|<xref:Microsoft.ML.RankingCatalog>||
 ||回帰|<xref:Microsoft.ML.RegressionCatalog>||
-||推奨事項|<xref:Microsoft.ML.RecommendationCatalog>|`Microsoft.ML.Recommender` NuGet パッケージを取得する|
+||推奨|<xref:Microsoft.ML.RecommendationCatalog>|`Microsoft.ML.Recommender` NuGet パッケージを取得する|
 ||TimeSeries|<xref:Microsoft.ML.TimeSeriesCatalog>|`Microsoft.ML.TimeSeries` NuGet パッケージを取得する|
 |モデルの使用法 ||<xref:Microsoft.ML.ModelOperationsCatalog>||
 
@@ -208,7 +212,7 @@ ML.NET アプリケーションは <xref:Microsoft.ML.MLContext> オブジェク
 
 `Fit()` を呼び出すと、入力トレーニング データを使用してモデルのパラメーターが推定されます。 これはモデルのトレーニングと呼ばれます。 前述の線形回帰モデルには、**バイアス**と**重み**という 2 つのモデル パラメーターがあったことを思い出してください。 `Fit()` の呼び出しの後は、パラメーターの値がわかっています。 ほとんどのモデルには、これよりもさらに多くのパラメーターがあります。
 
-モデルのトレーニングの詳細については、[モデルのトレーニング方法](./how-to-guides/train-machine-learning-model-ml-net.md)に関する記事を参照してください。
+モデルのトレーニングの詳細については、[モデルのトレーニング方法](./how-to-guides/train-machine-learning-model-ml-net.md)に関するページをご覧ください。
 
 結果のモデル オブジェクトには <xref:Microsoft.ML.ITransformer> インターフェイスが実装されます。 つまり、このモデルによって入力データは予測に変換されます。
 
@@ -225,7 +229,7 @@ ML.NET アプリケーションは <xref:Microsoft.ML.MLContext> オブジェク
     var predEngine = mlContext.CreatePredictionEngine<HouseData, Prediction>(model);
     var price = predEngine.Predict(size);
 ```
- 
+
 `CreatePredictionEngine()` メソッドは、入力クラスと出力クラスを受け取ります。 このフィールドの名前やコード属性によって、モデルのトレーニングと予測中に使用されるデータ列の名前が決まります。 方法のセクションで [1 つの予測方法](./how-to-guides/single-predict-model-ml-net.md)に関する記事を参照してください。
 
 ### <a name="data-models-and-schema"></a>データ モデルとスキーマ
@@ -236,7 +240,7 @@ ML.NET 機械学習パイプラインの中心には [DataView](xref:Microsoft.M
 
 パイプライン内の 1 つの変換からの出力スキーマが次の変換の入力スキーマと一致しない場合、ML.NET から例外がスローされます。
 
-データ ビュー オブジェクトには列と行があります。 各列には、名前、型、および長さがあります。 例: 住宅価格例の入力列は **Size** と **Price** です。 これらはどちらも型であり、ベクターではなくスカラーの数量です。
+データ ビュー オブジェクトには列と行があります。 各列には、名前、型、および長さがあります。 たとえば、住宅価格例の入力列は **Size** と **Price** です。 これらはどちらも型であり、ベクターではなくスカラーの数量です。
 
    ![住宅価格の予測データを含む ML.NET データ ビューの例](./media/ml-net-dataview.png)
 
@@ -254,7 +258,7 @@ ML.NET 機械学習パイプラインの中心には [DataView](xref:Microsoft.M
         [ColumnName("Score")]
         public float Price { get; set; }
     }
-```    
+```
 
 さまざまな機械学習タスクの出力列の詳細については、[機械学習のタスク](resources/tasks.md)に関するガイドを参照してください。
 
@@ -270,14 +274,14 @@ DataView オブジェクトの重要なプロパティは、**遅延**評価さ�
 
 実際のアプリケーションでは、モデル トレーニングと評価のコードは予測とは別になります。 実際、これら 2 つの活動は、別のチームによって行われることがよくあります。 モデル開発チームは、予測アプリケーションで使用するためにモデルを保存することができます。
 
-```csharp   
+```csharp
    mlContext.Model.Save(model, trainingData.Schema,"model.zip");
 ```
 
-## <a name="where-to-now"></a>次の学習内容
+## <a name="next-steps"></a>次のステップ
 
-[チュートリアル](./tutorials/index.md)では、より現実的なデータ セットと共にさまざまな機械学習タスクを使用してアプリケーションを構築する方法を学習できます。
+* [チュートリアル](./tutorials/index.md)で、より現実的なデータ セットと共にさまざまな機械学習タスクを使用してアプリケーションを構築する方法を学習します。
 
-また、[ハウツー ガイド](./how-to-guides/index.md)では、特定のトピックについてさらに詳しく学習することができます。
+* [ハウツー ガイド](./how-to-guides/index.md)で、特定のトピックについてさらに詳しく学習します。
 
-さらに詳しく学習するには、[API リファレンスのドキュメント](https://docs.microsoft.com/dotnet/api/?view=ml-dotnet)を参照してください。
+* さらに詳しく学習するには、[API リファレンスのドキュメント](https://docs.microsoft.com/dotnet/api/?view=ml-dotnet)を参照してください。

@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル: WPF アプリケーション内のアプリケーション データのキャッシュ'
+title: アプリデータをキャッシュする
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -9,12 +9,12 @@ helpviewer_keywords:
 - caching [.NET Framework]
 - caching [WPF]
 ms.assetid: dac2c9ce-042b-4d23-91eb-28f584415cef
-ms.openlocfilehash: f0082bd99b154f87ab90bee7a89afdb8405f6623
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: b7d999f94e2f2ae410a16e537d51c0f890def4e1
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920314"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76728060"
 ---
 # <a name="walkthrough-caching-application-data-in-a-wpf-application"></a>チュートリアル: WPF アプリケーション内のアプリケーション データのキャッシュ
 キャッシュを使用すると、メモリにデータを格納して高速にアクセスできます。 アプリケーションからそのデータに再アクセスするときに、元のソースからではなく、キャッシュからデータを取得できます。 そのため、パフォーマンスとスケーラビリティが向上します。 また、データ ソースが一時的に使用できない場合でも、キャッシュのデータを使用できます。
@@ -40,8 +40,8 @@ ms.locfileid: "72920314"
 
 - キャッシュされたファイルのパスを監視し、監視対象の項目に対する変更についてキャッシュインスタンスに通知します。
 
-## <a name="prerequisites"></a>必要条件
- このチュートリアルを完了するための要件は次のとおりです。
+## <a name="prerequisites"></a>前提条件
+ このチュートリアルを完了するには、以下が必要です。
 
 - Visual Studio 2010。
 
@@ -78,7 +78,7 @@ ms.locfileid: "72920314"
      WPF デザイナーが**デザイン**ビューで開き、mainwindow.xaml ファイルが表示されます。 Visual Studio によって、 **My プロジェクト**フォルダー、app.xaml ファイル、および mainwindow.xaml ファイルが作成されます。
 
 ## <a name="targeting-the-net-framework-and-adding-a-reference-to-the-caching-assemblies"></a>.NET Framework をターゲットにして、キャッシュアセンブリへの参照を追加する
- 既定では、WPF アプリケーションは [!INCLUDE[net_client_v40_long](../../../../includes/net-client-v40-long-md.md)]を対象とします。 WPF アプリケーションで <xref:System.Runtime.Caching> 名前空間を使用するには、アプリケーションが .NET Framework 4 ([!INCLUDE[net_client_v40_long](../../../../includes/net-client-v40-long-md.md)]ではありません) を対象とし、名前空間への参照を含める必要があります。
+ 既定では、WPF アプリケーションは .NET Framework 4 クライアントプロファイルを対象とします。 WPF アプリケーションで <xref:System.Runtime.Caching> 名前空間を使用するには、アプリケーションが .NET Framework 4 (.NET Framework 4 クライアントプロファイルではない) を対象とし、名前空間への参照を含める必要があります。
 
  したがって、次の手順では、.NET Framework ターゲットを変更し、<xref:System.Runtime.Caching> 名前空間への参照を追加します。
 
@@ -97,7 +97,7 @@ ms.locfileid: "72920314"
 
      **[コンパイラの詳細設定**] ダイアログボックスが表示されます。
 
-4. **[ターゲットフレームワーク (すべての構成)]** ボックスの一覧の [.NET Framework 4] を選択します。 ([!INCLUDE[net_client_v40_long](../../../../includes/net-client-v40-long-md.md)]を選択しないでください)。
+4. **[ターゲットフレームワーク (すべての構成)]** ボックスの一覧の [.NET Framework 4] を選択します。 (.NET Framework 4 クライアントプロファイルを選択しないでください)。
 
 5. **[OK]** をクリックします。
 
@@ -284,7 +284,7 @@ ms.locfileid: "72920314"
 12. **[ビルド]** メニューの **[WPFCaching のビルド]** をクリックして、プロジェクトをビルドします。
 
 ## <a name="testing-caching-in-the-wpf-application"></a>WPF アプリケーションでのキャッシュのテスト
- これで、アプリケーションをテストできるようになりました。
+ これで、アプリケーションをテストすることができます。
 
 #### <a name="to-test-caching-in-the-wpf-application"></a>WPF アプリケーションでキャッシュをテストするには
 
@@ -325,7 +325,7 @@ ms.locfileid: "72920314"
  [!code-csharp[CachingWPFApplications#1](~/samples/snippets/csharp/VS_Snippets_Wpf/CachingWPFApplications/CSharp/MainWindow.xaml.cs#1)]
  [!code-vb[CachingWPFApplications#1](~/samples/snippets/visualbasic/VS_Snippets_Wpf/CachingWPFApplications/VisualBasic/MainWindow.xaml.vb#1)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.Caching.MemoryCache>
 - <xref:System.Runtime.Caching.ObjectCache>

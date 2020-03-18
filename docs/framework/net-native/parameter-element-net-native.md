@@ -1,15 +1,13 @@
 ---
-title: <Parameter>要素 (.NET ネイティブ)
+title: <Parameter> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: 22aaa1f3-596f-4733-93db-f4bcabcb5240
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5c9a462e75df535504d0e98c22c34c11ff7af7d8
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: c6dfc347d44a794ee8496c45ca879f9daab12b22
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049345"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128198"
 ---
 # <a name="parameter-element-net-native"></a>\<Parameter > 要素 (.NET ネイティブ)
 メソッドに渡された引数の型にリフレクション ポリシーを適用します。  
@@ -37,7 +35,7 @@ ms.locfileid: "71049345"
   
 |属性|属性の型|説明|  
 |---------------|--------------------|-----------------|  
-|`Name`|全般|必須の属性です。 パラメーター名。 たとえば、メソッド シグネチャ `String.CompareTo(Object value)` の場合、`Name` 属性の値は "value" です。|  
+|`Name`|全般|必須の属性です。 パラメーターの名前。 たとえば、メソッド シグネチャ `String.CompareTo(Object value)` の場合、`Name` 属性の値は "value" です。|  
 |`Activate`|リフレクション|省略可能な属性です。 コンストラクターへの実行時アクセスを制御して、インスタンスのアクティブ化を有効にします。|  
 |`Browse`|リフレクション|省略可能な属性です。 プログラム要素に関する情報の照会を制御しますが、実行時アクセスは有効にしません。|  
 |`Dynamic`|リフレクション|省略可能な属性です。 コンストラクター、メソッド、フィールド、プロパティ、およびイベントを含むすべての型のメンバーへの実行時アクセスを制御して、動的プログラミングを有効にします。|  
@@ -51,13 +49,13 @@ ms.locfileid: "71049345"
   
 ## <a name="name-attribute"></a>Name 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*parameter_name*|ポリシーが適用されるメソッド パラメーターの名前。 たとえば、メソッド シグネチャ `String.CompareTo(Object value)` の場合、`Name` 属性の値は "value" です。|  
   
 ## <a name="all-other-attributes"></a>その他すべての属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*policy_setting*|このポリシーの種類に適用する設定です。 指定できる値は、`All`、`Public`、`PublicAndInternal`、`Required Public`、`Required PublicAndInternal`、および `Required All` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|  
   

@@ -2,12 +2,12 @@
 title: IIS と WAS における構成ベースのアクティブ化
 ms.date: 03/30/2017
 ms.assetid: 6a927e1f-b905-4ee5-ad0f-78265da38238
-ms.openlocfilehash: 5b06f474d26b80f955b1508f01da83448a8708a3
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: 6515d6621798a9dab67aa7b73a39b9481c1779fc
+ms.sourcegitcommit: c01c18755bb7b0f82c7232314ccf7955ea7834db
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70928768"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75963484"
 ---
 # <a name="configuration-based-activation-in-iis-and-was"></a>IIS と WAS における構成ベースのアクティブ化
 
@@ -15,7 +15,7 @@ ms.locfileid: "70928768"
 
 ## <a name="configuration-based-activation"></a>構成ベースのアクティブ化
 
-構成ベースのアクティブ化では、以前は .svc ファイルに配置されていたメタデータを受け取り、それを Web.config ファイルに配置します。 <`serviceHostingEnvironment`> 要素内に <`serviceActivations`> 要素があります。 <`serviceActivations`> 要素内には、ホストされる`add`サービスごとに1つの < > 要素が1つ以上含まれます。 <`add`の > 要素には、サービスの相対アドレス、サービスの種類、サービスホストファクトリを設定できる属性が含まれています。 次の構成コード例は、このセクションの使用方法を示しています。
+構成ベースのアクティブ化では、以前は .svc ファイルに配置されていたメタデータを受け取り、それを Web.config ファイルに配置します。 `serviceHostingEnvironment`> 要素内には、<`serviceActivations`> 要素があります。 `serviceActivations`> 要素は、ホステッドサービスごとに1つの`add`要素である1つ以上の < > ます。 <`add`> 要素には、サービスおよびサービスの種類またはサービスホストファクトリの相対アドレスを設定できる属性が含まれています。 次の構成コード例は、このセクションの使用方法を示しています。
 
 > [!NOTE]
 > 各 <`add`> 要素には、サービスまたはファクトリ属性を指定する必要があります。 サービスとファクトリ属性の両方を指定することもできます。
@@ -33,7 +33,7 @@ ms.locfileid: "70928768"
 > [!NOTE]
 >
 > - 構成ベースのアクティブ化機能を使用する場合、.svc ファイルのインライン コードはサポートされません。
-> - 属性には、"\<サブディレクトリ >/servicesub-directory" や "~/\</service .svc" などの相対アドレスを設定する必要があります。 `relativeAddress`
+> - `relativeAddress` 属性は、"\<サブディレクトリ >/servicesub-directory" や "~/\<" などの相対アドレスに設定する必要があります。
 > - WCF と関連付けられている既知の拡張子を持たない相対アドレスを登録すると、構成例外がスローされます。
 > - 指定された相対アドレスは、仮想アプリケーションのルートが基準になります。
 > - 構成の階層的モデルにより、コンピューター レベルおよびサイト レベルの登録された相対アドレスは、仮想アプリケーションによって継承されます。
@@ -46,4 +46,4 @@ ms.locfileid: "70928768"
 - [ホスティング サービス](../../../../docs/framework/wcf/hosting-services.md)
 - [ワークフロー サービスのホストの概要](../../../../docs/framework/wcf/feature-details/hosting-workflow-services-overview.md)
 - [\<serviceHostingEnvironment >](../../../../docs/framework/configure-apps/file-schema/wcf/servicehostingenvironment.md)
-- [AppFabric のホスティング機能](https://go.microsoft.com/fwlink/?LinkId=201276)
+- [AppFabric のホスティング機能](https://docs.microsoft.com/previous-versions/appfabric/ee677189(v=azure.10))

@@ -3,10 +3,10 @@ title: リフレクションを使用した属性へのアクセス (C#)
 ms.date: 07/20/2015
 ms.assetid: dce3a696-4ceb-489a-b5e4-322a83052f18
 ms.openlocfilehash: 990b6487e50bfb2d123c3871e5f85da063711d9e
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69595497"
 ---
 # <a name="accessing-attributes-by-using-reflection-c"></a>リフレクションを使用した属性へのアクセス (C#)
@@ -26,7 +26,7 @@ Author anonymousAuthorObject = new Author("P. Ackerman");
 anonymousAuthorObject.version = 1.1;  
 ```  
   
- ただし、属性について `SampleClass` が照会されるまで、コードは実行されません。 `SampleClass` について `GetCustomAttributes` を呼び出すと、`Author` オブジェクトが作成され、上記のように初期化されます。 クラスに他の属性がある場合は、他の属性オブジェクトも同様に作成されます。 `GetCustomAttributes` はその後、`Author` オブジェクトと配列内の他の属性オブジェクトを返します。 その後、この配列を反復処理し、各配列要素の型に基づいてどの属性が適用されたかを確認して、属性オブジェクトから情報を抽出することができます。  
+ ただし、属性について `SampleClass` が照会されるまで、コードは実行されません。 `GetCustomAttributes` について `SampleClass` を呼び出すと、`Author` オブジェクトが作成され、上記のように初期化されます。 クラスに他の属性がある場合は、他の属性オブジェクトも同様に作成されます。 `GetCustomAttributes` はその後、`Author` オブジェクトと配列内の他の属性オブジェクトを返します。 その後、この配列を反復処理し、各配列要素の型に基づいてどの属性が適用されたかを確認して、属性オブジェクトから情報を抽出することができます。  
   
 ## <a name="example"></a>例  
  完全な例を次に示します。 カスタム属性が定義され、複数のエンティティに適用された後、リフレクションを使用して取得されています。  
@@ -113,11 +113,11 @@ class TestAuthorAttribute
 */  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Reflection>
 - <xref:System.Attribute>
-- [C# プログラミング ガイド](../../index.md)
+- [C# プログラミングガイド](../../index.md)
 - [属性に格納されている情報の取得](../../../../standard/attributes/retrieving-information-stored-in-attributes.md)
 - [リフレクション (C#)](../reflection.md)
 - [属性 (C#)](./index.md)

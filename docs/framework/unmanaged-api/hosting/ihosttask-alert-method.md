@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 5245d4b5-b6c3-48df-9cb9-8caf059f43fb
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 75b3fc0b1dde35e743e699d22c5766cab4cf0faf
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: b2fc1d6c45eb72410ccfa1071064aa1a31ae46e6
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69964717"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73121400"
 ---
 # <a name="ihosttaskalert-method"></a>IHostTask::Alert メソッド
 現在の[IHostTask](../../../../docs/framework/unmanaged-api/hosting/ihosttask-interface.md)インスタンスによって表されるタスクをホストがスリープ解除するように要求します。これにより、タスクを中止できます。  
@@ -45,17 +43,17 @@ HRESULT Alert ();
 |E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、そのプロセス内で CLR は使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
 ## <a name="remarks"></a>Remarks  
- `Alert`がユーザー <xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType> コードから呼び出され<xref:System.Threading.Thread>た場合、または現在のに関連付けられているがシャットダウンした場合、CLRはメソッドを呼び出します。<xref:System.AppDomain> 呼び出しは非同期的に行われるため、ホストはすぐに制御を返す必要があります。 ホストがすぐにタスクを警告できない場合は、次にアラートが通知される状態になったときに起動する必要があります。  
+ CLR は、ユーザーコードから <xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType> が呼び出されたとき、または現在の <xref:System.Threading.Thread> に関連付けられている <xref:System.AppDomain> がシャットダウンしたときに、`Alert` メソッドを呼び出します。 呼び出しは非同期的に行われるため、ホストはすぐに制御を返す必要があります。 ホストがすぐにタスクを警告できない場合は、次にアラートが通知される状態になったときに起動する必要があります。  
   
 > [!NOTE]
-> `Alert`は、ランタイムが WAIT_ALERTABLE の[WAIT_OPTION](../../../../docs/framework/unmanaged-api/hosting/wait-option-enumeration.md)値を[Join](../../../../docs/framework/unmanaged-api/hosting/ihosttask-join-method.md)などのメソッドに渡すタスクにのみ影響します。  
+> `Alert` は、ランタイムが WAIT_ALERTABLE の[WAIT_OPTION](../../../../docs/framework/unmanaged-api/hosting/wait-option-enumeration.md)値を[Join](../../../../docs/framework/unmanaged-api/hosting/ihosttask-join-method.md)などのメソッドに渡すタスクにのみ影響します。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

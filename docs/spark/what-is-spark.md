@@ -4,36 +4,36 @@ description: Apache Spark とビッグ データ シナリオについて説明�
 ms.date: 10/15/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 187a37897c23809d91820bd79b476e775fb5b99b
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 653f355d09a045feabb3dee0f5737cb691cf2dc4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583480"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73458169"
 ---
 # <a name="what-is-apache-spark"></a>Apache Spark とは
 
-[Apache Spark](https://spark.apache.org/) は、ビッグ データを分析するアプリケーションのパフォーマンスを向上させるよう、メモリ内処理をサポートするオープンソースの並列処理フレームワークです。 ビッグ データ ソリューションは、従来のデータベースでは大きすぎるか、複雑すぎるデータを処理するように設計されています。 Spark では、ディスクベースの代替手法よりもかなり速く、メモリ内の大量のデータが処理されます。 
+[Apache Spark](https://spark.apache.org/) は、ビッグ データを分析するアプリケーションのパフォーマンスを向上させるよう、メモリ内処理をサポートするオープンソースの並列処理フレームワークです。 ビッグ データ ソリューションは、従来のデータベースでは大きすぎるか、複雑すぎるデータを処理するように設計されています。 Spark では、ディスクベースの代替手法よりもかなり速く、メモリ内の大量のデータが処理されます。
 
 ## <a name="common-big-data-scenarios"></a>一般的なビッグ データ シナリオ
 
-大量のデータを格納して処理するか、非構造化データを変換するか、あるいはストリーミング データを処理する必要がある場合、ビッグ データ アーキテクチャをお勧めします。 Spark は汎用の分散処理エンジンであり、いくつかのビッグデータ シナリオで利用できます。 
+大量のデータを格納して処理するか、非構造化データを変換するか、あるいはストリーミング データを処理する必要がある場合、ビッグ データ アーキテクチャをお勧めします。 Spark は汎用の分散処理エンジンであり、いくつかのビッグデータ シナリオで利用できます。
 
 ### <a name="extract-transform-and-load-etl"></a>抽出、変換、読み込み (ETL)
 
 [抽出、変換、読み込み (ETL)](/azure/architecture/data-guide/relational-data/etl) は、1 つまたは複数のソースからデータを収集し、データを変更し、データを新しいデータ ストアに移動するプロセスです。 データの変換にはいくつかの方法があります。
 
-* フィルター処理
+* Filtering
 * 並べ替え
 * 集計
-* 結合
+* 参加
 * 消去
 * 重複除去
 * Validating
 
 ### <a name="real-time-data-stream-processing"></a>リアルタイムのデータ ストリーム処理
 
-ストリーミング (あるいはリアルタイム) データは移動中のデータです。 IoT デバイス、ウェブログ、クリックストリームからのテレメトリはすべて、ストリーミング データの例です。 リアルタイム データを処理し、地理空間分析、リモート監視、異常検出など、有益な情報を提供できます。 リレーショナル データと同じように、データを出力シンクに移動する前に、フィルター処理したり、集計したり、ストリーミング データの準備をしたりできます。 Apache Spark では、[Spark Streaming](https://spark.apache.org/streaming/) による[リアルタイムのデータ ストリーム処理](/azure/architecture/data-guide/big-data/real-time-processing)がサポートされています。 
+ストリーミング (あるいはリアルタイム) データは移動中のデータです。 IoT デバイス、ウェブログ、クリックストリームからのテレメトリはすべて、ストリーミング データの例です。 リアルタイム データを処理し、地理空間分析、リモート監視、異常検出など、有益な情報を提供できます。 リレーショナル データと同じように、データを出力シンクに移動する前に、フィルター処理したり、集計したり、ストリーミング データの準備をしたりできます。 Apache Spark では、[Spark Streaming](/azure/architecture/data-guide/big-data/real-time-processing) による[リアルタイムのデータ ストリーム処理](https://spark.apache.org/streaming/)がサポートされています。
 
 ### <a name="batch-processing"></a>バッチ処理
 
@@ -73,7 +73,7 @@ Apache Spark では、マスター/ワーカー アーキテクチャが利用�
 * プログラム分割を管理する
 * プログラム実行を管理する
 
-## <a name="language-support"></a>言語サポート
+## <a name="language-support"></a>言語のサポート
 
 Apache Spark では、次のプログラミング言語がサポートされています。
 
@@ -94,7 +94,7 @@ Apache Spark では次の API がサポートされています。
 * [Spark R API](https://spark.apache.org/docs/2.2.0/api/R/index.html)
 * [Spark SQL](https://spark.apache.org/docs/latest/api/sql/index.html)、組み込み関数
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 自分の .NET アプリケーションで Apache Spark を使用する方法について学習します。 .NET の経験がある開発者は、ビジネス ロジックが与えられたとき、.NET for Apache Spark を利用し、C# と F# でビッグ データ クエリを記述できます。
 > [!div class="nextstepaction"]

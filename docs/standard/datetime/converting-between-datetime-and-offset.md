@@ -16,119 +16,117 @@ helpviewer_keywords:
 - Date data type, converting
 - local time conversions
 ms.assetid: b605ff97-0c45-4c24-833f-4c6a3e8be64c
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: eb91ed8edd0c5cd3cb1d051157596f311718195d
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: 5c19296f75e9e002e88263c5e5efa9917e185ebc
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70107061"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78156037"
 ---
 # <a name="converting-between-datetime-and-datetimeoffset"></a>DateTime と DateTimeOffset 間の変換
 
-構造体<xref:System.DateTimeOffset>は、 <xref:System.DateTime>構造体よりも高い範囲のタイムゾーンを認識<xref:System.DateTime>しますが、メソッドの呼び出しでは、より一般的にパラメーターが使用されます。 このため、値を値に<xref:System.DateTimeOffset> <xref:System.DateTime>変換したり、その逆の変換を行ったりすることは、特に重要です。 このトピックでは、できるだけ多くのタイムゾーン情報を保持する方法でこれらの変換を実行する方法について説明します。
+<xref:System.DateTimeOffset> 構造体は、<xref:System.DateTime> の構造よりも高い範囲のタイムゾーンを認識しますが、<xref:System.DateTime> のパラメーターは、メソッドの呼び出しでよく使用されます。 このため、<xref:System.DateTimeOffset> 値を <xref:System.DateTime> 値に変換したり、その逆の変換を行ったりすることは特に重要です。 このトピックでは、できるだけ多くのタイムゾーン情報を保持する方法でこれらの変換を実行する方法について説明します。
 
 > [!NOTE]
-> との両方の型には、タイムゾーンの時刻を表すときにいくつかの制限があります。 <xref:System.DateTimeOffset> <xref:System.DateTime> プロパティを使用する<xref:System.DateTime>と、は世界協定時刻 (UTC) とシステムのローカルタイムゾーンのみを反映できます。 <xref:System.DateTime.Kind%2A> <xref:System.DateTimeOffset>UTC からの時刻のオフセットを反映しますが、そのオフセットが属する実際のタイムゾーンは反映されません。 時刻の値とタイムゾーンのサポートの詳細については、「 [DateTime、DateTimeOffset、TimeSpan、および TimeZoneInfo の使い分け](../../../docs/standard/datetime/choosing-between-datetime.md)」を参照してください。
+> <xref:System.DateTime> と <xref:System.DateTimeOffset> の両方の型には、タイムゾーンの時刻を表すときにいくつかの制限があります。 <xref:System.DateTime.Kind%2A> プロパティを使用すると、<xref:System.DateTime> は世界協定時刻 (UTC) とシステムのローカルタイムゾーンのみを反映できます。 <xref:System.DateTimeOffset> は UTC からの時刻のオフセットを反映しますが、そのオフセットが属する実際のタイムゾーンは反映されません。 時刻の値とタイムゾーンのサポートの詳細については、「 [DateTime、DateTimeOffset、TimeSpan、および TimeZoneInfo の使い分け](../../../docs/standard/datetime/choosing-between-datetime.md)」を参照してください。
 
 ## <a name="conversions-from-datetime-to-datetimeoffset"></a>DateTime から DateTimeOffset への変換
 
-この<xref:System.DateTimeOffset>構造体は、ほとんどの変換<xref:System.DateTime>に<xref:System.DateTimeOffset>適した変換に対して実行する2つの同等の方法を提供します。
+<xref:System.DateTimeOffset> 構造体は、ほとんどの変換に適した変換を <xref:System.DateTimeOffset> するために <xref:System.DateTime> を実行する2つの同等の方法を提供します。
 
-- コンストラクター。 <xref:System.DateTime>値に基づいて新しい<xref:System.DateTimeOffset>オブジェクトを作成します。 <xref:System.DateTimeOffset.%23ctor%2A>
+- <xref:System.DateTimeOffset.%23ctor%2A> コンストラクター。 <xref:System.DateTime> 値に基づいて新しい <xref:System.DateTimeOffset> オブジェクトを作成します。
 
-- 暗黙的な変換演算子。これにより、 <xref:System.DateTime> <xref:System.DateTimeOffset>オブジェクトに値を割り当てることができます。
+- 暗黙的な変換演算子。 <xref:System.DateTime> 値を <xref:System.DateTimeOffset> オブジェクトに割り当てることができます。
 
-Utc 値とローカル<xref:System.DateTime>値の場合<xref:System.DateTimeOffset.Offset%2A> 、結果<xref:System.DateTimeOffset>の値のプロパティに utc またはローカルタイムゾーンオフセットが正確に反映されます。 たとえば、次のコードは、UTC 時刻をそれと等価<xref:System.DateTimeOffset>な値に変換します。
+UTC およびローカル <xref:System.DateTime> 値の場合、結果の <xref:System.DateTimeOffset> 値の <xref:System.DateTimeOffset.Offset%2A> プロパティに UTC またはローカルタイムゾーンオフセットが正確に反映されます。 たとえば、次のコードは、UTC 時刻をそれと等価な <xref:System.DateTimeOffset> 値に変換します。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#1](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#1)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#1](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#1)]
 
-この場合、`utcTime2` 変数のオフセットは 00:00 です。 同様に、次のコードは、現地時刻をそれ<xref:System.DateTimeOffset>と等価な値に変換します。
+この場合、`utcTime2` 変数のオフセットは 00:00 です。 同様に、次のコードは、現地時刻をそれと等価な <xref:System.DateTimeOffset> 値に変換します。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#2](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#2)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#2](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#2)]
 
-ただし、 <xref:System.DateTime.Kind%2A>プロパティ<xref:System.DateTime>が<xref:System.DateTimeKind.Unspecified?displayProperty=nameWithType>である値の場合、これら2つの<xref:System.DateTimeOffset>変換メソッドは、オフセットがローカルタイムゾーンの値である値を生成します。 米国の太平洋標準時ゾーンでの実行例を次に示します。
+ただし、<xref:System.DateTime.Kind%2A> プロパティが <xref:System.DateTimeKind.Unspecified?displayProperty=nameWithType>されている <xref:System.DateTime> 値については、これらの2つの変換メソッドによって <xref:System.DateTimeOffset> 値が生成されます。この値は、ローカルタイムゾーンのオフセットとなります。 これを次の例に示します。この例は、米国太平洋標準時ゾーンで実行されています。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#3](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#3)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#3](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#3)]
 
-値にローカルタイムゾーンまたは UTC 以外の日付と時刻が反映されている場合は、オーバーロード<xref:System.DateTimeOffset.%23ctor%2A>され<xref:System.DateTimeOffset>たコンストラクターを呼び出すことによって、値を値に変換し、そのタイムゾーン情報を保持することができます。 <xref:System.DateTime> たとえば、次の例では、 <xref:System.DateTimeOffset>中部標準時を反映するオブジェクトをインスタンス化しています。
+<xref:System.DateTime> 値にローカルタイムゾーンまたは UTC 以外の日付と時刻が反映されている場合は、オーバーロードされた <xref:System.DateTimeOffset.%23ctor%2A> コンストラクターを呼び出すことによって、<xref:System.DateTimeOffset> 値に変換し、そのタイムゾーン情報を保持することができます。 たとえば、次の例では、中部標準時を反映する <xref:System.DateTimeOffset> オブジェクトをインスタンス化しています。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#4](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#4)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#4](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#4)]
 
-このコンストラクターのオーバーロード<xref:System.TimeSpan>に対する2番目のパラメーターは、時刻の UTC からのオフセットを表すオブジェクトで、時刻に対応するタイムゾーンの<xref:System.TimeZoneInfo.GetUtcOffset%28System.DateTime%29?displayProperty=nameWithType>メソッドを呼び出すことによって取得する必要があります。 メソッドの1つのパラメーターは<xref:System.DateTime> 、変換する日付と時刻を表す値です。 タイム ゾーンで夏時間がサポートされている場合、このパラメーターにより、このメソッドはその特定の日時に対して適切なオフセットを決定できます。
+このコンストラクターオーバーロードへの2番目のパラメーターは、時刻の UTC からのオフセットを表す <xref:System.TimeSpan> オブジェクトで、時刻に対応するタイムゾーンの <xref:System.TimeZoneInfo.GetUtcOffset%28System.DateTime%29?displayProperty=nameWithType> メソッドを呼び出すことによって取得する必要があります。 メソッドの1つのパラメーターは、変換する日付と時刻を表す <xref:System.DateTime> 値です。 タイム ゾーンで夏時間がサポートされている場合、このパラメーターにより、このメソッドはその特定の日時に対して適切なオフセットを決定できます。
 
 ## <a name="conversions-from-datetimeoffset-to-datetime"></a>DateTimeOffset から DateTime への変換
 
-プロパティ<xref:System.DateTimeOffset.DateTime%2A>は、変換を<xref:System.DateTime>実行<xref:System.DateTimeOffset>するために最も一般的に使用されます。 ただし、次の例<xref:System.DateTime>に示す<xref:System.DateTime.Kind%2A>ように<xref:System.DateTimeKind.Unspecified>、このメソッドは、プロパティがである値を返します。
+<xref:System.DateTimeOffset.DateTime%2A> プロパティは、変換を <xref:System.DateTime> <xref:System.DateTimeOffset> を実行するために最も一般的に使用されます。 ただし、次の例に示すように <xref:System.DateTime.Kind%2A> プロパティが <xref:System.DateTimeKind.Unspecified>の <xref:System.DateTime> 値が返されます。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#5](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#5)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#5](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#5)]
 
-これは、 <xref:System.DateTimeOffset.DateTime%2A>プロパティを使用する<xref:System.DateTimeOffset>ときに、値と UTC の関係に関する情報が変換によって失われることを意味します。 これは<xref:System.DateTimeOffset> 、UTC 時刻またはシステムの現地時刻に対応する値に影響<xref:System.DateTimeOffset.DateTime%2A>します。これは、構造体が<xref:System.DateTime.Kind%2A>そのプロパティ内の2つのタイムゾーンのみを反映しているためです。
+これは、<xref:System.DateTimeOffset.DateTime%2A> プロパティを使用するときに、変換によって <xref:System.DateTimeOffset> 値の UTC との関係に関するすべての情報が失われることを意味します。 これは、<xref:System.DateTime.Kind%2A> プロパティの2つのタイムゾーンのみを反映する <xref:System.DateTimeOffset.DateTime%2A> 構造体であるため、UTC 時刻またはシステムの現地時刻に対応する <xref:System.DateTimeOffset> 値に影響します。
 
-を<xref:System.DateTimeOffset> 値<xref:System.DateTime>に変換するときに、できるだけ多くのタイムゾーン情報を保持するには、 <xref:System.DateTimeOffset.UtcDateTime%2A?displayProperty=nameWithType>プロパティ<xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType>とプロパティを使用します。
+<xref:System.DateTimeOffset> を <xref:System.DateTime> 値に変換するときにできるだけ多くのタイムゾーン情報を保持するには、<xref:System.DateTimeOffset.UtcDateTime%2A?displayProperty=nameWithType> プロパティと <xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> プロパティを使用できます。
 
 ### <a name="converting-a-utc-time"></a>UTC 時刻の変換
 
-変換<xref:System.DateTimeOffset.DateTime%2A>された値が UTC 時刻であることを示すには、 <xref:System.DateTimeOffset.UtcDateTime%2A?displayProperty=nameWithType>プロパティの値を取得します。 これは、次<xref:System.DateTimeOffset.DateTime%2A>の2つの方法でプロパティとは異なります。
+変換された <xref:System.DateTimeOffset.DateTime%2A> 値が UTC 時刻であることを示すには、<xref:System.DateTimeOffset.UtcDateTime%2A?displayProperty=nameWithType> プロパティの値を取得します。 これは、<xref:System.DateTimeOffset.DateTime%2A> プロパティと次の2つの点で異なります。
 
-- このメソッドは<xref:System.DateTime> 、 <xref:System.DateTime.Kind%2A>プロパティがで<xref:System.DateTimeKind.Utc>ある値を返します。
+- <xref:System.DateTime.Kind%2A> プロパティが <xref:System.DateTimeKind.Utc>の <xref:System.DateTime> 値を返します。
 
-- プロパティ値がと等しく<xref:System.TimeSpan.Zero?displayProperty=nameWithType>ない場合は、時刻を UTC に変換します。 <xref:System.DateTimeOffset.Offset%2A>
+- <xref:System.DateTimeOffset.Offset%2A> プロパティ値が <xref:System.TimeSpan.Zero?displayProperty=nameWithType>と等しくない場合、時刻は UTC に変換されます。
 
 > [!NOTE]
-> 変換<xref:System.DateTime>された値が明確に単一の時点を識別するようにアプリケーションで要求さ<xref:System.DateTimeOffset.UtcDateTime%2A?displayProperty=nameWithType>れる場合は、 <xref:System.DateTimeOffset>プロパティを使用してすべての変換を<xref:System.DateTime>処理することを検討してください。
+> 変換された <xref:System.DateTime> 値が明確に特定の時点を識別するようにアプリケーションで要求されている場合は、<xref:System.DateTimeOffset.UtcDateTime%2A?displayProperty=nameWithType> プロパティを使用して、<xref:System.DateTime> 変換のすべての <xref:System.DateTimeOffset> を処理することを検討してください。
 
-次のコードでは<xref:System.DateTimeOffset.UtcDateTime%2A> 、プロパティを使用して、オフセット<xref:System.TimeSpan.Zero?displayProperty=nameWithType>がに<xref:System.DateTime>等しい<xref:System.DateTimeOffset>値を値に変換します。
+次のコードでは、<xref:System.DateTimeOffset.UtcDateTime%2A> プロパティを使用して、オフセットが <xref:System.TimeSpan.Zero?displayProperty=nameWithType> である <xref:System.DateTimeOffset> 値を <xref:System.DateTime> の値に変換します。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#6](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#6)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#6](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#6)]
 
-次のコードでは<xref:System.DateTimeOffset.UtcDateTime%2A> 、プロパティを使用して、 <xref:System.DateTimeOffset>値に対してタイムゾーン変換と型変換の両方を実行します。
+次のコードでは、<xref:System.DateTimeOffset.UtcDateTime%2A> プロパティを使用して、<xref:System.DateTimeOffset> 値に対してタイムゾーン変換と型変換の両方を実行します。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#12](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#12)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#12](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#12)]
 
 ### <a name="converting-a-local-time"></a>現地時刻の変換
 
-<xref:System.DateTimeOffset>値が現地時刻を表すことを示すには、 `static` <xref:System.DateTimeOffset.DateTime%2A?displayProperty=nameWithType>プロパティに<xref:System.DateTime>よって返された値を (`Shared` Visual Basic) <xref:System.DateTime.SpecifyKind%2A>メソッドに渡すことができます。 メソッドは、最初のパラメーターとして渡された日付と時刻を返します<xref:System.DateTime.Kind%2A>が、プロパティは、2番目のパラメーターで指定した値に設定されます。 次のコードでは<xref:System.DateTime.SpecifyKind%2A> 、オフセットがローカル<xref:System.DateTimeOffset>タイムゾーンのオフセットに対応する値を変換するときに、メソッドを使用しています。
+<xref:System.DateTimeOffset> 値が現地時刻を表すことを示すには、<xref:System.DateTimeOffset.DateTime%2A?displayProperty=nameWithType> プロパティによって返された <xref:System.DateTime> 値を `static` (`Shared` で Visual Basic) <xref:System.DateTime.SpecifyKind%2A> メソッドに渡すことができます。 メソッドは、最初のパラメーターとして渡された日付と時刻を返しますが、<xref:System.DateTime.Kind%2A> のプロパティは、2番目のパラメーターで指定した値に設定されます。 次のコードでは、オフセットがローカルタイムゾーンのオフセットに対応する <xref:System.DateTimeOffset> 値を変換するときに、<xref:System.DateTime.SpecifyKind%2A> メソッドを使用しています。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#7](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#7)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#7](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#7)]
 
-また、プロパティを使用<xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType>して、 <xref:System.DateTimeOffset>値をローカル<xref:System.DateTime>値に変換することもできます。 <xref:System.DateTimeKind.Local>戻り<xref:System.DateTime.Kind%2A> 値の<xref:System.DateTime>プロパティがです。 次のコードでは<xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> 、オフセットがローカル<xref:System.DateTimeOffset>タイムゾーンのオフセットに対応する値を変換するときに、プロパティを使用しています。 
+また、<xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> プロパティを使用して、<xref:System.DateTimeOffset> 値をローカルの <xref:System.DateTime> 値に変換することもできます。 返された <xref:System.DateTime> 値の <xref:System.DateTime.Kind%2A> プロパティは <xref:System.DateTimeKind.Local>です。 次のコードでは、オフセットがローカルタイムゾーンのオフセットに対応する <xref:System.DateTimeOffset> 値を変換するときに、<xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> プロパティを使用しています。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#10](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#10)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#10](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#10)]
 
-<xref:System.DateTime> `get` <xref:System.DateTimeOffset> <xref:System.DateTimeOffset.ToLocalTime%2A>プロパティを使用して値を取得すると、プロパティのアクセサーは、最初に値を UTC に変換してから、メソッドを呼び出して現地時刻に変換します。 <xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> これは、 <xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType>プロパティから値を取得して、型変換を実行するときと同時にタイムゾーン変換を実行できることを意味します。 また、変換の実行にローカル タイム ゾーンの調整規則が適用されることも意味します。 次のコードは、 <xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType>プロパティを使用して、型とタイムゾーン変換の両方を実行する方法を示しています。
+<xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> プロパティを使用して <xref:System.DateTime> 値を取得すると、プロパティの `get` アクセサーは、最初に <xref:System.DateTimeOffset> 値を UTC に変換し、次に <xref:System.DateTimeOffset.ToLocalTime%2A> メソッドを呼び出してローカル時刻に変換します。 これは、<xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> プロパティから値を取得して、型変換を実行するときと同時にタイムゾーン変換を実行できることを意味します。 また、変換の実行にローカル タイム ゾーンの調整規則が適用されることも意味します。 次のコードは、<xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> プロパティを使用して、型とタイムゾーン変換の両方を実行する方法を示しています。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#11](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#11)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#11](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#11)]
 
 ### <a name="a-general-purpose-conversion-method"></a>汎用変換メソッド
 
-次の例では、値`ConvertFromDateTimeOffset`を値<xref:System.DateTimeOffset>に<xref:System.DateTime>変換するという名前のメソッドを定義しています。 オフセットに基づいて、 <xref:System.DateTimeOffset>値が UTC 時刻、現地時刻、またはその他の時刻であるかどうかを判断し、返された日付と時刻の値の<xref:System.DateTime.Kind%2A>プロパティをそれに応じて定義します。
+次の例では、<xref:System.DateTimeOffset> 値を <xref:System.DateTime> 値に変換する `ConvertFromDateTimeOffset` という名前のメソッドを定義します。 オフセットに基づいて、<xref:System.DateTimeOffset> 値が UTC 時刻、現地時刻、またはその他の時刻であるかどうかを判断し、返された日付と時刻の値の <xref:System.DateTime.Kind%2A> プロパティをそれに応じて定義します。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#8](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#8)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#8](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#8)]
 
-次の例では`ConvertFromDateTimeOffset` 、メソッド<xref:System.DateTimeOffset>を呼び出して、UTC 時刻、現地時刻、および米国の時刻を表す値を変換します。
+次の例では、`ConvertFromDateTimeOffset` メソッドを呼び出して、UTC 時刻、現地時刻、および米国中部標準時ゾーンの時刻を表す <xref:System.DateTimeOffset> 値を変換します。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#9](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#9)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#9](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#9)]
 
 このコードは次の 2 つのことを前提としますが、アプリケーションおよびその日時値のソースによっては常に有効とは限らないことに注意してください。
 
-- オフセットが<xref:System.TimeSpan.Zero?displayProperty=nameWithType> UTC を表す日付と時刻の値であることを前提としています。 実際には、UTC は特定のタイム ゾーンの時刻ではなく、世界のタイム ゾーンの時刻を標準化する際に基準となる時刻です。 タイムゾーンには、の<xref:System.TimeSpan.Zero>オフセットを設定することもできます。
+- オフセットが <xref:System.TimeSpan.Zero?displayProperty=nameWithType> 日付と時刻の値が UTC を表すことを前提としています。 実際には、UTC は特定のタイム ゾーンの時刻ではなく、世界のタイム ゾーンの時刻を標準化する際に基準となる時刻です。 タイムゾーンに <xref:System.TimeSpan.Zero>のオフセットを設定することもできます。
 
 - オフセットがローカル タイム ゾーンのオフセットと等しい日時が、ローカル タイム ゾーンを表すことを前提とします。 日時値は元のタイム ゾーンとの関連付けが解除されているので、これは該当しない場合があります。日時は、同じオフセットを持つ別のタイム ゾーンに由来する可能性があります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [日付、時刻、およびタイム ゾーン](../../../docs/standard/datetime/index.md)
+- [日付、時刻およびタイム ゾーン](../../../docs/standard/datetime/index.md)

@@ -5,12 +5,12 @@ author: thraka
 ms.date: 06/25/2019
 ms.topic: tutorial
 ms.author: adegeo
-ms.openlocfilehash: 5183781d6a131aa395cf7c1fd8a09e05ed0bd71d
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: 5f4038e863d9bb59df470d3516c08fd2ad29c078
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70926151"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77503561"
 ---
 # <a name="tutorial-create-an-item-template"></a>チュートリアル: 項目テンプレートを作成する
 
@@ -33,7 +33,7 @@ ms.locfileid: "70926151"
 
   この参照記事では、テンプレートの基本と、テンプレートをまとめる方法が説明されています。 ここでは、この情報の一部を繰り返して示します。
 
-* ターミナルを開いて _working\templates\\_ フォルダーに移動します。
+* ターミナルを開いて、_working\templates_ フォルダーに移動します。
 
 ## <a name="create-the-required-folders"></a>必要なフォルダーを作成する
 
@@ -54,7 +54,7 @@ parent_folder
 
 項目テンプレートは、1 つ以上のファイルを含む特定の種類のテンプレートです。 この種類のテンプレートは、構成、コード、ソリューションなどのファイルを生成する場合に役立ちます。 この例では、文字列型に拡張メソッドを追加するクラスを作成します。
 
-ターミナルで _working\templates\\_ フォルダーに移動し、_extensions_ という名前の新しいサブフォルダーを作成します。 このフォルダーに入ります。
+ターミナルで、_working\templates_ フォルダーに移動し、_extensions_ という名前の新しいサブフォルダーを作成します。 このフォルダーに入ります。
 
 ```console
 working
@@ -85,7 +85,7 @@ namespace System
 
 ## <a name="create-the-template-config"></a>テンプレートの構成を作成する
 
-.NET Core では、テンプレートが、テンプレートのルートに存在する特別なフォルダーと構成ファイルによって認識されます。 このチュートリアルでは、テンプレート フォルダーは _working\templates\extensions\\_ にあります。
+.NET Core では、テンプレートが、テンプレートのルートに存在する特別なフォルダーと構成ファイルによって認識されます。 このチュートリアルでは、テンプレート フォルダーは _working\templates\extensions_ にあります。
 
 テンプレートを作成すると、特別な構成フォルダーを除く、テンプレート フォルダー内のすべてのファイルとフォルダーがテンプレートの一部として含まれます。 この構成フォルダーの名前は _.template.config_ です。
 
@@ -151,8 +151,13 @@ Worker Service                                    worker                [C#]    
 
 項目テンプレートをインストールしたので、テストします。 _test/_ フォルダーに移動し、`dotnet new console` を使用して新しいコンソール アプリケーションを作成します。 これにより、`dotnet run` コマンドを使用して簡単にテストできる作業プロジェクトが生成されます。
 
+```dotnetcli
+dotnet new console
+```
+
+次のような出力が得られます。
+
 ```console
-C:\test> dotnet new console
 The template "Console Application" was created successfully.
 
 Processing post-creation actions...
@@ -162,15 +167,27 @@ Running 'dotnet restore' on C:\test\test.csproj...
 Restore succeeded.
 ```
 
+以下を使用してプロジェクトを実行します。
+
+```dotnetcli
+dotnet run
+```
+
+次の出力が得られます。
+
 ```console
-C:\test> dotnet run
 Hello World!
 ```
 
 次に、`dotnet new stringext` を実行して、テンプレートから _CommonExtensions.cs_ を生成します。
 
+```dotnetcli
+dotnet new stringext
+```
+
+次の出力が得られます。
+
 ```console
-C:\test> dotnet new stringext
 The template "Example templates: string extensions" was created successfully.
 ```
 
@@ -182,8 +199,13 @@ Console.WriteLine("Hello World!".Reverse());
 
 プログラムをもう一度実行すると、結果が反転されたことを確認できます。
 
+```dotnetcli
+dotnet run
+```
+
+次の出力が得られます。
+
 ```console
-C:\test> dotnet run
 !dlroW olleH
 ```
 
@@ -193,8 +215,13 @@ C:\test> dotnet run
 
 ファイル パスを使用してテンプレートをインストールしたので、**絶対**ファイル パスを使用してアンインストールする必要があります。 `dotnet new -u` コマンドを実行すると、インストールされているテンプレートの一覧を表示できます。 作成したテンプレートは最後に表示されているはずです。 一覧にあるパスを使用して、`dotnet new -u <ABSOLUTE PATH TO TEMPLATE DIRECTORY>` コマンドでテンプレートをアンインストールします。
 
+```dotnetcli
+dotnet new -u
+```
+
+次のような出力が得られます。
+
 ```console
-C:\working> dotnet new -u
 Template Instantiation Commands for .NET Core CLI
 
 Currently installed items:
@@ -222,8 +249,10 @@ Currently installed items:
       Example templates: string extensions (stringext) C#
 ```
 
-```console
-C:\working> dotnet new -u C:\working\templates\extensions
+テンプレートをアンインストールするには、次のコマンドを実行します。
+
+```dotnetcli
+dotnet new -u C:\working\templates\extensions
 ```
 
 ## <a name="next-steps"></a>次の手順

@@ -1,5 +1,5 @@
 ---
-title: 標準の日時形式文字列
+title: 標準の日時書式指定文字列
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 dev_langs:
@@ -14,16 +14,14 @@ helpviewer_keywords:
 - formatting [.NET Framework], time
 - date and time strings
 ms.assetid: bb79761a-ca08-44ee-b142-b06b3e2fc22b
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: c8a4c1c9450d624b6c4903f9f7978e931e74551c
-ms.sourcegitcommit: 77e33b682db39955e331b8e8eda4ef1925a24e78
+ms.openlocfilehash: 883902142a91e275ab64ad5d12c197c665bd9b36
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70133822"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79398473"
 ---
-# <a name="standard-date-and-time-format-strings"></a>標準の日時形式文字列
+# <a name="standard-date-and-time-format-strings"></a>標準の日時書式指定文字列
 
 標準の日時書式指定文字列は、単一の書式指定子を使用して日付と時刻の値のテキスト表現を定義します。 空白を含む複数の文字で構成される日時書式指定文字列は、カスタム日時書式指定文字列として解釈されます。詳細については、「[カスタム日時書式指定文字列](../../../docs/standard/base-types/custom-date-and-time-format-strings.md)」をご覧ください。 標準またはカスタムの書式指定文字列には、次の 2 とおりの使用方法があります。
 
@@ -87,7 +85,7 @@ ms.locfileid: "70133822"
 
 |標準書式指定文字列|DateTimeFormatInfo.InvariantInfo プロパティによる定義|カスタム書式指定文字列|
 |----------------------------|----------------------------------------------------------|--------------------------|
-|"O" または "o"|なし|yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffzz|
+|"O" または "o"|None|yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffzz|
 |"R" または "r"|<xref:System.Globalization.DateTimeFormatInfo.RFC1123Pattern%2A>|ddd, dd MMM yyyy HH':'mm':'ss 'GMT'|
 |"s"|<xref:System.Globalization.DateTimeFormatInfo.SortableDateTimePattern%2A>|yyyy'-'MM'-'dd'T'HH':'mm':'ss|
 |"u"|<xref:System.Globalization.DateTimeFormatInfo.UniversalSortableDateTimePattern%2A>|yyyy'-'MM'-'dd HH':'mm':'ss'Z'|
@@ -453,6 +451,6 @@ RFC 1123 標準では、時刻は世界協定時刻 (UTC: Coordinated Universal 
 - <xref:System.DateTime?displayProperty=nameWithType>
 - <xref:System.DateTimeOffset?displayProperty=nameWithType>
 - [型の書式設定](../../../docs/standard/base-types/formatting-types.md)
-- [Custom Date and Time Format Strings](../../../docs/standard/base-types/custom-date-and-time-format-strings.md)
+- [カスタム日時形式文字列](../../../docs/standard/base-types/custom-date-and-time-format-strings.md)
 - [サンプル: .NET Core WinForms 書式設定ユーティリティ (C#)](https://docs.microsoft.com/samples/dotnet/samples/winforms-formatting-utility-cs)
 - [サンプル: .NET Core WinForms 書式設定ユーティリティ (Visual Basic)](https://docs.microsoft.com/samples/dotnet/samples/winforms-formatting-utility-vb)

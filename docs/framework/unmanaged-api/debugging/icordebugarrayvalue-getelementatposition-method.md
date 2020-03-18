@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 6fd5eaa4-1997-4910-82f5-3887480db764
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4cfdaeb1bc298c10cbae01c946ffb867cef21d17
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 10584442d7e0bd61e6decaf2b494dfe39f339d6d
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737551"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73088413"
 ---
 # <a name="icordebugarrayvaluegetelementatposition-method"></a>ICorDebugArrayValue::GetElementAtPosition メソッド
-0 から始まる 1 次元の配列として、配列を扱う方法の指定された位置に要素を取得します。  
+配列を0から始まる1次元配列として扱い、指定された位置にある要素を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,16 +36,16 @@ HRESULT GetElementAtPosition (
   
 ## <a name="parameters"></a>パラメーター  
  `nPosition`  
- [in]取得する要素の位置。  
+ から取得する要素の位置。  
   
  `ppValue`  
- [out]要素の値を表す ICorDebugValue オブジェクトのアドレスへのポインター。  
+ 入出力要素の値を表す ICorDebugValue オブジェクトのアドレスへのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- 多次元配列のレイアウトでは、C++ スタイルの配列のレイアウトに従います。  
+ 多次元配列のレイアウトは、配列レイアウトのスタイルC++に従います。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

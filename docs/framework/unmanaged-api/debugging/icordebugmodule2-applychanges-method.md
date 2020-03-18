@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 96fa3406-6a6f-41a1-88c6-d9bc5d1a16d1
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 860b87b09ee487f893a1bba2aaa34292c50ffcb7
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: c324019e1e62701f4f2aaba1c00948b292ba6847
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67764342"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127912"
 ---
 # <a name="icordebugmodule2applychanges-method"></a>ICorDebugModule2::ApplyChanges メソッド
-実行中のプロセスにメタデータの変更と Microsoft intermediate language (MSIL) コードの変更を適用します。  
+メタデータの変更と、Microsoft 中間言語 (MSIL) コードの変更を実行中のプロセスに適用します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,32 +38,32 @@ HRESULT ApplyChanges (
   
 ## <a name="parameters"></a>パラメーター  
  `cbMetadata`  
- [in]デルタのメタデータのバイト単位のサイズ。  
+ からデルタメタデータのサイズ (バイト単位)。  
   
  `pbMetadata`  
- [in]デルタのメタデータを格納するバッファー。 バッファーのアドレスから返される、 [imetadataemit 2::savedeltatomemory](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-savedeltatomemory-method.md)メソッド。  
+ からデルタメタデータを格納しているバッファー。 バッファーのアドレスは、 [IMetaDataEmit2:: SaveDeltaToMemory](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-savedeltatomemory-method.md)メソッドから返されます。  
   
- MSIL コードの先頭からの相対メタデータ内の相対仮想アドレス (Rva) があります。  
+ メタデータ内の相対仮想アドレス (RVAs) は、MSIL コードの先頭に対して相対的に指定する必要があります。  
   
  `cbIL`  
- [in]デルタの MSIL コードのバイト単位のサイズ。  
+ からデルタ MSIL コードのサイズ (バイト単位)。  
   
  `pbIL`  
- [in]更新された MSIL コードを格納するバッファー。  
+ から更新された MSIL コードを格納しているバッファー。  
   
 ## <a name="remarks"></a>Remarks  
- `pbMetadata`パラメーターは、特別なデルタ メタデータ形式では (によって出力として[imetadataemit 2::savedeltatomemory](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-savedeltatomemory-method.md))。 `pbMetadata` ベースとして前のメタデータを受け取り、そのベースに適用する個々 の変更について説明します。  
+ `pbMetadata` パラメーターは、( [IMetaDataEmit2:: SaveDeltaToMemory](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-savedeltatomemory-method.md)によって出力される) 特別なデルタメタデータ形式です。 `pbMetadata` は、前のメタデータをベースとして受け取り、そのベースに適用する個々の変更について説明します。  
   
- これに対し、 `pbIL[`] パラメーターが新しい、更新されたメソッドの MSIL を含むし、そのメソッドの以前の MSIL を完全に置き換えるものでは  
+ これに対して、`pbIL[`] パラメーターには、更新されたメソッドの新しい MSIL が含まれます。これは、そのメソッドの前の MSIL を完全に置き換えることを目的としています。  
   
- デバッガーのメモリ内で、デルタ MSIL とメタデータが作成されると、デバッガーが呼び出す`ApplyChanges`共通言語ランタイム (CLR) に変更を送信します。 ランタイムは、そのメタデータ テーブルを更新、新しい MSIL をプロセスに配置し、新しい MSIL のジャストイン タイム (JIT) コンパイルを設定します。 変更が適用されている場合、デバッガーを呼び出す必要があります[imetadataemit 2::resetenclog](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-resetenclog-method.md) [次へ] の編集セッションを準備します。 デバッガーは、プロセスを続行することがあります。  
+ デルタ MSIL とメタデータがデバッガーのメモリ内に作成されると、デバッガーは `ApplyChanges` を呼び出して、変更を共通言語ランタイム (CLR) に送信します。 ランタイムはそのメタデータテーブルを更新し、新しい MSIL をプロセスに配置して、新しい MSIL の just-in-time (JIT) コンパイルを設定します。 変更が適用されると、デバッガーは[IMetaDataEmit2:: ResetENCLog](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-resetenclog-method.md)を呼び出して、次の編集セッションの準備を行う必要があります。 デバッガーはプロセスを続行できます。  
   
- デバッガーを呼び出すたびに`ApplyChanges`デルタのメタデータを含むモジュールの場合に呼び出す必要もあります[imetadataemit::applyeditandcontinue](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-applyeditandcontinue-method.md)コピーを除き、そのモジュールのメタデータのコピーのすべてに同じデルタ メタデータを持つ変更内容を出力するために使用します。 場合は、メタデータのコピーは、非同期の何らかの方法でになります。 実際のメタデータとデバッガー常にそのコピーを破棄して新しいコピーを取得します。  
+ デバッガーは、デルタメタデータを持つモジュールで `ApplyChanges` を呼び出すたびに、変更を出力するために使用されるコピーを除き、そのモジュールのメタデータのすべてのコピーに対して同じデルタメタデータを使用して[IMetaDataEmit:: ApplyEditAndContinue](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-applyeditandcontinue-method.md)を呼び出す必要があります。 メタデータのコピーが実際のメタデータと同期しなくなる場合、デバッガーは常にそのコピーを破棄して新しいコピーを取得できます。  
   
- 場合、`ApplyChanges`メソッドが失敗した場合は、デバッグ セッションが無効の状態と、再起動する必要があります。  
+ `ApplyChanges` メソッドが失敗した場合、デバッグセッションは無効な状態にあり、再起動する必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

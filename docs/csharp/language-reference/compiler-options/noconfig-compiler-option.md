@@ -10,10 +10,10 @@ helpviewer_keywords:
 - noconfig compiler option [C#]
 ms.assetid: cd26967e-e494-4c8c-b5c9-af13b2f78b2e
 ms.openlocfilehash: 2d6d0c52be2306292224d7831f8818c6f865f2f4
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69602739"
 ---
 # <a name="-noconfig-c-compiler-options"></a>-noconfig (C# コンパイラ オプション)
@@ -36,7 +36,7 @@ ms.locfileid: "69602739"
   
  このコンパイラ オプションは Visual Studio では使用できず、プログラムで変更することはできません。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](./index.md)
 - [プロジェクトおよびソリューションのプロパティの管理](/visualstudio/ide/managing-project-and-solution-properties)

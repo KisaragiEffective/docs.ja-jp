@@ -6,14 +6,12 @@ helpviewer_keywords:
 - fusion global static functions [.NET Framework]
 - global static functions [.NET Framework fusion]
 ms.assetid: 229b2188-9168-4b44-a987-e1f515494688
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 6a8f15bc862c0486311960f7567c49424859846e
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: ff94ed23f3e39888b4f7e255feece99898f8aa74
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70795322"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73108266"
 ---
 # <a name="fusion-global-static-functions"></a>Fusion グローバル静的関数
 このセクションでは、fusion API が使用するアンマネージグローバル静的関数について説明します。  
@@ -47,7 +45,7 @@ ms.locfileid: "70795322"
  アプリケーション id と参照のキーを管理する[Iappidauthority](iappidauthority-interface.md)インスタンスへのポインターを取得します。  
   
  [GetAssemblyIdentityFromFile 関数](getassemblyidentityfromfile-function.md)  
- 指定したファイルパス`IUnknown`のアセンブリ内で`IID` 、指定したを持つオブジェクトへのポインターを取得します。  
+ 指定したファイルパスにあるアセンブリ内の指定した `IID` を持つ `IUnknown` オブジェクトへのポインターを取得します。  
   
  [GetCachePath 関数](getcachepath-function.md)  
  指定したフラグを使用して、キャッシュされたアセンブリへのパスを取得します。  

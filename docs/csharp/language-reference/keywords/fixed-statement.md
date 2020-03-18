@@ -1,18 +1,17 @@
 ---
 title: fixed ステートメント - C# リファレンス
-ms.custom: seodec18
 ms.date: 05/10/2018
 f1_keywords:
 - fixed_CSharpKeyword
 - fixed
 helpviewer_keywords:
 - fixed keyword [C#]
-ms.openlocfilehash: d3c87f0e71095bbcc7c5a1d64b026e92838a6306
-ms.sourcegitcommit: 1e7ac70be1b4d89708c0d9552897515f2cbf52c4
+ms.openlocfilehash: e527e8a54a739391d18b180532372b5b70f34d37
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433753"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75713520"
 ---
 # <a name="fixed-statement-c-reference"></a>fixed ステートメント (C# リファレンス)
 
@@ -67,12 +66,12 @@ fixed (byte* ps = srcarray, pd = dstarray)
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳細については、「[C# 言語仕様](~/_csharplang/spec/introduction.md)」の [fixed ステートメント](~/_csharplang/spec/unsafe-code.md#the-fixed-statement)に関するセクションを参照してください。
+詳細については、「[C# 言語仕様](~/_csharplang/spec/unsafe-code.md#the-fixed-statement)」の [fixed ステートメント](~/_csharplang/spec/introduction.md)に関するセクションを参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# のキーワード](index.md)
 - [unsafe](unsafe.md)
 - [ポインター型](../../programming-guide/unsafe-code-pointers/pointer-types.md)

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 1f647732f2e8657aebb58d57848c876956c30a90
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "70963580"
 ---
 > [!div class="op_multi_selector" title1=".NET Framework のバージョン下限" title2=".NET Framework のバージョン上限"]

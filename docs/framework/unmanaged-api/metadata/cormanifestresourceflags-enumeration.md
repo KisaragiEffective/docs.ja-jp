@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 1b0306b7-622b-4b57-8edc-3c713bb147ae
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 08f997e133fa6cc8769efe18e7ca06c0153f15a4
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 35966e25d02bd6f1a9bdd21ad4e9cc44b7bb480e
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781798"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74450259"
 ---
 # <a name="cormanifestresourceflags-enumeration"></a>CorManifestResourceFlags 列挙型
-アセンブリ マニフェストでエンコードされているリソースの可視性を示します。  
+アセンブリマニフェストでエンコードされたリソースを表示するかどうかを示します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -46,10 +44,10 @@ typedef enum CorManifestResourceFlags {
 |`mrPublic`|リソースはパブリックです。|  
 |`mrPrivate`|リソースはプライベートです。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

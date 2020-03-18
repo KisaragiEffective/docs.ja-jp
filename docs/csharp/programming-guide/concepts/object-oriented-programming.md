@@ -1,63 +1,25 @@
 ---
 title: オブジェクト指向プログラミング (C#)
-ms.date: 07/20/2015
+ms.date: 02/08/2020
 ms.assetid: 89574786-65ef-4335-88bc-fbacd094f183
-ms.openlocfilehash: 50b38833582ebe46836ccfab4e1ebeb98b53a96e
-ms.sourcegitcommit: cdf67135a98a5a51913dacddb58e004a3c867802
+ms.openlocfilehash: 01d6f55bf0752f902f351675c4596abbb8ac85c2
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69659877"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77627891"
 ---
 # <a name="object-oriented-programming-c"></a>オブジェクト指向プログラミング (C#)
 
 C# は、カプセル化、継承、ポリモーフィズムなど、オブジェクト指向プログラミングを完全にサポートします。
 
-"*カプセル化*" とは、関連するプロパティ、メソッド、およびその他のメンバーのグループが 1 つの単位またはオブジェクトとして扱われることを意味します。
+- "*カプセル化*" とは、関連するプロパティ、メソッド、およびその他のメンバーのグループが 1 つの単位またはオブジェクトとして扱われることを意味します。
+- "*継承*" は、既存のクラスに基づいて新しいクラスを作成する機能です。
+- "*ポリモーフィズム*" とは、同じプロパティまたはメソッドを異なる方法で実装している複数のクラスを、交換して使用できることです。
 
-"*継承*" は、既存のクラスに基づいて新しいクラスを作成する機能です。
+## <a name="classes-and-objects"></a>クラスとオブジェクト
 
-"*ポリモーフィズム*" とは、同じプロパティまたはメソッドを異なる方法で実装している複数のクラスを、交換して使用できることです。
-
-このセクションでは、次の概念について説明します。
-
-- [クラスとオブジェクト](#Classes)
-
-  - [クラス メンバー](#Members)
-
-    - [プロパティとフィールド](#Properties)
-
-    - [メソッド](#Methods)
-
-    - [コンストラクター](#Constructors)
-
-    - [ファイナライザー](#Finalizers)
-
-    - [イベント](#Events)
-
-    - [入れ子になったクラス](#NestedClasses)
-
-  - [アクセス修飾子とアクセス レベル](#AccessModifiers)
-
-  - [クラスのインスタンス化](#InstantiatingClasses)
-
-  - [静的クラスとメンバー](#Static)
-
-  - [匿名型](#AnonymousTypes)
-
-- [継承](#Inheritance)
-
-  - [メンバーのオーバーライド](#Overriding)
-
-- "[インターフェイス](#Interfaces)"
-
-- [ジェネリック](#Generics)
-
-- [デリゲート](#Delegates)
-
-## <a name="Classes"></a> クラスとオブジェクト
-
-"*クラス*" という用語と "*オブジェクト*" という用語は同じ意味で使われる場合がありますが、実際には、クラスはオブジェクトの "*型*" を表すのに対し、オブジェクトはクラスの使用可能な "*インスタンス*" です。 そのため、オブジェクトを作成する操作は "*インスタンス化*" と呼ばれます。 設計図との対比を使って説明すると、クラスは設計図であり、オブジェクトはその設計図を基にした建築物です。
+"*クラス*" と "*オブジェクト*" という用語は、オブジェクトの "*型*" とクラスの "*インスタンス*" をそれぞれ意味します。 そのため、オブジェクトを作成する操作は "*インスタンス化*" と呼ばれます。 設計図との対比を使って説明すると、クラスは設計図であり、オブジェクトはその設計図を基にした建築物です。
 
 クラスを定義するコード例を次に示します。
 
@@ -67,7 +29,7 @@ class SampleClass
 }
 ```
 
-C# には、"*構造体*" と呼ばれる軽量バージョンのクラスも用意されています。構造体は、大きいオブジェクト配列を作成する必要があり、その配列に使用されるメモリの量を抑えたい場合に役立ちます。
+C# には "*構造体*" と呼ばれている型もありますが、継承とポリモーフィズムに対応する必要がないときに便利です。
 
 構造体を定義するコード例を次に示します。
 
@@ -77,32 +39,28 @@ struct SampleStruct
 }
 ```
 
-詳細については、次を参照してください。
+詳細については、キーワードの [class](../../language-reference/keywords/class.md) と [struct](../../language-reference/builtin-types/struct.md) に関する記事を参照してください。
 
-- [class](../../language-reference/keywords/class.md)
-
-- [struct](../../language-reference/keywords/struct.md)
-
-### <a name="Members"></a> クラス メンバー
+### <a name="class-members"></a>クラス メンバー
 
 各クラスには、さまざまな "*クラス メンバー*" を含めることができます。クラス メンバーには、クラスのデータを記述するプロパティ、クラスの動作を定義するメソッド、異なるクラスやオブジェクト間で通信するためのイベントが含まれます。
 
-#### <a name="Properties"></a> プロパティとフィールド
+#### <a name="properties-and-fields"></a>プロパティとフィールド
 
-フィールドとプロパティは、オブジェクトに格納されている情報を表します。 フィールドは、直接読み取ったり設定したりできるので変数と似ています。
+フィールドとプロパティは、オブジェクトに格納されている情報を表します。 フィールドは、適用されるアクセス修飾子に基づき、直接読み取ったり、設定したりできるという理由から変数と似ています。
 
-フィールドを定義するコード例を次に示します。
+クラスのインスタンス内からアクセスできるフィールドを定義するには:
 
 ```csharp
-class SampleClass
+public class SampleClass
 {
-    public string sampleField;
+    string sampleField;
 }
 ```
 
-プロパティには get プロシージャと set プロシージャがあり、これらを使用することで値の設定方法や戻り値をより細かく制御できます。
+プロパティには `get` と `set` というアクセサーがあります。これによって、値を設定する方法と値を返す方法を細かく制御できます。
 
-C# では、プロパティ値を格納するプライベート フィールドを作成するか、または自動実装プロパティと呼ばれる手法を使用できます。自動実装プロパティでは、値を格納するフィールドが背後で自動的に作成され、プロパティ プロシージャの基本的なロジックが提供されます。
+C# では、プロパティ値を格納するプライベート フィールドを作成するか、自動実装プロパティを使用できます。自動実装プロパティでは、値を格納するフィールドが背後で自動的に作成され、プロパティ プロシージャの基本的なロジックが提供されます。
 
 自動実装プロパティを定義するコード例を次に示します。
 
@@ -122,22 +80,22 @@ class SampleClass
     public int Sample
     {
         // Return the value stored in a field.
-        get { return _sample; }
+        get => _sample;
         // Store the value in the field.
-        set { _sample = value; }
+        set =>  _sample = value;
     }
 }
 ```
 
-ほとんどのプロパティには、プロパティ値の設定と取得を行うための両方のメソッドまたはプロシージャがあります。 ただし、読み取り専用または書き込み専用のプロパティを作成して、プロパティの変更や読み取りを制限することもできます。 C# では、`get` プロパティ メソッドまたは `set` プロパティ メソッドを省略します。 ただし、自動実装プロパティを読み取り専用または書き込み専用にすることはできません。
+ほとんどのプロパティには、プロパティ値の設定と取得を行うための両方のメソッドまたはプロシージャがあります。 ただし、読み取り専用または書き込み専用のプロパティを作成して、プロパティの変更や読み取りを制限することもできます。 C# では、`get` プロパティ メソッドまたは `set` プロパティ メソッドを省略します。 ただし、自動実装プロパティを書き込み専用にすることはできません。 読み取り専用の自動実装プロパティは、それが含まれるクラスのコンストラクターで設定できます。
 
-詳細については、次を参照してください。
+詳細については次を参照してください:
 
 - [get](../../language-reference/keywords/get.md)
 
 - [set](../../language-reference/keywords/set.md)
 
-#### <a name="Methods"></a> メソッド
+#### <a name="methods"></a>メソッド
 
 "*メソッド*" は、オブジェクトが実行できる処理です。
 
@@ -158,19 +116,18 @@ class SampleClass
 メソッドをオーバーロードするコード例を次に示します。
 
 ```csharp
-public int sampleMethod(string sampleParam) {};
+public int sampleMethod(string sampleParam) {}
 public int sampleMethod(int sampleParam) {}
 ```
 
 ほとんどの場合、メソッドはクラス定義内で宣言します。 ただし、C# では、既存のクラスの実際の定義の外部にメソッドを追加できる "*拡張メソッド*" がサポートされています。
 
-詳細については、次を参照してください。
+詳細については次を参照してください:
 
 - [メソッド](../classes-and-structs/methods.md)
-
 - [拡張メソッド](../classes-and-structs/extension-methods.md)
 
-#### <a name="Constructors"></a> コンストラクター
+#### <a name="constructors"></a>コンストラクター
 
 コンストラクターは、特定の型のオブジェクトを作成するときに自動的に実行されるクラス メソッドです。 コンストラクターは、通常、新しいオブジェクトのデータ メンバーを初期化します。 コンストラクターは、クラスの作成時に 1 回だけ実行できます。 また、コンストラクター内のコードは常に、クラス内の他のすべてのコードより先に実行されます。 他のメソッドと同じように、コンストラクターにも複数のオーバーロードを作成できます。
 
@@ -186,17 +143,15 @@ public class SampleClass
 }
 ```
 
-詳細については、次を参照してください。
+詳細については、「[コンストラクター](../classes-and-structs/constructors.md)」を参照してください。
 
-「[コンストラクター](../classes-and-structs/constructors.md)」。
-
-#### <a name="Finalizers"></a> ファイナライザー
+#### <a name="finalizers"></a>ファイナライザー
 
 ファイナライザーは、クラスのインスタンスを破棄するために使います。 .NET Framework では、アプリケーション内のマネージド オブジェクトのメモリの割り当てと解放は、ガベージ コレクターによって自動的に管理されます。 ただし、アプリケーションで作成されるアンマネージ リソースを適切にクリーンアップするために、ファイナライザーも必要になることがあります。 1 つのクラスに定義できるファイナライザーは 1 つだけです。
 
 .NET Framework のファイナライザーおよびガベージ コレクションについて詳しくは、「[ガベージ コレクション](../../../standard/garbage-collection/index.md)」をご覧ください。
 
-#### <a name="Events"></a> イベント
+#### <a name="events"></a>イベント
 
 クラスやオブジェクトは、何か重要なことが起こった場合に、イベントを使用して他のクラスまたはオブジェクトに通知を送ります。 イベントを送信する (発生させる) クラスは "*パブリッシャー*" と呼ばれ、イベントを受信する (処理する) クラスは "*サブスクライバー*" と呼ばれます。 イベント、およびイベントの発生と処理の詳細については、「[イベント](../../../standard/events/index.md)」をご覧ください。
 
@@ -206,7 +161,7 @@ public class SampleClass
 
 - イベントをサブスクライブするには、`+=` 演算子を使用します。イベント サブスクリプションを解除するには、`-=` 演算子を使用します。
 
-#### <a name="NestedClasses"></a> 入れ子になったクラス
+#### <a name="nested-classes"></a>入れ子になったクラス
 
 別のクラス内で定義されているクラスを "*入れ子になったクラス*" と呼びます。 既定では、入れ子になったクラスはプライベートです。
 
@@ -226,7 +181,7 @@ class Container
 Container.Nested nestedInstance = new Container.Nested()
 ```
 
-### <a name="AccessModifiers"></a> アクセス修飾子とアクセス レベル
+### <a name="access-modifiers-and-access-levels"></a>アクセス修飾子とアクセス レベル
 
 すべてのクラスおよびクラス メンバーでは、"*アクセス修飾子*" を使って、他のクラスに提供するアクセス レベルを指定できます。
 
@@ -243,7 +198,7 @@ Container.Nested nestedInstance = new Container.Nested()
 
 詳細については、「[アクセス修飾子](../classes-and-structs/access-modifiers.md)」を参照してください。
 
-### <a name="InstantiatingClasses"></a> クラスのインスタンス化
+### <a name="instantiating-classes"></a>クラスのインスタンス化
 
 オブジェクトを作成するには、クラスをインスタンス化する (クラスのインスタンスを作成する) 必要があります。
 
@@ -268,13 +223,12 @@ SampleClass sampleObject = new SampleClass
     { FirstProperty = "A", SecondProperty = "B" };
 ```
 
-詳細については、次を参照してください。
+詳細については次を参照してください:
 
 - [new 演算子](../../language-reference/operators/new-operator.md)
-
 - [オブジェクト初期化子とコレクション初期化子](../classes-and-structs/object-and-collection-initializers.md)
 
-### <a name="Static"></a> 静的クラスとメンバー
+### <a name="static-classes-and-members"></a>静的クラスとメンバー
 
 クラスの静的メンバーは、クラスのすべてのインスタンスで共有されるプロパティ、プロシージャ、またはフィールドです。
 
@@ -297,7 +251,7 @@ C# の静的クラスには静的メンバーだけがあり、インスタン�
 
 詳しくは、「[static](../../language-reference/keywords/static.md)」をご覧ください。
 
-### <a name="AnonymousTypes"></a> 匿名型
+### <a name="anonymous-types"></a>匿名型
 
 匿名型を使用すると、データ型のクラス定義を記述せずにオブジェクトを作成できます。 クラスは、コンパイラによって生成されます。 このクラスには使用可能な名前がなく、オブジェクトの宣言時に指定したプロパティが格納されます。
 
@@ -309,9 +263,9 @@ var sampleObject =
     new { FirstProperty = "A", SecondProperty = "B" };
 ```
 
-詳細については、次を参照してください。[匿名型](../classes-and-structs/anonymous-types.md)。
+詳細については次を参照してください:[匿名型](../classes-and-structs/anonymous-types.md)。
 
-## <a name="Inheritance"></a> 継承
+## <a name="inheritance"></a>継承
 
 継承を使用すると、他のクラスで定義されている動作を再利用、拡張、および変更する新しいクラスを作成できます。 メンバーが継承される側のクラスを "*基底クラス*" と呼び、メンバーを継承する側のクラスを "*派生クラス*" と呼びます。 ただし、C# のすべてのクラスは、.NET のクラス階層構造をサポートしてすべてのクラスに下位レベルのサービスを提供する <xref:System.Object> クラスを暗黙的に継承します。
 
@@ -338,13 +292,13 @@ public sealed class A { }
 public abstract class B { }
 ```
 
-詳細については、次を参照してください。
+詳細については次を参照してください:
 
 - [sealed](../../language-reference/keywords/sealed.md)
 
 - [abstract](../../language-reference/keywords/abstract.md)
 
-### <a name="Overriding"></a> メンバーのオーバーライド
+### <a name="overriding-members"></a>メンバーのオーバーライド
 
 既定では、派生クラスは基底クラスのすべてのメンバーを継承します。 継承したメンバーの動作を変更する場合は、そのメンバーをオーバーライドする必要があります。 つまり、派生クラスに、メソッド、プロパティ、またはイベントの新しい実装を定義できます。
 
@@ -357,7 +311,7 @@ public abstract class B { }
 |[abstract](../../language-reference/keywords/abstract.md)|派生クラスでのクラス メンバーのオーバーライドを必須にします。|
 |[new 修飾子](../../language-reference/keywords/new-modifier.md)|基底クラスから継承されたメンバーを隠ぺいします。|
 
-## <a name="Interfaces"></a> インターフェイス
+## <a name="interfaces"></a>インターフェイス
 
 インターフェイスは、クラスと同様にプロパティ、メソッド、およびイベントのセットを定義します。 ただし、クラスとは異なり、インターフェイスは実装を提供しません。 インターフェイスはクラスによって実装され、クラスとは別のエンティティとして定義されます。 インターフェイスを実装するクラスは、そのインターフェイスのあらゆる機能を定義に従って厳密に実装する必要があります。この点で、インターフェイスはコントラクトを表しています。
 
@@ -382,13 +336,9 @@ class SampleClass : ISampleInterface
 }
 ```
 
-詳細については、次を参照してください。
+詳細については、プログラミング ガイド記事の[インターフェイス](../interfaces/index.md)に関する箇所と言語参照記事の [interface](../../language-reference/keywords/interface.md) というキーワードに関する箇所を参照してください。
 
-"[インターフェイス](../interfaces/index.md)"
-
-[interface](../../language-reference/keywords/interface.md)
-
-## <a name="Generics"></a> ジェネリック
+## <a name="generics"></a>ジェネリック
 
 .NET Framework のクラス、構造体、インターフェイス、およびメソッドは、格納または使用できるオブジェクトの型を定義する "*型パラメーター*" を含むことができます。 ジェネリックの最も一般的な例として、コレクションがあります。コレクションには、その中に格納されるオブジェクトの型を指定できます。
 
@@ -408,13 +358,13 @@ SampleGeneric<string> sampleObject = new SampleGeneric<string>();
 sampleObject.Field = "Sample string";
 ```
 
-詳細については、次を参照してください。
+詳細については次を参照してください:
 
 - [ジェネリック](../../../standard/generics/index.md)
 
 - [ジェネリック](../generics/index.md)
 
-## <a name="Delegates"></a> デリゲート
+## <a name="delegates"></a>デリゲート
 
 "*デリゲート*" は、メソッド シグネチャを定義する型であり、互換性のあるシグネチャを持つ任意のメソッドへの参照を提供できます。 メソッドは、デリゲートを使用して起動する (呼び出す) ことができます。 デリゲートは、他のメソッドへの引数としてメソッドを渡すために使用されます。
 
@@ -446,11 +396,7 @@ class SampleClass
 }
 ```
 
-詳細については、次を参照してください。
-
-- [デリゲート](../delegates/index.md)
-
-- [delegate](../../language-reference/keywords/delegate.md)
+詳細については、プログラミング ガイド記事の[デリゲート](../delegates/index.md)に関する箇所と言語参照記事の [delegate](../../language-reference/builtin-types/reference-types.md) というキーワードに関する箇所を参照してください。
 
 ## <a name="see-also"></a>関連項目
 

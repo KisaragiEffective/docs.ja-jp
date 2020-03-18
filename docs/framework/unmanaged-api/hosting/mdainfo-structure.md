@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: fb8c14f7-d461-43d1-8b47-adb6723b9b93
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 198141545119976cb9107bc9c09b913572e266ce
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9a2f513d40d722f1b0aad823ac7c0d93bda5615f
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781118"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73123259"
 ---
 # <a name="mdainfo-structure"></a>MDAInfo 構造体
-詳細について説明します、 `Event_MDAFired` 、マネージ デバッグ アシスタント (MDA) の作成をトリガーするイベントです。  
+マネージデバッグアシスタント (MDA) の作成をトリガーする `Event_MDAFired` イベントについて詳しく説明します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,26 +37,26 @@ typedef struct _MDAInfo {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`lpMDACaption`|現在の MDA のタイトル。 タイトルが発生したエラーの種類について説明します、`Event_MDAFired`イベント。|  
-|`lpMDAMessage`|現在の MDA によって提供される出力メッセージです。|  
+|`lpMDACaption`|現在の MDA のタイトル。 タイトルには、`Event_MDAFired` イベントをトリガーしたエラーの種類が示されます。|  
+|`lpMDAMessage`|現在の MDA によって提供される出力メッセージ。|  
   
 ## <a name="remarks"></a>Remarks  
- マネージ デバッグ アシスタント (Mda) がランタイム実行エンジンでデバッグ共通言語ランタイム (CLR) で無効な条件を識別するなどのタスクを実行すると連携して動作する支援ツールまたはの状態に関する追加情報をダンプしますエンジン。 Mda は、トラップが困難な場合はイベントに関する XML メッセージを生成します。 マネージ コードとアンマネージ コード間の遷移をデバッグするために特に便利です。  
+ マネージデバッグアシスタント (Mda) は、共通言語ランタイム (CLR) と連携して動作し、ランタイム実行エンジンで無効な条件を特定したり、の状態に関する追加情報をダンプしたりするなどのタスクを実行します。双発. Mda は、トラップが困難なイベントに関する XML メッセージを生成します。 これらは、マネージコードとアンマネージコードの間の遷移をデバッグする場合に特に便利です。  
   
- MDA の作成をトリガーするイベントが発生したときに、ランタイムは、次の手順を受け取ります。  
+ MDA の作成をトリガーするイベントが発生した場合、ランタイムは次の手順を実行します。  
   
-- ホストが登録されていない場合、 [IActionOnCLREvent](../../../../docs/framework/unmanaged-api/hosting/iactiononclrevent-interface.md)呼び出すことによってインスタンス[iclroneventmanager::registeractiononevent](../../../../docs/framework/unmanaged-api/hosting/iclroneventmanager-registeractiononevent-method.md)の通知を受け取る、`Event_MDAFired`ランタイムを実行イベント、その既定では、ホストなしの動作。  
+- ホストが[ICLROnEventManager:: RegisterActionOnEvent](../../../../docs/framework/unmanaged-api/hosting/iclroneventmanager-registeractiononevent-method.md)を呼び出して[Iactiononclrevent](../../../../docs/framework/unmanaged-api/hosting/iactiononclrevent-interface.md)インスタンスを登録していない場合に、`Event_MDAFired` イベントが通知されるようにするには、ランタイムは既定のホストされていない動作に進みます。  
   
-- ホストには、このイベントのハンドラーが登録されている場合、ランタイムは、デバッガーがプロセスにアタッチされているかどうかを確認します。 場合は、ランタイムはデバッガーを中断します。 デバッガーが引き続き発生する場合は、ホストを呼び出します。 デバッガーがアタッチされていない場合、ランタイムが呼び出す`IActionOnCLREvent::OnEvent`へのポインターを渡すと、`MDAInfo`インスタンスとして、`data`パラメーター。  
+- ホストがこのイベントのハンドラーを登録している場合、ランタイムはデバッガーがプロセスにアタッチされているかどうかを確認します。 存在する場合、ランタイムはデバッガーに中断します。 デバッガーが続行されると、ホストが呼び出されます。 デバッガーがアタッチされていない場合、ランタイムは `IActionOnCLREvent::OnEvent` を呼び出し、`data` パラメーターとして `MDAInfo` インスタンスへのポインターを渡します。  
   
- Mda をアクティブ化して、MDA がアクティブ化されたときに通知するホストを選択できます。 これにより、ホストは、既定の動作をオーバーライドして、プロセスの状態の破損を防ぐために、イベントを発生させたマネージ スレッドを中止できます。 詳細については、Mda を使用して、次を参照してください。[マネージ デバッグ アシスタントによるエラーの診断](../../../../docs/framework/debug-trace-profile/diagnosing-errors-with-managed-debugging-assistants.md)します。  
+ ホストは mda をアクティブ化し、MDA がアクティブになったときに通知を受け取ることができます。 これにより、ホストは、既定の動作をオーバーライドし、イベントを発生させたマネージスレッドを中止して、プロセスの状態が破損するのを防ぐことができます。 Mda の使用方法の詳細については、「[マネージデバッグアシスタントによるエラーの診断](../../../../docs/framework/debug-trace-profile/diagnosing-errors-with-managed-debugging-assistants.md)」を参照してください。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.idl  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

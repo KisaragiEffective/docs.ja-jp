@@ -1,22 +1,20 @@
 ---
-title: < Crst_DisableSpinWait> 要素
+title: < Crst_DisableSpinWait > 要素
 ms.date: 04/18/2019
 f1_keywords:
 - Crst_DisableSpinWait
 helpviewer_keywords:
 - Crst_DisableSpinWait element
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8a91e21120ecebbe7af2fb93798bc68d274fa92c
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 0683081183081e249b2a9c89e1a6a15f638fb339
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252720"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73117635"
 ---
-# <a name="crst_disablespinwait-element"></a>\<Crst_DisableSpinWait> 要素
+# <a name="crst_disablespinwait-element"></a>\<Crst_DisableSpinWait > 要素
 
-競合の多い場合、クリティカル セクションのスピン待機時間を無効にするかどうかを指定します。  
+競合がある場合に、クリティカルセクションのスピン待機を無効にするかどうかを指定します。  
   
 [ **\<configuration>** ](../configuration-element.md)\
 &nbsp;&nbsp;[ **\<runtime>** ](runtime-element.md)\
@@ -40,10 +38,10 @@ ms.locfileid: "70252720"
   
 ## <a name="enabled-attribute"></a>enabled 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |1|クリティカルセクションを取得できないときに、スピン待機を無効にします。|  
-|0|クリティカルセクションを取得できない場合は、スピン待機を無効にしないでください。 これが既定値です。|  
+|0|クリティカルセクションを取得できない場合は、スピン待機を無効にしないでください。 これは既定値です。|  
   
 ### <a name="child-elements"></a>子要素  
  なし。  

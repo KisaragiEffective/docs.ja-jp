@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 98b097ef-2276-4dd9-8551-b03c972e8179
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a886106e5da49e7124dac5c8ea7416859aa441da
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 0b6ac83cdd0c88e87fdfd552c76c906a334f8928
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69929851"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120301"
 ---
 # <a name="iclrruntimeinfogetversionstring-method"></a>ICLRRuntimeInfo::GetVersionString メソッド
 指定した[ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイスに関連付けられている共通言語ランタイム (CLR) のバージョン情報を取得します。  
@@ -51,7 +49,7 @@ HRESULT GetVersionString(
  値の例としては、"v v1.0.3705"、"v 1.1.4322"、"v v2.0.50727"、および "v4.0" があります。*x*"。ここで*x*は、インストールされているビルド番号に依存します。 "V" プレフィックスが必須であることに注意してください。  
   
  `pchBuffer`  
- [入力、出力]バッファーオーバーランを回避`pwzBuffer`するためののサイズを指定します。 が`pwzBuffer`の`null` `pchBuffer`場合、は、割り当てを許可するために必要なサイズを返します。`pwzBuffer`  
+ [入力、出力]バッファーオーバーランを回避するための `pwzBuffer` のサイズを指定します。 `pwzBuffer` が `null`場合、`pchBuffer` は、事前割り当てを許可するために必要なサイズの `pwzBuffer` を返します。  
   
 ## <a name="return-value"></a>戻り値  
  このメソッドは、次の特定の HRESULT と、メソッドの失敗を示す HRESULT エラーも返します。  
@@ -61,12 +59,12 @@ HRESULT GetVersionString(
 |S_OK|メソッドは正常に完了しました。|  
 |E_POINTER|`pwzBuffer` または `pchBuffer` が null です。|  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** メタホスト .h  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

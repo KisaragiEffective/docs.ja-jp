@@ -1,15 +1,15 @@
 ---
-title: 方法:名前空間を持つドキュメントを作成する (C#) (LINQ to XML)
+title: 名前空間を持つドキュメントを作成する方法 (C#) (LINQ to XML)
 ms.date: 07/20/2015
 ms.assetid: 37e63c57-f86d-47ac-88a7-2c2d107def30
-ms.openlocfilehash: 180dc5138f8f21b3e52e4a8b3cee4748cafdd0f5
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 429b0b0b41f2201b983f931e469b25ff406b91ac
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69593884"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "74141324"
 ---
-# <a name="how-to-create-a-document-with-namespaces-c-linq-to-xml"></a>方法:名前空間を持つドキュメントを作成する (C#) (LINQ to XML)
+# <a name="how-to-create-a-document-with-namespaces-c-linq-to-xml"></a>名前空間を持つドキュメントを作成する方法 (C#) (LINQ to XML)
 このトピックでは、名前空間を持つドキュメントを作成する方法について説明します。  
   
 ## <a name="example"></a>例  
@@ -142,6 +142,6 @@ Console.WriteLine(root);
 </aw:Root>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [名前空間の概要 (LINQ to XML)](namespaces-overview-linq-to-xml.md)

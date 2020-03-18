@@ -1,21 +1,23 @@
 ---
-title: Visual Basic でのプログラミング
+title: プログラミング
 ms.date: 07/20/2015
 helpviewer_keywords:
 - programming [Visual Basic], Visual Basic
 - programming
 ms.assetid: bc45a3de-ea36-46e6-a106-309a413d7804
-ms.openlocfilehash: 09bc9254c880d58ffed22971d3ff96ba341fdf83
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 048bc70c2b5416d4377c5abcfdaf18a9312068db
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61812679"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74352115"
 ---
 # <a name="programming-in-visual-basic"></a>Visual Basic でのプログラミング
+
 このセクションでは、Visual Basic アプリケーションを作成するときに知っておきたいプログラミング タスクについて説明します。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
+
  [コンピューター リソースへのアクセス](../../../visual-basic/developing-apps/programming/computer-resources/index.md)  
  `My.Computer` オブジェクトを使用して、アプリケーションを実行するコンピューターについての情報にアクセスし、そのコンピューターを制御する方法に関するドキュメントです。  
   
@@ -31,13 +33,13 @@ ms.locfileid: "61812679"
  [アプリケーションの Web サービスへのアクセス](../../../visual-basic/developing-apps/programming/accessing-application-web-services.md)  
  アプリケーションによって参照される Web サービスに `My.WebServices` オブジェクトを使用してアクセスする方法に関するドキュメントです。  
   
- [アプリケーション設定へのアクセス](../../../visual-basic/developing-apps/programming/app-settings/index.md)  
+ [Accessing Application Settings](../../../visual-basic/developing-apps/programming/app-settings/index.md)  
  `My.Settings` オブジェクトを使用して、アプリケーションの設定にアクセスする方法に関するドキュメントです。  
   
- [ドライブ、ディレクトリ、およびファイルの処理](../../../visual-basic/developing-apps/programming/drives-directories-files/processing.md)  
+ [ドライブ、ディレクトリ、およびファイルの処理](drives-directories-files/index.md)  
  `My.Computer.FileSystem` オブジェクトを使用してファイル システムにアクセスする方法に関するドキュメントです。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Visual Basic 言語の機能](../../../visual-basic/programming-guide/language-features/index.md)
 - [プログラミングの概念](../../../visual-basic/programming-guide/concepts/index.md)

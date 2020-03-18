@@ -1,17 +1,15 @@
 ---
-title: <Type>要素 (.NET ネイティブ)
+title: <Type> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: 1e88d368-a886-4f1e-8eb6-6127979a9fce
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7ffe37540fe089bfd1e0eca1958498e725eb9b5b
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 4e88b49b82513079ddcf6f0bafe02d44235a406a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049153"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73091853"
 ---
-# <a name="type-element-net-native"></a>\<> 要素を入力します (.NET ネイティブ)
+# <a name="type-element-net-native"></a>\<Type > 要素 (.NET ネイティブ)
 
 クラスや構造体などの特定の型に実行時ポリシーを適用します。
 
@@ -53,13 +51,13 @@ ms.locfileid: "71049153"
 
 ## <a name="name-attribute"></a>Name 属性
 
-|値|説明|
+|[値]|説明|
 |-----------|-----------------|
 |*type_name*|型名。 この `<Type>` 要素が [\<Namespace>](namespace-element-net-native.md) 要素または別の `<Type>` 要素のいずれかの子である場合、*type_name* には名前空間なしで型の名前を含めることができます。 それ以外の場合は、*type_name* には完全修飾型名を含める必要があります。|
 
 ## <a name="all-other-attributes"></a>その他すべての属性
 
-|値|説明|
+|[値]|説明|
 |-----------|-----------------|
 |*policy_setting*|このポリシーの種類に適用する設定です。 指定できる値は、`All`、`Auto`、`Excluded`、`Public`、`PublicAndInternal`、`Required Public`、`Required PublicAndInternal`、および `Required All` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|
 
@@ -102,11 +100,11 @@ ms.locfileid: "71049153"
 
 ## <a name="example"></a>例
 
-次の例では、リフレクションを使用して、<xref:System.Collections.Generic.List%601?displayProperty=nameWithType> クラスのフィールド、プロパティ、およびメソッドに関する情報を表示します。 この例`b`の変数<xref:Windows.UI.Xaml.Controls.TextBlock>は、コントロールです。 この例は単に型情報を取得するのみであるため、メタデータの可用性は `Browse` ポリシー設定により制御されます。
+次の例では、リフレクションを使用して、<xref:System.Collections.Generic.List%601?displayProperty=nameWithType> クラスのフィールド、プロパティ、およびメソッドに関する情報を表示します。 この例の変数 `b` は <xref:Windows.UI.Xaml.Controls.TextBlock> コントロールです。 この例は単に型情報を取得するのみであるため、メタデータの可用性は `Browse` ポリシー設定により制御されます。
 
  [!code-csharp[ProjectN_Reflection#3](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn_reflection/cs/browsegenerictype1.cs#3)]
 
- <xref:System.Collections.Generic.List%601>クラスのメタデータは .NET ネイティブツールチェーンによって自動的に含まれないため、この例では、要求されたメンバー情報を実行時に表示できません。 必要なメタデータを提供するには、次の `<Type>` 要素をランタイム ディレクティブ ファイルに追加します。 親要素 [<Namespace\>](namespace-element-net-native.md) を指定しているため、`<Type>` 要素で完全修飾型名を指定する必要はないことに注意してください。
+ <xref:System.Collections.Generic.List%601> クラスのメタデータは .NET ネイティブツールチェーンによって自動的に含まれないため、この例では、要求されたメンバー情報を実行時に表示できません。 必要なメタデータを提供するには、次の `<Type>` 要素をランタイム ディレクティブ ファイルに追加します。 親要素 [<Namespace\>](namespace-element-net-native.md) を指定しているため、`<Type>` 要素で完全修飾型名を指定する必要はないことに注意してください。
 
 ```xml
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
@@ -120,11 +118,11 @@ ms.locfileid: "71049153"
 ```
 
 ## <a name="example"></a>例
- 次の例では、リフレクションを使用して、<xref:System.Reflection.PropertyInfo> プロパティを表す <xref:System.String.Chars%2A?displayProperty=nameWithType> オブジェクトを取得します。 続けて、<xref:System.Reflection.PropertyInfo.GetValue%28System.Object%2CSystem.Object%5B%5D%29?displayProperty=nameWithType> メソッドを使用して文字列の 7 番目の文字の値を取得し、文字列のすべての文字を表示します。 この例`b`の変数<xref:Windows.UI.Xaml.Controls.TextBlock>は、コントロールです。
+ 次の例では、リフレクションを使用して、<xref:System.Reflection.PropertyInfo> プロパティを表す <xref:System.String.Chars%2A?displayProperty=nameWithType> オブジェクトを取得します。 続けて、<xref:System.Reflection.PropertyInfo.GetValue%28System.Object%2CSystem.Object%5B%5D%29?displayProperty=nameWithType> メソッドを使用して文字列の 7 番目の文字の値を取得し、文字列のすべての文字を表示します。 この例の変数 `b` は <xref:Windows.UI.Xaml.Controls.TextBlock> コントロールです。
 
  [!code-csharp[ProjectN_Reflection#1](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn_reflection/cs/propertyinfo1.cs#1)]
 
- <xref:System.String>オブジェクトのメタデータは使用できないため、メソッドの<xref:System.Reflection.PropertyInfo.GetValue%28System.Object%2CSystem.Object%5B%5D%29?displayProperty=nameWithType>呼び出しでは<xref:System.NullReferenceException> 、.NET ネイティブツールチェーンを使用してコンパイルしたときに、実行時に例外がスローされます。 例外を排除し、必要なメタデータを提供するには、次の `<Type>` 要素をランタイム ディレクティブ ファイルに追加します。
+ <xref:System.String> オブジェクトのメタデータは使用できないため、<xref:System.Reflection.PropertyInfo.GetValue%28System.Object%2CSystem.Object%5B%5D%29?displayProperty=nameWithType> メソッドを呼び出すと、.NET ネイティブツールチェーンを使用してコンパイルしたときに、実行時に <xref:System.NullReferenceException> 例外がスローされます。 例外を排除し、必要なメタデータを提供するには、次の `<Type>` 要素をランタイム ディレクティブ ファイルに追加します。
 
 ```xml
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">

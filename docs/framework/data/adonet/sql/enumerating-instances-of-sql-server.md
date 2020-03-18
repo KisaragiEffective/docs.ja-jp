@@ -1,19 +1,19 @@
 ---
-title: SQL Server のインスタンスの列挙 (ADO.NET)
+title: SQL Server のインスタンスを列挙しています
 ms.date: 03/30/2017
 dev_langs:
 - csharp
 - vb
 ms.assetid: ddf1c83c-9d40-45e6-b04d-9828c6cbbfdc
-ms.openlocfilehash: c464762e82a24aab399a23ecb26420b5dce61f55
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: c59db5869ed848071611cdbf985b45dc59790d69
+ms.sourcegitcommit: 19014f9c081ca2ff19652ca12503828db8239d48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70782382"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76979990"
 ---
 # <a name="enumerating-instances-of-sql-server-adonet"></a>SQL Server のインスタンスの列挙 (ADO.NET)
-SQL Server を使うと、アプリケーションは現在のネットワーク内の SQL Server インスタンスを検索できます。 <xref:System.Data.Sql.SqlDataSourceEnumerator> クラスは、表示可能なすべてのサーバーに関する情報が含まれた <xref:System.Data.DataTable> を提供することで、アプリケーション開発者にこの情報を公開します。 返されたこのテーブルには、ユーザーが新しい接続を作成しようとしたときに表示される一覧と一致する、ネットワーク上で使用可能なサーバーインスタンスの一覧が含まれています。また、接続プロパティで、使用可能なすべてのサーバーを含むドロップダウンリストを展開します。ダイアログボックス。 結果には一部のインスタンスが表示されないことがあります。  
+SQL Server を使うと、アプリケーションは現在のネットワーク内の SQL Server インスタンスを検索できます。 <xref:System.Data.Sql.SqlDataSourceEnumerator> クラスは、表示可能なすべてのサーバーに関する情報が含まれた <xref:System.Data.DataTable> を提供することで、アプリケーション開発者にこの情報を公開します。 このテーブルには、ユーザーが新しい接続を作成しようとしたときに表示される一覧と一致する、ネットワーク上で使用可能なサーバーインスタンスの一覧が含まれています。また、 **[接続プロパティ]** ダイアログボックスで、使用可能なすべてのサーバーを含むドロップダウンリストを展開します。 結果には一部のインスタンスが表示されないことがあります。  
   
 > [!NOTE]
 > 大半の Windows サービスと同様に、できるだけ少ない特権で SQL Browser サービスを実行することをお勧めします。 SQL Browser サービスの詳細および SQL Browser サービスの動作を管理する方法については、SQL Server オンライン ブックを参照してください。  
@@ -43,12 +43,12 @@ System.Data.DataTable dataTable = instance.GetDataSources();
   
  このメソッド呼び出しから返されるテーブルには、次の列が含まれています。これらすべての列に `string` 値が含まれています。  
   
-|[列]|説明|  
+|[列 ]|説明|  
 |------------|-----------------|  
 |**ServerName**|サーバーの名前。|  
 |**InstanceName**|サーバー インスタンスの名前。 サーバーが既定のインスタンスとして実行されている場合は空白になります。|  
 |**IsClustered**|サーバーがクラスターの一部になっているかどうかを示します。|  
-|**Version**|サーバーのバージョン。 例えば:<br /><br /> -9.00 (SQL Server 2005)<br />-10.0. xx (SQL Server 2008)<br />-10.50 (SQL Server 2008 R2)<br />-11.0. xx (SQL Server 2012)|  
+|**バージョン**|サーバーのバージョン。 例:<br /><br /> -9.00 (SQL Server 2005)<br />-10.0. xx (SQL Server 2008)<br />-10.50 (SQL Server 2008 R2)<br />-11.0. xx (SQL Server 2012)|  
   
 ## <a name="enumeration-limitations"></a>列挙の制約  
  使用可能なサーバーの一部が表示されないことがあります。 サーバーの一覧は、タイムアウトやネットワーク トラフィックなどの要因によって異なることがあります。 そのため、2 回続けて呼び出しても、呼び出しごとにリストが異なる可能性があります。 同じネットワーク上のサーバーのみがリストに表示されます。 通常、ブロードキャスト パケットはルーターを経由しません。そのため、特定のサーバーがリストに表示されないことがありますが、その状態はいつ呼び出しを行っても変わりません。  
@@ -58,9 +58,9 @@ System.Data.DataTable dataTable = instance.GetDataSources();
 > [!NOTE]
 > サーバー列挙は、完全に信頼された環境で実行している場合にのみ利用できます。 部分的に信頼された環境で実行されているアセンブリは、<xref:System.Data.SqlClient.SqlClientPermission> Code Access Security (CAS) アクセス許可を持っている場合でも、サーバー列挙を使用できません。  
   
- SQL Server は、SQL Browser と<xref:System.Data.Sql.SqlDataSourceEnumerator>いう外部の Windows サービスを使用して、に関する情報を提供します。 このサービスは既定で有効になりますが、管理者がこのサービスをオフにしたり無効にしたりすると、サーバー インスタンスがこのクラスから見えなくなります。  
+ SQL Server は、SQL Browser という名前の外部 Windows サービスを使用して <xref:System.Data.Sql.SqlDataSourceEnumerator> に関する情報を提供します。 このサービスは既定で有効になりますが、管理者がこのサービスをオフにしたり無効にしたりすると、サーバー インスタンスがこのクラスから見えなくなります。  
   
-## <a name="example"></a>例  
+## <a name="example"></a>使用例  
  次のコンソール アプリケーションは、表示可能なすべての SQL Server インスタンスに関する情報を取得し、コンソール ウィンドウにその情報を表示します。  
   
 ```vb  

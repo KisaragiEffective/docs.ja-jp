@@ -10,20 +10,18 @@ helpviewer_keywords:
 - generics [.NET Framework], dynamic types
 - reflection emit, generic types
 ms.assetid: 07d5f01a-7b5b-40ea-9b15-f21561098fe4
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b9781e7ef8edde182a13779a01e042cb44c92881
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: b553fd2235c73cf879474dc4f44f958dddcb649c
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71045997"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130158"
 ---
 # <a name="how-to-define-a-generic-type-with-reflection-emit"></a>方法: リフレクション出力を使用してジェネリック型を定義する
 このトピックでは、2 種類のパラメーターを持つ単純なジェネリック型を作成する方法、クラス制約、インターフェイス制約、特殊な制約をパラメーターに適用する方法、パラメーターの型や戻り値の型としてクラスの型パラメーターを使用するメンバーを作成する方法を紹介します。  
   
 > [!IMPORTANT]
-> メソッドはジェネリック型に属し、その型の型パラメーターを使用するだけであるため、ジェネリックではありません。 メソッドがジェネリックになるのは、そのメソッドが独自の型パラメーター リストを持つ場合だけです。 ジェネリック型のほとんどのメソッドは、この例のように、ジェネリックではありません。 ジェネリック メソッドの出力の例については、「[方法: リフレクション出力を使用してジェネリック メソッドを定義する](how-to-define-a-generic-method-with-reflection-emit.md)」を参照してください。  
+> メソッドはジェネリック型に属し、その型の型パラメーターを使用するだけであるため、ジェネリックではありません。 メソッドがジェネリックになるのは、そのメソッドが独自の型パラメーター リストを持つ場合だけです。 ジェネリック型のほとんどのメソッドは、この例のように、ジェネリックではありません。 ジェネリック メソッドの出力の例は、「[方法: リフレクション出力を使用してジェネリック メソッドを定義する](how-to-define-a-generic-method-with-reflection-emit.md)」を参照してください。  
   
 ### <a name="to-define-a-generic-type"></a>ジェネリック型を定義するには  
   
@@ -71,7 +69,7 @@ ms.locfileid: "71045997"
      [!code-csharp[EmitGenericType#21](../../../samples/snippets/csharp/VS_Snippets_CLR/EmitGenericType/CS/source.cs#21)]
      [!code-vb[EmitGenericType#21](../../../samples/snippets/visualbasic/VS_Snippets_CLR/EmitGenericType/VB/source.vb#21)]  
   
-8. ジェネリック型の型パラメーターを使用するメソッドを定義します。 そのようなメソッドは、独自の型パラメーター リストが与えられない限り、ジェネリックにならないことに注意してください。 次のコードでは、`TFirst` の配列を受け取り、その配列のすべての要素を含む `List<TFirst>` (Visual Basic の場合は `List(Of TFirst)`) を返す `static` メソッド (Visual Basic の場合は `Shared`) が定義されます。 このメソッドを定義するには、ジェネリック型定義の `List<T>` で <xref:System.Type.MakeGenericType%2A> を呼び出し、型 `List<TFirst>` を作成する必要があります。 (`typeof` 演算子 (Visual Basic の場合は `GetType`) を利用してジェネリック型の定義を取得するとき、`T` が省略されます。)パラメーター型は <xref:System.Type.MakeArrayType%2A> メソッドを利用して作成されます。  
+8. ジェネリック型の型パラメーターを使用するメソッドを定義します。 そのようなメソッドは、独自の型パラメーター リストが与えられない限り、ジェネリックにならないことに注意してください。 次のコードでは、`TFirst` の配列を受け取り、その配列のすべての要素を含む `List<TFirst>` (Visual Basic の場合は `List(Of TFirst)`) を返す `static` メソッド (Visual Basic の場合は `Shared`) が定義されます。 このメソッドを定義するには、ジェネリック型定義の `List<T>` で <xref:System.Type.MakeGenericType%2A> を呼び出し、型 `List<TFirst>` を作成する必要があります。 (Visual Basic で`GetType` `typeof` 演算子を使用してジェネリック型の定義を取得すると、`T` は省略されます)。パラメーターの型は、<xref:System.Type.MakeArrayType%2A> メソッドを使用して作成されます。  
   
      [!code-cpp[EmitGenericType#22](../../../samples/snippets/cpp/VS_Snippets_CLR/EmitGenericType/CPP/source.cpp#22)]
      [!code-csharp[EmitGenericType#22](../../../samples/snippets/csharp/VS_Snippets_CLR/EmitGenericType/CS/source.cs#22)]
@@ -81,7 +79,7 @@ ms.locfileid: "71045997"
   
      <xref:System.Type.GetConstructor%2A> メソッドは <xref:System.Reflection.Emit.GenericTypeParameterBuilder> ではサポートされていません。そのため、`List<TFirst>` のコンストラクターを直接取得することはできません。 最初に、ジェネリック型定義 `List<T>` のコンストラクターを取得し、`List<TFirst>` の該当コンストラクターにそれを変換するメソッドを呼び出す必要があります。  
   
-     このコード例で使用されているコンストラクターでは `IEnumerable<T>` が受け取られています。 ただし、これは <xref:System.Collections.Generic.IEnumerable%601> ジェネリック インターフェイスのジェネリック型定義ではありません。`IEnumerable<T>` の型パラメーター `T` に対して `List<T>` の型パラメーター `T` を代入する必要があります。 (これが紛らわしく見えるのは、いずれの型にも `T` という名前の型パラメーターが与えられているためです。 そのため、このコード例では `TFirst` と `TSecond` という名前が使用されています。)コンストラクター引数の型を取得するには、ジェネリック型定義 `IEnumerable<T>` で始め、<xref:System.Type.MakeGenericType%2A> を呼び出します (この呼び出しでは、最初のジェネリック型パラメーターを `List<T>` にします)。 コンストラクター引数リストは配列として渡す必要があります。この例では引数が 1 つだけです。  
+     このコード例で使用されているコンストラクターでは `IEnumerable<T>` が受け取られています。 ただし、これは <xref:System.Collections.Generic.IEnumerable%601> ジェネリック インターフェイスのジェネリック型定義ではありません。`IEnumerable<T>` の型パラメーター `T` に対して `List<T>` の型パラメーター `T` を代入する必要があります。 (これが紛らわしく見えるのは、いずれの型にも `T` という名前の型パラメーターが与えられているためです。 そのため、このコード例では `TFirst` と `TSecond`の名前を使用しています)。コンストラクターの引数の型を取得するには、`IEnumerable<T>` ジェネリック型の定義から開始し、`List<T>`の最初のジェネリック型パラメーターを使用して <xref:System.Type.MakeGenericType%2A> を呼び出します。 コンストラクター引数リストは配列として渡す必要があります。この例では引数が 1 つだけです。  
   
     > [!NOTE]
     > C# で `typeof` 演算子を使用するときは `IEnumerable(Of )` として、または Visual Basic で `GetType` 演算子を使用するときは `IEnumerable<>` としてジェネリック型定義が表されます。  
@@ -98,7 +96,7 @@ ms.locfileid: "71045997"
      [!code-csharp[EmitGenericType#8](../../../samples/snippets/csharp/VS_Snippets_CLR/EmitGenericType/CS/source.cs#8)]
      [!code-vb[EmitGenericType#8](../../../samples/snippets/visualbasic/VS_Snippets_CLR/EmitGenericType/VB/source.vb#8)]  
   
-11. メソッドを呼び出します。 `ExampleMethod` はジェネリックではありませんが、それが属する型がジェネリックです。そのため、呼び出しが可能な <xref:System.Reflection.MethodInfo> を取得するには、`Sample` の型定義から、構成された型を作成する必要があります。 この構成された型は `TFirst` の制約を満たす `Example` クラスを使用します。それが参照型であり、既定のパラメーターなしのコンストラクターが与えられているためです。また、`TSecond` の制約を満たす `ExampleDerived` クラスを使用します。 (`ExampleDerived` のコードはサンプル コード セクションで確認できます。)これら 2 つの型が <xref:System.Type.MakeGenericType%2A> に渡され、構成された型が作成されます。 その後、<xref:System.Type.GetMethod%2A> メソッドを利用して <xref:System.Reflection.MethodInfo> が取得されます。  
+11. メソッドを呼び出します。 `ExampleMethod` はジェネリックではありませんが、それが属する型がジェネリックです。そのため、呼び出しが可能な <xref:System.Reflection.MethodInfo> を取得するには、`Sample` の型定義から、構成された型を作成する必要があります。 この構成された型は `TFirst` の制約を満たす `Example` クラスを使用します。それが参照型であり、既定のパラメーターなしのコンストラクターが与えられているためです。また、`TSecond` の制約を満たす `ExampleDerived` クラスを使用します。 (`ExampleDerived` のコードについては、「コード例」のセクションを参照してください)。これらの2つの型は、構築された型を作成するために <xref:System.Type.MakeGenericType%2A> に渡されます。 その後、<xref:System.Type.GetMethod%2A> メソッドを利用して <xref:System.Reflection.MethodInfo> が取得されます。  
   
      [!code-cpp[EmitGenericType#9](../../../samples/snippets/cpp/VS_Snippets_CLR/EmitGenericType/CPP/source.cpp#9)]
      [!code-csharp[EmitGenericType#9](../../../samples/snippets/csharp/VS_Snippets_CLR/EmitGenericType/CS/source.cs#9)]

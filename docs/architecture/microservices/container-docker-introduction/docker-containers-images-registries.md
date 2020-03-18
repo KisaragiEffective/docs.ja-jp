@@ -2,12 +2,12 @@
 title: Docker コンテナー、イメージ、レジストリ
 description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | Docker コンテナー、イメージ、レジストリ
 ms.date: 08/31/2018
-ms.openlocfilehash: 520f8d4d54f1fdd227ff9a1e88660b62e75f927f
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: 3b643a3bf4ca3ce1b8ba3fc40cd2f3ad8bbe5ffb
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68674899"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73737773"
 ---
 # <a name="docker-containers-images-and-registries"></a>Docker コンテナー、イメージ、レジストリ
 
@@ -19,9 +19,11 @@ Docker を使用する場合、開発者はアプリケーションまたはサ�
 
 図 2-4 は、Docker のイメージとレジストリが他のコンポーネントとどのように関係しているかを示しています。 また、ベンダーから提供される複数のレジストリも示しています。
 
-![Docker での基本的な分類:レジストリはイメージが格納される本棚のようなものであり、サービスや Web アプリを実行するコンテナーを構築するためにプルして使用できます。 オンプレミス上とパブリック クラウド上にプライベート Docker レジストリがあります。 Docker Hub はエンタープライズ級のソリューションである Docker Trusted Registry と共に Docker によって管理されるパブリック レジストリであり、Azure では Azure Container Registry を提供しています。 AWS や Google などにもコンテナー レジストリがあります。](./media/image5.PNG)
+![Docker の基本的な分類を示す図。](./media/docker-containers-images-registries/taxonomy-of-docker-terms-and-concepts.png)
 
 **図 2-4** Docker の用語と概念の分類
+
+レジストリはイメージが格納される本棚のようなものであり、サービスや Web アプリを実行するコンテナーを構築するためにプルして使用できます。 オンプレミスとパブリック クラウド上にプライベート Docker レジストリがあります。 Docker Hub はエンタープライズ級のソリューションである Docker Trusted Registry と共に Docker によって管理されるパブリック レジストリであり、Azure では Azure Container Registry を提供しています。 AWS や Google などにもコンテナー レジストリがあります。
 
 レジストリにイメージを配置すると、フレームワーク レベルのすべての依存関係を含め、静的で不変なアプリケーション ビットを格納できます。 このようなイメージは複数の環境でバージョン管理および展開できるので、一貫した展開ユニットを提供できます。
 

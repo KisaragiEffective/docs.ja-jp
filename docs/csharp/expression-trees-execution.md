@@ -2,13 +2,14 @@
 title: 式ツリーの実行
 description: 式ツリーの実行について説明します。式ツリーを実行可能な中間言語 (IL) 命令に変換します。
 ms.date: 06/20/2016
+ms.technology: csharp-advanced-concepts
 ms.assetid: 109e0ac5-2a9c-48b4-ac68-9b6219cdbccf
-ms.openlocfilehash: f6dca5a3965924e8eb6e1c04fe7ffc3c78c7df93
-ms.sourcegitcommit: 41c0637e894fbcd0713d46d6ef1866f08dc321a2
+ms.openlocfilehash: 802a83f52f9c05a99c3f49f8f6511eff81ef3eaa
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57201847"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79146022"
 ---
 # <a name="executing-expression-trees"></a>式ツリーの実行
 
@@ -20,7 +21,7 @@ ms.locfileid: "57201847"
 ## <a name="lambda-expressions-to-functions"></a>ラムダ式から関数への変換
 
 すべての LambdaExpression、または LambdaExpression の派生型は、実行可能な IL に変換できます。 その他の式の型は直接コードに変換できません。 実際には、この制限はほとんど影響がありません。 ラムダ式は、実行可能な中間言語 (IL) に変換して実行する唯一の式の型です。 (直接 `ConstantExpression` を実行することにどのような意味があるでしょうか。 何かに役立つでしょうか。)`LambdaExpression` である式ツリー、または `LambdaExpression` の派生型はすべて IL に変換できます。
-式の型 `Expression<TDelegate>` は .NET Core ライブラリで唯一の具体的な例です。 この型は任意のデリゲート型にマップされる式を表すのに使用されます。 この型はデリゲート型にマップされるため、.NET で式を検証し、ラムダ式のシグネチャと一致する適切なデリゲートの IL を生成することができます。 
+式の型 `Expression<TDelegate>` は .NET Core ライブラリで唯一の具体的な例です。 この型は任意のデリゲート型にマップされる式を表すのに使用されます。 この型はデリゲート型にマップされるため、.NET で式を検証し、ラムダ式のシグネチャと一致する適切なデリゲートの IL を生成することができます。
 
 通常、これによって式とそれに対応するデリゲートの間で単純なマッピングが作成されます。 たとえば、`Expression<Func<int>>` によって表される式ツリーは、`Func<int>` 型のデリゲートに変換されます。 任意の戻り値の型と引数リストをもつラムダ式の場合、そのラムダ式によって表される実行可能コードのターゲット型となるデリゲート型が存在します。
 
@@ -49,7 +50,7 @@ Console.WriteLine(answer);
 
 ## <a name="caveats"></a>注意事項
 
-ラムダ式をデリゲートにコンパイルして、そのデリゲートを呼び出すのは、式ツリーで実行する最も単純な操作の 1 つです。 ただし、この簡単な操作にも気をつけるべき点があります。 
+ラムダ式をデリゲートにコンパイルして、そのデリゲートを呼び出すのは、式ツリーで実行する最も単純な操作の 1 つです。 ただし、この簡単な操作にも気をつけるべき点があります。
 
 ラムダ式は、式で参照される任意のローカル変数に対するクロージャを作成します。 デリゲートの一部となる任意の変数は、`Compile` を呼び出す場所で使用でき、得られたデリゲートを実行するときに使用できるように保証する必要があります。
 
@@ -107,7 +108,7 @@ private static Func<int, int> CreateBoundResource()
 }
 ```
 
-このメソッドから返されたデリゲートは、`constant` オブジェクトを捕捉しますが、このオブジェクトはすでに破棄されています。 (オブジェクトは `using` ステートメントで宣言されたため、破棄されています。) 
+このメソッドから返されたデリゲートは、`constant` オブジェクトを捕捉しますが、このオブジェクトはすでに破棄されています。 (オブジェクトは `using` ステートメントで宣言されたため、破棄されています。)
 
 このため、このメソッドから返されたデリゲートを実行すると、実行時に `ObjectDisposedException` がスローされます。
 

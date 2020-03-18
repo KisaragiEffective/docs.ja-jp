@@ -1,5 +1,5 @@
 ---
-title: WPF のコンテンツ モデル
+title: コンテンツ モデル
 ms.date: 03/30/2017
 helpviewer_keywords:
 - UIElement class [WPF], displaying content
@@ -11,12 +11,12 @@ helpviewer_keywords:
 - arbitrary content classes [WPF], content model
 - ContentControl class [WPF], displaying content
 ms.assetid: 214da5ef-547a-4cf8-9b07-4aa8a0e52cdd
-ms.openlocfilehash: 652a8b831d29c8da8dc651558351a5bd4ff5ce84
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: a84ab2e66b4e373591fc9365b1c17d0bb0c66713
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64665153"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76738273"
 ---
 # <a name="wpf-content-model"></a>WPF のコンテンツ モデル
 [!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] は、多くのコントロールやコントロールのような型を提供する表示プラットフォームで、その主な目的は、異なる種類のコンテンツを表示することです。 使用するコントロールまたは派生元のコントロールを判断するには、特定のコントロールが最適に表示できるオブジェクトの種類を理解する必要があります。  
@@ -25,23 +25,23 @@ ms.locfileid: "64665153"
 
 <a name="classes_that_contain_arbitrary_content"></a>   
 ## <a name="classes-that-contain-arbitrary-content"></a>任意のコンテンツを含むクラス  
- 一部のコントロールは、文字列などの任意の型のオブジェクトを含めることができます、<xref:System.DateTime>オブジェクト、または<xref:System.Windows.UIElement>追加項目のコンテナーであります。 たとえば、<xref:System.Windows.Controls.Button>イメージと任意のテキストに含めることができます、<xref:System.Windows.Controls.CheckBox>の値を含めることができます<xref:System.DateTime.Now%2A?displayProperty=nameWithType>します。  
+ 一部のコントロールには、文字列、<xref:System.DateTime> オブジェクト、追加項目のコンテナーである <xref:System.Windows.UIElement> など、任意の型のオブジェクトを含めることができます。 たとえば、<xref:System.Windows.Controls.Button> にはイメージとテキストを含めることができます。または、<xref:System.Windows.Controls.CheckBox> に <xref:System.DateTime.Now%2A?displayProperty=nameWithType>の値を含めることができます。  
   
- [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] には、任意のコンテンツを含めることができる 4 つのクラスがあります。 次の表から継承するクラス、<xref:System.Windows.Controls.Control>します。  
+ [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] には、任意のコンテンツを含めることができる 4 つのクラスがあります。 次の表に、<xref:System.Windows.Controls.Control>から継承するクラスの一覧を示します。  
   
-|任意のコンテンツを含むクラス|Content|  
+|任意のコンテンツを含むクラス|コンテンツ|  
 |-------------------------------------------|-------------|  
 |<xref:System.Windows.Controls.ContentControl>|1 つの任意のオブジェクト。|  
 |<xref:System.Windows.Controls.HeaderedContentControl>|ヘッダーと 1 つの項目。両方とも任意のオブジェクトです。|  
 |<xref:System.Windows.Controls.ItemsControl>|任意のオブジェクトのコレクション。|  
 |<xref:System.Windows.Controls.HeaderedItemsControl>|ヘッダーと項目のコレクション。すべて任意のオブジェクトです。|  
   
- これらのクラスから継承するコントロールは、同じ種類のコンテンツを格納でき、同じ方法でコンテンツを処理することができます。 次の図は、イメージを含む各コンテンツ モデルといくつかのテキストから 1 つのコントロールを示しています。  
+ これらのクラスから継承するコントロールは、同じ種類のコンテンツを格納でき、同じ方法でコンテンツを処理することができます。 次の図は、イメージとテキストを含む各コンテンツモデルの1つのコントロールを示しています。  
   
- ![各コンテンツ モデルから 1 つ、4 つの異なるコントロールを示すスクリーン ショット。](./media/wpf-content-model/control-content-model-image-text.png)  
+ ![各コンテンツモデルの4つの異なるコントロールを示すスクリーンショット。](./media/wpf-content-model/control-content-model-image-text.png)  
   
 ### <a name="controls-that-contain-a-single-arbitrary-object"></a>任意の 1 つのオブジェクトを格納しているコントロール  
- <xref:System.Windows.Controls.ContentControl>クラスには、1 つ任意のコンテンツにはが含まれています。 コンテンツのプロパティは<xref:System.Windows.Controls.ContentControl.Content%2A>します。 次のコントロールから継承<xref:System.Windows.Controls.ContentControl>とそのコンテンツ モデルを使用します。  
+ <xref:System.Windows.Controls.ContentControl> クラスには、任意のコンテンツの1つの部分が含まれています。 そのコンテンツプロパティは <xref:System.Windows.Controls.ContentControl.Content%2A>です。 次のコントロールは <xref:System.Windows.Controls.ContentControl> から継承し、そのコンテンツモデルを使用します。  
   
 - <xref:System.Windows.Controls.Button>  
   
@@ -83,16 +83,16 @@ ms.locfileid: "64665153"
   
 - <xref:System.Windows.Window>  
   
- 次の図は 4 つのボタンが<xref:System.Windows.Controls.ContentControl.Content%2A>、文字列に設定されている、<xref:System.DateTime>オブジェクト、<xref:System.Windows.Shapes.Rectangle>と<xref:System.Windows.Controls.Panel>を格納している、<xref:System.Windows.Shapes.Ellipse>と<xref:System.Windows.Controls.TextBlock>:  
+ 次の図は、<xref:System.Windows.Controls.ContentControl.Content%2A> が文字列、<xref:System.DateTime> オブジェクト、<xref:System.Windows.Shapes.Rectangle>、および <xref:System.Windows.Shapes.Ellipse> と <xref:System.Windows.Controls.TextBlock>を含む <xref:System.Windows.Controls.Panel> に設定されている4つのボタンを示しています。  
   
- ![さまざまなコンテンツ タイプの 4 つのボタンを示すスクリーン ショット。](./media/wpf-content-model/control-content-model-buttons.png)  
+ ![コンテンツの種類が異なる4つのボタンを表示するスクリーンショット。](./media/wpf-content-model/control-content-model-buttons.png)  
   
- 設定する方法の例については、<xref:System.Windows.Controls.ContentControl.Content%2A>プロパティを参照してください<xref:System.Windows.Controls.ContentControl>します。  
+ <xref:System.Windows.Controls.ContentControl.Content%2A> プロパティの設定方法の例については、「<xref:System.Windows.Controls.ContentControl>」を参照してください。  
   
 ### <a name="controls-that-contain-a-header-and-a-single-arbitrary-object"></a>ヘッダーと任意の 1 つのオブジェクトを格納しているコントロール  
- <xref:System.Windows.Controls.HeaderedContentControl>クラスから継承<xref:System.Windows.Controls.ContentControl>ヘッダーとコンテンツが表示されます。 コンテンツのプロパティを継承<xref:System.Windows.Controls.ContentControl.Content%2A>から<xref:System.Windows.Controls.ContentControl>を定義し、<xref:System.Windows.Controls.HeaderedContentControl.Header%2A>型のプロパティを<xref:System.Object>。 したがって、任意のオブジェクトはどちらもします。  
+ <xref:System.Windows.Controls.HeaderedContentControl> クラスは <xref:System.Windows.Controls.ContentControl> から継承し、ヘッダー付きでコンテンツを表示します。 コンテンツプロパティ <xref:System.Windows.Controls.ContentControl.Content%2A>を <xref:System.Windows.Controls.ContentControl> から継承し、<xref:System.Object>型の <xref:System.Windows.Controls.HeaderedContentControl.Header%2A> プロパティを定義します。そのため、どちらも任意のオブジェクトにすることができます。  
   
- 次のコントロールから継承<xref:System.Windows.Controls.HeaderedContentControl>とそのコンテンツ モデルを使用します。  
+ 次のコントロールは <xref:System.Windows.Controls.HeaderedContentControl> から継承し、そのコンテンツモデルを使用します。  
   
 - <xref:System.Windows.Controls.Expander>  
   
@@ -100,16 +100,16 @@ ms.locfileid: "64665153"
   
 - <xref:System.Windows.Controls.TabItem>  
   
- 次の図は 2 つ<xref:System.Windows.Controls.TabItem>オブジェクト。 最初の<xref:System.Windows.Controls.TabItem>が<xref:System.Windows.UIElement>としてオブジェクト、 <xref:System.Windows.Controls.HeaderedContentControl.Header%2A> 、<xref:System.Windows.Controls.ContentControl.Content%2A>します。 <xref:System.Windows.Controls.HeaderedContentControl.Header%2A>に設定されている、<xref:System.Windows.Controls.StackPanel>を格納している、<xref:System.Windows.Shapes.Ellipse>と<xref:System.Windows.Controls.TextBlock>します。 <xref:System.Windows.Controls.ContentControl.Content%2A>に設定されている、<xref:System.Windows.Controls.StackPanel>を格納している、<xref:System.Windows.Controls.TextBlock>と<xref:System.Windows.Controls.Label>します。 2 番目の<xref:System.Windows.Controls.TabItem>に文字列を持つ、<xref:System.Windows.Controls.HeaderedContentControl.Header%2A>と<xref:System.Windows.Controls.TextBlock>で、<xref:System.Windows.Controls.ContentControl.Content%2A>します。  
+ 次の図は、2つの <xref:System.Windows.Controls.TabItem> オブジェクトを示しています。 最初の <xref:System.Windows.Controls.TabItem> には、<xref:System.Windows.Controls.HeaderedContentControl.Header%2A> と <xref:System.Windows.Controls.ContentControl.Content%2A>として <xref:System.Windows.UIElement> オブジェクトがあります。 <xref:System.Windows.Controls.HeaderedContentControl.Header%2A> は、<xref:System.Windows.Shapes.Ellipse> と <xref:System.Windows.Controls.TextBlock>を含む <xref:System.Windows.Controls.StackPanel> に設定されます。 <xref:System.Windows.Controls.ContentControl.Content%2A> は、<xref:System.Windows.Controls.TextBlock> と <xref:System.Windows.Controls.Label>を含む <xref:System.Windows.Controls.StackPanel> に設定されます。 2番目の <xref:System.Windows.Controls.TabItem> には、<xref:System.Windows.Controls.HeaderedContentControl.Header%2A> 内の文字列と <xref:System.Windows.Controls.ContentControl.Content%2A>内の <xref:System.Windows.Controls.TextBlock> があります。  
   
- ![ヘッダー プロパティにさまざまな種類を使用する TabControl します。](./media/wpf-content-model/control-content-model-tab.png)  
+ ![ヘッダープロパティの異なる型を使用する TabControl。](./media/wpf-content-model/control-content-model-tab.png)  
   
- 作成する方法の例については<xref:System.Windows.Controls.TabItem>、オブジェクトを参照してください<xref:System.Windows.Controls.HeaderedContentControl>します。  
+ <xref:System.Windows.Controls.TabItem> オブジェクトを作成する方法の例については、「<xref:System.Windows.Controls.HeaderedContentControl>」を参照してください。  
   
 ### <a name="controls-that-contain-a-collection-of-arbitrary-objects"></a>任意のオブジェクトのコレクションを格納しているコントロール  
- <xref:System.Windows.Controls.ItemsControl>クラスから継承<xref:System.Windows.Controls.Control>文字列、オブジェクト、またはその他の要素など、複数の項目を含めることができます。 そのコンテンツのプロパティは<xref:System.Windows.Controls.ItemsControl.ItemsSource%2A>と<xref:System.Windows.Controls.ItemsControl.Items%2A>します。 <xref:System.Windows.Controls.ItemsControl.ItemsSource%2A> 設定に通常使用、<xref:System.Windows.Controls.ItemsControl>データ コレクションを使用します。 設定するコレクションを使用しないかどうか、<xref:System.Windows.Controls.ItemsControl>を使用して項目を追加することができます、<xref:System.Windows.Controls.ItemsControl.Items%2A>プロパティ。  
+ <xref:System.Windows.Controls.ItemsControl> クラスは <xref:System.Windows.Controls.Control> から継承され、複数の項目 (文字列、オブジェクト、その他の要素など) を含むことができます。 そのコンテンツのプロパティは、<xref:System.Windows.Controls.ItemsControl.ItemsSource%2A> と <xref:System.Windows.Controls.ItemsControl.Items%2A>です。 <xref:System.Windows.Controls.ItemsControl.ItemsSource%2A> は、通常、<xref:System.Windows.Controls.ItemsControl> にデータコレクションを設定するために使用されます。 コレクションを使用して <xref:System.Windows.Controls.ItemsControl>を設定しない場合は、<xref:System.Windows.Controls.ItemsControl.Items%2A> プロパティを使用して項目を追加できます。  
   
- 次のコントロールから継承<xref:System.Windows.Controls.ItemsControl>とそのコンテンツ モデルを使用します。  
+ 次のコントロールは <xref:System.Windows.Controls.ItemsControl> から継承し、そのコンテンツモデルを使用します。  
   
 - <xref:System.Windows.Controls.Menu>  
   
@@ -133,22 +133,22 @@ ms.locfileid: "64665153"
   
 - <xref:System.Windows.Controls.Primitives.StatusBar>  
   
- 次の図は、<xref:System.Windows.Controls.ListBox>この種類のアイテムを格納しています。  
+ 次の図は、これらの種類の項目を含む <xref:System.Windows.Controls.ListBox> を示しています。  
   
 - 文字列。  
   
 - <xref:System.DateTime> オブジェクト。  
   
-- <xref:System.Windows.UIElement>。  
+- <xref:System.Windows.UIElement> です。  
   
-- A<xref:System.Windows.Controls.Panel>を格納している、<xref:System.Windows.Shapes.Ellipse>と<xref:System.Windows.Controls.TextBlock>します。  
+- <xref:System.Windows.Shapes.Ellipse> と <xref:System.Windows.Controls.TextBlock>を格納している <xref:System.Windows.Controls.Panel>。  
   
- ![次の 4 つの種類のコンテンツがリスト ボックスを示すスクリーン ショット。](./media/wpf-content-model/control-content-model-listbox.png)  
+ ![4種類のコンテンツを含む ListBox を示すスクリーンショット。](./media/wpf-content-model/control-content-model-listbox.png)  
   
 ### <a name="controls-that-contain-a-header-and-a-collection-of-arbitrary-objects"></a>ヘッダーと任意のオブジェクトのコレクションを含むコントロール  
- <xref:System.Windows.Controls.HeaderedItemsControl>クラスから継承<xref:System.Windows.Controls.ItemsControl>文字列、オブジェクト、または他の要素やヘッダーなど、複数の項目を含めることができます。 継承、<xref:System.Windows.Controls.ItemsControl>コンテンツのプロパティを<xref:System.Windows.Controls.ItemsControl.ItemsSource%2A>と<xref:System.Windows.Controls.ItemsControl.Items%2A>、し、定義、<xref:System.Windows.Controls.HeaderedItemsControl.Header%2A>ことができる任意のオブジェクト プロパティです。  
+ <xref:System.Windows.Controls.HeaderedItemsControl> クラスは <xref:System.Windows.Controls.ItemsControl> から継承され、複数の項目 (文字列、オブジェクト、その他の要素、ヘッダーなど) を含めることができます。 <xref:System.Windows.Controls.ItemsControl> コンテンツのプロパティ、<xref:System.Windows.Controls.ItemsControl.ItemsSource%2A>、および <xref:System.Windows.Controls.ItemsControl.Items%2A>を継承し、任意のオブジェクトにすることができる <xref:System.Windows.Controls.HeaderedItemsControl.Header%2A> プロパティを定義します。  
   
- 次のコントロールから継承<xref:System.Windows.Controls.HeaderedItemsControl>とそのコンテンツ モデルを使用します。  
+ 次のコントロールは <xref:System.Windows.Controls.HeaderedItemsControl> から継承し、そのコンテンツモデルを使用します。  
   
 - <xref:System.Windows.Controls.MenuItem>  
   
@@ -158,9 +158,9 @@ ms.locfileid: "64665153"
   
 <a name="classes_that_contain_a_collection_of_uielement_objects"></a>   
 ## <a name="classes-that-contain-a-collection-of-uielement-objects"></a>UIElement オブジェクトのコレクションを含むクラス  
- <xref:System.Windows.Controls.Panel>クラスを配置し、子を整列<xref:System.Windows.UIElement>オブジェクト。 コンテンツのプロパティは<xref:System.Windows.Controls.Panel.Children%2A>します。  
+ <xref:System.Windows.Controls.Panel> クラスは、子 <xref:System.Windows.UIElement> オブジェクトを配置して整列します。 そのコンテンツプロパティは <xref:System.Windows.Controls.Panel.Children%2A>です。  
   
- 次のクラスから継承、<xref:System.Windows.Controls.Panel>クラスし、そのコンテンツ モデルを使用します。  
+ 次のクラスは、<xref:System.Windows.Controls.Panel> クラスを継承し、そのコンテンツモデルを使用します。  
   
 - <xref:System.Windows.Controls.Canvas>  
   
@@ -188,7 +188,7 @@ ms.locfileid: "64665153"
   
 <a name="classes_that_affects_the_appearance_of_a_uielement"></a>   
 ## <a name="classes-that-affect-the-appearance-of-a-uielement"></a>UIElement の外観に影響を与えるクラス  
- <xref:System.Windows.Controls.Decorator>クラスまたは 1 つの子の周囲に視覚効果を適用する<xref:System.Windows.UIElement>します。 コンテンツのプロパティは<xref:System.Windows.Controls.Decorator.Child%2A>します。 次のクラスから継承<xref:System.Windows.Controls.Decorator>とそのコンテンツ モデルを使用します。  
+ <xref:System.Windows.Controls.Decorator> クラスは、1つの子 <xref:System.Windows.UIElement>に視覚効果を適用します。 そのコンテンツプロパティは <xref:System.Windows.Controls.Decorator.Child%2A>です。 次のクラスは <xref:System.Windows.Controls.Decorator> から継承し、そのコンテンツモデルを使用します。  
   
 - <xref:System.Windows.Documents.AdornerDecorator>  
   
@@ -208,14 +208,14 @@ ms.locfileid: "64665153"
   
 - <xref:System.Windows.Controls.Viewbox>  
   
- 次の図は、<xref:System.Windows.Controls.TextBox>を持つ (で装飾が)、<xref:System.Windows.Controls.Border>周囲します。  
+ 次の図は、その周囲の <xref:System.Windows.Controls.Border> を (で修飾) <xref:System.Windows.Controls.TextBox> を示しています。  
   
  ![境界線が黒の TextBox](./media/layout-border-around-textbox.png "Layout_Border_around_TextBox")  
 境界がある TextBlock  
   
 <a name="classes_that_provides_visual_feedback_about_a_uielement"></a>   
 ## <a name="classes-that-provide-visual-feedback-about-a-uielement"></a>UIElement についての視覚的なフィードバックを提供するクラス  
- <xref:System.Windows.Documents.Adorner>クラスは、ユーザーに視覚的な手掛かりを提供します。 たとえば、使用して、<xref:System.Windows.Documents.Adorner>要素に機能ハンドルを追加またはコントロールに関する状態情報を提供します。 <xref:System.Windows.Documents.Adorner>クラスは、独自の装飾を作成できるようにするフレームワークを提供します。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] は実装された装飾は提供しません。 詳しくは、[ガイドの概要](adorners-overview.md)をご覧ください。  
+ <xref:System.Windows.Documents.Adorner> クラスは、ユーザーに視覚的な手掛かりを提供します。 たとえば、<xref:System.Windows.Documents.Adorner> を使用して、要素に機能ハンドルを追加したり、コントロールに関する状態情報を提供したりします。 <xref:System.Windows.Documents.Adorner> クラスは、独自の装飾を作成するためのフレームワークを提供します。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] は実装された装飾は提供しません。 詳しくは、[Adorners Overview](adorners-overview.md)をご覧ください。  
   
 <a name="classes_that_enable_users_to_enter_text"></a>   
 ## <a name="classes-that-enable-users-to-enter-text"></a>ユーザーがテキストを入力できるようにするクラス  
@@ -223,17 +223,17 @@ ms.locfileid: "64665153"
   
 |コントロール|テキストの表示形態|コンテンツのプロパティ|  
 |-------------|--------------------------|----------------------|  
-|<xref:System.Windows.Controls.TextBox>|プレーンテキスト|<xref:System.Windows.Controls.TextBox.Text%2A>|  
+|<xref:System.Windows.Controls.TextBox>|プレーンテキスト ファイル|<xref:System.Windows.Controls.TextBox.Text%2A>|  
 |<xref:System.Windows.Controls.RichTextBox>|書式付きテキスト|<xref:System.Windows.Controls.RichTextBox.Document%2A>|  
 |<xref:System.Windows.Controls.PasswordBox>|非表示のテキスト (文字はマスクされます)|<xref:System.Windows.Controls.PasswordBox.Password%2A>|  
   
 <a name="classes_that_display_text"></a>   
 ## <a name="classes-that-display-your-text"></a>テキストを表示するクラス  
- いくつかのクラスを使用して、プレーン テキストまたは書式設定されたテキストを表示できます。 使用することができます<xref:System.Windows.Controls.TextBlock>少量のテキストを表示します。 大量のテキストを表示する場合は、使用、 <xref:System.Windows.Controls.FlowDocumentReader>、 <xref:System.Windows.Controls.FlowDocumentPageViewer>、または<xref:System.Windows.Controls.FlowDocumentScrollViewer>コントロール。  
+ いくつかのクラスを使用して、プレーン テキストまたは書式設定されたテキストを表示できます。 <xref:System.Windows.Controls.TextBlock> を使用すると、少量のテキストを表示できます。 大量のテキストを表示する場合は、<xref:System.Windows.Controls.FlowDocumentReader>、<xref:System.Windows.Controls.FlowDocumentPageViewer>、または <xref:System.Windows.Controls.FlowDocumentScrollViewer> コントロールを使用します。  
   
- <xref:System.Windows.Controls.TextBlock>は 2 つのコンテンツ プロパティがあります:<xref:System.Windows.Controls.TextBlock.Text%2A>と<xref:System.Windows.Controls.TextBlock.Inlines%2A>します。 一貫した書式設定を使用するテキストを表示するときに、<xref:System.Windows.Controls.TextBlock.Text%2A>プロパティは、多くの場合、最適な選択肢です。 テキスト全体でさまざまな書式設定を使用する場合を使用して、<xref:System.Windows.Controls.TextBlock.Inlines%2A>プロパティ。 <xref:System.Windows.Controls.TextBlock.Inlines%2A>プロパティのコレクションである<xref:System.Windows.Documents.Inline>オブジェクトで、テキストの書式設定する方法を指定します。  
+ <xref:System.Windows.Controls.TextBlock> には、<xref:System.Windows.Controls.TextBlock.Text%2A> と <xref:System.Windows.Controls.TextBlock.Inlines%2A>の2つのコンテンツプロパティがあります。 一貫した書式設定を使用するテキストを表示する場合は、多くの場合、<xref:System.Windows.Controls.TextBlock.Text%2A> プロパティを選択することをお勧めします。 テキスト全体で異なる書式設定を使用する場合は、<xref:System.Windows.Controls.TextBlock.Inlines%2A> プロパティを使用します。 <xref:System.Windows.Controls.TextBlock.Inlines%2A> プロパティは、テキストの書式設定方法を指定する <xref:System.Windows.Documents.Inline> オブジェクトのコレクションです。  
   
- 次の表に、コンテンツのプロパティの<xref:System.Windows.Controls.FlowDocumentReader>、 <xref:System.Windows.Controls.FlowDocumentPageViewer>、および<xref:System.Windows.Controls.FlowDocumentScrollViewer>クラス。  
+ 次の表は、<xref:System.Windows.Controls.FlowDocumentReader>、<xref:System.Windows.Controls.FlowDocumentPageViewer>、および <xref:System.Windows.Controls.FlowDocumentScrollViewer> クラスのコンテンツプロパティを示しています。  
   
 |コントロール|コンテンツのプロパティ|コンテンツのプロパティの型|  
 |-------------|----------------------|---------------------------|  
@@ -241,12 +241,12 @@ ms.locfileid: "64665153"
 |<xref:System.Windows.Controls.FlowDocumentReader>|ドキュメント|<xref:System.Windows.Documents.FlowDocument>|  
 |<xref:System.Windows.Controls.FlowDocumentScrollViewer>|ドキュメント|<xref:System.Windows.Documents.FlowDocument>|  
   
- <xref:System.Windows.Documents.FlowDocument>実装、<xref:System.Windows.Documents.IDocumentPaginatorSource>インターフェイス。 したがって、3 つすべてのクラスがかかることができます、<xref:System.Windows.Documents.FlowDocument>コンテンツとして。  
+ <xref:System.Windows.Documents.FlowDocument> は <xref:System.Windows.Documents.IDocumentPaginatorSource> インターフェイスを実装します。したがって、3つのクラスはすべて、<xref:System.Windows.Documents.FlowDocument> をコンテンツとして受け取ることができます。  
   
 <a name="classes_that_format_text"></a>   
 ## <a name="classes-that-format-your-text"></a>テキストを書式設定するクラス  
- <xref:System.Windows.Documents.TextElement> およびその関連クラスは、テキストの書式設定できます。 <xref:System.Windows.Documents.TextElement> オブジェクトが含まれてし、に書式を<xref:System.Windows.Controls.TextBlock>と<xref:System.Windows.Documents.FlowDocument>オブジェクト。 2 つの主な種類の<xref:System.Windows.Documents.TextElement>オブジェクトが<xref:System.Windows.Documents.Block>要素と<xref:System.Windows.Documents.Inline>要素。 A<xref:System.Windows.Documents.Block>要素は、段落やリストなどのテキストのブロックを表します。 <xref:System.Windows.Documents.Inline>要素ブロック内のテキストの一部を表します。 多く<xref:System.Windows.Documents.Inline>クラスは、適用先のテキストの書式を指定します。 各<xref:System.Windows.Documents.TextElement>独自のコンテンツ モデルがあります。 詳細については、「[TextElement コンテンツ モデルの概要](../advanced/textelement-content-model-overview.md)」を参照してください。  
+ <xref:System.Windows.Documents.TextElement> とその関連クラスを使用すると、テキストの書式を設定できます。 <xref:System.Windows.Documents.TextElement> オブジェクトは、<xref:System.Windows.Controls.TextBlock> オブジェクトと <xref:System.Windows.Documents.FlowDocument> オブジェクトのテキストを格納および書式設定します。 <xref:System.Windows.Documents.TextElement> オブジェクトの2つの主な種類は、<xref:System.Windows.Documents.Block> 要素と <xref:System.Windows.Documents.Inline> 要素です。 <xref:System.Windows.Documents.Block> 要素は、段落やリストなどのテキストのブロックを表します。 <xref:System.Windows.Documents.Inline> 要素は、ブロック内のテキストの一部を表します。 多くの <xref:System.Windows.Documents.Inline> クラスは、適用先のテキストの書式を指定します。 各 <xref:System.Windows.Documents.TextElement> には、独自のコンテンツモデルがあります。 詳細については、「[TextElement Content Model Overview](../advanced/textelement-content-model-overview.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [詳細設定](../advanced/index.md)
+- [詳細](../advanced/index.md)

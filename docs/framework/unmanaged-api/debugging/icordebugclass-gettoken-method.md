@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: ee5c848a-eac4-4462-b07a-07ccd76a75df
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b944112ce0b00e84da6243e2e48917e2318b0f1c
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 6964c931307a40f384ad8a8e355cab0aad575ec6
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67746850"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73125770"
 ---
 # <a name="icordebugclassgettoken-method"></a>ICorDebugClass::GetToken メソッド
-取得、`TypeDef`このクラスの定義を参照するメタデータ トークン。  
+このクラスの定義を参照する `TypeDef` メタデータトークンを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT GetToken (
   
 ## <a name="parameters"></a>パラメーター  
  `pTypeDef`  
- [out]ポインター、`mdTypeDef`このクラスの定義を参照するトークン。  
+ 入出力このクラスの定義を参照する `mdTypeDef` トークンへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

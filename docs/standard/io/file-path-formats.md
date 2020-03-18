@@ -9,14 +9,12 @@ helpviewer_keywords:
 - I/O, long paths
 - long paths
 - path formats, Windows
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 75261bc44b938432c9c22b90dc4db30ca00d630b
-ms.sourcegitcommit: a8d3504f0eae1a40bda2b06bd441ba01f1631ef0
+ms.openlocfilehash: b3510be5d417b555d2db163636eac5ce0c0779e4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67170739"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77628047"
 ---
 # <a name="file-path-formats-on-windows-systems"></a>Windows システムのファイル パス形式
 
@@ -32,7 +30,7 @@ ms.locfileid: "67170739"
 
 3 つのコンポーネントがすべて存在する場合、パスは絶対パスになります。 ボリュームまたはドライブ文字が指定されておらず、ディレクトリ名が[ディレクトリ区切り文字](<xref:System.IO.Path.DirectorySeparatorChar>)で始まる場合、パスは現在のドライブのルートからの相対パスとなります。 それ以外の場合、パスは現在のディレクトリに相対となります。 次の表では、想定されるディレクトリとファイル パスをいくつかまとめています。
 
-|パス  |説明  |
+|Path  |[説明]  |
 | -- | -- |
 | `C:\Documents\Newsletters\Summer2018.pdf` | ドライブ C: のルートからの絶対ファイル パス。 |
 | `\Program Files\Custom Utilities\StringFinder.exe` | 現在のドライブのルートからの絶対パス。 |
@@ -51,6 +49,8 @@ ms.locfileid: "67170739"
 [!code-csharp[absolute-and-relative-paths](~/samples/snippets/standard/io/file-names/cs/paths.cs)]
 [!code-vb[absolute-and-relative-paths](~/samples/snippets/standard/io/file-names/vb/paths.vb)]
 
+[!INCLUDE [localized code comments](../../../includes/code-comments-loc.md)]
+
 ## <a name="unc-paths"></a>UNC パス
 
 UNC (汎用命名規則) パスはネットワーク リソースへのアクセスに利用され、次の形式になっています。
@@ -62,7 +62,7 @@ UNC (汎用命名規則) パスはネットワーク リソースへのアクセ
 
 UNC パスの例を次に示します。
 
-|パス  |説明  |
+|Path  |[説明]  |
 | -- | -- |
 | `\\system07\C$\` | `system07` の C: のルート ディレクトリ。 |
 | `\\Server2\Share\Test\Foo.txt` | \\\\Server2\\Share ボリュームの Test ディレクトリの Foo.txt ファイル。|
@@ -73,7 +73,7 @@ UNC パスは常に完全修飾にする必要があります。 相対ディレ
 
 Windows オペレーティング システムには、ファイルを含む、すべてのリソースを指す統一オブジェクト モデルがあります。 これらのオブジェクト パスにはコンソール ウィンドウからアクセスできます。また、これらのオブジェクト パスは、DOS と UNC のレガシ パスがマッピングされているシンボリック リンクの特別なフォルダーを介して Win32 層に公開されます。 この特別なフォルダーには、DOS デバイス パス構文を介してアクセスできます。この構文は次のいずれかになります。
 
-`\\.\C:\Test\Foo.txt`  
+`\\.\C:\Test\Foo.txt`
 `\\?\C:\Test\Foo.txt`
 
 ドライブ文字でドライブを識別できるだけでなく、ボリューム GUID を使用してボリュームを識別できます。 次のような形式になります。
@@ -97,14 +97,14 @@ DOS デバイス パスは次の要素から構成されます。
 
    UNC のためのリンク (わかりやすいことに `UNC`) が呼び出されます。 次に例を示します。
 
-  `\\.\UNC\Server\Share\Test\Foo.txt`  
+  `\\.\UNC\Server\Share\Test\Foo.txt`
   `\\?\UNC\Server\Share\Test\Foo.txt`
 
-    デバイス UNC の場合、サーバー/共有の部分がボリュームになります。 たとえば、`\\?\server1\e:\utilities\\filecomparer\` では、サーバー/共有部分は server1\utilities です。 相対ディレクトリ セグメントのある <xref:System.IO.Path.GetFullPath(System.String,System.String)?displayProperty=nameWithType> のようなメソッドを呼び出すとき、これは重要です。ボリュームを通り過ぎて移動することはできません。 
+    デバイス UNC の場合、サーバー/共有の部分がボリュームになります。 たとえば、`\\?\server1\e:\utilities\\filecomparer\` では、サーバー/共有部分は server1\utilities です。 相対ディレクトリ セグメントのある <xref:System.IO.Path.GetFullPath(System.String,System.String)?displayProperty=nameWithType> のようなメソッドを呼び出すとき、これは重要です。ボリュームを通り過ぎて移動することはできません。
 
 DOS デバイス パスは定義によって完全修飾されます。 相対ディレクトリ セグメント (`.` や `..`) は許可されません。 現在のディレクトリが使用されることはありません。
 
-## <a name="example-ways-to-refer-to-the-same-file"></a>例:同じファイルを参照する方法
+## <a name="example-ways-to-refer-to-the-same-file"></a>例: 同じファイルを参照する方法
 
 次の例では、<xref:System.IO> 名前空間で API を使用するとき、あるファイルを参照する方法をいくつか示しています。 この例では <xref:System.IO.FileInfo> オブジェクトをインスタンス化し、その <xref:System.IO.FileInfo.Name> プロパティと <xref:System.IO.FileInfo.Length> プロパティを使用してファイルの名前と長さを表示します。
 
@@ -128,7 +128,7 @@ Windows API に渡されるパスはほとんどすべて正規化されます�
 パス正規化の最初の手順は、パスの種類の識別です。 パスはいくつかあるカテゴリの 1 つに分類されます。
 
 - パスはデバイス パスです。つまり、2 つの区切り記号で始まり、疑問符かピリオドが続きます (`\\?` または `\\.`)。
-- パスは UNC パスです。つまり、2 つの区切り記号で始まります。疑問符やピリオドは付きません。 
+- パスは UNC パスです。つまり、2 つの区切り記号で始まります。疑問符やピリオドは付きません。
 - パスは完全修飾 DOS パスです。つまり、ドライブ文字で始まり、ボリューム区切り記号、コンポーネント区切り記号が続きます (`C:\`)。
 - レガシ デバイスを示します (`CON`、`LPT1`)。
 - 現在のドライブのルートに相対です。つまり、1 つのコンポーネント区切り記号で始まります (`\`)。
@@ -139,7 +139,7 @@ Windows API に渡されるパスはほとんどすべて正規化されます�
 
 ### <a name="handling-legacy-devices"></a>レガシ デバイスの取り扱い
 
-パスが `CON`、`COM1`、`LPT1` など、レガシ DOS デバイスの場合、`\\.\` を先頭に付けることでデバイス パスに変換した上で返されます。 
+パスが `CON`、`COM1`、`LPT1` など、レガシ DOS デバイスの場合、`\\.\` を先頭に付けることでデバイス パスに変換した上で返されます。
 
 <xref:System.IO.Path.GetFullPath(System.String)?displayProperty=nameWithType> メソッドは、レガシ デバイス名で始まるパスを常にレガシ デバイスとして解釈します。 たとえば、`CON.TXT` の DOS デバイス パスは `\\.\CON` であり、`COM1.TXT\file1.txt` の DOS デバイス パスは `\\.\COM1` です。
 
@@ -154,7 +154,7 @@ Windows API に渡されるパスはほとんどすべて正規化されます�
 パスが区切り記号以外で始まる場合、現在のドライブと現在のディレクトリが適用されます。 たとえば、パスが `filecompare` で、現在のディレクトリが `C:\utilities\` の場合、結果は `C:\utilities\filecompare\` です。
 
 > [!IMPORTANT]
-> マルチスレッド アプリケーションの場合 (つまり、ほとんどのアプリケーションでは)、現在のディレクトリはプロセスごとの設定となるため、相対パスは危険です。 スレッドによって現在のディレクトリが変更されることは、いつでも起こりえることです。 .NET Core 2.1 以降、<xref:System.IO.Path.GetFullPath(System.String,System.String)?displayProperty=nameWithType> メソッドを呼び出し、絶対パスに対して解決する場合、相対パスと基本パス (現在のディレクトリ) から絶対パスを取得できます。 
+> マルチスレッド アプリケーションの場合 (つまり、ほとんどのアプリケーションでは)、現在のディレクトリはプロセスごとの設定となるため、相対パスは危険です。 スレッドによって現在のディレクトリが変更されることは、いつでも起こりえることです。 .NET Core 2.1 以降、<xref:System.IO.Path.GetFullPath(System.String,System.String)?displayProperty=nameWithType> メソッドを呼び出し、絶対パスに対して解決する場合、相対パスと基本パス (現在のディレクトリ) から絶対パスを取得できます。
 
 ### <a name="canonicalizing-separators"></a>区切り記号の正規化
 
@@ -162,7 +162,7 @@ Windows API に渡されるパスはほとんどすべて正規化されます�
 
 ### <a name="evaluating-relative-components"></a>相対コンポーネントを評価する
 
-パスが処理されるとき、1 つか 2 つのピリオド (`.` や `..`) で構成されているコンポーネントやセグメントがあればそれは評価されます。 
+パスが処理されるとき、1 つか 2 つのピリオド (`.` や `..`) で構成されているコンポーネントやセグメントがあればそれは評価されます。
 
 - ピリオドが 1 つの場合、現在のセグメントが削除されます。現在のディレクトリを参照するためです。
 
@@ -176,9 +176,9 @@ Windows API に渡されるパスはほとんどすべて正規化されます�
 
 - セグメントがシングル ピリオドで終わる場合、そのピリオドは削除されます。 (シングルまたはダブル ピリオドのセグメントは前の手順で正規化されます。 ピリオドが 3 つ以上のセグメントは正規化されません。実際には、有効なファイル/ディレクトリ名です。)
 
-- パスの終わりが区切り記号ではない場合、後ろに続くピリオドとスペース (U+0020) はすべて削除されます。 最後のセグメントがシングルまたはダブル ピリオドの場合、上記の相対コンポーネント ルールに該当します。 
+- パスの終わりが区切り記号ではない場合、後ろに続くピリオドとスペース (U+0020) はすべて削除されます。 最後のセグメントがシングルまたはダブル ピリオドの場合、上記の相対コンポーネント ルールに該当します。
 
-   このルールによると、スペースの後に区切り記号を追加することで、スペースが後ろに続くディレクトリ名を作成できます。  
+   このルールによると、スペースの後に区切り記号を追加することで、スペースが後ろに続くディレクトリ名を作成できます。
 
    > [!IMPORTANT]
    > スペースが後ろに続くディレクトリやファイル名は**決して**作成しないでください。 後続スペースはディレクトリへのアクセスを困難または不可能にします。一般的に、名前に後続スペースが含まれるディレクトリやファイルを処理しようとすると、アプリケーションは失敗します。
@@ -189,7 +189,7 @@ Windows API に渡されるパスはほとんどすべて正規化されます�
 
 正規化の省略が必要となる理由について考えてみます。 大きな理由が 3 つあります。
 
-1. 通常は利用できないが正当なパスにアクセスするため。 たとえば、`hidden.` というファイルまたはディレクトリには他の方法ではアクセスできません。 
+1. 通常は利用できないが正当なパスにアクセスするため。 たとえば、`hidden.` というファイルまたはディレクトリには他の方法ではアクセスできません。
 
 1. 既に正規化している場合、省略することでパフォーマンスを改善するため。
 
@@ -202,7 +202,7 @@ Windows API に渡されるパスはほとんどすべて正規化されます�
 
 `\\?\` で始まるパスは、[GetFullPathName 関数](/windows/desktop/api/fileapi/nf-fileapi-getfullpathnamea)に明示的に渡す場合、正規化されます。
 
-`MAX_PATH` 文字を超えるパスは `\\?\` なしで [GetFullPathName](/windows/desktop/api/fileapi/nf-fileapi-getfullpathnamea) に渡せることにご注意ください。 Windows で処理できる最大文字列サイズまで、任意の長さのパスがサポートされます。
+`MAX_PATH` 文字を超えるパスは [ なしで ](/windows/desktop/api/fileapi/nf-fileapi-getfullpathnamea)GetFullPathName`\\?\` に渡すことができます。 Windows で処理できる最大文字列サイズまで、任意の長さのパスがサポートされます。
 
 ## <a name="case-and-the-windows-file-system"></a>大文字/小文字の区別と Windows ファイル システム
 

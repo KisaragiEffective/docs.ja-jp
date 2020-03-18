@@ -12,17 +12,15 @@ helpviewer_keywords:
 - host protection attributes
 - HostProtectionAttribute class, reliability
 ms.assetid: 7dfa36b4-e773-4c75-a3ff-ff1af3ce4c4f
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: aafd494a2330609f68295588cf649bc4666f4cfe
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 88fa360664627e9f535a6daaaf6f29df01b64a62
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64614880"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75715926"
 ---
 # <a name="sql-server-programming-and-host-protection-attributes"></a>SQL Server プログラミングとホスト保護属性
-SQL Server ホストにマネージド コードを読み込み、実行する機能を利用するには、コード アクセス セキュリティとホスト リソース保護の両方においてホストの要件を満たす必要があります。  コード アクセス セキュリティの要件については、次の 3 つの SQL Server アクセス許可セットのいずれかで指定します。SAFE、EXTERNAL-ACCESS、または UNSAFE です。 SAFE アクセス許可セット内か EXTERNAL-ACCESS アクセス許可セット内でコードを実行する場合、<xref:System.Security.Permissions.HostProtectionAttribute> 属性が適用されている特定の型またはメンバーを避ける必要があります。 <xref:System.Security.Permissions.HostProtectionAttribute> はセキュリティ アクセス許可ではなく、むしろ信頼性保証であり、ホストが許可しない可能性がある特定のコード コンストラクト (型またはメソッド) を識別します。  <xref:System.Security.Permissions.HostProtectionAttribute> を使用することで、ホストの安定性を保護するプログラミング モデルを適用します。  
+SQL Server ホストにマネージド コードを読み込み、実行する機能を利用するには、コード アクセス セキュリティとホスト リソース保護の両方においてホストの要件を満たす必要があります。  コード アクセス セキュリティの要件は、SAFE、EXTERNAL-ACCESS、UNSAFE という 3 つの SQL Server アクセス許可セットのいずれかにより指定されます。 SAFE アクセス許可セット内か EXTERNAL-ACCESS アクセス許可セット内でコードを実行する場合、<xref:System.Security.Permissions.HostProtectionAttribute> 属性が適用されている特定の型またはメンバーを避ける必要があります。 <xref:System.Security.Permissions.HostProtectionAttribute> はセキュリティ アクセス許可ではなく、むしろ信頼性保証であり、ホストが許可しない可能性がある特定のコード コンストラクト (型またはメソッド) を識別します。  <xref:System.Security.Permissions.HostProtectionAttribute> を使用することで、ホストの安定性を保護するプログラミング モデルを適用します。  
   
 ## <a name="host-protection-attributes"></a>ホスト保護属性  
  ホスト保護属性は、ホスト プログラミング モデルに合わない型またはメンバーを特定し、以下の信頼性レベルの脅威の増加を表します。  
@@ -53,14 +51,14 @@ SQL Server ホストにマネージド コードを読み込み、実行する�
 |`System.Windows.Forms`|<xref:System.Windows.Forms.AutoCompleteStringCollection.SyncRoot%2A?displayProperty=nameWithType> プロパティ|  
   
 ## <a name="sql-server-permission-sets"></a>SQL Server アクセス許可セット  
- SQL Server では、データベースに展開されたコードの信頼性要件をユーザーは指定できます。 アセンブリがデータベースにアップロードされると、アセンブリの作成者を指定できます 3 つのアクセス許可セットのいずれかのアセンブリ。SAFE、EXTERNAL-ACCESS、または UNSAFE です。  
+ SQL Server では、データベースに展開されたコードの信頼性要件をユーザーは指定できます。 アセンブリがデータベースにアップロードされるとき、アセンブリの作者はそのアセンブリの 3 つのアクセス許可セット (SAFE、EXTERNAL-ACCESS、UNSAFE) のいずれかを指定できます。  
   
 |アクセス許可セット|SAFE|EXTERNAL-ACCESS|UNSAFE|  
 |--------------------|----------|----------------------|------------|  
-|コード アクセス セキュリティ|実行のみ|実行 + 外部リソースへのアクセス|無制限|  
-|プログラミング モデルの制限事項|はい|はい|無制限|  
-|検証可能性の要件|はい|[はい]|いいえ|  
-|ネイティブ コードを呼び出す機能|いいえ|×|はい|  
+|コード アクセス セキュリティ|実行のみ|実行 + 外部リソースへのアクセス|[無制限]|  
+|プログラミング モデルの制限|○|○|無制限|  
+|検証の必要性|○|○|いいえ|  
+|ネイティブ コードを呼び出す機能|いいえ|いいえ|○|  
   
  SAFE は、許可されるプログラミング モデルに関して、制限が関連付けられた、最も信頼性があり、安全なモードです。 SAFE コードには、信頼性とセキュリティの高い機能があります。 SAFE アセンブリには、実行、計算の実行、ローカル データベースにアクセスするために十分なアクセス許可が与えられます。 SAFE アセンブリは検証可能なタイプ セーフでなければなりません。また、アンマネージ コードの呼び出しを禁止する必要があります。  
   

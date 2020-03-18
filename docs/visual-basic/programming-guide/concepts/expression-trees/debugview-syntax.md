@@ -1,5 +1,5 @@
 ---
-title: DebugView プロパティ (Visual Basic) で使用される構文
+title: DebugView プロパティで使用される構文
 description: 式ツリーを文字列で表現する目的で DebugView プロパティにより使用される特別な構文について説明します。
 author: zspitz
 ms.author: wiwagn
@@ -8,18 +8,18 @@ ms.topic: reference
 helpviewer_keywords:
 - expression trees
 - debugview
-ms.openlocfilehash: ae2c75607f7b9cdc40fc5c163ce533f0472ab454
-ms.sourcegitcommit: d8ebe0ee198f5d38387a80ba50f395386779334f
+ms.openlocfilehash: 98ceba37aa226fab68ae1c1028e2a1139b3b8e7e
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66689541"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346876"
 ---
 # <a name="debugview-syntax"></a>`DebugView` の構文
 
 `DebugView` プロパティ (デバッグ時にのみ利用可能) により、式ツリーが文字列でレンダリングされます。 構文の大部分はかなりわかりやすいです。特別なケースについて以降のセクションで説明します。
 
-それぞれの例の後に、コメント ブロックを含む、`DebugView`します。
+各例には、`DebugView`を含むコメントブロックが続きます。
 
 ## <a name="parameterexpression"></a>ParameterExpression
 
@@ -43,11 +43,11 @@ Dim numParam As ParameterExpression = Expression.Parameter(GetType(Integer))
 
 ## <a name="constantexpressions"></a>ConstantExpressions
 
-整数値、文字列、および `null` を表す <xref:System.Linq.Expressions.ConstantExpression?displayProperty=nameWithType> オブジェクトの場合、定数の値が表示されます。
+整数値、文字列、および <xref:System.Linq.Expressions.ConstantExpression?displayProperty=nameWithType> を表す `null` オブジェクトの場合、定数の値が表示されます。
 
-一部の数値型の値に、サフィックスが追加されます。
+数値型によっては、次のような値にサフィックスが追加されます。
 
-| 型 | キーワード | Suffix |
+| 型 | Keyword | Suffix |
 |--|--|--|
 | <xref:System.UInt32> | [UInteger](../../../language-reference/data-types/uinteger-data-type.md) | U |
 | <xref:System.Int64> | [Long](../../../language-reference/data-types/long-data-type.md) | L |

@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル: バインドされていない Windows フォーム DataGridView コントロールを作成する'
+title: バインドしていない DataGridView コントロールを作成する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -11,61 +11,61 @@ helpviewer_keywords:
 - data [Windows Forms], unbound
 - walkthroughs [Windows Forms], DataGridView control
 ms.assetid: 5a8d6afa-1b4b-4b24-8db8-501086ffdebe
-ms.openlocfilehash: ba821b461434cb7a5247d2962a161a1c171bbd14
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: ceb75d4ee845d1f643d4d88d5a9f1bde73edcc70
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64651455"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76740179"
 ---
-# <a name="walkthrough-creating-an-unbound-windows-forms-datagridview-control"></a>チュートリアル: バインドされていない Windows フォーム DataGridView コントロールを作成する
-頻繁にデータベースから表形式のデータを表示することがあります。 たとえば、文字列の 2 次元配列の内容を表示したい場合があります。 <xref:System.Windows.Forms.DataGridView>クラスには、データ ソースにバインドせずにデータを表示する簡単で高度にカスタマイズ可能な方法が用意されています。 このチュートリアルで作成する方法、<xref:System.Windows.Forms.DataGridView>加算と「バインドされていない」モードでの行の削除制御および管理します。 既定では、ユーザーは、新しい行を追加できます。 行の追加を防ぐためには、設定、<xref:System.Windows.Forms.DataGridView.AllowUserToAddRows%2A>プロパティは`false`します。  
+# <a name="walkthrough-creating-an-unbound-windows-forms-datagridview-control"></a>チュートリアル : バインドされていない Windows フォーム DataGridView コントロールの作成
+データベースから生成されていない表形式のデータを表示することがよくあります。 たとえば、文字列の2次元配列の内容を表示することができます。 <xref:System.Windows.Forms.DataGridView> クラスを使用すると、データソースにバインドせずに、簡単かつ高度にカスタマイズ可能な方法でデータを表示できます。 このチュートリアルでは、<xref:System.Windows.Forms.DataGridView> コントロールにデータを設定し、"非バインド" モードで行の追加と削除を管理する方法について説明します。 既定では、ユーザーは新しい行を追加できます。 行が追加されないようにするには、<xref:System.Windows.Forms.DataGridView.AllowUserToAddRows%2A> プロパティを `false`に設定します。  
   
- このトピックのコードを単一のリストとしてコピーするには、「[方法:バインドされていない Windows フォーム DataGridView コントロールの作成](how-to-create-an-unbound-windows-forms-datagridview-control.md)です。  
+ このトピックのコードを単一のリストとしてコピーする方法については、「方法: バインドされていない[Windows フォーム DataGridView コントロールを作成](how-to-create-an-unbound-windows-forms-datagridview-control.md)する」を参照してください。  
   
 ## <a name="creating-the-form"></a>フォームの作成  
   
 #### <a name="to-use-an-unbound-datagridview-control"></a>バインドされていない DataGridView コントロールを使用するには  
   
-1. 派生するクラスを作成<xref:System.Windows.Forms.Form>次の変数宣言が含まれていると`Main`メソッド。  
+1. <xref:System.Windows.Forms.Form> から派生し、次の変数宣言と `Main` メソッドを含むクラスを作成します。  
   
      [!code-csharp[System.Windows.Forms.DataGridViewSimpleUnbound#01](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/CS/simpleunbound.cs#01)]
      [!code-vb[System.Windows.Forms.DataGridViewSimpleUnbound#01](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/VB/simpleunbound.vb#01)]  
     [!code-csharp[System.Windows.Forms.DataGridViewSimpleUnbound#02](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/CS/simpleunbound.cs#02)]
     [!code-vb[System.Windows.Forms.DataGridViewSimpleUnbound#02](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/VB/simpleunbound.vb#02)]  
   
-2. 実装を`SetupLayout`フォームのレイアウトを設定するフォームのクラス定義内のメソッド。  
+2. フォームのクラス定義に `SetupLayout` メソッドを実装して、フォームのレイアウトを設定します。  
   
      [!code-csharp[System.Windows.Forms.DataGridViewSimpleUnbound#20](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/CS/simpleunbound.cs#20)]
      [!code-vb[System.Windows.Forms.DataGridViewSimpleUnbound#20](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/VB/simpleunbound.vb#20)]  
   
-3. 作成、`SetupDataGridView`を設定するメソッド、<xref:System.Windows.Forms.DataGridView>列とプロパティ。  
+3. <xref:System.Windows.Forms.DataGridView> の列およびプロパティを設定する `SetupDataGridView` メソッドを作成します。  
   
-     このメソッドを追加、<xref:System.Windows.Forms.DataGridView>コントロールをフォームの<xref:System.Windows.Forms.Control.Controls%2A>コレクション。 次に、表示する列の数を使用してを設定するが、<xref:System.Windows.Forms.DataGridView.ColumnCount%2A>プロパティ。 設定して、列ヘッダーの既定のスタイルを設定、 <xref:System.Windows.Forms.DataGridViewCellStyle.BackColor%2A>、 <xref:System.Windows.Forms.DataGridViewCellStyle.ForeColor%2A>、および<xref:System.Windows.Forms.DataGridViewCellStyle.Font%2A>のプロパティ、<xref:System.Windows.Forms.DataGridViewCellStyle>によって返される、<xref:System.Windows.Forms.DataGridView.ColumnHeadersDefaultCellStyle%2A>プロパティ。  
+     このメソッドは、まず、フォームの <xref:System.Windows.Forms.Control.Controls%2A> コレクションに <xref:System.Windows.Forms.DataGridView> コントロールを追加します。 次に、<xref:System.Windows.Forms.DataGridView.ColumnCount%2A> プロパティを使用して、表示する列の数を設定します。 列ヘッダーの既定のスタイルは、<xref:System.Windows.Forms.DataGridView.ColumnHeadersDefaultCellStyle%2A> プロパティによって返される <xref:System.Windows.Forms.DataGridViewCellStyle> の <xref:System.Windows.Forms.DataGridViewCellStyle.BackColor%2A>、<xref:System.Windows.Forms.DataGridViewCellStyle.ForeColor%2A>、および <xref:System.Windows.Forms.DataGridViewCellStyle.Font%2A> の各プロパティを設定することによって設定されます。  
   
-     レイアウトと外観のプロパティが設定されてし、し、列名が割り当てられます。 このメソッドの終了時に、<xref:System.Windows.Forms.DataGridView>コントロールが事前設定する準備ができています。  
+     レイアウトと外観のプロパティが設定され、列名が割り当てられます。 このメソッドが終了すると、<xref:System.Windows.Forms.DataGridView> コントロールを設定できるようになります。  
   
      [!code-csharp[System.Windows.Forms.DataGridViewSimpleUnbound#30](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/CS/simpleunbound.cs#30)]
      [!code-vb[System.Windows.Forms.DataGridViewSimpleUnbound#30](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/VB/simpleunbound.vb#30)]  
   
-4. 作成、`PopulateDataGridView`行を追加する方法、<xref:System.Windows.Forms.DataGridView>コントロール。  
+4. <xref:System.Windows.Forms.DataGridView> コントロールに行を追加する `PopulateDataGridView` メソッドを作成します。  
   
-     各行は、曲とその関連情報を表します。  
+     各行は、曲とそれに関連付けられた情報を表します。  
   
      [!code-csharp[System.Windows.Forms.DataGridViewSimpleUnbound#40](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/CS/simpleunbound.cs#40)]
      [!code-vb[System.Windows.Forms.DataGridViewSimpleUnbound#40](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/VB/simpleunbound.vb#40)]  
   
-5. インプレース ユーティリティ メソッドを使って、イベント ハンドラーをアタッチできます。  
+5. ユーティリティメソッドを配置すると、イベントハンドラーをアタッチできます。  
   
-     処理する、**追加**と**削除**ボタンの<xref:System.Windows.Forms.Control.Click>イベント、フォームの<xref:System.Windows.Forms.Form.Load>イベント、および<xref:System.Windows.Forms.DataGridView>コントロールの<xref:System.Windows.Forms.DataGridView.CellFormatting>イベント。  
+     **[追加]** ボタンと **[削除]** ボタンの <xref:System.Windows.Forms.Control.Click> イベント、フォームの <xref:System.Windows.Forms.Form.Load> イベント、および <xref:System.Windows.Forms.DataGridView> コントロールの <xref:System.Windows.Forms.DataGridView.CellFormatting> イベントを処理します。  
   
-     ときに、**追加**ボタンの<xref:System.Windows.Forms.Control.Click>イベントが発生すると、新しい空の行を追加する、<xref:System.Windows.Forms.DataGridView>します。  
+     **[追加]** ボタンの <xref:System.Windows.Forms.Control.Click> イベントが発生すると、新しい空の行が <xref:System.Windows.Forms.DataGridView>に追加されます。  
   
-     ときに、**削除**ボタンの<xref:System.Windows.Forms.Control.Click>イベントは、選択した行が削除されたである場合を除き、ユーザーは、新しいレコードの行が新しい行を追加します。 この行は、最後の行では常に、<xref:System.Windows.Forms.DataGridView>コントロール。  
+     **[削除]** ボタンの <xref:System.Windows.Forms.Control.Click> イベントが発生すると、選択した行が削除されます。ただし、新しいレコードの行でない限り、ユーザーは新しい行を追加できます。 この行は常に、<xref:System.Windows.Forms.DataGridView> コントロールの最後の行になります。  
   
-     ときに、フォームの<xref:System.Windows.Forms.Form.Load>イベントが発生、 `SetupLayout`、 `SetupDataGridView`、および`PopulateDataGridView`ユーティリティ メソッドが呼び出されます。  
+     フォームの <xref:System.Windows.Forms.Form.Load> イベントが発生すると、`SetupLayout`、`SetupDataGridView`、および `PopulateDataGridView` ユーティリティメソッドが呼び出されます。  
   
-     ときに、<xref:System.Windows.Forms.DataGridView.CellFormatting>イベントが発生すると、各セルに、`Date`セルの値を解析できない場合を除き、列が長い日付として書式設定します。  
+     <xref:System.Windows.Forms.DataGridView.CellFormatting> イベントが発生した場合、セルの値を解析できない場合を除き、`Date` 列の各セルは長い日付形式として書式設定されます。  
   
      [!code-csharp[System.Windows.Forms.DataGridViewSimpleUnbound#10](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/CS/simpleunbound.cs#10)]
      [!code-vb[System.Windows.Forms.DataGridViewSimpleUnbound#10](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.DataGridViewSimpleUnbound/VB/simpleunbound.vb#10)]  
@@ -77,24 +77,24 @@ ms.locfileid: "64651455"
   
 - F5 キーを押してアプリケーションを実行します。  
   
-     表示されます、<xref:System.Windows.Forms.DataGridView>記載曲を表示するコントロール`PopulateDataGridView`します。 新しい行を追加することができます、**行の追加**で選択した行を削除できます、クリックして、**行の削除**ボタン。 バインドされていない<xref:System.Windows.Forms.DataGridView>コントロールは、データ ストアとそのデータは任意の外部ソースに依存しないなど、<xref:System.Data.DataSet>または配列。  
+     `PopulateDataGridView`に表示されている曲を表示する <xref:System.Windows.Forms.DataGridView> コントロールが表示されます。 **[行の追加]** ボタンを使用して新しい行を追加できます。また、 **[行の削除]** ボタンを使用して、選択した行を削除できます。 バインドされていない <xref:System.Windows.Forms.DataGridView> コントロールはデータストアであり、そのデータは、<xref:System.Data.DataSet> や配列などの外部ソースからは独立しています。  
   
 ## <a name="next-steps"></a>次の手順  
- このアプリケーションでは、基本を理解、<xref:System.Windows.Forms.DataGridView>コントロールの機能です。 動作と外観をカスタマイズすることができます、<xref:System.Windows.Forms.DataGridView>いくつかの方法で制御します。  
+ このアプリケーションでは、<xref:System.Windows.Forms.DataGridView> コントロールの機能についての基本的な理解を得ることができます。 <xref:System.Windows.Forms.DataGridView> コントロールの外観と動作は、次のいくつかの方法でカスタマイズできます。  
   
-- 罫線とヘッダーのスタイルを変更します。 詳細については、「[方法 :罫線を変更して、グリッド線のスタイルで、Windows フォーム DataGridView コントロール](change-the-border-and-gridline-styles-in-the-datagrid.md)します。  
+- 罫線とヘッダーのスタイルを変更します。 詳細については、「[方法: Windows フォーム DataGridView コントロールの境界線とグリッド線のスタイルを変更する](change-the-border-and-gridline-styles-in-the-datagrid.md)」を参照してください。  
   
-- 有効にするか、ユーザー入力を制限、<xref:System.Windows.Forms.DataGridView>コントロール。 詳細については、「[方法 :行の追加を回避し、削除を Windows フォーム DataGridView コントロール](prevent-row-addition-and-deletion-datagridview.md)、および[方法。列を読み取り専用の Windows フォーム DataGridView コントロール](how-to-make-columns-read-only-in-the-windows-forms-datagridview-control.md)します。  
+- <xref:System.Windows.Forms.DataGridView> コントロールへのユーザー入力を有効または制限します。 詳細については、「[方法: Windows フォーム Datagridview コントロールで行の追加と削除を回避](prevent-row-addition-and-deletion-datagridview.md)する」および「[方法: Windows フォーム Datagridview コントロールで列を読み取り](how-to-make-columns-read-only-in-the-windows-forms-datagridview-control.md)専用にする」を参照してください。  
   
-- データベース関連のエラーをユーザー入力を確認します。 詳細については、「[チュートリアル:フォームの DataGridView コントロールを Windows でのデータ入力中に発生したエラーの処理](handling-errors-that-occur-during-data-entry-in-the-datagrid.md)します。  
+- データベース関連のエラーについては、ユーザー入力を確認してください。 詳細については、「[チュートリアル: Windows フォーム DataGridView コントロールでのデータ入力中に発生したエラーの処理](handling-errors-that-occur-during-data-entry-in-the-datagrid.md)」を参照してください。  
   
-- 仮想モードを使用して、非常に大きなデータ セットを処理します。 詳細については、「[チュートリアル:仮想モードの実装で、Windows フォーム DataGridView コントロール](implementing-virtual-mode-wf-datagridview-control.md)します。  
+- 仮想モードを使用して非常に大きなデータセットを処理します。 詳細については、「[チュートリアル: Windows フォーム DataGridView コントロールでの仮想モードの実装](implementing-virtual-mode-wf-datagridview-control.md)」を参照してください。  
   
-- セルの外観をカスタマイズします。 詳細については、「[方法 :Windows フォームの DataGridView コントロール内のセルの外観をカスタマイズ](customize-the-appearance-of-cells-in-the-datagrid.md)と[方法。Windows フォーム DataGridView コントロールの既定のセル スタイルを設定](how-to-set-default-cell-styles-for-the-windows-forms-datagridview-control.md)します。  
+- セルの外観をカスタマイズします。 詳細については、「[方法: Windows フォーム Datagridview コントロールのセルの外観をカスタマイズ](customize-the-appearance-of-cells-in-the-datagrid.md)する」および「[方法: Windows フォーム Datagridview コントロールの既定のセルスタイルを設定する](how-to-set-default-cell-styles-for-the-windows-forms-datagridview-control.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - [Windows フォーム DataGridView コントロールでのデータの表示](displaying-data-in-the-windows-forms-datagridview-control.md)
-- [方法: バインドされていない Windows フォーム DataGridView コントロールを作成します。](how-to-create-an-unbound-windows-forms-datagridview-control.md)
+- [方法: 連結されていない Windows フォーム DataGridView コントロールを作成する](how-to-create-an-unbound-windows-forms-datagridview-control.md)
 - [Windows フォーム DataGridView コントロールでのデータ表示モード](data-display-modes-in-the-windows-forms-datagridview-control.md)

@@ -2,13 +2,14 @@
 title: インデックスと範囲を使用してデータの範囲を調べる
 description: この高度なチュートリアルでは、インデックスと範囲を使用してデータを調べ、シーケンシャル データ セットのスライスを調べる方法について説明します。
 ms.date: 09/20/2019
+ms.technology: csharp-fundamentals
 ms.custom: mvc
-ms.openlocfilehash: 1be144560d2b20bafc66cd68de0735e6dc7f0124
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: 3d4c022ff8d6e7f260632e34d6f28277014c85c8
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71699936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75345629"
 ---
 # <a name="indices-and-ranges"></a>インデックスと範囲
 
@@ -77,9 +78,11 @@ string[] words = new string[]
 
 ## <a name="type-support-for-indices-and-ranges"></a>インデックスと範囲の型のサポート
 
-型に <xref:System.Index> または <xref:System.Range> パラメーターを持つ[インデクサー](../programming-guide/indexers/index.md)が用意されている場合、それぞれ明示的にインデックスまたは範囲をサポートします。
+インデックスと範囲は明確かつ簡潔な構文を提供することで、シーケンス内で 1 つの要素または要素のサブ範囲にアクセスします。 インデックス式は、一般的に、シーケンスの要素の型を返します。 範囲式は、一般的に、ソース シーケンスと同じシーケンス型を返します。
 
-アクセス可能なゲッターと戻り値の型 `int` を持つ `Length` または `Count` という名前のプロパティがある場合、型は**可算**です。 インデックスまたは範囲を明示的にサポートしていない可算型は、それらを暗黙的にサポートしている可能性があります。 詳細については、[機能の提案に関する注記](~/_csharplang/proposals/csharp-8.0/ranges.md)の「[暗黙的なインデックスのサポート](~/_csharplang/proposals/csharp-8.0/ranges.md#implicit-index-support)」と「[暗黙的な範囲のサポート](~/_csharplang/proposals/csharp-8.0/ranges.md#implicit-range-support)」のセクションを参照してください。
+型に <xref:System.Index> または <xref:System.Range> パラメーターを持つ[インデクサー](../programming-guide/indexers/index.md)が用意されている場合、それぞれ明示的にインデックスまたは範囲をサポートします。 型に用意されているのが 1 つの <xref:System.Range> パラメーターをとるインデクサーの場合、その型は、<xref:System.Span%601?displayProperty=nameWithType> などの別のシーケンス型を返すように選択できます。
+
+アクセス可能なゲッターと戻り値の型 `int` を持つ `Length` または `Count` という名前のプロパティがある場合、型は**可算**です。 インデックスまたは範囲を明示的にサポートしていない可算型は、それらを暗黙的にサポートしている可能性があります。 詳細については、[機能の提案に関する注記](~/_csharplang/proposals/csharp-8.0/ranges.md)の「[暗黙的なインデックスのサポート](~/_csharplang/proposals/csharp-8.0/ranges.md#implicit-index-support)」と「[暗黙的な範囲のサポート](~/_csharplang/proposals/csharp-8.0/ranges.md#implicit-range-support)」のセクションを参照してください。 暗黙的な範囲のサポートを使用している範囲によって返されるのは、ソース シーケンスと同じシーケンス型です。
 
 たとえば、次の .NET 型は、<xref:System.Array>、<xref:System.String>、<xref:System.Span%601>、および <xref:System.ReadOnlySpan%601> のインデックスと範囲の両方をサポートしています。 <xref:System.Collections.Generic.List%601> はインデックスをサポートしていますが、範囲はサポートしていません。
 

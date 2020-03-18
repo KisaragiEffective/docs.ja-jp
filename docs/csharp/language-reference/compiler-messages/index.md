@@ -7,10 +7,10 @@ helpviewer_keywords:
 - errors [C#]
 ms.assetid: 57262ab1-6c50-4f9c-81ad-9fba48477416
 ms.openlocfilehash: af1ec49e6c7eb94c4e324b947e8ead8149d0a997
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "72771874"
 ---
 # <a name="c-compiler-errors"></a>C# コンパイラ エラー
@@ -29,7 +29,7 @@ ms.locfileid: "72771874"
   
 [!INCLUDE[note_settings_general](~/includes/note-settings-general-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](../compiler-options/index.md)
 - [申し訳ありませんが、この C# エラーに関する詳細情報はありません。](../../misc/sorry-we-don-t-have-specifics-on-this-csharp-error.md)

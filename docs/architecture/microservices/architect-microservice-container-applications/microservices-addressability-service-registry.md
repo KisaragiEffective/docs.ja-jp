@@ -3,10 +3,10 @@ title: マイクロサービスのアドレス指定能力およびサービス 
 description: マイクロサービス アーキテクチャ内のコンテナー イメージ レジストリの役割を理解します。
 ms.date: 09/20/2018
 ms.openlocfilehash: d72ba399f3da730f0e57c44c5ec01c1cc9f5fc05
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "68674049"
 ---
 # <a name="microservices-addressability-and-the-service-registry"></a>マイクロサービスのアドレス指定能力およびサービス レジストリ

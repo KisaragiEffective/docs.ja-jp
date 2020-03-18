@@ -1,15 +1,15 @@
 ---
-title: 演算子 (Visual Basic)
+title: 演算子
 ms.date: 10/17/2018
 helpviewer_keywords:
 - operators [Visual Basic]
 ms.assetid: 3d3421df-fcc5-4888-9249-d78f16774ce6
-ms.openlocfilehash: a2a9fb5343c4e07fa28d87bc991beea4c390b042
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: d980621ed493bbe5f243062238f4b87e1e44003b
+ms.sourcegitcommit: a4f9b754059f0210e29ae0578363a27b9ba84b64
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73035589"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838170"
 ---
 # <a name="operators-visual-basic"></a>演算子 (Visual Basic)
 
@@ -20,7 +20,7 @@ ms.locfileid: "73035589"
 - [演算子の結果のデータ型](data-types-of-operator-results.md)
 - [DirectCast 演算子](directcast-operator.md)
 - [TryCast 演算子](trycast-operator.md)
-- [この操作](nameof.md)
+- [NameOf 演算子](nameof.md)
 - [New 演算子](new-operator.md)
 - [Null 条件演算子](null-conditional-operators.md)
 - [算術演算子](arithmetic-operators.md)
@@ -34,4 +34,3 @@ ms.locfileid: "73035589"
 ## <a name="related-sections"></a>関連項目
 
 - [Visual Basic の言語リファレンス](../index.md)
-- [Visual Basic](../../index.md)

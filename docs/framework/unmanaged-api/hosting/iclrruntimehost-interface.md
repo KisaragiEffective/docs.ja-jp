@@ -14,48 +14,46 @@ helpviewer_keywords:
 ms.assetid: cb0c5f65-3791-47bc-b833-2f84f4101ba5
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0f159c0b57f2087b608fac8cbc9b9c64ceb063a1
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 568c63681b84d0ab3642d84e4a6715ad230582db
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69965991"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120389"
 ---
 # <a name="iclrruntimehost-interface"></a>ICLRRuntimeHost インターフェイス
 .NET Framework バージョン1で提供される[ICorRuntimeHost](../../../../docs/framework/unmanaged-api/hosting/icorruntimehost-interface.md)インターフェイスと同様の機能を提供します。次の変更点があります。  
   
 - ホストコントロールインターフェイスを設定するための[Sethostcontrol](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-sethostcontrol-method.md)メソッドの追加。  
   
-- によっ`ICorRuntimeHost`て提供されるいくつかのメソッドの省略。  
+- `ICorRuntimeHost`によって提供されるいくつかのメソッドの省略。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
 |[ExecuteApplication メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-executeapplication-method.md)|新しいドメインでアクティブ化するアプリケーションを指定するために、マニフェストベースの ClickOnce 配置シナリオで使用されます。|  
-|[ExecuteInAppDomain メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-executeinappdomain-method.md)|<xref:System.AppDomain>指定したマネージコードを実行するを指定します。|  
+|[ExecuteInAppDomain メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-executeinappdomain-method.md)|指定したマネージコードを実行する <xref:System.AppDomain> を指定します。|  
 |[ExecuteInDefaultAppDomain メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-executeindefaultappdomain-method.md)|指定したアセンブリ内で、指定した型の指定したメソッドを呼び出します。|  
 |[GetCLRControl メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-getclrcontrol-method.md)|ホストが共通言語ランタイム (CLR) の側面をカスタマイズするために使用できる、 [ICLRControl](../../../../docs/framework/unmanaged-api/hosting/iclrcontrol-interface.md)型のインターフェイスポインターを取得します。|  
-|[GetCurrentAppDomainId メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-getcurrentappdomainid-method.md)|現在実行中のの<xref:System.AppDomain>数値識別子を取得します。|  
-|[SetHostControl メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-sethostcontrol-method.md)|ホストコントロールインターフェイスを設定します。 を呼び出す`SetHostControl` `Start`前に、を呼び出す必要があります。|  
+|[GetCurrentAppDomainId メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-getcurrentappdomainid-method.md)|現在実行中の <xref:System.AppDomain> の数値識別子を取得します。|  
+|[SetHostControl メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-sethostcontrol-method.md)|ホストコントロールインターフェイスを設定します。 `Start`を呼び出す前に、`SetHostControl` を呼び出す必要があります。|  
 |[Start メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-start-method.md)|CLR をプロセスに初期化します。|  
 |[Stop メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-stop-method.md)|ランタイムによるコードの実行を停止します。|  
-|[UnloadAppDomain メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-unloadappdomain-method.md)|指定した数値識別子に対応するをアンロードします。<xref:System.AppDomain>|  
+|[UnloadAppDomain メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-unloadappdomain-method.md)|指定した数値識別子に対応する <xref:System.AppDomain> をアンロードします。|  
   
 ## <a name="remarks"></a>Remarks  
- .NET Framework 4 以降では、 [ICLRMetaHost](../../../../docs/framework/unmanaged-api/hosting/iclrmetahost-interface.md)インターフェイスを使用して[ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイスへのポインターを取得し、 [ICLRRuntimeInfo:: getinterface](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getinterface-method.md)メソッドを呼び出して、へ`ICLRRuntimeHost`のポインターを取得します。 以前のバージョンの .NET Framework では、ホストは`ICLRRuntimeHost` [corbindtoruntimeex](../../../../docs/framework/unmanaged-api/hosting/corbindtoruntimeex-function.md)または[corbindtoの entruntime](../../../../docs/framework/unmanaged-api/hosting/corbindtocurrentruntime-function.md)を呼び出すことによって、インスタンスへのポインターを取得します。 .NET Framework バージョン2.0 で提供されるテクノロジの実装を提供するには、の`ICLRRuntimeHost` `ICorRuntimeHost`代わりにを使用する必要があります。  
+ .NET Framework 4 以降では、 [ICLRMetaHost](../../../../docs/framework/unmanaged-api/hosting/iclrmetahost-interface.md)インターフェイスを使用して[ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイスへのポインターを取得し、 [ICLRRuntimeInfo:: getinterface](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getinterface-method.md)メソッドを呼び出して、`ICLRRuntimeHost`へのポインターを取得します。 以前のバージョンの .NET Framework では、ホストは[Corbindtoruntimeex](../../../../docs/framework/unmanaged-api/hosting/corbindtoruntimeex-function.md)または[Corbindtoの entruntime](../../../../docs/framework/unmanaged-api/hosting/corbindtocurrentruntime-function.md)を呼び出して、`ICLRRuntimeHost` インスタンスへのポインターを取得します。 .NET Framework バージョン2.0 で提供されるテクノロジの実装を提供するには、`ICorRuntimeHost`の代わりに `ICLRRuntimeHost` を使用する必要があります。  
   
 > [!IMPORTANT]
-> マニフェストベースのアプリケーションをアクティブ化するには、 [Executeapplication](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-executeapplication-method.md)メソッドを呼び出す前に[Start](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-start-method.md)メソッドを呼び出さないでください。 メソッドが最初`ExecuteApplication`に呼び出された場合、メソッドの呼び出しは失敗します。 `Start`  
+> マニフェストベースのアプリケーションをアクティブ化するには、 [Executeapplication](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-executeapplication-method.md)メソッドを呼び出す前に[Start](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-start-method.md)メソッドを呼び出さないでください。 `Start` メソッドが最初に呼び出された場合、`ExecuteApplication` メソッドの呼び出しは失敗します。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

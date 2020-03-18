@@ -1,22 +1,21 @@
 ---
 title: '#define - C# リファレンス'
-ms.custom: seodec18
 ms.date: 06/30/2018
 f1_keywords:
 - '#define'
 helpviewer_keywords:
 - '#define directive [C#]'
 ms.assetid: 23638b8f-779c-450e-b600-d55682de7d01
-ms.openlocfilehash: d207c96621564acd8070c9d5f618f43a6d8f15a4
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: c08d6f42c11184a4d14aa6712f9f0f8706a72cab
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69924601"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79173433"
 ---
 # <a name="define-c-reference"></a>#define (C# リファレンス)
 `#define` は、シンボルを定義するために使用します。 次の例に示すように、定義したシンボルを式として [#if](./preprocessor-if.md) ディレクティブに渡すと、式は `true` と評価されます。  
- 
+
  ```csharp
  #define DEBUG
  ```
@@ -64,12 +63,12 @@ public class TestDefine
   
  シンボルの定義を解除する方法の例については、「[#undef](./preprocessor-undef.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# プリプロセッサ ディレクティブ](./index.md)
 - [const](../keywords/const.md)
-- [方法: トレースとデバッグを指定して条件付きコンパイルを実行する](../../../framework/debug-trace-profile/how-to-compile-conditionally-with-trace-and-debug.md)
+- [方法 : トレースとデバッグを指定して条件付きコンパイルを実行する](../../../framework/debug-trace-profile/how-to-compile-conditionally-with-trace-and-debug.md)
 - [#undef](./preprocessor-undef.md)
 - [#if](./preprocessor-if.md)

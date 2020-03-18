@@ -2,19 +2,17 @@
 title: ISymUnmanagedAsyncMethod::IsAsyncMethod メソッド
 ms.date: 03/30/2017
 ms.assetid: 670a7653-dac6-4171-98ee-d669e3adf4b2
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: e5cddf34f1a6277e966901c9692bff63e26a3b8e
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 0ea4c21e9e6a49d7bbbad5e1853598c440cd6410
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61940154"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129210"
 ---
 # <a name="isymunmanagedasyncmethodisasyncmethod-method"></a>ISymUnmanagedAsyncMethod::IsAsyncMethod メソッド
-かどうかのかどうか、メソッドは非同期の情報を確認します。  
+メソッドに非同期情報があるかどうかを確認します。  
   
- このメソッドが戻る場合`FALSE`し、このインターフェイスで、他のメソッドを呼び出すことはできません。 すべての戻り値は`E_UNEXPECTED`ここでします。  
+ このメソッドが `FALSE` 返す場合は、このインターフェイスで他のメソッドを呼び出すことはできません。 これらはすべて、この場合 `E_UNEXPECTED` を返します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -29,10 +27,10 @@ HRESULT IsAsyncMethod(    [out, retval] BOOL* pRetVal);
 |`pRetVal`||  
   
 ## <a name="return-value"></a>戻り値  
- `HRESULT` を返します。  
+ `HRESULT`を返します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl, CorSym.h  
+## <a name="requirements"></a>［要件］  
+ **ヘッダー:** CorSym .idl、CorSym .h  
   
 ## <a name="see-also"></a>関連項目
 

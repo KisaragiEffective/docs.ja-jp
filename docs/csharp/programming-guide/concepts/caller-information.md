@@ -3,10 +3,10 @@ title: 呼び出し元情報 (C#)
 ms.date: 07/20/2015
 ms.assetid: ffad3d24-2fb7-4641-9124-53b5bc91d339
 ms.openlocfilehash: 4b2c34945b47db01b0e655f68f92e4dae7445c2c
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69595341"
 ---
 # <a name="caller-information-c"></a>呼び出し元情報 (C#)
@@ -15,7 +15,7 @@ ms.locfileid: "69595341"
 
 この情報を取得するには、省略可能なパラメーターに適用される属性を使用します。各パラメーターには既定値があります。 次の表は、<xref:System.Runtime.CompilerServices?displayProperty=nameWithType> 名前空間で定義されている呼び出し元情報の属性の一覧です。
 
-|Attribute|説明|Type|
+|Attribute|[説明]|[種類]|
 |---|---|---|
 |<xref:System.Runtime.CompilerServices.CallerFilePathAttribute>|呼び出し元を含むソース ファイルのフル パスです。 これは、コンパイル時のファイル パスです。|`String`|
 |<xref:System.Runtime.CompilerServices.CallerLineNumberAttribute>|メソッドが呼び出されたソース ファイルの行番号。|`Integer`|
@@ -79,7 +79,7 @@ public void TraceMessage(string message,
 |Attribute コンストラクター|属性が適用されるメソッドまたはプロパティの名前。 属性がメンバー内の要素 (パラメーター、戻り値、ジェネリック型パラメーターなど) である場合、この結果は、その要素に関連付けられているメンバーの名前になります。|
 |含んでいないメンバー (型に適用されているアセンブリ レベルや属性など)|省略可能なパラメーターの既定値。|
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [属性 (C#)](./attributes/index.md)
 - [共通属性 (C#)](./attributes/common-attributes.md)

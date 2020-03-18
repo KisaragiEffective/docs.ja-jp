@@ -27,7 +27,7 @@ HRESULT GetCustomUI( [out] BSTR* pwzProgressAssemblyName, [out] BSTR* pwzProgres
   
  `pwzProgressClassName`  
   
- 入出力ホストから提供された進行状況のユーザーインターフェイスであるクラスの名前。可能であれば、<xref:System.Windows.Controls.Page> の XAML ファイルは最上位の要素です。 このクラスは、`pwzProgressAssemblyName` によって指定されたアセンブリに存在します。  
+ 入出力ホストから提供された進行状況のユーザーインターフェイスであるクラスの名前。可能であれば、<xref:System.Windows.Controls.Page> を持つ XAML ファイルは最上位の要素です。 このクラスは、`pwzProgressAssemblyName`によって指定されたアセンブリに存在します。  
   
  `pwzErrorAssemblyName`  
   
@@ -35,16 +35,16 @@ HRESULT GetCustomUI( [out] BSTR* pwzProgressAssemblyName, [out] BSTR* pwzProgres
   
  `pwzErrorClassName`  
   
- 入出力ホストから提供されたエラーユーザーインターフェイスであるクラスの名前。可能であれば、@no__t が0の XAML ファイルは最上位の要素です。 このクラスは、`pwzErrorAssemblyName` によって指定されたアセンブリに存在します。  
+ 入出力ホストから提供されたエラーユーザーインターフェイスであるクラスの名前。可能であれば <xref:System.Windows.Controls.Page> を持つ XAML ファイルは最上位の要素です。 このクラスは、`pwzErrorAssemblyName`によって指定されたアセンブリに存在します。  
   
 ## <a name="property-valuereturn-value"></a>プロパティ値/戻り値  
- HRESULT:無視されます。  
+ HRESULT: 無視されます。  
   
 ## <a name="remarks"></a>コメント  
  ホストアプリケーションには、ホストの既定のユーザーインターフェイスが準拠していない可能性がある特定のテーマが含まれている場合があります。 この場合、ホストアプリケーションは[GetCustomUI](getcustomui.md)を実装して、進行状況とエラーユーザーインターフェイスをプレゼンテーションの cluster.exe に返すことができます。 [GetCustomUI](getcustomui.md) は、既定のユーザーインターフェイスを使用する前に、常にを呼び出します。  
   
  この関数は、プレゼンテーションホストの初期化中に1回呼び出されます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IWpfHostSupport](iwpfhostsupport.md)

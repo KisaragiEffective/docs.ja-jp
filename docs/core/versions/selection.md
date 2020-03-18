@@ -4,13 +4,12 @@ description: .NET Core がお使いのプログラム用のランタイム バ�
 author: thraka
 ms.author: adegeo
 ms.date: 06/26/2019
-ms.custom: seodec18
-ms.openlocfilehash: db42ba4916aad739bd2c9d8b547f16022fce44bd
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: 55f04ce81f63753831fca8fa2e44811c44049733
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104945"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79397837"
 ---
 # <a name="select-the-net-core-version-to-use"></a>使用する .NET Core のバージョンを選択する
 
@@ -39,7 +38,7 @@ SDK コマンドには `dotnet new` または `dotnet run` が含まれていま
 
 まれに、以前のバージョンの SDK を使用する必要がある場合があります。 そのバージョンは [*global.json* ファイル](../tools/global-json.md)で指定します。 "最新版を使用する" というポリシーは、インストールされている最新版より以前のバージョンの .NET Core SDK を指定するには *global.json* を使用することを意味します。
 
-*global.json* はファイル階層のどこにでも配置できます。 CLI はプロジェクト ディレクトリから上方を検索し、最初の *global.json* を見つけます。 ファイル システム内のその場所によって、特定の *global.json* が適用されるプロジェクトを制御します。 .NET CLI は、現在の作業ディレクトリからパスを上方に移動し、*global.json* ファイルを繰り返し検索します。 見つかった最初の *global.json* ファイルによって、使用されるバージョンが指定されます。 そのバージョンがインストールされている場合、そのバージョンが使用されます。 *global.json* に指定されている SDK が見つからない場合、.NET CLI はインストールされている最新の SDK にロールフォワードします。 ロール フォワードは、*global.json* ファイルが見つからないとき、これは既定の動作と同じになります。
+*global.json* はファイル階層のどこにでも配置できます。 CLI はプロジェクト ディレクトリから上方を検索し、最初の *global.json* を見つけます。 ファイル システム内のその場所によって、特定の *global.json* が適用されるプロジェクトを制御します。 .NET CLI は、現在の作業ディレクトリからパスを上方に移動し、*global.json* ファイルを繰り返し検索します。 見つかった最初の *global.json* ファイルによって、使用されるバージョンが指定されます。 その SDK バージョンがインストールされている場合、そのバージョンが使用されます。 *global.json* で指定された SDK が見つからない場合、.NET CLI では、[照合ルール](../tools/global-json.md#matching-rules)を使用して、互換性のある SDK を選択します。何も見つからない場合は失敗します。
 
 次の例は *global.json* 構文を示しています。
 
@@ -79,7 +78,7 @@ SDK バージョンの選択に関する詳細は、*global.json* に関する�
 
 ## <a name="framework-dependent-apps-roll-forward"></a>フレームワーク依存のアプリをロールフォワードする
 
-[`dotnet myapp.dll`](../tools/dotnet.md#description) が存在する[**フレームワークに依存するデプロイ**](../deploying/index.md#framework-dependent-deployments-fdd)で [`dotnet run`](../tools/dotnet-run.md) を使用する、または `myapp.exe` が存在する[**フレームワークに依存する実行可能ファイル**](../deploying/index.md#framework-dependent-executables-fde)を使用して、ソースからアプリケーションを実行した場合、`dotnet` 実行可能ファイルがアプリケーションの**ホスト**になります。
+[`dotnet myapp.dll`](../tools/dotnet.md#description) が存在する[**フレームワークに依存するデプロイ**](../deploying/index.md#publish-runtime-dependent)で [`dotnet run`](../tools/dotnet-run.md) を使用する、または `myapp.exe` が存在する[**フレームワークに依存する実行可能ファイル**](../deploying/index.md#publish-runtime-dependent)を使用して、ソースからアプリケーションを実行した場合、`dotnet` 実行可能ファイルがアプリケーションの**ホスト**になります。
 
 このホストがコンピューターにインストールされている最新版のパッチを選択します。 たとえば、プロジェクト ファイルに `netcoreapp2.0` を指定したとき、`2.0.4` がインストールされている最新の .NET ランタイムであれば、`2.0.4` ランタイムが使用されます。
 
@@ -102,7 +101,7 @@ SDK バージョンの選択に関する詳細は、*global.json* に関する�
 
 ## <a name="self-contained-deployments-include-the-selected-runtime"></a>自己完結型の展開に選択したランタイムが含まれる
 
-[**自己完結型ディストリビューション**](../deploying/index.md#self-contained-deployments-scd)としてアプリケーションを公開できます。 この手法では、.NET Core のランタイムとライブラリがアプリケーションと共にバンドルされます。 自己完結型の展開には、ランタイム環境に対する依存性がありません。 ランタイム バージョンは実行時ではなく、公開時に選択されます。
+[**自己完結型ディストリビューション**](../deploying/index.md#publish-self-contained)としてアプリケーションを公開できます。 この手法では、.NET Core のランタイムとライブラリがアプリケーションと共にバンドルされます。 自己完結型の展開には、ランタイム環境に対する依存性がありません。 ランタイム バージョンは実行時ではなく、公開時に選択されます。
 
 公開プロセスでは、特定のランタイム ファミリの最新版パッチが選択されます。 たとえば、`dotnet publish` では、.NET Core 2.0 ランタイム ファミリの最新版パッチが .NET Core 2.0.4 であればそれが選択されます。 ターゲット フレームワーク (インストールされているセキュリティ パッチを含む) がアプリケーションと共にパッケージ化されます。
 

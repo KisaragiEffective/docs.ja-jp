@@ -8,14 +8,12 @@ helpviewer_keywords:
 - memory use, monitoring
 - application domains, resource monitoring
 ms.assetid: 318bedf8-7f35-4f00-b34a-2b7b8e3fa315
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8c7b9d7c2297fe30b02dc9782002413e9f38dc98
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 54e300bef1818fd08f27d7920eec68ee1f2c45bb
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64751538"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73141382"
 ---
 # <a name="application-domain-resource-monitoring"></a>アプリケーション ドメインのリソース監視
 
@@ -43,7 +41,7 @@ ARM が有効になるとすぐに、プロセスのすべてのアプリケー�
 
 ARM は、アプリケーション ドメインに使用される合計プロセッサ時間と、メモリ使用に関する 3 種類の情報を提供します。
 
-- **アプリケーション ドメインの合計プロセッサ時間 (秒単位)**: アプリケーション ドメインの有効期間中に実行されていたすべてのスレッドについて、オペレーティング システムから報告されたスレッド時間を合計して計算されます。 ブロックされているスレッドまたはスリープ状態のスレッドは、プロセッサ時間を使用しません。 スレッドがネイティブ コードを呼び出すときに、スレッドがネイティブ コードに費やす時間は、呼び出しが行われたアプリケーション ドメインの計算に含まれます。
+- **アプリケーション ドメインの合計プロセッサ時間 (秒単位)** : アプリケーション ドメインの有効期間中に実行されていたすべてのスレッドについて、オペレーティング システムから報告されたスレッド時間を合計して計算されます。 ブロックされているスレッドまたはスリープ状態のスレッドは、プロセッサ時間を使用しません。 スレッドがネイティブ コードを呼び出すときに、スレッドがネイティブ コードに費やす時間は、呼び出しが行われたアプリケーション ドメインの計算に含まれます。
 
   - マネージド API: <xref:System.AppDomain.MonitoringTotalProcessorTime%2A?displayProperty=nameWithType> プロパティ。
 
@@ -51,7 +49,7 @@ ARM は、アプリケーション ドメインに使用される合計プロセ
 
   - ETW イベント: `ThreadCreated`、`ThreadAppDomainEnter`、および `ThreadTerminated` イベント プロバイダーとキーワードの詳細については、「[CLR ETW イベント](../../../docs/framework/performance/clr-etw-events.md)」の「AppDomain Resource Monitoring Events」(AppDomain リソース監視イベント) を参照してください。
 
-- **有効期間中にアプリケーション ドメインによって行われたマネージドされた割り当ての合計 (バイト単位)**: 割り当てられたオブジェクトの有効期間は短いことがあるので、割り当ての合計にアプリケーション ドメインによるメモリ使用量が反映されない場合もあります。 ただし、アプリケーションが膨大な数のオブジェクトを割り当ててから解放すると、割り当てのコストが大幅に高くなる可能性があります。
+- **有効期間中にアプリケーション ドメインによって行われたマネージドされた割り当ての合計 (バイト単位)** : 割り当てられたオブジェクトの有効期間は短いことがあるので、割り当ての合計にアプリケーション ドメインによるメモリ使用量が反映されない場合もあります。 ただし、アプリケーションが膨大な数のオブジェクトを割り当ててから解放すると、割り当てのコストが大幅に高くなる可能性があります。
 
   - マネージド API: <xref:System.AppDomain.MonitoringTotalAllocatedMemorySize%2A?displayProperty=nameWithType> プロパティ。
 
@@ -59,7 +57,7 @@ ARM は、アプリケーション ドメインに使用される合計プロセ
 
   - ETW イベント: `AppDomainMemAllocated` イベント、`Allocated` フィールド。
 
-- **アプリケーション ドメインによって参照され、最新の完全なブロッキング コレクションの後に残っているマネージド メモリ (バイト単位)**: この数値は完全なブロッキング コレクションの後にのみ正確になります。 (これは、バックグラウンドで発生し、アプリケーションをブロックしない同時コレクションとは対照的です)。たとえば、<xref:System.GC.Collect?displayProperty=nameWithType> メソッドのオーバーロードによって、完全なブロッキング コレクションが実行されます。
+- **アプリケーション ドメインによって参照され、最新の完全なブロッキング コレクションの後に残っているマネージド メモリ (バイト単位)** : この数値は完全なブロッキング コレクションの後にのみ正確になります。 (これは、バックグラウンドで発生し、アプリケーションをブロックしない同時コレクションとは対照的です)。たとえば、<xref:System.GC.Collect?displayProperty=nameWithType> メソッドのオーバーロードによって、完全なブロッキング コレクションが実行されます。
 
   - マネージド API: <xref:System.AppDomain.MonitoringSurvivedMemorySize%2A?displayProperty=nameWithType> プロパティ。
 
@@ -67,7 +65,7 @@ ARM は、アプリケーション ドメインに使用される合計プロセ
 
   - ETW イベント: `AppDomainMemSurvived` イベント、`Survived` フィールド。
 
-- **プロセスによって参照され、最新の完全なブロッキング コレクションの後に残っている合計マネージド メモリ (バイト単位)**: 個々のアプリケーション ドメインに残っている​​メモリをこの数値と比較できます。
+- **プロセスによって参照され、最新の完全なブロッキング コレクションの後に残っている合計マネージド メモリ (バイト単位)** : 個々のアプリケーション ドメインに残っている​​メモリをこの数値と比較できます。
 
   - マネージド API: <xref:System.AppDomain.MonitoringSurvivedProcessMemorySize%2A?displayProperty=nameWithType> プロパティ。
 

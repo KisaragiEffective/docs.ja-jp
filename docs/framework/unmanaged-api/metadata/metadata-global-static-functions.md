@@ -6,19 +6,17 @@ helpviewer_keywords:
 - unmanaged global static functions [.NET Framework], metadata
 - metadata global static functions [.NET Framework]
 ms.assetid: d3bbc8a7-b1c7-494f-b1cc-d71cf2ecb1bc
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: daa0db44da10e41f742e99b11fcf8ea046f70f3c
-ms.sourcegitcommit: 155012a8a826ee8ab6aa49b1b3a3b532e7b7d9bd
+ms.openlocfilehash: a76d57bb45e53e461a43f3a9fb3be707782faccc
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66490731"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74447826"
 ---
 # <a name="metadata-global-static-functions"></a>メタデータ グローバル静的関数
-ドキュメントを .NET Framework 4 以降、 `_Cor*`、 `CoInitialize*`、 `CoUninitialize*`、および`CoEEShutDownCOM`関数で、ホスティングに関連するにある[CLR ホスト関数の非推奨とされます](../../../../docs/framework/unmanaged-api/hosting/deprecated-clr-hosting-functions.md)します。 メタデータに関連するグローバル静的関数はありません。  
+.NET Framework 4 以降では、ホストに関連する `_Cor*`、`CoInitialize*`、`CoUninitialize*`、および `CoEEShutDownCOM` の各関数のドキュメントは、[非推奨の CLR ホスト関数](../../../../docs/framework/unmanaged-api/hosting/deprecated-clr-hosting-functions.md)にあります。 メタデータに関連するグローバル静的関数はありません。  
   
-## <a name="related-sections"></a>関連項目  
+## <a name="related-sections"></a>関連セクション  
  [メタデータ インターフェイス](../../../../docs/framework/unmanaged-api/metadata/metadata-interfaces.md)  
   
  [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)  

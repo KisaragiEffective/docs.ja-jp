@@ -7,14 +7,12 @@ helpviewer_keywords:
 - threading [.NET], synchronizing threads
 - managed threading
 ms.assetid: b980eb4c-71d5-4860-864a-6dfe3692430a
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: dc8381f8059e37c6c520c2402289124a506188e8
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: a70bd3070d8b1dcd06e55d330a01d29071293f6c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69968413"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78159391"
 ---
 # <a name="synchronizing-data-for-multithreading"></a>マルチスレッド処理のためのデータの同期
 
@@ -34,10 +32,10 @@ ms.locfileid: "69968413"
   
 |カテゴリ|グローバル フィールド|静的フィールド|静的メソッド|インスタンス フィールド|インスタンス メソッド|特定のコード ブロック|  
 |--------------|-------------------|-------------------|--------------------|---------------------|----------------------|--------------------------|  
-|同期なし|いいえ|×|×|×|×|いいえ|  
-|同期されたコンテキスト|いいえ|×|×|[はい]|はい|いいえ|  
+|同期なし|いいえ|いいえ|いいえ|いいえ|いいえ|いいえ|  
+|同期されたコンテキスト|いいえ|いいえ|いいえ|はい|はい|いいえ|  
 |同期されたコード領域|いいえ|いいえ|マークされている場合にのみ|いいえ|マークされている場合にのみ|マークされている場合にのみ|  
-|手動での同期|手動|手動|手動|手動|手動|手動|  
+|手動での同期|マニュアル|マニュアル|マニュアル|マニュアル|マニュアル|マニュアル|  
   
 ## <a name="no-synchronization"></a>同期なし  
  これは、オブジェクトに対する既定の設定です。 すべてのスレッドが、すべてのメソッドまたはフィールドにいつでもアクセスできます。 ただし、これらのオブジェクトにアクセスできるスレッドは一度に 1 つだけです。  
@@ -58,7 +56,7 @@ ms.locfileid: "69968413"
  <xref:System.Threading.Thread.Interrupt%2A?displayProperty=nameWithType> を使用すると、同期されたコード領域へのアクセスの待機などのブロック操作から、スレッドを切り離すことができます。 また、この **Thread.Interrupt** を使用することで、<xref:System.Threading.Thread.Sleep%2A?displayProperty=nameWithType> などの操作からスレッドを切り離すこともできます。  
   
 > [!IMPORTANT]
-> `static` メソッド (Visual Basic では`Shared`) を保護するために、型 (C# の場合は`typeof(MyType)`、Visual Basic の場合は`GetType(MyType)`、C++ の場合は`MyType::typeid`) をロックしないでください。 代わりにプライベート静的オブジェクトを使用します。 同様に、C# の `this` (Visual Basic の場合は `Me`) を使用してインスタンス メソッドをロックしないでください。 代わりにプライベート オブジェクトを使用します。 クラスやインスタンスは、独自のコード以外のコードでもロックできますが、デッドロックやパフォーマンスの問題が発生する可能性があります。  
+> `typeof(MyType)` メソッド (Visual Basic では`GetType(MyType)`) を保護するために、型 (C# の場合は`MyType::typeid`、Visual Basic の場合は`static`、C++ の場合は`Shared`) をロックしないでください。 代わりにプライベート静的オブジェクトを使用します。 同様に、C# の `this` (Visual Basic の場合は `Me`) を使用してインスタンス メソッドをロックしないでください。 代わりにプライベート オブジェクトを使用します。 クラスやインスタンスは、独自のコード以外のコードでもロックできますが、デッドロックやパフォーマンスの問題が発生する可能性があります。  
   
 ### <a name="compiler-support"></a>コンパイラ サポート  
  Visual Basic と C# は、どちらも <xref:System.Threading.Monitor.Enter%2A?displayProperty=nameWithType> と <xref:System.Threading.Monitor.Exit%2A?displayProperty=nameWithType> を使用してオブジェクトをロックする言語キーワードをサポートします。 Visual Basic は [SyncLock](../../visual-basic/language-reference/statements/synclock-statement.md) ステートメントをサポートしており、C# は [lock](../../csharp/language-reference/keywords/lock-statement.md) ステートメントをサポートしています。  
@@ -66,10 +64,10 @@ ms.locfileid: "69968413"
  両方とも、コード ブロックで例外がスローされると、**lock** または **SyncLock** によって取得されたロックは自動的に解放されます。 C# コンパイラおよび Visual Basic コンパイラは **try**/**finally** ブロックを生成します。tryブロックは先頭に **Monitor.Enter** を含み、**finally** ブロックは **Monitor.Exit** を含みます。 **lock** ブロックまたは **SyncLock** ブロック内部で例外がスローされると、**finally** ハンドラーが実行され、任意のクリーンアップ作業を行えるようになります。  
   
 ## <a name="synchronized-context"></a>同期されたコンテキスト  
- 
-.NET Framework と Xamarin のアプリケーションでのみ、任意の <xref:System.ContextBoundObject> で <xref:System.Runtime.Remoting.Contexts.SynchronizationAttribute> を使用して、すべてのインスタンス メソッドとフィールドを同期できます。 同じコンテキスト ドメイン内のすべてのオブジェクトが同じロックを共有します。 複数のスレッドがメソッドやフィールドにアクセスできますが、これらのオブジェクトに一度にアクセスできるのは 1 つのスレッドだけです。  
+
+.NET Framework と Xamarin のアプリケーションでのみ、任意の <xref:System.Runtime.Remoting.Contexts.SynchronizationAttribute> で <xref:System.ContextBoundObject> を使用して、すべてのインスタンス メソッドとフィールドを同期できます。 同じコンテキスト ドメイン内のすべてのオブジェクトが同じロックを共有します。 複数のスレッドがメソッドやフィールドにアクセスできますが、これらのオブジェクトに一度にアクセスできるのは 1 つのスレッドだけです。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.Remoting.Contexts.SynchronizationAttribute>
 - [スレッドおよびスレッド処理](../../../docs/standard/threading/threads-and-threading.md)

@@ -5,12 +5,12 @@ author: thraka
 ms.date: 06/25/2019
 ms.topic: tutorial
 ms.author: adegeo
-ms.openlocfilehash: 1f4e73287fca650b20ed5617c8dfd80e0bd8363c
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: f53f4037f832265a35f65bf2e5096c7e5a37bcf1
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72318279"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77503533"
 ---
 # <a name="tutorial-create-a-project-template"></a>チュートリアル: プロジェクト テンプレートを作成する
 
@@ -29,13 +29,13 @@ ms.locfileid: "72318279"
 ## <a name="prerequisites"></a>必須コンポーネント
 
 * このチュートリアル シリーズの[パート 1](cli-templates-create-item-template.md) を完了します。
-* ターミナルを開いて _working\templates\\_ フォルダーに移動します。
+* ターミナルを開いて _working\templates_ フォルダーに移動します。
 
 ## <a name="create-a-project-template"></a>プロジェクト テンプレートを作成する
 
 プロジェクト テンプレートを使用すると、ユーザーがコードのワーキング セットを使用して簡単に作業を開始できる、すぐに実行できるプロジェクトが作成されます。 .NET Core には、コンソール アプリケーションやクラス ライブラリなど、いくつかのプロジェクト テンプレートが含まれています。 この例では、C# 8.0 を有効にし、`async main` エントリ ポイントを生成する、新しいコンソール プロジェクトを作成します。
 
-ターミナルで _working\templates\\_ フォルダーに移動し、_consoleasync_ という名前の新しいサブフォルダーを作成します。 このサブフォルダーに入り、`dotnet new console` を実行して標準コンソール アプリケーションを生成します。 このテンプレートによって生成されたファイルを編集して、新しいテンプレートを作成します。
+ターミナルで _working\templates_ フォルダーに移動し、_consoleasync_ という名前の新しいサブフォルダーを作成します。 このサブフォルダーに入り、`dotnet new console` を実行して標準コンソール アプリケーションを生成します。 このテンプレートによって生成されたファイルを編集して、新しいテンプレートを作成します。
 
 ```console
 working
@@ -85,10 +85,17 @@ namespace consoleasync
 
 ## <a name="build-the-project"></a>プロジェクトをビルドする
 
-プロジェクト テンプレートを完成させる前にテストして、正しくコンパイルされ実行されることを確認する必要があります。 ターミナルで `dotnet run` コマンドを実行すると、次の出力が表示されるはずです。
+プロジェクト テンプレートを完成させる前にテストして、正しくコンパイルされ実行されることを確認する必要があります。
+
+ご利用のターミナルで、次のコマンドを実行します。
+
+```dotnetcli
+dotnet run
+```
+
+次の出力が得られます。
 
 ```console
-C:\working\templates\consoleasync> dotnet run
 Hello World with C# 8.0!
 ```
 
@@ -98,7 +105,7 @@ Hello World with C# 8.0!
 
 ## <a name="create-the-template-config"></a>テンプレートの構成を作成する
 
-.NET Core では、テンプレートが、テンプレートのルートに存在する特別なフォルダーと構成ファイルによって認識されます。 このチュートリアルでは、テンプレート フォルダーは _working\templates\consoleasync\\_ にあります。
+.NET Core では、テンプレートが、テンプレートのルートに存在する特別なフォルダーと構成ファイルによって認識されます。 このチュートリアルでは、テンプレート フォルダーは _working\templates\consoleasync_ にあります。
 
 テンプレートを作成すると、特別な構成フォルダーを除く、テンプレート フォルダー内のすべてのファイルとフォルダーがテンプレートの一部として含まれます。 この構成フォルダーの名前は _.template.config_ です。
 
@@ -133,12 +140,17 @@ working
 
 `classifications` 項目は、`dotnet new` を実行してテンプレートの一覧を取得したときに表示される **tags** 列を表します。 ユーザーは分類タグに基づいて検索することもできます。 json ファイル内の `tags` プロパティと、`classifications` の tags 一覧を混同しないようにしてください。 これらは残念ながら同じ名前を付けられてしまった 2 つの異なるものです。 *template.json* ファイルの完全スキーマは [JSON Schema Store](http://json.schemastore.org/template) にあります。 *template.json* ファイルについて詳しくは、[dotnet テンプレート wiki](https://github.com/dotnet/templating/wiki) をご覧ください。
 
-有効な _.template.config/template.json_ ファイルを用意したので、テンプレートをインストールする準備ができました。 テンプレートをインストールする前に、テンプレートに含めたくない余分なファイルとフォルダー (_bin_ フォルダーや _obj_ フォルダーなど) を必ず削除してください。 ターミナルで _consoleasync_ フォルダーに移動し、`dotnet new -i .\` を実行して現在のフォルダーにあるテンプレートをインストールします。 Linux または MacOS オペレーティング システムを使用している場合は、`dotnet new -i ./` のようにスラッシュを使用します。
+有効な _.template.config/template.json_ ファイルを用意したので、テンプレートをインストールする準備ができました。 テンプレートをインストールする前に、テンプレートに含めたくない余分なファイルとフォルダー (_bin_ フォルダーや _obj_ フォルダーなど) を必ず削除してください。 ターミナルで _consoleasync_ フォルダーに移動し、`dotnet new -i .\` を実行して現在のフォルダーにあるテンプレートをインストールします。 Linux または macOS オペレーティング システムを使用している場合は、`dotnet new -i ./` のようにスラッシュを使用します。
 
 このコマンドにより、インストールされているテンプレートの一覧が出力されます。作成したテンプレートも含まれているはずです。
 
+```dotnetcli
+dotnet new -i .\
+```
+
+次のような出力が得られます。
+
 ```console
-C:\working\templates\consoleasync> dotnet new -i .\
 Usage: new [options]
 
 Options:
@@ -159,17 +171,33 @@ Worker Service                                    worker                [C#]    
 
 ### <a name="test-the-project-template"></a>プロジェクト テンプレートをテストする
 
-項目テンプレートをインストールしたので、テストします。 _test_ フォルダーに移動し、`dotnet new consoleasync` を使用して新しいコンソール アプリケーションを作成します。 これにより、`dotnet run` コマンドを使用して簡単にテストできる作業プロジェクトが生成されます。
+項目テンプレートをインストールしたので、テストします。
 
-```console
-C:\test> dotnet new consoleasync
-The template "Example templates: async project" was created successfully.
-```
+1. _test_ フォルダーに移動します。
 
-```console
-C:\test> dotnet run
-Hello World with C# 8.0!
-```
+1. 次のコマンドを使用して、新しいコンソール アプリケーションを作成します。これにより、`dotnet run` コマンドを使用して簡単にテストできる作業プロジェクトが生成されます。
+
+    ```dotnetcli
+    dotnet new consoleasync
+    ```
+
+    次の出力が得られます。
+
+    ```console
+    The template "Example templates: async project" was created successfully.
+    ```
+
+1. 次のコマンドを使用して、プロジェクトを実行します。
+
+    ```dotnetcli
+    dotnet run
+    ```
+
+    次の出力が得られます。
+
+    ```console
+    Hello World with C# 8.0!
+    ```
 
 おめでとうございます! .NET Core でプロジェクト テンプレートを作成し、配置しました。 このチュートリアル シリーズの次のパートの準備として、作成したテンプレートをアンインストールする必要があります。 また、必ず _test_ フォルダーからすべてのファイルを削除してください。 これにより、このチュートリアルの次の主要なセクションの準備が整った状態に戻ります。
 
@@ -177,8 +205,13 @@ Hello World with C# 8.0!
 
 ファイル パスを使用してテンプレートをインストールしたので、**絶対**ファイル パスを使用してアンインストールする必要があります。 `dotnet new -u` コマンドを実行すると、インストールされているテンプレートの一覧を表示できます。 作成したテンプレートは最後に表示されているはずです。 一覧にあるパスを使用して、`dotnet new -u <ABSOLUTE PATH TO TEMPLATE DIRECTORY>` コマンドでテンプレートをアンインストールします。
 
+```dotnetcli
+dotnet new -u
+```
+
+次のような出力が得られます。
+
 ```console
-C:\working> dotnet new -u
 Template Instantiation Commands for .NET Core CLI
 
 Currently installed items:
@@ -206,8 +239,10 @@ Currently installed items:
       Example templates: async project (consoleasync) C#
 ```
 
-```console
-C:\working> dotnet new -u C:\working\templates\consoleasync
+テンプレートをアンインストールするには、次のコマンドを実行します。
+
+```dotnetcli
+dotnet new -u C:\working\templates\consoleasync
 ```
 
 ## <a name="next-steps"></a>次の手順

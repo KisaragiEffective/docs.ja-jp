@@ -1,14 +1,14 @@
 ---
-title: Infer.NET と確率論的プログラミングでゲーム対戦リスト アプリを作成する
-description: 確率論的プログラミングと Infer.NET を使用して、TrueSkill の簡易バージョンに基づいたゲーム対戦リスト アプリについて紹介します。
-ms.date: 05/06/2019
+title: Infer.NET ゲーム対戦アプリ - 確率論的プログラミング
+description: 確率論的プログラミングと Infer.NET を使用して、TrueSkill の簡易バージョンに基づいたゲーム対戦リスト アプリを作成する方法を探索します。
+ms.date: 01/30/2020
 ms.custom: mvc,how-to
-ms.openlocfilehash: 69515c7b3518c35bf84335c453408b1466f93f34
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 8e489d61c5e6cca53ba12b13fddd0b73c7f85ef9
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72774537"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77092604"
 ---
 # <a name="create-a-game-match-up-list-app-with-infernet-and-probabilistic-programming"></a>Infer.NET と確率論的プログラミングでゲーム対戦リスト アプリを作成する
 
@@ -18,7 +18,7 @@ ms.locfileid: "72774537"
 
 確率論的プログラミングを使用すると、現実世界のプロセスの統計モデルを作成することができます。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 - ローカルの開発環境の設定
 
@@ -33,7 +33,7 @@ dotnet new console -o myApp
 cd myApp
 ```
 
-`dotnet` コマンドで、種類が `console` の `new` アプリケーションを作成します。 `-o` パラメーターで、アプリが格納されるディレクトリ `myApp` を作成し、必要なファイルを指定します。 `cd myApp` コマンドで、新しく作成されたアプリ ディレクトリに移動します。
+`dotnet` コマンドで、種類が `new` の `console` アプリケーションを作成します。 `-o` パラメーターで、アプリが格納されるディレクトリ `myApp` を作成し、必要なファイルを指定します。 `cd myApp` コマンドで、新しく作成されたアプリ ディレクトリに移動します。
 
 ## <a name="install-infernet-package"></a>Infer.NET パッケージのインストール
 
@@ -155,7 +155,7 @@ Player 2 skill: Gaussian(2.639, 4.288)
 
 統計モデルの設計は独自のスキルです。 Microsoft Research Cambridge チームは、この記事を簡単に紹介した[無料のオンライン ブック](http://mbmlbook.com/)を作成しました。 このブックの第 3 章には、TrueSkill モデルが詳しく説明されています。 モデルを考えついたら、Infer.NET Web サイトの[膨大なドキュメント](https://dotnet.github.io/infer/)を使用してモデルをコードに変換することができます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 学習を続けてその他のサンプルを確認するには、Infer.NET の GitHub リポジトリを参照してください。
 > [!div class="nextstepaction"]

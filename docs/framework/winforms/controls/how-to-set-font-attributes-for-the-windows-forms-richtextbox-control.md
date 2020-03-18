@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの RichTextBox コントロールのフォント属性を設定する'
+title: RichTextBox コントロールのフォント属性を設定する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -14,25 +14,25 @@ helpviewer_keywords:
 - text boxes [Windows Forms], formatting text
 - formatting [Windows Forms]
 ms.assetid: 2bc23ddb-0529-4489-a1a2-ad253cb43f9a
-ms.openlocfilehash: 4919e94c23b1a67680ea0f360304ee0f75c7f425
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: f27256c155223df576ee3c42e6bf65270c870b0f
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69963223"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744853"
 ---
 # <a name="how-to-set-font-attributes-for-the-windows-forms-richtextbox-control"></a>方法: Windows フォームの RichTextBox コントロールのフォント属性を設定する
-Windows フォーム<xref:System.Windows.Forms.RichTextBox>コントロールには、表示するテキストを書式設定するためのさまざまなオプションがあります。 <xref:System.Windows.Forms.RichTextBox.SelectionFont%2A>プロパティを使用して、選択した文字を太字、下線、または斜体にすることができます。 また、このプロパティを使用して、選択した文字のサイズと書体を変更することもできます。 <xref:System.Windows.Forms.RichTextBox.SelectionColor%2A>プロパティを使用すると、選択した文字の色を変更できます。  
+Windows フォーム <xref:System.Windows.Forms.RichTextBox> コントロールには、表示するテキストを書式設定するためのさまざまなオプションがあります。 <xref:System.Windows.Forms.RichTextBox.SelectionFont%2A> プロパティを使用して、選択した文字を太字、下線、または斜体にすることができます。 また、このプロパティを使用して、選択した文字のサイズと書体を変更することもできます。 <xref:System.Windows.Forms.RichTextBox.SelectionColor%2A> プロパティを使用すると、選択した文字の色を変更できます。  
   
 ### <a name="to-change-the-appearance-of-characters"></a>文字の外観を変更するには  
   
-1. <xref:System.Windows.Forms.RichTextBox.SelectionFont%2A>プロパティを適切なフォントに設定します。  
+1. <xref:System.Windows.Forms.RichTextBox.SelectionFont%2A> プロパティを適切なフォントに設定します。  
   
-     ユーザーがアプリケーションでフォントファミリ、サイズ、およびタイプフェイスを設定できるようにするには、通常<xref:System.Windows.Forms.FontDialog> 、コンポーネントを使用します。 概要については、[FontDialog コンポーネントの概要](fontdialog-component-overview-windows-forms.md)に関するページを参照してください。  
+     ユーザーがアプリケーションでフォントファミリ、サイズ、およびタイプフェイスを設定できるようにするには、通常、<xref:System.Windows.Forms.FontDialog> コンポーネントを使用します。 概要については、「[FontDialog Component Overview](fontdialog-component-overview-windows-forms.md)」 (FontDialog コンポーネントの概要) を参照してください。  
   
-2. <xref:System.Windows.Forms.RichTextBox.SelectionColor%2A>プロパティを適切な色に設定します。  
+2. <xref:System.Windows.Forms.RichTextBox.SelectionColor%2A> プロパティを適切な色に設定します。  
   
-     ユーザーがアプリケーションの色を設定できるようにするには、通常、 <xref:System.Windows.Forms.ColorDialog>コンポーネントを使用します。 概要については、[ColorDialog コンポーネントの概要](colordialog-component-overview-windows-forms.md)に関するページを参照してください。  
+     ユーザーがアプリケーションの色を設定できるようにするには、通常、<xref:System.Windows.Forms.ColorDialog> コンポーネントを使用します。 概要については、「[ColorDialog Component Overview](colordialog-component-overview-windows-forms.md)」 (ColorDialog コンポーネントの概要) を参照してください。  
   
     ```vb  
     RichTextBox1.SelectionFont = New Font("Tahoma", 12, FontStyle.Bold)  
@@ -51,9 +51,9 @@ Windows フォーム<xref:System.Windows.Forms.RichTextBox>コントロールに
     ```  
   
     > [!NOTE]
-    > これらのプロパティは選択したテキストにのみ影響します。テキストが選択されていない場合は、現在の挿入ポイントの場所に入力されるテキストに影響します。 プログラムによるテキストの選択の詳細<xref:System.Windows.Forms.TextBoxBase.Select%2A>については、「」を参照してください。  
+    > これらのプロパティは選択したテキストにのみ影響します。テキストが選択されていない場合は、現在の挿入ポイントの場所に入力されるテキストに影響します。 プログラムによるテキストの選択の詳細については、「<xref:System.Windows.Forms.TextBoxBase.Select%2A>」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.RichTextBox>
 - [RichTextBox コントロール](richtextbox-control-windows-forms.md)

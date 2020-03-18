@@ -1,21 +1,20 @@
 ---
 title: '#endif - C# リファレンス'
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - '#endif'
 helpviewer_keywords:
 - '#endif directive [C#]'
 ms.assetid: 6a5fca55-5aee-441f-86f6-1c99fbe9ec05
-ms.openlocfilehash: 74205c836b4eeb2d8b17b907bb13708f3225df08
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: cc344a224e2308e843328b228dd5e2466d02069f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69608569"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75712547"
 ---
 # <a name="endif-c-reference"></a>#endif (C# リファレンス)
-`#endif` は [#if](./preprocessor-if.md)ディレクティブで始まる、条件付きディレクティブの終了を指定します。 たとえば、次のように入力します。  
+`#endif` は [#if](./preprocessor-if.md)ディレクティブで始まる、条件付きディレクティブの終了を指定します。 次に例を示します。  
   
 ```csharp
 #define DEBUG  
@@ -26,10 +25,10 @@ ms.locfileid: "69608569"
 ```  
   
 ## <a name="remarks"></a>解説  
- `#if` ディレクティブで始まる条件付きディレクティブは、`#endif` ディレクティブで明示的に終了させる必要があります。 `#endif` の使用例については、「[#if](./preprocessor-if.md)」を参照してください。  
+ `#if` ディレクティブで始まる条件付きディレクティブは、`#endif` ディレクティブで明示的に終了させる必要があります。 [ の使用例については、「](./preprocessor-if.md)#if`#endif`」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# プリプロセッサ ディレクティブ](./index.md)

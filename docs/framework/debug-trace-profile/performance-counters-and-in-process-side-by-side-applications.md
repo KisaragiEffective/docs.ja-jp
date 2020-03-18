@@ -10,14 +10,12 @@ helpviewer_keywords:
 - performance,.NET Framework applications
 - performance monitoring,counters
 ms.assetid: 6888f9be-c65b-4b03-a07b-df7ebdee2436
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3c583e9568a55b994f0516af2dcdf29f0d0f21fb
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: a50b0f92837c3a962fa21d5c1342492d7fa397dd
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69967277"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73121571"
 ---
 # <a name="performance-counters-and-in-process-side-by-side-applications"></a>パフォーマンス カウンターとインプロセス side-by-side アプリケーション
 パフォーマンス モニター (Perfmon.exe) を使用すると、ランタイムごとにパフォーマンス カウンターを区別できるようになります。 このトピックでは、この機能を有効にするために必要なレジストリの変更について説明します。  
@@ -29,7 +27,7 @@ ms.locfileid: "69967277"
   
 - 1 つのアプリケーションが複数インスタンスの共通言語ランタイムを使用している場合。 .NET Framework 4 では、インプロセスの side-by-side ホスティングシナリオがサポートされています。つまり、1つのプロセスまたはアプリケーションが共通言語ランタイムの複数のインスタンスを読み込むことができます。 myapp.exe という単一のアプリケーションが 2 つのランタイム インスタンスを読み込むと、既定で、 **[インスタンス]** 列に **myapp** および **myapp#1** と表示されます。 この場合、**myapp** と **myapp#1** が同じ名前の 2 つのアプリケーションを示しているか、2 つのランタイムを持つ単一のアプリケーションを示しているかが明確ではありません。 同じ名前の複数のアプリケーションが複数のランタイムを読み込む場合、あいまいさはさらに大きくなります。  
   
- このあいまいさを排除するために、レジストリ キーを設定できます。 .NET Framework 4 を使用して開発されたアプリケーションの場合、このレジストリの変更によって、**インスタンス**列のアプリケーション名にプロセス識別子の後にランタイムインスタンス識別子が追加されます。 **[インスタンス]** 列に、*application* や *application*#1 ではなく、*application*_`p`*processID*\_`r`*runtimeID* と表示され、識別できるようになります。 以前のバージョンの共通言語ランタイムを使用してアプリケーションを開発した場合、.NET Framework 4 がインストールされていれば、そのインスタンスは*アプリケーション\_* `p`の*processID*として表されます。  
+ このあいまいさを排除するために、レジストリ キーを設定できます。 .NET Framework 4 を使用して開発されたアプリケーションの場合、このレジストリの変更によって、**インスタンス**列のアプリケーション名にプロセス識別子の後にランタイムインスタンス識別子が追加されます。 **[インスタンス]** 列に、*application* や *application*#1 ではなく、*application*_`p`*processID*\_`r`*runtimeID* と表示され、識別できるようになります。 以前のバージョンの共通言語ランタイムを使用してアプリケーションを開発した場合、そのインスタンスは*アプリケーション`p`\_* として表され、.NET Framework 4 がインストールされていることを示します。  
   
 ## <a name="performance-counters-for-in-process-side-by-side-applications"></a>インプロセス side-by-side アプリケーションのパフォーマンス カウンター  
  単一のアプリケーションでホストされている複数の共通言語ランタイム バージョンのパフォーマンス カウンターを処理するには、次の表のように 1 つのレジストリ キー設定を変更する必要があります。  
@@ -38,8 +36,8 @@ ms.locfileid: "69967277"
 |-|-|  
 |キー名|HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\\.NETFramework\Performance|  
 |値の名前|ProcessNameFormat|  
-|[値の型]|REG_DWORD|  
-|値|1 (0x00000001)|  
+|値の種類|REG_DWORD|  
+|[値]|1 (0x00000001)|  
   
  `ProcessNameFormat` の値 0 は、既定の動作が有効であることを示します。つまり、Perfmon.exe には、アプリケーションごとのパフォーマンス カウンターが表示されます。 この値を 1 に設定すると、Perfmon.exe で複数バージョンのアプリケーションのあいまいさが解消され、ランタイムごとにパフォーマンス カウンターが表示されます。 `ProcessNameFormat` レジストリ キー設定の他の値はサポートされておらず、将来使用するために予約されています。  
   
@@ -50,7 +48,7 @@ ms.locfileid: "69967277"
  [!code-csharp[Conceptual.PerfCounters.InProSxS#1](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.perfcounters.inprosxs/cs/regsetting1.cs#1)]
  [!code-vb[Conceptual.PerfCounters.InProSxS#1](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.perfcounters.inprosxs/vb/regsetting1.vb#1)]  
   
- このレジストリの変更を行うと、perfmon.exe は、アプリケーション`p`_*processID*\_`r`*runtimeid*として .NET Framework 4 を対象とするアプリケーションの名前を表示します。ここで、*アプリケーション*はアプリケーションの名前、 *processID*はアプリケーションのプロセス識別子、 *runtimeid*は共通言語ランタイム識別子です。 たとえば、myapp.exe というアプリケーションが 2 インスタンスの共通言語ランタイムを読み込んだ場合、Perfmon.exe では、1 つ目のインスタンスは myapp_p1416_r10、2 つ目のインスタンスは myapp_p3160_r10 と識別できます。 ランタイム識別子は、プロセス内のランタイムのあいまいさを排除するだけです。ランタイムに関するその他の情報は提供されません (たとえば、ランタイム ID はランタイムのバージョンや SKU と関係がありません)。  
+ このレジストリを変更すると、.NET Framework *4 を対象*とするアプリケーション _`p`*ProcessID*\_`r`*runtimeid*として、アプリケーションの名前が表示されます。ここで、 *application*はアプリケーション、 *processID*はアプリケーションのプロセス識別子、 *runtimeid*は共通言語ランタイム識別子です。 たとえば、myapp.exe というアプリケーションが 2 インスタンスの共通言語ランタイムを読み込んだ場合、Perfmon.exe では、1 つ目のインスタンスは myapp_p1416_r10、2 つ目のインスタンスは myapp_p3160_r10 と識別できます。 ランタイム識別子は、プロセス内のランタイムのあいまいさを排除するだけです。ランタイムに関するその他の情報は提供されません (たとえば、ランタイム ID はランタイムのバージョンや SKU と関係がありません)。  
   
  .NET Framework 4 がインストールされている場合、レジストリの変更は、以前のバージョンの .NET Framework を使用して開発されたアプリケーションにも影響します。 この場合、Perfmon.exe では *application_* `p`*processID* と表示されます。この *application* はアプリケーション名、*processID* はプロセス識別子です。 たとえば、myapp.exe という 2 つのアプリケーションのパフォーマンス カウンターを監視する場合、一方は myapp_p23900、もう一方は myapp_p24908 と表示される可能性があります。  
   

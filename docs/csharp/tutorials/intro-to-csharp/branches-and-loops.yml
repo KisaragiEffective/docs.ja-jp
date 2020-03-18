@@ -11,12 +11,12 @@ metadata:
   interactive: csharp
   nextTutorialHref: list-collection.yml
   nextTutorialTitle: リスト コレクション
-  ms.openlocfilehash: 445017337663aea428af2f8dcd4027d716d05751
-  ms.sourcegitcommit: dfd612ba454ce775a766bcc6fe93bc1d43dfda47
+  ms.openlocfilehash: ab709b6b30b5a173e2faf08b577e4d7a3d9a9034
+  ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 10/09/2019
-  ms.locfileid: "72179884"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "73969427"
 items:
 - durationInMinutes: 1
   content: >
@@ -24,7 +24,7 @@ items:
 - title: if ステートメントを使用した条件判断
   durationInMinutes: 4
   content: >
-    対話型ウィンドウで次のコードを実行します。 そのためには、対話型ウィンドウで次のコード ブロックを入力し、**[実行]** をクリックします。
+    対話型ウィンドウで次のコードを実行します。 **[Enter focus mode]\(フォーカス モードを入力する\)** ボタンを選択します。 次に、対話型ウィンドウで次のコード ブロックを入力し、**[実行]** を選択します。
 
 
     ```csharp
@@ -51,7 +51,7 @@ items:
     ```
 
 
-    もう一度 **[実行]** をクリックします。 計算結果が 10 未満であるため、何も出力されません。 判定中の**条件**が false になっています。 `if` ステートメントの考えられる分岐の 1 つである true 分岐のみを記述したため、実行すべきコードがありません。
+    もう一度 **[実行]** ボタンを選択します。 計算結果が 10 未満であるため、何も出力されません。 判定中の**条件**が false になっています。 `if` ステートメントの考えられる分岐の 1 つである true 分岐のみを記述したため、実行すべきコードがありません。
 
 
     > [!TIP]
@@ -96,7 +96,7 @@ items:
     `while` ステートメントは、条件を確認して `while` に続くステートメントを実行します。 条件が false になるまで、条件の確認とステートメントの実行を繰り返します。
 
 
-    この例では、もう 1 つ新しい演算子が使用されています。 `counter` 変数のあとにある `++` は、**インクリメント**演算子です。 counter の値に 1 を追加し、その値を counter 変数に格納します。
+    この例では、もう 1 つ新しい演算子が使用されています。 `++` 変数のあとにある `counter` は、**インクリメント**演算子です。 counter の値に 1 を追加し、その値を counter 変数に格納します。
 
 
     > [!IMPORTANT]
@@ -219,9 +219,9 @@ items:
     > [!NOTE]
 
     > このオンライン コーディング体験はプレビュー モードです。 問題が生じた場合は、[dotnet/try リポジトリ](https://github.com/dotnet/try/issues)でその問題をお知らせください。
-- title: お疲れさまでした。
+- title: おめでとうございます!
   content: >-
-    これで "分岐とループ" に関する対話式チュートリアルは終了です。 下の**リスト コレクション**のリンクをクリックして、次の対話式チュートリアルを開始することができます。また、[.NET サイト](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)にアクセスして .NET Core SDK をダウンロードし、ご利用のコンピューター上でプロジェクトを作成し、コーディングを続けることもできます。 "次の手順" セクションでは、これらのチュートリアルに戻ります。
+    これで "分岐とループ" に関する対話式チュートリアルは終了です。 下の **[リスト コレクション]** リンクを選択して、次の対話式チュートリアルを開始することができます。また、[.NET サイト](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)にアクセスして .NET Core SDK をダウンロードし、ご利用のマシン上でプロジェクトを作成し、コーディングを続けることもできます。 "次の手順" セクションでは、これらのチュートリアルに戻ります。
 
 
     次のトピックでこれらの概念の詳細を学習できます。

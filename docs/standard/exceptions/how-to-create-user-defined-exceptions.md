@@ -1,5 +1,5 @@
 ---
-title: '方法: ユーザー定義の例外を作成する'
+title: '方法 : ユーザー定義の例外を作成する'
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 dev_langs:
@@ -11,14 +11,12 @@ helpviewer_keywords:
 - exceptions, examples
 - exceptions, user-defined
 ms.assetid: 25819a5a-f915-4fc8-b924-a76915674e04
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 42860f549877436f43bfdc20fb3abde91d36101d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 6de00490a17fff005dd50a7acc5247089c073f68
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67783187"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75708876"
 ---
 # <a name="how-to-create-user-defined-exceptions"></a>ユーザー定義の例外を作成する方法
 
@@ -33,6 +31,6 @@ ms.locfileid: "67783187"
 > [!NOTE]
 > リモート処理を使用している場合は、任意のユーザー定義の例外のメタデータがサーバー側 (呼び出し先) とクライアント (プロキシ オブジェクトまたは呼び出し元) で使用できることを保証する必要があります。 詳細については、「[例外の推奨事項](best-practices-for-exceptions.md)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [例外](index.md)

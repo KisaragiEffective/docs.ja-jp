@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: d2250b38-c76a-40ce-80c8-ba45149886e8
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ccd73963302ae99c7d5d1a7201bc77c4544363f5
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: eb715e1a4f9a210a1440874a9a8cea2d85345d33
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69937895"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73124577"
 ---
 # <a name="ihostassemblymanagergetnonhoststoreassemblies-method"></a>IHostAssemblyManager::GetNonHostStoreAssemblies メソッド
 ホストが読み込みのために共通言語ランタイム (CLR) を必要とするアセンブリのリストを表す[ICLRAssemblyReferenceList](../../../../docs/framework/unmanaged-api/hosting/iclrassemblyreferencelist-interface.md)へのインターフェイスポインターを取得します。  
@@ -37,24 +35,24 @@ HRESULT GetNonHostStoreAssemblies (
   
 ## <a name="parameters"></a>パラメーター  
  `ppReferenceList`  
- 入出力ホストが CLR を読み込むことを`ICLRAssemblyReferenceList`想定しているアセンブリへの参照の一覧を含むのアドレスへのポインター。  
+ 入出力ホストが CLR の読み込みを想定しているアセンブリへの参照の一覧を含む `ICLRAssemblyReferenceList` のアドレスへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`GetNonHostStoreAssemblies`正常に返されました。|  
+|S_OK|`GetNonHostStoreAssemblies` が正常に返されました。|  
 |HOST_E_CLRNOTAVAILABLE|CLR がプロセスに読み込まれていないか、CLR がマネージドコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
 |HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
 |HOST_E_ABANDONED|ブロックされたスレッドまたはファイバーが待機しているときに、イベントが取り消されました。|  
 |E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、そのプロセス内で CLR は使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
-|E_OUTOFMEMORY|要求さ`ICLRAssemblyReferenceList`れたの参照の一覧を作成するのに十分なメモリがありませんでした。|  
+|E_OUTOFMEMORY|要求された `ICLRAssemblyReferenceList`の参照の一覧を作成するのに十分なメモリがありませんでした。|  
   
 ## <a name="remarks"></a>Remarks  
  CLR は、次の一連のガイドラインを使用して参照を解決します。  
   
-- まず、によって`GetNonHostStoreAssemblies`返されるアセンブリ参照の一覧を参照します。  
+- まず、`GetNonHostStoreAssemblies`によって返されるアセンブリ参照の一覧を参照します。  
   
 - アセンブリが一覧に表示されている場合、CLR は通常どおりにバインドします。  
   
@@ -62,17 +60,17 @@ HRESULT GetNonHostStoreAssemblies (
   
 - それ以外の場合、CLR はアセンブリへのバインドに失敗します。  
   
- ホストが null に`ppReferenceList`設定されている場合、CLR はまずグローバルアセンブリキャッシュ`ProvideAssembly`をプローブし、を呼び出してから、アプリケーションベースをプローブしてアセンブリ参照を解決します。  
+ ホストが `ppReferenceList` を null に設定した場合、CLR はまずグローバルアセンブリキャッシュをプローブし、`ProvideAssembly`を呼び出します。次に、アプリケーションベースをプローブしてアセンブリ参照を解決します。  
   
 > [!NOTE]
-> 初期化時に、CLR は`GetNonHostStoreAssemblies` 1 回だけを呼び出します。 メソッドが再度呼び出されていません。  
+> 初期化時に、CLR は `GetNonHostStoreAssemblies` を1回だけ呼び出します。 メソッドが再度呼び出されていません。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

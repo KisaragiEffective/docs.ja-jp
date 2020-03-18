@@ -2,13 +2,13 @@
 title: .NET Core ツールの使用に関する問題のトラブルシューティング
 description: .NET Core ツールを実行するときの一般的な問題と考えられる解決策について説明します。
 author: kdollard
-ms.date: 09/23/2019
-ms.openlocfilehash: fc6c520ab57235c78148a6b77717cbd80a989451
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.date: 02/14/2020
+ms.openlocfilehash: ab5d1be8f201ea283f8537f18886feab46157127
+ms.sourcegitcommit: 771c554c84ba38cbd4ac0578324ec4cfc979cf2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72318295"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77543275"
 ---
 # <a name="troubleshoot-net-core-tool-usage-issues"></a>.NET Core ツールの使用に関する問題のトラブルシューティング
 
@@ -25,7 +25,7 @@ ms.locfileid: "72318295"
 
 実行可能ファイルが見つからない場合は、次のようなメッセージが表示されます。
 
-```
+```console
 Could not execute because the specified command or file was not found.
 Possible reasons for this include:
   * You misspelled a built-in dotnet command.
@@ -59,7 +59,7 @@ Possible reasons for this include:
   * .NET Core 3.0 SDK をインストールしてあり、`DOTNET_ADD_GLOBAL_TOOLS_TO_PATH` 環境変数を `false` に設定している場合。
   * .NET Core 2.2 SDK 以前のバージョンをインストールしてあり、`DOTNET_SKIP_FIRST_TIME_EXPERIENCE` 環境変数を `true` に設定している場合。
 
-  グローバル ツールの詳細については、「[.NET Core グローバル ツールの概要](global-tools.md)」を参照してください。
+  詳細については、[.NET Core ツール](global-tools.md)に関する記事を参照してください。
 
 * ローカル ツール
 
@@ -73,7 +73,7 @@ Possible reasons for this include:
 
 ### <a name="runtime-not-found"></a>ランタイムが見つからない
 
-.NET Core ツールは、[フレームワークに依存するアプリケーション](../deploying/index.md#framework-dependent-deployments-fdd)です。つまり、お使いのマシンにインストールされている .NET Core ランタイムに依存します。 予定していたランタイムが見つからない場合、ツールは次のような通常の .NET Core ランタイムのロール フォワード ルールに従います。
+.NET Core ツールは、[フレームワークに依存するアプリケーション](../deploying/index.md#publish-runtime-dependent)です。つまり、お使いのマシンにインストールされている .NET Core ランタイムに依存します。 予定していたランタイムが見つからない場合、ツールは次のような通常の .NET Core ランタイムのロール フォワード ルールに従います。
 
 * アプリケーションは、指定されたメジャー バージョンおよびマイナー バージョンの最上位の修正プログラム リリースにロール フォワードされます。
 * 一致するメジャー バージョン番号とマイナー バージョン番号と一致するランタイムがない場合は、次に高いマイナー バージョンが使用されます。
@@ -101,7 +101,7 @@ dotnet --info
 
 いろいろな理由で、.NET Core のグローバル ツールまたはローカル ツールのインストールが失敗する可能性があります。 ツールのインストールが失敗すると、次のようなメッセージが表示されます。
 
-```
+```console
 Tool '{0}' failed to install. This failure may have been caused by:
 
 * You are attempting to install a preview release and did not use the --version option to specify the version.
@@ -137,9 +137,6 @@ dotnet tool install -g <toolName>
 dotnet tool install -g --version 1.1.0-pre <toolName>
 ```
 
-> [!NOTE]
-> .NET Core CLI チームは、これを簡単にするために、今後のリリースで `--preview` スイッチを追加することを計画しています。
-
 ### <a name="package-isnt-a-net-core-tool"></a>パッケージが .NET Core ツールではない
 
 * この名前の NuGet パッケージは見つかりましたが、.NET Core ツールではありませんでした。
@@ -162,4 +159,4 @@ dotnet tool install -g --version 1.1.0-pre <toolName>
 
 ## <a name="see-also"></a>関連項目
 
-* [.NET Core グローバル ツールの概要](global-tools.md)
+* [.NET Core ツール](global-tools.md)

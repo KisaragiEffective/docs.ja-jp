@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: fc51d6db-f7f8-408b-b93d-c166fc712c99
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 6fdfe33c5b488d8f464001a86233124d4e7df0ed
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b0fbc462283ef1577de8100e60fd09caa53db539
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779073"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73131913"
 ---
-# <a name="corgcstattypes-enumeration"></a>COR_GC_STAT_TYPES 列挙体
-ガベージ コレクションについて記録する統計情報を指定します。  
+# <a name="cor_gc_stat_types-enumeration"></a>COR_GC_STAT_TYPES 列挙体
+ガベージコレクション用に記録する統計を指定します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -36,19 +34,19 @@ typedef enum {
 ```  
   
 ## <a name="remarks"></a>Remarks  
- この列挙体の統計情報の指定、 [COR_GC_STATS](../../../../docs/framework/unmanaged-api/hosting/cor-gc-stats-structure.md)構造体は設定[iclrgcmanager::getstats](../../../../docs/framework/unmanaged-api/hosting/iclrgcmanager-getstats-method.md)メソッド。  
+ この列挙体は、 [ICLRGCManager:: GetStats](../../../../docs/framework/unmanaged-api/hosting/iclrgcmanager-getstats-method.md)メソッドによって設定される[COR_GC_STATS](../../../../docs/framework/unmanaged-api/hosting/cor-gc-stats-structure.md)構造内の統計を指定します。  
   
 ## <a name="members"></a>メンバー  
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`COR_GC_COUNTS`|レコード生成ごとに実行されたガベージ コレクションの数。|  
-|`COR_GC_MEMORYUSAGE`|レコード メモリ使用量とガベージ コレクション サイズの統計情報。|  
+|`COR_GC_COUNTS`|生成されるたびに実行されるガベージコレクションの数を記録します。|  
+|`COR_GC_MEMORYUSAGE`|メモリ使用量とガベージコレクションサイズの統計情報を記録します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** GCHost.idl、GCHost.h  
+ **ヘッダー:** GCHost、GCHost  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

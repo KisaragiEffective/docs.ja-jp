@@ -1,30 +1,30 @@
 ---
 title: .NET マイクロサービス。 コンテナー化された .NET アプリケーションのアーキテクチャ
 description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | マイクロサービスはモジュール式で独自に展開可能なサービスです。 Docker コンテナー (Linux と Windows 向け) は、サービスとその依存関係を 1 つの単位にバンドル化する (その後、分離された環境で実行される) ことで、展開とテストを簡略化します。
-ms.date: 01/07/2019
-ms.openlocfilehash: dcfff8b06dc77b47e6586ea82c82acc30a5cf3df
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.date: 01/30/2020
+ms.openlocfilehash: 1337fe56e78e03a85627737bd52a089fd946b842
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70848866"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77543535"
 ---
-# <a name="net-microservices-architecture-for-containerized-net-applications"></a>.NET マイクロサービス:コンテナー化された .NET アプリケーションのアーキテクチャ
+# <a name="net-microservices-architecture-for-containerized-net-applications"></a>.NET マイクロサービス: コンテナー化された .NET アプリケーションのアーキテクチャ
 
 ![本の表紙](./media/cover-small.png)
 
-**エディション v2.2** - ASP.NET Core 2.2 に更新
+**エディション v3.1** - ASP.NET Core 3.1 に更新
 
-このガイドでは、マイクロサービス ベースのアプリケーションの開発とコンテナーを使用してこれらを管理する方法を紹介します。 .NET Core と Docker のコンテナーを使用したアーキテクチャの設計と実装アプローチについて説明します。 
+このガイドでは、マイクロサービス ベースのアプリケーションの開発とコンテナーを使用してこれらを管理する方法を紹介します。 .NET Core と Docker のコンテナーを使用したアーキテクチャの設計と実装アプローチについて説明します。
 
 使用開始を容易にするため、このガイドでは、ユーザーが探究できるコンテナー化されたマイクロサービス ベースの参照アプリケーションに重点を置いています。 参照アプリケーションは、[eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) GitHub リポジトリから入手できます。
 
 ## <a name="action-links"></a>アクション リンク
 
-- この電子ブックを任意の形式でダウンロード | [PDF](https://aka.ms/microservicesebook) | [MOBI](https://dotnet.microsoft.com/download/thank-you/microservices-architecture-ebook-mobi) | [EPUB](https://dotnet.microsoft.com/download/thank-you/microservices-architecture-ebook-epub) |
+- この電子書籍は、PDF 形式 (英語版のみ) で[ダウンロード](https://aka.ms/microservicesebook)することもできます
 
 - 参照アプリケーションを複製/フォーク[ on GitHub の eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers)
- 
+
 - [Channel 9 で入門ビデオ](https://aka.ms/microservices-video)を視聴
 
 - [マイクロ サービス アーキテクチャ](https://aka.ms/MicroservicesArchitecture)を今すぐ理解する
@@ -45,9 +45,9 @@ Docker は、コンテナー業界では事実上の標準になりつつあり�
 
 このガイドで学習したら、次の段階は Microsoft Azure での実稼働可能なマイクロサービスについて学習することです。
 
-## <a name="version"></a>Version
+## <a name="version"></a>バージョン
 
-このガイドは、 **.NET Core 2.2** バージョンに加え、.NET Core 2.2 と同時期に起こっているテクノロジーの "波" (つまり Azure とサードパーティのテクノロジー) に関連する多数の最新情報も扱うように改訂されています。 本書がバージョン **2.2** に更新されているのはそれが理由です。 
+このガイドは、 **.NET Core 3.1** バージョンと、.NET Core 3.1 のリリースと同時期に更新された関連するその他の多数の同じ “相次ぐ” テクノロジ (つまり、Azure やサードパーティ製のテクノロジ) を説明するように改訂されています。 本書がバージョン **3.1** に更新されているのはそれが理由です。
 
 ## <a name="what-this-guide-does-not-cover"></a>このガイドに含まれないもの
 
@@ -72,15 +72,13 @@ Docker は、コンテナー業界では事実上の標準になりつつあり�
 
 ## <a name="related-microservice-and-container-based-reference-application-eshoponcontainers"></a>関連するマイクロサービスとコンテナー ベースの参照アプリケーション: eShopOnContainers
 
-eShopOnContainers アプリケーションは、 Docker コンテナーを使用して展開するように設計された .NET Core とマイクロサービスのためのオープン ソースの参照アプリです。 アプリケーションは、さまざまな e ストア UI フロント エンド (Web MVC アプリ、Web SPA、およびネイティブ モバイル アプリ) を含む複数のサブシステムで構成されます。 また、バック エンドのマイクロサービスと必要なサーバー側のすべての操作のためのコンテナーも含まれています。 
+eShopOnContainers アプリケーションは、 Docker コンテナーを使用して展開するように設計された .NET Core とマイクロサービスのためのオープン ソースの参照アプリです。 アプリケーションは、さまざまな e ストア UI フロント エンド (Web MVC アプリ、Web SPA、およびネイティブ モバイル アプリ) を含む複数のサブシステムで構成されます。 また、バック エンドのマイクロサービスと必要なサーバー側のすべての操作のためのコンテナーも含まれています。
 
 このアプリケーションの目的は、アーキテクチャのパターンを紹介することです。 それは、現実の世界で使用されるアプリケーションを開始するための**実稼働可能なテンプレートではありません**。 実際は、このアプリケーションは永久にベータ版の状態であり、新しい可能性のある興味深いテクノロジをテストするためにも使用されます。
 
 ## <a name="send-us-your-feedback"></a>フィードバックをお寄せください。
 
-このガイドは、コンテナー化されたアプリケーションと .NET のマイクロサービスのアーキテクチャの理解を促進する目的で書かれています。 ガイドと関連する参照アプリケーションは進化していくため、お客様のフィードバックをお待ちしています。 このガイドを改善する方法についてご意見があれば、以下のアドレスに送信してください。
-
-[dotnet-architecture-ebooks-feedback@service.microsoft.com](mailto:dotnet-architecture-ebooks-feedback@service.microsoft.com)
+このガイドは、コンテナー化されたアプリケーションと .NET のマイクロサービスのアーキテクチャの理解を促進する目的で書かれています。 ガイドと関連する参照アプリケーションは進化していくため、お客様のフィードバックをお待ちしています。 このガイドを改善する方法に関するコメントがある場合は、<https://aka.ms/ebookfeedback> にフィードバックを送信してください。
 
 ## <a name="credits"></a>謝辞
 
@@ -146,11 +144,9 @@ eShopOnContainers アプリケーションは、 Docker コンテナーを使用
 >
 > **Charles Lowell**、Microsoft、VS CAT チーム、ソフトウェア エンジニア
 >
-> **Miguel Veloso**、Turing Challenge のシニアコンサルタント
+> **Miguel Veloso**、Plain Concepts のソフトウェア開発エンジニア
 
 ## <a name="copyright"></a>Copyright
-
-次の場所でダウンロードできます: <https://aka.ms/microservicesebook>
 
 発行者
 
@@ -162,7 +158,7 @@ One Microsoft Way
 
 Redmond, Washington 98052-6399
 
-Copyright © 2019 by Microsoft Corporation
+Copyright © 2020 by Microsoft Corporation
 
 All rights reserved. 本書のいかなる部分も、書面による発行者の許可なしに、いかなる形式または方法によっても、複製または伝送することを禁じます。
 

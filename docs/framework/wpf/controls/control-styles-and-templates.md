@@ -10,17 +10,17 @@ helpviewer_keywords:
 - states [WPF]
 - templates [WPF]
 ms.assetid: c19049bb-5ceb-492d-afd2-751dca0ed8e3
-ms.openlocfilehash: c5c33327c5a80a4e275d1eaa505c1d20d3d7ba4c
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 01b8dc50860757b0eddee477219db1e19d27f40f
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62017658"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77124404"
 ---
 # <a name="control-styles-and-templates"></a>コントロールのスタイルとテンプレート
-Windows Presentation Foundation (WPF) コントロールが、<xref:System.Windows.Controls.ControlTemplate>そのコントロールのビジュアル ツリーを格納しています。 構造とコントロールの外観を変更するには変更することによって、<xref:System.Windows.Controls.ControlTemplate>を制御するのです。 コントロールのビジュアル ツリーの一部だけを置換する方法はありません。設定する必要があります、コントロールのビジュアル ツリーを変更する、<xref:System.Windows.Controls.Control.Template%2A>その新しいと完全にコントロールのプロパティ<xref:System.Windows.Controls.ControlTemplate>します。  
+Windows Presentation Foundation (WPF) のコントロールには、そのコントロールのビジュアルツリーを含む <xref:System.Windows.Controls.ControlTemplate> があります。 コントロールの構造と外観を変更するには、コントロールの <xref:System.Windows.Controls.ControlTemplate> を変更します。 コントロールのビジュアルツリーの一部だけを置換することはできません。コントロールのビジュアルツリーを変更するには、コントロールの [<xref:System.Windows.Controls.Control.Template%2A>] プロパティを新しい完全な <xref:System.Windows.Controls.ControlTemplate>に設定する必要があります。  
   
- デスクトップ テーマにより、使用するリソース ディクショナリが決まります。 デスクトップ テーマのリソース ディクショナリを取得するには、「[既定の WPF テーマ](https://go.microsoft.com/fwlink/?LinkID=158252)」を参照してください。  
+ デスクトップ テーマにより、使用するリソース ディクショナリが決まります。 デスクトップ テーマのリソース ディクショナリを取得するには、「[既定の WPF テーマ](https://github.com/Microsoft/WPF-Samples/tree/master/Graphics/2DTransforms)」を参照してください。  
   
  次の表は、リソース ディクショナリ ファイル名とデスクトップ テーマの対応関係をまとめたものです。  
   
@@ -60,14 +60,14 @@ Windows Presentation Foundation (WPF) コントロールが、<xref:System.Windo
  [StatusBar のスタイルとテンプレート](statusbar-styles-and-templates.md)  
  [TabControl のスタイルとテンプレート](tabcontrol-styles-and-templates.md)  
  [TextBox のスタイルとテンプレート](textbox-styles-and-templates.md)  
- [つまみのスタイルとテンプレート](thumb-styles-and-templates.md)  
+ [Thumb のスタイルとテンプレート](thumb-styles-and-templates.md)  
  [ToggleButton のスタイルとテンプレート](togglebutton-styles-and-templates.md)  
  [ToolBar のスタイルとテンプレート](toolbar-styles-and-templates.md)  
  [ToolTip のスタイルとテンプレート](tooltip-styles-and-templates.md)  
  [TreeView のスタイルとテンプレート](treeview-styles-and-templates.md)  
  [ウィンドウのスタイルとテンプレート](window-styles-and-templates.md)  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Controls>  
   
  <xref:System.Windows.Controls.ControlTemplate>  
@@ -75,4 +75,4 @@ Windows Presentation Foundation (WPF) コントロールが、<xref:System.Windo
 ## <a name="related-sections"></a>関連項目  
  [コントロールの作成の概要](control-authoring-overview.md)  
   
- [スタイルとテンプレート](styling-and-templating.md)
+ [スタイルとテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)

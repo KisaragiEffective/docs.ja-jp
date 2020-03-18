@@ -3,12 +3,12 @@ title: クエリ式の基本 (C# での LINQ)
 description: クエリ式に関連する概念について説明します
 ms.date: 11/30/2016
 ms.assetid: 027db1f8-346f-44d2-a16e-043fcea3a4e0
-ms.openlocfilehash: 96ef75fe702e60eaa38acef77a73a5ea7f2076f4
-ms.sourcegitcommit: 6b308cf6d627d78ee36dbbae8972a310ac7fd6c8
+ms.openlocfilehash: 83beaa82d4b4b42ff9da5230edddd391b33a0717
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54709118"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79173355"
 ---
 # <a name="query-expression-basics"></a>クエリ式の基本
 
@@ -156,7 +156,7 @@ LINQ では、クエリの*結果*ではなく、*クエリ*を格納する変�
 
 [into](../language-reference/keywords/into.md) キーワードを使用して `join` 操作の結果を一時変数に格納することにより、グループ結合を実行することもできます。 詳しくは、「[join 句](../language-reference/keywords/join-clause.md)」をご覧ください。
 
-#### <a name="let-clause"></a>let 句 
+#### <a name="let-clause"></a>let 句
 
 `let` 句は、式の結果 (メソッド呼び出しなど) を新しい範囲変数に格納するために使用します。 次の例では、`Split` よって返された文字列配列の最初の要素を、範囲変数 `firstName` に格納しています。
 
@@ -170,7 +170,7 @@ LINQ では、クエリの*結果*ではなく、*クエリ*を格納する変�
 
 [!code-csharp[csrefQueryExpBasics#63](~/samples/snippets/csharp/concepts/linq/query-expression-basics_19.cs)]
 
-詳しくは、「[方法: グループ化操作でサブクエリを実行する](perform-a-subquery-on-a-grouping-operation.md)」をご覧ください。
+詳細については、「[グループ化操作でのサブクエリの実行](perform-a-subquery-on-a-grouping-operation.md)」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 

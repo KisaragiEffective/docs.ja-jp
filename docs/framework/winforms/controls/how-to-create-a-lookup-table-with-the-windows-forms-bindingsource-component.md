@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォーム BindingSource コンポーネントを使用してルックアップ テーブルを作成する'
+title: BindingSource コンポーネントを使用したルックアップテーブルの作成
 ms.date: 03/30/2017
 helpviewer_keywords:
 - lookup tables
@@ -7,14 +7,14 @@ helpviewer_keywords:
 - BindingSource component [Windows Forms], creating a lookup table
 - BindingSource component [Windows Forms], examples
 ms.assetid: 622fce80-879d-44be-abbf-8350ec22ca2b
-ms.openlocfilehash: 33b9e4e98a8a3f8c0d5dd6433ebbf15c049b608e
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: ccf2bfa6cf3f56a38b55f8c87004c42a46172891
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64643061"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76736814"
 ---
-# <a name="how-to-create-a-lookup-table-with-the-windows-forms-bindingsource-component"></a>方法: Windows フォーム BindingSource コンポーネントを使用してルックアップ テーブルを作成する
+# <a name="how-to-create-a-lookup-table-with-the-windows-forms-bindingsource-component"></a>方法 : Windows フォーム BindingSource コンポーネントを使用してルックアップ テーブルを作成する
 ルックアップ テーブルは、関連するテーブル内のレコードのデータを表示する列を持つ、データ テーブルです。 以下の手順では、<xref:System.Windows.Forms.ComboBox> コントロールを使用して、親テーブルから子テーブルへの外部キー リレーションシップを持つフィールドを表示します。  
   
  これらの 2 つのテーブルとこの関係をわかりやすく視覚化するために、親テーブルと子テーブルの例を次に示します。  
@@ -49,7 +49,7 @@ ms.locfileid: "64643061"
   
 ### <a name="to-create-the-user-interface"></a>ユーザー インターフェイスを作成するには  
   
-1. **ツールボックス**、ドラッグ、<xref:System.Windows.Forms.ComboBox>コントロールをフォームにします。  
+1. **[ツールボックス]** から <xref:System.Windows.Forms.ComboBox> コントロールをフォームにドラッグします。  
   
      このコントロールは、親テーブルの列を表示します。  
   
@@ -69,9 +69,9 @@ ms.locfileid: "64643061"
   
     2. **データ ソース構成ウィザード**の開始ページで **[次へ]** をクリックします。  
   
-    3. **[データソースの種類を選択]** ページで、**[データベース]** をクリックします。  
+    3. **[データソースの種類を選択]** ページで、 **[データベース]** をクリックします。  
   
-    4. **[データ接続の選択]** ページの利用可能な接続の一覧から、データ接続を選択します。 目的のデータ接続を選択できない場合は、**[新しい接続]** を選択して新しいデータ接続を作成します。  
+    4. **[データ接続の選択]** ページの利用可能な接続の一覧から、データ接続を選択します。 目的のデータ接続を選択できない場合は、 **[新しい接続]** を選択して新しいデータ接続を作成します。  
   
     5. **[次の名前で接続を保存する]** をオンにして、接続文字列をアプリケーション構成ファイルに保存します。  
   
@@ -91,7 +91,7 @@ ms.locfileid: "64643061"
   
 8. <xref:System.Windows.Forms.ComboBox> および <xref:System.Windows.Forms.BindingNavigator> コントロール以外のコントロールを、表示する子テーブルの <xref:System.Windows.Forms.BindingSource> (`OrdersBindingSource` など) の詳細フィールドにバインドします。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.BindingSource>
 - [BindingSource コンポーネント](bindingsource-component.md)

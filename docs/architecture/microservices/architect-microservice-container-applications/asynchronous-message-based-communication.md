@@ -2,12 +2,12 @@
 title: メッセージベースの非同期通信
 description: '.NET マイクロサービス: コンテナー化された .NET アプリケーションのアーキテクチャ | メッセージベースの非同期通信はマイクロサービスにとって極めて重要な概念です。マイクロサービス間の独立性を維持し、同時に、最終的には同期させる最良の方法であるためです。'
 ms.date: 09/20/2018
-ms.openlocfilehash: c362bdaf41fee5ee20516b89b8bec12d6c0557cf
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 84eaf70178cce91a86dae8a55badb0b4ddd6a7c1
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72522757"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73454234"
 ---
 # <a name="asynchronous-message-based-communication"></a>メッセージベースの非同期通信
 
@@ -77,9 +77,9 @@ ms.locfileid: "72522757"
 
 - 完全な[イベント ソーシング パターン](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)を使用します。
 
-- [送信トレイ パターン](http://www.kamilgrzybek.com/design/the-outbox-pattern/)を使用します。これは、イベントを作成してパブリッシュするイベントクリエーター コンポーネントの基盤となる、メッセージ キューとしてのトランザクション データベース テーブルです。
+- [送信トレイ パターン](https://www.kamilgrzybek.com/design/the-outbox-pattern/)を使用します。これは、イベントを作成してパブリッシュするイベントクリエーター コンポーネントの基盤となる、メッセージ キューとしてのトランザクション データベース テーブルです。
 
-非同期通信を使用する際に考慮する必要がある他のトピックは、メッセージのべき等性とメッセージの重複除去です。 これらのトピックについては、このガイドで後から説明する「[Implementing event-based communication between microservices (integration events)](../multi-container-microservice-net-applications/integration-event-based-microservice-communications.md)」(マイクロサービス (統合イベント) 間でのイベントベース通信の実装) をご覧ください。
+非同期通信を使用する際に考慮する必要がある他のトピックは、メッセージのべき等性とメッセージの重複除去です。 これらのトピックについては、このガイドで後から説明する「[マイクロサービス間でイベント ベースの通信を実装する (統合イベント)](../multi-container-microservice-net-applications/integration-event-based-microservice-communications.md)」をご覧ください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

@@ -1,13 +1,13 @@
 ---
-title: '方法: 子孫メソッドを使用して単一の子孫を検索する (Visual Basic)'
+title: '方法 : Descendants メソッドを使用して単一の子孫を検索する'
 ms.date: 07/20/2015
 ms.assetid: 0c03468c-efc8-4140-98f3-fb67acd9e8e1
-ms.openlocfilehash: dbde5686d1b7670290d434c0a04515cbc10622fd
-ms.sourcegitcommit: d7c298f6c2e3aab0c7498bfafc0a0a94ea1fe23e
+ms.openlocfilehash: 1c1192c85a7244a9a03a2cd55144abcfb02dcbf1
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249960"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352997"
 ---
 # <a name="how-to-find-a-single-descendant-using-the-descendants-method-visual-basic"></a>方法: 子孫メソッドを使用して単一の子孫を検索する (Visual Basic)
 <xref:System.Xml.Linq.XContainer.Descendants%2A> 軸メソッドを使用すると、一意の名前を持つ単一の要素を検索するコードを簡単に記述できます。 この手法は、特定の名前を持つ特定の子孫を検索する必要がある場合に特に役立ちます。 目的の要素に移動するコードを記述することもできますが、多くの場合、<xref:System.Xml.Linq.XContainer.Descendants%2A> 軸を使用してコードを記述する方がより迅速で簡単です。  

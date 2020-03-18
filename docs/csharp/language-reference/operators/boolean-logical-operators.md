@@ -32,22 +32,22 @@ helpviewer_keywords:
 - conditional OR operator [C#]
 - short-circuiting OR operator [C#]
 - '|| operator [C#]'
-ms.openlocfilehash: e355a89e27ea5bd6e4335b39c4e669610c4b0553
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: e4efb283c835a703ec64b6ec5995b821c995dc60
+ms.sourcegitcommit: 93762e1a0dae1b5f64d82eebb7b705a6d566d839
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72319104"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552491"
 ---
 # <a name="boolean-logical-operators-c-reference"></a>ブール論理演算子 (C# リファレンス)
 
-次の演算子は、[bool](../keywords/bool.md) オペランドを使用して論理演算を実行します。
+次の演算子は、[bool](../builtin-types/bool.md) オペランドを使用して論理演算を実行します。
 
 - 単項 [`!` (論理否定)](#logical-negation-operator-) 演算子。
 - 二項 [`&` (論理 AND)](#logical-and-operator-)、[`|` (論理 OR)](#logical-or-operator-)、および [`^` (論理排他的 OR)](#logical-exclusive-or-operator-) 演算子。 これらの演算子は常に両方のオペランドを評価します。
 - 二項 [`&&` (条件付き論理 AND)](#conditional-logical-and-operator-) および [`||` (条件付き論理 OR)](#conditional-logical-or-operator-) 演算子。 これらの演算子では、必要な場合にのみ右側のオペランドが評価されます。
 
-[整数](../builtin-types/integral-numeric-types.md)型のオペランドの場合、`&`、`|`、および `^` 演算子はビットごとの論理演算を実行します。 詳しくは、「[ビットごとの演算子とシフト演算子](bitwise-and-shift-operators.md)」をご覧ください。
+[整数の数値型](../builtin-types/integral-numeric-types.md)のオペランドの場合、`&`、`|`、`^` 演算子でビットごとの論理演算を実行します。 詳しくは、「[ビットごとの演算子とシフト演算子](bitwise-and-shift-operators.md)」をご覧ください。
 
 ## <a name="logical-negation-operator-"></a>論理否定演算子 !
 
@@ -61,7 +61,7 @@ C# 8.0 以降では、単項後置の `!` 演算子は [null 免除演算子](nu
 
 `&` 演算子がそのオペランドの論理 AND を計算します。 `x` と `y` の両方が `true` と評価されれば、`x & y` の結果は `true` です。 それ以外の場合、結果は `false` です。
 
-`&` 演算子は、左側のオペランドが `false` と評価されても両方のオペランドを評価するため、結果は右側のオペランドの値に関係なく、必ず `false` になります。
+`&` 演算子は、左側のオペランドが `false` と評価されても両方のオペランドを評価するため、操作結果は右側のオペランドの値に関係なく、`false` になります。
 
 次の例では、`&` 演算子の右側のオペランドはメソッド呼び出しで、左側のオペランドの値に関係なく実行されます。
 
@@ -69,7 +69,7 @@ C# 8.0 以降では、単項後置の `!` 演算子は [null 免除演算子](nu
 
 [条件付き論理 AND 演算子](#conditional-logical-and-operator-) `&&` もそのオペランドの論理 AND を計算しますが、左側のオペランドが `false` と評価された場合、右側のオペランドは評価されません。
 
-整数型のオペランドの場合、`&` 演算子は、そのオペランドの[ビットごとの論理 AND](bitwise-and-shift-operators.md#logical-and-operator-) を計算します。 単項 `&` 演算子は[アドレス演算子](pointer-related-operators.md#address-of-operator-)です。
+[整数の数値型](../builtin-types/integral-numeric-types.md)のオペランドの場合、`&` 演算子でそのオペランドの[ビットごとの論理 AND](bitwise-and-shift-operators.md#logical-and-operator-) を計算します。 単項 `&` 演算子は[アドレス演算子](pointer-related-operators.md#address-of-operator-)です。
 
 ## <a name="logical-exclusive-or-operator-"></a>論理排他的 OR 演算子: ^
 
@@ -77,13 +77,13 @@ C# 8.0 以降では、単項後置の `!` 演算子は [null 免除演算子](nu
 
 [!code-csharp-interactive[logical exclusive OR](~/samples/csharp/language-reference/operators/BooleanLogicalOperators.cs#Xor)]
 
-整数型のオペランドの場合、`^` 演算子は、そのオペランドの[ビットごとの論理排他的 OR](bitwise-and-shift-operators.md#logical-exclusive-or-operator-) を計算します。
+[整数の数値型](../builtin-types/integral-numeric-types.md)のオペランドの場合、`^` 演算子でそのオペランドの[ビットごとの論理排他的 OR](bitwise-and-shift-operators.md#logical-exclusive-or-operator-) を計算します。
 
 ## <a name="logical-or-operator-"></a>論理 OR 演算子 |
 
 `|` 演算子がそのオペランドの論理 OR を計算します。 `x` または `y` のどちらかが `true` と評価された場合、`x | y` の結果は `true` になります。 それ以外の場合、結果は `false` です。
 
-`|` 演算子は、左側のオペランドが `true` と評価されても両方のオペランドを評価するため、結果は右側のオペランドの値に関係なく、必ず `true` になります。
+`|` 演算子は、左側のオペランドが `true` と評価されても両方のオペランドを評価するため、操作結果は右側のオペランドの値に関係なく、`true` になります。
 
 次の例では、`|` 演算子の右側のオペランドはメソッド呼び出しで、左側のオペランドの値に関係なく実行されます。
 
@@ -91,7 +91,7 @@ C# 8.0 以降では、単項後置の `!` 演算子は [null 免除演算子](nu
 
 [条件付き論理 OR 演算子](#conditional-logical-or-operator-) `||` もそのオペランドの論理 OR を計算しますが、左側のオペランドが `true` と評価された場合、右側のオペランドは評価されません。
 
-整数型のオペランドの場合、`|` 演算子は、そのオペランドの[ビットごとの論理 OR](bitwise-and-shift-operators.md#logical-or-operator-) を計算します。
+[整数の数値型](../builtin-types/integral-numeric-types.md)のオペランドの場合、`|` 演算子でそのオペランドの[ビットごとの論理 OR](bitwise-and-shift-operators.md#logical-or-operator-) を計算します。
 
 ## <a name="conditional-logical-and-operator-"></a> 条件付き論理 AND 演算子 &amp;&amp;
 
@@ -115,7 +115,7 @@ C# 8.0 以降では、単項後置の `!` 演算子は [null 免除演算子](nu
 
 ## <a name="nullable-boolean-logical-operators"></a>null 許容ブール論理演算子
 
-`bool?` オペランドの場合、`&` 演算子と `|` 演算子は 3 値ロジックをサポートします。 次の表に、これらの演算子のセマンティクスが定義されています。  
+`bool?` オペランドの場合、`&` 演算子と `|` 演算子では 3 値ロジックをサポートします。 次の表に、これらの演算子のセマンティクスが定義されています。  
   
 |x|Y|x&y|x&#124;y|  
 |----|----|----|----|  
@@ -129,13 +129,13 @@ C# 8.0 以降では、単項後置の `!` 演算子は [null 免除演算子](nu
 |null|False|False|null|  
 |null|null|null|null|  
 
-これらの演算子の動作は、null 許容値型の一般的な演算子の動作とは異なります。 通常、値型のオペランドに定義されている演算子も、対応する null 値型のオペランドと共に使用できます。 このような演算子は、そのオペランドのいずれかが `null` の場合に `null` を生成します。 ただし、`&` および `|` 演算子は、オペランドの 1 つが `null` の場合でも、null 以外の値を生成する可能性があります。 null 許容値型の演算子の動作については、[null 許容値型の使用](../../programming-guide/nullable-types/using-nullable-types.md)に関する記事の「[演算子](../../programming-guide/nullable-types/using-nullable-types.md#operators)」セクションを参照してください。
+これらの演算子の動作は、null 許容値型の一般的な演算子の動作とは異なります。 通常、値型のオペランドに定義されている演算子も、対応する null 値型のオペランドと共に使用できます。 このような演算子では、そのオペランドのいずれかが `null` として評価される場合に `null` を生成します。 しかし、`&` および `|` 演算子は、オペランドの 1 つが `null` として評価される場合でも、null 以外の値を生成する可能性があります。 null 許容値型の演算子の動作については、[null 許容値型](../builtin-types/nullable-value-types.md)に関する記事の「[リフト演算子](../builtin-types/nullable-value-types.md#lifted-operators)」セクションを参照してください。
 
 次の例に示すように、`!` 演算子と `^` 演算子を `bool?` オペランドと共に使用することもできます。
 
 [!code-csharp-interactive[lifted negation and xor](~/samples/csharp/language-reference/operators/BooleanLogicalOperators.cs#WithNullableBoolean)]
 
-条件付き論理演算子 `&&` と `||` は `bool?` オペランドをサポートしません。
+条件付き論理演算子 `&&` と `||` では、`bool?` オペランドをサポートしません。
 
 ## <a name="compound-assignment"></a>複合代入。
 
@@ -174,7 +174,7 @@ x = x op y
 
 [!code-csharp-interactive[operator precedence](~/samples/csharp/language-reference/operators/BooleanLogicalOperators.cs#Precedence)]
 
-優先度順に並べられた C# 演算子の完全な一覧については、「[C# 演算子](index.md)」を参照してください。
+優先度順に並べられた C# 演算子の完全な一覧については、[C# 演算子](index.md)に関する記事の「[演算子の優先順位](index.md#operator-precedence)」セクションを参照してください。
 
 ## <a name="operator-overloadability"></a>演算子のオーバーロード可/不可
 

@@ -1,5 +1,5 @@
 ---
-title: カスタム時間間隔書式指定文字列 - .NET
+title: カスタム TimeSpan 書式指定文字列
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 dev_langs:
@@ -13,18 +13,16 @@ helpviewer_keywords:
 - formatting [.NET Framework], time
 - custom TimeSpan format strings
 ms.assetid: a63ebf55-7269-416b-b4f5-286f6c03bf0e
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 14fbcbbd2e4042fa4f25b3c8993cf47fefd95052
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: a5963f9afe422206627a1baea47339ecb81becf0
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65644991"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75348313"
 ---
 # <a name="custom-timespan-format-strings"></a>カスタム TimeSpan 書式指定文字列
 
-<xref:System.TimeSpan> 書式指定文字列は、書式設定操作によって生成される <xref:System.TimeSpan> 値の文字列形式を定義します。 カスタム書式指定文字列は、1 つ以上のカスタム <xref:System.TimeSpan> 書式指定子と任意の数のリテラル文字で構成されます。 [標準の時間間隔書式指定文字列](standard-timespan-format-strings.md)以外の文字列は、すべてカスタム <xref:System.TimeSpan> 書式指定文字列として解釈されます。
+<xref:System.TimeSpan> 書式指定文字列は、書式設定操作によって生成される <xref:System.TimeSpan> 値の文字列形式を定義します。 カスタム書式指定文字列は、1 つ以上のカスタム <xref:System.TimeSpan> 書式指定子と任意の数のリテラル文字で構成されます。 [標準の TimeSpan 書式指定文字列](standard-timespan-format-strings.md)以外の文字列は、すべてカスタム <xref:System.TimeSpan> 書式指定文字列として解釈されます。
 
 > [!IMPORTANT]
 > カスタム <xref:System.TimeSpan> 書式指定子には、日と時間、時間と分、または秒と秒の小数部を区切る記号などのプレースホルダー区切り記号は含まれません。 これらの記号は、カスタム書式指定文字列にリテラル文字列として含まれている必要があります。 たとえば、`"dd\.hh\:mm"` は、ピリオド (.) を日と時間の間の区切り記号として定義し、コロンを時間と分の間の区切り記号として定義します。
@@ -36,7 +34,7 @@ ms.locfileid: "65644991"
 [!code-csharp[Conceptual.TimeSpan.Custom#1](~/samples/snippets/csharp/VS_Snippets_CLR/conceptual.timespan.custom/cs/customformatexample1.cs#1)]
 [!code-vb[Conceptual.TimeSpan.Custom#1](~/samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.timespan.custom/vb/customformatexample1.vb#1)]
 
-カスタム <xref:System.TimeSpan> 書式指定文字列は、解析操作に必要な入力文字列の書式を定義するために <xref:System.TimeSpan.ParseExact%2A?displayProperty=nameWithType> メソッドと <xref:System.TimeSpan.TryParseExact%2A?displayProperty=nameWithType> メソッドでも使用されます  (解析では、特定の値の文字列形式が、その値に変換されます)。次のコード例では、解析操作で標準書式指定文字列を使用する方法を示しています。
+カスタム <xref:System.TimeSpan> 書式指定文字列は、解析操作に必要な入力文字列の書式を定義するために <xref:System.TimeSpan.ParseExact%2A?displayProperty=nameWithType> メソッドと <xref:System.TimeSpan.TryParseExact%2A?displayProperty=nameWithType> メソッドでも使用されます (解析では、特定の値の文字列形式が、その値に変換されます)。次のコード例では、解析操作で標準書式指定文字列を使用する方法を示しています。
 
 [!code-csharp[Conceptual.TimeSpan.Custom#2](~/samples/snippets/csharp/VS_Snippets_CLR/conceptual.timespan.custom/cs/customparseexample1.cs#2)]
 [!code-vb[Conceptual.TimeSpan.Custom#2](~/samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.timespan.custom/vb/customparseexample1.vb#2)]

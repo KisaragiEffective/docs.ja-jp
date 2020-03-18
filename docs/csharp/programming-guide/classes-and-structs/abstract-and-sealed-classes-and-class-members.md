@@ -1,6 +1,5 @@
 ---
 title: 抽象クラスとシール クラス、およびクラス メンバー - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - abstract classes [C#]
@@ -8,12 +7,12 @@ helpviewer_keywords:
 - C# language, abstract classes
 - C# language, sealed
 ms.assetid: 99aa52f7-b435-43f9-936e-2470af734c4e
-ms.openlocfilehash: 1c98e2979ee96d4bcc885b8cc797eaac28c8d2ed
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 07738031f1dec05424f7c3756f49a8f1f9a2c44b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69597295"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75715009"
 ---
 # <a name="abstract-and-sealed-classes-and-class-members-c-programming-guide"></a>抽象クラスとシール クラス、およびクラス メンバー (C# プログラミング ガイド)
 [abstract](../../language-reference/keywords/abstract.md) キーワードを使用すると、派生クラスで実装する必要のある不完全な[クラス](../../language-reference/keywords/class.md) メンバーを作成できます。  
@@ -38,21 +37,21 @@ ms.locfileid: "69597295"
  `virtual` メソッドが `abstract` として宣言されている場合、そのメソッドは、その抽象クラスを継承するどのクラスでも仮想になります。 抽象メソッドを継承するクラスでは、そのメソッドの元の実装にアクセスできません。上の例では、クラス F の `DoWork` は、クラス D の `DoWork` を呼び出すことができません。このようにして抽象クラスは、派生クラスに対し、仮想メソッドの新しいメソッド実装を強制的に提供させることができます。  
   
 ## <a name="sealed-classes-and-class-members"></a>シール クラスとシール クラス メンバー  
- クラス定義の前にキーワード `sealed` を指定することで、クラスを [sealed](../../language-reference/keywords/sealed.md) として宣言できます。 次に例を示します。  
+ クラス定義の前にキーワード [ を指定することで、クラスを ](../../language-reference/keywords/sealed.md)sealed`sealed` として宣言できます。 次に例を示します。  
   
  [!code-csharp[csProgGuideInheritance#16](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideInheritance/CS/Inheritance.cs#16)]  
   
  シール クラスは、基底クラスとして使用できません。 このため、シール クラスは抽象クラスになることもできません。 シール クラスにより、派生が防止されます。 シール クラスは基底クラスとして使用できないので、実行時の最適化で、シール クラス メンバーを多少高速に呼び出すことができる場合があります。  
   
- 基底クラスの仮想メンバーをオーバーライドしている派生クラスのメソッド、インデクサー、プロパティ、またはイベントでは、そのメンバーをシールとして宣言できます。 これにより、その後の派生クラスでは、メンバーの仮想性が無効になります。 このように宣言するには、クラス メンバー宣言で [override](../../language-reference/keywords/override.md) キーワードの前に `sealed` キーワードを配置します。 次に例を示します。  
+ 基底クラスの仮想メンバーをオーバーライドしている派生クラスのメソッド、インデクサー、プロパティ、またはイベントでは、そのメンバーをシールとして宣言できます。 これにより、その後の派生クラスでは、メンバーの仮想性が無効になります。 このように宣言するには、クラス メンバー宣言で `sealed`override[ キーワードの前に ](../../language-reference/keywords/override.md) キーワードを配置します。 次に例を示します。  
   
  [!code-csharp[csProgGuideInheritance#17](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideInheritance/CS/Inheritance.cs#17)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [クラスと構造体](./index.md)
 - [継承](./inheritance.md)
 - [メソッド](./methods.md)
 - [フィールド](./fields.md)
-- [方法: 抽象プロパティを定義する](./how-to-define-abstract-properties.md)
+- [抽象プロパティを定義する方法](./how-to-define-abstract-properties.md)

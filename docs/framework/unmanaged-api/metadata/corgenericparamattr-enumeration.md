@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 36c76266-71d8-48dc-bd89-54943fa659c1
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 981829500e499be05a8de7c1ffb4683429a903e6
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e4abf876681d5b04555c9f030a94b722874e326e
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781855"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74450285"
 ---
 # <a name="corgenericparamattr-enumeration"></a>CorGenericParamAttr 列挙型
-記述する値が含まれています、<xref:System.Type>の呼び出しで使用される、ジェネリック型パラメーター [imetadataemit 2::definegenericparam](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-definegenericparam-method.md)します。  
+[IMetaDataEmit2::D efineGenericParam](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-definegenericparam-method.md)の呼び出しで使用される、ジェネリック型の <xref:System.Type> パラメーターを記述する値を格納します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -49,23 +47,23 @@ typedef enum CorGenericParamAttr {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`gpVarianceMask`|パラメーターの分散は、インターフェイスおよびデリゲートのジェネリック パラメーターにのみ適用されます。|  
-|`gpNonVariant`|差異がないことを示します。|  
+|`gpVarianceMask`|パラメーターの分散は、インターフェイスとデリゲートのジェネリックパラメーターにのみ適用されます。|  
+|`gpNonVariant`|分散が存在しないことを示します。|  
 |`gpCovariant`|共変性を示します。|  
 |`gpContravariant`|反変性を示します。|  
-|`gpSpecialConstraintMask`|特殊な制約は、いずれかに適用できる<xref:System.Type>パラメーター。|  
-|`gpNoSpecialConstraint`|制約が適用されないことを示します、<xref:System.Type>パラメーター。|  
-|`gpReferenceTypeConstraint`|示します、<xref:System.Type>パラメーターは参照型である必要があります。|  
-|`gpNotNullableValueTypeConstraint`|示します、<xref:System.Type>パラメーターは null 値にすることはできません、値の型である必要があります。|  
-|`gpDefaultConstructorConstraint`|示します、<xref:System.Type>パラメーターの既定のコンス トラクター パラメーターをとらない必要があります。|  
+|`gpSpecialConstraintMask`|特殊な制約は、任意の <xref:System.Type> パラメーターに適用できます。|  
+|`gpNoSpecialConstraint`|<xref:System.Type> パラメーターに制約が適用されないことを示します。|  
+|`gpReferenceTypeConstraint`|<xref:System.Type> パラメーターが参照型である必要があることを示します。|  
+|`gpNotNullableValueTypeConstraint`|<xref:System.Type> パラメーターを null 値にすることができない値型である必要があることを示します。|  
+|`gpDefaultConstructorConstraint`|<xref:System.Type> パラメーターに、パラメーターをとらない既定のパブリックコンストラクターが必要であることを示します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

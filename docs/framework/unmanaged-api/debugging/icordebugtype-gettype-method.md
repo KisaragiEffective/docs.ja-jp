@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: d6e64534-4d47-4ad0-a340-7590e07e2b4a
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 78f2733584e07433171c91d6a2674d3a67c8e283
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 25ffbf73fbefbb3c584450283c3080dfc11ee598
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67772519"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76791240"
 ---
 # <a name="icordebugtypegettype-method"></a>ICorDebugType::GetType メソッド
-共通言語ランタイム (CLR) のネイティブな型を記述する CorElementType 値を取得します<xref:System.Type>この ICorDebugType によって表されます。  
+このテキスト型で表される共通言語ランタイム (CLR) <xref:System.Type> のネイティブ型を記述する CorElementType 値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,13 +35,13 @@ HRESULT GetType (
   
 ## <a name="parameters"></a>パラメーター  
  `ty`  
- [out]値へのポインター、 `CorElementType` CLR を示す列挙体<xref:System.Type>この`ICorDebugType`を表します。  
+ 入出力この `ICorDebugType` が表す CLR <xref:System.Type> を示す `CorElementType` 列挙値へのポインター。  
   
-## <a name="remarks"></a>Remarks  
- 場合の値`ty`ELEMENT_TYPE_CLASS または ELEMENT_TYPE_VALUETYPE のいずれかが、 [icordebugtype::getclass](../../../../docs/framework/unmanaged-api/debugging/icordebugtype-getclass-method.md)メソッドがジェネリック型のインスタンス化されていない型を取得するということがあります。 それ以外の場合、呼び出さない`ICorDebugType::GetClass`します。  
+## <a name="remarks"></a>コメント  
+ `ty` の値が ELEMENT_TYPE_CLASS または ELEMENT_TYPE_VALUETYPE の場合、ジェネリック型のインスタンス型を取得するために、の型[:: GetClass](icordebugtype-getclass-method.md)メソッドを呼び出すことができます。それ以外の場合は、`ICorDebugType::GetClass`を呼び出さないでください。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

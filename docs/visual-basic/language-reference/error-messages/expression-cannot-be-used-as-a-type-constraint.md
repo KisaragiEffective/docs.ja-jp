@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64642797"
 ---
-# <a name="expression-cannot-be-used-as-a-type-constraint"></a>'\<式 >' を型制約として使用することはできません
+# <a name="expression-cannot-be-used-as-a-type-constraint"></a>'\<expression>' を型制約として使用することはできません
 制約リストに、型パラメーターについて有効な制約を表していない式が含まれています。  
   
  制約リストでは、型パラメーターに渡される型引数の要件が適用されます。 次の要件を任意の組み合わせで指定できます。  

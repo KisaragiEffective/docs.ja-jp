@@ -1,17 +1,17 @@
 ---
-title: Visual Basic でのプロジェクトのカスタマイズと My の拡張
+title: プロジェクトのカスタマイズと My の拡張
 ms.date: 07/20/2015
 helpviewer_keywords:
 - My namespace [Visual Basic], customizing
 - My namespace
 - My namespace [Visual Basic], extending
 ms.assetid: 06ca80b9-1192-4eb5-8537-8ef5edfb9be0
-ms.openlocfilehash: 97933a9d014a54d5b6e333090cddccace99fcc3c
-ms.sourcegitcommit: 9b2ef64c4fc10a4a10f28a223d60d17d7d249ee8
+ms.openlocfilehash: e6ed43aeff90295f71590bcee180ca1e0f88e5ff
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/26/2019
-ms.locfileid: "72960943"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74330336"
 ---
 # <a name="customizing-projects-and-extending-my-with-visual-basic"></a>Visual Basic でのプロジェクトのカスタマイズと My の拡張
 

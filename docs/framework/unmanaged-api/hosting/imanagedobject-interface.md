@@ -14,31 +14,29 @@ helpviewer_keywords:
 ms.assetid: 1fbbf572-6d28-41a5-82fb-579ac90bfcf5
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: c90df6a8b6f25a93835981b1593a4b3d123cd168
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: c5dc1ad5bd98899f82e0b52345710c5ea3da864b
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61943404"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73103043"
 ---
 # <a name="imanagedobject-interface"></a>IManagedObject インターフェイス
-マネージ オブジェクトを制御するためのメソッドを提供します。  
+マネージオブジェクトを制御するためのメソッドを提供します。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[GetObjectIdentity メソッド](../../../../docs/framework/unmanaged-api/hosting/imanagedobject-getobjectidentity-method.md)|この管理対象のオブジェクトの id を取得します。|  
-|[GetSerializedBuffer メソッド](../../../../docs/framework/unmanaged-api/hosting/imanagedobject-getserializedbuffer-method.md)|この管理対象のオブジェクトの文字列表現を取得します。|  
+|[GetObjectIdentity メソッド](../../../../docs/framework/unmanaged-api/hosting/imanagedobject-getobjectidentity-method.md)|このマネージオブジェクトの id を取得します。|  
+|[GetSerializedBuffer メソッド](../../../../docs/framework/unmanaged-api/hosting/imanagedobject-getserializedbuffer-method.md)|このマネージオブジェクトの文字列表現を取得します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

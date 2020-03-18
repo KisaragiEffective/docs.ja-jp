@@ -1,6 +1,5 @@
 ---
 title: orderby 句 - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - orderby
@@ -9,16 +8,16 @@ helpviewer_keywords:
 - orderby clause [C#]
 - orderby keyword [C#]
 ms.assetid: 21f87f48-d69d-4e95-9a52-6fec47b37e1f
-ms.openlocfilehash: b62634c0f61e17c046cd474670fddf437287ab7a
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: cd76b2c33fe1a1a986bc05e3c3ed5f22809686ed
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65634104"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79173576"
 ---
 # <a name="orderby-clause-c-reference"></a>orderby 句 (C# リファレンス)
 
-クエリ式では、`orderby` 句によって返されるシーケンスまたはサブシーケンス (グループ) が昇順または降順で並べ替えられます。 2 番目の並べ替え操作を 1 つ以上実行するために、複数のキーを指定できます。 並べ替えは、要素の型の既定の比較演算子によって実行されます。 既定の並べ替え順序は昇順です。 カスタムの比較演算子を指定することもできます。 ただしこれは、メソッド ベースの構文を使用する場合にのみ使用できます。 詳細については、[データの並べ替え](../../programming-guide/concepts/linq/sorting-data.md) に関するページを参照してください。
+クエリ式では、`orderby` 句によって返されるシーケンスまたはサブシーケンス (グループ) が昇順または降順で並べ替えられます。 2 番目の並べ替え操作を 1 つ以上実行するために、複数のキーを指定できます。 並べ替えは、要素の型の既定の比較演算子によって実行されます。 既定の並べ替え順序は昇順です。 カスタムの比較演算子を指定することもできます。 ただしこれは、メソッド ベースの構文を使用する場合にのみ使用できます。 詳細については、「[Sorting Data](../../programming-guide/concepts/linq/sorting-data.md)」(データの並べ替え) を参照してください。
 
 ## <a name="example"></a>例
 
@@ -36,10 +35,10 @@ ms.locfileid: "65634104"
 
 コンパイル時に、`orderby` 句は <xref:System.Linq.Enumerable.OrderBy%2A> メソッドの呼び出しに変換されます。 `orderby` 句内の複数のキーは、<xref:System.Linq.Enumerable.ThenBy%2A> メソッドの呼び出しに変換されます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
 - [クエリ キーワード (LINQ)](query-keywords.md)
-- [統合言語クエリ (LINQ)](../../linq/index.md)
+- [C# での LINQ](../../linq/index.md)
 - [group 句](group-clause.md)
-- [C# の LINQ の概要](../../programming-guide/concepts/linq/getting-started-with-linq.md)
+- [統合言語クエリ (LINQ)](../../programming-guide/concepts/linq/index.md)

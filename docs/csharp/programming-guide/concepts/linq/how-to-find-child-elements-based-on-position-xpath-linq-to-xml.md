@@ -1,15 +1,15 @@
 ---
-title: '方法: 位置に基づいて子要素を検索する (XPath-LINQ to XML) (C#)'
+title: 位置に基づいて子要素を検索する方法 (XPath-LINQ to XML) (C#)
 ms.date: 07/20/2015
 ms.assetid: e35bb269-ec86-4c96-8321-12491a0eb2c3
-ms.openlocfilehash: 1adbbb6dd074ffcb39269a800024e444cf8791d1
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: cc0ff5639345d36ebb0423a12b66de8f1a70ade1
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70253758"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "74141123"
 ---
-# <a name="how-to-find-child-elements-based-on-position-xpath-linq-to-xml-c"></a>方法: 位置に基づいて子要素を検索する (XPath-LINQ to XML) (C#)
+# <a name="how-to-find-child-elements-based-on-position-xpath-linq-to-xml-c"></a>位置に基づいて子要素を検索する方法 (XPath-LINQ to XML) (C#)
 要素をその位置に基づいて検索しなければならない場合があります。 2 番目の要素を検索したり、3 番目から 5 番目の要素を検索したりすることがあります。  
   
  XPath 式を次に示します。  
@@ -21,7 +21,7 @@ ms.locfileid: "70253758"
 ## <a name="example"></a>例  
  この例では、2 番目から 4 番目の `Test` 要素を検索します。 結果は要素のコレクションです。  
   
- この例では、次の XML ドキュメントを使用します: 「[サンプル XML ファイル:テスト構成 (LINQ to XML)](./sample-xml-file-test-configuration-linq-to-xml.md)」。  
+ この例では、「[サンプル XML ファイル: テスト構成 (LINQ to XML)](./sample-xml-file-test-configuration-linq-to-xml.md)」の XML ドキュメントを使用します。  
   
 ```csharp  
 XElement testCfg = XElement.Load("TestConfig.xml");  

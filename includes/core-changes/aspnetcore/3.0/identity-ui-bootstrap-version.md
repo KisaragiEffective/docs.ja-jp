@@ -1,12 +1,12 @@
 ---
 ms.openlocfilehash: c8f44ae1a500ed240dbff7d9a2c1479af368b7f1
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "72394133"
 ---
-### <a name="identity-default-bootstrap-version-of-ui-changed"></a>ID: UI の既定の Bootstrap のバージョンが変更された
+### <a name="identity-default-bootstrap-version-of-ui-changed"></a>ID:UI の既定の Bootstrap のバージョンが変更された
 
 ASP.NET Core 3.0 以降、ID UI では既定で Bootstrap のバージョン 4 が使用されています。
 
@@ -26,7 +26,7 @@ ASP.NET Core 3.0 以降、ID UI では既定で Bootstrap のバージョン 4 �
 
 Bootstrap 4 は ASP.NET Core 3.0 の期間中にリリースされました。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 既定の ID UI を使用し、次の例に示すように `Startup.ConfigureServices` にそれを追加している場合、この変更による影響を受けます。
 
@@ -49,7 +49,7 @@ ASP.NET Core
 
 #### <a name="affected-apis"></a>影響を受ける API
 
-なし
+None
 
 <!-- 
 

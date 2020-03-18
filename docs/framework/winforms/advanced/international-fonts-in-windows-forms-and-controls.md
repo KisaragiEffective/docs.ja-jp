@@ -1,5 +1,5 @@
 ---
-title: Windows フォームとコントロールの国際対応フォント
+title: フォームとコントロールの国際対応フォント
 ms.date: 03/30/2017
 helpviewer_keywords:
 - fonts [Windows Forms], international
@@ -13,12 +13,12 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 2c3066df-9bac-479a-82b2-79e484b346a3
-ms.openlocfilehash: 0ddbd6d7a1b614d588a2572b410957a5ed3b768c
-ms.sourcegitcommit: 7bfe1682d9368cf88d43e895d1e80ba2d88c3a99
+ms.openlocfilehash: 59dde6bb384d644321a8ff5674d735f8e6d36fd0
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71956915"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76743524"
 ---
 # <a name="international-fonts-in-windows-forms-and-controls"></a>Windows フォームとコントロールの国際対応フォント
 
@@ -28,7 +28,7 @@ ms.locfileid: "71956915"
 
 この機能を利用するには、フォームまたは他の要素の <xref:System.Drawing.Font> プロパティを設定しないでください。 アプリケーションは、オペレーティングシステムのローカライズされた言語とは異なる既定のシステムフォントを自動的に使用します。 アプリケーションを実行すると、オペレーティングシステムで選択されているカルチャに対応する正しいフォントがシステムによって自動的に提供されます。
 
-フォントを設定しないという規則には例外があります。これは、フォントスタイルを変更するためのものです。 これは、ユーザーがボタンをクリックしてテキストボックス内のテキストを太字で表示するアプリケーションにとって重要な場合があります。 これを行うには、フォームのフォントの内容に基づいて、テキストボックスのフォントスタイルを太字に変更する関数を記述します。 この関数は、ボタンの <xref:System.Windows.Forms.Control.Click> イベントハンドラーと <xref:System.Windows.Forms.Control.FontChanged> イベントハンドラーの2か所で呼び出すことが重要です。 関数が <xref:System.Windows.Forms.Control.Click> のイベントハンドラーでのみ呼び出され、他の一部のコードがフォーム全体のフォントファミリを変更した場合、テキストボックスはフォームの他の部分では変更されません。
+フォントを設定しないという規則には例外があります。これは、フォントスタイルを変更するためのものです。 これは、ユーザーがボタンをクリックしてテキストボックス内のテキストを太字で表示するアプリケーションにとって重要な場合があります。 これを行うには、フォームのフォントの内容に基づいて、テキストボックスのフォントスタイルを太字に変更する関数を記述します。 この関数は、ボタンの <xref:System.Windows.Forms.Control.Click> イベントハンドラーと <xref:System.Windows.Forms.Control.FontChanged> イベントハンドラーの2か所で呼び出すことが重要です。 関数が <xref:System.Windows.Forms.Control.Click> イベントハンドラーでのみ呼び出され、他の一部のコードがフォーム全体のフォントファミリを変更した場合、テキストボックスはフォームの他の部分では変更されません。
 
 ```vb
 Private Sub MakeBold()
@@ -74,7 +74,7 @@ private void Form1_FontChanged(object sender, System.EventArgs e)
 }
 ```
 
-ただし、アプリケーションをローカライズするときに、特定の言語で太字のフォントが正しく表示されない場合があります。 この問題が懸念される場合は、フォントを太字から標準テキストに切り替えるオプションをローカライザーに与えることをお勧めします。 ローカライザーは通常開発者ではなく、ソースコードにアクセスできないため、リソースファイルにのみアクセスできます。このオプションはリソースファイルで設定する必要があります。 これを行うには、<xref:System.Drawing.Font.Bold%2A> プロパティを `true` に設定します。 これにより、ローカライズ可能なリソースファイルにフォント設定が書き込まれます。 次に、`InitializeComponent` メソッドの後にコードを記述して、フォームのフォントに基づいてフォントをリセットします。ただし、リソースファイルに指定されているフォントスタイルを使用します。
+ただし、アプリケーションをローカライズするときに、特定の言語で太字のフォントが正しく表示されない場合があります。 この問題が懸念される場合は、フォントを太字から標準テキストに切り替えるオプションをローカライザーに与えることをお勧めします。 ローカライザーは通常開発者ではなく、ソースコードにアクセスできないため、リソースファイルにのみアクセスできます。このオプションはリソースファイルで設定する必要があります。 これを行うには、<xref:System.Drawing.Font.Bold%2A> プロパティを `true`に設定します。 これにより、ローカライズ可能なリソースファイルにフォント設定が書き込まれます。 次に、`InitializeComponent` メソッドの後にコードを記述して、フォームのフォントに基づいてフォントをリセットします。ただし、リソースファイルに指定されているフォントスタイルを使用します。
 
 ```vb
 TextBox1.Font = New System.Drawing.Font(Me.Font, TextBox1.Font.Style)
@@ -84,6 +84,6 @@ TextBox1.Font = New System.Drawing.Font(Me.Font, TextBox1.Font.Style)
 textBox1.Font = new System.Drawing.Font(this.Font, textBox1.Font.Style);
 ```
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [フォントとテキストの使用](using-fonts-and-text.md)

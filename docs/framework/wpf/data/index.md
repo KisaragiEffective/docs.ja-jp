@@ -8,21 +8,21 @@ helpviewer_keywords:
 - Windows Presentation Foundation [WPF], data
 - data [WPF]
 ms.assetid: dea454e2-abd8-4c53-ba37-d3ed53187d64
-ms.openlocfilehash: c8fc25407eda75c7f2fbb188b96c68ac1b8342ad
-ms.sourcegitcommit: 24a4a8eb6d8cfe7b8549fb6d823076d7c697e0c6
+ms.openlocfilehash: aa8f872e807eccb81d0f1ca2c838485bb254c7c0
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68400376"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73460290"
 ---
 # <a name="data"></a>データ
-[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] データ バインディングは、データを表示したり操作するための単純で一貫した方法をアプリケーションに提供します。 要素は、共通言語ランタイム (CLR) オブジェクトおよび XML の形式で、さまざまなデータソースのデータにバインドできます。 [!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] はまた、ドラッグ アンド ドロップ操作によるデータ転送のメカニズムも提供します。  
+[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] データ バインディングは、アプリケーションがデータを提示し、データと対話するための簡単で一貫性のある方法を提供します。 要素は、共通言語ランタイム (CLR) オブジェクトおよび XML の形式で、さまざまなデータソースのデータにバインドできます。 [!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] はまた、ドラッグ アンド ドロップ操作によるデータ転送のメカニズムも提供します。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [データ バインディング](data-binding-wpf.md)  
  [ドラッグ アンド ドロップ](../advanced/drag-and-drop.md)  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>辞書／辞典／その他  
  <xref:System.Windows.Data>  
   
  <xref:System.Windows.Data.Binding>  
@@ -34,11 +34,11 @@ ms.locfileid: "68400376"
 ## <a name="related-sections"></a>関連項目  
  [コントロール](../controls/index.md)  
   
- [スタイルとテンプレート](../controls/styling-and-templating.md)  
+ [スタイルとテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)  
   
  [データ バインディング](../advanced/optimizing-performance-data-binding.md)  
   
 ## <a name="see-also"></a>関連項目
 
 - [チュートリアル: 初めての WPF デスクトップ アプリケーション](../getting-started/walkthrough-my-first-wpf-desktop-application.md)
-- [チュートリアル: WPF アプリケーションでのアプリケーションデータのキャッシュ](../advanced/walkthrough-caching-application-data-in-a-wpf-application.md)
+- [チュートリアル: WPF アプリケーション内のアプリケーション データのキャッシュ](../advanced/walkthrough-caching-application-data-in-a-wpf-application.md)

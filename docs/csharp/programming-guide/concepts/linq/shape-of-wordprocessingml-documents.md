@@ -2,12 +2,12 @@
 title: WordprocessingML ドキュメントの構造 (C#)
 ms.date: 07/20/2015
 ms.assetid: 3791b5e0-c502-469b-bb75-a7bf6fdd0a94
-ms.openlocfilehash: 84d893267c37ecf99a457ebb683d0451e2b4b68f
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 58c028fed465f45fdcf8f63f2119eb8e8b201e32
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69591049"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "76732674"
 ---
 # <a name="shape-of-wordprocessingml-documents-c"></a>WordprocessingML ドキュメントの構造 (C#)
 このトピックでは、WordprocessingML ドキュメントの XML 構造について説明します。  
@@ -87,13 +87,13 @@ using (Package wdPackage = Package.Open("SampleDoc.docx", FileMode.Open, FileAcc
 }  
 ```  
   
-## <a name="external-resources"></a>外部リソース  
- [Office (2007) Open XML ファイル形式の概要](https://docs.microsoft.com/previous-versions/office/developer/office-2007/aa338205%28v=office.12%29)  
- [WordprocessingML の概要](https://docs.microsoft.com/previous-versions/office/developer/office-2003/aa212812%28v=office.11%29)  
- [WordProcessingML ファイルの構造](http://officeopenxml.com/anatomyofOOXML.php)  
- [WordprocessingML の概要](https://ericwhite.com/blog/introduction-to-wordprocessingml-series/)  
- [Office 2003:XML リファレンス スキーマのダウンロード ページ](https://www.microsoft.com/download/details.aspx?id=101)  
-  
-## <a name="see-also"></a>関連項目
+## <a name="external-resources"></a>外部リソース
 
-- [チュートリアル:WordprocessingML ドキュメント内のコンテンツの操作 (C#)](./shape-of-wordprocessingml-documents.md)
+- [Office (2007) Open XML ファイル形式の概要](https://docs.microsoft.com/previous-versions/office/developer/office-2007/aa338205%28v=office.12%29)
+- [WordprocessingML の概要](https://docs.microsoft.com/previous-versions/office/developer/office-2003/aa212812%28v=office.11%29)
+- [WordProcessingML ファイルの構造](http://officeopenxml.com/anatomyofOOXML.php)
+- [WordprocessingML の概要](https://ericwhite.com/blog/introduction-to-wordprocessingml-series/)
+
+## <a name="see-also"></a>参照
+
+- [チュートリアル: WordprocessingML ドキュメント内のコンテンツの操作 (C#)](./shape-of-wordprocessingml-documents.md)

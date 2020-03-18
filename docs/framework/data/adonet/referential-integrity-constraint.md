@@ -2,12 +2,12 @@
 title: 参照整合性制約
 ms.date: 03/30/2017
 ms.assetid: 3d3ba44b-4302-40d8-a7a9-62932e0395e5
-ms.openlocfilehash: 28880c7085f8b4e3dd2e51b5633c1f0e2a984a4b
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: ad35df7bcca62ffdbc3842b0817b22c5482a3d4d
+ms.sourcegitcommit: 22be09204266253d45ece46f51cc6f080f2b3fd6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70794448"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73738377"
 ---
 # <a name="referential-integrity-constraint"></a>参照整合性制約
 Entity Data Model (EDM) の*参照整合性制約*は、リレーショナルデータベースの参照整合性制約に似ています。 データベーステーブルの列が別のテーブルの主キーを参照できるのと同じように、[エンティティ型](entity-type.md)の[プロパティ](property.md)(またはプロパティ) は、別のエンティティ型の[エンティティキー](entity-key.md)を参照できます。 参照されるエンティティ型は、制約の*プリンシパル end*と呼ばれます。 プリンシパル end を参照するエンティティ型は、制約の*依存 end*と呼ばれます。  
@@ -29,7 +29,7 @@ Entity Data Model (EDM) の*参照整合性制約*は、リレーショナルデ
   
  ![RefConstraintModel](./media/referential-integrity-constraint/reference-constraint-model.gif "参照制約モデルの例")  
   
- [ADO.NET Entity Framework](./ef/index.md)は、概念スキーマ定義言語 ([CSDL](./ef/language-reference/csdl-specification.md)) と呼ばれるドメイン固有言語 (DSL) を使用して概念モデルを定義します。 次の CSDL は、上の概念モデルに示された `PublishedBy` アソシエーションの参照整合性制約を定義しています。  
+ [ADO.NET Entity Framework](./ef/index.md)は、概念スキーマ定義言語 ([CSDL](/ef/ef6/modeling/designer/advanced/edmx/csdl-spec)) と呼ばれるドメイン固有言語 (DSL) を使用して概念モデルを定義します。 次の CSDL は、上の概念モデルに示された `PublishedBy` アソシエーションの参照整合性制約を定義しています。  
   
  [!code-xml[EDM_Example_Model#RefConstraint](../../../../samples/snippets/xml/VS_Snippets_Data/edm_example_model/xml/books4.edmx#refconstraint)]  
   

@@ -5,18 +5,14 @@ helpviewer_keywords:
 - transparent code
 - security-transparent code
 ms.assetid: 4f3dd841-82f7-4659-aab0-6d2db2166c65
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 4e4e472185b3b2ba39393c029bca3966fb5ec4b3
-ms.sourcegitcommit: 2d792961ed48f235cf413d6031576373c3050918
+ms.openlocfilehash: ca251ec3084d40269b107e7bd8bef708e8d49622
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2019
-ms.locfileid: "70206052"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77215824"
 ---
 # <a name="security-transparent-code"></a>透過的セキュリティ コード
-
-<a name="top"></a>
 
 [!INCLUDE[net_security_note](../../../includes/net-security-note-md.md)]
 
@@ -24,16 +20,6 @@ ms.locfileid: "70206052"
 
 > [!IMPORTANT]
 > 以前のバージョンの .NET Framework では、セキュリティ ポリシーが主要な要素でした。 .NET Framework 4 以降では、セキュリティポリシーは廃止されています。 セキュリティ ポリシーの削除は、透過的セキュリティとは別の変更点です。 この変更の影響の詳細については、「[コードアクセスセキュリティポリシーの互換性と移行](code-access-security-policy-compatibility-and-migration.md)」を参照してください。
-
-ここでは、透過性モデルについて詳しく説明します。 このチュートリアルは、次のセクションで構成されています。
-
-- [透過性モデルの目的](#purpose)
-
-- [透明度レベルの指定](#level)
-
-- [透過性の適用](#enforcement)
-
-<a name="purpose"></a>
 
 ## <a name="purpose-of-the-transparency-model"></a>透過性モデルの目的
 
@@ -47,11 +33,7 @@ ms.locfileid: "70206052"
 透過性は、セキュリティ モデルを簡略化して安全なライブラリやアプリケーションを簡単に作成および配置できるようにするために、.NET Framework Version 2.0 で導入されました。 また、透過的なコードは、部分的に信頼されたアプリケーションを簡単に開発できるようにするために Microsoft Silverlight でも使用されます。
 
 > [!NOTE]
-> 部分的に信頼されたアプリケーションを開発する場合は、対象ホストで必要とされるアクセス許可に注意する必要があります。 一部のホストで許可されていないリソースを使用するアプリケーションを開発できます。 このアプリケーションではコンパイル エラーは発生しませんが、ホストされた環境に読み込まれるときにエラーが発生します。 Visual Studio を使用してアプリケーションを開発した場合は、開発環境から、部分信頼または制限されたアクセス許可セットでのデバッグを有効にできます。 詳細については、「[方法 :アクセス許可が制限された ClickOnce アプリケーションをデバッグする](/visualstudio/deployment/how-to-debug-a-clickonce-application-with-restricted-permissions)」を参照してください。 ClickOnce アプリケーションに対して用意されている "アクセス許可の検出" 機能は、部分的に信頼されたアプリケーションにも使用できます。
-
-[ページのトップへ](#top)
-
-<a name="level"></a>
+> 部分的に信頼されたアプリケーションを開発する場合は、対象ホストで必要とされるアクセス許可に注意する必要があります。 一部のホストで許可されていないリソースを使用するアプリケーションを開発できます。 このアプリケーションではコンパイル エラーは発生しませんが、ホストされた環境に読み込まれるときにエラーが発生します。 Visual Studio を使用してアプリケーションを開発した場合は、開発環境から、部分信頼または制限されたアクセス許可セットでのデバッグを有効にできます。 詳細については、「 [How to: Debug a ClickOnce Application with Restricted Permissions](/visualstudio/deployment/how-to-debug-a-clickonce-application-with-restricted-permissions)」を参照してください。 ClickOnce アプリケーションに対して用意されている "アクセス許可の検出" 機能は、部分的に信頼されたアプリケーションにも使用できます。
 
 ## <a name="specifying-the-transparency-level"></a>透過度の指定
 
@@ -108,15 +90,11 @@ ms.locfileid: "70206052"
 
 - 透過的なコードは、完全に信頼して実行されると危険性をもたらす可能性があります。
 
-[ページのトップへ](#top)
-
-<a name="enforcement"></a>
-
 ## <a name="transparency-enforcement"></a>透過性の適用
 
 透過性規則は、透過性が計算されるまで適用されません。 このとき、透過性規則に違反すると、<xref:System.InvalidOperationException> がスローされます。 透過性が計算されるタイミングは、複数の要因によって左右されるので予測できません。 できる限り遅く計算されます。 .NET Framework 4 では、アセンブリレベルの透過性の計算は、.NET Framework 2.0 の場合よりも早く行われます。 保証されるのは、必要になるまでに透過性の計算が行われるということだけです。 これは、メソッドがコンパイルされてメソッドのエラーが検出される時点が JIT コンパイラで変更される方法に似ています。 透過性の計算は、コードに透過性エラーがない場合は目に見えません。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [透過的セキュリティコード、レベル1](security-transparent-code-level-1.md)
 - [透過的セキュリティコード、レベル2](security-transparent-code-level-2.md)

@@ -8,21 +8,19 @@ helpviewer_keywords:
 - assemblyBinding element
 - container tags, <assemblyBinding> element
 ms.assetid: 964cbb35-ab49-4498-8471-209689e5dada
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 515261fe39676292ce50858f71b7da92287945d1
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: c688353583f5e452950d63b7d02c48505b6ae999
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252810"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73118129"
 ---
-# <a name="assemblybinding-element-for-runtime"></a>\<runtime> の\<assemblybinding> 要素
+# <a name="assemblybinding-element-for-runtime"></a>\<ランタイムの assemblyBinding > 要素を \<
 アセンブリ バージョンのリダイレクトおよびアセンブリの位置に関する情報が含まれます。  
   
 [ **\<configuration>** ](../configuration-element.md)\
 &nbsp;&nbsp;[ **\<runtime>** ](runtime-element.md)\
-&nbsp;&nbsp;&nbsp;&nbsp; **\<assemblyBinding>**  
+&nbsp;&nbsp;&nbsp;&nbsp; **\<assemblyBinding >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -46,7 +44,7 @@ ms.locfileid: "70252810"
   
 |要素|説明|  
 |-------------|-----------------|  
-|[\<dependentAssembly>](dependentassembly-element.md)|アセンブリのバインディング ポリシーとアセンブリの場所をカプセル化します。 アセンブリごとに1つ **\<の dependentAssembly >** タグを使用します。|  
+|[\<dependentAssembly>](dependentassembly-element.md)|アセンブリのバインディング ポリシーとアセンブリの場所をカプセル化します。 アセンブリごとに1つの **\<dependentAssembly >** タグを使用します。|  
 |[\<probing>](probing-element.md)|アセンブリの読み込み時に共通言語ランタイムが検索するサブディレクトリを指定します。|  
 |[\<publisherPolicy>](publisherpolicy-element.md)|ランタイムが発行元ポリシーを適用するかどうかを指定します。|  
 |[\<qualifyAssembly>](qualifyassembly-element.md)|部分名が使用された場合に動的に読み込む必要があるアセンブリの完全名を指定します。|  

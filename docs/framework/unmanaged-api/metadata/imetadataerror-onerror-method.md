@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: c1e744b8-a6fb-4d9c-a971-8babc875d8f0
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 42cc0896dce713daed310f07d39a02bfb7386030
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: f10c55abcc044b5bbdbb940001a25f530a4688e4
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777088"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74431224"
 ---
 # <a name="imetadataerroronerror-method"></a>IMetaDataError::OnError メソッド
 メタデータのマージ中に発生したエラーの通知を提供します。  
@@ -38,20 +36,20 @@ HRESULT OnError (
   
 ## <a name="parameters"></a>パラメーター  
  `hrError`  
- [in]呼び出し元のメソッドに HRESULT エラー値が返されます。  
+ から呼び出し元のメソッドに返される HRESULT エラー値。  
   
  `token`  
- [in]エラーが発生したときをマージしているコード オブジェクトのメタデータ トークンです。  
+ からエラーが発生したときにマージされていたコードオブジェクトのメタデータトークン。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataError インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataerror-interface.md)

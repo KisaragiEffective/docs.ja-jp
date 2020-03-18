@@ -9,14 +9,12 @@ helpviewer_keywords:
 - locating assemblies
 - assemblies [.NET Framework], location
 ms.assetid: 772ac6f4-64d2-4cfb-92fd-58096dcd6c34
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 01cef9646ca9c4f49ab8376364648f66b9651e4a
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 13e2661b67ba3b717b8917e80118175acb09e756
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052128"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79181680"
 ---
 # <a name="how-the-runtime-locates-assemblies"></a>ランタイムがアセンブリを検索する方法
 
@@ -35,7 +33,7 @@ ms.locfileid: "71052128"
 
 アセンブリ名だけを指定するなど、アセンブリについての情報の一部だけを指定した呼び出しメソッドを提供することで、アセンブリを動的に参照することもできます。 その場合は、アセンブリの検索はアプリケーション ディレクトリ内だけでなされ、その他のチェックは実行されません。 <xref:System.Reflection.Assembly.Load%2A?displayProperty=nameWithType> や <xref:System.AppDomain.Load%2A?displayProperty=nameWithType>などのアセンブリの読み込み用のさまざまなメソッドを使用した部分参照を作成します。
 
-最後に、<xref:System.Reflection.Assembly.Load*?displayProperty=nameWithType> などのメソッドを使用して動的参照を作成し、情報の一部だけを提供できます。その後で、アプリケーション構成ファイル内の [\<qualifyAssembly>](../configure-apps/file-schema/runtime/qualifyassembly-element.md) 要素を使用してその参照を修飾します。 この要素を使用すると、完全な参照情報 (名前、バージョン、カルチャ、および適用可能な場合は公開キー トークン) をコード内ではなく、アプリケーション構成ファイル内に提供できます。 アプリケーション ディレクトリ外部のアセンブリへの参照を完全に限定する必要がある場合、またはグローバル アセンブリ キャッシュ内のアセンブリを参照するが、完全参照をコード内ではなく構成ファイル内に指定する方が便利な場合は、この手法を使用します。
+最後に、<xref:System.Reflection.Assembly.Load%2A?displayProperty=nameWithType> などのメソッドを使用して動的参照を作成し、情報の一部だけを提供できます。その後で、アプリケーション構成ファイル内の [\<qualifyAssembly>](../configure-apps/file-schema/runtime/qualifyassembly-element.md) 要素を使用してその参照を修飾します。 この要素を使用すると、完全な参照情報 (名前、バージョン、カルチャ、および適用可能な場合は公開キー トークン) をコード内ではなく、アプリケーション構成ファイル内に提供できます。 アプリケーション ディレクトリ外部のアセンブリへの参照を完全に限定する必要がある場合、またはグローバル アセンブリ キャッシュ内のアセンブリを参照するが、完全参照をコード内ではなく構成ファイル内に指定する方が便利な場合は、この手法を使用します。
 
 > [!NOTE]
 > このタイプの部分参照は、複数のアプリケーションで共有されるアセンブリに対しては使用しないでください。 構成設定はアセンブリ別ではなくアプリケーション別に適用されるため、このタイプの部分参照を使用する共有アセンブリについては、その共有アセンブリを使用するアプリケーションごとに、そのアプリケーションの構成ファイル内に限定情報を含める必要があります。
@@ -143,7 +141,7 @@ Al.exe /link:asm6.exe.config /out:policy.3.0.asm6.dll /keyfile: compatkey.dat /v
 ### <a name="machine-configuration-file"></a>マシン構成ファイル
 3 番目に、ランタイムはマシン構成ファイルをチェックします。 このファイルは、Machine.config という名前で、ローカル コンピューターの、ランタイムがインストールされているルート ディレクトリの Config サブディレクトリにあります。 管理者は、このマシン構成ファイルを使用して、そのコンピューターに固有のアセンブリ バインディング制限を指定できます。 マシン構成ファイル内の設定は、ほかのすべての構成設定に優先します。ただし、これは、他のすべての構成設定をこのマシン構成ファイルに配置する必要があるという意味ではありません。 管理者ポリシー ファイルによって決定されるバージョンは最終的であり、オーバーライドすることはできません。 Machine.config ファイル内に指定されたオーバーライドは、すべてのアプリケーションに作用します。 構成ファイルの詳細については、「 [構成ファイルを使用してアプリを構成する方法](../configure-apps/index.md)」を参照してください。
 
-<a name="step2"></a> 
+<a name="step2"></a>
 
 ## <a name="step-2-checking-for-previously-referenced-assemblies"></a>手順 2: 前に参照したアセンブリの検索
 

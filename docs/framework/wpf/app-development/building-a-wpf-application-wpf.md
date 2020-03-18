@@ -1,5 +1,5 @@
 ---
-title: WPF アプリケーション (WPF) のビルド
+title: アプリをコンパイルする
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -7,16 +7,16 @@ dev_langs:
 helpviewer_keywords:
 - WPF application [WPF], building
 ms.assetid: a58696fd-bdad-4b55-9759-136dfdf8b91c
-ms.openlocfilehash: a5254de07029e53dd6b72bd2c096c38525a661b6
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 00c76dfcdcedc7ceaefaaae785368f8b343457a7
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69958717"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76744767"
 ---
-# <a name="building-a-wpf-application-wpf"></a>WPF アプリケーション (WPF) のビルド
+# <a name="compile-a-wpf-application"></a>WPF アプリケーションのコンパイル
 
-Windows Presentation Foundation (WPF) アプリケーションは、.NET Framework の実行可能ファイル (.exe)、ライブラリ (.dll)、または両方の種類のアセンブリの組み合わせとしてビルドできます。 このトピックでは、[!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] アプリケーションをビルドする方法を紹介し、ビルド プロセスの主な手順について説明します。
+Windows Presentation Foundation (WPF) アプリケーションは、.NET Framework の実行可能ファイル (.exe)、ライブラリ (.dll)、または両方の種類のアセンブリの組み合わせとしてビルドできます。 このトピックでは、WPF アプリケーションをビルドする方法を紹介し、ビルドプロセスの主要な手順について説明します。
 
 <a name="Building_a_WPF_Application_using_Command_Line"></a>
 
@@ -28,15 +28,15 @@ WPF アプリケーションは、次の方法でコンパイルできます。
 
 - Microsoft Build Engine (MSBuild)。 コードと XAML ファイルに加えて、アプリケーションには MSBuild プロジェクト ファイルを含める必要があります。 詳細については、「MSBuild」を参照してください。
 
-- Visual Studio Visual Studio は、MSBuild を使用して WPF アプリケーションをコンパイルする統合開発環境であり、UI を作成するためのビジュアル デザイナーを含んでいます。 詳細については、「 [Visual studio を使用したコードの記述と管理](/visualstudio/ide/index-writing-code)」および「 [visual STUDIO での XAML のデザイン](/visualstudio/designers/designing-xaml-in-visual-studio)」を参照してください。
+- 見ることができます。 Visual Studio は、MSBuild を使用して WPF アプリケーションをコンパイルする統合開発環境であり、UI を作成するためのビジュアル デザイナーを含んでいます。 詳細については、「 [Visual studio を使用したコードの記述と管理](/visualstudio/ide/index-writing-code)」および「 [visual STUDIO での XAML のデザイン](/visualstudio/xaml-tools/designing-xaml-in-visual-studio)」を参照してください。
 
 <a name="The_Windows_Presentation_Foundation_Build_Pipeline"></a>
 
 ## <a name="wpf-build-pipeline"></a>WPF ビルド パイプライン
 
-[!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] プロジェクトがビルドされるときには、言語固有のターゲットと [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] 固有のターゲットの組み合わせが呼び出されます。 これらのターゲットを実行するプロセスはビルド パイプラインと呼ばれます。主要な手順を次の図に示します。
+WPF プロジェクトをビルドすると、言語固有のターゲットと WPF 固有のターゲットの組み合わせが呼び出されます。 これらのターゲットを実行するプロセスはビルド パイプラインと呼ばれます。主要な手順を次の図に示します。
 
-![WPF ビルド プロセス](./media/wpfbuildsystem-figure1.png "WPFBuildSystem_Figure1")
+![WPF のビルドプロセス](./media/wpfbuildsystem-figure1.png "WPFBuildSystem_Figure1")
 
 <a name="Pre_Build_Initializations"></a>
 
@@ -46,27 +46,27 @@ WPF アプリケーションは、次の方法でコンパイルできます。
 
 - .NET Framework。
 
-- [!INCLUDE[TLA2#tla_wcsdk](../../../../includes/tla2sharptla-wcsdk-md.md)] ディレクトリ。
+- Windows SDK ディレクトリ。
 
-- [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] 参照アセンブリの場所。
+- WPF 参照アセンブリの場所。
 
 - アセンブリ検索パスのプロパティ。
 
-MSBuild がアセンブリを検索する最初の場所は、参照アセンブリディレクトリ (%ProgramFiles%\Reference\\Assemblies\Microsoft\Framework\v3.0) です。 この手順では、ビルド プロセスはさまざまなプロパティと項目グループを初期化し、必要なクリーンアップ作業も実行します。
+MSBuild がアセンブリを検索する最初の場所は、参照アセンブリディレクトリ (%ProgramFiles%\Reference Assemblies\Microsoft\Framework\v3.0\\) です。 この手順では、ビルド プロセスはさまざまなプロパティと項目グループを初期化し、必要なクリーンアップ作業も実行します。
 
 <a name="Resolving_references"></a>
 
 ### <a name="resolving-references"></a>参照の解決
 
-ビルド プロセスは、アプリケーション プロジェクトのビルドに必要なアセンブリを探して、バインドします。 このロジックは、`ResolveAssemblyReference` タスクに含まれます。 プロジェクト ファイル内で `Reference` として宣言されたすべてのアセンブリは、検索パスに関する情報と、すでにシステムにインストールされているアセンブリのメタデータと共にタスクに渡されます。 タスクは、アセンブリを検索し、インストールされているアセンブリのメタデータを使用して、出力マニフェストに含める必要のないコアの [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] アセンブリをフィルターして除外します。 これは、ClickOnce マニフェストに冗長な情報が含まれるのを避けるために行われます。 たとえば、 [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)]との間に構築されたアプリケーションの代表者としては、との間に、 [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)]すべてのアセンブリが同じ場所に存在 .NET Framework するため、次のようにします。インストールされています。マニフェスト内のすべての .NET Framework 参照アセンブリに関する情報をすべて含める必要はありません。
+ビルド プロセスは、アプリケーション プロジェクトのビルドに必要なアセンブリを探して、バインドします。 このロジックは、`ResolveAssemblyReference` タスクに含まれます。 プロジェクト ファイル内で `Reference` として宣言されたすべてのアセンブリは、検索パスに関する情報と、すでにシステムにインストールされているアセンブリのメタデータと共にタスクに渡されます。 このタスクは、アセンブリを検索し、インストールされているアセンブリのメタデータを使用して、出力マニフェストに表示する必要がないコア WPF アセンブリをフィルターで除外します。 これは、ClickOnce マニフェストに冗長な情報が含まれるのを避けるために行われます。 たとえば、プレゼンテーションフレームワーク .dll は、および WPF 用に構築されたアプリケーションの代表者と見なすことができます。また、.NET Framework がインストールされているすべてのコンピューター上のすべての WPF アセンブリが同じ場所に存在するため、すべてを含める必要はありません。マニフェスト内のすべての .NET Framework 参照アセンブリに関する情報。
 
 <a name="Markup_Compilation___Pass_1"></a>
 
 ### <a name="markup-compilationpass-1"></a>マークアップ コンパイル - パス 1
 
-この手順では、[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルを解析してコンパイルし、ランタイムが [!INCLUDE[TLA2#tla_xml](../../../../includes/tla2sharptla-xml-md.md)] の解析やプロパティ値の検証に時間を費やさずに済むようにします。 コンパイルされた [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルを事前にトークン化するため、実行時の読み込みは、[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルを読み込むよりもはるかに短時間で終わります。
+この手順では、[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルを解析してコンパイルし、ランタイムが XML の解析とプロパティ値の検証に時間を費やすことがないようにします。 コンパイルされた [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルを事前にトークン化するため、実行時の読み込みは、[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルを読み込むよりもはるかに短時間で終わります。
 
-この手順では、`Page` ビルド項目である [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルごとに、次のアクティビティが実行されます。
+この手順では、[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ビルド項目である `Page` ファイルごとに、次のアクティビティが実行されます。
 
 1. [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルがマークアップ コンパイラによって解析されます。
 
@@ -74,9 +74,9 @@ MSBuild がアセンブリを検索する最初の場所は、参照アセンブ
 
 3. 新しい部分クラスの CodeDOM 表現が作成され、obj\Release フォルダーにコピーされます。
 
-さらに、[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルごとに、言語固有のコード ファイルが生成されます。 たとえば、Visual Basic プロジェクトの Page1 ページの場合は、Page1 が生成されます。C#プロジェクトの Page1 ページの場合、Page1.g.cs が生成されます。 ファイル名の ".g" は、ファイルが生成されたコードであり、マークアップ ファイルのトップレベルの要素 (`Page` や `Window` など) に対する部分クラス宣言を持つことを示しています。 クラスは、( `partial` C# `Extends` Visual Basic) の修飾子を使用して宣言し、他の場所 (通常は分離コードファイル Page1.xaml.cs) にクラスの別の宣言があることを示します。
+さらに、[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルごとに、言語固有のコード ファイルが生成されます。 たとえば、Visual Basic プロジェクトの Page1 ページの場合は、Page1 が生成されます。C#プロジェクトの Page1 ページの場合、Page1.g.cs が生成されます。 ファイル名の ".g" は、ファイルが生成されたコードであり、マークアップ ファイルのトップレベルの要素 (`Page` や `Window` など) に対する部分クラス宣言を持つことを示しています。 クラスは、(Visual Basic で`Extends`) のC# `partial` 修飾子を使用して宣言し、他の場所 (通常は分離コードファイル Page1.xaml.cs) に別の宣言があることを示します。
 
-部分クラスは、適切な基本クラス ( <xref:System.Windows.Controls.Page>ページのなど) から拡張され、 <xref:System.Windows.Markup.IComponentConnector?displayProperty=nameWithType>インターフェイスを実装します。 <xref:System.Windows.Markup.IComponentConnector>インターフェイスには、コンポーネントを初期化し、そのコンテンツ内の要素の名前とイベントを接続するメソッドがあります。 その結果、生成されたコード ファイルには、次のようなメソッドの実装が含まれます。
+部分クラスは、適切な基本クラス (ページの <xref:System.Windows.Controls.Page> など) から拡張され、<xref:System.Windows.Markup.IComponentConnector?displayProperty=nameWithType> インターフェイスを実装します。 <xref:System.Windows.Markup.IComponentConnector> インターフェイスには、コンポーネントを初期化し、そのコンテンツ内の要素の名前とイベントを接続するメソッドがあります。 その結果、生成されたコード ファイルには、次のようなメソッドの実装が含まれます。
 
 ```csharp
 public void InitializeComponent() {
@@ -108,7 +108,7 @@ Public Sub InitializeComponent() _
 End Sub
 ```
 
-既定では、マークアップコンパイルは MSBuild <xref:System.AppDomain>エンジンと同じで実行されます。 これにより、パフォーマンスが大幅に向上します。 この動作は、`AlwaysCompileMarkupFilesInSeparateDomain` プロパティで切り替えることができます。 これには、個別<xref:System.AppDomain>のをアンロードすることによって、すべての参照アセンブリをアンロードするという利点があります。
+既定では、マークアップコンパイルは MSBuild エンジンと同じ <xref:System.AppDomain> で実行されます。 これにより、パフォーマンスが大幅に向上します。 この動作は、`AlwaysCompileMarkupFilesInSeparateDomain` プロパティで切り替えることができます。 これには、個別の <xref:System.AppDomain>をアンロードすることによって、すべての参照アセンブリをアンロードするという利点があります。
 
 <a name="Pass_2_of_Markup_Compilation"></a>
 
@@ -136,19 +136,19 @@ End Sub
 
 ビルドプロセスの最後に、すべてのアプリケーションアセンブリとコンテンツファイルの準備が整ったら、アプリケーションの ClickOnce マニフェストが生成されます。
 
-配置マニフェスト ファイルは、配置モデル (現在のバージョン、更新動作、およびパブリッシャーの ID とデジタル署名) を記述します。 このマニフェストは、配置を処理する管理者が作成します。 ファイル拡張子は、.xbap ([!INCLUDE[TLA#tla_xbap#plural](../../../../includes/tlasharptla-xbapsharpplural-md.md)] 用) と、インストール型アプリケーションを表す .application です。 前者は `HostInBrowser` プロジェクト プロパティによって指定されるため、マニフェストはアプリケーションがブラウザーによってホストされることを識別します。
+配置マニフェスト ファイルは、配置モデル (現在のバージョン、更新動作、およびパブリッシャーの ID とデジタル署名) を記述します。 このマニフェストは、配置を処理する管理者が作成します。 ファイル拡張子は、xbap (XAML ブラウザーアプリケーション (Xbap) 用) と、インストールされているアプリケーションのアプリケーションです。 前者は `HostInBrowser` プロジェクト プロパティによって指定されるため、マニフェストはアプリケーションがブラウザーによってホストされることを識別します。
 
 アプリケーション マニフェスト (.exe.manifest ファイル) は、アプリケーション アセンブリと依存ライブラリを記述し、アプリケーションに必要なアクセス許可をリストします。 このファイルは、アプリケーション開発者が作成します。 ClickOnce アプリケーションを起動するために、ユーザーはアプリケーションの配置マニフェストファイルを開きます。
 
-これらのマニフェスト ファイルは、常に [!INCLUDE[TLA2#tla_xbap#plural](../../../../includes/tla2sharptla-xbapsharpplural-md.md)] 用に作成されます。 インストール型アプリケーションの場合、プロジェクト ファイル内で `GenerateManifests` プロパティの値が `true` に指定されない限り、作成されません。
+これらのマニフェストファイルは、常に Xbap 用に作成されます。 インストール型アプリケーションの場合、プロジェクト ファイル内で `GenerateManifests` プロパティの値が `true` に指定されない限り、作成されません。
 
-[!INCLUDE[TLA2#tla_xbap#plural](../../../../includes/tla2sharptla-xbapsharpplural-md.md)]一般的なインターネットゾーンのアプリケーション<xref:System.Security.Permissions.WebBrowserPermission>に割り当てられたアクセス許可以上に、と<xref:System.Security.Permissions.MediaPermission>の2つの追加のアクセス許可を取得します。 [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] ビルド システムは、これらのアクセス許可をアプリケーション マニフェストで宣言します。
+Xbap は、一般的なインターネットゾーンのアプリケーションに割り当てられているアクセス許可に対して、<xref:System.Security.Permissions.WebBrowserPermission> と <xref:System.Security.Permissions.MediaPermission>の2つの追加のアクセス許可を取得します。 WPF ビルドシステムは、アプリケーションマニフェストでこれらのアクセス許可を宣言します。
 
 <a name="Incremental_Build_Support"></a>
 
 ## <a name="incremental-build-support"></a>インクリメンタル ビルドのサポート
 
-[!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] ビルド システムは、インクリメンタル ビルドをサポートします。 これは、マークアップやコードに加えられた変更を検出し、変更の影響を受けるアイテムだけをコンパイルするという高度な機能です。 インクリメンタル ビルド メカニズムは、次のファイルを使用します。
+WPF ビルドシステムでは、インクリメンタルビルドがサポートされています。 これは、マークアップやコードに加えられた変更を検出し、変更の影響を受けるアイテムだけをコンパイルするという高度な機能です。 インクリメンタル ビルド メカニズムは、次のファイルを使用します。
 
 - $(*AssemblyName*)_MarkupCompiler.Cache ファイル。コンパイラの現在の状態を保持します。
 
@@ -168,7 +168,7 @@ End Sub
 
   - [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] がプロジェクトで `Page` として宣言されている場合: [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] にローカルで定義された型の参照が含まれていない場合は、その [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] とローカル参照を含むすべての [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ページを再コンパイルします。[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] にローカル参照が含まれる場合は、ローカル参照が含まれているすべての [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ページを再コンパイルします。
 
-  - が[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]プロジェクト内のとして宣言され[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]ている場合は、 [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)]すべてのページを<xref:System.Windows.Application>再コンパイルします (理由: それぞれが変更された可能性のある型への参照を持って`ApplicationDefinition`います)。
+  - [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] がプロジェクトの `ApplicationDefinition` として宣言されている場合: すべての [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ページを再コンパイルします (理由: 各 [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] に、変更された可能性のある <xref:System.Windows.Application> 型への参照が含まれています)。
 
 - プロジェクト ファイルがコード ファイルを [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] ファイルではなくアプリケーション定義として宣言している場合:
 
@@ -186,9 +186,9 @@ End Sub
 
 - 何も再コンパイルされない (プロジェクトに何も変更が加えられていない場合)。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [WPF アプリケーションの配置](deploying-a-wpf-application-wpf.md)
-- [WPF MSBuild Reference (WPF MSBuild リファレンス)](/visualstudio/msbuild/wpf-msbuild-reference)
+- [WPF MSBuild のリファレンス](/visualstudio/msbuild/wpf-msbuild-reference)
 - [WPF におけるパッケージの URI](pack-uris-in-wpf.md)
 - [WPF アプリケーションのリソース ファイル、コンテンツ ファイル、およびデータ ファイル](wpf-application-resource-content-and-data-files.md)

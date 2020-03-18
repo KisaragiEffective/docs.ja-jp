@@ -13,12 +13,12 @@ helpviewer_keywords:
 - managing control states [WPF], VisualStateManager
 - VisualStateManager [WPF], best practice
 ms.assetid: 9e356d3d-a3d0-4b01-a25f-2d43e4d53fe5
-ms.openlocfilehash: c98035ef0b4ea1add22b09fb9927bcd49c00cd9b
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: d9cf092cf47d4fb70b15033d039777d3279b633a
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920039"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74283574"
 ---
 # <a name="creating-a-control-that-has-a-customizable-appearance"></a>外観をカスタマイズできるコントロールの作成
 
@@ -36,9 +36,9 @@ ms.locfileid: "72920039"
 ![NumericUpDown カスタムコントロール。](./media/ndp-numericupdown.png "NDP_NumericUPDown")
 カスタム NumericUpDown コントロール
 
-このトピックは、次のセクションで構成されています。
+このトピックには、次のセクションが含まれます。
 
-- [必須コンポーネント](#prerequisites)
+- [必要条件](#prerequisites)
 
 - [部品と状態モデル](#parts_and_states_model)
 
@@ -52,9 +52,9 @@ ms.locfileid: "72920039"
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
-このトピックでは、既存のコントロールの新しい <xref:System.Windows.Controls.ControlTemplate> を作成する方法、コントロールコントラクトの要素について理解し、「[既存のコントロールの外観をカスタマイズする」で説明されている概念を理解していることを前提としています。ControlTemplate](customizing-the-appearance-of-an-existing-control.md)。
+このトピックでは、既存のコントロールの新しい <xref:System.Windows.Controls.ControlTemplate> を作成する方法、コントロールコントラクトの要素について理解し、「[コントロールのテンプレートを作成](../../../desktop-wpf/themes/how-to-create-apply-template.md)する」で説明されている概念を理解していることを前提としています。
 
 > [!NOTE]
 > 外観をカスタマイズできるコントロールを作成するには、<xref:System.Windows.Controls.Control> クラスまたは <xref:System.Windows.Controls.UserControl>以外のサブクラスの1つを継承するコントロールを作成する必要があります。  <xref:System.Windows.Controls.UserControl> から継承するコントロールは、すばやく作成できるコントロールですが、<xref:System.Windows.Controls.ControlTemplate> を使用せず、外観をカスタマイズすることもできません。
@@ -77,7 +77,7 @@ Parts and states モデルでは、コントロールの視覚的な構造と視
 
 ## <a name="defining-the-visual-structure-and-visual-behavior-of-a-control-in-a-controltemplate"></a>ControlTemplate でのコントロールの視覚的な構造と視覚的な動作の定義
 
-Parts および states モデルを使用してカスタムコントロールを作成する場合は、コントロールの視覚的な構造と視覚的な動作をロジックではなく <xref:System.Windows.Controls.ControlTemplate> で定義します。  コントロールの視覚的な構造は、コントロールを構成する <xref:System.Windows.FrameworkElement> オブジェクトの複合です。  視覚的な動作とは、コントロールが特定の状態にあるときのコントロールの外観です。   コントロールの視覚的な構造と視覚的な動作を指定する <xref:System.Windows.Controls.ControlTemplate> の作成の詳細については、「 [ControlTemplate を作成して既存のコントロールの外観をカスタマイズ](customizing-the-appearance-of-an-existing-control.md)する」を参照してください。
+Parts および states モデルを使用してカスタムコントロールを作成する場合は、コントロールの視覚的な構造と視覚的な動作をロジックではなく <xref:System.Windows.Controls.ControlTemplate> で定義します。  コントロールの視覚的な構造は、コントロールを構成する <xref:System.Windows.FrameworkElement> オブジェクトの複合です。  視覚的な動作とは、コントロールが特定の状態にあるときのコントロールの外観です。   コントロールの視覚的な構造と視覚動作を指定する <xref:System.Windows.Controls.ControlTemplate> の作成の詳細については、「[コントロールのテンプレートを作成する](../../../desktop-wpf/themes/how-to-create-apply-template.md)」を参照してください。
 
 `NumericUpDown` コントロールの例では、ビジュアル構造に2つの <xref:System.Windows.Controls.Primitives.RepeatButton> コントロールと1つの <xref:System.Windows.Controls.TextBlock>が含まれています。  これらのコントロールを `NumericUpDown` コントロールのコードに追加した場合、たとえば、そのコンストラクターでは、これらのコントロールの位置は unalterable になります。  コントロールのビジュアル構造とビジュアル動作をコード内で定義するのではなく、<xref:System.Windows.Controls.ControlTemplate>で定義する必要があります。  次に、ボタンと <xref:System.Windows.Controls.TextBlock> の位置をカスタマイズし、<xref:System.Windows.Controls.ControlTemplate> を置き換えることができるので `Value` が負の場合に発生する動作を指定します。
 
@@ -85,7 +85,7 @@ Parts および states モデルを使用してカスタムコントロールを
 
 [!code-xaml[VSMCustomControl#VisualStructure](~/samples/snippets/csharp/VS_Snippets_Wpf/vsmcustomcontrol/csharp/window1.xaml#visualstructure)]
 
-`NumericUpDown` コントロールの視覚的な動作は、値が負の場合に赤いフォントで表示されることです。  `Value` が負の場合にコード内の <xref:System.Windows.Controls.TextBlock> の <xref:System.Windows.Controls.TextBlock.Foreground%2A> を変更すると、`NumericUpDown` には常に赤色の負の値が表示されます。 <xref:System.Windows.Controls.ControlTemplate>に <xref:System.Windows.VisualState> オブジェクトを追加することによって、<xref:System.Windows.Controls.ControlTemplate> でのコントロールの視覚的な動作を指定します。  次の例は、`Positive` と `Negative` の状態の <xref:System.Windows.VisualState> オブジェクトを示しています。  `Positive` と `Negative` は相互に排他的です (コントロールは常に2つのうちの1つになります)。そのため、この例では、<xref:System.Windows.VisualState> オブジェクトを1つの <xref:System.Windows.VisualStateGroup>に配置します。  コントロールが `Negative` 状態になると、<xref:System.Windows.Controls.TextBlock> の <xref:System.Windows.Controls.TextBlock.Foreground%2A> が赤に変わります。  コントロールが `Positive` 状態の場合、<xref:System.Windows.Controls.TextBlock.Foreground%2A> は元の値に戻ります。  <xref:System.Windows.Controls.ControlTemplate> に <xref:System.Windows.VisualState> オブジェクトを定義する方法につい[ては、「ControlTemplate を作成して既存のコントロールの外観をカスタマイズ](customizing-the-appearance-of-an-existing-control.md)する」で詳しく説明します。
+`NumericUpDown` コントロールの視覚的な動作は、値が負の場合に赤いフォントで表示されることです。  `Value` が負の場合にコード内の <xref:System.Windows.Controls.TextBlock> の <xref:System.Windows.Controls.TextBlock.Foreground%2A> を変更すると、`NumericUpDown` には常に赤色の負の値が表示されます。 <xref:System.Windows.Controls.ControlTemplate>に <xref:System.Windows.VisualState> オブジェクトを追加することによって、<xref:System.Windows.Controls.ControlTemplate> でのコントロールの視覚的な動作を指定します。  次の例は、`Positive` と `Negative` の状態の <xref:System.Windows.VisualState> オブジェクトを示しています。  `Positive` と `Negative` は相互に排他的です (コントロールは常に2つのうちの1つになります)。そのため、この例では、<xref:System.Windows.VisualState> オブジェクトを1つの <xref:System.Windows.VisualStateGroup>に配置します。  コントロールが `Negative` 状態になると、<xref:System.Windows.Controls.TextBlock> の <xref:System.Windows.Controls.TextBlock.Foreground%2A> が赤に変わります。  コントロールが `Positive` 状態の場合、<xref:System.Windows.Controls.TextBlock.Foreground%2A> は元の値に戻ります。  <xref:System.Windows.Controls.ControlTemplate> での <xref:System.Windows.VisualState> オブジェクトの定義については、「[コントロールのテンプレートを作成する](../../../desktop-wpf/themes/how-to-create-apply-template.md)」で詳しく説明します。
 
 > [!NOTE]
 > <xref:System.Windows.Controls.ControlTemplate>のルート <xref:System.Windows.FrameworkElement> には、<xref:System.Windows.VisualStateManager.VisualStateGroups%2A?displayProperty=nameWithType> 添付プロパティを必ず設定してください。
@@ -168,7 +168,7 @@ Parts および states モデルを使用してカスタムコントロールを
 
 コントロールが既にその状態にあるときに状態名を <xref:System.Windows.VisualStateManager.GoToState%2A> に渡すと、<xref:System.Windows.VisualStateManager.GoToState%2A> は何も行われないため、コントロールの現在の状態を確認する必要はありません。  たとえば、負の数値から別の負の数値に変更し `Value` と、`Negative` 状態のストーリーボードは中断されず、ユーザーはコントロールの変更を確認できません。
 
-<xref:System.Windows.VisualStateManager> は <xref:System.Windows.VisualStateGroup> オブジェクトを使用して、<xref:System.Windows.VisualStateManager.GoToState%2A>を呼び出すときに終了する状態を判断します。 コントロールは、<xref:System.Windows.Controls.ControlTemplate> で定義されている <xref:System.Windows.VisualStateGroup> ごとに常に1つの状態になり、同じ <xref:System.Windows.VisualStateGroup>から別の状態になったときにのみ状態が保持されます。 たとえば、`NumericUpDown` コントロールの <xref:System.Windows.Controls.ControlTemplate> では、`Positive` と `Negative`の<xref:System.Windows.VisualState> オブジェクトを1つの <xref:System.Windows.VisualStateGroup> に定義し、`Focused` オブジェクトと `Unfocused`オブジェクトを別の<xref:System.Windows.VisualState> にします。 (`Focused` および `Unfocused`<xref:System.Windows.VisualState> は、このトピックの「[完全な例](#complete_example)」セクションで定義されています。コントロールが `Positive` 状態から `Negative` 状態になったとき、またはその逆の場合、コントロールは `Focused` またはのいずれかに残ります。状態.
+<xref:System.Windows.VisualStateManager> は <xref:System.Windows.VisualStateGroup> オブジェクトを使用して、<xref:System.Windows.VisualStateManager.GoToState%2A>を呼び出すときに終了する状態を判断します。 コントロールは、<xref:System.Windows.Controls.ControlTemplate> で定義されている <xref:System.Windows.VisualStateGroup> ごとに常に1つの状態になり、同じ <xref:System.Windows.VisualStateGroup>から別の状態になったときにのみ状態が保持されます。 たとえば、`NumericUpDown` コントロールの <xref:System.Windows.Controls.ControlTemplate> では、`Positive` と `Negative`の <xref:System.Windows.VisualState> オブジェクトを1つの <xref:System.Windows.VisualStateGroup> に定義し、`Focused` オブジェクトと `Unfocused`オブジェクトを別の <xref:System.Windows.VisualState> にします。 (`Focused` および `Unfocused`<xref:System.Windows.VisualState> は、このトピックの「[完全な例](#complete_example)」セクションで定義されています。コントロールが `Positive` 状態から `Negative` 状態になったとき、またはその逆の場合、コントロールは `Focused` 状態または `Unfocused` 状態のままになります。
 
 コントロールの状態が変わる可能性がある一般的な場所には、次の3つがあります。
 
@@ -253,7 +253,7 @@ Parts および states モデルを使用してカスタムコントロールを
 [!code-csharp[VSMCustomControl#ControlLogic](~/samples/snippets/csharp/VS_Snippets_Wpf/vsmcustomcontrol/csharp/numericupdown.cs#controllogic)]
 [!code-vb[VSMCustomControl#ControlLogic](~/samples/snippets/visualbasic/VS_Snippets_Wpf/vsmcustomcontrol/visualbasic/numericupdown.vb#controllogic)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [ControlTemplate の作成による既存のコントロールの外観のカスタマイズ](customizing-the-appearance-of-an-existing-control.md)
+- [コントロールのテンプレートを作成する](../../../desktop-wpf/themes/how-to-create-apply-template.md)
 - [コントロールのカスタマイズ](control-customization.md)

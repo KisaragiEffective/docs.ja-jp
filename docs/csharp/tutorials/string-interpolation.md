@@ -2,13 +2,14 @@
 title: C# における文字列補間
 description: C# の文字列補間を使用した結果文字列に書式設定された式の結果を含める方法について説明します。
 author: pkulikov
+ms.technology: csharp-fundamentals
 ms.date: 09/02/2019
-ms.openlocfilehash: d3a3a08d5911b5323aa61c571f05318d10380339
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: b901ae661ebd4af625d9f3c999b0eb50dda1990d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252922"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73039207"
 ---
 # <a name="string-interpolation-in-c"></a>C\# における文字列補間
 
@@ -44,7 +45,7 @@ ms.locfileid: "70252922"
 
 [!code-csharp-interactive[format string example](~/samples/snippets/csharp/tutorials/string-interpolation/Program.cs#2)]
 
-詳細については、「[複合書式設定](../../standard/base-types/composite-formatting.md)」トピックの「[Format String コンポーネント](../../standard/base-types/composite-formatting.md#format-string-component)」のセクションを参照してください。 このセクションでは、.NET の基本データ型でサポートされる標準とカスタムの書式設定文字列について説明するトピックへのリンクを提供しています。
+詳細については、「[複合書式設定](../../standard/base-types/composite-formatting.md#format-string-component)」トピックの「[Format String コンポーネント](../../standard/base-types/composite-formatting.md)」のセクションを参照してください。 このセクションでは、.NET の基本データ型でサポートされる標準とカスタムの書式設定文字列について説明するトピックへのリンクを提供しています。
 
 ## <a name="how-to-control-the-field-width-and-alignment-of-the-formatted-interpolation-expression"></a>書式設定された補間式のフィールドの幅と配置を制御する方法
 
@@ -68,7 +69,7 @@ ms.locfileid: "70252922"
 
 出力例が示すように、書式設定された式の結果の長さが指定したフィールドの幅を超える場合、*alignment* の値は無視されます。
 
-詳細については、「[複合書式設定](../../standard/base-types/composite-formatting.md)」トピックの「[Alignment コンポーネント](../../standard/base-types/composite-formatting.md#alignment-component)」のセクションを参照してください。
+詳細については、「[複合書式設定](../../standard/base-types/composite-formatting.md#alignment-component)」トピックの「[Alignment コンポーネント](../../standard/base-types/composite-formatting.md)」のセクションを参照してください。
 
 ## <a name="how-to-use-escape-sequences-in-an-interpolated-string"></a>挿入文字列でエスケープ シーケンスを使用する方法
 
@@ -76,7 +77,7 @@ ms.locfileid: "70252922"
 
 エスケープ シーケンスをリテラルで解釈するには、[verbatim](../language-reference/tokens/verbatim.md) 文字列リテラルを使用します。 verbatim 補間文字列は、`$` 文字で始まり、`@` 文字が続きます。 C# 8.0 以降では、`$` と `@` のトークンを任意の順序で使用できます。`$@"..."` と `@$"..."` はどちらも有効な verbatim 補間文字列です。
 
-中かっこ "{" または "}" を結果文字列に含める場合は、2 つの中かっこ "{{" または "}}" を使用します。 詳細については、「[複合書式設定](../../standard/base-types/composite-formatting.md)」トピックの「[エスケープ中かっこ ({})](../../standard/base-types/composite-formatting.md#escaping-braces)」のセクションを参照してください。
+中かっこ "{" または "}" を結果文字列に含める場合は、2 つの中かっこ "{{" または "}}" を使用します。 詳細については、「[複合書式設定](../../standard/base-types/composite-formatting.md#escaping-braces)」トピックの「[エスケープ中かっこ ({})](../../standard/base-types/composite-formatting.md)」のセクションを参照してください。
 
 次の例は、結果文字列に中かっこを含め、verbatim 挿入文字列を作成する方法を示しています。
 
@@ -106,7 +107,7 @@ ms.locfileid: "70252922"
 
 このチュートリアルでは、文字列補間の使用に関する一般的なシナリオについて説明しています。 文字列補間の詳細については、[文字列補間](../language-reference/tokens/interpolated.md)に関するトピックを参照してください。 .NET の型の書式設定の詳細については、「[.NET での型の書式設定](../../standard/base-types/formatting-types.md)」および「[複合書式設定](../../standard/base-types/composite-formatting.md)」のトピックを参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.String.Format%2A?displayProperty=nameWithType>
 - <xref:System.FormattableString?displayProperty=nameWithType>

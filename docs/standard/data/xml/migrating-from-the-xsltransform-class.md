@@ -6,14 +6,12 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 9404d758-679f-4ffb-995d-3d07d817659e
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 2b0536607faa629e6113db0012056622d1adb541
-ms.sourcegitcommit: 58fc0e6564a37fa1b9b1b140a637e864c4cf696e
-ms.translationtype: HT
+ms.openlocfilehash: 8383d8cb3e5819c46a0716c59323e492bb9add8e
+ms.sourcegitcommit: 7e2128d4a4c45b4274bea3b8e5760d4694569ca1
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57674602"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75937990"
 ---
 # <a name="migrating-from-the-xsltransform-class"></a>XslTransform クラスからの移行
 
@@ -23,12 +21,12 @@ XSLT アーキテクチャは、Visual Studio 2005 リリースで設計が変�
 
 ## <a name="performance"></a>パフォーマンス
 
-<xref:System.Xml.Xsl.XslCompiledTransform> クラスでは多くのパフォーマンスの向上が図られています。 新しい XSLT プロセッサは XSLT スタイル シートを、共通言語ランタイム (CLR) が他のプログラム言語で行うのと同様に、共通の中間形式にコンパイルします。 いったんスタイル シートがコンパイルされると、それをキャッシュして再利用することができます。
+<xref:System.Xml.Xsl.XslCompiledTransform> クラスでは多くのパフォーマンスの向上が図られています。 新しい XSLT プロセッサは XSLT スタイル シートを、共通言語ランタイム (CLR) が他のプログラム言語で行うのと同様に、共通の中間形式にコンパイルします。 スタイル シートがコンパイルされると、キャッシュされ再利用できるようになります。
 
 <xref:System.Xml.Xsl.XslCompiledTransform> クラスには、このクラスを <xref:System.Xml.Xsl.XslTransform> クラスよりも大幅に高速化する他の最適化も含まれています。
 
 > [!NOTE]
-> 全体的なパフォーマンスは <xref:System.Xml.Xsl.XslCompiledTransform> クラスの方が <xref:System.Xml.Xsl.XslTransform> クラスより優れていますが、<xref:System.Xml.Xsl.XslCompiledTransform.Load%2A> クラスの <xref:System.Xml.Xsl.XslCompiledTransform> メソッドが変換で初めて呼び出されたときは、<xref:System.Xml.Xsl.XslTransform.Load%2A> クラスの <xref:System.Xml.Xsl.XslTransform> メソッドよりパフォーマンスが劣る場合があります。 これは、XSLT ファイルを読み込む前にコンパイルする必要があるためです。 詳細については、ブログ記事「[XslCompiledTransform Slower than XslTransform?](https://blogs.msdn.microsoft.com/antosha/2006/07/16/xslcompiledtransform-slower-than-xsltransform/)」(XslCompiledTransform は XslTransform より遅いか?) というブログ記事をお読みください。
+> 全体的なパフォーマンスは <xref:System.Xml.Xsl.XslCompiledTransform> クラスの方が <xref:System.Xml.Xsl.XslTransform> クラスより優れていますが、<xref:System.Xml.Xsl.XslCompiledTransform.Load%2A> クラスの <xref:System.Xml.Xsl.XslCompiledTransform> メソッドが変換で初めて呼び出されたときは、<xref:System.Xml.Xsl.XslTransform.Load%2A> クラスの <xref:System.Xml.Xsl.XslTransform> メソッドよりパフォーマンスが劣る場合があります。 これは、XSLT ファイルを読み込む前にコンパイルする必要があるためです。 詳しくは、ブログの投稿「[XslCompiledTransform Slower than XslTransform?](https://docs.microsoft.com/archive/blogs/antosha/xslcompiledtransform-slower-than-xsltransform)」(XslCompiledTransform は XslTransform より遅い?) をご覧ください。
 
 ## <a name="security"></a>セキュリティ
 
@@ -121,11 +119,11 @@ W3C 勧告『XSL Transformations (XSLT) Version 1.0』には、対処方法を�
 
 - msxsl:node-set: <xref:System.Xml.Xsl.XslTransform> では、[node-set 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256197(v=vs.100))の引数を結果ツリー フラグメントにする必要がありました。 <xref:System.Xml.Xsl.XslCompiledTransform> クラスでは、この要件がありません。
 
-- msxsl:version:この関数は、<xref:System.Xml.Xsl.XslCompiledTransform> でサポートされます。
+- msxsl:version : この関数は、<xref:System.Xml.Xsl.XslCompiledTransform> でサポートされます。
 
-- XPath 拡張関数:[ms:string-compare 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256114(v=vs.100))、[ms:utc 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256474(v=vs.100))、[ms:namespace-uri 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256231(v=vs.100))、[ms:local-name 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256055(v=vs.100))、[ms:number 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256155(v=vs.100))、[ms:format-date 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256099(v=vs.100))、[ms:format-time 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256467(v=vs.100))がサポートされるようになりました。
+- XPath 拡張関数: [ms:string-compare 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256114(v=vs.100))、[ms:utc 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256474(v=vs.100))、[ms:namespace-uri 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256231(v=vs.100))、[ms:local-name 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256055(v=vs.100))、[ms:number 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256155(v=vs.100))、[ms:format-date 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256099(v=vs.100))、[ms:format-time 関数](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256467(v=vs.100))がサポートされるようになりました。
 
-- スキーマ関連 XPath 拡張機能:これらの関数は <xref:System.Xml.Xsl.XslCompiledTransform> でネイティブ サポートされません。 ただし、拡張関数として実装することはできます。
+- スキーマ関連の XPath 拡張関数 : これは、<xref:System.Xml.Xsl.XslCompiledTransform> ではネイティブでサポートされません。 ただし、拡張関数として実装することはできます。
 
 ## <a name="see-also"></a>関連項目
 

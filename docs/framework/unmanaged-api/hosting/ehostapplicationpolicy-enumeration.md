@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 0be52d90-1976-4bf7-9717-908833a8a78d
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7626ccd827accea380f990ef1f7bc92ea6cb0fc1
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 6903092984bd8bb387a65e1d100fb09f3eb0b0a5
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67755762"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136539"
 ---
 # <a name="ehostapplicationpolicy-enumeration"></a>EHostApplicationPolicy 列挙型
-変更する方法を示します、 [IHostAssemblyManager](../../../../docs/framework/unmanaged-api/hosting/ihostassemblymanager-interface.md)インターフェイス オブジェクト。 この列挙体は非推奨とされました。  
+[IHostAssemblyManager](../../../../docs/framework/unmanaged-api/hosting/ihostassemblymanager-interface.md) interface オブジェクトを変更する方法を示します。 この列挙型は非推奨とされました。  
   
 ## <a name="syntax"></a>構文  
   
@@ -34,12 +32,12 @@ typedef enum _HostApplicationPolicy {
 } EHostApplicationPolicy;  
 ```  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

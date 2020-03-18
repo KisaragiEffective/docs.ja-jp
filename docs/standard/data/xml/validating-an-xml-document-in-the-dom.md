@@ -7,14 +7,12 @@ dev_langs:
 - vb
 - cpp
 ms.assetid: 2c61c920-d0f8-4c72-bfcc-6524570f3060
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: b25bf81a17b14da558fb002b4740e31d6cda7a82
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
-ms.translationtype: HT
+ms.openlocfilehash: 93686ddf1afff76926e77acdbf5aa58e93d6cb77
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70040451"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75710038"
 ---
 # <a name="validating-an-xml-document-in-the-dom"></a>DOM における XML ドキュメントの検証
 
@@ -42,7 +40,7 @@ XML スキーマ検証型 <xref:System.Xml.XmlReader> を作成するには、�
 
 5. 最後に、<xref:System.Xml.XmlReaderSettings> オブジェクトを、スキーマ検証型 <xref:System.Xml.XmlReader.Create%2A> を作成する <xref:System.Xml.XmlReader> クラスの <xref:System.Xml.XmlReader> メソッドに、XML ドキュメントと共に渡します。
 
-### <a name="example"></a>例
+### <a name="example"></a>使用例
 
 次のコード サンプルでは、スキーマ検証型 <xref:System.Xml.XmlReader> が DOM に読み込まれた XML データを検証します。 無効な変更を加えられた後、XML ドキュメントが再検証され、スキーマ検証エラーが発生します。 最後に、エラーの 1 つが修正された後、XML ドキュメントの一部が部分的に検証されます。
 

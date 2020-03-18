@@ -2,12 +2,12 @@
 title: HttpClientFactory を使用して回復力の高い HTTP 要求を実装する
 description: .NET Core 2.1 以降で使用できる HttpClientFactory を使用して、`HttpClient` インスタンスを作成し、それをアプリケーションで簡単に使用できるようにする方法について説明します。
 ms.date: 08/08/2019
-ms.openlocfilehash: 3f9b3b18cede07e4c5c56600634ae230c0e251bb
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 1a6d65509d669166e73ad907b506bae7fa26536d
+ms.sourcegitcommit: 7088f87e9a7da144266135f4b2397e611cf0a228
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578907"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75900322"
 ---
 # <a name="use-httpclientfactory-to-implement-resilient-http-requests"></a>HttpClientFactory を使用して回復力の高い HTTP 要求を実装する
 
@@ -21,7 +21,7 @@ ms.locfileid: "72578907"
 
 そのため、`HttpClient` は一度インスタンス化されたら、アプリケーションの有効期間にわたって再利用されることを目的としています。 すべての要求に対して `HttpClient` クラスをインスタンス化すると、高負荷の下で使用可能なソケットの数が枯渇してしまいます。 この問題により、`SocketException` エラーが発生します。 この問題を解決するために可能なアプローチは、HttpClient クライアントの使用に関するこの [Microsoft の記事](../../../csharp/tutorials/console-webapiclient.md)で説明されているように、`HttpClient` オブジェクトをシングルトンまたは静的として作成することに基づいています。
 
-しかし、`HttpClient` には、シングルトンまたは静的オブジェクトとして使用した場合に発生する可能性がある 2 つ目の問題があります。 この場合、dotnet/corefx GitHub リポジトリでこの[問題](https://github.com/dotnet/corefx/issues/11224)について説明されているように、シングルトンまたは静的 `HttpClient` では、DNS の変更が尊重されません。 
+しかし、`HttpClient` には、シングルトンまたは静的オブジェクトとして使用した場合に発生する可能性がある 2 つ目の問題があります。 この場合、dotnet/corefx GitHub リポジトリでこの[問題](https://github.com/dotnet/corefx/issues/11224)について説明されているように、シングルトンまたは静的 `HttpClient` では、DNS の変更が尊重されません。
 
 これらの問題に対処し、`HttpClient` インスタンスの管理を容易にするため、.NET Core 2.1 では、新しい `HttpClientFactory` が導入されています。これは、Polly を統合することで、回復力のある HTTP 呼び出しを実装するためにも使用できます。
 
@@ -35,6 +35,9 @@ ms.locfileid: "72578907"
 - `HttpClient` でのハンドラーのデリゲートにより送信ミドルウェアの概念を体系化し、Polly ベースのミドルウェアを実装して、回復性のための Polly のポリシーを利用します。
 - `HttpClient` は既に、送信 HTTP 要求用にリンクできるハンドラーのデリゲートの概念を備えています。 ファクトリに HTTP クライアントを登録できるほか、Polly ハンドラーを使用して、再試行、サーキット ブレーカーなどに Polly ポリシーを使用することができます。
 - `HttpClientMessageHandlers` の有効期間を管理して、`HttpClient` の有効期間を自分で管理する際に発生する可能性がある上記の問題を回避します。
+
+> [!NOTE]
+> `HttpClientFactory` は、`Microsoft.Extensions.DependencyInjection` NuGet パッケージ内の依存関係挿入 (DI) の実装に緊密に関連付けられています。 その他の依存関係挿入コンテナーの使用に関する詳細については、この [GitHub のディスカッション](https://github.com/dotnet/extensions/issues/1345)を参照してください。
 
 ## <a name="multiple-ways-to-use-httpclientfactory"></a>HttpClientFactory を使用する複数の方法
 
@@ -53,17 +56,19 @@ ms.locfileid: "72578907"
 
 次の図は、`HttpClientFactory` で型指定されたクライアントを使用する方法を示しています。
 
-![(コントローラーまたはクライアント コードによって使用される) ClientService には、登録済みの IHttpClientFactory によって作成された HttpClient が使用されます。 このファクトリでは、HttpClient と、それが管理するプールの HttpClient を割り当てています。 拡張メソッド AddHttpClient を使用して IHttpClientFactory を DI コンテナーに登録するときに、Polly のポリシーを使用して HttpClient を構成できます。](./media/image3.5.png)
+![HttpClientFactory で型指定されたクライアントを使用する方法を示している図。](./media/use-httpclientfactory-to-implement-resilient-http-requests/client-application-code.png)
 
 **図 8-4** 型指定されたクライアント クラスで HttpClientFactory を使用する。
 
-まず、`IServiceCollection` に対する `AddHttpClient()` 拡張メソッドを含む `Microsoft.Extensions.Http` NuGet パッケージをインストールすることで、アプリケーションに `HttpClientFactory` を設定します。 この拡張メソッドは、インターフェイス `IHttpClientFactory` のシングルトンとして使用される `DefaultHttpClientFactory` を登録します。 これは `HttpMessageHandlerBuilder` の一時的な構成を定義します。 プールから取得されたこのメッセージ ハンドラー (`HttpMessageHandler` オブジェクト) は、ファクトリから返された `HttpClient` によって使用されます。
+上の図では、(コントローラーまたはクライアント コードによって使用される) ClientService によって、登録済みの `IHttpClientFactory` によって作成された `HttpClient` が使用されます。 このファクトリでは、管理するプールからの `HttpMessageHandler` を `HttpClient` に割り当てます。 拡張メソッド `AddHttpClient` を使用して `IHttpClientFactory` を DI コンテナーに登録するときに、Polly のポリシーを使用して `HttpClient` を構成できます。
+
+上の構造を構成するには、`IServiceCollection` に対する `AddHttpClient()` 拡張メソッドを含む `Microsoft.Extensions.Http` NuGet パッケージをインストールすることで、アプリケーションに `HttpClientFactory` を追加します。 この拡張メソッドは、インターフェイス `IHttpClientFactory` のシングルトンとして使用される `DefaultHttpClientFactory` を登録します。 これは `HttpMessageHandlerBuilder` の一時的な構成を定義します。 プールから取得されたこのメッセージ ハンドラー (`HttpMessageHandler` オブジェクト) は、ファクトリから返された `HttpClient` によって使用されます。
 
 次のコードで、`AddHttpClient()` を使用して、`HttpClient` を使用する必要がある型指定されたクライアント (エージェント サービス) を登録する方法を確認できます。
 
 ```csharp
 // Startup.cs
-//Add http client services at ConfigureServices(IServiceCollection services) 
+//Add http client services at ConfigureServices(IServiceCollection services)
 services.AddHttpClient<ICatalogService, CatalogService>();
 services.AddHttpClient<IBasketService, BasketService>();
 services.AddHttpClient<IOrderingService, OrderingService>();
@@ -105,7 +110,7 @@ static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
 プール内の `HttpMessageHandler` オブジェクトには、有効期間があります。この有効期間は、プール内の `HttpMessageHandler` インスタンスを再利用できる期間です。 既定値は 2 分ですが、型指定されたクライアントごとにオーバーライドできます。 オーバーライドするには、次のコードに示すように、クライアント作成時に返された `IHttpClientBuilder` で `SetHandlerLifetime()` を呼び出します。
 
 ```csharp
-//Set 5 min as the lifetime for the HttpMessageHandler objects in the pool used for the Catalog Typed Client 
+//Set 5 min as the lifetime for the HttpMessageHandler objects in the pool used for the Catalog Typed Client
 services.AddHttpClient<ICatalogService, CatalogService>()
     .SetHandlerLifetime(TimeSpan.FromMinutes(5));
 ```
@@ -127,10 +132,10 @@ public class CatalogService : ICatalogService
         _httpClient = httpClient;
     }
 
-    public async Task<Catalog> GetCatalogItems(int page, int take, 
+    public async Task<Catalog> GetCatalogItems(int page, int take,
                                                int? brand, int? type)
     {
-        var uri = API.Catalog.GetAllCatalogItems(_remoteServiceBaseUrl, 
+        var uri = API.Catalog.GetAllCatalogItems(_remoteServiceBaseUrl,
                                                  page, take, brand, type);
 
         var responseString = await _httpClient.GetStringAsync(uri);
@@ -180,14 +185,17 @@ namespace Microsoft.eShopOnContainers.WebMVC.Controllers
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-- **.NET Core で HttpClientFactory を使用する** \
+- **.NET Core で HttpClientFactory を使用する**  
   [https://docs.microsoft.com/aspnet/core/fundamentals/http-requests](/aspnet/core/fundamentals/http-requests)
 
-- **HttpClientFactory GitHub リポジトリ** \
-  <https://github.com/aspnet/Extensions/tree/master/src/HttpClientFactory>
+- **`dotnet/extensions` GitHub リポジトリ内の HttpClientFactory ソース コード**  
+  <https://github.com/dotnet/extensions/tree/master/src/HttpClientFactory>
 
-- **Polly (.NET の復元および一時的な障害処理ライブラリ)**  \
+- **Polly (.NET の復元および一時的な障害処理ライブラリ)**  
   <http://www.thepollyproject.org/>
+  
+- **依存関係挿入なしで HttpClientFactory を使用する (GitHub の問題)**  
+  <https://github.com/dotnet/extensions/issues/1345>
 
 >[!div class="step-by-step"]
 >[前へ](explore-custom-http-call-retries-exponential-backoff.md)

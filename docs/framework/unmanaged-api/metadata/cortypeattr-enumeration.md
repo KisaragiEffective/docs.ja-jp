@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 9bede0ec-5fdf-42a2-b5b7-bee64056acb6
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 5786f24f6543d4d262dd8a6389132aba02f9aacc
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b1586184c91619994ba0dfc9d5dcc277c10f99cf
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779202"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74436453"
 ---
 # <a name="cortypeattr-enumeration"></a>CorTypeAttr 列挙型
 メタデータ型を示す値が格納されます。  
@@ -79,47 +77,47 @@ typedef enum CorTypeAttr {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`tdVisibilityMask`|可視性の種類の情報に使用されます。|  
-|`tdNotPublic`|型がパブリック スコープでないことを指定します。|  
-|`tdPublic`|パブリック スコープで型を指定します。|  
-|`tdNestedPublic`|型がパブリックな可視性と入れ子になったことを指定します。|  
-|`tdNestedPrivate`|型がプライベートの可視性を持つ入れ子になったことを指定します。|  
-|`tdNestedFamily`|ファミリの可視性を持つ型が入れ子になっていることを指定します。|  
-|`tdNestedAssembly`|アセンブリの可視性を持つ型が入れ子になっていることを指定します。|  
-|`tdNestedFamANDAssem`|ファミリとアセンブリの可視性を持つ型が入れ子になっていることを指定します。|  
-|`tdNestedFamORAssem`|ファミリまたはアセンブリの可視性を持つ型が入れ子になっていることを指定します。|  
+|`tdVisibilityMask`|型の可視性情報に使用されます。|  
+|`tdNotPublic`|型がパブリックスコープ内にないことを指定します。|  
+|`tdPublic`|型がパブリックスコープ内にあることを指定します。|  
+|`tdNestedPublic`|型がパブリックの可視性で入れ子になっていることを指定します。|  
+|`tdNestedPrivate`|型がプライベート可視性で入れ子になっていることを指定します。|  
+|`tdNestedFamily`|型がファミリの可視性で入れ子になっていることを指定します。|  
+|`tdNestedAssembly`|型がアセンブリの可視性で入れ子になっていることを指定します。|  
+|`tdNestedFamANDAssem`|型がファミリおよびアセンブリの可視性で入れ子になっていることを指定します。|  
+|`tdNestedFamORAssem`|型が、ファミリまたはアセンブリの参照可能範囲に入れ子になっていることを指定します。|  
 |`tdLayoutMask`|型のレイアウト情報を取得します。|  
 |`tdAutoLayout`|この型のフィールドが自動的にレイアウトされることを指定します。|  
-|`tdSequentialLayout`|この型のフィールドが順番にレイアウトされることを指定します。|  
-|`tdExplicitLayout`|フィールド レイアウトは明示的に指定されたを指定します。|  
+|`tdSequentialLayout`|この型のフィールドを順番に配置することを指定します。|  
+|`tdExplicitLayout`|フィールドレイアウトが明示的に指定されていることを指定します。|  
 |`tdClassSemanticsMask`|型に関するセマンティック情報を取得します。|  
 |`tdClass`|型がクラスであることを示します。|  
 |`tdInterface`|型がインターフェイスであることを示します。|  
 |`tdAbstract`|型が抽象的であることを示します。|  
 |`tdSealed`|型を拡張できないことを指定します。|  
-|`tdSpecialName`|特殊なクラス名を指定します。 その名前で記述する方法。|  
+|`tdSpecialName`|クラス名が特別であることを指定します。 その名前は、方法を説明します。|  
 |`tdImport`|型がインポートされることを指定します。|  
-|`tdSerializable`|型がシリアル化可能なことを指定します。|  
-|`tdWindowsRuntime`|この型が、Windows ランタイム型であることを指定します。|  
-|`tdStringFormatMask`|文字列のエンコードおよび書式設定方法に関する情報を取得します。|  
-|`tdAnsiClass`|この型に、LPTSTR ANSI として解釈するを指定します。|  
-|`tdUnicodeClass`|この型が Unicode として LPTSTR を解釈するを指定します。|  
-|`tdAutoClass`|この型が自動的に LPTSTR を解釈することを指定します。|  
-|`tdCustomFormatClass`|型が非標準のエンコーディングを持つことを指定で指定された`CustomFormatMask`します。|  
-|`tdCustomFormatMask`|このマスクを使用して、ネイティブ相互運用機能の非標準のエンコード情報を取得します。 これら 2 つのビットの値の意味では、指定されていません。|  
-|`tdBeforeFieldInit`|静的フィールドにアクセスする最初の試行する前に、型を初期化する必要がありますを指定します。|  
-|`tdForwarder`|型がエクスポートされたことを指定します。 型フォワーダーとします。|  
-|`tdReservedMask`|このフラグは、次のフラグは、共通言語ランタイムによって内部的に使用されます。|  
-|`tdRTSpecialName`|名前のエンコーディングに共通言語ランタイムが確認する必要がありますを指定します。|  
-|`tdHasSecurity`|型が関連付けられているセキュリティを指定します。|  
+|`tdSerializable`|型がシリアル化可能であることを指定します。|  
+|`tdWindowsRuntime`|この型が Windows ランタイム型であることを指定します。|  
+|`tdStringFormatMask`|文字列をエンコードおよび書式設定する方法に関する情報を取得します。|  
+|`tdAnsiClass`|この型が LPTSTR を ANSI と解釈することを指定します。|  
+|`tdUnicodeClass`|この型が LPTSTR を Unicode として解釈することを指定します。|  
+|`tdAutoClass`|この型が LPTSTR を自動的に解釈することを指定します。|  
+|`tdCustomFormatClass`|`CustomFormatMask`によって指定された標準以外のエンコーディングを型が持つことを指定します。|  
+|`tdCustomFormatMask`|ネイティブ相互運用機能の非標準のエンコード情報を取得するには、このマスクを使用します。 これら2つのビットの値の意味は、指定されていません。|  
+|`tdBeforeFieldInit`|静的フィールドに最初にアクセスしようとする前に型を初期化する必要があることを指定します。|  
+|`tdForwarder`|型がエクスポートされ、型フォワーダーが指定されていることを示します。|  
+|`tdReservedMask`|このフラグと以下のフラグは、共通言語ランタイムによって内部的に使用されます。|  
+|`tdRTSpecialName`|共通言語ランタイムが名前のエンコーディングを確認する必要があることを指定します。|  
+|`tdHasSecurity`|型にセキュリティが関連付けられていることを指定します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

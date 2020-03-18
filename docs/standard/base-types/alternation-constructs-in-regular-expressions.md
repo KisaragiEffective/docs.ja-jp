@@ -15,15 +15,12 @@ helpviewer_keywords:
 - constructs, alternation
 - .NET Framework regular expressions, alternation constructs
 ms.assetid: 071e22e9-fbb0-4ecf-add1-8d2424f9f2d1
-author: rpetrusha
-ms.author: ronpet
-ms.custom: seodec18
-ms.openlocfilehash: c6f33023d747ce20964c7cb83a66d6764b6030cd
-ms.sourcegitcommit: 878ca7550b653114c3968ef8906da2b3e60e3c7a
+ms.openlocfilehash: 02664bd2812f89649ec933483161263bae530a75
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71736613"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78159690"
 ---
 # <a name="alternation-constructs-in-regular-expressions"></a>正規表現での代替コンストラクト
 
@@ -65,7 +62,7 @@ ms.locfileid: "71736613"
 |<code>(\d{2}-\d{7}&#124;\d{3}-\d{2}-\d{4})</code>|「2 桁と 7 桁の 10 進数がハイフンでつながれた文字列」または「3 桁、2 桁、4 桁の 10 進数がそれぞれハイフンでつながれた文字列」のいずれかと一致します。|  
 |`\d`|ワード境界で照合を終了します。|  
   
-<a name="Conditional_Expr"></a>   
+<a name="Conditional_Expr"></a>
 ## <a name="conditional-matching-with-an-expression"></a>式を使用した条件一致
 
 この言語要素では、最初のパターンに一致するかどうかに応じて、2 つのパターンのいずれかの照合を実行します。 構文は次のとおりです。  
@@ -74,7 +71,7 @@ ms.locfileid: "71736613"
 
 ここで、 *expression* は照合する最初のパターン、 *yes* は *expression* が一致した場合に照合するパターン、 *no* は *expression* が一致しなかった場合に照合するパターン (省略可能) です。 *expression* は正規表現エンジンによってゼロ幅アサーションとして処理されるので、 *expression*が評価された後、正規表現エンジンによる入力ストリーム内の評価位置は前に進みません。 そのため、この構成体は次の構成体と同じです。
 
-`(?(?=` *式* `)` *可* `|` *no* `)`
+`(?(?=` *expression* `)` *yes* `|` *no* `)`
 
 ここで、`(?=`*expression*`)` はゼロ幅アサーションの構成体として解釈されます (詳しくは、「[正規表現でのグループ化構成体](grouping-constructs-in-regular-expressions.md)」をご覧ください)。正規表現エンジンによって *expression* はアンカー (ゼロ幅アサーション) として解釈されるので、*expression* は、ゼロ幅アサーション (詳しくは「[正規表現のアンカー](anchors-in-regular-expressions.md)」を参照) か、*yes* にも含まれている部分式のいずれかである必要があります。 それ以外の場合、 *yes* パターンには一致しません。  
   
@@ -101,11 +98,11 @@ ms.locfileid: "71736613"
 
 この言語要素では、指定されたキャプチャ グループに一致するかどうかに応じて、2 つのパターンのいずれかを照合します。 構文は次のとおりです。
 
-`(?(` *name* `)` *可* `|` *no* `)`
+`(?(` *name* `)` *yes* `|` *no* `)`
 
 or
 
-`(?(` *number* `)` *可* `|` *no* `)`
+`(?(` *number* `)` *yes* `|` *no* `)`
 
 ここで、 *name* はキャプチャ グループの名前、 *number* はキャプチャ グループの番号です。 *yes* は、 *name* または *number* が一致する場合に照合する式です。 *no* き、一致しない場合に照合する式 (省略可能) です。
 
@@ -121,7 +118,7 @@ or
 |パターン|説明|  
 |-------------|-----------------|  
 |`\b`|ワード境界から開始します。|  
-|`(?<n2>\d{2}-)?`|「2 桁の数字の後にハイフン」の 0 個または 1 個の出現と照合します。 このキャプチャ グループに `n2`という名前を付けます。|  
+|`(?<n2>\d{2}-)?`|「2 桁の数字の後にハイフン」の 0 個または 1 個の出現と照合します。 このキャプチャ グループに `n2` という名前を付けます。|  
 |`(?(n2)`|`n2` への一致が入力文字列内に見つかるかどうかテストします。|  
 |`\d{7}`|`n2` が一致した場合は、7 桁の 10 進数を照合します。|  
 |<code>&#124;\d{3}-\d{2}-\d{4}</code>|`n2` が一致しなかった場合は、「3 桁の 10 進数、ハイフン、2 桁の 10 進数、もう 1 つのハイフン、および 4 桁の 10 進数」を照合します。|  

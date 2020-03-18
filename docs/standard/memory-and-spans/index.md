@@ -7,14 +7,12 @@ helpviewer_keywords:
 - Span<T>
 - buffers"
 - pipeline processing
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: fbfd091c821f59febfc8c7a203334454e7b59c12
-ms.sourcegitcommit: cdf67135a98a5a51913dacddb58e004a3c867802
+ms.openlocfilehash: b61b1dbbedf4658fe113986fbb4a792a2f574534
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69666425"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73121986"
 ---
 # <a name="memory--and-span-related-types"></a>メモリおよびスパンに関連する型
 
@@ -39,7 +37,7 @@ ms.locfileid: "69666425"
 - <xref:System.MemoryExtensions?displayProperty=nameWithType>: 文字列、配列、および配列セグメントを、<xref:System.Memory%601> ブロックに変換するための拡張メソッドのコレクションです。
 
 > [!NOTE]
-> 以前のフレームワークでは、[System.Memory NuGet パッケージ](https://www.nuget.org/packages/System.Memory/)で <xref:System.Span%601> と <xref:System.Memory%601> を利用できます。
+> 以前のフレームワークでは、<xref:System.Span%601>System.Memory NuGet パッケージ<xref:System.Memory%601>で [ と ](https://www.nuget.org/packages/System.Memory/) を利用できます。
 
 詳細については、「<xref:System.Buffers?displayProperty=nameWithType>」を参照してください。
 
@@ -47,7 +45,7 @@ ms.locfileid: "69666425"
 
 通常、メモリおよびスパンに関連する型は処理パイプラインにデータを格納するために使われます。そのため開発者は、<xref:System.Span%601>、<xref:System.Memory%601>、および関連する型を使う場合に、一連のベスト プラクティスに従うことが重要です。 これらのベスト プラクティスは、「[Memory\<T> and Span\<T> usage guidelines](memory-t-usage-guidelines.md)」(Memory<T> および Span <T> の使用ガイドライン) でドキュメント化されています。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Memory%601?displayProperty=nameWithType>
 - <xref:System.ReadOnlyMemory%601?displayProperty=nameWithType>

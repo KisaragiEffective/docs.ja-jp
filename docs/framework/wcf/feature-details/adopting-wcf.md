@@ -2,25 +2,25 @@
 title: Windows Communication Foundation の採用
 ms.date: 03/30/2017
 ms.assetid: 49ba71e2-9468-4082-84c5-cf8daf95e34a
-ms.openlocfilehash: 58a51f7ea0db2297c7151a752de3f54307e0c5fd
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: e4955d3a1d1c3a7c2afae5b0e1573d383e03bb33
+ms.sourcegitcommit: ed3f926b6cdd372037bbcc214dc8f08a70366390
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61857715"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76116665"
 ---
-# <a name="adopting-windows-communication-foundation"></a>Windows Communication Foundation の採用
+# <a name="adopt-windows-communication-foundation"></a>Windows Communication Foundation を採用する
 
-ASP.NET を使用して開発された既存のアプリケーションのメンテナンスを続行中に、新たに開発、Windows Communication Foundation (WCF) を使用することができます。 WCF はどのようなシナリオでの .NET Framework でビルドされたアプリケーションとの通信を促進するため、最適な選択をするとしているため、として使用できるさまざまな方法でソフトウェア通信の問題を解決するための標準的なツールを ASP.NETできません。
+ASP.NET を使用して開発した既存のアプリケーションを引き続き維持しながら、新しい開発に Windows Communication Foundation (WCF) を使用することもできます。 WCF は、任意のシナリオで .NET Framework で構築されたアプリケーションとの通信を容易にするために最適な選択肢となることを目的としています。これは、さまざまなソフトウェア通信の問題を ASP.NET に解決するための標準ツールとして機能します。できません.
 
-新しい WCF アプリケーションは、既存の ASP.NET Web サービスと同じマシンにデプロイできます。 既存の ASP.NET Web サービス、.NET Framework バージョン 2.0 より前のバージョンを使う場合は、選択的に新しい WCF アプリケーションがホストする IIS アプリケーションを .NET Framework 2.0 を展開する、ASP.NET IIS 登録ツールを使用できます。 そのツールについては、 [ASP.NET IIS 登録ツール (Aspnet_regiis.exe)](https://go.microsoft.com/fwlink/?LinkId=94687)、ユーザー インターフェイスは、IIS 6.0 管理コンソールに組み込まれているとします。
+新しい WCF アプリケーションは、既存の ASP.NET Web サービスと同じコンピューターにデプロイできます。 既存の ASP.NET Web サービスがバージョン2.0 より前のバージョンの .NET Framework を使用する場合は、ASP.NET IIS 登録ツールを使用して、新しい WCF アプリケーションがホストされる IIS アプリケーションに .NET Framework 2.0 を選択的に展開できます。 このツールは、 [ASP.NET Iis Registration tool (Aspnet_regiis)](https://docs.microsoft.com/previous-versions/dotnet/netframework-3.5/k6h9cz8h(v=vs.90))に記載されており、iis 6.0 管理コンソールにはユーザーインターフェイスが組み込まれています。
 
-WCF サービスが IIS での既存の ASP.NET Web サービス アプリケーションを ASP.NET 互換モードで実行するように構成を追加することで、既存の ASP.NET Web サービスに新機能を追加する、WCF を使用できます。 新しい WCF サービスのコードにアクセスしを使用して既存の ASP.NET コードと同じアプリケーションの状態情報を更新する ASP.NET の互換モードにより、<xref:System.Web.HttpContext>クラス。 また、アプリケーションは同じクラス ライブラリを共有することもできます。
+ASP.NET 互換モードで実行するように構成されている WCF サービスを IIS の既存の ASP.NET Web サービスアプリケーションに追加することにより、WCF を使用して、既存の ASP.NET Web サービスに新しい機能を追加できます。 ASP.NET 互換モードのため、新しい WCF サービスのコードは、<xref:System.Web.HttpContext> クラスを使用して、既存の ASP.NET コードと同じアプリケーション状態情報にアクセスし、更新することができます。 また、アプリケーションは同じクラス ライブラリを共有することもできます。
 
-WCF クライアントは、ASP.NET Web サービスを使用できます。 WCF サービスで構成されている、 <xref:System.ServiceModel.BasicHttpBinding> ASP.NET Web サービス クライアントで使用されることができます。 ASP.NET Web サービスは、WCF アプリケーションと共存させることができ、WCF は、既存の ASP.NET Web サービスに機能を追加も使用できます。 これで WCF と ASP.NET Web サービスを組み合わせて使用する次の方法を考えると、WCF としない ASP.NET Web サービスによって提供される機能を必要とする場合にのみ、ASP.NET Web サービスを WCF に移行することがあります。
+WCF クライアントでは、ASP.NET Web サービスを使用できます。 <xref:System.ServiceModel.BasicHttpBinding> で構成された WCF サービスは、ASP.NET Web サービスクライアントで使用できます。 ASP.NET Web サービスは、WCF アプリケーションと共存できます。また、WCF を使用して、既存の ASP.NET Web サービスに機能を追加することもできます。 これらの方法で WCF と ASP.NET Web サービスを一緒に使用できるようになった場合は、ASP.NET Web サービスではなく、WCF によって提供される機能が必要な場合にのみ、ASP.NET Web サービスを WCF に移行することをお勧めします。
 
-必要があるいくつかの場合でも別に 1 つのテクノロジからコードの移行は、適切なアプローチではめったにありません。 以前のテクノロジでは満たされない新しい要件を満たすために新しいテクノロジを採用する場合、新たに拡張された要件を満たす新しいソリューションを設計することが正しい方法です。 新しい設計では、既存のシステムでの経験とそのシステムを設計して以来、獲得した知識を活用できます。 また、新しい設計は、新しいプラットフォーム上で古い設計を再制作するのではなく、新しいテクノロジの機能を十分に活用することができます。 新しい設計の主要な要素のプロトタイプが完成すると、既存のシステムのコードを新しいシステム内で再使用することが容易になります。
+場合によっては、あるテクノロジから別のテクノロジにコードを移行する方法はほとんどありません。 新しいテクノロジを採用する理由は、以前のテクノロジでは満たすことができない新しい要件を満たすことであり、その場合は、新しく展開された一連の要件を満たす新しいソリューションを設計することです。 新しい設計では、既存のシステムでの経験とそのシステムを設計して以来、獲得した知識を活用できます。 また、新しい設計は、新しいプラットフォーム上で古い設計を再制作するのではなく、新しいテクノロジの機能を十分に活用することができます。 新しいデザインの重要な要素をプロトタイプ作成した後は、新しい設計の既存のシステムからコードを再利用しやすくなります。
 
 ## <a name="see-also"></a>関連項目
 
-- [方法: メタデータの取得および準拠サービスの実装](../../../../docs/framework/wcf/feature-details/how-to-retrieve-metadata-and-implement-a-compliant-service.md)
+- [方法 : メタデータの取得および準拠サービスの実装をする](../../../../docs/framework/wcf/feature-details/how-to-retrieve-metadata-and-implement-a-compliant-service.md)

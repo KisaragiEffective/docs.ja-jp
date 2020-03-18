@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 47915d33-b7bf-409e-b484-4ee1df15de22
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: c571e37d87ffd136687452dc80a823b8ddbe3359
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: cea84f47a5289df4bc9c50381e18d7077b3b8dad
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67782057"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74440479"
 ---
 # <a name="imetadataemittranslatesigwithscope-method"></a>IMetaDataEmit::TranslateSigWithScope メソッド
-現在のスコープにアセンブリをインポートし、マージされたスコープの新しいメタデータ シグネチャを取得します。  
+現在のスコープにアセンブリをインポートし、マージされたスコープの新しいメタデータシグネチャを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -47,44 +45,44 @@ HRESULT TranslateSigWithScope (
   
 ## <a name="parameters"></a>パラメーター  
  `pAssemImport`  
- [in] \(署名が定義されている\) インポート アセンブリのインターフェイスです。  
+ [in] (署名が定義されている) インポート アセンブリのインターフェイスです。  
   
  `pbHashValue`  
- [in]アセンブリのハッシュ blob。  
+ からアセンブリのハッシュ blob。  
   
  `cbHashValue`  
- [in]内のバイト数`pbHashValue`します。  
+ から`pbHashValue`内のバイト数。  
   
  `import`  
- [in]インポートのメタデータ スコープのインターフェイスです。  
+ からインポートメタデータスコープのインターフェイス。  
   
  `pbSigBlob`  
- [in]インポートする署名します。  
+ からインポートされる署名。  
   
  `cbSigBlob`  
- [in]サイズ (バイト単位) の`pbSigBlob`します。  
+ から`pbSigBlob`のサイズ (バイト単位)。  
   
  `pAssemEmit`  
- [in]エクスポートのアセンブリのインターフェイスです。  
+ からエクスポートアセンブリのインターフェイス。  
   
  `emit`  
- [in]エクスポートのメタデータ スコープのインターフェイスです。  
+ からエクスポートメタデータスコープのインターフェイス。  
   
  `pvTranslatedSig`  
- [out]翻訳されたシグネチャ blob を保持するバッファー。  
+ 入出力変換された署名 blob を保持するバッファー。  
   
  `cbTranslatedSigMax`  
- [in] (バイト単位) の容量の`pvTranslatedSig`します。  
+ から`pvTranslatedSig`の容量 (バイト単位)。  
   
  `pcbTranslatedSig`  
- [out]翻訳されたシグネチャでの実際のバイト数。  
+ 入出力変換されたシグネチャの実際のバイト数。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MSCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

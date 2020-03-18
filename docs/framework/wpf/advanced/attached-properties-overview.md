@@ -7,12 +7,12 @@ dev_langs:
 helpviewer_keywords:
 - attached properties [WPF Designer]
 ms.assetid: 75928354-dc01-47e8-a018-8409aec1f32d
-ms.openlocfilehash: cee80ca0880e046870f699f45624df61ee507a47
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: f4e8ea9fb0643a4a434bf20fa719c3fd2d01435b
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72919858"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089332"
 ---
 # <a name="attached-properties-overview"></a>添付プロパティの概要
 
@@ -60,7 +60,7 @@ WPF が添付プロパティを定義する最も一般的なシナリオは、�
 
 ## アタッチされるプロパティ (コードの)<a name="attached_properties_code"></a>
 
-WPF の添付プロパティには、get/set アクセスを簡単にするための一般的な CLR "ラッパー" メソッドはありません。 これは、プロパティが設定されているインスタンスの場合、添付プロパティは必ずしも CLR 名前空間の一部ではないためです。 ただし、XAML の解析時に XAML プロセッサがその値を設定できる必要があります。 有効な添付プロパティの使用をサポートするには、添付プロパティの所有者の種類で、 **Get_PropertyName_** および**Set_PropertyName_** の形式で専用のアクセサーメソッドを実装する必要があります。 この専用のアクセサー メソッドは、コード内の添付プロパティの取得/設定でも役立ちます。 コードの観点では、添付プロパティはプロパティ アクセサーではなくメソッド アクセサーを含むバッキング フィールドに似ており、そのバッキング フィールドは特に定義することなくすべてのオブジェクトに存在することができます。
+WPF の添付プロパティには、get/set アクセスを簡単にするための一般的な CLR "ラッパー" メソッドはありません。 これは、プロパティが設定されているインスタンスの場合、添付プロパティは必ずしも CLR 名前空間の一部ではないためです。 ただし、XAML の解析時に XAML プロセッサがその値を設定できる必要があります。 有効な添付プロパティの使用をサポートするには、添付プロパティの所有者の型が**Get_PropertyName_** と**Set_PropertyName_** の形式で専用のアクセサーメソッドを実装する必要があります。 この専用のアクセサー メソッドは、コード内の添付プロパティの取得/設定でも役立ちます。 コードの観点では、添付プロパティはプロパティ アクセサーではなくメソッド アクセサーを含むバッキング フィールドに似ており、そのバッキング フィールドは特に定義することなくすべてのオブジェクトに存在することができます。
 
 次の例は、コードに添付プロパティを設定する方法を示しています。 この例では、`myCheckBox` は <xref:System.Windows.Controls.CheckBox> クラスのインスタンスです。
 
@@ -91,7 +91,7 @@ XAML の場合と同様に、コードの3行目で `myDockPanel` の子要素�
 
 クラスが、他の型で使用するために厳密に添付プロパティを定義している場合、クラスは <xref:System.Windows.DependencyObject>から派生する必要はありません。 ただし、添付プロパティが依存関係プロパティでもある WPF モデル全体に従う場合は、<xref:System.Windows.DependencyObject> から派生する必要があります。
 
-<xref:System.Windows.DependencyProperty>型の `public static readonly` フィールドを宣言することによって、添付プロパティを依存関係プロパティとして定義します。 このフィールドを定義するには、<xref:System.Windows.DependencyProperty.RegisterAttached%2A> メソッドの戻り値を使用します。 フィールド名は、定義されている WPF パターンに従って、識別フィールドとそれが表すプロパティの名前が付けられている場合に、添付プロパティ名が文字列 `Property`と一致する必要があります。 添付プロパティプロバイダーは、添付プロパティのアクセサーとして静的な**Get_PropertyName_** メソッドと**Set_PropertyName_** メソッドも提供する必要があります。この操作を行わないと、プロパティシステムが添付プロパティを使用できなくなります。
+<xref:System.Windows.DependencyProperty>型の `public static readonly` フィールドを宣言することによって、添付プロパティを依存関係プロパティとして定義します。 このフィールドを定義するには、<xref:System.Windows.DependencyProperty.RegisterAttached%2A> メソッドの戻り値を使用します。 フィールド名は、定義されている WPF パターンに従って、識別フィールドとそれが表すプロパティの名前が付けられている場合に、添付プロパティ名が文字列 `Property`と一致する必要があります。 添付プロパティプロバイダーは、添付プロパティのアクセサーとして静的**Get_PropertyName_** および**Set_PropertyName_** メソッドを提供する必要もあります。この操作を行わないと、プロパティシステムが添付プロパティを使用できなくなります。
 
 > [!NOTE]
 > 添付プロパティの get アクセサーを省略した場合、Visual Studio や Blend for Visual Studio などのデザインツールでは、プロパティのデータバインディングは機能しません。
@@ -123,7 +123,7 @@ XAML の場合と同様に、コードの3行目で `myDockPanel` の子要素�
 
 #### <a name="attached-property-attributes"></a>添付プロパティの属性
 
-WPF で定義されているいくつかの [!INCLUDE[TLA2#tla_netframewkattr#plural](../../../../includes/tla2sharptla-netframewkattrsharpplural-md.md)] は、添付プロパティに関する情報をリフレクションプロセスに提供するためのものであり、一般的なリフレクションとプロパティ情報 (デザイナーなど) を提供します。 添付プロパティに含まれる型は膨大な範囲に及ぶため、デザイナーには XAML を使用する特定のテクノロジの実装に定義されたすべての添付プロパティのグローバル リストがユーザーに表示されないようにするための手段が必要となります。 WPF が添付プロパティに対して定義する [!INCLUDE[TLA2#tla_netframewkattr#plural](../../../../includes/tla2sharptla-netframewkattrsharpplural-md.md)] を使用すると、特定の添付プロパティを [プロパティ] ウィンドウに表示する必要がある状況のスコープを設定できます。 また、この属性をカスタム添付プロパティに適用するという選択肢もあります。 [!INCLUDE[TLA2#tla_netframewkattr#plural](../../../../includes/tla2sharptla-netframewkattrsharpplural-md.md)]の目的および構文は、次の参照ページに記載されています。
+WPF では、添付プロパティに関する情報をリフレクションプロセスに提供するためのいくつかの .NET 属性、およびリフレクションとプロパティ情報 (デザイナーなど) の一般的なユーザーを定義します。 添付プロパティに含まれる型は膨大な範囲に及ぶため、デザイナーには XAML を使用する特定のテクノロジの実装に定義されたすべての添付プロパティのグローバル リストがユーザーに表示されないようにするための手段が必要となります。 WPF が添付プロパティ用に定義する .NET 属性を使用して、特定の添付プロパティを [プロパティ] ウィンドウに表示する必要がある状況のスコープを設定できます。 また、この属性をカスタム添付プロパティに適用するという選択肢もあります。 .NET 属性の目的と構文については、適切なリファレンスページで説明されています。
 
 - <xref:System.Windows.AttachedPropertyBrowsableAttribute>
 
@@ -146,5 +146,5 @@ WPF で定義されているいくつかの [!INCLUDE[TLA2#tla_netframewkattr#pl
 - <xref:System.Windows.DependencyProperty>
 - [依存関係プロパティの概要](dependency-properties-overview.md)
 - [カスタム依存関係プロパティ](custom-dependency-properties.md)
-- [XAML の概要 (WPF)](xaml-overview-wpf.md)
+- [XAML の概要 (WPF)](../../../desktop-wpf/fundamentals/xaml.md)
 - [方法: 添付プロパティを登録する](how-to-register-an-attached-property.md)

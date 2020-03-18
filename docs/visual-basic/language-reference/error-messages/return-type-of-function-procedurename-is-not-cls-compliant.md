@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 05/15/2019
 ms.locfileid: "65642255"
 ---
-# <a name="return-type-of-function-procedurename-is-not-cls-compliant"></a>関数の型を返す '\<procedurename >' は CLS 準拠
+# <a name="return-type-of-function-procedurename-is-not-cls-compliant"></a>関数 '\<procedurename >' の戻り値の型は CLS に準拠していません。
 A`Function`プロシージャがマーク`<CLSCompliant(True)>`としてマークされている型を返しますが、 `<CLSCompliant(False)>`、マークされていない、または非準拠の型であるためには修飾されません。  
   
  プロシージャを[言語への非依存性および言語非依存コンポーネント](../../../standard/language-independence-and-language-independent-components.md) (CLS) に準拠させるには、CLS 準拠型のみを使用する必要があります。 これは、パラメーターの型、戻り値の型、およびすべてのローカル変数の型に適用されます。  

@@ -5,17 +5,15 @@ helpviewer_keywords:
 - WCF [WCF], documentation
 - Windows Communication Foundation [WCF], documentation
 ms.assetid: 2aa18c85-a4fd-4bb9-986a-a8249e4f8e0e
-ms.openlocfilehash: 12408bd9f10e7ed147a6c1adc0497d3b8d797e42
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 705e571e11fa7c8276fcb48d15ed0160fbda2bc5
+ms.sourcegitcommit: 44a7cd8687f227fc6db3211ccf4783dc20235e51
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72319823"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77628762"
 ---
 # <a name="guide-to-the-documentation"></a>ドキュメントのガイド
 ここでは、Windows Communication Foundation (WCF) のドキュメントに関するガイダンスを提供します。 リンク先のドキュメントは、特定の目的と専門知識のレベルに応じて分類された、推奨される出発点となります。  
-  
- スタンドアロンバージョンのドキュメントとヘルプビューアーをインストールするには、 [Microsoft Windows SDK v 7.1](https://go.microsoft.com/fwlink/?LinkID=194146&clcid=0x409)をダウンロードします。  
   
 ## <a name="new-to-windows-communication-foundation-programming"></a>Windows Communication Foundation プログラミングの初心者向けドキュメント  
   
@@ -61,7 +59,7 @@ ms.locfileid: "72319823"
 ## <a name="ws--protocols-supported-in-windows-communication-foundation"></a>Windows Communication Foundation でサポートされる WS-* プロトコル  
  システム指定のバインディングでサポートされているプロトコルの一覧については、「[システム指定の相互運用性バインディングでサポートされる Web サービスプロトコル](./feature-details/web-services-protocols-supported-by-system-provided-interoperability-bindings.md)」を参照してください。 システム指定のバインディングの一覧については、「[システム指定のバインディング](system-provided-bindings.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Windows Communication Foundation サンプル](./samples/index.md)
 - [概念](conceptual-overview.md)

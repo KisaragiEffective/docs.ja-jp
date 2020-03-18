@@ -4,15 +4,13 @@ description: .NET Core 2.1 の新機能について。
 dev_langs:
 - csharp
 - vb
-author: rpetrusha
-ms.author: ronpet
 ms.date: 10/10/2018
-ms.openlocfilehash: 18c8d566c3b79c131a3d031e5bdf3b37996d9115
-ms.sourcegitcommit: 10db6551ea3c971470cf5d2cc21ba1cbcefe5c55
+ms.openlocfilehash: 32784f7d4b9e3a93eb7f81b4829b39c1a06ef949
+ms.sourcegitcommit: cdf5084648bf5e77970cbfeaa23f1cab3e6e234e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031856"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76920393"
 ---
 # <a name="whats-new-in-net-core-21"></a>.NET Core 2.1 の新機能
 
@@ -114,7 +112,7 @@ dotnet tool install -g dotnetsay
    "rollForwardOnNoCandidateFx" : 0
    ```
 
-- [.NET Core CLI ツール](../tools/index.md)を使用している場合、次のオプションに目的の値を指定して .NET Core コマンド (`run` など) に追加します。
+- [.NET Core CLI](../tools/index.md) を使用している場合、次のオプションに必要な値を指定して .NET Core コマンド (`run` など) に追加します。
 
    ```dotnetcli
    dotnet run --rollForwardOnNoCandidateFx=0

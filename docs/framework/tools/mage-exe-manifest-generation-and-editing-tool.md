@@ -5,12 +5,12 @@ helpviewer_keywords:
 - Manifest Generation and Editing tool
 - Mage.exe
 ms.assetid: 77dfe576-2962-407e-af13-82255df725a1
-ms.openlocfilehash: 13a22cd15da3d4cf7eb26359c692389d27d377c0
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 3752ac7108a9fcd55b61b32b889a717ef7c0faff
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71044506"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74714475"
 ---
 # <a name="mageexe-manifest-generation-and-editing-tool"></a>Mage.exe (マニフェストの生成および編集ツール)
 
@@ -53,7 +53,7 @@ Mage [commands] [commandOptions]
 |**-cf, -CertFile** `filePath`||すべてのファイルの種類|マニフェストまたはライセンス ファイルに署名するための X509 デジタル証明書の場所を指定します。 Personal Information Exchange (PFX) ファイル用のパスワードが証明書に必要な場合は、このオプションを **-Password** オプションと共に使用できます。 .NET Framework 4.7 以降、ファイルに秘密キーが含まれない場合は、オプション **-CryptoProvider** と **-KeyContainer** を組み合わせる必要があります。<br/><br/>.NET Framework 4.6.2 以降、*Mage.exe* では CAPI と同様に CNG 証明書を使ってマニフェストに署名します。|
 |**-ch, -CertHash** `hashSignature`||すべてのファイルの種類|クライアント コンピューターの個人証明書ストアに格納されているデジタル証明書のハッシュです。 これは、Windows の証明書コンソールに表示されるデジタル証明書のサムプリント文字列に対応しています。<br /><br /> `hashSignature` には、大文字も小文字も使用できます。また、1 つの文字列で指定することも、サムプリント文字の各オクテット (8 ビット) を空白で区切り、サムプリント全体を引用符で囲んで指定することもできます。|
 |**-csp, -CryptoProvider** `provider-name`||すべてのファイルの種類|秘密キー コンテナーを含む暗号化サービス プロバイダー (CSP) の名前を指定します。 このオプションには **-KeyContainer** オプションが必要です。<br/><br/>このオプションは、.NET Framework 4.7 以降で使用できます。|
-|**-fd, -FromDirectory** `directoryPath`||アプリケーション マニフェスト|`directoryPath`およびそのすべてのサブディレクトリで見つかったすべてのアセンブリとファイルの説明を含んでいるアプリケーション マニフェストを作成します。ここで、 `directoryPath` は、配置対象のアプリケーションが格納されているディレクトリです。 *Mage.exe* では、ディレクトリ内のファイルごとに、そのファイルがアセンブリなのかスタティック ファイルなのかが判断されます。 アセンブリの場合は、 `<dependency>` タグおよび `installFrom` 属性が、アセンブリ名、コード ベースおよびバージョンと共に、アプリケーションに追加されます。 スタティック ファイルの場合は、 `<file>` タグが追加されます。 また、*Mage.exe* は、簡単な一連のヒューリスティックによってアプリケーションのメイン実行可能ファイルを検出し、この実行可能ファイルを ClickOnce アプリケーションのエントリ ポイントとしてマニフェストでマークします。<br /><br /> *Mage.exe* では、ファイルが "データ" ファイルとして自動的にマークされることはありません。 これは手動で行う必要があります。 詳細については、「[方法 :ClickOnce アプリケーションにデータ ファイルを含める](/visualstudio/deployment/how-to-include-a-data-file-in-a-clickonce-application)」を参照してください。<br /><br /> *Mage.exe* では、各ファイルのサイズに基づいて、各ファイルのハッシュも生成されます。 ClickOnce では、マニフェスト作成後に、配置の各ファイルが改ざんされていないことを確認するためにこれらのハッシュを使用します。 配置対象のファイルに変更を加えた場合には、*Mage.exe* を **-Update** コマンドおよび **-FromDirectory** オプションを付けて実行すると、参照している全ファイルのハッシュおよびアセンブリ バージョンを更新できます。<br /><br /> **-FromDirectory** を指定すると、 `directoryPath`で見つかった全サブディレクトリの全ファイルが含まれます。<br /><br /> **-FromDirectory** を **-Update** コマンドと共に使用すると、アプリケーション マニフェスト内のファイルのうち、このディレクトリに存在しなくなったファイルが *Mage.exe* によってマニフェストから削除されます。|
+|**-fd, -FromDirectory** `directoryPath`||アプリケーション マニフェスト|`directoryPath`およびそのすべてのサブディレクトリで見つかったすべてのアセンブリとファイルの説明を含んでいるアプリケーション マニフェストを作成します。ここで、 `directoryPath` は、配置対象のアプリケーションが格納されているディレクトリです。 *Mage.exe* では、ディレクトリ内のファイルごとに、そのファイルがアセンブリなのかスタティック ファイルなのかが判断されます。 アセンブリの場合は、 `<dependency>` タグおよび `installFrom` 属性が、アセンブリ名、コード ベースおよびバージョンと共に、アプリケーションに追加されます。 スタティック ファイルの場合は、 `<file>` タグが追加されます。 また、*Mage.exe* は、簡単な一連のヒューリスティックによってアプリケーションのメイン実行可能ファイルを検出し、この実行可能ファイルを ClickOnce アプリケーションのエントリ ポイントとしてマニフェストでマークします。<br /><br /> *Mage.exe* では、ファイルが "データ" ファイルとして自動的にマークされることはありません。 これは手動で行う必要があります。 詳細については、[ClickOnce アプリケーションにデータ ファイルを含める](/visualstudio/deployment/how-to-include-a-data-file-in-a-clickonce-application)」を参照してください。<br /><br /> *Mage.exe* では、各ファイルのサイズに基づいて、各ファイルのハッシュも生成されます。 ClickOnce では、マニフェスト作成後に、配置の各ファイルが改ざんされていないことを確認するためにこれらのハッシュを使用します。 配置対象のファイルに変更を加えた場合には、*Mage.exe* を **-Update** コマンドおよび **-FromDirectory** オプションを付けて実行すると、参照している全ファイルのハッシュおよびアセンブリ バージョンを更新できます。<br /><br /> **-FromDirectory** を指定すると、 `directoryPath`で見つかった全サブディレクトリの全ファイルが含まれます。<br /><br /> **-FromDirectory** を **-Update** コマンドと共に使用すると、アプリケーション マニフェスト内のファイルのうち、このディレクトリに存在しなくなったファイルが *Mage.exe* によってマニフェストから削除されます。|
 |**-if, -IconFile**  `filePath`||アプリケーション マニフェスト|.ICO アイコン ファイルの完全パスを指定します。 このアイコンは、[スタート] メニューおよび [プログラムの追加と削除] エントリのアプリケーション名の横に表示されます。 アイコンを指定しない場合は、既定のアイコンが使用されます。|
 |**-ip, -IncludeProviderURL**  `url`|true|配置マニフェスト|**-ProviderURL**で設定された更新プログラムの場所の値が配置マニフェストに含まれているかどうかを示します。|
 |**-i, -Install** `willInstall`|true|配置マニフェスト|ClickOnce アプリケーションをローカル コンピューターにインストールするのか、Web サイトで実行するのかを指定します。 アプリケーションをインストールすると、アプリケーションは Windows の **[スタート]** メニューに表示されます。 有効な値は、"true" または "t"、および "false" または "f" です。<br /><br /> **-MinVersion** オプションを指定し、ユーザーが **-MinVersion** より前のバージョンをインストールしていた場合は、 **-Install**に渡した値に関係なく、アプリケーションがインストールされます。<br /><br /> このオプションは、 **-BrowserHosted** オプションと一緒に使用することはできません。 1 つのマニフェストに両方のオプションを使用しようとすると、エラーが発生します。|
@@ -65,7 +65,7 @@ Mage [commands] [commandOptions]
 |**-pu,** **-ProviderURL** `url`||配置マニフェスト|ClickOnce でアプリケーションの更新プログラムのチェックを行う場合に参照する URL を指定します。|
 |**-pub, -Publisher** `publisherName`||アプリケーション マニフェスト<br /><br /> 配置マニフェスト|配置マニフェストとアプリケーション マニフェストのいずれかの description 要素に発行者名を追加します。 アプリケーション マニフェストで使用する場合、 **-UseManifestForTrust** も指定する必要があります (値は "true" または "t" に設定します)。指定しないと、エラーが発生します。|
 |**-s, -SupportURL**  `url`||アプリケーション マニフェスト<br /><br /> 配置マニフェスト|[プログラムの追加と削除] で、ClickOnce アプリケーションのエントリに表示されるリンクを指定します。|
-|**-ti, -TimestampUri** `uri`||アプリケーション マニフェスト<br /><br /> 配置マニフェスト|デジタル タイムスタンプ サービスの URL です。 マニフェストにタイムスタンプを設定すると、マニフェストに再署名することを防止できますが、アプリケーションの次のバージョンを配置する前にデジタル証明書の有効期限が切れるようにする必要があります。 詳細については、 [Windows ルート証明書プログラムのメンバー](https://go.microsoft.com/fwlink/?LinkId=159000)を参照してください。|
+|**-ti, -TimestampUri** `uri`||アプリケーション マニフェスト<br /><br /> 配置マニフェスト|デジタル タイムスタンプ サービスの URL です。 マニフェストにタイムスタンプを設定すると、マニフェストに再署名することを防止できますが、アプリケーションの次のバージョンを配置する前にデジタル証明書の有効期限が切れるようにする必要があります。 詳細については、 [Windows ルート証明書プログラムのメンバー](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn265983(v=ws.11))を参照してください。|
 |**-t, -ToFile** `filePath`|-   New:<br />-   配置マニフェストの場合: deploy.application<br />-   アプリケーション マニフェストの場合: application.exe.manifest<br />-   Update コマンド オプション:<br />-   入力ファイル|すべてのファイルの種類|作成または変更されたファイルの出力パスを指定します。<br /><br /> **-New** を使用するときに **-ToFile**を指定しなかった場合、出力ファイルは現在の作業ディレクトリに書き込まれます。 **-Update** を使用する場合に **-ToFile** を指定しなかった場合、*Mage.exe* では、入力ファイルにファイルが書き戻されます。|
 |**-tr, -TrustLevel** `level`|アプリケーション URL が存在するゾーンに基づいて。|アプリケーション マニフェスト|クライアント コンピューター上のアプリケーションに与える信頼のレベルです。 有効な値には、"Internet"、"Intranet"、および "FullTrust" が含まれます。|
 |**-um, -UseManifestForTrust** `willUseForTrust`|False|アプリケーション マニフェスト|アプリケーションをクライアントで実行するときに、アプリケーション マニフェストのデジタル署名を信頼の決定に使用するかどうかを指定します。 "true" または "t" を指定すると、信頼の決定にアプリケーション マニフェストが使用されます。 "false" または "f" を指定すると、信頼の決定に配置マニフェストの署名が使用されます。|
@@ -139,9 +139,9 @@ Visual Studio 2017 には *Mage.exe* のバージョン 4.6.1 が含まれてい
 ||アセンブリの追加|サポートなし|OK|
 ||アセンブリの削除|サポートなし|OK|
 
- Mage.exe は、 [!INCLUDE[net_client_v40_long](../../../includes/net-client-v40-long-md.md)]を対象とする新しいマニフェストを作成します。 [!INCLUDE[net_client_v40_long](../../../includes/net-client-v40-long-md.md)] を対象とする ClickOnce アプリケーションは、 [!INCLUDE[net_client_v40_long](../../../includes/net-client-v40-long-md.md)] と完全版の .NET Framework 4 の両方で実行できます。 アプリケーションが完全版の .NET Framework 4 を対象としていて、[!INCLUDE[net_client_v40_long](../../../includes/net-client-v40-long-md.md)] で実行できない場合は、テキスト エディターを使用してクライアントの `<framework>` 要素を削除し、マニフェストに再署名します。
+ Mage.exe によって、.NET Framework 4 Client Profile をターゲットとする新しいマニフェストが作成されます。 NET Framework 4 Client Profile と完全版の .NET Framework 4 の両方で、.NET Framework 4 Client Profile をターゲットとする ClickOnce アプリケーションを実行できます。 アプリケーションのターゲットが完全版の .NET Framework 4 であり、.NET Framework 4 Client Profile 上で実行できない場合は、テキスト エディターを使用してクライアントの `<framework>` 要素を削除し、マニフェストに再署名します。
 
-`<framework>` を対象とする [!INCLUDE[net_client_v40_long](../../../includes/net-client-v40-long-md.md)] 要素の例を次に示します。
+.NET Framework 4 Client Profile をターゲットとする `<framework>` 要素の例を次に示します。
 
 ```xml
 <framework targetVersion="4.0" profile="client" supportedRuntime="4.0.20506" />

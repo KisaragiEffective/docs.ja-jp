@@ -3,13 +3,13 @@ title: 一般的な Web アプリケーション アーキテクチャ
 description: ASP.NET Core および Azure での最新の Web アプリケーションの設計 | 一般的な Web アプリケーション アーキテクチャの探索
 author: ardalis
 ms.author: wiwagn
-ms.date: 01/30/2019
-ms.openlocfilehash: 8985434467346acc360e9a89c052803f495e87d1
-ms.sourcegitcommit: 8b8dd14dde727026fd0b6ead1ec1df2e9d747a48
+ms.date: 12/04/2019
+ms.openlocfilehash: 7ec0d9cece40ba8a99e8ab5e028f7ac491ed6f4d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71332008"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77450183"
 ---
 # <a name="common-web-application-architectures"></a>一般的な Web アプリケーション アーキテクチャ
 
@@ -99,8 +99,7 @@ Azure 内で Web アプリケーションをスケーリングする最も簡単
 
 依存関係逆転の原則ならびにドメイン駆動設計 (DDD) の原則に従うアプリケーションは、同様のアーキテクチャに到達する傾向があります。 このアーキテクチャには長年にわたってさまざまな名称が付けられてきました。 最初の名前の 1 つがヘキサゴナル アーキテクチャ (Hexagonal Architecture) でした。その後に使用された名前がポート アンド アダプター (Ports-and-Adapters) でした。 最近では、このアーキテクチャは[オニオン アーキテクチャ](https://jeffreypalermo.com/blog/the-onion-architecture-part-1/)または[クリーン アーキテクチャ](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)として引用されています。 後者のクリーン アーキテクチャは、この電子書籍でアーキテクチャの名前として使用されています。
 
-> [!NOTE]
-> クリーン アーキテクチャという用語は、DDD 原則を使用して構築されたアプリケーションにも、DDD 原則を使用して構築されていないアプリケーションにも適用できます。 前者の場合、この組み合わせを "クリーン DDD アーキテクチャ" と呼ぶことがあります。
+eShopOnWeb 参照アプリケーションでは、そのコードをプロジェクトに整理するためにクリーン アーキテクチャ アプローチが使用されています。 独自の ASP.NET Core の出発点として使用できるソリューション テンプレートについては、[ardalis/cleanarchitecture](https://github.com/ardalis/cleanarchitecture) GitHub リポジトリ を参照してください。
 
 クリーン アーキテクチャでは、ビジネス ロジックとアプリケーション モデルをアプリケーションの中心に配置します。 ビジネス ロジックはデータ アクセスまたはその他のインフラストラクチャの懸念事項に依存するのでなく、この依存関係は逆転されます。つまり、インフラストラクチャおよび実装の詳細はアプリケーション コアに依存します。 これを達成するには、アプリケーション コア内で抽象化またはインターフェイスを定義し、それらをインフラストラクチャ レイヤーで定義された型によって実装します。 このアーキテクチャを視覚化するための一般的な方法としては、オニオンに似た一連の同心円を使用します。 図 5-7 に、このスタイルのアーキテクチャを表現した例を示します。
 
@@ -236,7 +235,7 @@ Docker コンテナーは、単純な Web アプリケーションのモノリ�
 
 `eShopOnWeb` プロジェクトは、.NET Core で実行されます。 そのため、Windows ベースまたは Linux ベースのコンテナーで実行できます。 Docker の展開の場合、SQL Server に同じホストの種類を使用する必要があります。 Linux ベースのコンテナーは、小さなフット プリントが可能なので優先されます。
 
-Visual Studio 2017 以降を使用すれば、Docker サポートを既存のアプリケーションに追加することができます。その場合、**ソリューション エクスプローラー**でプロジェクトを右クリックし、 **[追加]** 、 **[Docker サポート]** の順に選択します。 これで、必要なファイルが追加され、そのファイルを使用するようにプロジェクトが変更されます。 現在の `eShopOnWeb` サンプルには既にこれらのファイルが用意されています。
+Visual Studio 2017 以降を使用すれば、Docker サポートを既存のアプリケーションに追加することができます。その場合、**ソリューション エクスプローラー**でプロジェクトを右クリックし、 **[追加]**  >  **[Docker サポート]** の順に選択します。 これで、必要なファイルが追加され、そのファイルを使用するようにプロジェクトが変更されます。 現在の `eShopOnWeb` サンプルには既にこれらのファイルが用意されています。
 
 ソリューション レベルの `docker-compose.yml` ファイルには、どのようなイメージをビルドしてどのようなコンテナーを起動するかに関する情報が含まれています。 このファイルでは、`docker-compose` コマンドを使用し、複数のアプリケーションを同時に起動できます。 この場合、Web プロジェクトのみが起動されます。 別のデータベース コンテナーなど、依存関係を構成する場合にも使用できます。
 
@@ -263,7 +262,7 @@ networks:
 `docker-compose.yml` ファイルは `Web` プロジェクトで `Dockerfile` を参照します。 `Dockerfile` は、使用される基本コンテナーと、その基本コンテナーでのアプリケーションの構成方法を指定する場合に使います。 `Web` の `Dockerfile` は次のとおりです。
 
 ```Dockerfile
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /app
 
 COPY *.sln .
@@ -273,12 +272,9 @@ RUN dotnet restore
 
 RUN dotnet publish -c Release -o out
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS runtime
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
 WORKDIR /app
 COPY --from=build /app/src/Web/out ./
-
-# Optional: Set this here if not setting it from docker-compose.yml
-# ENV ASPNETCORE_ENVIRONMENT Development
 
 ENTRYPOINT ["dotnet", "Web.dll"]
 ```
@@ -299,10 +295,12 @@ Visual Studio を使用して、ご利用のアプリケーションに Docker �
   <https://jeffreypalermo.com/blog/the-onion-architecture-part-1/>
 - **リポジトリ パターン**  
   <https://deviq.com/repository-pattern/>
-- **クリーン アーキテクチャ ソリューションのサンプル**  
+- **クリーン アーキテクチャ ソリューション テンプレート**  
   <https://github.com/ardalis/cleanarchitecture>
 - **マイクロサービス電子書籍の設計**  
   <https://aka.ms/MicroservicesEbook>
+- **DDD (ドメイン駆動設計)**  
+  <https://docs.microsoft.com/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/>
 
 >[!div class="step-by-step"]
 >[前へ](architectural-principles.md)

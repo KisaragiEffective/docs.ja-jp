@@ -6,14 +6,12 @@ helpviewer_keywords:
 - platform invoke, attribute fields
 - attribute fields in platform invoke, EntryPoint
 ms.assetid: d1247f08-0965-416a-b978-e0b50652dfe3
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2a5449b4fa77ba99a18595077081089e80bd32df
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.openlocfilehash: a55e460f565c33731c5b0b29ab42b8263d3690e2
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71833617"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73125167"
 ---
 # <a name="specifying-an-entry-point"></a>エントリ ポイントの指定
 

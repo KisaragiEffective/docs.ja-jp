@@ -4,12 +4,12 @@ description: .NET for Apache Spark について説明します。これは、.NE
 author: mamccrea
 ms.topic: overview
 ms.date: 10/15/2019
-ms.openlocfilehash: c31b50a20ac08bcde077e1e85ee915435a99fc28
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 12fccd478cedaccf455043feb3afa7b12221bf0e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72395869"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73458203"
 ---
 # <a name="what-is-net-for-apache-spark"></a>.NET for Apache Spark とは
 
@@ -19,10 +19,10 @@ ms.locfileid: "72395869"
 
 .NET for Apache Spark は、.NET の経験あるいはコード ベースを持つ開発者が、ビッグ データ分析の世界へ参入できるように支援します。 .NET for Apache Spark は、C# および F# から Spark を使用するためのハイ パフォーマンスの API を提供します。 C# および F# では、次にアクセスできます。
 
-* 構造化データを操作するためのデータフレームおよび SparkSQL
-* ストリーミング データを操作するための Spark Structured Streaming
-* SQL 構文を使用してクエリを作成するための Spark SQL
-* トレーニングと予測を高速化するための機械学習の統合 (つまり、[ML.NET](http://dot.net/ml) と共に .NET for Apache Spark を使用します)
+* 構造化データを操作するためのデータフレームおよび SparkSQL。
+* ストリーミング データを操作するための Spark Structured Streaming。
+* SQL 構文を使用してクエリを作成するための Spark SQL。
+* トレーニングと予測を高速化するための機械学習の統合 (つまり、[ML.NET](https://dot.net/ml) と共に .NET for Apache Spark を使用します)。
 
 .NET for Apache Spark は、.NET Standard (.NET 実装全体で共通した .NET API の標準仕様) に準拠しています。 つまり、.NET コードが記述されたすべての場所で Apache Spark を使用できることで、.NET 開発者として既に持っているすべての知識、スキル、コード、およびライブラリを再利用することができます。
 
@@ -39,7 +39,7 @@ Spark 言語拡張機能の相互運用のサポートについては[提案](ht
 
 ## <a name="net-for-apache-spark-performance"></a>.NET for Apache Spark のパフォーマンス
 
-[TPC-H ベンチマーク](http://www.tpc.org/tpch/)を使用して Python および Scala と比較した場合、.NET for Apache Spark はほとんどの場合で優れた成績を収め、ユーザー定義関数のパフォーマンスが重要な場合は Python よりも 2 倍高速に実行されます。 パフォーマンスを改善してベンチマークを行うための継続的な取り組みがなされています。 
+[TPC-H ベンチマーク](http://www.tpc.org/tpch/)を使用して Python および Scala と比較した場合、.NET for Apache Spark はほとんどの場合で優れた成績を収め、ユーザー定義関数のパフォーマンスが重要な場合は Python よりも 2 倍高速に実行されます。 パフォーマンスを改善してベンチマークを行うための継続的な取り組みがなされています。
 
 独自のベンチマークを実行するには、[.NET for Apache Spark GitHub](https://github.com/dotnet/spark/tree/master/benchmark) で利用可能なベンチマークを参照してください。
 

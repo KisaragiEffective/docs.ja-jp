@@ -130,9 +130,7 @@
               href: how-to-configure-iis-5-0-and-iis-6-0-to-deploy-wpf-applications.md
             - name: Visual Studio を構成して Web サービスを呼び出す XAML ブラウザー アプリケーションをデバッグする
               href: configure-vs-to-debug-a-xaml-browser-to-call-a-web-service.md
-            - name: インストールされている WPF のバージョンを確認する
-              href: how-to-determine-the-installed-version-of-wpf.md
-            - name: .NET Framework 3.0 がインストールされているかどうかを確認する
+            - name: .NET Framework 3.0 がインストールされているかどうかの確認
               href: how-to-detect-whether-the-net-framework-3-0-is-installed.md
             - name: .NET Framework 3.5 がインストールされているかどうかを確認する
               href: how-to-detect-whether-the-net-framework-3-5-is-installed.md

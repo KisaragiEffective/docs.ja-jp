@@ -3,14 +3,12 @@ title: XSLT のセキュリティに関する考慮事項
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: fea695be-617c-4977-9567-140e820436fc
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 683cf4a38ed08e0c569df62778c2ff80323ef261
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
-ms.translationtype: HT
+ms.openlocfilehash: e6e490c0f637aace57dacc88ef49cc9be87532cd
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69910488"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75709687"
 ---
 # <a name="xslt-security-considerations"></a>XSLT のセキュリティに関する考慮事項
 XSLT 言語には、優れた性能と柔軟性を兼ね備えた豊富な機能が用意されています。 ただし、多くの機能を利用できることが便利であると同時に、外部から不正に利用される可能性もあります。 XSLT を安全に使用するために、XSLT の使用に伴うさまざまなセキュリティ上の問題とそのリスクを軽減するための基本的な対策を理解しておく必要があります。  
@@ -31,7 +29,7 @@ XSLT 言語には、優れた性能と柔軟性を兼ね備えた豊富な機能
 #### <a name="guidelines"></a>ガイドライン  
  スクリプト機能を有効にするのは、スタイル シートの作成元が信頼できる場合のみにしてください。 スタイル シートの作成元が確認できない場合、またはスタイル シートの作成元が信頼できない場合には、XSLT 設定の引数に `null` を渡してください。  
   
-## <a name="external-resources"></a>外部リソース  
+## <a name="external-resources"></a>外部資料  
  XSLT 言語には、`xsl:import`、`xsl:include`、または `document()` 関数などの機能があります。これらの機能では、プロセッサが URI リファレンスを解決する必要があります。 外部リソースを解決するには、<xref:System.Xml.XmlResolver> クラスを使用します。 外部リソースの解決が必要になる可能性があるのは、次の 2 つの場合です。  
   
 - スタイル シートをコンパイルする場合には、<xref:System.Xml.XmlResolver> および `xsl:import` を解決するために `xsl:include` を使用します。  

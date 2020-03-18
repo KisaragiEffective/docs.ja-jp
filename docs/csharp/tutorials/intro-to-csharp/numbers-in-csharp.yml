@@ -11,12 +11,12 @@ metadata:
   nextTutorialTitle: C# の分岐とループ
   displayType: two-column
   interactive: csharp
-  ms.openlocfilehash: 42d9784b9aa35fbb739e09dd79d72996b0f15950
-  ms.sourcegitcommit: 9c3a4f2d3babca8919a1e490a159c1500ba7a844
+  ms.openlocfilehash: 48268c6e839ae4f72aae0e872c837b153325b68b
+  ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 10/12/2019
-  ms.locfileid: "72291373"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "77504014"
 items:
 - durationInMinutes: 1
   content: >
@@ -24,7 +24,7 @@ items:
 - title: 整数の演算の確認
   durationInMinutes: 4
   content: >
-    対話型ウィンドウで次のコードを実行します。 そのためには、対話型ウィンドウで次のコード ブロックを入力し、**[実行]** をクリックします。
+    対話型ウィンドウで次のコードを実行します。 **[Enter focus mode]\(フォーカス モードを入力する\)** ボタンを選択します。 次に、対話型ウィンドウで次のコード ブロックを入力し、**[実行]** を選択します。
 
 
     ```csharp
@@ -58,7 +58,7 @@ items:
     > この対話型チュートリアルでは、対話型ウィンドウで作成したコードを変更して、自分で確認できます。 このチュートリアルでは、各ステップで実際に試すことができる例を用意しています。
 
 
-    まずは、上記の各種演算を実行してみます。 3 行目を変更して、各演算を試します。 編集が終わるごとに、**[実行]** をクリックします。
+    まずは、上記の各種演算を実行してみます。 3 行目を変更して、各演算を試します。 編集が終わるごとに、**[実行]** ボタンを選択します。
 
 
     減算：
@@ -181,7 +181,7 @@ items:
     ```
 
 
-    もう一度 **[実行]** をクリックして結果を確認します。
+    もう一度 **[実行]** を選択して結果を確認します。
 
 
     > [!NOTE]
@@ -192,7 +192,7 @@ items:
   content: >
     この最後のサンプルでは、整数の除算における結果の切り捨てについて確認します。
 
-    **modulo** 演算子 (`%` 文字) を使用して、**剰余**を得ることができます。
+    **remainder** 演算子 (** 文字) を使用して、** リマインダー`%`を得ることができます。
 
 
     ```csharp
@@ -415,18 +415,14 @@ items:
 
     > このオンライン コーディング体験はプレビュー モードです。 問題が生じた場合は、[dotnet/try リポジトリ](https://github.com/dotnet/try/issues)でその問題をお知らせください。
 - content: >-
-    これで "C# の数値" に関する対話型チュートリアルは終了です。 下の**ブランチとループ**のリンクをクリックすることで次の対話式チュートリアルを開始することができます。また、[.NET サイト](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)にアクセスして .NET Core SDK をダウンロードし、ご利用のコンピューター上でプロジェクトを作成し、コーディングを続けることもできます。 "次の手順" セクションでは、これらのチュートリアルに戻ります。
+    これで "C# の数値" に関する対話型チュートリアルは終了です。 下の**分岐とループ**のリンクを選択することで次の対話式チュートリアルを開始することができます。また、[.NET サイト](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)にアクセスして .NET Core SDK をダウンロードし、ご利用のマシン上でプロジェクトを作成し、コーディングを続けることもできます。 "次の手順" セクションでは、これらのチュートリアルに戻ります。
 
 
     C# の数値の詳細については、次のトピックで学習できます。
 
 
-    - [整数型](../../language-reference/builtin-types/integral-numeric-types.md)
+    - [整数数値型](../../language-reference/builtin-types/integral-numeric-types.md)
 
-    - [浮動小数点型の一覧表](../../language-reference/builtin-types/floating-point-numeric-types.md)
+    - [浮動小数点数値型](../../language-reference/builtin-types/floating-point-numeric-types.md)
 
-    - [組み込み型の一覧表](../../language-reference/keywords/built-in-types-table.md)
-
-    - [暗黙的な数値変換の一覧表](../../language-reference/keywords/implicit-numeric-conversions-table.md)
-
-    - [明示的な数値変換の一覧表](../../language-reference/keywords/explicit-numeric-conversions-table.md)
+    - [組み込みの数値変換](../../language-reference/builtin-types/numeric-conversions.md)

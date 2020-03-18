@@ -1,5 +1,5 @@
 ---
-title: '方法: 演算子を定義する (Visual Basic)'
+title: '方法 : 演算子を定義する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - procedures [Visual Basic], defining
@@ -13,36 +13,36 @@ helpviewer_keywords:
 - return values [Visual Basic], Operator procedures
 - operator overloading
 ms.assetid: d4b0e253-092a-4e6e-9fe2-01f562140a29
-ms.openlocfilehash: 14aa25de78eb357f8474d3828aa45e48e7a4f9c7
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: b99af8ff4d5428f1749bfc1a4c51a136f12405ee
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61863846"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74344872"
 ---
 # <a name="how-to-define-an-operator-visual-basic"></a>方法: 演算子を定義する (Visual Basic)
-標準の演算子の動作を定義するクラスまたは構造体を定義している場合 (など`*`、 `<>`、または`And`) 1 つまたは両方のオペランドがクラスまたは構造体の型であるとき。  
+クラスまたは構造体を定義している場合は、オペランドの1つまたは両方がクラスまたは構造体の型である場合に、標準の演算子 (`*`、`<>`、`And`など) の動作を定義できます。  
   
- 演算子プロシージャ内でクラスまたは構造体として標準の演算子を定義します。 演算子のすべてのプロシージャである必要があります`Public``Shared`します。  
+ クラスまたは構造体内で、標準の演算子を演算子プロシージャとして定義します。 すべての演算子プロシージャは `Shared``Public` である必要があります。  
   
- クラスまたは構造体で演算子を定義が呼び出されますも*オーバー ロード*演算子。  
+ クラスまたは構造体に対して演算子を定義することは、演算子の*オーバーロード*とも呼ばれます。  
   
 ## <a name="example"></a>例  
- 次の例では、定義、`+`構造体の演算子と呼ばれる`height`します。 構造体は、フィートやインチ単位の高さを使用します。 1 つ*インチ*2.54 センチメートル、もう 1 つは、 *foot* 12 インチです。 コンス トラクターを実行する正規化された値 (インチ < 12.0) を確認するには、*剰余*12 の演算です。 `+`演算子では、コンス トラクターを使用して、正規化された値を生成します。  
+ 次の例では、`height`と呼ばれる構造体の `+` 演算子を定義します。 この構造体は、フィートとインチで計測された高さを使用します。 1*インチ*は2.54 センチメートル、1*フィート*は12インチです。 正規化された値 (インチ < 12.0) を確保するために、コンストラクターは*モジュロ*12 の算術演算を実行します。 `+` 演算子は、コンストラクターを使用して正規化された値を生成します。  
   
  [!code-vb[VbVbcnProcedures#25](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#25)]  
   
- 構造体をテストする`height`を次のコード。  
+ 構造 `height` をテストするには、次のコードを使用します。  
   
  [!code-vb[VbVbcnProcedures#26](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#26)]  
 
 ## <a name="see-also"></a>関連項目
 
 - [演算子プロシージャ](./operator-procedures.md)
-- [方法: 変換演算子を定義する](./how-to-define-a-conversion-operator.md)
-- [方法: 演算子プロシージャを呼び出す](./how-to-call-an-operator-procedure.md)
+- [方法 : 変換演算子を定義する](./how-to-define-a-conversion-operator.md)
+- [方法 : 演算子プロシージャを呼び出す](./how-to-call-an-operator-procedure.md)
 - [方法: 演算子を定義するクラスを使用する](./how-to-use-a-class-that-defines-operators.md)
 - [Operator ステートメント](../../../../visual-basic/language-reference/statements/operator-statement.md)
 - [Structure ステートメント](../../../../visual-basic/language-reference/statements/structure-statement.md)
-- [方法: 構造体を宣言する](../../../../visual-basic/programming-guide/language-features/data-types/how-to-declare-a-structure.md)
+- [方法 : 構造体を宣言する](../../../../visual-basic/programming-guide/language-features/data-types/how-to-declare-a-structure.md)
 - [Mod 演算子](../../../../visual-basic/language-reference/operators/mod-operator.md)

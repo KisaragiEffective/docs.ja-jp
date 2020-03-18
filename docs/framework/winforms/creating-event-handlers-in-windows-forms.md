@@ -1,5 +1,5 @@
 ---
-title: Windows フォーム内でのイベント ハンドラーの作成
+title: イベントハンドラーの作成
 ms.date: 03/30/2017
 helpviewer_keywords:
 - event handling [Windows Forms]
@@ -8,12 +8,12 @@ helpviewer_keywords:
 - events [Windows Forms], event handlers
 - event handlers [Windows Forms]
 ms.assetid: 6514e530-c6b8-489c-a8d2-eda7b7072701
-ms.openlocfilehash: 6b1d146dfd9d51641bc9eb5d8be4cd2508c223a1
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 90acb3c7691acbcb528ae66692af67c2fb28eeaf
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69963479"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76742337"
 ---
 # <a name="creating-event-handlers-in-windows-forms"></a>Windows フォーム内でのイベント ハンドラーの作成
 
@@ -27,16 +27,16 @@ ms.locfileid: "69963479"
  [イベント ハンドラーの概要](event-handlers-overview-windows-forms.md)\
  イベントを処理する方法について説明します。
 
- [方法: 実行時に Windows フォームのイベントハンドラーを作成する](how-to-create-event-handlers-at-run-time-for-windows-forms.md)\
+ [方法: Windows フォーム\ の実行時にイベントハンドラーを作成する](how-to-create-event-handlers-at-run-time-for-windows-forms.md)
  システム イベントおよびユーザー イベントへの動的な応答の手順を説明します。
 
- [方法: Windows フォームの1つのイベントハンドラーに複数のイベントを接続する](how-to-connect-multiple-events-to-a-single-event-handler-in-windows-forms.md)\
+ [方法: Windows フォーム\ で複数のイベントを1つのイベントハンドラーに接続](how-to-connect-multiple-events-to-a-single-event-handler-in-windows-forms.md)する
  イベントを通じて、複数のコントロールに同じ機能を割り当てる手順について説明します。
 
- [Windows フォーム内のイベントの順序](order-of-events-in-windows-forms.md)\
+ [Windows フォーム\ 内のイベントの順序](order-of-events-in-windows-forms.md)
  Windows フォーム コントロールで発生するイベントの順序について説明します。
 
- [方法: デザイナー](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2010/zwwsdtbk(v=vs.100))を使用してイベントハンドラーを作成する Windows フォームデザイナーを使用してイベントハンドラーを作成する方法について説明します。
+ [方法: デザイナーを使用してイベントハンドラーを作成する](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2010/zwwsdtbk(v=vs.100))Windows フォームデザイナーを使用してイベントハンドラーを作成する方法について説明します。
 
 ## <a name="related-sections"></a>関連項目
 

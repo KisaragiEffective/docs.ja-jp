@@ -2,12 +2,12 @@
 title: C# での非同期プログラミング
 description: C# 言語での async、await、Task、Task<T> を使用した非同期プログラミングのサポートの概要です
 ms.date: 03/18/2019
-ms.openlocfilehash: 4ed48a2e74dde5ae0f24ebd680ace133e05e15d4
-ms.sourcegitcommit: 1b020356e421a9314dd525539da12463d980ce7a
+ms.openlocfilehash: 4cbbff0f2c48f0ec2f8befa234ea5023465a1c5d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70167889"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79169910"
 ---
 # <a name="asynchronous-programming-with-async-and-await"></a>async および await を使用した非同期プログラミング
 
@@ -26,13 +26,13 @@ ms.locfileid: "70167889"
 
 朝食の準備は、並列ではない非同期作業のよい例です。 1 人 (つまり 1 つのスレッド) で、これらすべてのタスクを処理できます。 朝食の例を続けると、1 人で、最初の作業が完了する前に次の作業を開始して、非同期に朝食を作ることができます。 調理はそれを監視している人がいるかどうかに関係なく進行します。 卵用のフライパンを熱し始めたらすぐに、ベーコンを焼き始めることができます。 ベーコンを焼き始めたら、パンをトースターに入れることができます。
 
-並列アルゴリズムの場合は、複数の料理人 (つまりスレッド) が必要です。 1 人は卵を焼き、1 人はベーコンを焼く、といった具合です。 それぞれは、1 つのタスクだけに集中します。 各料理人 (つまりスレッド) は、ベーコンを裏返すことができるようになるまで、またはトーストが飛び出すまで待つ間は、同期的にブロックされます。 
+並列アルゴリズムの場合は、複数の料理人 (つまりスレッド) が必要です。 1 人は卵を焼き、1 人はベーコンを焼く、といった具合です。 それぞれは、1 つのタスクだけに集中します。 各料理人 (つまりスレッド) は、ベーコンを裏返すことができるようになるまで、またはトーストが飛び出すまで待つ間は、同期的にブロックされます。
 
 それでは、これと同じ命令が C# ステートメントとして書かれている場合を考えてみましょう。
 
 [!code-csharp[SynchronousBreakfast](~/samples/snippets/csharp/tour-of-async/AsyncBreakfast-starter/Program.cs#Main)]
 
-コンピューターによって、人と同じように命令が解釈されることはありません。 コンピューターでは、作業が完了するまで各ステートメントはブロックされ、完了すると次のステートメントに進みます。 それではおいしい朝食はできません。 後のタスクは、前のタスクが完了するまで開始されません。 朝食の支度でこんなことをしていると、ずっと長い時間がかかり、提供される前に冷めてしまう料理もあるでしょう。 
+コンピューターによって、人と同じように命令が解釈されることはありません。 コンピューターでは、作業が完了するまで各ステートメントはブロックされ、完了すると次のステートメントに進みます。 それではおいしい朝食はできません。 後のタスクは、前のタスクが完了するまで開始されません。 朝食の支度でこんなことをしていると、ずっと長い時間がかかり、提供される前に冷めてしまう料理もあるでしょう。
 
 上のような手順をコンピューターに非同期に実行させたい場合は、非同期のコードを書く必要があります。
 
@@ -42,7 +42,7 @@ ms.locfileid: "70167889"
 
 ## <a name="dont-block-await-instead"></a>ブロックするのではなく待機する
 
-上記のコードは、非同期的な操作を実行するために同期的なコードを作成するという、不適切な手法の例です。 このようなコードを書くと、それを実行するスレッドは、他の作業を行うことができません。 何らかのタスクの処理中は割り込まれません。 パンを入れた後でトースターをじっと見詰めているようなものです。 トーストが飛び出すまで、誰かから話し掛けられても無視するでしょう。 
+上記のコードは、非同期的な操作を実行するために同期的なコードを作成するという、不適切な手法の例です。 このようなコードを書くと、それを実行するスレッドは、他の作業を行うことができません。 何らかのタスクの処理中は割り込まれません。 パンを入れた後でトースターをじっと見詰めているようなものです。 トーストが飛び出すまで、誰かから話し掛けられても無視するでしょう。
 
 タスクの実行中にスレッドをブロックしないように、このコードを更新することから始めましょう。 `await` キーワードを使用すると、ブロックしない方法でタスクを開始し、タスクが完了したら実行を継続できます。 朝食作成コードの簡単な非同期バージョンは、次のスニペットのようになります。
 
@@ -65,8 +65,8 @@ ms.locfileid: "70167889"
 ```csharp
 Coffee cup = PourCoffee();
 Console.WriteLine("coffee is ready");
-Task<Egg> eggTask = FryEggs(2);
-Egg eggs = await eggTask;
+Task<Egg> eggsTask = FryEggs(2);
+Egg eggs = await eggsTask;
 Console.WriteLine("eggs are ready");
 Task<Bacon> baconTask = FryBacon(3);
 Bacon bacon = await baconTask;
@@ -87,7 +87,7 @@ Console.WriteLine("Breakfast is ready!");
 ```csharp
 Coffee cup = PourCoffee();
 Console.WriteLine("coffee is ready");
-Task<Egg> eggTask = FryEggs(2);
+Task<Egg> eggsTask = FryEggs(2);
 Task<Bacon> baconTask = FryBacon(3);
 Task<Toast> toastTask = ToastBread(2);
 Toast toast = await toastTask;
@@ -97,7 +97,7 @@ Console.WriteLine("toast is ready");
 Juice oj = PourOJ();
 Console.WriteLine("oj is ready");
 
-Egg eggs = await eggTask;
+Egg eggs = await eggsTask;
 Console.WriteLine("eggs are ready");
 Bacon bacon = await baconTask;
 Console.WriteLine("bacon is ready");
@@ -129,7 +129,7 @@ Console.WriteLine("Breakfast is ready!");
 上記のコードの最後にある一連の `await` ステートメントは、`Task` クラスのメソッドを使用することによって改良できます。 それらの API の 1 つは <xref:System.Threading.Tasks.Task.WhenAll%2A> であり、これにより次のコードで示すように、引数リストのすべてのタスクが完了すると完了する <xref:System.Threading.Tasks.Task> が返されます。
 
 ```csharp
-await Task.WhenAll(eggTask, baconTask, toastTask);
+await Task.WhenAll(eggsTask, baconTask, toastTask);
 Console.WriteLine("eggs are ready");
 Console.WriteLine("bacon is ready");
 Console.WriteLine("toast is ready");

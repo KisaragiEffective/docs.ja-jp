@@ -1,13 +1,13 @@
 ---
-title: ADO.NET の概要
+title: の概要
 ms.date: 03/30/2017
 ms.assetid: ee3bc1d8-11db-4be4-89eb-c708cf04117d
-ms.openlocfilehash: 2d21e5b73757280b679a9c5cd04a56339e7e967e
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: d5dc9cf7081c6876118914a0b95853a5a7ca5e57
+ms.sourcegitcommit: 19014f9c081ca2ff19652ca12503828db8239d48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70785098"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76980341"
 ---
 # <a name="adonet-overview"></a>ADO.NET の概要
 ADO.NET は、SQL Server や XML などのデータ ソースや、OLE DB や ODBC 経由で公開されるデータ ソースに対する一貫性を持ったアクセス機能を実現します。 データを共有する消費者向けアプリケーションで ADO.NET を使用することで、そのようなデータ ソースへの接続や、データ ソースに格納されているデータの取得、操作、更新を実行できます。  
@@ -20,7 +20,7 @@ ADO.NET は、SQL Server や XML などのデータ ソースや、OLE DB や OD
   
  ADO.NET は、.NET Framework におけるデータ アクセスの最も直接的な方法を提供します。 基になるストレージモデルではなく、概念モデルに対するアプリケーションの動作を可能にする高レベルの抽象化については、 [ADO.NET Entity Framework](./ef/index.md)を参照してください。  
   
- **プライバシー**に関する声明:System.string、System.data.oracleclient、System.data.sqlserverce、および system.string の各アセンブリは、ユーザーのものを区別しません。このようなアセンブリでは、ユーザーを識別しているものとは区別されません。このようなアセンブリは、ユーザーにとっては異なりますが、プライベートデータと非プライベートデータ。  これらのアセンブリによって、ユーザーの個人データの収集、格納、送信が実行されることはありません。 ただし、サードパーティ製のアプリケーションでこれらのアセンブリが使用され、ユーザーの個人データの収集、格納、送信が行われる可能性はあります。  
+ **プライバシー**に関する声明: System.data.oracleclient、system.data.sqlserverce、System.string、、および system.string の各アセンブリは、ユーザーのプライベートデータと非プライベートデータを区別しません。Dll、、および system.string の各アセンブリは、ユーザーのプライベートデータと非プライベートデータを区別しません。  これらのアセンブリによって、ユーザーの個人データの収集、格納、送信が実行されることはありません。 ただし、サードパーティ製のアプリケーションでこれらのアセンブリが使用され、ユーザーの個人データの収集、格納、送信が行われる可能性はあります。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [ADO.NET のアーキテクチャ](ado-net-architecture.md)  
@@ -44,7 +44,7 @@ ADO.NET は、SQL Server や XML などのデータ ソースや、OLE DB や OD
  [ADO.NET のコード例](ado-net-code-examples.md)  
  ADO.NET データ プロバイダーを使用してデータを取得するコード サンプルです。  
   
-## <a name="related-sections"></a>関連項目  
+## <a name="related-sections"></a>関連セクション  
  [ADO.NET の新機能](whats-new.md)  
  ADO.NET の新機能について説明します。  
   

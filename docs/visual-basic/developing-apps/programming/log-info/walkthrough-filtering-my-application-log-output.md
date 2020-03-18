@@ -1,17 +1,17 @@
 ---
-title: My.Application.Log の出力のフィルター処理 (Visual Basic)
+title: My.Application.Log の出力をフィルター処理する
 ms.date: 07/20/2015
 helpviewer_keywords:
 - My.Log object, filtering output
 - My.Application.Log object, filtering output
 - application event logs, output filtering
 ms.assetid: 2c0a457a-38a4-49e1-934d-a51320b7b4ca
-ms.openlocfilehash: 16cbbf9bf82e0c1e48eaacfcc9f07f718ed8de49
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: f18556bbe1ca2d77925482319246d403892d31ef
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524784"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74353587"
 ---
 # <a name="walkthrough-filtering-myapplicationlog-output-visual-basic"></a>チュートリアル: My.Application.Log の出力のフィルター処理 (Visual Basic)
 
@@ -43,7 +43,7 @@ ms.locfileid: "72524784"
 
 6. アプリケーションを終了します。
 
-     アプリケーションのデバッグ出力ウィンドウを表示する方法について詳しくは、「[出力ウィンドウ](/visualstudio/ide/reference/output-window)」をご覧ください。 アプリケーションのログ ファイルの場所については、「[チュートリアル:My.Application.Log による情報の書き込み先の確認](../../../../visual-basic/developing-apps/programming/log-info/walkthrough-determining-where-my-application-log-writes-information.md)」を参照してください。
+     アプリケーションのデバッグ出力ウィンドウを表示する方法について詳しくは、「[出力ウィンドウ](/visualstudio/ide/reference/output-window)」をご覧ください。 アプリケーションのログ ファイルの場所について詳しくは、「[チュートリアル: My.Application.Log による情報の書き込み先の確認](../../../../visual-basic/developing-apps/programming/log-info/walkthrough-determining-where-my-application-log-writes-information.md)」をご覧ください。
 
     > [!NOTE]
     > 既定では、アプリケーションはアプリケーションの終了時にログ ファイルの出力をフラッシュします。
@@ -52,7 +52,7 @@ ms.locfileid: "72524784"
 
 ## <a name="filtering-for-all-myapplicationlog-listeners"></a>すべての My.Application.Log リスナーのフィルター処理
 
-`My.Application.Log` オブジェクトは、`DefaultSwitch` という名前の <xref:System.Diagnostics.SourceSwitch> を使用し、`WriteEntry` および `WriteException` メソッドからログ リスナーに渡すメッセージを制御します。 アプリケーションの構成ファイル内にある `DefaultSwitch` は、その値を <xref:System.Diagnostics.SourceLevels> 列挙値のいずれかに設定することで構成できます。 既定では、この値は "Information" です。
+`My.Application.Log` オブジェクトは、<xref:System.Diagnostics.SourceSwitch> という名前の `DefaultSwitch` を使用し、`WriteEntry` および `WriteException` メソッドからログ リスナーに渡すメッセージを制御します。 アプリケーションの構成ファイル内にある `DefaultSwitch` は、その値を <xref:System.Diagnostics.SourceLevels> 列挙値のいずれかに設定することで構成できます。 既定では、この値は "Information" です。
 
 次の表は、Log がリスナーにメッセージを書き込むために必要な重大度レベルを、`DefaultSwitch` の設定ごとに示したものです。
 
@@ -60,7 +60,7 @@ ms.locfileid: "72524784"
 |---|---|
 |`Critical`|`Critical`|
 |`Error`|`Critical` または `Error`|
-|`Warning`|`Critical`、 `Error`、または `Warning`|
+|`Warning`|`Critical`、`Error`、または `Warning`|
 |`Information`|`Critical`、`Error`、`Warning`、または `Information`|
 |`Verbose`|`Critical`、`Error`、`Warning`、`Information`、または `Verbose`|
 |`ActivityTracing`|`Start`、`Stop`、`Suspend`、`Resume`、または `Transfer`|
@@ -86,7 +86,7 @@ ms.locfileid: "72524784"
 
     3. **[追加]** をクリックします。
 
-2. 最上位の `<configuration>` セクション内の `<system.diagnostics>` セクションで、`<switches>` セクションを見つけます。
+2. 最上位の `<switches>` セクション内の `<system.diagnostics>` セクションで、`<configuration>` セクションを見つけます。
 
 3. スイッチのコレクションに `DefaultSwitch` を追加する要素を見つけます。 これは次のような要素です。
 
@@ -164,7 +164,7 @@ ms.locfileid: "72524784"
 
 2. **ソリューション エクスプローラー**で app.config を右クリックします。 **[開く]** をクリックします。
 
-3. `<sources>` セクション内にある、`name` 属性が "DefaultSource" の `<source>` セクションで、`<listeners>` セクションを見つけます。 `<sources>` セクションは、最上位の `<configuration>` セクション内の `<system.diagnostics>` セクションにあります。
+3. `<listeners>` セクション内にある、`<source>` 属性が "DefaultSource" の `name` セクションで、`<sources>` セクションを見つけます。 `<sources>` セクションは、最上位の `<system.diagnostics>` セクション内の `<configuration>` セクションにあります。
 
 4. `<listeners>` セクションに次の要素を追加します。
 
@@ -251,11 +251,11 @@ ms.locfileid: "72524784"
 
 配置後にログの設定を変更する方法については、「[アプリケーション ログの使用](../../../../visual-basic/developing-apps/programming/log-info/working-with-application-logs.md)」をご覧ください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [チュートリアル: My.Application.Log による情報の書き込み先の確認](../../../../visual-basic/developing-apps/programming/log-info/walkthrough-determining-where-my-application-log-writes-information.md)
-- [チュートリアル: My.Application.Log による情報の書き込み先の変更](../../../../visual-basic/developing-apps/programming/log-info/walkthrough-changing-where-my-application-log-writes-information.md)
-- [チュートリアル: カスタム ログ リスナーの作成](../../../../visual-basic/developing-apps/programming/log-info/walkthrough-creating-custom-log-listeners.md)
+- [チュートリアル : My.Application.Log による情報の書き込み先の確認](../../../../visual-basic/developing-apps/programming/log-info/walkthrough-determining-where-my-application-log-writes-information.md)
+- [チュートリアル : My.Application.Log による情報の書き込み先の変更](../../../../visual-basic/developing-apps/programming/log-info/walkthrough-changing-where-my-application-log-writes-information.md)
+- [チュートリアル : カスタム ログ リスナーの作成](../../../../visual-basic/developing-apps/programming/log-info/walkthrough-creating-custom-log-listeners.md)
 - [方法: ログ メッセージを書き込む](../../../../visual-basic/developing-apps/programming/log-info/how-to-write-log-messages.md)
 - [トレース スイッチ](../../../../framework/debug-trace-profile/trace-switches.md)
 - [アプリケーションからの情報のログ記録](../../../../visual-basic/developing-apps/programming/log-info/index.md)

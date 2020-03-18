@@ -1,27 +1,27 @@
 ---
-title: Windows Workflow (WF) のサンプル ドキュメント
+title: Windows Workflow (WF) のサンプルドキュメント
 ms.date: 09/24/2018
 ms.assetid: e0aef017-4381-4f2f-a904-6e1ed898687e
-ms.openlocfilehash: 2d36c4d029050fc052f2469134e93125f56da3fa
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 24858d1b8d904bb32b2cee01d8ed5d710f97b15f
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61913875"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715972"
 ---
 # <a name="windows-workflow-wf-samples"></a>Windows Workflow (WF) のサンプル
 
-できます[Windows Workflow のサンプルをダウンロード](https://go.microsoft.com/fwlink/?LinkId=150780)に関するさまざまな Windows Workflow Foundation (WF) の命令を提供します。
+Windows Workflow Foundation (WF) のさまざまな側面に関する命令を提供する[Windows Workflow サンプルをダウンロード](https://www.microsoft.com/download/details.aspx?id=21459)できます。
 
-このセクションの記事では、サンプル、ダウンロード パッケージでは、一部について説明します。 すべてのサンプルを網羅する完全なドキュメント セットで確認、 [.NET Framework 4 の WF のサンプル](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/dd483375(v%3dvs.100))セクション。
+このセクションの記事では、ダウンロードパッケージのいくつかのサンプルについて説明します。 すべてのサンプルを網羅した完全なドキュメントセットについては、 [.NET Framework 4 WF サンプル](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/dd483375(v%3dvs.100))を参照してください。
 
 > [!NOTE]
-> ダウンロード可能なサンプルは、Visual Studio 2010 で作成されたと[!INCLUDE[netfx40_short](../../../../includes/netfx40-short-md.md)]、以降のバージョンの Visual Studio および .NET Framework と互換性があるがします。 その他の Windows Workflow Foundation 用サンプル[!INCLUDE[netfx_current_short](../../../../includes/netfx-current-short-md.md)]ご覧[MSDN コード サンプル](https://aka.ms/WF45Samples)します。
+> ダウンロード可能なサンプルは、Visual Studio 2010 および .NET Framework 4 で作成されましたが、それ以降のバージョンの Visual Studio および .NET Framework と互換性があります。 [!INCLUDE[netfx_current_short](../../../../includes/netfx-current-short-md.md)] での Windows Workflow Foundation の追加のサンプルについては、 [MSDN のコードサンプル](https://aka.ms/WF45Samples)を参照してください。
 
 ## <a name="in-this-section"></a>このセクションの内容
 
-[アプリケーション](application.md)-ワークフロー アプリケーションに関連するサンプルを提供します。
+[アプリケーション](application.md)-ワークフローアプリケーションに関連するサンプルを提供します。
 
-[基本的な](basic.md)-基本的な Windows Workflow Foundation (WF) 機能を示すサンプルを提供します。
+[基本](basic.md)-基本的な WINDOWS WORKFLOW FOUNDATION (WF) 機能を示すサンプルが用意されています。
 
-[シナリオ](scenario.md)-Windows Workflow Foundation (WF) のシナリオの例を示します。
+[シナリオ](scenario.md)-WINDOWS WORKFLOW FOUNDATION (WF) シナリオの例を示します。

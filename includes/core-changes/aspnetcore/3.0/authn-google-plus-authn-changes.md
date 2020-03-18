@@ -1,12 +1,12 @@
 ---
 ms.openlocfilehash: c634c43e72d345721f2d8f2e9f45760e927a86ab
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "72394072"
 ---
-### <a name="authentication-google-deprecated-and-replaced"></a>認証: Google+ が非推奨になり、置き換えられました
+### <a name="authentication-google-deprecated-and-replaced"></a>認証:Google+ が非推奨になり、置き換えられました
 
 Google では、早ければ 2019 年 1 月 28 日をもってアプリ向け Google+ Sign-in の[サービスが終了](https://developers.google.com/+/api-shutdown)します。
 
@@ -20,7 +20,7 @@ ASP.NET 4.x と ASP.NET Core では、Google+ Sign-in API を使用して、Web 
 
 すべてのバージョン。 この変更は、ASP.NET Core の外部での変更です。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 ##### <a name="owin-with-aspnet-web-forms-and-mvc"></a>ASP.NET Web Forms および MVC での Owin
 

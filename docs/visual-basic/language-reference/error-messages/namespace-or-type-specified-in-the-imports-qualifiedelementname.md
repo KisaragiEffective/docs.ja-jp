@@ -1,5 +1,5 @@
 ---
-title: インポート '<qualifiedelementname>' で指定された名前空間または型が、パブリック メンバーを含んでいないか、または見つかりません。
+title: インポート '<qualifiedelementname>' で指定された名前空間または型が、パブリック メンバーを含んでいないか、または見つかりません
 ms.date: 07/20/2015
 f1_keywords:
 - bc40056
@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61918321"
 ---
-# <a name="namespace-or-type-specified-in-the-imports-qualifiedelementname-doesnt-contain-any-public-member-or-cannot-be-found"></a>インポートで指定された Namespace または型\<qualifiedelementname >' のパブリック メンバーを含んでいないか、見つかりません
+# <a name="namespace-or-type-specified-in-the-imports-qualifiedelementname-doesnt-contain-any-public-member-or-cannot-be-found"></a>インポート '\<qualifiedelementname>' で指定された名前空間または型が、パブリック メンバーを含んでいないか、または見つかりません
 
 インポートで指定された Namespace または型\<qualifiedelementname >' のパブリック メンバーを含んでいないか、見つかりません。 確認して、名前空間または型が定義されているし、少なくとも 1 つのパブリック メンバーが含まれています。 エイリアス名には他のエイリアスが含まれていないことを確認します。
 
@@ -22,7 +22,7 @@ ms.locfileid: "61918321"
 
 A*要素を含む*名前空間、クラス、構造体、モジュール、インターフェイス、または列挙型にすることができます。 コンテナー要素には、変数、プロシージャ、または他のコンテナー要素などのメンバーが含まれています。
 
-インポートの目的は、それらを修飾することがなくコードの名前空間または型メンバーにアクセスを許可します。 プロジェクトは、名前空間または型への参照を追加する必要もあります。 詳細については、「を格納している要素のインポート」を参照してください[References to Declared Elements](../../../visual-basic/programming-guide/language-features/declared-elements/references-to-declared-elements.md)します。
+インポートの目的は、修飾することなく名前空間または型メンバーにコードがアクセスできるようにすることです。 プロジェクトは、名前空間または型への参照を追加する必要もあります。 詳細については、「[宣言された要素の参照](../../../visual-basic/programming-guide/language-features/declared-elements/references-to-declared-elements.md)」の「インポート (含まれる要素)」を参照してください。
 
 コンパイラに指定されたコンテナー要素が見つからない場合、それを使用して参照を解決できません。 要素を検索しますが、いずれかの要素を公開しません`Public`メンバー、その参照はありませんが成功することができます。 いずれの場合も要素をインポートしても無意味です。
 

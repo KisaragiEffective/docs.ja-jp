@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: d5f54a34-6335-4708-b407-a756ec70fab4
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a90f0a0319d88654d0310530749ef35b7095e0fb
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 3836b6c08098d38516c8a25260fb28998a2317fe
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67754428"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73084779"
 ---
 # <a name="icordebugeval2newstringwithlength-method"></a>ICorDebugEval2::NewStringWithLength メソッド
-指定した内容を指定した長さの文字列を作成します。  
+指定したコンテンツを使用して、指定した長さの文字列を作成します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,18 +36,18 @@ HRESULT NewStringWithLength (
   
 ## <a name="parameters"></a>パラメーター  
  `string`  
- [in]文字列値へのポインター。  
+ から文字列値へのポインター。  
   
  `uiLength`  
- [in]文字列の長さ。  
+ から文字列の長さ。  
   
 ## <a name="remarks"></a>Remarks  
- 呼び出し元に、管理対象の文字列にする null 文字が必要です、文字列の末尾の場合、`NewStringWithLength`メソッドでは、文字列の長さが、末尾の null 文字が含まれることを確認する必要があります。  
+ 文字列の末尾の null 文字がマネージ文字列に含まれることが予想される場合、`NewStringWithLength` メソッドの呼び出し元は、文字列の長さに末尾の null 文字が含まれていることを確認する必要があります。  
   
- 文字列が現在のスレッドが実行されているアプリケーション ドメインで常に作成されます。  
+ 文字列は常に、スレッドが現在実行されているアプリケーションドメインで作成されます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

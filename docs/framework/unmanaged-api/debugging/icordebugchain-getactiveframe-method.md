@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 36887017-670b-4f21-b406-8fab956f84a3
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: c79f3b3b976b83eb99f8aa26d38a1fe316de471a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 03cb1556ee971124ed4c591f38d9f892fc7df7b0
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67744999"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73192153"
 ---
 # <a name="icordebugchaingetactiveframe-method"></a>ICorDebugChain::GetActiveFrame メソッド
-アクティブなを取得します (つまり、最新) チェーン上のフレーム。  
+チェーンのアクティブな (つまり、最新の) フレームを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,15 +35,15 @@ HRESULT GetActiveFrame (
   
 ## <a name="parameters"></a>パラメーター  
  `ppFrame`  
- [out]アクティブなを表す ICorDebugFrame オブジェクトのアドレスへのポインター (つまり、最新) チェーン上のフレーム。  
+ 入出力チェーン上のアクティブな (つまり、最新の) フレームを表す、の各フレームオブジェクトのアドレスへのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- マネージ スタック フレームが使用できない場合`ppFrame`設定を null にします。  
+ 使用できるマネージスタックフレームがない場合、`ppFrame` は null に設定されます。  
   
- アクティブなフレームを使用できない場合、呼び出しが成功し、`ppFrame`は null になります。 アクティブなフレーム チェーン CHAIN_ENTER_UNMANAGED、により開始されると CHAIN_CLASS_INIT により開始されたいくつかのチェーンで利用できるされません。 CorDebugChainReason 列挙型を参照してください。  
+ アクティブなフレームが使用できない場合、呼び出しは成功し、`ppFrame` は null になります。 CHAIN_ENTER_UNMANAGED によって開始されるチェーンや、CHAIN_CLASS_INIT によって開始されるチェーンに対して、アクティブなフレームは使用できません。 CorDebugChainReason 列挙体を参照してください。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 0af312af-98e9-415e-b182-42e80a1aee51
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7cb58593a30b855c9fabf55a6ca0a50886dc371f
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 1e1d63ab28276f69e5b3a762520db8f8300d05bc
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779490"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73134758"
 ---
 # <a name="igcthreadcontrolsuspensionstarting-method"></a>IGCThreadControl::SuspensionStarting メソッド
-ランタイムがガベージ コレクションのスレッドの中断またはその他の中断を開始していることをホストに通知します。  
+ランタイムがガベージコレクションまたは他の中断のためにスレッドの中断を開始していることをホストに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -34,14 +32,14 @@ HRESULT SuspensionStarting ( );
 ```  
   
 ## <a name="remarks"></a>Remarks  
- 中にすべてのスレッドを再スケジュールしないで、`SuspensionStarting`コールバック。  
+ `SuspensionStarting` コールバック中にスレッドを再スケジュールしないでください。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

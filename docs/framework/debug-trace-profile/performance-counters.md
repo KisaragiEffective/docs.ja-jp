@@ -6,35 +6,17 @@ helpviewer_keywords:
 - performance counters
 - performance monitoring, counters
 ms.assetid: 06a4ae8c-eeb2-4d5a-817e-b1b95c0653e1
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: eafbd5b1dfa8eeee386cdcf49652aeeee9d635a8
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: a592cbb49c1b9ec8f36b90f2ec1097f6c84efbe9
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052392"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74281807"
 ---
-# <a name="performance-counters-in-the-net-framework"></a>.NET Framework のパフォーマンス カウンター
+# <a name="performance-counters-in-the-net-framework"></a>.NET Framework のパフォーマンスカウンター
+
 このトピックでは、 [Windows パフォーマンスモニター](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249%28v=ws.11%29)で検出できるパフォーマンスカウンターの一覧を示します。  
-  
-- [例外パフォーマンス カウンター](#exception)  
-  
-- [相互運用パフォーマンス カウンター](#interop)  
-  
-- [JIT パフォーマンス カウンター](#jit)  
-  
-- [読み込みパフォーマンス カウンター](#loading)  
-  
-- [ロックおよびスレッド パフォーマンス カウンター](#lockthread)  
-  
-- [メモリ パフォーマンス カウンター](#memory)  
-  
-- [ネットワーク パフォーマンス カウンター](#networking)  
-  
-- [セキュリティ パフォーマンス カウンター](#security)  
-  
-<a name="exception"></a>   
+
 ## <a name="exception-performance-counters"></a>例外パフォーマンス カウンター  
  パフォーマンス コンソール .NET CLR 例外カテゴリには、アプリケーションによってスローされた例外に関する情報を示すカウンターが含まれます。 これらのパフォーマンス カウンターについて、次の表で説明します。  
   
@@ -45,8 +27,7 @@ ms.locfileid: "71052392"
 |**# of Filters / Sec**|1 秒間に実行された .NET 例外フィルターの数を表示します。 例外フィルターの評価は、例外が処理済みかどうかに関係なくなされます。<br /><br /> このカウンターは、全時間を通しての平均値ではなく、最後の 2 回の収集で計測された値の差を収集間隔で割った値が表示されます。|  
 |**# of Finallys / Sec**|1 秒間に実行された finally ブロックの数を表示します。 finally ブロックは、try ブロックがどのように終了されたかに関係なく必ず実行されます。  例外に対して実行された finally ブロックだけがカウントされます。通常のコード パスで実行された finally ブロックは、このカウンターではカウントされません。<br /><br /> このカウンターは、全時間を通しての平均値ではなく、最後の 2 回の収集で計測された値の差を収集間隔で割った値が表示されます。|  
 |**Throw to Catch Depth / Sec**|1 秒間に走査されたスタック フレーム (例外をスローしたフレームから例外を処理したフレームまで) の数を表示します。 このカウンターは、例外ハンドラーに入ったときに 0 にリセットされます。したがって、入れ子になった例外ではハンドラーからハンドラーへのスタックの深さを示します。<br /><br /> このカウンターは、全時間を通しての平均値ではなく、最後の 2 回の収集で計測された値の差を収集間隔で割った値が表示されます。|  
-  
-<a name="interop"></a>   
+     
 ## <a name="interop-performance-counters"></a>相互運用パフォーマンス カウンター  
  パフォーマンス コンソール .NET CLR Interop カテゴリには、アプリケーションと COM コンポーネント、COM+ サービス、および外部タイプ ライブラリとの相互作用に関する情報を提供するカウンターが含まれます。 これらのパフォーマンス カウンターについて、次の表で説明します。  
   
@@ -57,8 +38,7 @@ ms.locfileid: "71052392"
 |**# of Stubs**|共通言語ランタイムによって作成された現在のスタブ数を表示します。 スタブは、COM 相互運用呼び出しまたはプラットフォーム起動呼び出し時に、引数と戻り値をマネージド コードからアンマネージド コードへの (またはその逆の) マーシャリングを担当します。|  
 |**# of TLB exports / sec**|将来使用するために予約されています。|  
 |**# of TLB imports / sec**|将来使用するために予約されています。|  
-  
-<a name="jit"></a>   
+    
 ## <a name="jit-performance-counters"></a>JIT パフォーマンス カウンター  
  パフォーマンス コンソール .NET CLR JIT カテゴリには、JIT コンパイラでコンパイルされたコードに関する情報を提供するカウンターが含まれます。 これらのパフォーマンス カウンターについて、次の表で説明します。  
   
@@ -70,8 +50,7 @@ ms.locfileid: "71052392"
 |**IL Bytes Jitted / sec**|1 秒間に JIT コンパイルされる MSIL バイト数を表示します。 このカウンターは、全時間を通しての平均値ではなく、最後の 2 回の収集で計測された値の差を収集間隔で割った値が表示されます。|  
 |**Standard Jit Failures**|アプリケーションの開始後に JIT コンパイラがコンパイルに失敗したピーク メソッド数を表示します。 このエラーは、MSIL の検査に失敗したときや JIT コンパイラに内部エラーが検出されたときに発生します。|  
 |**Total # of IL Bytes Jitted**|アプリケーションの開始後に JIT コンパイラでコンパイルされた MSIL のバイト総数を表示します。 このカウンターは、 **# of IL Bytes Jitted** カウンターと同じです。|  
-  
-<a name="loading"></a>   
+     
 ## <a name="loading-performance-counters"></a>読み込みパフォーマンス カウンター  
  パフォーマンス コンソール .NET CLR Loading カテゴリには、読み込まれたアセンブリ、クラス、およびアプリケーション ドメインに関する情報を提供するカウンターが含まれます。 これらのパフォーマンス カウンターについて、次の表で説明します。  
   
@@ -93,8 +72,7 @@ ms.locfileid: "71052392"
 |**Total appdomains unloaded**|アプリケーションの開始後にアンロードされたアプリケーション ドメインの総数を表示します。 アプリケーション ドメインが複数回読み込まれ、アンロードされた場合、このカウンターは、アプリケーション ドメインがアンロードされるごとにインクリメントされます。|  
 |**Total Assemblies**|アプリケーションの開始後に読み込まれたアセンブリの総数を表示します。 多数のアプリケーション ドメインからアセンブリがドメイン中立として読み込まれた場合、このカウンターは一度だけインクリメントされます。|  
 |**Total Classes Loaded**|アプリケーションの開始後にすべてのアセンブリに読み込まれたクラスの累計数を表示します。|  
-  
-<a name="lockthread"></a>   
+   
 ## <a name="lock-and-thread-performance-counters"></a>ロックおよびスレッド パフォーマンス カウンター  
  パフォーマンス コンソール .NET CLR LocksAndThreads カテゴリには、アプリケーションが使用するマネージド ロックおよびマネージド スレッドに関する情報を提供するカウンターが含まれます。 これらのパフォーマンス カウンターについて、次の表で説明します。  
   
@@ -110,8 +88,7 @@ ms.locfileid: "71052392"
 |**Queue Length Peak**|アプリケーションの開始後にマネージド ロックの取得を待機していたスレッドの総数を表示します。|  
 |**rate of recognized threads / sec**|1 秒間にランタイムによって認識されたスレッド数を表示します。 これらのスレッドは対応するマネージド スレッド オブジェクトに関連付けられます。 ランタイムはこれらのスレッドを作成しませんが、少なくとも一度はランタイムの内部で実行します。<br /><br /> 一意のスレッドだけが追跡されます。これらのスレッドは同じスレッド ID で、ランタイムに再入力されるか、スレッド終了後に再作成され、2 回はカウントされません。<br /><br /> このカウンターは、全時間を通しての平均値ではなく、最後の 2 回の収集で計測された値の差を収集間隔で割った値が表示されます。|  
 |**Total # of Contentions**|ランタイムのスレッドがマネージド ロックを取得しようとして失敗した回数の合計を表示します。|  
-  
-<a name="memory"></a>   
+    
 ## <a name="memory-performance-counters"></a>メモリ パフォーマンス カウンター  
  パフォーマンス コンソール .NET CLR Memory カテゴリには、ガベージ コレクターに関する情報を提供するカウンターが含まれます。 これらのパフォーマンス カウンターについて、次の表で説明します。  
   
@@ -129,35 +106,35 @@ ms.locfileid: "71052392"
 |**# Total reserved Bytes**|ガベージ コレクターによって現在予約済みの仮想メモリの量をバイト数で表示します。 予約済みのメモリとは、アプリケーション用に予約された仮想メモリ空間のことですが、ディスクやメイン メモリ ページは使用されません。|  
 |**% Time in GC**|前回のガベージ コレクション サイクルにガベージ コレクションの実行に費やされた経過時間の割合を表示します。 このカウンターは、通常、ガベージ コレクターがアプリケーションに代わってメモリをコレクションし、メモリの領域を圧縮するために実行した作業量を示します。 このカウンターは、ガベージ コレクションが終了するごとにのみ、更新されます。 このカウンターは、平均値ではなく、最後に計測された値を反映します。|  
 |**Allocated Bytes/second**|1 秒間にガベージ コレクション ヒープに割り当てられたバイト数を表示します。 このカウンターは、割り当てがなされるたびに更新されるのではなく、ガベージ コレクションが終了するごとに、更新されます。 このカウンターは、全時間を通しての平均値ではなく、最後の 2 回の収集で計測された値の差を収集間隔で割った値が表示されます。|  
-|**Finalization Survivors**|ガベージ コレクションされたオブジェクトのうち、終了待機中のためにコレクションされなかったものの数を表示します。 これらのオブジェクトが他のオブジェクトへの参照を保持している場合は、参照先のオブジェクトもコレクションされず、このカウンターではカウントされません。 **Promoted Finalization-Memory from Gen 0** カウンターは、終了処理のためにコレクションされなかったすべてのメモリを表します。<br /><br /> このカウンターの値は累計値ではありません。カウンター値は、ガベージ コレクションが終了するごとに、各コレクションのみでの残存オブジェクト数に更新されます。 このカウンターは、アプリケーションが終了処理のために必要とする追加のオーバーヘッドを示します。|  
+|**Finalization Survivors**|ガベージ コレクションされたオブジェクトのうち、終了待機中のためにコレクションされなかったものの数を表示します。 これらのオブジェクトが他のオブジェクトへの参照を保持している場合は、参照先のオブジェクトもコレクションされず、このカウンターではカウントされません。 **Promoted Finalization-Memory from Gen 0** カウンターは、終了処理のためにコレクションされなかったすべてのメモリを表します。<br /><br /> このカウンターの値は累計値ではありません。カウンター値は、ガベージ コレクションが終了するごとに、各コレクションのみでの残存オブジェクト数に更新されます。 このカウンタは、終了処理によりアプリケーションが被る可能性のある余分なオーバーヘッドを示しています。|  
 |**Gen 0 heap size**|ジェネレーション 0 に割り当てることができる最大バイト数を表示します。ジェネレーション 0 に現在割り当てられているバイト数を示すのではありません。<br /><br /> 前回のコレクションの後でなされた割り当てがこのサイズを超えると、ジェネレーション 0 のガベージ コレクションが発生します。 ジェネレーション 0 のサイズは、ガベージ コレクターによって調整され、アプリケーションの実行中に変更できます。 ジェネレーション 0 コレクションの最後には、ジェネレーション 0 ヒープのサイズは 0 バイトになります。 このカウンターは、次のジェネレーション 0 ガベージ コレクションを起動する割り当てのサイズをバイト数で表示します。<br /><br /> このカウンターは、割り当てがなされるたびに更新されるのではなく、ガベージ コレクションが 1 回終了するごとに更新されます。|  
 |**Gen 0 Promoted Bytes/Sec**|1 秒間にジェネレーション 0 からジェネレーション 1 に昇格されるバイト数を表示します。 メモリは、ガベージ コレクションで回収されなかった場合に昇格されます。 このカウンターは、1 秒間に作成される、比較的有効期間の長いオブジェクトの数を示します。<br /><br /> このカウンターには、最後の 2 回の収集で計測された値の差を収集間隔で割った値が表示されます。|  
 |**Gen 1 heap size**|ジェネレーション 1 の現在のバイト数を表示します。このカウンターは、ジェネレーション 1 の最大サイズを表示するのではありません。 ジェネレーション 1 では、オブジェクトは直接には割り当てられず、前のジェネレーション 0 ガベージ コレクションから昇格されます。 このカウンターは、割り当てがなされるたびに更新されるのではなく、ガベージ コレクションが 1 回終了するごとに更新されます。|  
 |**Gen 1 Promoted Bytes/Sec**|1 秒間にジェネレーション 1 からジェネレーション 2 に昇格されるバイト数を表示します。 終了待機中という理由だけで昇格されるオブジェクトは、このカウンターには含まれません。<br /><br /> メモリは、ガベージ コレクションで回収されなかった場合に昇格されます。 ジェネレーション 2 は最も古いジェネレーションであるため、ジェネレーション 2 からは昇格されません。 このカウンターは、1 秒間に作成される非常に有効期間の長いオブジェクトを示します。<br /><br /> このカウンターには、最後の 2 回の収集で計測された値の差を収集間隔で割った値が表示されます。|  
 |**Gen 2 heap size**|ジェネレーション 2 の現在のバイト数を表示します。 ジェネレーション 2 では、オブジェクトは直接には割り当てられず、前のジェネレーション 1 のガベージ コレクション中にジェネレーション 1 から昇格されます。 このカウンターは、割り当てがなされるたびに更新されるのではなく、ガベージ コレクションが 1 回終了するごとに更新されます。|  
-|**Large Object Heap size**|大きいオブジェクトのヒープの現在のサイズをバイト数で表示します。 約 85,000 バイトより大きいオブジェクトは、ガベージ コレクターによって大きいオブジェクトとして扱われ、特殊なヒープに直接割り当てられます。それらに対してジェネレーション間の昇格は実行されません。 このカウンターは、割り当てがなされるたびに更新されるのではなく、ガベージ コレクションが 1 回終了するごとに更新されます。|  
+|**Large Object Heap size**|大きなオブジェクトヒープの現在のサイズをバイト単位で表示します。 約85000バイトを超えるオブジェクトは、ガベージコレクターによって大きなオブジェクトとして扱われ、特別なヒープに直接割り当てられます。 これらは、ジェネレーションによって昇格されません。 このカウンターは、割り当てがなされるたびに更新されるのではなく、ガベージ コレクションが 1 回終了するごとに更新されます。|  
 |**プロセス ID**|監視される CLR プロセス インスタンスのプロセス ID を表示します。|  
 |**Promoted Finalization-Memory from Gen 0**|ジェネレーション 0 からジェネレーション 1 に昇格されるメモリのうち、終了待機中という理由だけで昇格されるメモリのバイト数を表示します。 このカウンターは累計値ではありません。最後のガベージ コレクションで計測された値を表示します。|  
 |**Promoted Memory from Gen 0**|ガベージ コレクションで回収されず、ジェネレーション 0 からジェネレーション 1 に昇格されるメモリのバイト数を表示します。 終了待機中という理由だけで昇格されるオブジェクトは、このカウンターには含まれません。 このカウンターは累計値ではありません。最後のガベージ コレクションで計測された値を表示します。|  
 |**Promoted Memory from Gen 1**|ガベージ コレクションで回収されず、ジェネレーション 1 からジェネレーション 2 に昇格されるメモリのバイト数を表示します。 終了待機中という理由だけで昇格されるオブジェクトは、このカウンターには含まれません。 このカウンターは累計値ではありません。最後のガベージ コレクションで計測された値を表示します。 このカウンターは、最後のガベージ コレクションがジェネレーション 0 のコレクションである場合だけ、0 にリセットされます。|  
-  
-<a name="networking"></a>   
+     
 ## <a name="networking-performance-counters"></a>ネットワーク パフォーマンス カウンター  
- パフォーマンス コンソール .NET CLR Networking カテゴリには、アプリケーションがネットワーク経由で送受信するデータに関する情報を提供するカウンターが含まれます。 これらのパフォーマンス カウンターについて、次の表で説明します。  
+
+パフォーマンス コンソール .NET CLR Networking カテゴリには、アプリケーションがネットワーク経由で送受信するデータに関する情報を提供するカウンターが含まれます。 これらのパフォーマンス カウンターについて、次の表で説明します。  
   
 |パフォーマンス カウンター|説明|  
 |-------------------------|-----------------|  
-|**Bytes Received**|プロセスの開始後に <xref:System.AppDomain> 内のすべての <xref:System.Net.Sockets.Socket> オブジェクトが受信した累計バイト数。 この数には、データおよび TCP/IP によって定義されていないプロトコル情報が含まれます。|  
-|**Bytes Sent**|プロセスの開始後に <xref:System.AppDomain> 内のすべての <xref:System.Net.Sockets.Socket> オブジェクトが送信した累計バイト数。 この数には、データおよび TCP/IP によって定義されていないプロトコル情報が含まれます。|  
-|**Connections Established**|プロセスの開始後に <xref:System.AppDomain> 内で接続されていたストリーム ソケットの <xref:System.Net.Sockets.Socket> オブジェクトの累計数。|  
-|**Datagrams Received**|プロセスの開始後に <xref:System.AppDomain> 内のすべての <xref:System.Net.Sockets.Socket> オブジェクトが受信したデータグラム パケットの累計バイト数。|  
-|**Datagrams Sent**|プロセスの開始後に <xref:System.AppDomain> 内のすべての <xref:System.Net.Sockets.Socket> オブジェクトが送信したデータグラム パケットの累計バイト数。|  
-|**HttpWebRequest Average Lifetime**|プロセスの開始後に <xref:System.AppDomain> 内で最後の間隔で終了したすべての <xref:System.Net.HttpWebRequest> オブジェクトの平均完了時間。|  
-|**HttpWebRequest Average Queue Time**|プロセスの開始後に <xref:System.AppDomain> 内で最後の間隔でキューに残ったすべての <xref:System.Net.HttpWebRequest> オブジェクトのキューでの平均待機時間。|  
-|**HttpWebRequests Created/sec**|<xref:System.AppDomain> 内で 1 秒あたりに作成された <xref:System.Net.HttpWebRequest> オブジェクトの数。|  
-|**HttpWebRequests Queued/sec**|<xref:System.AppDomain> 内で 1 秒あたりにキューに追加された <xref:System.Net.HttpWebRequest> オブジェクトの数。|  
-|**HttpWebRequests Aborted/sec**|<xref:System.AppDomain> 内でアプリケーションが <xref:System.Net.HttpWebRequest.Abort%2A> メソッドを呼び出した <xref:System.Net.HttpWebRequest> オブジェクトの 1 秒あたりの数。|  
-|**HttpWebRequests Failed/sec**|<xref:System.AppDomain> 内でサーバーから失敗したステータス コードを受け取った <xref:System.Net.HttpWebRequest> オブジェクトの 1 秒あたりの数。|  
+|**Bytes Received**|プロセスの開始後に <xref:System.Net.Sockets.Socket> 内のすべての <xref:System.AppDomain> オブジェクトが受信した累計バイト数。 この数には、データおよび TCP/IP によって定義されていないプロトコル情報が含まれます。|  
+|**Bytes Sent**|プロセスの開始後に <xref:System.Net.Sockets.Socket> 内のすべての <xref:System.AppDomain> オブジェクトが送信した累計バイト数。 この数には、データおよび TCP/IP によって定義されていないプロトコル情報が含まれます。|  
+|**Connections Established**|プロセスの開始後に <xref:System.Net.Sockets.Socket> 内で接続されていたストリーム ソケットの <xref:System.AppDomain> オブジェクトの累計数。|  
+|**Datagrams Received**|プロセスの開始後に <xref:System.Net.Sockets.Socket> 内のすべての <xref:System.AppDomain> オブジェクトが受信したデータグラム パケットの累計バイト数。|  
+|**Datagrams Sent**|プロセスの開始後に <xref:System.Net.Sockets.Socket> 内のすべての <xref:System.AppDomain> オブジェクトが送信したデータグラム パケットの累計バイト数。|  
+|**HttpWebRequest Average Lifetime**|プロセスの開始後に <xref:System.Net.HttpWebRequest> 内で最後の間隔で終了したすべての <xref:System.AppDomain> オブジェクトの平均完了時間。|  
+|**HttpWebRequest Average Queue Time**|プロセスの開始後に <xref:System.Net.HttpWebRequest> 内で最後の間隔でキューに残ったすべての <xref:System.AppDomain> オブジェクトのキューでの平均待機時間。|  
+|**HttpWebRequests Created/sec**|<xref:System.Net.HttpWebRequest> 内で 1 秒あたりに作成された <xref:System.AppDomain> オブジェクトの数。|  
+|**HttpWebRequests Queued/sec**|<xref:System.Net.HttpWebRequest> 内で 1 秒あたりにキューに追加された <xref:System.AppDomain> オブジェクトの数。|  
+|**HttpWebRequests Aborted/sec**|<xref:System.Net.HttpWebRequest> 内でアプリケーションが <xref:System.Net.HttpWebRequest.Abort%2A> メソッドを呼び出した <xref:System.AppDomain> オブジェクトの 1 秒あたりの数。|  
+|**HttpWebRequests Failed/sec**|<xref:System.Net.HttpWebRequest> 内でサーバーから失敗したステータス コードを受け取った <xref:System.AppDomain> オブジェクトの 1 秒あたりの数。|  
   
  サポートされているネットワーク パフォーマンス カウンターのクラスを次に示します。  
   
@@ -169,7 +146,7 @@ ms.locfileid: "71052392"
   
 - 間隔 (通常は秒単位) ごとに特定の遷移を形成するオブジェクトの数を測定する間隔ごとのカウンター。  
   
- イベントのネットワーク パフォーマンス カウンターには、次のようなものがあります。  
+イベントのネットワーク パフォーマンス カウンターには、次のようなものがあります。  
   
 - **Connections Established**  
   
@@ -199,7 +176,7 @@ ms.locfileid: "71052392"
   
 - アプリケーションが  <xref:System.Net.HttpWebRequest.GetResponse%2A> メソッドまたは <xref:System.Net.HttpWebRequest.BeginGetResponse%2A>  メソッドの呼び出しをしない場合、<xref:System.Net.HttpWebRequest> オブジェクトの有効期間は無視されます。  
   
-- <xref:System.Net.HttpWebRequest.GetResponse%2A> メソッドまたは <xref:System.Net.HttpWebRequest.EndGetResponse%2A> メソッドを呼び出したときに <xref:System.Net.HttpWebRequest> オブジェクトが <xref:System.Net.WebException> をスローした場合、その例外がスローされたときに有効期間は終了します。 技術的には、基になる応答ストリームもその時点で閉じられます (ユーザーに返される応答ストリームは、実際には、応答ストリームのコピーを含むメモリ ストリームです)。  
+- <xref:System.Net.HttpWebRequest> メソッドまたは <xref:System.Net.WebException> メソッドを呼び出したときに <xref:System.Net.HttpWebRequest.GetResponse%2A> オブジェクトが <xref:System.Net.HttpWebRequest.EndGetResponse%2A> をスローした場合、その例外がスローされたときに有効期間は終了します。 技術的には、基になる応答ストリームもその時点で閉じられます (ユーザーに返される応答ストリームは、実際には、応答ストリームのコピーを含むメモリ ストリームです)。  
   
  間隔ごとに特定の <xref:System.Net.HttpWebRequest> オブジェクトの動作を追跡するカウンターが 4 つあります。 これらのパフォーマンス カウンターは、アプリケーション開発者、管理者、およびサポート スタッフが、<xref:System.Net.HttpWebRequest> オブジェクトの動作をより的確に把握するのに役立ちます。 これらのカウンターは、次のとおりです。  
   
@@ -238,8 +215,7 @@ for (int i = 0; i < Array.Length; i++)
 - ".NET CLR Networking 4.0.0.0" - 上に示したすべてのソケット カウンターと、.NET Framework Version 4 以降でサポートされている新しいパフォーマンス カウンター。 これらの新しいカウンターは、<xref:System.Net.HttpWebRequest> オブジェクトに関するパフォーマンス情報を提供します。  
   
  アプリケーションでパフォーマンス カウンターにアクセスして管理する方法の詳細については、「[パフォーマンス カウンター](performance-counters.md)」を参照してください。  
-  
-<a name="security"></a>   
+    
 ## <a name="security-performance-counters"></a>セキュリティ パフォーマンス カウンター  
  パフォーマンス コンソール .NET CLR Security カテゴリには、共通言語ランタイムがアプリケーションに対して実行するセキュリティ チェックに関する情報を提供するカウンターが含まれます。 これらのパフォーマンス カウンターについて、次の表で説明します。  
   
@@ -253,5 +229,5 @@ for (int i = 0; i < Array.Length; i++)
   
 ## <a name="see-also"></a>関連項目
 
-- [パフォーマンス カウンター](performance-counters.md)
+- [Performance Counters](performance-counters.md)
 - [ランタイム プロファイリング](runtime-profiling.md)

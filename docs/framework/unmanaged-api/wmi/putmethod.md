@@ -14,14 +14,12 @@ helpviewer_keywords:
 - PutMethod function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a2b41cbbade9da5c2095309b9039b8ce2758f6f3
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 1d409507de593cf198fe87340eece6820eaefc63
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798356"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127344"
 ---
 # <a name="putmethod-function"></a>PutMethod 関数
 メソッドが作成されます。
@@ -56,19 +54,19 @@ HRESULT PutMethod (
 [in] 予約されています。 このパラメーターには0を指定する必要があります。
 
 `pSignatureIn`  
-からメソッドの`in`パラメーターを格納している、 [__ parameters システムクラス](/windows/desktop/WmiSdk/--parameters)のコピーへのポインター。 に`null`設定した場合、このパラメーターは無視されます。  
+からメソッドの `in` パラメーターを格納している、 [__ parameters システムクラス](/windows/desktop/WmiSdk/--parameters)のコピーへのポインター。 `null`に設定した場合、このパラメーターは無視されます。  
 
 `pSignatureOut`  
-から メソッドの`out`パラメーターを格納している、 [__ parameters システムクラス](/windows/desktop/WmiSdk/--parameters)のコピーへのポインター。 に`null`設定した場合、このパラメーターは無視されます。
+から メソッドの `out` パラメーターを格納している、 [__ parameters システムクラス](/windows/desktop/WmiSdk/--parameters)のコピーへのポインター。 `null`に設定した場合、このパラメーターは無視されます。
 
 ## <a name="return-value"></a>戻り値
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_E_INVALID_PARAMETER` | 0x80041008 | 1つ以上のパラメーターが無効です。 |
-| `WBEM_E_INVALID_DUPLICATE_PARAMETER` | 0x80041043 | `[in, out]` *Pinsignature*オブジェクトと*poutsignature*オブジェクトの両方で指定されたメソッドパラメーターの修飾子が異なります。
+| `WBEM_E_INVALID_DUPLICATE_PARAMETER` | 0x80041043 | *Pinsignature*オブジェクトと*poutsignature*オブジェクトの両方で指定された `[in, out]` method パラメーターの修飾子が異なります。
 | `WBEM_E_MISSING_PARAMETER_ID` | 0x80041036 | メソッドパラメーターに**ID**修飾子の指定がありません。 |
 | `WBEM_E_NONCONSECUTIVE_PARAMETER_IDS` | 0x80041038 | メソッドのパラメーターに割り当てられている ID 系列が連続していないか、0から始まっていません。 |
 | `WBEM_E_PARAMETER_ID_ON_RETVAL` | 0x80041039 | メソッドの戻り値には**ID**修飾子があります。 |
@@ -79,22 +77,22 @@ HRESULT PutMethod (
 
 この関数は、 [IWbemClassObject::P utmethod](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemclassobject-putmethod)メソッドの呼び出しをラップします。
 
-このメソッド呼び出しは、が CIM `ptr`クラス定義の場合にのみサポートされます。 メソッド操作は、CIM インスタンスをポイントする[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)ポインターからは使用できません。
+このメソッド呼び出しは、`ptr` が CIM クラス定義である場合にのみサポートされます。 メソッド操作は、CIM インスタンスをポイントする[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)ポインターからは使用できません。
 
 ユーザーは、アンダースコアで始まる名前または末尾を持つメソッドを作成することはできません。 これは、システムクラスおよびプロパティ用に予約されています。
 
-メソッドの場合、 `in`パラメーターと`out`パラメーターは[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)オブジェクトのプロパティとして記述されます。
+メソッドの場合、`in` パラメーターと `out` パラメーターは[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)オブジェクトのプロパティとして記述されます。
 
-パラメーターを定義するには、パラメーターと`pOutSignature`パラメーターが`pInSignature`指す両方のオブジェクトに同じプロパティを追加します。 `[in/out]` この場合、プロパティは同じ**ID**修飾子値を共有します。
+`[in/out]` パラメーターを定義するには、`pInSignature` パラメーターと `pOutSignature` パラメーターが指す両方のオブジェクトに同じプロパティを追加します。 この場合、プロパティは同じ**ID**修飾子値を共有します。
 
-[__ Parameters](/windows/desktop/WmiSdk/--parameters)クラスオブジェクト`ReturnValue`の各プロパティには、 **ID**修飾子 (パラメーターが出現する順序を示す0から始まる数値) が必要です。 2つのパラメーターの**id**値を同じにすることはできません。また、 **id**値をスキップすることもできません。 どちらかの条件が発生`PutMethod`した`WBEM_E_NONCONSECUTIVE_PARAMETER_IDS`場合、関数はを返します。
+`ReturnValue` 以外の[__ Parameters](/windows/desktop/WmiSdk/--parameters)クラスオブジェクトの各プロパティには、パラメーターが表示される順序を識別する**ID**修飾子 (0 から始まる) が必要です。 2つのパラメーターの**id**値を同じにすることはできません。また、 **id**値をスキップすることもできません。 どちらかの条件が発生した場合、`PutMethod` 関数は `WBEM_E_NONCONSECUTIVE_PARAMETER_IDS`を返します。
 
 ## <a name="example"></a>例
 
 例については、 [IWbemClassObject::P utmethod](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemclassobject-putmethod)メソッドを参照してください。
 
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

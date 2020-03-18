@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 648ea90e-5e60-40a0-a56a-3e61bf2fba7c
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9fbac8263944ff0d009fcc7c5f6aecdc7faed089
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: f08006c532d2778de67a4bab09623d248362535c
+ms.sourcegitcommit: 7e2128d4a4c45b4274bea3b8e5760d4694569ca1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67759177"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75937431"
 ---
 # <a name="iclrstrongnamestrongnametokenfromassemblyex-method"></a>ICLRStrongName::StrongNameTokenFromAssemblyEx メソッド
-指定したアセンブリ ファイルから厳密な名前トークンを作成し、トークンが表す公開キーを返します。  
+指定したアセンブリファイルから厳密な名前トークンを作成し、トークンが表す公開キーを返します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,34 +39,34 @@ HRESULT StrongNameTokenFromAssemblyEx (
   
 ## <a name="parameters"></a>パラメーター  
  `wszFilePath`  
- [in]アセンブリのポータブル実行可能 (PE) ファイルへのパス。  
+ からアセンブリのポータブル実行可能 (PE) ファイルへのパス。  
   
  `ppbStrongNameToken`  
- [out]厳密な名前が返されたトークンです。  
+ 入出力返された厳密な名前トークン。  
   
  `pcbStrongNameToken`  
- [out]厳密な名前トークンのバイト単位のサイズ。  
+ 入出力厳密な名前トークンのサイズ (バイト単位)。  
   
  `ppbPublicKeyBlob`  
- [out]返される公開キー。  
+ 入出力返された公開キー。  
   
  `pcbPublicKeyBlob`  
- [out]公開キーのバイト単位のサイズ。  
+ 入出力公開キーのサイズ (バイト単位)。  
   
 ## <a name="return-value"></a>戻り値  
- `S_OK` メソッドが正常に完了した場合それ以外の場合、エラーを示す HRESULT 値 (を参照してください[の共通 HRESULT 値](https://go.microsoft.com/fwlink/?LinkId=213878)一覧については)。  
+ メソッドが正常に完了した場合は `S_OK`。それ以外の場合は、失敗を示す HRESULT 値 (「リストの[一般的な Hresult 値](/windows/win32/seccrypto/common-hresult-values)」を参照してください)。  
   
 ## <a name="remarks"></a>Remarks  
- 厳密な名前トークンは、公開キーの短縮形です。 トークンは、アセンブリの署名に使用する公開キーから作成される 64 ビット ハッシュです。 トークンは、アセンブリの厳密な名前の一部であるし、アセンブリのメタデータから読み取ることができます。  
+ 厳密な名前トークンは、公開キーの短縮形です。 トークンは、アセンブリの署名に使用される公開キーから作成された64ビットのハッシュです。 トークンはアセンブリの厳密な名前の一部であり、アセンブリメタデータから読み取ることができます。  
   
- 呼び出す必要があります、キーを取得し、トークンを作成、後に、 [iclrstrongname::strongnamefreebuffer](../../../../docs/framework/unmanaged-api/hosting/iclrstrongname-strongnamefreebuffer-method.md)を割り当てられたメモリを解放するメソッド。  
+ キーを取得してトークンを作成したら、 [ICLRStrongName:: StrongNameFreeBuffer](../../../../docs/framework/unmanaged-api/hosting/iclrstrongname-strongnamefreebuffer-method.md)メソッドを呼び出して、割り当てられたメモリを解放する必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MetaHost.h  
+ **ヘッダー:** メタホスト .h  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

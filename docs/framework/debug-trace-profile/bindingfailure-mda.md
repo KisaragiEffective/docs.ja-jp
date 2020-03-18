@@ -9,20 +9,18 @@ helpviewer_keywords:
 - managed debugging assistants (MDAs), binding failures
 - BindingFailure MDA
 ms.assetid: 26ada5af-175c-4576-931a-9f07fa1723e9
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 93c426cce792c8f30a3551e2d4626736dd67278f
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: e3a9a915d25cbe5f052f039055167cf3ae4bf424
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052951"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77216924"
 ---
 # <a name="bindingfailure-mda"></a>bindingFailure MDA
 
 `bindingFailure` マネージド デバッグ アシスタント (MDA) は、アセンブリの読み込みに失敗したときにアクティブになります。
 
-## <a name="symptoms"></a>症状
+## <a name="symptoms"></a>現象
 
 コードは、静的参照またはいずれかのローダー メソッド (<xref:System.Reflection.Assembly.Load%2A?displayProperty=nameWithType> や <xref:System.Reflection.Assembly.LoadFrom%2A?displayProperty=nameWithType> など) を使用して、アセンブリを読み込もうとしました。 アセンブリは読み込まれず、<xref:System.IO.FileNotFoundException> または <xref:System.IO.FileLoadException> 例外がスローされました。
 
@@ -105,6 +103,6 @@ namespace ConsoleApplication1
 }
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [マネージド デバッグ アシスタントによるエラーの診断](diagnosing-errors-with-managed-debugging-assistants.md)

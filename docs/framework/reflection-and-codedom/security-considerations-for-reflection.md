@@ -10,14 +10,12 @@ helpviewer_keywords:
 - reflection,partial trust
 - link demands
 ms.assetid: 42d9dc2a-8fcc-4ff3-b002-4ff260ef3dc5
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 852490c57a2954e9d56799ef8deebbef31d5f665
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 1d5289ce15c213024af576c99fe039f5d6c1a247
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71045886"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130064"
 ---
 # <a name="security-considerations-for-reflection"></a>リフレクションに関するセキュリティ上の考慮事項
 
@@ -69,7 +67,7 @@ ms.locfileid: "71045886"
 
 |セキュリティ レベル|IsSecurityCritical|IsSecuritySafeCritical|IsSecurityTransparent|
 |--------------------|------------------------|----------------------------|---------------------------|
-|重大|`true`|`false`|`false`|
+|Critical|`true`|`false`|`false`|
 |セーフ クリティカル|`true`|`true`|`false`|
 |透明|`false`|`false`|`true`|
 

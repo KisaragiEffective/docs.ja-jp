@@ -10,14 +10,12 @@ helpviewer_keywords:
 - managed execution process
 - common language runtime, managed execution process
 ms.assetid: 476b03dc-2b12-49a7-b067-41caeaa2f533
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d11567b3a5abca6e81ff0358295aa8516ef6443f
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: 46a266849f137076170287aeb10becedf83ccf78
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70969028"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78160223"
 ---
 # <a name="managed-execution-process"></a>マネージド実行プロセス
 <a name="introduction"></a> マネージド実行プロセスで実行される主な手順を次に示します。詳細については、後で説明します。  
@@ -38,23 +36,23 @@ ms.locfileid: "70969028"
   
      共通言語ランタイムは、実行を可能にするインフラストラクチャと実行時に使用できるサービスを提供します。  
   
-<a name="choosing_a_compiler"></a>   
+<a name="choosing_a_compiler"></a>
 ## <a name="choosing-a-compiler"></a>コンパイラを選択します  
  共通言語ランタイム (CLR: Common Language Runtime) によって提供される機能を活用するには、Visual Basic、C#、Visual C++、F# などのランタイムに対応した言語コンパイラか、Eiffel、Perl、COBOL などのサードパーティのコンパイラを使用する必要があります。  
   
- 共通言語ランタイムは多言語実行環境であるため、さまざまなデータ型と言語機能をサポートしています。 使用する言語コンパイラによって、利用できる共通言語ランタイムの機能が決まり、その機能を使用してコードをデザインすることになります。 記述するコードの構文を決定するのは、共通言語ランタイムではなく、使用するコンパイラです。 作成したコンポーネントを他の言語で記述されたコンポーネントでも完全に使用できるようにするためには、そのコンポーネントからエクスポートされた型が、 [言語への非依存性、および言語非依存コンポーネント](../../docs/standard/language-independence-and-language-independent-components.md) (CLS) に規定されている言語機能だけを公開するようにする必要があります。 <xref:System.CLSCompliantAttribute> 属性を使用することにより、コードを確実に CLS に準拠させることができます。 詳細については、「 [言語への非依存性、および言語非依存コンポーネント](../../docs/standard/language-independence-and-language-independent-components.md)」を参照してください。  
+ 共通言語ランタイムは多言語実行環境であるため、さまざまなデータ型と言語機能をサポートしています。 使用する言語コンパイラによって、利用できる共通言語ランタイムの機能が決まり、その機能を使用してコードをデザインすることになります。 記述するコードの構文を決定するのは、共通言語ランタイムではなく、使用するコンパイラです。 作成したコンポーネントを他の言語で記述されたコンポーネントでも完全に使用できるようにするためには、そのコンポーネントからエクスポートされた型が、 [言語への非依存性、および言語非依存コンポーネント](../../docs/standard/language-independence-and-language-independent-components.md) (CLS) に規定されている言語機能だけを公開するようにする必要があります。 <xref:System.CLSCompliantAttribute> 属性を使用することにより、コードを確実に CLS に準拠させることができます。 詳しくは、「[言語への非依存性、および言語非依存コンポーネント](../../docs/standard/language-independence-and-language-independent-components.md)」を参照してください。  
   
- [ページのトップへ](#introduction)  
+ [先頭に戻る](#introduction)  
   
-<a name="compiling_to_msil"></a>   
+<a name="compiling_to_msil"></a>
 ## <a name="compiling-to-msil"></a>MSIL へのコンパイル  
  マネージド コードへのコンパイル時に、コンパイラはソース コードを MSIL (Microsoft Intermediate Language) に変換します。MSIL は CPU に依存しない一連の命令で、効率的にネイティブ コードに変換できます。 MSIL には、オブジェクトに対する読み込み、格納、初期化、および呼び出し用の命令の他に、算術演算と論理演算、制御フロー、DMA (Direct Memory Access)、例外処理、およびその他の操作のための命令も含まれています。 コードを実行する前に、MSIL を CPU 固有のコードに変換する必要があります。通常、この変換は [Just-In-Time (JIT) コンパイラ](#compiling_msil_to_native_code)によって行われます。 共通言語ランタイムはサポートするコンピューター アーキテクチャごとに JIT コンパイラを提供しているため、同じ MSIL セットを JIT コンパイルして、サポートされているすべてのアーキテクチャで実行できます。  
   
  コンパイラは、MSIL を生成するときにメタデータも生成します。 メタデータには、コード内の型について、それぞれの型の定義、型のメンバーのシグネチャ、コードが参照するメンバー、共通言語ランタイムが実行時に使用するその他のデータなどが記述されています。 MSIL とメタデータは、実行可能ファイルのファイル形式として使用されてきた従来の Microsoft PE と COFF (Common Object File Format) に基づき、それらを拡張した移植可能な実行可能 (PE: Portable Executable) ファイルに格納されます。 MSIL、ネイティブ コード、およびメタデータを保存できるこのファイル形式を使用すると、オペレーティング システムが共通言語ランタイムのイメージを認識できるようになります。 MSIL と共にメタデータがこのファイルに格納されるため、コードは自己記述型になります。つまり、タイプ ライブラリまたはインターフェイス定義言語 (IDL: Interface Definition Language) は必要ありません。 共通言語ランタイムは、実行時にこのファイルから必要に応じてメタデータを検出および抽出します。  
   
- [ページのトップへ](#introduction)  
+ [先頭に戻る](#introduction)  
   
-<a name="compiling_msil_to_native_code"></a>   
+<a name="compiling_msil_to_native_code"></a>
 ## <a name="compiling-msil-to-native-code"></a>MSIL からネイティブ コードにコンパイルします  
  Microsoft Intermediate Language (MSIL) は、実行する前に、共通言語ランタイムに対して、対象コンピューターのアーキテクチャ用のネイティブ コードにコンパイルしておく必要があります。 .NET Framework には、この変換を実行する 2 つの方法が用意されています。  
   
@@ -89,15 +87,15 @@ ms.locfileid: "70969028"
   
  検証プロセスでは、MSIL コードが調べられ、適切に定義された型だけを使用してメモリ位置にアクセスしたりメソッドを呼び出したりするかどうかが確認されます。 たとえば、オブジェクトのフィールドにアクセスするときにメモリ位置をオーバーランできるようなコードは許可されません。 また、不正な MSIL があるとタイプ セーフ規則に違反する可能性があるため、MSIL が正しく生成されているかどうかも調べられます。 検証プロセスは適切に定義されたタイプ セーフ コードのセットを許可します。許可されるコードはタイプ セーフなコードだけです。 ただし、タイプ セーフなコードの中にも、検証プロセスの制約事項のために検証を通過しないコードがあります。また、言語によっては、デザイン上、検証可能なタイプ セーフ コードが生成されない場合もあります。 セキュリティ ポリシーがタイプ セーフなコードを必要とするにもかかわらず、コードが検証を通過しない場合には、そのコードの実行時に例外がスローされます。  
   
- [ページのトップへ](#introduction)  
+ [先頭に戻る](#introduction)  
   
-<a name="running_code"></a>   
+<a name="running_code"></a>
 ## <a name="running-code"></a>コードを実行します  
  共通言語ランタイムは、マネージド実行を可能にするインフラストラクチャと実行時に使用できるサービスを提供します。 メソッドは、実行する前にプロセッサ固有のコードにコンパイルされている必要があります。 対応する MSIL が生成されているメソッドは、初めて呼び出されたときに JIT コンパイルされてから実行されます。 次にこのメソッドが実行されるときには、JIT コンパイル済みの既存のネイティブ コードが実行されます。 JIT コンパイルからコード実行までのプロセスは、実行が完了するまで繰り返されます。  
   
  実行時に、マネージド コードは、ガベージ コレクション、セキュリティ、アンマネージド コードとの相互運用性、言語間デバッグ サポート、強化された配置とバージョン管理のサポートなどのさまざまなサービスを利用できます。  
   
- Microsoft [!INCLUDE[winxp](../../includes/winxp-md.md)] および [!INCLUDE[windowsver](../../includes/windowsver-md.md)]では、オペレーティング システム ローダーが COFF ヘッダー内のビットを調べることにより、マネージド モジュールをチェックします。 設定されたビットはマネージド モジュールを意味します。 ローダーがマネージド モジュールを検出すると、mscoree.dll が読み込まれます。マネージド モジュール イメージが読み込まれるときとアンロードされるときには、 `_CorValidateImage` および `_CorImageUnloading` がローダーに通知します。 `_CorValidateImage` は、次のアクションを実行します。  
+ Microsoft Windows Vista では、オペレーティング システム ローダーによって、COFF ヘッダー内のビットを調べることでマネージド モジュールがチェックされます。 設定されたビットはマネージド モジュールを意味します。 ローダーがマネージド モジュールを検出すると、mscoree.dll が読み込まれます。マネージド モジュール イメージが読み込まれるときとアンロードされるときには、 `_CorValidateImage` および `_CorImageUnloading` がローダーに通知します。 `_CorValidateImage` は、次のアクションを実行します。  
   
 1. コードが有効なマネージド コードであることを確認します。  
   
@@ -105,9 +103,9 @@ ms.locfileid: "70969028"
   
  64 ビット Windows では、 `_CorValidateImage` は、メモリ内のイメージを PE32 から PE32+ 形式に変換することによって変更します。  
   
- [ページのトップへ](#introduction)  
+ [先頭に戻る](#introduction)  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [概要](../../docs/framework/get-started/overview.md)
 - [言語への非依存性、および言語非依存コンポーネント](../../docs/standard/language-independence-and-language-independent-components.md)
@@ -115,6 +113,6 @@ ms.locfileid: "70969028"
 - [Ilasm.exe (IL アセンブラー)](../../docs/framework/tools/ilasm-exe-il-assembler.md)
 - [セキュリティ](../../docs/standard/security/index.md)
 - [アンマネージ コードとの相互運用](../../docs/framework/interop/index.md)
-- [配置](../../docs/framework/deployment/net-framework-applications.md)
+- [展開](../../docs/framework/deployment/net-framework-applications.md)
 - [.NET のアセンブリ](assembly/index.md)
 - [アプリケーション ドメイン](../../docs/framework/app-domains/application-domains.md)

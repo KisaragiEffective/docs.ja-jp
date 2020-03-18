@@ -22,7 +22,7 @@ Windows Communication Foundation (WCF) サービスとの通信はすべて、�
 
 各エンドポイントは、そのエンドポイントが存在する場所を示すアドレス、クライアントがエンドポイントと通信するための方法を指定するバインディング、および利用可能なメソッドを特定するコントラクトで構成されます。
 
-- **アドレス**。 アドレスは、エンドポイントを一意に識別し、潜在的ユーザーにそのサービスの場所を示します。 WCF オブジェクトモデルでは、<xref:System.ServiceModel.EndpointAddress> アドレスによって表されます。このアドレスには、id、Web サービス記述言語 (WSDL) 要素、および省略可能なヘッダーのコレクションを含む Uniform Resource Identifier (URI) とアドレスのプロパティが含まれます。 オプション ヘッダーは、エンドポイントの識別または対話のために、より詳細なアドレス指定情報を提供します。 詳細については、「[エンドポイントアドレスの指定](specifying-an-endpoint-address.md)」を参照してください。
+- **アドレス**。 アドレスは、エンドポイントを一意に識別し、潜在的ユーザーにそのサービスの場所を示します。 これは、WCF オブジェクトモデルで <xref:System.ServiceModel.EndpointAddress> アドレスによって表されます。これには、id、Web サービス記述言語 (WSDL) 要素、および省略可能なヘッダーのコレクションを含む Uniform Resource Identifier (URI) と address プロパティが含まれます。 オプション ヘッダーは、エンドポイントの識別または対話のために、より詳細なアドレス指定情報を提供します。 詳細については、「[エンドポイントアドレスの指定](specifying-an-endpoint-address.md)」を参照してください。
 
 - **バインド**。 バインディングはエンドポイントとの通信方法を指定します。 バインディングでは、使用するトランスポート プロトコル (TCP や HTTP)、メッセージのエンコーディング方法 (テキストやバイナリ)、必要なセキュリティ要件 (SSL (Secure Sockets Layer) や SOAP メッセージ セキュリティ) など、そのエンドポイントがどのように通信を行うかを指定します。 詳細については、「バインディングを使用した[サービスとクライアントの構成](using-bindings-to-configure-services-and-clients.md)」を参照してください。
 
@@ -37,11 +37,11 @@ Windows Communication Foundation (WCF) サービスとの通信はすべて、�
 
 次の例は、コードにエンドポイントを指定する方法を示しています。
 
-- 他のユーザーの名前を受け取り、"Hello \<name >!" という応答でエコーするサービスの @no__t 0 型のコントラクトを定義します。
+- 任意の名前を受け付け、"Hello `IEcho`name>!" とエコー応答するサービスの \< 型のコントラクトを定義します。
 
 - `Echo` コントラクトで定義された型の `IEcho` サービスを実装します。
 
-- サービスに `http://localhost:8000/Echo` のエンドポイントアドレスを指定してください。
+- サービスの `http://localhost:8000/Echo` のエンドポイントアドレスを指定します。
 
 - `Echo` バインディングを使用して <xref:System.ServiceModel.WSHttpBinding> サービスを構成します。
 
@@ -133,10 +133,10 @@ serviceHost.Open()
 
 ## <a name="defining-endpoints-in-configuration"></a>構成でのエンドポイントの定義
 
-アプリケーションの作成では、各種決定事項をアプリケーションを展開する管理者に任せる場合がよくあります。 たとえば、どのサービス アドレス (URI) を使用するかなどの情報は、前もって知るすべがありません。 アドレスをハードコーディングする代わりに、サービスの作成後に管理者が指定する方が便利です。 構成を活用することで、この柔軟性が得られます。 詳細については、「[サービスの構成](configuring-services.md)」を参照してください。
+アプリケーションの作成では、各種決定事項をアプリケーションを展開する管理者に任せる場合がよくあります。 たとえば、どのサービス アドレス (URI) を使用するかなどの情報は、前もって知るすべがありません。 アドレスをハードコーディングする代わりに、サービスの作成後に管理者が指定する方が便利です。 構成を活用することで、この柔軟性が得られます。 詳細については、[サービスを構成する](configuring-services.md) を参照してください。
 
 > [!NOTE]
-> [ServiceModel メタデータユーティリティツール (svcutil.exe)](servicemodel-metadata-utility-tool-svcutil-exe.md)を `/config:`*ファイル名*`[,`*ファイル名*`]` スイッチと共に使用して、構成ファイルをすばやく作成します。
+> [ServiceModel メタデータ ユーティリティ ツール (Svcutil.exe)](servicemodel-metadata-utility-tool-svcutil-exe.md) の `/config:`*filename*`[,`*filename*`]` を切り替えて使用すると、構成ファイルをすばやく作成できます。
 
 ## <a name="using-default-endpoints"></a>既定のエンドポイントの使用
 
@@ -201,8 +201,8 @@ Dim echoUri As Uri = New Uri("http://localhost:8000/")
 serviceHost.Open()
 ```
 
- エンドポイントを明示的に指定しない場合、<xref:System.ServiceModel.ServiceHostBase.AddDefaultEndpoints%2A> を呼び出す前に、<xref:System.ServiceModel.ServiceHost> で <xref:System.ServiceModel.Channels.CommunicationObject.Open%2A> を呼び出すことによって、既定のエンドポイントを引き続き追加できます。 既定のエンドポイントの詳細については、「 [WCF サービスの](./samples/simplified-configuration-for-wcf-services.md)構成と簡略化された構成の[簡略化](simplified-configuration.md)」を参照してください。
+ エンドポイントを明示的に指定しない場合、<xref:System.ServiceModel.ServiceHostBase.AddDefaultEndpoints%2A> を呼び出す前に、<xref:System.ServiceModel.ServiceHost> で <xref:System.ServiceModel.Channels.CommunicationObject.Open%2A> を呼び出すことによって、既定のエンドポイントを引き続き追加できます。 既定のエンドポイントの詳細については、「 [簡略化された構成](simplified-configuration.md)」および「[WCF サービスの簡略化された構成](./samples/simplified-configuration-for-wcf-services.md)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [サービス コントラクトの実装](implementing-service-contracts.md)

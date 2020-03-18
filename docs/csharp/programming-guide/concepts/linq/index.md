@@ -2,16 +2,16 @@
 title: 統合言語クエリ (LINQ) (C#)
 ms.date: 02/02/2017
 ms.assetid: 19dd1782-905b-4a9d-a3e9-618453037fa2
-ms.openlocfilehash: d75c34cd63eb439203ef6757e62e18936eb3606a
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 07a9d68c042d524ee9faba8122b406a81e816378
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72773914"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73418242"
 ---
 # <a name="language-integrated-query-linq"></a>統合言語クエリ (LINQ)
 
-統合言語クエリ (LINQ) は、C# 言語への直接的なクエリ機能の統合に基づくテクノロジのセットの名前です。 これまでは、データに対するクエリは、コンパイル時の型チェックや IntelliSense のサポートがない単純な文字列として表現されてきました。 さらに、SQL データベース、XML ドキュメント、さまざまな Web サービスなど、各種データ ソースの異なるクエリ言語を学習する必要があります。 LINQ では、クエリは、クラス、メソッド、イベントと同様に、ファースト クラスの言語コンストラクトです。 厳密に型指定されているオブジェクトのコレクションに対して、言語キーワードと使い慣れた演算子を用いてクエリを記述します。 LINQ ファミリのテクノロジを使用することで、オブジェクト (LINQ to Objects)、リレーショナル データベース ()、XML (LINQ to SQL)、XML (LINQ to XML) に対して一貫した方法でクエリを利用できます。
+統合言語クエリ (LINQ) は、C# 言語への直接的なクエリ機能の統合に基づくテクノロジのセットの名前です。 これまでは、データに対するクエリは、コンパイル時の型チェックや IntelliSense のサポートがない単純な文字列として表現されてきました。 さらに、SQL データベース、XML ドキュメント、さまざまな Web サービスといったデータ ソースの種類ごとに、異なるクエリ言語を習得する必要がありました。 LINQ では、クエリは、クラス、メソッド、イベントと同様に、ファースト クラスの言語コンストラクトです。 厳密に型指定されているオブジェクトのコレクションに対して、言語キーワードと使い慣れた演算子を用いてクエリを記述します。 LINQ ファミリのテクノロジを使用することで、オブジェクト (LINQ to Objects)、リレーショナル データベース ()、XML (LINQ to SQL)、XML (LINQ to XML) に対して一貫した方法でクエリを利用できます。
 
 クエリを記述する開発者にとって、最も目立つ LINQ の "統合言語" 部分は、クエリ式です。 クエリ式は、宣言型の "*クエリ構文*" で記述されます。 クエリ構文を使用することで、フィルター処理、並べ替え、グループ化などのデータ ソースに対する操作を、最小限のコードで実行できます。 同一の基本的なクエリ式のパターンを使用して、SQL データベース、ADO .NET データセット、XML ドキュメントとストリーム、および .NET コレクション内のデータを照会して変換できます。
 
@@ -36,13 +36,13 @@ C# を使って LINQ クエリを記述できます。対象は、<xref:System.C
 - <xref:System.Linq.Enumerable.Count%2A> や <xref:System.Linq.Enumerable.Max%2A> など一部のクエリ操作には、同等のクエリ式の句がないため、メソッドの呼び出しとして表す必要があります。 メソッド構文は、さまざまな方法でクエリ構文と組み合わせることができます。 詳細については、「[LINQ でのクエリ構文とメソッド構文](query-syntax-and-method-syntax-in-linq.md)」を参照してください。
 - クエリ式は、クエリの適用対象の種類によって、式ツリーまたはデリゲートにコンパイルすることができます。 <xref:System.Collections.Generic.IEnumerable%601> クエリはデリゲートにコンパイルされます。 <xref:System.Linq.IQueryable> および <xref:System.Linq.IQueryable%601> クエリは式ツリーにコンパイルされます。 詳細については、「[式ツリー](../../../expression-trees.md)」を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 LINQ の詳細については、最初に「[クエリ式の基本](../../../linq/query-expression-basics.md)」で基本的な概念を理解してから、関心のある LINQ テクノロジのドキュメントを参照してください。
 
-- XML ドキュメント:[LINQ to XML](linq-to-xml.md)  
-- ADO.NET Entity Framework:[LINQ to Entities](../../../../framework/data/adonet/ef/language-reference/linq-to-entities.md)
-- .NET のコレクション、ファイル、文字列など:[LINQ to Objects](linq-to-objects.md)
+- XML ドキュメント: [LINQ to XML](linq-to-xml-overview.md)  
+- ADO.NET Entity Framework: [LINQ to entities](../../../../framework/data/adonet/ef/language-reference/linq-to-entities.md)
+- .NET のコレクション、ファイル、文字列など: [LINQ to Objects ](linq-to-objects.md)
 
 LINQ 全般をより深く理解するには、「[C# での LINQ](../../../linq/linq-in-csharp.md)」を参照してください。
 

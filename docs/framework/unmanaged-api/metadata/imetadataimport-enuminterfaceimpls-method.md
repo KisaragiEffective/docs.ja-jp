@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: ba6e178f-128b-4e47-a13c-b4be73eb106c
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 0d0f94949cdc82cdecd52f003f3400c43014fabf
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: ef7057ad19fd34750bd15d358e9c1ebb1289cd44
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67780459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75338061"
 ---
 # <a name="imetadataimportenuminterfaceimpls-method"></a>IMetaDataImport::EnumInterfaceImpls メソッド
-指定したによって実装されるすべてのインターフェイスを列挙`TypeDef`します。 
+指定した `TypeDef`によって実装されているすべてのインターフェイスを列挙します。 
   
 ## <a name="syntax"></a>構文  
   
@@ -44,34 +42,34 @@ HRESULT EnumInterfaceImpls (
  [入力、出力]列挙子へのポインター。  
   
  `td`  
- [in]インターフェイスの実装を表す MethodDef トークンを持つが列挙 TypeDef のトークンです。  
+ からインターフェイスの実装を表す MethodDef トークンを列挙する TypeDef のトークン。  
   
  `rImpls`  
- [out]MethodDef トークンを格納するために使用する配列。  
+ 入出力MethodDef トークンを格納するために使用される配列。  
   
  `cMax`  
- [in] `rImpls` 配列の最大サイズ。  
+ から`rImpls` 配列の最大長。  
   
  `pcImpls`  
- [out]実際のトークンで返される数`rImpls`します。  
+ 入出力`rImpls`で返されたトークンの実際の数。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|`S_OK`|`EnumInterfaceImpls` 正常に返されます。|  
-|`S_FALSE`|MethodDef トークンを列挙することはありません。 その場合は、 `pcImpls` 0 に設定されます。|  
+|`S_OK`|`EnumInterfaceImpls` が正常に返されました。|  
+|`S_FALSE`|列挙する MethodDef トークンがありません。 この場合、`pcImpls` は0に設定されます。|  
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-列挙体のコレクションを返します`mdInterfaceImpl`各インターフェイスを指定した実装のためのトークン`TypeDef`します。 インターフェイスのトークンは、インターフェイスが指定された順序で返されます (を通じて`DefineTypeDef`または`SetTypeDefProps`)。 プロパティは、返された`mdInterfaceImpl`を使用してトークンを照会できます[GetInterfaceImplProps](imetadataimport-getinterfaceimplprops-method.md)します。
+列挙体は、指定した `TypeDef`によって実装された各インターフェイスの `mdInterfaceImpl` トークンのコレクションを返します。 インターフェイストークンは、インターフェイスが指定された順序で返されます (`DefineTypeDef` または `SetTypeDefProps`)。 返された `mdInterfaceImpl` トークンのプロパティは、 [GetInterfaceImplProps](imetadataimport-getinterfaceimplprops-method.md)を使用して照会できます。
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

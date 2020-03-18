@@ -2,12 +2,12 @@
 title: SAML トークン プロバイダー
 ms.date: 03/30/2017
 ms.assetid: eb16e5e2-4c8d-4f61-a479-9c965fcec80c
-ms.openlocfilehash: 4a6ee808d224696d4fc21337cc558fcc6218e71d
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: d599992949b87f0ac3f178d8f79f244781eda6fa
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70044768"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73976712"
 ---
 # <a name="saml-token-provider"></a>SAML トークン プロバイダー
 このサンプルでは、カスタム クライアントの SAML トークン プロバイダーを実装する方法を示します。 Windows Communication Foundation (WCF) のトークンプロバイダーは、セキュリティインフラストラクチャに資格情報を提供するために使用されます。 一般的に、トークン プロバイダーは、ターゲットをチェックし、適切な証明書を発行して、セキュリティ インフラストラクチャがメッセージのセキュリティを保護できるようにします。 WCF には、既定の資格情報マネージャートークンプロバイダーが付属しています。 また、WCF には、CardSpace トークンプロバイダーも付属しています。 カスタム トークン プロバイダーは、次の場合に便利です。
@@ -30,7 +30,7 @@ ms.locfileid: "70044768"
 
 - サーバーがクライアントによってサーバーの X.509 証明書を使用して認証される手順。
 
- サービスは、そのサービスとの通信に使用する 2 つのエンドポイントを公開します。エンドポイントは構成ファイル App.config で定義します。各エンドポイントは、アドレス、バインディング、およびコントラクトがそれぞれ 1 つずつで構成されます。 バインディングの構成には、標準の `wsFederationHttpBinding` が使用されます。これはメッセージ セキュリティを使用します。 1 つのエンドポイントは、クライアントが対称証明キーを使用する SAML トークンで認証を行うことを想定しています。これに対してもう 1 つのエンドポイントでは、クライアントが非対称証明キーを使用する SAML トークンで認証を行うことを想定しています。 また、サービスは `serviceCredentials` 動作を使用してサービス証明書の構成も行います。 `serviceCredentials` 動作を使用すると、サービス証明書を構成できます。 クライアントはサービス証明書を使用して、サービスを認証し、メッセージを保護します。 次の構成では、このトピックの最後のセットアップ手順で説明しているサンプル セットアップでインストールされる "localhost" 証明書を参照しています。 `serviceCredentials` 動作を使用すると、SAML トークンに署名する信頼できる証明書を構成することもできます。 次の構成では、サンプルでインストールされる 'Alice' 証明書を参照しています。
+ サービスは、構成ファイル App.config を使用して定義された、サービスと通信するための2つのエンドポイントを公開します。各エンドポイントは、アドレス、バインディング、およびコントラクトで構成されます。 バインディングの構成には、標準の `wsFederationHttpBinding` が使用されます。これはメッセージ セキュリティを使用します。 1 つのエンドポイントは、クライアントが対称証明キーを使用する SAML トークンで認証を行うことを想定しています。これに対してもう 1 つのエンドポイントでは、クライアントが非対称証明キーを使用する SAML トークンで認証を行うことを想定しています。 また、サービスは `serviceCredentials` 動作を使用してサービス証明書の構成も行います。 `serviceCredentials` 動作を使用すると、サービス証明書を構成できます。 クライアントはサービス証明書を使用して、サービスを認証し、メッセージを保護します。 次の構成では、このトピックの最後のセットアップ手順で説明しているサンプル セットアップでインストールされる "localhost" 証明書を参照しています。 `serviceCredentials` 動作を使用すると、SAML トークンに署名する信頼できる証明書を構成することもできます。 次の構成では、サンプルでインストールされる 'Alice' 証明書を参照しています。
 
 ```xml
 <system.serviceModel>
@@ -119,7 +119,7 @@ ms.locfileid: "70044768"
 
      このタスクを実行するため、カスタム トークン プロバイダーは <xref:System.IdentityModel.Selectors.SecurityTokenProvider> クラスから派生し、<xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetTokenCore%2A> メソッドをオーバーライドします。 このメソッドは、新しい `SecurityToken` を作成して返します。
 
-    ```
+    ```csharp
     protected override SecurityToken GetTokenCore(TimeSpan timeout)
     {
      // Create a SamlSecurityToken from the provided assertion
@@ -160,9 +160,8 @@ ms.locfileid: "70044768"
 
      <xref:System.IdentityModel.Selectors.SecurityTokenManager> クラスは、<xref:System.IdentityModel.Selectors.SecurityTokenProvider> メソッド内で渡される特定の <xref:System.IdentityModel.Selectors.SecurityTokenRequirement> の `CreateSecurityTokenProvider` の作成に使用されます。 セキュリティ トークン マネージャーは、トークン認証システムとトークン シリアライザーの作成にも使用されますが、このサンプルでは扱っていません。 このサンプルでは、カスタム セキュリティ トークン マネージャーは <xref:System.ServiceModel.ClientCredentialsSecurityTokenManager> クラスを継承し、渡されたトークンの要件で SAML トークンが必要であることが示されている場合に、`CreateSecurityTokenProvider` メソッドをオーバーライドしてカスタムの SAML トークン プロバイダーを返します。 クライアント資格情報クラス (手順 3. を参照) がアサーションを指定していない場合、セキュリティ トークン マネージャーは適切なインスタンスを作成します。
 
-    ```
-    public class SamlSecurityTokenManager :
-     ClientCredentialsSecurityTokenManager
+    ```csharp
+    public class SamlSecurityTokenManager : ClientCredentialsSecurityTokenManager
     {
      SamlClientCredentials samlClientCredentials;
 
@@ -232,7 +231,7 @@ ms.locfileid: "70044768"
 
      クライアント資格情報クラスは、クライアント プロキシ用に構成された資格情報を表すために使用され、トークン認証システム、トークン プロバイダー、およびトークン シリアライザーの取得に使用されるセキュリティ トークン マネージャーを作成します。
 
-    ```
+    ```csharp
     public class SamlClientCredentials : ClientCredentials
     {
      ClaimSet claims;
@@ -275,7 +274,7 @@ ms.locfileid: "70044768"
 
      サンプルでは既定のクライアント資格情報を削除し、新しいクライアント資格情報クラスを提供して、クライアントがカスタム クライアント資格情報を使用できるようにします。
 
-    ```
+    ```csharp
     // Create new credentials class
     SamlClientCredentials samlCC = new SamlClientCredentials();
 
@@ -309,7 +308,7 @@ ms.locfileid: "70044768"
 
      証明書は、LocalMachine ストアの場所の My (Personal) ストアに保存されます。
 
-    ```
+    ```console
     echo ************
     echo Server cert setup starting
     echo %SERVER_NAME%
@@ -323,7 +322,7 @@ ms.locfileid: "70044768"
 
      Setup.bat バッチ ファイルの次の行は、サーバー証明書をクライアントの信頼されたユーザーのストアにコピーします。 この手順が必要なのは、Makecert.exe によって生成される証明書がクライアント システムにより暗黙には信頼されないからです。 マイクロソフト発行の証明書など、クライアントの信頼されたルート証明書に基づいた証明書が既にある場合は、クライアント証明書ストアにサーバー証明書を配置するこの手順は不要です。
 
-    ```
+    ```console
     certmgr.exe -add -r LocalMachine -s My -c -n %SERVER_NAME% -r LocalMachine -s TrustedPeople
     ```
 
@@ -333,7 +332,7 @@ ms.locfileid: "70044768"
 
      証明書は、CurrentUser 保存場所の My ストアに保存されます。
 
-    ```
+    ```console
     echo ************
     echo Server cert setup starting
     echo %SERVER_NAME%
@@ -347,7 +346,7 @@ ms.locfileid: "70044768"
 
      Setup.bat バッチ ファイルの次の行は、サーバー証明書をクライアントの信頼されたユーザーのストアにコピーします。 この手順が必要なのは、Makecert.exe によって生成される証明書がクライアント システムにより暗黙には信頼されないからです。 マイクロソフト発行の証明書など、クライアントの信頼されたルート証明書に基づいた証明書が既にある場合は、サーバー証明書ストアに発行元証明書を配置するこの手順は不要です。
 
-    ```
+    ```console
     certmgr.exe -add -r CurrentUser -s My -c -n %USER_NAME% -r LocalMachine -s TrustedPeople
     ```
 

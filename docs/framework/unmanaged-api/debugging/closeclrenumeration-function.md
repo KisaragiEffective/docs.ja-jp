@@ -16,14 +16,12 @@ helpviewer_keywords:
 ms.assetid: 5e3c3958-80bb-43b1-a96b-dd3e6dbd9cd7
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3a05a779d4a56eb8f881da1824d5ffaa363b5a01
-ms.sourcegitcommit: 3caa92cb97e9f6c31f21769c7a3f7c4304024b39
+ms.openlocfilehash: 1d42292705dae03e9bf1a1555508dfb69cebde82
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71274280"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73132434"
 ---
 # <a name="closeclrenumeration-function"></a>CloseCLREnumeration 関数
 [列挙 Ateclrs 関数](enumerateclrs-function.md)によって返されるハンドルの配列にある有効な共通言語ランタイム (CLR) の継続スタートアップイベントをすべて閉じ、ハンドルおよび文字列パス配列のメモリを解放します。  
@@ -58,8 +56,8 @@ HRESULT CloseCLREnumeration (
  E_FAIL (またはその他の E_ リターン コード)  
  `pHandleArray` および `pStringArray` のメモリを解放できません。  
   
-## <a name="requirements"></a>要件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** dbgshim. h  
   

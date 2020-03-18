@@ -1,36 +1,36 @@
 ---
-title: その他のデータ型 (Visual Basic)
+title: その他のデータ型
 ms.date: 07/20/2015
 helpviewer_keywords:
 - Object data type [Visual Basic], data types
 - data types [Visual Basic], choosing
 ms.assetid: 64c71a12-9057-4dbf-baca-7379c4aada69
-ms.openlocfilehash: 4808d87322d5b21b70ec38e2eb31b2b204938745
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: cc6262b5bb305bb839917e222d831fa3340a1b14
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62008242"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346342"
 ---
 # <a name="miscellaneous-data-types-visual-basic"></a>その他のデータ型 (Visual Basic)
-Visual Basic ではない数字や文字を対象とするいくつかのデータ型が用意されています。 代わりに、それらを扱う特化されたデータなど、はい/いいえ値、日付/時刻値、およびオブジェクトのアドレス。  
+Visual Basic には、数値や文字に向いていない複数のデータ型が用意されています。 代わりに、yes/no 値、日付/時刻値、オブジェクトアドレスなどの特殊なデータを処理します。  
   
- Visual Basic のデータ型のサイド バイ サイドで比較を示す表を参照してください[データ型](../../../../visual-basic/language-reference/data-types/index.md)します。  
+ Visual Basic のデータ型の並列比較を示す表については、「[データ型の概要](../../../../visual-basic/language-reference/data-types/index.md)」を参照してください。  
   
 ## <a name="boolean-type"></a>ブール型  
- [ブール データ型](../../../../visual-basic/language-reference/data-types/boolean-data-type.md)符号なしの値として解釈されるは`True`または`False`します。 データのサイズは実装されているプラットフォームに依存します。 場合は、変数は、はい/いいえ、またはオン/オフ、true または false などの 2 つの状態値のみを含めることができます、宣言として`Boolean`します。  
+ [ブールデータ型](../../../../visual-basic/language-reference/data-types/boolean-data-type.md)は、`True` または `False`として解釈される符号なしの値です。 データ幅は、実装するプラットフォームによって異なります。 変数に、true/false、yes/no、on/off などの2つの状態の値のみを含めることができる場合は、それを `Boolean`として宣言します。  
   
 ## <a name="date-type"></a>日付型  
- [Date データ型](../../../../visual-basic/language-reference/data-types/date-data-type.md)は日付と時刻の両方の情報を保持する 64 ビット値です。 各インクリメントは、(12時 00分 AM) を開始してから、グレゴリオ暦での 1 年 1 月 1 日の経過時間の 100 ナノ秒を表します。 場合は、変数には、日付の値を時間の値、またはその両方を含めることができます、宣言として`Date`します。  
+ [日付データ型](../../../../visual-basic/language-reference/data-types/date-data-type.md)は、日付と時刻の両方の情報を保持する64ビット値です。 各インクリメントは、グレゴリオ暦の1年1月1日の開始 (12:00 AM) からの経過時間の100ナノ秒を表します。 変数に日付値、時刻値、またはその両方を含めることができる場合は、`Date`として宣言します。  
   
 ## <a name="object-type"></a>オブジェクトの型  
- [Object Data Type](../../../../visual-basic/language-reference/data-types/object-data-type.md)は、アプリケーション内、またはその他のアプリケーションでオブジェクトのインスタンスを指す 32 ビット アドレスです。 `Object`変数は、アプリケーションが認識されると、任意のオブジェクトや任意のデータ型のデータに参照できます。 両方が含まれます*値の型*など`Integer`、 `Boolean`、および構造体のインスタンスと*参照型*、オブジェクトなどのクラスから作成されたのインスタンスである`String`と<xref:System.Windows.Forms.Form>のインスタンスの配列。  
+ [Object データ型](../../../../visual-basic/language-reference/data-types/object-data-type.md)は、アプリケーション内または他のアプリケーション内のオブジェクトインスタンスを指す32ビットアドレスです。 `Object` 変数は、アプリケーションが認識する任意のオブジェクト、または任意のデータ型のデータを参照できます。 これには、`Integer`、`Boolean`、構造体のインスタンスなどの*値型*と、`String` や <xref:System.Windows.Forms.Form>、配列インスタンスなどのクラスから作成されたオブジェクトのインスタンスである*参照型*の両方が含まれます。  
   
- 変数は、コンパイル時に不明なクラスのインスタンスへのポインターを格納する場合、またはさまざまなデータ型のデータを指すことができる場合は、宣言として`Object`します。  
+ コンパイル時にわからないクラスのインスタンスへのポインターが変数に格納されている場合、または、さまざまなデータ型のデータを参照できる場合は、それを `Object`として宣言します。  
   
- 利点、`Object`データ型は、任意のデータ型のデータの格納に使用できます。 デメリットは、実行時間がかかると、アプリケーションの実行速度が遅く、余分な処理が発生することです。 使用する場合、`Object`発生する値の型の変数、*ボックス化*と*ボックス化解除*します。 に参照型を使用する場合に発生する*遅延バインディング*します。  
+ `Object` データ型の利点は、任意のデータ型のデータを格納するために使用できることです。 欠点は、実行時間のかかる追加操作が発生し、アプリケーションの実行速度が低下することです。 値型に `Object` 変数を使用すると、*ボックス*化と*ボックス化解除*が発生します。 参照型に使用すると、*遅延バインディング*が発生します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [型文字](../../../../visual-basic/programming-guide/language-features/data-types/type-characters.md)
 - [基本データ型](../../../../visual-basic/programming-guide/language-features/data-types/elementary-data-types.md)

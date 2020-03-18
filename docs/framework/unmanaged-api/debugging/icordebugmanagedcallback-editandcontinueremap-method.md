@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 24a8fcce-317e-48ff-aefc-d86123ada935
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 100688ece4ebb984d3d03823ab01bbaae7d395db
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9cb956c0262fdcdb5971d049ea7b057aa4d952c0
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67760274"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76781901"
 ---
 # <a name="icordebugmanagedcallbackeditandcontinueremap-method"></a>ICorDebugManagedCallback::EditAndContinueRemap メソッド
-このメソッドの使用は非推奨とされました。 統合開発環境 (IDE) に再割り当てイベントが送信されたことに、デバッガーに通知します。  
+このメソッドの使用は非推奨とされました。 これは、マップイベントが統合開発環境 (IDE) に送信されたことをデバッガーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,11 +36,11 @@ HRESULT EditAndContinueRemap (
 );  
 ```  
   
-## <a name="remarks"></a>Remarks  
- `EditAndContinueRemap`更新済みの関数の古いバージョンのコードの実行が試行されたときに、メソッドが呼び出されます。 共通言語ランタイムの呼び出し、 `EditAndContinueRemap` IDE に再割り当てイベントを送信する方法。  
+## <a name="remarks"></a>コメント  
+ `EditAndContinueRemap` メソッドは、更新された関数の古いバージョンでコードを実行しようとしたときに呼び出されます。 共通言語ランタイムは、`EditAndContinueRemap` メソッドを呼び出して、リマップイベントを IDE に送信します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -52,4 +50,4 @@ HRESULT EditAndContinueRemap (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugManagedCallback インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-interface.md)
+- [ICorDebugManagedCallback インターフェイス](icordebugmanagedcallback-interface.md)

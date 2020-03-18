@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: d1de53ad-9435-4b5f-9df7-07f21210e5b5
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 1f657957d42cef1421ab3aa19f297bd04b0cacd8
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 0c78ce8192d6456dd1b1be990d87b9209b028e09
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781328"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74440360"
 ---
 # <a name="imetadataimportcountenum-method"></a>IMetaDataImport::CountEnum メソッド
-指定された列挙子によって取得された列挙体の要素の数を取得します。  
+指定した列挙子によって取得された列挙体の要素の数を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,20 +36,20 @@ HRESULT CountEnum (
   
 ## <a name="parameters"></a>パラメーター  
  `hEnum`  
- [in]列挙子のハンドル。  
+ から列挙子のハンドルです。  
   
  `pulCount`  
- [out]列挙された要素の数。  
+ 入出力列挙された要素の数。  
   
-## <a name="remarks"></a>Remarks  
- 指定されたハンドル`hEnum`以前から取得されます`Enum`*名前*呼び出し (たとえば、 [imetadataimport::enumtypedefs](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-enumtypedefs-method.md))。  
+## <a name="remarks"></a>コメント  
+ `hEnum` によって指定されたハンドルは、前の `Enum`*名*の呼び出し (たとえば、 [IMetaDataImport:: enumtypedefs](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-enumtypedefs-method.md)) から取得されます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

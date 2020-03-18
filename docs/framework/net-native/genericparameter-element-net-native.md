@@ -2,14 +2,12 @@
 title: <GenericParameter> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: cbd49732-3615-49a5-a900-f96947cdc3e6
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: cf2b06b14252f152c1eece6f9c0d317482a24b27
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: d0b18211206a8f9d4365ab3affe6d1c376003348
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73039514"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128434"
 ---
 # <a name="genericparameter-element-net-native"></a>\<GenericParameter > 要素 (.NET ネイティブ)
 ジェネリック型またはメソッドのパラメーターの型にポリシーを適用します。  

@@ -1,13 +1,13 @@
 ---
-title: 複製とアタッチ (Visual Basic)
+title: 複製とアタッチ
 ms.date: 07/20/2015
 ms.assetid: 3c3bd105-c9d3-49bd-875b-27ab4e8bc7a3
-ms.openlocfilehash: 2849c648d8d280200d742663cbc7188b344d8306
-ms.sourcegitcommit: da2dd2772fcf32b44eb18b1cbe8affd17b1753c9
+ms.openlocfilehash: 22e86ee78d5c3fa0a7b80ae559c39f424fc9d61a
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71352965"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74345690"
 ---
 # <a name="cloning-vs-attaching-visual-basic"></a>複製とアタッチ (Visual Basic)
 <xref:System.Xml.Linq.XNode> オブジェクト (<xref:System.Xml.Linq.XElement> を含む) や <xref:System.Xml.Linq.XAttribute> オブジェクトを新しいツリーに追加するときに、新しいコンテンツに親がない場合、単にオブジェクトが XML ツリーにアタッチされます。 新しいコンテンツに既に親があり、別の XML ツリーの一部となっている場合は、新しいコンテンツが複製されます。 新しく複製されたコンテンツは、XML ツリーにアタッチされます。  

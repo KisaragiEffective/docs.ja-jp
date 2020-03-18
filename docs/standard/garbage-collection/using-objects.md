@@ -10,18 +10,16 @@ helpviewer_keywords:
 - try/finally block
 - garbage collection, encapsulating resources
 ms.assetid: 81b2cdb5-c91a-4a31-9c83-eadc52da5cf0
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9f165ab5b79abbc2b5464f40a27a580d26af163a
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: c5232aa89064c514e71f3a18bc754159e9c9b15b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70106951"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78160283"
 ---
 # <a name="using-objects-that-implement-idisposable"></a>IDisposable を実装するオブジェクトの使用
 
-共通言語ランタイムのガベージ コレクターは、アンマネージド オブジェクトによって使用されているメモリを解放しますが、アンマネージド リソースを使用する型は、これらのアンマネージド リソースに割り当てられたメモリが解放されるように <xref:System.IDisposable> インターフェイスを実装しています。 <xref:System.IDisposable> を実装するオブジェクトを使い終わったら、オブジェクトの <xref:System.IDisposable.Dispose%2A?displayProperty=nameWithType> の実装を呼び出す必要があります。 2 つの方法のいずれかでこれを行うことができます。  
+共通言語ランタイムのガベージ コレクターは、アンマネージド オブジェクトによって使用されているメモリを解放しますが、アンマネージド リソースを使用する型は、これらのアンマネージド リソースに割り当てられたメモリが解放されるように <xref:System.IDisposable> インターフェイスを実装しています。 <xref:System.IDisposable> を実装するオブジェクトを使い終わったら、オブジェクトの <xref:System.IDisposable.Dispose%2A?displayProperty=nameWithType> の実装を呼び出す必要があります。 これは、次の 2 つの方法のいずれかで行うことができます。  
   
 - C# の `using` ステートメントまたは Visual Basic の `Using` ステートメントを使用します。  
   
@@ -47,9 +45,9 @@ C# の `using` ステートメントおよび Visual Basic の `Using` ステー
 
 ## <a name="tryfinally-block"></a>Try/Finally ブロック
 
-`using` ステートメントで `try/finally` ブロックをラップする代わりに、`try/finally` ブロックを直接実装することもできます。 これは、個人のコーディング スタイルであることも、次のいずれかの理由からそうすることもあります。  
+`try/finally` ステートメントで `using` ブロックをラップする代わりに、`try/finally` ブロックを直接実装することもできます。 これは、個人のコーディング スタイルであることも、次のいずれかの理由からそうすることもあります。  
   
-- `catch` ブロックでスローされた例外をすべて処理する `try` ブロックを含めるため。 そうしないと、`try/catch` ブロックがない場合に `using` ブロック内でスローされた例外と同様に、`using` ステートメントによってスローされた例外は処理されません。  
+- `catch` ブロックでスローされた例外をすべて処理する `try` ブロックを含めるため。 そうしないと、`using` ブロックがない場合に `using` ブロック内でスローされた例外と同様に、`try/catch` ステートメントによってスローされた例外は処理されません。  
   
 - 宣言されたブロックに対してスコープがローカルでない <xref:System.IDisposable> を実装するオブジェクトをインスタンス化するため。  
   
@@ -58,9 +56,9 @@ C# の `using` ステートメントおよび Visual Basic の `Using` ステー
 [!code-csharp[Conceptual.Disposable#6](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.disposable/cs/using5.cs#6)]
 [!code-vb[Conceptual.Disposable#6](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.disposable/vb/using5.vb#6)]  
   
-この基本パターンを利用できるのは、プログラミング言語で `using` ステートメントがサポートされていないが、<xref:System.IDisposable.Dispose%2A> メソッドを直接呼び出すことはできるため、`try/finally` ブロックの実装を選択した場合、または実装する必要がある場合です。 
+この基本パターンを利用できるのは、プログラミング言語で `try/finally` ステートメントがサポートされていないが、`using` メソッドを直接呼び出すことはできるため、<xref:System.IDisposable.Dispose%2A> ブロックの実装を選択した場合、または実装する必要がある場合です。
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [アンマネージ リソースのクリーンアップ](../../../docs/standard/garbage-collection/unmanaged.md)
 - [using ステートメント (C# リファレンス)](../../csharp/language-reference/keywords/using-statement.md)

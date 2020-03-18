@@ -1,5 +1,6 @@
 ---
-title: '方法: コマンド ラインから Windows フォーム アプリケーションを作成する。'
+title: コマンド ラインから Windows フォーム アプリケーションを作成する。
+titleSuffix: ''
 ms.date: 03/14/2018
 dev_langs:
 - csharp
@@ -9,24 +10,22 @@ helpviewer_keywords:
 - Windows Forms, getting started
 - Windows Forms, creating basic form
 ms.assetid: 45ad3f8b-1c26-4c9f-91a9-3bb0759a47a4
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: da7fdab1cf67ffd47acb75533fcfdb89664c86d3
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.openlocfilehash: da6b9da53a36a44233dde4f0d1c4f147d913c7cf
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71834808"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76739527"
 ---
-# <a name="how-to-create-a-windows-forms-application-from-the-command-line"></a>方法: コマンド ラインから Windows フォーム アプリケーションを作成する。
+# <a name="how-to-create-a-windows-forms-application-from-the-command-line"></a>方法: コマンドラインから Windows フォームアプリケーションを作成する
 
-次の手順では、コマンドラインから Windows フォーム アプリケーションを作成して実行するために完了する必要のある基本的な手順について説明します。 Visual Studio では、これらの手順に対する広範なサポートが用意されています。  [チュートリアル: WPF での Windows フォーム コントロールのホスト](../wpf/advanced/walkthrough-hosting-a-windows-forms-control-in-wpf.md)を参照してください。
+次の手順では、コマンドラインから Windows フォーム アプリケーションを作成して実行するために完了する必要のある基本的な手順について説明します。 Visual Studio では、これらの手順に対する広範なサポートが用意されています。  「[チュートリアル: WPF での Windows フォームコントロールのホスト](../wpf/advanced/walkthrough-hosting-a-windows-forms-control-in-wpf.md)」も参照してください。
   
 ## <a name="procedure"></a>手順  
   
 #### <a name="to-create-the-form"></a>フォームを作成するには  
   
-1. 空のコードファイルで、次の `Imports` または `using` ステートメントを入力します。  
+1. 空のコードファイルに、次の `Imports` または `using` ステートメントを入力します。  
   
      [!code-csharp[System.Windows.Forms.BasicForm#2](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.BasicForm/CS/Form1.cs#2)]
      [!code-vb[System.Windows.Forms.BasicForm#2](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.BasicForm/VB/Form1.vb#2)]  
@@ -36,7 +35,7 @@ ms.locfileid: "71834808"
      [!code-csharp[System.Windows.Forms.BasicForm#3](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.BasicForm/CS/Form1.cs#3)]
      [!code-vb[System.Windows.Forms.BasicForm#3](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.BasicForm/VB/Form1.vb#3)]  
   
-3. のパラメーターなしの`Form1`コンストラクターを作成します。
+3. `Form1`のパラメーターなしのコンストラクターを作成します。
   
      後続の手順で、コンストラクターにさらにコードを追加します。
   
@@ -45,9 +44,9 @@ ms.locfileid: "71834808"
   
 4. `Main` メソッドをクラスに追加します。
   
-    1. <xref:System.STAThreadAttribute>をメソッド`Main`にC#適用して、Windows フォームアプリケーションがシングルスレッドアパートメントであることを指定します。 (Visual Basic で開発された Windows フォームアプリケーションでは、既定でシングルスレッドアパートメントモデルが使用されるため、Visual Basic では属性は必要ありません)。  
+    1. C# `Main` メソッドに <xref:System.STAThreadAttribute> を適用して、Windows フォームアプリケーションがシングルスレッドアパートメントであることを指定します。 (Visual Basic で開発された Windows フォームアプリケーションでは、既定でシングルスレッドアパートメントモデルが使用されるため、Visual Basic では属性は必要ありません)。  
   
-    2. を<xref:System.Windows.Forms.Application.EnableVisualStyles%2A>呼び出して、オペレーティングシステムのスタイルをアプリケーションに適用します。  
+    2. オペレーティングシステムのスタイルをアプリケーションに適用するには、<xref:System.Windows.Forms.Application.EnableVisualStyles%2A> を呼び出します。  
   
     3. フォームのインスタンスを作成して実行します。  
   
@@ -60,13 +59,13 @@ ms.locfileid: "71834808"
   
 2. フォームをコンパイルします。  
   
-    - を使用してC#いる場合は、次のように入力します。`csc form1.cs`  
+    - を使用してC#いる場合は、次のように入力します。 `csc form1.cs`  
   
          `-or-`  
   
-    - Visual Basic を使用している場合は、次のように入力します。`vbc form1.vb`  
+    - Visual Basic を使用している場合は、次のように入力します。 `vbc form1.vb`  
   
-3. コマンドプロンプトで、次のように入力します。`Form1.exe`  
+3. コマンド プロンプトに `Form1.exe` を入力します。  
   
 ## <a name="adding-a-control-and-handling-an-event"></a>コントロールの追加とイベントの処理
 
@@ -112,7 +111,7 @@ ms.locfileid: "71834808"
  [!code-csharp[System.Windows.Forms.FormWithButton#1](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.FormWithButton/CS/Form1.cs#1)]
  [!code-vb[System.Windows.Forms.FormWithButton#1](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.FormWithButton/VB/Form1.vb#1)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.Form>
 - <xref:System.Windows.Forms.Control>

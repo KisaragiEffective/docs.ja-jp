@@ -2,23 +2,23 @@
 title: <baseAddressPrefixFilters>
 ms.date: 03/30/2017
 ms.assetid: 8cab2a9a-c51f-4283-bb60-2ad0c274fd46
-ms.openlocfilehash: a22623c0856dd6d9b7c8c75e0b3feccc2d9350bd
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: cdf3264d1631db8e61bbcc4f6febd7008099251b
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70850194"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73968714"
 ---
-# <a name="baseaddressprefixfilters"></a>\<baseAddressPrefixFilters>
+# <a name="baseaddressprefixfilters"></a>\<baseAddressPrefixFilters >
 パススルーフィルターを指定する構成要素のコレクションを表します。パススルーフィルターは、IIS で Windows Communication Foundation (WCF) アプリケーションをホストするときに適切なインターネットインフォメーションサービス (IIS) バインドを選択するメカニズムを提供します。  
   
 > [!WARNING]
 > \<baseAddressPrefixFilters > は "localhost" を認識しません。代わりに、完全修飾コンピューター名を使用してください。  
   
 [ **\<configuration>** ](../configuration-element.md)\
-&nbsp;&nbsp;[ **\<System.servicemodel >** ](system-servicemodel.md)\
+&nbsp; &nbsp;[ **\<system >** ](system-servicemodel.md) \
 &nbsp;&nbsp;&nbsp;&nbsp;[ **\<serviceHostingEnvironment >** ](servicehostingenvironment.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<baseAddressPrefixFilters >**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**baseAddressPrefixFilters >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -55,9 +55,9 @@ ms.locfileid: "70850194"
   
  IIS では、サイトごとに複数の IIS バインディングを指定できるので、各スキームに複数のベース アドレスが定義されることがあります。 サイトでホストされる WCF サービスでは、スキームごとに1つのベースアドレスにしかバインドできないため、プレフィックスフィルター機能を使用して、ホステッドサービスの必要なベースアドレスを選択できます。 IIS によって指定される受信ベース アドレスは、オプションのプレフィックス リスト フィルターに基づいてフィルター処理されます。  
   
- たとえば、サイトに次のベース アドレスが含まれているとします。  
+ たとえば、サイトに次のベースアドレスを含めることができます。
   
-```  
+``` 
 http://testl.fabrikam.com/Service.svc  
 http://test2.fabrikam.com/Service.svc  
 ```  

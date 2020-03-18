@@ -9,14 +9,12 @@ helpviewer_keywords:
 - security-transparent code
 - security [.NET Framework], security-transparent code
 ms.assetid: 5fd8f46d-3961-46a7-84af-2eb1f48e75cf
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: efd3954b63a6683e04bd9143ca3523cdbace506d
-ms.sourcegitcommit: 5ae5a1a9520b8b8b6164ad728d396717f30edafc
+ms.openlocfilehash: 8f232a7724ad831818627cbfc2845ea808a3fcfd
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70894527"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77215806"
 ---
 # <a name="security-transparent-code-level-1"></a>透過的セキュリティコード、レベル1
 [!INCLUDE[net_security_note](../../../includes/net-security-note-md.md)]  
@@ -26,7 +24,7 @@ ms.locfileid: "70894527"
 > [!IMPORTANT]
 > レベル 1 の透過性は、互換性を確保するためにのみ指定してください。つまり、<xref:System.Security.AllowPartiallyTrustedCallersAttribute> を使用するか、透過性モデルを使用しない、.NET Framework 3.5 以前で開発されたコードに対してのみレベル 1 を指定してください。 たとえば、部分的に信頼された呼び出し元からの呼び出しを許可する .NET Framework 2.0 アセンブリ (APTCA) にはレベル 1 の透過性を使用します。 .NET Framework 4 用に開発されたコードでは、常にレベル2の透過性を使用します。  
   
- このトピックは、次のセクションで構成されています。  
+ このトピックには、次のセクションが含まれます。  
   
 - [レベル1の透過性モデル](#the_level_1_transparency_model)  
   
@@ -64,8 +62,8 @@ ms.locfileid: "70894527"
 |属性|説明|  
 |---------------|-----------------|  
 |<xref:System.Security.SecurityTransparentAttribute>|アセンブリ レベルでのみ使用できます。 アセンブリ内のすべての型とメンバーをセキュリティ透過的として指定します。 このアセンブリにセキュリティ クリティカルなコードを含めることはできません。|  
-|<xref:System.Security.SecurityCriticalAttribute>|<xref:System.Security.SecurityCriticalAttribute.Scope%2A> プロパティを設定せずにアセンブリ レベルで使用すると、アセンブリ内のすべてのコードは既定でセキュリティ透過的と指定されますが、アセンブリはセキュリティ クリティカルなコードを含むこともできると指定されます。<br /><br /> クラス レベルで使用すると、クラスまたはメソッドはセキュリティ クリティカルになりますが、クラスのメンバーはセキュリティ クリティカルになりません。 すべてのメンバーをセキュリティ クリティカルにするには、<xref:System.Security.SecurityCriticalAttribute.Scope%2A> プロパティを <xref:System.Security.SecurityCriticalScope.Everything> に設定します。<br /><br /> メンバー レベルで使用した場合、この属性はそのメンバーのみに適用されます。<br /><br /> セキュリティ クリティカルなクラスまたはメンバーは、特権の昇格を実行できます。 **重要:** レベル 1 の透過性では、セキュリティ クリティカルな型およびメンバーは、アセンブリの外部から呼び出された場合に、セキュリティ セーフ クリティカルとして扱われます。 承認のない特権の昇格を防ぐために、セキュリティ クリティカルな型およびメンバーを完全な信頼のためのリンク確認要求で保護する必要があります。|  
-|<xref:System.Security.SecuritySafeCriticalAttribute>|アセンブリ内のセキュリティ透過的なコードからアクセスできるセキュリティ クリティカルなコードを指定します。 この属性を指定しない場合、セキュリティ透過的なコードは、同じアセンブリ内のプライベートまたは内部のセキュリティ クリティカルなメンバーにアクセスできません。 この属性を指定した場合、セキュリティ クリティカルなコードに影響が出て、予期しない特権の引き上げが可能になります。 セキュリティ セーフ クリティカルなコードについては、厳しいセキュリティ監査を実行する必要があります。 **注:** セキュリティ セーフ クリティカルな型およびメンバーでは、呼び出し元のアクセス許可を確認して、保護リソースにアクセスする権限を呼び出し元が有することを検証する必要があります。|  
+|<xref:System.Security.SecurityCriticalAttribute>|<xref:System.Security.SecurityCriticalAttribute.Scope%2A> プロパティを設定せずにアセンブリ レベルで使用すると、アセンブリ内のすべてのコードは既定でセキュリティ透過的と指定されますが、アセンブリはセキュリティ クリティカルなコードを含むこともできると指定されます。<br /><br /> クラス レベルで使用すると、クラスまたはメソッドはセキュリティ クリティカルになりますが、クラスのメンバーはセキュリティ クリティカルになりません。 すべてのメンバーをセキュリティ クリティカルにするには、<xref:System.Security.SecurityCriticalAttribute.Scope%2A> プロパティを <xref:System.Security.SecurityCriticalScope.Everything> に設定します。<br /><br /> メンバー レベルで使用した場合、この属性はそのメンバーのみに適用されます。<br /><br /> セキュリティ クリティカルなクラスまたはメンバーは、特権の昇格を実行できます。 **重要:** レベル1の透過性では、セキュリティクリティカルな型およびメンバーは、アセンブリの外部から呼び出されると、セキュリティセーフクリティカルとして扱われます。 承認のない特権の昇格を防ぐために、セキュリティ クリティカルな型およびメンバーを完全な信頼のためのリンク確認要求で保護する必要があります。|  
+|<xref:System.Security.SecuritySafeCriticalAttribute>|アセンブリ内のセキュリティ透過的なコードからアクセスできるセキュリティ クリティカルなコードを指定します。 この属性を指定しない場合、セキュリティ透過的なコードは、同じアセンブリ内のプライベートまたは内部のセキュリティ クリティカルなメンバーにアクセスできません。 この属性を指定した場合、セキュリティ クリティカルなコードに影響が出て、予期しない特権の引き上げが可能になります。 セキュリティ セーフ クリティカルなコードについては、厳しいセキュリティ監査を実行する必要があります。 **注:** セキュリティセーフクリティカルな型およびメンバーは、呼び出し元が保護されたリソースにアクセスする権限を持っているかどうかを判断するために、呼び出し元のアクセス許可を検証する必要があります。|  
   
  <xref:System.Security.SecuritySafeCriticalAttribute> 属性を使用すると、セキュリティ透過的なコードが、同じアセンブリ内のセキュリティ クリティカルなメンバーにアクセスできるようになります。 1 つのアセンブリに含まれるセキュリティ透過的なコードとセキュリティ クリティカルなコードは、2 つのアセンブリに分離されていると見なせます。 セキュリティ透過的なコードは、セキュリティ クリティカルなコードのプライベートまたは内部のメンバーを参照できません。 さらに、セキュリティ クリティカルなコードは、通常、そのコードのパブリック インターフェイスへのアクセスについて監査を受けます。 プライベートまたは内部の状態にアセンブリの外部からアクセスすることはできず、状態は分離されていると想定できます。 <xref:System.Security.SecuritySafeCriticalAttribute> 属性を使用すると、透過的セキュリティ コードとセキュリティ クリティカルなコードの間で状態の分離を維持しながら、必要なときには分離をオーバーライドできるようになります。 セキュリティ クリティカルなコードのプライベートまたは内部のメンバーが <xref:System.Security.SecuritySafeCriticalAttribute> でマークされていない場合、セキュリティ透過的なコードはそのコードにアクセスできません。 <xref:System.Security.SecuritySafeCriticalAttribute> を適用する場合は、事前に、パブリックに公開された場合と同じようにしてメンバーを監査してください。  
   
@@ -130,7 +128,7 @@ public class B
   
  上記のコードは、`Critical` メソッドを明示的にセキュリティ クリティカルとしてマークしている以外は、透過的です。 アセンブリ レベルで <xref:System.Security.SecurityCriticalAttribute> 属性が指定されていても、既定の設定は透過的です。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [透過的セキュリティコード、レベル2](security-transparent-code-level-2.md)
 - [セキュリティの変更](../security/security-changes.md)

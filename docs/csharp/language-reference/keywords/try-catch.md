@@ -1,6 +1,5 @@
 ---
 title: try-catch - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - try
@@ -11,12 +10,12 @@ helpviewer_keywords:
 - catch keyword [C#]
 - try-catch statement [C#]
 ms.assetid: cb5503c7-bfa1-4610-8fc2-ddcd2e84c438
-ms.openlocfilehash: 8f901bd8ab5dcdcf4f5674e3f235267c9f535725
-ms.sourcegitcommit: 1b020356e421a9314dd525539da12463d980ce7a
+ms.openlocfilehash: 3d4315a09869b77b4ae8cbb43646f9a96280b678
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70168717"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79173472"
 ---
 # <a name="try-catch-c-reference"></a>try-catch (C# リファレンス)
 
@@ -54,7 +53,7 @@ catch (ArgumentException e) when (e.ParamName == "…")
 
 スタックはフィルターの影響を受けないため、キャッチと再スロー (以下で説明します) には例外フィルターが適しています。  後のハンドラーでスタックをダンプすると、再スローされた最後の場所だけではなく、例外が最初に発生した場所がわかります。  例外のフィルター式の一般的な用途の 1 つにログの記録があります。  常に false を返しログも出力するフィルターを作成すれば、処理や再スローの必要なしにそのままの状態で例外をログに記録することができます。
 
-`catch` ステートメントでキャッチされた例外を再びスローするには、`catch` ブロックで [throw](throw.md) ステートメントを使用できます。 次の例では、<xref:System.IO.IOException> 例外からソース情報を抽出した後、親メソッドに例外をスローします。
+[ ステートメントでキャッチされた例外を再びスローするには、](throw.md) ブロックで `catch`throw`catch` ステートメントを使用できます。 次の例では、<xref:System.IO.IOException> 例外からソース情報を抽出した後、親メソッドに例外をスローします。
 
 ```csharp
 catch (FileNotFoundException e)
@@ -63,7 +62,7 @@ catch (FileNotFoundException e)
 }
 catch (IOException e)
 {
-    // Extract some information from this exception, and then 
+    // Extract some information from this exception, and then
     // throw it to the parent method.
     if (e.Source != null)
         Console.WriteLine("IOException source: {0}", e.Source);
@@ -74,7 +73,7 @@ catch (IOException e)
 例外をキャッチして、別の例外をスローできます。 これを行うには、次の例に示すように、キャッチする例外を内部例外として指定します。
 
 ```csharp
-catch (InvalidCastException e) 
+catch (InvalidCastException e)
 {
     // Perform some action here, and then throw a new exception.
     throw new YourCustomException("Put your error message here.", e);
@@ -98,22 +97,22 @@ catch (InvalidCastException e)
 ```
 
 > [!NOTE]
-> また、例外フィルターを使用すると、多くの場合、よりクリーンな方法で同様の結果を得ることができます (このドキュメントで前述したような、スタックの変更もありません)。 次の例では、呼び出し元に対して前の例と同様の動作をします。 この関数は、`e.Data` が `null` の場合に、`InvalidCastException` を呼び出し元にスローして戻します。
-> 
+> また、例外フィルターを使用すると、多くの場合、よりクリーンな方法で同様の結果を得ることができます (このドキュメントで前述したような、スタックの変更もありません)。 次の例では、呼び出し元に対して前の例と同様の動作をします。 この関数は、`InvalidCastException` が `e.Data` の場合に、`null` を呼び出し元にスローして戻します。
+>
 > ```csharp
-> catch (InvalidCastException e) when (e.Data != null) 
+> catch (InvalidCastException e) when (e.Data != null)
 > {
 >     // Take some action.
 > }
-> ``` 
+> ```
 
 `try` ブロック内では、そのブロックで宣言されている変数のみを初期化します。 そうしないと、ブロックの実行が完了する前に例外が発生する可能性があります。 たとえば、次のコードでは、変数 `n` が `try` ブロック内で初期化されています。 この変数を `try` ブロックの外側にある `Write(n)` ステートメントで使おうとすると、コンパイラ エラーが発生します。
 
 ```csharp
-static void Main() 
+static void Main()
 {
     int n;
-    try 
+    try
     {
         // Do not initialize this variable here.
         n = 123;
@@ -142,7 +141,7 @@ catch の詳細については、「[try-catch-finally](try-catch-finally.md)」
 
 ## <a name="example"></a>例
 
-例外が発生する可能性がある `ProcessString` メソッドへの呼び出しを含む `try` ブロックの例を次に示します。 `catch` 句には、メッセージを画面に表示するだけの例外ハンドラーがあります。 `throw` ステートメントが `MyMethod` の内側から呼び出されると、システムによって `catch` ステートメントが検索され、メッセージ `Exception caught` が表示されます。
+例外が発生する可能性がある `try` メソッドへの呼び出しを含む `ProcessString` ブロックの例を次に示します。 `catch` 句には、メッセージを画面に表示するだけの例外ハンドラーがあります。 `throw` ステートメントが `MyMethod` の内側から呼び出されると、システムによって `catch` ステートメントが検索され、メッセージ `Exception caught` が表示されます。
 
 [!code-csharp[csrefKeywordsExceptions#2](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsExceptions/CS/csrefKeywordsExceptions.cs#2)]
 
@@ -158,7 +157,7 @@ catch の詳細については、「[try-catch-finally](try-catch-finally.md)」
 
 ## <a name="async-method-example"></a>非同期メソッドの例
 
-次の例では、非同期メソッドの例外処理を示します。 非同期タスクからスローされる例外をキャッチするには、`try` ブロックに `await` 式を配置し、`catch` ブロックで例外をキャッチします。
+次の例では、非同期メソッドの例外処理を示します。 非同期タスクからスローされる例外をキャッチするには、`await` ブロックに `try` 式を配置し、`catch` ブロックで例外をキャッチします。
 
 例外処理を示すために、この例の `throw new Exception` 行のコメントを解除します。 タスクの `IsFaulted` プロパティが `True` に設定され、タスクの `Exception.InnerException` プロパティが例外に設定され、例外が `catch` ブロックでキャッチされます。
 
@@ -170,18 +169,18 @@ catch の詳細については、「[try-catch-finally](try-catch-finally.md)」
 
 次の例では、複数のタスクで複数の例外が発生する可能性がある例外処理について説明します。 `try` ブロックは <xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=nameWithType> の呼び出しで返されるタスクを待機します。 WhenAll が適用される 3 つのタスクが完了すると、このタスクは完了します。
 
-3 つのタスクでそれぞれ例外が発生します。 `catch` ブロックは例外を反復処理します。この例外は、<xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=nameWithType> で返されたタスクの `Exception.InnerExceptions` プロパティで見つかります。
+3 つのタスクでそれぞれ例外が発生します。 `catch` ブロックは例外を反復処理します。この例外は、`Exception.InnerExceptions` で返されたタスクの <xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=nameWithType> プロパティで見つかります。
 
 [!code-csharp[csAsyncExceptions#4](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csasyncexceptions/cs/class1.cs#4)]
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳細については、「[C# 言語仕様](~/_csharplang/spec/introduction.md)」の「[try ステートメント](~/_csharplang/spec/statements.md#the-try-statement)」セクションを参照してください。
+詳細については、「[C# 言語仕様](~/_csharplang/spec/statements.md#the-try-statement)」の「[try ステートメント](~/_csharplang/spec/introduction.md)」セクションを参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# のキーワード](index.md)
 - [try、throw、catch ステートメント (C++)](/cpp/cpp/try-throw-and-catch-statements-cpp)
 - [throw](throw.md)

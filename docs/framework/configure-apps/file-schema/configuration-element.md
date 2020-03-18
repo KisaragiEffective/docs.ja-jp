@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/22/2019
 ms.locfileid: "69921245"
 ---
-# <a name="configuration-element"></a>\<構成 > 要素
+# <a name="configuration-element"></a>\<configuration> 要素
 
 共通言語ランタイムおよび .NET Framework アプリケーションで使用されるすべての構成ファイルのルート要素です。
 
@@ -50,7 +50,7 @@ ms.locfileid: "69921245"
 | [構成 > セクションスキーマ **\<** ](configuration-sections-schema.md) | 構成セクション設定スキーマ内のすべての要素。 |
 | [トレースおよびデバッグ設定のスキーマ](./trace-debug/index.md) | トレースおよびデバッグ設定スキーマのすべての要素。 |
 | [ASP.NET 構成設定スキーマ](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/b5ysx397(v=vs.100)) | ASP.NET 構成スキーマのすべての要素。 ASP.NET Web サイトおよびアプリケーションを構成するための要素が含まれています。 Web.config ファイルで使用されます。 |
-| [の > 設定スキーマの構成 **\<** ](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/cctwteet(v=vs.100)) | Web サービス設定スキーマ内のすべての要素。 |
+| [ **\<Web サービス>** の 設定スキーマの構成 ](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/cctwteet(v=vs.100)) | Web サービス設定スキーマ内のすべての要素。 |
 | [Web 設定スキーマ](./web/index.md) | IIS などのホスト アプリケーションと ASP.NET の連携を構成する要素も含め、Web 設定スキーマのすべての要素。 *Aspnet*ファイルで使用されます。 |
 
 ## <a name="remarks"></a>Remarks

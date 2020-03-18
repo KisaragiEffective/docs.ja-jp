@@ -1,5 +1,5 @@
 ---
-title: Option 推論ステートメント (Visual Basic)
+title: Option Infer ステートメント
 ms.date: 07/20/2015
 f1_keywords:
 - vb.OptionInfer
@@ -11,12 +11,12 @@ helpviewer_keywords:
 - declaring variables [Visual Basic], inferred
 - inferred variable declaration
 ms.assetid: 4ad3e6e9-8f5b-4209-a248-de22ef6e4652
-ms.openlocfilehash: 4dcca0f0ed9989577ded27bab7cf3b16f3036964
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 53bc9d41f28f63061db2012395480aa6be7515dd
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72775454"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346495"
 ---
 # <a name="option-infer-statement"></a>Option Infer ステートメント
 
@@ -30,12 +30,12 @@ Option Infer { On | Off }
 
 ## <a name="parts"></a>指定項目
 
-|用語|定義|
+|用語|Definition|
 |---|---|
-|`On`|省略可能です。 ローカル型推論を有効にします。|
-|`Off`|省略可能です。 ローカル型推論を無効にします。|
+|`On`|省略可。 ローカル型推論を有効にします。|
+|`Off`|省略可。 ローカル型推論を無効にします。|
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 ファイルに `Option Infer` を設定するには、ファイルの先頭に他のソース コードよりも前に `Option Infer On` または `Option Infer Off` を入力します。 ファイルの `Option Infer` に設定した値が IDE またはコマンド ラインに設定した値と競合した場合は、ファイルの値が優先されます。
 
@@ -72,7 +72,7 @@ Option Infer { On | Off }
 
 3. **[推論]** ボックスに値を設定します。
 
-新しいプロジェクトを作成すると、**コンパイル** タブの 設定を推測する**オプション**が **VB の既定値** ダイアログボックスの **推定**設定に設定されます。 VB の **[既定値]** ダイアログボックスにアクセスするには、 **[ツール]** メニューの **[オプション]** をクリックします。 **[オプション]** ダイアログ ボックスの **[プロジェクトおよびソリューション]** を展開し、 **[VISUAL BASIC の既定値]** をクリックします。 [VB の既定**値**] の初期の既定の設定は、`On` です。
+新しいプロジェクトを作成すると、**コンパイル** タブの 設定を推測する**オプション**が **VB の既定値** ダイアログボックスの **推定**設定に設定されます。 VB の **[既定値]** ダイアログボックスにアクセスするには、 **[ツール]** メニューの **[オプション]** をクリックします。 **[オプション]** ダイアログ ボックスの **[プロジェクトおよびソリューション]** を展開し、 **[VISUAL BASIC の既定値]** をクリックします。 [VB の既定**値**] の初期の既定の設定は、`On`です。
 
 #### <a name="to-set-option-infer-on-the-command-line"></a>コマンド ラインで Option Infer を設定するには
 
@@ -84,10 +84,10 @@ Option Infer { On | Off }
 
 |データ型が指定されているか|初期化子が指定されているか|例|結果|
 |---|---|---|---|
-|Ｘ|Ｘ|`Dim qty`|`Option Strict` がオフ (既定値) の場合、変数は `Nothing` に設定されます。<br /><br /> `Option Strict` がオンの場合、コンパイル時エラーが発生します。|
-|Ｘ|[はい]|`Dim qty = 5`|`Option Infer` がオン (既定値) の場合、変数は初期化子のデータ型になります。 「[ローカル型の推定](../../../visual-basic/programming-guide/language-features/variables/local-type-inference.md)」を参照してください。<br /><br /> `Option Infer` がオフで、`Option Strict` がオフの場合、変数は `Object` のデータ型になります。<br /><br /> `Option Infer` がオフで、`Option Strict` がオンの場合、コンパイル時エラーが発生します。|
-|[はい]|Ｘ|`Dim qty As Integer`|変数は、データ型の既定値に初期化されます。 詳細については、「 [Dim ステートメント](../../../visual-basic/language-reference/statements/dim-statement.md)」を参照してください。|
-|[はい]|[はい]|`Dim qty  As Integer = 5`|初期化子のデータ型を指定したデータ型に変換できない場合は、コンパイル時エラーが発生します。|
+|いいえ|いいえ|`Dim qty`|`Option Strict` がオフ (既定値) の場合、変数は `Nothing` に設定されます。<br /><br /> `Option Strict` がオンの場合、コンパイル時エラーが発生します。|
+|いいえ|はい|`Dim qty = 5`|`Option Infer` がオン (既定値) の場合、変数は初期化子のデータ型になります。 「[ローカル型の推定](../../../visual-basic/programming-guide/language-features/variables/local-type-inference.md)」を参照してください。<br /><br /> `Option Infer` がオフで、`Option Strict` がオフの場合、変数は `Object` のデータ型になります。<br /><br /> `Option Infer` がオフで、`Option Strict` がオンの場合、コンパイル時エラーが発生します。|
+|はい|いいえ|`Dim qty As Integer`|変数は、データ型の既定値に初期化されます。 詳細については、「[Dim ステートメント](../../../visual-basic/language-reference/statements/dim-statement.md)」を参照してください。|
+|はい|はい|`Dim qty  As Integer = 5`|初期化子のデータ型を指定したデータ型に変換できない場合は、コンパイル時エラーが発生します。|
 
 ## <a name="example"></a>例
 
@@ -101,7 +101,7 @@ Option Infer { On | Off }
 
 [!code-vb[VbVbalrTypeInference#11](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrTypeInference/VB/Class1.vb#11)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Dim ステートメント](../../../visual-basic/language-reference/statements/dim-statement.md)
 - [ローカル型の推論](../../../visual-basic/programming-guide/language-features/variables/local-type-inference.md)

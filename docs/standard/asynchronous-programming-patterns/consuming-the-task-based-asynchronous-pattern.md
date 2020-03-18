@@ -9,14 +9,12 @@ helpviewer_keywords:
 - Task-based Asynchronous Pattern, .NET Framework support for
 - .NET Framework, asynchronous design patterns
 ms.assetid: 033cf871-ae24-433d-8939-7a3793e547bf
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: e89545b5fa29f6e5bf99bb9b85322d7ee14422a4
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: f80e6ae520ab03c0f5f4edc30c0b7102193ee6c5
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70929009"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73139814"
 ---
 # <a name="consuming-the-task-based-asynchronous-pattern"></a>タスク ベースの非同期パターンの利用
 
@@ -143,7 +141,7 @@ public async void button1_Click(object sender, EventArgs e)
 }
 ```
 
- <xref:System.Threading.Tasks.Task.Run%28System.Func%7BSystem.Threading.Tasks.Task%7D%29?displayProperty=nameWithType> オーバーロードなど、これらの <xref:System.Threading.Tasks.Task.Run%2A> メソッドの一部は <xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> メソッドの短縮形として存在します。  <xref:System.Threading.Tasks.Task.Run%28System.Func%7BSystem.Threading.Tasks.Task%7D%29?displayProperty=nameWithType> など、他のオーバーロードでは、次のように、負荷分散される作業内で await を使用できます。
+ <xref:System.Threading.Tasks.Task.Run%2A> オーバーロードなど、これらの <xref:System.Threading.Tasks.Task.Run%28System.Func%7BSystem.Threading.Tasks.Task%7D%29?displayProperty=nameWithType> メソッドの一部は <xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> メソッドの短縮形として存在します。  <xref:System.Threading.Tasks.Task.Run%28System.Func%7BSystem.Threading.Tasks.Task%7D%29?displayProperty=nameWithType> など、他のオーバーロードでは、次のように、負荷分散される作業内で await を使用できます。
 
 ```csharp
 public async void button1_Click(object sender, EventArgs e)
@@ -157,10 +155,10 @@ public async void button1_Click(object sender, EventArgs e)
 }
 ```
 
- このようなオーバーロードは論理的に、タスク並列ライブラリの <xref:System.Threading.Tasks.TaskExtensions.Unwrap%2A> 拡張メソッドとの連動で <xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> メソッドを使用することと等しくなります。
+ このようなオーバーロードは論理的に、タスク並列ライブラリの <xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> 拡張メソッドとの連動で <xref:System.Threading.Tasks.TaskExtensions.Unwrap%2A> メソッドを使用することと等しくなります。
 
 ### <a name="taskfromresult"></a>Task.FromResult
- データが既に利用でき、単に <xref:System.Threading.Tasks.Task%601> にリフトされたタスクを返すメソッドから返す必要があるシナリオでは、<xref:System.Threading.Tasks.Task.FromResult%2A> メソッドを使用します。
+ データが既に利用でき、単に <xref:System.Threading.Tasks.Task.FromResult%2A> にリフトされたタスクを返すメソッドから返す必要があるシナリオでは、<xref:System.Threading.Tasks.Task%601> メソッドを使用します。
 
 ```csharp
 public Task<int> GetValueAsync(string key)
@@ -187,7 +185,7 @@ IEnumerable<Task> asyncOps = from addr in addrs select SendMailAsync(addr);
 await Task.WhenAll(asyncOps);
 ```
 
- このコードは発生する可能性がある例外を明示的に処理せず、<xref:System.Threading.Tasks.Task.WhenAll%2A> の結果のタスクの `await` から例外を反映します。  例外を処理するには、次のようなコードを使用できます。
+ このコードは発生する可能性がある例外を明示的に処理せず、`await` の結果のタスクの <xref:System.Threading.Tasks.Task.WhenAll%2A> から例外を反映します。  例外を処理するには、次のようなコードを使用できます。
 
 ```csharp
 IEnumerable<Task> asyncOps = from addr in addrs select SendMailAsync(addr);
@@ -201,7 +199,7 @@ catch(Exception exc)
 }
 ```
 
- この例では、非同期の操作が失敗した場合、すべての例外が <xref:System.AggregateException> 例外で連結され、<xref:System.Threading.Tasks.Task.WhenAll%2A> メソッドから返される <xref:System.Threading.Tasks.Task> に格納されます。  ただし、これらの例外の 1 つだけが `await` キーワードによって反映されます。  すべての例外を調べる場合は、上記のコードを次のように書き直します。
+ この例では、非同期の操作が失敗した場合、すべての例外が <xref:System.AggregateException> 例外で連結され、<xref:System.Threading.Tasks.Task> メソッドから返される <xref:System.Threading.Tasks.Task.WhenAll%2A> に格納されます。  ただし、これらの例外の 1 つだけが `await` キーワードによって反映されます。  すべての例外を調べる場合は、上記のコードを次のように書き直します。
 
 ```csharp
 Task [] asyncOps = (from addr in addrs select SendMailAsync(addr)).ToArray();
@@ -247,13 +245,13 @@ catch(Exception exc)
 ### <a name="taskwhenany"></a>Task.WhenAny
  <xref:System.Threading.Tasks.Task.WhenAny%2A> メソッドを使用して、完了するタスクとして表される複数の非同期操作の 1 つのみを非同期に待機できます。  このメソッドは、次の 4 つの主なユース ケースで役立ちます。
 
-- 冗長性:1 つの操作を複数回実行し、最初に完了したものを選択する (たとえば、1 つの結果を生成する複数の株価情報 Web サービスに問い合わせて、最も速く完了したものを選択する)。
+- 冗長性:  1 つの操作を複数回実行し、最初に完了したものを選択する (たとえば、1 つの結果を生成する複数の株価情報 Web サービスに問い合わせて、最も速く完了したものを選択する)。
 
-- インターリーブ:複数の操作を起動してそのすべてが完了するまで待機するが、処理は各完了時点で行う。
+- インターリーブ: 複数の操作を起動してそのすべてが完了するのを待機するが、それらの操作を完了時に処理する。
 
-- 調整:他が完了した時点で、追加の操作を開始できる。  これは、インターリーブのシナリオを拡張したものです。
+- 調整:  他の操作が完了したら追加の操作を開始できるようにする。  これは、インターリーブのシナリオを拡張したものです。
 
-- 初期のエスケープ:たとえば、タスク t1 が表す操作を別のタスク t2 と共に <xref:System.Threading.Tasks.Task.WhenAny%2A> タスクでグループにまとめ、<xref:System.Threading.Tasks.Task.WhenAny%2A> タスク上で待機できます。 タスク t2 は、タイムアウトか取り消し、または <xref:System.Threading.Tasks.Task.WhenAny%2A> タスクを t1 の前に完了するようなその他のシグナルを表す場合があります。
+- 初期のエスケープ: たとえば、タスク t1 が表す操作を別のタスク t2 と共に <xref:System.Threading.Tasks.Task.WhenAny%2A> タスクでグループにまとめ、<xref:System.Threading.Tasks.Task.WhenAny%2A> タスクで待機できます。 タスク t2 は、タイムアウトか取り消し、または <xref:System.Threading.Tasks.Task.WhenAny%2A> タスクを t1 の前に完了するようなその他のシグナルを表す場合があります。
 
 #### <a name="redundancy"></a>冗長性
  株式を購入するかどうかを決定するとします。  信頼できるいくつかの株式推薦 Web サービスがありますが、日常的な負荷によっては、時に応じて各サービスがかなり遅くなることがあります。  <xref:System.Threading.Tasks.Task.WhenAny%2A> メソッドを使用すると、いずれかの操作が完了したときに通知を受け取ることができます。
@@ -290,7 +288,7 @@ while(recommendations.Count > 0)
 }
 ```
 
- さらに、最初のタスクが正常に完了しても、以降のタスクが失敗する可能性があります。  この時点で、例外を処理する方法はいくつかあります。起動したすべてのタスクが完了するまで待機できます。その場合は、<xref:System.Threading.Tasks.Task.WhenAll%2A> メソッドを使用するか、あるいは、すべての例外が重要であり、ログに記録する必要があると指定してもかまいません。  そのためには、継続を使用してタスクが非同期に完了した時点で通知を受け取ることができます。
+ さらに、最初のタスクが正常に完了しても、以降のタスクが失敗する可能性があります。  この時点で、例外を処理する方法はいくつかあります。起動したすべてのタスクが完了するまで待機できます。その場合は、<xref:System.Threading.Tasks.Task.WhenAll%2A> メソッドを使用するか、すべての例外が重要であり、ログに記録する必要があると指定できます。  そのためには、継続を使用してタスクが非同期に完了した時点で通知を受け取ることができます。
 
 ```csharp
 foreach(Task recommendation in recommendations)
@@ -381,7 +379,7 @@ while(imageTasks.Count > 0)
 }
 ```
 
-#### <a name="throttling"></a>調整
+#### <a name="throttling"></a>Throttling
  インターリーブの例ではユーザーが多くのイメージをダウンロードするため、このダウンロード数を絞り込み、たとえば、特定の数のダウンロードだけを同時実行する必要がある場合を考えます。 これを行うには、非同期操作のサブセットを開始します。  操作が完了したら、追加操作を開始して、完了した操作に代えて実行します。
 
 ```csharp
@@ -476,7 +474,7 @@ public async void btnRun_Click(object sender, EventArgs e)
 }
 ```
 
- 初期のエスケープのもう 1 つの例では、次のセクションで説明する <xref:System.Threading.Tasks.Task.Delay%2A> メソッドと連動で <xref:System.Threading.Tasks.Task.WhenAny%2A> メソッドを使用します。
+ 初期のエスケープのもう 1 つの例では、次のセクションで説明する <xref:System.Threading.Tasks.Task.WhenAny%2A> メソッドと連動で <xref:System.Threading.Tasks.Task.Delay%2A> メソッドを使用します。
 
 ### <a name="taskdelay"></a>Task.Delay
  <xref:System.Threading.Tasks.Task.Delay%2A?displayProperty=nameWithType> メソッドを使用し、非同期メソッドの実行を一時停止できます。  これは、ポーリング ループのビルド、あらかじめ指定された期間にわたるユーザー入力処理の遅延など、さまざまな機能に役立ちます。  <xref:System.Threading.Tasks.Task.Delay%2A?displayProperty=nameWithType> メソッドは、<xref:System.Threading.Tasks.Task.WhenAny%2A?displayProperty=nameWithType> との連動で使用し、待機にタイムアウトを実装する場合にも便利です。
@@ -633,7 +631,7 @@ double currentPrice = await NeedOnlyOne(
 ```
 
 ### <a name="interleaved-operations"></a>インターリーブされた操作
- 多数のタスクを使用する際に、インターリーブのシナリオをサポートするために <xref:System.Threading.Tasks.Task.WhenAny%2A> メソッドを使用すると、パフォーマンスの問題が発生することがあります。  <xref:System.Threading.Tasks.Task.WhenAny%2A> を呼び出すたびに、継続が各タスクに登録されます。 タスクの数を N とすると、インターリーブ操作の有効期間に作成された O (N2) の継続になります。  多数のタスクを使用する場合は、連結子 (次の例の `Interleaved`) を使用してパフォーマンスの問題に対処できます。
+ 多数のタスクを使用する際に、インターリーブのシナリオをサポートするために <xref:System.Threading.Tasks.Task.WhenAny%2A> メソッドを使用すると、パフォーマンスの問題が発生することがあります。 <xref:System.Threading.Tasks.Task.WhenAny%2A> を呼び出すたびに、継続が各タスクに登録されます。 タスクの数を N とすると、インターリーブ操作の有効期間に作成された O (N<sup>2</sup>) の継続になります。 多数のタスクを使用する場合は、連結子 (次の例の `Interleaved`) を使用してパフォーマンスの問題に対処できます。
 
 ```csharp
 static IEnumerable<Task<T>> Interleaved<T>(IEnumerable<Task<T>> tasks)
@@ -835,7 +833,7 @@ private static void Produce(int data)
 > [!NOTE]
 > <xref:System.Threading.Tasks.Dataflow> 名前空間は .NET Framework 4.5 にあります。**NuGet** を利用してください。 <xref:System.Threading.Tasks.Dataflow> 名前空間が含まれるアセンブリをインストールするには、Visual Studio でプロジェクトを開き、 **[プロジェクト] メニューの [NuGet パッケージの管理]** を選択し、Microsoft.Tpl.Dataflow パッケージをオンライン検索します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [タスク ベースの非同期パターン (TAP)](../../../docs/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap.md)
 - [タスク ベースの非同期パターンの実装](../../../docs/standard/asynchronous-programming-patterns/implementing-the-task-based-asynchronous-pattern.md)

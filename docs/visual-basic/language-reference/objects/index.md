@@ -1,15 +1,15 @@
 ---
-title: オブジェクト (Visual Basic)
+title: オブジェクト
 ms.date: 07/20/2015
 helpviewer_keywords:
 - objects [Visual Basic]
 ms.assetid: 651c73e4-dca8-402b-9c6b-e3902b3a3f4b
-ms.openlocfilehash: 8852a3daa3cd3891d5053cc1fffe19fa310125de
-ms.sourcegitcommit: c4e9d05644c9cb89de5ce6002723de107ea2e2c4
+ms.openlocfilehash: 2108e36956ada98e48e6ab05cec56dbf2a12b3dd
+ms.sourcegitcommit: a4f9b754059f0210e29ae0578363a27b9ba84b64
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65880720"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838261"
 ---
 # <a name="objects-visual-basic"></a>オブジェクト (Visual Basic)
 このトピックでは、Visual Basic ランタイム オブジェクトを示すトピックや、そのメンバー プロシージャ、プロパティ、およびイベントの表を含む、その他のトピックへのリンクを提供します。  
@@ -45,7 +45,6 @@ ms.locfileid: "65880720"
 |[My.WebServices オブジェクト](../../../visual-basic/language-reference/objects/my-webservices-object.md)|現在のプロジェクトによって参照される各 Web サービスの単一のインスタンスを作成してアクセスするためのプロパティを提供します。|  
 |<xref:Microsoft.VisualBasic.FileIO.TextFieldParser>|構造化テキスト ファイルの解析に使用するメソッドとプロパティを提供します。|  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Visual Basic の言語リファレンス](../../../visual-basic/language-reference/index.md)
-- [Visual Basic](../../../visual-basic/index.md)

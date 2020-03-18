@@ -1,15 +1,13 @@
 ---
 title: 破壊的変更と .NET ライブラリ
 description: .NET ライブラリを作成するとき、破壊的変更を進行させるためのベストプラクティス推奨事項。
-author: jamesnk
-ms.author: mairaw
 ms.date: 10/02/2018
-ms.openlocfilehash: 6881b8737d9dd3fa7fa71f099fa1dc97b747033d
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: 2cbd9e0a818b52aede6c9b1f60fdf52dcbd7b96f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104659"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79398509"
 ---
 # <a name="breaking-changes"></a>互換性に影響する変更
 
@@ -27,11 +25,11 @@ ms.locfileid: "70104659"
 
   エンドユーザー アプリケーションでは、高レベルのライブラリは直接参照されます。 破壊的変更が行われた場合、開発者は最新版への更新を選択するか、破壊的変更に合わせてアプリケーションを変更できます。
 
-**✔️ 実行すること**: ライブラリの使われ方について良く考える。 破壊的変更はそれを使用するアプリケーションやライブラリにどのような影響を及ぼしますか。
+✔️ ライブラリがどのように使用されるかについてよく考えてください。 破壊的変更はそれを使用するアプリケーションやライブラリにどのような影響を及ぼしますか。
 
-**✔️ 実行すること**: 低レベルの .NET ライブラリを開発するときは、破壊的変更を最小限に抑える。
+✔️ 低レベルの .NET ライブラリを開発するときは、破壊的変更を最小限に抑えてください。
 
-**✔️ 検討すること**: ライブラリを大幅に書き直した場合、新しい NuGet パッケージとして公開する。
+✔️ ライブラリを大幅に書き直した場合は、新しい NuGet パッケージとして公開することを検討してください。
 
 ## <a name="types-of-breaking-changes"></a>破壊的変更の種類
 
@@ -56,9 +54,9 @@ public class Task
 
 機能の追加や不適切動作の改善は良いことですが、慎重に行わない場合、既存ユーザーにとってアップグレードが非常に難しくなります。 動作の破壊的変更の前に "設定" を置くことが、変更に対処する開発者を助ける 1 つの方法です。 この "設定" で開発者はライブラリの最新版に更新し、同時に破壊的変更の採用を選択できます。 このような方法をとることで、開発者は最新の状態を維持しながら、時間をかけてコードを調整できます。
 
-たとえば、ASP.NET Core MVC には、`MvcOptions` で有効/無効になっている機能を変更する[互換性バージョン](/aspnet/core/mvc/compatibility-version)という概念があります。
+たとえば、ASP.NET Core MVC には、[ で有効/無効になっている機能を変更する](/aspnet/core/mvc/compatibility-version)互換性バージョン`MvcOptions`という概念があります。
 
-**✔️ 検討すること**: 既存ユーザーに影響を与えるなら、新しい機能は既定でオフにし、開発者に設定で選択させる。
+✔️ 新しい機能が既存のユーザーに影響を与える場合は、新しい機能を既定でオフにし、開発者が設定によってその機能を選択できるようにすることを検討してください。
 
 ### <a name="binary-breaking-change"></a>バイナリの破壊的変更
 
@@ -66,15 +64,15 @@ public class Task
 
 バイナリの破壊的変更は**アセンブリ全体**を壊すこともあります。 `AssemblyName` でアセンブリの名前を変更すると、アセンブリの ID が変更されます。アセンブリの厳密な名前付けキーを追加、削除、変更した場合も同様に ID が変更されます。 アセンブリの ID を変更すると、それを使用するすべてのコンパイル済みコードが壊れます。
 
-**❌ してはいけないこと**: アセンブリ名を変更する。
+❌ アセンブリ名を変更しないでください。
 
-**❌ してはいけないこと**: 厳密な名前付けキーを追加、削除、変更する。
+❌ 厳密な名前付けキーを追加、削除、または変更しないでください。
 
-**✔️ 検討すること**: インターフェイスではなく、抽象基本クラスを使用する。
+✔️ インターフェイスではなく、抽象基本クラスを使用することを検討してください。
 
 > インターフェイスに何かを追加すると、そのインターフェイスを実装する既定の型でエラーが出ます。 抽象基本クラスを使用すると、既定の仮想実装を追加できます。
 
-**✔️ 検討すること**: 削除する予定の型とメンバーに <xref:System.ObsoleteAttribute> を置く。 この属性によって、無効になった API を使用しないようにコードを更新するための指示が与えられます。
+✔️ 削除する予定の型とメンバーに <xref:System.ObsoleteAttribute> を付けることを検討してください。 この属性によって、無効になった API を使用しないようにコードを更新するための指示が与えられます。
 
 > <xref:System.ObsoleteAttribute> が与えられた型やメソッドをコードが呼び出すと、ビルドの警告が出され、属性にメッセージが与えられます。 この警告によって、無効になった API を使用している人に十分な移行時間が与えられます。無効になった API が削除されたとき、ほとんどの人がそれを使用しなくなっています。
 
@@ -94,15 +92,15 @@ public class Document
 }
 ```
 
-**✔️ 検討すること**: 低レベル/中レベルのライブラリの場合、<xref:System.ObsoleteAttribute> が与えられた型やメソッドを無期限で保持する。
+✔️ 低レベルおよび中レベルのライブラリでは、<xref:System.ObsoleteAttribute> が指定された型やメソッドを無期限に保持することを検討してください。
 
 > API を削除することはバイナリの破壊的変更です。 保守管理コストが低く、ライブラリに与える技術的な負荷が大きくなければ、無効になった型とメソッドを保持することを検討してください。 型やメソッドを削除しなければ、前述の最悪なケースを回避できる可能性があります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# 開発者向けのバージョンと更新に関する考慮事項](../../csharp/whats-new/version-update-considerations.md)
 - [API の決定版ガイド - .NET の破壊的変更](https://stackoverflow.com/questions/1456785/a-definitive-guide-to-api-breaking-changes-in-net)
-- [CoreFX 破壊的変更ルール](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/breaking-change-rules.md)
+- [.NET 破壊的変更ルール](https://github.com/dotnet/runtime/blob/master/docs/coding-guidelines/breaking-change-rules.md)
 
 >[!div class="step-by-step"]
->[前へ](versioning.md)
+>[[戻る]](versioning.md)

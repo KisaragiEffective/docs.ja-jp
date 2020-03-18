@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 8c6d2089-4dbb-4715-b9e9-2a4491c8c9ce
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d438123dcefb901098954845596c210e5b76cea6
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: a0b70078dee88b270d8361aa9bddcb7d80df1db1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67764108"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129471"
 ---
 # <a name="icordebugmodule2setjmcstatus-method"></a>ICorDebugModule2::SetJMCStatus メソッド
-この ICorDebugModule2 を除く、指定された値でのすべてのクラスのすべてのメソッドだけマイ コードのみ (JMC) 状態を設定、`pTokens`配列で、逆の値に設定します。  
+この ICorDebugModule2 内のすべてのクラスのすべてのメソッドのマイコードのみ (JMC) の状態を、指定した値に設定します。ただし、逆の値に設定するのは、`pTokens` 配列内のすべてのメソッドです。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,23 +37,23 @@ HRESULT SetJMCStatus (
   
 ## <a name="parameters"></a>パラメーター  
  `bIsJustMycode`  
- [in]設定`true`コードは、デバッグ対象以外の場合に場合に、設定`false`します。  
+ からコードをデバッグする場合は `true` に設定します。それ以外の場合は、を `false`に設定します。  
   
  `cTokens`  
  [in] `pTokens` 配列のサイズ。  
   
  `pTokens`  
- [in]配列の`mdToken`値、その JMC ステータスに設定するメソッドを指す各!`bIsJustMycode`します。  
+ から`mdToken` 値の配列。各値は、JMC 状態がに設定されるメソッドを参照します。`bIsJustMycode`。  
   
 ## <a name="remarks"></a>Remarks  
- 指定されている各メソッドの JMC 状態、`pTokens`の反対に配列が設定されている、`bIsJustMycode`値。 このモジュールで他のすべてのメソッドの状態に設定、`bIsJustMycode`値。  
+ `pTokens` 配列に指定されている各メソッドの JMC の状態は、`bIsJustMycode` 値の逆に設定されます。 このモジュール内の他のすべてのメソッドの状態は、`bIsJustMycode` 値に設定されます。  
   
- `SetJMCStatus`メソッドは、このモジュール内のすべての以前 JMC 設定を消去します。  
+ `SetJMCStatus` メソッドは、このモジュール内の以前のすべての JMC 設定を消去します。  
   
- `SetJMCStatus`メソッドは、すべての関数が正常に設定されている場合に S_OK HRESULT を返します。 いくつかの関数の場合は、CORDBG_E_FUNCTION_NOT_DEBUGGABLE HRESULT がマークされている返します`true`デバッグ可能ではありません。  
+ すべての関数が正常に設定されている場合、`SetJMCStatus` メソッドは S_OK HRESULT を返します。 `true` としてマークされている一部の関数がデバッグ可能でない場合は、CORDBG_E_FUNCTION_NOT_DEBUGGABLE HRESULT が返されます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

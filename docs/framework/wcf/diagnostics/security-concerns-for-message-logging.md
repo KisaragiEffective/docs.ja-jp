@@ -2,12 +2,12 @@
 title: メッセージ ログ記録のセキュリティの考慮事項
 ms.date: 03/30/2017
 ms.assetid: 21f513f2-815b-47f3-85a6-03c008510038
-ms.openlocfilehash: c5efd2990a00045e920c005f6658d5fdfb858481
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 679975be44244f10232b805a6cc2776b48ed6058
+ms.sourcegitcommit: 7e2128d4a4c45b4274bea3b8e5760d4694569ca1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70795947"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75935767"
 ---
 # <a name="security-concerns-for-message-logging"></a>メッセージ ログ記録のセキュリティの考慮事項
 ここでは、メッセージ ログに表示される機密データだけでなく、メッセージ ログによって生成されるイベントを保護する方法についても説明します。  
@@ -88,7 +88,7 @@ ms.locfileid: "70795947"
   
  変更点はアプリケーションが開始されるか、再起動されるまで、反映されません。 両方の属性も `true` に設定されている場合は、イベントは開始時にログに記録されます。 また、`logKnownPii` が `true` に設定され、`enableLoggingKnownPii` が `false` に設定されている場合にも、イベントはログに記録されます。  
   
- コンピューターの管理者およびアプリケーションを配置するユーザーは、これらの 2 種類のスイッチを使用する場合に注意する必要があります。 PII のログ記録が有効になっている場合は、セキュリティ キーと PII がログに記録されます。 ログ記録を無効にしても、機密情報およびアプリケーション固有のデータは、依然としてメッセージのヘッダーと本体に記録されています。 プライバシーの詳細および PII の公開を防止する方法については、「[ユーザーのプライバシー](https://go.microsoft.com/fwlink/?LinkID=94647)」を参照してください。  
+ コンピューターの管理者およびアプリケーションを配置するユーザーは、これらの 2 種類のスイッチを使用する場合に注意する必要があります。 PII のログ記録が有効になっている場合は、セキュリティ キーと PII がログに記録されます。 ログ記録を無効にしても、機密情報およびアプリケーション固有のデータは、依然としてメッセージのヘッダーと本体に記録されています。 プライバシーの詳細および PII の公開を防止する方法については、「[ユーザーのプライバシー](https://docs.microsoft.com/previous-versions/dotnet/articles/aa480490(v=msdn.10))」を参照してください。  
   
 > [!CAUTION]
 > PII は無効なメッセージでは非表示になりません。 このようなメッセージは、変更されずにそのままログに記録されます。 上に示した属性は、このことに影響を与えません。  
@@ -99,13 +99,13 @@ ms.locfileid: "70795947"
 ## <a name="events-triggered-by-message-logging"></a>メッセージ ログ記録でトリガーされるイベント  
  メッセージ ログ記録で発生するすべてのイベントを以下に示します。  
   
-- メッセージのログ記録:このイベントは、メッセージログが構成で有効になっているとき、または WMI を介して有効になったときに生成されます。 イベントの内容は "メッセージのログ記録が有効になりました。 機密情報は、通信回線上で暗号化されていた場合でも平文で記録される可能性があります (メッセージ本文など)" となります。  
+- Message logging on : このイベントは、メッセージ ログ記録が構成内で、または WMI を介して有効になっている場合に発生します。 イベントの内容は "メッセージのログ記録が有効になりました。 機密情報は、通信回線上で暗号化されていた場合でも平文で記録される可能性があります (メッセージ本文など)" となります。  
   
-- メッセージのログオフ:このイベントは、WMI によってメッセージログが無効にされたときに生成されます。 イベントの内容は "メッセージのログ記録が無効になりました" となります。  
+- Message logging off : このイベントは、メッセージ ログ記録が WMI を介して無効になっている場合に発生します。 イベントの内容は "メッセージのログ記録が無効になりました" となります。  
   
-- 既知の PII をログに記録する:このイベントは、既知の PII のログ記録が有効になっているときに生成されます。 このエラーは、 `enableLoggingKnownPii` machine.config ファイルの`machineSettings`要素の属性がに`true` `logKnownPii`設定され、app.config ファイルまたは web.config ファイルの`source`要素の属性がに`true`設定されている場合に発生します.  
+- Log Known PII On : このイベントは、既知の PII のログ記録が有効になっている場合に発生します。 これは、machine.config ファイルの `machineSettings` 要素の `enableLoggingKnownPii` 属性が `true`に設定されていて、App.config ファイルまたは Web.config ファイルの `source` 要素の `logKnownPii` 属性が `true`に設定されている場合に発生します。  
   
-- 既知の PII をログに記録することはできません。このイベントは、既知の PII のログ記録が許可されていない場合に生成されます。 このエラーは、 `logKnownPii` app.config ファイルまた`source`は web.config ファイルの要素の属性がに`true` `enableLoggingKnownPii`設定されていても、machine.config ファイルの`machineSettings`要素の属性がに`false`設定されている場合に発生します. 例外をスローすることはありません。  
+- Log Known PII Not Allowed : このイベントは既知の PII のログ記録が許可されていない場合に発生します。 これは、App.config ファイルまたは web.config ファイルの `source` 要素の `logKnownPii` 属性が `true`に設定されていても、machine.config ファイルの `machineSettings` 要素内の `enableLoggingKnownPii` 属性が `false`に設定されている場合に発生します。 例外をスローすることはありません。  
   
  これらのイベントは、Windows に付属するイベント ビューアー ツールを使用して表示できます。 詳細については、「[イベントログ](./event-logging/index.md)」を参照してください。  
   

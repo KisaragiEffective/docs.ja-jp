@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: cf064bac-9a9f-41c5-9e1d-108ff7af3afe
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: ba35cd678d88389854ca2e866020ea3a9364c923
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 6966d0ad2fefd8401b19d8e8dcf7776799a066b2
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777667"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74432565"
 ---
 # <a name="imetadataemitdefineevent-method"></a>IMetaDataEmit::DefineEvent メソッド
-指定したメタデータ シグネチャを持つイベントの定義を作成し、そのイベント定義トークンを取得します。  
+指定したメタデータシグネチャを持つイベントの定義を作成し、そのイベント定義へのトークンを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -45,42 +43,42 @@ HRESULT DefineEvent (
   
 ## <a name="parameters"></a>パラメーター  
  `td`  
- [in]ターゲット クラスまたはインターフェイスのトークンです。 いずれかになります、`mdTypeDef`または`mdTypeDefNil`トークンです。  
+ からターゲットクラスまたはインターフェイスのトークン。 これは、`mdTypeDef` または `mdTypeDefNil` トークンのいずれかです。  
   
  `szEvent`  
- [in]イベントの名前。  
+ からイベントの名前。  
   
  `dwEventFlags`  
- [in]イベントのフラグ。  
+ からイベントフラグ。  
   
  `tkEventType`  
- [in]イベント クラスのトークンです。 これは、 `mdTypeDef`、 `mdTypeRef`、または`mdTokenNil`トークンです。  
+ からイベントクラスのトークン。 これは、`mdTypeDef`、`mdTypeRef`、または `mdTokenNil` トークンです。  
   
  `mdAddOn`  
- [in]イベント、または null をサブスクライブするために使用するメソッド。  
+ からイベントの定期受信に使用するメソッド、または null。  
   
  `mdRemoveOn`  
- [in]イベント、または null をアンサブスク ライブするメソッド。  
+ からイベントのサブスクリプションを解除するために使用するメソッド、または null。  
   
  `mdFire`  
- [in]イベントを発生させる (派生クラス) を使用するメソッド。  
+ からイベントを発生させるために (派生クラスによって) 使用されるメソッド。  
   
  `rmdOtherMethods[]`  
- [in]イベントに関連付けられているその他のメソッドのトークンの配列。 配列が終了しました、`mdMethodDefNil`トークンです。  
+ からイベントに関連付けられている他のメソッドのトークンの配列。 配列は `mdMethodDefNil` トークンで終了します。  
   
  `pmdEvent`  
- [out]イベントに割り当てられているメタデータ トークンです。  
+ 入出力イベントに割り当てられたメタデータトークン。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MSCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataEmit インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-interface.md)
 - [IMetaDataEmit2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-interface.md)

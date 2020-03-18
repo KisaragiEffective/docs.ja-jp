@@ -1,5 +1,5 @@
 ---
-title: 表記規則とコード規則 (Visual Basic)
+title: 表記規則とコード規則
 ms.date: 07/20/2015
 helpviewer_keywords:
 - coding conventions [Visual Basic], Visual Basic
@@ -10,14 +10,15 @@ helpviewer_keywords:
 - conventions [Visual Basic], documentation
 - Visual Basic code, conventions
 ms.assetid: 1916cd81-ea9d-4faa-81f7-4a0d864b60f4
-ms.openlocfilehash: 3255dff8268cd5500a1244716f37bf30f5b43cfb
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 4906c5ebadb7ce77f2d0e53b2fc5dbab69c5b41f
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61698604"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352711"
 ---
 # <a name="typographic-and-code-conventions-visual-basic"></a>表記規則とコード規則 (Visual Basic)
+
 Visual Basic のドキュメントでは、次の表記規則とコード規則に従って記述されています。  
   
 ## <a name="typographic-conventions"></a>表記規則  
@@ -25,32 +26,32 @@ Visual Basic のドキュメントでは、次の表記規則とコード規則�
 |例|説明|  
 |-------------|-----------------|  
 |`Sub`, `If`, `ChDir`, `Print`, `True`, `Debug`|Visual Basic 特有のキーワードやランタイム メンバは、太字で先頭を大文字にして表記します。|  
-|**SmallProject**, **ButtonCollection**|この例で示すように、単語や語句を入力するように指示されますが書式設定します。|  
-|[Module ステートメント](../../visual-basic/language-reference/statements/module-statement.md)|この例で示すように、リンクをクリックすると、別のヘルプ ページに移動できますが書式設定します。|  
-|*object*, *variableName*, `argumentList`|この例で示すように入力する情報のプレース ホルダーは書式設定されます。|  
-|[ Shadows ], [ *expressionList* ]|構文では、省略可能な項目は、角かっこで囲まれます。|  
-|{ `Public` &#124; `Friend` &#124; `Private` }|構文では、2 つ以上の項目間の選択を行う必要がある場合は、項目が中かっこで囲まれているし、縦棒で区切られました。<br /><br /> 1 と 1 つだけ、項目を選択する必要があります。|  
-|[ `Protected` &#124; `Friend` ]|構文では、2 つ以上の項目間を選択するオプションがある場合は、アイテムが角かっこで囲まれているし、縦棒で区切られました。<br /><br /> 項目の任意の組み合わせまたは項目を選択できません。|  
-|[{ `ByVal` &#124; `ByRef` }]|構文は複数の項目を選択することができますが、完全には、アイテムを省略することもできます。 項目は中かっこで囲まれ、縦棒で区切られた、角かっこで囲みます。|  
-|*memberName*1、 *memberName*2、 *memberName*3|例で示すように、添字によって同じプレース ホルダーの複数のインスタンスが区別されます。|  
-|*memberName1*<br /><br /> ...<br /><br /> *memberNameN*|構文、省略記号 (...) で不特定数の省略記号の直前の種類の項目を指定するためです。<br /><br /> コードでは、わかりやすく説明を省略するとコードを示します。|  
-|ESC, ENTER|キー名と、キーボードのキー シーケンスは、すべて大文字で表示されます。|  
+|**SmallProject**、 **buttoncollection**|入力する語句は、次の例に示すように書式設定されます。|  
+|[Module ステートメント](../../visual-basic/language-reference/statements/module-statement.md)|別のヘルプページにアクセスするためにクリックできるリンクは、この例に示すように書式設定されています。|  
+|*object*、 *variableName*、`argumentList`|指定する情報のプレースホルダーは、次の例に示すように書式設定されます。|  
+|[影]、[*式の一覧*]|構文では、省略可能な項目が角かっこで囲まれています。|  
+|{`Public` &#124; `Friend` &#124; `Private`}|構文では、2つ以上の項目のいずれかを選択する必要がある場合、項目は中かっこで囲まれ、縦棒で区切られます。<br /><br /> 項目を1つだけ選択する必要があります。|  
+|[`Protected` &#124; `Friend`]|構文では、2つ以上の項目を選択するオプションがある場合、項目は角かっこで囲まれ、縦棒で区切られます。<br /><br /> 項目の任意の組み合わせを選択することも、項目を使用しないこともできます。|  
+|[{`ByVal` &#124; `ByRef`}]|構文では、複数の項目を選択できますが、項目を完全に省略することもできます。これらの項目は、中かっこで囲まれ、縦棒で区切られて角かっこで囲まれます。|  
+|*membername*1、 *Membername*2、 *membername*3|同じプレースホルダーの複数のインスタンスは、例に示すように、添字によって区別されます。|  
+|*memberName1*<br /><br /> ...<br /><br /> *memberNameN*|構文では、省略記号 (...) を使用して、省略記号の直前にある種類の項目の不定数を示します。<br /><br /> コードでは、省略記号はわかりやすくするために省略されていることを示します。|  
+|ESC, ENTER|キーボードのキー名とキーシーケンスは、すべて大文字で表示されます。|  
 |ALT + F1|プラス記号 (+) は、キーの組み合わせを表します。 たとえば、Alt + F1 は Alt キーを押しながら、F1 キーを押すことを表します。|  
   
 ## <a name="code-conventions"></a>コード規則  
   
 |例|説明|  
 |-------------|-----------------|  
-|`sampleString = "Hello, world!"`|コード サンプルでは、固定ピッチ フォントで表示され、は、この例で示すように書式設定します。|  
-|前のステートメントの `sampleString` の値を "Hello, world!" に設定する|説明のテキスト内のコード要素は、この例で示すように固定ピッチ フォントで表示されます。|  
-|`' This is a comment.`<br /><br /> `REM This is also a comment.`|アポストロフィ (') で、REM キーワードは、コードのコメントが導入されました。|  
-|`sampleVar = "This is an " _`<br /><br /> `& "example" _`<br /><br /> `& " of how to continue code."`|空白と行の末尾にアンダー スコア (_) では、次の行にステートメントが続くことを示します。|  
+|`sampleString = "Hello, world!"`|コードサンプルは固定ピッチフォントで表示され、次の例に示すように書式設定されます。|  
+|前のステートメントにより、`sampleString` の値が "Hello, world!" に設定されます。|説明のテキスト内のコード要素は、この例で示すように固定ピッチ フォントで表示されます。|  
+|`' This is a comment.`<br /><br /> `REM This is also a comment.`|コードコメントは、アポストロフィ (') または REM キーワードによって導入されます。|  
+|`sampleVar = "This is an " _`<br /><br /> `& "example" _`<br /><br /> `& " of how to continue code."`|行の末尾にスペースとアンダースコア (_) が続く場合は、ステートメントが次の行で続行されることを示します。|  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Visual Basic の言語リファレンス](../../visual-basic/language-reference/index.md)
 - [キーワード](../../visual-basic/language-reference/keywords/index.md)
 - [Visual Basic ランタイム ライブラリのメンバー](../../visual-basic/language-reference/runtime-library-members.md)
-- [Visual Basic の名前付け規則](../../visual-basic/programming-guide/program-structure/naming-conventions.md)
-- [方法: コード内でステートメントを分割および連結する](../../visual-basic/programming-guide/program-structure/how-to-break-and-combine-statements-in-code.md)
+- [Visual Basic 名前付け規則](../../visual-basic/programming-guide/program-structure/naming-conventions.md)
+- [方法 : コード内でステートメントを分割および連結する](../../visual-basic/programming-guide/program-structure/how-to-break-and-combine-statements-in-code.md)
 - [コード内のコメント](../../visual-basic/programming-guide/program-structure/comments-in-code.md)

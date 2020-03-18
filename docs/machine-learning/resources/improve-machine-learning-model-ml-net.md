@@ -5,12 +5,12 @@ ms.date: 04/29/2019
 author: luisquintanilla
 ms.author: luquinta
 ms.custom: mvc
-ms.openlocfilehash: 8bb47102ede8e135090b1381eb815dccd512e03d
-ms.sourcegitcommit: 682c64df0322c7bda016f8bfea8954e9b31f1990
+ms.openlocfilehash: 8f3b283de378a37bfe429688207ea9fb52f9ca7f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65557799"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75739574"
 ---
 # <a name="improve-mlnet-model-accuracy"></a>ML.NET モデルの正確度を改善する
 
@@ -32,7 +32,7 @@ ms.locfileid: "65557799"
 
 データ サンプルと特徴を増やすと、モデルの正確度の向上に役立ちますが、すべてのデータと特徴が意味があるわけではないので、ノイズが生じる可能性もあります。 そのため、アルゴリズムによる決定に最も大きな影響を与える特徴を把握することが重要です。 順列特徴重要度 (PFI) のような手法を使用すると、重要な特徴を特定するために役立ちます。また、モデルを説明するだけでなく、トレーニング プロセスに入るノイズ的な特徴の数を減らす特徴選択方法として出力を使用するためにも役立ちます。
 
-PFI の使用については、[こちらのリンク](../how-to-guides/explain-machine-learning-model-permutation-feature-importance-ml-net.md)を参照してください
+PFI の使用の詳細については、「[Permutation Feature Importance を使用してモデル予測を説明する](../how-to-guides/explain-machine-learning-model-permutation-feature-importance-ml-net.md)」を参照してください。
 
 ## <a name="cross-validation"></a>クロス検証
 

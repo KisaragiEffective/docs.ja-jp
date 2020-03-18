@@ -17,17 +17,15 @@ helpviewer_keywords:
 - DLL functions
 - object fields in platform invoke
 ms.assetid: ecdcf25d-cae3-4f07-a2b6-8397ac6dc42d
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: f32924c8c104f37fdb98a2a9ff104b6f6c19e478
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
-ms.translationtype: HT
+ms.openlocfilehash: 712040c3482b51c4dafe0ee87fdda8cd848fb7fc
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70853841"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73123613"
 ---
 # <a name="creating-prototypes-in-managed-code"></a>マネージド コードでのプロトタイプの作成
-このトピックは、アンマネージド 関数にアクセスする方法について説明し、マネージド コードでメソッドの定義の注釈を設定するいくつかの属性フィールドを紹介しています。 プラットフォーム呼び出しで使用する .NET ベースの宣言を作成する方法を示す例については、「[プラットフォーム呼び出しによるデータのマーシャリング](marshaling-data-with-platform-invoke.md)」を参照してください。  
+このトピックは、アンマネージド 関数にアクセスする方法について説明し、マネージド コードでメソッドの定義の注釈を設定するいくつかの属性フィールドを紹介しています。 プラットフォームの起動で使用する NET ベースの宣言を作成する方法を示す例については、「[プラットフォーム呼び出しによるデータのマーシャリング](marshaling-data-with-platform-invoke.md)」を参照してください。  
   
  マネージド コードからアンマネージド DLL 関数にアクセスする前に、関数の名前とエクスポートする DLL の名前を知っている必要があります。 この情報を使用すると、マネージド DLL に実装されているアンマネージド 関数の定義の作成を開始できます。 さらに、プラットフォーム呼び出しが関数を作成し、関数間でデータをマーシャリングする方法を調整できます。  
   
@@ -93,7 +91,7 @@ extern "C" int MessageBox(
 |-----------|-----------------|  
 |<xref:System.Runtime.InteropServices.DllImportAttribute.BestFitMapping>|最適なマッピングを有効または無効にします。|  
 |<xref:System.Runtime.InteropServices.DllImportAttribute.CallingConvention>|メソッドの引数を渡すときに使用する呼び出し規則を指定します。 既定値は `WinAPI` で、32 ビットの Intel ベース プラットフォームの `__stdcall` に対応します。|  
-|<xref:System.Runtime.InteropServices.DllImportAttribute.CharSet>|名前修飾および文字列の引数を関数にマーシャリングする方法を管理します。 既定値は、`CharSet.Ansi` です。|  
+|<xref:System.Runtime.InteropServices.DllImportAttribute.CharSet>|名前修飾および文字列の引数を関数にマーシャリングする方法を管理します。 既定値は、 `CharSet.Ansi`です。|  
 |<xref:System.Runtime.InteropServices.DllImportAttribute.EntryPoint>|呼び出される DLL エントリ ポイントを指定します。|  
 |<xref:System.Runtime.InteropServices.DllImportAttribute.ExactSpelling>|文字セットに対応するエントリ ポイントを変更する必要があるかどうかを制御します。 既定値は、プログラミング言語によって異なります。|  
 |<xref:System.Runtime.InteropServices.DllImportAttribute.PreserveSig>|マネージド メソッドのシグネチャが、HRESULT を返すアンマネージド シグネチャに変換され、戻り値の追加の [out, retval] 引数を持つかどうかを制御します。<br /><br /> 既定値は `true` です (シグネチャは変換されません)。|  

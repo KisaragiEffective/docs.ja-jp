@@ -1,13 +1,13 @@
 ---
-title: 回復性の高いアプリケーションの実装
-description: マイクロサービスのアーキテクチャで中核となる概念である、回復性について説明します。 一時的な障害は必ず発生するため、それらを適切に処理する方法を知っておく必要があります。
-ms.date: 10/16/2018
-ms.openlocfilehash: 766349e72389f848b0a741b020707cc7acf3410d
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+title: 回復性があるアプリケーションを実装する
+description: マイクロサービスのアーキテクチャで中核となる概念である、回復性について説明します。 一時的な障害が発生したときのために、それらを適切に処理する方法を知っておく必要があります。
+ms.date: 01/30/2020
+ms.openlocfilehash: 46276a6b9b36a494bfae657275692ca9d5554d86
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "70295127"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78847233"
 ---
 # <a name="implement-resilient-applications"></a>回復性があるアプリケーションを実装する
 
@@ -18,6 +18,16 @@ ms.locfileid: "70295127"
 マイクロサービスベースのアプリケーションの設計および展開は難しい作業です。 しかし、何らかの障害が確実に発生する環境で、アプリケーションの稼働を維持する必要もあります。 そのため、アプリケーションは、回復性を持っている必要があります。 ネットワークの停止、クラウド内のノードまたは VM のクラッシュなどの部分的な障害に対処するように設計する必要があります。 クラスタ内でマイクロサービス (コンテナー) を別のノードに移動するだけでも、アプリケーション内での断続的な短いエラーが発生する可能性があります。
 
 アプリケーションの多くの個々のコンポーネントにも、正常性監視機能を組み込むも必要があります。 この章のガイドラインに従うと、複雑で、クラウド ベースの展開で発生する一時的なダウンタイムや定期的な障害があってもスムーズに動作するアプリケーションを作成できます。
+
+>[!IMPORTANT]
+> eShopOnContainer では、リリース 3.0.0 まで、[型指定されたクライアント](./use-httpclientfactory-to-implement-resilient-http-requests.md)を使用した回復性の実装に [Polly ライブラリ](http://www.thepollyproject.org/)を使用していました。
+>
+> リリース 3.0.0 以降では、再試行をコード内で処理するのではなく、Kubernetes クラスター内で透過的で構成可能な方法で処理される [Linkerd のメッシュ](https://linkerd.io/)を使用した HTTP 呼び出しの回復性が実装されています。
+>
+> Polly ライブラリは、(特にサービスの起動時の) データベース接続に回復性を追加するためにまだ使用されています。
+
+>[!WARNING]
+> このセクションのすべてのコード サンプルは、Linkerd の使用前に有効であり、現在の実際のコードを反映するようには更新されていません。 つまり、このセクションのコンテキストで道理にかなうものです。
 
 >[!div class="step-by-step"]
 >[前へ](../microservice-ddd-cqrs-patterns/microservice-application-layer-implementation-web-api.md)

@@ -1,13 +1,13 @@
 ---
-title: '方法: CSV テキストファイルの列値を計算する (LINQ) (Visual Basic)'
+title: '方法: CSV テキスト ファイルの列値を計算する (LINQ)'
 ms.date: 07/20/2015
 ms.assetid: 88b2b9f3-c82e-41f3-b1b4-26ede5973a02
-ms.openlocfilehash: 4fa362b90ec6513136d1597461cbfd5a4023f9ec
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 230bb26d04a85decc401abaa6c7fd7fc8a6b4806
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75338501"
 ---
 # <a name="how-to-compute-column-values-in-a-csv-text-file-linq-visual-basic"></a>方法: CSV テキストファイルの列値を計算する (LINQ) (Visual Basic)
 
@@ -32,7 +32,7 @@ ms.locfileid: "72524181"
     122, 94, 92, 91, 91
     ```
 
-## <a name="example"></a>例
+## <a name="example"></a>使用例
 
 ```vb
 Class SumColumns
@@ -143,9 +143,9 @@ End Class
 
 このクエリでは、<xref:System.String.Split%2A> メソッドを使用してテキストの各行が配列に変換されます。 各配列要素が列を表します。 最終的に、各列のテキストが数値表記に変換されます。 ファイルがタブ区切りファイルの場合、`Split` メソッドの引数を `\t` に変更します。
 
-## <a name="compiling-the-code"></a>コードのコンパイル
+## <a name="compile-the-code"></a>コードのコンパイル
 
-VB.NET コンソールアプリケーションプロジェクトを作成します。このプロジェクトには、名前空間の `Imports` ステートメントが含まれています。
+System. Linq 名前空間の `Imports` ステートメントを使用して、Visual Basic コンソールアプリケーションプロジェクトを作成します。
 
 ## <a name="see-also"></a>関連項目
 

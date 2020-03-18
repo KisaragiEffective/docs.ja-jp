@@ -1,5 +1,5 @@
 ---
-title: '方法: 構造体を宣言する (Visual Basic)'
+title: '方法 : 構造体を宣言する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - declarations [Visual Basic], structures
@@ -7,12 +7,12 @@ helpviewer_keywords:
 - statements [Visual Basic], structure
 - structures [Visual Basic], declaring
 ms.assetid: d5e98381-eb81-47d4-af83-48cc534a2572
-ms.openlocfilehash: c3090b5b8e53e5a5a990ae11c91464797bde9803
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 41d2d03064dea703909218de56feb863526c220b
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582300"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350010"
 ---
 # <a name="how-to-declare-a-structure-visual-basic"></a>方法: 構造体を宣言する (Visual Basic)
 Structure[ステートメント](../../../../visual-basic/language-reference/statements/structure-statement.md)を使用して構造体の宣言を開始し、`End Structure` ステートメントで終了します。 これら2つのステートメントの間には、少なくとも1つの*要素*を宣言する必要があります。 要素は任意のデータ型にすることができますが、少なくとも1つは非共有変数または非共有のカスタムイベントのいずれかである必要があります。  
@@ -27,7 +27,7 @@ Structure[ステートメント](../../../../visual-basic/language-reference/sta
   
 1. 構造体の開始および終了ステートメントを作成します。  
   
-     [Public](../../../../visual-basic/language-reference/modifiers/public.md)、 [Protected](../../../../visual-basic/language-reference/modifiers/protected.md)、 [Friend](../../../../visual-basic/language-reference/modifiers/friend.md)、または[Private](../../../../visual-basic/language-reference/modifiers/private.md)キーワードを使用して構造体のアクセスレベルを指定できます。また、既定の `Public` に設定することもできます。  
+     [Public](../../../../visual-basic/language-reference/modifiers/public.md)、 [Protected](../../../../visual-basic/language-reference/modifiers/protected.md)、 [Friend](../../../../visual-basic/language-reference/modifiers/friend.md)、または[Private](../../../../visual-basic/language-reference/modifiers/private.md)キーワードを使用して構造体のアクセスレベルを指定できます。また、既定の `Public`に設定することもできます。  
   
     ```vb  
     Private Structure employee  
@@ -36,7 +36,7 @@ Structure[ステートメント](../../../../visual-basic/language-reference/sta
   
 2. 構造体の本体に要素を追加します。  
   
-     構造体には、少なくとも1つの要素が必要です。 すべての要素を宣言し、そのアクセスレベルを指定する必要があります。 キーワードを指定せずに[Dim ステートメント](../../../../visual-basic/language-reference/statements/dim-statement.md)を使用すると、ユーザー補助の既定値は `Public` になります。  
+     構造体には、少なくとも1つの要素が必要です。 すべての要素を宣言し、そのアクセスレベルを指定する必要があります。 キーワードを指定せずに[Dim ステートメント](../../../../visual-basic/language-reference/statements/dim-statement.md)を使用すると、ユーザー補助の既定値は `Public`になります。  
   
     ```vb  
     Private Structure employee  
@@ -51,11 +51,11 @@ Structure[ステートメント](../../../../visual-basic/language-reference/sta
     End Structure  
     ```  
   
-     前の例の `salary` フィールドは `Private` です。これは、コンテナークラスからであっても、構造体の外部ではアクセスできないことを意味します。 ただし、`giveRaise` プロシージャは `Public` ため、構造の外部から呼び出すことができます。 同様に、構造の外部から `salaryReviewTime` イベントを発生させることもできます。  
+     前の例の `salary` フィールドは `Private`です。これは、コンテナークラスからであっても、構造体の外部ではアクセスできないことを意味します。 ただし、`giveRaise` プロシージャは `Public`ため、構造の外部から呼び出すことができます。 同様に、構造の外部から `salaryReviewTime` イベントを発生させることもできます。  
   
      変数、`Sub` プロシージャ、およびイベントに加えて、構造体の定数、`Function` プロシージャ、およびプロパティを定義することもできます。 少なくとも1つの引数を指定する場合は、*既定のプロパティ*として最大で1つのプロパティを指定できます。 [共有](../../../../visual-basic/language-reference/modifiers/shared.md)`Sub` プロシージャを使用して、イベントを処理できます。 詳細については、「[方法: Visual Basic で既定のプロパティを宣言して呼び出す](../../../../visual-basic/programming-guide/language-features/procedures/how-to-declare-and-call-a-default-property.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [データの種類](../../../../visual-basic/programming-guide/language-features/data-types/index.md)
 - [基本データ型](../../../../visual-basic/programming-guide/language-features/data-types/elementary-data-types.md)

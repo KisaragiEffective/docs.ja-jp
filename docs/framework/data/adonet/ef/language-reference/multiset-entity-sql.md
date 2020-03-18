@@ -25,9 +25,9 @@ MULTISET ( expression [{, expression }] )
  任意の有効な値のリスト。  
   
 ## <a name="return-value"></a>戻り値  
- マルチセット @ no__t ~ 0T > 型のコレクション。  
+ \<T > 型のマルチセットのコレクション。  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
  [!INCLUDE[esql](../../../../../../includes/esql-md.md)] には、行コンストラクター、オブジェクト コンストラクター、およびマルチセット (またはコレクション) コンストラクターの 3 種類のコンストラクターが用意されています。 詳細については、「[型の構築](constructing-types-entity-sql.md)」を参照してください。  
   
  マルチセット コンストラクターは、値のリストからマルチセットのインスタンスを作成します。 このコンストラクターの値はすべて、互換性のある型である必要があります。  
@@ -39,7 +39,7 @@ MULTISET ( expression [{, expression }] )
  `{1, 2, 3}`  
   
 > [!NOTE]
-> 入れ子になったマルチセットリテラルは、複数のマルチセット要素がある場合にのみサポートされます。たとえば、`{{1, 2, 3}}` です。 複数のマルチセット要素が外側のマルチセットに含まれている場合 ( `{{1, 2}, {3, 4}}`など)、入れ子になったマルチセット リテラルはサポートされません。  
+> 入れ子になったマルチセットリテラルは、複数のマルチセット要素がある場合にのみサポートされます。たとえば、`{{1, 2, 3}}`のようにします。 複数のマルチセット要素が外側のマルチセットに含まれている場合 ( `{{1, 2}, {3, 4}}`など)、入れ子になったマルチセット リテラルはサポートされません。  
   
 ## <a name="example"></a>例  
  次の Entity SQL クエリでは、MULTISET 演算子を使用して、値のリストからマルチセットのインスタンスを作成します。 このクエリは、AdventureWorks Sales Model に基づいています。 このクエリをコンパイルして実行するには、次の手順を実行します。  
@@ -50,7 +50,7 @@ MULTISET ( expression [{, expression }] )
   
  [!code-sql[DP EntityServices Concepts#MULTISET](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#multiset)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [コンストラクター](constructing-types-entity-sql.md)
 - [Entity SQL リファレンス](entity-sql-reference.md)

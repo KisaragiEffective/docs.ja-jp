@@ -1,33 +1,33 @@
 ---
-title: '方法: (Visual Basic) がブロックされないようにするカスタム イベントを宣言します。'
+title: '方法: カスタム イベントを宣言してブロックを回避する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - declaring events [Visual Basic], custom
 - events [Visual Basic], custom
 - custom events [Visual Basic]
 ms.assetid: 998b6a90-67c5-4d2c-8b11-366d3e355505
-ms.openlocfilehash: 6eea47ea2c8aee697eb34ca904dad22ca88e6ce4
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 8d73d9c4590afb33e7176f647069cafcb3a9d7d8
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62051898"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74345147"
 ---
-# <a name="how-to-declare-custom-events-to-avoid-blocking-visual-basic"></a>方法: (Visual Basic) がブロックされないようにするカスタム イベントを宣言します。
-その 1 つのイベント ハンドラーが後続のイベント ハンドラーをブロックしない必要がある場合は、いくつかの状況にがあります。 カスタム イベントは、そのイベント ハンドラーを非同期的に呼び出すイベントを許可します。  
+# <a name="how-to-declare-custom-events-to-avoid-blocking-visual-basic"></a>方法: カスタム イベントを宣言してブロックを回避する (Visual Basic)
+1つのイベントハンドラーが後続のイベントハンドラーをブロックしないようにすることが重要な状況がいくつかあります。 カスタムイベントを使用すると、イベントでイベントハンドラーを非同期に呼び出すことができます。  
   
- 既定では、イベントの宣言のバッキング ストア フィールドは、すべてのイベント ハンドラーを順番に結合するマルチキャスト デリゲートです。 つまり、1 つのハンドラーが完了に長時間を受け取る場合、ブロック、その他のハンドラーが完了するまで。 (正常に動作するイベント ハンドラーは、時間のかかるまたはブロックしている可能性がある操作を実行する必要があることはありません)。  
+ 既定では、イベント宣言のバッキングストアフィールドは、すべてのイベントハンドラーを順番に結合するマルチキャストデリゲートです。 これは、1つのハンドラーの完了に時間がかかる場合、完了するまで他のハンドラーがブロックされることを意味します。 (適切に動作するイベントハンドラーでは、時間がかかるか、ブロックする可能性のある操作を実行しないでください)。  
   
- Visual Basic ではイベントの既定の実装を使用する代わりに、イベント ハンドラーを非同期的に実行するのにカスタム イベントを使用できます。  
+ によって提供さ Visual Basic イベントの既定の実装を使用する代わりに、カスタムイベントを使用してイベントハンドラーを非同期的に実行できます。  
   
 ## <a name="example"></a>例  
- この例で、`AddHandler`アクセサーの各ハンドラーのデリゲートの追加、`Click`イベントを<xref:System.Collections.ArrayList>に格納されている、`EventHandlerList`フィールド。  
+ この例では、`AddHandler` アクセサーは、`Click` イベントの各ハンドラーのデリゲートを `EventHandlerList` フィールドに格納されている <xref:System.Collections.ArrayList> に追加します。  
   
- コードが発生の場合、`Click`イベント、`RaiseEvent`アクセサーが非同期的を使用してすべてのイベント ハンドラー デリゲートを呼び出す、<xref:System.Web.Services.Protocols.LogicalMethodInfo.BeginInvoke%2A>メソッド。 そのメソッドでは、ワーカー スレッドで各ハンドラーが呼び出され、ハンドラーは、互いをブロックできませんので、すぐに返します。  
+ コードで `Click` イベントが発生すると、`RaiseEvent` アクセサーは <xref:System.Web.Services.Protocols.LogicalMethodInfo.BeginInvoke%2A> メソッドを使用して、すべてのイベントハンドラーデリゲートを非同期的に呼び出します。 このメソッドは、ワーカースレッド上の各ハンドラーを呼び出し、すぐに制御を戻します。そのため、ハンドラーは互いにブロックできません。  
   
  [!code-vb[VbVbalrEvents#27](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrEvents/VB/Class1.vb#27)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Collections.ArrayList>
 - <xref:System.Web.Services.Protocols.LogicalMethodInfo.BeginInvoke%2A>

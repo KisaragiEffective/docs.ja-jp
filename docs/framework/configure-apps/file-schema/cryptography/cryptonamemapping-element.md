@@ -8,21 +8,21 @@ helpviewer_keywords:
 - <cryptoNameMapping> element
 - cryptoNameMapping element
 ms.assetid: c59c9494-149b-4ce6-b38d-371f896ae85c
-ms.openlocfilehash: 45d2da22a7c3486d4c7a638e92d1f3fce6f9883c
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: 4b3495d17e07ca611a384bf958ee06e928eb2506
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71699717"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74088013"
 ---
 # <a name="cryptonamemapping-element"></a>\<cryptoNameMapping > 要素
 表示名へのクラスのマッピングを含みます。  
-  
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\<mscorlib >** ](mscorlib-element-for-cryptography-settings.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t-3[ **\<cryptographySettings >** ](cryptographysettings-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5 **\<cryptoNameMapping >** を行います。  
-  
+
+[ **\<configuration>** ](../configuration-element.md)\
+&nbsp;&nbsp;[ **\<mscorlib >** ](mscorlib-element-for-cryptography-settings.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;[ **\<cryptographySettings**](cryptographysettings-element.md) >\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**cryptoNameMapping >**
+
 ## <a name="syntax"></a>構文  
   
 ```xml  
@@ -34,7 +34,7 @@ ms.locfileid: "71699717"
  以降のセクションでは、属性、子要素、および親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
- [なし] :  
+ なし。  
   
 ### <a name="child-elements"></a>子要素  
   
@@ -50,7 +50,7 @@ ms.locfileid: "71699717"
 |`configuration`|共通言語ランタイムおよび .NET Framework アプリケーションで使用されるすべての構成ファイルのルート要素です。|  
 |`cryptographySettings`|暗号設定を含みます。|  
 |`cryptoNameMapping`|表示名へのクラスのマッピングを含みます。|  
-|`mscorlib`|@No__t 0cryptographySettings > 要素を格納します。|  
+|`mscorlib`|\<cryptographySettings > 要素を格納します。|  
   
 ## <a name="example"></a>例  
  次の例は、 **\<cryptoNameMapping >** 要素を使用して、暗号化クラスを参照し、ランタイムを構成する方法を示しています。 その後、文字列 "RSA" を <xref:System.Security.Cryptography.CryptoConfig.CreateFromName%2A?displayProperty=nameWithType> メソッドに渡し、<xref:System.Security.Cryptography.AsymmetricAlgorithm.Create%2A> メソッドを使用して `MyCryptoRSAClass` オブジェクトを返すことができます。  
@@ -78,5 +78,5 @@ ms.locfileid: "71699717"
 
 - [構成ファイル スキーマ](../index.md)
 - [暗号化設定スキーマ](index.md)
-- [Cryptographic Services](../../../../standard/security/cryptographic-services.md)
+- [暗号サービス](../../../../standard/security/cryptographic-services.md)
 - [暗号化クラスの設定](../../configure-cryptography-classes.md)

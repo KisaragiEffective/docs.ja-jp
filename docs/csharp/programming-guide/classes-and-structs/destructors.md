@@ -1,18 +1,17 @@
 ---
 title: ファイナライザー - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 10/08/2018
 helpviewer_keywords:
 - ~ [C#], in finalizers
 - C# language, finalizers
 - finalizers [C#]
 ms.assetid: 1ae6e46d-a4b1-4a49-abe5-b97f53d9e049
-ms.openlocfilehash: 9936d56582afd160bf3464d18efd3acf47c7af60
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: c8ad738baa3ff76cf9ae8367f2fd2a1fb44a79d6
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69924494"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79170300"
 ---
 # <a name="finalizers-c-programming-guide"></a>ファイナライザー (C# プログラミング ガイド)
 ガベージ コレクターによってクラス インスタンスが収集されている場合は、ファイナライザー (**デストラクター**とも呼ばれます) を使用して、最終的に必要なすべてのクリーンアップが実行されます。  
@@ -58,9 +57,9 @@ protected override void Finalize()
 > [!NOTE]
 > 空のファイナライザーは使用しないでください。 ファイナライザーがクラスに存在するときは、エントリが `Finalize` キューで作成されます。 ファイナライザーを呼び出すと、ガベージ コレクターが呼び出され、このキューを処理します。 ファイナライザーが空の場合、パフォーマンスを不必要に低下させるだけです。  
   
- ファイナライザーがいつ呼び出されるかはガベージ コレクターによって決定されるため、プログラマは制御できません。 ガベージ コレクターは、アプリケーションが使用していないオブジェクトをチェックします。 終了処理が可能なオブジェクトと考えられる場合、ファイナライザー (存在する場合) を呼び出し、オブジェクトの格納に使用されているメモリを解放します。 
- 
- (.NET Core アプリケーションではなく) .NET Framework アプリケーションでは、プログラムが存在する場合、ファイナライザーも呼び出されます。 
+ ファイナライザーがいつ呼び出されるかはガベージ コレクターによって決定されるため、プログラマは制御できません。 ガベージ コレクターは、アプリケーションが使用していないオブジェクトをチェックします。 終了処理が可能なオブジェクトと考えられる場合、ファイナライザー (存在する場合) を呼び出し、オブジェクトの格納に使用されているメモリを解放します。
+
+ (.NET Core アプリケーションではなく) .NET Framework アプリケーションでは、プログラムが存在する場合、ファイナライザーも呼び出されます。
   
  <xref:System.GC.Collect%2A> を呼び出すことによって、ガベージ コレクションを強制的に行うことができます。ただし、パフォーマンスに問題が発生する可能性があるため、通常はこの処理を避けます。  
   
@@ -85,11 +84,11 @@ protected override void Finalize()
   
 ## <a name="c-language-specification"></a>C# 言語仕様  
 
-詳細については、「[C# 言語仕様](../../language-reference/language-specification/index.md)」の [デストラクタ―](~/_csharplang/spec/classes.md#destructors)に関するセクションを参照してください。
+詳細については、「[C# 言語仕様](~/_csharplang/spec/classes.md#destructors)」の [デストラクタ―](/dotnet/csharp/language-reference/language-specification/introduction)に関するセクションを参照してください。
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.IDisposable>
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [コンストラクター](./constructors.md)
 - [ガベージ コレクション](../../../standard/garbage-collection/index.md)

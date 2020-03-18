@@ -1,17 +1,16 @@
 ---
 title: Override キーワードと New キーワードによるバージョン管理 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - C# language, versioning
 - C# language, override and new
 ms.assetid: 88247d07-bd0d-49e9-a619-45ccbbfdf0c5
-ms.openlocfilehash: 58023498c499569eebb9a0506bea434d2669de45
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 089d5d7c7a95e2de4629f53255d9d9790fd5508a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69596013"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75705393"
 ---
 # <a name="versioning-with-the-override-and-new-keywords-c-programming-guide"></a>Override キーワードと New キーワードによるバージョン管理 (C# プログラミング ガイド)
 C# 言語は、異なるライブラリ内の[基底](../../language-reference/keywords/base.md)クラスと派生クラス間でのバージョン管理を進化させると同時に、下位互換性も維持されるよう設計されています。 そのため、たとえば、派生クラスのメンバーと同じ名前を使用して基底[クラス](../../language-reference/keywords/class.md)の新規メンバーが導入されても、C# では完全にサポートされ、予期しない動作は発生しません。 ただしこのことは、メソッドが派生メソッドをオーバーライドするためのものなのか、それとも同じ名前の派生メソッドを非表示にする新規メソッドなのかを、クラスで明示的に記述しなければならないということでもあります。  
@@ -56,7 +55,7 @@ C# 言語は、異なるライブラリ内の[基底](../../language-reference/k
   
  [!code-csharp[csProgGuideInheritance#44](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideInheritance/CS/Inheritance.cs#44)]  
   
- このメソッドで新しい基底クラス メソッドをオーバーライドしない場合には、次の考慮事項が適用されます。 2 つのメソッド間の混乱を避けるために、メソッドの名前を変更できます。 これは時間がかかるうえにエラーが起こりやすいため、場合によっては実用的でない可能性があります。 ただし、プロジェクトが比較的小さい場合は、Visual Studio のリファクタリング オプションを使用して、メソッドの名前を変更することができます。 詳しくは、「[クラスおよび型のリファクタリング (クラス デザイナー)](/visualstudio/ide/refactoring-classes-and-types-class-designer)」をご覧ください。  
+ このメソッドで新しい基底クラス メソッドをオーバーライドしない場合には、次の考慮事項が適用されます。 2 つのメソッド間の混乱を避けるために、メソッドの名前を変更できます。 これは時間がかかるうえにエラーが起こりやすいため、場合によっては実用的でない可能性があります。 ただし、プロジェクトが比較的小さい場合は、Visual Studio のリファクタリング オプションを使用して、メソッドの名前を変更することができます。 詳しくは、「[クラスおよび型のリファクタリング (クラス デザイナー)](/visualstudio/ide/class-designer/refactoring-classes-and-types)」をご覧ください。  
   
  なお、派生クラスの定義内で `new` キーワードを使用することで、警告を回避することもできます。  
   
@@ -69,19 +68,19 @@ C# 言語は、異なるライブラリ内の[基底](../../language-reference/k
   
  [!code-csharp[csProgGuideInheritance#32](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideInheritance/CS/Inheritance.cs#32)]  
   
- `Derived` のインスタンスで `DoWork` が呼び出されると、C# コンパイラはまず、`Derived` で最初に宣言された `DoWork` のバージョンと互換性がある呼び出しを実行しようとします。 オーバーライド メソッドは、クラスで宣言されたものとは見なされません。これらは、基底クラスで宣言されたメソッドの新しい実装です。 C# コンパイラは、メソッドの呼び出しを `Derived` にある元のメソッドと対応付けできない場合にのみ、その呼び出しを、同じ名前と互換パラメーターを持つオーバーライド メソッドに対応付けます。 例:  
+ `DoWork` のインスタンスで `Derived` が呼び出されると、C# コンパイラはまず、`DoWork` で最初に宣言された `Derived` のバージョンと互換性がある呼び出しを実行しようとします。 オーバーライド メソッドは、クラスで宣言されたものとは見なされません。これらは、基底クラスで宣言されたメソッドの新しい実装です。 C# コンパイラは、メソッドの呼び出しを `Derived` にある元のメソッドと対応付けできない場合にのみ、その呼び出しを、同じ名前と互換パラメーターを持つオーバーライド メソッドに対応付けます。 次に例を示します。  
   
  [!code-csharp[csProgGuideInheritance#33](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideInheritance/CS/Inheritance.cs#33)]  
   
- 変数 `val` は double 型に暗黙的に変換できるので、C# コンパイラは `DoWork(int)` の代わりに `DoWork(double)` を呼び出します。 この問題を回避する方法は 2 つあります。 1 つ目は、仮想メソッドと同じ名前の新しいメソッドを宣言しないようにすることです。 2 つ目は、`Derived` のインスタンスを `Base` にキャストすることで、C# コンパイラに基底クラス メソッドのリストを検索させ、仮想メソッドを呼び出すようにすることです。 メソッドが仮想なので、`Derived` にある `DoWork(int)` の実装が呼び出されます。 例:  
+ 変数 `val` は double 型に暗黙的に変換できるので、C# コンパイラは `DoWork(double)` の代わりに `DoWork(int)` を呼び出します。 この問題を回避する方法は 2 つあります。 1 つ目は、仮想メソッドと同じ名前の新しいメソッドを宣言しないようにすることです。 2 つ目は、`Derived` のインスタンスを `Base` にキャストすることで、C# コンパイラに基底クラス メソッドのリストを検索させ、仮想メソッドを呼び出すようにすることです。 メソッドが仮想なので、`DoWork(int)` にある `Derived` の実装が呼び出されます。 次に例を示します。  
   
  [!code-csharp[csProgGuideInheritance#34](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideInheritance/CS/Inheritance.cs#34)]  
   
  `new` と `override` の例について詳しくは、「[Override キーワードと New キーワードを使用する場合について](./knowing-when-to-use-override-and-new-keywords.md)」をご覧ください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [クラスと構造体](./index.md)
 - [メソッド](./methods.md)
 - [継承](./inheritance.md)

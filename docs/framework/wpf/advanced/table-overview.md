@@ -17,9 +17,9 @@ ms.lasthandoff: 10/07/2019
 ms.locfileid: "72005079"
 ---
 # <a name="table-overview"></a>テーブルの概要
-<xref:System.Windows.Documents.Table> は、フロードキュメントのコンテンツのグリッドベースの表示をサポートするブロックレベルの要素です。 この要素は、その柔軟性により非常に便利ですが、正しく理解して使用するのが難しいとも言えます。  
+<xref:System.Windows.Documents.Table> は、フロードキュメントコンテンツのグリッドベースの表現をサポートするブロックレベルの要素です。 この要素は、その柔軟性により非常に便利ですが、正しく理解して使用するのが難しいとも言えます。  
   
- このトピックは次のセクションで構成されます。  
+ このトピックの内容は次のとおりです。  
   
 - [テーブルの基本](#table_basics)  
   
@@ -40,15 +40,15 @@ ms.locfileid: "72005079"
 - 関連トピック 
   
 <a name="table_basics"></a>   
-## <a name="table-basics"></a>テーブルの基本  
+## <a name="table-basics"></a>テーブルの基礎  
   
 <a name="table_vs_Grid"></a>   
 ### <a name="how-is-table-different-then-grid"></a>テーブルとグリッドの相違点  
- <xref:System.Windows.Documents.Table> および <xref:System.Windows.Controls.Grid> はいくつかの一般的な機能を共有しますが、それぞれが異なるシナリオに適しています。 @No__t 0 はフローコンテンツ内で使用するように設計されています (フローコンテンツの詳細については、「[フロードキュメントの概要](flow-document-overview.md)」を参照してください)。 グリッドは、フォーム内で最適に使用される (基本的に任意の場所以外のフロー コンテンツ)。 @No__t-0 の場合、@no__t は、改ページ位置の調整、列の折り返し、コンテンツの選択などのフローコンテンツの動作をサポートしますが、<xref:System.Windows.Controls.Grid> ではサポートされません。 一方、<xref:System.Windows.Controls.Grid> は、<xref:System.Windows.Documents.FlowDocument> の外部で最もよく使用されます。たとえば、<xref:System.Windows.Controls.Grid> などの多くの理由で @no__t、行と列のインデックスに基づいて要素が追加されます。 @No__t-0 要素は、子コンテンツのレイヤーを許可し、1つの "セル" 内に複数の要素を配置できるようにします。 <xref:System.Windows.Documents.Table> は、レイヤーをサポートしていません。 @No__t 0 の子要素は、"セル" の境界の領域を基準として絶対に配置できます。 <xref:System.Windows.Documents.Table> はこの機能をサポートしていません。 最後に、<xref:System.Windows.Controls.Grid> の方が必要なリソースが少なくて済み、@no__t 1 であるため、パフォーマンスを向上させるために <xref:System.Windows.Controls.Grid> を使用することを検討してください。  
+ <xref:System.Windows.Documents.Table> と <xref:System.Windows.Controls.Grid> はいくつかの一般的な機能を共有しますが、それぞれが異なるシナリオに最適です。 <xref:System.Windows.Documents.Table> は、フローコンテンツ内で使用するように設計されています (フローコンテンツの詳細については、「[フロードキュメントの概要](flow-document-overview.md)」を参照してください)。 グリッドは、フォーム内で最適に使用される (基本的に任意の場所以外のフロー コンテンツ)。 <xref:System.Windows.Documents.FlowDocument>内では、<xref:System.Windows.Documents.Table> は改ページ位置、列の折り返し、コンテンツの選択などのフローコンテンツの動作をサポートしていますが、<xref:System.Windows.Controls.Grid> ではサポートされていません。 一方、<xref:System.Windows.Controls.Grid> は <xref:System.Windows.Documents.FlowDocument> の外部で最もよく使用されます。たとえば、行インデックスと列インデックスに基づいて要素が追加される <xref:System.Windows.Controls.Grid> などですが、<xref:System.Windows.Documents.Table> はできません。 <xref:System.Windows.Controls.Grid> 要素を使用すると、1つの "セル" 内に複数の要素を持つことができるように、子コンテンツをレイヤー化できます。 <xref:System.Windows.Documents.Table> は、レイヤーをサポートしていません。 <xref:System.Windows.Controls.Grid> の子要素は、"セル" の境界の領域を基準として絶対に配置できます。 <xref:System.Windows.Documents.Table> では、この機能はサポートされていません。 最後に、<xref:System.Windows.Controls.Grid> に必要な <xref:System.Windows.Documents.Table> リソースが少なくなるため、パフォーマンスを向上させるために <xref:System.Windows.Controls.Grid> の使用を検討してください。  
   
 <a name="basic_table_structure"></a>   
 ### <a name="basic-table-structure"></a>テーブルの基本構造  
- <xref:System.Windows.Documents.Table> は、列 (<xref:System.Windows.Documents.TableColumn> の要素で表される) と行 (<xref:System.Windows.Documents.TableRow> の要素で表される) で構成されるグリッドベースのプレゼンテーションを提供します。 <xref:System.Windows.Documents.TableColumn> の要素はコンテンツをホストしません。列および列の特性を定義するだけです。 @no__t 0 の要素は、テーブルの行のグループ化を定義する <xref:System.Windows.Documents.TableRowGroup> 要素でホストされている必要があります。 テーブルによって表示される実際の内容を含む @no__t 0 の要素は、<xref:System.Windows.Documents.TableRow> の要素でホストされている必要があります。 <xref:System.Windows.Documents.TableCell> には <xref:System.Windows.Documents.Block> から派生した要素のみを含めることができます。  @No__t 0 の有効な子要素には、が含まれます。  
+ <xref:System.Windows.Documents.Table> には、列 (<xref:System.Windows.Documents.TableColumn> の要素で表される) と行 (<xref:System.Windows.Documents.TableRow> 要素で表される) で構成されるグリッドベースのプレゼンテーションが用意されています。 <xref:System.Windows.Documents.TableColumn> 要素はコンテンツをホストしません。列および列の特性を定義するだけです。 <xref:System.Windows.Documents.TableRow> の要素は、テーブルの行のグループ化を定義する <xref:System.Windows.Documents.TableRowGroup> 要素でホストされている必要があります。 テーブルによって表示される実際のコンテンツを含む <xref:System.Windows.Documents.TableCell> 要素は、<xref:System.Windows.Documents.TableRow> の要素でホストされる必要があります。 <xref:System.Windows.Documents.TableCell> には、<xref:System.Windows.Documents.Block>から派生した要素のみを含めることができます。  <xref:System.Windows.Documents.TableCell> の有効な子要素にはが含まれます。  
   
 - <xref:System.Windows.Documents.BlockUIContainer>  
   
@@ -61,10 +61,10 @@ ms.locfileid: "72005079"
 - <xref:System.Windows.Documents.Table>  
   
 > [!NOTE]
-> <xref:System.Windows.Documents.TableCell> の要素は、テキストコンテンツを直接ホストすることはできません。 @No__t-0 などのフローコンテンツ要素の含有規則の詳細については、「[フロードキュメントの概要](flow-document-overview.md)」を参照してください。  
+> <xref:System.Windows.Documents.TableCell> 要素は、テキストコンテンツを直接ホストすることはできません。 <xref:System.Windows.Documents.TableCell>のようなフローコンテンツ要素の含有規則の詳細については、「[フロードキュメントの概要](flow-document-overview.md)」を参照してください。  
   
 > [!NOTE]
-> <xref:System.Windows.Documents.Table> は <xref:System.Windows.Controls.Grid> 要素に似ていますが、より多くの機能を備えているため、リソースオーバーヘッドが大きくなります。  
+> <xref:System.Windows.Documents.Table> は <xref:System.Windows.Controls.Grid> 要素に似ていますが、より多くの機能を備えているため、リソースのオーバーヘッドが大きくなります。  
   
  次の例では、XAML を使用して単純な 2 x 3 テーブルを定義します。  
   
@@ -76,7 +76,7 @@ ms.locfileid: "72005079"
   
 <a name="table_containment"></a>   
 ### <a name="table-containment"></a>テーブルの内容  
- <xref:System.Windows.Documents.Table> は、<xref:System.Windows.Documents.Block> 要素から派生し、@no__t 2 レベルの要素の一般的な規則に従います。  @No__t 0 の要素は、次のいずれかの要素に含めることができます。  
+ <xref:System.Windows.Documents.Table> は <xref:System.Windows.Documents.Block> 要素から派生し、<xref:System.Windows.Documents.Block> レベルの要素の一般的な規則に従います。  <xref:System.Windows.Documents.Table> 要素は、次のいずれかの要素に含めることができます。  
   
 - <xref:System.Windows.Documents.FlowDocument>  
   
@@ -94,7 +94,7 @@ ms.locfileid: "72005079"
   
 <a name="row_groupings"></a>   
 ### <a name="row-groupings"></a>行グループ  
- @No__t-0 要素は、テーブル内の任意の行を任意にグループ化する方法を提供します。テーブル内のすべての行は、行グループに属している必要があります。  多くの場合、行グループ内の行は共通の目的を共有しており、1 つのグループとしてスタイルを設定できます。  一般に、行のグループ化は、テーブルに格納された主要コンテンツから、特別な目的を持つ行 (タイトル行、ヘッダー行、フッター行など) を分離するために使用します。  
+ <xref:System.Windows.Documents.TableRowGroup> 要素は、テーブル内の任意の行を任意にグループ化する方法を提供します。テーブル内のすべての行は、行グループに属している必要があります。  多くの場合、行グループ内の行は共通の目的を共有しており、1 つのグループとしてスタイルを設定できます。  一般に、行のグループ化は、テーブルに格納された主要コンテンツから、特別な目的を持つ行 (タイトル行、ヘッダー行、フッター行など) を分離するために使用します。  
   
  次の例では、XAML を使用して、スタイルが設定されたヘッダー行とフッター行を含むテーブルを定義します。  
   
@@ -102,7 +102,7 @@ ms.locfileid: "72005079"
   
  この例の表示結果を次の図に示します。  
   
- @no__t 0Screenshot ショット:テーブル行グループ @ no__t-0(./media/table-rowgroups.png "Table_RowGroups")  
+ ![スクリーンショット: テーブル行グループ](./media/table-rowgroups.png "Table_RowGroups")  
   
 <a name="rendering_precedence"></a>   
 ### <a name="background-rendering-precedence"></a>背景のレンダリングの優先順位  
@@ -124,11 +124,11 @@ ms.locfileid: "72005079"
   
  次の図は、この例の表示結果 (背景色のみ表示) を示したものです。  
   
- @no__t 0Screenshot ショット:テーブル z&#45;オーダー @ no__t-1(./media/table-zorder.png "Table_ZOrder")  
+ ![スクリーンショット: テーブル z オーダー](./media/table-zorder.png "Table_ZOrder")  
   
 <a name="spanning_rows_or_columns"></a>   
 ### <a name="spanning-rows-or-columns"></a>複数の行または列にまたがるセル  
- テーブルセルは、<xref:System.Windows.Documents.TableCell.RowSpan%2A> または <xref:System.Windows.Documents.TableCell.ColumnSpan%2A> の属性をそれぞれ使用して、複数の行または列にまたがるように構成できます。  
+ テーブルセルは、<xref:System.Windows.Documents.TableCell.RowSpan%2A> または <xref:System.Windows.Documents.TableCell.ColumnSpan%2A> 属性をそれぞれ使用して、複数の行または列にまたがるように構成できます。  
   
  3 つの列にまたがるセルの例を次に示します。  
   
@@ -136,46 +136,46 @@ ms.locfileid: "72005079"
   
  この例の表示結果を次の図に示します。  
   
- @no__t 0Screenshot ショット:3列すべてにまたがるセル @ no__t-0(./media/table-columnspan.png "Table_ColumnSpan")  
+ ![スクリーンショット: 3 つの列すべてにまたがるセル](./media/table-columnspan.png "Table_ColumnSpan")  
   
 <a name="building_a_table_with_code"></a>   
 ## <a name="building-a-table-with-code"></a>テーブルとコードのバインディング  
- 次の例では、プログラムを使用して @no__t 0 を作成し、コンテンツを設定する方法を示します。 テーブルの内容は、5つの行 (@no__t 1 のオブジェクトに含まれる @no__t 0 のオブジェクトによって表されます) と6つの列 (<xref:System.Windows.Documents.TableColumn> のオブジェクトによって表される) に分配されます。 たとえば、タイトル行はテーブル全体のタイトルの設定に使用され、ヘッダー行はテーブル内のデータ列の説明、フッター行は要約情報の格納に使用されます。  "タイトル"、"ヘッダー"、"フッター" 行の概念はテーブルに固有のものではなく、単純に異なる特性を持つ行です。 テーブルセルには実際のコンテンツが格納されます。これは、テキスト、イメージ、またはほぼすべての @no__t 0 要素で構成できます。  
+ 次の例では、プログラムを使用して <xref:System.Windows.Documents.Table> を作成し、コンテンツを設定する方法を示します。 テーブルの内容は、5つの行 (<xref:System.Windows.Documents.Table.RowGroups%2A> オブジェクトに含まれる <xref:System.Windows.Documents.TableRow> オブジェクトによって表されます) と6つの列 (<xref:System.Windows.Documents.TableColumn> オブジェクトで表される) に分配されます。 行はさまざまな表示目的で利用されます。たとえば、テーブル全体にタイトルを付けるタイトル行、テーブル内のデータの列を表すヘッダー行、まとめ情報が入るフッター行があります。  "タイトル" 行、"ヘッダー" 行、"フッター" 行という概念はテーブルに固有のものではありません。特性が異なる行にすぎません。 テーブルのセルには実際のコンテンツが含まれます。これは、テキスト、画像、またはその他の [!INCLUDE[TLA#tla_ui](../../../../includes/tlasharptla-ui-md.md)] 要素で構成できます。  
   
- まず、<xref:System.Windows.Documents.Table> をホストする @no__t 0 が作成され、新しい <xref:System.Windows.Documents.Table> が作成され、<xref:System.Windows.Documents.FlowDocument> の内容に追加されます。  
+ まず、<xref:System.Windows.Documents.Table>をホストする <xref:System.Windows.Documents.FlowDocument> が作成され、新しい <xref:System.Windows.Documents.Table> が作成され、<xref:System.Windows.Documents.FlowDocument>の内容に追加されます。  
   
  [!code-csharp[TableSnippets#_TableCreate](~/samples/snippets/csharp/VS_Snippets_Wpf/TableSnippets/CSharp/Table.cs#_tablecreate)]
  [!code-vb[TableSnippets#_TableCreate](~/samples/snippets/visualbasic/VS_Snippets_Wpf/TableSnippets/VisualBasic/Table.vb#_tablecreate)]  
   
- 次に、6個の @no__t オブジェクトが作成され、テーブルの @no__t コレクションに追加されます。いくつかの書式設定が適用されます。  
+ 次に、いくつかの書式設定を適用して、6つの <xref:System.Windows.Documents.TableColumn> オブジェクトが作成され、テーブルの <xref:System.Windows.Documents.Table.Columns%2A> コレクションに追加されます。  
   
 > [!NOTE]
-> テーブルの @no__t 0 から始まるコレクションでは、標準の0から始まるインデックスが使用されることに注意してください。  
+> テーブルの <xref:System.Windows.Documents.Table.Columns%2A> コレクションでは、0から始まる標準のインデックス作成が使用されていることに注意してください。  
   
  [!code-csharp[TableSnippets#_TableCreateColumns](~/samples/snippets/csharp/VS_Snippets_Wpf/TableSnippets/CSharp/Table.cs#_tablecreatecolumns)]
  [!code-vb[TableSnippets#_TableCreateColumns](~/samples/snippets/visualbasic/VS_Snippets_Wpf/TableSnippets/VisualBasic/Table.vb#_tablecreatecolumns)]  
   
- 次に、タイトル行を作成してテーブルに追加し、書式を適用します。  タイトル行には、テーブルの 6 つの列にまたがる 1 つのセルが格納されます。  
+ 次に、タイトル行が作成され、テーブルに追加されます。いくつかの書式設定が適用されます。  タイトル行には、テーブルの 6 つの列にまたがる 1 つのセルが格納されます。  
   
  [!code-csharp[TableSnippets#_TableAddTitleRow](~/samples/snippets/csharp/VS_Snippets_Wpf/TableSnippets/CSharp/Table.cs#_tableaddtitlerow)]
  [!code-vb[TableSnippets#_TableAddTitleRow](~/samples/snippets/visualbasic/VS_Snippets_Wpf/TableSnippets/VisualBasic/Table.vb#_tableaddtitlerow)]  
   
- 次に、ヘッダー行を作成してテーブルに追加し、ヘッダー行のセルを作成してデータを格納します。  
+ 次に、ヘッダー行が作成され、テーブルに追加されます。ヘッダー行のセルが作成され、内容が入力されます。  
   
  [!code-csharp[TableSnippets#_TableAddHeaderRow](~/samples/snippets/csharp/VS_Snippets_Wpf/TableSnippets/CSharp/Table.cs#_tableaddheaderrow)]
  [!code-vb[TableSnippets#_TableAddHeaderRow](~/samples/snippets/visualbasic/VS_Snippets_Wpf/TableSnippets/VisualBasic/Table.vb#_tableaddheaderrow)]  
   
- 次に、データ行を作成してテーブルに追加し、この行のセルを作成してデータを格納します。  この行の作成はヘッダー行の作成に似ていますが、適用する書式が少し異なります。  
+ 次に、データの行が作成され、テーブルに追加されます。この行のセルが作成され、内容が入力されます。  この行の作成はヘッダー行の作成に似ていますが、適用する書式が少し異なります。  
   
  [!code-csharp[TableSnippets#_TableAddDataRow](~/samples/snippets/csharp/VS_Snippets_Wpf/TableSnippets/CSharp/Table.cs#_tableadddatarow)]
  [!code-vb[TableSnippets#_TableAddDataRow](~/samples/snippets/visualbasic/VS_Snippets_Wpf/TableSnippets/VisualBasic/Table.vb#_tableadddatarow)]  
   
- 最後に、フッター行を作成して追加し、書式を設定します。  タイトル行と同様に、フッター行にはテーブルの 6 つの列にまたがる 1 つのセルが格納されます。  
+ 最後に、フッター行が作成され、追加され、書式設定されます。  タイトル行と同様に、フッター行にはテーブルの 6 つの列にまたがる 1 つのセルが格納されます。  
   
  [!code-csharp[TableSnippets#_TableAddFooterRow](~/samples/snippets/csharp/VS_Snippets_Wpf/TableSnippets/CSharp/Table.cs#_tableaddfooterrow)]
  [!code-vb[TableSnippets#_TableAddFooterRow](~/samples/snippets/visualbasic/VS_Snippets_Wpf/TableSnippets/VisualBasic/Table.vb#_tableaddfooterrow)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [フロー ドキュメントの概要](flow-document-overview.md)
 - [XAML を使用してテーブルを定義する](how-to-define-a-table-with-xaml.md)

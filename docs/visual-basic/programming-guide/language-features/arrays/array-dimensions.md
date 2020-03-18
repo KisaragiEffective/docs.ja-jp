@@ -1,5 +1,5 @@
 ---
-title: Visual Basic における配列のディメンション
+title: 配列の次元
 ms.date: 07/20/2015
 helpviewer_keywords:
 - dimensions, arrays
@@ -9,25 +9,25 @@ helpviewer_keywords:
 - rectangular arrays
 - ranking, arrays
 ms.assetid: 385e911b-18c1-4e98-9924-c6d279101dd9
-ms.openlocfilehash: bbc9e523e9b74cf380c65135e7416f1feba01a2e
-ms.sourcegitcommit: 463f3f050cecc0b6403e67f19a61f870fb8e7b7d
+ms.openlocfilehash: 12e983ae62fa9f9ea762d434ffe5b73873a4a2e8
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68512892"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351908"
 ---
 # <a name="array-dimensions-in-visual-basic"></a>Visual Basic における配列のディメンション
 
 *ディメンション*は、配列の要素の指定を変更できる方向です。 月の各日の売上合計を保持する配列には、1つのディメンション (その月の日付) があります。 月の各日の売上合計を部門別に保持する配列には、2つのディメンション (部署番号とその月の日) があります。 配列が持つ次元の数を*ランク*と呼びます。
 
 > [!NOTE]
-> <xref:System.Array.Rank%2A>プロパティを使用して、配列の次元数を確認できます。
+> <xref:System.Array.Rank%2A> プロパティを使用して、配列の次元数を確認できます。
 
 ## <a name="working-with-dimensions"></a>ディメンションの操作
 
 配列の要素を指定するには、各次元の*インデックス*または*添字*を指定します。 要素は、インデックス0からそのディメンションの最大インデックスまで、各ディメンションに沿って連続しています。
 
-次の図は、異なるランクを持つ配列の概念構造を示しています。 図の各要素は、それにアクセスするインデックス値を示しています。 たとえば、インデックス`(1, 0)`を指定することにより、2次元配列の2番目の行の最初の要素にアクセスできます。
+次の図は、異なるランクを持つ配列の概念構造を示しています。 図の各要素は、それにアクセスするインデックス値を示しています。 たとえば、インデックス `(1, 0)`を指定することにより、2次元配列の2番目の行の最初の要素にアクセスできます。
 
 ![1次元配列を示す図。](./media/array-dimensions/one-dimensional-array.gif)
 
@@ -88,12 +88,12 @@ Dim salesAmounts(11, 30) As Double
 Dim salesAmounts(4, 11, 30) As Double
 ```
 
-各インデックスは0から最大値まで変化するため、の各次元は`salesAmounts` 、その次元で必要な長さより1つの値として宣言されます。 また、新しいディメンションごとに配列のサイズが増加することにも注意してください。 前の例の3つのサイズは、それぞれ31、372、および1860要素です。
+各インデックスは0から最大値まで変化するため、`salesAmounts` の各次元は、その次元で必要な長さより1つの値として宣言されます。 また、新しいディメンションごとに配列のサイズが増加することにも注意してください。 前の例の3つのサイズは、それぞれ31、372、および1860要素です。
 
 > [!NOTE]
-> `Dim` ステートメント`New`または句を使用せずに配列を作成できます。 たとえば、 <xref:System.Array.CreateInstance%2A>メソッドを呼び出すことができます。または、別のコンポーネントが、この方法で作成された配列をコードに渡すことができます。 このような配列は、0以外の下限を持つことができます。 ディメンションの下限は、 <xref:System.Array.GetLowerBound%2A>メソッド`LBound`または関数を使用していつでもテストできます。
+> `Dim` ステートメントまたは `New` 句を使用せずに配列を作成できます。 たとえば、<xref:System.Array.CreateInstance%2A> メソッドを呼び出すことができます。または、別のコンポーネントが、この方法で作成された配列をコードに渡すことができます。 このような配列は、0以外の下限を持つことができます。 <xref:System.Array.GetLowerBound%2A> メソッドまたは `LBound` 関数を使用すると、ディメンションの下限をいつでもテストできます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [配列](../../../../visual-basic/programming-guide/language-features/arrays/index.md)
 - [配列のトラブルシューティング](../../../../visual-basic/programming-guide/language-features/arrays/troubleshooting-arrays.md)

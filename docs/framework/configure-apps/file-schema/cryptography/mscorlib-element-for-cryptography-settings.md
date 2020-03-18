@@ -15,11 +15,11 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71699746"
 ---
-# <a name="mscorlib-element-for-cryptography-settings"></a>暗号化設定の @no__t 0mscorlib > 要素
-[@No__t-1cryptographySettings > 要素](cryptographysettings-element.md)が含まれています。  
+# <a name="mscorlib-element-for-cryptography-settings"></a>暗号化設定の mscorlib > 要素を \<する
+[\<cryptographySettings > 要素](cryptographysettings-element.md)を格納します。  
   
 [ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1 **\<mscorlib >**  
+&nbsp;&nbsp; **\<mscorlib >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -28,11 +28,11 @@ ms.locfileid: "71699746"
 </mscorlib>  
 ```  
   
-## <a name="attributes-and-elements"></a>属性および要素  
- 以降のセクションでは、属性、子要素、および親要素について説明します。  
+## <a name="attributes-and-elements"></a>属性と要素  
+ 次のセクションでは、属性、子要素、親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
- [なし] :  
+ [なし]。  
   
 ### <a name="child-elements"></a>子要素  
   
@@ -68,11 +68,11 @@ ms.locfileid: "71699746"
 </configuration>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Security.Cryptography.CryptoConfig.CreateFromName%2A>
 - <xref:System.Security.Cryptography>
 - [構成ファイル スキーマ](../index.md)
 - [暗号化設定スキーマ](index.md)
-- [Cryptographic Services](../../../../standard/security/cryptographic-services.md)
+- [暗号サービス](../../../../standard/security/cryptographic-services.md)
 - [暗号化クラスの設定](../../configure-cryptography-classes.md)

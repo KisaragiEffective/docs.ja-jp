@@ -1,13 +1,13 @@
 ---
-title: '方法: 要素のコレクションを取得する (LINQ to XML) (Visual Basic)'
+title: '方法 : 要素のコレクションを取得する (LINQ to XML)'
 ms.date: 07/20/2015
 ms.assetid: 2269f9de-8fb9-4666-b8a1-a4e754fa6a81
-ms.openlocfilehash: 2a5afea4fddda17ad78f45421821dcc13ad0e276
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 592ef68206df59bc848644d0a62bf0efdb10609e
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72315929"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74347584"
 ---
 # <a name="how-to-retrieve-a-collection-of-elements-linq-to-xml-visual-basic"></a>方法: 要素のコレクションを取得する (LINQ to XML) (Visual Basic)
 このトピックでは、<xref:System.Xml.Linq.XContainer.Elements%2A> メソッドについて説明します。 このメソッドは、要素の子要素のコレクションを取得します。  

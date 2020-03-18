@@ -15,14 +15,12 @@ helpviewer_keywords:
 - PE files, metadata
 - components [.NET Framework], metadata
 ms.assetid: 3dd13c5d-a508-455b-8dce-0a852882a5a7
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1a35f4ffa88211d914dbf84c87da49fafa89a929
-ms.sourcegitcommit: da2dd2772fcf32b44eb18b1cbe8affd17b1753c9
+ms.openlocfilehash: a4f4c0e1af379d31c5b478472780d5c7de813bf6
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71353901"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73121934"
 ---
 # <a name="metadata-and-self-describing-components"></a>メタデータと自己言及的なコンポーネント
 

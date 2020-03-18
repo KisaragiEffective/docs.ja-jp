@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォーム DataGridView コントロールの各セルにツールヒントを追加する'
+title: DataGridView コントロールの個々のセルにツールヒントを追加する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,19 +10,19 @@ helpviewer_keywords:
 - DataGridView control [Windows Forms], adding tooltips
 - data grids [Windows Forms], adding tooltips
 ms.assetid: 2a81f9de-d58b-4ea8-bc0b-8d93c2f4cf78
-ms.openlocfilehash: d0e9b3ad742633b135a2fe1c00af3fa72af7b44a
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: ac86db5fa27a95adb20888cd59b5e236941d9177
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64663454"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76732181"
 ---
-# <a name="how-to-add-tooltips-to-individual-cells-in-a-windows-forms-datagridview-control"></a>方法: Windows フォーム DataGridView コントロールの各セルにツールヒントを追加する
-既定では、ツールヒントを使用しての値を表示する<xref:System.Windows.Forms.DataGridView>は小さすぎて全体の内容を表示するセル。 ただし、この動作をオーバーライドする個々 のセルのツールヒントのテキスト値を設定します。 これは、セルに関する追加情報をユーザーに表示する、または他のセルの内容の説明をユーザーに提供するには便利です。 たとえば、状態アイコンを表示する行がある場合は、場合、ツールヒントを使用した説明を提供します。  
+# <a name="how-to-add-tooltips-to-individual-cells-in-a-windows-forms-datagridview-control"></a>方法 : Windows フォーム DataGridView コントロールの各セルにツールヒントを追加する
+既定では、ツールヒントを使用して、小さすぎてコンテンツ全体を表示できない <xref:System.Windows.Forms.DataGridView> セルの値が表示されます。 ただし、この動作をオーバーライドして、個々のセルにツールヒントテキストの値を設定することもできます。 これは、セルに関する追加情報をユーザーに表示したり、セルの内容に関する別の説明をユーザーに提供したりする場合に便利です。 たとえば、状態アイコンを表示する行がある場合、ヒントを使用してテキストの説明を入力することができます。  
   
- セル レベルのツールヒントの表示を無効にすることもできます、<xref:System.Windows.Forms.DataGridView.ShowCellToolTips%2A?displayProperty=nameWithType>プロパティを`false`します。  
+ また、<xref:System.Windows.Forms.DataGridView.ShowCellToolTips%2A?displayProperty=nameWithType> プロパティを `false`に設定して、セルレベルのツールヒントの表示を無効にすることもできます。  
   
-### <a name="to-add-a-tooltip-to-a-cell"></a>セルにツールヒントを追加するには  
+### <a name="to-add-a-tooltip-to-a-cell"></a>ヒントをセルに追加するには  
   
 - <xref:System.Windows.Forms.DataGridViewCell.ToolTipText%2A?displayProperty=nameWithType> プロパティを設定します。  
   
@@ -34,14 +34,14 @@ ms.locfileid: "64663454"
   
 - この例で必要な要素は次のとおりです。  
   
-- A<xref:System.Windows.Forms.DataGridView>という名前のコントロール`dataGridView1`という名前の列を格納している`Rating`4 つのアスタリスクを 1 つの文字列値を表示する ("*") 記号です。 <xref:System.Windows.Forms.DataGridView.CellFormatting>例に示すようにイベント ハンドラー メソッドを使用して、コントロールのイベントを関連付ける必要があります。  
+- 1 ~ 4 個のアスタリスク ("*") 記号の文字列値を表示するための、`Rating` という名前の列を含む `dataGridView1` という名前の <xref:System.Windows.Forms.DataGridView> コントロール。 コントロールの <xref:System.Windows.Forms.DataGridView.CellFormatting> イベントは、例に示すイベントハンドラーメソッドに関連付けられている必要があります。  
   
 - <xref:System?displayProperty=nameWithType> アセンブリおよび <xref:System.Windows.Forms?displayProperty=nameWithType> アセンブリへの参照。  
   
-## <a name="robust-programming"></a>信頼性の高いプログラミング  
- バインドすると、<xref:System.Windows.Forms.DataGridView>外部データ ソースへの制御または仮想モードを実装して、独自のデータ ソースを提供する、パフォーマンスの問題が発生する可能性があります。 パフォーマンスの低下を避けるためには、大量のデータを使用する場合、処理、<xref:System.Windows.Forms.DataGridView.CellToolTipTextNeeded>設定ではなく、イベント、<xref:System.Windows.Forms.DataGridViewCell.ToolTipText%2A>複数のセルのプロパティ。 処理するとき、このイベントはセルの値を取得する<xref:System.Windows.Forms.DataGridViewCell.ToolTipText%2A>プロパティは、イベントを発生させるしの値を返します、<xref:System.Windows.Forms.DataGridViewCellToolTipTextNeededEventArgs.ToolTipText%2A?displayProperty=nameWithType>プロパティとして指定されたイベントのハンドラー。  
+## <a name="robust-programming"></a>堅牢性の高いプログラミング  
+ <xref:System.Windows.Forms.DataGridView> コントロールを外部データソースにバインドしたり、仮想モードを実装して独自のデータソースを提供したりすると、パフォーマンスの問題が発生する可能性があります。 大量のデータを処理するときにパフォーマンスが低下しないようにするには、複数のセルの <xref:System.Windows.Forms.DataGridViewCell.ToolTipText%2A> プロパティを設定するのではなく、<xref:System.Windows.Forms.DataGridView.CellToolTipTextNeeded> イベントを処理します。 このイベントを処理するときに、セル <xref:System.Windows.Forms.DataGridViewCell.ToolTipText%2A> プロパティの値を取得すると、イベントが発生し、イベントハンドラーに指定されている <xref:System.Windows.Forms.DataGridViewCellToolTipTextNeededEventArgs.ToolTipText%2A?displayProperty=nameWithType> プロパティの値が返されます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - <xref:System.Windows.Forms.DataGridView.ShowCellToolTips%2A?displayProperty=nameWithType>

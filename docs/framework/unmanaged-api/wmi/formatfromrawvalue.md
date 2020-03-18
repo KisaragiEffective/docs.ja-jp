@@ -14,14 +14,12 @@ helpviewer_keywords:
 - FormatFromRawValue function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 65a6d9eab9708f762d14e5361697b85ffb73f54a
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 5097cfe43ae785461a1e2af1217bcbd5e8c4b79c
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798636"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120287"
 ---
 # <a name="formatfromrawvalue-function"></a>FormatFromRawValue 関数
 1 つの生のパフォーマンス データ値が指定した形式に変換されます。この形式変換が時間ベースである場合は、2 つの生のパフォーマンス データ値が変換されます。 
@@ -44,12 +42,12 @@ int FormatFromRawValue (
 ## <a name="parameters"></a>パラメーター
 
 `dwCounterType`\
-からカウンターの種類。 カウンターの種類の一覧については、「 [WMI パフォーマンスカウンターの種類](/windows/desktop/WmiSdk/wmi-performance-counter-types)」を参照してください。 `dwCounterType`には、および`PERF_LARGE_RAW_FRACTION` `PERF_LARGE_RAW_BASE`を除く任意の種類のカウンターを指定できます。 
+からカウンターの種類。 カウンターの種類の一覧については、「 [WMI パフォーマンスカウンターの種類](/windows/desktop/WmiSdk/wmi-performance-counter-types)」を参照してください。 `dwCounterType` には、`PERF_LARGE_RAW_FRACTION` と `PERF_LARGE_RAW_BASE`を除く任意の種類のカウンターを指定できます。 
 
 `dwFormat`\
 から生のパフォーマンスデータを変換する形式。 次のいずれかの値を指定できます。
 
-|定数  |Value  |説明 |
+|定数  |[値]  |説明 |
 |---------|---------|---------|
 | `PDH_FMT_DOUBLE` |0x00000200 | 計算された値を倍精度浮動小数点値として返します。 | 
 | `PDH_FMT_LARGE` | 0x00000400 | 計算された値を64ビット整数として返します。 |
@@ -57,7 +55,7 @@ int FormatFromRawValue (
 
 前の値の1つは、次のいずれかのスケーリングフラグと共に使用できます。
 
-|定数  |Value  |説明 |
+|定数  |[値]  |説明 |
 |---------|---------|---------|
 | `PDH_FMT_NOSCALE` | 0x00001000 | カウンターのスケールファクターは適用しないでください。 |
 | `PDH_FMT_1000` | 0x00002000 | 最終的な値を1000で乗算します。 | 
@@ -65,19 +63,19 @@ int FormatFromRawValue (
 `pTimeBase`\
 から形式変換に必要な場合は、タイムベースへのポインター。 形式変換に時間ベース情報が不要な場合、このパラメーターの値は無視されます。
 
-`pRawValue1`\ [in] 生のパフォーマンス値[`PDH_RAW_COUNTER`](/windows/win32/api/pdh/ns-pdh-pdh_raw_counter)を表す構造体へのポインター。
+`pRawValue1`\ [in] は、生のパフォーマンス値を表す[`PDH_RAW_COUNTER`](/windows/win32/api/pdh/ns-pdh-pdh_raw_counter)構造体へのポインターです。
 
 `pRawValue2`\
-から2番目の[`PDH_RAW_COUNTER`](/windows/win32/api/pdh/ns-pdh-pdh_raw_counter)生のパフォーマンス値を表す構造体へのポインター。 2番目の生のパフォーマンス値が不要な場合、この`null`パラメーターはにする必要があります。
+から2番目の生のパフォーマンス値を表す[`PDH_RAW_COUNTER`](/windows/win32/api/pdh/ns-pdh-pdh_raw_counter)構造体へのポインター。 2番目の生のパフォーマンス値が不要な場合は、このパラメーターを `null`する必要があります。
 
 `pFmtValue`\
-入出力書式設定され[`PDH_FMT_COUNTERVALUE`](/windows/win32/api/pdh/ns-pdh-pdh_fmt_countervalue)たパフォーマンス値を受け取る構造体へのポインター。
+入出力書式設定されたパフォーマンス値を受け取る[`PDH_FMT_COUNTERVALUE`](/windows/win32/api/pdh/ns-pdh-pdh_fmt_countervalue)構造体へのポインター。
 
 ## <a name="return-value"></a>戻り値
 
 この関数によって返される値は次のとおりです。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `ERROR_SUCCESS` | 0 | 関数の呼び出しは成功しました。 |
 | `PDH_INVALID_ARGUMENT` | 0xC0000BBD | 必須の引数が指定されていないか、正しくありません。 | 
@@ -87,11 +85,11 @@ int FormatFromRawValue (
 
 この関数は、 [FormatFromRawValue](https://docs.microsoft.com/previous-versions/ms231047(v=vs.85))関数の呼び出しをラップします。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
- **ライブラリ**PerfCounter .dll
+ **ライブラリ:** PerfCounter .dll
 
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v472plus](../../../../includes/net-current-v472plus.md)]
 

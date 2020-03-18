@@ -1,15 +1,13 @@
 ---
 title: ネイティブ相互運用性 - .NET
 description: .Net のネイティブ コンポーネントとやり取りする方法を説明します。
-author: jkoritzinsky
-ms.author: jekoritz
 ms.date: 01/18/2019
-ms.openlocfilehash: 3ca213bc7228d2e4337607df2d47b334c5bea14f
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: 330466d74cc268214f74c4f575e6a2961f678972
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70106806"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75706336"
 ---
 # <a name="native-interoperability"></a>ネイティブ相互運用性
 
@@ -26,7 +24,7 @@ ms.locfileid: "70106806"
 > [!NOTE]
 > このセクションのほとんどの例は、.NET Core でサポートされる 3 つのプラットフォームすべて (Windows、Linux、macOS) について提示しています。 ただし、短い解説的な例については、Windows ファイル名と拡張子 (つまり、ライブラリの場合は "dll") を使用する 1 つのサンプルだけを示します。 その機能が Linux や macOS で使用できないというわけではなく、単に便宜上のためにそうしています。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [プラットフォーム呼び出し (P/Invoke)](pinvoke.md)
 - [型のマーシャリング](type-marshaling.md)

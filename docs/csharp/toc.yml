@@ -1,20 +1,22 @@
-- name: 'C# ガイド'
-  href: index.md
-- name: 作業の開始
+- name: 'C# 関連のドキュメント'
+  href: index.yml
+- name: 作業開始
   items:
-    - name: このガイドの使用方法
+    - name: 概要
+      displayName: get started
       href: getting-started/index.md
     - name: 'C# 言語と .NET Framework の概要'
       href: getting-started/introduction-to-the-csharp-language-and-the-net-framework.md
 - name: チュートリアル
   items:
     - name: 概要
+      displayName: tutorials
       href: tutorials/index.md
     - name: 'C# によるプログラミングの入門'
       items:
         - name: 最初のレッスンを選択する
           href: tutorials/intro-to-csharp/index.md
-        - name: Hello World
+        - name: Hello world
           href: tutorials/intro-to-csharp/hello-world.yml
         - name: 'C# の数値'
           href: tutorials/intro-to-csharp/numbers-in-csharp.yml
@@ -24,7 +26,7 @@
           href: tutorials/intro-to-csharp/list-collection.yml
         - name: ローカル環境で作業する
           items:
-            - name: 環境をセットアップする
+            - name: 環境を設定する
               href: tutorials/intro-to-csharp/local-environment.md
             - name: 'C# の数値'
               href: tutorials/intro-to-csharp/numbers-in-csharp-local.md
@@ -80,14 +82,10 @@
       href: tour-of-csharp/statements.md
     - name: クラスとオブジェクト
       href: tour-of-csharp/classes-and-objects.md
-    - name: 構造体
-      href: tour-of-csharp/structs.md
     - name: 配列
       href: tour-of-csharp/arrays.md
     - name: インターフェイス
       href: tour-of-csharp/interfaces.md
-    - name: 列挙型
-      href: tour-of-csharp/enums.md
     - name: デリゲート
       href: tour-of-csharp/delegates.md
     - name: 属性
@@ -95,6 +93,7 @@
 - name: 'C# の新機能'
   items:
     - name: 'C# 8.0'
+      displayName: what's new
       href: whats-new/csharp-8.md
     - name: 'C# 7.3'
       href: whats-new/csharp-7-3.md
@@ -106,6 +105,8 @@
       href: whats-new/csharp-7.md
     - name: 'C# 6'
       href: whats-new/csharp-6.md
+    - name: コンパイラでの破壊的変更
+      href: whats-new/breaking-changes.md
     - name: 'C# バージョン履歴'
       href: whats-new/csharp-version-history.md
     - name: 言語とフレームワークの関係
@@ -114,7 +115,7 @@
       href: whats-new/version-update-considerations.md
 - name: 'C# の概念'
   items:
-    - name: 'C# の型システム'
+    - name: 'C# 型システム'
       href: programming-guide/types/index.md
     - name: null 許容参照型
       href: nullable-references.md
@@ -126,8 +127,6 @@
       href: basic-types.md
     - name: クラス
       href: programming-guide/classes-and-structs/classes.md
-    - name: 構造体
-      href: structs.md
     - name: タプル
       href: tuples.md
     - name: タプルとその他の型の分解
@@ -138,7 +137,7 @@
       href: methods.md
     - name: ラムダ式
       href: programming-guide/statements-expressions-operators/lambda-expressions.md
-    - name: properties
+    - name: プロパティ
       href: properties.md
     - name: インデクサー
       href: indexers.md
@@ -166,7 +165,7 @@
           href: modern-events.md
         - name: デリゲートとイベントの識別
           href: distinguish-delegates-events.md
-    - name: 統合言語クエリ (LINQ)
+    - name: '統合言語クエリ (LINQ: Language-Integrated Query)'
       items:
         - name: LINQ の概要
           href: linq/index.md
@@ -238,9 +237,10 @@
       href: codedoc.md
     - name: バージョン管理
       href: versioning.md
-- name: 'C# に関するトピック'
+- name: '操作方法に関する C# の記事'
   items:
-    - name: トピックのインデックス
+    - name: 記事のインデックス
+      displayName: how to's
       href: how-to/index.md
     - name: '`String.Split` を使用して文字列を解析する'
       href: how-to/parse-strings-using-split.md
@@ -285,10 +285,11 @@
 - name: 'C# プログラミング ガイド'
   items:
     - name: 概要
+      displayName: programming guide
       href: programming-guide/index.md
     - name: 'インサイド C# プログラム'
       items:
-        - name: 'インサイド C# プログラムとは'
+        - name: 'C# プログラム内の内容'
           href: programming-guide/inside-a-program/index.md
         - name: Hello World -- 最初のプログラム
           href: programming-guide/inside-a-program/hello-world-your-first-program.md
@@ -301,28 +302,31 @@
     - name: Main() とコマンド ライン引数
       items:
         - name: 概要
+          displayName: main method
           href: programming-guide/main-and-command-args/index.md
         - name: コマンド ライン引数
           href: programming-guide/main-and-command-args/command-line-arguments.md
-        - name: '方法:コマンド ライン引数を表示する'
+        - name: コマンド ライン引数を表示する方法
           href: programming-guide/main-and-command-args/how-to-display-command-line-arguments.md
         - name: Main() の戻り値
           href: programming-guide/main-and-command-args/main-return-values.md
     - name: プログラミングの概念
       items:
         - name: 概要
+          displayName: programming concepts
           href: programming-guide/concepts/index.md
-        - name: Async および Await を使用した非同期プログラミング
+        - name: async および await を使用した非同期プログラミング
           items:
             - name: 概要
+              displayName: asynchronous programming
               href: programming-guide/concepts/async/index.md
             - name: 非同期プログラミング モデル
               href: programming-guide/concepts/async/task-asynchronous-programming-model.md
-            - name: 'チュートリアル:Async と Await を使用した Web へのアクセス'
+            - name: 'チュートリアル: Async と Await を使用した Web へのアクセス'
               href: programming-guide/concepts/async/walkthrough-accessing-the-web-by-using-async-and-await.md
-            - name: '方法:Task.WhenAll を使用して AsyncWalkthrough を拡張する'
+            - name: Task.WhenAll を使用して AsyncWalkthrough を拡張する方法
               href: programming-guide/concepts/async/how-to-extend-the-async-walkthrough-by-using-task-whenall.md
-            - name: '方法:async と await を使用して複数の Web 要求を並列実行する'
+            - name: Async と Await を使用して複数の Web 要求を並列して作成する方法
               href: programming-guide/concepts/async/how-to-make-multiple-web-requests-in-parallel-by-using-async-and-await.md
             - name: 非同期の戻り値の型
               href: programming-guide/concepts/async/async-return-types.md
@@ -347,6 +351,7 @@
         - name: 属性
           items:
             - name: 概要
+              displayName: attributes
               href: programming-guide/concepts/attributes/index.md
             - name: カスタム属性の作成
               href: programming-guide/concepts/attributes/creating-custom-attributes.md
@@ -354,7 +359,7 @@
               href: programming-guide/concepts/attributes/attributeusage.md
             - name: リフレクションを使用した属性へのアクセス
               href: programming-guide/concepts/attributes/accessing-attributes-by-using-reflection.md
-            - name: '方法:属性を使用して C/C++ の共用体を作成する'
+            - name: 属性を使用して C/C++ の共用体を作成する方法
               href: programming-guide/concepts/attributes/how-to-create-a-c-cpp-union-by-using-attributes.md
             - name: 共通の属性
               href: programming-guide/concepts/attributes/common-attributes.md
@@ -365,30 +370,32 @@
         - name: 共変性と反変性
           items:
             - name: 概要
+              displayName: covariance and contravariance
               href: programming-guide/concepts/covariance-contravariance/index.md
-            - name: ジェネリック インターフェイスの変性
+            - name: ジェネリック インターフェイスの分散
               href: programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces.md
               items:
                 - name: バリアント ジェネリック インターフェイスの作成
                   href: programming-guide/concepts/covariance-contravariance/creating-variant-generic-interfaces.md
-                - name: ジェネリック コレクションに対するインターフェイスでの変性の使用
+                - name: ジェネリック コレクションに対するインターフェイスでの分散の使用
                   href: programming-guide/concepts/covariance-contravariance/using-variance-in-interfaces-for-generic-collections.md
-            - name: デリゲートの変性
+            - name: デリゲートの分散
               href: programming-guide/concepts/covariance-contravariance/variance-in-delegates.md
               items:
-                - name: デリゲートの変性の使用
+                - name: デリゲートでの分散の使用
                   href: programming-guide/concepts/covariance-contravariance/using-variance-in-delegates.md
                 - name: Func および Action 汎用デリゲートでの分散の使用
                   href: programming-guide/concepts/covariance-contravariance/using-variance-for-func-and-action-generic-delegates.md
         - name: 式ツリー
           items:
             - name: 概要
+              displayName: expression trees
               href: programming-guide/concepts/expression-trees/index.md
-            - name: '方法:式ツリーを実行する'
+            - name: 式ツリーを実行する方法
               href: programming-guide/concepts/expression-trees/how-to-execute-expression-trees.md
-            - name: '方法:式ツリーを変更する'
+            - name: 式ツリーを変更する方法
               href: programming-guide/concepts/expression-trees/how-to-modify-expression-trees.md
-            - name: '方法:式ツリーを使用して動的クエリをビルドする'
+            - name: 式ツリーを使用して動的クエリを作成する方法
               href: programming-guide/concepts/expression-trees/how-to-use-expression-trees-to-build-dynamic-queries.md
             - name: 式ツリーのデバッグ (Visual Studio)
               href: programming-guide/concepts/expression-trees/debugging-expression-trees-in-visual-studio.md
@@ -399,6 +406,7 @@
         - name: '統合言語クエリ (LINQ: Language-Integrated Query)'
           items:
             - name: 概要
+              displayName: LINQ overview
               href: programming-guide/concepts/linq/index.md
             - name: 'C# の LINQ の概要'
               items:
@@ -416,7 +424,7 @@
                   href: programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq.md
                 - name: 'LINQ をサポートする C# の機能'
                   href: programming-guide/concepts/linq/features-that-support-linq.md
-                - name: 'チュートリアル:C# でのクエリの作成 (LINQ)'
+                - name: 'チュートリアル: C# でのクエリの作成 (LINQ)'
                   href: programming-guide/concepts/linq/walkthrough-writing-queries-linq.md
             - name: 標準クエリ演算子の概要
               items:
@@ -462,55 +470,55 @@
                   href: programming-guide/concepts/linq/linq-and-strings.md
                 - name: 方法に関する記事
                   items:
-                    - name: '方法:文字列での単語の出現回数をカウントする (LINQ)'
+                    - name: 文字列での単語の出現回数をカウントする方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-count-occurrences-of-a-word-in-a-string-linq.md
-                    - name: '方法:指定された単語のセットを含む文章を照会する (LINQ)'
+                    - name: 指定された単語のセットを含む文章を照会する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-query-for-sentences-that-contain-a-specified-set-of-words-linq.md
-                    - name: '方法:文字列内の文字をクエリする (LINQ)'
+                    - name: 文字列内の文字を照会する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-query-for-characters-in-a-string-linq.md
-                    - name: '方法:LINQ クエリと正規表現を組み合わせる'
+                    - name: LINQ クエリと正規表現を組み合わせる方法
                       href: programming-guide/concepts/linq/how-to-combine-linq-queries-with-regular-expressions.md
-                    - name: '方法:2 つのリストの差集合を見つける (LINQ)'
+                    - name: 2 つのリストの差集合を見つける方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-find-the-set-difference-between-two-lists-linq.md
-                    - name: '方法:任意の単語またはフィールドを基準にテキスト データの並べ替えまたはフィルター処理を実行する (LINQ)'
+                    - name: 任意の単語またはフィールドを基準にテキスト データの並べ替えまたはフィルター処理を実行する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-sort-or-filter-text-data-by-any-word-or-field-linq.md
-                    - name: '方法:区切り記号入りファイルのフィールドの順序を変更する (LINQ)'
+                    - name: 区切りファイルのフィールドの順序を変更する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-reorder-the-fields-of-a-delimited-file-linq.md
-                    - name: '方法:文字列コレクションを結合および比較する (LINQ)'
+                    - name: 文字列コレクションを結合および比較する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-combine-and-compare-string-collections-linq.md
-                    - name: '方法:複数のソースからオブジェクト コレクションにデータを設定する (LINQ)'
+                    - name: 複数のソースからオブジェクト コレクションにデータを設定する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-populate-object-collections-from-multiple-sources-linq.md
-                    - name: '方法:グループを使用して 1 つのファイルを複数のファイルに分割する (LINQ)'
+                    - name: グループを使用して 1 つのファイルを複数のファイルに分割する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-split-a-file-into-many-files-by-using-groups-linq.md
-                    - name: '方法:異種ファイルのコンテンツを結合する (LINQ)'
+                    - name: 異種ファイルのコンテンツを結合する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-join-content-from-dissimilar-files-linq.md
-                    - name: '方法:CSV テキスト ファイルの列値を計算する (LINQ)'
+                    - name: CSV テキスト ファイルの列値を計算する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-compute-column-values-in-a-csv-text-file-linq.md
                 - name: LINQ とリフレクション
                   href: programming-guide/concepts/linq/linq-and-reflection.md
-                - name: '方法:リフレクションを使用してアセンブリのメタデータをクエリする (LINQ)'
+                - name: リフレクションを使用してアセンブリのメタデータを照会する方法 (LINQ)
                   href: programming-guide/concepts/linq/how-to-query-an-assembly-s-metadata-with-reflection-linq.md
                 - name: LINQ とファイル ディレクトリ
                   items:
                     - name: 概要
                       href: programming-guide/concepts/linq/linq-and-file-directories.md
-                    - name: '方法:指定された属性または名前のファイルをクエリする'
+                    - name: 指定された属性または名前のファイルを照会する方法
                       href: programming-guide/concepts/linq/how-to-query-for-files-with-a-specified-attribute-or-name.md
-                    - name: '方法:拡張子別にファイルをグループ化する (LINQ)'
+                    - name: 拡張子別にファイルをグループ化する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-group-files-by-extension-linq.md
-                    - name: '方法:一連のフォルダーの合計バイト数を照会する (LINQ)'
+                    - name: 一連のフォルダーの合計バイト数を照会する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-query-for-the-total-number-of-bytes-in-a-set-of-folders-linq.md
-                    - name: '方法:2 つのフォルダーの内容を比較する (LINQ)'
+                    - name: 2 つのフォルダーの内容を比較する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-compare-the-contents-of-two-folders-linq.md
-                    - name: '方法:ディレクトリ ツリー内で最もサイズの大きいファイルを照会する (LINQ)'
+                    - name: ディレクトリ ツリー内で最もサイズの大きいファイルを照会する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-query-for-the-largest-file-or-files-in-a-directory-tree-linq.md
-                    - name: '方法:ディレクトリ ツリーで重複するファイルをクエリする (LINQ)'
+                    - name: ディレクトリ ツリーで重複するファイルを照会する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-query-for-duplicate-files-in-a-directory-tree-linq.md
-                    - name: '方法:フォルダー内のファイルの内容を照会する (LINQ)'
+                    - name: フォルダー内のファイルの内容を照会する方法 (LINQ)
                       href: programming-guide/concepts/linq/how-to-query-the-contents-of-files-in-a-folder-lin.md
-                - name: '方法:LINQ を使用して ArrayList を照会する'
+                - name: LINQ を使用して ArrayList を照会する方法
                   href: programming-guide/concepts/linq/how-to-query-an-arraylist-with-linq.md
-                - name: '方法:LINQ クエリのカスタム メソッドを追加する'
+                - name: LINQ クエリのカスタム メソッドを追加する方法
                   href: programming-guide/concepts/linq/how-to-add-custom-methods-for-linq-queries.md
             - name: LINQ to XML
               items:
@@ -536,7 +544,7 @@
                           href: programming-guide/concepts/linq/xattribute-class-overview.md
                         - name: XDocument クラスの概要
                           href: programming-guide/concepts/linq/xdocument-class-overview.md
-                        - name: '方法:LINQ to XML の例をビルドする'
+                        - name: LINQ to XML の例をビルドする方法
                           href: programming-guide/concepts/linq/how-to-build-linq-to-xml-examples.md
                     - name: XML ツリー
                       items:
@@ -546,21 +554,21 @@
                           href: programming-guide/concepts/linq/creating-xml-trees-linq-to-xml-2.md
                         - name: XML の解析
                           items:
-                            - name: '方法:文字列を解析する'
+                            - name: 文字列を解析する方法
                               href: programming-guide/concepts/linq/how-to-parse-a-string.md
-                            - name: '方法:ファイルから XML を読み込む'
+                            - name: ファイルから XML を読み込む方法
                               href: programming-guide/concepts/linq/how-to-load-xml-from-a-file.md
                             - name: XML の読み込み時または解析時の空白の維持
                               href: programming-guide/concepts/linq/preserving-white-space-while-loading-or-parsing-xml1.md
-                            - name: '方法:解析エラーをキャッチする'
+                            - name: 解析エラーをキャッチする方法
                               href: programming-guide/concepts/linq/how-to-catch-parsing-errors.md
-                            - name: '方法:XmlReader からツリーを作成する'
+                            - name: XmlReader からツリーを作成する方法
                               href: programming-guide/concepts/linq/how-to-create-a-tree-from-an-xmlreader.md
-                            - name: '方法:XmlReader から XML フラグメントをストリーム出力する'
+                            - name: XmlReader から XML フラグメントをストリーム出力する方法
                               href: programming-guide/concepts/linq/how-to-stream-xml-fragments-from-an-xmlreader.md
-                        - name: '方法:XmlWriter を使用して XML ツリーを設定する (LINQ to XML)'
+                        - name: XmlWriter を使用して XML ツリーを設定する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-populate-an-xml-tree-with-an-xmlwriter-linq-to-xml.md
-                        - name: '方法:XSD を使用して検証する (LINQ to XML)'
+                        - name: XSD を使用して検証する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-validate-using-xsd-linq-to-xml.md
                         - name: XElement オブジェクトと XDocument オブジェクトの有効なコンテンツ
                           href: programming-guide/concepts/linq/valid-content-of-xelement-and-xdocument-objects3.md
@@ -568,13 +576,13 @@
                       items:
                         - name: 名前空間の概要 (LINQ to XML)
                           href: programming-guide/concepts/linq/namespaces-overview-linq-to-xml.md
-                        - name: '方法:名前空間を持つドキュメントを作成する (LINQ to XML)'
+                        - name: 名前空間を持つドキュメントを作成する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-create-a-document-with-namespaces-linq-to-xml.md
-                        - name: '方法:名前空間プレフィックスを制御する (LINQ to XML)'
+                        - name: 名前空間プレフィックスを制御する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-control-namespace-prefixes-linq-to-xml.md
                         - name: 'C# での既定の名前空間のスコープ'
                           href: programming-guide/concepts/linq/scope-of-default-namespaces.md
-                        - name: '方法:名前空間内の XML に対するクエリを記述する'
+                        - name: 名前空間内の XML に対するクエリを記述する方法
                           href: programming-guide/concepts/linq/how-to-write-queries-on-xml-in-namespaces.md
                     - name: XML ツリーのシリアル化
                       items:
@@ -590,127 +598,127 @@
                       items:
                         - name: LINQ to XML 軸の概要
                           href: programming-guide/concepts/linq/linq-to-xml-axes-overview.md
-                        - name: '方法:要素のコレクションを取得する (LINQ to XML)'
+                        - name: 要素のコレクションを取得する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-retrieve-a-collection-of-elements-linq-to-xml.md
-                        - name: '方法:要素の値を取得する (LINQ to XML)'
+                        - name: 要素の値を取得する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-retrieve-the-value-of-an-element-linq-to-xml.md
-                        - name: '方法:要素名をフィルター処理する (LINQ to XML)'
+                        - name: 要素名をフィルター処理する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-filter-on-element-names-linq-to-xml.md
-                        - name: '方法:軸メソッドの呼び出しを連結する (LINQ to XML)'
+                        - name: 軸メソッドの呼び出しを連結する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-chain-axis-method-calls-linq-to-xml.md
-                        - name: '方法:単一の子要素を取得する (LINQ to XML)'
+                        - name: 単一の子要素を取得する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-retrieve-a-single-child-element-linq-to-xml.md
-                        - name: '方法:属性のコレクションを取得する (LINQ to XML)'
+                        - name: 属性のコレクションを取得する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-retrieve-a-collection-of-attributes-linq-to-xml.md
-                        - name: '方法:単一の属性を取得する (LINQ to XML)'
+                        - name: 単一の属性を取得する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-retrieve-a-single-attribute-linq-to-xml.md
-                        - name: '方法:属性の値を取得する (LINQ to XML)'
+                        - name: 属性の値を取得する方法 (LINQ to XML)
                           href: programming-guide/concepts/linq/how-to-retrieve-the-value-of-an-attribute-linq-to-xml.md
-                        - name: '方法:要素の浅い値を取得する'
+                        - name: 要素の浅い値を取得する方法
                           href: programming-guide/concepts/linq/how-to-retrieve-the-shallow-value-of-an-element.md
                     - name: XML ツリーのクエリ
                       items:
                         - name: 基本的なクエリ (LINQ to XML)
                           items:
-                            - name: '方法:特定の属性を持つ要素を検索する'
+                            - name: 特定の属性を持つ要素を検索する方法
                               href: programming-guide/concepts/linq/how-to-find-an-element-with-a-specific-attribute.md
-                            - name: '方法:特定の子要素を持つ要素を検索する'
+                            - name: 特定の子要素を持つ要素を検索する方法
                               href: programming-guide/concepts/linq/how-to-find-an-element-with-a-specific-child-element.md
                             - name: XDocument のクエリと XElement のクエリ
                               href: programming-guide/concepts/linq/querying-an-xdocument-vs-querying-an-xelement.md
-                            - name: '方法:特定の要素名を持つ子孫を検索する'
+                            - name: 特定の要素名を持つ子孫を検索する方法
                               href: programming-guide/concepts/linq/how-to-find-descendants-with-a-specific-element-name.md
-                            - name: '方法:Descendants メソッドを使用して単一の子孫を検索する'
+                            - name: Descendants メソッドを使用して単一の子孫を検索する方法
                               href: programming-guide/concepts/linq/how-to-find-a-single-descendant-using-the-descendants-method.md
-                            - name: '方法:複雑なフィルターを使用してクエリを記述する'
+                            - name: 複雑なフィルターを使用してクエリを記述する方法
                               href: programming-guide/concepts/linq/how-to-write-queries-with-complex-filtering.md
-                            - name: '方法:省略可能な要素をフィルター処理する'
+                            - name: 省略可能な要素をフィルター処理する方法
                               href: programming-guide/concepts/linq/how-to-filter-on-an-optional-element.md
-                            - name: '方法:名前空間内のすべてのノードを検索する'
+                            - name: 名前空間内のすべてのノードを検索する方法
                               href: programming-guide/concepts/linq/how-to-find-all-nodes-in-a-namespace.md
-                            - name: '方法:要素を並べ替える'
+                            - name: 要素を並べ替える方法
                               href: programming-guide/concepts/linq/how-to-sort-elements.md
-                            - name: '方法:複数のキーに基づいて要素を並べ替える'
+                            - name: 複数のキーに基づいて要素を並べ替える方法
                               href: programming-guide/concepts/linq/how-to-sort-elements-on-multiple-keys.md
-                            - name: '方法:中間値を計算する'
+                            - name: 中間値を計算する方法
                               href: programming-guide/concepts/linq/how-to-calculate-intermediate-values.md
-                            - name: '方法:コンテキストに基づいて要素を検索するクエリを記述する'
+                            - name: コンテキストに基づいて要素を検索するクエリを記述する方法
                               href: programming-guide/concepts/linq/how-to-write-a-query-that-finds-elements-based-on-context.md
-                            - name: '方法:空のクエリ結果セットをデバッグする'
+                            - name: 空のクエリ結果セットをデバッグする方法
                               href: programming-guide/concepts/linq/how-to-debug-empty-query-results-sets.md
                         - name: 射影と変換 (LINQ to XML)
                           items:
-                            - name: '方法:LINQ to XML を使用してディクショナリを操作する'
+                            - name: LINQ to XML を使用してディクショナリを操作する方法
                               href: programming-guide/concepts/linq/how-to-work-with-dictionaries-using-linq-to-xml.md
-                            - name: '方法:XML ツリーの構造を変換する'
+                            - name: XML ツリーの構造を変換する方法
                               href: programming-guide/concepts/linq/how-to-transform-the-shape-of-an-xml-tree.md
-                            - name: '方法:射影の型を制御する'
+                            - name: 射影の型を制御する方法
                               href: programming-guide/concepts/linq/how-to-control-the-type-of-a-projection.md
-                            - name: '方法:新しい型を射影する (LINQ to XML)'
+                            - name: 新しい型を射影する方法 (LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-project-a-new-type-linq-to-xml.md
-                            - name: '方法:オブジェクト グラフを射影する'
+                            - name: オブジェクト グラフを射影する方法
                               href: programming-guide/concepts/linq/how-to-project-an-object-graph.md
-                            - name: '方法:匿名型を射影する'
+                            - name: 匿名型を射影する方法
                               href: programming-guide/concepts/linq/how-to-project-an-anonymous-type.md
-                            - name: '方法:XML からテキスト ファイルを生成する'
+                            - name: XML からテキスト ファイルを生成する方法
                               href: programming-guide/concepts/linq/how-to-generate-text-files-from-xml.md
-                            - name: '方法:CSV ファイルから XML を生成する'
+                            - name: CSV ファイルから XML を生成する方法
                               href: programming-guide/concepts/linq/how-to-generate-xml-from-csv-files.md
                         - name: 高度なクエリ手法 (LINQ to XML)
                           items:
-                            - name: '方法:2 つのコレクションを結合する (LINQ to XML)'
+                            - name: 2 つのコレクションを結合する方法 (LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-join-two-collections-linq-to-xml.md
-                            - name: '方法:グループ化を使用して階層を作成する'
+                            - name: グループ化を使用して階層を作成する方法
                               href: programming-guide/concepts/linq/how-to-create-hierarchy-using-grouping.md
-                            - name: '方法:XPath を使用して LINQ to XML にクエリを実行する'
+                            - name: XPath を使用して LINQ to XML にクエリを実行する方法
                               href: programming-guide/concepts/linq/how-to-query-linq-to-xml-using-xpath.md
-                            - name: '方法:LINQ to XML 軸メソッドを記述する'
+                            - name: LINQ to XML 軸メソッドを記述する方法
                               href: programming-guide/concepts/linq/how-to-write-a-linq-to-xml-axis-method.md
-                            - name: '方法:テキストから XML へのストリーミング変換を実行する'
+                            - name: テキストから XML へのストリーミング変換を実行する方法
                               href: programming-guide/concepts/linq/how-to-perform-streaming-transformations-of-text-to-xml.md
-                            - name: '方法:ツリー内のすべてのノードを一覧表示する'
+                            - name: ツリー内のすべてのノードを一覧表示する方法
                               href: programming-guide/concepts/linq/how-to-list-all-nodes-in-a-tree.md
-                            - name: '方法:Office Open XML ドキュメントから段落を取得する'
+                            - name: Office Open XML ドキュメントから段落を取得する方法
                               href: programming-guide/concepts/linq/how-to-retrieve-paragraphs-from-an-office-open-xml-document.md
-                            - name: '方法:Office Open XML ドキュメントを変更する'
+                            - name: Office Open XML ドキュメントを変更する方法
                               href: programming-guide/concepts/linq/how-to-modify-an-office-open-xml-document.md
-                            - name: '方法:ファイル システムから XML ツリーを設定する'
+                            - name: ファイル システムから XML ツリーを設定する方法
                               href: programming-guide/concepts/linq/how-to-populate-an-xml-tree-from-the-file-system.md
                         - name: XPath ユーザー向けの LINQ to XML
                           items:
                             - name: XPath と LINQ to XML の比較
                               href: programming-guide/concepts/linq/comparison-of-xpath-and-linq-to-xml.md
-                            - name: '方法:子要素を検索する (XPath-LINQ to XML)'
+                            - name: 子要素を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-a-child-element-xpath-linq-to-xml.md
-                            - name: '方法:子要素の一覧を検索する (XPath-LINQ to XML)'
+                            - name: 子要素の一覧を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-a-list-of-child-elements-xpath-linq-to-xml.md
-                            - name: '方法:ルート要素を検索する (XPath-LINQ to XML)'
+                            - name: ルート要素を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-the-root-element-xpath-linq-to-xml.md
-                            - name: '方法:子孫要素を検索する (XPath-LINQ to XML)'
+                            - name: 子孫要素を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-descendant-elements-xpath-linq-to-xml.md
-                            - name: '方法:属性をフィルター処理する (XPath-LINQ to XML)'
+                            - name: 属性をフィルター処理する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-filter-on-an-attribute-xpath-linq-to-xml.md
-                            - name: '方法:関連要素を検索する (XPath-LINQ to XML)'
+                            - name: 関連要素を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-related-elements-xpath-linq-to-xml.md
-                            - name: '方法:名前空間内の要素を検索する (XPath-LINQ to XML)'
+                            - name: 名前空間内の要素を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-elements-in-a-namespace-xpath-linq-to-xml.md
-                            - name: '方法:先行する兄弟を検索する (XPath-LINQ to XML)'
+                            - name: 先行する兄弟を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-preceding-siblings-xpath-linq-to-xml.md
-                            - name: '方法:子要素の子孫を検索する (XPath-LINQ to XML)'
+                            - name: 子要素の子孫を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-descendants-of-a-child-element-xpath-linq-to-xml.md
-                            - name: '方法:2 つのロケーション パスの和集合を検索する (XPath-LINQ to XML)'
+                            - name: 2 つのロケーション パスの和集合を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-a-union-of-two-location-paths-xpath-linq-to-xml.md
-                            - name: '方法:兄弟ノードを検索する (XPath-LINQ to XML)'
+                            - name: 兄弟ノードを検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-sibling-nodes-xpath-linq-to-xml.md
-                            - name: '方法:親の属性を検索する (XPath-LINQ to XML)'
+                            - name: 親の属性を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-an-attribute-of-the-parent-xpath-linq-to-xml.md
-                            - name: '方法:特定の名前を持つ兄弟の属性を検索する (XPath-LINQ to XML)'
+                            - name: 特定の名前を持つ兄弟の属性を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-attributes-of-siblings-with-a-specific-name-xpath-linq-to-xml.md
-                            - name: '方法:特定の属性を持つ要素を検索する (XPath-LINQ to XML)'
+                            - name: 特定の属性を持つ要素を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-elements-with-a-specific-attribute-xpath-linq-to-xml.md
-                            - name: '方法:位置に基づいて子要素を検索する (XPath-LINQ to XML)'
+                            - name: 位置に基づいて子要素を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-child-elements-based-on-position-xpath-linq-to-xml.md
-                            - name: '方法:直前の兄弟を検索する (XPath-LINQ to XML)'
+                            - name: 直前の兄弟を検索する方法 (XPath-LINQ to XML)
                               href: programming-guide/concepts/linq/how-to-find-the-immediate-preceding-sibling-xpath-linq-to-xml.md
                         - name: XML の純粋関数型変換
                           items:
@@ -726,7 +734,7 @@
                               href: programming-guide/concepts/linq/applicability-of-functional-transformation.md
                             - name: XML の関数型変換
                               href: programming-guide/concepts/linq/functional-transformation-of-xml.md
-                            - name: 'チュートリアル:クエリの連結'
+                            - name: 'チュートリアル: クエリの連結'
                               items:
                                 - name: LINQ to XML における遅延実行とレイジー評価
                                   href: programming-guide/concepts/linq/deferred-execution-and-lazy-evaluation-in-linq-to-xml.md
@@ -738,7 +746,7 @@
                                   href: programming-guide/concepts/linq/intermediate-materialization.md
                                 - name: 標準クエリ演算子の連結
                                   href: programming-guide/concepts/linq/chaining-standard-query-operators-together.md
-                            - name: 'チュートリアル:クエリの連結'
+                            - name: 'チュートリアル: クエリの連結'
                               items:
                                 - name: LINQ to XML における遅延実行とレイジー評価
                                   href: programming-guide/concepts/linq/deferred-execution-and-lazy-evaluation-in-linq-to-xml.md
@@ -750,7 +758,7 @@
                                   href: programming-guide/concepts/linq/intermediate-materialization.md
                                 - name: 標準クエリ演算子の連結
                                   href: programming-guide/concepts/linq/chaining-standard-query-operators-together.md
-                            - name: 'チュートリアル:WordprocessingML ドキュメント内のコンテンツの操作'
+                            - name: 'チュートリアル: WordprocessingML ドキュメント内のコンテンツの操作'
                               items:
                                 - name: WordprocessingML ドキュメントの構造
                                   href: programming-guide/concepts/linq/shape-of-wordprocessingml-documents.md
@@ -790,7 +798,7 @@
                           href: programming-guide/concepts/linq/removing-elements-attributes-and-nodes-from-an-xml-tree.md
                         - name: 名前と値のペアの保持
                           href: programming-guide/concepts/linq/maintaining-name-value-pairs.md
-                        - name: '方法:XML ツリー全体の名前空間を変更する'
+                        - name: XML ツリー全体の名前空間を変更する方法
                           href: programming-guide/concepts/linq/how-to-change-the-namespace-for-an-entire-xml-tree.md
                     - name: パフォーマンス (LINQ to XML)
                       items:
@@ -812,21 +820,21 @@
                           href: programming-guide/concepts/linq/programming-with-nodes.md
                         - name: 宣言型コードと命令型コードの混在のバグ (LINQ to XML)
                           href: programming-guide/concepts/linq/mixed-declarative-code-imperative-code-bugs-linq-to-xml.md
-                        - name: '方法:ヘッダー情報にアクセスして XML フラグメントをストリーム出力する'
+                        - name: ヘッダー情報にアクセスして XML フラグメントをストリーム出力する方法
                           href: programming-guide/concepts/linq/how-to-stream-xml-fragments-with-access-to-header-information.md
-                        - name: '方法:大きな XML ドキュメントのストリーミング変換を実行する'
+                        - name: 大きな XML ドキュメントのストリーミング変換を実行する方法
                           href: programming-guide/concepts/linq/how-to-perform-streaming-transform-of-large-xml-documents.md
-                        - name: '方法:エンコードされたドキュメントを読み書きする'
+                        - name: エンコードされたドキュメントを読み書きする方法
                           href: programming-guide/concepts/linq/how-to-read-and-write-an-encoded-document.md
                         - name: XSLT を使用した XML ツリーの変換
                           href: programming-guide/concepts/linq/using-xslt-to-transform-an-xml-tree.md
-                        - name: '方法:注釈を使用して XSLT スタイルの LINQ to XML ツリーを変換する'
+                        - name: 注釈を使用して XSLT スタイルの LINQ to XML ツリーを変換する方法
                           href: programming-guide/concepts/linq/how-to-use-annotations-to-transform-linq-to-xml-trees-in-an-xslt-style.md
                         - name: XElement オブジェクトを含むオブジェクト グラフのシリアル化
                           items:
-                            - name: '方法:XmlSerializer を使用してシリアル化する'
+                            - name: XmlSerializer を使用してシリアル化する方法
                               href: programming-guide/concepts/linq/how-to-serialize-using-xmlserializer.md
-                            - name: '方法:DataContractSerializer を使用してシリアル化する'
+                            - name: DataContractSerializer を使用してシリアル化する方法
                               href: programming-guide/concepts/linq/how-to-serialize-using-datacontractserializer.md
                     - name: LINQ to XML のセキュリティ
                       href: programming-guide/concepts/linq/linq-to-xml-security.md
@@ -873,16 +881,18 @@
         - name: 'シリアル化 (C#)'
           items:
             - name: 概要
+              displayName: serialization
               href: programming-guide/concepts/serialization/index.md
-            - name: '方法:XML ファイルにオブジェクト データを書き込む'
+            - name: XML ファイルにオブジェクト データを書き込む方法
               href: programming-guide/concepts/serialization/how-to-write-object-data-to-an-xml-file.md
-            - name: '方法:XML ファイルからオブジェクト データを読み込む'
+            - name: XML ファイルからオブジェクト データを読み取る方法
               href: programming-guide/concepts/serialization/how-to-read-object-data-from-an-xml-file.md
-            - name: 'チュートリアル:オブジェクトの永続化 (Visual Basic)'
+            - name: 'チュートリアル: オブジェクトの永続化 (Visual Basic)'
               href: programming-guide/concepts/serialization/walkthrough-persisting-an-object-in-visual-studio.md
     - name: ステートメント、式、および演算子
       items:
         - name: 概要
+          displayName: 'statements, expressions, operators'
           href: programming-guide/statements-expressions-operators/index.md
         - name: ステートメント
           href: programming-guide/statements-expressions-operators/statements.md
@@ -896,15 +906,15 @@
               href: programming-guide/statements-expressions-operators/anonymous-functions.md
             - name: ラムダ式
               href: programming-guide/statements-expressions-operators/lambda-expressions.md
-            - name: '方法: クエリでラムダ式を使用する'
+            - name: クエリでラムダ式を使用する方法
               href: programming-guide/statements-expressions-operators/how-to-use-lambda-expressions-in-a-query.md
         - name: 等値と等価比較
           items:
             - name: 等価比較
               href: programming-guide/statements-expressions-operators/equality-comparisons.md
-            - name: '方法: 型の値の等価性を定義する'
+            - name: 型の値の等価性を定義する方法
               href: programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type.md
-            - name: '方法: 参照の等価性 (同値) をテストする'
+            - name: 参照の等価性 (同値) をテストする方法
               href: programming-guide/statements-expressions-operators/how-to-test-for-reference-equality-identity.md
     - name: 型
       items:
@@ -914,43 +924,39 @@
           href: programming-guide/types/casting-and-type-conversions.md
         - name: ボックス化とボックス化解除
           href: programming-guide/types/boxing-and-unboxing.md
-        - name: '方法:バイト配列を int に変換する'
+        - name: バイト配列を int に変換する方法
           href: programming-guide/types/how-to-convert-a-byte-array-to-an-int.md
-        - name: '方法:文字列を数値に変換する'
+        - name: 文字列を数値に変換する方法
           href: programming-guide/types/how-to-convert-a-string-to-a-number.md
-        - name: '方法:16 進文字列と数値型の間で変換する'
+        - name: 16 進文字列と数値型の間で変換する方法
           href: programming-guide/types/how-to-convert-between-hexadecimal-strings-and-numeric-types.md
         - name: dynamic 型の使用
           href: programming-guide/types/using-type-dynamic.md
-        - name: 'チュートリアル:動的オブジェクトの作成と使用 (C# および Visual Basic)'
+        - name: 'チュートリアル: 動的オブジェクトの作成と使用 (C# および Visual Basic)'
           href: programming-guide/types/walkthrough-creating-and-using-dynamic-objects.md
     - name: クラスと構造体
       items:
         - name: 概要
+          displayName: classes
           href: programming-guide/classes-and-structs/index.md
         - name: クラス
           href: programming-guide/classes-and-structs/classes.md
-        - name: Objects
+        - name: オブジェクト
           href: programming-guide/classes-and-structs/objects.md
-        - name: 構造体
-          items:
-            - name: 概要
-              href: programming-guide/classes-and-structs/structs.md
-            - name: 構造体の使用
-              href: programming-guide/classes-and-structs/using-structs.md
         - name: 継承
           href: programming-guide/classes-and-structs/inheritance.md
         - name: ポリモーフィズム
           items:
             - name: 概要
+              displayName: polymorphism
               href: programming-guide/classes-and-structs/polymorphism.md
             - name: Override キーワードと New キーワードによるバージョン管理
               href: programming-guide/classes-and-structs/versioning-with-the-override-and-new-keywords.md
             - name: Override キーワードと New キーワードを使用する場合について
               href: programming-guide/classes-and-structs/knowing-when-to-use-override-and-new-keywords.md
-            - name: '方法:ToString メソッドをオーバーライドする'
+            - name: ToString メソッドをオーバーライドする方法
               href: programming-guide/classes-and-structs/how-to-override-the-tostring-method.md
-        - name: Members
+        - name: メンバー
           items:
             - name: メンバーの概要
               href: programming-guide/classes-and-structs/members.md
@@ -964,11 +970,11 @@
               href: programming-guide/classes-and-structs/fields.md
             - name: 定数
               href: programming-guide/classes-and-structs/constants.md
-            - name: '方法:抽象プロパティを定義する'
+            - name: 抽象プロパティを定義する方法
               href: programming-guide/classes-and-structs/how-to-define-abstract-properties.md
-            - name: '方法:C# で定数を定義する'
+            - name: 'C# で定数を定義する方法'
               href: programming-guide/classes-and-structs/how-to-define-constants.md
-        - name: properties
+        - name: プロパティ
           items:
             - name: プロパティの概要
               href: programming-guide/classes-and-structs/properties.md
@@ -978,11 +984,11 @@
               href: programming-guide/classes-and-structs/interface-properties.md
             - name: アクセサーのアクセシビリティの制限
               href: programming-guide/classes-and-structs/restricting-accessor-accessibility.md
-            - name: '方法:読み取り/書き込みのプロパティの宣言と使用'
+            - name: 読み取り/書き込みのプロパティを宣言および使用する方法
               href: programming-guide/classes-and-structs/how-to-declare-and-use-read-write-properties.md
             - name: 自動実装プロパティ
               href: programming-guide/classes-and-structs/auto-implemented-properties.md
-            - name: '方法:自動実装するプロパティを使用して簡易クラスを実装する'
+            - name: 自動実装するプロパティを使用して簡易クラスを実装する方法
               href: programming-guide/classes-and-structs/how-to-implement-a-lightweight-class-with-auto-implemented-properties.md
         - name: メソッド
           items:
@@ -992,29 +998,29 @@
               href: programming-guide/classes-and-structs/local-functions.md
             - name: ref 戻り値と ref ローカル変数
               href: programming-guide/classes-and-structs/ref-returns.md
-            - name: parameters
+            - name: パラメーター
               items:
                 - name: パラメーターを渡す
                   href: programming-guide/classes-and-structs/passing-parameters.md
                 - name: 値型のパラメーターの引き渡し
                   href: programming-guide/classes-and-structs/passing-value-type-parameters.md
-                - name: 参照型パラメーターの引き渡し
+                - name: 参照型のパラメーターの引き渡し
                   href: programming-guide/classes-and-structs/passing-reference-type-parameters.md
-                - name: '方法:メソッドに構造体を渡すこととクラス参照を渡すことの違いを理解する'
+                - name: メソッドに構造体を渡すこととクラス参照を渡すことの違いを理解する方法
                   href: programming-guide/classes-and-structs/how-to-know-the-difference-passing-a-struct-and-passing-a-class-to-a-method.md
             - name: 暗黙的に型指定されるローカル変数
               href: programming-guide/classes-and-structs/implicitly-typed-local-variables.md
-            - name: '方法:クエリ式で暗黙的に型指定されるローカル変数および配列を使用する'
+            - name: クエリ式で暗黙的に型指定されるローカル変数および配列を使用する方法
               href: programming-guide/classes-and-structs/how-to-use-implicitly-typed-local-variables-and-arrays-in-a-query-expression.md
             - name: 拡張メソッド
               href: programming-guide/classes-and-structs/extension-methods.md
-            - name: '方法:カスタム拡張メソッドを実装して呼び出す'
+            - name: カスタム拡張メソッドを実装して呼び出す方法
               href: programming-guide/classes-and-structs/how-to-implement-and-call-a-custom-extension-method.md
-            - name: '方法:列挙型対応の新しいメソッドを作成する'
+            - name: 列挙型対応の新しいメソッドを作成する方法
               href: programming-guide/classes-and-structs/how-to-create-a-new-method-for-an-enumeration.md
             - name: 名前付き引数と省略可能な引数
               href: programming-guide/classes-and-structs/named-and-optional-arguments.md
-            - name: '方法:Office プログラミングで名前付き引数と省略可能な引数を使用する'
+            - name: Office プログラミングで名前付き引数と省略可能な引数を使用する方法
               href: programming-guide/classes-and-structs/how-to-use-named-and-optional-arguments-in-office-programming.md
         - name: コンストラクター
           items:
@@ -1028,15 +1034,15 @@
               href: programming-guide/classes-and-structs/private-constructors.md
             - name: 静的コンストラクター
               href: programming-guide/classes-and-structs/static-constructors.md
-            - name: '方法:コピー コンストラクターを記述する'
+            - name: コピー コンストラクターを記述する方法
               href: programming-guide/classes-and-structs/how-to-write-a-copy-constructor.md
         - name: ファイナライザー
           href: programming-guide/classes-and-structs/destructors.md
         - name: オブジェクト初期化子とコレクション初期化子
           href: programming-guide/classes-and-structs/object-and-collection-initializers.md
-        - name: '方法:オブジェクト初期化子を使用してオブジェクトを初期化する'
+        - name: オブジェクト初期化子を使用してオブジェクトを初期化する方法
           href: programming-guide/classes-and-structs/how-to-initialize-objects-by-using-an-object-initializer.md
-        - name: '方法:コレクション初期化子を使用してディクショナリを初期化する'
+        - name: コレクション初期化子を使用してディクショナリを初期化する方法
           href: programming-guide/classes-and-structs/how-to-initialize-a-dictionary-with-a-collection-initializer.md
         - name: 入れ子にされた型
           href: programming-guide/classes-and-structs/nested-types.md
@@ -1044,35 +1050,36 @@
           href: programming-guide/classes-and-structs/partial-classes-and-methods.md
         - name: 匿名型
           href: programming-guide/classes-and-structs/anonymous-types.md
-        - name: '方法:クエリで要素のプロパティのサブセットを返す'
+        - name: クエリで要素のプロパティのサブセットを返す方法
           href: programming-guide/classes-and-structs/how-to-return-subsets-of-element-properties-in-a-query.md
     - name: インターフェイス
       items:
         - name: 概要
+          displayName: interfaces
           href: programming-guide/interfaces/index.md
         - name: 明示的なインターフェイスの実装
           href: programming-guide/interfaces/explicit-interface-implementation.md
-        - name: '方法:インターフェイス メンバーを明示的に実装する'
+        - name: インターフェイス メンバーを明示的に実装する方法
           href: programming-guide/interfaces/how-to-explicitly-implement-interface-members.md
-        - name: '方法:2 つのインターフェイスのメンバーを明示的に実装する'
+        - name: 2 つのインターフェイスのメンバーを明示的に実装する方法
           href: programming-guide/interfaces/how-to-explicitly-implement-members-of-two-interfaces.md
-    - name: 列挙型
-      href: programming-guide/enumeration-types.md
     - name: デリゲート
       items:
         - name: 概要
+          displayName: delegates
           href: programming-guide/delegates/index.md
         - name: デリゲートの使用
           href: programming-guide/delegates/using-delegates.md
         - name: 名前付きメソッドを使用したデリゲートと匿名メソッド
           href: programming-guide/delegates/delegates-with-named-vs-anonymous-methods.md
-        - name: '方法:デリゲートを結合する (マルチキャスト デリゲート) (C# プログラミング ガイド)'
+        - name: 'デリゲートを結合する方法 (マルチキャスト デリゲート) (C# プログラミング ガイド)'
           href: programming-guide/delegates/how-to-combine-delegates-multicast-delegates.md
-        - name: '方法:デリゲートを宣言し、インスタンス化して使用する'
+        - name: デリゲートを宣言し、インスタンス化して使用する方法
           href: programming-guide/delegates/how-to-declare-instantiate-and-use-a-delegate.md
     - name: 配列
       items:
         - name: 概要
+          displayName: arrays
           href: programming-guide/arrays/index.md
         - name: オブジェクトとしての配列
           href: programming-guide/arrays/arrays-as-objects.md
@@ -1092,11 +1099,12 @@
       items:
         - name: 文字列でのプログラミング
           href: programming-guide/strings/index.md
-        - name: '方法:文字列が数値を表しているかどうかを確認する'
+        - name: 文字列が数値を表しているかどうかを確認する方法
           href: programming-guide/strings/how-to-determine-whether-a-string-represents-a-numeric-value.md
     - name: インデクサー
       items:
         - name: 概要
+          displayName: indexers
           href: programming-guide/indexers/index.md
         - name: インデクサーの使用
           href: programming-guide/indexers/using-indexers.md
@@ -1104,23 +1112,25 @@
           href: programming-guide/indexers/indexers-in-interfaces.md
         - name: プロパティとインデクサーの比較
           href: programming-guide/indexers/comparison-between-properties-and-indexers.md
-    - name: events
+    - name: イベント
       items:
         - name: 概要
+          displayName: events
           href: programming-guide/events/index.md
-        - name: '方法:イベント サブスクリプションとサブスクリプションの解除'
+        - name: イベントのサブスクリプションとサブスクリプション解除を行う方法
           href: programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events.md
-        - name: '方法:.NET Framework ガイドラインに準拠したイベントを発行する'
+        - name: .NET Framework ガイドラインに準拠したイベントを発行する方法
           href: programming-guide/events/how-to-publish-events-that-conform-to-net-framework-guidelines.md
-        - name: '方法:派生クラスから基本クラス イベントを発生させる'
+        - name: 派生クラスから基本クラス イベントを発生させる方法
           href: programming-guide/events/how-to-raise-base-class-events-in-derived-classes.md
-        - name: '方法:インターフェイス イベントを実装する'
+        - name: インターフェイス イベントを実装する方法
           href: programming-guide/events/how-to-implement-interface-events.md
-        - name: '方法:カスタム イベント アクセサーを実装する'
+        - name: カスタム イベント アクセサーを実装する方法
           href: programming-guide/events/how-to-implement-custom-event-accessors.md
     - name: ジェネリック
       items:
         - name: 概要
+          displayName: generics
           href: programming-guide/generics/index.md
         - name: ジェネリック型の型パラメーター
           href: programming-guide/generics/generic-type-parameters.md
@@ -1147,44 +1157,40 @@
     - name: 名前空間
       items:
         - name: 概要
+          displayName: namespaces
           href: programming-guide/namespaces/index.md
         - name: 名前空間の使用
           href: programming-guide/namespaces/using-namespaces.md
-        - name: '方法: My 名前空間を使用する'
+        - name: My 名前空間を使用する方法
           href: programming-guide/namespaces/how-to-use-the-my-namespace.md
-    - name: null 許容値型
-      items:
-        - name: 概要
-          href: programming-guide/nullable-types/index.md
-        - name: Null 許容値型の使用
-          href: programming-guide/nullable-types/using-nullable-types.md
-        - name: '方法: Null 許容値型を識別する'
-          href: programming-guide/nullable-types/how-to-identify-a-nullable-type.md
     - name: unsafe コードとポインター
       items:
         - name: 概要と制限事項
+          displayName: unsafe code pointers
           href: programming-guide/unsafe-code-pointers/index.md
         - name: 固定サイズ バッファー
           href: programming-guide/unsafe-code-pointers/fixed-size-buffers.md
         - name: ポインター型
           items:
             - name: 概要
+              displayName: pointer types
               href: programming-guide/unsafe-code-pointers/pointer-types.md
             - name: ポインター変換
               href: programming-guide/unsafe-code-pointers/pointer-conversions.md
-            - name: '方法: ポインターを使用してバイトの配列をコピーする'
+            - name: ポインターを使用してバイトの配列をコピーする方法
               href: programming-guide/unsafe-code-pointers/how-to-use-pointers-to-copy-an-array-of-bytes.md
-    - name: XML ドキュメントのコメント
+    - name: XML ドキュメント コメント
       items:
         - name: 概要
+          displayName: xml documentation comments
           href: programming-guide/xmldoc/index.md
-        - name: ドキュメント コメントとして推奨されるタグ
+        - name: ドキュメント コメント用の推奨タグ
           href: programming-guide/xmldoc/recommended-tags-for-documentation-comments.md
         - name: XML ファイルの処理
           href: programming-guide/xmldoc/processing-the-xml-file.md
         - name: ドキュメント タグの区切り記号
           href: programming-guide/xmldoc/delimiters-for-documentation-tags.md
-        - name: '方法:XML ドキュメント機能を使用する'
+        - name: XML ドキュメント機能を使用する方法
           href: programming-guide/xmldoc/how-to-use-the-xml-documentation-features.md
         - name: ドキュメント タグのリファレンス
           items:
@@ -1229,6 +1235,7 @@
     - name: 例外と例外処理
       items:
         - name: 概要
+          displayName: exceptions
           href: programming-guide/exceptions/index.md
         - name: 例外の使用
           href: programming-guide/exceptions/using-exceptions.md
@@ -1238,33 +1245,34 @@
           href: programming-guide/exceptions/creating-and-throwing-exceptions.md
         - name: コンパイラにより生成された例外
           href: programming-guide/exceptions/compiler-generated-exceptions.md
-        - name: '方法:try/catch を使用して例外を処理する'
+        - name: try-catch を使用して例外を処理する方法
           href: programming-guide/exceptions/how-to-handle-an-exception-using-try-catch.md
-        - name: '方法:finally を使用してクリーンアップ コードを実行する'
+        - name: finally を使用してクリーンアップ コードを実行する方法
           href: programming-guide/exceptions/how-to-execute-cleanup-code-using-finally.md
-        - name: '方法:CLS 準拠でない例外をキャッチする'
+        - name: CLS 準拠でない例外をキャッチする方法
           href: programming-guide/exceptions/how-to-catch-a-non-cls-exception.md
     - name: ファイル システムとレジストリ
       items:
         - name: 概要
+          displayName: file system registry
           href: programming-guide/file-system/index.md
-        - name: '方法:ディレクトリ ツリーを反復処理する'
+        - name: ディレクトリ ツリーを反復処理する方法
           href: programming-guide/file-system/how-to-iterate-through-a-directory-tree.md
-        - name: '方法:ファイル、フォルダー、およびドライブに関する情報を取得する'
+        - name: ファイル、フォルダー、およびドライブに関する情報を取得する方法
           href: programming-guide/file-system/how-to-get-information-about-files-folders-and-drives.md
-        - name: '方法:ファイルまたはフォルダーを作成する'
+        - name: ファイルまたはフォルダーを作成する方法
           href: programming-guide/file-system/how-to-create-a-file-or-folder.md
-        - name: '方法:ファイルおよびフォルダーのコピー、削除、および移動を行う'
+        - name: ファイルおよびフォルダーのコピー、削除、および移動を行う方法
           href: programming-guide/file-system/how-to-copy-delete-and-move-files-and-folders.md
-        - name: '方法:ファイル操作の [進行状況] ダイアログ ボックスを表示する'
+        - name: 'ファイル操作の [進行状況] ダイアログ ボックスを表示する方法'
           href: programming-guide/file-system/how-to-provide-a-progress-dialog-box-for-file-operations.md
-        - name: '方法:テキスト ファイルに書き込む'
+        - name: テキスト ファイルに書き込む方法
           href: programming-guide/file-system/how-to-write-to-a-text-file.md
-        - name: '方法:テキスト ファイルから読み込む'
+        - name: テキスト ファイルから読み取る方法
           href: programming-guide/file-system/how-to-read-from-a-text-file.md
-        - name: '方法:テキスト ファイルを一度に 1 行読み込む (Visual C#)'
+        - name: テキスト ファイルを一度に 1 行読み取る方法
           href: programming-guide/file-system/how-to-read-a-text-file-one-line-at-a-time.md
-        - name: '方法:レジストリにキーを作成する (Visual C#)'
+        - name: レジストリにキーを作成する方法
           href: programming-guide/file-system/how-to-create-a-key-in-the-registry.md
     - name: 相互運用性
       items:
@@ -1272,48 +1280,58 @@
           href: programming-guide/interop/index.md
         - name: 相互運用性の概要
           href: programming-guide/interop/interoperability-overview.md
-        - name: '方法:Visual C# の機能を使用して Office 相互運用オブジェクトにアクセスする'
+        - name: 'C# の機能を使用して Office 相互運用オブジェクトにアクセスする方法'
           href: programming-guide/interop/how-to-access-office-onterop-objects.md
-        - name: '方法:COM 相互運用機能を使用したプログラミングでインデックス付きプロパティを使用する'
+        - name: COM 相互運用機能を使用したプログラミングでインデックス付きプロパティを使用する方法
           href: programming-guide/interop/how-to-use-indexed-properties-in-com-interop-rogramming.md
-        - name: '方法:プラットフォーム呼び出しを使用して Wave ファイルを再生する'
+        - name: プラットフォーム呼び出しを使用して WAV ファイルを再生する方法
           href: programming-guide/interop/how-to-use-platform-invoke-to-play-a-wave-file.md
-        - name: 'チュートリアル:Office のプログラミング (C# および Visual Basic)'
+        - name: 'チュートリアル: Office のプログラミング (C# および Visual Basic)'
           href: programming-guide/interop/walkthrough-office-programming.md
         - name: COM クラスの例
           href: programming-guide/interop/example-com-class.md
 - name: 言語リファレンス
   items:
     - name: 概要
+      displayName: language reference
       href: language-reference/index.md
     - name: 言語バージョンの構成
       href: language-reference/configure-language-version.md
     - name: 'C# のキーワード'
       items:
         - name: 概要
+          displayName: keywords
           href: language-reference/keywords/index.md
-        - name: 組み込み型
+        - name: 型
           items:
             - name: 値型
               items:
-                - name: 値型の機能
-                  href: language-reference/keywords/value-types.md
+                - name: 概要
+                  href: language-reference/builtin-types/value-types.md
+                  displayName: 'value types, simple types'
                 - name: 整数数値型
-                  displayName: 'sbyte, byte, short, ushort, int, uint, long, ulong, integer, literal'
                   href: language-reference/builtin-types/integral-numeric-types.md
+                  displayName: 'sbyte, byte, short, ushort, int, uint, long, ulong, integer, literal'
                 - name: 浮動小数点数値型
-                  displayName: 'float, decimal, double, rational, real, literal'
                   href: language-reference/builtin-types/floating-point-numeric-types.md
+                  displayName: 'float, decimal, double, rational, real, literal'
                 - name: 組み込みの数値変換
                   href: language-reference/builtin-types/numeric-conversions.md
                 - name: bool
-                  href: language-reference/keywords/bool.md
+                  href: language-reference/builtin-types/bool.md
+                  displayName: 'Boolean, true, false'
                 - name: char
-                  href: language-reference/keywords/char.md
-                - name: enum
-                  href: language-reference/keywords/enum.md
-                - name: struct
-                  href: language-reference/keywords/struct.md
+                  href: language-reference/builtin-types/char.md
+                  displayName: 'Unicode, character, UTF-16'
+                - name: 列挙型
+                  href: language-reference/builtin-types/enum.md
+                  displayName: 'enum, bit flags, bit field'
+                - name: 構造体型
+                  href: language-reference/builtin-types/struct.md
+                  displayName: struct type
+                - name: null 許容値型
+                  href: language-reference/builtin-types/nullable-value-types.md
+                  displayName: '? token, ? symbol'
             - name: 参照型
               items:
                 - name: 参照型の機能
@@ -1326,21 +1344,15 @@
                 - name: interface
                   href: language-reference/keywords/interface.md
             - name: void
-              href: language-reference/keywords/void.md
+              href: language-reference/builtin-types/void.md
             - name: var
               href: language-reference/keywords/var.md
+            - name: 組み込み型
+              href: language-reference/builtin-types/built-in-types.md
             - name: アンマネージ型
               href: language-reference/builtin-types/unmanaged-types.md
-            - name: 型のリファレンス表
-              items:
-                - name: 組み込み型の一覧表
-                  href: language-reference/keywords/built-in-types-table.md
-                - name: 値型の一覧表
-                  href: language-reference/keywords/value-types-table.md
-                - name: 既定値の一覧表
-                  href: language-reference/keywords/default-values-table.md
-                - name: 数値結果テーブルの書式設定
-                  href: language-reference/keywords/formatting-numeric-results-table.md
+            - name: 既定の値
+              href: language-reference/builtin-types/default-values.md
         - name: 修飾子
           items:
             - name: アクセス修飾子
@@ -1353,9 +1365,9 @@
                   href: language-reference/keywords/accessibility-domain.md
                 - name: アクセシビリティ レベルの使用に関する制限事項
                   href: language-reference/keywords/restrictions-on-using-accessibility-levels.md
-                - name: 内部
+                - name: internal
                   href: language-reference/keywords/internal.md
-                - name: プライベート
+                - name: private
                   href: language-reference/keywords/private.md
                 - name: protected
                   href: language-reference/keywords/protected.md
@@ -1404,7 +1416,7 @@
               items:
                 - name: if-else
                   href: language-reference/keywords/if-else.md
-                - name: スイッチ
+                - name: switch
                   href: language-reference/keywords/switch.md
             - name: 繰り返しステートメント
               items:
@@ -1424,7 +1436,7 @@
                   href: language-reference/keywords/continue.md
                 - name: goto
                   href: language-reference/keywords/goto.md
-                - name: 戻り値
+                - name: return
                   href: language-reference/keywords/return.md
             - name: 例外処理ステートメント
               items:
@@ -1439,6 +1451,7 @@
             - name: Checked と Unchecked
               items:
                 - name: 概要
+                  displayName: checked unchecked
                   href: language-reference/keywords/checked-and-unchecked.md
                 - name: checked
                   href: language-reference/keywords/checked.md
@@ -1478,33 +1491,32 @@
               href: language-reference/keywords/extern-alias.md
         - name: 型テストのキーワード
           items:
-            - name: 一致
+            - name: is
               href: language-reference/keywords/is.md
         - name: ジェネリック型制約のキーワード
           items:
             - name: new 制約
               href: language-reference/keywords/new-constraint.md
-            - name: '各値の説明:'
+            - name: where
               href: language-reference/keywords/where-generic-type-constraint.md
         - name: アクセス キーワード
           items:
             - name: base
               href: language-reference/keywords/base.md
-            - name: (
+            - name: this
               href: language-reference/keywords/this.md
         - name: リテラル キーワード
           items:
             - name: 'null'
               href: language-reference/keywords/null.md
-            - name: 'true'
-              href: language-reference/keywords/true-literal.md
-            - name: 'false'
-              href: language-reference/keywords/false-literal.md
+            - name: true および false
+              href: language-reference/builtin-types/bool.md
             - name: default
               href: language-reference/keywords/default.md
         - name: コンテキスト キーワード
           items:
             - name: クイック リファレンス
+              displayName: contextual keywords
               href: language-reference/keywords/contextual-keywords.md
             - name: add
               href: language-reference/keywords/add.md
@@ -1527,6 +1539,7 @@
         - name: クエリ キーワード
           items:
             - name: クイック リファレンス
+              displayName: query keywords
               href: language-reference/keywords/query-keywords.md
             - name: from 句
               href: language-reference/keywords/from-clause.md
@@ -1615,7 +1628,7 @@
         - name: await 演算子
           href: language-reference/operators/await.md
           displayName: async
-        - name: 既定の演算子
+        - name: default 演算子
           href: language-reference/operators/default.md
           displayName: 'default value, default literal, type default'
         - name: delegate 演算子
@@ -1637,6 +1650,7 @@
     - name: 'C# 特殊文字'
       items:
         - name: 概要
+          displayName: special characters
           href: language-reference/tokens/index.md
         - name: $ -- 文字列補間
           href: language-reference/tokens/interpolated.md
@@ -1645,6 +1659,7 @@
     - name: 'C# プリプロセッサ ディレクティブ'
       items:
         - name: 概要
+          displayName: preprocessor directives
           href: language-reference/preprocessor-directives/index.md
         - name: '#if'
           href: language-reference/preprocessor-directives/preprocessor-if.md
@@ -1677,10 +1692,11 @@
     - name: 'C# コンパイラ オプション'
       items:
         - name: 概要
+          displayName: compiler options
           href: language-reference/compiler-options/index.md
         - name: csc.exe を使用したコマンド ラインからのビルド
           href: language-reference/compiler-options/command-line-building-with-csc-exe.md
-        - name: '方法:Visual Studio のコマンドラインのための環境変数を設定する'
+        - name: Visual Studio のコマンドラインのための環境変数を設定する方法
           href: language-reference/compiler-options/how-to-set-environment-variables-for-the-visual-studio-command-line.md
         - name: 'カテゴリ別の C# コンパイラ オプションの一覧'
           href: language-reference/compiler-options/listed-by-category.md

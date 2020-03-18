@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 4657443f-dd12-431b-a648-175c23f13c83
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 95a00e8646589e7897636c1698b7c2647cd233fd
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d1b058aef66ed32c2cadcc3cfd72320dd8eb7729
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67771808"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73133593"
 ---
 # <a name="icordebugthreadcreatestepper-method"></a>ICorDebugThread::CreateStepper メソッド
-この ICorDebugThread のアクティブなフレームをステップ実行できるようにする ICorDebugStepper オブジェクトを作成します。  
+この ICorDebugStepper スレッドのアクティブなフレームをステップ実行できるようにする、オブジェクトを作成します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,15 +35,15 @@ HRESULT CreateStepper (
   
 ## <a name="parameters"></a>パラメーター  
  `ppStepper`  
- [out]アドレスへのポインター、`ICorDebugStepper`このスレッドのアクティブなフレームをステップ実行できるようにするオブジェクト。  
+ 入出力このスレッドのアクティブフレームのステップ実行を許可する `ICorDebugStepper` オブジェクトのアドレスへのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- アクティブなフレームには、アンマネージ コード可能性があります。  
+ アクティブなフレームはアンマネージコードである場合があります。  
   
- `ICorDebugStepper`インターフェイスは、実際のステップを実行するために使用する必要があります。  
+ 実際のステップ実行には、`ICorDebugStepper` インターフェイスを使用する必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

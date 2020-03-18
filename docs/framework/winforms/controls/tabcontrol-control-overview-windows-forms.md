@@ -1,5 +1,5 @@
 ---
-title: TabControl コントロールの概要 (Windows フォーム)
+title: TabControl コントロールの概要
 ms.date: 03/30/2017
 f1_keywords:
 - TabControl
@@ -9,25 +9,25 @@ helpviewer_keywords:
 - property pages [Windows Forms], Windows Forms
 - Windows Forms dialog boxes [Windows Forms], tabs
 ms.assetid: 2b4ea784-a39d-463c-81d8-af74ce068476
-ms.openlocfilehash: 4511882aa4c7804e535f228dd150c26a8f7689f0
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 2668169488b4087673fbf2552650c23cda780642
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61971939"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76742832"
 ---
 # <a name="tabcontrol-control-overview-windows-forms"></a>TabControl コントロールの概要 (Windows フォーム)
-Windows フォーム <xref:System.Windows.Forms.TabControl> は、ノートの仕切りや書類キャビネットのフォルダー セットのラベルに似た、複数のタブを表示します。 タブには画像やその他のコントロールを含めることができます。 タブ コントロールは、Windows オペレーティング システムのコントロール パネルの表示プロパティなど、多くの場所に表示される複数のページ ダイアログ ボックスの種類を生成するために使用できます。 さらに、<xref:System.Windows.Forms.TabControl>関連のプロパティのグループの設定に使用されるプロパティ ページを作成するために使用できます。  
+Windows フォーム <xref:System.Windows.Forms.TabControl> は、ノートの仕切りや書類キャビネットのフォルダー セットのラベルに似た、複数のタブを表示します。 タブには画像やその他のコントロールを含めることができます。 タブコントロールを使用すると、コントロールパネルの表示プロパティなど、Windows オペレーティングシステムのさまざまな場所に表示される複数ページのダイアログボックスの種類を生成できます。 また、<xref:System.Windows.Forms.TabControl> を使用して、関連するプロパティのグループを設定するために使用されるプロパティページを作成することもできます。  
   
 ## <a name="working-with-tabcontrol"></a>TabControl の操作  
- 最も重要なプロパティ、<xref:System.Windows.Forms.TabControl>は<xref:System.Windows.Forms.TabControl.TabPages%2A>、個々 のタブが含まれています。 各タブは、<xref:System.Windows.Forms.TabPage>オブジェクト。 タブをクリックすると生成、<xref:System.Windows.Forms.Control.Click>をイベント<xref:System.Windows.Forms.TabPage>オブジェクト。  
+ <xref:System.Windows.Forms.TabControl> の最も重要なプロパティは <xref:System.Windows.Forms.TabControl.TabPages%2A>であり、個々のタブが含まれています。 個々のタブは <xref:System.Windows.Forms.TabPage> オブジェクトです。 タブをクリックすると、その <xref:System.Windows.Forms.TabPage> オブジェクトの <xref:System.Windows.Forms.Control.Click> イベントが発生します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.TabControl>
 - [TabControl コントロール](tabcontrol-control-windows-forms.md)
-- [方法: Windows フォーム TabControl の外観を変更します。](how-to-change-the-appearance-of-the-windows-forms-tabcontrol.md)
-- [方法: タブ ページにコントロールを追加します。](how-to-add-a-control-to-a-tab-page.md)
-- [方法: Windows フォーム tabcontrol のタブ追加および削除](how-to-add-and-remove-tabs-with-the-windows-forms-tabcontrol.md)
-- [方法: タブ ページを無効にします。](how-to-disable-tab-pages.md)
+- [方法: Windows フォーム TabControl の表示形式を変更する](how-to-change-the-appearance-of-the-windows-forms-tabcontrol.md)
+- [方法: タブ ページにコントロールを追加する](how-to-add-a-control-to-a-tab-page.md)
+- [方法: Windows フォーム TabControl のタブを追加および削除する](how-to-add-and-remove-tabs-with-the-windows-forms-tabcontrol.md)
+- [方法: タブ ページを無効化する](how-to-disable-tab-pages.md)
 - [Windows フォームのダイアログ ボックス](../dialog-boxes-in-windows-forms.md)

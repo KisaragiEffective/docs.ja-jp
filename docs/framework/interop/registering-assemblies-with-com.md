@@ -7,19 +7,17 @@ helpviewer_keywords:
 - interoperation with unmanaged code, registering assemblies
 - registering assemblies
 ms.assetid: 87925795-a3ae-4833-b138-125413478551
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 6482d5fa046409d15913ea26300d298238750326
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
-ms.translationtype: HT
+ms.openlocfilehash: 9ff24a5705058d4e303b3b64b454ced8548053a4
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64648554"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73113804"
 ---
 # <a name="registering-assemblies-with-com"></a>COM へのアセンブリの登録
 [アセンブリ登録ツール (Regasm.exe)](../tools/regasm-exe-assembly-registration-tool.md) というコマンドライン ツールを実行して、COM で使うアセンブリを登録または登録解除できます。 Regasm.exe は、COM クライアントが .NET Framework のクラスを透過的に使うことができるように、クラスについての情報をシステム レジストリに追加します。 <xref:System.Runtime.InteropServices.RegistrationServices> クラスには、同等の機能が用意されています。  
   
- マネージド コンポーネントを COM クライアントからアクティブ化するには、先にマネージド コンポーネントを Windows レジストリに登録しておく必要があります。 次の表では、Regasm.exe が通常、Windows レジストリに追加するキーを示します  (000000 は実際の GUID の値を示します)。  
+ マネージド コンポーネントを COM クライアントからアクティブ化するには、先にマネージド コンポーネントを Windows レジストリに登録しておく必要があります。 次の表では、Regasm.exe が通常、Windows レジストリに追加するキーを示します (000000 は実際の GUID の値を示します)。  
   
 |GUID|説明|レジストリ キー|  
 |----------|-----------------|------------------|  

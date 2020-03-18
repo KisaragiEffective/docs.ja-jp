@@ -2,12 +2,12 @@
 title: フィルターの選択
 ms.date: 03/30/2017
 ms.assetid: 67ab5af9-b9d9-4300-b3b1-41abb5a1fd10
-ms.openlocfilehash: 908e905b4196409b00abccccae03436640cbe986
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 282f6e9e2bc986feee0d1825ee9d87217d453e50
+ms.sourcegitcommit: c01c18755bb7b0f82c7232314ccf7955ea7834db
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70045976"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75964814"
 ---
 # <a name="choosing-a-filter"></a>フィルターの選択
 ルーティング サービスを構成する際には、適切なメッセージ フィルターを選択し、受信するメッセージと正確に一致できるように、それらのフィルターを構成することが重要です。 選択したフィルターの適合基準が幅広すぎる場合や、適切に構成されていない場合は、メッセージが正しくルーティングされません。 フィルターの適合基準が厳格すぎると、一部のメッセージの有効なルーティング先が見つからないことがあります。
@@ -16,9 +16,9 @@ ms.locfileid: "70045976"
 
 ルーティング サービスで使用するフィルターを選択する際には、各フィルターのしくみと、受信メッセージの一部として使用できる情報について理解しておくことが重要です。 たとえば、すべてのメッセージが同じエンドポイントを介して受信される場合は、すべてのメッセージが Address フィルターと EndpointName フィルターに一致するため、これらのフィルターは役に立ちません。
 
-### <a name="action"></a>アクション
+### <a name="action"></a>動作
 
-Action フィルターは <xref:System.ServiceModel.Channels.MessageHeaders.Action%2A> プロパティを確認します。 メッセージの Action ヘッダーの内容が、フィルター構成で指定されているフィルター データ値と一致する場合、このフィルターは `true` を返します。 次の例では`FilterElement` 、アクションフィルターを使用して、の`http://namespace/contract/operation/`値を含むアクションヘッダーを持つメッセージを照合するを定義します。
+Action フィルターは <xref:System.ServiceModel.Channels.MessageHeaders.Action%2A> プロパティを確認します。 メッセージの Action ヘッダーの内容が、フィルター構成で指定されているフィルター データ値と一致する場合、このフィルターは `true` を返します。 次の例では、アクションフィルターを使用して、`http://namespace/contract/operation/`の値を含むアクションヘッダーを持つメッセージを照合する `FilterElement` を定義します。
 
 ```xml
 <filter name="action1" filterType="Action" filterData="http://namespace/contract/operation/" />
@@ -32,7 +32,7 @@ ActionMessageFilter action1 = new ActionMessageFilter(new string[] { "http://nam
 
 ### <a name="endpointaddress"></a>EndpointAddress
 
-EndpointAddress フィルターは、メッセージを受信した EndpointAddress を確認します。 メッセージが着信したアドレスが、フィルター構成で指定されたフィルター アドレスと正確に一致した場合、このフィルターは `true` を返します。 次の例では`FilterElement` 、アドレスフィルターを使用して "http://\<hostname >/vdir/s.svc/b" にアドレス指定されたすべてのメッセージを照合するを定義します。
+EndpointAddress フィルターは、メッセージを受信した EndpointAddress を確認します。 メッセージが着信したアドレスが、フィルター構成で指定されたフィルター アドレスと正確に一致した場合、このフィルターは `true` を返します。 次の例では、アドレスフィルターを使用して、"http://\<hostname >/vdir/s.svc/b" にアドレス指定されたすべてのメッセージを照合する `FilterElement` を定義します。
 
 ```xml
 <filter name="address1" filterType="EndpointAddress" filterData="http://host/vdir/s.svc/b" />
@@ -51,7 +51,7 @@ EndpointAddressMessageFilter address1 = new EndpointAddressMessageFilter(new End
 
 ### <a name="endpointaddressprefix"></a>EndpointAddressPrefix
 
-EndpointAddressPrefix フィルターは、EndpointAddress フィルターに似ています。 EndpointAddressPrefix フィルターは、メッセージを受信した EndpointAddress を確認します。 ただし、EndpointAddressPrefix フィルターは、フィルター構成で指定された値で始まるアドレスを一致させることによって、ワイルドカードとして機能します。 次の例では`FilterElement` 、EndpointAddressPrefix フィルターを使用して宛てのメッセージを`http://<hostname>/vdir*`照合するを定義します。
+EndpointAddressPrefix フィルターは、EndpointAddress フィルターに似ています。 EndpointAddressPrefix フィルターは、メッセージを受信した EndpointAddress を確認します。 ただし、EndpointAddressPrefix フィルターは、フィルター構成で指定された値で始まるアドレスを一致させることによって、ワイルドカードとして機能します。 次の例では、EndpointAddressPrefix フィルターを使用して、`http://<hostname>/vdir*`宛てのすべてのメッセージを照合する `FilterElement` を定義します。
 
 ```xml
 <filter name="prefix1" filterType="EndpointAddressPrefix" filterData="http://host/vdir" />
@@ -96,11 +96,11 @@ StrictAndMessageFilter and1=new StrictAndMessageFilter(address1, action1);
 MyCustomMsgFilter custom1=new MyCustomMsgFilter("Custom Data");
 ```
 
-に[!INCLUDE[netfx_current_short](../../../../includes/netfx-current-short-md.md)]用意されているフィルターの対象ではないメッセージに対してカスタムの照合ロジックを実行する必要がある場合は、 **messagefilter**クラスの実装であるカスタムフィルターを作成する必要があります。 たとえば、受信メッセージ内の 1 つのフィールドを、構成としてフィルターに指定された既知の値のリストと比較するカスタム フィルターや、特定のメッセージ要素をハッシュしてから、その値を調査してフィルターが `true` と `false` のどちらを返すかを判断するカスタム フィルターを作成することができます。
+[!INCLUDE[netfx_current_short](../../../../includes/netfx-current-short-md.md)]に用意されているフィルターの対象になっていないメッセージに対してカスタムの照合ロジックを実行する必要がある場合は、 **messagefilter**クラスの実装であるカスタムフィルターを作成する必要があります。 たとえば、受信メッセージ内の 1 つのフィールドを、構成としてフィルターに指定された既知の値のリストと比較するカスタム フィルターや、特定のメッセージ要素をハッシュしてから、その値を調査してフィルターが `true` と `false` のどちらを返すかを判断するカスタム フィルターを作成することができます。
 
 ### <a name="endpointname"></a>EndpointName
 
-EndpointName フィルターは、メッセージを受信したエンドポイントの名前を確認します。 次の例では`FilterElement` 、EndpointName フィルターを使用して、"SvcEndpoint" で受信したメッセージをルーティングするを定義します。
+EndpointName フィルターは、メッセージを受信したエンドポイントの名前を確認します。 次の例では、EndpointName フィルターを使用して、"SvcEndpoint" で受信したメッセージをルーティングする `FilterElement` を定義します。
 
 ```xml
 <filter name="name1" filterType="Endpoint" filterData="SvcEndpoint" />
@@ -128,7 +128,7 @@ MatchAllMessageFilter matchAll1 = new MatchAllMessageFilter();
 
 ### <a name="xpath"></a>XPath
 
-XPath フィルターを使用すると、XPath クエリを指定して、メッセージ内の特定の要素を確認できます。 XPath フィルターは、メッセージ内の XML アドレス指定可能なエントリを直接確認できる、強力なフィルター オプションです。ただし、このフィルターを使用するには、受信するメッセージの構造に関する特定の知識が必要です。 次の例では`FilterElement` 、XPath フィルターを使用して、"ns" 名前空間プレフィックスによって参照される名前空間内の "element" という名前の要素についてメッセージを検査するを定義します。
+XPath フィルターを使用すると、XPath クエリを指定して、メッセージ内の特定の要素を確認できます。 XPath フィルターは、メッセージ内の XML アドレス指定可能なエントリを直接確認できる、強力なフィルター オプションです。ただし、このフィルターを使用するには、受信するメッセージの構造に関する特定の知識が必要です。 次の例では、XPath フィルターを使用して、"ns" 名前空間プレフィックスによって参照される名前空間内の "element" という名前の要素についてメッセージを検査する `FilterElement` を定義します。
 
 ```xml
 <filter name="xpath1" filterType="XPath" filterData="//ns:element" />
@@ -142,9 +142,9 @@ XPathMessageFilter xpath1=new XPathMessageFilter("//ns:element");
 
 XPath クエリには、長い文字列値または複雑な文字列値である一意の名前空間が含まれていることが多いため、XPath フィルターでは、名前空間用の一意のプレフィックスを定義する名前空間テーブルを使用できます。 名前空間テーブルの詳細については、「[メッセージフィルター](../../../../docs/framework/wcf/feature-details/message-filters.md)」を参照してください。
 
-XPath クエリのデザインの詳細については、「 [Xpath 構文](https://go.microsoft.com/fwlink/?LinkId=164592)」を参照してください。
+XPath クエリのデザインの詳細については、「 [Xpath 構文](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256471(v=vs.100))」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 
 - [メッセージ フィルター](../../../../docs/framework/wcf/feature-details/message-filters.md)
-- [方法: フィルターを使用する](../../../../docs/framework/wcf/feature-details/how-to-use-filters.md)
+- [フィルターを使用する方法](../../../../docs/framework/wcf/feature-details/how-to-use-filters.md)

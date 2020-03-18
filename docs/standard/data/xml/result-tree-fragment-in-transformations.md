@@ -3,19 +3,17 @@ title: 変換での結果ツリー フラグメントの処理
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: df363480-ba02-4233-9ddf-8434e421c4f1
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: e3b99606698124455ca9b325042ffbe430915aee
-ms.sourcegitcommit: a8d3504f0eae1a40bda2b06bd441ba01f1631ef0
-ms.translationtype: HT
+ms.openlocfilehash: e454c1194e8c280042857f106e22d0d0509417e3
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67170772"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78156362"
 ---
 # <a name="result-tree-fragment-in-transformations"></a>変換での結果ツリー フラグメントの処理
 
 > [!NOTE]
-> .NET Framework 2.0 では <xref:System.Xml.Xsl.XslTransform> クラスが廃止されています。 <xref:System.Xml.Xsl.XslCompiledTransform> クラスを使用して XSLT (Extensible Stylesheet Language for Transformations) 変換を実行できます。 詳しくは、「[XslCompiledTransform クラスの使用](using-the-xslcompiledtransform-class.md)」および「[XslTransform クラスからの移行](migrating-from-the-xsltransform-class.md)」をご覧ください。
+> .NET Framework 2.0 では <xref:System.Xml.Xsl.XslTransform> クラスが廃止されています。 <xref:System.Xml.Xsl.XslCompiledTransform> クラスを使用して XSLT (Extensible Stylesheet Language for Transformations) 変換を実行できます。 詳細については、「[XslCompiledTransform クラスの使用](using-the-xslcompiledtransform-class.md)」と「[XslTransform クラスからの移行](migrating-from-the-xsltransform-class.md)」を参照してください。
 
  結果ツリー フラグメントは、ノード セットの特殊な型にすぎません。 ノード フラグメントでは、ノード セットで実行できる任意の関数を実行できます。 `node-set()` 関数を使用して結果ツリー フラグメントをノード セットに変換し、ノード セットを使用できる任意の場所でそれを使用することもできます。
 
@@ -142,7 +140,7 @@ ms.locfileid: "67170772"
     </xsl:variable>
 
     <xsl:template match="/">
-            <xsl:for-each select="msxsl:node-set($states)"/> 
+            <xsl:for-each select="msxsl:node-set($states)"/>
     </xsl:template>
 </xsl:stylesheet>
 ```
@@ -169,8 +167,8 @@ ms.locfileid: "67170772"
 <![CDATA[
     string func(XPathNodeIterator it)
     {
-        it.MoveNext(); 
-        return it.Current.Value; 
+        it.MoveNext();
+        return it.Current.Value;
         //it.Current returns XPathNavigator positioned on the current node
     }
 
@@ -192,7 +190,7 @@ ms.locfileid: "67170772"
 <books xmlns:user="urn:books">Book1Book2Book3Book4</books>
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Xml.XPath.XPathNodeIterator>
 - [XslTransform クラスを使用した XSLT 変換](xslt-transformations-with-the-xsltransform-class.md)

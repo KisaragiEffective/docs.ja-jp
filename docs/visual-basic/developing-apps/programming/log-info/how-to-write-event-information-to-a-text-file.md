@@ -1,17 +1,17 @@
 ---
-title: '方法: イベント情報をテキスト ファイルに書き込む (Visual Basic)'
+title: '方法 : イベント情報をテキスト ファイルに書き込む'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - event logs [Visual Studio], writing event information
 - text files [Visual Basic], writing event information to a text file
 - events [Visual Basic], writing event information to a text file
 ms.assetid: 9ca7cc03-bf99-4933-9e5e-61ee28e9a6b4
-ms.openlocfilehash: 54169f1133ed4f77026c4332493a7b5f4532aec0
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: c3c81e331eb3d8ee450ba0cac38e57976846ee63
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583286"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74352072"
 ---
 # <a name="how-to-write-event-information-to-a-text-file-visual-basic"></a>方法: イベント情報をテキスト ファイルに書き込む (Visual Basic)
 
@@ -41,7 +41,7 @@ ms.locfileid: "72583286"
     <add name="FileLogListener" />
     ```
 
-4. 最上位の `<configuration>` セクションに入れ子になっている `<system.diagnostics>` セクションで、`<sharedListeners>` セクションを見つけます。
+4. 最上位の `<sharedListeners>` セクションに入れ子になっている `<system.diagnostics>` セクションで、`<configuration>` セクションを見つけます。
 
 5. その `<sharedListeners>` セクションに次の要素を追加します。
 
@@ -62,14 +62,14 @@ ms.locfileid: "72583286"
 
 ### <a name="to-write-event-information-to-the-file-log"></a>イベント情報をファイル ログに書き込むには
 
-ファイル ログに情報を書き込むには、`My.Application.Log.WriteEntry` メソッドまたは `My.Application.Log.WriteException` メソッドを使います。 詳細については、[ログ メッセージを書き込む](../../../../visual-basic/developing-apps/programming/log-info/how-to-write-log-messages.md)」と「[方法: 例外をログに記録する](../../../../visual-basic/developing-apps/programming/log-info/how-to-log-exceptions.md)」を参照してください。
+ファイル ログに情報を書き込むには、`My.Application.Log.WriteEntry` メソッドまたは `My.Application.Log.WriteException` メソッドを使います。 詳しくは、「[方法: ログ メッセージを書き込む](../../../../visual-basic/developing-apps/programming/log-info/how-to-write-log-messages.md)」および「[方法: 例外をログに記録する](../../../../visual-basic/developing-apps/programming/log-info/how-to-log-exceptions.md)」をご覧ください。
 
 アセンブリに対してファイル ログ リスナーを設定すると、リスナーはそのアセンブリから `My.Application.Log` によって書き込まれたすべてのメッセージを受け取ります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:Microsoft.VisualBasic.Logging.Log?displayProperty=nameWithType>
 - <xref:Microsoft.VisualBasic.Logging.Log.WriteEntry%2A>
 - <xref:Microsoft.VisualBasic.Logging.Log.WriteException%2A>
 - [アプリケーション ログの使用](../../../../visual-basic/developing-apps/programming/log-info/working-with-application-logs.md)
-- [方法: 例外をログに記録する](../../../../visual-basic/developing-apps/programming/log-info/how-to-log-exceptions.md)
+- [方法 : 例外をログに記録する](../../../../visual-basic/developing-apps/programming/log-info/how-to-log-exceptions.md)

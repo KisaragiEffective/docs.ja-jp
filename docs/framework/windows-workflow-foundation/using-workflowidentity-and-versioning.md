@@ -2,12 +2,12 @@
 title: WorkflowIdentity と Versioning の使用
 ms.date: 03/30/2017
 ms.assetid: b8451735-8046-478f-912b-40870a6c0c3a
-ms.openlocfilehash: 6b769224edcd9dfc51879c2c99e061a0e3f77e8d
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 97224caa24b38a00a1cbb4fa76781eea3a10faaf
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69958383"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76787911"
 ---
 # <a name="using-workflowidentity-and-versioning"></a>WorkflowIdentity と Versioning の使用
 
@@ -78,7 +78,7 @@ wfApp.Load(instanceId);
 
 前のコードが実行されると、次の <xref:System.Activities.VersionMismatchException> がスローされます。
 
-```
+```output
 The WorkflowIdentity ('MortgageWorkflow v1; Version=1.0.0.0') of the loaded instance does not match the WorkflowIdentity ('MortgageWorkflow v2; Version=2.0.0.0') of the provided workflow definition. The instance can be loaded using a different definition, or updated using Dynamic Update.
 ```
 
@@ -89,9 +89,9 @@ The WorkflowIdentity ('MortgageWorkflow v1; Version=1.0.0.0') of the loaded inst
 永続化されたワークフロー インスタンスの <xref:System.Activities.WorkflowIdentity> を取得するには、<xref:System.Activities.WorkflowApplication.GetInstance%2A> メソッドを使用します。 <xref:System.Activities.WorkflowApplication.GetInstance%2A> メソッドは、永続化されたワークフロー インスタンスの <xref:System.Activities.WorkflowApplication.Id%2A>、および永続化されたインスタンスを格納する <xref:System.Activities.DurableInstancing.SqlWorkflowInstanceStore> を取得して、<xref:System.Activities.WorkflowApplicationInstance> を返します。 <xref:System.Activities.WorkflowApplicationInstance> には、永続化されたワークフロー インスタンスに関する情報 (関連付けられた <xref:System.Activities.WorkflowIdentity> など) が格納されます。 この関連付けられた <xref:System.Activities.WorkflowIdentity> は、ワークフロー インスタンスを読み込んで再開するときに、適切なワークフロー定義を指定するためにホストで使用できます。
 
 > [!NOTE]
-> null の <xref:System.Activities.WorkflowIdentity> は有効で、ホストで使用すると、関連付けられた <xref:System.Activities.WorkflowIdentity> がない、永続化されたインスタンスを適切なワークフロー定義にマップできます。 このシナリオは、ワークフロー アプリケーションがワークフローのバージョン管理で最初に記述されなかった場合、またはアプリケーションが [!INCLUDE[netfx40_short](../../../includes/netfx40-short-md.md)] からアップグレードされた場合に発生する可能性があります。 詳細については、「 [.NET Framework 4 の永続性データベースのアップグレード」を](using-workflowidentity-and-versioning.md#UpdatingWF4PersistenceDatabases)参照してください。
+> null の <xref:System.Activities.WorkflowIdentity> は有効で、ホストで使用すると、関連付けられた <xref:System.Activities.WorkflowIdentity> がない、永続化されたインスタンスを適切なワークフロー定義にマップできます。 このシナリオは、ワークフローアプリケーションがワークフローのバージョン管理を使用して最初に記述されていない場合、またはアプリケーションが .NET Framework 4 からアップグレードされた場合に発生する可能性があります。 詳細については、「 [.NET Framework 4 の永続性データベースのアップグレード」を](using-workflowidentity-and-versioning.md#UpdatingWF4PersistenceDatabases)参照してください。
 
-次の例では`Dictionary<WorkflowIdentity, Activity>` 、を使用し<xref:System.Activities.WorkflowIdentity>て、インスタンスを一致するワークフロー定義に関連付けます。ワークフローは`MortgageWorkflow` 、ワークフロー定義を使用して開始`identityV1`されます。ワークフロー定義は<xref:System.Activities.WorkflowIdentity>、.
+次の例では、`Dictionary<WorkflowIdentity, Activity>` を使用して <xref:System.Activities.WorkflowIdentity> インスタンスとそれに対応するワークフロー定義を関連付けます。ワークフローは、`identityV1` <xref:System.Activities.WorkflowIdentity>に関連付けられている `MortgageWorkflow` ワークフロー定義を使用して開始されます。
 
 ```csharp
 WorkflowIdentity identityV1 = new WorkflowIdentity
@@ -146,11 +146,11 @@ wfApp.Load(instance);
 
 ## <a name="UpdatingWF4PersistenceDatabases"></a>ワークフローのバージョン管理をサポートするために .NET Framework 4 つの永続性データベースをアップグレードする
 
-SqlWorkflowInstanceStoreSchemaUpgrade.sql データベース スクリプトは、[!INCLUDE[netfx40_short](../../../includes/netfx40-short-md.md)] データベース スクリプトを使用して作成された永続性データベースを更新するために用意されています。 このスクリプトは、.NET Framework 4.5 で導入された新しいバージョン管理機能をサポートするようにデータベースを更新します。 データベースで永続化されたすべてのワークフロー インスタンスは、既定のバージョン番号が付与されるため、side-by-side 実行および動的更新に参加できるようになります。
+.NET Framework 4 つのデータベーススクリプトを使用して作成された永続性データベースをアップグレードするために、Sqlworkflowinstancestoreschemaupgrade.sql データベーススクリプトが用意されています。 このスクリプトは、.NET Framework 4.5 で導入された新しいバージョン管理機能をサポートするようにデータベースを更新します。 データベースで永続化されたすべてのワークフロー インスタンスは、既定のバージョン番号が付与されるため、side-by-side 実行および動的更新に参加できるようになります。
 
-.NET Framework 4.5 ワークフローアプリケーションが、指定されたスクリプトを使用してアップグレードされていない永続性データベースで新しいバージョン管理機能を使用<xref:System.Runtime.DurableInstancing.InstancePersistenceCommandException>する永続化操作を実行しようとすると、「」のようなメッセージと共にがスローされます。次のメッセージ。
+.NET Framework 4.5 ワークフローアプリケーションが、指定されたスクリプトを使用してアップグレードされていない永続性データベースで新しいバージョン管理機能を使用するすべての永続化操作を試みると、次のようなメッセージと共に <xref:System.Runtime.DurableInstancing.InstancePersistenceCommandException> がスローされます。
 
-```
+```output
 The SqlWorkflowInstanceStore has a database version of '4.0.0.0'. InstancePersistenceCommand 'System.Activities.DurableInstancing.CreateWorkflowOwnerWithIdentityCommand' cannot be run against this database version.  Please upgrade the database to '4.5.0.0'.
 ```
 
@@ -158,7 +158,7 @@ The SqlWorkflowInstanceStore has a database version of '4.0.0.0'. InstancePersis
 
 1. SQL Server Management Studio を開き、 **.\SQLEXPRESS**などの永続性データベースサーバーに接続します。
 
-2. **[ファイル]** メニューの **[開く]** をクリックします。 次のフォルダーに移動します: `C:\Windows\Microsoft.NET\Framework\4.0.30319\sql\en`。
+2. **[ファイル]** メニューの [**開く** **] をクリック**します。 次のフォルダーに移動します: `C:\Windows\Microsoft.NET\Framework\4.0.30319\sql\en`。
 
 3. 選択**SqlWorkflowInstanceStoreSchemaUpgrade.sql** をクリック**オープン**します。
 
@@ -166,4 +166,4 @@ The SqlWorkflowInstanceStore has a database version of '4.0.0.0'. InstancePersis
 
 5. **[クエリ]** メニューの **[実行]** をクリックします。
 
-クエリが完了すると、データベース スキーマがアップグレードされるため、必要に応じて、永続化されたワークフロー インスタンスに割り当てられた既定のワークフロー ID を確認できます。 **オブジェクトエクスプローラー**の **[データベース]** ノードで永続性データベースを展開し、 **[ビュー]** ノードを展開します。 右クリックして**System.Activities.DurableInstancing.Instances**選択**上位 1000 行**します。 列の最後までスクロールし、ビューに追加された6つの列があることを確認します。 **[IdentityPackage]** 、 **[ビルド]** 、 **[メジャー]** 、 **[マイナー]** 、および **[リビジョン]** 。 永続化されたワークフローでは、null のワークフロー id を表す null 値がこれらのフィールドに対して**null**になります。
+クエリが完了すると、データベース スキーマがアップグレードされるため、必要に応じて、永続化されたワークフロー インスタンスに割り当てられた既定のワークフロー ID を確認できます。 **オブジェクトエクスプローラー**の **[データベース]** ノードで永続性データベースを展開し、 **[ビュー]** ノードを展開します。 右クリックして**System.Activities.DurableInstancing.Instances**選択**上位 1000 行**します。 列の最後までスクロールし、ビューに追加された6つの**列 ([** **IdentityPackage**]、 **[ビルド]** 、 **[メジャー]** 、 **[マイナー]** 、 **[リビジョン]** ) が表示されていることを確認します。 永続化されたワークフローでは、null のワークフロー id を表す null 値がこれらのフィールドに対して**null**になります。

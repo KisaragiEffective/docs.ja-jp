@@ -1,5 +1,5 @@
 ---
-title: '方法: XML スキーマ定義ツールを使用してクラスと XML スキーマ ドキュメントを生成する'
+title: '方法 : XML スキーマ定義ツールを使用してクラスと XML スキーマ ドキュメントを生成する'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - generating XML classes using XML Schema Definition tool
@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71392863"
 ---
-# <a name="how-to-use-the-xml-schema-definition-tool-to-generate-classes-and-xml-schema-documents"></a>方法: XML スキーマ定義ツールを使用してクラスと XML スキーマ ドキュメントを生成する
+# <a name="how-to-use-the-xml-schema-definition-tool-to-generate-classes-and-xml-schema-documents"></a>方法 : XML スキーマ定義ツールを使用してクラスと XML スキーマ ドキュメントを生成する
 XML スキーマ定義ツール (Xsd.exe) を使用して、クラスを説明する XML スキーマを生成したり、XML スキーマで定義されるクラスを生成したりできます。 次の手順では、これらの操作の実行方法を示します。  
   
 ### <a name="to-generate-classes-that-conform-to-a-specific-schema"></a>特定のスキーマに準拠するクラスを生成するには  
@@ -52,12 +52,12 @@ XML スキーマ定義ツール (Xsd.exe) を使用して、クラスを説明�
   
      スキーマが、"schema0.xsd" という名前から順に書き込まれます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Data.DataSet>
 - [XML スキーマ定義ツールと XML シリアル化](../../../docs/standard/serialization/the-xml-schema-definition-tool-and-xml-serialization.md)
 - [XML シリアル化の概要](../../../docs/standard/serialization/introducing-xml-serialization.md)
 - [XML スキーマ定義ツール (Xsd.exe)](../../../docs/standard/serialization/xml-schema-definition-tool-xsd-exe.md)
 - <xref:System.Xml.Serialization.XmlSerializer>
-- [2 つのオブジェクトが等しいかどうかをテストする方法オブジェクトをシリアル化する @ no__t-0
-- [2 つのオブジェクトが等しいかどうかをテストする方法オブジェクトを逆シリアル化する @ no__t-0
+- [方法 : オブジェクトをシリアル化する](../../../docs/standard/serialization/how-to-serialize-an-object.md)
+- [方法 : オブジェクトを逆シリアル化する](../../../docs/standard/serialization/how-to-deserialize-an-object.md)

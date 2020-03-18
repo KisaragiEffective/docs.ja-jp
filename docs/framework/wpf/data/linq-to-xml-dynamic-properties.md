@@ -2,12 +2,12 @@
 title: LINQ to XML 動的プロパティのリファレンス
 ms.date: 10/22/2019
 ms.topic: reference
-ms.openlocfilehash: ca3684716f9b562d0e6a006c26730a1d1a28f8b1
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: 48b51e92eb78786b2cc189e3e7daa00875b41585
+ms.sourcegitcommit: 5a28f8eb071fcc09b045b0c4ae4b96898673192e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72921216"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73197055"
 ---
 # <a name="linq-to-xml-dynamic-properties"></a>LINQ to XML の動的プロパティ
 
@@ -21,9 +21,9 @@ ms.locfileid: "72921216"
 
 - インデクサー型に解決されるインデックス値 (<xref:System.Xml.Linq.XElement> の [Elements](elements-xelement-dynamic-property.md) プロパティや [Descendants](descendants-xelement-dynamic-property.md) プロパティなど)。 インデクサー型が目的の値やコレクションに解決されるようにするには、拡張名のパラメーターを渡す必要があります。
 
-<xref:System.Collections.Generic.IEnumerable%601> 型のインデックス値を返す動的プロパティはすべて遅延実行を使用します。 遅延実行について詳しくは、「[LINQ クエリの概要 (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)」をご覧ください。
+<xref:System.Collections.Generic.IEnumerable%601> 型のインデックス値を返す動的プロパティはすべて遅延実行を使用します。 遅延実行について詳しくは、「[LINQ クエリの概要 (C#)](../../../csharp/programming-guide/concepts/linq/introduction-to-linq-queries.md)」をご覧ください。
 
-## <a name="reference"></a>参照
+## <a name="reference"></a>辞書／辞典／その他
 
 - <xref:System.Xml.Linq>
 - <xref:System.Xml.Linq.XElement?displayProperty=fullName>
@@ -33,4 +33,4 @@ ms.locfileid: "72921216"
 
 - [LINQ to XML による WPF のデータ バインディング](wpf-data-binding-with-linq-to-xml-overview.md)
 - [LINQ to XML による WPF のデータ バインディングの概要](wpf-data-binding-with-linq-to-xml-overview.md)
-- [LINQ クエリの概要 (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)
+- [LINQ クエリの概要 (C#)](../../../csharp/programming-guide/concepts/linq/introduction-to-linq-queries.md)

@@ -7,16 +7,16 @@ dev_langs:
 - CSharp
 - VB
 ms.assetid: 190349fc-0573-49c7-bb85-8e316df7f31f
-ms.openlocfilehash: 5c280933c81ef54ba58181e3005e30775b9b8e42
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: d0ef525db16b2b2cedeea5fa03376fb4f3489a4a
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70928889"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346770"
 ---
 # <a name="tutorial-use-a-windows-communication-foundation-client"></a>チュートリアル: Windows Communication Foundation クライアントを使用する
 
-このチュートリアルでは、基本的な Windows Communication Foundation (WCF) アプリケーションを作成するために必要な5つのタスクについて説明します。 チュートリアルの概要については、 [「チュートリアル:Windows Communication Foundation アプリケーション](getting-started-tutorial.md)の概要」をご覧ください。
+このチュートリアルでは、基本的な Windows Communication Foundation (WCF) アプリケーションを作成するために必要な5つのタスクについて説明します。 チュートリアルの概要については、「[チュートリアル: Windows Communication Foundation アプリケーションの](getting-started-tutorial.md)概要」を参照してください。
 
 Windows Communication Foundation (WCF) プロキシを作成して構成したら、クライアントインスタンスを作成し、クライアントアプリケーションをコンパイルします。 次に、WCF サービスとの通信に使用します。 
 
@@ -87,7 +87,6 @@ namespace GettingStartedClient
 ```
 
 ```vb
-Imports System
 Imports System.Collections.Generic
 Imports System.Text
 Imports System.ServiceModel
@@ -135,7 +134,7 @@ Module Module1
 End Module
 ```
 
-`using` C# `Imports`インポートする(Visualの場合)または(VisualBasic)ステートメントがあることに注意してください。`GettingStartedClient.ServiceReference1` このステートメントは、Visual Studio によって生成されたコードを**サービス参照の追加**関数でインポートします。 このコードは、WCF プロキシをインスタンス化し、電卓サービスが公開する各サービス操作を呼び出します。 次に、プロキシを閉じてプログラムを終了します。
+`GettingStartedClient.ServiceReference1`をインポートする `using` ( C#Visual の場合) または `Imports` (Visual Basic) ステートメントに注目してください。 このステートメントは、Visual Studio によって生成されたコードを**サービス参照の追加**関数でインポートします。 このコードは、WCF プロキシをインスタンス化し、電卓サービスが公開する各サービス操作を呼び出します。 次に、プロキシを閉じてプログラムを終了します。
 
 ## <a name="test-the-wcf-client"></a>WCF クライアントをテストする
 
@@ -151,9 +150,9 @@ End Module
 
 1. 管理者としてコマンドプロンプトを開き、Visual Studio ソリューションのディレクトリに移動します。 
 
-2. サービスを開始するには:「 *GettingStartedHost\bin\Debug\GettingStartedHost.exe*」と入力します。
+2. サービスを開始するには、「 *GettingStartedHost\bin\Debug\GettingStartedHost.exe*」と入力します。
 
-3. クライアントを起動するには:別のコマンドプロンプトを開き、Visual Studio ソリューションのディレクトリに移動して、「 *GettingStartedClient\bin\Debug\GettingStartedClient.exe*」と入力します。
+3. クライアントを起動するには: 別のコマンドプロンプトを開き、Visual Studio ソリューションのディレクトリに移動して、「 *GettingStartedClient\bin\Debug\GettingStartedClient.exe*」と入力します。
 
    この*ホスト*は、次の出力を生成します。
 
@@ -182,7 +181,7 @@ End Module
    Press <Enter> to terminate the client.
    ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ:
 
 これで、WCF 入門チュートリアルのすべてのタスクが完了しました。 このチュートリアルでは、次の作業を行う方法を学びました。
 

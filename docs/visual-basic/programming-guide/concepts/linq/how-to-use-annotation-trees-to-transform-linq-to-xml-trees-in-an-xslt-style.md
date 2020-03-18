@@ -1,13 +1,13 @@
 ---
-title: '方法: 注釈を使用して XSLT スタイルの LINQ to XML ツリーを変換する (Visual Basic)'
+title: '方法 : 注釈を使用して XSLT スタイルの LINQ to XML ツリーを変換する'
 ms.date: 07/20/2015
 ms.assetid: 08e91fa2-dac2-4463-9ef1-87b1ac3fa890
-ms.openlocfilehash: b8f15c4dc6016e48619d26e7cc8717a2a3c5acd5
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: d9cb32462535f099107343bd9069b4da3508c5b0
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72581974"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74348356"
 ---
 # <a name="how-to-use-annotations-to-transform-linq-to-xml-trees-in-an-xslt-style-visual-basic"></a>方法: 注釈を使用して XSLT スタイルの LINQ to XML ツリーを変換する (Visual Basic)
 
@@ -43,7 +43,7 @@ XML ドキュメントには、"ドキュメント中心で混合コンテンツ
 
 ## <a name="transforming-a-tree"></a>ツリーの変換
 
-最初の例では、すべての `Paragraph` ノードの名前を `para` に変更します。
+最初の例では、すべての `Paragraph` ノードの名前を `para`に変更します。
 
 ```vb
 Imports <xmlns:xf="http://www.microsoft.com/LinqToXmlTransform/2007">
@@ -222,12 +222,11 @@ Private Function GetExpandedNodes(ByVal n2 As XNode) As XNode
 End Function
 ```
 
-## <a name="complete-example"></a>コード例全体
+## <a name="complete-example"></a>完全な例
 
 次に示すのは、`XForm` 関数を含んだ完全なサンプル コードです。 ここには、この種の変換の一般的な使用方法がいくつか示されています。
 
 ```vb
-Imports System
 Imports System.Collections.Generic
 Imports System.Linq
 Imports System.Text
@@ -375,6 +374,6 @@ After Transform
 </Root>
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [高度な LINQ to XML プログラミング (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/advanced-linq-to-xml-programming.md)

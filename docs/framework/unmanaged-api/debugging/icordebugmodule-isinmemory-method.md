@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 89940711-98e7-4aa6-bffc-5e39e91e1b7d
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 223989d883c421be228fb3d6a608643a5246c060
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 1384acff4ea3d1aa820b065cd2c56f649f0cbdbb
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67763701"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127924"
 ---
 # <a name="icordebugmoduleisinmemory-method"></a>ICorDebugModule::IsInMemory メソッド
-このモジュールは、メモリ内にのみ存在するかどうかを示す値を取得します。  
+このモジュールがメモリ内にのみ存在するかどうかを示す値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,13 +35,13 @@ HRESULT IsInMemory(
   
 ## <a name="parameters"></a>パラメーター  
  `pInMemory`  
- [out]`true`メモリ内でのみこのモジュールが存在する場合は、それ以外の場合、`false`します。  
+ [out] このモジュールがメモリ内にのみ存在する場合は `true`。それ以外の場合は、`false`ます。  
   
 ## <a name="remarks"></a>Remarks  
- 共通言語ランタイム (CLR) は、生のバイト ストリームからのモジュールの読み込みをサポートします。 このようなモジュールが呼び出されます*メモリ内モジュール*ディスク上に存在しないとします。  
+ 共通言語ランタイム (CLR) では、未加工のバイトストリームからのモジュールの読み込みがサポートされています。 このようなモジュールは*メモリ内モジュール*と呼ばれ、ディスク上には存在しません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

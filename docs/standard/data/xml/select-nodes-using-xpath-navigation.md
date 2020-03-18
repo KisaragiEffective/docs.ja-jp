@@ -6,14 +6,12 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 8e4450dc-56b3-472b-b467-32f5694f83ad
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: b2fc0846b3f3801d64ee3bf1f1dc4b347034ad38
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
-ms.translationtype: HT
+ms.openlocfilehash: 58f1487486c2802a2c64b51afcecb01c76dd291a
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69939566"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155608"
 ---
 # <a name="select-nodes-using-xpath-navigation"></a>XPath ナビゲーションによるノードの選択
 XML ドキュメント オブジェクト モデル (DOM) には、DOM 内の情報を照会するための XPath (XML Path Language) ナビゲーションに使用できるメソッドが含まれています。 XPath を使用すると、特定の単一ノードを見つけたり、条件に一致するすべてのノードを検索したりできます。  
@@ -32,7 +30,7 @@ Dim root As XmlNode = doc.DocumentElement
 Dim nsmgr As New XmlNamespaceManager(doc.NameTable)  
 nsmgr.AddNamespace("bk", "urn:newbooks-schema")  
   
-' Select and display the first node in which the author's   
+' Select and display the first node in which the author's
 ' last name is Kingsolver.  
 Dim node As XmlNode = root.SelectSingleNode( _  
      "descendant::bk:book[bk:author/bk:last-name='Kingsolver']", nsmgr)  
@@ -49,7 +47,7 @@ XmlNode root = doc.DocumentElement;
 XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);  
 nsmgr.AddNamespace("bk", "urn:newbooks-schema");  
   
-// Select and display the first node in which the author's   
+// Select and display the first node in which the author's
 // last name is Kingsolver.  
 XmlNode node = root.SelectSingleNode(  
     "descendant::bk:book[bk:author/bk:last-name='Kingsolver']", nsmgr);  
@@ -162,6 +160,6 @@ this doc.DocumentElement.FirstChild.SelectNodes(. . .);
 </bookstore>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [XML ドキュメント オブジェクト モデル (DOM)](../../../../docs/standard/data/xml/xml-document-object-model-dom.md)

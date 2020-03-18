@@ -3,14 +3,12 @@ title: XSLT 変換
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: 202f8820-224c-494f-b61e-cd127eac6e03
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 93d45b58433dc3c7231cea741aa7ea67dfab2d7a
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
-ms.translationtype: HT
+ms.openlocfilehash: 4bbecfbf1b163a9d7bfe6957806095b5b17fbab7
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69912035"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75709635"
 ---
 # <a name="xslt-transformations"></a>XSLT 変換
 XSLT (Extensible Stylesheet Language Transformation) を使用すれば、ソース XML ドキュメントの内容を、形式や構造が異なる別のドキュメントに変換できます。 たとえば、XSLT を使用して、XML を Web サイトで使われる HTML に変換したり、アプリケーションが必要とするフィールドだけが含まれたドキュメントに変換したりできます。 この変換処理の仕様は、[W3C 勧告『XSL Transformations (XSLT) Version 1.0』](https://www.w3.org/TR/xslt-10/)で規定されています。  
@@ -33,10 +31,10 @@ XSLT (Extensible Stylesheet Language Transformation) を使用すれば、ソー
  [XslTransform クラスを使用した XSLT 変換](../../../../docs/standard/data/xml/xslt-transformations-with-the-xsltransform-class.md)  
  <xref:System.Xml.Xsl.XslTransform> クラスの使用方法について説明します。  
   
-## <a name="reference"></a>関連項目  
+## <a name="reference"></a>参照先  
  <xref:System.Xml.Xsl.XslCompiledTransform>  
  <xref:System.Xml.Xsl.XsltArgumentList>  
  <xref:System.Xml.Xsl.XsltSettings>  
   
-## <a name="related-sections"></a>関連項目  
+## <a name="related-sections"></a>関連セクション  
  [XML ドキュメントと XML データ](../../../../docs/standard/data/xml/index.md)

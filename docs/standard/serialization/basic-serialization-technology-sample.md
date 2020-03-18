@@ -29,7 +29,7 @@ ms.locfileid: "71353138"
 
 2. 使用しているプログラミング言語に応じて、SerializationCS.sln ファイル、SerializationJSL.sln ファイル、または SerializationVB.sln ファイルのアイコンをダブルクリックして、このファイルを Visual Studio で開きます。
 
-3. **[ビルド]** メニューで、 **[ソリューションのビルド]** を選択します。
+3. **[ビルド]** メニューの **[ソリューションのビルド]** を選択します。
 
  サンプル アプリケーションは、既定の \bin サブディレクトリまたは \bin\Debug サブディレクトリにビルドされます。
 
@@ -72,21 +72,21 @@ Serialize.exe -sb Test.bin 10000 >somefile.txt
 
 - ランタイム シリアル化
 
-  - <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> @no__t または @no__t 2 つのオブジェクトのいずれかを参照するために使用されます。
+  - <xref:System.Runtime.Serialization.IFormatter> <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> または <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> オブジェクトを参照するために使用されます。
 
-  - <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> バイナリ形式でリンクリストをストリームにシリアル化するために使用されます。 バイナリ フォーマッタでは、<xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 型でのみ理解できる形式を使用します。 ただし、データは簡潔です。
+  - <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter>、バイナリ形式でリンクリストをストリームにシリアル化するために使用されます。 バイナリ フォーマッタでは、<xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 型でのみ理解できる形式を使用します。 ただし、データは簡潔です。
 
-  - <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> は、SOAP 形式でリンクリストをストリームにシリアル化するために使用されます。 SOAP は標準の形式です。
+  - <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter>、SOAP 形式でリンクリストをストリームにシリアル化するために使用されます。 SOAP は標準の形式です。
 
 - ストリーム入出力
 
-  - <xref:System.IO.Stream> は、シリアル化および逆シリアル化に使用します。 このサンプルで使用する特有のストリーム型として、<xref:System.IO.FileStream> 型があります。 ただし、シリアル化は、<xref:System.IO.Stream> から派生する任意の型で行うことができます。
+  - <xref:System.IO.Stream> シリアル化と逆シリアル化に使用します。 このサンプルで使用する特有のストリーム型として、<xref:System.IO.FileStream> 型があります。 ただし、シリアル化は、<xref:System.IO.Stream> から派生する任意の型で行うことができます。
 
-  - <xref:System.IO.File> は、ディスク上のファイルを読み込み、作成するための <xref:System.IO.FileStream> オブジェクトを作成するために使用します。
+  - <xref:System.IO.File>、ディスク上のファイルの読み取りと作成のための <xref:System.IO.FileStream> オブジェクトを作成するために使用されます。
 
-  - <xref:System.IO.FileStream> は、リンク リストのシリアル化および逆シリアル化に使用します。
+  - リンクリストをシリアル化および逆シリアル化するために使用 <xref:System.IO.FileStream> ます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.IO>
 - <xref:System.IO.File>

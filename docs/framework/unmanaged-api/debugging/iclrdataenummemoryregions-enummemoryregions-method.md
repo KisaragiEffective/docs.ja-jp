@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 22d2e339-f174-40b5-a478-0b744501566f
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 489ea22e17178398f53e103da04a47e8fe15a936
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: f2b2bbe8bcecf71f6d3016fb35dfbf5ba1353aea
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67738921"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76785635"
 ---
 # <a name="iclrdataenummemoryregionsenummemoryregions-method"></a>ICLRDataEnumMemoryRegions::EnumMemoryRegions メソッド
 指定されたメモリ領域を列挙します。  
@@ -39,23 +37,23 @@ HRESULT EnumMemoryRegions (
   
 ## <a name="parameters"></a>パラメーター  
  `callback`  
- [in]ポインター、 [ICLRDataEnumMemoryRegionsCallback](../../../../docs/framework/unmanaged-api/debugging/iclrdataenummemoryregionscallback-interface.md)の結果をデバッガーに通知に列挙されている各メモリ領域には、このメソッドによって呼び出されるインスタンス。  
+ から結果をデバッガーに通知するために、列挙される各メモリ領域に対してこのメソッドによって呼び出される[ICLRDataEnumMemoryRegionsCallback](iclrdataenummemoryregionscallback-interface.md)インスタンスへのポインター。  
   
- コールバックが障害を示している場合でも、メモリ領域の列挙が続行されます。  
+ コールバックがエラーを示す場合でも、メモリ領域の列挙は続行されます。  
   
  `miniDumpFlags`  
- [in]使用されません。  
+ から使用しません。  
   
  `clrFlags`  
- [in]値、 [CLRDataEnumMemoryFlags](../../../../docs/framework/unmanaged-api/debugging/clrdataenummemoryflags-enumeration.md)を列挙するメモリの領域を指定する列挙体。  
+ から列挙するメモリ領域を指定する[Clrdataenummemoryflags](clrdataenummemoryflags-enumeration.md)列挙体の値。  
   
-## <a name="remarks"></a>Remarks  
- このメソッドを使用して、指定した[ICLRDataEnumMemoryRegionsCallback](../../../../docs/framework/unmanaged-api/debugging/iclrdataenummemoryregionscallback-interface.md)インスタンスの結果の呼び出し元に通知します。  
+## <a name="remarks"></a>コメント  
+ このメソッドは、指定された[ICLRDataEnumMemoryRegionsCallback](iclrdataenummemoryregionscallback-interface.md)インスタンスを使用して、結果を呼び出し元に通知します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** ClrData.idl、ClrData.h  
+ **ヘッダー:** ClrData .idl, ClrData .h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -63,4 +61,4 @@ HRESULT EnumMemoryRegions (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICLRDataEnumMemoryRegions インターフェイス](../../../../docs/framework/unmanaged-api/debugging/iclrdataenummemoryregions-interface.md)
+- [ICLRDataEnumMemoryRegions インターフェイス](iclrdataenummemoryregions-interface.md)

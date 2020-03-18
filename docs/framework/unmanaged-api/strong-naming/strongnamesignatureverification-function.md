@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 933758dd-231e-4382-8819-242c0a13a4b7
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8943df861b1bff2b28c68d0233fc336d1b5d4579
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 7dd61be008ba08ca2b28ae3e7e8ff6326f8a41d9
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798949"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129232"
 ---
 # <a name="strongnamesignatureverification-function"></a>StrongNameSignatureVerification 関数
 指定したパスにあるアセンブリ マニフェストに厳密な名前の署名が含まれるかどうかを示す値が取得されます。これは指定したフラグに従って確認されます。  
@@ -45,32 +43,32 @@ BOOLEAN StrongNameSignatureVerification (
  `dwInFlags`  
  から検証動作を変更するフラグ。 次の値がサポートされています。  
   
-- `SN_INFLAG_FORCE_VER`(0x00000001)-レジストリ設定を上書きする必要がある場合でも、検証を強制的に実行します。  
+- `SN_INFLAG_FORCE_VER` (0x00000001)-レジストリ設定を上書きする必要がある場合でも、検証を強制的に実行します。  
   
-- `SN_INFLAG_INSTALL`(0x00000002)-マニフェストを初めて検証するときに指定します。  
+- `SN_INFLAG_INSTALL` (0x00000002)-マニフェストを初めて検証するときにこれを指定します。  
   
-- `SN_INFLAG_ADMIN_ACCESS`(0x00000004)-キャッシュが管理者特権を持つユーザーのみにアクセスを許可することを指定します。  
+- `SN_INFLAG_ADMIN_ACCESS` (0x00000004)-キャッシュが管理者特権を持つユーザーにのみアクセスを許可することを指定します。  
   
-- `SN_INFLAG_USER_ACCESS`(0x00000008)-現在のユーザーのみがアセンブリにアクセスできるように指定します。  
+- `SN_INFLAG_USER_ACCESS` (0x00000008)-現在のユーザーのみがアセンブリにアクセスできるように指定します。  
   
-- `SN_INFLAG_ALL_ACCESS`(0x00000010)-キャッシュがアクセス制限の保証を提供しないことを指定します。  
+- `SN_INFLAG_ALL_ACCESS` (0x00000010)-キャッシュがアクセス制限の保証を提供しないことを指定します。  
   
-- `SN_INFLAG_RUNTIME`(0x80000000)-内部デバッグ用に予約されています。  
+- `SN_INFLAG_RUNTIME` (0x80000000)-内部デバッグ用に予約されています。  
   
  `pdwOutFlags`  
  入出力厳密な名前の署名が検証されたかどうかを示すフラグ。 次の値がサポートされています。  
   
-- `SN_OUTFLAG_WAS_VERIFIED`(0x00000001)-この値は、レジストリ`false`設定によって検証が成功したことを指定するためにに設定されます。  
+- `SN_OUTFLAG_WAS_VERIFIED` (0x00000001)-この値は `false` に設定され、レジストリ設定によって検証が成功したことを指定します。  
   
 ## <a name="return-value"></a>戻り値  
- `true`検証が成功した場合は、それ以外`false`の場合は。  
+ 検証が成功した場合は `true` します。それ以外の場合は、`false`ます。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** StrongName  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

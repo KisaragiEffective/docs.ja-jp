@@ -1,13 +1,13 @@
 ---
-title: ADO.NET アプリケーションのセキュリティ保護
+title: アプリケーションの保護
 ms.date: 03/30/2017
 ms.assetid: 005a1d43-6ee5-471e-ad98-1d30a44d49d5
-ms.openlocfilehash: 725ba568f3cd482991359237f4fc42b7da99bc0a
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: c1bdf4329665e4d29a47c26fb7dba8eb41c1cc3a
+ms.sourcegitcommit: 19014f9c081ca2ff19652ca12503828db8239d48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70795063"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76980029"
 ---
 # <a name="securing-adonet-applications"></a>ADO.NET アプリケーションのセキュリティ保護
 ユーザー入力の検証を怠るなど、コーディング時に陥りやすい基本的なミスを防ぐだけでは、安全な ADO.NET アプリケーションを作成することはできません。 データにアクセスするアプリケーションには、機密データの取得、操作、破壊など、攻撃者に攻略される可能性がある障害点が多数あります。 そのため、アプリケーションの設計フェーズで行う脅威のモデリングのプロセスから、アプリケーションの最終的な配置と継続的な保守に至るまで、セキュリティのすべての側面を理解することが重要です。  
@@ -32,7 +32,7 @@ ms.locfileid: "70795063"
  [プライバシーとデータ セキュリティ](privacy-and-data-security.md)  
  ADO.NET アプリケーションの暗号化オプションについて説明します。  
   
-## <a name="related-sections"></a>関連項目  
+## <a name="related-sections"></a>関連セクション  
  [SQL Server のセキュリティ](./sql/sql-server-security.md)  
  開発者の観点から SQL Server のセキュリティ機能について説明します。  
   
@@ -48,7 +48,7 @@ ms.locfileid: "70795063"
  [セキュリティで保護されたアプリケーションを作成するためのリソース](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2010/ms165101(v=vs.100))  
  安全なアプリケーションを作成するためのトピックへのリンク集です。  
   
- [セキュリティ参考文献](/visualstudio/ide/security-bibliography)  
+ [セキュリティ参考文献](/visualstudio/ide/securing-applications)  
  オンラインまたは出版物として提供されている外部リソースへのリンク集です。  
   
 ## <a name="see-also"></a>関連項目

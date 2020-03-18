@@ -1,5 +1,5 @@
 ---
-title: Visual Studio で WPF アプリの System.windows.controls.inkcanvas> を作成する
+title: Visual Studio での System.windows.controls.inkcanvas> の作成
 ms.date: 08/15/2018
 dev_langs:
 - csharp
@@ -9,18 +9,18 @@ helpviewer_keywords:
 - XAML [WPF], procedural code in lieu of
 - InkCanvas (WPF)
 ms.assetid: 760332dd-594a-475d-865b-01659db8cab7
-ms.openlocfilehash: ebbf25037921e7802b2bfcb6ffa562d16a849ffa
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: b8087d6db04f7024b9ee48f28002bee04045a14b
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920251"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76737888"
 ---
 # <a name="get-started-with-ink-in-wpf"></a>WPF でインクを使ってみる
 
 Windows Presentation Foundation (WPF) には、デジタルインクをアプリに簡単に組み込むことができるインク機能があります。
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>前提条件
 
 次の例を使用するには、最初に[Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)をインストールします。 また、基本的な WPF アプリの記述方法を理解するのにも役立ちます。 WPF の概要については、「[チュートリアル: 初めての wpf デスクトップアプリケーション](../getting-started/walkthrough-my-first-wpf-desktop-application.md)」を参照してください。
 
@@ -108,7 +108,7 @@ XAML を使用すると、ユーザーインターフェイスを簡単にデザ
 
 1. **F5**キーを押してアプリケーションをビルドします。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [デジタル インク](digital-ink.md)
 - [インクの収集](collecting-ink.md)

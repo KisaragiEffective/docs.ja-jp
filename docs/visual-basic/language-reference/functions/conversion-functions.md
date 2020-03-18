@@ -1,5 +1,5 @@
 ---
-title: 変換関数 (Visual Basic)
+title: 変換関数
 ms.date: 07/20/2015
 helpviewer_keywords:
 - conversions [Visual Basic], conversion functions
@@ -12,12 +12,12 @@ helpviewer_keywords:
 - functions [Visual Basic], conversion
 - dates [Visual Basic], converting
 ms.assetid: 8a8fb553-a8ac-424e-8103-26eea25eaa71
-ms.openlocfilehash: ef85f695de9ba11fbab20bad82fa6b28663f9e27
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: ea3c170b01b3d7b745a66fcf9fdd3c5aac15fd89
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72523853"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74348104"
 ---
 # <a name="conversion-functions-visual-basic"></a>変換関数 (Visual Basic)
 
@@ -50,5 +50,5 @@ ms.locfileid: "72523853"
 
 ## <a name="see-also"></a>関連項目
 
-- [データ型変換関数](../../../visual-basic/language-reference/functions/type-conversion-functions.md)
+- [CString](../../../visual-basic/language-reference/functions/type-conversion-functions.md)
 - [データ型の変換](../../../visual-basic/programming-guide/concepts/linq/converting-data-types.md)

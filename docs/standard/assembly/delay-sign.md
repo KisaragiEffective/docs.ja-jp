@@ -8,18 +8,16 @@ helpviewer_keywords:
 - strong-named assemblies, delaying assembly signing
 - partial assembly signing
 ms.assetid: 9d300e17-5bf1-4360-97da-2aa55efd9070
-author: rpetrusha
-ms.author: ronpet
 dev_langs:
 - csharp
 - vb
 - cpp
-ms.openlocfilehash: e7679520e246ab3eda03e6f0e0d092c7d09f1845
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 113df1ad3fc3ac1e27ebfef572494c1f15a3dbb5
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70991317"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73733161"
 ---
 # <a name="delay-sign-an-assembly"></a>アセンブリへの遅延署名
 
@@ -91,4 +89,3 @@ ms.locfileid: "70991317"
 - [アセンブリを作成する](create.md)
 - [方法: 公開キーと秘密キーのキー ペアを作成する](create-public-private-key-pair.md)
 - [Sn.exe (厳密名ツール)](../../framework/tools/sn-exe-strong-name-tool.md)
-- [アセンブリを使用したプログラム](program.md)

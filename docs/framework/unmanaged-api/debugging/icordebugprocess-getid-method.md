@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: b0ba8453-fa7e-4c14-93e5-335409cd4a47
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9ebdf0dd2457cd10e31ff71c32b1c09d0e014431
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: ae0c23e3d48df6add8951a6d90029185a99bb323
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67765986"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128830"
 ---
 # <a name="icordebugprocessgetid-method"></a>ICorDebugProcess::GetID メソッド
-プロセスのオペレーティング システム (OS) の ID を取得します。  
+プロセスのオペレーティングシステム (OS) ID を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -35,10 +33,10 @@ HRESULT GetID([out] DWORD *pdwProcessId);
   
 ## <a name="parameters"></a>パラメーター  
  `pdwProcessId`  
- [out]プロセスの一意の ID。  
+ 入出力プロセスの一意の ID。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

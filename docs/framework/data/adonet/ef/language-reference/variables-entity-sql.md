@@ -10,8 +10,8 @@ ms.lasthandoff: 10/15/2019
 ms.locfileid: "72319199"
 ---
 # <a name="variables-entity-sql"></a>変数 (Entity SQL)
-## <a name="variable"></a>変数  
- 変数式は、現在のスコープで定義されている名前付きの式への参照です。 変数参照は、[識別子](identifiers-entity-sql.md)で定義されているように、有効な @no__t 0 識別子である必要があります。  
+## <a name="variable"></a>[Variable]  
+ 変数式は、現在のスコープで定義されている名前付きの式への参照です。 変数参照は、[識別子](identifiers-entity-sql.md)で定義されている有効な [!INCLUDE[esql](../../../../../../includes/esql-md.md)] 識別子である必要があります。  
   
  次の例は、式における変数の使用方法を示しています。 FROM 句の `c` は変数の定義です。 SELECT 句内で使用された `c` は、変数参照を表します。  
   
@@ -20,7 +20,7 @@ select c
 from LOB.customers as c  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [識別子](identifiers-entity-sql.md)
 - [パラメーター](parameters-entity-sql.md)

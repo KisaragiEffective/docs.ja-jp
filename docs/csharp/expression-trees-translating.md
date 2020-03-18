@@ -2,15 +2,16 @@
 title: 式ツリーの変換
 description: 式ツリーの各ノードにアクセスし、その式ツリーに変更を加えたコピーを構築する方法について説明します。
 ms.date: 06/20/2016
+ms.technology: csharp-advanced-concepts
 ms.assetid: b453c591-acc6-4e08-8175-97e5bc65958e
-ms.openlocfilehash: a12c4d7fe9f65d6e9598259de1504b6f9987f38e
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: f60c447d5c89aa83f85073e642e621608131ed8d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70925839"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "76115773"
 ---
-# <a name="translating-expression-trees"></a>式ツリーの変換
+# <a name="translate-expression-trees"></a>式ツリーを変換する
 
 [前回 -- 式の構築](expression-trees-building.md)
 
@@ -191,7 +192,7 @@ Computed sum: 10
 
 ## <a name="learning-more"></a>詳細情報
 
-このサンプルは、式ツリーで表されるアルゴリズムを走査し、解釈するために構築するコードのごく一部です。 式ツリーを別の言語に変換する汎用的なライブラリを構築するために必要なすべての作業の説明については、Matt Warren の[このシリーズ](https://blogs.msdn.microsoft.com/mattwar/2008/11/18/linq-building-an-iqueryable-provider-series/)を参照してください。 式ツリーに含まれる任意のコードを変換する方法について、詳しく説明されています。
+このサンプルは、式ツリーで表されるアルゴリズムを走査し、解釈するために構築するコードのごく一部です。 式ツリーを別の言語に変換する汎用的なライブラリを構築するために必要なすべての作業の説明については、Matt Warren の[このシリーズ](https://docs.microsoft.com/archive/blogs/mattwar/linq-building-an-iqueryable-provider-series)を参照してください。 式ツリーに含まれる任意のコードを変換する方法について、詳しく説明されています。
 
 式ツリーの真の力がおわかりいただけたでしょうか。
 コードのセットを確認し、そのコードに必要な変更を加え、変更されたバージョンを実行することができます。 式ツリーは不変なので、既存のツリーのコンポーネントを使用して新しいツリーを作成できます。 その結果、変更した式ツリーの作成に必要なメモリ量が最小限に抑えられます。

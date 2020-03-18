@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 0afc1197-2a5b-424f-8b82-9cb59a7e00db
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 335c25316b34f79b8d02eea5a7dd4ed7994fc754
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 841953625235406f013e9f140ad91c7b65680e47
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67780178"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76863954"
 ---
 # <a name="icorprofilerinfogetclassfromtoken-method"></a>ICorProfilerInfo::GetClassFromToken メソッド
-指定したメタデータ トークン、クラスの ID を取得します。 このメソッドは、.NET Framework version 2.0 で廃止されています。 使用[icorprofilerinfo 2::getclassfromtokenandtypeargs](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo2-getclassfromtokenandtypeargs-method.md)代わりにします。  
+メタデータトークンを指定して、クラスの ID を取得します。 このメソッドは .NET Framework バージョン2.0 では廃止されています。 代わりに[ICorProfilerInfo2:: GetClassFromTokenAndTypeArgs](icorprofilerinfo2-getclassfromtokenandtypeargs-method.md)を使用してください。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,26 +36,26 @@ HRESULT GetClassFromToken(
   
 ## <a name="parameters"></a>パラメーター  
  `moduleID`  
- [in]クラスを含むモジュールの ID。  
+ からクラスを含むモジュールの ID。  
   
  `typeDef`  
- [in]`mdTypeDef`クラスを参照するメタデータ トークン。  
+ からクラスを参照する `mdTypeDef` メタデータトークン。  
   
  `cTypeArgs`  
- [out]クラス ID へのポインター  
+ 入出力クラス ID へのポインター。  
   
-## <a name="remarks"></a>Remarks  
- このメソッドは廃止されています。代わりに、`ICorProfilerInfo2::GetClassFromTokenAndTypeArgs`すべての種類。  
+## <a name="remarks"></a>コメント  
+ このメソッドは互換性のために残されています。代わりに、すべての型に対して `ICorProfilerInfo2::GetClassFromTokenAndTypeArgs` を使用します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
- **.NET framework のバージョン:** 1.0, 1.1  
+ **.NET Framework のバージョン:** 1.0、1.1  
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerInfo インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-interface.md)
+- [ICorProfilerInfo インターフェイス](icorprofilerinfo-interface.md)

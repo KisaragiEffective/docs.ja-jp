@@ -3,10 +3,10 @@ title: IPv6 のルーティング
 ms.date: 03/30/2017
 ms.assetid: c98731b4-b542-46a2-9947-1cea63c186b2
 ms.openlocfilehash: 93300107710164d755d578633b7fa6651f984987
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "71047786"
 ---
 # <a name="ipv6-routing"></a>IPv6 のルーティング
@@ -33,7 +33,7 @@ ms.locfileid: "71047786"
   
 - リダイレクト。 送信元ノード向けに特定の宛先へのより良い次ホップ アドレスを示すために、ルーターによって送信されます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [インターネット プロトコル バージョン 6](internet-protocol-version-6.md)
 - [ソケット](sockets.md)

@@ -6,14 +6,12 @@ helpviewer_keywords:
 - strings [.NET Framework], manipulating
 - manipulating strings
 ms.assetid: d4568ff3-9f83-4549-acd8-47aec2194ac0
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ca4e24cb882daf7efd14da83011d50d05a85232b
-ms.sourcegitcommit: 3d5d33f384eeba41b2dff79d096f47ccc8d8f03d
+ms.openlocfilehash: 5188c4f1099aad486e921dfba0c6c4216613ba4e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33567589"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73135228"
 ---
 # <a name="manipulating-strings-in-net"></a>.NET における文字列の操作
 .NET では、文字列を効率的に作成、比較、変更できるだけでなく、検索、削除、およびテキスト パターンを置換するために、大量のテキストとデータをすばやく解析できる広範囲のルーチンのセットを提供しています。  
@@ -35,5 +33,5 @@ ms.locfileid: "33567589"
  [型の書式設定](../../../docs/standard/base-types/formatting-types.md)  
  基本クラス ライブラリを使用して書式設定を実装する方法、数値型を書式設定する方法、文字列型を書式設定する方法、特定のカルチャに対して書式設定する方法を提供します。  
   
- [Parsing Strings](../../../docs/standard/base-types/parsing-strings.md)  
+ [文字列の解析](../../../docs/standard/base-types/parsing-strings.md)  
  オブジェクトの文字列表現によって指定された値にオブジェクトを初期化する方法について説明します。 解析は書式設定の逆の操作です。

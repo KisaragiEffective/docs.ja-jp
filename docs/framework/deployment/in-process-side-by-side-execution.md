@@ -5,14 +5,12 @@ helpviewer_keywords:
 - in-process side-by-side execution
 - side-by-side execution, in-process
 ms.assetid: 18019342-a810-4986-8ec2-b933a17c2267
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 2a33d3c4216ed8c5d79aef4017c6b9256fc1ad7c
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 5ca2f03576946a23b3133bbe7532d46c4ad758ab
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052099"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79181660"
 ---
 # <a name="in-process-side-by-side-execution"></a>インプロセスの side-by-side 実行
 .NET Framework 4 以降では、インプロセスの side-by-side ホスティングを使用して、1 つのプロセスで複数のバージョンの共通言語ランタイム (CLR) を実行できます。 既定では、マネージド COM コンポーネントは、プロセスに読み込まれている .NET Framework のバージョンに関係なく、コンポーネントがビルドされた .NET Framework のバージョンで実行されます。  
@@ -40,14 +38,14 @@ ms.locfileid: "71052099"
   
     |.NET Framework のバージョン|1.1|2.0 - 3.5|4|  
     |----------------------------|---------|----------------|-------|  
-    |1.1|利用不可|×|はい|  
-    |2.0 - 3.5|×|利用不可|はい|  
-    |4|[はい]|はい|利用不可|  
+    |1.1|利用不可|いいえ|はい|  
+    |2.0 - 3.5|いいえ|利用不可|はい|  
+    |4|はい|はい|利用不可|  
   
 > [!NOTE]
 > .NET Framework バージョン 3.0 および 3.5 はバージョン 2.0 に対して増分的にビルドされているため、side-by-side で実行する必要はありません。 これらは、本質的に同じバージョンです。  
   
-<a name="scenarios"></a>   
+<a name="scenarios"></a>
 ## <a name="common-side-by-side-hosting-scenarios"></a>side-by-side ホスティングの一般的なシナリオ  
   
 - **シナリオ 1 :** 以前のバージョンの .NET Framework でビルドされた COM コンポーネントを使うネイティブ アプリケーション。  
@@ -153,7 +151,7 @@ int _tmain(int argc, _TCHAR* argv[])
     IDispatch* pPrintInfo;  
     pUnk->QueryInterface(IID_IDispatch, (void**)&pPrintInfo);  
     OLECHAR FAR* szMethod[1];  
-    szMethod[0]=OLESTR("PrintInfo");   
+    szMethod[0]=OLESTR("PrintInfo");
     hr = pPrintInfo->GetIDsOfNames(IID_NULL,szMethod, 1, LOCALE_SYSTEM_DEFAULT, &dispid);  
     DISPPARAMS dispparams;  
     dispparams.cNamedArgs = 0;  

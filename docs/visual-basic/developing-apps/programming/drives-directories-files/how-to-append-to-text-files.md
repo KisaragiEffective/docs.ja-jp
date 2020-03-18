@@ -1,20 +1,21 @@
 ---
-title: '方法: Visual Basic でテキスト ファイルに追記する'
+title: '方法 : テキスト ファイルに追記する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - I/O [Visual Basic], appending to files
 - I/O [Visual Basic], My.Computer.FileSystem.WriteAllText method
 - I/O [Visual Basic], WriteAllText method
 ms.assetid: bbbd7fb5-f169-41a9-b53f-520ea9613913
-ms.openlocfilehash: e855293ac3636049520a85abdf685091d437bb60
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 97bcb5c511452e418df010f12d4b63f04251d021
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64628905"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74348870"
 ---
-# <a name="how-to-append-to-text-files-in-visual-basic"></a>方法: Visual Basic でテキスト ファイルに追記する
-`append` パラメーターが `True` に設定されるように指定して、<xref:Microsoft.VisualBasic.FileIO.FileSystem.WriteAllText%2A> メソッドを使いテキスト ファイルに追加できます。  
+# <a name="how-to-append-to-text-files-in-visual-basic"></a>方法 : Visual Basic でテキスト ファイルに追記する
+
+<xref:Microsoft.VisualBasic.FileIO.FileSystem.WriteAllText%2A> パラメーターが `append` に設定されるように指定して、`True` メソッドを使いテキスト ファイルに追加できます。  
   
 ### <a name="to-append-to-a-text-file"></a>テキスト ファイルに追加するには  
   
@@ -25,6 +26,7 @@ ms.locfileid: "64628905"
      [!code-vb[VbFileIOWrite#6](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbFileIOWrite/VB/Class1.vb#6)]  
   
 ## <a name="robust-programming"></a>信頼性の高いプログラミング  
+
  次の条件を満たす場合は、例外が発生する可能性があります。  
   
 - パスが正しくない。長さが 0 の文字列である、空白だけが含まれている、使用できない文字が含まれている、デバイス パスである (先頭が \\\\.\\)、のいずれかの理由が考えられる (<xref:System.ArgumentException>)。  
@@ -41,7 +43,7 @@ ms.locfileid: "64628905"
   
 - ユーザーがパスを参照するのに必要なアクセス許可がない (<xref:System.Security.SecurityException>)  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:Microsoft.VisualBasic.FileIO.FileSystem.WriteAllText%2A>
 - <xref:Microsoft.VisualBasic.FileIO.FileSystem>

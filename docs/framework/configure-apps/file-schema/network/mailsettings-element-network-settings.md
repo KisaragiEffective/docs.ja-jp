@@ -8,20 +8,20 @@ helpviewer_keywords:
 - mailSettings element
 - <mailSettings> element
 ms.assetid: 54f0f153-17e5-4f49-afdc-deadb940c9c1
-ms.openlocfilehash: fb4c8844ed3eb13af483c214d659090c0c563c33
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: 4e8bf23ce39edadf80f019315c690b597b3d7361
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71698078"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089229"
 ---
 # <a name="mailsettings-element-network-settings"></a>\<mailSettings > 要素 (ネットワーク設定)
 電子メールの送信オプションを設定します。  
 
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **@no__t 47 >** ](system-net-element-network-settings.md)  
-&nbsp; @ no__t @ no__t-2 @ no__t-3 **\<mailSettings >**  
-  
+[ **\<configuration>** ](../configuration-element.md)\
+&nbsp;&nbsp;[ **\<system. net >** ](system-net-element-network-settings.md)\
+&nbsp;&nbsp;&nbsp;&nbsp; **\<mailSettings >**
+
 ## <a name="syntax"></a>構文  
   
 ```xml  
@@ -34,17 +34,17 @@ ms.locfileid: "71698078"
  以降のセクションでは、属性、子要素、および親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
- [なし] :  
+ なし。  
   
 ### <a name="child-elements"></a>子要素  
   
 |属性|説明|  
 |---------------|-----------------|  
-|[\<smtp> 要素 (ネットワーク設定)](smtp-element-network-settings.md)|簡易メール転送プロトコルのオプションを構成します。|  
+|[\<smtp > 要素 (ネットワーク設定)](smtp-element-network-settings.md)|簡易メール転送プロトコルのオプションを構成します。|  
   
 ### <a name="parent-elements"></a>親要素  
   
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |[\<system.Net> 要素 (ネットワーク設定)](system-net-element-network-settings.md)|.NET Framework がネットワークに接続する方法を指定するための設定が含まれています。|  
   

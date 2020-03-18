@@ -1,0 +1,59 @@
+- name: 概要
+  href: index.md
+- name: 接続文字列
+  href: connection-strings.md
+- name: データの種類
+  href: types.md
+- name: パラメーター
+  href: parameters.md
+- name: データベース エラー
+  displayName: 'Busy, locked, retries, timeouts'
+  href: database-errors.md
+- name: トランザクション
+  href: transactions.md
+- name: バッチ
+  href: batching.md
+- name: メタデータ
+  href: metadata.md
+- name: SQLite の機能
+  items:
+    - name: インメモリ データベース
+      href: in-memory-databases.md
+    - name: 暗号化
+      href: encryption.md
+    - name: オンライン バックアップ
+      href: backup.md
+    - name: ユーザー定義関数
+      displayName: UDFs
+      href: user-defined-functions.md
+    - name: カスタム SQLite のバージョン
+      href: custom-versions.md
+    - name: 照合順序
+      href: collation.md
+    - name: BLOB の I/O
+      displayName: Streams
+      href: blob-io.md
+    - name: 相互運用性
+      href: interop.md
+    - name: 拡張機能
+      href: extensions.md
+- name: 制限事項
+  items:
+    - name: ADO.NET
+      href: adonet-limitations.md
+    - name: Async
+      href: async.md
+    - name: 一括挿入
+      href: bulk-insert.md
+    - name: Entity Framework Core
+      href: /ef/core/providers/sqlite/limitations
+    - name: Dapper
+      href: dapper-limitations.md
+    - name: System.Data.SQLite
+      href: compare.md
+    - name: Xamarin
+      href: xamarin.md
+- name: API リファレンス >>
+  href: /dotnet/api/?view=msdata-sqlite-3.0
+- name: SQL の構文 >>
+  href: 'https://www.sqlite.org/lang.html'

@@ -13,7 +13,7 @@ ms.lasthandoff: 10/15/2019
 ms.locfileid: "72320689"
 ---
 # <a name="configuring-client-behaviors"></a>クライアントの動作の構成
-Windows Communication Foundation (WCF) では、2つの方法で動作を構成します。動作構成は、クライアントアプリケーション構成ファイルの @no__t 0 セクションで定義されるか、呼び出し元アプリケーションでプログラムによって定義されます。 このトピックでは、両方の方法について説明します。  
+Windows Communication Foundation (WCF) では、2つの方法で動作を構成します。動作構成は、クライアントアプリケーション構成ファイルの `<behavior>` セクションで定義するか、呼び出し元アプリケーションでプログラムによって定義されます。 このトピックでは、両方の方法について説明します。  
   
  構成ファイルを使用する場合、動作の構成には、構成設定の名前付きコレクションがあります。 各動作の構成には、一意の名前を指定する必要があります。 この文字列をエンドポイントの構成の `behaviorConfiguration` 属性で使用し、エンドポイントと動作を関連付けます。  
   
@@ -43,7 +43,7 @@ Windows Communication Foundation (WCF) では、2つの方法で動作を構成�
 ```  
   
 ## <a name="using-behaviors-programmatically"></a>プログラムによる動作の使用  
- また、クライアントを開く前に、Windows Communication Foundation (WCF) クライアントオブジェクトまたはクライアントチャネルファクトリオブジェクトで適切な `Behaviors` プロパティを見つけて、動作をプログラムによって構成または挿入することもできます。  
+ また、クライアントを開く前に、Windows Communication Foundation (WCF) クライアントオブジェクトまたはクライアントチャネルファクトリオブジェクトで適切な `Behaviors` プロパティを見つけることで、動作をプログラムによって構成または挿入することもできます。  
   
 ## <a name="example"></a>例  
  次のコード例は、チャネル オブジェクトの作成前に、<xref:System.ServiceModel.Description.ServiceEndpoint.Behaviors%2A> プロパティから返される <xref:System.ServiceModel.Description.ServiceEndpoint> 上の <xref:System.ServiceModel.ChannelFactory.Endpoint%2A> プロパティにアクセスすることで、プログラムでクライアント動作が挿入される方法を示します。  
@@ -51,6 +51,6 @@ Windows Communication Foundation (WCF) では、2つの方法で動作を構成�
  [!code-csharp[ChannelFactoryBehaviors#10](../../../samples/snippets/csharp/VS_Snippets_CFX/channelfactorybehaviors/cs/client.cs#10)]
  [!code-vb[ChannelFactoryBehaviors#10](../../../samples/snippets/visualbasic/VS_Snippets_CFX/channelfactorybehaviors/vb/client.vb#10)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [\< の動作 >](../configure-apps/file-schema/wcf/behaviors.md)
+- [\<behaviors>](../configure-apps/file-schema/wcf/behaviors.md)

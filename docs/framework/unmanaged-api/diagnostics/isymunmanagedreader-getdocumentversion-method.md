@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: a51f1f64-e084-44c5-830c-2222da5a6bbf
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: efe4d28d207625f00634087b862d76c001518c8d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 3bc578be680951a1d41c92fb2169c860882b2e31
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777026"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74448309"
 ---
 # <a name="isymunmanagedreadergetdocumentversion-method"></a>ISymUnmanagedReader::GetDocumentVersion メソッド
-指定されたドキュメントの指定したバージョンを取得します。 ドキュメントのバージョンが 1 から始まりを使用して、ドキュメントが更新されるたびに増分されますが、 [UpdateSymbolStore](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-updatesymbolstore-method.md)メソッド。 場合、`pbCurrent`パラメーターが`true`、これは、ドキュメントの最新バージョンです。  
+指定したドキュメントの指定したバージョンを取得します。 ドキュメントのバージョンは1から始まり、更新される[たびに増分](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-updatesymbolstore-method.md)されます。 `pbCurrent` パラメーターが `true`の場合、これはドキュメントの最新バージョンです。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,20 +36,20 @@ HRESULT GetDocumentVersion (
   
 ## <a name="parameters"></a>パラメーター  
  `pDoc`  
- [in]指定されたドキュメントです。  
+ から指定されたドキュメント。  
   
  `version`  
- [out]指定されたドキュメントのバージョンを受け取る変数へのポインター。  
+ 入出力指定されたドキュメントのバージョンを受け取る変数へのポインター。  
   
  `pbCurrent`  
- [out]受け取る変数へのポインター`true`場合、これは、ドキュメントの最新バージョンまたは`false`最新のバージョンでない場合。  
+ 入出力ドキュメントの最新バージョンである場合は `true` を受け取る変数へのポインター。最新バージョンでない場合は `false`。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。それ以外の場合、E_FAIL またはその他のエラー コード。  
+ メソッドが成功した場合は S_OK。それ以外の場合は、E_FAIL またはその他のエラーコードを指定します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl, CorSym.h  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** CorSym .idl、CorSym .h  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ISymUnmanagedReader インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-interface.md)

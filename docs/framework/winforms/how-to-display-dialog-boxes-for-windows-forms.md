@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームのダイアログ ボックスを表示する'
+title: '方法: ダイアログボックスを表示する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -11,21 +11,21 @@ helpviewer_keywords:
 - Windows Forms, calling one form from another
 - dialog boxes [Windows Forms], displaying for Windows Forms
 ms.assetid: aaac1b38-c651-495a-8d3d-5a9bfb32fee3
-ms.openlocfilehash: b99f2273dae88faf86448da6e1d2986a83803abf
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: dd04a06eaa0dd7583ef2f72edb4cffa99aaaa60c
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61802584"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76739462"
 ---
-# <a name="how-to-display-dialog-boxes-for-windows-forms"></a>方法: Windows フォームのダイアログ ボックスを表示する
-同様に、アプリケーションでその他の形式を表示するには、ダイアログ ボックスを表示します。 スタートアップ フォームは、アプリケーションの実行時に自動的に読み込みます。 2 番目のフォームまたはダイアログ ボックスをアプリケーションで表示するために、読み込む、表示するコードを記述します。 同様に、フォームまたはダイアログ ボックスを非アンロードしたり非表示にするコードを記述します。  
+# <a name="how-to-display-dialog-boxes-for-windows-forms"></a>方法 : Windows フォームのダイアログ ボックスを表示する
+アプリケーションで他のフォームを表示する場合と同じ方法でダイアログボックスを表示します。 スタートアップフォームは、アプリケーションの実行時に自動的に読み込まれます。 アプリケーションに2つ目のフォームまたはダイアログボックスが表示されるようにするには、それを読み込んで表示するためのコードを記述します。 同様に、フォームまたはダイアログボックスが表示されないようにするには、アンロードまたは非表示にするコードを記述します。  
   
-### <a name="to-display-a-dialog-box"></a>ダイアログ ボックスを表示するには  
+### <a name="to-display-a-dialog-box"></a>ダイアログボックスを表示するには  
   
-1. ダイアログ ボックスを開くイベント ハンドラーに移動します。 これは、ボタンがクリックされたときに、メニュー コマンドが選択した場合、または他のイベントが発生したときに発生することができます。  
+1. ダイアログボックスを開くイベントハンドラーに移動します。 これは、メニューコマンドが選択されている場合、ボタンがクリックされた場合、または他のイベントが発生した場合に発生する可能性があります。  
   
-2. イベント ハンドラーでは、ダイアログ ボックスを開くコードを追加します。 この例では、ボタン クリック イベントを使用して、ダイアログ ボックスを表示します。  
+2. イベントハンドラーで、ダイアログボックスを開くためのコードを追加します。 この例では、ボタンクリックイベントを使用してダイアログボックスを表示しています。  
   
     ```vb  
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click  

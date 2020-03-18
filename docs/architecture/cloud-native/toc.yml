@@ -44,12 +44,16 @@
         - name: サービス メッシュ通信インフラストラクチャ
           href: service-mesh-communication-infrastructure.md
     - name: 分散データ
-      href: distributed-data.md
+      href: null
       items:
-        - name: クラウドネイティブ データ パターン
-          href: data-patterns.md
-        - name: Azure のデータ ストレージ
-          href: azure-data-storage.md
+        - name: マイクロサービスごとのデータベース
+          href: database-per-microservice.md
+        - name: リレーショナル データ ソースとNoSQL データ
+          href: relational-vs-nosql-data.md
+        - name: クラウド ネイティブのアプリケーションでのキャッシュ
+          href: azure-caching.md
+        - name: Azure での Elasticsearch
+          href: elastic-search-in-azure.md
     - name: クラウドネイティブの回復性
       href: resiliency.md
       items:

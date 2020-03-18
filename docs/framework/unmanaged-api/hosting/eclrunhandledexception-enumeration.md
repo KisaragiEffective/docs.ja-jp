@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: d231044e-2b53-4836-93f9-8117ff0e5c3a
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ba0c2ea7733f098b7fac95f51b5eb16d083174e8
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 302db0d029b3811d151473323a7a60bd16a00ec1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779368"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73131232"
 ---
 # <a name="eclrunhandledexception-enumeration"></a>EClrUnhandledException 列挙型
-ユーザー コードでハンドルされない例外を管理するためのオプションについて説明します。  
+ユーザーコードで処理されない例外を管理するために使用できるオプションについて説明します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,18 +37,18 @@ typedef enum {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`eRuntimeDeterminedPolicy`|既定の動作が発生したことを指定します。 プロセスは破棄されます。|  
-|`eHostDeterminedPolicy`|共通言語ランタイム (CLR) はハンドルされない例外は無視され、により、さらにアクションを決定するホストを指定します。|  
+|`eRuntimeDeterminedPolicy`|既定の動作を実行することを指定します。 プロセスが破棄されます。|  
+|`eHostDeterminedPolicy`|共通言語ランタイム (CLR) が未処理の例外を無視し、ホストがそれ以上のアクションを決定できるように指定します。|  
   
 ## <a name="remarks"></a>Remarks  
- CLR は、以前のバージョンのように動作を指定するには、使用、`eHostDeterminedPolicy`メンバー。  
+ CLR が以前のバージョンと同じように動作するように指定するには、`eHostDeterminedPolicy` メンバーを使用します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

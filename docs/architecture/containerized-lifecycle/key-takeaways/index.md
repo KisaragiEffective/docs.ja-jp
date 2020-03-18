@@ -3,10 +3,10 @@ title: 重要な習得事項
 description: このガイドの重要な習得事項を確認します。
 ms.date: 02/15/2019
 ms.openlocfilehash: d28739a87e5c7c7e6c9304c36e1ec2a73cf0d0db
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "70295037"
 ---
 # <a name="key-takeaways"></a>重要な習得事項
@@ -24,4 +24,4 @@ ms.locfileid: "70295037"
 - Azure DevOps Services では、CI/CD パイプラインから Docker 環境にデプロイすることで、DevOps 環境が大幅に簡素化されます。 このことは単純な Docker 環境のみならず、Azure を基礎とする高度なマイクロサービスやコンテナー オーケストレーターにも当てはまります。
 
 >[!div class="step-by-step"]
->[前へ](../run-manage-monitor-docker-environments/monitor-containerized-application-services.md)
+>[[戻る]](../run-manage-monitor-docker-environments/monitor-containerized-application-services.md)

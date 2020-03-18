@@ -3,11 +3,11 @@ title: 共通属性 (C#)
 ms.date: 07/20/2015
 ms.assetid: 785a0526-6c0e-4599-8c61-ccdc88dd9965
 ms.openlocfilehash: 7988dad410c6e51869ec9d7e40d94e874443a5f8
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69595462"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398383"
 ---
 # <a name="common-attributes-c"></a>共通属性 (C#)
 このトピックでは、C# プログラムで最もよく使用される属性について説明します。  
@@ -73,7 +73,7 @@ ms.locfileid: "69595462"
 |<xref:System.Reflection.AssemblyDefaultAliasAttribute>|アセンブリ マニフェストのわかりやすい既定の別名を定義します。|  
   
 ## <a name="Obsolete"></a> Obsolete 属性  
- `Obsolete` 属性は、使用が推奨されなくなったプログラム エンティティをマークします。 その後、非推奨の印が付いたエンティティが使用されるたびに、この属性の構成に従って警告かエラーが生成されます。 例:  
+ `Obsolete` 属性は、使用が推奨されなくなったプログラム エンティティをマークします。 その後、非推奨の印が付いたエンティティが使用されるたびに、この属性の構成に従って警告かエラーが生成されます。 次に例を示します。  
   
 ```csharp  
 [System.Obsolete("use class B")]  
@@ -151,7 +151,7 @@ static void DebugMethod()
 }  
 ```  
   
- 条件付きの印が付いたメソッドが呼び出されると、指定のプリプロセッサ シンボルの有無に従って、呼び出しの実行か省略が決定されます。 シンボルが定義されている場合は呼び出しが実行され、定義されていない場合は省略されます。 次のように、`#if…#endif` ブロック内でメソッドを囲むよりも `Conditional` を使用した方が、すっきりとして洗練されているうえ、エラーも少なくなります。  
+ 条件付きの印が付いたメソッドが呼び出されると、指定のプリプロセッサ シンボルの有無に従って、呼び出しの実行か省略が決定されます。 シンボルが定義されている場合は呼び出しが実行され、定義されていない場合は省略されます。 次のように、`Conditional` ブロック内でメソッドを囲むよりも `#if…#endif` を使用した方が、すっきりとして洗練されているうえ、エラーも少なくなります。  
   
 ```csharp  
 #if DEBUG  
@@ -221,7 +221,7 @@ class SampleClass
   
  メンバー呼び出し元情報を取得するには、省略可能なパラメーターに適用される属性を使用します。 省略可能な各パラメーターでは既定値が指定されます。 次の表は、<xref:System.Runtime.CompilerServices?displayProperty=nameWithType> 名前空間で定義されている呼び出し元情報の属性の一覧です。  
   
-|Attribute|説明|Type|  
+|Attribute|[説明]|[種類]|  
 |---|---|---|  
 |<xref:System.Runtime.CompilerServices.CallerFilePathAttribute>|呼び出し元を含むソース ファイルのフル パスです。 これはコンパイル時のパスです。|`String`|  
 |<xref:System.Runtime.CompilerServices.CallerLineNumberAttribute>|メソッドの呼び出し元であるソース ファイルの行番号。|`Integer`|  
@@ -229,11 +229,11 @@ class SampleClass
   
  呼び出し元情報属性の詳細については、「[呼び出し元情報 (C#)](../caller-information.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Reflection>
 - <xref:System.Attribute>
-- [C# プログラミング ガイド](../../index.md)
+- [C# プログラミングガイド](../../index.md)
 - [属性](../../../../standard/attributes/index.md)
 - [リフレクション (C#)](../reflection.md)
 - [リフレクションを使用した属性へのアクセス (C#)](./accessing-attributes-by-using-reflection.md)

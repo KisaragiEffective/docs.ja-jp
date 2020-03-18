@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: dbc498a8-ba3f-42f2-bdd9-b623c77a1019
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3c1b90390689e709ee131935bd6417fa6b273eb2
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 54a5fb50a0177fe9886582c112f16ce871ea9df4
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67769984"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76792059"
 ---
 # <a name="icordebugregisterset2getregisters-method"></a>ICorDebugRegisterSet2::GetRegisters メソッド
-各レジスタの値を取得します (コードが現在実行されているプラットフォーム) の特定のビット マスクによって指定されています。  
+指定されたビットマスクによって指定された各レジスタの値を取得します (コードが現在実行されているプラットフォーム用)。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,28 +38,28 @@ HRESULT GetRegisters (
   
 ## <a name="parameters"></a>パラメーター  
  `maskCount`  
- [in]サイズ (バイト単位) の`mask`配列。  
+ から`mask` 配列のサイズ (バイト単位)。  
   
  `mask`  
- [in]バイトの配列を各ビットは、レジスタに対応します。 ビットが 1 の場合は、対応するレジスタの値が取得されます。  
+ からバイト配列。各ビットはレジスタに対応します。 ビットが1の場合は、対応するレジスタの値が取得されます。  
   
  `regCount`  
- [in]取得するレジスタの値の数。  
+ から取得するレジスタ値の数。  
   
  `regBuffer`  
- [out]配列の`CORDB_REGISTER`オブジェクト、レジスタの値を受信します。  
+ 入出力`CORDB_REGISTER` オブジェクトの配列。各オブジェクトは、レジスタの値を受け取ります。  
   
-## <a name="remarks"></a>Remarks  
- `GetRegisters`マスクによって指定されているレジスタの値の配列を返します。 配列にマスク ビットが設定されていないレジスタの値が含まれていません。 したがってのサイズ、`regBuffer`配列は、マスク内の 1 の数と同じである必要があります。 場合の値`regCount`のセットからマスク、大きい番号のレジスタの値で指定したレジスタの数は切り捨てられますが、小さすぎます。 場合`regCount`が大きすぎる、未使用`regBuffer`要素は変更できません。  
+## <a name="remarks"></a>コメント  
+ `GetRegisters` メソッドは、マスクによって指定されたレジスタから値の配列を返します。 配列に、マスクビットが設定されていないレジスタの値が含まれていません。 したがって、`regBuffer` 配列のサイズは、マスク内の1の数と同じである必要があります。 `regCount` の値が、マスクによって示されるレジスタの数に対して小さすぎる場合、より上位の番号付きレジスタの値はセットから切り捨てられます。 `regCount` が大きすぎる場合、未使用の `regBuffer` 要素は変更されません。  
   
- 使用できないレジスタがマスクによって示される場合、は、そのレジスタの中間の値が返されます。  
+ 使用できないレジスタがマスクによって示されている場合、そのレジスタに対して不確定な値が返されます。  
   
- `ICorDebugRegisterSet2::GetRegisters`メソッドがプラットフォーム 64 を超えるレジスタがあるに必要です。 たとえば、IA64 が 128 の汎用レジスタと 128 の浮動小数点レジスタ、64 ビット マスクのビットを超える必要があります。  
+ `ICorDebugRegisterSet2::GetRegisters` メソッドは、64を超えるレジスタを持つプラットフォームに必要です。 たとえば、IA64 には128汎用レジスタと128浮動小数点レジスタがあるため、ビットマスクには64ビット以上のビットが必要です。  
   
- 同様に、x86 などのプラットフォームでは、64 を超えるレジスタを持たない場合、`GetRegisters`メソッドは実際には、バイト、変換、`mask`のバイト配列、`ULONG64`号餧ェヒェマル、 [ICorDebugRegisterSet:。GetRegisters](../../../../docs/framework/unmanaged-api/debugging/icordebugregisterset-getregisters-method.md)メソッド、`ULONG64`マスク。  
+ X86 などのプラットフォームの場合と同様に、64以上のレジスタがない場合、`GetRegisters` メソッドは実際には `mask` バイト配列のバイトを `ULONG64` に変換し、次に、`ULONG64` マスクを受け取る、"、 [" のよう](icordebugregisterset-getregisters-method.md)に入力します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -71,5 +69,5 @@ HRESULT GetRegisters (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugRegisterSet2 インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugregisterset2-interface.md)
-- [ICorDebugRegisterSet インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugregisterset-interface.md)
+- [ICorDebugRegisterSet2 インターフェイス](icordebugregisterset2-interface.md)
+- [ICorDebugRegisterSet インターフェイス](icordebugregisterset-interface.md)

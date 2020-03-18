@@ -11,12 +11,12 @@ api_type:
 - COM
 author: davmason
 ms.author: davmason
-ms.openlocfilehash: 01aa1df27dccf41060083333588e04bc5ea88520
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: 50b4de2de3e74a5835ee5706999892735269d4c2
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70855934"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76861737"
 ---
 # <a name="icorprofilerinfo8isfunctiondynamic-method"></a>ICorProfilerInfo8:: IsFunctionDynamic メソッド
 
@@ -29,28 +29,30 @@ HRESULT IsFunctionDynamic( [in]  FunctionID  functionId,
                            [out] BOOL        *isDynamic);
 ```
 
-#### <a name="parameters"></a>パラメーター
+## <a name="parameters"></a>パラメーター
 
-`functionId` \
-から 対象の関数を識別する。`FunctionID`
+- `functionId`
 
-`isDynamic` \
-入出力関数にメタデータ`BOOL`がないかどうかを示す値を格納するへのポインター。
+  \[] には、対象の関数を識別する `FunctionID` を指定します。
 
-## <a name="remarks"></a>Remarks
+- `isDynamic`
 
-関数は、メタデータがない場合は動的と見なされます。 IL スタブや LCG メソッドなどの特定のメソッドには、IMetaDataImport Api を使用して取得できるメタデータが関連付けられていません。 これらのメソッドは、命令ポインターを通じて、または[ICorProfilerCallback::D ynamicmethodjitcompilationstarted](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback8-dynamicmethodjitcompilationstarted-method.md)をリッスンすることによって、プロファイラーによって検出されます。
+  \[out] 関数にメタデータが含まれていないかどうかを示す値を格納する `BOOL` へのポインター。
 
-## <a name="requirements"></a>必要条件
+## <a name="remarks"></a>コメント
 
-**・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。
+関数は、メタデータがない場合は動的と見なされます。 IL スタブや LCG メソッドなどの特定のメソッドには、IMetaDataImport Api を使用して取得できるメタデータが関連付けられていません。 これらのメソッドは、命令ポインターを通じて、または[ICorProfilerCallback::D ynamicmethodjitcompilationstarted](icorprofilercallback8-dynamicmethodjitcompilationstarted-method.md)をリッスンすることによって、プロファイラーによって検出されます。
 
-**ヘッダー:** Corprof.idl、Corprof.idl
+## <a name="requirements"></a>要件
 
-**ライブラリ**CorGuids .lib
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。
+
+**ヘッダー** : CorProf.idl、CorProf.h
+
+**ライブラリ:** CorGuids.lib
 
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v472plus](../../../../includes/net-current-v472plus.md)]
 
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerInfo8 インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo8-interface.md)
+- [ICorProfilerInfo8 インターフェイス](icorprofilerinfo8-interface.md)

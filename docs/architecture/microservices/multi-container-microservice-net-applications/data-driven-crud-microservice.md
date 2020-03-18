@@ -1,13 +1,13 @@
 ---
 title: 単純なデータ ドリブン CRUD マイクロサービスの作成
 description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | マイクロサービス アプリケーションのコンテキストでの単純な CRUD (データ ドリブン) マイクロサービスの作成を理解する。
-ms.date: 01/07/2019
-ms.openlocfilehash: 74d9022ffa70ade6ae6e7d405403524dfbc2145a
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.date: 01/30/2020
+ms.openlocfilehash: b72d7defed81e57e2971c5e2b53df2d86b2dc947
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039911"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77502357"
 ---
 # <a name="creating-a-simple-data-driven-crud-microservice"></a>単純なデータ ドリブン CRUD マイクロサービスの作成
 
@@ -17,17 +17,17 @@ ms.locfileid: "71039911"
 
 設計の観点からは、この種類のコンテナー化されたマイクロサービスはとても単純です。 おそらく、解決する問題は単純であるか、実装は概念実証のみです。
 
-![単純な CRUD マイクロサービスは内部設計パターンです。](./media/image4.png)
+![シンプルな CRUD マイクロサービスの内部設計パターンを示す図。](./media/data-driven-crud-microservice/internal-design-simple-crud-microservices.png)
 
 **図 6-4**。 単純な CRUD マイクロサービスの内部設計
 
 この種の単純なデータ ドリブン サービスの例として、eShopOnContainers サンプル アプリケーションのカタログ マイクロサービスがあります。 この種類のサービスでは、そのデータ モデル、ビジネス ロジック、データ アクセス コードのクラスを含む 1 つの ASP.NET Core Web API プロジェクト内のすべての機能が実装されます。 また、関連データは (開発/テストが目的の別のコンテナーとして) SQL Server で実行されているデータベース内に格納されますが、図 6-5 に示すように、通常の SQL Server ホストにすることもできます。
 
-![論理 Catalog マイクロサービスには、その Catalog データベースが含まれています。Docker ホストは同じ場合もそうでない場合もあります。 同じ Docker ホストにデータベースを置くことは開発の場合にお勧めしますが、運用の場合はお勧めしません。](./media/image5.png)
+![データ ドリブン/CRUD マイクロサービス コンテナーを示す図。](./media/data-driven-crud-microservice/simple-data-driven-crud-microservice.png)
 
 **図 6-5**。 単純なデータ ドリブン/CRUD マイクロサービスの設計
 
-この種のサービスを開発するときに必要なのは、[ASP.NET Core](https://docs.microsoft.com/aspnet/core/) と、データ アクセス API または [Entity Framework Core](https://docs.microsoft.com/ef/core/index) のような ORM だけです。 次のセクションで説明するように、[Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) を通じて [Swagger](https://swagger.io/) メタデータを自動的に生成して、サービスが提供する内容の説明を提供することもできます。
+前の図では、論理 Catalog マイクロサービスが示されています。そこには、その Catalog データベースが含まれており、Docker ホストは同じ場合もそうでない場合もあります。 同じ Docker ホストにデータベースを置くことは、開発には適しているかもしれませんが、運用の場合はお勧めしません。 この種のサービスを開発するときに必要なのは、[ASP.NET Core](https://docs.microsoft.com/aspnet/core/) と、データ アクセス API または [Entity Framework Core](https://docs.microsoft.com/ef/core/index) のような ORM だけです。 次のセクションで説明するように、[Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) を通じて [Swagger](https://swagger.io/) メタデータを自動的に生成して、サービスが提供する内容の説明を提供することもできます。
 
 クラウドまたはオンプレミスでデータベースをプロビジョニングしなくてもすべての依存関係を稼働させることができるので、Docker コンテナー内の SQL Server のようなデータベース サーバーの実行は開発環境に適しています。 これは、統合テストの実行時にとても便利です。 ただし運用環境では、コンテナーでデータベース サーバーを実行すると、通常は高可用性が実現されないため、このアプローチはお勧めしません。 Azure の運用環境では、Azure SQL DB、または高可用性と高スケーラビリティを提供できるその他のデータベース テクノロジを使用することをお勧めします。 たとえば、NoSQL アプローチでは、CosmosDB を選択できます。
 
@@ -37,15 +37,17 @@ ms.locfileid: "71039911"
 
 .NET Core と Visual Studio を使用して単純な CRUD マイクロサービスを実装するには、図 6-6 に示すように、まず単純な ASP.NET Core Web API プロジェクトを作成します (.NET Core で稼働するため Linux Docker ホスト上で実行できます)。
 
-![ASP.NET Core Web API プロジェクトを作成するには、最初に ASP.NET Core Web アプリケーションを選択し、次に API の種類を選択します。](./media/image6.png)
+![プロジェクトの設定が示されている Visual Studio のスクリーンショット。](./media/data-driven-crud-microservice/create-asp-net-core-web-api-project.png)
 
-**図 6-6**。 Visual Studio での ASP.NET Core Web API プロジェクトの作成
+**図 6-6**。 Visual Studio 2019 での ASP.NET Core Web API プロジェクトの作成
 
-プロジェクトを作成した後、Entity Framework API またはその他の API を使用して、他の Web API プロジェクトの場合と同様に MVC コントローラーを実装できます。 新しい Web API プロジェクトでは、そのマイクロサービスの依存関係が ASP.NET Core 自体のみにあることがわかります。 内部的には、*Microsoft.AspNetCore.All* 依存関係内で、図 6-7 に示すように Entity Framework やその他の多くの .NET Core NuGet パッケージを参照しています。
+ASP.NET Core Web API プロジェクトを作成するには、最初に ASP.NET Core Web アプリケーションを選択し、次に API の種類を選択します。 プロジェクトを作成した後、Entity Framework API またはその他の API を使用して、他の Web API プロジェクトの場合と同様に MVC コントローラーを実装できます。 新しい Web API プロジェクトでは、そのマイクロサービスの依存関係が ASP.NET Core 自体のみにあることがわかります。 内部的には、*Microsoft.AspNetCore.All* 依存関係内で、図 6-7 に示すように Entity Framework やその他の多くの .NET Core NuGet パッケージを参照しています。
 
-![API プロジェクトには Microsoft.AspNetCore.App NuGet パッケージの参照が含まれ、そのパッケージには、すべての必須パッケージの参照が含まれています。 その他のパッケージも含まれている場合があります。](./media/image8.png)
+![Catalog.Api の NuGet 依存関係が示されている VS のスクリーンショット。](./media/data-driven-crud-microservice/simple-crud-web-api-microservice-dependencies.png)
 
 **図 6-7**。 単純な CRUD Web API マイクロサービス内の依存関係
+
+API プロジェクトには Microsoft.AspNetCore.App NuGet パッケージの参照が含まれ、そのパッケージには、すべての必須パッケージの参照が含まれています。 その他のパッケージも含まれている場合があります。
 
 ### <a name="implementing-crud-web-api-services-with-entity-framework-core"></a>Entity Framework Core での CRUD Web API サービスの実装
 
@@ -118,7 +120,7 @@ public class CatalogController : ControllerBase
         ICatalogIntegrationEventService catalogIntegrationEventService)
     {
         _catalogContext = context ?? throw new ArgumentNullException(nameof(context));
-        _catalogIntegrationEventService = catalogIntegrationEventService 
+        _catalogIntegrationEventService = catalogIntegrationEventService
             ?? throw new ArgumentNullException(nameof(catalogIntegrationEventService));
 
         _settings = settings.Value;
@@ -127,12 +129,27 @@ public class CatalogController : ControllerBase
 
     // GET api/v1/[controller]/items[?pageSize=3&pageIndex=10]
     [HttpGet]
-    [Route("[action]")]
+    [Route("items")]
     [ProducesResponseType(typeof(PaginatedItemsViewModel<CatalogItem>), (int)HttpStatusCode.OK)]
-    public async Task<IActionResult> Items([FromQuery]int pageSize = 10,
-                                           [FromQuery]int pageIndex = 0)
-
+    [ProducesResponseType(typeof(IEnumerable<CatalogItem>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    public async Task<IActionResult> ItemsAsync(
+        [FromQuery]int pageSize = 10,
+        [FromQuery]int pageIndex = 0,
+        string ids = null)
     {
+        if (!string.IsNullOrEmpty(ids))
+        {
+            var items = await GetItemsByIdsAsync(ids);
+
+            if (!items.Any())
+            {
+                return BadRequest("ids value invalid. Must be comma-separated list of numbers");
+            }
+
+            return Ok(items);
+        }
+
         var totalItems = await _catalogContext.CatalogItems
             .LongCountAsync();
 
@@ -170,7 +187,7 @@ ASP.NET Core では、既定の依存関係の挿入 (DI) を使用できます�
 
 上記の `CatalogController` クラスの例では、`CatalogController()` コンストラクターを通じて `CatalogContext` 型のオブジェクトやその他のオブジェクトを挿入しています。
 
-Web API プロジェクトを設定するための重要な構成は、サービスの IoC コンテナーへの DbContext クラスの登録です。 通常この操作は、次の例で示すように `ConfigureServices()` メソッド内で `services.AddDbContext<DbContext>()` メソッドを呼び出して `Startup` クラス内で行います。
+Web API プロジェクトを設定するための重要な構成は、サービスの IoC コンテナーへの DbContext クラスの登録です。 通常、この操作は、次の**簡略化された**例に示すように、`ConfigureServices()` メソッド内で `services.AddDbContext<DbContext>()` メソッドを呼び出して `Startup` クラス内で実行します。
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -238,9 +255,9 @@ settings.json ファイルには、ConnectionString プロパティやその他�
 # docker-compose.override.yml
 
 #
-catalog.api:
+catalog-api:
   environment:
-    - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
+    - ConnectionString=Server=sqldata;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
     # Additional environment variables for this service
   ports:
     - "5101:80"
@@ -340,15 +357,15 @@ Swashbuckle は API Explorer と Swagger または [swagger-ui](https://github.c
 
 これは、優れた検出 UI で API を補完し、開発者による API の使用を支援できることを意味します。 これは自動的に生成されるため、必要なコードとメンテナンスの量がとても少なく、API の構築に専念することができます。 API Explorer の結果は、図 6-8 のようになります。
 
-![Swashbuckle で生成された Swagger UI API ドキュメントには、公開されたすべてのアクションが含まれます。](./media/image9.png)
+![eShopOContainers API を表示している Swagger API Explorer のスクリーンショット。](./media/data-driven-crud-microservice/swagger-metadata-eshoponcontainers-catalog-microservice.png)
 
 **図 6-8**。 Swagger メタデータに基づく Swashbuckle API Explorer - eShopOnContainers カタログ マイクロサービス
 
-API Explorer は、ここで最も重要なものではありません。 Swagger メタデータで自身を記述できる Web API があると、多くのプラットフォームを対象とするクライアント プロキシ クラス コード ジェネレーターなど、Swagger ベースのツールから API をシームレスに使用できます。 たとえば、前に説明したように、[AutoRest](https://github.com/Azure/AutoRest) では .NET クライアント クラスが自動的に生成されます。 ただし、API クライアント ライブラリ、サーバー スタブ、ドキュメントのコード生成を自動化できる [swagger-codegen](https://github.com/swagger-api/swagger-codegen) のようなツールも利用できます。
+Swashbuckle で生成された Swagger UI API ドキュメントには、公開されたすべてのアクションが含まれます。 API Explorer は、ここで最も重要なものではありません。 Swagger メタデータで自身を記述できる Web API があると、多くのプラットフォームを対象とするクライアント プロキシ クラス コード ジェネレーターなど、Swagger ベースのツールから API をシームレスに使用できます。 たとえば、前に説明したように、[AutoRest](https://github.com/Azure/AutoRest) では .NET クライアント クラスが自動的に生成されます。 ただし、API クライアント ライブラリ、サーバー スタブ、ドキュメントのコード生成を自動化できる [swagger-codegen](https://github.com/swagger-api/swagger-codegen) のようなツールも利用できます。
 
 現時点では、Swashbuckle は、ASP.NET Core アプリケーション用の [Swashbuckle.AspNetCore](https://www.nuget.org/packages/Swashbuckle.AspNetCore) のハイレベルのメタ パッケージ下の 5 つの内部 NuGet パッケージから構成されます。
 
-Web API プロジェクトでこれらの NuGet パッケージをインストールした後、次のコード (簡素化されています) のように、Startup クラスで Swagger を構成する必要があります。
+Web API プロジェクトでこれらの NuGet パッケージをインストールした後、次の**簡略化された**コードのように、Startup クラスで Swagger を構成する必要があります。
 
 ```csharp
 public class Startup
@@ -364,12 +381,11 @@ public class Startup
         services.AddSwaggerGen(options =>
         {
             options.DescribeAllEnumsAsStrings();
-            options.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
+            options.SwaggerDoc("v1", new OpenApiInfo
             {
                 Title = "eShopOnContainers - Catalog HTTP API",
                 Version = "v1",
-                Description = "The Catalog Microservice HTTP API. This is a Data-Driven/CRUD microservice sample",
-                TermsOfService = "Terms Of Service"
+                Description = "The Catalog Microservice HTTP API. This is a Data-Driven/CRUD microservice sample"
             });
         });
 
@@ -393,7 +409,7 @@ public class Startup
 
 これが完了したら、アプリケーションを起動し、次のような URL を使用して次の Swagger JSON および UI エンドポイントを参照することができます。
 
-```url
+```console
   http://<your-root-url>/swagger/v1/swagger.json
 
   http://<your-root-url>/swagger/
@@ -401,13 +417,13 @@ public class Startup
 
 `http://<your-root-url>/swagger` のような URL に対して Swashbuckle で作成された生成済みの UI を前に参照しました。 図 6-9 では、API メソッドをテストする方法も確認できます。
 
-![Swagger UI の API 詳細画面に応答のサンプルが表示されています。実際の API を実行する際に利用でき、開発者にとって検出に役立ちます。](./media/image10.png)
+![使用可能なテスト ツールを示す Swagger UI のスクリーンショット。](./media/data-driven-crud-microservice/swashbuckle-ui-testing.png)
 
 **図 6-9**。 カタログ/アイテム API メソッドをテストする Swashbuckle UI
 
-図 6-10 は、[Postman](https://www.getpostman.com/) を使用して `http://<your-root-url>/swagger/v1/swagger.json` を要求したときに eShopOnContainers マイクロサービス (これは、ツールが表面下で使用するものです) から生成された Swagger JSON メタデータを示しています。
+Swagger UI の API 詳細画面に応答のサンプルが表示されています。実際の API を実行する際に利用でき、開発者にとって検出に役立ちます。 図 6-10 は、[Postman](https://www.getpostman.com/) を使用して `http://<your-root-url>/swagger/v1/swagger.json` を要求したときに eShopOnContainers マイクロサービス (これは、ツールが表面下で使用するものです) から生成された Swagger JSON メタデータを示しています。
 
-![Swagger JSON メタデータを示す Postman UI のサンプル](./media/image11.png)
+![Swagger JSON メタデータを示す Postman UI のサンプルのスクリーンショット。](./media/data-driven-crud-microservice/swagger-json-metadata.png)
 
 **図 6-10**。 Swagger JSON メタデータ
 

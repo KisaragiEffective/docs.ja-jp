@@ -1,16 +1,15 @@
 ---
 title: ポインター変換 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - pointers [C#], conversions
 ms.assetid: f0e87502-477a-4ede-a31f-7a3e262e46fb
-ms.openlocfilehash: 81b2110e6a571e174693fd272d1c6b4bf44dbae3
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 517166331d2bcf73132269ce2adcf68d5f60b4fe
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69588222"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "76745367"
 ---
 # <a name="pointer-conversions-c-programming-guide"></a>ポインター変換 (C# プログラミング ガイド)
 定義済みの暗黙的なポインター変換を次の表に示します。 暗黙的な変換は、メソッドの呼び出しや代入ステートメントなど、多くの状況で発生することがあります。  
@@ -39,11 +38,12 @@ ms.locfileid: "69588222"
   
  [!code-csharp[csProgGuidePointers#4](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuidePointers/CS/Pointers.cs#4)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
-- [ポインター型](./pointer-types.md)
-- [型](../../language-reference/keywords/types.md)
+- [C# プログラミングガイド](../index.md)
+- [ポインター型](pointer-types.md)
+- [参照型](../../language-reference/keywords/reference-types.md)
+- [値型](../../language-reference/builtin-types/value-types.md)
 - [unsafe](../../language-reference/keywords/unsafe.md)
 - [fixed ステートメント](../../language-reference/keywords/fixed-statement.md)
 - [stackalloc](../../language-reference/operators/stackalloc.md)

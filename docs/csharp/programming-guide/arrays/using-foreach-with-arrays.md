@@ -1,17 +1,16 @@
 ---
 title: 配列での foreach の使用 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 05/23/2018
 helpviewer_keywords:
 - arrays [C#], foreach
 - foreach statement [C#], using with arrays
 ms.assetid: 5f2da2a9-1f56-4de5-94cc-e07f4f7a0244
-ms.openlocfilehash: a22cb939370b38780881eca0d9585a14002c8250
-ms.sourcegitcommit: 40364ded04fa6cdcb2b6beca7f68412e2e12f633
+ms.openlocfilehash: bb121b0f5d990ef6e596b34a45606e2abde6811a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56966412"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75705679"
 ---
 # <a name="using-foreach-with-arrays-c-programming-guide"></a>配列での foreach の使用 (C# プログラミング ガイド)
 
@@ -27,10 +26,10 @@ ms.locfileid: "56966412"
 
 ただし、多次元配列では、入れ子になった [for](../../language-reference/keywords/for.md) ループを使用した方が、配列要素を処理する順序をより厳密に制御できます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Array>
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [配列](index.md)
 - [1 次元配列](single-dimensional-arrays.md)
 - [多次元配列](multidimensional-arrays.md)

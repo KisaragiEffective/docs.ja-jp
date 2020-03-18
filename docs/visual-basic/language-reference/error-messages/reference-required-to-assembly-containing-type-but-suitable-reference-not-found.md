@@ -1,5 +1,5 @@
 ---
-title: 参照には型 '<assemblyidentity>' を含むアセンブリ '<typename>' が必要ですが、プロジェクト '<projectname1>' と '<projectname2>' があいまいであるため、適切な参照が見つかりませんでした。
+title: 参照には型 '<typename>' を含むアセンブリ '<assemblyidentity>'が必要ですが、プロジェクト '<projectname1>' と '<projectname2>'があいまいであるため、適切な参照が見つかりませんでした。
 ms.date: 07/20/2015
 f1_keywords:
 - bc30969
@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "62013748"
 ---
-# <a name="reference-required-to-assembly-assemblyidentity-containing-type-typename-but-a-suitable-reference-could-not-be-found-due-to-ambiguity-between-projects-projectname1-and-projectname2"></a>参照アセンブリが必要です '\<assemblyidentity >' 型を含む'\<typename >'、プロジェクトの間であいまいさのため、適切な参照が見つかりませんでしたが、\<projectname1 >' と '\<projectname2 >'
+# <a name="reference-required-to-assembly-assemblyidentity-containing-type-typename-but-a-suitable-reference-could-not-be-found-due-to-ambiguity-between-projects-projectname1-and-projectname2"></a>参照には型 '\<typename>' を含むアセンブリ '\<assemblyidentity>'が必要ですが、プロジェクト '\<projectname1>' と '\<projectname2>'があいまいであるため、適切な参照が見つかりませんでした。
 プロジェクト外で定義されているクラス、構造体、インターフェイス、列挙型、デリゲートなどの型が式で使用されています。 しかし、その型を定義する複数のアセンブリへのプロジェクト参照があります。  
   
  問題のプロジェクトは、同じ名前のアセンブリを複数作成します。 このため、コンパイラは、アクセスしている型にどちらのアセンブリを使用すればよいかを判断できません。  

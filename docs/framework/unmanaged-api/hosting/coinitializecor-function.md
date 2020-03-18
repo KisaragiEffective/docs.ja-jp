@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 9b9079fb-579e-4141-b3f0-791072dd40dc
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7b2b7b89c73b59f4f735369659daabb6a8f88300
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e8d65e739504e01a7d11b37d1b34d7313b13a5e1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779101"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73138332"
 ---
 # <a name="coinitializecor-function"></a>CoInitializeCor 関数
 `CoInitializeCor` は互換性のために残されています。  
@@ -36,10 +34,10 @@ STDAPI CoInitializeCor (
 ```  
   
 ## <a name="remarks"></a>Remarks  
- 共通言語ランタイムを初期化するためにいずれかの操作を使用して[CorBindToRuntimeEx](../../../../docs/framework/unmanaged-api/hosting/corbindtoruntimeex-function.md)または[CorBindToCurrentRuntime](../../../../docs/framework/unmanaged-api/hosting/corbindtocurrentruntime-function.md)します。  
+ 共通言語ランタイムを初期化するには、 [Corbindtoruntimeex](../../../../docs/framework/unmanaged-api/hosting/corbindtoruntimeex-function.md)または[Corbindtoの entruntime](../../../../docs/framework/unmanaged-api/hosting/corbindtocurrentruntime-function.md)を使用します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** Cor.h  
+## <a name="requirements"></a>［要件］  
+ **ヘッダー:** Cor  
   
 ## <a name="see-also"></a>関連項目
 

@@ -10,14 +10,12 @@ helpviewer_keywords:
 - Collections classes
 - grouping data in collections, selecting collection class
 ms.assetid: ba049f9a-ce87-4cc4-b319-3f75c8ddac8a
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 21c708f63faaedb9fbce60d7e4aef314f7a41ef8
-ms.sourcegitcommit: 462dc41a13942e467984e48f4018d1f79ae67346
+ms.openlocfilehash: fb03200c810290c970f7aa56a0e15d385aca7ca8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58185559"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75711351"
 ---
 # <a name="selecting-a-collection-class"></a>コレクション クラスの選択
 
@@ -26,7 +24,7 @@ ms.locfileid: "58185559"
 > [!IMPORTANT]
 > 名前空間 <xref:System.Collections> の型は使わないでください。 タイプ セーフの強化やその他の改善があるため、ジェネリックおよび同時実行バージョンのコレクションをお勧めします。  
 
- 以下の質問を検討します。  
+ 次の質問について考えてみましょう。  
   
 - 値が取得された後に要素が通常は破棄されるシーケンシャル リストが必要ですか。  
   
@@ -56,7 +54,7 @@ ms.locfileid: "58185559"
   
   - 1 つのキーと 1 つの値: <xref:System.Collections.IDictionary> インターフェイスまたは <xref:System.Collections.Generic.IDictionary%602> ジェネリック インターフェイスに基づくいずれかのコレクションを使用します。  
   
-  - キーが埋め込まれた 1 つの値: <xref:System.Collections.ObjectModel.KeyedCollection%602> ジェネリック クラスを使用します。  
+  - 埋め込みのキーを持つ 1 つの値: <xref:System.Collections.ObjectModel.KeyedCollection%602> ジェネリック クラスを使用します。  
   
   - 複数の値を持つ 1 つのキー: <xref:System.Collections.Specialized.NameValueCollection> クラスを使用します。  
   
@@ -64,9 +62,9 @@ ms.locfileid: "58185559"
   
   - <xref:System.Collections.Hashtable> クラスは、ハッシュ コードによってその要素を並べ替えます。  
   
-  - <xref:System.Collections.SortedList> クラスと、<xref:System.Collections.Generic.SortedList%602> および <xref:System.Collections.Generic.SortedDictionary%602> ジェネリック クラスでは、キーによってその要素を並べ替えます。 並べ替え順序は、<xref:System.Collections.SortedList> クラスの <xref:System.Collections.IComparer> インターフェイスの実装と、<xref:System.Collections.Generic.SortedList%602> および <xref:System.Collections.Generic.SortedDictionary%602> ジェネリック クラスの <xref:System.Collections.Generic.IComparer%601> ジェネリック インターフェイスの実装に基づきます。 この 2 つのジェネリック型のうち、<xref:System.Collections.Generic.SortedDictionary%602> は <xref:System.Collections.Generic.SortedList%602> よりもパフォーマンスに優れていますが、メモリ消費は <xref:System.Collections.Generic.SortedList%602> の方が少なくなります。  
+  - <xref:System.Collections.SortedList> クラスと、<xref:System.Collections.Generic.SortedList%602> および <xref:System.Collections.Generic.SortedDictionary%602> ジェネリック クラスでは、キーによってその要素を並べ替えます。 並べ替え順序は、<xref:System.Collections.IComparer> クラスの <xref:System.Collections.SortedList> インターフェイスの実装と、<xref:System.Collections.Generic.IComparer%601> および <xref:System.Collections.Generic.SortedList%602> ジェネリック クラスの <xref:System.Collections.Generic.SortedDictionary%602> ジェネリック インターフェイスの実装に基づきます。 この 2 つのジェネリック型のうち、<xref:System.Collections.Generic.SortedDictionary%602> は <xref:System.Collections.Generic.SortedList%602> よりもパフォーマンスに優れていますが、メモリ消費は <xref:System.Collections.Generic.SortedList%602> の方が少なくなります。  
   
-  - <xref:System.Collections.ArrayList> は、<xref:System.Collections.IComparer> 実装をパラメーターとして受け取る、<xref:System.Collections.ArrayList.Sort%2A> メソッドを提供します。 それに対応するジェネリックである <xref:System.Collections.Generic.List%601> ジェネリック クラスは、<xref:System.Collections.Generic.IComparer%601> ジェネリック インターフェイスの実装をパラメーターとして受け取る、<xref:System.Collections.Generic.List%601.Sort%2A> メソッドを提供します。  
+  - <xref:System.Collections.ArrayList> は、<xref:System.Collections.ArrayList.Sort%2A> 実装をパラメーターとして受け取る、<xref:System.Collections.IComparer> メソッドを提供します。 それに対応するジェネリックである <xref:System.Collections.Generic.List%601> ジェネリック クラスは、<xref:System.Collections.Generic.List%601.Sort%2A> ジェネリック インターフェイスの実装をパラメーターとして受け取る、<xref:System.Collections.Generic.IComparer%601> メソッドを提供します。  
   
 - 高速な検索と情報の取得が必要ですか。  
   
@@ -76,14 +74,14 @@ ms.locfileid: "58185559"
   
   - <xref:System.Collections.Specialized.StringCollection> (<xref:System.Collections.IList> に基づく) および <xref:System.Collections.Specialized.StringDictionary> (<xref:System.Collections.IDictionary> に基づく) は、<xref:System.Collections.Specialized> 名前空間にあります。  
   
-  - さらに、ジェネリック型の引数として <xref:System.String> クラスを指定することにより、<xref:System.Collections.Generic> 名前空間にある任意のジェネリック コレクション クラスを厳密に型指定された文字列コレクションとして使用できます。 たとえば、[List\<String>](xref:System.Collections.Generic.List%601) または [Dictionary<String,String>](xref:System.Collections.Generic.Dictionary%602) 型の変数を宣言することができます。
+  - さらに、ジェネリック型の引数として <xref:System.Collections.Generic> クラスを指定することにより、<xref:System.String> 名前空間にある任意のジェネリック コレクション クラスを厳密に型指定された文字列コレクションとして使用できます。 たとえば、[List\<String>](xref:System.Collections.Generic.List%601) または [Dictionary<String,String>](xref:System.Collections.Generic.Dictionary%602) 型の変数を宣言することができます。
   
 ## <a name="linq-to-objects-and-plinq"></a>LINQ to Objects および PLINQ  
  LINQ to Objects により、開発者は、オブジェクト型で <xref:System.Collections.IEnumerable> または <xref:System.Collections.Generic.IEnumerable%601> を実装している限り、LINQ クエリを使用してインメモリ オブジェクトにアクセスできます。 LINQ クエリはデータ アクセス用の一般的なパターンです。通常、これは標準の `foreach` ループよりも簡潔で読みやすく、フィルター処理、並べ替え、およびグループ化機能を備えています。 詳細については、「[LINQ to Objects (C#)](../../csharp/programming-guide/concepts/linq/linq-to-objects.md)」および「[LINQ to Objects (Visual Basic)](../../visual-basic/programming-guide/concepts/linq/linq-to-objects.md)」を参照してください。  
   
  PLINQ は、マルチコア コンピューターをより効率的に使用することにより、多くのシナリオでより高速にクエリを実行できる LINQ to Objects の並列実装を提供します。 詳細については、「[Parallel LINQ (PLINQ)](../../../docs/standard/parallel-programming/parallel-linq-plinq.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Collections>
 - <xref:System.Collections.Specialized>

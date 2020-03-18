@@ -1,16 +1,17 @@
 ---
-title: '方法: .NET Framework 4 で実行されている IIS 内の .NET Framework 3.5 で作成された WCF サービスをホストする'
+title: .NET Framework 4 で実行されている IIS 内の .NET Framework 3.5 で作成された WCF サービスをホストする方法
 ms.date: 03/30/2017
 ms.assetid: 9aabc785-068d-4d32-8841-3ef39308d8d6
-ms.openlocfilehash: 6a87fd5e3997e9d15810a5efb079da629908f854
-ms.sourcegitcommit: 9c3a4f2d3babca8919a1e490a159c1500ba7a844
+ms.openlocfilehash: d827fe82e8b355c8818d96645b463c1840910a9c
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72291523"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74283273"
 ---
-# <a name="how-to-host-a-wcf-service-written-with-net-framework-35-in-iis-running-under-net-framework-4"></a>方法: .NET Framework 4 で実行されている IIS 内の .NET Framework 3.5 で作成された WCF サービスをホストする
-@No__t-1 を実行しているコンピューターで [!INCLUDE[netfx35_long](../../../includes/netfx35-long-md.md)] で記述された Windows Communication Foundation (WCF) サービスをホストすると、次のテキストを含む <xref:System.ServiceModel.ProtocolException> が表示される場合があります。  
+# <a name="how-to-host-a-wcf-service-written-with-net-framework-35-in-iis-running-under-net-framework-4"></a>.NET Framework 4 で実行されている IIS 内の .NET Framework 3.5 で作成された WCF サービスをホストする方法
+
+.NET Framework 4 を実行しているコンピューターで .NET Framework 3.5 で記述された Windows Communication Foundation (WCF) サービスをホストすると、次のテキストを含む <xref:System.ServiceModel.ProtocolException> が表示される場合があります。
   
 ```output  
 Unhandled Exception: System.ServiceModel.ProtocolException: The content type text/html; charset=utf-8 of the response message does not match the content type of the binding (application/soap+xml; charset=utf-8). If using a custom encoder, be sure that the IsContentTypeSupported method is implemented properly. The first 1024 bytes of the response were: '<html>    <head>        <title>The application domain or application pool is currently running version 4.0 or later of the .NET Framework. This can occur if IIS settings have been set to 4.0 or later for this Web application, or if you are using version 4.0 or later of the ASP.NET Web Development Server. The <compilation> element in the Web.config file for this Web application does not contain the required 'targetFrameworkMoniker' attribute for this version of the .NET Framework (for example, '<compilation targetFrameworkMoniker=".NETFramework,Version=v4.0">'). Update the Web.config file with this attribute, or configure the Web application to use a different version of the .NET Framework.</title>...  
@@ -22,9 +23,9 @@ Unhandled Exception: System.ServiceModel.ProtocolException: The content type tex
 The application domain or application pool is currently running version 4.0 or later of the .NET Framework. This can occur if IIS settings have been set to 4.0 or later for this Web application, or if you are using version 4.0 or later of the ASP.NET Web Development Server. The <compilation> element in the Web.config file for this Web application does not contain the required 'targetFrameworkMoniker' attribute for this version of the .NET Framework (for example, '<compilation targetFrameworkMoniker=".NETFramework,Version=v4.0">'). Update the Web.config file with this attribute, or configure the Web application to use a different version of the .NET Framework.  
 ```  
   
- これらのエラーは、IIS が実行されているアプリケーション ドメインが [!INCLUDE[netfx40_short](../../../includes/netfx40-short-md.md)] を実行していて、WCF サービスが [!INCLUDE[netfx35_short](../../../includes/netfx35-short-md.md)] で実行されるように構成されている場合に発生します。 このトピックでは、このサービスを実行するために必要な変更について説明します。  
+ このようなエラーが発生するのは、IIS が実行されているアプリケーションドメインが .NET Framework 4 で実行されており、WCF サービスが .NET Framework 3.5 で実行されることを想定しているためです。 このトピックでは、このサービスを実行するために必要な変更について説明します。
   
- 次に、< @no__t 0 > 要素を検索し、CompilerVersion provider オプションの値を4.0 に変更します。 既定では、< `compilers` > 要素の下に < @no__t 0 > 要素が2つあります。 次の例に示すように、両方の CompilerVersion プロバイダー オプションを更新する必要があります。  
+ 次に、<`compilers`> 要素を検索し、CompilerVersion provider オプションの値を4.0 に変更します。 既定では、<`compilers`> 要素の下に > 要素`compiler`< が2つあります。 次の例に示すように、両方の CompilerVersion プロバイダー オプションを更新する必要があります。  
   
 ```xml  
 <system.codedom>  
@@ -46,9 +47,9 @@ The application domain or application pool is currently running version 4.0 or l
   
 ### <a name="add-the-required-targetframework-attribute"></a>必要な targetFramework 属性の追加  
   
-1. サービスの Web.config ファイルを開き、< `compilation` > 要素を探します。  
+1. サービスの Web.config ファイルを開き、<`compilation`> 要素を探します。  
   
-2. 次の例に示すように、`targetFramework` 属性を < `compilation` > 要素に追加します。  
+2. 次の例に示すように、`targetFramework` 属性を <`compilation`> 要素に追加します。  
   
     ```xml  
     <compilation debug="false"  
@@ -64,7 +65,7 @@ The application domain or application pool is currently running version 4.0 or l
           </compilation>  
     ```  
   
-3. < @No__t-0 > 要素を見つけ、CompilerVersion provider オプションの値を4.0 に変更します。 既定では、< `compilers` > 要素の下に < @no__t 0 > 要素が2つあります。 次の例に示すように、両方の CompilerVersion プロバイダー オプションを更新する必要があります。  
+3. <`compilers`> 要素を見つけ、CompilerVersion provider オプションの値を4.0 に変更します。 既定では、<`compilers`> 要素の下に > 要素`compiler`< が2つあります。 次の例に示すように、両方の CompilerVersion プロバイダー オプションを更新する必要があります。  
   
     ```xml  
     <system.codedom>  

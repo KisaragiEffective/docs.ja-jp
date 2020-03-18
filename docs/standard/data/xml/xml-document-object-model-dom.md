@@ -3,20 +3,18 @@ title: XML ドキュメント オブジェクト モデル (DOM)
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: b5e52844-4820-47c0-a61d-de2da33e9f54
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 160d056491ca71f6de039e8cac7302a61504fcd5
-ms.sourcegitcommit: d6e27023aeaffc4b5a3cb4b88685018d6284ada4
-ms.translationtype: HT
+ms.openlocfilehash: 4faa481a6331863112b7dba65bdbccb69cd12b7d
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67662480"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75709960"
 ---
 # <a name="xml-document-object-model-dom"></a>XML ドキュメント オブジェクト モデル (DOM)
 
 XML ドキュメント オブジェクト モデル (DOM) クラスは、XML ドキュメントのメモリ内表現です。 DOM を使用すると、XML ドキュメントの読み込み、操作、および変更をプログラムから実行できます。 **XmlReader** クラスも XML を読み込めますが、非キャッシュ、前方参照専用、読み取り専用のアクセスしか実行できません。 つまり、**XmlReader** には、属性の値または要素のコンテンツを編集する機能や、ノードを挿入したり削除したりする機能はありません。 DOM の主な機能は編集です。 XML データは、通常、メモリ上では構造的に表現されますが、実際の XML データをファイルに保存したり、別のオブジェクトから取り込む場合は、直線的な形式で格納されます。 XML データの例を次に示します。
 
-## <a name="input"></a>入力
+## <a name="input"></a>[入力]
 
 ```xml
 <?xml version="1.0"?>
@@ -35,7 +33,7 @@ XML ドキュメント オブジェクト モデル (DOM) クラスは、XML ド
 
 この XML データが DOM 構造に読み込まれるとき、メモリがどのように構造化されるかを次の図に示します。
 
-![XML ドキュメントの構造](../../../../docs/standard/data/xml/media/xml-to-domtree.gif "XML_To_DOMTree") XML ドキュメントの構造
+![XML ドキュメント構造](../../../../docs/standard/data/xml/media/xml-to-domtree.gif "XML_To_DOMTree")XML ドキュメント構造
 
 図中のそれぞれの円は、XML ドキュメント構造における 1 つのノードを表します。これは **XmlNode** オブジェクトと呼ばれます。 **XmlNode** オブジェクトは、DOM ツリーの基本オブジェクトです。 **XmlNode** を拡張する **XmlDocument** クラスは、たとえばドキュメントをメモリに読み込んだり、XML をファイルに保存するなど、ドキュメント全体を操作するメソッドをサポートしています。 さらに **XmlDocument** では、XML ドキュメント全体のノードを参照して操作する手段も提供されます。 **XmlNode** と **XmlDocument** は、いずれもパフォーマンスと使いやすさが向上しており、次の操作を実行するメソッドとプロパティを持っています。
 
@@ -44,7 +42,7 @@ XML ドキュメント オブジェクト モデル (DOM) クラスは、XML ド
 - 要素ノードのテキストなど、ノードに格納されている情報およびノード全体の取得。
 
   > [!NOTE]
-  > アプリケーションが DOM の提供する構造や編集機能を必要としない場合は、**XmlReader** クラスと **XmlWriter** クラスを使って XML への非キャッシュ、前方参照専用のストリーム アクセスを実行できます。 詳細については、次のトピックを参照してください。 <xref:System.Xml.XmlReader> および <xref:System.Xml.XmlWriter>
+  > アプリケーションが DOM の提供する構造や編集機能を必要としない場合は、**XmlReader** クラスと **XmlWriter** クラスを使って XML への非キャッシュ、前方参照専用のストリーム アクセスを実行できます。 詳細については、「<xref:System.Xml.XmlReader>」および「<xref:System.Xml.XmlWriter>」を参照してください。
 
 **Node** オブジェクトには、適切に定義された基本的な特性と、メソッドおよびプロパティのセットが含まれます。 オブジェクトが持つ特性のいくつかを次に示します。
 

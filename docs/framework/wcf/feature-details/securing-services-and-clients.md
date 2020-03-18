@@ -4,15 +4,15 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - message security [WCF]
 ms.assetid: e681f3bd-0c09-4a58-b0e4-0ecbdf1aa6c7
-ms.openlocfilehash: e455c7a48e1484d5acdcc5f6cdc9098997a3ba83
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 719ab26198bd7b83310025e03e541fa11b109612
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61990939"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746417"
 ---
 # <a name="securing-services-and-clients"></a>サービスおよびクライアントのセキュリティ保護
-このセクションの情報は、Windows Communication Foundation (WCF) のセキュリティのプログラミングについて説明します。 一般に、これには、システムが提供する適切なバインディングを選択すること、セキュリティ要素のプロパティを適切に設定すること、サービス側/クライアント側で使う資格情報の検索方法にまつわる、サービスの動作に関するプロパティを適切に設定することなどが含まれます。 ように、これらの手法はほとんどのシナリオでは、ほとんどのユーザーのセキュリティ要件をカバー[一般的なセキュリティ シナリオ](../../../../docs/framework/wcf/feature-details/common-security-scenarios.md)します。 実際のシナリオでは、多くの機能が必要とする場合が初めて表示[カスタム バインドを使用したセキュリティ機能](../../../../docs/framework/wcf/feature-details/security-capabilities-with-custom-bindings.md); ソリューションは、明らかなかどうかは、次を参照してください。[拡張セキュリティ](../../../../docs/framework/wcf/extending/extending-security.md)。 作成 (またはとの相互運用) に多様なクレームを使用するシステムでは、トピックを参照して[承認](../../../../docs/framework/wcf/feature-details/authorization-in-wcf.md)します。  
+このセクションの情報は、Windows Communication Foundation (WCF) でのセキュリティのプログラミングに焦点を当てています。 一般に、これには、システムが提供する適切なバインディングを選択すること、セキュリティ要素のプロパティを適切に設定すること、サービス側/クライアント側で使う資格情報の検索方法にまつわる、サービスの動作に関するプロパティを適切に設定することなどが含まれます。 これらの手法は、[一般的なセキュリティシナリオ](../../../../docs/framework/wcf/feature-details/common-security-scenarios.md)に示すように、ほとんどのシナリオでほとんどのユーザーのセキュリティ要件に対応しています。 シナリオにより多くの機能が必要な場合は、まず「[カスタムバインドを使用したセキュリティ機能](../../../../docs/framework/wcf/feature-details/security-capabilities-with-custom-bindings.md)」を参照してください。ソリューションが明らかでない場合は、「[セキュリティの拡張](../../../../docs/framework/wcf/extending/extending-security.md)」を参照してください。 豊富な信頼性情報を使用するシステムを作成 (または相互運用) する場合は、「[承認](../../../../docs/framework/wcf/feature-details/authorization-in-wcf.md)」のトピックを参照してください。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [WCF セキュリティのプログラミング](../../../../docs/framework/wcf/feature-details/programming-wcf-security.md)  
@@ -22,15 +22,15 @@ ms.locfileid: "61990939"
  トランスポート層を介してやり取りするメッセージを保護する方法の概要  
   
  [メッセージのセキュリティ](../../../../docs/framework/wcf/feature-details/message-security-in-wcf.md)  
- Windows Communication Foundation (WCF) メッセージ レベルのセキュリティを使用する理由をまとめたものです。  
+ Windows Communication Foundation (WCF) でメッセージレベルのセキュリティを使用する理由の概要を示します。  
   
  [セキュリティで保護されたセッション](../../../../docs/framework/wcf/feature-details/secure-sessions.md)  
- WCF のセッションをセキュリティで保護するときに必要な考慮事項について説明します。  
+ WCF セッションをセキュリティで保護する場合に必要な考慮事項について説明します。  
   
  [証明書の使用](../../../../docs/framework/wcf/feature-details/working-with-certificates.md)  
  X.509 証明書を使用する際に必要となる主なタスクの解説  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.ServiceModel>  
   
  <xref:System.ServiceModel.Channels>  
@@ -52,7 +52,7 @@ ms.locfileid: "61990939"
   
  [承認](../../../../docs/framework/wcf/feature-details/authorization-in-wcf.md)  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [基本的な WCF プログラミング](../../../../docs/framework/wcf/basic-wcf-programming.md)
-- [Windows Server App Fabric のセキュリティ モデル](https://go.microsoft.com/fwlink/?LinkID=201279&clcid=0x409)
+- [Windows Server App Fabric のセキュリティモデル](https://docs.microsoft.com/previous-versions/appfabric/ee677202(v=azure.10))

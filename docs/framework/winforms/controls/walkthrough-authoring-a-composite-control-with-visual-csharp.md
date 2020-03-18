@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル: Visual C# による複合コントロールの作成'
+title: 'チュートリアル : Visual C# による複合コントロールの作成'
 ms.date: 03/30/2017
 dev_langs:
 - CSharp
@@ -10,17 +10,17 @@ helpviewer_keywords:
 - user controls [C#]
 - custom controls [Windows Forms], creating
 ms.assetid: f88481a8-c746-4a36-9479-374ce5f2e91f
-author: gewarren
-ms.author: gewarren
+author: jillre
+ms.author: jillfra
 manager: jillfra
-ms.openlocfilehash: d1af6c0e013f82569eed8d085df0249f4fb991bb
-ms.sourcegitcommit: 121ab70c1ebedba41d276e436dd2b1502748a49f
+ms.openlocfilehash: c1d9be77550b1255a24120c68f20d25640e0ebdf
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70015679"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73460628"
 ---
-# <a name="walkthrough-author-a-composite-control-with-c"></a>チュートリアル: C を使用して複合コントロールを作成する\#
+# <a name="walkthrough-author-a-composite-control-with-c"></a>チュートリアル: C\# を使用した複合コントロールの作成
 
 複合コントロールは、カスタム グラフィカル インターフェイスを作成し、再利用するための手段を提供します。 複合コントロールは、基本的には視覚的に表示されるコンポーネントです。 そのため、複合コントロールは、1 つ以上の Windows フォーム コントロール、コンポーネント、または機能を拡張できるコード ブロックで構成されます。コード ブロックでは、ユーザー入力の検証、表示プロパティの変更、作成者が必要とする他のタスクの実行などによって機能を拡張します。 複合コントロールは、他のコントロールと同様に Windows フォームに配置できます。 このチュートリアルの前半では、`ctlClock` という単純な複合コントロールを作成します。 チュートリアルの後半では、継承によって `ctlClock` の機能を拡張します。
 
@@ -37,7 +37,7 @@ ms.locfileid: "70015679"
 2. **ソリューションエクスプローラー**で、 **[UserControl1.cs]** を右クリックし、 **[名前の変更]** をクリックします。 ファイル名を `ctlClock.cs` に変更します。 コード要素 "UserControl1" へのすべての参照の名前を変更するかどうかをたずねられたら、 **[はい]** をクリックします。
 
     > [!NOTE]
-    > 既定では、複合コントロールは、システム<xref:System.Windows.Forms.UserControl>によって提供されるクラスから継承されます。 クラス<xref:System.Windows.Forms.UserControl>は、すべての複合コントロールに必要な機能を提供し、標準のメソッドとプロパティを実装します。
+    > 既定では、複合コントロールは、システムによって提供される <xref:System.Windows.Forms.UserControl> クラスから継承されます。 <xref:System.Windows.Forms.UserControl> クラスは、すべての複合コントロールに必要な機能を提供し、標準のメソッドとプロパティを実装します。
 
 3. **[ファイル]** メニューの **[すべて保存]** をクリックして、プロジェクトを保存します。
 
@@ -51,24 +51,24 @@ ms.locfileid: "70015679"
 
 2. **ツールボックス**の **[コモン コントロール]** ノードを展開し、 **[Label]** をダブルクリックします。
 
-     という名前`label1`のコントロールがデザイナー画面上のコントロールに追加されます。<xref:System.Windows.Forms.Label>
+     `label1` という名前の <xref:System.Windows.Forms.Label> コントロールがデザイナー画面上のコントロールに追加されます。
 
 3. デザイナーで **[label1]** をクリックします。 [プロパティ] ウィンドウで、次のプロパティを設定します。
 
-    |プロパティ|変更後の値|
+    |property|変更後の値|
     |--------------|---------------|
     |**Name**|`lblDisplay`|
-    |**Text**|`(blank space)`|
+    |**[テキスト]**|`(blank space)`|
     |**TextAlign**|`MiddleCenter`|
     |**Font.Size**|`14`|
 
 4. **ツールボックス**の **[コンポーネント]** ノードを展開し、 **[Timer]** をダブルクリックします。
 
-     はコンポーネントであるため、実行時に視覚的に表示されることはありません。<xref:System.Windows.Forms.Timer> そのため、コントロールと共にデザイナー画面に表示されるのではなく、**コンポーネント デザイナー** (デザイナー画面の下部にあるトレイ) に表示されます。
+     <xref:System.Windows.Forms.Timer> はコンポーネントであるため、実行時に視覚的に表示されることはありません。 そのため、コントロールと共にデザイナー画面に表示されるのではなく、**コンポーネント デザイナー** (デザイナー画面の下部にあるトレイ) に表示されます。
 
-5. **コンポーネントデザイナー**で **[timer1]** を<xref:System.Windows.Forms.Timer.Interval%2A>クリックし、プロパティをに`1000` <xref:System.Windows.Forms.Timer.Enabled%2A>設定し、プロパティを`true`に設定します。
+5. **コンポーネントデザイナー**で **timer1** をクリックし、<xref:System.Windows.Forms.Timer.Interval%2A> プロパティを `1000` に設定し、<xref:System.Windows.Forms.Timer.Enabled%2A> プロパティを `true`に設定します。
 
-     プロパティ<xref:System.Windows.Forms.Timer.Interval%2A>は、コンポーネントが<xref:System.Windows.Forms.Timer>ティックする頻度を制御します。 `timer1` が時を刻むたびに、`timer1_Tick` イベントのコードが実行されます。 このプロパティは、タイマーの刻み間隔をミリ秒単位で表します。
+     <xref:System.Windows.Forms.Timer.Interval%2A> プロパティは、<xref:System.Windows.Forms.Timer> コンポーネントがティックする頻度を制御します。 `timer1` が時を刻むたびに、`timer1_Tick` イベントのコードが実行されます。 このプロパティは、タイマーの刻み間隔をミリ秒単位で表します。
 
 6. **コンポーネント デザイナー**で **[timer1]** をダブルクリックして、`ctlClock` の `timer1_Tick` イベントに移動します。
 
@@ -94,7 +94,7 @@ ms.locfileid: "70015679"
 
 ## <a name="add-properties-to-the-composite-control"></a>複合コントロールにプロパティを追加する
 
-時計コントロールは<xref:System.Windows.Forms.Label> 、それぞれ独自のプロパティの<xref:System.Windows.Forms.Timer>セットを持つコントロールとコンポーネントをカプセル化するようになりました。 時計コントロールを今後使用するユーザーは、これらのコントロールの個々のプロパティにアクセスすることはできませんが、適切なコード ブロックを記述することで、カスタム プロパティを作成して公開できます。 次の手順では、ユーザーが背景とテキストの色を変更できるようにするプロパティをコントロールに追加します。
+時計コントロールは、<xref:System.Windows.Forms.Label> コントロールと <xref:System.Windows.Forms.Timer> コンポーネントをカプセル化するようになりました。それぞれに固有のプロパティセットがあります。 時計コントロールを今後使用するユーザーは、これらのコントロールの個々のプロパティにアクセスすることはできませんが、適切なコード ブロックを記述することで、カスタム プロパティを作成して公開できます。 次の手順では、ユーザーが背景とテキストの色を変更できるようにするプロパティをコントロールに追加します。
 
 ### <a name="to-add-a-property-to-your-composite-control"></a>複合コントロールにプロパティを追加するには
 
@@ -102,7 +102,7 @@ ms.locfileid: "70015679"
 
      コントロールの**コード エディター**が開きます。
 
-2. `public partial class ctlClock` ステートメントを探します。 左中かっこ (`{)` の下に次のコードを入力します。
+2. `public partial class ctlClock` ステートメントを見つけます。 左中かっこ (`{)` の下に次のコードを入力します。
 
     ```csharp
     private Color colFColor;
@@ -151,7 +151,7 @@ ms.locfileid: "70015679"
 
 ## <a name="test-the-control"></a>コントロールをテストする
 
-コントロールはスタンドアロン アプリケーションではないため、コンテナー内でホストする必要があります。 **UserControl Test Container** でコントロールの実行時の動作をテストし、プロパティを実行します。 詳細については、「[方法 :UserControl](how-to-test-the-run-time-behavior-of-a-usercontrol.md)の実行時の動作をテストします。
+コントロールはスタンドアロン アプリケーションではないため、コンテナー内でホストする必要があります。 **UserControl Test Container** でコントロールの実行時の動作をテストし、プロパティを実行します。 詳細については、「[方法: UserControl の実行時の動作をテストする](how-to-test-the-run-time-behavior-of-a-usercontrol.md)」を参照してください。
 
 ### <a name="to-test-your-control"></a>コントロールをテストするには
 
@@ -177,7 +177,7 @@ ms.locfileid: "70015679"
 
 1. **ソリューションエクスプローラー**で、 **[ctlClockLib]** を右クリックして **[追加]** をポイントし、 **[ユーザーコントロール]** をクリックします。
 
-     **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+     **[新しい項目の追加]** ダイアログ ボックスが開きます。
 
 2. **[継承されたユーザー コントロール]** テンプレートを選択します。
 
@@ -200,7 +200,7 @@ ms.locfileid: "70015679"
 
 1. **ソリューションエクスプローラー**で、 **[ctlAlarmClock]** を右クリックし、 **[コードの表示]** をクリックします。
 
-2. `public class` ステートメントを探します。 コントロールは `ctlClockLib.ctlClock` から継承されています。 左中かっこ (`{)` ステートメントの下に次のコードを入力します。
+2. `public class` ステートメントを見つけます。 コントロールは `ctlClockLib.ctlClock` から継承されています。 左中かっこ (`{)` ステートメントの下に次のコードを入力します。
 
     ```csharp
     private DateTime dteAlarmTime;
@@ -249,14 +249,14 @@ ms.locfileid: "70015679"
     > [!NOTE]
     > 複合コントロールを今後使用するユーザーが、その内部のコントロールにアクセスできるようにする場合は、内部のコントロールを `public` または `protected` として宣言します。 これにより、適切なコードを使用して、複合コントロールに含まれているコントロールのプロパティの設定や変更が可能になります。
 
-3. 複合コントロールにコントロールを追加します。 <xref:System.Windows.Forms.Label>
+3. 複合コントロールに <xref:System.Windows.Forms.Label> コントロールを追加します。
 
-4. マウスを使用して、 <xref:System.Windows.Forms.Label>コントロールを表示ボックスのすぐ下にドラッグします。 [プロパティ] ウィンドウで、次のプロパティを設定します。
+4. マウスを使用して、<xref:System.Windows.Forms.Label> コントロールを表示ボックスのすぐ下にドラッグします。 [プロパティ] ウィンドウで、次のプロパティを設定します。
 
-    |プロパティ|設定|
+    |property|設定|
     |--------------|-------------|
     |**Name**|`lblAlarm`|
-    |**Text**|**Alarm!**|
+    |**[テキスト]**|**Alarm!**|
     |**TextAlign**|`MiddleCenter`|
     |**Visible**|`false`|
 
@@ -326,10 +326,10 @@ ms.locfileid: "70015679"
 
 2. コントロールにボタンを追加します。 ボタンのプロパティを次のように設定します。
 
-    |プロパティ|[値]|
+    |property|[値]|
     |--------------|-----------|
     |**Name**|`btnAlarmOff`|
-    |**Text**|**Disable Alarm**|
+    |**[テキスト]**|**Disable Alarm**|
 
 3. デザイナーで **[btnAlarmOff]** をダブルクリックします。
 
@@ -351,7 +351,7 @@ ms.locfileid: "70015679"
 
 ### <a name="use-the-inherited-control-on-a-form"></a>フォームで継承されたコントロールを使用する
 
-継承されたコントロールは、基本クラスコントロールを`ctlClock`テストしたときと同じ方法でテストできます。**F5**キーを押してプロジェクトをビルドし、 **UserControl テストコンテナー**でコントロールを実行します。 詳細については、「[方法 :UserControl](how-to-test-the-run-time-behavior-of-a-usercontrol.md)の実行時の動作をテストします。
+継承されたコントロールは、基本クラスコントロールをテストしたときと同じ方法でテストできます。 `ctlClock`: **F5**キーを押してプロジェクトをビルドし、 **UserControl テストコンテナー**でコントロールを実行します。 詳細については、「[方法: UserControl の実行時の動作をテストする](how-to-test-the-run-time-behavior-of-a-usercontrol.md)」を参照してください。
 
 コントロールを使用するには、フォーム上でコントロールをホストする必要があります。 標準の複合コントロールと同様に、継承された複合コントロールをスタンドアロンにすることはできないので、フォームまたは他のコンテナー内でホストする必要があります。 `ctlAlarmClock` は機能が拡張されているため、テストするには追加のコードが必要となります。 次の手順では、`ctlAlarmClock` の機能をテストするための簡単なプログラムを作成します。 `ctlAlarmClock` の `AlarmTime` プロパティを設定して表示するコードを記述し、固有の機能をテストします。
 
@@ -369,15 +369,15 @@ ms.locfileid: "70015679"
 
 6. **[ctlAlarmClock]** をダブルクリックして、`ctlAlarmClock` のコピーをフォームに追加します。
 
-7. **ツールボックス**で、 **[DateTimePicker]** を見つけてダブルクリックし<xref:System.Windows.Forms.DateTimePicker> 、フォームにコントロールを追加します。 <xref:System.Windows.Forms.Label>次に、 **[ラベル]** をダブルクリックしてコントロールを追加します。
+7. **ツールボックス**で、 **[DateTimePicker]** を見つけてダブルクリックしてフォームに <xref:System.Windows.Forms.DateTimePicker> コントロールを追加し、 **[ラベル]** をダブルクリックして <xref:System.Windows.Forms.Label> コントロールを追加します。
 
 8. マウスを使用して、各コントロールをフォーム上の使いやすい場所に配置します。
 
 9. これらのコントロールのプロパティを次のように設定します。
 
-    |コントロール|プロパティ|[値]|
+    |Control|property|[値]|
     |-------------|--------------|-----------|
-    |`label1`|**Text**|`(blank space)`|
+    |`label1`|**[テキスト]**|`(blank space)`|
     ||**Name**|`lblTest`|
     |`dateTimePicker1`|**Name**|`dtpTest`|
     ||**Format**|<xref:System.Windows.Forms.DateTimePickerFormat.Time>|
@@ -402,9 +402,9 @@ ms.locfileid: "70015679"
 
 13. **[デバッグ]** メニューの **[デバッグの開始]** をクリックします。
 
-     テスト プログラムが起動します。 `ctlAlarmClock`コントロールで現在の時刻が更新され、 <xref:System.Windows.Forms.DateTimePicker>コントロールに開始時刻が表示されていることに注意してください。
+     テスト プログラムが起動します。 `ctlAlarmClock` コントロールで現在の時刻が更新され、<xref:System.Windows.Forms.DateTimePicker> コントロールに開始時刻が表示されていることに注意してください。
 
-14. 時間の<xref:System.Windows.Forms.DateTimePicker>分を表示するをクリックします。
+14. 時間の分が表示されている <xref:System.Windows.Forms.DateTimePicker> をクリックします。
 
 15. キーボードを使用して、`ctlAlarmClock` に表示されている現在の時刻の 1 分後の値を設定します。
 
@@ -417,5 +417,5 @@ ms.locfileid: "70015679"
 ## <a name="see-also"></a>関連項目
 
 - [さまざまなカスタム コントロール](varieties-of-custom-controls.md)
-- [方法: [ツールボックスアイテムの選択] ダイアログボックスにコントロールを表示する](how-to-display-a-control-in-the-choose-toolbox-items-dialog-box.md)
-- [チュートリアル: ビジュアルを使用した Windows フォームコントロールからの継承C#](walkthrough-inheriting-from-a-windows-forms-control-with-visual-csharp.md)
+- [方法: [ツールボックス アイテムの選択] ダイアログ ボックスにコントロールを表示する](how-to-display-a-control-in-the-choose-toolbox-items-dialog-box.md)
+- [チュートリアル: Visual C# による Windows フォーム コントロールからの継承](walkthrough-inheriting-from-a-windows-forms-control-with-visual-csharp.md)

@@ -2,14 +2,12 @@
 title: ICorDebugMutableDataTarget::WriteVirtual メソッド
 ms.date: 03/30/2017
 ms.assetid: 80833648-58a7-491a-8dc8-9a48e9bb3adc
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d0a6a58a1a270cb67b75cf34ac5df8d45ccf307c
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 2b4bd1dc97f37f5a514ab54f9e4d778fe3b91736
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67764569"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76792826"
 ---
 # <a name="icordebugmutabledatatargetwritevirtual-method"></a>ICorDebugMutableDataTarget::WriteVirtual メソッド
 ターゲット プロセスのアドレス空間にメモリを書き込みます。  
@@ -36,11 +34,11 @@ HRESULT WriteVirtual(
 ## <a name="return-value"></a>戻り値  
  正常に完了した場合は `S_OK`、失敗した場合はその他の `HRESULT`。  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
  バイトを書き込むことができない場合、メソッド呼び出しは失敗し、ターゲット アドレス空間のバイトは変更されません。 (それ以外の場合、ターゲットは不整合な状態になり、デバッグの信頼性がさらに低下します。)  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -50,5 +48,5 @@ HRESULT WriteVirtual(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugMutableDataTarget インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmutabledatatarget-interface.md)
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [ICorDebugMutableDataTarget インターフェイス](icordebugmutabledatatarget-interface.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

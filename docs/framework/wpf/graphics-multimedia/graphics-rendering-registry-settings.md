@@ -8,12 +8,12 @@ helpviewer_keywords:
 - troubleshooting graphics rendering [WPF]
 - graphics [WPF], rendering
 ms.assetid: f4b41b42-327d-407c-b398-3ed5f505df8b
-ms.openlocfilehash: f2af32315f8f955495c51f2928c2b8eed5350759
-ms.sourcegitcommit: 121ab70c1ebedba41d276e436dd2b1502748a49f
+ms.openlocfilehash: 04bf2d2ec78a02e8fd3d71200c64a807b874bc97
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70016082"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77452605"
 ---
 # <a name="graphics-rendering-registry-settings"></a>グラフィックス レンダリングのレジストリ設定
 ここでは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションに影響を与える [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] グラフィックス レンダリングのレジストリ設定の概要を示します。  
@@ -24,7 +24,7 @@ ms.locfileid: "70016082"
   
 <a name="xpdmandwddm"></a>   
 ## <a name="what-are-xpdm-and-wddm"></a>XPDM と WDDM について  
- グラフィックス レンダリングのレジストリの一部の設定は、ビデオ カードが XPDM ドライバーまたは WDDM ドライバーのどちらを使用するかによって既定値が異なります。 XPDM は [!INCLUDE[TLA#tla_winxp](../../../../includes/tlasharptla-winxp-md.md)] Display Driver Model、WDDM は Windows Display Driver Model の略です。 WDDM は、[!INCLUDE[TLA2#tla_winvista](../../../../includes/tla2sharptla-winvista-md.md)] と [!INCLUDE[win7](../../../../includes/win7-md.md)] を実行しているコンピューターで使用できます。 XPDM は、[!INCLUDE[TLA2#tla_winvista](../../../../includes/tla2sharptla-winvista-md.md)]、[!INCLUDE[TLA#tla_winxp](../../../../includes/tlasharptla-winxp-md.md)]、[!INCLUDE[TLA#tla_winnetsvrfam](../../../../includes/tlasharptla-winnetsvrfam-md.md)] を実行しているコンピューターで使用できます。 WDDM について詳しくは、「[Windows Vista Display Driver Model Design Guide](https://go.microsoft.com/fwlink/?LinkId=178394)」(Windows Vista Display Driver Model 設計ガイド) をご覧ください。  
+ グラフィックス レンダリングのレジストリの一部の設定は、ビデオ カードが XPDM ドライバーまたは WDDM ドライバーのどちらを使用するかによって既定値が異なります。 XPDM は Microsoft Windows XP Display Driver Model で、WDDM は Windows Display Driver Model です。 WDDM は、Windows Vista および Windows 7 を実行しているコンピューターで使用できます。 XPDM は、Windows Vista、Microsoft Windows XP、および Microsoft Windows Server 2003 を実行しているコンピューターで使用できます。 WDDM の詳細については、「 [Windows Display Driver Model (wddm) 設計ガイド](/windows-hardware/drivers/display/windows-vista-display-driver-model-design-guide)」を参照してください。  
   
 <a name="registry_settings"></a>   
 ## <a name="registry-settings"></a>レジストリ設定  
@@ -42,7 +42,7 @@ ms.locfileid: "70016082"
 <a name="disablehardwareacceleration"></a>   
 ## <a name="disable-hardware-acceleration-option"></a>Disable Hardware Acceleration Option (ハードウェアの高速化オプションを無効にする)  
   
-|レジストリ キー|[値の型]|  
+|レジストリ キー|値の型|  
 |------------------|----------------|  
 |`HKEY_CURRENT_USER\SOFTWARE\Microsoft\Avalon.Graphics\DisableHWAcceleration`|DWORD|  
   
@@ -53,11 +53,11 @@ ms.locfileid: "70016082"
 <a name="maxmultisample"></a>   
 ## <a name="maximum-multisample-value"></a>Maximum Multisample Value (最大マルチサンプル値)  
   
-|レジストリ キー|[値の型]|  
+|レジストリ キー|値の型|  
 |------------------|----------------|  
 |`HKEY_CURRENT_USER\SOFTWARE\Microsoft\Avalon.Graphics\MaxMultisampleType`|DWORD|  
   
- **最大マルチサンプル値**を使用すると、3-d コンテンツのアンチエイリアシングの最大量を調整できます。 このレベルを使用して、で[!INCLUDE[TLA2#tla_winvista](../../../../includes/tla2sharptla-winvista-md.md)] 3-d アンチエイリアシングを無効にするか、で[!INCLUDE[TLA#tla_winxp](../../../../includes/tlasharptla-winxp-md.md)]有効にします。  
+ **最大マルチサンプル値**を使用すると、3-d コンテンツのアンチエイリアシングの最大量を調整できます。 Windows Vista で3-d アンチエイリアシングを無効にするには、このレベルを使用します。  
   
  **[maximum multisample value]** (最大マルチサンプル値) は 0 から 16 の DWORD 値です。 値 0 は、3-D コンテンツのマルチサンプル アンチエイリアシングが無効になることを指定し、値 16 では、ビデオ カードでサポートされる場合に最大で 16 倍のマルチサンプル アンチエイリアシングの使用が試行されます。 XPDM ドライバーを使用しているコンピューターにこのレジストリキー値を設定すると、アプリケーションで大量の追加ビデオメモリが使用され、3-d レンダリングのパフォーマンスが低下し、レンダリングエラーと安定性が発生する可能性があることに注意してください。問題.  
   
@@ -66,7 +66,7 @@ ms.locfileid: "70016082"
 <a name="requiredvideodriverdatesetting"></a>   
 ## <a name="required-video-driver-date-setting"></a>Required Video Driver Date Setting (ビデオ ドライバーの日付設定が必須)  
   
-|レジストリ キー|[値の型]|  
+|レジストリ キー|値の型|  
 |------------------|----------------|  
 |`HKEY_CURRENT_USER\SOFTWARE\Microsoft\Avalon.Graphics\RequiredVideoDriverDate`|String|  
   
@@ -85,17 +85,17 @@ ms.locfileid: "70016082"
 <a name="usereferencerasterizeroption"></a>   
 ## <a name="use-reference-rasterizer-option"></a>Use Reference Rasterizer Option (リファレンス ラスタライザー オプションを使用する)  
   
-|レジストリ キー|[値の型]|  
+|レジストリ キー|値の型|  
 |------------------|----------------|  
 |`HKEY_CURRENT_USER\SOFTWARE\Microsoft\Avalon.Graphics\UseReferenceRasterizer`|DWORD|  
   
- [**参照ラスタライザーを使用する] オプション**を[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]使用すると、デバッグのためにシミュレート[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]されたハードウェアレンダリングモードにすることができます。ハードウェアモードになりますが、Microsoft Direct3D リファレンスソフトウェアラスタライザー d3dref9.dll を使用します。実際のハードウェアデバイスの代わりに。  
+ [**参照ラスタライザーを使用する] オプションを使用**すると、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] を強制的にデバッグ用のシミュレートされたハードウェアレンダリングモードにすることができます。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] はハードウェアモードになりますが、実際のハードウェアデバイスではなく、Microsoft Direct3D リファレンスソフトウェアラスタライザー d3dref9.dll を使用します。  
   
  リファレンス ラスタライザーは非常に低速ですが、ビデオ ドライバーをバイパスし、ドライバーの問題によって発生するレンダリングの問題を回避します。 このため、リファレンス ラスタライザーを使用すると、レンダリングの問題の原因がビデオ ドライバーかどうかを判断できます。 d3dref9.dll ファイルは、システム パス内の場所やアプリケーションのローカル ディレクトリなど、アプリケーションがアクセスできる場所に存在する必要があります。  
   
  **[use reference rasterizer option]** (リファレンス ラスタライザー オプションを使用する) は、DWORD 値を受け取ります。 値 0 は、リファレンス ラスタライザーを使用しないことを示します。 他の 0 以外の値は、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] にリファレンス ラスタライザーの使用を強制します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [グラフィックスの描画層](../advanced/graphics-rendering-tiers.md)
 - [WPF グラフィックス レンダリングの概要](wpf-graphics-rendering-overview.md)

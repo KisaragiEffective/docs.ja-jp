@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: d5e7b12d-835a-4e86-ae2f-d658d4f1c67c
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0bc65cdeada059f6e9b41dc8eb4d7589a232143d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: bc7d99d0ddb443cba227b7bad0cd53edb94c9101
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67756827"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73138540"
 ---
 # <a name="icordebughandlevaluegethandletype-method"></a>ICorDebugHandleValue::GetHandleType メソッド
-ICorDebugHandleValue オブジェクトによって参照されているハンドルの種類を示す値を取得します。  
+この値オブジェクトによって参照されるハンドルの種類を示す値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT GetHandleType (
   
 ## <a name="parameters"></a>パラメーター  
  `pType`  
- [out]このハンドルの種類を示す CorDebugHandleType 列挙型の値へのポインター。  
+ 入出力このハンドルの型を示す CorDebugHandleType 列挙値へのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

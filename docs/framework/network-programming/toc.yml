@@ -40,9 +40,6 @@
       items:
         - name: HTTP
           href: http.md
-          items:
-            - name: HttpListener
-              href: httplistener.md
         - name: '方法: HTTP 固有のプロパティにアクセスする'
           href: how-to-access-http-specific-properties.md
         - name: 接続の管理

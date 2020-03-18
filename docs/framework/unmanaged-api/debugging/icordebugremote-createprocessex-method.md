@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 41af93c7-e448-4251-8d4d-413d38c635f2
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d05384af8201fae8cf81650d38c99a5c44e6bd16
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: cfec84483d387630623f77c176c668171303dd0f
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67744777"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76791989"
 ---
 # <a name="icordebugremotecreateprocessex-method"></a>ICorDebugRemote::CreateProcessEx メソッド
-デバッガーでのリモート コンピューター上のプロセスを起動します。  
+デバッガーでリモートコンピューター上のプロセスを起動します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -49,66 +47,66 @@ HRESULT CreateProcessEx (
   
 ## <a name="parameters"></a>パラメーター  
  `pRemoteTarget`  
- [in]ポインター、 [ICorDebugRemoteTarget インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugremotetarget-interface.md)します。 プロセスの起動をリモート コンピューターを決定するために使用します。  
+ からツールの[ターゲットインターフェイス](icordebugremotetarget-interface.md)を指すポインター。 プロセスを起動するリモートコンピューターを決定するために使用されます。  
   
  `lpApplicationName`  
- [in]実行中のプロセスによって実行されるモジュールを指定する null で終わる文字列へのポインター。 モジュールは、呼び出し元のプロセスのセキュリティ コンテキストで実行されます。  
+ から起動されたプロセスによって実行されるモジュールを指定する、null で終わる文字列へのポインター。 モジュールは、呼び出し元プロセスのセキュリティコンテキストで実行されます。  
   
  `lpCommandLine`  
- [in]実行中のプロセスによって実行されるコマンドラインを指定する null で終わる文字列へのポインター。  
+ から起動されたプロセスによって実行されるコマンドラインを指定する、null で終わる文字列へのポインター。  
   
  `lpProcessAttributes`  
- [in]リモート デバッグに使用されていません。  
+ からリモートデバッグには使用されません。  
   
  `lpThreadAttributes`  
- [in]リモート デバッグに使用されていません。  
+ からリモートデバッグには使用されません。  
   
  `bInheritHandles`  
- [in]リモート デバッグに使用されていません。  
+ からリモートデバッグには使用されません。  
   
  `dwCreationFlags`  
- [in]リモート デバッグに使用されていません。  
+ からリモートデバッグには使用されません。  
   
  `lpEnvironment`  
- [in]新しいプロセスの環境ブロックへのポインター。  
+ から新しいプロセスの環境ブロックへのポインター。  
   
  `lpCurrentDirectory`  
- [in]プロセスの現在のディレクトリにフルパスを指定する null で終わる文字列へのポインター。 このパラメーターが null の場合、新しいプロセスは、呼び出し元プロセスとして同じの現在のドライブとディレクトリがあります。  
+ からプロセスの現在のディレクトリへの完全パスを指定する、null で終わる文字列へのポインター。 このパラメーターが null の場合、新しいプロセスは呼び出しプロセスと同じ現在のドライブとディレクトリを持ちます。  
   
  `lpStartupInfo`  
- [in]リモート デバッグに使用されていません。  
+ からリモートデバッグには使用されません。  
   
  `lpProcessInformation`  
- [in]リモート デバッグに使用されていません。  
+ からリモートデバッグには使用されません。  
   
  `debuggingFlags`  
- [in]リモート デバッグに使用されていません。  
+ からリモートデバッグには使用されません。  
   
  `ppProcess`  
- [out]プロセスを表す「ICorDebugProcess インターフェイス」オブジェクトのアドレスへのポインター。  
+ 入出力プロセスを表す "いいプロセスインターフェイス" オブジェクトのアドレスへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
  S_OK  
- デバッグ、リモート コンピューターに返される「ICorDebugProcess インターフェイス」プロセスが正常に起動します。  
+ リモートコンピューターでプロセスが正常に起動され、デバッグのために "のプロセスインターフェイス" が返されました。  
   
  E_FAIL (またはその他の E_ リターン コード)  
- リモート コンピューター上のプロセスを起動してデバッグ「ICorDebugProcess インターフェイス」を返すことができません。  
+ リモートコンピューターでプロセスを起動できず、デバッグのために "のプロセスインターフェイス" を返します。  
   
-## <a name="remarks"></a>Remarks  
- Silverlight では、混合モード デバッグはサポートされていません。  
+## <a name="remarks"></a>コメント  
+ 混合モードのデバッグは、Silverlight ではサポートされていません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug.idl  
+ **ヘッダー:** CorDebug .idl  
   
  **ライブラリ:** CorGuids.lib  
   
- **.NET framework のバージョン:** 4.5、4、3.5 SP1  
+ **.NET Framework のバージョン:** 4.5、4、3.5 SP1  
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugRemote インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugremote-interface.md)
-- [ICorDebug インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebug-interface.md)
+- [ICorDebugRemote インターフェイス](icordebugremote-interface.md)
+- [ICorDebug インターフェイス](icordebug-interface.md)
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

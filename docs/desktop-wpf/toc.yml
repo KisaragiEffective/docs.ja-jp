@@ -1,32 +1,32 @@
 - name: .NET Core の Windows Presentation Foundation
+  href: overview/index.md
+- name: 作業開始
   items:
-    - name: 概要
+    - name: WPF アプリケーションを作成する
+      href: 'https://docs.microsoft.com/visualstudio/get-started/csharp/tutorial-wpf?toc=/dotnet/desktop-wpf/toc.json&bc=/dotnet/breadcrumb/toc.json'
+- name: 移行
+  items:
+    - name: .NET Framework との違い
+      href: migration/differences-from-net-framework.md
+    - name: Framework から Core への移行
+      href: migration/convert-project-from-net-framework.md
+- name: 基礎
+  items:
+    - name: XAML
+      href: fundamentals/xaml.md
+    - name: リソースを定義する
+      href: fundamentals/xaml-resources-define.md
+    - name: スタイルとテンプレート
       items:
-        - name: WPF とは何ですか?
-          href: overview/index.md
-    - name: 作業の開始
-      items:
-        - name: WPF アプリケーションを作成する
-          href: 'https://docs.microsoft.com/visualstudio/get-started/csharp/tutorial-wpf?toc=/dotnet/desktop-wpf/toc.json&bc=/dotnet/breadcrumb/toc.json'
-    - name: 移行
-      items:
-        - name: .NET Framework との違い
-          href: migration/differences-from-net-framework.md
-        - name: Framework から Core への移行
-          href: migration/convert-project-from-net-framework.md
-    - name: 基礎
-      items:
-        - name: XAML
-          href: fundamentals/xaml.md
-        - name: リソースを定義する
-          href: fundamentals/xaml-resources-define.md
-        - name: スタイルとテンプレート
-          items:
-            - name: 概要
-              href: fundamentals/styles-templates-overview.md
-            - name: リソースを作成して適用する
-              href: fundamentals/styles-templates-create-apply-style.md
-    - name: データの操作
-      items:
-        - name: データ バインディングの概要
-          href: data/data-binding-overview.md
+        - name: 概要
+          href: fundamentals/styles-templates-overview.md
+        - name: リソースを作成して適用する
+          href: fundamentals/styles-templates-create-apply-style.md
+        - name: テンプレートを作成して適用する
+          href: themes/how-to-create-apply-template.md
+    - name: XAML 言語リファレンス
+      href: xaml-services/
+- name: データを操作する
+  items:
+    - name: データ バインディングの概要
+      href: data/data-binding-overview.md

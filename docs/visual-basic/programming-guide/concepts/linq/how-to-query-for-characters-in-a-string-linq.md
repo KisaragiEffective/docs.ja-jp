@@ -1,19 +1,19 @@
 ---
-title: '方法: 文字列内の文字を照会する (LINQ) (Visual Basic)'
+title: '方法: 文字列内の文字を照会する (LINQ)'
 ms.date: 07/20/2015
 ms.assetid: 499ebbe0-746c-4235-9dba-ce722c12b50e
-ms.openlocfilehash: f2102a8cb149fa9c7886826e509bf254fad5eb95
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 2f306a488610aaa5775210eba3d7312b092545a7
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582726"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75345522"
 ---
 # <a name="how-to-query-for-characters-in-a-string-linq-visual-basic"></a>方法: 文字列内の文字を照会する (LINQ) (Visual Basic)
 
 <xref:System.String> クラスはジェネリック <xref:System.Collections.Generic.IEnumerable%601> インターフェイスを実装しているため、任意の文字列を文字のシーケンスとしてクエリできます。 ただし、これは LINQ の一般的な使用方法ではありません。 複雑なパターン一致操作には、<xref:System.Text.RegularExpressions.Regex> クラスを使用してください。
 
-## <a name="example"></a>例
+## <a name="example"></a>使用例
 
 次の例では、文字列を対象にクエリを実行して、その文字列に含まれる数字の数を特定します。 クエリは、最初に使用された後も "再利用" されます。 これができるのは、クエリ自体には実際の結果が格納されないためです。
 
@@ -56,11 +56,11 @@ End Class
 ' ABCDE99F
 ```
 
-## <a name="compiling-the-code"></a>コードのコンパイル
+## <a name="compile-the-code"></a>コードのコンパイル
 
-VB.NET コンソールアプリケーションプロジェクトを作成します。このプロジェクトには、名前空間の `Imports` ステートメントが含まれています。
+System. Linq 名前空間の `Imports` ステートメントを使用して、Visual Basic コンソールアプリケーションプロジェクトを作成します。
 
 ## <a name="see-also"></a>関連項目
 
-- [LINQ と文字列 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/linq-and-strings.md)
-- [方法: LINQ クエリと正規表現を組み合わせる (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/how-to-combine-linq-queries-with-regular-expressions.md)
+- [LINQ と文字列 (Visual Basic)](linq-and-strings.md)
+- [LINQ クエリと正規表現を組み合わせる方法 (Visual Basic)](how-to-combine-linq-queries-with-regular-expressions.md)

@@ -1,5 +1,5 @@
 ---
-title: FolderBrowserDialog コンポーネント (Windows フォーム)
+title: FolderBrowserDialog コンポーネント
 ms.date: 03/30/2017
 helpviewer_keywords:
 - folders [Windows Forms], browsing
@@ -7,24 +7,24 @@ helpviewer_keywords:
 - browsing folders
 - directories [Windows Forms], browsing
 ms.assetid: d71a0c5e-898a-4eea-be74-93bdf50d1852
-ms.openlocfilehash: 6359ea9683b9a418b7fe92dacc6140865dd01a11
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: c218edb639edb9b630527c2e77125358400cf3e7
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62011334"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76745709"
 ---
 # <a name="folderbrowserdialog-component-windows-forms"></a>FolderBrowserDialog コンポーネント (Windows フォーム)
-Windows フォーム`FolderBrowserDialog`コンポーネントをユーザー参照しフォルダーを選択したり、新しく作成インターフェイスを表示します。 補完するには、 [OpenFileDialog コンポーネント](openfiledialog-component-windows-forms.md)コンポーネントで、参照やファイルを選択するために使用します。  
+Windows フォーム `FolderBrowserDialog` コンポーネントには、ユーザーがフォルダーを参照して選択したり、新しいフォルダーを作成したりできるインターフェイスが表示されます。 これは、ファイルの参照および選択に使用される、 [OpenFileDialog コンポーネント](openfiledialog-component-windows-forms.md)コンポーネントの補数です。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [FolderBrowserDialog コンポーネントの概要 (Windows フォーム)](folderbrowserdialog-component-overview-windows-forms.md)  
  このコントロールについて、および主な機能とプロパティについて説明します。  
   
- [方法: Windows フォーム FolderBrowserDialog コンポーネントを含むフォルダーを選択します。](how-to-choose-folders-with-the-windows-forms-folderbrowserdialog-component.md)  
- プログラムを使用 ダイアログ ボックスで選択したフォルダーを抽出するだけでなく、コンポーネントの他のオプションのプロパティの一部を操作する方法について説明します。  
+ [方法: Windows フォーム FolderBrowserDialog コンポーネントを使用してフォルダーを選択する](how-to-choose-folders-with-the-windows-forms-folderbrowserdialog-component.md)  
+ ダイアログボックスから選択したフォルダーをプログラムによって抽出する方法と、コンポーネントの他のオプションのプロパティを使用する方法について説明します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.FolderBrowserDialog>  
  このクラスについて説明し、すべてのメンバーへのリンクの一覧を示します。  
   

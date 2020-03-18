@@ -1,13 +1,13 @@
 ---
-title: 段落のテキストを取得する (Visual Basic)
+title: 段落のテキストの取得
 ms.date: 07/20/2015
 ms.assetid: 095fa0d9-7b1b-4cbb-9c13-e2c9d8923d31
-ms.openlocfilehash: 2a87fa6d86983f5ae11fcbc7731ea9396c2252e0
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 0f53eec44e0b11a6c23c7afb4892e4d5d876d6d6
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75341601"
 ---
 # <a name="retrieving-the-text-of-the-paragraphs-visual-basic"></a>段落のテキストを取得する (Visual Basic)
 この例は、前の例に基づいて[おり、段落とそのスタイル (Visual Basic) を取得](../../../../visual-basic/programming-guide/concepts/linq/retrieving-the-paragraphs-and-their-styles.md)しています。 この新しい例では、各段落のテキストを文字列として取得します。  
@@ -20,7 +20,7 @@ ms.locfileid: "72582200"
   
  これらのクエリは連結されており、「[チュートリアル: 遅延実行 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/tutorial-deferred-execution.md)」で詳しく調査されている処理モデルを使用します。  
   
-## <a name="example"></a>例  
+## <a name="example"></a>使用例  
  この例では、WordprocessingML ドキュメントを処理して、要素ノード、スタイル名、および各段落のテキストを特定します。 この例は、このチュートリアルのこれまでの例に基づいています。 新しいクエリについては、以下のコード内にあるコメントで説明が示されています。  
   
  この例のソースドキュメントを作成する手順については、「[ソースとなる Office OPEN XML ドキュメントを作成する (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/creating-the-source-office-open-xml-document.md)」を参照してください。  
@@ -31,7 +31,7 @@ ms.locfileid: "72582200"
 Imports <xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">  
   
 Module Module1  
-    ' Following function is required because VB does not support short circuit evaluation  
+    ' Following function is required because Visual Basic does not support short circuit evaluation  
     Private Function GetStyleOfParagraph(ByVal styleNode As XElement, _  
                                          ByVal defaultStyle As String) As String  
         If (styleNode Is Nothing) Then  

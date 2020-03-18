@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 62db708b-6cf0-45c5-b897-4b5c75bd2505
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 85247f2f3672e7827f4dd0c93e50cd5da914ee8f
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: fa649fd1983a76c71d400ad3e6965ac0794da6ed
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67755779"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76781605"
 ---
 # <a name="icordebugmanagedcallbackexitthread-method"></a>ICorDebugManagedCallback::ExitThread メソッド
-マネージ コードが実行しているスレッドが終了していることをデバッガーに通知します。  
+マネージコードを実行していたスレッドが終了したことをデバッガーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,16 +36,16 @@ HRESULT ExitThread (
   
 ## <a name="parameters"></a>パラメーター  
  `pAppDomain`  
- [in]マネージ スレッドを格納しているアプリケーション ドメインを表す ICorDebugAppDomain オブジェクトへのポインター。  
+ からマネージスレッドを含むアプリケーションドメインを表す、コードの Appdomain オブジェクトへのポインター。  
   
  `thread`  
- [in]マネージ スレッドを表す ICorDebugThread オブジェクトへのポインター。  
+ からマネージスレッドを表す、コードスレッドオブジェクトへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- 1 回、`ExitThread`コールバックが発生した、スレッドはスレッドの列挙型では削除されます。  
+## <a name="remarks"></a>コメント  
+ `ExitThread` コールバックが発生すると、スレッドはスレッド列挙に表示されなくなります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -57,4 +55,4 @@ HRESULT ExitThread (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugManagedCallback インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-interface.md)
+- [ICorDebugManagedCallback インターフェイス](icordebugmanagedcallback-interface.md)

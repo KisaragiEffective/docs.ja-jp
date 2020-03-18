@@ -17,12 +17,12 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71699184"
 ---
-# <a name="trace-element"></a>\<trace > 要素
+# <a name="trace-element"></a>\<trace> 要素
 トレース メッセージを収集、格納、およびルーティングするリスナーを保持します。  
   
 [ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\<system. diagnostics >** ](system-diagnostics-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t-3 **\<trace >**  
+&nbsp;&nbsp;[ **\<system.diagnostics>** ](system-diagnostics-element.md)  
+&nbsp;&nbsp;&nbsp;&nbsp; **\<trace>**  
   
 ## <a name="syntax"></a>構文  
   

@@ -1,5 +1,5 @@
 ---
-title: '方法: アプリケーション ドメインにアセンブリを読み込む'
+title: '方法 : アプリケーション ドメインにアセンブリを読み込む'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -9,21 +9,19 @@ helpviewer_keywords:
 - application domains, loading assemblies
 - loading assemblies
 ms.assetid: 1432aa2d-bd83-4346-bf3b-a1b7920e2aa9
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 86b66d0a88864188d67aab19de67aaa857a06eaa
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: c560e2c5858de67442ccbcd18c8f92b142cc178d
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71053166"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73119894"
 ---
-# <a name="how-to-load-assemblies-into-an-application-domain"></a>方法: アプリケーション ドメインにアセンブリを読み込む
+# <a name="how-to-load-assemblies-into-an-application-domain"></a>方法 : アプリケーション ドメインにアセンブリを読み込む
 アプリケーション ドメインにアセンブリを読み込むには、いくつかの方法があります。 推奨されているのは、<xref:System.Reflection.Assembly?displayProperty=nameWithType> クラスの `static` (Visual Basic では `Shared`) <xref:System.Reflection.Assembly.Load%2A> メソッドを使用する方法です。 それ以外には、以下の方法でアセンブリを読み込むことができます。  
   
 - <xref:System.Reflection.Assembly> クラスの <xref:System.Reflection.Assembly.LoadFrom%2A> メソッドは、ファイルの場所が指定されたアセンブリを読み込みます。 このメソッドでアセンブリを読み込む場合は、別の読み込みコンテキストが使用されます。  
   
-- <xref:System.Reflection.Assembly.ReflectionOnlyLoad%2A> メソッドと <xref:System.Reflection.Assembly.ReflectionOnlyLoadFrom%2A> メソッドは、リフレクション専用コンテキストにアセンブリを読み込みます。 このコンテキストに読み込まれたアセンブリは検査できますが、実行することはできません。その結果、他のプラットフォームをターゲットにしているアセンブリを検査できます。 「[方法:リフレクションのみのコンテキストにアセンブリを読み込む](../reflection-and-codedom/how-to-load-assemblies-into-the-reflection-only-context.md)」を参照してください。  
+- <xref:System.Reflection.Assembly.ReflectionOnlyLoad%2A> メソッドと <xref:System.Reflection.Assembly.ReflectionOnlyLoadFrom%2A> メソッドは、リフレクション専用コンテキストにアセンブリを読み込みます。 このコンテキストに読み込まれたアセンブリは検査できますが、実行することはできません。その結果、他のプラットフォームをターゲットにしているアセンブリを検査できます。 「[方法: リフレクションのみのコンテキストにアセンブリを読み込む](../reflection-and-codedom/how-to-load-assemblies-into-the-reflection-only-context.md)」を参照してください。  
   
 > [!NOTE]
 > リフレクション専用コンテキストは、.NET Framework Version 2.0 で新たに追加されました。  
@@ -52,5 +50,5 @@ ms.locfileid: "71053166"
 - [アプリケーション ドメインを使用したプログラミング](application-domains.md#programming-with-application-domains)
 - [リフレクション](../reflection-and-codedom/reflection.md)
 - [アプリケーション ドメインの使用](use.md)
-- [方法:  リフレクションのみのコンテキストにアセンブリを読み込む](../reflection-and-codedom/how-to-load-assemblies-into-the-reflection-only-context.md)」を参照してください。
+- [方法: リフレクションのみのコンテキストにアセンブリを読み込む](../reflection-and-codedom/how-to-load-assemblies-into-the-reflection-only-context.md)
 - [アプリケーション ドメインとアセンブリ](application-domains.md#application-domains-and-assemblies)

@@ -3,22 +3,28 @@ title: 分岐とループ - C# の概要に関するチュートリアル
 description: 分岐とループに関するこのチュートリアルでは、C# のコードを記述して、この言語における、ステートメントを繰り返し実行するための条件付き分岐とループに対応している構文について学習します。
 ms.date: 10/31/2017
 ms.custom: mvc
-ms.openlocfilehash: a0701a63d6c3aece6bac4263cbcf8a682a623cf7
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.openlocfilehash: 44b634e3c2120116ee7fd66770398a6b66c8ed8c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71834123"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "73739130"
 ---
 # <a name="learn-conditional-logic-with-branch-and-loop-statements"></a>分岐およびループ ステートメントを使用した条件付きロジックについて説明します
 
 このチュートリアルでは、変数を調べ、その変数に基づいて実行パスを変更するコードを記述する方法について説明します。 C# コードを記述し、コードをコンパイルおよび実行して結果を確認します。 チュートリアルには、C# における分岐構造とループ構造を確認する一連のレッスンが含まれています。 これらのレッスンでは、C# 言語の基本を説明します。
 
-このチュートリアルでは、開発用に使用できるマシンがあることを想定しています。 Windows、Linux、または macOS 上でローカルの開発環境を設定する手順については、.NET チュートリアル [Hello World in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro) (10 分で Hello World) に記載されています。 使用するコマンドの概要については、詳細な情報へのリンクが掲載されている、[開発ツールに対する理解を深める](local-environment.md)方法に関するページをご覧ください。
+このチュートリアルでは、開発用に使用できるマシンがあることを想定しています。 Windows、Linux、または macOS 上でローカルの開発環境を設定する手順については、.NET チュートリアル [Hello World in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro) (10 分で Hello World) に記載されています。 使用するコマンドの概要については、[開発ツールの概要](local-environment.md)のページと詳細へのリンクをご覧ください。
 
 ## <a name="make-decisions-using-the-if-statement"></a>`if` ステートメントを使用した条件判定
 
-「*branches-tutorial*」という名前のディレクトリを作成します。 それを現在のディレクトリとし、`dotnet new console -n BranchesAndLoops -o .` を実行します。 このコマンドによって、現在のディレクトリに新しい .NET Core コンソール アプリケーションが作成されます。
+「*branches-tutorial*」という名前のディレクトリを作成します。 それを現在のディレクトリにして、次のコマンドを実行します。
+
+```dotnetcli
+dotnet new console -n BranchesAndLoops -o .
+```
+
+このコマンドによって、現在のディレクトリに新しい .NET Core コンソール アプリケーションが作成されます。
 
 お好みのエディターで *Program.cs* を開き、`Console.WriteLine("Hello World!");` の行を次のコードで置き換えます。
 
@@ -121,7 +127,7 @@ else
 
 `a`、`b`、および `c`の値を変更し、探索する `&&` と `||` を切り替えます。 `&&` 演算子と `||` 演算子がどのように機能するかをより深く理解できます。
 
-最初の手順が完了しました。 次のセクションを開始する前に、現在のコードを別のメソッドに移動してみましょう。 移動しておくと、新しい例で作業を開始するときに楽になります。 `Main` メソッドの名前を `ExploreIf` に変更し、`ExploreIf` を呼び出す新しい `Main` メソッドを記述します。 完成したコードは次のようになります。
+最初の手順が完了しました。 次のセクションを開始する前に、現在のコードを別のメソッドに移動してみましょう。 移動しておくと、新しい例で作業を開始するときに楽になります。 `Main` メソッドの名前を `ExploreIf` に変更し、`Main` を呼び出す新しい `ExploreIf` メソッドを記述します。 完成したコードは次のようになります。
 
 ```csharp
 using System;
@@ -198,7 +204,7 @@ while (counter < 10)
 
 `while` ステートメントは、条件を確認して `while` に続くステートメントまたはステートメント ブロックを実行します。 条件が false になるまで、条件の確認とステートメントの実行を繰り返します。
 
-この例では、もう 1 つ新しい演算子が使用されています。 `counter` 変数のあとにある `++` は、**インクリメント**演算子です。 `counter` の値に 1 を足し、その値を `counter` 変数に格納します。
+この例では、もう 1 つ新しい演算子が使用されています。 `++` 変数のあとにある `counter` は、**インクリメント**演算子です。 `counter` の値に 1 を足し、その値を `counter` 変数に格納します。
 
 > [!IMPORTANT]
 > コードを実行したときに `while` のループ条件が false に切り替わることを確認してください。 それ以外の場合は、プログラムが終了することのない**無限ループ**を作成します。 **CTRL-C** またはその他の方法でプログラムを強制的に終了する必要があるため、このサンプルでは実践しません。

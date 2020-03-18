@@ -1,5 +1,5 @@
 ---
-title: WPF XAML ブラウザー アプリケーションの概要
+title: XAML ブラウザーアプリケーションの概要
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,18 +10,17 @@ helpviewer_keywords:
 - XAML browser applications (XBAP)
 - browser-hosted applications [WPF]
 ms.assetid: 3a7a86a8-75d5-4898-96b9-73da151e5e16
-ms.openlocfilehash: ccc6a4c4640b5f473d21f4ab0c82df2034a8fd9d
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: 825b689dea145d18035344cd902ea1b8a50e82c3
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920020"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77124209"
 ---
 # <a name="wpf-xaml-browser-applications-overview"></a>WPF XAML ブラウザー アプリケーションの概要
-<a name="introduction"></a>
-[!INCLUDE[TLA#tla_xbap#plural](../../../../includes/tlasharptla-xbapsharpplural-md.md)] は、Web アプリケーションとリッチクライアントアプリケーションの両方の機能を組み合わせたものです。 たとえば、Web アプリケーションと同様、Web サーバーに配置して、Internet Explorer または Firefox から開始できます。 リッチクライアントアプリケーションと同様に、Xbap は WPF の機能を利用できます。 XBAP の開発方法もリッチ クライアントの開発に似ています。 このトピックでは、XBAP 開発の概要を示し、XBAP 開発が標準的なリッチ クライアント開発と異なる点について説明します。
+<a name="introduction"></a>XAML ブラウザーアプリケーション (Xbap) は、Web アプリケーションとリッチクライアントアプリケーションの両方の機能を組み合わせたものです。 たとえば、Web アプリケーションと同様、Web サーバーに配置して、Internet Explorer または Firefox から開始できます。 リッチクライアントアプリケーションと同様に、Xbap は WPF の機能を利用できます。 XBAP の開発方法もリッチ クライアントの開発に似ています。 このトピックでは、XBAP 開発の概要を示し、XBAP 開発が標準的なリッチ クライアント開発と異なる点について説明します。
 
- このトピックは、次のセクションで構成されています。
+ このトピックには、次のセクションが含まれます。
 
 - [新しい XAML ブラウザー アプリケーション (XBAP) の作成](#creating_a_new_xaml_browser_application_xbap)
 
@@ -46,13 +45,13 @@ ms.locfileid: "72920020"
 ## <a name="deploying-an-xbap"></a>XBAP の配置
  XBAP をビルドすると、次の 3 つのファイルが生成されます。
 
-|ファイル|説明|
+|ファイル|[説明]|
 |----------|-----------------|
 |実行可能ファイル (.exe)|コンパイル済みのコードが含まれます。拡張子は .exe です。|
 |アプリケーション マニフェスト (.manifest)|アプリケーションに関連付けられたメタデータが含まれます。拡張子は .manifest です。|
 |配置マニフェスト (.xbap)|このファイルには、ClickOnce がアプリケーションの配置に使用する情報が含まれており、拡張子は xbap です。|
 
- Xbap は、Microsoft インターネットインフォメーションサービス (IIS) 5.0 以降のバージョンなど、Web サーバーに展開します。 Web サーバーに .NET Framework をインストールする必要はありませんが、[!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] Multipurpose Internet Mail Extensions (MIME) の種類とファイル名拡張子を登録する必要があります。 詳細については、[WPF アプリケーションを配置するための IIS 5.0 および IIS 6.0 の構成](how-to-configure-iis-5-0-and-iis-6-0-to-deploy-wpf-applications.md)に関するページをご覧ください。
+ Xbap は、Microsoft インターネットインフォメーションサービス (IIS) 5.0 以降のバージョンなど、Web サーバーに展開します。 Web サーバーに .NET Framework をインストールする必要はありませんが、WPF Multipurpose Internet Mail Extensions (MIME) の種類とファイル名拡張子を登録する必要があります。 詳細については、[WPF アプリケーションを配置するための IIS 5.0 および IIS 6.0 の構成](how-to-configure-iis-5-0-and-iis-6-0-to-deploy-wpf-applications.md)に関するページをご覧ください。
 
  XBAP を配置用に準備するには、.exe および関連付けられたマニフェストを Web サーバーにコピーします。 配置マニフェスト (拡張子が .xbap のファイル) を開くために、ハイパーリンクを含む HTML ページを作成します。 ユーザーが xbap ファイルへのリンクをクリックすると、アプリケーションをダウンロードして起動するメカニズムが ClickOnce によって自動的に処理されます。 次のコード例は、XBAP を指定するハイパーリンクを含む HTML ページを示しています。
 
@@ -92,7 +91,7 @@ ms.locfileid: "72920020"
 
 <a name="communicating_with_the_host_web_page"></a>
 ## <a name="communicating-with-the-host-web-page"></a>ホスト Web ページとの通信
- アプリケーションが HTML フレーム内でホストされている場合は、XBAP を含む Web ページと通信できます。 これを行うには、<xref:System.Windows.Interop.BrowserInteropHelper>の <xref:System.Windows.Interop.BrowserInteropHelper.HostScript%2A> プロパティを取得します。 このプロパティは、HTML ウィンドウを表すスクリプト オブジェクトを返します。 [window オブジェクト](https://go.microsoft.com/fwlink/?LinkId=160274)上のプロパティ、メソッド、およびイベントにアクセスするには、標準のドット構文を使用します。 スクリプト メソッドおよびグローバル変数にアクセスすることもできます。 次の例は、スクリプト オブジェクトを取得して、ブラウザーを閉じる方法を示しています。
+ アプリケーションが HTML フレーム内でホストされている場合は、XBAP を含む Web ページと通信できます。 これを行うには、<xref:System.Windows.Interop.BrowserInteropHelper>の <xref:System.Windows.Interop.BrowserInteropHelper.HostScript%2A> プロパティを取得します。 このプロパティは、HTML ウィンドウを表すスクリプト オブジェクトを返します。 [window オブジェクト](https://developer.mozilla.org/en-US/docs/Web/API/Window)上のプロパティ、メソッド、およびイベントにアクセスするには、標準のドット構文を使用します。 スクリプト メソッドおよびグローバル変数にアクセスすることもできます。 次の例は、スクリプト オブジェクトを取得して、ブラウザーを閉じる方法を示しています。
 
  [!code-csharp[XbapBrowserInterop#10](~/samples/snippets/csharp/VS_Snippets_Wpf/xbapbrowserinterop/cs/page1.xaml.cs#10)]
  [!code-vb[XbapBrowserInterop#10](~/samples/snippets/visualbasic/VS_Snippets_Wpf/xbapbrowserinterop/vb/page1.xaml.vb#10)]
@@ -102,7 +101,7 @@ ms.locfileid: "72920020"
 
 1. Visual Studio でプロジェクトのプロパティを開きます。
 
-2. **[セキュリティ]** タブの **[詳細設定]** をクリックします。
+2. **[セキュリティ]** タブで、 **[詳細設定]** をクリックします。
 
      [セキュリティの詳細設定] ダイアログ ボックスが表示されます。
 
@@ -127,11 +126,11 @@ ms.locfileid: "72920020"
 
 <a name="xbap_security_considerations"></a>
 ## <a name="xbap-security-considerations"></a>XBAP セキュリティの考慮事項
- XBAP は、通常、インターネット ゾーン アクセス許可セットに制限された部分信頼セキュリティ サンドボックスで実行する必要があります。 そのため、の実装では、インターネットゾーンでサポートされている WPF 要素のサブセットをサポートするか、アプリケーションのアクセス許可を昇格させる必要があります。 詳細については、[セキュリティ](../security-wpf.md)に関するページをご覧ください。
+ XBAP は、通常、インターネット ゾーン アクセス許可セットに制限された部分信頼セキュリティ サンドボックスで実行する必要があります。 そのため、の実装では、インターネットゾーンでサポートされている WPF 要素のサブセットをサポートするか、アプリケーションのアクセス許可を昇格させる必要があります。 詳細については、 [セキュリティ](../security-wpf.md)に関するページを参照してください。
 
  アプリケーションで <xref:System.Windows.Controls.WebBrowser> コントロールを使用すると、WPF によって内部的にネイティブ WebBrowser ActiveX コントロールがインスタンス化されます。 アプリケーションが Internet Explorer で実行されている部分信頼 XBAP である場合、ActiveX コントロールは Internet Explorer プロセスの専用スレッドで実行されます。 このため、次の制限が適用されます。
 
-- <xref:System.Windows.Controls.WebBrowser> コントロールは、セキュリティ制限など、ホストブラウザーと同様の動作を提供する必要があります。 このようなセキュリティ上の制限の中には、Internet Explorer のセキュリティ設定を使用して制御できるものがあります。 詳細については、[セキュリティ](../security-wpf.md)に関するページをご覧ください。
+- <xref:System.Windows.Controls.WebBrowser> コントロールは、セキュリティ制限など、ホストブラウザーと同様の動作を提供する必要があります。 このようなセキュリティ上の制限の中には、Internet Explorer のセキュリティ設定を使用して制御できるものがあります。 詳細については、 [セキュリティ](../security-wpf.md)に関するページを参照してください。
 
 - XBAP が HTML ページでドメインをまたいでロードされると、例外がスローされます。
 
@@ -169,14 +168,14 @@ ms.locfileid: "72920020"
 
 |セキュリティ ゾーン|動作|完全信頼を受け取るための操作|
 |-------------------|--------------|------------------------|
-|ローカル コンピューター|完全な信頼を自動的に受け取る|アクションは必要ありません。|
+|ローカル コンピューター|完全な信頼を自動的に受け取る|対処は必要ありません。|
 |イントラネットおよび信頼済みサイト|完全な信頼のプロンプトを表示する|プロンプトにソースが表示されるように、証明書を使用して XBAP に署名します。|
 |インターネット|"信頼されていません" というメッセージが表示され、失敗する|証明書を使用して XBAP に署名します。|
 
 > [!NOTE]
 > 前の表で説明した動作は、ClickOnce 信頼済み配置モデルに従っていない完全な信頼の XBAP の動作です。
 
- 完全な信頼の XBAP を配置する場合は、ClickOnce 信頼済み配置モデルを使用することをお勧めします。 このモデルにより、セキュリティ ゾーンに関係なく、完全な信頼を XBAP に自動的に付与できるため、ユーザーにプロンプトが表示されることはありません。 このモデルの一部として、信頼された発行元からの証明書を使用して、アプリケーションに署名する必要があります。 細については、「[信頼されたアプリケーションの配置の概要](/visualstudio/deployment/trusted-application-deployment-overview)」および「[Introduction to Code Signing (コード署名の概要)](https://go.microsoft.com/fwlink/?LinkId=166327)」を参照してください。
+ 完全な信頼の XBAP を配置する場合は、ClickOnce 信頼済み配置モデルを使用することをお勧めします。 このモデルにより、セキュリティ ゾーンに関係なく、完全な信頼を XBAP に自動的に付与できるため、ユーザーにプロンプトが表示されることはありません。 このモデルの一部として、信頼された発行元からの証明書を使用して、アプリケーションに署名する必要があります。 細については、「[信頼されたアプリケーションの配置の概要](/visualstudio/deployment/trusted-application-deployment-overview)」および「[Introduction to Code Signing (コード署名の概要)](https://docs.microsoft.com/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms537361(v=vs.85))」を参照してください。
 
 <a name="xbap_start_time_performance_considerations"></a>
 ## <a name="xbap-start-time-performance-considerations"></a>XBAP 起動時のパフォーマンスに関する考慮事項
@@ -186,7 +185,7 @@ ms.locfileid: "72920020"
 
  さらに、ClickOnce ダウンロードシーケンスの同時実行性が向上すると、開始時間が最大10% 向上します。 ClickOnce がマニフェストをダウンロードして検証した後、アプリケーションのダウンロードが開始され、進行状況バーが更新を開始します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Visual Studio を構成して Web サービスを呼び出す XAML ブラウザー アプリケーションをデバッグする](configure-vs-to-debug-a-xaml-browser-to-call-a-web-service.md)
 - [WPF アプリケーションの配置](deploying-a-wpf-application-wpf.md)

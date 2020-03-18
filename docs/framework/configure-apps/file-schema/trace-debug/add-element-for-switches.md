@@ -7,21 +7,21 @@ helpviewer_keywords:
 - <add> element for <switches>
 - add element for <switches>
 ms.assetid: 712ac3a7-7abf-4a9e-8db4-acd241c2f369
-ms.openlocfilehash: 2edc890049d62913d693ad61d8d814d012c0f482
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: db2de681227dfdb7420808963219b9f52381f8fe
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71697176"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74088956"
 ---
-# <a name="add-element-for-switches"></a>\<add-1switches の > 要素を追加 >
+# <a name="add-element-for-switches"></a>\<スイッチの > 要素を追加 \<
 トレース スイッチを設定するレベルを指定します。  
-  
-[ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\<system. diagnostics >** ](system-diagnostics-element.md)  
-&nbsp; @ no__t @ no__t @no__t @ no__t-3[ **-6switches >** ](switches-element.md)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<> の追加**  
-  
+
+[ **\<configuration>** ](../configuration-element.md)\
+&nbsp;&nbsp;[ **\<** ](system-diagnostics-element.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;\<[**スイッチ**](switches-element.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**追加 >**
+
 ## <a name="syntax"></a>構文  
   
 ```xml  
@@ -50,11 +50,11 @@ ms.locfileid: "71697176"
 |`switches`|トレース スイッチと、トレース スイッチを設定するレベルを保持します。|  
 |`system.diagnostics`|メッセージを収集、格納、およびルーティングするトレース リスナーとトレース スイッチを設定するレベルを指定します。|  
   
-## <a name="remarks"></a>コメント  
- トレーススイッチのレベルは、構成ファイルに配置することによって変更できます。 スイッチが @no__t 0 の場合は、オンまたはオフにすることができます。 スイッチが @no__t 0 の場合は、別のレベルを割り当てて、アプリケーションが出力するトレースメッセージまたはデバッグメッセージの種類を指定できます。  
+## <a name="remarks"></a>Remarks  
+ トレーススイッチのレベルは、構成ファイルに配置することによって変更できます。 スイッチが <xref:System.Diagnostics.BooleanSwitch>の場合は、オンまたはオフにすることができます。 スイッチが <xref:System.Diagnostics.TraceSwitch>の場合は、別のレベルを割り当てて、アプリケーションが出力するトレースメッセージまたはデバッグメッセージの種類を指定できます。  
   
 ## <a name="example"></a>例  
- 次の例では、 **\<add >** 要素を使用して `General` トレーススイッチを <xref:System.Diagnostics.TraceLevel> レベルに設定し、@no__t ブールトレーススイッチを有効にする方法を示します。  
+ 次の例では、 **\<add >** 要素を使用して `General` トレーススイッチを <xref:System.Diagnostics.TraceLevel> レベルに設定し、`Data` ブール型のトレーススイッチを有効にする方法を示します。  
   
 ```xml  
 <configuration>  

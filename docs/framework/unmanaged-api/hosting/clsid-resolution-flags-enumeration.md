@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: cd8b9879-962a-4811-aa46-2e2b6bae0d84
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5274e70c5bead201beb158ee2895415d7ec9e53c
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d52f9f0bc2ff27d7849a80a424714aa84d3688fe
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779132"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136998"
 ---
-# <a name="clsidresolutionflags-enumeration"></a>CLSID_RESOLUTION_FLAGS 列挙型
-共通言語ランタイム (CLR) を解決する方法を示す値を含む、`CLSID`します。  
+# <a name="clsid_resolution_flags-enumeration"></a>CLSID_RESOLUTION_FLAGS 列挙型
+共通言語ランタイム (CLR: common language runtime) が `CLSID`を解決する方法を示す値を格納します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,12 +38,12 @@ typedef enum {
 |メンバー|説明|  
 |------------|-----------------|  
 |`CLSID_RESOLUTION_DEFAULT`|既定の動作を示します。|  
-|`CLSID_RESOLUTION_REGISTERED`|ランタイムは、レジストリを検索し、shim ポリシー適用を示します。|  
+|`CLSID_RESOLUTION_REGISTERED`|は、ランタイムがレジストリを検索して shim ポリシーを適用することを示します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v11plus](../../../../includes/net-current-v11plus-md.md)]  
   

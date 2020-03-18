@@ -1,34 +1,38 @@
 ---
-title: .NET Core の破壊的変更
+title: 互換性に影響する変更
 description: .NET Core の各バージョンの破壊的変更について説明します。
-ms.date: 08/12/2019
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 94dd59865afbde73c82f6e1b61a2f054cc188c72
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.date: 11/27/2019
+ms.openlocfilehash: 664d83f5bfa455764de8823c4bbdb4a2018e1875
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72393634"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77093072"
 ---
-# <a name="net-core-breaking-changes"></a>.NET Core の破壊的変更
+# <a name="breaking-change-selectors"></a>破壊的変更のセレクター
 
-次のバージョン セレクターでは、.NET Core、ASP.NET Core、EF Core の破壊的変更のフィルター処理されたリストを提供します。 ターゲット バージョンには、.NET Core 2.2 や .NET Core 3.0 などのメジャー リリースだけでなく、.NET Core 3.0 Preview 7 などのプレビュー リリースも含まれています。
+次のバージョンと領域のセレクターでは、.NET Core、ASP.NET Core、EF Core の異なるバージョン間で適用可能な破壊的変更がフィルターして一覧表示されます。 目次でバージョン別やカテゴリ別の記事も参照できます。
 
-また、次の GitHub リポジトリでは、.NET Core 3.0 で導入された破壊的変更について詳しく説明している個々の問題を確認することもできます。
+## <a name="by-version"></a>バージョン別
 
-- .NET Core の場合は、[dotnet/ docs](https://github.com/dotnet/docs/issues?q=is%3Aopen+is%3Aissue+label%3Abreaking-change) リポジトリ。
-- ASP.NET Core の場合は、[aspnet/Announcements](https://github.com/aspnet/Announcements/issues?q=is%3Aissue+is%3Aopen+label%3A%22Breaking+change%22+label%3A3.0.0) リポジトリ。
-- Entity Framework Core の場合は、[aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore/issues?q=is%3Aopen+is%3Aissue+label%3Abreaking-change) リポジトリ。
-
-## <a name="breaking-changes-by-version"></a>バージョン別の破壊的変更
-
-現在ターゲットにしている .NET Core のバージョンを選択してから、移行先の .NET Core のバージョンを選択します。
+現在ターゲットにしている .NET のバージョンを選択してから、移行先の .NET Core のバージョンを選択します。
 
 [!INCLUDE[versionselector](~/includes/core-changes/versionselector.md)]
 
-## <a name="breaking-changes-by-category"></a>カテゴリ別の破壊的変更
+## <a name="by-area"></a>領域別
 
 関心のある .NET Core テクノロジ領域を選択してください。 個々の変更は .NET Core のバージョン順になっています。
 
-[!INCLUDE[cateegoryselector](~/includes/core-changes/categoryselector.md)]
+[!INCLUDE[categoryselector](~/includes/core-changes/categoryselector.md)]
+
+## <a name="github-issues-and-announcements"></a>GitHub のイシューとお知らせ
+
+また、次の GitHub リポジトリでは、.NET Core で導入された破壊的変更について詳しく説明している個々の問題を確認することもできます。
+
+- .NET Core の場合は、[dotnet/ docs](https://github.com/dotnet/docs/issues?q=is%3Aissue+label%3Abreaking-change) リポジトリ。
+- ASP.NET Core の場合は、[aspnet/Announcements](https://github.com/aspnet/Announcements/issues?q=is%3Aissue+is%3Aopen+label%3A%22Breaking+change%22+label%3A3.0.0) リポジトリ。
+- Entity Framework Core の場合は、[dotnet/efcore](https://github.com/dotnet/efcore/issues?q=is%3Aopen+is%3Aissue+label%3Abreaking-change) リポジトリ。
+
+## <a name="see-also"></a>参照
+
+- [.NET Framework から .NET Core に移行する](../porting/index.md)

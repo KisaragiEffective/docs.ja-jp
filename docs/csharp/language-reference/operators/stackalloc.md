@@ -1,46 +1,43 @@
 ---
 title: stackalloc 演算子 - C# リファレンス
-ms.custom: seodec18
 ms.date: 09/20/2019
 f1_keywords:
 - stackalloc_CSharpKeyword
 helpviewer_keywords:
 - stackalloc operator [C#]
-ms.openlocfilehash: 9ef5f98f2b4973c5873417ecc9a71c187e7299b9
-ms.sourcegitcommit: 55f438d4d00a34b9aca9eedaac3f85590bb11565
+ms.openlocfilehash: 9c9767e0c9945a9589d049fa7abba192cb928ad5
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71182419"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "78846254"
 ---
 # <a name="stackalloc-operator-c-reference"></a>stackalloc 演算子 (C# リファレンス)
 
 `stackalloc` 演算子は、スタックにメモリ ブロックを割り当てます。 メソッドの実行中に作成された、スタックに割り当てられたメモリ ブロックは、そのメソッドが戻るときに自動的に破棄されます。 `stackalloc` 演算子を使用して割り当てられたメモリを明示的に開放することはできません。 スタックに割り当てられたメモリ ブロックは、[ガベージ コレクション](../../../standard/garbage-collection/index.md)の対象外であり、[`fixed` ステートメント](../keywords/fixed-statement.md)を使用してピン留めする必要はありません。
 
-`stackalloc T[E]` の式では、`T` が[アンマネージド型](../builtin-types/unmanaged-types.md)であり、`E` は型 `int` の式である必要があります。
-
 `stackalloc` 演算子の結果を、次のいずれかの型の変数に割り当てることができます。
 
 - C# 7.2 以降では <xref:System.Span%601?displayProperty=nameWithType> または <xref:System.ReadOnlySpan%601?displayProperty=nameWithType>。次に例を示します。
 
-  [!code-csharp[stackalloc span](~/samples/csharp/language-reference/operators/StackallocOperator.cs#AssignToSpan)]
+  [!code-csharp[stackalloc span](snippets/StackallocOperator.cs#AssignToSpan)]
 
-  スタックに割り当てられたメモリ ブロックを <xref:System.Span%601> 変数または <xref:System.ReadOnlySpan%601> 変数に割り当てるときに、[unsafe](../keywords/unsafe.md) コンテキストを使用する必要はありません。
+  スタックに割り当てられたメモリ ブロックを [ 変数または ](../keywords/unsafe.md) 変数に割り当てるときに、<xref:System.Span%601>unsafe<xref:System.ReadOnlySpan%601> コンテキストを使用する必要はありません。
 
-  これらの型を操作するときに、次の例に示すように、[条件](conditional-operator.md)式または代入式の中で `stackalloc` 式を使用できます。
+  これらの型を操作するときに、次の例に示すように、`stackalloc`条件[式または代入式の中で ](conditional-operator.md) 式を使用できます。
 
-  [!code-csharp[stackalloc expression](~/samples/csharp/language-reference/operators/StackallocOperator.cs#AsExpression)]
+  [!code-csharp[stackalloc expression](snippets/StackallocOperator.cs#AsExpression)]
 
-  C# 8.0 以降、次の例のように、<xref:System.Span%601> または <xref:System.ReadOnlySpan%601> 式が許可されるところでは、他の式の中で `stackalloc` 式を使用できます。
+  C# 8.0 以降では、次の例のように、`stackalloc` または <xref:System.Span%601> の変数が許可されるところでは、他の式の中で <xref:System.ReadOnlySpan%601> 式を使用できます。
 
-  [!code-csharp[stackalloc in nested expressions](~/samples/csharp/language-reference/operators/StackallocOperator.cs#Nested)]
+  [!code-csharp[stackalloc in nested expressions](snippets/StackallocOperator.cs#Nested)]
 
   > [!NOTE]
   > スタックに割り当てられたメモリを操作するときは、できるだけ <xref:System.Span%601> 型または <xref:System.ReadOnlySpan%601> 型を使用することをお勧めします。
 
 - [ポインター型](../../programming-guide/unsafe-code-pointers/pointer-types.md)。次に例を示します。
 
-  [!code-csharp[stackalloc pointer](~/samples/csharp/language-reference/operators/StackallocOperator.cs#AssignToPointer)]
+  [!code-csharp[stackalloc pointer](snippets/StackallocOperator.cs#AssignToPointer)]
 
   前の例に示したように、ポインター型を操作するときは、`unsafe` コンテキストを使用する必要があります。
 
@@ -48,17 +45,19 @@ ms.locfileid: "71182419"
 
 新しく割り当てられたメモリの内容は未定義です。 C# 7.3 以降、配列初期化子構文を使用して、新しく割り当てられたメモリの内容を定義できます。 これを実行するさまざまな方法を次の例に示します。
 
-[!code-csharp[stackalloc initialization](~/samples/csharp/language-reference/operators/StackallocOperator.cs#StackallocInit)]
+[!code-csharp[stackalloc initialization](snippets/StackallocOperator.cs#StackallocInit)]
 
-## <a name="security"></a>セキュリティ
+`stackalloc T[E]` の式では、`T` が[アンマネージド型](../builtin-types/unmanaged-types.md)であり、`E` は型 [int](../builtin-types/integral-numeric-types.md) の式である必要があります。
+
+## <a name="security"></a>Security
 
 `stackalloc` を使用すると、共通言語ランタイム (CLR) のバッファー オーバーラン検出機能が自動的に有効になります。 バッファー オーバーランが検出されると、悪意のあるコードが実行される可能性を最小限に抑えるために、プロセスはできる限り迅速に終了されます。
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳細については、[C# 言語仕様](~/_csharplang/spec/introduction.md)に関するページの「[Stack allocation (スタック割り当て)](~/_csharplang/spec/unsafe-code.md#stack-allocation)」セクションを参照してください。
+詳細については、[C# 言語仕様](~/_csharplang/spec/unsafe-code.md#stack-allocation)に関するページの「[スタック割り当て](~/_csharplang/spec/introduction.md)」セクションと、[入れ子になった `stackalloc` の許可](~/_csharplang/proposals/csharp-8.0/nested-stackalloc.md)に関する機能提案メモをご覧ください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
 - [C# 演算子](index.md)

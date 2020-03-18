@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: da278a29-dc2e-4bf7-96ce-801bdc4d7025
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2a5461cc6a78347cdbe0d0b13f8111cb24c11006
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b7a33fd6e2178e0e9188b81f516b231702fb6460
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67760048"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73122716"
 ---
 # <a name="icordebuginternalframegetframetype-method"></a>ICorDebugInternalFrame::GetFrameType メソッド
-この内部フレームの種類を取得します。  
+この内部フレームの型を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,13 +35,13 @@ HRESULT GetFrameType (
   
 ## <a name="parameters"></a>パラメーター  
  `pType`  
- [out]これによって表される内部のフレームの種類を示す CorDebugInternalFrameType 列挙型の値へのポインター`ICorDebugInternalFrame`オブジェクト。  
+ 入出力この `ICorDebugInternalFrame` オブジェクトによって表される内部フレームの種類を示す CorDebugInternalFrameType 列挙値へのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- 内部フレームの種類には、STUBFRAME_NONE はできません。 デバッガーは適切に認識されていない内部フレームの種類を無視します。  
+ 内部フレームの種類が STUBFRAME_NONE になることはありません。 デバッガーは、認識されない内部フレーム型を正常に無視する必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

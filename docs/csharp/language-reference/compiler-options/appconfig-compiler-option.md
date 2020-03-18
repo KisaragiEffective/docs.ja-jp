@@ -9,10 +9,10 @@ helpviewer_keywords:
 - appconfig compiler option [C#]
 ms.assetid: 1cdbcbcc-7813-4010-b5b8-e67c107c5a98
 ms.openlocfilehash: 7a7e8e61f65704a2e99385a1be320048d950324c
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69922520"
 ---
 # <a name="-appconfig-c-compiler-options"></a>-appconfig (C# コンパイラ オプション)
@@ -26,7 +26,7 @@ ms.locfileid: "69922520"
   
 ## <a name="arguments"></a>引数  
  `file`  
- 必須。 アセンブリ バインド設定を含むアプリケーション構成ファイル。  
+ 必須です。 アセンブリ バインド設定を含むアプリケーション構成ファイル。  
   
 ## <a name="remarks"></a>解説  
  **-appconfig** の用途の 1 つは、1 つのアセンブリが特定の参照アセンブリの .NET Framework バージョンと .NET Framework for Silverlight バージョンの両方を同時に参照する必要がある高度なシナリオです。 たとえば、WPF (Windows Presentation Foundation) で作成された XAML デザイナーにおいて、デザイナーのユーザー インターフェイスとして WPF デスクトップを参照すると共に、Silverlight に組み込まれている WPF のサブセットも参照する必要がある場合があります。 同じデザイナー アセンブリで両方のアセンブリにアクセスする必要があります。 既定では、この 2 つのアセンブリはアセンブリ バインディングで同等と見なされるため、別々に参照するとコンパイラ エラーが発生します。  
@@ -54,7 +54,7 @@ ms.locfileid: "69922520"
 </configuration>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [\<supportPortability> 要素](../../../framework/configure-apps/file-schema/runtime/supportportability-element.md)
 - [アルファベット順の C# コンパイラ オプションの一覧](./listed-alphabetically.md)

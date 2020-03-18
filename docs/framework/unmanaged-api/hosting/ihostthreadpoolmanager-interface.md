@@ -14,38 +14,36 @@ helpviewer_keywords:
 ms.assetid: c3a2cd90-7c4e-4374-bb87-b41befb8344f
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2e7976740a79efda8e5ab569f2efb55444012c5d
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 8aef78c7cf70e6b2d97af9c47d57908b86729ff7
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61796573"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73122081"
 ---
 # <a name="ihostthreadpoolmanager-interface"></a>IHostThreadPoolManager インターフェイス
-共通言語ランタイム (CLR) スレッド プールを構成し、スレッド プールに作業項目をキューに登録を有効にする方法を提供します。  
+共通言語ランタイム (CLR) がスレッドプールを構成し、作業項目をスレッドプールにキューするようにするメソッドを提供します。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[GetAvailableThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-getavailablethreads-method.md)|作業項目を現在処理していないスレッド プールのスレッドの数を取得します。|  
-|[GetMaxThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-getmaxthreads-method.md)|スレッド プールに同時にホストで管理されるスレッドの最大数を取得します。|  
-|[GetMinThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-getminthreads-method.md)|要求に応じるためには、ホストで管理されるアイドル状態のスレッドの最小数を取得します。|  
-|[QueueUserWorkItem メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-queueuserworkitem-method.md)|キューに入れ、実行するための関数および関数によって使用されるデータを格納しているオブジェクトを提供します。|  
-|[SetMaxThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-setmaxthreads-method.md)|ホストは、スレッド プールで保持できるスレッドの最大数を設定します。|  
-|[SetMinThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-setminthreads-method.md)|要求に応じるため、ホストを管理する必要があるアイドル状態のスレッドの最小数を設定します。|  
+|[GetAvailableThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-getavailablethreads-method.md)|現在作業項目を処理していないスレッドプール内のスレッドの数を取得します。|  
+|[GetMaxThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-getmaxthreads-method.md)|ホストがスレッドプール内で同時に保持するスレッドの最大数を取得します。|  
+|[GetMinThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-getminthreads-method.md)|要求を処理するためにホストが保持するアイドル状態のスレッドの最小数を取得します。|  
+|[QueueUserWorkItem メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-queueuserworkitem-method.md)|実行する関数をキューに配置し、関数によって使用されるデータを格納しているオブジェクトを提供します。|  
+|[SetMaxThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-setmaxthreads-method.md)|ホストがスレッドプールで保持できるスレッドの最大数を設定します。|  
+|[SetMinThreads メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-setminthreads-method.md)|ホストが要求を見越して保持する必要があるアイドル状態のスレッドの最小数を設定します。|  
   
 ## <a name="remarks"></a>Remarks  
- ホストがへの呼び出しで指定された値を使用して、スレッド プールを構成する必要はありません、`SetMaxThreads`と`SetMinThreads`メソッド。 この場合、ホストは、これらのメソッドから HRESULT 値 E_NOTIMPL を返す必要があります。  
+ ホストは、`SetMaxThreads` および `SetMinThreads` メソッドの呼び出しで指定された値を使用してスレッドプールを構成する必要はありません。 この場合、ホストはこれらのメソッドから E_NOTIMPL の HRESULT 値を返す必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

@@ -1,19 +1,19 @@
 ---
-title: '方法: カスタムの信頼できるセッションによる HTTPS を使用したバインディングを作成する'
+title: '方法 : カスタムの信頼できるセッションによる HTTPS を使用したバインディングを作成する'
 ms.date: 03/30/2017
 ms.assetid: fa772232-da1f-4c66-8c94-e36c0584b549
-ms.openlocfilehash: 7f22eeaae39b4d9a83c77c7f3e9db1d7d3f04e8e
-ms.sourcegitcommit: 5ae5a1a9520b8b8b6164ad728d396717f30edafc
+ms.openlocfilehash: 26466a97ae44e6852c189d0b72bdba1b93d86141
+ms.sourcegitcommit: fbb8a593a511ce667992502a3ce6d8f65c594edf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70895202"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74141735"
 ---
-# <a name="how-to-create-a-custom-reliable-session-binding-with-https"></a>方法: カスタムの信頼できるセッションによる HTTPS を使用したバインディングを作成する
+# <a name="how-to-create-a-custom-reliable-session-binding-with-https"></a>方法 : カスタムの信頼できるセッションによる HTTPS を使用したバインディングを作成する
 
 ここでは、信頼できるセッションを使用した SSL (Secure Sockets Layer) トランスポート セキュリティの使用方法について説明します。 HTTPS 上で信頼できるセッションを使用するには、信頼できるセッションと HTTPS トランスポートを使用するカスタム バインドを作成する必要があります。 信頼できるセッションは、コードを使用するか、構成ファイルで宣言によって、強制的に有効にします。 この手順では、クライアントとサービスの構成ファイルを使用して、信頼できるセッションと[ **\<httpsTransport >** ](../../../../docs/framework/configure-apps/file-schema/wcf/httpstransport.md)要素を有効にします。
 
-この手順の重要な部分は、  **\<エンドポイント >** `bindingConfiguration`構成要素に、という名前`reliableSessionOverHttps`のカスタムバインディング構成を参照する属性が含まれていることです。 [ **\<Binding >** ](../../../../docs/framework/misc/binding.md) configuration 要素は、この名前を参照して、  **\<reliableSession >** と **\<httpsTransport を含めることで、信頼できるセッションと HTTPS トランスポートを使用することを指定し >** 要素。
+この手順の重要な部分は、 **\<エンドポイント >** 構成要素に、`reliableSessionOverHttps`という名前のカスタムバインド構成を参照する `bindingConfiguration` 属性が含まれていることです。 [ **\<binding >** ](../../configure-apps/file-schema/wcf/bindings.md) configuration 要素は、この名前を参照して、信頼できるセッションと HTTPS トランスポートを使用することを指定します。これは **\<reliableSession >** および **\<httpsTransport >** 要素を含めることによって行います。
 
 この例のソースコピーについては、「HTTPS を使用した[カスタムバインディングの信頼できるセッション](../../../../docs/framework/wcf/samples/custom-binding-reliable-session-over-https.md)」を参照してください。
 
@@ -27,7 +27,7 @@ ms.locfileid: "70895202"
 
    [!code-csharp[c_HowTo_CreateReliableSessionHTTPS#1122](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_createreliablesessionhttps/cs/service.cs#1122)]
 
-1. *Web.config ファイルを*作成して、 `CalculatorService`信頼できるセッションと HTTPS トランスポートを使用すると`reliableSessionOverHttps`いう名前のカスタムバインドを持つのエンドポイントを構成します。
+1. *Web.config ファイルを*作成し、信頼できるセッションと HTTPS トランスポートを使用する `reliableSessionOverHttps` という名前のカスタムバインディングを使用して、`CalculatorService` のエンドポイントを構成します。
 
    [!code-xml[c_HowTo_CreateReliableSessionHTTPS#2111](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_createreliablesessionhttps/common/web.config#2111)]
 
@@ -45,7 +45,7 @@ ms.locfileid: "70895202"
    Svcutil.exe <Metadata Exchange (MEX) address or HTTP GET address>
    ```
 
-1. 生成されるクライアントには、 `ICalculator`クライアント実装が満たす必要のあるサービスコントラクトを定義するインターフェイスが含まれています。
+1. 生成されるクライアントには、クライアント実装が満たす必要のあるサービスコントラクトを定義する `ICalculator` インターフェイスが含まれています。
 
    [!code-csharp[C_HowTo_CreateReliableSessionHTTPS#1221](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_createreliablesessionhttps/cs/client.cs#1221)]
 
@@ -53,7 +53,7 @@ ms.locfileid: "70895202"
 
    [!code-csharp[C_HowTo_CreateReliableSessionHTTPS#1222](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_createreliablesessionhttps/cs/client.cs#1222)]
 
-1. HTTPS トランスポートと信頼できる`reliableSessionOverHttps`セッションを使用するように、という名前のカスタムバインディングを構成します。
+1. HTTPS トランスポートと信頼できるセッションを使用するように、`reliableSessionOverHttps` という名前のカスタムバインドを構成します。
 
    [!code-xml[C_HowTo_CreateReliableSessionHTTPS#2211](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_howto_createreliablesessionhttps/common/app.config#2211)]
 
@@ -65,7 +65,7 @@ ms.locfileid: "70895202"
 
 ## <a name="net-framework-security"></a>.NET Framework のセキュリティ
 
-このサンプルで使用される証明書は、 *Makecert*で作成されたテスト証明書であるため、ブラウザーからなどの HTTPS アドレス`https://localhost/servicemodelsamples/service.svc`にアクセスしようとすると、セキュリティの警告が表示されます。
+このサンプルで使用される証明書は、 *Makecert*で作成されたテスト証明書であるため、ブラウザーから HTTPS アドレス (`https://localhost/servicemodelsamples/service.svc`など) にアクセスしようとすると、セキュリティの警告が表示されます。
 
 ## <a name="see-also"></a>関連項目
 

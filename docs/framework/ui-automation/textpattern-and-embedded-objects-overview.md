@@ -7,20 +7,20 @@ helpviewer_keywords:
 - accessing embedded objects
 - embedded objects, UI Automation
 ms.assetid: 93fdfbb9-0025-4b72-8ca0-0714adbb70d5
-ms.openlocfilehash: ba4df55c3359e2a81eef0b4947a744d80ed49497
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: afcb7f282b222d377c4b04db7c91db062ffe4b2a
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73040597"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74446841"
 ---
 # <a name="textpattern-and-embedded-objects-overview"></a>TextPattern および埋め込みオブジェクトの概要
 > [!NOTE]
-> このドキュメントは、[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)] 名前空間で定義されているマネージド <xref:System.Windows.Automation> クラスを使用する .NET Framework 開発者を対象としています。 [!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]の最新情報については、「 [Windows Automation API: UI Automation (Windows のオートメーション API: UI オートメーション)](https://go.microsoft.com/fwlink/?LinkID=156746)」を参照してください。  
+> このドキュメントは、[!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)] 名前空間で定義されているマネージド <xref:System.Windows.Automation> クラスを使用する .NET Framework 開発者を対象としています。 [!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]の最新情報については、「 [Windows Automation API: UI オートメーション](/windows/win32/winauto/entry-uiauto-win32)」を参照してください。  
   
  この概要では、 [!INCLUDE[TLA#tla_uiautomation](../../../includes/tlasharptla-uiautomation-md.md)] がテキスト ドキュメントまたはコンテナー内で埋め込みオブジェクトや子要素を公開する方法について説明します。  
   
- [!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)] では、埋め込みオブジェクトは、テキスト以外の境界を持つ任意の要素です。たとえば、画像、ハイパーリンク、テーブル、ドキュメントの種類 ([!INCLUDE[TLA#tla_xl](../../../includes/tlasharptla-xl-md.md)] スプレッドシートや Microsoft Windows Media ファイルなど) があります。 これは、あるアプリケーションで要素が作成され、別のアプリケーション内に埋め込まれる (リンクされる) 標準的な定義とは異なります。 オブジェクトを元のアプリケーション内で編集できるかどうかは、 [!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]の状況とは無関係です。  
+ [!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)] では、埋め込みオブジェクトは、テキスト以外の境界を持つ任意の要素です。たとえば、画像、ハイパーリンク、テーブル、ドキュメントの種類 (Microsoft Excel スプレッドシートや Microsoft Windows Media ファイルなど) を使用できます。 これは、あるアプリケーションで要素が作成され、別のアプリケーション内に埋め込まれる (リンクされる) 標準的な定義とは異なります。 オブジェクトを元のアプリケーション内で編集できるかどうかは、 [!INCLUDE[TLA2#tla_uiautomation](../../../includes/tla2sharptla-uiautomation-md.md)]の状況とは無関係です。  
   
 <a name="Embedded_Objects_and_the_UI_Automation_Tree"></a>   
 ## <a name="embedded-objects-and-the-ui-automation-tree"></a>埋め込みオブジェクトと UI オートメーション ツリー  
@@ -98,7 +98,7 @@ ms.locfileid: "73040597"
 |<xref:System.Windows.Automation.Text.TextPatternRange.Move%2A> (パラメーターは (TextUnit.Word, 1))|ハイパーリンクのテキストは個々の単語で構成されているため、テキスト範囲は "http" に移動します。 この場合、ハイパーリンクは 1 つのオブジェクトとして扱われません。<br /><br /> URL {[http]} はテキストに埋め込まれています。|  
   
 <a name="Image"></a>   
-### <a name="image"></a>Image  
+### <a name="image"></a>イメージ  
  **例 1: 埋め込みイメージを含むテキスト範囲**  
   
  {画像の![埋め込み画像の例](./media/uia-textpattern-embedded-objects-overview-imageexample.PNG "UIA_TextPattern_Embedded_Objects_Overview_ImageExample")は、テキストに埋め込まれています}。  
@@ -128,7 +128,7 @@ ms.locfileid: "73040597"
 |イメージを含むセル|テキストを含むセル|  
 |---------------------|--------------------|  
 |![埋め込み画像の例](./media/uia-textpattern-embedded-objects-overview-imageexample.PNG "UIA_TextPattern_Embedded_Objects_Overview_ImageExample")|x|  
-|![埋め込み画像の例2](./media/uia-textpattern-embedded-objects-overview-imageexample2.PNG "UIA_TextPattern_Embedded_Objects_Overview_ImageExample2")|○|  
+|![埋め込み画像の例2](./media/uia-textpattern-embedded-objects-overview-imageexample2.PNG "UIA_TextPattern_Embedded_Objects_Overview_ImageExample2")|Y|  
 |![埋め込み画像の例3](./media/uia-textpattern-embedded-objects-overview-imageexample3.PNG "UIA_TextPattern_Embedded_Objects_Overview_ImageExample3")<br /><br /> Z のイメージ|Z|  
   
  **例 1: セルのコンテンツからテキスト コンテナーを取得する**  
@@ -155,6 +155,6 @@ ms.locfileid: "73040597"
 - <xref:System.Windows.Automation.Provider.ITextProvider>
 - <xref:System.Windows.Automation.Provider.ITextRangeProvider>
 - [UI オートメーションを使用した、埋め込みオブジェクトへのアクセス](access-embedded-objects-using-ui-automation.md)
-- [UI オートメーションを使用したテーブルの内容の公開](expose-the-content-of-a-table-using-ui-automation.md)
+- [Expose the Content of a Table Using UI Automation](expose-the-content-of-a-table-using-ui-automation.md)
 - [UI オートメーションを使用したテキストのスキャン](traverse-text-using-ui-automation.md)
 - [TextPattern の検索と選択のサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Accessibility/FindText)

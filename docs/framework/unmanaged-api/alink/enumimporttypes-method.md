@@ -15,18 +15,16 @@ helpviewer_keywords:
 ms.assetid: 83a0e4e7-ec06-40cb-9b63-700b9695bb04
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 0cd154ac90418dd0f6f476151686ff670c01c98c
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: ca7c7570aff63aa328dddc0626648fa74397addc
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65632232"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74448736"
 ---
 # <a name="enumimporttypes-method"></a>EnumImportTypes メソッド
 
-それぞれのスコープでは、各種類を列挙します。
+各スコープ内の各型を列挙します。
 
 ## <a name="syntax"></a>構文
 
@@ -42,24 +40,24 @@ HRESULT EnumImportTypes(
 ## <a name="parameters"></a>パラメーター
 
 `hEnum`\
-列挙子の処理です。
+列挙子のハンドル。
 
 `dwMax`\
 取得する型の最大数。
 
 `aTypeDefs`\
-超えないように、型のトークンを受け取る`dwMax`します。
+`dwMax`を超えないように、型トークンを受け取ります。
 
 `pdwCount`\
-型の実際の数を受け取る`aTypeDefs`します。
+`aTypeDefs`内の実際の型の数を受け取ります。
 
 ## <a name="return-value"></a>戻り値
 
-メソッドが成功した場合は、S_OK を返します。
+メソッドが成功した場合は S_OK を返します。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
-Alink.h が必要です。
+Alink. h が必要です。
 
 ## <a name="see-also"></a>関連項目
 

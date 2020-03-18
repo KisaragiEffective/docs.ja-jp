@@ -4,12 +4,12 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - programming [WF], designing workflows
 ms.assetid: 41f727b5-b142-4c1b-b046-492b96135ae6
-ms.openlocfilehash: a6624b06d9bdb4523cec5c98a199835bf55d9fd4
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: c774161fb5adbc5fc8e44b22d994d15fa0d2e489
+ms.sourcegitcommit: fbb8a593a511ce667992502a3ce6d8f65c594edf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61774037"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74141911"
 ---
 # <a name="designing-workflows"></a>ワークフローの設計
 このセクションの各トピックでは、ワークフローの開発で使用するフロー制御パラダイムについて説明します。  
@@ -22,7 +22,7 @@ ms.locfileid: "61774037"
  基本的で連続的な実行パラダイムを使用してワークフローを作成する方法を示します。  
   
  [ステート マシン ワークフロー](state-machine-workflows.md)  
- 以前のバージョンでは使用されていたステート マシン モデルの代わりに、[!INCLUDE[netfx40_short](../../../includes/netfx40-short-md.md)] でフローチャート ワークフローを使用してイベント ドリブン ワークフローを実装する方法について説明します。  
+ フローチャートワークフローを使用して .NET Framework 4 でイベントドリブンワークフローを実装する方法について説明します。これは、以前のバージョンで使用されていたステートマシンモデルに代わるものです。  
   
  [命令型コードを使用してワークフロー、アクティビティ、および式を作成する方法](authoring-workflows-activities-and-expressions-using-imperative-code.md)  
  命令型コードを使用してワークフローを作成する方法について説明します。

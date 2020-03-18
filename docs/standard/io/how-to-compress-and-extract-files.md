@@ -10,14 +10,12 @@ helpviewer_keywords:
 - compression
 - compress files
 ms.assetid: e9876165-3c60-4c84-a272-513e47acf579
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 9a4ea4c32f5b73b283a5982f16e55a4d078171c1
-ms.sourcegitcommit: 14355b4b2fe5bcf874cac96d0a9e6376b567e4c7
+ms.openlocfilehash: 5aa25e265ed6ffb613e9916414c6f2335a4aaf57
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55255004"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78159378"
 ---
 # <a name="how-to-compress-and-extract-files"></a>方法: ファイルを圧縮して抽出する
 
@@ -33,9 +31,9 @@ ms.locfileid: "55255004"
 
 ## <a name="example-1-create-and-extract-a-zip-file"></a>例 1: .zip ファイルを作成して抽出する
 
-次の例では、<xref:System.IO.Compression.ZipFile> クラスを使用して圧縮された *.zip* ファイルの作成と抽出を行う方法を示しています。 この例では、フォルダーの内容を新しい *.zip* ファイルに圧縮し、その zip を新しいフォルダーに抽出します。 
+次の例では、<xref:System.IO.Compression.ZipFile> クラスを使用して圧縮された *.zip* ファイルの作成と抽出を行う方法を示しています。 この例では、フォルダーの内容を新しい *.zip* ファイルに圧縮し、その zip を新しいフォルダーに抽出します。
 
-サンプルを実行するには、プログラムのフォルダーに *start* フォルダーを作成し、圧縮するファイルをそこに置きます。 
+サンプルを実行するには、プログラムのフォルダーに *start* フォルダーを作成し、圧縮するファイルをそこに置きます。
 
 "名前 'ZipFile' は現在のコンテキストに存在しません" というビルド エラーが発生する場合は、`System.IO.Compression.FileSystem` アセンブリへの参照をプロジェクトに追加します。
 
@@ -44,13 +42,13 @@ ms.locfileid: "55255004"
 
 ## <a name="example-2-extract-specific-file-extensions"></a>例 2:特定の拡張子のファイルを抽出する
 
-次の例では、既存の *.zip* ファイルの内容を反復処理し、拡張子が *.txt* のファイルを抽出します。 <xref:System.IO.Compression.ZipArchive> クラスを使用して zip にアクセスし、<xref:System.IO.Compression.ZipArchiveEntry> クラスを使用して個々のエントリを調べます。 <xref:System.IO.Compression.ZipArchiveEntry> オブジェクトの拡張メソッド <xref:System.IO.Compression.ZipFileExtensions.ExtractToFile%2A> は、<xref:System.IO.Compression.ZipFileExtensions?displayProperty=nameWithType> クラスで使用できます。 
+次の例では、既存の *.zip* ファイルの内容を反復処理し、拡張子が *.txt* のファイルを抽出します。 <xref:System.IO.Compression.ZipArchive> クラスを使用して zip にアクセスし、<xref:System.IO.Compression.ZipArchiveEntry> クラスを使用して個々のエントリを調べます。 <xref:System.IO.Compression.ZipArchiveEntry> オブジェクトの拡張メソッド <xref:System.IO.Compression.ZipFileExtensions.ExtractToFile%2A> は、<xref:System.IO.Compression.ZipFileExtensions?displayProperty=nameWithType> クラスで使用できます。
 
-サンプルを実行するには、*result.zip* という名前の *.zip* ファイルをプログラム フォルダーに配置します。 入力を求められたら、抽出先のフォルダー名を指定します。 
+サンプルを実行するには、*result.zip* という名前の *.zip* ファイルをプログラム フォルダーに配置します。 入力を求められたら、抽出先のフォルダー名を指定します。
 
 "名前 'ZipFile' は現在のコンテキストに存在しません" というビルド エラーが発生する場合は、`System.IO.Compression.FileSystem` アセンブリへの参照をプロジェクトに追加します。
 
-"型 'ZipArchive' は、参照されていないアセンブリに定義されています" というエラーが発生する場合は、`System.IO.Compression` アセンブリへの参照をプロジェクトに追加します。 
+"型 'ZipArchive' は、参照されていないアセンブリに定義されています" というエラーが発生する場合は、`System.IO.Compression` アセンブリへの参照をプロジェクトに追加します。
 
 > [!IMPORTANT]
 > ファイルを解凍する場合は、解凍先のディレクトリを回避する悪意のあるファイル パスを検索する必要があります。 これは、パス トラバーサル攻撃と呼ばれます。 次の例では、悪意のあるファイル パスを確認して安全な解凍手段を提供する方法を示します。
@@ -67,7 +65,7 @@ ms.locfileid: "55255004"
 
 ## <a name="example-4-compress-and-decompress-gz-files"></a>例 4:.gz ファイルを圧縮および展開する
 
-また、<xref:System.IO.Compression.GZipStream> クラスと <xref:System.IO.Compression.DeflateStream> クラスを使用してデータを圧縮および展開することもできます。 圧縮と展開には同じ圧縮アルゴリズムが使用されます。 多くの一般的なツールを使用して、*.gz* ファイルに書き込まれた <xref:System.IO.Compression.GZipStream> オブジェクトを展開できます。 次の例では、<xref:System.IO.Compression.GZipStream> クラスを使用してファイルのディレクトリを圧縮および展開する方法を示します。
+また、<xref:System.IO.Compression.GZipStream> クラスと <xref:System.IO.Compression.DeflateStream> クラスを使用してデータを圧縮および展開することもできます。 圧縮と展開には同じ圧縮アルゴリズムが使用されます。 多くの一般的なツールを使用して、 *.gz* ファイルに書き込まれた <xref:System.IO.Compression.GZipStream> オブジェクトを展開できます。 次の例では、<xref:System.IO.Compression.GZipStream> クラスを使用してファイルのディレクトリを圧縮および展開する方法を示します。
 
 [!code-csharp[IO.Compression.GZip1#1](../../../samples/snippets/csharp/VS_Snippets_CLR/IO.Compression.GZip1/CS/gziptest.cs#1)]
 [!code-vb[IO.Compression.GZip1#1](../../../samples/snippets/visualbasic/VS_Snippets_CLR/IO.Compression.GZip1/VB/gziptest.vb#1)]

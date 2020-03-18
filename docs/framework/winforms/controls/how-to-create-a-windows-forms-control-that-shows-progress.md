@@ -1,5 +1,5 @@
 ---
-title: '方法: 進行状況を示す Windows フォーム コントロールを作成する'
+title: 進行状況を表示するコントロールを作成する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,14 +10,14 @@ helpviewer_keywords:
 - progress [Windows Forms], reporting [Windows Forms]
 - FlashTrackBar custom control
 ms.assetid: 24c5a2e3-058c-4b8d-a217-c06e6a130c2f
-ms.openlocfilehash: 84f0caace70f9877e84fdd01dc69216dc10fe485
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 9d2cf353ba2309380221bb51733baaca1b81a5d5
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69950571"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76731178"
 ---
-# <a name="how-to-create-a-windows-forms-control-that-shows-progress"></a>方法: 進行状況を示す Windows フォーム コントロールを作成する
+# <a name="how-to-create-a-windows-forms-control-that-shows-progress"></a>方法 : 進行状況を示す Windows フォーム コントロールを作成する
 次のコード例は、アプリケーションのレベルまたは進行状況の表示にに使用できる `FlashTrackBar` というカスタム コントロールを示していいます。 これは、グラデーションを使用して、進行状況を視覚的に表示します。  
   
  `FlashTrackBar` コントロールには次のような機能が含まれます。  
@@ -26,15 +26,15 @@ ms.locfileid: "69950571"
   
 - カスタム イベントの定義 (`FlashTrackBar` が `ValueChanged` イベントを定義します)。  
   
-- <xref:System.Windows.Forms.Control.OnPaint%2A>メソッドをオーバーライドして、コントロールを描画するロジックを提供します。  
+- <xref:System.Windows.Forms.Control.OnPaint%2A> メソッドをオーバーライドして、コントロールを描画するロジックを提供します。  
   
-- <xref:System.Windows.Forms.Control.ClientRectangle%2A>プロパティを使用して、コントロールを描画するために使用できる領域を計算します。 `FlashTrackBar` は、`OptimizedInvalidate` メソッドでこの計算を実行します。  
+- <xref:System.Windows.Forms.Control.ClientRectangle%2A> プロパティを使用して、コントロールを描画するために使用できる領域を計算します。 `FlashTrackBar` は、`OptimizedInvalidate` メソッドでこの計算を実行します。  
   
-- Windows フォーム デザイナー内でプロパティが変更されたときの、プロパティのシリアル化または永続化の実装。 `FlashTrackBar` は `StartColor` プロパティと `EndColor` プロパティをシリアル化するために、`ShouldSerializeStartColor` メソッドと `ShouldSerializeEndColor` メソッドを定義します。  
+- Windows フォーム デザイナー内でプロパティが変更されたときの、プロパティのシリアル化または永続化の実装。 `FlashTrackBar` は `ShouldSerializeStartColor` プロパティと `ShouldSerializeEndColor` プロパティをシリアル化するために、`StartColor` メソッドと `EndColor` メソッドを定義します。  
   
  `FlashTrackBar` によって定義されるカスタム プロパティを次の表に示します。  
   
-|プロパティ|説明|  
+|プロパティ|[説明]|  
 |--------------|-----------------|  
 |`AllowUserEdit`|フラッシュ トラック バーをクリックまたはドラッグして値を変更できるかどうかを示します。|  
 |`EndColor`|トラック バーの終了色を指定します。|  
@@ -49,15 +49,15 @@ ms.locfileid: "69950571"
   
  次の表は、`FlashTrackBar:` によって定義される追加メンバーである、プロパティ変更イベント、およびイベントを発生させるメソッドを示しています。  
   
-|メンバー|説明|  
+|メンバー|[説明]|  
 |------------|-----------------|  
 |`ValueChanged`|トラック バーの `Value` プロパティが変更されたときに発生するイベント。|  
 |`OnValueChanged`|`ValueChanged` イベントを発生させるメソッド。|  
   
 > [!NOTE]
-> `FlashTrackBar`イベントデータには<xref:System.EventArgs>クラスを、イベントデリゲートにはを<xref:System.EventHandler>使用します。  
+> `FlashTrackBar` では、イベントデリゲートのイベントデータと <xref:System.EventHandler> に <xref:System.EventArgs> クラスを使用します。  
   
- 対応する*EventName*イベントを処理する`FlashTrackBar`ために、は、から<xref:System.Windows.Forms.Control?displayProperty=nameWithType>継承される次のメソッドをオーバーライドします。  
+ 対応する*EventName*イベントを処理するために、`FlashTrackBar` は <xref:System.Windows.Forms.Control?displayProperty=nameWithType>から継承する次のメソッドをオーバーライドします。  
   
 - <xref:System.Windows.Forms.Control.OnPaint%2A>  
   
@@ -69,7 +69,7 @@ ms.locfileid: "69950571"
   
 - <xref:System.Windows.Forms.Control.OnResize%2A>  
   
- 対応するプロパティ変更イベントを処理するため`FlashTrackBar`に、は、から<xref:System.Windows.Forms.Control?displayProperty=nameWithType>継承される次のメソッドをオーバーライドします。  
+ `FlashTrackBar` は、対応するプロパティ変更イベントを処理するために、<xref:System.Windows.Forms.Control?displayProperty=nameWithType>から継承される次のメソッドをオーバーライドします。  
   
 - <xref:System.Windows.Forms.Control.OnBackColorChanged%2A>  
   
@@ -92,7 +92,7 @@ ms.locfileid: "69950571"
  [!code-csharp[System.Windows.Forms.FlashTrackBar#30](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.FlashTrackBar/CS/HostApp.cs#30)]
  [!code-vb[System.Windows.Forms.FlashTrackBar#30](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.FlashTrackBar/VB/HostApp.vb#30)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [デザイン時サポートの拡張](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2013/37899azc(v=vs.120))
 - [Windows フォーム コントロール開発の基本概念](windows-forms-control-development-basics.md)

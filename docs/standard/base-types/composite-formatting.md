@@ -13,14 +13,12 @@ helpviewer_keywords:
 - composite formatting
 - objects [.NET Framework], formatting multiple objects
 ms.assetid: 87b7d528-73f6-43c6-b71a-f23043039a49
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8d0574c7e0910a658f1dc80d8394f55b472c31a3
-ms.sourcegitcommit: 46c68557bf6395f0ab9915f7558f2faae0097695
+ms.openlocfilehash: b1ec8cfc0f8c6e660d716c51bf3c3387b73a278f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "64634567"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79398479"
 ---
 # <a name="composite-formatting"></a>複合書式指定
 
@@ -33,7 +31,7 @@ ms.locfileid: "64634567"
   
 - <xref:System.String.Format%2A?displayProperty=nameWithType>。書式設定された結果文字列を返します。  
   
-- <xref:System.Text.StringBuilder.AppendFormat%2A?displayProperty=nameWithType>。書式設定された結果文字列を <xref:System.Text.StringBuilder> オブジェクトに追加します。   
+- <xref:System.Text.StringBuilder.AppendFormat%2A?displayProperty=nameWithType>。書式設定された結果文字列を <xref:System.Text.StringBuilder> オブジェクトに追加します。
 - <xref:System.Console.WriteLine%2A?displayProperty=nameWithType> メソッドの一部のオーバーロード。書式設定された結果文字列をコンソールに表示します。  
   
 - <xref:System.IO.TextWriter.WriteLine%2A?displayProperty=nameWithType> メソッドの一部のオーバーロード。書式設定された結果文字列をストリームまたはファイルに書き込みます。 <xref:System.IO.TextWriter> から派生したクラス (<xref:System.IO.StreamWriter>、<xref:System.Web.UI.HtmlTextWriter> など) も、この機能を共有します。  

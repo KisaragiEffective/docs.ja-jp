@@ -2,22 +2,22 @@
 title: <namedPipeTransport>
 ms.date: 03/30/2017
 ms.assetid: 9fc3f42f-43e2-4ab1-8bc7-3c95a9220df1
-ms.openlocfilehash: e5f1d49e0e3bb5f52c5e18577d556d25539434a9
-ms.sourcegitcommit: 093571de904fc7979e85ef3c048547d0accb1d8a
+ms.openlocfilehash: 00631ad88d771ed8f45638f28c84df05917fd3a0
+ms.sourcegitcommit: 22be09204266253d45ece46f51cc6f080f2b3fd6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70400162"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73736588"
 ---
 # <a name="namedpipetransport"></a>\<namedPipeTransport >
 チャネルがカスタム バインドに含まれているときに名前付きパイプを使用してメッセージを転送するトランスポートを定義します。  
   
 [ **\<configuration>** ](../configuration-element.md)\
-&nbsp;&nbsp;[ **\<System.servicemodel >** ](system-servicemodel.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;[ **\<バインド >** ](bindings.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ **\<customBinding >** ](custombinding.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<バインド >** \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<namedPipeTransport >**  
+&nbsp; &nbsp;[ **\<system >** ](system-servicemodel.md) \
+&nbsp;&nbsp;&nbsp;&nbsp;\<[**バインド**](bindings.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<[**customBinding >** ](custombinding.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**バインド >** \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**namedPipeTransport >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -49,7 +49,7 @@ ms.locfileid: "70400162"
   
 |要素|説明|  
 |-------------|-----------------|  
-|ChannelInitializationTimeout|チャネルが切断さ<xref:System.TimeSpan>れるまでの初期化ステータスの最大時間を決定するを取得または設定します。|  
+|ChannelInitializationTimeout|チャネルが切断されるまでの初期化ステータスの最大時間を決定する <xref:System.TimeSpan> を取得または設定します。|  
 |ConnectionBufferSize|クライアントまたサービスからネットワークでシリアル化されたメッセージのチャンクを転送するために使用されるバッファーのサイズを取得または設定します。|  
 |hostNameComparisonMode|URI で一致する場合にサービスに到達するためにホスト名を使用するかどうかを示す値を取得または設定します。|  
 |manualAddressing|メッセージの手動アドレス指定が必要かどうかを示す値を取得または設定します。|  
@@ -60,13 +60,13 @@ ms.locfileid: "70400162"
 |maxPendingConnections|サービスでディスパッチを待機している最大接続数を取得または設定します。|  
 |maxReceivedMessageSize|受信できるメッセージの最大サイズをバイト単位で取得または設定します。|  
 |transferMode|接続指向のトランスポートでメッセージをバッファーするか、ストリーム配信するかを示す値を取得または設定します。|  
-|[\<namedPipeTransport > の\<connectionpoolsettings >](connectionpoolsettings.md)|名前付きパイプ バインディングの追加の接続プール設定を指定します。|  
+|[\<namedPipeTransport > の \<connectionPoolSettings >](connectionpoolsettings.md)|名前付きパイプ バインディングの追加の接続プール設定を指定します。|  
   
 ### <a name="parent-elements"></a>親要素  
   
 |要素|説明|  
 |-------------|-----------------|  
-|[\<binding>](../../../misc/binding.md)|カスタム バインドのすべてのバインド機能を定義します。|  
+|[\<binding >](bindings.md)|カスタム バインドのすべてのバインド機能を定義します。|  
   
 ## <a name="remarks"></a>Remarks  
 このトランスポートは、"net.pipe://hostname/path" の形式の URI を使用します。 他の URI コンポーネントは省略可能です。  
@@ -84,4 +84,4 @@ ms.locfileid: "70400162"
 - [バインディング](../../../wcf/bindings.md)
 - [バインディングの拡張](../../../wcf/extending/extending-bindings.md)
 - [カスタム バインディング](../../../wcf/extending/custom-bindings.md)
-- [\<customBinding>](custombinding.md)
+- [\<customBinding >](custombinding.md)

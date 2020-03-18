@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 71f0eab5-0170-46f8-9f88-1df5abdeb34a
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 57ed64ad8a6ae8ef46f423471436c3fce29d6fe5
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: a3ae474a73f4c8e4b98c4b2bc5d04e55bcae6874
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67767808"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128664"
 ---
 # <a name="ihostmemorymanagerneedsvirtualaddressspace-method"></a>IHostMemoryManager::NeedsVirtualAddressSpace メソッド
-共通言語ランタイム (CLR) が指定されたメモリを使用しようとしています。 しようとしていることをホストに通知します。  
+共通言語ランタイム (CLR) が、指定されたメモリを使用しようとしていることをホストに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,22 +36,22 @@ HRESULT NeedsVirtualAddressSpace (
   
 ## <a name="parameters"></a>パラメーター  
  `startAddress`  
- [in]メモリの開始アドレス。  
+ からメモリの開始アドレス。  
   
  `size`  
- [in]メモリのバイト単位のサイズ。  
+ からメモリのサイズ (バイト単位)。  
   
 ## <a name="remarks"></a>Remarks  
- `NeedsVirtualAddressSpace`メソッドは、コールバック メソッドであり、ホスト アプリケーションの作成者によって実装する必要があります。 CLR によって呼び出されます。  
+ `NeedsVirtualAddressSpace` メソッドはコールバックメソッドであり、ホストアプリケーションのライターによって実装される必要があります。 これは CLR によって呼び出されます。  
   
- ホストが指定されたメモリを使用する CLR をしない場合は、E_OUTOFMEMORY HRESULT が返される可能性があります。  
+ ホストが、指定されたメモリを使用しないようにする場合は、E_OUTOFMEMORY HRESULT を返すことがあります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

@@ -2,14 +2,12 @@
 title: '軽減策: WPF ウィンドウのレンダリング'
 ms.date: 03/30/2017
 ms.assetid: 28ed6bf8-141b-4b73-a4e3-44a99fae5084
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 13091c06561da24d2fc03f810fd8b8687b21d9a4
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 42d6abf1ba6ed7c17a5a5604e98b5ee46d0c3ac2
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70789796"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73457770"
 ---
 # <a name="mitigation-wpf-window-rendering"></a>軽減策: WPF ウィンドウのレンダリング
 
@@ -21,9 +19,9 @@ Windows 8 以上で実行している .NET Framework 4.6 では、マルチ モ�
 
 Windows 8 以上で複数のモニターに WPF ウィンドウをレンダリングする際の詳細な影響は、多数の要因に依存しているために、正確に数量化することはできません。 場合によっては、グラフィックを多用するアプリケーションを実行するユーザーや複数のモニターに及ぶウィンドウを使用するユーザーの場合は特に、依然としてパフォーマンスに望ましくない影響が生じることがあります。 または、.NET Framework の複数のバージョン間で一貫性のある動作が実現できれば十分な場合もあります 。
 
-## <a name="mitigation"></a>軽減策
+## <a name="mitigation"></a>対応策
 
-この変更を無効にして、WPF ウィンドウが 1 つのディスプレイを超える場合にクリッピングされるという、以前の動作に戻すこともできます。 これには、2 つの方法があります。
+この変更を無効にして、WPF ウィンドウが 1 つのディスプレイを超える場合にクリッピングされるという、以前の動作に戻すこともできます。 この作業を実行する 2 つの方法があります。
 
 - `<EnableMultiMonitorDisplayClipping>` 要素をアプリケーションの構成ファイルの `<appSettings>` セクションに追加することにより、Windows 8 以降で実行中のアプリケーションでこの動作を無効にしたり有効にしたりすることができます。 たとえば、次の構成セクションにより、クリッピングなしのレンダリングが無効になります。
 
@@ -41,6 +39,6 @@ Windows 8 以上で複数のモニターに WPF ウィンドウをレンダリ�
 
 - これを行うには、アプリの起動時に <xref:System.Windows.CoreCompatibilityPreferences.EnableMultiMonitorDisplayClipping%2A> プロパティを `true` に設定します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [ランタイムの変更点](runtime-changes-in-the-net-framework-4-6.md)
+- [アプリケーションの互換性](application-compatibility.md)

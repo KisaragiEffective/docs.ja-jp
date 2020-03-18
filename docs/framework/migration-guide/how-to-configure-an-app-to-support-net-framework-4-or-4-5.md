@@ -5,14 +5,12 @@ helpviewer_keywords:
 - configuring apps to support .NET Framework
 - .NET Framework, configuring apps
 ms.assetid: 63c6b9a8-0088-4077-9aa3-521ab7290f79
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: cd267de1e632fdc40dc50e8acdeba7d16bf8e61a
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 586f39fc9b50dcd45bb959ebd0063e3c38d9c3ed
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70779482"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75716247"
 ---
 # <a name="how-to-configure-an-app-to-support-net-framework-4-or-later-versions"></a>方法: .NET Framework 4 以降のバージョンをサポートするアプリを構成する
 
@@ -73,7 +71,7 @@ ms.locfileid: "70779482"
 
 |App.config ファイルの設定|バージョン 3.5 がインストールされているコンピューター|3\.5、4、それ以降のバージョンがインストールされているコンピューター|4 以降のバージョンがインストールされているコンピューター|
 |-|-|-|-|
-|なし|3\.5 で動作|3\.5 で動作|ユーザーに正しいバージョン * をインストールするように求めるエラー メッセージが表示されます。|
+|None|3\.5 で動作|3\.5 で動作|ユーザーに正しいバージョン * をインストールするように求めるエラー メッセージが表示されます。|
 |`<supportedRuntime version="v2.0.50727"/>`|3\.5 で動作|3\.5 で動作|ユーザーに正しいバージョン * をインストールするように求めるエラー メッセージが表示されます。|
 |`<supportedRuntime version="v2.0.50727"/>` <br /> `<supportedRuntime version="v4.0"/>`|3\.5 で動作|3\.5 で動作|4 以降のバージョンで動作|
 |`<supportedRuntime version="v4.0"/>` <br /> `<supportedRuntime version="v2.0.50727"/>`|3\.5 で動作|4 以降のバージョンで動作|4 以降のバージョンで動作|

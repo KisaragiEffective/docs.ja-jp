@@ -1,14 +1,14 @@
 ---
 title: ML.NET の自動 ML API を使用する方法
 description: ML.NET の自動 ML API によって、モデル構築プロセスが自動化され、展開できる状態のモデルが生成されます。 自動機械学習タスクの構成に使用できるオプションについて説明します。
-ms.date: 04/24/2019
+ms.date: 12/18/2019
 ms.custom: mvc,how-to
-ms.openlocfilehash: a7057337fb6ff19a1e402d7bf74a766b246ea3c1
-ms.sourcegitcommit: 8b8dd14dde727026fd0b6ead1ec1df2e9d747a48
+ms.openlocfilehash: b322c484282d025033d747d2093f7b5b4d216fde
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71332716"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75636563"
 ---
 # <a name="how-to-use-the-mlnet-automated-machine-learning-api"></a>ML.NET の自動機械学習 API を使用する方法
 
@@ -32,11 +32,13 @@ using Microsoft.ML.AutoML;
 ```
 
 ## <a name="select-the-machine-learning-task-type"></a>機械学習タスクの種類を選択する
+
 実験を作成する前に、解決する機械学習の問題の種類を決定します。 自動機械学習は、以下の ML タスクをサポートします。
 
 * 二項分類
 * 多クラス分類
 * 回帰
+* 推奨事項
 
 ## <a name="create-experiment-settings"></a>実験設定を作成する
 
@@ -60,9 +62,15 @@ using Microsoft.ML.AutoML;
   var experimentSettings = new RegressionExperimentSettings();
   ```
 
+* 推奨事項
+
+  ```csharp
+  var experimentSettings = new RecommendationExperimentSettings();
+  ```
+
 ## <a name="configure-experiment-settings"></a>実験設定を構成する
 
-実験は高度な構成が可能です。 構成設定の詳細な一覧については、[AutoML API ドキュメント](https://docs.microsoft.com/dotnet/api/?view=automl-dotnet)を参照してください。
+実験は高度な構成が可能です。 構成設定の詳細な一覧については、[AutoML API ドキュメント](https://docs.microsoft.com/dotnet/api/microsoft.ml.automl?view=ml-dotnet-preview)を参照してください。
 
 次に、それらの例の一部を示します。
 
@@ -89,7 +97,7 @@ using Microsoft.ML.AutoML;
     ```
 
 1. `CacheDirectory` 設定は、AutoML タスク中にトレーニングされたすべてのモデルが保存されるディレクトリへのポインターです。 `CacheDirectory` が null に設定されている場合、モデルはディスクに書き込まれるのではなくメモリに保持されます。
- 
+
     ```csharp
     experimentSettings.CacheDirectory = null;
     ```
@@ -109,12 +117,13 @@ ML タスクごとにサポートされるトレーナーの一覧は、以下�
 * [サポートされる二項分類アルゴリズム](xref:Microsoft.ML.AutoML.BinaryClassificationTrainer)
 * [サポートされる多クラス分類アルゴリズム](xref:Microsoft.ML.AutoML.MulticlassClassificationTrainer)
 * [サポートされる回帰アルゴリズム](xref:Microsoft.ML.AutoML.RegressionTrainer)
+* [サポートされるレコメンデーション アルゴリズム](xref:Microsoft.ML.AutoML.RecommendationTrainer)
 
 ## <a name="optimizing-metric"></a>最適化メトリック
 
 上の例に示すように、最適化メトリックによって、モデルのトレーニング中に最適化されるメトリックが決まります。 選択できる最適化メトリックは、選択したタスクの種類によって決まります。 利用できるメトリックの一覧を次に示します。
 
-|[二項分類](xref:Microsoft.ML.AutoML.BinaryClassificationMetric) | [多クラス分類](xref:Microsoft.ML.AutoML.MulticlassClassificationMetric) |[回帰](xref:Microsoft.ML.AutoML.RegressionMetric)
+|[二項分類](xref:Microsoft.ML.AutoML.BinaryClassificationMetric) | [多クラス分類](xref:Microsoft.ML.AutoML.MulticlassClassificationMetric) |[回帰とレコメンデーション](xref:Microsoft.ML.AutoML.RegressionMetric)
 |-- |-- |--
 |正確度| LogLoss | RSquared
 |AreaUnderPrecisionRecallCurve | LogLossReduction | MeanAbsoluteError
@@ -128,7 +137,7 @@ ML タスクごとにサポートされるトレーナーの一覧は、以下�
 ## <a name="data-pre-processing-and-featurization"></a>データの前処理と特徴付け
 
 > [!NOTE]
-> 特徴列では、[`Boolean`](https://docs.microsoft.com/en-us/dotnet/api/system.boolean)、[`Single`](https://docs.microsoft.com/en-us/dotnet/api/system.single)、および [`String`](https://docs.microsoft.com/en-us/dotnet/api/system.string) の種類のみがサポートされています。
+> 特徴列では、<xref:System.Boolean>、<xref:System.Single>、<xref:System.String> の種類のみがサポートされています。
 
 データの前処理は既定で行われ、次の手順が自動的に実行されます。
 
@@ -141,9 +150,9 @@ ML タスクごとにサポートされるトレーナーの一覧は、以下�
     欠落値のセルにそのデータ型の既定値を入力します。 入力列と同じ数のスロットを持つインジケーター特徴を追加します。 追加されるインジケーター特徴の値は、入力列の値が欠落している場合は `1`、それ以外の場合は `0` です。
 
 1. 追加の特徴を生成する
-    
+
     テキスト特徴の場合:ユニグラムとトライキャラクターグラムを使用する bag-of-word 特徴。
-    
+
     カテゴリ別特徴の場合:カーディナリティの低い特徴向きのワンホット エンコードと、カーディナリティの高いカテゴリ別特徴向きのワンホットハッシュ エンコード。
 
 1. 変換とエンコード
@@ -191,7 +200,7 @@ ExperimentResult<RegressionMetrics> experimentResult = experiment
 AutoML には、オーバーロードされた実験の実行でトレーニング データを指定できる方法が用意されています。 内部的には、自動 ML によってトレーニング分割と検証分割にデータが分けられます。
 
 ```csharp
-experiment.Execute(trainDataView);   
+experiment.Execute(trainDataView);
 ```
 
 ### <a name="custom-validation-dataset"></a>カスタム検証データセット
@@ -199,7 +208,7 @@ experiment.Execute(trainDataView);
 時系列データでは通常のことですが、ランダムな分割を許容できない場合は、カスタム検証データセットを使用します。 独自の検証データセットを指定できます。 モデルは、1 つ以上のランダムなデータセットではなく、指定した検証データセットに対して評価されます。
 
 ```csharp
-experiment.Execute(trainDataView, validationDataView);   
+experiment.Execute(trainDataView, validationDataView);
 ```
 
 ## <a name="explore-model-metrics"></a>モデルのメトリックを調べる
@@ -218,7 +227,7 @@ ML タスクごとに利用できるすべてのメトリックを次に示し�
 
 * [二項分類メトリック](xref:Microsoft.ML.AutoML.BinaryClassificationMetric)
 * [多クラス分類メトリック](xref:Microsoft.ML.AutoML.MulticlassClassificationMetric)
-* [回帰メトリック](xref:Microsoft.ML.AutoML.RegressionMetric)
+* [回帰とレコメンデーション メトリック](xref:Microsoft.ML.AutoML.RegressionMetric)
 
 ## <a name="see-also"></a>関連項目
 

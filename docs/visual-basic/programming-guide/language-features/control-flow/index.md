@@ -1,5 +1,5 @@
 ---
-title: Visual Basic における制御フロー
+title: 制御フロー
 ms.date: 07/20/2015
 helpviewer_keywords:
 - statements [Visual Basic], control flow
@@ -8,12 +8,12 @@ helpviewer_keywords:
 - structures [Visual Basic], control
 - conditional statements [Visual Basic], control flow
 ms.assetid: 5623ef47-52b1-4202-befd-9af36422ec6f
-ms.openlocfilehash: 6a9b769c2ef7fe3b6e2d39279f11b49b64641339
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: e47a48755c6752dc8c46e35399f1a1efae9c4a08
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71701031"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74353930"
 ---
 # <a name="control-flow-in-visual-basic"></a>Visual Basic における制御フロー
 

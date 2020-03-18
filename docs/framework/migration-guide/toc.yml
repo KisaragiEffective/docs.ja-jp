@@ -1,28 +1,247 @@
 - name: 移行ガイド
   href: index.md
+- name: 互換性
   items:
     - name: アプリケーションの互換性
-      href: application-compatibility.md
       items:
+        - name: 概要
+          displayName: App compatibility
+          href: application-compatibility.md
         - name: ランタイムの変更
-          href: runtime/index.md
+          items:
+            - name: 4.0 から 4.5
+              href: runtime/4.0-4.5.md
+            - name: 4.0 から 4.5.1
+              href: runtime/4.0-4.5.1.md
+            - name: 4.0 から 4.5.2
+              href: runtime/4.0-4.5.2.md
+            - name: 4.0 から 4.6
+              href: runtime/4.0-4.6.md
+            - name: 4.0 から 4.6.1
+              href: runtime/4.0-4.6.1.md
+            - name: 4.0 から 4.6.2
+              href: runtime/4.0-4.6.2.md
+            - name: 4.0 から 4.7
+              href: runtime/4.0-4.7.md
+            - name: 4.0 から 4.7.1
+              href: runtime/4.0-4.7.1.md
+            - name: 4.0 から 4.7.2
+              href: runtime/4.0-4.7.2.md
+            - name: 4.0 から 4.8
+              href: runtime/4.0-4.8.md
+            - name: 4.5 から 4.5.1
+              href: runtime/4.5-4.5.1.md
+            - name: 4.5 から 4.5.2
+              href: runtime/4.5-4.5.2.md
+            - name: 4.5 から 4.6
+              href: runtime/4.5-4.6.md
+            - name: 4.5 から 4.6.1
+              href: runtime/4.5-4.6.1.md
+            - name: 4.5 から 4.6.2
+              href: runtime/4.5-4.6.2.md
+            - name: 4.5 から 4.7
+              href: runtime/4.5-4.7.md
+            - name: 4.5 から 4.7.1
+              href: runtime/4.5-4.7.1.md
+            - name: 4.5 から 4.7.2
+              href: runtime/4.5-4.7.2.md
+            - name: 4.5 から 4.8
+              href: runtime/4.5-4.8.md
+            - name: 4.5.1 から 4.5.2
+              href: runtime/4.5.1-4.5.2.md
+            - name: 4.5.1 から 4.6
+              href: runtime/4.5.1-4.6.md
+            - name: 4.5.1 から 4.6.1
+              href: runtime/4.5.1-4.6.1.md
+            - name: 4.5.1 から 4.6.2
+              href: runtime/4.5.1-4.6.2.md
+            - name: 4.5.1 から 4.7
+              href: runtime/4.5.1-4.7.md
+            - name: 4.5.1 から 4.7.1
+              href: runtime/4.5.1-4.7.1.md
+            - name: 4.5.1 から 4.7.2
+              href: runtime/4.5.1-4.7.2.md
+            - name: 4.5.1 から 4.8
+              href: runtime/4.5.1-4.8.md
+            - name: 4.5.2 から 4.6
+              href: runtime/4.5.2-4.6.md
+            - name: 4.5.2 から 4.6.1
+              href: runtime/4.5.2-4.6.1.md
+            - name: 4.5.2 から 4.6.2
+              href: runtime/4.5.2-4.6.2.md
+            - name: 4.5.2 から 4.7
+              href: runtime/4.5.2-4.7.md
+            - name: 4.5.2 から 4.7.1
+              href: runtime/4.5.2-4.7.1.md
+            - name: 4.5.2 から 4.7.2
+              href: runtime/4.5.2-4.7.2.md
+            - name: 4.5.2 から 4.8
+              href: runtime/4.5.2-4.8.md
+            - name: 4.6 から 4.6.1
+              href: runtime/4.6-4.6.1.md
+            - name: 4.6 から 4.6.2
+              href: runtime/4.6-4.6.2.md
+            - name: 4.6 から 4.7
+              href: runtime/4.6-4.7.md
+            - name: 4.6 から 4.7.1
+              href: runtime/4.6-4.7.1.md
+            - name: 4.6 から 4.7.2
+              href: runtime/4.6-4.7.2.md
+            - name: 4.6 から 4.8
+              href: runtime/4.6-4.8.md
+            - name: 4.6.1 から 4.6.2
+              href: runtime/4.6.1-4.6.2.md
+            - name: 4.6.1 から 4.7
+              href: runtime/4.6.1-4.7.md
+            - name: 4.6.1 から 4.7.1
+              href: runtime/4.6.1-4.7.1.md
+            - name: 4.6.1 から 4.7.2
+              href: runtime/4.6.1-4.7.2.md
+            - name: 4.6.1 から 4.8
+              href: runtime/4.6.1-4.8.md
+            - name: 4.6.2 から 4.7
+              href: runtime/4.6.2-4.7.md
+            - name: 4.6.2 から 4.7.1
+              href: runtime/4.6.2-4.7.1.md
+            - name: 4.6.2 から 4.7.2
+              href: runtime/4.6.2-4.7.2.md
+            - name: 4.6.2 から 4.8
+              href: runtime/4.6.2-4.8.md
+            - name: 4.7 から 4.7.1
+              href: runtime/4.7-4.7.1.md
+            - name: 4.7 から 4.7.2
+              href: runtime/4.7-4.7.2.md
+            - name: 4.7 から 4.8
+              href: runtime/4.7-4.8.md
+            - name: 4.7.1 から 4.7.2
+              href: runtime/4.7.1-4.7.2.md
+            - name: 4.7.1 から 4.8
+              href: runtime/4.7.1-4.8.md
+            - name: 4.7.2 から 4.8
+              href: runtime/4.7.2-4.8.md
         - name: 変更の再ターゲット
-          href: retargeting/index.md
+          items:
+            - name: 4.0 から 4.5
+              href: retargeting/4.0-4.5.md
+            - name: 4.0 から 4.5.1
+              href: retargeting/4.0-4.5.1.md
+            - name: 4.0 から 4.5.2
+              href: retargeting/4.0-4.5.2.md
+            - name: 4.0 から 4.6
+              href: retargeting/4.0-4.6.md
+            - name: 4.0 から 4.6.1
+              href: retargeting/4.0-4.6.1.md
+            - name: 4.0 から 4.6.2
+              href: retargeting/4.0-4.6.2.md
+            - name: 4.0 から 4.7
+              href: retargeting/4.0-4.7.md
+            - name: 4.0 から 4.7.1
+              href: retargeting/4.0-4.7.1.md
+            - name: 4.0 から 4.7.2
+              href: retargeting/4.0-4.7.2.md
+            - name: 4.0 から 4.8
+              href: retargeting/4.0-4.8.md
+            - name: 4.5 から 4.5.1
+              href: retargeting/4.5-4.5.1.md
+            - name: 4.5 から 4.5.2
+              href: retargeting/4.5-4.5.2.md
+            - name: 4.5 から 4.6
+              href: retargeting/4.5-4.6.md
+            - name: 4.5 から 4.6.1
+              href: retargeting/4.5-4.6.1.md
+            - name: 4.5 から 4.6.2
+              href: retargeting/4.5-4.6.2.md
+            - name: 4.5 から 4.7
+              href: retargeting/4.5-4.7.md
+            - name: 4.5 から 4.7.1
+              href: retargeting/4.5-4.7.1.md
+            - name: 4.5 から 4.7.2
+              href: retargeting/4.5-4.7.2.md
+            - name: 4.5 から 4.8
+              href: retargeting/4.5-4.8.md
+            - name: 4.5.1 から 4.5.2
+              href: retargeting/4.5.1-4.5.2.md
+            - name: 4.5.1 から 4.6
+              href: retargeting/4.5.1-4.6.md
+            - name: 4.5.1 から 4.6.1
+              href: retargeting/4.5.1-4.6.1.md
+            - name: 4.5.1 から 4.6.2
+              href: retargeting/4.5.1-4.6.2.md
+            - name: 4.5.1 から 4.7
+              href: retargeting/4.5.1-4.7.md
+            - name: 4.5.1 から 4.7.1
+              href: retargeting/4.5.1-4.7.1.md
+            - name: 4.5.1 から 4.7.2
+              href: retargeting/4.5.1-4.7.2.md
+            - name: 4.5.2 から 4.6
+              href: retargeting/4.5.2-4.6.md
+            - name: 4.5.2 から 4.6.1
+              href: retargeting/4.5.2-4.6.1.md
+            - name: 4.5.2 から 4.6.2
+              href: retargeting/4.5.2-4.6.2.md
+            - name: 4.5.2 から 4.7
+              href: retargeting/4.5.2-4.7.md
+            - name: 4.5.2 から 4.7.1
+              href: retargeting/4.5.2-4.7.1.md
+            - name: 4.5.2 から 4.7.2
+              href: retargeting/4.5.2-4.7.2.md
+            - name: 4.5.2 から 4.8
+              href: retargeting/4.5.2-4.8.md
+            - name: 4.6 から 4.6.1
+              href: retargeting/4.6-4.6.1.md
+            - name: 4.6 から 4.6.2
+              href: retargeting/4.6-4.6.2.md
+            - name: 4.6 から 4.7
+              href: retargeting/4.6-4.7.md
+            - name: 4.6 から 4.7.1
+              href: retargeting/4.6-4.7.1.md
+            - name: 4.6 から 4.7.2
+              href: retargeting/4.6-4.7.2.md
+            - name: 4.6 から 4.8
+              href: retargeting/4.6-4.8.md
+            - name: 4.6.1 から 4.6.2
+              href: retargeting/4.6.1-4.6.2.md
+            - name: 4.6.1 から 4.7
+              href: retargeting/4.6.1-4.7.md
+            - name: 4.6.1 から 4.7.1
+              href: retargeting/4.6.1-4.7.1.md
+            - name: 4.6.1 から 4.7.2
+              href: retargeting/4.6.1-4.7.2.md
+            - name: 4.6.1 から 4.8
+              href: retargeting/4.6.1-4.8.md
+            - name: 4.6.2 から 4.7
+              href: retargeting/4.6.2-4.7.md
+            - name: 4.6.2 から 4.7.1
+              href: retargeting/4.6.2-4.7.1.md
+            - name: 4.6.2 から 4.7.2
+              href: retargeting/4.6.2-4.7.2.md
+            - name: 4.6.2 から 4.8
+              href: retargeting/4.6.2-4.8.md
+            - name: 4.7 から 4.7.1
+              href: retargeting/4.7-4.7.1.md
+            - name: 4.7 から 4.7.2
+              href: retargeting/4.7-4.7.2.md
+            - name: 4.7 から 4.8
+              href: retargeting/4.7-4.8.md
+            - name: 4.7.1 から 4.7.2
+              href: retargeting/4.7.1-4.7.2.md
+            - name: 4.7.1 から 4.8
+              href: retargeting/4.7.1-4.8.md
+            - name: 4.7.2 から 4.8
+              href: retargeting/4.7.2-4.8.md
     - name: バージョンの互換性
       href: version-compatibility.md
-    - name: バージョンおよび依存関係
+- name: .NET Framework のバージョン
+  items:
+    - name: バージョンと依存関係
       href: versions-and-dependencies.md
-      items:
-        - name: '方法: インストールされている .NET Framework バージョンを確認する'
-          href: how-to-determine-which-versions-are-installed.md
-          items:
-            - name: .NET Framework バージョン用のリリース ダブルワードの最小値
-              href: minimum-release-dword.md
-        - name: '方法: インストールされている .NET Framework の更新プログラムを確認する'
-          href: how-to-determine-which-net-framework-updates-are-installed.md
-    - name: '方法: .NET Framework 4 以降のバージョンをサポートするアプリを構成する'
-      href: how-to-configure-an-app-to-support-net-framework-4-or-4-5.md
-    - name: .NET Framework 1.1 からの移行
-      href: migrating-from-the-net-framework-1-1.md
-    - name: .NET Framework 4 への移行に関する問題
-      href: net-framework-4-migration-issues.md
+    - name: インストールされているバージョンを確認する
+      href: how-to-determine-which-versions-are-installed.md
+    - name: インストールされている更新プログラムを確認する
+      href: how-to-determine-which-net-framework-updates-are-installed.md
+- name: .NET Framework 4 以降をサポートするようにアプリを構成する
+  href: how-to-configure-an-app-to-support-net-framework-4-or-4-5.md
+- name: .NET Framework 1.1 からの移行
+  href: migrating-from-the-net-framework-1-1.md
+- name: .NET Framework 4 への移行に関する問題
+  href: net-framework-4-migration-issues.md

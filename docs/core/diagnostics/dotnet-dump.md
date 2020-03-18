@@ -1,19 +1,17 @@
 ---
 title: dotnet-dump - .NET Core
 description: dotnet-dump コマンドライン ツールのインストールおよび使用。
-author: sdmaclea
-ms.author: stmaclea
 ms.date: 10/14/2019
-ms.openlocfilehash: 7eba0cba28f0575be4b374b26e9aca26a70df603
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 3c0e28d4efc96ae53ec7dfae243725ab400e6b8f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72321544"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "76737673"
 ---
 # <a name="dump-collection-and-analysis-utility-dotnet-dump"></a>ダンプの収集と分析のユーティリティ (`dotnet-dump`)
 
-**この記事の対象: ✓** .NET Core 3.0 SDK 以降のバージョン
+**この記事の対象:** ✔️ .NET Core 3.0 SDK 以降のバージョン
 
 > [!NOTE]
 > macOS では、`dotnet-dump` はサポートされていません。
@@ -160,7 +158,7 @@ dotnet-dump analyze <dump_path> [-h|--help] [-c|--command]
 
 ## <a name="using-dotnet-dump"></a>`dotnet-dump` を使用する
 
-まずはダンプを収集します。 コア ダンプを既に生成している場合、この手順をスキップできます。 コア ダンプは、オペレーティング システムまたは .NET Core ランタイムに組み込まれているそれぞれの[ダンプ生成機能](https://github.com/dotnet/coreclr/blob/master/Documentation/botr/xplat-minidump-generation.md#configurationpolicy)で作成できます。
+まずはダンプを収集します。 コア ダンプを既に生成している場合、この手順をスキップできます。 コア ダンプは、オペレーティング システムまたは .NET Core ランタイムに組み込まれているそれぞれの[ダンプ生成機能](https://github.com/dotnet/runtime/blob/master/docs/design/coreclr/botr/xplat-minidump-generation.md)で作成できます。
 
 ```console
 $ dotnet-dump collect --process-id 1902

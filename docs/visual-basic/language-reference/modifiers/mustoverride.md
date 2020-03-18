@@ -1,5 +1,5 @@
 ---
-title: MustOverride (Visual Basic)
+title: MyBase
 ms.date: 07/20/2015
 f1_keywords:
 - vb.MustOverride
@@ -15,28 +15,28 @@ helpviewer_keywords:
 - MustOverride keyword [Visual Basic]
 - properties [Visual Basic], overriding
 ms.assetid: 6e9d9ad6-bb64-433f-b32b-3ef84293bf96
-ms.openlocfilehash: f5932b28c4664dd59dad829228f2186e78108af5
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: dc6a153a604fd0e5cee9d7d46ebcd63294f33628
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64661241"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351492"
 ---
 # <a name="mustoverride-visual-basic"></a>MustOverride (Visual Basic)
-プロパティまたはプロシージャは、このクラスで実装されていませんしを使用する派生クラスでオーバーライドされる必要がありますを指定します。  
+プロパティまたはプロシージャがこのクラスで実装されておらず、派生クラスでオーバーライドされてから使用できるようにする必要があることを指定します。  
   
-## <a name="remarks"></a>Remarks  
- `MustOverride` は、プロパティまたはプロシージャの宣言ステートメントでのみ使用できます。 プロパティまたはプロシージャを指定する`MustOverride`クラスのメンバーである必要があり、そのクラスをマークする必要があります[MustInherit](../../../visual-basic/language-reference/modifiers/mustinherit.md)します。  
+## <a name="remarks"></a>コメント  
+ `MustOverride` は、プロパティまたはプロシージャの宣言ステートメントでのみ使用できます。 `MustOverride` を指定するプロパティまたはプロシージャは、クラスのメンバーである必要があります。また、クラスは[MustInherit](../../../visual-basic/language-reference/modifiers/mustinherit.md)に設定する必要があります。  
   
 ## <a name="rules"></a>ルール  
   
-- **不完全な宣言です。** 指定すると`MustOverride`、任意の追加のプロパティまたはプロシージャのコード行をしない指定しないでも、 `End Function`、 `End Property`、または`End Sub`ステートメント。  
+- **不完全な宣言です。** `MustOverride`を指定すると、`End Function`、`End Property`、または `End Sub` ステートメントではなく、プロパティまたはプロシージャに追加のコード行を指定することはできません。  
   
-- **結合された修飾子。** 指定することはできません`MustOverride`と共に`NotOverridable`、 `Overridable`、または`Shared`同じ宣言内。  
+- **結合された修飾子。** 同じ宣言内で `NotOverridable`、`Overridable`、または `Shared` と共に `MustOverride` を指定することはできません。  
   
-- **シャドウとオーバーライドします。** シャドウとオーバーライドは、どちらも継承された要素を再定義しますが、その方法は大きく異なります。 詳細については、次を参照してください。 [Visual Basic におけるシャドウ](../../../visual-basic/programming-guide/language-features/declared-elements/shadowing.md)します。  
+- **シャドウとオーバーライド。** シャドウとオーバーライドは、どちらも継承された要素を再定義しますが、その方法は大きく異なります。 詳細については、「 [Visual Basic でのシャドウ](../../../visual-basic/programming-guide/language-features/declared-elements/shadowing.md)」を参照してください。  
   
-- **代替条件です。** オーバーライドで以外は使用できませんを要素とも呼ばれます、*純粋仮想*要素。  
+- **代替語句。** オーバーライドでは使用できない要素は、*純粋仮想*要素と呼ばれることもあります。  
   
  `MustOverride` 修飾子は、次のコンテキストで使用できます。  
   
@@ -53,4 +53,4 @@ ms.locfileid: "64661241"
 - [Overrides](../../../visual-basic/language-reference/modifiers/overrides.md)
 - [MustInherit](../../../visual-basic/language-reference/modifiers/mustinherit.md)
 - [キーワード](../../../visual-basic/language-reference/keywords/index.md)
-- [Visual Basic におけるシャドウ](../../../visual-basic/programming-guide/language-features/declared-elements/shadowing.md)
+- [Visual Basic でのシャドウ処理](../../../visual-basic/programming-guide/language-features/declared-elements/shadowing.md)

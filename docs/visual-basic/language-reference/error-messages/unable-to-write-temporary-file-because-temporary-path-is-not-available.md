@@ -7,15 +7,15 @@ f1_keywords:
 helpviewer_keywords:
 - BC30698
 ms.assetid: 3b77b7e3-8b17-40de-b4e1-05e4b9b325ad
-ms.openlocfilehash: e6e7590c10c2234e2bbe2f39a00428494105caae
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 88f97e9314d5bc77b86dad22f1a7e794cf0caa3b
+ms.sourcegitcommit: 5a28f8eb071fcc09b045b0c4ae4b96898673192e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61766962"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73197008"
 ---
 # <a name="unable-to-write-temporary-file-because-temporary-path-is-not-available"></a>一時パスが使用できないため、一時ファイルを書き込めません。
-Visual Basic では、一時ファイルの格納場所のパスを特定できませんでした。  
+Visual Basic は、一時ファイルが格納されているパスを特定できませんでした。  
   
  **エラー ID:** BC30698  
   
@@ -23,8 +23,8 @@ Visual Basic では、一時ファイルの格納場所のパスを特定でき�
   
 1. Visual Studio を再起動します。  
   
-2. 問題が解決しない場合は、Visual Studio を再インストールします。  
+2. 問題が引き続き発生する場合は、Visual Studio を再インストールしてください。  
   
 ## <a name="see-also"></a>関連項目
 
-- [ご意見](/visualstudio/ide/talk-to-us)
+- [ご意見](/visualstudio/ide/feedback-options)

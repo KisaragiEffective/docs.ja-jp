@@ -2,12 +2,12 @@
 title: コンテナーと Docker の概要
 description: '.NET マイクロサービス: コンテナー化された .NET アプリケーションのアーキテクチャ | コンテナーと Docker の概要'
 ms.date: 08/31/2018
-ms.openlocfilehash: cb6244939f6ae89ba1dc824b55a21d1e010cef5e
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: 364cbc0ba8149be1873df628a1ca243f420e7d0b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "70295145"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73740046"
 ---
 # <a name="introduction-to-containers-and-docker"></a>コンテナーと Docker の概要
 
@@ -19,7 +19,7 @@ ms.locfileid: "70295145"
 
 各コンテナーは、図 2-1 に示すように、Web アプリケーションまたはサービスの全体を実行することができます。 この例では、Docker ホストが、コンテナー ホストであり、App1、App2、Svc 1、および Svc 2 はコンテナー化アプリケーションまたはサービスです。
 
-![VM または物理サーバーの OS で実行されている 2 つのアプリケーションと 2 つのサービス](./media/image1.png)
+![VM またはサーバーで実行されている 4 つのコンテナーを示す図。](./media/index/multiple-containers-single-host.png)
 
 **(図 2-1)** 。 コンテナー ホストで実行されている複数のコンテナー
 

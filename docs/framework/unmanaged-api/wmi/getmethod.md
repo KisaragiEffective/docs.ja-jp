@@ -14,14 +14,12 @@ helpviewer_keywords:
 - GetMethod function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b9cc185bf8cccb8ed3c24e28954afd86464602d7
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 48986f5ff1cbbb45840ec1a059aa86711848d717
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798567"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102591"
 ---
 # <a name="getmethod-function"></a>GetMethod 関数
 
@@ -51,22 +49,22 @@ HRESULT GetMethod (
 から[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスへのポインター。
 
 `wszName`\
-からメソッド名。 このパラメーターをに`null`することはできません`LPCWSTR`。また、有効なを指す必要があります。
+からメソッド名。 このパラメーターは `null` できず、有効な `LPCWSTR`を指している必要があります。
 
 `lFlags`\
 [in] 予約されています。 このパラメーターには0を指定する必要があります。
 
 `ppInSignature`\
-入出力メソッドの in パラメーターを記述する[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスのアドレスへのポインター。 に`null`設定されている場合、このパラメーターは無視されます。
+入出力メソッドの in パラメーターを記述する[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスのアドレスへのポインター。 `null`に設定されている場合、このパラメーターは無視されます。
 
 `ppOutSignature`\
-入出力メソッドの出力パラメーターを記述する[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスのアドレスへのポインター。 に`null`設定されている場合、このパラメーターは無視されます。
+入出力メソッドの出力パラメーターを記述する[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスのアドレスへのポインター。 `null`に設定されている場合、このパラメーターは無視されます。
 
 ## <a name="return-value"></a>戻り値
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_E_NOT_FOUND` | 0x80041002 | 指定されたプロパティが見つかりませんでした。 |
 |`WBEM_E_OUT_OF_MEMORY` | 0x80041006 | 操作を完了するために必要なメモリが不足しています。 |
@@ -76,13 +74,13 @@ HRESULT GetMethod (
 
 この関数は、 [IWbemClassObject:: GetMethod](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemclassobject-getmethod)メソッドの呼び出しをラップします。
 
-メソッドに in パラメーターがない場合、 `null` Windows Management は [IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject) ポインターをに設定できます。
+メソッドに in パラメーターがない場合、Windows Management は[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)ポインターを `null` に設定できます。
 
-で`ppInSignature`は`ppOutSignature` 、とはそれぞれ、システムクラス[パラメーター](/windows/desktop/WmiSdk/--parameters)の`IWbemClassObject`インスタンスのプロパティとして in および out パラメーターを記述します。 `ppInSignature`のプロパティには*n*という名前が付け`Param`られます。ここで、 *n*はメソッドシグネチャ内`Param1`の`Param2`パラメーターの位置 (、など) です。 の`ppOutSignature`プロパティにも*n*と`Param`いう名前が付けられ、戻り`ReturnValue`値はという名前になります。 詳細と例については、「 [IWbemClassObject:: GetMethod メソッド](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemclassobject-getmethod)」を参照してください。
+`ppInSignature` と `ppOutSignature` では、それぞれ in パラメーターと out パラメーターを、システムクラス[パラメーター](/windows/desktop/WmiSdk/--parameters)の `IWbemClassObject` インスタンスのプロパティとして記述します。 `ppInSignature` のプロパティの名前は `Param`*n*です。ここで、 *n*はメソッドシグネチャ内のパラメーターの位置 (`Param1`、`Param2`など) です。 `ppOutSignature` のプロパティも `Param`*n*という名前で、戻り値の名前は `ReturnValue`です。 詳細と例については、「 [IWbemClassObject:: GetMethod メソッド](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemclassobject-getmethod)」を参照してください。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** WMINet_Utils
 

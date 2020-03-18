@@ -4,16 +4,16 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - extending [WF], Workflow Designer
 ms.assetid: 98135077-0f5d-4d16-9337-01094e843537
-ms.openlocfilehash: 926edb4478551affa03619f44ee886d5eb591e4d
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 27be398d874747b65ae051224070d3f40f1fbbb0
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65637271"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715136"
 ---
 # <a name="customizing-the-workflow-design-experience"></a>ワークフロー デザイン操作のカスタマイズ
 
-[!INCLUDE[wfd1](../../../includes/wfd1-md.md)] では、カスタム アクティビティを設計するシナリオや [!INCLUDE[netfx40_short](../../../includes/netfx40-short-md.md)]を再ホストするシナリオが大幅に簡略化されました。 開発も配置も簡単になり、柔軟性も向上しました。 キーのインフラストラクチャの変更は、新しいアクティビティ デザイナー プログラミング モデルで Windows Presentation Foundation (WPF) とが構築されています。 そのため、アクティビティ デザイナーを宣言によって定義することや、他のアプリケーションに[!INCLUDE[wfd2](../../../includes/wfd2-md.md)]を再ホストすることが比較的簡単にできます。 再ホストするときに、カスタム式エディターを開発して、IntelliSense や簡略化された式ドメインをサポートできます。 Windows Communication Foundation (WCF) との統合は、ワークフロー サービスの使用よりシームレスになっています。 カスタム アクティビティ デザイナーおよびモデル アイテム ツリーを使用して、再ホストされたワークフロー デザイナーのデザイン時の操作を拡張できます。
+カスタムアクティビティを設計し、Windows ワークフローデザイナーを再ホストするシナリオは、.NET Framework 4 で大幅に簡素化されています。 開発も配置も簡単になり、柔軟性も向上しました。 主要なインフラストラクチャの変更は、新しいアクティビティデザイナーのプログラミングモデルが Windows Presentation Foundation (WPF) に基づいて構築されることです。 これにより、アクティビティデザイナーを宣言によって定義し、他のアプリケーションのワークフローデザイナーを比較しやすくすることができます。 再ホストするときに、カスタム式エディターを開発して、IntelliSense や簡略化された式ドメインをサポートできます。 ワークフローサービスを使用すると、Windows Communication Foundation (WCF) との統合がシームレスになりました。 カスタム アクティビティ デザイナーおよびモデル アイテム ツリーを使用して、再ホストされたワークフロー デザイナーのデザイン時の操作を拡張できます。
 
 ## <a name="in-this-section"></a>このセクションの内容
 
@@ -23,17 +23,17 @@ ms.locfileid: "65637271"
 
  [ワークフロー デザイナーのホスト変更](rehosting-the-workflow-designer.md)
 
- 再ホストする方法について説明します、[!INCLUDE[wfd1](../../../includes/wfd1-md.md)]検証エラーを表示する方法と Visual Studio の外部でします。
+ Visual Studio の外部で Windows ワークフローデザイナーを再ホストする方法と、検証エラーを表示する方法について説明します。
 
  [カスタム式エディターの使用](using-a-custom-expression-editor.md)
 
- Visual Studio 2010 の外部で再ホストされたワークフロー デザイナーで使用するカスタム式エディターを実装する方法について説明します。
+ Visual Studio 2010 の外部で再ホストされたワークフローデザイナーで使用するカスタム式エディターを実装する方法について説明します。
 
-## <a name="reference"></a>参照
+## <a name="reference"></a>辞書／辞典／その他
 
 <xref:System.Activities.Presentation.ActivityDesigner>
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Windows Workflow Foundation の拡張](extend.md)
 - [デザイナー](./samples/designer.md)

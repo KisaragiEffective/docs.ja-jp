@@ -1,5 +1,5 @@
 ---
-title: <remove>appSettings&gt;の<configSections>add&gt;要素
+title: <remove> の <configSections> 要素
 ms.date: 05/01/2017
 f1_keywords:
 - http://schemas.microsoft.com/.NetConfiguration/v2.0#configuration/configSections/remove
@@ -7,22 +7,20 @@ helpviewer_keywords:
 - remove Element
 - <remove> Element
 ms.assetid: ae4d82e0-e8fe-468c-81ab-46d63c4d66a8
-author: rpetrusha
-ms.author: mairaw
-ms.openlocfilehash: 4ff9bb537a31e28dbd4b878c1bc04c96262f85ac
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 99d67bd621390789993caa4862e5ce379135eb92
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69927457"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77215391"
 ---
-# <a name="remove-element-for-configsections"></a>\<configsections の > \<要素を削除し >
+# <a name="remove-element-for-configsections"></a>\<configSections の > 要素を削除 \<>
 
 定義済みのセクション、またはセクション グループを削除します。
 
-[ **\<configuration>** ](configuration-element.md)   
-&nbsp;&nbsp;[ **\<configSections >** ](configsections-element-for-configuration.md)   
-&nbsp;&nbsp;&nbsp;&nbsp; **\<> の削除**
+[ **\<configuration>** ](configuration-element.md)\
+&nbsp;&nbsp;[ **\<configSections >** ](configsections-element-for-configuration.md)\
+&nbsp;&nbsp;&nbsp;&nbsp; **\<削除**>
 
 ## <a name="syntax"></a>構文
 
@@ -40,15 +38,15 @@ ms.locfileid: "69927457"
 
 |     | 説明 |
 | --- | ----------- |
-| [要素 > configsections  **\<** ](configsections-element-for-configuration.md) | 構成セクションと名前空間の宣言が含まれています。 |
+| [ **\<configSections >** Element](configsections-element-for-configuration.md) | 構成セクションと名前空間の宣言が含まれています。 |
 
 ## <a name="child-elements"></a>子要素
 
 なし
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-[  **\<> の削除**] 要素を使用して、構成ファイル階層の上位レベルで定義されたセクションとセクショングループをアプリケーションから削除できます。
+**\<remove >** 要素を使用して、構成ファイル階層の上位レベルで定義されたセクションとセクショングループをアプリケーションから削除できます。
 
 ## <a name="example"></a>例
 
@@ -69,7 +67,7 @@ ms.locfileid: "69927457"
 </configuration>
 ```
 
-次のアプリケーション構成ファイルのコードでは、  **\<sampleSection >** セクションが削除されます。 削除後、アプリケーションは **\<sampleSection >** の設定を取得できません。
+次のアプリケーション構成ファイルのコードでは、 **\<sampleSection >** セクションが削除されます。 削除後、アプリケーションは **\<sampleSection >** の設定を取得できません。
 
 ```xml
 <!-- Application configuration file -->
@@ -80,10 +78,10 @@ ms.locfileid: "69927457"
 </configuration>
 ```
 
-## <a name="configuration-file"></a>構成ファイル
+## <a name="configuration-file"></a>［構成ファイル］
 
-この要素は、アプリケーション構成ファイル、コンピューター構成ファイル (machine.config)、およびアプリケーションディレクトリレベルではない web.config ファイルで使用できます。
+この要素は、アプリケーション構成ファイル *、コンピューター構成*ファイル (machine.config)、およびアプリケーションディレクトリレベルでは*ない web.config ファイル*で使用できます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [.NET Framework の構成ファイルスキーマ](index.md)

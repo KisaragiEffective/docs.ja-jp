@@ -3,11 +3,11 @@ title: バージョン 2.0 での System.Uri 名前空間の変更
 ms.date: 03/30/2017
 ms.assetid: 35883fe9-2d09-4d8b-80ca-cf23a941e459
 ms.openlocfilehash: 987010b8367069e8089df3f809d23f258bb68f2b
-ms.sourcegitcommit: c93fd5139f9efcf6db514e3474301738a6d1d649
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2018
-ms.locfileid: "50188437"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "61642764"
 ---
 # <a name="changes-to-the-systemuri-namespace-in-version-20"></a>バージョン 2.0 での System.Uri 名前空間の変更
 
@@ -37,7 +37,7 @@ ms.locfileid: "50188437"
 
 - <xref:System.Uri.EscapeString%2A>
 
-## <a name="changes"></a>変更
+## <a name="changes"></a>[変更点]
 
 - クエリ部分 (ファイル、FTP など) がないとわかっている URI スキーマの場合、'?' 文字は常にエスケープされ、<xref:System.Uri.Query%2A> 部分の先頭とは見なされません。
 
@@ -71,6 +71,6 @@ ms.locfileid: "50188437"
 
 - URI パスの圧縮は、破損した URI がルートを越えてファイル システムを通過しないように修正されました。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Uri?displayProperty=nameWithType>

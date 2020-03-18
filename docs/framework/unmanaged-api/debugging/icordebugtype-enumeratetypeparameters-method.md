@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 1ee1f6e6-1bd7-4ebb-83b8-ff9a08ca03de
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 16cf17d43fcad3c4f7a710678bbdc056f840eaca
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b2c381d093069f5ee86be1b19d75f5c2d69ad9fa
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67736809"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76791306"
 ---
 # <a name="icordebugtypeenumeratetypeparameters-method"></a>ICorDebugType::EnumerateTypeParameters メソッド
-含む、ICorDebugTypeEnum インターフェイス ポインターを取得、<xref:System.Type>この ICorDebugType によって参照されるクラスのパラメーター。  
+このテキストの型によって参照されるクラスの <xref:System.Type> パラメーターを格納している、テキスト型へのインターフェイスポインターを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,19 +35,19 @@ HRESULT EnumerateTypeParameters (
   
 ## <a name="parameters"></a>パラメーター  
  `ppTyParEnum`  
- [out]アドレスへのポインター、`ICorDebugTypeEnum`型のパラメーターを格納しています。  
+ 入出力型のパラメーターを格納している `ICorDebugTypeEnum` のアドレスへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- 使用することができます`EnumerateTypeParameters`CorElementType 値がによって返される場合[icordebugtype::gettype](../../../../docs/framework/unmanaged-api/debugging/icordebugtype-gettype-method.md) ELEMENT_TYPE_CLASS、ELEMENT_TYPE_VALUETYPE、ELEMENT_TYPE_ARRAY、ELEMENT_TYPE_SZARRAY、ELEMENT_TYPE_BYREF、ELEMENT_TYPE_PTR、または typ ELEMENT_TYPE_FNPTR します。 パラメーターとその順序の数は、種類によって異なります。  
+## <a name="remarks"></a>コメント  
+ `EnumerateTypeParameters` を使用することができます、によって返される CorElementType[値は、](icordebugtype-gettype-method.md) ELEMENT_TYPE_CLASS、ELEMENT_TYPE_VALUETYPE、ELEMENT_TYPE_ARRAY、ELEMENT_TYPE_SZARRAY、ELEMENT_TYPE_BYREF、ELEMENT_TYPE_PTR、または ELEMENT_TYPE_FNPTR です。 パラメーターの数と順序は、型によって異なります。  
   
-- ELEMENT_TYPE_CLASS または ELEMENT_TYPE_VALUETYPE:含まれる型パラメーターの数、`ICorDebugTypeEnum`このメソッドが返すし、対応するクラスの仮引数の型パラメーターの数によって異なります。 たとえば、次の種類は`class Dict<String,int32>`、し`EnumerateTypeParameters`が返されます、`ICorDebugTypeEnum`を表すオブジェクトを格納している`String`と`int32`シーケンスでします。  
+- ELEMENT_TYPE_CLASS または ELEMENT_TYPE_VALUETYPE: このメソッドが返す `ICorDebugTypeEnum` に含まれる型パラメーターの数は、対応するクラスの仮型パラメーターの数によって異なります。 たとえば、型が `class Dict<String,int32>`の場合、`EnumerateTypeParameters` は `String` および `int32` を表すオブジェクトを順番に含む `ICorDebugTypeEnum` を返します。  
   
-- TYP ELEMENT_TYPE_FNPTR:含まれる型パラメーターの数、`ICorDebugTypeEnum`はいずれかに、関数が受け取る引数の数を超えています。 含まれる最初の型パラメーター、`ICorDebugTypeEnum`関数の戻り値の型であり、その後の型パラメーターは関数のパラメーター。  
+- ELEMENT_TYPE_FNPTR: `ICorDebugTypeEnum` に格納されている型パラメーターの数は、関数で許容される引数の数より1だけ大きくなります。 `ICorDebugTypeEnum` に格納されている最初の型パラメーターは、関数の戻り値の型であり、後続の型パラメーターは関数のパラメーターです。  
   
-- ELEMENT_TYPE_ARRAY、ELEMENT_TYPE_SZARRAY、ELEMENT_TYPE_BYREF、または ELEMENT_TYPE_PTR:1 つの型パラメーターが返されます。 たとえば、型が配列型などに設定されている場合`int32[]`、`EnumerateTypeParameters`が返されます、`ICorDebugTypeEnum`表すオブジェクトを格納している`int32`します。  
+- ELEMENT_TYPE_ARRAY、ELEMENT_TYPE_SZARRAY、ELEMENT_TYPE_BYREF、または ELEMENT_TYPE_PTR: 1 つの型パラメーターが返されます。 たとえば、型が `int32[]`などの配列型である場合、`EnumerateTypeParameters` は `int32`を表すオブジェクトを含む `ICorDebugTypeEnum` を返します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

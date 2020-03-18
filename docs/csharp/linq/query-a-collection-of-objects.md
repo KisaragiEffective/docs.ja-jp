@@ -4,11 +4,11 @@ description: C# で LINQ を使用して、コレクションを照会する方�
 ms.date: 11/30/2016
 ms.assetid: 87a76f8a-0b58-4791-90ea-2fe0a30416c9
 ms.openlocfilehash: 9b2f5dd09c540800e9a2498d48883357f58c0116
-ms.sourcegitcommit: 6b308cf6d627d78ee36dbbae8972a310ac7fd6c8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54734504"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "61659814"
 ---
 # <a name="query-a-collection-of-objects"></a>オブジェクトのコレクションの照会
 
@@ -24,7 +24,7 @@ ms.locfileid: "54734504"
   
 このクエリは、実験用として意図的にシンプルに記述されています。 たとえば、`where` 句でより多く条件を試したり、`orderby` 句を使用して結果を並べ替えたりすることもできます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [統合言語クエリ (LINQ)](index.md)
 - [文字列補間](../language-reference/tokens/interpolated.md)

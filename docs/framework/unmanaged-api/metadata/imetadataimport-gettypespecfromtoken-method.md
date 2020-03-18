@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: ee518bda-3296-482e-a7b7-e9d51dd1a181
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: e7e060d2f72609b470dbd5060746a1458f5eed9d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 3ab24ab869e1f2cff9beafe50e6982ba2e7cf0aa
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67782308"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74436695"
 ---
 # <a name="imetadataimportgettypespecfromtoken-method"></a>IMetaDataImport::GetTypeSpecFromToken メソッド
 指定したトークンが表すタイプ仕様のバイナリ メタデータ シグネチャを取得します。  
@@ -39,23 +37,23 @@ HRESULT GetTypeSpecFromToken (
   
 ## <a name="parameters"></a>パラメーター  
  `typespec`  
- [in]要求されたメタデータ署名に関連付けられている TypeSpec トークンです。  
+ から要求されたメタデータ署名に関連付けられている TypeSpec トークン。  
   
  `ppvSig`  
- [out]バイナリ メタデータ シグネチャへのポインター。  
+ 入出力バイナリメタデータシグネチャへのポインター。  
   
  `pcbSig`  
- [out]メタデータのシグネチャのバイト単位のサイズ。  
+ 入出力メタデータシグネチャのサイズ (バイト単位)。  
   
 ## <a name="return-value"></a>戻り値  
- 成功または失敗を示す HRESULT。 FAILED マクロでは、エラーをテストできます。  
+ 成功または失敗を示す HRESULT。 失敗したマクロを使用してエラーをテストできます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

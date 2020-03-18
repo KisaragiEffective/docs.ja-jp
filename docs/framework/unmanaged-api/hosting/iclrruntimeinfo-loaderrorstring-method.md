@@ -15,19 +15,17 @@ helpviewer_keywords:
 ms.assetid: 52c543ab-9ef5-4ee7-b836-c0ffc35cd45b
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9e6638f731b335ba7552379cdc77fa912a1def4d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 20f2041599e85b8df20a7a9cf44680da9f17244e
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67748381"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73195929"
 ---
 # <a name="iclrruntimeinfoloaderrorstring-method"></a>ICLRRuntimeInfo::LoadErrorString メソッド
-HRESULT 値を指定したカルチャの適切なエラー メッセージに変換します。  
+HRESULT 値を、指定したカルチャの適切なエラーメッセージに変換します。  
   
- このメソッドは、次の関数よりも優先されます。  
+ このメソッドは、次の関数を置き換えます。  
   
 - [LoadStringRC](../../../../docs/framework/unmanaged-api/hosting/loadstringrc-function.md)  
   
@@ -45,16 +43,16 @@ HRESULT LoadErrorString(
   
 ## <a name="parameters"></a>パラメーター  
  `iResourceID`  
- [in]変換する HRESULT。  
+ から変換する HRESULT。  
   
  `pwzBuffer`  
- [out]指定された HRESULT に関連付けられているメッセージ文字列。  
+ 入出力指定した HRESULT に関連付けられているメッセージ文字列。  
   
  `pcchBuffer`  
- [入力、出力]サイズ`pwzbuffer`バッファー オーバーランを回避します。 場合`pwzbuffer`が null、`pcchBuffer`の予想サイズを提供します。`pwzbuffer`事前割り当てを許可します。  
+ [入力、出力]バッファーオーバーランを回避するための `pwzbuffer` のサイズ。 `pwzbuffer` が null の場合、`pcchBuffer` は、事前割り当てを許可する `pwzbuffer` のサイズを提供します。  
   
  `iLocaleID`  
- [in]カルチャ識別子。 既定のカルチャを使用するには、-1 を指定する必要があります。  
+ からカルチャ識別子。 既定のカルチャを使用するには、-1 を指定する必要があります。  
   
 ## <a name="return-value"></a>戻り値  
  このメソッドは、次の特定の HRESULT と、メソッドの失敗を示す HRESULT エラーも返します。  
@@ -65,12 +63,12 @@ HRESULT LoadErrorString(
 |E_POINTER|`pcchBuffer` が null です。|  
 |E_INVALIDARG|`pwzBuffer` が null です。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MetaHost.h  
+ **ヘッダー:** メタホスト .h  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

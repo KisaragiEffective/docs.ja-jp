@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: natke
   ms.author: nakersha
-  ms.date: 10/02/2019
-  ms.openlocfilehash: 4d9e3f78b02e7e95567dc9f025a1123966038770
-  ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+  ms.date: 10/30/2019
+  ms.openlocfilehash: 05d357af2088321524841bfc05f94f816f1bc306
+  ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 10/15/2019
-  ms.locfileid: "72320521"
+  ms.lasthandoff: 03/15/2020
+  ms.locfileid: "73423940"
 landingContent:
 - title: ML.NET の基礎
   linkLists:
@@ -51,17 +51,23 @@ landingContent:
       url: tutorials/sentiment-analysis-model-builder.md
     - text: 価格を予測する (モデル ビルダー)
       url: tutorials/predict-prices-with-model-builder.md
+    - text: 正常性違反の分類 (モデル ビルダー & SQL Server)
+      url: tutorials/health-violation-classification-model-builder.md
     - text: サポートの問題を分類する (API)
       url: tutorials/github-issue-classification.md
-    - text: TensorFlow を使用した画像を分類する (API)
+    - text: 画像分類 API を使用して画像を分類する (API)
+      url: tutorials/image-classification-api-transfer-learning.md
+    - text: モデル構成を使用して画像を分類する (API)
       url: tutorials/image-classification.md
     - text: 画像内のオブジェクトを検出する (API)
       url: tutorials/object-detection-onnx.md
     - text: 製品売上の異常を検出する (API)
       url: tutorials/sales-anomaly-detection.md
+    - text: 自転車レンタル需要の予測 (API & SQL Server)
+      url: tutorials/time-series-demand-forecasting.md
     - text: 映画の推奨機能を構築する (API)
       url: tutorials/movie-recommendation.md
-- title: ハウツー ガイド
+- title: 操作方法ガイド
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -77,7 +83,7 @@ landingContent:
       url: how-to-guides/save-load-machine-learning-models-ml-net.md
     - text: モデルを再トレーニングする
       url: how-to-guides/retrain-model-ml-net.md
-- title: 関連項目
+- title: リファレンス
   linkLists:
   - linkListType: reference
     links:

@@ -17,13 +17,13 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71699609"
 ---
-# <a name="add-element-for-bypasslist-network-settings"></a>bypasslist の @no__t 0add > 要素 (ネットワーク設定)
+# <a name="add-element-for-bypasslist-network-settings"></a>の \<add> 要素 (ネットワーク設定)
 プロキシバイパス一覧に IP アドレスまたは DNS 名を追加します。  
   
 [ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **@no__t 47 >** ](system-net-element-network-settings.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t-3[ **\<defaultProxy >** ](defaultproxy-element-network-settings.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t @ no__t-5[ **\<bypasslist >** を行います。](bypasslist-element-network-settings.md)  
+&nbsp;&nbsp;[ **\<system.net>** ](system-net-element-network-settings.md)  
+&nbsp;&nbsp;&nbsp;&nbsp;[ **\<defaultProxy>** ](defaultproxy-element-network-settings.md)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ **\<bypasslist>** ](bypasslist-element-network-settings.md)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<add>**  
   
 ## <a name="syntax"></a>構文  

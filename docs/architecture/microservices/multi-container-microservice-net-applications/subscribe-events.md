@@ -1,19 +1,19 @@
 ---
 title: イベントへのサブスクライブ
 description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | 統合イベントの発行とサブスクライブについて。
-ms.date: 10/02/2018
-ms.openlocfilehash: ac9715c7c282be845e1e47516d06945c31f70209
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.date: 01/30/2020
+ms.openlocfilehash: 544af8035ed23dd6507dfed4944b0c327c81d943
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039775"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77501805"
 ---
 # <a name="subscribing-to-events"></a>イベントへのサブスクライブ
 
 イベント バスを使用するための最初のステップは、受信したいイベントにマイクロサービスをサブスクライブすることです。 これは、受信側マイクロサービスで行う必要があります。
 
-次の単純なコードは、各受信側マイクロサービスが (`Startup` クラスで) サービスを起動して必要なイベントにサブスクライブするために実装する必要があるコードを示しています。 このケースでは、`basket.api` マイクロサービスが `ProductPriceChangedIntegrationEvent` メッセージと `OrderStartedIntegrationEvent` メッセージにサブスクライブする必要があります。
+次の単純なコードは、各受信側マイクロサービスが (`Startup` クラスで) サービスを起動して必要なイベントにサブスクライブするために実装する必要があるコードを示しています。 このケースでは、`basket-api` マイクロサービスが `ProductPriceChangedIntegrationEvent` メッセージと `OrderStartedIntegrationEvent` メッセージにサブスクライブする必要があります。
 
 たとえば、`ProductPriceChangedIntegrationEvent` イベントにサブスクライブした場合、買い物かごマイクロサービスは商品価格に加えられた変更を認識し、その商品がユーザーの買い物かごに入っている場合は変更に関する警告をユーザーに表示できるようになります。
 
@@ -105,7 +105,7 @@ CQRS アプローチを使用する場合など、より高度なマイクロサ
 
 - [トランザクション ログ マイニング](https://www.scoop.it/t/sql-server-transaction-log-mining)を使用する。
 
-- [送信トレイ パターン](http://gistlabs.com/2014/05/the-outbox/)を使用する。 これは、(ローカル トランザクションを拡張して) 統合イベントを格納するトランザクション テーブルです。
+- [送信トレイ パターン](https://www.kamilgrzybek.com/design/the-outbox-pattern/)を使用する。 これは、(ローカル トランザクションを拡張して) 統合イベントを格納するトランザクション テーブルです。
 
 このシナリオでは、完全なイベント ソーシング (ES) パターンを使用することが、*最良*とは言わないまでも適切なアプローチの 1 つです。 ただし、多くのアプリケーション シナリオでは、完全な ES システムを実装できない場合があります。 ES とは、現在の状態データを格納するのではなく、ドメイン イベントのみをトランザクション データベースに格納することを意味します。 ドメイン イベントのみを格納する方法には、システムの履歴を保持できる、過去の任意の時点におけるシステムの状態を確認できるなどの大きなメリットがあります。 しかし、完全な ES システムを実装するにはシステムの大部分を再構築する必要があり、それ以外にも多くの複雑さと要件が生じます。 たとえば、イベント ソーシング用に特別に作成されたデータベース ([イベント ストア](https://eventstore.org/)など) や、Azure Cosmos DB、MongoDB、Cassandra、CouchDB、RavenDB といったドキュメント指向のデータベースの使用が必要になる場合があります。 ES はこの問題に対する優れたアプローチですが、イベント ソーシングに精通している人以外には最も簡単なソリューションではありません。
 
@@ -139,7 +139,7 @@ CQRS アプローチを使用する場合など、より高度なマイクロサ
 
 図 6-22 は、1 番目のアプローチのアーキテクチャを示しています。
 
-![イベント発行時に原子性を処理する 1 つのアプローチ: あるトランザクションを使用してイベントログ テーブルにイベントをコミットし、次に別のトランザクションを使用して発行します (eShopOnContainers で使用)](./media/image23.png)
+![ワーカー マイクロサービスを使用せずに発行する場合の原子性の図。](./media/subscribe-events/atomicity-publish-event-bus.png)
 
 **図 6-22**。 イベント バスにイベントを発行するときの原子性
 
@@ -147,7 +147,7 @@ CQRS アプローチを使用する場合など、より高度なマイクロサ
 
 2 番目のアプローチでは、EventLog テーブルをキューとして使用し、常に常にワーカー マイクロサービスを使用してメッセージを発行します。 その場合、プロセスは図 6-23 のようになります。 これには追加のマイクロサービスが表示されており、テーブルはイベントを発行する際の単一のソースです。
 
-![原子性を処理するためのもう 1 つのアプローチ: イベント ログ テーブルに発行し、別のマイクロサービス (バックグラウンド ワーカー) からイベントを発行するようにします。](./media/image24.png)
+![ワーカー マイクロサービスを使用して発行するときの原子性の図。](./media/subscribe-events/atomicity-publish-worker-microservice.png)
 
 **図 6-23**。 ワーカー マイクロサービスを使用してイベント バスにイベントを発行するときの原子性
 
@@ -279,7 +279,7 @@ namespace Microsoft.eShopOnContainers.Services.Basket.API.IntegrationEvents.Even
 
 イベント ハンドラーは、その商品がいずれかの買い物かごインスタンス内に存在するかどうかを確認する必要があります。 また、関連する買い物かご品目の品目価格をすべて更新します。 最後に、図 6-24 に示すように、ユーザーに表示する価格変更についてのアラートを作成します。
 
-![ブラウザーの画像。ユーザー カートの価格変更通知。](./media/image25.png)
+![ユーザー カートで価格変更の通知を示しているブラウザーのスクリーンショット。](./media/subscribe-events/display-item-price-change.png)
 
 **図 6-24**。 統合イベントによって通知された、買い物かご内の品目の価格変更の表示
 
@@ -301,7 +301,7 @@ namespace Microsoft.eShopOnContainers.Services.Basket.API.IntegrationEvents.Even
 
 ### <a name="additional-resources"></a>その他の技術情報
 
-- **メッセージのべき等性に従う**  
+- **メッセージのべき等性に従う** \
   <https://docs.microsoft.com/previous-versions/msp-n-p/jj591565(v=pandp.10)#honoring-message-idempotency>
 
 ## <a name="deduplicating-integration-event-messages"></a>統合イベント メッセージの重複除去
@@ -326,7 +326,7 @@ namespace Microsoft.eShopOnContainers.Services.Basket.API.IntegrationEvents.Even
     <https://go.particular.net/eShopOnContainers>
 
 - **イベント駆動型メッセージング** \
-    [http://soapatterns.org/design\_patterns/event\_driven\_messaging](http://soapatterns.org/design_patterns/event_driven_messaging)
+    <https://patterns.arcitura.com/soa-patterns/design_patterns/event_driven_messaging>
 
 - **Jimmy Bogard。復元性を目指したリファクタリング: 結合の評価** \
     <https://jimmybogard.com/refactoring-towards-resilience-evaluating-coupling/>
@@ -338,7 +338,7 @@ namespace Microsoft.eShopOnContainers.Services.Basket.API.IntegrationEvents.Even
     <https://docs.microsoft.com/previous-versions/msp-n-p/jj591572(v=pandp.10)>
 
 - **最終的な整合性** \
-    [https://en.wikipedia.org/wiki/Eventual\_consistency](https://en.wikipedia.org/wiki/Eventual_consistency)
+    <https://en.wikipedia.org/wiki/Eventual_consistency>
 
 - **Philip Brown。境界コンテキストを統合するための戦略** \
     <https://www.culttt.com/2014/11/26/strategies-integrating-bounded-contexts/>
@@ -359,7 +359,7 @@ namespace Microsoft.eShopOnContainers.Services.Basket.API.IntegrationEvents.Even
     <https://dzone.com/articles/event-driven-data-management-for-microservices-1>
 
 - **CAP 定理** \
-    [https://en.wikipedia.org/wiki/CAP\_theorem](https://en.wikipedia.org/wiki/CAP_theorem)
+    <https://en.wikipedia.org/wiki/CAP_theorem>
 
 - **CAP 定理とは?** \
     <https://www.quora.com/What-Is-CAP-Theorem-1>
@@ -368,7 +368,7 @@ namespace Microsoft.eShopOnContainers.Services.Basket.API.IntegrationEvents.Even
     <https://docs.microsoft.com/previous-versions/msp-n-p/dn589800(v=pandp.10)>
 
 - **Rick Saling。CAP 定理: クラウドとインターネットでは "すべてが異なる" 理由** \
-    <https://blogs.msdn.microsoft.com/rickatmicrosoft/2013/01/03/the-cap-theorem-why-everything-is-different-with-the-cloud-and-internet/>
+    <https://docs.microsoft.com/archive/blogs/rickatmicrosoft/the-cap-theorem-why-everything-is-different-with-the-cloud-and-internet/>
 
 - **Eric Brewer。12 年後の CAP: "規則" はどのように変わったか** \
     <https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed>
@@ -377,7 +377,7 @@ namespace Microsoft.eShopOnContainers.Services.Basket.API.IntegrationEvents.Even
     <https://code.msdn.microsoft.com/Brokered-Messaging-c0acea25>
 
 - **信頼性ガイド** (RabbitMQ ドキュメント) \
-    [https://www.rabbitmq.com/reliability.html\#consumer](https://www.rabbitmq.com/reliability.html#consumer)
+    <https://www.rabbitmq.com/reliability.html#consumer>
 
 > [!div class="step-by-step"]
 > [前へ](rabbitmq-event-bus-development-test-environment.md)

@@ -1,5 +1,5 @@
 ---
-title: Private (Visual Basic)
+title: Private
 ms.date: 07/20/2015
 f1_keywords:
 - vb.Private
@@ -7,31 +7,31 @@ helpviewer_keywords:
 - Private keyword [Visual Basic]
 - Private keyword [Visual Basic], syntax
 ms.assetid: aba74a2e-5824-4613-bf63-b9ec7787f4e6
-ms.openlocfilehash: ddb2d165de330758f58fbbcb5872e820e639808f
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 0c855c4e08b365b4cb75ab062d2ec304a79612ab
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64642793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75347916"
 ---
 # <a name="private-visual-basic"></a>Private (Visual Basic)
-1 つまたは複数の宣言されたプログラミング要素に内に含まれる任意の型を含む、宣言のコンテキストからのみアクセスできることを指定します。  
+1つ以上の宣言されたプログラミング要素が、含まれている型の中からを含め、宣言コンテキスト内からのみアクセス可能であることを指定します。  
   
 ## <a name="remarks"></a>コメント  
- プログラミング要素は、独自の機能または機密データを含む、通常はできるだけ厳密にへのアクセスを制限します。 最大の制限は、モジュール、クラス、またはそれへのアクセスを定義する構造のみを許可することで実現します。 この方法で要素へのアクセスを制限するために宣言できます`Private`します。  
+ プログラミング要素が独自の機能を表している場合、または機密データが含まれている場合は、通常、できるだけ厳密にアクセスを制限することをお勧めします。 最大の制限を達成するには、それを定義するモジュール、クラス、または構造体だけがアクセスできるようにします。 この方法で要素へのアクセスを制限するには、`Private`で要素を宣言します。  
 
 > [!NOTE]
-> 使用することも、[Private Protected](private-protected.md)メンバーにそのクラス内、および、含んでいるアセンブリにある派生クラスからアクセスできるよう、アクセス修飾子。
+> [Private Protected](private-protected.md)アクセス修飾子を使用することもできます。これにより、メンバーは、そのクラス内から、およびそれを含むアセンブリに配置されている派生クラスからアクセスできるようになります。
 
 ## <a name="rules"></a>ルール  
 
-- **宣言コンテキスト。** `Private` は、モジュール レベルでのみ使用できます。 これは、意味の宣言のコンテキストを`Private`要素は、モジュール、クラス、または構造体にある必要があるあり、ソース ファイル、名前空間、インターフェイス、またはプロシージャにすることはできません。  
+- **宣言コンテキスト。** `Private` は、モジュール レベルでのみ使用できます。 つまり、`Private` 要素の宣言コンテキストは、モジュール、クラス、または構造体である必要があり、ソースファイル、名前空間、インターフェイス、またはプロシージャにすることはできません。  
   
 ## <a name="behavior"></a>動作  
   
-- **アクセス レベルです。** 宣言コンテキスト内ですべてのコードがアクセスできるその`Private`要素。 これには、入れ子になったクラスまたは列挙型の代入式などの包含の種類の中でコードが含まれます。 宣言コンテキストの外側でコードがアクセスできない、`Private`要素。  
+- **アクセス レベル。** 宣言コンテキスト内のすべてのコードは、その `Private` 要素にアクセスできます。 これには、入れ子になったクラスや列挙体の代入式など、含まれている型内のコードが含まれます。 宣言コンテキストの外部のコードは、その `Private` 要素にアクセスできません。  
   
-- **アクセス修飾子。** アクセス レベルを指定するキーワードが呼び出される*アクセス修飾子*します。 アクセス修飾子の比較は、次を参照してください。[アクセス レベルを Visual Basic で](../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)します。  
+- **アクセス修飾子。** アクセスレベルを指定するキーワードは、*アクセス修飾子*と呼ばれます。 アクセス修飾子の比較については、「[Visual Basic でのアクセス レベル](../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)」を参照してください。  
   
  `Private` 修飾子は、次のコンテキストで使用できます。  
   
@@ -39,7 +39,7 @@ ms.locfileid: "64642793"
   
  [Const ステートメント](../../../visual-basic/language-reference/statements/const-statement.md)  
   
- [Declare ステートメント](../../../visual-basic/language-reference/statements/declare-statement.md)  
+ [Declare Statement](../../../visual-basic/language-reference/statements/declare-statement.md)  
   
  [Delegate ステートメント](../../../visual-basic/language-reference/statements/delegate-statement.md)  
   
@@ -65,7 +65,8 @@ ms.locfileid: "64642793"
 - [Protected](../../../visual-basic/language-reference/modifiers/protected.md)
 - [Friend](../../../visual-basic/language-reference/modifiers/friend.md)
 - [Private Protected](./private-protected.md)
-- [Protected Friend](./protected-friend.md)[Visual Basic でのレベルのアクセス](../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)
+- [Protected Friend](./protected-friend.md)
+- [Visual Basic でのアクセス レベル](../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)
 - [手順](../../../visual-basic/programming-guide/language-features/procedures/index.md)
 - [構造体](../../../visual-basic/programming-guide/language-features/data-types/structures.md)
 - [クラスとオブジェクト](../../../visual-basic/programming-guide/language-features/objects-and-classes/index.md)

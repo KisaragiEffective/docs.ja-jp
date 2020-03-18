@@ -2,12 +2,12 @@
 title: パフォーマンス カウンターの使用
 ms.date: 03/30/2017
 ms.assetid: 00a787af-1876-473c-a48d-f52b51e28a3f
-ms.openlocfilehash: 724580c1725cf6513e1d85f03b0abfdefb4d040a
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 6c125ecd0f6cef10b62e7e451eb37bba1ce89b65
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70044529"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77094840"
 ---
 # <a name="using-performance-counters"></a>パフォーマンス カウンターの使用
 このサンプルでは、Windows Communication Foundation (WCF) パフォーマンスカウンターにアクセスする方法と、ユーザー定義のパフォーマンスカウンターを作成する方法を示します。 このサンプルは、[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいています。  
@@ -41,7 +41,7 @@ ms.locfileid: "70044529"
   
 ### <a name="to-view-performance-data"></a>パフォーマンス データを表示するには  
   
-1. パフォーマンスモニターツールを起動するには、**スタート** ボタンをクリック`perfmon`し、**実行**をクリックして、enter キーを押します。または、コントロールパネル で **管理ツール** を選択し、**パフォーマンス** をダブルクリックします。  
+1. パフォーマンスモニターツールを起動するには、 **[スタート]** ボタンをクリックし、 **[実行]** をクリックして `perfmon` を入力し、[ **OK] を**クリックします。または、コントロールパネルで **[管理ツール]** を選択し、 **[パフォーマンス]** をダブルクリックします。  
   
     > [!NOTE]
     > サンプル コードが実行されるまでは、カウンタを追加することはできません。  
@@ -57,7 +57,7 @@ ms.locfileid: "70044529"
   
 1. SvcConfigEditor.exe のインスタンスを開きます。  
   
-2. ファイル メニューをクリックして**開く** をクリックし、 **Config ファイル...** .  
+2. ファイル メニューの **開く** をクリックし、**構成ファイル...** をクリックします。  
   
 3. サンプル アプリケーションの service フォルダーに移動し、Web.config ファイルを開きます。  
   
@@ -72,10 +72,10 @@ ms.locfileid: "70044529"
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Management\PerfCounters`  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [AppFabric の監視のサンプル](https://go.microsoft.com/fwlink/?LinkId=193959)
+- [AppFabric の監視のサンプル](https://docs.microsoft.com/previous-versions/appfabric/ff383407(v=azure.10))

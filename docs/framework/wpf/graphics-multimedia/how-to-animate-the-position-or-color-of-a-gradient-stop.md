@@ -1,5 +1,5 @@
 ---
-title: '方法: グラデーション ストップの位置または色をアニメーション化する'
+title: '方法 : グラデーション ストップの位置または色をアニメーション化する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -12,34 +12,34 @@ helpviewer_keywords:
 - animation [WPF], color of GradientStop objects
 - GradientStop objects [WPF], animating position of
 ms.assetid: 6f5b8b47-6c32-4b8e-98ee-fdf6515ec843
-ms.openlocfilehash: 4762233cace895c9d492fb426f3f6be14498ad53
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: aeae33f5f3c8016808988f58d61969e9b6f05039
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64593365"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77452845"
 ---
-# <a name="how-to-animate-the-position-or-color-of-a-gradient-stop"></a>方法: グラデーション ストップの位置または色をアニメーション化する
-この例は、アニメーション化する方法を示しています、<xref:System.Windows.Media.GradientStop.Color%2A>と<xref:System.Windows.Media.GradientStop.Offset%2A>の<xref:System.Windows.Media.GradientStop>オブジェクト。  
+# <a name="how-to-animate-the-position-or-color-of-a-gradient-stop"></a>方法 : グラデーション ストップの位置または色をアニメーション化する
+この例では、<xref:System.Windows.Media.GradientStop> オブジェクトの <xref:System.Windows.Media.GradientStop.Color%2A> と <xref:System.Windows.Media.GradientStop.Offset%2A> をアニメーション化する方法を示します。  
   
 ## <a name="example"></a>例  
- 次の例では、アニメーション内の 3 つのグラデーションの分岐点を<xref:System.Windows.Media.LinearGradientBrush>します。 例では、さまざまなグラデーションの分岐点をアニメーション化の 3 つのアニメーションを使用します。  
+ 次の例では、<xref:System.Windows.Media.LinearGradientBrush>内の3つのグラデーションの分岐点をアニメーション化します。 この例では、3つのアニメーションを使用して、それぞれ異なるグラデーションの分岐点をアニメーション化します。  
   
-- 最初のアニメーションを<xref:System.Windows.Media.Animation.DoubleAnimation>、アニメーションの最初のグラデーションの<xref:System.Windows.Media.GradientStop.Offset%2A>0.0 ~ 1.0 0.0 に戻ります。 その結果、最初の色の四角形の右側にあるを左側にあるグラデーション シフトで、左側に戻ります。  
+- 最初のアニメーション (<xref:System.Windows.Media.Animation.DoubleAnimation>) では、最初のグラデーションの分岐点の <xref:System.Windows.Media.GradientStop.Offset%2A> を0.0 から1.0 に、次に0.0 に戻します。 その結果、グラデーションの最初の色が四角形の左側から右側に移動し、次に左側に戻ります。  
   
-- 2 番目のアニメーションを<xref:System.Windows.Media.Animation.ColorAnimation>、2 番目のグラデーションのアニメーション化<xref:System.Windows.Media.GradientStop.Color%2A>から<xref:System.Windows.Media.Colors.Purple%2A>に<xref:System.Windows.Media.Colors.Yellow%2A>に再び<xref:System.Windows.Media.Colors.Purple%2A>します。 その結果、黄色および紫へ、グラデーションの中間色を表すは紫から変更します。  
+- 2番目のアニメーション (<xref:System.Windows.Media.Animation.ColorAnimation>) では、2番目のグラデーション分岐点の <xref:System.Windows.Media.GradientStop.Color%2A> を <xref:System.Windows.Media.Colors.Purple%2A> から <xref:System.Windows.Media.Colors.Yellow%2A>、<xref:System.Windows.Media.Colors.Purple%2A>に戻します。 その結果、グラデーションの中間色は紫色から黄色に変わり、紫色に戻ります。  
   
-- 3 番目のアニメーションでは、もう 1 つ<xref:System.Windows.Media.Animation.ColorAnimation>、3 番目のグラデーション ストップの不透明度をアニメーション化<xref:System.Windows.Media.GradientStop.Color%2A>-1 で戻ります。 その結果、3 番目の色、グラデーションはフェードアウトし、し、再び不透明になります。  
+- 3番目のアニメーション (もう1つの <xref:System.Windows.Media.Animation.ColorAnimation>) は、3番目のグラデーション分岐点の不透明度を-1 で <xref:System.Windows.Media.GradientStop.Color%2A> し、次に戻るようにアニメーション化します。 その結果、グラデーションの3番目の色が消え、もう一度不透明になります。  
   
  [!code-csharp[BrushesIntroduction_snip#GraphicsMMGradientAnimationExamplesWholePage](~/samples/snippets/csharp/VS_Snippets_Wpf/BrushesIntroduction_snip/CSharp/GradientStopAnimationExample.cs#graphicsmmgradientanimationexampleswholepage)]
  [!code-vb[BrushesIntroduction_snip#GraphicsMMGradientAnimationExamplesWholePage](~/samples/snippets/visualbasic/VS_Snippets_Wpf/BrushesIntroduction_snip/visualbasic/gradientstopanimationexample.vb#graphicsmmgradientanimationexampleswholepage)]
  [!code-xaml[BrushesIntroduction_snip#GraphicsMMGradientAnimationExamplesWholePage](~/samples/snippets/xaml/VS_Snippets_Wpf/BrushesIntroduction_snip/XAML/GradientStopAnimationExample.xaml#graphicsmmgradientanimationexampleswholepage)]  
   
- この例では、 <xref:System.Windows.Media.LinearGradientBrush>、プロセスは、アニメーション化するため同じ<xref:System.Windows.Media.GradientStop>内でオブジェクトを<xref:System.Windows.Media.RadialGradientBrush>します。  
+ この例では <xref:System.Windows.Media.LinearGradientBrush>を使用しますが、プロセスは <xref:System.Windows.Media.RadialGradientBrush>内の <xref:System.Windows.Media.GradientStop> オブジェクトをアニメーション化する場合と同じです。  
   
- その他の例では、次を参照してください。、[ブラシのサンプル](https://go.microsoft.com/fwlink/?LinkID=159973)します。  
+ その他の例については、「[ブラシのサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Graphics/Brushes)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Media.GradientStop>
 - [アニメーションの概要](animation-overview.md)

@@ -1,13 +1,13 @@
 ---
-title: Visual Basic における宣言された要素
+title: 宣言された要素
 ms.date: 07/20/2015
 ms.assetid: 0d1d1bb5-ac0b-485f-8922-cdcec5574c79
-ms.openlocfilehash: 3430517aea32eeb79aeb586d3a1eb0df1524998b
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: a61ba32e2235bfb6a2112a28f1de7479ca82556c
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64639174"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74345343"
 ---
 # <a name="declared-elements-in-visual-basic"></a>Visual Basic における宣言された要素
 *宣言された要素*は、宣言ステートメントで定義されているプログラミング要素です。 宣言された要素には、変数、定数、列挙型、クラス、構造体、モジュール、インターフェイス、プロシージャ、プロシージャ パラメーター、関数の戻り値、外部プロシージャの参照、演算子、プロパティ、イベント、およびデリゲートが含まれます。  
@@ -52,7 +52,7 @@ ms.locfileid: "64639174"
  [宣言された要素の参照](../../../../visual-basic/programming-guide/language-features/declared-elements/references-to-declared-elements.md)  
  コンパイラが宣言への参照を一致させる方法と、名前を修飾する方法を説明します。  
   
-## <a name="related-sections"></a>関連項目  
+## <a name="related-sections"></a>関連セクション  
  [プログラム構造とコード規則](../../../../visual-basic/programming-guide/program-structure/program-structure-and-code-conventions.md)  
  コードの読み取り、理解、保守を容易にするためのガイドラインを示します。  
   

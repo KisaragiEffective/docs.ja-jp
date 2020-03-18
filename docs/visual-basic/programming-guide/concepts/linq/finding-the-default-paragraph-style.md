@@ -1,16 +1,16 @@
 ---
-title: 既定の段落スタイルの検索 (Visual Basic)
+title: 既定の段落スタイルの検索
 ms.date: 07/20/2015
 ms.assetid: 9d094a4a-ec8c-41b0-b7ab-a3deb2a01d45
-ms.openlocfilehash: 6754c48148e81b02eb8c63843b57bc3d28a5774a
-ms.sourcegitcommit: da2dd2772fcf32b44eb18b1cbe8affd17b1753c9
+ms.openlocfilehash: c3c92c7ae6f80082265d8516e62118595a341790
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71352902"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74353449"
 ---
 # <a name="finding-the-default-paragraph-style-visual-basic"></a>既定の段落スタイルの検索 (Visual Basic)
-「WordprocessingML ドキュメント内の情報の操作」チュートリアルでの最初のタスクは、ドキュメント内にある段落の既定のスタイルを検索することです。  
+「WordprocessingML ドキュメント内の情報の操作」チュートリアルでの最初の作業は、ドキュメント内にある段落の既定のスタイルを検索することです。  
   
 ## <a name="example"></a>例  
   
@@ -93,4 +93,4 @@ The default style is: Normal
   
 ## <a name="see-also"></a>関連項目
 
-- [チュートリアル: WordprocessingML ドキュメント内のコンテンツの操作 (Visual Basic) ](../../../../visual-basic/programming-guide/concepts/linq/tutorial-manipulating-content-in-a-wordprocessingml-document.md)
+- [チュートリアル: WordprocessingML ドキュメント内のコンテンツの操作 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/tutorial-manipulating-content-in-a-wordprocessingml-document.md)

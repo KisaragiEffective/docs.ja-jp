@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: f967c93d-9a7f-4aaf-99a1-a1317899ff3f
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5e9e33e65b1cdeabe203c67ee4d4f259e2f7ac99
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 0c455706b0d644d2444e9fbdf49c5a5d4f5295a9
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67770071"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73122386"
 ---
 # <a name="icordebugthreadenumnext-method"></a>ICorDebugThreadEnum::Next メソッド
-列挙体の現在位置から指定した ICorDebugThread インスタンスの数を取得します。  
+現在の位置から開始して、列挙体から指定されたスレッドインスタンスの数を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,16 +38,16 @@ HRESULT Next (
   
 ## <a name="parameters"></a>パラメーター  
  `celt`  
- [in]数`ICorDebugThread`インスタンスを取得します。  
+ から取得する `ICorDebugThread` インスタンスの数。  
   
  `threads`  
- [out]それぞれが指すポインターの配列、`ICorDebugThread`スレッドを表すオブジェクト。  
+ 入出力ポインターの配列。各ポインターは、スレッドを表す `ICorDebugThread` オブジェクトを指します。  
   
  `pceltFetched`  
- [out]数へのポインター`ICorDebugThread`インスタンスが実際に返されます。 この値は null になる場合`celt`は 1 つです。  
+ 入出力実際に返された `ICorDebugThread` インスタンスの数へのポインター。 `celt` が1の場合、この値は null になります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

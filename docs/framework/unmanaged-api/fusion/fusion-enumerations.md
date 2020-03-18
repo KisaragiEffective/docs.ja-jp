@@ -6,14 +6,12 @@ helpviewer_keywords:
 - fusion enumerations [.NET Framework]
 - enumerations [.NET Framework fusion]
 ms.assetid: 5817b4bc-b0ba-4b2f-a11c-a03dd8cb8f84
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: e7670e19d764518cc8d88f702f169610b72642a9
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 9a030d1f0ec6cc4fd7ca526574caa4c281e2573e
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70795333"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73108500"
 ---
 # <a name="fusion-enumerations"></a>fusion 列挙体
 このセクションでは、fusion API が使用するアンマネージ列挙について説明します。  
@@ -35,7 +33,7 @@ ms.locfileid: "70795333"
  [CompareAssemblyIdentity](compareassemblyidentity-function.md)関数によって決定される2つのアセンブリ id の等価性を示します。  
   
  [CREATE_ASM_NAME_OBJ_FLAGS 列挙型](create-asm-name-obj-flags-enumeration.md)  
- [Createassemblynameobject](createassemblynameobject-function.md)関数`IAssemblyName`によって構築されるときのオブジェクトの属性を指定します。  
+ [Createassemblynameobject](createassemblynameobject-function.md)関数によって構築されるときに、`IAssemblyName` オブジェクトの属性を指定します。  
   
 ## <a name="related-sections"></a>関連項目  
  [Fusion インターフェイス](fusion-interfaces.md)  

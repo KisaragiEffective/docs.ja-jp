@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 667a6d1e-753d-4ea2-8fd8-a8337d1bb9cd
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: dd75fa12a95478a65d93eb07a32acf4cfd8b9632
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 302e9db3bc683eaa2b65e0b0479de721e07d56db
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67782090"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74442656"
 ---
 # <a name="imetadatatables2getmetadatastorage-method"></a>IMetaDataTables2::GetMetaDataStorage メソッド
-指定されたセクションに格納されているメタデータの内容とサイズを取得します。  
+指定したセクションに格納されているメタデータのサイズと内容を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,21 +36,21 @@ HRESULT GetMetaDataStorage (
   
 ## <a name="parameters"></a>パラメーター  
  `ppvMd`  
- [入力、出力]メタデータ セクションへのポインター。  
+ [入力、出力]メタデータセクションへのポインター。  
   
  `pcbMd`  
- [out]メタデータ ストリームのサイズ。  
+ 入出力メタデータストリームのサイズ。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataTables2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadatatables2-interface.md)
 - [IMetaDataTables インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadatatables-interface.md)

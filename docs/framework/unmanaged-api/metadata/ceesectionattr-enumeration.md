@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 0db51881-b869-4677-a715-1726a9216489
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 61fc71c2ab0a9107f5e9fbb354fe0f8c2fb0dace
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 97b28c961f43388679615ac0d5b19c4c69df1e3d
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67776343"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74444246"
 ---
 # <a name="ceesectionattr-enumeration"></a>CeeSectionAttr 列挙型
-使用するセクションの属性を指定する値を提供、 [ICeeGen](../../../../docs/framework/unmanaged-api/metadata/iceegen-interface.md)インターフェイス。  
+[ICeeGen](../../../../docs/framework/unmanaged-api/metadata/iceegen-interface.md)インターフェイスで使用するセクションの属性を指定する値を提供します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,20 +41,20 @@ typedef enum  {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`sdNone`|セクションには、属性がありません。|  
-|`sdReadOnly`|セクションには、読み取りのみ可能で、更新されない初期化されたデータが含まれています。|  
-|`sdReadWrite`|セクションには、読み取りまたは更新ができる初期化されたデータが含まれています。|  
-|`sdExecute`|セクションには、読み取りし、実行が許可されている実行可能コードが含まれています。|  
+|`sdNone`|Section には属性がありません。|  
+|`sdReadOnly`|セクションには、読み取りのみが可能な、更新されていない初期化済みのデータが含まれています。|  
+|`sdReadWrite`|セクションには、読み取りまたは更新が可能な初期化済みのデータが含まれています。|  
+|`sdExecute`|セクションには、読み取りと実行が許可されている実行可能コードが含まれています。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

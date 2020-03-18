@@ -1,21 +1,21 @@
 ---
-title: デザイン パターン:リストに基づく公開/定期受信
+title: 'デザイン パターン: リストに基づく公開/定期受信'
 ms.date: 03/30/2017
 ms.assetid: f4257abc-12df-4736-a03b-0731becf0fd4
-ms.openlocfilehash: 3c05e66affad8e517b0b1b5001f726abeae7b100
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: 3a62b09a29ec0b7e241bf2fdc09df6eaba5420c7
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70928841"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76728828"
 ---
-# <a name="design-patterns-list-based-publish-subscribe"></a>デザイン パターン:リストに基づく公開/定期受信
+# <a name="design-patterns-list-based-publish-subscribe"></a>デザイン パターン: リストに基づく公開/定期受信
 このサンプルは、Windows Communication Foundation (WCF) プログラムとして実装されているリストベースのパブリッシュ/サブスクライブパターンを示しています。  
   
 > [!NOTE]
 > このサンプルのセットアップ手順とビルド手順については、このトピックの最後を参照してください。  
   
- リストベースのパブリッシュ/サブスクライブのデザインパターンについては、Microsoft のパターン & プラクティスの発行、[統合パターン](https://go.microsoft.com/fwlink/?LinkId=95894)に関するページを参照してください。 公開/定期受信パターンは、情報トピックを定期受信する受信者のコレクションに情報を渡します。 リストに基づく公開/定期受信では、サブスクライバのリストが保持されます。 共有情報が存在する場合は、コピーがリスト上の各サブスクライバに送信されます。 このサンプルでは、動的なリストに基づく公開/定期受信パターンを示します。これにより、クライアントは必要に応じて何度でも定期受信または定期受信の解除ができます。  
+ リストベースのパブリッシュ/サブスクライブのデザインパターンについては、Microsoft のパターン & プラクティスの発行、[統合パターン](https://docs.microsoft.com/previous-versions/msp-n-p/ff647309(v=pandp.10))に関するページを参照してください。 公開/定期受信パターンは、情報トピックを定期受信する受信者のコレクションに情報を渡します。 リストに基づく公開/定期受信では、サブスクライバのリストが保持されます。 共有情報が存在する場合は、コピーがリスト上の各サブスクライバに送信されます。 このサンプルでは、動的なリストに基づく公開/定期受信パターンを示します。これにより、クライアントは必要に応じて何度でも定期受信または定期受信の解除ができます。  
   
  リストに基づく公開/定期受信のサンプルは、クライアント、サービス、およびデータ ソース プログラムで構成されています。 クライアントとデータ ソース プログラムは、複数を実行できます。 クライアントはサービスを定期受信し、通知を受信して、定期受信を解除します。 データ ソース プログラムはサービスに情報を送信し、現在のすべてのサブスクライバでその情報が共有されるようにします。  
   
@@ -48,7 +48,7 @@ public interface ISampleClientContract
   
  サービスは、すべてのサブスクライバに新しい情報を通知する機構として、.NET Framework イベントを使用します。 クライアントが Subscribe を呼び出してサービスに参加すると、イベント ハンドラが提供されます。 クライアントがサービスへの参加を解除すると、イベントからイベント ハンドラの定期受信が解除されます。 データ ソースが価格の変更を報告するサービスを呼び出すと、サービスはイベントを発生させます。 これにより、サービスの各インスタンスが呼び出されます。このサービスは定期受信した各クライアントのサービスで、この呼び出しによって各インスタンスのイベント ハンドラが実行されます。 各イベント ハンドラは、コールバック関数を使用してクライアントに情報を渡します。  
   
-```csharp  
+```csharp
 public class PriceChangeEventArgs : EventArgs  
     {  
         public string Item;  
@@ -118,9 +118,9 @@ public class PriceChangeEventArgs : EventArgs
   
 ### <a name="to-run-the-sample-on-the-same-machine"></a>サンプルを同じコンピューターで実行するには  
   
-1. 次のアドレス`http://localhost/servicemodelsamples/service.svc`を入力して、ブラウザーを使用してサービスにアクセスできることをテストします。 これに応答して、確認ページが表示されます。  
+1. 次のアドレスを入力して、ブラウザーを使用してサービスにアクセスできることをテストします: `http://localhost/servicemodelsamples/service.svc`。 これに応答して、確認ページが表示されます。  
   
-2. 言語固有のフォルダーの下\\にある、から client.exe を実行します。 クライアント アクティビティがクライアント コンソール ウィンドウに表示されます。 複数のクライアントを起動します。  
+2. -Client\bin\\から、言語固有のフォルダーから client.exe を実行します。 クライアント アクティビティがクライアント コンソール ウィンドウに表示されます。 複数のクライアントを起動します。  
   
 3. /Datasource\bin\\から、言語固有のフォルダーにあるデータソースを実行します。 データ ソース アクティビティがコンソール ウィンドウに表示されます。 データ ソースがサービスに情報を送信すると、その情報は各クライアントに渡されます。  
   
@@ -157,6 +157,6 @@ public class PriceChangeEventArgs : EventArgs
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Scenario\DesignPatterns/ListBasedPublishSubscribe`  

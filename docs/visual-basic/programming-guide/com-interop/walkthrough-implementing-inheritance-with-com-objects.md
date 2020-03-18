@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル: COM オブジェクトを使用した継承の実装 (Visual Basic)'
+title: 'チュートリアル : COM オブジェクトによる継承の実装'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - inheritance [Visual Basic], COM reusability
@@ -7,16 +7,16 @@ helpviewer_keywords:
 - inheritance [Visual Basic], walkthroughs
 - derived classes [Visual Basic], COM reusability
 ms.assetid: f8e7263a-de13-48d1-b67c-ca1adf3544d9
-ms.openlocfilehash: 7cbf71d7a2bbd1e94864e785894fdea41d522486
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 209e1005b9f944bf4883e8406031fb17d4d60df1
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71053332"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74347992"
 ---
-# <a name="walkthrough-implementing-inheritance-with-com-objects-visual-basic"></a>チュートリアル: COM オブジェクトを使用した継承の実装 (Visual Basic)
+# <a name="walkthrough-implementing-inheritance-with-com-objects-visual-basic"></a>チュートリアル: COM オブジェクトによる継承の実装 (Visual Basic)
 
-Visual Basic クラスは、以前の`Public`バージョンの Visual Basic で作成されたものであっても、COM オブジェクトのクラスから派生できます。 COM オブジェクトから継承されたクラスのプロパティとメソッドは、他の基底クラスのプロパティおよびメソッドがオーバーライドまたはオーバーロードできるのと同様にオーバーライドまたはオーバーロードできます。 COM オブジェクトからの継承は、再コンパイルしたくない既存のクラスライブラリがある場合に便利です。
+以前のバージョンの Visual Basic で作成されたクラスも含めて、COM オブジェクトの `Public` クラスから Visual Basic クラスを派生させることができます。 COM オブジェクトから継承されたクラスのプロパティとメソッドは、他の基底クラスのプロパティおよびメソッドがオーバーライドまたはオーバーロードできるのと同様にオーバーライドまたはオーバーロードできます。 COM オブジェクトからの継承は、再コンパイルしたくない既存のクラスライブラリがある場合に便利です。
 
 次の手順では、Visual Basic 6.0 を使用して、クラスを含む COM オブジェクトを作成し、それを基底クラスとして使用する方法を示します。
 
@@ -24,17 +24,17 @@ Visual Basic クラスは、以前の`Public`バージョンの Visual Basic で
 
 ## <a name="to-build-the-com-object-that-is-used-in-this-walkthrough"></a>このチュートリアルで使用する COM オブジェクトをビルドするには
 
-1. Visual Basic 6.0 で、新しい ActiveX DLL プロジェクトを開きます。 という名前`Project1`のプロジェクトが作成されます。 このクラスには、 `Class1`という名前のクラスがあります。
+1. Visual Basic 6.0 で、新しい ActiveX DLL プロジェクトを開きます。 `Project1` という名前のプロジェクトが作成されます。 このクラスには、`Class1`という名前のクラスがあります。
 
 2. **Project Explorer**で、 **[project1]** を右クリックし、 **[project1 のプロパティ]** をクリックします。 **[プロジェクトのプロパティ]** ダイアログボックスが表示されます。
 
-3. **[プロジェクトのプロパティ]** ダイアログボックス`ComObject1`の **[全般**] タブで、プロジェクト **[名]** フィールドに「」と入力してプロジェクト名を変更します。
+3. **[プロジェクトのプロパティ]** ダイアログボックスの **[全般**] タブで、 **[プロジェクト名]** フィールドに「`ComObject1`」と入力して、プロジェクト名を変更します。
 
-4. **プロジェクトエクスプローラー**で、を右クリック`Class1`し、 **[プロパティ]** をクリックします。 クラスの **[プロパティ]** ウィンドウが表示されます。
+4. **Project Explorer**で、[`Class1`] を右クリックし、 **[プロパティ]** をクリックします。 クラスの **[プロパティ]** ウィンドウが表示されます。
 
-5. プロパティをに`MathFunctions`変更します。 `Name`
+5. `Name` プロパティを `MathFunctions`に変更します。
 
-6. **プロジェクトエクスプローラー**で、を右クリック`MathFunctions`し、[コードの**表示**] をクリックします。 **コードエディター**が表示されます。
+6. **Project Explorer**で、[`MathFunctions`] を右クリックし、 **[コードの表示]** をクリックします。 **コードエディター**が表示されます。
 
 7. プロパティ値を保持するローカル変数を追加します。
 
@@ -43,7 +43,7 @@ Visual Basic クラスは、以前の`Public`バージョンの Visual Basic で
     Private mvarProp1 As Integer
     ```
 
-8. プロパティ`Let`とプロパティ`Get`プロパティの追加プロシージャ:
+8. プロパティ `Let` プロパティとプロパティ `Get` プロパティプロシージャを追加します。
 
     ```vb
     Public Property Let Prop1(ByVal vData As Integer)
@@ -84,7 +84,7 @@ Visual Basic クラスは、以前の`Public`バージョンの Visual Basic で
 
      **[参照の追加]** ダイアログ ボックスが表示されます。
 
-3. **[COM]** タブで、[ `ComObject1` **コンポーネント名**] ボックスの一覧をダブルクリックし、 **[OK]** をクリックします。
+3. **[COM]** タブで、 **[コンポーネント名]** ボックスの一覧の `ComObject1` をダブルクリックし、[ **OK]** をクリックします。
 
 4. **[プロジェクト]** メニューの **[新しい項目の追加]** をクリックします。
 
@@ -92,17 +92,17 @@ Visual Basic クラスは、以前の`Public`バージョンの Visual Basic で
 
 5. **[テンプレート]** ペインで、 **[クラス]** をクリックします。
 
-     既定のファイル名`Class1.vb`は、 **[名前]** フィールドに表示されます。 このフィールドを MathClass に変更し、 **[追加]** をクリックします。 これにより、と`MathClass`いう名前のクラスが作成され、そのコードが表示されます。
+     既定のファイル名 `Class1.vb`が **[名前]** フィールドに表示されます。 このフィールドを MathClass に変更し、 **[追加]** をクリックします。 これにより `MathClass`という名前のクラスが作成され、そのコードが表示されます。
 
-6. COM クラスを継承するために、 `MathClass`の先頭に次のコードを追加します。
+6. COM クラスを継承するために、`MathClass` の先頭に次のコードを追加します。
 
      [!code-vb[VbVbalrInterop#31](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrInterop/VB/Class1.vb#31)]
 
-7. に`MathClass`次のコードを追加して、基底クラスのパブリックメソッドをオーバーロードします。
+7. `MathClass`に次のコードを追加して、基底クラスのパブリックメソッドをオーバーロードします。
 
      [!code-vb[VbVbalrInterop#32](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrInterop/VB/Class1.vb#32)]
 
-8. に`MathClass`次のコードを追加して、継承されたクラスを拡張します。
+8. `MathClass`に次のコードを追加して、継承されたクラスを拡張します。
 
      [!code-vb[VbVbalrInterop#33](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrInterop/VB/Class1.vb#33)]
 
@@ -112,17 +112,17 @@ Visual Basic クラスは、以前の`Public`バージョンの Visual Basic で
 
 1. スタートアップフォームにボタンを追加し、それをダブルクリックしてコードを表示します。
 
-2. ボタンの`Click`イベントハンドラープロシージャに次のコードを追加して、の`MathClass`インスタンスを作成し、オーバーロードされたメソッドを呼び出します。
+2. ボタンの `Click` イベントハンドラープロシージャに次のコードを追加して、`MathClass` のインスタンスを作成し、オーバーロードされたメソッドを呼び出します。
 
      [!code-vb[VbVbalrInterop#34](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrInterop/VB/Class1.vb#34)]
 
 3. F5 キーを押してプロジェクトを実行します。
 
-フォーム`AddNumbers`のボタンをクリックすると、メソッドが最初にデータ型の`Short`数値で呼び出され、Visual Basic によって基本クラスから適切なメソッドが選択されます。 の2回目`AddNumbers`の呼び出しは、からの`MathClass`オーバーロードメソッドに送られます。 3番目の呼び出し`SubtractNumbers`は、クラスを拡張するメソッドを呼び出します。 基本クラスのプロパティが設定され、値が表示されます。
+フォームのボタンをクリックすると、`AddNumbers` メソッドが最初に `Short` データ型の数値で呼び出され、Visual Basic 基本クラスから適切なメソッドが選択されます。 `AddNumbers` の2回目の呼び出しは `MathClass`からのオーバーロードメソッドに送られます。 3番目の呼び出しは、クラスを拡張する `SubtractNumbers` メソッドを呼び出します。 基本クラスのプロパティが設定され、値が表示されます。
 
 ## <a name="next-steps"></a>次の手順
 
-オーバーロード`AddNumbers`された関数は、COM オブジェクトの基底クラスから継承されたメソッドと同じデータ型を持つように見えるかもしれません。 これは、基底クラスのメソッドの引数とパラメーターが Visual Basic 6.0 では16ビット整数として定義されていますが、それ以降のバージョン`Short`の Visual Basic では型の16ビット整数として公開されるためです。 新しい関数は、32ビットの整数を受け取り、基底クラスの関数をオーバーロードします。
+オーバーロードされた `AddNumbers` 関数は、COM オブジェクトの基底クラスから継承されたメソッドと同じデータ型を持つように見えます。 これは、基底クラスのメソッドの引数とパラメーターが Visual Basic 6.0 で16ビット整数として定義されているのに対し、Visual Basic の以降のバージョンでは `Short` 型の16ビット整数として公開されているためです。 新しい関数は、32ビットの整数を受け取り、基底クラスの関数をオーバーロードします。
 
 COM オブジェクトを使用する場合は、パラメーターのサイズとデータ型を必ず確認してください。 たとえば、引数として Visual Basic 6.0 collection オブジェクトを受け取る COM オブジェクトを使用している場合、Visual Basic の新しいバージョンのコレクションを指定することはできません。
 
@@ -130,9 +130,9 @@ COM クラスから継承されたプロパティとメソッドはオーバー�
 
 - COM クラスから継承されたプロパティまたはメソッドをオーバーライドする場合は、継承された他のすべてのプロパティとメソッドをオーバーライドする必要があります。
 
-- パラメーターを使用`ByRef`するプロパティをオーバーライドすることはできません。
+- `ByRef` パラメーターを使用するプロパティをオーバーライドすることはできません。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [.NET Framework アプリケーションにおける COM 相互運用性](../../../visual-basic/programming-guide/com-interop/com-interoperability-in-net-framework-applications.md)
 - [Inherits ステートメント](../../../visual-basic/language-reference/statements/inherits-statement.md)

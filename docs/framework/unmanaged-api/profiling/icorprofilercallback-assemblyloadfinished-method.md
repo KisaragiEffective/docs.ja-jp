@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 86d98f39-52e6-4c61-a625-9760f695ff12
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 174e71fca8c59dbd4842d0fc0b84bb9a3d7b10df
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 15ce195af0c0e8f8777f6e5d02043e17e32308da
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67763043"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76866651"
 ---
 # <a name="icorprofilercallbackassemblyloadfinished-method"></a>ICorProfilerCallback::AssemblyLoadFinished メソッド
 アセンブリの読み込みが完了したことをプロファイラーに通知します。  
@@ -35,22 +33,25 @@ HRESULT AssemblyLoadFinished(
     [in] HRESULT    hrStatus);  
 ```  
   
-## <a name="parameters"></a>パラメーター  
- `assemblyId`  
- [in]読み込まれたアセンブリを識別します。  
+## <a name="parameters"></a>パラメーター
+
+- `assemblyId`
+
+  の \[] は、読み込まれたアセンブリを識別します。
+
+- `hrStatus`
+
+  \[] アセンブリの読み込みが正常に終了したかどうかを示す HRESULT。
+
+## <a name="remarks"></a>コメント  
+ `assemblyId` の値は、`AssemblyLoadFinished` メソッドが呼び出されるまで、情報要求に対して有効ではありません。  
   
- `hrStatus`  
- [in]アセンブリの読み込みが正常に終了するかどうかを示す HRESULT。  
+ `AssemblyLoadFinished` コールバックの後も、アセンブリの読み込みの一部が続行される場合があります。 `hrStatus` のエラー HRESULT はエラーを示します。 ただし、`hrStatus` の成功 HRESULT は、アセンブリの読み込みの最初の部分が成功したことのみを示します。  
   
-## <a name="remarks"></a>Remarks  
- 値`assemblyId`まで情報の要求に対して無効です、`AssemblyLoadFinished`メソッドが呼び出されます。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- アセンブリの読み込みの一部が後に続ける可能性があります、`AssemblyLoadFinished`コールバック。 エラーの HRESULT で`hrStatus`失敗を示します。 ただし、成功 HRESULT で`hrStatus`のみのアセンブリの読み込みの最初の部分が成功したことを示します。  
-  
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
-  
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -58,4 +59,4 @@ HRESULT AssemblyLoadFinished(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerCallback インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-interface.md)
+- [ICorProfilerCallback インターフェイス](icorprofilercallback-interface.md)

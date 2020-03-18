@@ -1,16 +1,16 @@
 ---
-title: '方法: 文字列の内容を変更する - C# ガイド'
+title: 文字列の内容を変更する方法 - C# ガイド
 ms.date: 02/26/2018
 helpviewer_keywords:
 - strings [C#], modifying
-ms.openlocfilehash: 2cc1166d98a6cc07e0827a138cecb09c0530b899
-ms.sourcegitcommit: 4c41ec195caf03d98b7900007c3c8e24eba20d34
+ms.openlocfilehash: ecedd9a9027aa925c753f8e187d611b19d3db991
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67267762"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77543262"
 ---
-# <a name="how-to-modify-string-contents-in-c"></a>方法: C\# で文字列の内容を変更する
+# <a name="how-to-modify-string-contents-in-c"></a>C\# で文字列の内容を変更する方法
 
 この記事では、既存の `string` を変更して `string` を生成するためのいくつかの手法を示します。 紹介するすべての手法で、変更の結果が `string` オブジェクトとして返されます。 これを明確に示すため、すべての例で、新しい変数に結果を格納します。 これで、それぞれの例を実行したときに、元の `string` と、変更から生じる `string` の両方を確認できます。
 
@@ -48,7 +48,7 @@ ms.locfileid: "67267762"
 
 [正規表現](../../standard/base-types/regular-expressions.md)を使用すると、テキスト一致パターンを新しいテキストに置き換えることができます (パターンで定義されている場合もあります)。 次の例では、<xref:System.Text.RegularExpressions.Regex?displayProperty=nameWithType> クラスを使用してソース文字列でパターンを検索し、適切な大文字と小文字に置き換えています。 <xref:System.Text.RegularExpressions.Regex.Replace(System.String,System.String,System.Text.RegularExpressions.MatchEvaluator,System.Text.RegularExpressions.RegexOptions)?displayProperty=nameWithType> メソッドは、置換のロジックをその引数の 1 つとして提供する機能を受け取ります。 この例で、関数 `LocalReplaceMatchCase` は、サンプル メソッド内で宣言された**ローカル関数**です。 `LocalReplaceMatchCase` は、<xref:System.Text.StringBuilder?displayProperty=nameWithType> クラスを使用して大文字と小文字が適切な置換文字列を作成します。
 
-正規表現は、既知のテキストよりもパターンに従ったテキストを検索して置き換える場合に特に役立ちます。 詳細については、「[方法: 文字列を検索する](search-strings.md)」を参照してください。 検索パターン "the\s" は、単語 "the" とその後の空白文字を検索します。 パターンのこの部分により、ソース文字列の "there" は一致しなくなります。 正規表現言語要素の詳細については、「[正規表現言語 - クイック リファレンス](../../standard/base-types/regular-expression-language-quick-reference.md)」をご覧ください。
+正規表現は、既知のテキストよりもパターンに従ったテキストを検索して置き換える場合に特に役立ちます。 詳細については、「[文字列を検索する方法](search-strings.md)」を参照してください。 検索パターン "the\s" は、単語 "the" とその後の空白文字を検索します。 パターンのこの部分により、ソース文字列の "there" は一致しなくなります。 正規表現言語要素の詳細については、「[正規表現言語 - クイック リファレンス](../../standard/base-types/regular-expression-language-quick-reference.md)」をご覧ください。
 
 [!code-csharp-interactive[replace creates a new string](../../../samples/snippets/csharp/how-to/strings/ModifyStrings.cs#5)]
 
@@ -62,16 +62,17 @@ ms.locfileid: "67267762"
 
 [!code-csharp-interactive[replace creates a new string](../../../samples/snippets/csharp/how-to/strings/ModifyStrings.cs#6)]
 
-## <a name="unsafe-modifications-to-string"></a>文字列のアンセーフな変更
+## <a name="programmatically-build-up-string-content"></a>プログラムによって文字列の内容を作成する
 
-**アンセーフ** コードを使用すると、文字列の作成後に "インプレース" で変更することができます。 アンセーフ コードでは、コード内の特定の種類のバグが最小化されるように設計された .NET の多くの機能がバイパスされます。 文字列クラスは**不変**型として設計されているため、文字列を変更するにはアンセーフ コードを使用する必要があります。 一度作成されると、その値は変わりません。 アンセーフ コードでは、標準の `string` メソッドを使用せずに `string` で使用されたメモリにアクセスして変更できるため、このプロパティが回避されます。
-次の例は、アンセーフ コードを使用して文字列をインプレース変更するような、まれな状況のために提供されています。 この例では、`fixed` キーワードの使用方法を示します。 `fixed` キーワードにより、コードがアンセーフ ポインターを使用してメモリにアクセスしている間、ガベージ コレクター (GC) でメモリ内の文字列オブジェクトが移動しなくなります。 また、文字列に対してアンセーフ操作を実行すると発生する可能性のある副作用を示します。この副作用の原因は、C# コンパイラが文字列を内部に格納する (保持する) 方法にあります。 通常、この方法は、特に必要な場合以外は使用しないでください。 [unsafe](../language-reference/keywords/unsafe.md) と [fixed](../language-reference/keywords/fixed-statement.md) についての詳細を各記事でご確認ください。 <xref:System.String.Intern%2A> の API 参照には文字列インターンの情報も含まれています。
+文字列は不変なので、これまでの例ではすべて、一時的な文字列または文字の配列を作成しています。 ハイパフォーマンスのシナリオでは、これらのヒープの割り当てを回避することが望ましい場合があります。 .NET Core では <xref:System.String.Create%2A?displayProperty=nameWithType> メソッドを提供しており、中間の一時的な文字列の割り当てを回避しながら、コールバックを介してプログラムによって文字列の文字の内容を入力できます。
 
-[!code-csharp[unsafe ways to create a new string](../../../samples/snippets/csharp/how-to/strings/ModifyStrings.cs#7)]
+[!code-csharp[using string.Create to programmatically build the string content for a new string](../../../samples/snippets/csharp/how-to/strings/ModifyStrings.cs#7)]
+
+アンセーフ コードを使用して固定ブロック内の文字列を変更することは可能ですが、文字列が作成された後に文字列の内容を変更することは**強く**お勧めしません。 そうすると、予期できない方法で中断が発生します。 たとえば、他のユーザーがあなたの文字列と同じ内容の文字列をインターンした場合、彼らによってコピーが取得され、あなたが文字列を変更しようとしているとは全く想定されません。
 
 [GitHub リポジトリ](https://github.com/dotnet/samples/tree/master/snippets/csharp/how-to/strings)のコードを見て、これらのサンプルを試すことができます。 または、サンプルを [zip ファイルとして](https://github.com/dotnet/samples/raw/master/snippets/csharp/how-to/strings.zip)ダウンロードすることができます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [.NET Framework 正規表現](../../standard/base-types/regular-expressions.md)
 - [正規表現言語 - クイック リファレンス](../../standard/base-types/regular-expression-language-quick-reference.md)

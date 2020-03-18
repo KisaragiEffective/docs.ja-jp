@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 3ff2ad2a-da5a-461b-8627-1a8eba49df9c
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0925cf217afafe57abf82cf51a77b1992bad5152
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: c6f20b0f7927d79ee56b5b6962137d668dc048d1
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69966829"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76791111"
 ---
 # <a name="icordebugvalue2-interface"></a>ICorDebugValue2 インターフェイス
 "ICorDebugValue" インターフェイスを拡張して "テキスト" オブジェクトのサポートを提供します。  
@@ -30,24 +28,24 @@ ms.locfileid: "69966829"
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[GetExactType メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugvalue2-getexacttype-method.md)|この値`ICorDebugType` <xref:System.Type>のを表すオブジェクトへのインターフェイスポインターを取得します。|  
+|[GetExactType メソッド](icordebugvalue2-getexacttype-method.md)|この値の <xref:System.Type> を表す `ICorDebugType` オブジェクトへのインターフェイスポインターを取得します。|  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
   
 > [!NOTE]
 > このインターフェイスは、コンピューター間またはプロセス間でのリモート呼び出しをサポートしていません。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)
 
-- [ICorDebugValue3 インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugvalue3-interface.md)
+- [ICorDebugValue3 インターフェイス](icordebugvalue3-interface.md)

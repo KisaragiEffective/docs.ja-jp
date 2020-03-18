@@ -11,12 +11,12 @@ api_type:
 - COM
 author: davmason
 ms.author: davmason
-ms.openlocfilehash: df9ecc9bc355c12f993763820eb5065ba8bcc36b
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: 6d50a5d74eccff6fe39aca111f768bac4d8f2e2e
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70855919"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76868331"
 ---
 # <a name="icorprofilerinfo8getfunctionfromip3-method"></a>ICorProfilerInfo8:: GetFunctionFromIP3 メソッド
 
@@ -30,31 +30,34 @@ HRESULT GetFunctionFromIP3([in] LPCBYTE ip,
                            [out] ReJITID * pReJitId);
 ```
 
-#### <a name="parameters"></a>パラメーター
+## <a name="parameters"></a>パラメーター
 
-`ip` \
-からマネージコード内の命令ポインター。
+- `ip`
 
-`pFunctionId` \
-入出力関数 ID。
+  in] マネージコード内の命令ポインターを \[します。
 
-`pReJitId` \
-入出力関数の JIT 再コンパイルバージョンの id。
+- `pFunctionId`
 
-## <a name="remarks"></a>Remarks
+  \[] 関数 ID。
+
+- `pReJitId`
+
+  \[out] 関数の JIT 再コンパイルバージョンの id。
+
+## <a name="remarks"></a>コメント
 
 このメソッドは、動的メソッドと非動的メソッドの両方に対して機能します。 これは[GetFunctionFromIP2](icorprofilerinfo4-getfunctionfromip2-method.md)のスーパーセットであり、メタデータを持つ関数に対してのみ機能します。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
-**・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。
 
-**ヘッダー:** Corprof.idl、Corprof.idl
+**ヘッダー** : CorProf.idl、CorProf.h
 
-**ライブラリ**CorGuids .lib
+**ライブラリ:** CorGuids.lib
 
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v472plus](../../../../includes/net-current-v472plus.md)]
 
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerInfo8 インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo8-interface.md)
+- [ICorProfilerInfo8 インターフェイス](icorprofilerinfo8-interface.md)

@@ -2,12 +2,12 @@
 title: メッセージ インスペクター
 ms.date: 03/30/2017
 ms.assetid: 9bd1f305-ad03-4dd7-971f-fa1014b97c9b
-ms.openlocfilehash: e7846b8710fa52a5b13de245b8b7147e217533db
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 29c7fd9729cbdcc99a05d01f717c1cc548e8d9ea
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70039398"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74714826"
 ---
 # <a name="message-inspectors"></a>メッセージ インスペクター
 このサンプルでは、クライアントとサービスのメッセージ インスペクタを実装して構成する方法を示します。  
@@ -19,7 +19,7 @@ ms.locfileid: "70039398"
 ## <a name="message-inspector"></a>メッセージ インスペクタ  
  クライアント メッセージ インスペクタには、<xref:System.ServiceModel.Dispatcher.IClientMessageInspector> インターフェイスが実装され、サービス メッセージ インスペクタには <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector> インターフェイスが実装されます。 こうした実装を 1 つのクラスに結合すると、クライアントとサービスの両方で使用できるメッセージ インスペクタとして設定できます。 このサンプルでは、このように結合されたメッセージ インスペクタを実装します。 このインスペクタは、受信メッセージと送信メッセージが検証されるスキーマ セットを渡すように構築されます。開発者はインスペクタを使用して、受信メッセージまたは送信メッセージを検証するかどうか、およびインスペクタをディスパッチ モードとクライアント モードのどちらにするかを指定できます。この指定内容は、このトピックで後述するようにエラー処理に影響します。  
   
-```  
+```csharp
 public class SchemaValidationMessageInspector : IClientMessageInspector, IDispatchMessageInspector  
 {  
     XmlSchemaSet schemaSet;  
@@ -43,7 +43,7 @@ public class SchemaValidationMessageInspector : IClientMessageInspector, IDispat
   
  <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest%2A> がディスパッチャによって呼び出されるのは、メッセージが到着してチャネル スタックで処理され、サービスに割り当てられたときですが、メッセージが逆シリアル化されて操作にディスパッチされる前です。 受信メッセージが暗号化されていた場合、そのメッセージはメッセージ インスペクタに到着するときには既に復号化されています。 このメソッドは、参照パラメータとして渡された `request` メッセージを取得します。これにより、必要に応じてメッセージを調査、操作または置き換えることができます。 戻り値は任意のオブジェクトで、サービスが現在のメッセージに応答を返すときに <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply%2A> に渡される相関状態オブジェクトとして使用されます。 サンプルでは、<xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest%2A> はメッセージの検査 (検証) をプライベートでローカルのメソッド `ValidateMessageBody` に代行させ、相関状態オブジェクトを返しません。 このメソッドは、無効なメッセージがサービスに渡されないようにします。  
   
-```  
+```csharp  
 object IDispatchMessageInspector.AfterReceiveRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel, System.ServiceModel.InstanceContext instanceContext)  
 {  
     if (validateRequest)  
@@ -60,7 +60,7 @@ object IDispatchMessageInspector.AfterReceiveRequest(ref System.ServiceModel.Cha
   
  サービスで検証エラーが発生すると、`ValidateMessageBody` メソッドは <xref:System.ServiceModel.FaultException> から派生した例外をスローします。 <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.AfterReceiveRequest%2A> では、これらの例外をサービス モデル インフラストラクチャに格納できます。例外はここで自動的に SOAP エラーに変換され、クライアントに転送されます。 <xref:System.ServiceModel.Dispatcher.IDispatchMessageInspector.BeforeSendReply%2A> では、<xref:System.ServiceModel.FaultException> 例外はインフラストラクチャに格納できません。メッセージ インスペクタが呼び出される前に、サービスによってスローされたエラー例外が変換されるためです。 したがって、次の実装では、既知の `ReplyValidationFault` 例外がキャッチされ、応答メッセージが明示的なエラー メッセージに置き換えられます。 このメソッドは、無効なメッセージがサービス実装によって返されないようにします。  
   
-```  
+```csharp  
 void IDispatchMessageInspector.BeforeSendReply(ref System.ServiceModel.Channels.Message reply, object correlationState)  
 {  
     if (validateReply)  
@@ -88,7 +88,7 @@ void IDispatchMessageInspector.BeforeSendReply(ref System.ServiceModel.Channels.
   
  この <xref:System.ServiceModel.Dispatcher.IClientMessageInspector.BeforeSendRequest%2A> の実装は、無効なメッセージがサービスに送信されないようにします。  
   
-```  
+```csharp  
 object IClientMessageInspector.BeforeSendRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel)  
 {  
     if (validateRequest)  
@@ -101,7 +101,7 @@ object IClientMessageInspector.BeforeSendRequest(ref System.ServiceModel.Channel
   
  `AfterReceiveReply` の実装は、サービスから受信された無効なメッセージがクライアント ユーザー コードに転送されないようにします。  
   
-```  
+```csharp  
 void IClientMessageInspector.AfterReceiveReply(ref System.ServiceModel.Channels.Message reply, object correlationState)  
 {  
     if (validateReply)  
@@ -115,7 +115,7 @@ void IClientMessageInspector.AfterReceiveReply(ref System.ServiceModel.Channels.
   
  エラーが発生しない場合、プロパティとヘッダーが元のメッセージからコピーされた、新しいメッセージが作成されます。このメッセージにはメモリ ストリーム内の現在検証した Infoset が使用され、<xref:System.Xml.XmlDictionaryReader> でラップされて置換メッセージに追加されます。  
   
-```  
+```csharp  
 void ValidateMessageBody(ref System.ServiceModel.Channels.Message message, bool isRequest)  
 {  
     if (!message.IsFault)  
@@ -162,7 +162,7 @@ void ValidateMessageBody(ref System.ServiceModel.Channels.Message message, bool 
   
  これまでに説明したように、ハンドラによってスローされる例外は、クライアントとサービスとでは異なります。 サービスでの例外は <xref:System.ServiceModel.FaultException> から派生し、クライアントでの例外は標準のカスタム例外です。  
   
-```  
+```csharp  
         void InspectionValidationHandler(object sender, ValidationEventArgs e)  
 {  
     if (e.Severity == XmlSeverityType.Error)  
@@ -206,7 +206,7 @@ void ValidateMessageBody(ref System.ServiceModel.Channels.Message message, bool 
   
  次の `SchemaValidationBehavior` クラスは、このサンプルのメッセージ インスペクタをクライアント ランタイムまたはディスパッチ ランタイムに追加するときに使用される動作です。 この実装は、どちらの場合でも基本的な実装です。 <xref:System.ServiceModel.Description.IEndpointBehavior.ApplyClientBehavior%2A> と <xref:System.ServiceModel.Description.IEndpointBehavior.ApplyDispatchBehavior%2A> ではメッセージ インスペクタが作成され、それぞれのランタイムの <xref:System.ServiceModel.Dispatcher.ClientRuntime.MessageInspectors%2A> コレクションに追加されます。  
   
-```  
+```csharp
 public class SchemaValidationBehavior : IEndpointBehavior  
 {  
     XmlSchemaSet schemaSet;   
@@ -259,7 +259,7 @@ public class SchemaValidationBehavior : IEndpointBehavior
 > この特定の動作は属性の代わりにはなりません。したがって、サービス型のコントラクト型に宣言して追加することはできません。 これは設計上の判断です。スキーマ コレクションを属性の宣言で読み込むことはできず、この属性で他の構成場所 (アプリケーション設定など) を参照することによって、残りのサービス モデル構成と一貫性を持たない構成要素が作成されるからです。 したがって、この動作は、強制的にコードおよびサービス モデル構成の拡張を使用してのみ追加できます。  
   
 ## <a name="adding-the-message-inspector-through-configuration"></a>構成を使用したメッセージ インスペクタの追加  
- アプリケーション構成ファイルのエンドポイントでカスタム動作を構成するには、サービスモデルで、から<xref:System.ServiceModel.Configuration.BehaviorExtensionElement>派生したクラスによって表される構成*拡張要素*を作成する実装が必要です。 次に、この拡張機能を拡張用のサービス モデルの構成セクションに追加する必要があります。このセクションで説明する拡張機能を参照してください。  
+ アプリケーション構成ファイルのエンドポイントでカスタム動作を構成するには、サービスモデルで、<xref:System.ServiceModel.Configuration.BehaviorExtensionElement>から派生したクラスによって表される構成*拡張要素*を作成する実装が必要です。 次に、この拡張機能を拡張用のサービス モデルの構成セクションに追加する必要があります。このセクションで説明する拡張機能を参照してください。  
   
 ```xml  
 <system.serviceModel>  
@@ -299,7 +299,7 @@ public class SchemaValidationBehavior : IEndpointBehavior
   
  ランタイムがクライアントまたはエンドポイントを構築するときにその構成データを評価する場合、オーバーライドされた `CreateBehavior` メソッドにより、構成データは動作オブジェクトになります。  
   
-```  
+```csharp
 public class SchemaValidationBehaviorExtensionElement : BehaviorExtensionElement  
 {  
     public SchemaValidationBehaviorExtensionElement()  
@@ -369,7 +369,7 @@ public bool ValidateRequest
 ## <a name="adding-message-inspectors-imperatively"></a>メッセージ インスペクタの強制的な追加  
  属性 (このサンプルでは前の理由により未サポート) と構成を使用せず、極力簡単に動作をクライアント ランタイムとサービス ランタイムに追加するには、強制コードを使用できます。 このサンプルでは、クライアント アプリケーションで強制コードを使用して、クライアント メッセージ インスペクタをテストします。 `GenericClient` クラスは、エンドポイント構成をユーザー コードに対して公開する <xref:System.ServiceModel.ClientBase%601> から派生しています。 クライアントが暗黙に開かれる前に、エンドポイント構成は変更できます。たとえば、次のコードで示すように動作を追加します。 サービスに動作を追加する方法は、ここで示すクライアントの手法と非常に似ており、サービス ホストが開かれる前に実行する必要があります。  
   
-```  
+```csharp  
 try  
 {  
     Console.WriteLine("*** Call 'Hello' with generic client, with client behavior");  
@@ -409,6 +409,6 @@ catch (Exception e)
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Extensibility\MessageInspectors`  

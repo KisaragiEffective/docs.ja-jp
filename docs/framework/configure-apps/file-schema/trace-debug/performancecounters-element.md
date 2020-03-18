@@ -20,8 +20,8 @@ ms.locfileid: "71697152"
 パフォーマンス カウンターが共有するグローバル メモリのサイズを指定します。
 
 [ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\<system. diagnostics >** ](system-diagnostics-element.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t-3 **\<performanceCounters >**  
+&nbsp;&nbsp;[ **\<system.diagnostics>** ](system-diagnostics-element.md)  
+&nbsp;&nbsp;&nbsp;&nbsp; **\<performanceCounters>**  
 
 ## <a name="syntax"></a>構文
 

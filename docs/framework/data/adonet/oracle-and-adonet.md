@@ -1,20 +1,21 @@
 ---
 title: Oracle および ADO.NET
+titleSuffix: ''
 ms.date: 03/30/2017
 dev_langs:
 - csharp
 - vb
 ms.assetid: 8ee8e389-53cf-45cf-80bd-1df63ef34f2e
-ms.openlocfilehash: a49634f712e32f873df8e47fbcb0c91dbe33fa94
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: 5683f2b4ba57021ff6dda3a51baca016f886b605
+ms.sourcegitcommit: 19014f9c081ca2ff19652ca12503828db8239d48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73039824"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76980081"
 ---
 # <a name="oracle-and-adonet"></a>Oracle および ADO.NET
 > [!NOTE]
-> <xref:System.Data.OracleClient> の型は非推奨とされます。 これらの型は、.NET Framework の現在のバージョンでは引き続きサポートされていますが、今後のリリースでは削除される予定です。 サードパーティの Oracle プロバイダーを使用することをお勧めします。  
+> <xref:System.Data.OracleClient> の型は非推奨とされました。 これらの型は、.NET Framework の現在のバージョンでは引き続きサポートされていますが、今後のリリースでは削除される予定です。 サードパーティの Oracle プロバイダーを使用することをお勧めします。  
   
  このセクションでは、Oracle の .NET Framework Data Provider に固有の機能と動作について説明します。  
   
@@ -61,7 +62,7 @@ csc /r:System.Data.OracleClient.dll
  [Oracle 分散トランザクション](oracle-distributed-transactions.md)  
  <xref:System.Data.OracleClient.OracleConnection> オブジェクトが、トランザクションがアクティブであると判断した場合に、既存の分散トランザクションに自動的に参加する方法について説明します。  
   
-## <a name="related-sections"></a>関連項目  
+## <a name="related-sections"></a>関連セクション  
  [ADO.NET アプリケーションのセキュリティ保護](securing-ado-net-applications.md)  
  ADO.NET を使用する場合の安全なコーディング方法について説明します。  
   

@@ -5,14 +5,12 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - I/O, common tasks
 ms.assetid: bf00c380-706a-4e38-b829-454a480629fc
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: ac2b0eafa64b809d2b40ac6471806dc9ab3c8c53
-ms.sourcegitcommit: 6b308cf6d627d78ee36dbbae8972a310ac7fd6c8
+ms.openlocfilehash: 01e9d6b50bd7eeafea792a772ca86a81e40dafd4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54609630"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75708179"
 ---
 # <a name="common-io-tasks"></a>共通 I/O タスク
 <xref:System.IO> 名前空間には、読み取り、書き込みなどの各種アクションをファイル、ディレクトリ、およびストリーム上で実行できるようにするいくつかのクラスが用意されています。 詳細については、「[ファイルおよびストリーム入出力](../../../docs/standard/io/index.md)」を参照してください。  
@@ -22,8 +20,8 @@ ms.locfileid: "54609630"
 |目的|参照項目|  
 |-------------------|--------------------------------------|  
 |テキスト ファイルの作成|<xref:System.IO.File.CreateText%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.FileInfo.CreateText%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.File.Create%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.FileInfo.Create%2A?displayProperty=nameWithType> メソッド|  
-|テキスト ファイルへの書き込み|[方法: テキストのファイルへの書き込み](../../../docs/standard/io/how-to-write-text-to-a-file.md)<br /><br /> [方法: テキスト ファイルを記述する (C++/CLI)](/cpp/dotnet/how-to-write-a-text-file-cpp-cli)|  
-|テキスト ファイルからの読み取り|[方法: ファイルからのテキストの読み取り](../../../docs/standard/io/how-to-read-text-from-a-file.md)|  
+|テキスト ファイルへの書き込み|[方法: ファイルにテキストを書き込む](../../../docs/standard/io/how-to-write-text-to-a-file.md)<br /><br /> [方法: テキスト ファイルを記述する (C++/CLI)](/cpp/dotnet/how-to-write-a-text-file-cpp-cli)|  
+|テキスト ファイルからの読み取り|[方法: ファイルからテキストを読み取る](../../../docs/standard/io/how-to-read-text-from-a-file.md)|  
 |ファイルへのテキストの追加|[方法: ログ ファイルを開いて情報を追加する](../../../docs/standard/io/how-to-open-and-append-to-a-log-file.md)<br /><br /> <xref:System.IO.File.AppendText%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.FileInfo.AppendText%2A?displayProperty=nameWithType> メソッド|  
 |ファイル名の変更またはファイルの移動|<xref:System.IO.File.Move%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.FileInfo.MoveTo%2A?displayProperty=nameWithType> メソッド|  
 |ファイルの削除|<xref:System.IO.File.Delete%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.FileInfo.Delete%2A?displayProperty=nameWithType> メソッド|  
@@ -43,17 +41,17 @@ ms.locfileid: "54609630"
   
 |目的|参照項目|  
 |-------------------|--------------------------------------|  
-|My Documents などの特別なフォルダー内のファイルへのアクセス|[方法: テキストのファイルへの書き込み](../../../docs/standard/io/how-to-write-text-to-a-file.md)|  
-|ディレクトリの作成|<xref:System.IO.Directory.CreateDirectory%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.FileInfo.Directory%2A?displayProperty=nameWithType> プロパティ|  
+|My Documents などの特別なフォルダー内のファイルへのアクセス|[方法: ファイルにテキストを書き込む](../../../docs/standard/io/how-to-write-text-to-a-file.md)|  
+|ディレクトリを作成する|<xref:System.IO.Directory.CreateDirectory%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.FileInfo.Directory%2A?displayProperty=nameWithType> プロパティ|  
 |サブディレクトリの作成|<xref:System.IO.DirectoryInfo.CreateSubdirectory%2A?displayProperty=nameWithType> メソッド|  
-|ディレクトリ名の変更またはディレクトリの移動|<xref:System.IO.Directory.Move%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.DirectoryInfo.MoveTo%2A?displayProperty=nameWithType> メソッド|  
-|ディレクトリのコピー|[方法: ディレクトリをコピーする](../../../docs/standard/io/how-to-copy-directories.md)|  
-|ディレクトリの削除|<xref:System.IO.Directory.Delete%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.DirectoryInfo.Delete%2A?displayProperty=nameWithType> メソッド|  
+|ディレクトリの名前変更または移動|<xref:System.IO.Directory.Move%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.DirectoryInfo.MoveTo%2A?displayProperty=nameWithType> メソッド|  
+|ディレクトリをコピーする|[方法: ディレクトリをコピーする](../../../docs/standard/io/how-to-copy-directories.md)|  
+|ディレクトリを削除する|<xref:System.IO.Directory.Delete%2A?displayProperty=nameWithType> メソッド<br /><br /> <xref:System.IO.DirectoryInfo.Delete%2A?displayProperty=nameWithType> メソッド|  
 |ディレクトリ内のファイルとサブディレクトリの確認|[方法: ディレクトリとファイルを列挙する](../../../docs/standard/io/how-to-enumerate-directories-and-files.md)|  
 |ディレクトリのサイズの確認|<xref:System.IO.Directory?displayProperty=nameWithType> クラス|  
 |ディレクトリが存在するかどうかの確認|<xref:System.IO.Directory.Exists%2A?displayProperty=nameWithType> メソッド|  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ファイルおよびストリーム入出力](../../../docs/standard/io/index.md)
 - [ストリームの構成](../../../docs/standard/io/composing-streams.md)

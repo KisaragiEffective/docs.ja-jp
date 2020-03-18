@@ -2,12 +2,12 @@
 title: SystemWebRouting 統合サンプル
 ms.date: 03/30/2017
 ms.assetid: f1c94802-95c4-49e4-b1e2-ee9dd126ff93
-ms.openlocfilehash: 032be700beaa38ed6c08ed1940aab558b2106591
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: a91763e7dacb04a68cfea1079d55bbc1eda01668
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69964482"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77094892"
 ---
 # <a name="systemwebrouting-integration-sample"></a>SystemWebRouting 統合サンプル
 このサンプルでは、<xref:System.Web.Routing> 名前空間のクラスとのホスト層の統合を示します。 <xref:System.Web.Routing> 名前空間のクラスを使用すると、物理リソースに直接対応しない URL をアプリケーションで使用できます。 Web ルーティングを使用すると、開発者は HTTP 用の仮想アドレスを作成して、実際の WCF サービスにマップすることができます。 これは、物理ファイルやリソースを配置せずに WCF サービスをホストする必要がある場合、または .html や .aspx などのファイルがない URL を使用してサービスにアクセスする必要がある場合に役立ちます。 このサンプルでは、<xref:System.Web.Routing.RouteTable> クラスを使用して、global.asax で定義された実行中のサービスにマップされる仮想 URI を作成する方法を示します。 
@@ -15,7 +15,7 @@ ms.locfileid: "69964482"
 > [!NOTE]
 > <xref:System.Web.Routing> 名前空間のクラスは、HTTP でホストされるサービスに対してのみ機能します。  
   
-この例では、WCF を使用し`movies` `channels`て、フィードとフィードという2つの RSS フィードを作成します。 サービスをアクティブ化するための url には拡張機能が含まれて`Application_Start`おらず、 `Global` <xref:System.Web.HttpApplication>クラスから派生したクラスのメソッドに登録されています。  
+この例では、WCF を使用して、`movies` フィードと `channels` フィードという2つの RSS フィードを作成します。 サービスをアクティブ化するための Url に拡張子が含まれておらず、<xref:System.Web.HttpApplication> クラスから派生した `Global` クラスの `Application_Start` メソッドに登録されています。  
   
 > [!NOTE]
 > このサンプルはインターネットインフォメーションサービス (IIS) 7.0 以降でのみ機能します。 IIS 6.0 では、拡張 Url をサポートするために別の方法が使用されているためです。  
@@ -26,7 +26,7 @@ ms.locfileid: "69964482"
    
 `<InstallDrive>:\WF_WCF_Samples`  
    
- このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+ このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
    
 `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Services\Hosting\WebRoutingIntegration`  
   
@@ -38,11 +38,11 @@ ms.locfileid: "69964482"
   
      サンプルのディレクトリの一覧が表示されます。 ファイル拡張子が .svc のファイルがないことに注意してください。  
   
-3. アドレスバーで、URL `movies` `http://localhost:[port]/movies`にを追加して、「」と入力し、enter キーを押します。  
+3. アドレスバーで、URL に `movies` を追加し、`http://localhost:[port]/movies` を読み、ENTER キーを押します。  
   
      movies フィードがブラウザーに表示されます。  
   
-4. アドレスバーで、URL に`channels`を追加します。これにより`http://localhost:[port]/channels` 、が読み取られ、enter キーが押されます。  
+4. アドレスバーで、URL に `channels` を追加して、が `http://localhost:[port]/channels` を読み、enter キーを押します。  
   
      channels フィードがブラウザーに表示されます。  
   
@@ -60,19 +60,19 @@ ms.locfileid: "69964482"
   
     1. IIS マネージャーで、既定の **[Web サイト]** を右クリックし、 **[アプリケーションの追加]** を選択します。  
   
-    2. **エイリアス**として、「 `WebRoutingIntegration`」と入力します。  
+    2. **エイリアス**として、「`WebRoutingIntegration`」と入力します。  
   
     3. **[物理パス]** で、プロジェクト内のサービスフォルダーを選択します。  
   
-    4. **[OK]** を押します。  
+    4. **[OK]** をクリックします。  
   
 4. アプリケーションを起動します。そのためには、Web アプリケーションを右クリックして **[アプリケーションの管理]** を選択し、 **[参照]** をクリックします。  
   
-5. アドレスバーで、URL に`movies`を追加します。これにより`http://localhost:[port]/movies` 、が読み取られ、enter キーが押されます。  
+5. アドレスバーで、URL に `movies` を追加して、が `http://localhost:[port]/movies` を読み、enter キーを押します。  
   
      movies フィードがブラウザーに表示されます。  
   
-6. アドレスバーで、URL に`channels`を追加します。これにより`http://localhost:[port]/channels` 、が読み取られ、enter キーが押されます。  
+6. アドレスバーで、URL に `channels` を追加して、が `http://localhost:[port]/channels` を読み、enter キーを押します。  
   
      channels フィードがブラウザーに表示されます。  
   
@@ -81,8 +81,8 @@ ms.locfileid: "69964482"
  このサンプルは、HTTP でホストされたサービスの要求をルーティングするために、<xref:System.Web.Routing> 名前空間のクラスを使用してホスト層を構成できることを示しています。  
   
 > [!NOTE]
-> バージョン2に設定されている場合[!INCLUDE[netfx40_long](../../../../includes/netfx40-long-md.md)]は、既定のアプリケーションプールのバージョンをに更新する必要があります。  
+> 既定のアプリケーションプールのバージョンがバージョン2に設定されている場合は、.NET Framework 4 に更新する必要があります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [AppFabric のホスティングと永続化のサンプル](https://go.microsoft.com/fwlink/?LinkId=193961)
+- [AppFabric のホスティングと永続化のサンプル](https://docs.microsoft.com/previous-versions/appfabric/ff383418(v=azure.10))

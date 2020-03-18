@@ -18,26 +18,24 @@ helpviewer_keywords:
 - Equals method
 - StartsWith method
 ms.assetid: 977dc094-fe19-4955-98ec-d2294d04a4ba
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: dd5ec18147c074400457581618bacba11d9ee40a
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: e63b2a8ac44d6171f9c48990882780ea420f8c76
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69963418"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73101672"
 ---
 # <a name="comparing-strings-in-net"></a>.NET で文字列を比較する
 .NET は、文字列の値を比較するためのメソッドをいくつか提供します。 これらの値の比較メソッドとその説明を次の表に示します。  
   
-|メソッド名|使用|  
+|メソッド名|用途|  
 |-----------------|---------|  
 |<xref:System.String.Compare%2A?displayProperty=nameWithType>|2 つの文字列の値を比較します。 整数値を返します。|  
 |<xref:System.String.CompareOrdinal%2A?displayProperty=nameWithType>|ローカル カルチャに関係なく、2 つの文字列を比較します。 整数値を返します。|  
 |<xref:System.String.CompareTo%2A?displayProperty=nameWithType>|現在の文字列オブジェクトを別の文字列と比較します。 整数値を返します。|  
-|<xref:System.String.StartsWith%2A?displayProperty=nameWithType>|文字列が、渡された文字列で始まるかどうかを確認します。 Boolean 値を返します。|  
-|<xref:System.String.EndsWith%2A?displayProperty=nameWithType>|文字列が、渡された文字列で終わるかどうかを確認します。 Boolean 値を返します。|  
-|<xref:System.String.Equals%2A?displayProperty=nameWithType>|2 つの文字列が等しいかどうかを確認します。 Boolean 値を返します。|  
+|<xref:System.String.StartsWith%2A?displayProperty=nameWithType>|文字列が、渡された文字列で始まるかどうかを確認します。 ブール値を返します。|  
+|<xref:System.String.EndsWith%2A?displayProperty=nameWithType>|文字列が、渡された文字列で終わるかどうかを確認します。 ブール値を返します。|  
+|<xref:System.String.Equals%2A?displayProperty=nameWithType>|2 つの文字列が等しいかどうかを確認します。 ブール値を返します。|  
 |<xref:System.String.IndexOf%2A?displayProperty=nameWithType>|検索対象文字列の先頭から開始して、特定の文字または文字列が見つかったインデックス位置を返します。 整数値を返します。|  
 |<xref:System.String.LastIndexOf%2A?displayProperty=nameWithType>|検索対象文字列の末尾から開始して、特定の文字または文字列が見つかったインデックス位置を返します。 整数値を返します。|  
   
@@ -93,7 +91,7 @@ ms.locfileid: "69963418"
   
  <xref:System.String.CompareTo%2A?displayProperty=nameWithType> メソッドのすべてのオーバーロードは、既定で、カルチャに依存して大文字小文字を区別する比較を実行します。 このメソッドのオーバーロードで、カルチャに依存しない比較を実行できるものはありません。 コードを理解しやすくするために、 **String.Compare** メソッドを使用することをお勧めします。その際、カルチャに依存する操作には <xref:System.Globalization.CultureInfo.CurrentCulture%2A?displayProperty=nameWithType> を指定し、カルチャに依存しない操作には <xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=nameWithType> を指定します。 **String.Compare** メソッドを使用してカルチャに依存する比較とカルチャに依存しない比較の両方を実行する例については、「 [カルチャを認識しない文字列比較の実行](../../../docs/standard/globalization-localization/performing-culture-insensitive-string-comparisons.md)」を参照してください。  
   
-## <a name="equals"></a>次の値に等しい  
+## <a name="equals"></a>等しい  
  **String.Equals** メソッドを使用すると、2 つの文字列が等しいかどうかを簡単に確認できます。 このメソッドは大文字と小文字を区別し、 **True** または **False** の Boolean 値を返します。 このメソッドは、次の例に示すように、既存のクラスで使用できます。 **Equals** メソッドを使用して、文字列オブジェクトに "Hello World" という語句が含まれているかどうかを確認する例を次に示します。  
   
  [!code-cpp[Conceptual.String.BasicOps#9](../../../samples/snippets/cpp/VS_Snippets_CLR/conceptual.string.basicops/cpp/compare.cpp#9)]
@@ -148,9 +146,9 @@ ms.locfileid: "69963418"
   
  この例は、コンソールに `9` と出力します。  
   
- いずれのメソッドも、 **String.Remove** メソッドと組み合わせて使用すると便利です。 **IndexOf** メソッドまたは **LastIndexOf** メソッドのいずれかを使用して文字の位置を取得し、その位置を **Remove** メソッドに渡すことによって、その文字またはその文字で始まる単語を削除できます。  
+ いずれのメソッドも、**String.Remove** メソッドと組み合わせて使用すると便利です。 **IndexOf** メソッドまたは **LastIndexOf** メソッドのいずれかを使用して文字の位置を取得し、その位置を **Remove** メソッドに渡すことによって、その文字またはその文字で始まる単語を削除できます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [基本的な文字列操作](../../../docs/standard/base-types/basic-string-operations.md)
 - [カルチャを認識しない文字列操作の実行](../../../docs/standard/globalization-localization/performing-culture-insensitive-string-operations.md)

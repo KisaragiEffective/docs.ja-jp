@@ -6,16 +6,16 @@ helpviewer_keywords:
 - converting [WPF], shape to button
 - Expression Blend [WPF Designer]
 ms.assetid: ff5037c2-bba7-4cae-8abb-6475b686c48e
-ms.openlocfilehash: 10342d97abc2e3c158f93171f5fe5cd560f9b7e4
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: 10d049288cf560dadedf7bc5e624deb7c42aae81
+ms.sourcegitcommit: 7bc6887ab658550baa78f1520ea735838249345e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920267"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75636173"
 ---
 # <a name="walkthrough-create-a-button-by-using-microsoft-expression-blend"></a>チュートリアル : Microsoft Expression Blend を使用してボタンを作成する
 
-このチュートリアルでは、Microsoft Expression Blend を使用して [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] カスタマイズされたボタンを作成する手順について説明します。
+このチュートリアルでは、Microsoft Expression Blend を使用して、WPF のカスタマイズされたボタンを作成する手順について説明します。
 
 > [!IMPORTANT]
 > Microsoft Expression Blend は、実行可能プログラムを作成するためにコンパイルされた [!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)] を生成することによって機能します。 XAML を直接操作する場合は、Blend ではなく Visual Studio で XAML を使用して、同じアプリケーションを作成するもう1つのチュートリアルがあります。 詳細について[は、「XAML を使用したボタンの作成](walkthrough-create-a-button-by-using-xaml.md)」を参照してください。
@@ -40,7 +40,7 @@ ms.locfileid: "72920267"
 
 5. プロジェクトに `CustomButton` という名前を指定し、 **[OK]** をクリックします。
 
-この時点で、空の [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] プロジェクトがあります。 F5 キーを押してアプリケーションを実行できます。 ご想像のとおり、アプリケーションは空のウィンドウだけで構成されています。 次に、角丸四角形を作成し、ボタンに変換します。
+この時点で、空の WPF プロジェクトがあります。 F5 キーを押してアプリケーションを実行できます。 ご想像のとおり、アプリケーションは空のウィンドウだけで構成されています。 次に、角丸四角形を作成し、ボタンに変換します。
 
 ### <a name="to-convert-a-rectangle-to-a-button"></a>四角形をボタンに変換するには
 
@@ -226,7 +226,7 @@ ms.locfileid: "72920267"
 
     5. F5 キーを押してアプリケーションを実行します。 ボタンをクリックします。 グラスレイヤーが回転していることに注意してください。
 
-## <a name="conclusion"></a>まとめ
+## <a name="conclusion"></a>結論
 
 カスタマイズしたボタンを完了しました。 これを行うには、アプリケーションのすべてのボタンに適用されたボタンテンプレートを使用します。 テンプレート編集モードをそのままにした場合 (次の図を参照してください)、さらにボタンを作成すると、既定のボタンのようにではなく、カスタムボタンのような外観と動作が表示されます。
 
@@ -255,7 +255,7 @@ F5 キーを押してアプリケーションを実行します。 ボタンを�
 ## <a name="see-also"></a>関連項目
 
 - [XAML を使用したボタンの作成](walkthrough-create-a-button-by-using-xaml.md)
-- [スタイルとテンプレート](styling-and-templating.md)
+- [スタイルとテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)
 - [アニメーションの概要](../graphics-multimedia/animation-overview.md)
 - [純色およびグラデーションによる塗りつぶしの概要](../graphics-multimedia/painting-with-solid-colors-and-gradients-overview.md)
 - [ビットマップ効果の概要](../graphics-multimedia/bitmap-effects-overview.md)

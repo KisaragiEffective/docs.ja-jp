@@ -1,16 +1,15 @@
 ---
 title: ポインター型 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 04/20/2018
 helpviewer_keywords:
 - unsafe code [C#], pointers
 - pointers [C#]
-ms.openlocfilehash: 4d0801cd81e00c84be278b44730058798b0acfa9
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: dc03744559a87a2548c5bee9452c22cd20f337b8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69588197"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77627711"
 ---
 # <a name="pointer-types-c-programming-guide"></a>ポインター型 (C# プログラミング ガイド)
 
@@ -23,20 +22,20 @@ void* identifier; //allowed but not recommended
 
 ポインター型の `*` の前に指定された型は、**参照型**と呼ばれます。 参照型にできるのは[アンマネージド型](../../language-reference/builtin-types/unmanaged-types.md)だけです。
 
-ポインター型は [object](../../language-reference/keywords/object.md) を継承せず、ポインター型と `object` の間で変換を行う方法はありません。 また、ボックス化とボックス化解除もポインターをサポートしません。 ただし、異なるポインター型の間で変換したり、ポインター型と整数型の間で変換したりすることはできます。
+ポインター型は [object](../../language-reference/builtin-types/reference-types.md) を継承せず、ポインター型と `object` の間で変換を行う方法はありません。 また、ボックス化とボックス化解除もポインターをサポートしません。 ただし、異なるポインター型の間で変換したり、ポインター型と整数型の間で変換したりすることはできます。
 
-同じ 1 つの宣言で複数のポインターを宣言する場合、アスタリスク (*) は基底の型だけに記述します。各ポインター名のプレフィックスとしては使用しません。 例:
+同じ 1 つの宣言で複数のポインターを宣言する場合、アスタリスク (*) は基底の型だけに記述します。各ポインター名のプレフィックスとしては使用しません。 次に例を示します。
 
 ```csharp
 int* p1, p2, p3;   // Ok
 int *p1, *p2, *p3;   // Invalid in C#
 ```
 
-オブジェクト参照は、それを指すポインターがあってもガベージ コレクションされる可能性があるため、ポインターによって参照や参照を含む[構造体](../../language-reference/keywords/struct.md)を指すことはできません。 ガベージ コレクターは、オブジェクトを指すポインター型があるかどうかを追跡しません。
+オブジェクト参照は、それを指すポインターがあってもガベージ コレクションされる可能性があるため、ポインターによって参照や参照を含む[構造体](../../language-reference/builtin-types/struct.md)を指すことはできません。 ガベージ コレクターは、オブジェクトを指すポインター型があるかどうかを追跡しません。
 
 `myType*` 型のポインター変数の値は、`myType` 型の変数のアドレスです。 ポインター型の宣言の例を次に示します。
 
-|例|説明|
+|例|[説明]|
 |-------------|-----------------|
 |`int* p`|`p` は、整数へのポインターです。|
 |`int** p`|`p` は、整数へのポインターのポインターです。|
@@ -70,8 +69,8 @@ int* myVariable;
 |`->`|ポインター経由で構造体のメンバーにアクセスします。|
 |`[]`|ポインターにインデックスを付けます。|
 |`&`|変数のアドレスを取得します。|
-|`++` と `--`|ポインターをインクリメントおよびデクリメントします。|
-|`+` と `-`|ポインター演算を実行します。|
+|`++` および `--`|ポインターをインクリメントおよびデクリメントします。|
+|`+` および `-`|ポインター演算を実行します。|
 |`==`、`!=`、`<`、`>`、`<=`、`>=`|ポインターを比較します。|
 |[`stackalloc` 演算子](../../language-reference/operators/stackalloc.md)|スタックにメモリを割り当てます。|
 |[`fixed` ステートメント](../../language-reference/keywords/fixed-statement.md)|変数を一時的に固定して、そのアドレスを取得できるようにします。|
@@ -80,12 +79,13 @@ int* myVariable;
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳しくは、「[C# 言語仕様](~/_csharplang/spec/introduction.md)」の「[ポインター型](~/_csharplang/spec/unsafe-code.md#pointer-types)」をご覧ください。
+詳しくは、「[C# 言語仕様](~/_csharplang/spec/unsafe-code.md#pointer-types)」の「[ポインター型](~/_csharplang/spec/introduction.md)」をご覧ください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [アンセーフ コードとポインター](index.md)
 - [ポインター変換](pointer-conversions.md)
-- [型](../../language-reference/keywords/types.md)
+- [参照型](../../language-reference/keywords/reference-types.md)
+- [値型](../../language-reference/builtin-types/value-types.md)
 - [unsafe](../../language-reference/keywords/unsafe.md)

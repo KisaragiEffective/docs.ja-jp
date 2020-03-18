@@ -1,6 +1,5 @@
 ---
 title: is - C# リファレンス
-ms.custom: seodec18
 ms.date: 06/21/2019
 f1_keywords:
 - is_CSharpKeyword
@@ -8,12 +7,12 @@ f1_keywords:
 helpviewer_keywords:
 - is keyword [C#]
 ms.assetid: bc62316a-d41f-4f90-8300-c6f4f0556e43
-ms.openlocfilehash: a04105137fad7cd3a25b869c3aa7fcbe91ed20ab
-ms.sourcegitcommit: 29a9b29d8b7d07b9c59d46628da754a8bff57fa4
+ms.openlocfilehash: 1a1f539e80f8d843f40640fa798cf6122f316a9f
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69566311"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75715234"
 ---
 # <a name="is-c-reference"></a>is (C# リファレンス)
 

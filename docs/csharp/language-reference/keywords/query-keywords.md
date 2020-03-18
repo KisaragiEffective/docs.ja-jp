@@ -1,17 +1,16 @@
 ---
 title: クエリ キーワード - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - query keywords [C#]
 - LINQ [C#], query keywords
 ms.assetid: 6c9bec16-dbd7-4a7c-a060-fe4600b2021f
-ms.openlocfilehash: ed931871e8abbfd9ff421a1307fb21c3490493fb
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 01134eda540c5141afbd11b2c89ff779da495a9a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69608457"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79173524"
 ---
 # <a name="query-keywords-c-reference"></a>クエリ キーワード (C# リファレンス)
 
@@ -19,7 +18,7 @@ ms.locfileid: "69608457"
 
 ## <a name="in-this-section"></a>このセクションの内容
 
-|句|説明|
+|句|[説明]|
 |------------|-----------------|
 |[from](from-clause.md)|データ ソースおよび範囲変数 (反復変数に類似) を指定します。|
 |[where](where-clause.md)|論理 AND 演算子 (`&&`) と論理 OR 演算子 (<code>&#124;&#124;</code>) で区切られた 1 つ以上のブール式に基づき、ソース要素をフィルター処理します。|
@@ -36,9 +35,8 @@ ms.locfileid: "69608457"
 |[ascending](ascending.md)|[orderby](orderby-clause.md) 句のコンテキスト キーワードです。|
 |[descending](descending.md)|[orderby](orderby-clause.md) 句のコンテキスト キーワードです。|
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# のキーワード](index.md)
 - [統合言語クエリ (LINQ)](../../programming-guide/concepts/linq/index.md)
-- [LINQ クエリ式](../../programming-guide/linq-query-expressions/index.md)
-- [C# の LINQ の概要](../../programming-guide/concepts/linq/getting-started-with-linq.md)
+- [C# での LINQ](../../linq/index.md)

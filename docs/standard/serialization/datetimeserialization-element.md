@@ -6,12 +6,12 @@ helpviewer_keywords:
 - XML serialization, configuration
 - <dateTimeSerialization> element
 ms.assetid: 90fda55c-7730-41e9-bc4b-6423a4b920af
-ms.openlocfilehash: af0d8eeb36e023b4d38f9ad5831de3d392a487fd
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 180a4942dd4b701b56fe4788d5f8cd8607faaedd
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61922552"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73459265"
 ---
 # <a name="datetimeserialization-element"></a>\<dateTimeSerialization > 要素
 <xref:System.DateTime> オブジェクトのシリアル化モードを決定します。  
@@ -23,7 +23,7 @@ ms.locfileid: "61922552"
   
 ```xml  
 <dateTimeSerialization  
-    mode = "Roundtrip" | "Local"  
+    mode = "Roundtrip|Local"  
 />  
 ```  
   
@@ -34,7 +34,7 @@ ms.locfileid: "61922552"
   
 |属性|説明|  
 |----------------|-----------------|  
-|`mode`|任意。 シリアル化モードを指定します。 <xref:System.Xml.Serialization.Configuration.DateTimeSerializationSection.DateTimeSerializationMode> 値のいずれかに設定します。 既定値は **RoundTrip** です。|  
+|`mode`|省略可能です。 シリアル化モードを指定します。 <xref:System.Xml.Serialization.Configuration.DateTimeSerializationSection.DateTimeSerializationMode> 値のいずれかに設定します。 既定値は **RoundTrip** です。|  
   
 ### <a name="child-elements"></a>子要素  
  なし。  
@@ -57,5 +57,5 @@ ms.locfileid: "61922552"
 - <xref:System.Xml.Serialization.Configuration.DateTimeSerializationSection.DateTimeSerializationMode>
 - [構成ファイル スキーマ](../../../docs/framework/configure-apps/file-schema/index.md)
 - [\<schemaImporterExtensions> 要素](../../../docs/standard/serialization/schemaimporterextensions-element.md)
-- [\<追加 > 要素の\<schemaImporterExtensions >](../../../docs/standard/serialization/add-element-for-schemaimporterextensions.md)
+- [\<Schema> Terextensions の要素を追加 \<](../../../docs/standard/serialization/add-element-for-schemaimporterextensions.md)
 - [\<system.xml.serialization> 要素](../../../docs/standard/serialization/system-xml-serialization-element.md)

@@ -4,22 +4,22 @@ ms.date: 07/20/2015
 helpviewer_keywords:
 - Visual Basic Application Model, extending
 ms.assetid: e91d3bed-4c27-40e3-871d-2be17467c72c
-ms.openlocfilehash: 02a964506d976cb10f3f28f83f0655fecc447e59
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 46c18ab540c90c4147514685c2acc824755b435f
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582760"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73976859"
 ---
 # <a name="extending-the-visual-basic-application-model"></a>Visual Basic アプリケーション モデルの拡張
 
-@No__t_1 クラスの `Overridable` メンバーをオーバーライドすることによって、アプリケーションモデルに機能を追加できます。 この手法を使用すると、アプリケーションモデルの動作をカスタマイズし、アプリケーションの起動時およびシャットダウン時に独自のメソッドの呼び出しを追加できます。
+<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase> クラスの `Overridable` メンバーをオーバーライドすることによって、アプリケーションモデルに機能を追加できます。 この手法を使用すると、アプリケーションモデルの動作をカスタマイズし、アプリケーションの起動時およびシャットダウン時に独自のメソッドの呼び出しを追加できます。
 
 ## <a name="visual-overview-of-the-application-model"></a>アプリケーションモデルの視覚的な概要
 
 このセクションでは、Visual Basic アプリケーションモデルでの関数呼び出しの順序を視覚的に示します。 次のセクションでは、各関数の目的について詳しく説明します。
 
-次の図は、通常の Visual Basic Windows フォームアプリケーションのアプリケーションモデル呼び出しシーケンスを示しています。 @No__t_0 プロシージャが <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run%2A> メソッドを呼び出すと、シーケンスが開始されます。
+次の図は、通常の Visual Basic Windows フォームアプリケーションのアプリケーションモデル呼び出しシーケンスを示しています。 `Sub Main` プロシージャが <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run%2A> メソッドを呼び出すと、シーケンスが開始されます。
 
 ![アプリケーションモデル呼び出しシーケンスを示す図。](./media/extending-the-visual-basic-application-model/application-model-call-sequence.gif)
 
@@ -31,7 +31,7 @@ Visual Basic アプリケーションモデルでは、<xref:Microsoft.VisualBas
 
 ## <a name="overriding-the-base-methods"></a>基本メソッドのオーバーライド
 
-@No__t_0 メソッドは、`Application` メソッドが実行される順序を定義します。 既定では、Windows フォームアプリケーションの `Sub Main` プロシージャは <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run%2A> メソッドを呼び出します。
+<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run%2A> メソッドは、`Application` メソッドが実行される順序を定義します。 既定では、Windows フォームアプリケーションの `Sub Main` プロシージャは <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run%2A> メソッドを呼び出します。
 
 アプリケーションが通常のアプリケーション (複数インスタンスアプリケーション)、または単一インスタンスアプリケーションの最初のインスタンスの場合、<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Run%2A> メソッドは、次の順序で `Overridable` メソッドを実行します。
 
@@ -39,17 +39,17 @@ Visual Basic アプリケーションモデルでは、<xref:Microsoft.VisualBas
 
      この関数が `False` を返すと、アプリケーションの起動シーケンスは取り消されます。 これは、アプリケーションが実行されない状況がある場合に便利です。
 
-     @No__t_0 メソッドは、次のメソッドを呼び出します。
+     <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnInitialize%2A> メソッドは、次のメソッドを呼び出します。
 
     1. <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.ShowSplashScreen%2A>. アプリケーションにスプラッシュスクリーンが定義されているかどうかを判断し、表示されている場合はスプラッシュスクリーンを別のスレッドで表示します。
 
-         @No__t_0 メソッドには、少なくとも <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.MinimumSplashScreenDisplayTime%2A> プロパティによって指定されたミリ秒数のスプラッシュスクリーンを表示するコードが含まれています。 この機能を使用するには、(`My.Application.MinimumSplashScreenDisplayTime` プロパティを2秒に設定する)**プロジェクトデザイナー**を使用してアプリケーションにスプラッシュスクリーンを追加するか、または <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnInitialize%2A> または <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnCreateSplashScreen%2A> メソッドをオーバーライドするメソッドで `My.Application.MinimumSplashScreenDisplayTime` プロパティを設定する必要があります。 詳細については、「<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.MinimumSplashScreenDisplayTime%2A>」を参照してください。
+         <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.ShowSplashScreen%2A> メソッドには、少なくとも <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.MinimumSplashScreenDisplayTime%2A> プロパティによって指定されたミリ秒数のスプラッシュスクリーンを表示するコードが含まれています。 この機能を使用するには、(`My.Application.MinimumSplashScreenDisplayTime` プロパティを2秒に設定する)**プロジェクトデザイナー**を使用してアプリケーションにスプラッシュスクリーンを追加するか、または <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnInitialize%2A> または <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnCreateSplashScreen%2A> メソッドをオーバーライドするメソッドで `My.Application.MinimumSplashScreenDisplayTime` プロパティを設定する必要があります。 詳細については、「<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.MinimumSplashScreenDisplayTime%2A>」を参照してください。
 
     2. <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnCreateSplashScreen%2A>. スプラッシュスクリーンを初期化するコードをデザイナーが出力できるようにします。
 
          既定では、このメソッドは何も行いません。 Visual Basic**プロジェクトデザイナー**でアプリケーションのスプラッシュスクリーンを選択すると、デザイナーは、<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.SplashScreen%2A> プロパティをスプラッシュスクリーンフォームの新しいインスタンスに設定するメソッドを使用して、<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnCreateSplashScreen%2A> メソッドをオーバーライドします。
 
-2. <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnStartup%2A>. @No__t_0 イベントを発生させるための機能拡張ポイントを提供します。 この関数が `False` を返すと、アプリケーションの起動シーケンスは停止します。
+2. <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnStartup%2A>. `Startup` イベントを発生させるための機能拡張ポイントを提供します。 この関数が `False` を返すと、アプリケーションの起動シーケンスは停止します。
 
      既定では、このメソッドは <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Startup> イベントを発生させます。 イベントハンドラーがイベント引数の <xref:System.ComponentModel.CancelEventArgs.Cancel> プロパティを `True` に設定した場合、メソッドは `False` を返してアプリケーションの起動をキャンセルします。
 
@@ -69,7 +69,7 @@ Visual Basic アプリケーションモデルでは、<xref:Microsoft.VisualBas
 
      既定では、このメソッドは <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.StartupNextInstance> イベントを発生させます。
 
-5. <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnShutdown%2A>. @No__t_0 イベントを発生させるための機能拡張ポイントを提供します。 メインアプリケーションでハンドルされない例外が発生した場合、このメソッドは実行されません。
+5. <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnShutdown%2A>. `Shutdown` イベントを発生させるための機能拡張ポイントを提供します。 メインアプリケーションでハンドルされない例外が発生した場合、このメソッドは実行されません。
 
      既定では、このメソッドは <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.Shutdown> イベントを発生させます。
 
@@ -79,9 +79,10 @@ Visual Basic アプリケーションモデルでは、<xref:Microsoft.VisualBas
 
  アプリケーションが単一インスタンスアプリケーションであり、アプリケーションが既に実行されている場合、アプリケーションの後続のインスタンスは、アプリケーションの元のインスタンスで <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnStartupNextInstance%2A> メソッドを呼び出し、終了します。
 
- @No__t_0 コンストラクターは、<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.UseCompatibleTextRendering%2A> プロパティを呼び出して、アプリケーションのフォームに使用するテキストレンダリングエンジンを決定します。 既定では、<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.UseCompatibleTextRendering%2A> プロパティは `False` を返します。これは、GDI テキストレンダリングエンジンが使用されることを示します。これは Visual Basic 2005 以降のバージョンでは既定値です。 @No__t_0 プロパティをオーバーライドして `True` を返すことができます。これは、Visual Basic .NET 2002 および Visual Basic .NET 2003 の既定値である GDI + テキストレンダリングエンジンを使用することを示します。
+ <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.OnStartupNextInstance(Microsoft.VisualBasic.ApplicationServices.StartupNextInstanceEventArgs)> コンストラクターは、<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.UseCompatibleTextRendering%2A> プロパティを呼び出して、アプリケーションのフォームに使用するテキストレンダリングエンジンを決定します。 既定では、<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.UseCompatibleTextRendering%2A> プロパティは `False`を返します。これは、GDI テキストレンダリングエンジンが使用されることを示します。これは Visual Basic 2005 以降のバージョンでは既定値です。 <xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase.UseCompatibleTextRendering%2A> プロパティをオーバーライドして `True`を返すことができます。これは、Visual Basic .NET 2002 および Visual Basic .NET 2003 の既定値である GDI + テキストレンダリングエンジンを使用することを示します。
 
 ## <a name="configuring-the-application"></a>アプリケーションの構成
+
  Visual Basic アプリケーションモデルの一部として、<xref:Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase> クラスには、アプリケーションを構成する保護されたプロパティが用意されています。 これらのプロパティは、実装するクラスのコンストラクターで設定する必要があります。
 
  既定の Windows フォームプロジェクトでは、**プロジェクトデザイナー**は、デザイナー設定を使用してプロパティを設定するコードを作成します。 プロパティは、アプリケーションの起動時にのみ使用されます。アプリケーションの起動後に設定しても効果はありません。

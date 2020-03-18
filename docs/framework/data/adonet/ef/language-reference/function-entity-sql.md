@@ -41,7 +41,7 @@ FUNCTION function-name
  `data_type`  
  サポートされる型の名前。  
   
- COLLECTION (< type_definition @ no__t-0)  
+ コレクション (< type_definition`>`)  
  サポートされる型、行、または参照のコレクションを返す式。  
   
  REF **(** `data_type` **)**  
@@ -61,7 +61,7 @@ FUNCTION function-name
   
  `A()`  
   
- 詳細については、「[方法 :ユーザー定義関数 @ no__t を呼び出します。  
+ 詳しくは、「 [ユーザー定義関数を呼び出す方法](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/dd490951(v=vs.100))」をご覧ください。  
   
  関数をモデル自体で宣言することもできます。 モデルで宣言された関数は、コマンドでインラインで宣言された関数と同じように実行されます。 詳細については、「[ユーザー定義関数](user-defined-functions-entity-sql.md)」を参照してください。  
   
@@ -75,7 +75,7 @@ FUNCTION function-name
   
  [!code-sql[DP EntityServices Concepts#FUNCTION2](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#function2)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Entity SQL リファレンス](entity-sql-reference.md)
 - [Entity SQL 言語](entity-sql-language.md)

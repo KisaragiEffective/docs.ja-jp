@@ -11,14 +11,12 @@ helpviewer_keywords:
 - threading [.NET Framework], managed debugging assistants
 - COM apartment states
 ms.assetid: e56fb9df-5286-4be7-b313-540c4d876cd7
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: ed4933ae59223c0674d2e36428894cbc3a07933f
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 8acafcc2fba9a7d30cc77f25f06adaca7c79db32
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052658"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217413"
 ---
 # <a name="invalidapartmentstatechange-mda"></a>invalidApartmentStateChange MDA
 `invalidApartmentStateChange` マネージド デバッグ アシスタント (MDS) は、次の 2 つのどちらかの問題によってアクティブ化されます。  
@@ -27,15 +25,15 @@ ms.locfileid: "71052658"
   
 - スレッドの COM アパートメント状態が予期せず変更された。  
   
-## <a name="symptoms"></a>症状  
+## <a name="symptoms"></a>現象  
   
 - スレッドの COM アパートメント状態が要求されたものと異なります。 これが原因で、現在のモデルと異なるスレッド処理モデルの COM コンポーネントがプロキシで使用される場合があります。 これにより、アパートメント間のマーシャリング用に設定されていないインターフェイスを介して COM オブジェクトが呼び出されるときに <xref:System.InvalidCastException> がスローされる場合があります。  
   
-- スレッドの COM アパートメント状態が予想と異なります。 これが原因で、[ランタイム呼び出し可能ラッパー](../../standard/native-interop/runtime-callable-wrapper.md) (RCW) で呼び出しを行うときに、HRESULT が RPC_E_WRONG_THREAD の <xref:System.Runtime.InteropServices.COMException>、および <xref:System.InvalidCastException> が発生する可能性があります。 これにより、一部のシングル スレッド COM が同時に複数のスレッドによってアクセスされ、そのために破損またはデータの損失につながることがあります。  
+- スレッドの COM アパートメント状態が予想と異なります。 これが原因で、<xref:System.Runtime.InteropServices.COMException>ランタイム呼び出し可能ラッパー<xref:System.InvalidCastException> (RCW) で呼び出しを行うときに、HRESULT が RPC_E_WRONG_THREAD の [、および ](../../standard/native-interop/runtime-callable-wrapper.md) が発生する可能性があります。 これにより、一部のシングル スレッド COM が同時に複数のスレッドによってアクセスされ、そのために破損またはデータの損失につながることがあります。  
   
 ## <a name="cause"></a>原因  
   
-- スレッドは以前に異なる COM アパートメント状態に初期化されました。 スレッドのアパートメント状態を明示的または暗黙的に設定できることに注意してください。 明示的な操作には、<xref:System.Threading.Thread.ApartmentState%2A?displayProperty=nameWithType> プロパティ、<xref:System.Threading.Thread.SetApartmentState%2A> メソッド、<xref:System.Threading.Thread.TrySetApartmentState%2A> メソッドが含まれます。 <xref:System.Threading.Thread.Start%2A> メソッドを使用して作成されたスレッドは、スレッドが開始される前に <xref:System.Threading.Thread.SetApartmentState%2A> が呼び出されない限り、暗黙的に <xref:System.Threading.ApartmentState.MTA> に設定されます。 アプリケーションのメイン スレッドも、メイン メソッドで <xref:System.STAThreadAttribute> 属性が指定されない限り、暗黙的に <xref:System.Threading.ApartmentState.MTA> に初期化されます。  
+- スレッドは以前に異なる COM アパートメント状態に初期化されました。 スレッドのアパートメント状態を明示的または暗黙的に設定できることに注意してください。 明示的な操作には、<xref:System.Threading.Thread.ApartmentState%2A?displayProperty=nameWithType> プロパティ、<xref:System.Threading.Thread.SetApartmentState%2A> メソッド、<xref:System.Threading.Thread.TrySetApartmentState%2A> メソッドが含まれます。 <xref:System.Threading.Thread.Start%2A> メソッドを使用して作成されたスレッドは、スレッドが開始される前に <xref:System.Threading.ApartmentState.MTA> が呼び出されない限り、暗黙的に <xref:System.Threading.Thread.SetApartmentState%2A> に設定されます。 アプリケーションのメイン スレッドも、メイン メソッドで <xref:System.Threading.ApartmentState.MTA> 属性が指定されない限り、暗黙的に <xref:System.STAThreadAttribute> に初期化されます。  
   
 - 異なるコンカレンシー モデルを持つ `CoUninitialize` メソッド (または `CoInitializeEx` メソッド) がスレッドで呼び出されます。  
   
@@ -77,7 +75,7 @@ namespace ApartmentStateMDA
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.InteropServices.MarshalAsAttribute>
 - [マネージド デバッグ アシスタントによるエラーの診断](diagnosing-errors-with-managed-debugging-assistants.md)

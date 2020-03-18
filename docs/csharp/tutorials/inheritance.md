@@ -1,16 +1,15 @@
 ---
 title: C# での継承
 description: C# ライブラリやアプリケーションでの継承の使用について学習します。
-author: rpetrusha
-ms.author: ronpet
 ms.date: 07/05/2018
+ms.technology: csharp-fundamentals
 ms.assetid: aeb68c74-0ea0-406f-9fbe-2ce02d47ef31
-ms.openlocfilehash: 41377cb47836624160a5b402e0a85270b68eba4f
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: b72badb7833e018dfcbf5d2583b17f17c800c382
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70850987"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79156754"
 ---
 # <a name="inheritance-in-c-and-net"></a>C# と .NET での継承
 
@@ -143,7 +142,7 @@ public struct ValueStructure : ValueType // Generates CS0527.
 | 型のカテゴリ | 暗黙的な継承元                                                      |
 | ------------- | ----------------------------------------------------------------------------- |
 | class         | <xref:System.Object>                                                          |
-| struct        | <xref:System.ValueType>、 <xref:System.Object>                                 |
+| struct        | <xref:System.ValueType>、<xref:System.Object>                                 |
 | enum          | <xref:System.Enum>、<xref:System.ValueType>、<xref:System.Object>             |
 | delegate      | <xref:System.MulticastDelegate>、<xref:System.Delegate>、<xref:System.Object> |
 
@@ -292,7 +291,7 @@ public struct ValueStructure : ValueType // Generates CS0527.
 
 [!code-csharp[Inheritance](../../../samples/snippets/csharp/tutorials/inheritance/shape.cs#2)]
 
-次の例では、`Shape` から派生したオブジェクトを使用しています。 ここでは `Shape` から派生したオブジェクトの配列をインスタンス化して、`Shape` クラスの静的メソッドを呼び出します。これにより、返された `Shape` のプロパティ値がラップされます。 ランタイムは、派生型のオーバーライドされたプロパティから値を取得します。 この例ではまた、配列内の `Shape` オブジェクトをそれぞれの派生型にキャストし、キャストが成功すると、その特定の `Shape` サブクラスのプロパティを取得します。 
+次の例では、`Shape` から派生したオブジェクトを使用しています。 ここでは `Shape` から派生したオブジェクトの配列をインスタンス化して、`Shape` クラスの静的メソッドを呼び出します。これにより、返された `Shape` のプロパティ値がラップされます。 ランタイムは、派生型のオーバーライドされたプロパティから値を取得します。 この例ではまた、配列内の `Shape` オブジェクトをそれぞれの派生型にキャストし、キャストが成功すると、その特定の `Shape` サブクラスのプロパティを取得します。
 
 [!code-csharp[Inheritance](../../../samples/snippets/csharp/tutorials/inheritance/shape.cs#3)]
 

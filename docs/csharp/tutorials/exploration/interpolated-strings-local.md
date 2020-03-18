@@ -1,15 +1,13 @@
 ---
 title: 文字列補間 - C# チュートリアル
 description: このチュートリアルでは、C# で文字列補間機能を使用して、大きい文字列で書式設定された計算式の結果を含める方法を示します。
-author: rpetrusha
-ms.author: ronpet
 ms.date: 10/23/2018
-ms.openlocfilehash: 813623f4036813d7c1af440a60387f5d8e889354
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 593f3a77370da73dfd5f090be98112327b86b1f7
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72774046"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75346779"
 ---
 # <a name="use-string-interpolation-to-construct-formatted-strings"></a>文字列補間を使用し、書式設定された文字列を作成する
 
@@ -48,7 +46,7 @@ Console.WriteLine($"Hello, {name}. It's a pleasure to meet you!");
 
 前のセクションでは、文字列補間を使用して、1 つの文字列内に別の文字列を挿入しましたが、 補間式の結果を任意のデータ型にすることもできます。 挿入文字列にさまざまなデータ型の値を含めてみましょう。
 
-次の例では、最初に、`Name` [プロパティ](../../properties.md)と `ToString` [メソッド](../../methods.md)を持つ[クラス](../../programming-guide/classes-and-structs/classes.md) データ型 `Vegetable` を定義します。このメソッドは、<xref:System.Object.ToString?displayProperty=nameWithType> メソッドの動作を[オーバーライド](../../language-reference/keywords/override.md)します。 [`public` アクセス修飾子](../../language-reference/keywords/public.md)により、そのメソッドは、すべてのクライアント コードで `Vegetable` インスタンスの文字列表現を取得するために使用できるようになります。 この例の `Vegetable.ToString` メソッドでは、`Vegetable` [コンストラクター](../../programming-guide/classes-and-structs/constructors.md)で初期化される `Name` プロパティの値を返します。
+次の例では、最初に、`Name` [プロパティ](../../properties.md)と `ToString` [メソッド](../../methods.md)を持つ[クラス](../../programming-guide/classes-and-structs/classes.md) データ型 `Vegetable` を定義します。このメソッドは、<xref:System.Object.ToString?displayProperty=nameWithType> メソッドのビヘイビアーを[オーバーライド](../../language-reference/keywords/override.md)します。 [`public` アクセス修飾子](../../language-reference/keywords/public.md)により、そのメソッドは、すべてのクライアント コードで `Vegetable` インスタンスの文字列表現を取得するために使用できるようになります。 この例の `Vegetable.ToString` メソッドでは、`Vegetable` [コンストラクター](../../programming-guide/classes-and-structs/constructors.md)で初期化される `Name` プロパティの値を返します。
 
 ```csharp
 public Vegetable(string name) => Name = name;
@@ -60,7 +58,7 @@ public Vegetable(string name) => Name = name;
 var item = new Vegetable("eggplant");
 ```
 
-最後に、`item` 変数を挿入文字列に含めます。ここには、<xref:System.DateTime> 値、<xref:System.Decimal> 値、`Unit` [列挙](../../programming-guide/enumeration-types.md)値も含まれます。 エディターのすべての C# コードを以下のコードに置き換えてから、`dotnet run` コマンドを使用して実行します。
+最後に、`item` 変数を挿入文字列に含めます。ここには、<xref:System.DateTime> 値、<xref:System.Decimal> 値、`Unit` [列挙](../../language-reference/builtin-types/enum.md)値も含まれます。 エディターのすべての C# コードを以下のコードに置き換えてから、`dotnet run` コマンドを使用して実行します。
 
 ```csharp
 using System;

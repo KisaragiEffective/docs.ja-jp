@@ -1,12 +1,12 @@
 ---
 title: 属性 (C#)
 ms.date: 04/26/2018
-ms.openlocfilehash: 7b78d5832c15d3d1142b80d2ccb96a72e4e20390
-ms.sourcegitcommit: c70542d02736e082e8dac67dad922c19249a8893
+ms.openlocfilehash: 2a07035ea97bb0ff1a8f4793fe8a30d3a42c34a7
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70374370"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79397642"
 ---
 # <a name="attributes-c"></a>属性 (C#)
 
@@ -25,7 +25,7 @@ ms.locfileid: "70374370"
 
 この例では、<xref:System.SerializableAttribute> 属性を使用してクラスに特性を適用します。
 
-[!code-csharp[Using the serializable attribute](../../../../../samples/snippets/csharp/attributes/AttributesOverview.cs#1)]
+[!code-csharp[Using the serializable attribute](~/samples/snippets/csharp/attributes/AttributesOverview.cs#1)]
 
 属性 <xref:System.Runtime.InteropServices.DllImportAttribute> を持つメソッドは次の例のように宣言されます。
 
@@ -33,12 +33,12 @@ ms.locfileid: "70374370"
 
 次の例のように、宣言には、複数の属性を配置できます。
 
-[!code-csharp[Including the interop namespace](../../../../../samples/snippets/csharp/attributes/AttributesOverview.cs#3)]
-[!code-csharp[Declaring two way marshaling for arguments](../../../../../samples/snippets/csharp/attributes/AttributesOverview.cs#4)]
+[!code-csharp[Including the interop namespace](~/samples/snippets/csharp/attributes/AttributesOverview.cs#3)]
+[!code-csharp[Declaring two way marshaling for arguments](~/samples/snippets/csharp/attributes/AttributesOverview.cs#4)]
 
 特定のエンティティで複数回指定できる属性もあります。 このような複数回指定できる属性の例として <xref:System.Diagnostics.ConditionalAttribute> があります。
 
-[!code-csharp[Using the conditional attribute](../../../../../samples/snippets/csharp/attributes/AttributesOverview.cs#5)]
+[!code-csharp[Using the conditional attribute](~/samples/snippets/csharp/attributes/AttributesOverview.cs#5)]
 
 > [!NOTE]
 > 慣例により、属性名はすべて "Attribute" という単語で終わります。これは、.NET ライブラリの他の項目と区別するためです。 ただし、コード内で属性を使用する場合は、attribute サフィックスを指定する必要はありません。 たとえば、`[DllImport]` は `[DllImportAttribute]` と同等ですが、.NET Framework クラス ライブラリでは `DllImportAttribute` は属性の実際の名前を表します。
@@ -67,15 +67,15 @@ ms.locfileid: "70374370"
 
 次の表に、使用可能な `target` の値を示します。
 
-|対象の値|対象|
+|対象の値|適用対象|
 |------------------|----------------|
 |`assembly`|アセンブリ全体|
 |`module`|現在のアセンブリ モジュール|
 |`field`|クラスまたは構造体のフィールド|
-|`event`|event|
+|`event`|Event|
 |`method`|メソッドまたは `get` および `set` プロパティ アクセサー|
 |`param`|メソッド パラメーターまたは `set` プロパティ アクセサー パラメーター|
-|`property`|プロパティ|
+|`property`|property|
 |`return`|メソッド、プロパティ インデクサー、または `get` プロパティ アクセサーの戻り値|
 |`type`|構造体、クラス、インターフェイス、列挙型、またはデリゲート|
 
@@ -119,13 +119,13 @@ C# でメソッド、メソッドのパラメーター、およびメソッド�
 
 - [カスタム属性の作成 (C#)](creating-custom-attributes.md)  
 - [リフレクションを使用した属性へのアクセス (C#)](accessing-attributes-by-using-reflection.md)  
-- [方法: 属性を使用して C/C++ の共用体を作成する (C#)](how-to-create-a-c-cpp-union-by-using-attributes.md)  
+- [属性を使用して C/C++ の共用体を作成する方法 (C#)](how-to-create-a-c-cpp-union-by-using-attributes.md)  
 - [共通属性 (C#)](common-attributes.md)  
 - [呼び出し元情報 (C#)](../caller-information.md)  
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../../index.md)
+- [C# プログラミングガイド](../../index.md)
 - [リフレクション (C#)](../reflection.md)
 - [属性](../../../../standard/attributes/index.md)
 - [C# での属性の使用](../../../tutorials/attributes.md)

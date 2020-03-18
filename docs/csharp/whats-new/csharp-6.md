@@ -3,11 +3,11 @@ title: C# 6 の新機能 - C# ガイド
 description: C# バージョン 6 の新機能について説明します
 ms.date: 12/12/2018
 ms.openlocfilehash: da40b4c9d4af0094fdd907c542e971ba55086e0f
-ms.sourcegitcommit: a97ecb94437362b21fffc5eb3c38b6c0b4368999
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68971383"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398155"
 ---
 # <a name="whats-new-in-c-6"></a>C# 6 の新機能
 
@@ -91,13 +91,13 @@ public class Student
 
 [!code-csharp[NullConditional](../../../samples/snippets/csharp/new-in-6/program.cs#NullConditional)]
 
-上記の例では、person オブジェクトが `null` の場合に、変数 `first` に `null` が割り当てられます。 それ以外の場合には、`FirstName` プロパティの値が割り当てられます。 特に重要なのは、`?.` を使用した場合、変数 `person` が `null` の場合、このコード行では `NullReferenceException` が生成されないということです。 代わりに、処理がショートサーキットされ、`null` が返されます。 null 条件演算子は配列アクセスまたはインデクサー アクセスにも使用できます。 インデックス式の `[]` を `?[]` に置き換えます。
+上記の例では、person オブジェクトが `first` の場合に、変数 `null` に `null` が割り当てられます。 それ以外の場合には、`FirstName` プロパティの値が割り当てられます。 特に重要なのは、`?.` を使用した場合、変数 `NullReferenceException` が `person` の場合、このコード行では `null` が生成されないということです。 代わりに、処理がショートサーキットされ、`null` が返されます。 null 条件演算子は配列アクセスまたはインデクサー アクセスにも使用できます。 インデックス式の `[]` を `?[]` に置き換えます。
 
-次の式では、`person` の値に関係なく、`string` が返されます。 このコンストラクトは、いずれかのプロパティが `null` の場合に既定値を割り当てる目的で、*null 結合*演算子と共によく使用されます。 式がショート サーキットされると、返された `null` 値が式全体に一致するように入力されます。
+次の式では、`string` の値に関係なく、`person` が返されます。 このコンストラクトは、いずれかのプロパティが  *の場合に既定値を割り当てる目的で、* null 結合`null`演算子と共によく使用されます。 式がショート サーキットされると、返された `null` 値が式全体に一致するように入力されます。
 
 [!code-csharp[NullCoalescing](../../../samples/snippets/csharp/new-in-6/program.cs#NullCoalescing)]
 
-`?.` を使用してメソッドを条件付きで呼び出すこともできます。 null 条件演算子を使用したメンバー関数の最も一般的な用途は、`null` の可能性があるデリゲート (またはイベント ハンドラー) を安全に呼び出すことです。  `?.` 演算子を使用してデリゲートの `Invoke` メソッドを呼び出して、メンバーにアクセスします。 例については、[デリゲート パターン](../delegates-patterns.md#handling-null-delegates)に関する記事でご覧になれます。
+`?.` を使用してメソッドを条件付きで呼び出すこともできます。 null 条件演算子を使用したメンバー関数の最も一般的な用途は、`null` の可能性があるデリゲート (またはイベント ハンドラー) を安全に呼び出すことです。  `Invoke` 演算子を使用してデリゲートの `?.` メソッドを呼び出して、メンバーにアクセスします。 例については、[デリゲート パターン](../delegates-patterns.md#handling-null-delegates)に関する記事でご覧になれます。
 
 `?.` 演算子のルールでは、、演算子の左側が 1 回だけ評価されることが保証されています。 これによって、イベント ハンドラーを使用した次の例のように、多くの表現方法が可能になります。
 
@@ -151,14 +151,14 @@ C# 5 では、`await` 式を配置できる位置について、いくつかの�
 
 [!code-csharp[AwaitFinally](../../../samples/snippets/csharp/new-in-6/NetworkClient.cs#AwaitFinally)]
 
-`catch` 句と `finally` 句の内部に `await` のサポートを追加するための実装詳細では、その動作と、同期コードの動作との整合性が保証されています。 `catch` または `finally` 句で実行されたコードがエラーをスローした場合、プログラムは次の包含ブロック内から適切な `catch` 句を検索します。 現行の例外があった場合、その例外は失われます。 `catch` 句や `finally` 句で待機中の式についても、これと同じことが起こります。つまり、適切な `catch` が検索され、現行の例外がある場合は、その例外が失われます。  
+`await` 句と `catch` 句の内部に `finally` のサポートを追加するための実装詳細では、その動作と、同期コードの動作との整合性が保証されています。 `catch` または `finally` 句で実行されたコードがエラーをスローした場合、プログラムは次の包含ブロック内から適切な `catch` 句を検索します。 現行の例外があった場合、その例外は失われます。 `catch` 句や `finally` 句で待機中の式についても、これと同じことが起こります。つまり、適切な `catch` が検索され、現行の例外がある場合は、その例外が失われます。  
 
 > [!NOTE]
 > この動作を理由に、`catch` 句と `finally` 句は慎重に記述することが推奨されています (新しい例外が導入されないようにしてください)。
 
 ## <a name="initialize-associative-collections-using-indexers"></a>インデクサーを使用して関連コレクションを初期化する
 
-*インデックス初期化子*は、インデックスの使用によってコレクション初期化子の一貫性を高める 2 つの機能のうちの 1 つです。 C# の以前のリリースでは、キーと値のペアを中かっこで囲むことで <xref:System.Collections.Generic.Dictionary%602> を含めたシーケンス スタイルのコレクションで*コレクション初期化子*を使用できました。
+*インデックス初期化子*は、インデックスの使用によってコレクション初期化子の一貫性を高める 2 つの機能のうちの 1 つです。 C# の以前のリリースでは、キーと値のペアを中かっこで囲むことで  *を含めたシーケンス スタイルのコレクションで*コレクション初期化子<xref:System.Collections.Generic.Dictionary%602>を使用できました。
 
 [!code-csharp[ListInitializer](../../../samples/snippets/csharp/new-in-6/initializers.cs#CollectionInitializer)]
 

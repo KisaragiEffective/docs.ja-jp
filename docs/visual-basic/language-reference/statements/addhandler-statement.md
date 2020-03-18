@@ -1,5 +1,5 @@
 ---
-title: AddHandler ステートメント (Visual Basic)
+title: AddHandler ステートメント
 ms.date: 07/20/2015
 f1_keywords:
 - vb.AddHandlerMethod
@@ -8,12 +8,12 @@ f1_keywords:
 helpviewer_keywords:
 - AddHandler statement [Visual Basic]
 ms.assetid: cfe69799-2a0f-42c0-a99e-09fed954da01
-ms.openlocfilehash: 95277f532488b0cf56114e5ee94dc3528e3a2e02
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: c110116af75d4fb39c016b8d6afcdb707fa6599b
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72004544"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350189"
 ---
 # <a name="addhandler-statement"></a>AddHandler ステートメント
 実行時にイベントをイベントハンドラーに関連付けます。  
@@ -32,14 +32,16 @@ AddHandler event, AddressOf eventhandler
 |||
   
 ## <a name="remarks"></a>コメント  
- `AddHandler`ステートメントと`RemoveHandler`ステートメントを使うと、プログラムの実行中にいつでもイベント処理を開始および停止できます。  
+ `AddHandler` および `RemoveHandler` ステートメントを使用すると、プログラムの実行中にいつでもイベント処理を開始および停止できます。  
   
- `eventhandler`プロシージャのシグネチャは、`event`イベントのシグネチャと一致する必要があります。  
+ `eventhandler` プロシージャのシグネチャは、イベント `event`の署名と一致している必要があります。  
   
- `Handles` キーワードと `AddHandler` ステートメントはどちらも特定のプロシージャで特定のイベントを処理するように指定できますが、両者には違いがあります。 `AddHandler` ステートメントは、実行時にプロシージャをイベントに接続します。 `Handles` キーワードは、プロシージャの定義時に特定のイベントを処理するよう指定する場合に使用します。 詳細については、「[ハンドル](../../../visual-basic/language-reference/statements/handles-clause.md)」を参照してください。  
+
+ `Handles` キーワードと `AddHandler` ステートメントはどちらも特定のプロシージャで特定のイベントを処理するように指定できますが、両者には違いがあります。`AddHandler` ステートメントは、実行時にプロシージャをイベントに接続させます。`Handles` キーワードは、プロシージャの定義時に特定のイベントを処理するよう指定する場合に使用します。詳細については、「[Handles 句 (Visual Basic)](../../../visual-basic/language-reference/statements/handles-clause.md)」を参照してください。  
+
   
 > [!NOTE]
-> カスタムイベントの場合、`AddHandler` ステートメントによって、イベントの `AddHandler` アクセサーが呼び出されます。 カスタムイベントの詳細については、「 [Event Statement](../../../visual-basic/language-reference/statements/event-statement.md)」を参照してください。  
+> カスタムイベントの場合は、`AddHandler` ステートメントによって、イベントの `AddHandler` アクセサーが呼び出されます。 カスタムイベントの詳細については、「[Event ステートメント](../../../visual-basic/language-reference/statements/event-statement.md)」を参照してください。  
   
 ## <a name="example"></a>例  
  [!code-vb[VbVbalrEvents#17](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrEvents/VB/Class1.vb#17)]  
@@ -47,6 +49,6 @@ AddHandler event, AddressOf eventhandler
 ## <a name="see-also"></a>関連項目
 
 - [RemoveHandler ステートメント](../../../visual-basic/language-reference/statements/removehandler-statement.md)
-- [Handles](../../../visual-basic/language-reference/statements/handles-clause.md)
+- [Handles 句](../../../visual-basic/language-reference/statements/handles-clause.md)
 - [Event ステートメント](../../../visual-basic/language-reference/statements/event-statement.md)
 - [イベント](../../../visual-basic/programming-guide/language-features/events/index.md)

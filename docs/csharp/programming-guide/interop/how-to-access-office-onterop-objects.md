@@ -1,6 +1,5 @@
 ---
-title: '方法: Visual C# の機能を使用して Office 相互運用オブジェクトにアクセスする - C# プログラミング ガイド'
-ms.custom: seodec18
+title: Office 相互運用オブジェクトにアクセスする方法 - C# プログラミング ガイド
 ms.date: 07/20/2015
 helpviewer_keywords:
 - optional parameters [C#], Office programming
@@ -10,16 +9,16 @@ helpviewer_keywords:
 - named arguments [C#], Office programming
 - Office programming [C#]
 ms.assetid: 041b25c2-3512-4e0f-a4ea-ceb2999e4d5e
-ms.openlocfilehash: f0b763ad6b65c74b8c406fe006ef4036e70a99d4
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: b5d2da011ec6318c8b07f1eb4d383a4d56488239
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72523556"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75700836"
 ---
-# <a name="how-to-access-office-interop-objects-by-using-visual-c-features-c-programming-guide"></a>方法: Visual C# の機能を使用して Office 相互運用オブジェクトにアクセスする (C# プログラミング ガイド)
+# <a name="how-to-access-office-interop-objects-c-programming-guide"></a>Office 相互運用オブジェクトにアクセスする方法 (C# プログラミング ガイド)
 
-Visual C# には、Office API オブジェクトへのアクセスを容易にする機能があります。 新機能は、名前付き引数と省略可能な引数、`dynamic` と呼ばれる新しい型、値パラメーターの場合と同様に COM メソッドの参照パラメーターに引数を渡す機能などです。
+C# には、Office API オブジェクトへのアクセスを容易にする機能があります。 新機能は、名前付き引数と省略可能な引数、`dynamic` と呼ばれる新しい型、値パラメーターの場合と同様に COM メソッドの参照パラメーターに引数を渡す機能などです。
 
 このトピックでは、新機能を使用して、Microsoft Office Excel ワークシートを作成および表示するコードを記述します。 その後、Excel ワークシートにリンクされているアイコンを含む Office Word 文書を追加するコードを記述します。
 
@@ -176,7 +175,7 @@ Visual C# には、Office API オブジェクトへのアクセスを容易に�
 ## <a name="see-also"></a>関連項目
 
 - <xref:System.Type.Missing?displayProperty=nameWithType>
-- [dynamic](../../language-reference/keywords/dynamic.md)
+- [dynamic](../../language-reference/builtin-types/reference-types.md)
 - [dynamic 型の使用](../types/using-type-dynamic.md)
 - [名前付き引数と省略可能な引数](../classes-and-structs/named-and-optional-arguments.md)
-- [方法: Office プログラミングで名前付き引数と省略可能な引数を使用する](../classes-and-structs/how-to-use-named-and-optional-arguments-in-office-programming.md)
+- [Office プログラミングで名前付き引数と省略可能な引数を使用する方法](../classes-and-structs/how-to-use-named-and-optional-arguments-in-office-programming.md)

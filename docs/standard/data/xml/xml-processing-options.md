@@ -3,14 +3,12 @@ title: XML の処理オプション
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: 33ced8ee-1745-4e71-8dee-ebe70ec067c7
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 585a6e568bde6e6eca15477eaa10b5c91c91c5a4
-ms.sourcegitcommit: bd28ff1e312eaba9718c4f7ea272c2d4781a7cac
-ms.translationtype: HT
+ms.openlocfilehash: 1707ed10d944a518872132dded40751026a4c8e7
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56835552"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75709921"
 ---
 # <a name="xml-processing-options"></a>XML の処理オプション
 XML データの処理に使用できる Microsoft テクノロジの一覧については、次の表を参照してください。  
@@ -19,7 +17,7 @@ XML データの処理に使用できる Microsoft テクノロジの一覧に�
   
 |**オプション**|**処理の種類**|**説明**|  
 |----------------|-------------------------|---------------------|  
-|[LINQ to XML (C#)](../../../csharp/programming-guide/concepts/linq/linq-to-xml.md) <br/> [LINQ to XML (Visual Basic)](../../../visual-basic/programming-guide/concepts/linq/linq-to-xml.md) <br />(<xref:System.Xml.Linq> 名前空間)|メモリ内|- .NET Framework の統合言語クエリ (LINQ) テクノロジに基づいています。<br />- オブジェクト、リレーショナル データ、XML データに対して SQL と同じようにクエリを利用できます。<br />- 直感的なドキュメント作成および変換機能を提供します。<br />- このオプションは、新しいコードを記述する場合に使用します。|  
+|[LINQ to XML (C#)](../../../csharp/programming-guide/concepts/linq/linq-to-xml-overview.md) <br/> [LINQ to XML (Visual Basic)](../../../visual-basic/programming-guide/concepts/linq/linq-to-xml.md) <br />(<xref:System.Xml.Linq> 名前空間)|メモリ内|- .NET Framework の統合言語クエリ (LINQ) テクノロジに基づいています。<br />- オブジェクト、リレーショナル データ、XML データに対して SQL と同じようにクエリを利用できます。<br />- 直感的なドキュメント作成および変換機能を提供します。<br />- このオプションは、新しいコードを記述する場合に使用します。|  
 |<xref:System.Xml.XmlReader?displayProperty=nameWithType>|ストリーム ベース|- 高速、非キャッシュ、前方参照専用の XML データ アクセス手段を提供します。<br />- <xref:System.Xml.XmlReader.Create%2A?displayProperty=nameWithType> メソッドを使用してオブジェクトを作成し、<xref:System.Xml.XmlReaderSettings> クラスを使用して、そのオブジェクトで有効にする一連の機能を指定できます。|  
 |<xref:System.Xml.XmlWriter?displayProperty=nameWithType>|ストリーム ベース|- 高速、非キャッシュ、前方参照専用の XML データ生成手段を提供します。<br />- <xref:System.Xml.XmlWriter.Create%2A?displayProperty=nameWithType> メソッドを使用してオブジェクトを作成し、<xref:System.Xml.XmlWriterSettings> クラスを使用して、そのオブジェクトで有効にする一連の機能を指定できます。|  
 |<xref:System.Xml.XmlDocument?displayProperty=nameWithType>|メモリ内|- [W3C ドキュメント オブジェクト モデル (DOM) 勧告の DOM Level 1 Core](https://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html) および [DOM Level 2 Core](https://www.w3.org/TR/DOM-Level-2-Core/) を実装します。<br />- 使い慣れた DOM モデルに基づくメソッドとプロパティを使用して、ノードを作成、挿入、削除、変更することができます。<br />- このオプションは、W3C DOM を利用する既存のコードを変更する場合に使用します。|  

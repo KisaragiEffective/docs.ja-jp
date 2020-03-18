@@ -1,17 +1,17 @@
 ---
-title: '方法: Task.whenall を使用して非同期のチュートリアルを拡張する (Visual Basic)'
+title: '方法: Task.WhenAll を使用して AsyncWalkthrough を拡張する'
 ms.date: 07/20/2015
 ms.assetid: c06d386d-e996-4da9-bf3d-05a3b6c0a258
-ms.openlocfilehash: 0a1d55fb8433d789326b03c402841dcaf3cc3994
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 6df29a90ff0012564c6d966c8156434d25cacdb1
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524324"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74354243"
 ---
 # <a name="how-to-extend-the-async-walkthrough-by-using-taskwhenall-visual-basic"></a>方法: Task.whenall を使用して非同期のチュートリアルを拡張する (Visual Basic)
 
-「[チュートリアル: async と Await を使用した Web へのアクセス (Visual Basic)](../../../../visual-basic/programming-guide/concepts/async/walkthrough-accessing-the-web-by-using-async-and-await.md) 」の非同期ソリューションのパフォーマンスを向上させるには、<xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=nameWithType> メソッドを使用します。 このメソッドは、タスクのコレクションとして表される、複数の非同期操作を非同期に待機します。
+「[チュートリアル: Async と Await を使用した Web へのアクセス (Visual Basic)](../../../../visual-basic/programming-guide/concepts/async/walkthrough-accessing-the-web-by-using-async-and-await.md) 」の非同期ソリューションのパフォーマンスを向上させるには、<xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=nameWithType> メソッドを使用します。 このメソッドは、タスクのコレクションとして表される、複数の非同期操作を非同期に待機します。
 
 このチュートリアルでは、Web サイトが異なる速度でダウンロードされることに気付きます。 Web サイトの 1 つが非常に低速な場合があります。これは残りのすべてのダウンロードを遅延させます。 このチュートリアルで構築した非同期ソリューションを実行すると、プログラムを待たない場合には簡単に終了することができますが、よりよい方法は、すべてのダウンロードを同時に開始して、遅延したダウンロードを待たずに早いダウンロードが継続できるようにすることです。
 
@@ -30,7 +30,7 @@ ms.locfileid: "72524324"
 
     - チュートリアルを実行してコードを開発する場合は、`ProcessURLAsync` メソッドを含むアプリケーションに `GetURLContentsAsync` を追加します。 このアプリケーションの Mainwindow.xaml ファイルは、「チュートリアルの完全なコード例」セクションの最初の例です。
 
-     `ProcessURLAsync` メソッドは、元のチュートリアルの `SumPageSizesAsync` の `For Each` ループの本体にあるアクションを統合します。 このメソッドは、指定した Web サイトのコンテンツをバイト配列として非同期的にダウンロードし、バイト配列の長さを表示して返します。
+     `ProcessURLAsync` メソッドは、元のチュートリアルの `For Each` の `SumPageSizesAsync` ループの本体にあるアクションを統合します。 このメソッドは、指定した Web サイトのコンテンツをバイト配列として非同期的にダウンロードし、バイト配列の長さを表示して返します。
 
     ```vb
     Private Async Function ProcessURLAsync(url As String) As Task(Of Integer)
@@ -41,7 +41,7 @@ ms.locfileid: "72524324"
     End Function
     ```
 
-2. 次のコードに示すように、`SumPageSizesAsync` の `For Each` ループをコメント アウトするか削除します。
+2. 次のコードに示すように、`For Each` の `SumPageSizesAsync` ループをコメント アウトするか削除します。
 
     ```vb
     'Dim total = 0
@@ -63,7 +63,7 @@ ms.locfileid: "72524324"
     'Next
     ```
 
-3. タスクのコレクションを作成します。 次のコードは、<xref:System.Linq.Enumerable.ToArray%2A> メソッドによって実行されるときに、各 Web サイトのコンテンツをダウンロードするタスクのコレクションを作成する[クエリ](../../../../visual-basic/programming-guide/concepts/linq/index.md)を定義します。 タスクは、クエリが評価されるときに開始されます。
+3. タスクのコレクションを作成します。次のコードは、<xref:System.Linq.Enumerable.ToArray%2A> メソッドによって実行されると、各 Web サイトのコンテンツをダウンロードするタスクのコレクションを作成する [クエリ](../../../../visual-basic/programming-guide/concepts/linq/index.md)を定義します。クエリが評価されると、タスクが開始されます。
 
      `SumPageSizesAsync` の宣言の後の `urlList` メソッドに、次のコードを追加します。
 
@@ -99,11 +99,11 @@ ms.locfileid: "72524324"
 
 1. 「[チュートリアル: Async と Await を使用した Web へのアクセス (Visual Basic)](../../../../visual-basic/programming-guide/concepts/async/walkthrough-accessing-the-web-by-using-async-and-await.md)」で開発した2番目のアプリケーションに、次のバージョンの `ProcessURLAsync` を追加します。
 
-    - コードを[開発者コードサンプル](https://code.msdn.microsoft.com/Async-Sample-Accessing-the-9c10497f)からダウンロードした場合は、AsyncWalkthrough_HttpClient プロジェクトを開いてから、mainwindow.xaml ファイルに `ProcessURLAsync` を追加します。
+    - コードを[開発者コードサンプル](https://code.msdn.microsoft.com/Async-Sample-Accessing-the-9c10497f)からダウンロードした場合は、AsyncWalkthrough_HttpClient プロジェクトを開き、mainwindow.xaml ファイルに `ProcessURLAsync` を追加します。
 
     - チュートリアルを実行してコードを開発する場合は、`ProcessURLAsync` メソッドを使うアプリケーションに `HttpClient.GetByteArrayAsync` を追加します。 このアプリケーションの Mainwindow.xaml ファイルは、「チュートリアルの完全なコード例」セクションの2番目の例です。
 
-     `ProcessURLAsync` メソッドは、元のチュートリアルの `SumPageSizesAsync` の `For Each` ループの本体にあるアクションを統合します。 このメソッドは、指定した Web サイトのコンテンツをバイト配列として非同期的にダウンロードし、バイト配列の長さを表示して返します。
+     `ProcessURLAsync` メソッドは、元のチュートリアルの `For Each` の `SumPageSizesAsync` ループの本体にあるアクションを統合します。 このメソッドは、指定した Web サイトのコンテンツをバイト配列として非同期的にダウンロードし、バイト配列の長さを表示して返します。
 
      前の手順の `ProcessURLAsync` メソッドとの唯一の違いは、<xref:System.Net.Http.HttpClient> インスタンス `client` の使用です。
 
@@ -116,7 +116,7 @@ ms.locfileid: "72524324"
     End Function
     ```
 
-2. 次のコードに示すように、`SumPageSizesAsync` の `For Each` ループをコメント アウトするか削除します。
+2. 次のコードに示すように、`For Each` の `SumPageSizesAsync` ループをコメント アウトするか削除します。
 
     ```vb
     'Dim total = 0
@@ -136,7 +136,7 @@ ms.locfileid: "72524324"
     'Next
     ```
 
-3. <xref:System.Linq.Enumerable.ToArray%2A> メソッドによって実行されるときに、各 Web サイトのコンテンツをダウンロードするタスクのコレクションを作成する[クエリ](../../../../visual-basic/programming-guide/concepts/linq/index.md)を定義します。 タスクは、クエリが評価されるときに開始されます。
+3. <xref:System.Linq.Enumerable.ToArray%2A> メソッドによって実行されると、各 Web サイトのコンテンツをダウンロードするタスクのコレクションを作成する [クエリ](../../../../visual-basic/programming-guide/concepts/linq/index.md)を定義します。 クエリが評価されると、タスクが開始されます。
 
      `SumPageSizesAsync` および `client` の宣言の後の `urlList` メソッドに、次のコードを追加します。
 
@@ -170,7 +170,7 @@ ms.locfileid: "72524324"
 
 ### <a name="to-test-the-taskwhenall-solutions"></a>Task.WhenAll ソリューションをテストするには
 
-各ソリューションで、F5 キーを押してプログラムを実行し、 **[Start]** を複数回クリックします。 出力は、「[チュートリアル: async と Await を使用した Web へのアクセス (Visual Basic)](../../../../visual-basic/programming-guide/concepts/async/walkthrough-accessing-the-web-by-using-async-and-await.md)」の非同期ソリューションの出力に似ています。 ただし、Web サイトは毎回、異なる順序で表示されることに注意してください。
+各ソリューションで、F5 キーを押してプログラムを実行し、 **[Start]** を複数回クリックします。 出力は、「[チュートリアル: Async と Await を使用した Web へのアクセス (Visual Basic)](../../../../visual-basic/programming-guide/concepts/async/walkthrough-accessing-the-web-by-using-async-and-await.md)」の非同期ソリューションの出力に似ています。 ただし、Web サイトは毎回、異なる順序で表示されることに注意してください。
 
 ## <a name="example"></a>例
 
@@ -422,7 +422,7 @@ Class MainWindow
 End Class
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=nameWithType>
 - [チュートリアル: Async と Await を使用した Web へのアクセス (Visual Basic)](../../../../visual-basic/programming-guide/concepts/async/walkthrough-accessing-the-web-by-using-async-and-await.md)

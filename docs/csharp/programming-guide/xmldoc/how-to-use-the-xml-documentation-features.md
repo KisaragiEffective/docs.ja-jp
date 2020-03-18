@@ -1,19 +1,18 @@
 ---
-title: '方法: XML ドキュメント機能を使用する - C# プログラミング ガイド'
-ms.custom: seodec18
+title: XML ドキュメント機能を使用する方法 - C# プログラミング ガイド
 ms.date: 06/01/2018
 helpviewer_keywords:
 - XML documentation [C#]
 - C# language, XML documentation features
 ms.assetid: 8f33917b-9577-4c9a-818a-640dbbb0b399
-ms.openlocfilehash: 3e59783a7f306d3d2a510fe3337a4c6490dcb3e8
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: e279b13d9216120e25f454faa14dc71ad24c74ef
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72523451"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79157001"
 ---
-# <a name="how-to-use-the-xml-documentation-features"></a>方法: XML ドキュメント機能を使用する
+# <a name="how-to-use-the-xml-documentation-features"></a>XML ドキュメント機能を使用する方法
 
 次の例では、ドキュメント化された型の基本的な概要について説明します。
 
@@ -21,7 +20,7 @@ ms.locfileid: "72523451"
 
 [!code-csharp[csProgGuideDocComments#15](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideDocComments/CS/DocComments.cs#15)]
 
-この例では、次の内容の .xml ファイルが生成されます。
+この例では、次の内容を含む *.xml* ファイルが生成されます。
 
 ```xml
 <?xml version="1.0"?>
@@ -63,7 +62,7 @@ ms.locfileid: "72523451"
             </summary>
             <param name="s"> Parameter description for s goes here.</param>
             <seealso cref="T:System.String">
-            You can use the cref attribute on any tag to reference a type or member 
+            You can use the cref attribute on any tag to reference a type or member
             and the compiler will check that the reference exists.
             </seealso>
         </member>
@@ -121,18 +120,18 @@ XML ドキュメントは、/// で始まります。 新しいプロジェク�
 
 - ドキュメントは整形式の XML である必要があります。 XML が整形式ではない場合は、警告が生成され、エラーが発生したことを示すコメントがドキュメント ファイルに追加されます。
 
-- 開発者は、独自のタグ セットを自由に作成できます。 推奨されるタグのセットがあります (「[ドキュメント コメントとして推奨されるタグ](recommended-tags-for-documentation-comments.md)」を参照)。 推奨されるタグの一部には特別な意味があります。
+- 開発者は、独自のタグ セットを自由に作成できます。 [推奨されるタグのセット](recommended-tags-for-documentation-comments.md)があります。 推奨されるタグの一部には特別な意味があります。
 
   - \<param> タグは、パラメーターの記述に使われます。 このタグがあると、コンパイラは、パラメーターが存在すること、およびすべてのパラメーターがドキュメントで記述されていることを確認します。 検証で問題がある場合、コンパイラは警告を生成します。
 
-  - `cref` 属性は任意のタグにアタッチでき、コード要素への参照を提供します。 コンパイラは、このコード要素が存在することを確認します。 検証で問題がある場合、コンパイラは警告を生成します。 コンパイラは、`cref` 属性で記述されている型を探すとき、`using` ステートメントに従います。
+  - `cref` 属性は任意のタグにアタッチでき、コード要素への参照を提供します。 コンパイラは、このコード要素が存在することを確認します。 検証で問題がある場合、コンパイラは警告を生成します。 コンパイラは、`using` 属性で記述されている型を探すとき、`cref` ステートメントに従います。
 
   - \<summary> タグは、型またはメンバーに関する追加情報を表示するために、Visual Studio の IntelliSense によって使われます。
 
     > [!NOTE]
     > XML ファイルでは、型とメンバーに関する完全な情報は提供されません (たとえば、型の情報は含まれません)。 型またはメンバーの完全な情報を取得するには、ドキュメント ファイルと併せて、実際の型またはメンバーでリフレクションを使う必要があります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# プログラミング ガイド](../index.md)
 - [-doc (C# コンパイラ オプション)](../../language-reference/compiler-options/doc-compiler-option.md)

@@ -4,15 +4,13 @@ description: .NET Core 2.2 の新機能について。
 dev_langs:
 - csharp
 - vb
-author: rpetrusha
-ms.author: ronpet
 ms.date: 12/04/2018
-ms.openlocfilehash: 49a65dd44159e9800f7cf50a1edaa3d9e9b82e47
-ms.sourcegitcommit: 58fc0e6564a37fa1b9b1b140a637e864c4cf696e
+ms.openlocfilehash: e045c39240c99777d05ca86ee0a8cd1fa4309c4f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57677267"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "78156583"
 ---
 # <a name="whats-new-in-net-core-22"></a>.NET Core 2.2 の新機能
 
@@ -20,7 +18,7 @@ ms.locfileid: "57677267"
 
 ## <a name="new-deployment-mode"></a>新しい配置モード
 
-.NET Core 2.2 以降、[フレームワークに依存する実行可能ファイル](../deploying/index.md#framework-dependent-executables-fde)を配置できます。これは **.dll** ファイルではなく **.exe** ファイルとなります。 機能的にはフレームワーク依存の配置と似ていますが、フレームワークに依存する実行可能ファイル (FDE) は引き続き .NET Core のシステム全体の共有バージョンに依存して実行されます。 アプリに含まれるものは、ご自身のコードとサードパーティの依存関係のみです。 フレームワーク依存の配置とは異なり、FDE はプラットフォーム固有です。
+.NET Core 2.2 以降、[フレームワークに依存する実行可能ファイル](../deploying/index.md#publish-runtime-dependent)を配置できます。これは **.dll** ファイルではなく **.exe** ファイルとなります。 機能的にはフレームワーク依存の配置と似ていますが、フレームワークに依存する実行可能ファイル (FDE) は引き続き .NET Core のシステム全体の共有バージョンに依存して実行されます。 アプリに含まれるものは、ご自身のコードとサードパーティの依存関係のみです。 フレームワーク依存の配置とは異なり、FDE はプラットフォーム固有です。
 
 この新しい配置モードの際立った利点は、ライブラリの代わりに実行可能ファイルをビルドすることです。これは、最初に `dotnet` を呼び出すことなく、直接アプリを実行できることを意味します。
 
@@ -28,7 +26,7 @@ ms.locfileid: "57677267"
 
 **ランタイム サービスでのイベントの処理**
 
-GC、JIT、ThreadPool などのランタイム サービスがどのようにアプリケーションで使われているのか監視して、それがアプリケーションに与えている影響を把握したい場合がよくあります。 Windows システムでは、これは通常、現在のプロセスの ETW イベントを監視することによって行われます。 これは引き続き正常に動作しますが、権限の低い環境内、または Linux や macOS 上で実行している場合は、常に ETW を使えるとは限りません。 
+GC、JIT、ThreadPool などのランタイム サービスがどのようにアプリケーションで使われているのか監視して、それがアプリケーションに与えている影響を把握したい場合がよくあります。 Windows システムでは、これは通常、現在のプロセスの ETW イベントを監視することによって行われます。 これは引き続き正常に動作しますが、権限の低い環境内、または Linux や macOS 上で実行している場合は、常に ETW を使えるとは限りません。
 
 .NET Core 2.2 以降では、<xref:System.Diagnostics.Tracing.EventListener?displayProperty=nameWithType> クラスを使って CoreCLR イベントを使えるようになりました。 これらのイベントでは、GC、JIT、ThreadPool、および相互運用などのランタイム サービスの動作が説明されます。 これらは、CoreCLR ETW プロバイダーの一部として公開されるものと同じイベントです。  このため、アプリケーションでは、これらのイベントを使うかトランスポート機構を使って、それらをテレメトリ集計サービスに送信できます。 次のコード サンプルでイベントをサブスクライブする方法を確認できます。
 

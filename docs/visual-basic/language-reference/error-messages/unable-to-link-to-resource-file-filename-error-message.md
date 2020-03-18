@@ -7,25 +7,25 @@ f1_keywords:
 helpviewer_keywords:
 - BC30144
 ms.assetid: 67ae276e-80d4-4162-ba00-e546c9294340
-ms.openlocfilehash: cae65e1637c29ecfdec07d6a5df27e71b6460c01
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 5d775fab8de7cdbfa1982e455a6a46fef83114d5
+ms.sourcegitcommit: 5a28f8eb071fcc09b045b0c4ae4b96898673192e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61787388"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73197234"
 ---
-# <a name="unable-to-link-to-resource-file-filename-error-message"></a>リソース ファイルにリンクできません '\<filename >':\<エラー メッセージ >
-Visual Basic コンパイラでは、マニフェストを持つアセンブリを生成するには、アセンブリ リンカー (Al.exe、Alink とも呼ばれます) を呼び出します。 リンカーが、アセンブリからネイティブな COM+ リソース ファイルにリンクするときにエラーが発生したことを報告しています。  
+# <a name="unable-to-link-to-resource-file-filename-error-message"></a>リソースファイル '\<filename > ' にリンクできません: \<エラーメッセージ >
+Visual Basic コンパイラは、アセンブリリンカー (Al.exe、Alink とも呼ばれます) を呼び出して、マニフェストを持つアセンブリを生成します。 リンカーが、アセンブリからネイティブな COM+ リソース ファイルにリンクするときにエラーが発生したことを報告しています。  
   
  **エラー ID:** BC30144  
   
 ## <a name="to-correct-this-error"></a>このエラーを解決するには  
   
-1. 引用符で囲まれたエラー メッセージを確認し、トピックを参照してください。 [Al.exe](../../../framework/tools/al-exe-assembly-linker.md)します。 さらに詳しい説明とアドバイスします。  
+1. 引用符で囲まれたエラーメッセージを調べ、「 [al.exe](../../../framework/tools/al-exe-assembly-linker.md)」を参照してください。 」を参考にしてください。  
   
 2. エラーが続く場合は、状況に関する情報を収集し、マイクロソフト プロダクト サポート サービスに通知してください。  
   
 ## <a name="see-also"></a>関連項目
 
 - [Al.exe](../../../framework/tools/al-exe-assembly-linker.md)
-- [ご意見](/visualstudio/ide/talk-to-us)
+- [ご意見](/visualstudio/ide/feedback-options)

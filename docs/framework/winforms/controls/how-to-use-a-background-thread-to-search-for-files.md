@@ -1,5 +1,5 @@
 ---
-title: '方法: バックグラウンド スレッドを使用してファイルを検索する'
+title: '方法 : バックグラウンド スレッドを使用してファイルを検索する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,37 +10,36 @@ helpviewer_keywords:
 - threading [Windows Forms], custom controls
 - custom controls [Windows Forms], samples
 ms.assetid: 7fe3956f-5b8f-4f78-8aae-c9eb0b28f13a
-ms.openlocfilehash: 5dcb990266b94916bec715520a61f6a102c1e6ef
-ms.sourcegitcommit: 121ab70c1ebedba41d276e436dd2b1502748a49f
+ms.openlocfilehash: db9be1f57e15baac4820d33f6f245d69bd1ab430
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70015749"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351952"
 ---
-# <a name="how-to-use-a-background-thread-to-search-for-files"></a>方法: バックグラウンド スレッドを使用してファイルを検索する
-コンポーネント<xref:System.ComponentModel.BackgroundWorker>は<xref:System.Threading> 、<xref:System.Threading>名前空間に対して機能を追加します。ただし、名前空間は下位互換性と将来の使用の両方のために保持されます (選択した場合)。 詳細については、「 [BackgroundWorker コンポーネントの概要](backgroundworker-component-overview.md)」を参照してください。
+# <a name="how-to-use-a-background-thread-to-search-for-files"></a>方法 : バックグラウンド スレッドを使用してファイルを検索する
+<xref:System.ComponentModel.BackgroundWorker> コンポーネントによって、<xref:System.Threading> 名前空間に置き換えられ、機能が追加されます。ただし、<xref:System.Threading> 名前空間は、下位互換性と将来の使用の両方で保持されます (選択した場合)。 詳細については、「 [BackgroundWorker コンポーネントの概要](backgroundworker-component-overview.md)」を参照してください。
 
  Windows フォームは、シングルスレッドアパートメント (STA) モデルを使用します。これは、Windows フォームが本質的にアパートメントスレッドであるネイティブの Win32 ウィンドウに基づいているためです。 STA モデルは、任意のスレッドでウィンドウを作成できることを意味しますが、作成されたスレッドを切り替えることはできません。また、スレッドに対するすべての関数呼び出しは、作成スレッドで実行する必要があります。 Windows フォーム外部では、.NET Framework のクラスはフリースレッドモデルを使用します。 .NET Framework のスレッド処理の詳細については、「[スレッド処理](../../../standard/threading/index.md)」を参照してください。
 
- STA モデルでは、コントロールの作成スレッドの外部から呼び出す必要があるコントロールのメソッドは、コントロールの作成スレッドにマーシャリングされる必要があります。 基底クラス<xref:System.Windows.Forms.Control>には、この目的でいくつか<xref:System.Windows.Forms.Control.EndInvoke%2A>のメソッド (<xref:System.Windows.Forms.Control.Invoke%2A>、 <xref:System.Windows.Forms.Control.BeginInvoke%2A>、および) が用意されています。 <xref:System.Windows.Forms.Control.Invoke%2A>同期メソッド呼び出しを行います。<xref:System.Windows.Forms.Control.BeginInvoke%2A>非同期のメソッド呼び出しを行います。
+ STA モデルでは、コントロールの作成スレッドの外部から呼び出す必要があるコントロールのメソッドは、コントロールの作成スレッドにマーシャリングされる必要があります。 基本クラス <xref:System.Windows.Forms.Control> には、この目的でいくつかのメソッド (<xref:System.Windows.Forms.Control.Invoke%2A>、<xref:System.Windows.Forms.Control.BeginInvoke%2A>、および <xref:System.Windows.Forms.Control.EndInvoke%2A>) が用意されています。 <xref:System.Windows.Forms.Control.Invoke%2A> は、同期メソッドを呼び出します。<xref:System.Windows.Forms.Control.BeginInvoke%2A> は、非同期メソッドを呼び出します。
 
  リソースを集中的に使用するタスクのためにコントロールでマルチスレッドを使用する場合、リソースを集中的に使用する計算がバックグラウンドスレッドで実行されている間は、ユーザーインターフェイスの応答性を維持できます。
 
- 次のサンプル (`DirectorySearcher`) は、バックグラウンドスレッドを使用して、指定された検索文字列に一致するファイルをディレクトリで再帰的に検索し、検索結果をリストボックスに挿入する、マルチスレッド Windows フォームコントロールを示しています。 このサンプルで示す主な概念は次のとおりです。
+ 次のサンプル (`DirectorySearcher`) では、バックグラウンドスレッドを使用して、指定された検索文字列に一致するファイルをディレクトリで再帰的に検索し、検索結果をリストボックスに設定する、マルチスレッドの Windows フォームコントロールを示します。 このサンプルで示す主な概念は次のとおりです。
 
-- `DirectorySearcher`新しいスレッドを開始して検索を実行します。 スレッドは、 `ThreadProcedure`メソッドを実行して、実際の`RecurseDirectory`検索を実行し、リストボックスにデータを設定するためにヘルパーメソッドを呼び出します。 ただし、リストボックスを設定するには、次の2つの箇条書き項目で説明されているように、スレッド間の呼び出しが必要です。
+- `DirectorySearcher` は、新しいスレッドを開始して検索を実行します。 スレッドは `ThreadProcedure` メソッドを実行します。このメソッドはヘルパー `RecurseDirectory` メソッドを呼び出して、実際の検索を実行し、リストボックスにデータを設定します。 ただし、リストボックスを設定するには、次の2つの箇条書き項目で説明されているように、スレッド間の呼び出しが必要です。
 
-- `DirectorySearcher``AddFiles` `RecurseDirectory` `AddFiles`ファイルをリストボックスに追加する`DirectorySearcher`メソッドを定義します。ただし、は、を作成した STA スレッドでしか実行できないため、を直接呼び出すことはできません。 `AddFiles`
+- `DirectorySearcher` は、ファイルをリストボックスに追加するための `AddFiles` メソッドを定義します。ただし、`DirectorySearcher`を作成した STA スレッドでのみ `AddFiles` を実行できるため、`RecurseDirectory` は `AddFiles` を直接呼び出すことはできません。
 
-- を呼び出す`RecurseDirectory` `AddFiles`ことができるのは、スレッド間の呼び出し (つまり、または<xref:System.Windows.Forms.Control.Invoke%2A> <xref:System.Windows.Forms.Control.BeginInvoke%2A>を呼び出して`AddFiles`の`DirectorySearcher`作成スレッドにマーシャリングする) だけです。 `RecurseDirectory`を<xref:System.Windows.Forms.Control.BeginInvoke%2A>使用して、呼び出しを非同期的に実行できるようにします。
+- `RecurseDirectory` が `AddFiles` を呼び出すことができるのは、<xref:System.Windows.Forms.Control.Invoke%2A> または <xref:System.Windows.Forms.Control.BeginInvoke%2A> を呼び出して `AddFiles` の作成スレッドに `DirectorySearcher`をマーシャリングすることです。 `RecurseDirectory` は <xref:System.Windows.Forms.Control.BeginInvoke%2A> を使用して、呼び出しを非同期に実行できるようにします。
 
-- メソッドをマーシャリングするには、関数ポインターまたはコールバックと同等のものが必要です。 これは、.NET Framework のデリゲートを使用して実現されます。 <xref:System.Windows.Forms.Control.BeginInvoke%2A>デリゲートを引数として受け取ります。 `DirectorySearcher`このため、デリゲート (`FileListDelegate`) を定義`AddFiles`し、コンストラクター内`FileListDelegate`ののインスタンスにバインドし、このデリゲートインスタンス<xref:System.Windows.Forms.Control.BeginInvoke%2A>をに渡します。 `DirectorySearcher`また、検索の完了時にマーシャリングされるイベントデリゲートを定義します。
+- メソッドをマーシャリングするには、関数ポインターまたはコールバックと同等のものが必要です。 これは、.NET Framework のデリゲートを使用して実現されます。 <xref:System.Windows.Forms.Control.BeginInvoke%2A> は、引数としてデリゲートを受け取ります。 したがって、`DirectorySearcher` はデリゲート (`FileListDelegate`) を定義し、`AddFiles` をコンストラクター内の `FileListDelegate` のインスタンスにバインドし、このデリゲートインスタンスを <xref:System.Windows.Forms.Control.BeginInvoke%2A>に渡します。 また `DirectorySearcher` は、検索の完了時にマーシャリングされるイベントデリゲートを定義します。
 
 ```vb
 Option Strict
 Option Explicit
 
-Imports System
 Imports System.IO
 Imports System.Threading
 Imports System.Windows.Forms
@@ -570,19 +569,18 @@ namespace Microsoft.Samples.DirectorySearcher
 ```
 
 ## <a name="using-the-multithreaded-control-on-a-form"></a>フォームでのマルチスレッドコントロールの使用
- 次の例は、マルチスレッド`DirectorySearcher`コントロールをフォームで使用する方法を示しています。
+ 次の例は、マルチスレッドの `DirectorySearcher` コントロールをフォームで使用する方法を示しています。
 
 ```vb
 Option Explicit
 Option Strict
 
-Imports Microsoft.Samples.DirectorySearcher
-Imports System
-Imports System.Drawing
 Imports System.Collections
 Imports System.ComponentModel
-Imports System.Windows.Forms
 Imports System.Data
+Imports System.Drawing
+Imports System.Windows.Forms
+Imports Microsoft.Samples.DirectorySearcher
 
 Namespace SampleUsage
 
@@ -664,14 +662,14 @@ End Namespace
 ```csharp
 namespace SampleUsage
 {
-   using Microsoft.Samples.DirectorySearcher;
    using System;
-   using System.Drawing;
    using System.Collections;
    using System.ComponentModel;
-   using System.Windows.Forms;
    using System.Data;
-
+   using System.Drawing;
+   using System.Windows.Forms;
+   using Microsoft.Samples.DirectorySearcher;
+   
    /// <summary>
    ///      Summary description for Form1.
    /// </summary>
@@ -762,7 +760,7 @@ namespace SampleUsage
 }
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.ComponentModel.BackgroundWorker>
 - [.NET Framework を使用したカスタム Windows フォーム コントロールの開発](developing-custom-windows-forms-controls.md)

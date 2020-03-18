@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 93f79627-bd31-4f4f-b95d-46a032a52fe4
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4011932af6f4b058906c19566e4c1abe96b409db
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: bf9ea40cc81be37499e6729006e7177a8000c000
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67762088"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76793297"
 ---
 # <a name="icordebugmanagedcallback2mdanotification-method"></a>ICorDebugManagedCallback2::MDANotification メソッド
-コードが実行されるには、デバッグ中のアプリケーションでマネージ デバッグ アシスタント (MDA) が発生した通知を提供します。  
+コード実行で、デバッグ中のアプリケーションでマネージデバッグアシスタント (MDA) が検出されたことを通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,31 +37,31 @@ HRESULT MDANotification(
   
 ## <a name="parameters"></a>パラメーター  
  `pController`  
- [in]プロセスを公開する ICorDebugController インターフェイスまたは MDA が発生したアプリケーション ドメインへのポインター。  
+ からMDA が発生したプロセスまたはアプリケーションドメインを公開する、表示コントローラーインターフェイスへのポインター。  
   
- デバッガーは、コント ローラーは、プロセスまたはアプリケーション ドメインでは、かどうかについてどのような想定をしないでを決定するインターフェイスを常に照会できることですが。  
+ デバッガーでは、コントローラーがプロセスとアプリケーションドメインのどちらであるかについては想定しませんが、常にインターフェイスを照会して決定を行うことができます。  
   
  `pThread`  
- [in]デバッグ イベントが発生したマネージ スレッドを公開する ICorDebugThread インターフェイスへのポインター。  
+ からデバッグイベントが発生したマネージスレッドを公開する、コードスレッドインターフェイスへのポインター。  
   
- MDA は、アンマネージで発生した場合のスレッドの値`pThread`は null になります。  
+ アンマネージスレッドで MDA が発生した場合、`pThread` の値は null になります。  
   
- MDA オブジェクト自体からは、オペレーティング システム (OS) のスレッド ID を取得する必要があります。  
+ MDA オブジェクト自体からオペレーティングシステム (OS) のスレッド ID を取得する必要があります。  
   
  `pMDA`  
- [in]ポインター、 [ICorDebugMDA](../../../../docs/framework/unmanaged-api/debugging/icordebugmda-interface.md) MDA 情報を公開するインターフェイス。  
+ からMDA 情報を公開[する、ツールのインターフェイスへ](icordebugmda-interface.md)のポインター。  
   
-## <a name="remarks"></a>Remarks  
- MDA はヒューリスティック警告であり、呼び出し元を除く任意の明示的なデバッガー操作が必要としない[icordebugcontroller::continue](../../../../docs/framework/unmanaged-api/debugging/icordebugcontroller-continue-method.md)がデバッグされているアプリケーションの実行を再開します。  
+## <a name="remarks"></a>コメント  
+ MDA は、ヒューリスティック警告であり、[例外を明示的に呼び出す必要](icordebugcontroller-continue-method.md)はありません。ただし、デバッグ中のアプリケーションの実行を再開する場合を除き、明示的なデバッガーアクションは必要ありません。  
   
- Mda が起動され、特定の MDA 任意の時点でのデータは、共通言語ランタイム (CLR) を確認できます。 そのため、デバッガーは特定の MDA パターンを必要とするすべての機能をビルドする必要があります。  
+ 共通言語ランタイム (CLR) は、どの Mda が発生したか、また任意の時点でどのデータが特定の MDA に存在するかを判断できます。 したがって、デバッガーでは、特定の MDA パターンを必要とする機能を構築しないでください。  
   
- Mda は、キューに MDA が発生した直後後に発生した可能性があります。 これは、ランタイムがそれを見つけたときに MDA を発生させるのではなく、MDA を発生させるためのセーフ ポイントに到達するまで待機する必要がある場合に発生する可能性があります。 また、ランタイムは、Mda のキューに置かれたコールバック (「添付」イベントの操作に似ています) の 1 組の数で発生する可能性があります。  
+ Mda は、MDA が検出された直後にキューに入れられ、発生する可能性があります。 これは、mda が発生したときに MDA を起動するのではなく、MDA を起動するためのセーフポイントに到達するまで、ランタイムが待機する必要がある場合に発生する可能性があります。 また、ランタイムは、キューに置かれたコールバックの1つのセット ("attach" イベント操作に似ています) で多数の Mda を起動することもあります。  
   
- デバッガーへの参照を解放する必要があります、`ICorDebugMDA`インスタンスから取得した直後に、`MDANotification`コールバック、MDA によって消費されるメモリのリサイクル、CLR を許可します。 インスタンスを解放すると、多数の Mda が発生している場合にパフォーマンスが向上する可能性があります。  
+ デバッガーは、`MDANotification` コールバックから戻った直後に `ICorDebugMDA` インスタンスへの参照を解放し、CLR が MDA によって消費されるメモリを再利用できるようにする必要があります。 多くの Mda が起動している場合、インスタンスを解放するとパフォーマンスが向上する可能性があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -74,5 +72,5 @@ HRESULT MDANotification(
 ## <a name="see-also"></a>関連項目
 
 - [マネージド デバッグ アシスタントによるエラーの診断](../../../../docs/framework/debug-trace-profile/diagnosing-errors-with-managed-debugging-assistants.md)
-- [ICorDebugManagedCallback2 インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback2-interface.md)
-- [ICorDebugManagedCallback インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-interface.md)
+- [ICorDebugManagedCallback2 インターフェイス](icordebugmanagedcallback2-interface.md)
+- [ICorDebugManagedCallback インターフェイス](icordebugmanagedcallback-interface.md)

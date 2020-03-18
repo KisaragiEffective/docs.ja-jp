@@ -4,18 +4,18 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - transactions [WCF], ServiceModel configuration
 ms.assetid: 5636067a-7fbd-4485-aaa2-8141c502acf3
-ms.openlocfilehash: d5bb81c618e3b27df32763948dbe56c9b37995e6
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: e8c8c9ebff259ccd991768afb8cdf9925a66aad0
+ms.sourcegitcommit: fbb8a593a511ce667992502a3ce6d8f65c594edf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61747707"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74141611"
 ---
 # <a name="servicemodel-transaction-configuration"></a>ServiceModel トランザクションの構成
-Windows Communication Foundation (WCF) サービスのトランザクションを構成するための 3 つの属性を提供します。 `transactionFlow`、 `transactionProtocol`、および`transactionTimeout`します。  
+Windows Communication Foundation (WCF) には、サービスのトランザクションを構成するための3つの属性 (`transactionFlow`、`transactionProtocol`、および `transactionTimeout`) が用意されています。  
   
 ## <a name="configuring-transactionflow"></a>transactionFlow の構成  
- ほとんどの定義済みバインディングを含む WCF が提供されています、`transactionFlow`と`transactionProtocol`属性、特定のトランザクション フロー プロトコルを使用して特定のエンドポイントに対してトランザクションを受け入れるバインドを構成することができるようにします。 さらに、`transactionFlow` 要素とその `transactionProtocol` 属性を使用して、ユーザー独自のカスタム バインドを構築できます。 構成要素の設定の詳細については、次を参照してください。 [\<バインド >](../../../../docs/framework/misc/binding.md)と[WCF 構成スキーマ](../../../../docs/framework/configure-apps/file-schema/wcf/index.md)します。  
+ WCF に用意されている定義済みバインディングのほとんどには、`transactionFlow` と `transactionProtocol` の属性が含まれているため、特定のトランザクションフロープロトコルを使用して特定のエンドポイントの受信トランザクションを受け入れるようにバインドを構成できます。 さらに、`transactionFlow` 要素とその `transactionProtocol` 属性を使用して、ユーザー独自のカスタム バインドを構築できます。 構成要素の設定の詳細については、「 [\<binding >](../../configure-apps/file-schema/wcf/bindings.md) 」および「 [WCF 構成スキーマ](../../../../docs/framework/configure-apps/file-schema/wcf/index.md)」を参照してください。  
   
  `transactionFlow` 属性は、バインディングを使用するサービス エンドポイントに対してトランザクション フローを有効にするかどうかを指定します。  
   
@@ -42,7 +42,7 @@ Windows Communication Foundation (WCF) サービスのトランザクション�
 ```  
   
 ## <a name="configuring-transactiontimeout"></a>transactionTimeout の構成  
- 構成することができます、`transactionTimeout`で WCF サービスの属性、`behavior`構成ファイルの要素。 次のコードでは、この設定方法について説明します。  
+ WCF サービスの `transactionTimeout` 属性は、構成ファイルの `behavior` 要素で構成できます。 次のコードでは、この設定方法について説明します。  
   
 ```xml  
 <configuration>  
@@ -64,5 +64,5 @@ Windows Communication Foundation (WCF) サービスのトランザクション�
   
 ## <a name="see-also"></a>関連項目
 
-- [\<binding>](../../../../docs/framework/misc/binding.md)
+- [\<バインド >](../../configure-apps/file-schema/wcf/bindings.md)
 - [WCF 構成スキーマ](../../../../docs/framework/configure-apps/file-schema/wcf/index.md)

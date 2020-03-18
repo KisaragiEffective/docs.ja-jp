@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 36997e04-f9f6-4254-a041-6767ac6c51d9
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: b26f08548ac964fae2f4d64db50167add327eb2d
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: ff3103a46390c880a56ff443bfe20744f2ba0bfd
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70777369"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74430691"
 ---
 # <a name="getwin32resblob-method"></a>GetWin32ResBlob メソッド
 Win32 リソース blob を取得します。 アセンブリオプションを設定した後に、このメソッドを呼び出します。  
@@ -59,9 +57,9 @@ HRESULT GetWin32ResBlob(
  Blob のサイズを受け取ります。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合、S_OK を返します。  
+ メソッドが成功した場合は S_OK を返します。  
   
-## <a name="requirements"></a>必要条件  
+## <a name="requirements"></a>要件  
  Alink. h が必要です。  
   
 ## <a name="see-also"></a>関連項目

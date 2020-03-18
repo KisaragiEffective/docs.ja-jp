@@ -1,17 +1,17 @@
 ---
-title: '方法: 直前の兄弟 (XPath LINQ to XML) を検索する (Visual Basic)'
+title: '方法 : 直前の兄弟を検索する (XPath-LINQ to XML)'
 ms.date: 07/20/2015
 ms.assetid: ec046283-9fe2-4440-b295-860bf700099d
-ms.openlocfilehash: 46f5b0d2d32e8dcba5f8c9e164a027a8e8118f4d
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: b2cb9efba0ef65a1b1ab1d7dadd54759f7d2a26b
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582693"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74344623"
 ---
-# <a name="how-to-find-the-immediate-preceding-sibling-xpath-linq-to-xml-visual-basic"></a>方法: 直前の兄弟 (XPath LINQ to XML) を検索する (Visual Basic)
+# <a name="how-to-find-the-immediate-preceding-sibling-xpath-linq-to-xml-visual-basic"></a>方法: 直前の兄弟を検索する (XPath LINQ to XML) (Visual Basic)
 
-ノードの直前の兄弟を検索することが必要になる場合があります。 [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] とは対照的に、XPath では先行する兄弟軸の位置述語にはセマンティクス上の違いがあります。この  と XPath の相違点は、注目すべき特徴といえます。
+ノードの直前の兄弟を検索することが必要になる場合があります。 [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] とは対照的に、XPath では先行する兄弟軸の位置述語にはセマンティクス上の違いがあります。この {2} と XPath の相違点は、注目すべき特徴といえます。
 
 ## <a name="example"></a>例
 
@@ -50,6 +50,6 @@ Results are identical
 <Child3 />
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [XPath ユーザーの LINQ to XML (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/linq-to-xml-for-xpath-users.md)

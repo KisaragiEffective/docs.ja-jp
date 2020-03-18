@@ -1,17 +1,16 @@
 ---
 title: オブジェクト初期化子とコレクション初期化子 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 12/19/2018
 helpviewer_keywords:
 - object initializers [C#]
 - collection initializers [C#]
 ms.assetid: c58f3db5-d7d4-4651-bd2d-5a3a97357f61
-ms.openlocfilehash: f6977fa6c5a8909d6108a5ccfc140b89a4fdd5a4
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: ae8741e2f29db0a470ad8d3b121375fbdeaff0d9
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69596563"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79170196"
 ---
 # <a name="object-and-collection-initializers-c-programming-guide"></a>オブジェクト初期化子とコレクション初期化子 (C# プログラミング ガイド)
 
@@ -23,7 +22,7 @@ C# では、1 つの命令文でオブジェクトまたはコレクションを
   
 [!code-csharp[ObjectInitializer1](../../../../samples/snippets/csharp/programming-guide/classes-and-structs/object-collection-initializers/BasicObjectInitializers.cs#CatDeclaration)]  
 [!code-csharp[ObjectInitializer1a](../../../../samples/snippets/csharp/programming-guide/classes-and-structs/object-collection-initializers/BasicObjectInitializers.cs#ObjectPropertyInitialization)]  
- 
+
 オブジェクト初期化子の構文では、インスタンスを作成できます。その後、新規作成されたオブジェクトは、割り当てられたプロパティと共に、割り当ての変数に代入されます。
 
 C# 6 より、オブジェクト初期化子では、フィールドとプロパティを割り当てることに加え、インデクサーを設定できます。 次の基底 `Matrix` クラスをご覧ください。
@@ -58,13 +57,13 @@ public string this[char c, int i] {  set { ... }; }
 
 ## <a name="object-initializers-with-anonymous-types"></a>オブジェクト初期化子と匿名型
 
-オブジェクト初期化子は、どのような場合にも使うことができますが、[!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] クエリ式で使うと特に有用です。 クエリ式では、次の宣言に示すように、オブジェクト初期化子を使うことによってのみ初期化できる[匿名型](./anonymous-types.md)が頻繁に使われます。  
+オブジェクト初期化子は、どのような場合にも使うことができますが、LINQ クエリ式で使うと特に有用です。 クエリ式では、次の宣言に示すように、オブジェクト初期化子を使うことによってのみ初期化できる[匿名型](./anonymous-types.md)が頻繁に使われます。  
 
 ```csharp
 var pet = new { Age = 10, Name = "Fluffy" };  
 ```
 
-匿名型を使うと、[!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] クエリ式の `select` 句によって元のシーケンスのオブジェクトを値と形状が元とは異なるオブジェクトに変換できます。 この方法は、シーケンス内の各オブジェクトの情報の一部のみを保存する場合に便利です。 次の例は、製品オブジェクト (`p`) に多くのフィールドおよびメソッドが含まれており、製品名および単価を含むオブジェクトのシーケンスを作成することにのみ関心があることを想定しています。  
+匿名型を使うと、LINQ クエリ式の `select` 句によって元のシーケンスのオブジェクトを値と形状が元とは異なるオブジェクトに変換できます。 この方法は、シーケンス内の各オブジェクトの情報の一部のみを保存する場合に便利です。 次の例は、製品オブジェクト (`p`) に多くのフィールドおよびメソッドが含まれており、製品名および単価を含むオブジェクトのシーケンスを作成することにのみ関心があることを想定しています。  
   
 [!code-csharp[ObjectInitializer3](../../../../samples/snippets/csharp/programming-guide/classes-and-structs/object-collection-initializers/BasicObjectInitializers.cs#AnonymousUse)]  
 
@@ -95,7 +94,7 @@ List<int> digits2 = new List<int> { 0 + 1, 12 % 3, MakeInt() };
   
 [!code-csharp[ListInitializer](../../../../samples/snippets/csharp/programming-guide/classes-and-structs/object-collection-initializers/BasicObjectInitializers.cs#ListInitializer)]  
   
-コレクションの `Add` メソッドで許容されている場合、コレクション初期化子の要素として [null](../../language-reference/keywords/null.md) を指定できます。  
+コレクションの [ メソッドで許容されている場合、コレクション初期化子の要素として ](../../language-reference/keywords/null.md)null`Add` を指定できます。  
   
 [!code-csharp[ListInitializerNull](../../../../samples/snippets/csharp/programming-guide/classes-and-structs/object-collection-initializers/BasicObjectInitializers.cs#ListInitialerWithNull)]  
   
@@ -103,13 +102,13 @@ List<int> digits2 = new List<int> { 0 + 1, 12 % 3, MakeInt() };
   
 [!code-csharp[DictionaryInitializer](../../../../samples/snippets/csharp/programming-guide/classes-and-structs/object-collection-initializers/BasicObjectInitializers.cs#DictionaryIndexerInitializer)]  
 
-上記のサンプルの場合、<xref:System.Collections.Generic.Dictionary%602.Item(%600)> を呼び出して値を設定するコードが生成されます。 C# 6 より、次の構文を使用し、ディクショナリやその他の連想コンテナーを初期化できます。 インデクサー構文の代わりに、括弧と代入によって 1 つのオブジェクトと複数の値が処理されていることにご注目ください。
+上記のサンプルの場合、<xref:System.Collections.Generic.Dictionary%602.Item(%600)> を呼び出して値を設定するコードが生成されます。 C# 6 以前は、次の構文を使用して、ディクショナリやその他の連想コンテナーを初期化できます。 インデクサー構文の代わりに、括弧と代入によって 1 つのオブジェクトと複数の値が処理されていることにご注目ください。
 
 [!code-csharp[DictionaryAddInitializer](../../../../samples/snippets/csharp/programming-guide/classes-and-structs/object-collection-initializers/BasicObjectInitializers.cs#DictionaryAddInitializer)]  
 
 この初期化子の例では、<xref:System.Collections.Generic.Dictionary%602.Add(%600,%601)> を呼び出し、3 つの項目をディクショナリに追加しています。 連想コレクションを初期化するこれら 2 つの異なる方法には、コンパイラによって生成されるメソッド呼び出しにより、動作にわずかな違いがあります。 いずれの場合も `Dictionary` クラスが使用されます。 他の型の場合、パブリック API に基づいて、いずれかのみサポートされることがあります。
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 次の例では、オブジェクトの概念とコレクション初期化子の概念が組み合わさっています。
 
@@ -123,8 +122,8 @@ List<int> digits2 = new List<int> { 0 + 1, 12 % 3, MakeInt() };
 
 [!code-csharp[InitializerListExample](../../../../samples/snippets/csharp/programming-guide/classes-and-structs/object-collection-initializers/BasicObjectInitializers.cs#FullDictionaryInitializer)]  
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
-- [LINQ クエリ式](../linq-query-expressions/index.md)
+- [C# プログラミングガイド](../index.md)
+- [C# での LINQ](../../linq/index.md)
 - [匿名型](anonymous-types.md)

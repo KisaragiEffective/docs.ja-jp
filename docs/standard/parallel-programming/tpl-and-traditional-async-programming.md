@@ -8,21 +8,19 @@ dev_langs:
 helpviewer_keywords:
 - tasks, with other asynchronous models
 ms.assetid: e7b31170-a156-433f-9f26-b1fc7cd1776f
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 57f274d55ba5723ce8e0b51a7a39e98e95855e28
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 27766c10d0624b5eda8256a3211662036a1b16b3
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64653923"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73139951"
 ---
 # <a name="tpl-and-traditional-net-framework-asynchronous-programming"></a>TPL と従来の .NET Framework 非同期プログラミング
 .NET Framework の I/O バインドの非同期操作および計算主体の非同期操作には、次の 2 つの標準パターンがあります。  
   
 - 非同期操作が Begin/End メソッドのペアによって表される非同期プログラミング モデル (APM)。<xref:System.IO.FileStream.BeginRead%2A?displayProperty=nameWithType>、<xref:System.IO.Stream.EndRead%2A?displayProperty=nameWithType> など。  
   
-- イベントベースの非同期パターン (EAP)。たとえば <xref:System.Net.WebClient.DownloadStringAsync%2A?displayProperty=nameWithType> や <xref:System.Net.WebClient.DownloadStringCompleted?displayProperty=nameWithType> など、*OperationName*Async および *OperationName*Completed という名前のメソッドとイベントのペアによって非同期操作が表されています。 (EAP は、.NET Framework Version 2.0 で導入されました)。  
+- イベントベースの非同期パターン (EAP)。たとえば *や* など、*OperationName*Async および <xref:System.Net.WebClient.DownloadStringAsync%2A?displayProperty=nameWithType>OperationName<xref:System.Net.WebClient.DownloadStringCompleted?displayProperty=nameWithType>Completed という名前のメソッドとイベントのペアによって非同期操作が表されています。 (EAP は、.NET Framework Version 2.0 で導入されました)。  
   
  タスク並列ライブラリ (TPL) は、これらの非同期パターンと共にさまざまな方法で使用されます。 ライブラリ使用時に、APM 操作と EAP 操作をタスクとして公開するか、または APM パターンを公開し、タスク オブジェクトを使用して内部的に実装することができます。 どちらの場合でも、タスク オブジェクトを使用することでコードを簡易化し、次のような便利な機能を活用できます。  
   
@@ -37,13 +35,13 @@ ms.locfileid: "64653923"
 - <xref:System.Threading.Tasks.TaskCompletionSource%601> を使用し、タスク オブジェクトへの操作の状態をマーシャリングする。  
   
 ## <a name="wrapping-apm-operations-in-a-task"></a>APM 操作のタスクへのラッピング  
- <xref:System.Threading.Tasks.TaskFactory?displayProperty=nameWithType> クラスと <xref:System.Threading.Tasks.TaskFactory%601?displayProperty=nameWithType> クラスには、1 つの <xref:System.Threading.Tasks.Task> インスタンスまたは <xref:System.Threading.Tasks.Task%601> インスタンスに APM の Begin/End メソッドのペアをカプセル化できる <xref:System.Threading.Tasks.TaskFactory.FromAsync%2A?displayProperty=nameWithType> メソッドと <xref:System.Threading.Tasks.TaskFactory%601.FromAsync%2A?displayProperty=nameWithType> メソッドの複数のオーバーロードが用意されています。 さまざまなオーバーロードが、0 ～ 3 個の入力パラメーターを持つ Begin/End メソッドのペアに対応します。  
+ <xref:System.Threading.Tasks.TaskFactory?displayProperty=nameWithType> クラスと <xref:System.Threading.Tasks.TaskFactory%601?displayProperty=nameWithType> クラスには、1 つの <xref:System.Threading.Tasks.TaskFactory.FromAsync%2A?displayProperty=nameWithType> インスタンスまたは <xref:System.Threading.Tasks.TaskFactory%601.FromAsync%2A?displayProperty=nameWithType> インスタンスに APM の Begin/End メソッドのペアをカプセル化できる <xref:System.Threading.Tasks.Task> メソッドと <xref:System.Threading.Tasks.Task%601> メソッドの複数のオーバーロードが用意されています。 さまざまなオーバーロードが、0 ～ 3 個の入力パラメーターを持つ Begin/End メソッドのペアに対応します。  
   
- 値 (Visual Basic の場合は `Function`) を返す `End` メソッドを持つペアの場合は、<xref:System.Threading.Tasks.Task%601> を作成する <xref:System.Threading.Tasks.TaskFactory%601> のメソッドを使用します。 Void (Visual Basic の場合は `Sub`) を返す `End` メソッドの場合は、<xref:System.Threading.Tasks.Task> を作成する <xref:System.Threading.Tasks.TaskFactory> のメソッドを使用します。  
+ 値 (Visual Basic の場合は `End`) を返す `Function` メソッドを持つペアの場合は、<xref:System.Threading.Tasks.TaskFactory%601> を作成する <xref:System.Threading.Tasks.Task%601> のメソッドを使用します。 Void (Visual Basic の場合は `End`) を返す `Sub` メソッドの場合は、<xref:System.Threading.Tasks.TaskFactory> を作成する <xref:System.Threading.Tasks.Task> のメソッドを使用します。  
   
  ごくまれなケースですが、`Begin` メソッドが 3 個以上のパラメーターを持つ場合や、`ref` パラメーターまたは `out` パラメーターが含まれる場合は、`FromAsync` メソッドだけをカプセル化する `End` オーバーロードが追加で提供されます。  
   
- <xref:System.IO.FileStream.BeginRead%2A?displayProperty=nameWithType> メソッドおよび <xref:System.IO.FileStream.EndRead%2A?displayProperty=nameWithType> メソッドと一致する `FromAsync` オーバーロードの署名を、次のコード例に示します。 このオーバーロードは、次のように、3 つの入力パラメーターを取ります。  
+ `FromAsync` メソッドおよび <xref:System.IO.FileStream.BeginRead%2A?displayProperty=nameWithType> メソッドと一致する <xref:System.IO.FileStream.EndRead%2A?displayProperty=nameWithType> オーバーロードの署名を、次のコード例に示します。 このオーバーロードは、次のように、3 つの入力パラメーターを取ります。  
   
  [!code-csharp[FromAsync#01](../../../samples/snippets/csharp/VS_Snippets_Misc/fromasync/cs/fromasync.cs#01)]
  [!code-vb[FromAsync#01](../../../samples/snippets/visualbasic/VS_Snippets_Misc/fromasync/vb/module1.vb#01)]  
@@ -104,7 +102,7 @@ ms.locfileid: "64653923"
  [!code-csharp[FromAsync#10](../../../samples/snippets/csharp/VS_Snippets_Misc/fromasync/cs/snippet10.cs#10)]
  [!code-vb[FromAsync#10](../../../samples/snippets/visualbasic/VS_Snippets_Misc/fromasync/vb/snippet10.vb#10)]  
   
- 追加の例外処理や、クライアント コードからメソッドを呼び出す方法などを示したより包括的な例については、「[方法:タスクに EAP パターンをラップする](../../../docs/standard/parallel-programming/how-to-wrap-eap-patterns-in-a-task.md)」を参照してください。  
+ 追加の例外処理を含み、クライアント コードからメソッドを呼び出す方法を示す、より包括的な例については、「[方法: タスクに EAP パターンをラップする](../../../docs/standard/parallel-programming/how-to-wrap-eap-patterns-in-a-task.md)」を参照してください。  
   
  <xref:System.Threading.Tasks.TaskCompletionSource%601> によって作成されたタスクは、その TaskCompletionSource によって開始されるので、ユーザー コードがそのタスクで Start メソッドを呼び出さないようにする必要があります。  
   
@@ -119,6 +117,6 @@ ms.locfileid: "64653923"
 ## <a name="using-the-streamextensions-sample-code"></a>StreamExtensions サンプル コードの使用  
  「[Samples for Parallel Programming with the .NET Framework 4](https://code.msdn.microsoft.com/ParExtSamples)」(.NET Framework 4 での並列プログラミングの例) に示す Streamextensions.cs ファイルには、非同期ファイルおよびネットワーク I/O に対してタスク オブジェクトを使用する参照実装がいくつか含まれています。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [タスク並列ライブラリ (TPL)](../../../docs/standard/parallel-programming/task-parallel-library-tpl.md)

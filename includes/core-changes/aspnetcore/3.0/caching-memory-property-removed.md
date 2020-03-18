@@ -1,18 +1,18 @@
 ---
-ms.openlocfilehash: 7d40324e6b0bc4afab9dd39b236f0909f360cc9b
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 2c1362d6982206b14475f77700add0bae61da173
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72394213"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75902007"
 ---
 ### <a name="caching-compactonmemorypressure-property-removed"></a>キャッシュ:CompactOnMemoryPressure プロパティが削除された
 
-ASP.NET Core 3.0 のリリースでは、[古い MemoryCacheOptions API](https://github.com/aspnet/Extensions/blob/dc5c593da7b72c82e6fe85abb91d03818f9b700c/src/Caching/Memory/src/MemoryCacheOptions.cs#L17-L18) が削除されました。
+ASP.NET Core 3.0 のリリースでは、[古い MemoryCacheOptions API](https://github.com/dotnet/extensions/blob/dc5c593da7b72c82e6fe85abb91d03818f9b700c/src/Caching/Memory/src/MemoryCacheOptions.cs#L17-L18) が削除されました。
 
 #### <a name="change-description"></a>変更の説明
 
-この変更は、[aspnet/Caching#221](https://github.com/aspnet/Caching/issues/221) に対するフォローアップです。 ディスカッションについては、[aspnet/Extensions#1062](https://github.com/aspnet/Extensions/issues/1062) を参照してください。
+この変更は、[aspnet/Caching#221](https://github.com/aspnet/Caching/issues/221) に対するフォローアップです。 ディスカッションについては、[dotnet/extensions#1062](https://github.com/dotnet/extensions/issues/1062) を参照してください。
 
 #### <a name="version-introduced"></a>導入されたバージョン
 
@@ -30,7 +30,7 @@ ASP.NET Core 3.0 のリリースでは、[古い MemoryCacheOptions API](https:/
 
 キャッシュを自動的に圧縮すると、問題が発生しました。 予期しない動作を避けるため、キャッシュは必要なときにのみ圧縮する必要があります。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 キャッシュを圧縮するには、`MemoryCache` にダウンキャストし、必要に応じて `Compact` を呼び出します。
 

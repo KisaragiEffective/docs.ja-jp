@@ -8,18 +8,18 @@ helpviewer_keywords:
 - configuring Visual Studio to debug XAML browser applications [WPF]
 - configuring Visual Studio to debug XBAPs [WPF]
 ms.assetid: fd1db082-a7bb-4c4b-9331-6ad74a0682d0
-ms.openlocfilehash: 7730ab452e227b11e5a9dd69cdabec51f333ce4f
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: d8cfae2fb47876d578c51e5f4acdfe0c31e752fe
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72321193"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73460905"
 ---
 # <a name="how-to-configure-visual-studio-to-debug-a-xaml-browser-application-to-call-a-web-service"></a>方法 : Visual Studio を構成して Web サービスを呼び出す XAML ブラウザー アプリケーションをデバッグする
-[!INCLUDE[TLA#tla_xbap#plural](../../../../includes/tlasharptla-xbapsharpplural-md.md)] は、インターネットゾーンのアクセス許可セットに制限されている部分信頼セキュリティサンドボックス内で実行されます。 このアクセス許可セットは、Web サービスの呼び出しを、@no__t 0 アプリケーションの起点サイトにある Web サービスのみに制限します。 ただし、[!INCLUDE[TLA2#tla_xbap](../../../../includes/tla2sharptla-xbap-md.md)] が Visual Studio 2005 からデバッグされている場合、それが参照している Web サービスと同じサイトの起点を持っているとは見なされません。 これにより、@no__t が0の場合に Web サービスの呼び出しが試行されると、セキュリティ例外が発生します。 ただし、Visual Studio 2005 [!INCLUDE[TLA#tla_wpfbrowserappproj](../../../../includes/tlasharptla-wpfbrowserappproj-md.md)] プロジェクトは、デバッグ中に呼び出し元の Web サービスと同じサイトがあることをシミュレートするように構成できます。 これにより、[!INCLUDE[TLA2#tla_xbap](../../../../includes/tla2sharptla-xbap-md.md)] はセキュリティ例外を発生させることなく、Web サービスを安全に呼び出すことができます。
+XAML ブラウザーアプリケーション (Xbap) は、インターネットゾーンのアクセス許可セットに制限されている部分信頼セキュリティサンドボックス内で実行されます。 このアクセス許可セットは、Web サービスの呼び出しを、XBAP アプリケーションの起点サイトにある Web サービスのみに制限します。 ただし、XBAP が Visual Studio 2005 からデバッグされている場合、それが参照している Web サービスと同じ起点サイトであるとは見なされません。 これにより、XBAP が Web サービスを呼び出そうとすると、セキュリティ例外が発生します。 ただし、Visual Studio 2005 XAML ブラウザーアプリケーション (WPF) プロジェクトは、デバッグ中に呼び出される Web サービスと同じ起点サイトがあることをシミュレートするように構成できます。 これにより、XBAP はセキュリティ例外を発生させることなく、Web サービスを安全に呼び出すことができます。
 
 ## <a name="configuring-visual-studio"></a>Visual Studio の構成
- Web サービスを呼び出す @no__t 0 をデバッグするように Visual Studio 2005 を構成するには、次のようにします。
+ Web サービスを呼び出す XBAP をデバッグするように Visual Studio 2005 を構成するには、次のようにします。
 
 1. **ソリューション エクスプローラー**でプロジェクトを選択し、 **[プロジェクト]** メニューの **[プロパティ]** をクリックします。
 
@@ -38,7 +38,7 @@ ms.locfileid: "72321193"
      `-debug c:\example.xbap`
 
 > [!NOTE]
-> これは、Visual Studio 2005 [!INCLUDE[TLA#tla_wpfbrowserappproj](../../../../includes/tlasharptla-wpfbrowserappproj-md.md)] プロジェクトテンプレートを使用して作成されたソリューションの既定の構成です。
+> これは、Visual Studio 2005 XAML ブラウザーアプリケーション (WPF) プロジェクトテンプレートを使用して作成されたソリューションの既定の構成です。
 
 1. **ソリューション エクスプローラー**でプロジェクトを選択し、 **[プロジェクト]** メニューの **[プロパティ]** をクリックします。
 
@@ -50,7 +50,7 @@ ms.locfileid: "72321193"
 
      **-Debugsecurityゾーン url**パラメーターの*url*値は、アプリケーションの元のサイトとしてシミュレートする場所の url ですが、
 
- 例として、次の URL の Web サービスを使用する @no__t 0 を考えてみます。
+ 例として、次の URL の Web サービスを使用する XAML ブラウザーアプリケーション (XBAP) を考えてみます。
 
  `http://services.msdn.microsoft.com/ContentServices/ContentService.asmx`
 

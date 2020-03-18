@@ -2,22 +2,22 @@
 title: <tcpTransport>
 ms.date: 03/30/2017
 ms.assetid: 8fcd18c1-9958-42e7-b442-7903f7bdb563
-ms.openlocfilehash: 409d2e47b411c0bfaa2b0fe46fc242bd8453a042
-ms.sourcegitcommit: 093571de904fc7979e85ef3c048547d0accb1d8a
+ms.openlocfilehash: f2c1335795ffd3cb395a7006bfaeb3cf7b39636b
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70399487"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77448622"
 ---
-# <a name="tcptransport"></a>\<tcpTransport>
+# <a name="tcptransport"></a>tcpTransport > の \<
 カスタム バインドのメッセージを転送するためにチャネルで使用できる TCP トランスポートを定義します。  
   
 [ **\<configuration>** ](../configuration-element.md)\
-&nbsp;&nbsp;[ **\<System.servicemodel >** ](system-servicemodel.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;[ **\<バインド >** ](bindings.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ **\<customBinding >** ](custombinding.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<バインド >** \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<tcpTransport >**  
+&nbsp;&nbsp;[ **\<system.servicemodel >** ](system-servicemodel.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;\<[**バインド**](bindings.md)>\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<[**customBinding >** ](custombinding.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**バインド >** \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**tcpTransport >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,8 +43,8 @@ ms.locfileid: "70399487"
 </tcpTransport>
 ```  
   
-## <a name="attributes-and-elements"></a>属性および要素  
- 以降のセクションでは、属性、子要素、および親要素について説明します。  
+## <a name="attributes-and-elements"></a>属性と要素  
+ 次のセクションでは、属性、子要素、親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
   
@@ -61,8 +61,8 @@ ms.locfileid: "70399487"
 |maxPendingAccepts|サービスに対する着信接続処理に使用できる保留中の非同期受け入れ操作の最大数を取得または設定します。|  
 |maxPendingConnections|サービスでディスパッチを待機している最大接続数を取得または設定します。|  
 |maxReceivedMessageSize|受信できる最大メッセージ サイズを取得または設定します。|  
-|portSharingEnabled|TCP ポート共有をこの接続で有効にする場合に指定するブール値。 これが `false` の場合、各バインディングは独自の排他ポートを使用します。 既定値は、`false` です。<br /><br /> この設定は、サービスのみに関連します。 クライアントには影響はありません。<br /><br /> この設定を使用するには、[スタートアップの種類] を [手動] または [自動] に変更して、Windows Communication Foundation (WCF) の TCP ポート共有サービスを有効にする必要があります。|  
-|teredoEnabled|Teredo (ファイアウォールの内側にあるクライアントをアドレス指定するためのテクノロジ) が有効であるかどうかを指定するブール値。 既定値は、`false` です。<br /><br /> このプロパティは、基になる TCP ソケットで Tredo を有効にします。 詳細については、「 [Teredo の概要](https://go.microsoft.com/fwlink/?LinkId=95339)」を参照してください。<br /><br /> このプロパティは [!INCLUDE[wxpsp2](../../../../../includes/wxpsp2-md.md)] および [!INCLUDE[ws2003](../../../../../includes/ws2003-md.md)] にのみ適用できます。 [!INCLUDE[wv](../../../../../includes/wv-md.md)] には、Teredo 用のコンピューター全体の構成オプションがあるので、Vista を実行する場合は、このプロパティは無視されます。 Teredo の場合、クライアント コンピューターおよびサービス コンピューターの両方に Microsoft IPv6 スタックをインストールし、Teredo 用に正しく設定する必要があります。 Teredo の構成の詳細については、「 [teredo の概要](https://go.microsoft.com/fwlink/?LinkId=95339)」を参照してください。 詳細については、「 [Windows Server 2003 テクノロジセンター](https://go.microsoft.com/fwlink/?LinkId=49888)」を参照してください。|  
+|portSharingEnabled|TCP ポート共有をこの接続で有効にする場合に指定するブール値。 これが `false` の場合、各バインディングは独自の排他ポートを使用します。 既定では、 `false`です。<br /><br /> この設定は、サービスのみに関連します。 クライアントには影響はありません。<br /><br /> この設定を使用するには、[スタートアップの種類] を [手動] または [自動] に変更して、Windows Communication Foundation (WCF) の TCP ポート共有サービスを有効にする必要があります。|  
+|teredoEnabled|Teredo (ファイアウォールの内側にあるクライアントをアドレス指定するためのテクノロジ) が有効であるかどうかを指定するブール値。 既定では、 `false`です。<br /><br /> このプロパティは、基になる TCP ソケットで Tredo を有効にします。 詳細については、「 [Teredo の概要](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-xp/bb457011(v=technet.10))」を参照してください。<br /><br /> このプロパティは、Windows XP SP2 および Windows Server 2003 でのみ適用できます。 Windows Vista には、Teredo 用のコンピューター全体の構成オプションがあるため、Vista を実行する場合、このプロパティは無視されます。 Teredo の場合、クライアント コンピューターおよびサービス コンピューターの両方に Microsoft IPv6 スタックをインストールし、Teredo 用に正しく設定する必要があります。|  
 |transferMode|接続指向のトランスポートでメッセージをバッファーするか、ストリーム配信するかを示す値を取得または設定します。|  
 |connectionPoolSettings|名前付きパイプ バインディングの追加の接続プール設定を指定します。|  
   
@@ -73,14 +73,14 @@ ms.locfileid: "70399487"
   
 |要素|説明|  
 |-------------|-----------------|  
-|[\<binding>](../../../misc/binding.md)|カスタム バインドのすべてのバインド機能を定義します。|  
+|[\<バインド >](bindings.md)|カスタム バインドのすべてのバインド機能を定義します。|  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
  このトランスポートは、"net.tcp://hostname:port/path" の形式の URI を使用します。 他の URI コンポーネントは省略可能です。  
   
  `tcpTransport` 要素は、TCP トランスポート プロトコルを実装するカスタム バインディングを作成する場合の開始点となります。 このトランスポートは、WCF 間の通信用に最適化されています。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.ServiceModel.Configuration.TcpTransportElement>
 - <xref:System.ServiceModel.Channels.TcpTransportBindingElement>
@@ -88,7 +88,7 @@ ms.locfileid: "70399487"
 - <xref:System.ServiceModel.Channels.CustomBinding>
 - [トランスポート](../../../wcf/feature-details/transports.md)
 - [トランスポートの選択](../../../wcf/feature-details/choosing-a-transport.md)
-- [バインディング](../../../wcf/bindings.md)
+- [Bindings](../../../wcf/bindings.md)
 - [バインディングの拡張](../../../wcf/extending/extending-bindings.md)
 - [カスタム バインディング](../../../wcf/extending/custom-bindings.md)
-- [\<customBinding>](custombinding.md)
+- [\<customBinding >](custombinding.md)

@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 4d69fb6d-ee35-4318-8224-5eea2bd16818
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 02331bb3b0c70b946eaa28c9cd316f109ac927b6
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 0a1d244a4bf077970d2031c3c3b2bc56a0dd3d79
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777236"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74426815"
 ---
 # <a name="imetadataemitsetrva-method"></a>IMetaDataEmit::SetRVA メソッド
 指定したメソッドの相対仮想アドレスを設定します。  
@@ -38,17 +36,17 @@ HRESULT SetRVA (
   
 ## <a name="parameters"></a>パラメーター  
  `md`  
- [in]対象のメソッドまたはメソッドの実装のトークンです。  
+ から対象のメソッドまたはメソッドの実装のトークン。  
   
  `ulRVA`  
- [in]コードまたはデータ領域のアドレス。  
+ からコードまたはデータ領域のアドレス。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MSCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

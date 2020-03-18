@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c5c82c69-99f8-4447-aee0-42cca0a5eb5c
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 618be7482616ea155798973d02a90f32d46164db
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: c14979fa711145b9f1a134f90d7450b24e6d8a15
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67780263"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76864298"
 ---
 # <a name="icorprofilerinfobegininprocdebugging-method"></a>ICorProfilerInfo::BeginInprocDebugging メソッド
-初期化します、インプロセス デバッグのサポート。 このメソッドは、.NET Framework version 2.0 で廃止されています。  
+インプロセスデバッグサポートを初期化します。 このメソッドは .NET Framework バージョン2.0 では廃止されています。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,23 +35,23 @@ HRESULT BeginInprocDebugging(
   
 ## <a name="parameters"></a>パラメーター  
  `fThisThreadOnly`  
- [in]この値に設定`true`現在スレッドのみのデバッグのサポートを初期化するために設定`false`のすべてのスレッドのデバッグのサポートを初期化します。  
+ から現在のスレッドのみのデバッグサポートを初期化するには、この値を `true` に設定します。すべてのスレッドのデバッグサポートを初期化するには、`false` に設定します。  
   
  `pdwProfilerContext`  
- [out]デバッグ セッションを識別する戻り値へのポインター。  
+ 入出力デバッグセッションを識別する戻り値へのポインター。  
   
-## <a name="remarks"></a>Remarks  
- CLR デバッグ サービスでは、.NET Framework version 1.0 および 1.1 での制限、インプロセス デバッグがサポートされています。 インプロセス デバッグするには、デバッグ API の検査の部分を使用するプロファイラーを有効になっています。 ただし、お客様のフィードバックによりインプロセス デバッグが version 2.0、.NET Framework から削除され、プロファイル API に合わせてさらには、機能のセットに置き換えられます。  
+## <a name="remarks"></a>コメント  
+ CLR デバッグサービスでは、.NET Framework バージョン1.0 および1.1 でサポートされているプロセス内デバッグが制限されています。 インプロセスデバッグでは、デバッグ API の検査部分を使用するプロファイラーが有効になりました。 ただし、お客様からのフィードバックにより、プロセス内デバッグはバージョン2.0 の .NET Framework から削除され、プロファイル API により多くの機能を備えた一連の機能に置き換えられました。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
- **.NET framework のバージョン:** 1  
+ **.NET Framework のバージョン:** 1.0  
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerInfo インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-interface.md)
+- [ICorProfilerInfo インターフェイス](icorprofilerinfo-interface.md)

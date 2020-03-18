@@ -11,12 +11,12 @@ api_type:
 - COM
 author: davmason
 ms.author: davmason
-ms.openlocfilehash: 80571933bc8d91c074dbee62aad50cece6277d51
-ms.sourcegitcommit: cdf67135a98a5a51913dacddb58e004a3c867802
+ms.openlocfilehash: 99706fdc3d60a5e1a7f85400c1184d5acc808e42
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69665511"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77449731"
 ---
 # <a name="icorprofilerinfo9getnativecodestartaddresses-method"></a>ICorProfilerInfo9:: GetNativeCodeStartAddresses メソッド
 
@@ -32,37 +32,42 @@ HRESULT GetNativeCodeStartAddresses( [in]  FunctionID functionID,
                                      [out] UINT_PTR codeStartAddresses[]);
 ```
 
-#### <a name="parameters"></a>パラメーター
+## <a name="parameters"></a>パラメーター
 
-`functionId` \
-からネイティブコードの開始アドレスを返す関数の ID。
+- `functionId`
 
-`reJitId` \
-[in] JIT 再コンパイルされた関数のID。
+  \[] には、ネイティブコードの開始アドレスを返す関数の ID を指定します。
 
-`cCodeStartAddresses` \
-[in] `codeStartAddresses` 配列の最大サイズ。
+- `reJitId`
 
-`pcCodeStartAddresses` \
-入出力使用可能なアドレスの数。
+  \[] JIT 再コンパイルされた関数の id。
 
-`codeStartAddresses` \
-入出力の`UINT_PTR`配列。各は、指定された関数のネイティブ本体の開始アドレスです。
+- `cCodeStartAddresses`
 
-## <a name="remarks"></a>Remarks
+  \[] `codeStartAddresses` 配列の最大サイズ。
+
+- `pcCodeStartAddresses`
+
+  \[out] 使用可能なアドレスの数。
+
+- `codeStartAddresses`
+
+  \[out] `UINT_PTR`の配列。それぞれが指定された関数のネイティブ本体の開始アドレスです。
+
+## <a name="remarks"></a>コメント
 
 階層化コンパイルが有効になっている場合、関数は複数のネイティブコード本体を持つことができます。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
-**・** 「 [.Net Core でサポートされるオペレーティングシステム](../../../core/windows-prerequisites.md#net-core-supported-operating-systems)」を参照してください。
+**プラットフォーム:** 「 [.Net Core でサポートされるオペレーティングシステム](../../../core/install/dependencies.md?pivots=os-windows)」を参照してください。
 
-**ヘッダー:** Corprof.idl、Corprof.idl
+**ヘッダー** : CorProf.idl、CorProf.h
 
-**ライブラリ**CorGuids .lib
+**ライブラリ:** CorGuids.lib
 
 **.Net のバージョン:** [!INCLUDE[net_core_22](../../../../includes/net-core-22-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [ICorProfilerInfo9 インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo9-interface.md)
+- [ICorProfilerInfo9 インターフェイス](icorprofilerinfo9-interface.md)

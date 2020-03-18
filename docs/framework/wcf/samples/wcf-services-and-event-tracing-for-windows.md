@@ -2,12 +2,12 @@
 title: WCF サービスと Event Tracing for Windows
 ms.date: 03/30/2017
 ms.assetid: eda4355d-0bd0-4dc9-80a2-d2c832152272
-ms.openlocfilehash: e1ee7154e2ad5b22ff0debcdd15d5809fc55df13
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 5bf965ad6a9997ec0603325f246679cf42662a52
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70044517"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77094814"
 ---
 # <a name="wcf-services-and-event-tracing-for-windows"></a>WCF サービスと Event Tracing for Windows
 このサンプルでは、Windows Communication Foundation (WCF) の分析トレースを使用して Windows イベントトレーシング (ETW) でイベントを出力する方法を示します。 分析トレースは、運用環境での WCF サービスのトラブルシューティングを可能にする WCF スタックの主要なポイントで生成されるイベントです。
@@ -30,11 +30,11 @@ ms.locfileid: "70044517"
 
 4. WCF テストクライアント (Wcftestclient.exe) を実行します。
 
-     WCF テストクライアント (Wcftestclient.exe) は、に`\<Visual Studio 2012 Install Dir>\Common7\IDE\WcfTestClient.exe`あります。  既定の Visual Studio 2012 インストールディレクトリは`C:\Program Files\Microsoft Visual Studio 10.0`です。
+     WCF テストクライアント (Wcftestclient.exe) は `\<Visual Studio 2012 Install Dir>\Common7\IDE\WcfTestClient.exe`にあります。  既定の Visual Studio 2012 インストールディレクトリは `C:\Program Files\Microsoft Visual Studio 10.0`です。
 
 5. WCF テストクライアント内で、 **[ファイル]** を選択し、 **[サービスの追加]** をクリックしてサービスを追加します。
 
-     入力ボックスにエンドポイントのアドレスを追加します。 既定値は `http://localhost:1378/Calculator.svc` です。
+     入力ボックスにエンドポイントのアドレスを追加します。 既定では、 `http://localhost:1378/Calculator.svc`です。
 
 6. イベント ビューアー アプリケーションを開きます。
 
@@ -52,7 +52,7 @@ ms.locfileid: "70044517"
 
 #### <a name="to-test-the-service"></a>サービスをテストするには
 
-1. WCF テストクライアントに戻り、をダブルクリック`Divide`し、既定値をそのまま使用します。既定値では、分母が0に指定されています。
+1. WCF テストクライアントに戻り、`Divide` をダブルクリックして、既定値をそのまま使用します。これは、分母を0に指定します。
 
      分母が 0 の場合、サービスからエラーがスローされます。
 
@@ -83,10 +83,10 @@ ms.locfileid: "70044517"
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Management\ETWTracing`  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [AppFabric の監視のサンプル](https://go.microsoft.com/fwlink/?LinkId=193959)
+- [AppFabric の監視のサンプル](https://docs.microsoft.com/previous-versions/appfabric/ff383407(v=azure.10))

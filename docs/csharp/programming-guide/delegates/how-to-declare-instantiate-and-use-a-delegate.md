@@ -1,18 +1,17 @@
 ---
-title: '方法: デリゲートを宣言し、インスタンス化して使用する - C# プログラミング ガイド'
-ms.custom: seodec18
+title: デリゲートを宣言し、インスタンス化して使用する方法 - C# プログラミング ガイド
 ms.date: 07/20/2015
 helpviewer_keywords:
 - delegates [C#], declaring and instantiating
 ms.assetid: 61c4895f-f785-48f8-8bfe-db73b411c4ae
-ms.openlocfilehash: 565ae2a6c42de57570f564edc9d0bde5cab8efa8
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 7ac1d736e19c4dcf1c8408db944505c399762778
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69590619"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75712365"
 ---
-# <a name="how-to-declare-instantiate-and-use-a-delegate-c-programming-guide"></a>方法: デリゲートを宣言し、インスタンス化して使用する (C# プログラミング ガイド)
+# <a name="how-to-declare-instantiate-and-use-a-delegate-c-programming-guide"></a>デリゲートを宣言し、インスタンス化して使用する方法 (C# プログラミング ガイド)
 C# 1.0 以降では、次の例に示すようにデリゲートを宣言できます。  
   
  [!code-csharp[csProgGuideDelegates#13](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideDelegates/CS/Delegates.cs#13)]  
@@ -23,7 +22,7 @@ C# 1.0 以降では、次の例に示すようにデリゲートを宣言でき�
   
  [!code-csharp[csProgGuideDelegates#32](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideDelegates/CS/Delegates.cs#32)]  
   
- C# 2.0 以降では、次の例に示すように、匿名メソッドを使用して[デリゲート](../../language-reference/keywords/delegate.md)の宣言と初期化を行うこともできます。  
+ C# 2.0 以降では、次の例に示すように、匿名メソッドを使用して[デリゲート](../../language-reference/builtin-types/reference-types.md)の宣言と初期化を行うこともできます。  
   
  [!code-csharp[csProgGuideDelegates#15](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideDelegates/CS/Delegates.cs#15)]  
   
@@ -31,7 +30,7 @@ C# 1.0 以降では、次の例に示すようにデリゲートを宣言でき�
   
  [!code-csharp[csProgGuideDelegates#31](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideDelegates/CS/Delegates.cs#31)]  
   
- 詳細については、「[ラムダ式](../statements-expressions-operators/lambda-expressions.md)」を参照してください。  
+ 詳しくは、「[ラムダ式](../statements-expressions-operators/lambda-expressions.md)」をご覧ください。  
   
  次の例で、デリゲートの宣言、インスタンス化、および使用の方法について説明します。 `BookDB` クラスにより、書籍のデータベースを保持する書店データベースをカプセル化します。 これは、データベース内にあるすべてのペーパーバックを検索し、各ペーパーバックに対してデリゲートを呼び出す `ProcessPaperbackBooks` メソッドを公開します。 使用する `delegate` 型には `ProcessBookDelegate` という名前を付けます。 `Test` クラスでは、このクラスを使用してペーパーバックのタイトルと平均価格を出力します。  
   
@@ -56,7 +55,7 @@ C# 1.0 以降では、次の例に示すようにデリゲートを宣言でき�
   
      [!code-csharp[csProgGuideDelegates#17](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideDelegates/CS/Delegates.cs#17)]  
   
-     これにより、[静的](../../language-reference/keywords/static.md) メソッド `Test.PrintTitle` に関連付けられた新しいデリゲート オブジェクトが作成されます。 同様に、次の例で示すようにオブジェクト `totaller` の非静的メソッド `AddBookToTotal` も渡しています。  
+     これにより、[静的](../../language-reference/keywords/static.md) メソッド `Test.PrintTitle` に関連付けられた新しいデリゲート オブジェクトが作成されます。 同様に、次の例で示すようにオブジェクト `AddBookToTotal` の非静的メソッド `totaller` も渡しています。  
   
      [!code-csharp[csProgGuideDelegates#18](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideDelegates/CS/Delegates.cs#18)]  
   
@@ -72,8 +71,8 @@ C# 1.0 以降では、次の例に示すようにデリゲートを宣言でき�
   
      デリゲートは、この例に示すように同期的に呼び出すことも、`BeginInvoke` メソッドおよび `EndInvoke` メソッドを使用して非同期的に呼び出すこともできます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [イベント](../events/index.md)
 - [デリゲート](./index.md)

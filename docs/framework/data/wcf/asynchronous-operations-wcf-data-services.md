@@ -6,22 +6,22 @@ helpviewer_keywords:
 - asynchronous operations [WCF Data Services]
 - WCF Data Services, client library
 ms.assetid: 679644c7-e3fc-422c-b14a-b44b683900d0
-ms.openlocfilehash: bb62b9ad214e5e268c3905df486f5914437b36d3
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 5191f3d03facaafc64f6df494ff90cd0ce1c1988
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70780523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75346183"
 ---
 # <a name="asynchronous-operations-wcf-data-services"></a>非同期操作 (WCF Data Services)
-Web アプリケーションは、内部ネットワーク内で実行するアプリケーションより長い、クライアントとサーバーとの間の待機時間に対応する必要があります。 Web を介して <xref:System.Data.Services.Client.DataServiceContext> サーバーにアクセスする場合、アプリケーションのパフォーマンスとユーザー エクスペリエンスを最適化するために <xref:System.Data.Services.Client.DataServiceQuery%601> クラスおよび [!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)] クラスの非同期メソッドを使用することをお勧めします。  
+Web アプリケーションは、内部ネットワーク内で実行するアプリケーションより長い、クライアントとサーバーとの間の待機時間に対応する必要があります。 アプリケーションのパフォーマンスとユーザーエクスペリエンスを最適化するには、Web 経由で WCF Data Services サーバーにアクセスするときに、<xref:System.Data.Services.Client.DataServiceContext> クラスと <xref:System.Data.Services.Client.DataServiceQuery%601> クラスの非同期メソッドを使用することをお勧めします。  
   
- [!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)] サーバーでは、HTTP 要求は非同期として処理されますが、[!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)] クライアント ライブラリの一部のメソッドは同期であり、要求と応答のやり取りがすべて完了するまで待ってから実行を継続します。 [!INCLUDE[ssAstoria](../../../../includes/ssastoria-md.md)] クライアント ライブラリの非同期メソッドは、このやり取りの完了を待たず、アプリケーションはユーザー インターフェイスの応答性を維持できます。  
+ WCF Data Services サーバーは HTTP 要求を非同期的に処理しますが、WCF Data Services クライアントライブラリの一部のメソッドは同期され、要求-応答の exchange 全体が完了するまで待機してから、実行を続行します。 WCF Data Services クライアントライブラリの非同期メソッドは、この交換が完了するまで待機しないため、アプリケーションはその間に応答性の高いユーザーインターフェイスを維持することができます。  
   
- 非同期操作を実行するには、 <xref:System.Data.Services.Client.DataServiceContext>クラスと<xref:System.Data.Services.Client.DataServiceQuery%601>クラスで、それぞれ*Begin*および*End*で始まるメソッドのペアを使用します。 *Begin*メソッドは、操作の完了時にサービスが呼び出すデリゲートを登録します。 *終了*メソッドは、完了した操作からのコールバックを処理するために登録されているデリゲートで呼び出す必要があります。 非同期操作を完了するために*End*メソッドを呼び出す場合は、操作を開始する<xref:System.Data.Services.Client.DataServiceQuery%601>ときに使用したのと同じインスタンスまたは<xref:System.Data.Services.Client.DataServiceContext>インスタンスから実行する必要があります。 各*Begin*メソッドは、 `state`状態オブジェクトをコールバックに渡すことができるパラメーターを受け取ります。 この状態オブジェクトは、 <xref:System.IAsyncResult>コールバックで提供されたから取得され、対応する*End*メソッドを呼び出して非同期操作を完了するために使用されます。 たとえば、<xref:System.Data.Services.Client.DataServiceQuery%601> インスタンスで `state` メソッドを呼び出すときにインスタンスを <xref:System.Data.Services.Client.DataServiceQuery%601.BeginExecute%2A> パラメーターとして指定した場合、同じ <xref:System.Data.Services.Client.DataServiceQuery%601> インスタンスが <xref:System.IAsyncResult> によって返されます。 この <xref:System.Data.Services.Client.DataServiceQuery%601> のインスタンスは、<xref:System.Data.Services.Client.DataServiceQuery%601.EndExecute%2A> メソッドを呼び出してクエリ操作を完了するために使用されます。 詳細については、「[方法 :非同期データサービスクエリ](how-to-execute-asynchronous-data-service-queries-wcf-data-services.md)を実行します。  
+ 非同期操作を実行するには、<xref:System.Data.Services.Client.DataServiceContext> の2つのメソッドを使用し、それぞれ*Begin*と*End*で始まるクラスを <xref:System.Data.Services.Client.DataServiceQuery%601> します。 *Begin*メソッドは、操作の完了時にサービスが呼び出すデリゲートを登録します。 *終了*メソッドは、完了した操作からのコールバックを処理するために登録されているデリゲートで呼び出す必要があります。 *End*メソッドを呼び出して非同期操作を完了するには、操作を開始するために使用したのと同じ <xref:System.Data.Services.Client.DataServiceQuery%601> または <xref:System.Data.Services.Client.DataServiceContext> インスタンスから実行する必要があります。 各*Begin*メソッドは、状態オブジェクトをコールバックに渡すことができる `state` パラメーターを受け取ります。 この状態オブジェクトは、コールバックで指定された <xref:System.IAsyncResult> から取得され、対応する*End*メソッドを呼び出して非同期操作を完了するために使用されます。 たとえば、<xref:System.Data.Services.Client.DataServiceQuery%601> インスタンスで `state` メソッドを呼び出すときにインスタンスを <xref:System.Data.Services.Client.DataServiceQuery%601.BeginExecute%2A> パラメーターとして指定した場合、同じ <xref:System.Data.Services.Client.DataServiceQuery%601> インスタンスが <xref:System.IAsyncResult> によって返されます。 この <xref:System.Data.Services.Client.DataServiceQuery%601> のインスタンスは、<xref:System.Data.Services.Client.DataServiceQuery%601.EndExecute%2A> メソッドを呼び出してクエリ操作を完了するために使用されます。 詳細については、「[方法: 非同期データサービスクエリを実行する](how-to-execute-asynchronous-data-service-queries-wcf-data-services.md)」を参照してください。  
   
 > [!NOTE]
-> Silverlight 用の .NET Framework で提供されるクライアント ライブラリでは、非同期操作だけがサポートされます。 詳細については、「 [WCF Data Services (Silverlight)](https://go.microsoft.com/fwlink/?LinkID=143149)」を参照してください。  
+> Silverlight 用の .NET Framework で提供されるクライアント ライブラリでは、非同期操作だけがサポートされます。 詳細については、「 [WCF Data Services (Silverlight)](https://docs.microsoft.com/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc838234(v=vs.95))」を参照してください。  
   
  .NET Framework クライアント ライブラリは、以下の非同期操作をサポートします。  
   

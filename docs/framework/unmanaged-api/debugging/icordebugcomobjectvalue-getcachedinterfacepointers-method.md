@@ -13,17 +13,15 @@ helpviewer_keywords:
 ms.assetid: 08dbd558-bd39-4263-94c2-71e70687aaf0
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: bdbec0101de269b3d5b09e750d552c993a0198ab
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9d1d6d2f506086dd3204053b0b635da2e7cdc87e
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67748479"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76783962"
 ---
 # <a name="icordebugcomobjectvaluegetcachedinterfacepointers-method"></a>ICorDebugComObjectValue::GetCachedInterfacePointers メソッド
-現在のランタイム呼び出し可能ラッパー (RCW) でキャッシュされた生のインターフェイス ポインターを取得します。  
+現在のランタイム呼び出し可能ラッパー (RCW) にキャッシュされている生のインターフェイスポインターを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,21 +35,21 @@ HRESULT GetCachedInterfacePointers(
   
 ## <a name="parameters"></a>パラメーター  
  `bIInspectableOnly`  
- [in]メソッドが唯一の Windows ランタイム インターフェイスを返すかどうかを示す値 (`IInspectable`インターフェイス) またはランタイム呼び出し可能ラッパー (RCW) でキャッシュされているすべての COM インターフェイスです。  
+ からメソッドが Windows ランタイムインターフェイス (`IInspectable` インターフェイス)、またはランタイム呼び出し可能ラッパー (RCW) によってキャッシュされたすべての COM インターフェイスのみを返すかどうかを示す値。  
   
  `celt`  
- [in]取得するアドレスを持つオブジェクトの数。  
+ からアドレスを取得するオブジェクトの数。  
   
  `pceltFetched`  
- [out]数へのポインター`CORDB_ADDRESS`に実際に返される値`ptrs`します。  
+ 入出力`ptrs`で実際に返される `CORDB_ADDRESS` 値の数へのポインター。  
   
  `ptrs`  
- 配列の開始アドレスへのポインター`CORDB_ADDRESS`のアドレスを格納した値は、インターフェイス オブジェクトをキャッシュします。  
+ キャッシュされたインターフェイスオブジェクトのアドレスを格納している `CORDB_ADDRESS` 値の配列の開始アドレスへのポインター。  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -61,5 +59,5 @@ HRESULT GetCachedInterfacePointers(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugComObjectValue のインターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugcomobjectvalue-interface.md)
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [ICorDebugComObjectValue のインターフェイス](icordebugcomobjectvalue-interface.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

@@ -2,12 +2,12 @@
 title: 判別共用体
 description: 判別共用体のF#使用方法について説明します。
 ms.date: 05/16/2016
-ms.openlocfilehash: 79da6c6ff9d3699818014d86f6c95edc3e43b4c1
-ms.sourcegitcommit: a2d0e1f66367367065bc8dc0dde488ab536da73f
+ms.openlocfilehash: 539e2843c0bbc8c5ac9c0597ffc5443f8cd127f8
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083041"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77452644"
 ---
 # <a name="discriminated-unions"></a>判別共用体
 
@@ -24,11 +24,11 @@ type [accessibility-modifier] type-name =
     [ member-list ]
 ```
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 判別共用体は他の言語の共用体型と似ていますが、異なる点もあります。 C++ の共用体型や Visual Basic のバリアント型と同じように、値に格納されるデータは固定ではありません。複数の異なるオプションのいずれかを格納できます。 ただし、これらの他の言語の共用体とは異なり、使用可能な各オプションには*ケース識別子*が指定されています。 ケース識別子には、使用できる各種の値の型の名前を指定します。指定した型のオブジェクトは値の型として使用できます。値は省略可能です。 値を省略する場合は、ケースが列挙型のケースと等しくなります。 値がある場合は、各値に、指定した型の単一値、あるいは同じ型または異なる型の複数のフィールドを集約したタプルを使用できます。 個々のフィールドには名前を付けることができますが、同じケース内の他のフィールドに名前が付けられていても、名前は省略可能です。
 
-判別共用体のアクセシビリティは`public`、既定でに設定されています。
+判別共用体のアクセシビリティの既定値は `public`です。
 
 たとえば、Shape 型の次のような宣言を検討します。
 
@@ -39,7 +39,7 @@ type Shape =
     | Prism of width : float * float * height : float
 ```
 
-上のコードは、次の3つのケースのいずれかの値を持つことができる判別共用体図形を宣言しています。四角形、円、および Prism。 各ケースに異なるフィールド セットがあります。 四角形の場合は、2 つの名前付きフィールドがあり、両方とも `float` 型で、幅と長さの名前が付いています。 円の場合は、1 つの名前付きフィールドがあり、半径の名前が付いています。 Prism ケースには3つのフィールドがあり、そのうち2つ (幅と高さ) は名前付きフィールドです。 名前のないフィールドは匿名フィールドと呼ばれます。
+前のコードでは、判別共用体の Shape を宣言します。これには四角形、円、およびプリズムの 3 つのケースのいずれかの値を指定できます。 各ケースに異なるフィールド セットがあります。 四角形の場合は、2 つの名前付きフィールドがあり、両方とも `float` 型で、幅と長さの名前が付いています。 円の場合は、1 つの名前付きフィールドがあり、半径の名前が付いています。 Prism ケースには3つのフィールドがあり、そのうち2つ (幅と高さ) は名前付きフィールドです。 名前のないフィールドは匿名フィールドと呼ばれます。
 
 次の例では、名前付きフィールドと匿名フィールドに値を設定してオブジェクトを構築します。
 
@@ -73,11 +73,11 @@ type Option<'a> =
 パターン一致式では、名前付きフィールドを使用して判別共用体一致を指定できます。 前に宣言された Shape 型には、次のコードに示すように、フィールドの値を抽出するために名前付きフィールドを使用できます。
 
 ```fsharp
-let getShapeHeight shape =
+let getShapeWidth shape =
     match shape with
-    | Rectangle(height = h) -> h
+    | Rectangle(width = w) -> w
     | Circle(radius = r) -> 2. * r
-    | Prism(height = h) -> h
+    | Prism(width = w) -> w
 ```
 
 通常は、共用体の名前で、修飾せずにケース識別子を使用できます。 名前を共用体の名前で常に修飾する場合は、 [RequireQualifiedAccess](https://msdn.microsoft.com/visualfsharpdocs/conceptual/core.requirequalifiedaccessattribute-class-[fsharp])属性を共用体型の定義に適用します。
@@ -111,7 +111,7 @@ let someFunctionUsingShaderProgram (ShaderProgram id) =
 
 ## <a name="struct-discriminated-unions"></a>構造体の判別共用体
 
-判別共用体を構造体として表すこともできます。  これは、 `[<Struct>]`属性を使用して行います。
+判別共用体を構造体として表すこともできます。  これは、`[<Struct>]` 属性を使用して行われます。
 
 ```fsharp
 [<Struct>]
@@ -140,7 +140,7 @@ type Multicase =
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet2004.fs)]
 
-出力は次のとおりです。
+出力は次のようになります。
 
 ```console
 Area of circle that has radius 15.000000: 706.858347
@@ -205,6 +205,6 @@ type Shape =
 - `[<NoComparison>]`
 - `[<Struct>]`
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [F# 言語リファレンス](index.md)

@@ -1,5 +1,5 @@
 ---
-title: ListBox コントロール (Windows フォーム)
+title: ListBox コントロール
 ms.date: 03/30/2017
 helpviewer_keywords:
 - ListBox control [Windows Forms]
@@ -9,24 +9,24 @@ helpviewer_keywords:
 - list items [Windows Forms], Windows Forms controls that display
 - list boxes
 ms.assetid: b0172473-c5f2-411e-aaa4-c8f17cb5eed4
-ms.openlocfilehash: 09b58bb0440f8ec187c4fa047e280d802747cd3c
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 36ae8140a2d81aafe983b5f1f56e180a0f91e96c
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62012816"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76745163"
 ---
 # <a name="listbox-control-windows-forms"></a>ListBox コントロール (Windows フォーム)
-Windows フォーム`ListBox`コントロールは、ユーザーが元の 1 つまたは複数選択できる項目の一覧を表示します。  
+Windows フォームの `ListBox` コントロールには、ユーザーが選択できる項目の一覧が表示されます。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [ListBox コントロールの概要](listbox-control-overview-windows-forms.md)  
  このコントロールについて、および主な機能とプロパティについて説明します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.ListBox> クラス  
  このクラスについて説明し、すべてのメンバーへのリンクの一覧を示します。  
   
 ## <a name="related-sections"></a>関連項目  
  [オプションのリストを表示するための Windows フォーム コントロール](windows-forms-controls-used-to-list-options.md)  
- リスト ボックス、コンボ ボックス、およびチェックされたリスト ボックスで実行できる操作の一覧を示します。
+ リストボックス、コンボボックス、およびチェックリストボックスを使用して実行できる操作の一覧を示します。

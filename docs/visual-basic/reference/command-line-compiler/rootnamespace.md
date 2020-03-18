@@ -32,7 +32,7 @@ ms.locfileid: "72005208"
 |`namespace`|現在のプロジェクトのすべての型宣言を囲む名前空間の名前。|  
   
 ## <a name="remarks"></a>コメント  
- Visual studio の実行可能ファイル (Devenv.exe) を使用して、Visual Studio 統合開発環境で作成されたプロジェクトをコンパイルする場合は、`-rootnamespace` を使用して、<xref:VSLangProj80.VBProjectProperties3.RootNamespace%2A> プロパティの値を指定します。 詳細については、「 [Devenv コマンドラインスイッチ](/visualstudio/ide/reference/devenv-command-line-switches)」を参照してください。  
+ Visual studio の実行可能ファイル (Devenv.exe) を使用して、Visual Studio 統合開発環境で作成されたプロジェクトをコンパイルする場合は、`-rootnamespace` を使用して、<xref:VSLangProj80.VBProjectProperties3.RootNamespace%2A> プロパティの値を指定します。 詳細については、「[Devenv コマンドラインスイッチ](/visualstudio/ide/reference/devenv-command-line-switches)」を参照してください。  
   
  共通言語ランタイムの MSIL 逆アセンブラー (`Ildasm.exe`) を使用して、出力ファイル内の名前空間の名前を表示します。  
   
@@ -49,6 +49,6 @@ vbc -rootnamespace:mynamespace in.vb
   
 ## <a name="see-also"></a>関連項目
 
-- [Visual Basic のコマンド ライン コンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
+- [Visual Basic コマンドラインコンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
 - [Ildasm.exe (IL 逆アセンブラー)](../../../framework/tools/ildasm-exe-il-disassembler.md)
-- [コンパイル コマンド ラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)
+- [コンパイルコマンドラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)

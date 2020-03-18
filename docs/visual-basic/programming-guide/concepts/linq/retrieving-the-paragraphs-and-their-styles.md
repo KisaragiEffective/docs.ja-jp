@@ -1,13 +1,13 @@
 ---
-title: 段落とそのスタイルの取得 (Visual Basic)
+title: 段落とそのスタイルの取得
 ms.date: 07/20/2015
 ms.assetid: d9ed2238-d38e-4ad4-b88b-db7859df9bde
-ms.openlocfilehash: 4bc20556fb668db2db3e6bcfa42e96cc0d963b93
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 862a07c26733a4989ae010854ceaca1fd7e3578e
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582144"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74347513"
 ---
 # <a name="retrieving-the-paragraphs-and-their-styles-visual-basic"></a>段落とそのスタイルの取得 (Visual Basic)
 この例では、WordprocessingML ドキュメントから段落ノードを取得するクエリを記述します。 それぞれの段落のスタイルも特定します。  
@@ -131,7 +131,7 @@ StyleName:Normal
 StyleName:Code  
 ```  
   
-## <a name="next-steps"></a>次のステップ  
+## <a name="next-steps"></a>次の手順  
  次のトピック「[段落のテキストを取得する (Visual Basic)](../../../../visual-basic/programming-guide/concepts/linq/retrieving-the-text-of-the-paragraphs.md)」では、段落のテキストを取得するクエリを作成します。  
   
 ## <a name="see-also"></a>関連項目

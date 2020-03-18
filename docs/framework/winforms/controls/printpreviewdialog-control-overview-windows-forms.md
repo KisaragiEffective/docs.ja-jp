@@ -1,38 +1,36 @@
 ---
-title: PrintPreviewDialog コントロールの概要 (Windows フォーム)
+title: PrintPreviewDialog コントロールの概要
 ms.date: 01/08/2018
 f1_keywords:
 - PrintPreviewDialog
 helpviewer_keywords:
 - PrintPreviewDialog control (using designer), about PrintPreviewDialog
 ms.assetid: efd4ee8d-6edd-47ec-88e4-4a4759bd2384
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: dce6bf9cb9872183e60e6ccdf7eaf79b6630db51
-ms.sourcegitcommit: 7e129d879ddb42a8b4334eee35727afe3d437952
+ms.openlocfilehash: 6fb971493336cda1e04c720dd09147e650918c3a
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66053694"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76741416"
 ---
-# <a name="printpreviewdialog-control-overview-windows-forms"></a>PrintPreviewDialog コントロールの概要 (Windows フォーム)
+# <a name="printpreviewdialog-control-overview-windows-forms"></a>Printプレビューダイアログコントロールの概要 (Windows フォーム)
 
-Windows フォーム<xref:System.Windows.Forms.PrintPreviewDialog>コントロールは、構成済みのダイアログ ボックスを表示するために使用する方法、 [PrintDocument](printdocument-component-windows-forms.md)印刷されたときに表示されます。 ダイアログ ボックスを構成する代わりに単純なソリューションとして、Windows ベースのアプリケーションの中で使用します。 このコントロールには、印刷を開始するボタン、ズーム イン用のボタン、1 ページまたは複数ページを表示するボタン、およびダイアログ ボックスを閉じるためのボタンが含まれています。
+Windows フォーム <xref:System.Windows.Forms.PrintPreviewDialog> コントロールは、印刷時に[PrintDocument](printdocument-component-windows-forms.md)がどのように表示されるかを表示するために事前に構成されたダイアログボックスです。 独自のダイアログボックスを構成するのではなく、単純なソリューションとして Windows ベースのアプリケーション内で使用します。 このコントロールには、印刷を開始するボタン、ズーム イン用のボタン、1 ページまたは複数ページを表示するボタン、およびダイアログ ボックスを閉じるためのボタンが含まれています。
 
-## <a name="key-properties-and-methods"></a>キー プロパティとメソッド
+## <a name="key-properties-and-methods"></a>キーのプロパティとメソッド
 
-コントロールのキー プロパティは、<xref:System.Windows.Forms.PrintPreviewDialog.Document%2A>をプレビューするドキュメントを設定します。 ドキュメントがある必要があります、<xref:System.Drawing.Printing.PrintDocument>オブジェクト。 ダイアログ ボックスを表示するために呼び出す必要があるその<xref:System.Windows.Forms.Form.ShowDialog%2A>メソッド。 アンチエイリアシングが滑らかにテキストを行うことができますが、低速です。 表示することもできますが、これを使用する設定、<xref:System.Windows.Forms.PrintPreviewDialog.UseAntiAlias%2A>プロパティを`true`します。
+コントロールのキープロパティは <xref:System.Windows.Forms.PrintPreviewDialog.Document%2A>であり、プレビューするドキュメントを設定します。 ドキュメントは <xref:System.Drawing.Printing.PrintDocument> オブジェクトである必要があります。 ダイアログボックスを表示するには、<xref:System.Windows.Forms.Form.ShowDialog%2A> メソッドを呼び出す必要があります。 アンチエイリアシングを使用すると、テキストを滑らかに表示できますが、表示速度が低下することもあります。これを使用するには、<xref:System.Windows.Forms.PrintPreviewDialog.UseAntiAlias%2A> プロパティを `true`に設定します。
 
-特定のプロパティは、<xref:System.Windows.Forms.PrintPreviewControl>を<xref:System.Windows.Forms.PrintPreviewDialog>が含まれています。 (これを追加する必要はありません<xref:System.Windows.Forms.PrintPreviewControl>フォームに自動的に格納されて、<xref:System.Windows.Forms.PrintPreviewDialog>ダイアログ ボックスをフォームに追加するとします)。利用できるプロパティの例については、<xref:System.Windows.Forms.PrintPreviewControl>は、<xref:System.Windows.Forms.PrintPreviewControl.Columns%2A>と<xref:System.Windows.Forms.PrintPreviewControl.Rows%2A>プロパティで、コントロールの水平および垂直を表示するページの数を決定します。 アクセスできる、<xref:System.Windows.Forms.PrintPreviewControl.Columns%2A>プロパティとして`PrintPreviewDialog1.PrintPreviewControl.Columns`Visual basic で`printPreviewDialog1.PrintPreviewControl.Columns`ビジュアルC#、または`printPreviewDialog1->PrintPreviewControl->Columns`ビジュアルでC++します。
+特定のプロパティは、<xref:System.Windows.Forms.PrintPreviewDialog> に含まれる <xref:System.Windows.Forms.PrintPreviewControl> を通じて使用できます。 (フォームにこの <xref:System.Windows.Forms.PrintPreviewControl> を追加する必要はありません。フォームにダイアログを追加すると、<xref:System.Windows.Forms.PrintPreviewDialog> 内に自動的に含まれます)。<xref:System.Windows.Forms.PrintPreviewControl> で使用できるプロパティの例としては、コントロール上で水平方向および垂直方向に表示されるページ数を決定する <xref:System.Windows.Forms.PrintPreviewControl.Columns%2A> と <xref:System.Windows.Forms.PrintPreviewControl.Rows%2A> のプロパティがあります。 <xref:System.Windows.Forms.PrintPreviewControl.Columns%2A> プロパティには、Visual Basic の `PrintPreviewDialog1.PrintPreviewControl.Columns`、ビジュアルC#内の `printPreviewDialog1.PrintPreviewControl.Columns`、またはビジュアルC++での `printPreviewDialog1->PrintPreviewControl->Columns` としてアクセスできます。
 
-## <a name="printpreviewdialog-performance"></a>PrintPreviewDialog パフォーマンス
+## <a name="printpreviewdialog-performance"></a>Printプレビューダイアログのパフォーマンス
 
-次の条件下で、<xref:System.Windows.Forms.PrintPreviewDialog>コントロールは非常に遅くなりますを初期化します。
+次の条件下では、<xref:System.Windows.Forms.PrintPreviewDialog> コントロールの初期化が非常に遅くなります。
 
-- ネットワーク プリンターが使用されます。
-- 双方向の設定など、プリンターのユーザー設定を変更します。
+- ネットワークプリンターが使用されます。
+- このプリンターのユーザー設定 (二重設定など) は変更されます。
 
-アプリの .NET Framework 4.5.2 で実行されている場合に、次のキーを追加することができます、 \<appSettings > セクションのパフォーマンスを向上させるために、構成ファイルの<xref:System.Windows.Forms.PrintPreviewDialog>の初期化を制御します。
+.NET Framework 4.5.2 で実行されているアプリでは、構成ファイルの \<appSettings > セクションに次のキーを追加して、<xref:System.Windows.Forms.PrintPreviewDialog> コントロールの初期化のパフォーマンスを向上させることができます。
 
 ```xml
 <appSettings>
@@ -40,9 +38,9 @@ Windows フォーム<xref:System.Windows.Forms.PrintPreviewDialog>コントロ�
 </appSettings>
 ```
 
-場合、`EnablePrintPreviewOptimization`キーが、他の値に設定されているか、キーが存在しない場合、最適化は適用されません。
+`EnablePrintPreviewOptimization` キーが他の値に設定されている場合、またはキーが存在しない場合、最適化は適用されません。
 
-アプリの .NET Framework 4.6 以降のバージョンで実行されている場合は、次のスイッチを追加することができます、 [ \<AppContextSwitchOverrides >](../../configure-apps/file-schema/runtime/appcontextswitchoverrides-element.md)内の要素、 [\<ランタイム >](../../configure-apps/file-schema/runtime/index.md)アプリ構成ファイルのセクション:
+.NET Framework 4.6 以降のバージョンで実行されているアプリでは、アプリ構成ファイルの[\<ランタイム >](../../configure-apps/file-schema/runtime/index.md)セクションの[\<AppContextSwitchOverrides >](../../configure-apps/file-schema/runtime/appcontextswitchoverrides-element.md)要素に次のスイッチを追加できます。
 
 ```xml
 <runtime >
@@ -51,11 +49,11 @@ Windows フォーム<xref:System.Windows.Forms.PrintPreviewDialog>コントロ�
 </runtime >
 ```
 
-スイッチが存在しない場合、またはその他の値に設定されている場合は、最適化は適用されません。
+スイッチが存在しない場合、または他の値に設定されている場合、最適化は適用されません。
 
-使用する場合、<xref:System.Drawing.Printing.PrintDocument.QueryPageSettings>のパフォーマンスのプリンターの設定を変更するイベント、<xref:System.Windows.Forms.PrintPreviewDialog>最適化の構成スイッチが設定されている場合でも、コントロールは改善されません。
+<xref:System.Drawing.Printing.PrintDocument.QueryPageSettings> イベントを使用してプリンターの設定を変更した場合、最適化構成スイッチが設定されていても、<xref:System.Windows.Forms.PrintPreviewDialog> コントロールのパフォーマンスは向上しません。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.PrintPreviewDialog>
 - [PrintPreviewControl コントロールの概要](printpreviewcontrol-control-overview-windows-forms.md)

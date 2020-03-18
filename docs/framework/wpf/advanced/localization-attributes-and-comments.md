@@ -13,7 +13,7 @@ ms.lasthandoff: 10/07/2019
 ms.locfileid: "72004894"
 ---
 # <a name="localization-attributes-and-comments"></a>ローカリゼーション属性とコメント
-@no__t 0 ローカライズコメントは、開発者がローカライズに関するルールとヒントを提供するために提供する、XAML ソースコード内のプロパティです。 [!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] ローカリゼーション コメントには、ローカライズ可否属性と自由形式のローカリゼーション コメントの 2 つの情報が含まれます。 ローカライズ可否属性は、ローカライズするリソースを示すために [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] ローカリゼーション API によって使用されます。 自由形式のコメントは、アプリケーションの作成者が含めたい任意の情報です。  
+ローカリゼーションコメント [!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] は、開発者がローカライズに関する規則やヒントを提供するために、XAML ソースコード内のプロパティです。 [!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] ローカリゼーション コメントには、ローカライズ可否属性と自由形式のローカリゼーション コメントの 2 つの情報が含まれます。 ローカライズ可否属性は、ローカライズするリソースを示すために [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] ローカリゼーション API によって使用されます。 自由形式のコメントは、アプリケーションの作成者が含めたい任意の情報です。  
 
 <a name="Localizer_Comments_"></a>   
 ## <a name="localization-comments"></a>ローカリゼーション コメント  
@@ -59,12 +59,12 @@ ms.locfileid: "72004894"
   
  前のサンプル、Localization.Attributes セクションには、ローカリゼーション属性と Localization.Comments セクションの自由形式のコメントが含まれています。 次の表に、属性とコメントおよびローカライザーにとってのそれらの意味を示します。  
   
-|ローカリゼーション属性|説明|  
+|ローカリゼーション属性|意味|  
 |-----------------------------|-------------|  
 |$Content (Unmodifiable Readable Text)|TextBlock 要素のコンテンツは変更できません。 ローカライザーは、"Microsoft" という単語を変更できません。 コンテンツは、ローカライザーに表示可能 (読み取り可能) です。 コンテンツのカテゴリはテキストです。|  
 |FontFamily (Unmodifiable Readable)|TextBlock 要素のフォント ファミリ プロパティを変更することはできませんが、ローカライザーに表示することはできます。|  
   
-|自由形式コメントのローカライズ|説明|  
+|自由形式コメントのローカライズ|意味|  
 |--------------------------------------|-------------|  
 |$Content (Trademark)|アプリケーションの作成者が、TextBlock 要素内のコンテンツが商標であることをローカライザーに伝えます。|  
 |FontSize (Trademark font size)|アプリケーションの作成者が、フォント サイズ プロパティが標準の商標のサイズに適切に従う必要があることを示します。|  
@@ -74,22 +74,22 @@ ms.locfileid: "72004894"
   
  次の 3 種類の属性があります。  
   
-- **カテゴリ**。 これは、ローカライザー ツールで値を変更可能にするかどうかを指定します。 以下を参照してください。<xref:System.Windows.LocalizabilityAttribute.Category%2A>  
+- **カテゴリ**。 これは、ローカライザー ツールで値を変更可能にするかどうかを指定します。 「<xref:System.Windows.LocalizabilityAttribute.Category%2A>」を参照してください。  
   
-- **読みやすさ**。 これは、ローカライザー ツールで値を読み取る (および表示する) かどうかを指定します。 以下を参照してください。<xref:System.Windows.LocalizabilityAttribute.Readability%2A>  
+- **読みやすさ**。 これは、ローカライザー ツールで値を読み取る (および表示する) かどうかを指定します。 「<xref:System.Windows.LocalizabilityAttribute.Readability%2A>」を参照してください。  
   
-- **変更可能性**。 これは、ローカライザー ツールで値の変更を許可するかどうかを指定します。 以下を参照してください。<xref:System.Windows.LocalizabilityAttribute.Modifiability%2A>  
+- **変更可能性**。 これは、ローカライザー ツールで値の変更を許可するかどうかを指定します。 「<xref:System.Windows.LocalizabilityAttribute.Modifiability%2A>」を参照してください。  
   
  これらの属性は、スペースで区切られた任意の順序で指定できます。 重複する属性が指定された場合、最後の属性にオーバーライドされます。 たとえば、Localization.Attributes = "Unmodifiable Modifiable" は、これが最後の値であるため、変更可能性を Modifiable に設定します。  
   
- 変更可能性と読みやすさはその名のとおりです。 カテゴリ属性は、テキストを変換するときに、ローカライザーを支援する定義済みのカテゴリを提供します。 Text、Label、Title などのカテゴリは、テキストの変換方法についてローカライザーに情報を提供します。 特別なカテゴリもあります。None、Inherit、Ignore、および NeverLocalize。  
+ 変更可能性と読みやすさはその名のとおりです。 カテゴリ属性は、テキストを変換するときに、ローカライザーを支援する定義済みのカテゴリを提供します。 Text、Label、Title などのカテゴリは、テキストの変換方法についてローカライザーに情報を提供します。 None、Inherit、Ignore、NeverLocalize の特殊なカテゴリもあります。  
   
  次の表に、特殊なカテゴリの意味を示します。  
   
-|カテゴリ|説明|  
+|カテゴリ|意味|  
 |--------------|-------------|  
 |なし|ターゲット値に定義済みのカテゴリがありません。|  
-|継承|ターゲット値は、その親からそのカテゴリを継承します。|  
+|[継承する]|ターゲット値は、その親からそのカテゴリを継承します。|  
 |無視|ローカライズ プロセスでは、ターゲット値は無視されます。 Ignore は現在の値にのみ影響します。 子ノードには影響しません。|  
 |NeverLocalize|現在の値をローカライズすることはできません。 このカテゴリは、要素の子に継承されます。|  
   
@@ -97,7 +97,7 @@ ms.locfileid: "72004894"
 ## <a name="localization-comments"></a>ローカリゼーション コメント  
  Localization.Comments には、ターゲットの値に関する自由形式の文字列が含まれます。 アプリケーション開発者は、アプリケーションのテキストを変換する方法についてのヒントをローカライザーに提供するための情報を追加できます。 コメントの形式は、"()" で囲まれた任意の文字列で指定できます。 文字をエスケープするには、'\\' を使用します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [WPF のグローバリゼーション](globalization-for-wpf.md)
 - [自動レイアウトを使用してボタンを作成する](how-to-use-automatic-layout-to-create-a-button.md)

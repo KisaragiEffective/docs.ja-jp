@@ -22,9 +22,9 @@ ms.locfileid: "72319864"
 
 2. XML 構成ファイルを開きます。 Svcutil.exe ツールを使用する場合、ファイルの既定の名前は、Output.config です。
 
-3. **Mode**属性 ( **\<security mode =** `MessageOrTransport` **>** を使用して、 **\<security >** 要素を検索します。 @no__t は、いずれかのセキュリティモードに設定されています。
+3. **Mode**属性 ( **\<security mode =** `MessageOrTransport` **>** を持つ **\<security >** 要素を見つけます。 `MessageOrTransport` はいずれかのセキュリティモードに設定されています。
 
-4. mode 値に一致する子要素を見つけます。 たとえば、モードが**Message**に設定されている場合は、 **\<security >** 要素に含まれる **\<message >** 要素を検索します。
+4. mode 値に一致する子要素を見つけます。 たとえば、モードが**Message**に設定されている場合は、 **\<security >** 要素に含まれている **\<メッセージ >** 要素を検索します。
 
 5. **ClientCredentialType**属性に割り当てられている値を確認します。 実際の値は、使用されているモード (トランスポートまたはメッセージ) に依存します。
 
@@ -58,11 +58,11 @@ ms.locfileid: "72319864"
 
 ### <a name="to-specify-the-client-credential-value-on-the-client-in-configuration"></a>クライアントでクライアント資格情報の値を構成によって指定するには
 
-1. [@No__t-1behavior >](../configure-apps/file-schema/wcf/behavior-of-endpointbehaviors.md)要素を[\<behaviors >](../configure-apps/file-schema/wcf/behaviors.md)要素に追加します。
+1. [\<behavior >](../configure-apps/file-schema/wcf/behaviors.md)要素に[\<動作 >](../configure-apps/file-schema/wcf/behavior-of-endpointbehaviors.md)要素を追加します。
 
-2. [@No__t-3behaviors >](../configure-apps/file-schema/wcf/behaviors.md)要素に[\<clientcredentials >](../configure-apps/file-schema/wcf/clientcredentials.md)要素を追加します。 `name` 属性 (必須) を適切な値に必ず設定してください。
+2. [\<behavior >](../configure-apps/file-schema/wcf/behaviors.md)要素に[\<clientCredentials >](../configure-apps/file-schema/wcf/clientcredentials.md)要素を追加します。 `name` 属性 (必須) を適切な値に必ず設定してください。
 
-3. [@No__t-1clientCertificate >](../configure-apps/file-schema/wcf/clientcertificate-of-servicecredentials.md)要素を[\<clientcredentials >](../configure-apps/file-schema/wcf/clientcredentials.md)要素に追加します。
+3. [\<clientCertificate >](../configure-apps/file-schema/wcf/clientcertificate-of-servicecredentials.md)要素を[\<clientCredentials >](../configure-apps/file-schema/wcf/clientcredentials.md)要素に追加します。
 
 4. 次のコードに示すように、`storeLocation`、`storeName`、`x509FindType`、および `findValue` の各属性を適切な値に設定します。 証明書の詳細については、「[証明書の使用](./feature-details/working-with-certificates.md)」を参照してください。
 
@@ -93,7 +93,7 @@ ms.locfileid: "72319864"
     </client>
     ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.ServiceModel.NetTcpBinding>
 - <xref:System.ServiceModel.Security.X509CertificateRecipientServiceCredential.SetCertificate%2A>
@@ -106,9 +106,9 @@ ms.locfileid: "72319864"
 - [証明書の使用](./feature-details/working-with-certificates.md)
 - [方法: クライアントを作成する](how-to-create-a-wcf-client.md)
 - [\<netTcpBinding>](../configure-apps/file-schema/wcf/nettcpbinding.md)
-- [\< セキュリティ >](../configure-apps/file-schema/wcf/security-of-nettcpbinding.md)
-- [\< メッセージ >](../configure-apps/file-schema/wcf/message-element-of-nettcpbinding.md)
-- [\<behavior >](../configure-apps/file-schema/wcf/behavior-of-endpointbehaviors.md)
-- [\< の動作 >](../configure-apps/file-schema/wcf/behaviors.md)
-- [\<clientCertificate >](../configure-apps/file-schema/wcf/clientcertificate-of-servicecredentials.md)
-- [\< Clientcredentials >](../configure-apps/file-schema/wcf/clientcredentials.md)
+- [\<security>](../configure-apps/file-schema/wcf/security-of-nettcpbinding.md)
+- [\<message>](../configure-apps/file-schema/wcf/message-element-of-nettcpbinding.md)
+- [\<behavior>](../configure-apps/file-schema/wcf/behavior-of-endpointbehaviors.md)
+- [\<behaviors>](../configure-apps/file-schema/wcf/behaviors.md)
+- [\<clientCertificate>](../configure-apps/file-schema/wcf/clientcertificate-of-servicecredentials.md)
+- [\<clientCredentials>](../configure-apps/file-schema/wcf/clientcredentials.md)

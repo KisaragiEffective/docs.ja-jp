@@ -1,15 +1,15 @@
 ---
-title: F# インタラクティブ オプション
+title: 対話形式のオプション
 description: Interactive、fsi.exe でF#サポートされているコマンドラインオプションについて説明します。
 ms.date: 05/16/2016
-ms.openlocfilehash: c9cd5c2e73a6e2f6ce0a9b2f2a631b6a2658423c
-ms.sourcegitcommit: a2d0e1f66367367065bc8dc0dde488ab536da73f
+ms.openlocfilehash: cceb8fb50434f3525ebb2ede16e84720d10d320c
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71083119"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348222"
 ---
-# <a name="f-interactive-options"></a>F# インタラクティブ オプション
+# <a name="f-interactive-options"></a>F# Interactive オプション
 
 > [!NOTE]
 > この記事では、現時点の Windows のエクスペリエンスについてのみ説明します。  書き換えられる予定です。
@@ -17,7 +17,8 @@ ms.locfileid: "71083119"
 このトピックでは、F# Interactive (`fsi.exe`) でサポートされるコマンド ライン オプションについて説明します。 F# Interactive では、F# コンパイラと同じコマンド ライン オプションを数多く使用できますが、その他にもいくつかのオプションを使用できます。
 
 ## <a name="using-f-interactive-for-scripting"></a>F# Interactive を使用したスクリプトの実行
-F#対話型、 `fsi.exe`、対話形式で起動するか、コマンドラインから起動してスクリプトを実行することができます。 コマンド ラインの構文は次のとおりです。
+
+F#対話型、`fsi.exe`は対話形式で起動できます。また、コマンドラインから起動してスクリプトを実行することもできます。 コマンド ラインの構文は次のとおりです。
 
 ```console
 > fsi.exe [options] [ script-file [arguments] ]
@@ -26,6 +27,7 @@ F#対話型、 `fsi.exe`、対話形式で起動するか、コマンドライ�
 F# スクリプト ファイルのファイル拡張子は `.fsx` です。
 
 ## <a name="table-of-f-interactive-options"></a>F# Interactive のオプションの表
+
 次の表は、F# Interactive でサポートされるオプションの一覧です。 これらのオプションをコマンド ラインまたは Visual Studio IDE で設定できます。 Visual Studio IDE でこれらのオプションを設定するには、 **[ツール]** メニューを開き、 **[オプション]** を選択し、 **[ F#ツール]** ノードを展開して **[ F#対話型]** を選択します。
 
 F# Interactive オプションの引数でリストを指定する場合は、リストの要素をセミコロン (`;`) で区切ります。
@@ -58,9 +60,9 @@ F# Interactive オプションの引数でリストを指定する場合は、�
 |**--reference:&lt;ファイル名&gt;**<br /><br />**-r:&lt;ファイル名&gt;**|**Fsc.exe**コンパイラオプションと同じです。 詳細については、「[コンパイラ オプション](compiler-options.md)」を参照してください。|
 |**--shadowcopyreferences**[ **+** &#124; **-** ]|対話型プロセスによって参照がF#ロックされるのを防ぎます。|
 |**--simpleresolution**|MSBuild の解決ではなく、ディレクトリベースのルールを使用してアセンブリ参照を解決します。|
-|**--tailcalls**[ **+** &#124; **-** ]|tail IL 命令の使用を有効または無効にします。有効にすると、スタック フレームが tail 再帰関数で再利用されます。 既定では、このオプションは有効になっています。|
+|**--tailcalls**[ **+** &#124; **-** ]|tail IL 命令の使用を有効または無効にします。有効にすると、スタック フレームが tail 再帰関数で再利用されます。 このオプションは、既定の設定で有効になります。|
 |**--targetprofile:&lt;string&gt;**|このアセンブリのターゲットフレームワークプロファイルを指定します。 有効な値は、mscorlib、netcore、または netcore です。  既定値は mscorlib です。|
-|**--使用:&lt;ファイル名&gt;**|指定したファイルを起動時に最初の入力として使用するよう、インタープリターに指示します。|
+|**--use:&lt;ファイル名&gt;**|指定したファイルを起動時に最初の入力として使用するよう、インタープリターに指示します。|
 |**--utf8output**|fsc.exe コンパイラ オプションと同じです。 詳細については、「[コンパイラ オプション](compiler-options.md)」を参照してください。|
 |**--warn:&lt;警告レベル&gt;**|**Fsc.exe**コンパイラオプションと同じです。 詳細については、「[コンパイラ オプション](compiler-options.md)」を参照してください。|
 |**--warnaserror**[ **+** &#124; **-** ]|**Fsc.exe**コンパイラオプションと同じです。 詳細については、「[コンパイラ オプション](compiler-options.md)」を参照してください。|
@@ -68,6 +70,6 @@ F# Interactive オプションの引数でリストを指定する場合は、�
 
 ## <a name="related-topics"></a>関連トピック
 
-|タイトル|説明|
+|[タイトル]|説明|
 |-----|-----------|
 |[コンパイラ オプション](compiler-options.md)|F#コンパイラの**fsc.exe**で使用できるコマンドラインオプションについて説明します。|

@@ -1,15 +1,13 @@
 ---
 title: NuGet パッケージの公開
 description: .NET ライブラリを NuGet に公開するためのベスト プラクティスの推奨事項。
-author: jamesnk
-ms.author: mairaw
 ms.date: 10/02/2018
-ms.openlocfilehash: 9c8442b52ed2c54d2fb3368a2e886c5fc2b19148
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 089c660bc51252c6295858b1462ae59bde968564
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65640765"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "76744562"
 ---
 # <a name="publishing-a-nuget-package"></a>NuGet パッケージの公開
 
@@ -24,23 +22,23 @@ NuGet パッケージは、パッケージ リポジトリから公開され、�
 > [!NOTE]
 > NuGet.org では、一度アップロードしたら[パッケージを削除することはできません](/nuget/policies/deleting-packages)。 一般の UI から見えないようにパッケージを一覧から外すことはできますが、`*.nupkg` は引き続き復元でダウンロードできます。 また、nuget.org では、パッケージのバージョンを重複させることはできません。 エラーを含む NuGet パッケージを修正するには、正しくないパッケージを一覧から外し、バージョン番号をインクリメントして新しいバージョンのパッケージを公開する必要があります。
 
-**✔️ 実行** コミュニティからのフィードバックが必要な[安定版パッケージとプレリリース パッケージを公開する](/nuget/create-packages/publish-a-package)場合、NuGet.org を選択します。
+✔️ 実行 コミュニティからのフィードバックが必要な[安定版パッケージとプレリリース パッケージを公開する](/nuget/create-packages/publish-a-package)場合、NuGet.org を選択します。
 
-**✔️ 検討** 継続的インテグレーションによるビルドから、プレリリース パッケージを MyGet のフィードに公開します。
+✔️ 検討 継続的インテグレーションによるビルドから、プレリリース パッケージを MyGet のフィードに公開します。
 
-**✔️ 検討** ローカル フィードか MyGet を使用して、開発環境でパッケージをテストします。 パッケージの動作を確認したら、NuGet.org に公開します。
+✔️ 検討 ローカル フィードか MyGet を使用して、開発環境でパッケージをテストします。 パッケージの動作を確認したら、NuGet.org に公開します。
 
 ## <a name="nugetorg-security"></a>NuGet.org のセキュリティ
 
-悪意のあるユーザーが自分の NuGet アカウントにアクセスし、悪意のあるバージョンのライブラリをアップロードできないことが重要です。 NuGet.org には、パッケージを公開する際の 2 要素認証と電子メールの通知が用意されています。 NuGet.org にログインした後、**[Account settings]\(アカウント設定\)** ページでこれらの機能を有効にします。
+悪意のあるユーザーが自分の NuGet アカウントにアクセスし、悪意のあるバージョンのライブラリをアップロードできないことが重要です。 NuGet.org には、パッケージを公開する際の 2 要素認証と電子メールの通知が用意されています。 NuGet.org にログインした後、 **[Account settings]\(アカウント設定\)** ページでこれらの機能を有効にします。
 
-![alt テキスト](./media/publish-nuget-package/nuget-2fa.png "NuGet アカウントのセキュリティ")
+![代替テキスト](./media/publish-nuget-package/nuget-2fa.png "NuGet アカウントのセキュリティ")
 
-**✔️ 実行** Microsoft アカウントを使用して NuGet にサインインします。
+✔️ 実行 Microsoft アカウントを使用して NuGet にサインインします。
 
-**✔️ 実行** NuGet へのアクセスに対して 2 要素認証を有効にします。
+✔️ 実行 NuGet へのアクセスに対して 2 要素認証を有効にします。
 
-**✔️ 実行** パッケージが公開されたときの電子メール通知を有効にします。
+✔️ 実行 パッケージが公開されたときの電子メール通知を有効にします。
 
 >[!div class="step-by-step"]
 >[前へ](sourcelink.md)

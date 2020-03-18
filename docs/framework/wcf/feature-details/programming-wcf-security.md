@@ -7,25 +7,25 @@ dev_langs:
 helpviewer_keywords:
 - message security [WCF], programming overview
 ms.assetid: 739ec222-4eda-4cc9-a470-67e64a7a3f10
-ms.openlocfilehash: 18942c2d486038c3ebfbe11d21b41d0ba9412500
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: e19f858818866f16b8af44abe462ddb826d43b69
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69909858"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76741481"
 ---
 # <a name="programming-wcf-security"></a>WCF セキュリティのプログラミング
 このトピックでは、セキュリティで保護された Windows Communication Foundation (WCF) アプリケーションの作成に使用される基本的なプログラミングタスクについて説明します。 このトピックでは、*転送セキュリティ*と総称される認証、機密性、および整合性についてのみ説明します。 このトピックでは、承認 (リソースまたはサービスへのアクセスの制御) については説明しません。承認の詳細については、「[承認](../../../../docs/framework/wcf/feature-details/authorization-in-wcf.md)」を参照してください。  
   
 > [!NOTE]
-> 特に WCF に関するセキュリティの概念の概要については、MSDN の「 [Web サービス拡張機能 (WSE) 3.0 のシナリオ、パターン、実装ガイダンス](https://go.microsoft.com/fwlink/?LinkID=88250)」で、一連のパターンとプラクティスに関するチュートリアルを参照してください。  
+> 特に WCF に関するセキュリティの概念の概要については、MSDN の「 [Web サービス拡張機能 (WSE) 3.0 のシナリオ、パターン、実装ガイダンス](https://docs.microsoft.com/previous-versions/msp-n-p/ff648183(v=pandp.10))」で、一連のパターンとプラクティスに関するチュートリアルを参照してください。  
   
  WCF セキュリティのプログラミングは、セキュリティモード、クライアント資格情報の種類、および資格情報の値を設定する3つの手順に基づいています。 これらの手順は、コードまたは構成を使用して実行できます。  
   
 ## <a name="setting-the-security-mode"></a>セキュリティ モードの設定  
  ここでは、WCF のセキュリティモードを使用したプログラミングの一般的な手順について説明します。  
   
-1. アプリケーション要件を満たす適切な定義済みバインディングを選択します。 バインディングの選択肢の一覧については、「[システム指定のバインディング](../../../../docs/framework/wcf/system-provided-bindings.md)」を参照してください。 既定では、ほとんどのバインディングでセキュリティが有効になっています。 1つの例外<xref:System.ServiceModel.BasicHttpBinding>として、クラスがあります (構成[ \<、basicHttpBinding >](../../../../docs/framework/configure-apps/file-schema/wcf/basichttpbinding.md))。  
+1. アプリケーション要件を満たす適切な定義済みバインディングを選択します。 バインディングの選択肢の一覧については、「[システム指定のバインディング](../../../../docs/framework/wcf/system-provided-bindings.md)」を参照してください。 既定では、ほとんどのバインディングでセキュリティが有効になっています。 1つの例外は <xref:System.ServiceModel.BasicHttpBinding> クラスです (構成、 [\<basicHttpBinding >](../../../../docs/framework/configure-apps/file-schema/wcf/basichttpbinding.md)を使用)。  
   
      選択するバインディングによってトランスポートが決まります。 たとえば、<xref:System.ServiceModel.WSHttpBinding> はトランスポートとして HTTP を使用し、<xref:System.ServiceModel.NetTcpBinding> は TCP を使用します。  
   
@@ -35,7 +35,7 @@ ms.locfileid: "69909858"
   
     1. `Transport`  
   
-         トランスポート セキュリティは、選択したバインディングが使用する機構に依存します。 たとえば、`WSHttpBinding` を使用している場合、セキュリティ機構は SSL (Secure Sockets Layer) です (これは、HTTPS プロトコルの機構でもあります)。 一般に、トランスポート セキュリティの主な利点は、使用するトランスポートに関係なく、優れたスループットが得られることです。 ただし、次の2つの制限があります。1つ目は、トランスポートメカニズムによって、ユーザーの認証に使用される資格情報の種類が決定されることです。 これは、異なる種類の資格情報を要求する他のサービスと相互運用する必要がある場合には不都合です。 もう 1 つの制限は、メッセージ レベルでセキュリティが適用されないため、エンド ツー エンドではなく、ホップ単位でセキュリティが実装されることです。 この 2 つ目の制限は、クライアントとサービス間のメッセージ パスに中継局が含まれている場合にのみ問題になります。 使用するトランスポートの詳細については、「[トランスポートの選択](../../../../docs/framework/wcf/feature-details/choosing-a-transport.md)」を参照してください。 トランスポートセキュリティの使用方法の詳細については、「[トランスポートセキュリティの概要](../../../../docs/framework/wcf/feature-details/transport-security-overview.md)」を参照してください。  
+         トランスポート セキュリティは、選択したバインディングが使用する機構に依存します。 たとえば、`WSHttpBinding` を使用している場合、セキュリティ機構は SSL (Secure Sockets Layer) です (これは、HTTPS プロトコルの機構でもあります)。 一般に、トランスポート セキュリティの主な利点は、使用するトランスポートに関係なく、優れたスループットが得られることです。 ただし、制限が 2 つあります。1 つは、ユーザーの認証に使用する資格情報の種類がトランスポート機構によって決まることです。 これは、異なる種類の資格情報を要求する他のサービスと相互運用する必要がある場合には不都合です。 もう 1 つの制限は、メッセージ レベルでセキュリティが適用されないため、エンド ツー エンドではなく、ホップ単位でセキュリティが実装されることです。 この 2 つ目の制限は、クライアントとサービス間のメッセージ パスに中継局が含まれている場合にのみ問題になります。 使用するトランスポートの詳細については、「[トランスポートの選択](../../../../docs/framework/wcf/feature-details/choosing-a-transport.md)」を参照してください。 トランスポートセキュリティの使用方法の詳細については、「[トランスポートセキュリティの概要](../../../../docs/framework/wcf/feature-details/transport-security-overview.md)」を参照してください。  
   
     2. `Message`  
   
@@ -101,7 +101,7 @@ ms.locfileid: "69909858"
  [!code-csharp[c_TcpClient#1](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_tcpclient/cs/source.cs#1)]
  [!code-vb[c_TcpClient#1](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_tcpclient/vb/source.vb#1)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [基本的な WCF プログラミング](../../../../docs/framework/wcf/basic-wcf-programming.md)
 - [一般的なセキュリティ シナリオ](../../../../docs/framework/wcf/feature-details/common-security-scenarios.md)

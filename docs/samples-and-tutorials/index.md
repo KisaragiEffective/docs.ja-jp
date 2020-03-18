@@ -4,12 +4,12 @@ description: .NET Core、ASP.NET Core、C# 言語に関する、.NET の学習�
 author: BillWagner
 ms.author: wiwagn
 ms.date: 04/11/2017
-ms.openlocfilehash: e4906feb7cda026848c990c7dd6f1dc8146dc7aa
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: 9a161d5325125fba8d4f4e53a0a306c989ed6bc5
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70855780"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79397672"
 ---
 # <a name="net-samples-and-tutorials"></a>.NET サンプルおよびチュートリアル
 
@@ -25,13 +25,13 @@ ms.locfileid: "70855780"
 
 ### <a name="tutorials"></a>チュートリアル
 
-**[CLI ツールを使用する .NET Core コンソール アプリの作成: 手順ガイド](../core/tutorials/using-with-xplat-cli.md)**
+**[.NET Core CLI を使用した .NET Core コンソール アプリの作成:手順ガイド](../core/tutorials/cli-create-console-app.md)**
 
 このガイドでは、.NET Core CLI ツールを使用してクロスプラットフォーム コンソール アプリを作成する方法を説明します。 基本的なコンソール アプリから始めて、最終的にテストを含む複数プロジェクトまで拡張します。 段階的に機能を追加し、作業を進めながらナレッジを構築します。 [完全なサンプル](https://github.com/dotnet/samples/tree/master/core/console-apps)は、GitHub の dotnet/samples リポジトリにあります。
 
 **[クロス プラットフォーム ツールによるライブラリの作成](../core/tutorials/libraries.md)**
 
-このサンプルでは、クロスプラットフォーム CLI ツールを使用して .NET 用ライブラリを作成する方法について説明します。 これらのツールは、サポートされる任意のオペレーティング システムで動作する効率的で低レベルのエクスペリエンスを提供します。 [完全なサンプル](https://github.com/dotnet/samples/tree/master/framework/libraries/frameworks-library)は、GitHub の dotnet/samples リポジトリにあります。
+このサンプルでは、.NET Core CLI を使用して .NET 用ライブラリを作成する方法について説明します。 これらのツールは、サポートされる任意のオペレーティング システムで動作する効率的で低レベルのエクスペリエンスを提供します。 [完全なサンプル](https://github.com/dotnet/samples/tree/master/framework/libraries/frameworks-library)は、GitHub の dotnet/samples リポジトリにあります。
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
@@ -49,7 +49,7 @@ ms.locfileid: "70855780"
 
 このサンプルは、C# インデクサーの構文および機能を示しています。 [完全なサンプル](https://github.com/dotnet/samples/tree/master/csharp/indexers)は、GitHub の dotnet/samples リポジトリにあります。
 
-**[デリゲートとイベント](../csharp/delegates-events.md)**
+**[デリゲートとイベント](../csharp/delegates-overview.md)**
 
 このサンプルは、C# デリゲートとイベントの構文および機能を示しています。 [完全なサンプル](https://github.com/dotnet/samples/tree/master/csharp/delegates-and-events)は、GitHub の dotnet/samples リポジトリにあります。 イベントに重点を置いた [2 つ目のサンプル](https://github.com/dotnet/samples/tree/master/csharp/events)も、同じリポジトリにあります。
 
@@ -95,15 +95,11 @@ ms.locfileid: "70855780"
 
 このチュートリアルでは、プラグイン アーキテクチャをサポートする単純なアプリケーションを .NET Core で構築する方法を示します。 [完全なサンプル](https://github.com/dotnet/samples/tree/master/core/extensions/AppWithPlugin)は、GitHub の dotnet/samples リポジトリにあります。
 
-## <a name="deploying-to-containers"></a>コンテナーへの展開
+## <a name="deploy-to-containers"></a>コンテナーをデプロイする
 
-**[Windows Docker コンテナーでの ASP.NET MVC アプリケーションの実行](../framework/docker/aspnetmvc.md)**
+**[Windows Docker コンテナーでの ASP.NET MVC アプリケーションの実行](/aspnet/mvc/overview/deployment/docker-aspnetmvc)**
 
 このチュートリアルでは、Windows Docker コンテナーで既存の ASP.NET MVC アプリを展開する方法について説明します。 [完全なサンプル](https://github.com/dotnet/samples/tree/master/framework/docker/MVCRandomAnswerGenerator)は、GitHub の dotnet/samples リポジトリにあります。
-
-**[Windows コンテナーでの .NET Framework コンソール アプリケーションの実行](../framework/docker/console.md)**
-
-このチュートリアルでは、Windows コンテナーで既存のコンソール アプリを展開する方法について説明します。 [完全なサンプル](https://github.com/dotnet/samples/tree/master/framework/docker/ConsoleRandomAnswerGenerator)は、GitHub の dotnet/samples リポジトリにあります。
 
 ## <a name="viewing-and-downloading-samples"></a>サンプルの表示とダウンロード
 
@@ -111,11 +107,11 @@ ms.locfileid: "70855780"
 
 1. 次の手順のいずれかを実行して、サンプル コードを含むリポジトリをダウンロードします。
    * リポジトリの ZIP ファイルをローカル システムにダウンロードします。 圧縮アーカイブを解凍します。
-   * リポジトリを[フォーク](https://help.github.com/articles/fork-a-repo/)し、フォークしたものをローカル システムに[クローン](https://help.github.com/articles/cloning-a-repository/)します。 フォークとクローンを使用すると、作成したフォークに変更をコミットし、公式のドキュメントのリポジトリに対する pull request を作成することで、ドキュメントに貢献できます。 詳細については、「[.NET Documentation Contributing Guide (.NET ドキュメント貢献ガイド](https://github.com/dotnet/docs/blob/master/CONTRIBUTING.md)」と「[ASP.NET Docs Contributing Guide (ASP.NET ドキュメント貢献ガイド)](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)」をご覧ください。
+   * リポジトリを[フォーク](https://help.github.com/articles/fork-a-repo/)し、フォークしたものをローカル システムに[クローン](https://help.github.com/articles/cloning-a-repository/)します。 フォークとクローンを使用すると、作成したフォークに変更をコミットし、公式のドキュメントのリポジトリに対する pull request を作成することで、ドキュメントに貢献できます。 詳細については、「[.NET Documentation Contributing Guide (.NET ドキュメント貢献ガイド](https://github.com/dotnet/docs/blob/master/CONTRIBUTING.md)」と「[ASP.NET Core Docs Contributing Guide (ASP.NET Core ドキュメント貢献ガイド)](https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md)」をご覧ください。
    * リポジトリをローカル環境にクローンします。 ローカル システムにドキュメントのリポジトリを直接クローンすると、公式のリポジトリに対して直接コミットできないため、後でドキュメントに貢献できなくなります。 後でドキュメントに貢献する可能性がある場合は、前述のフォークとクローンの手順を使用してください。
 1. リポジトリ フォルダー内のサンプルがある場所に移動します。 サンプルへのリンクをクリックすると、サンプルがある場所への相対パスがブラウザーのアドレス バーに表示されます。
 1. サンプルを実行するには、次のいくつかのオプションがあります。
-   * [dotnet CLI ツール](../core/tools/index.md)を使用する: コンソール ウィンドウで、サンプルのフォルダーに移動し、dotnet CLI コマンドを使用する。
+   * [.NET Core CLI](../core/tools/index.md) を使用する:コンソール ウィンドウで、サンプルのフォルダーに移動し、dotnet CLI コマンドを使用する。
    * [Visual Studio](https://visualstudio.microsoft.com/vs/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link) または [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link) を使用する: メニュー バーから **[ファイル] > [開く] > [プロジェクト/ソリューション]** の順に選択し、サンプルを開きます。次にサンプルのプロジェクト フォルダーに移動し、プロジェクト ファイル ( *.csproj* または *.fsproj*) を選択します。
    * [Visual Studio Code](https://code.visualstudio.com/) を使用する: メニュー バーから **[ファイル] > [フォルダーを開く]** の順に選択し、サンプルのプロジェクト フォルダーを選択してサンプルを開きます。
    * .NET Core プロジェクトをサポートする別の IDE を使用する。

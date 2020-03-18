@@ -5,25 +5,23 @@ helpviewer_keywords:
 - administrator's guide, deploying .NET Framework
 - deployment [.NET Framework], administrator's guide
 ms.assetid: bee14036-0436-44e8-89f5-4bc61317977a
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 91099b9b4d230839bc14c5fe4d5eafd05ac95541
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: be15ce0b0bed37da6fe400e98bfdd118c48f7ba0
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052157"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75716536"
 ---
 # <a name="net-framework-deployment-guide-for-administrators"></a>.NET Framework 配置ガイド (管理者向け)
 
-この記事では、システム管理者が Microsoft System Center Configuration Manager を使用して .NET Framework 4.5 とそのシステムの依存関係をネットワーク経由で配置する方法を手順に沿って説明します。 ここでは、すべての対象のクライアント コンピューターが .NET Framework の最小要件を満たしていることを前提としています。 .NET Framework 4.5 のインストールに必要なソフトウェアとハードウェアの要件の一覧については、[システム要件](../get-started/system-requirements.md)に関する記事を参照してください。
+この記事では、システム管理者が Microsoft Endpoint Configuration Manager を使用して .NET Framework 4.5 とそのシステムの依存関係をネットワーク経由で配置する方法を手順に沿って説明します。 ここでは、すべての対象のクライアント コンピューターが .NET Framework の最小要件を満たしていることを前提としています。 .NET Framework 4.5 のインストールに必要なソフトウェアとハードウェアの要件の一覧については、[システム要件](../get-started/system-requirements.md)に関する記事を参照してください。
 
 > [!NOTE]
-> .NET Framework 4.5、System Center Configuration Manager、Active Directory など、このドキュメントで言及されるソフトウェアなどにはそれぞれ、ライセンス条項が適用されます。 このドキュメントの内容は、ライセンス条項がソフトウェアの適切なライセンス取得者によって確認され、同意されていることを前提にしています 記載の内容についても、ライセンス条項は効力があるものとします。
+> .NET Framework 4.5、Configuration Manager、Active Directory など、このドキュメントで言及されるソフトウェアなどにはそれぞれ、ライセンス条項が適用されます。 このドキュメントの内容は、ライセンス条項がソフトウェアの適切なライセンス取得者によって確認され、同意されていることを前提にしています 記載の内容についても、ライセンス条項は効力があるものとします。
 >
-> .NET Framework のサポートの詳細については、Microsoft サポート オンラインの [Microsoft .NET Framework のサポート ライフサイクル ポリシー](https://go.microsoft.com/fwlink/?LinkId=196607)に関するページを参照してください。
+> .NET Framework のサポートの詳細については、Microsoft サポート オンラインの [.NET Framework の公式サポート ライフサイクル ポリシー](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework)に関するページを参照してください。
 
-このトピックは、次のセクションで構成されています。
+このトピックには、次のセクションが含まれています。
 
 - [配置プロセス](#the_deployment_process)
 - [.NET Framework の配置](#deploying_in_a_test_environment)
@@ -38,13 +36,13 @@ ms.locfileid: "71052157"
 
 ## <a name="the-deployment-process"></a>配置プロセス
 
-サポートするインフラストラクチャが整っている場合は、System Center 2012 Configuration Manager を使用して、.NET Framework 再頒布可能パッケージをネットワーク上のコンピューターに配置します。 インフラストラクチャを構築するには、コレクション、ソフトウェアのパッケージとプログラム、配布ポイント、配置という 5 つの主要な項目を作成し定義する必要があります。
+サポートするインフラストラクチャが整っている場合は、Configuration Manager を使用して、.NET Framework 再頒布可能パッケージをネットワーク上のコンピューターに配置します。 インフラストラクチャを構築するには、コレクション、ソフトウェアのパッケージとプログラム、配布ポイント、配置という 5 つの主要な項目を作成し定義する必要があります。
 
-- **コレクション**は、ユーザー、ユーザー グループ、コンピューターなど、.NET Framework の配置先となる Configuration Manager リソースのグループです。 詳細については、Configuration Manager ドキュメント ライブラリの「[System Center Configuration Manager のコレクションの概要](https://docs.microsoft.com/sccm/core/clients/manage/collections/introduction-to-collections)」を参照してください。
+- **コレクション**は、ユーザー、ユーザー グループ、コンピューターなど、.NET Framework の配置先となる Configuration Manager リソースのグループです。 詳細については、Configuration Manager ドキュメント ライブラリの「[Configuration Manager のコレクションの概要](https://docs.microsoft.com/configmgr/core/clients/manage/collections/introduction-to-collections)」を参照してください。
 
-- **パッケージとプログラム**は、通常、クライアント コンピューターにインストールされるソフトウェア アプリケーションを表しますが、個々のファイル、更新プログラム、さらには個々のコマンドが含まれることがあります。 詳細については、Configuration Manager ドキュメント ライブラリの「[System Center Configuration Manager のパッケージとプログラム](https://docs.microsoft.com/sccm/apps/deploy-use/packages-and-programs)」を参照してください。
+- **パッケージとプログラム**は、通常、クライアント コンピューターにインストールされるソフトウェア アプリケーションを表しますが、個々のファイル、更新プログラム、さらには個々のコマンドが含まれることがあります。 詳細については、Configuration Manager ドキュメント ライブラリの「[Configuration Manager のパッケージとプログラム](https://docs.microsoft.com/configmgr/apps/deploy-use/packages-and-programs)」を参照してください。
 
-- **配布ポイント**は、ソフトウェアをクライアント コンピューター上で実行するために必要なファイルを格納する Configuration Manager のサイト システムの役割です。 Configuration Manager クライアントは、ソフトウェア配置を受け取って処理するときに、配布ポイントに接続してソフトウェアに関連するコンテンツをダウンロードし、インストール処理を開始します。 詳細については、Configuration Manager ドキュメント ライブラリの「[Configuration Manager でのコンテンツ管理の基本的な概念](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)」を参照してください。
+- **配布ポイント**は、ソフトウェアをクライアント コンピューター上で実行するために必要なファイルを格納する Configuration Manager のサイト システムの役割です。 Configuration Manager クライアントは、ソフトウェア配置を受け取って処理するときに、配布ポイントに接続してソフトウェアに関連するコンテンツをダウンロードし、インストール処理を開始します。 詳細については、Configuration Manager ドキュメント ライブラリの「[Configuration Manager でのコンテンツ管理の基本的な概念](https://docs.microsoft.com/configmgr/core/plan-design/hierarchy/fundamental-concepts-for-content-management)」を参照してください。
 
 - **配置**は、指定されたターゲット コレクションの該当するメンバーにソフトウェア パッケージをインストールするよう指示します。
 
@@ -55,7 +53,7 @@ ms.locfileid: "71052157"
 
 ## <a name="deploying-the-net-framework"></a>.NET Framework の配置
 
-System Center 2012 Configuration Manager を使用して、インストール処理時にユーザーが操作しない NET Framework 4.5 のサイレント インストールを配置できます。 この場合は、以下の手順に従ってください。
+Configuration Manager を使用して、インストール処理時にユーザーが操作しない NET Framework 4.5 のサイレント インストールを配置できます。 この場合は、以下の手順に従ってください。
 
 1. [コレクションを作成します](#creating_a_collection)。
 
@@ -69,7 +67,7 @@ System Center 2012 Configuration Manager を使用して、インストール処
 
 ### <a name="create-a-collection"></a>コレクションの作成
 
-この手順では、パッケージとプログラムを配置するコンピューターを選択し、それをデバイス コレクションにグループ化します。 Configuration Manager でコレクションを作成するときは、ダイレクト メンバーシップ規則 (コレクション メンバーを手動で指定) またはクエリ規則 (指定した条件に基づいて Configuration Manager がコレクション メンバーを決定) を使用できます。 メンバーシップ規則の詳細については、クエリ規則とダイレクト規則も含めて、Configuration Manager ドキュメント ライブラリの「[System Center Configuration Manager のコレクションの概要](https://docs.microsoft.com/sccm/core/clients/manage/collections/introduction-to-collections)」を参照してください。
+この手順では、パッケージとプログラムを配置するコンピューターを選択し、それをデバイス コレクションにグループ化します。 Configuration Manager でコレクションを作成するときは、ダイレクト メンバーシップ規則 (コレクション メンバーを手動で指定) またはクエリ規則 (指定した条件に基づいて Configuration Manager がコレクション メンバーを決定) を使用できます。 メンバーシップ規則の詳細については、クエリ規則とダイレクト規則も含めて、Configuration Manager ドキュメント ライブラリの「[Configuration Manager のコレクションの概要](https://docs.microsoft.com/configmgr/core/clients/manage/collections/introduction-to-collections)」を参照してください。
 
 コレクションを作成するには
 
@@ -83,7 +81,7 @@ System Center 2012 Configuration Manager を使用して、インストール処
 
 5. **[参照]** をクリックして、限定するコレクションを指定します。
 
-6. **[メンバーシップの規則]** ページで、 **[規則の追加]** をクリックし、 **[ダイレクト規則]** をクリックして**ダイレクト メンバーシップの規則の作成ウィザード**を開きます。 **[次へ]** をクリックします。
+6. **[メンバーシップの規則]** ページで、 **[規則の追加]** をクリックし、 **[ダイレクト規則]** をクリックして**ダイレクト メンバーシップの規則の作成ウィザード**を開きます。 **[次へ]** を選択します。
 
 7. **[リソースの検索]** ページで、 **[リソース クラス]** ボックスの一覧の **[システム リソース]** をクリックします。 **[属性名]** ボックスの一覧の **[名前]** をクリックします。 **[値]** フィールドに「`%`」と入力し、 **[次へ]** をクリックします。
 
@@ -119,11 +117,11 @@ System Center 2012 Configuration Manager を使用して、インストール処
 
 7. **パッケージとプログラムの作成ウィザード**の **[プログラム]** ページで、次の情報を入力します。
 
-    1. **名前:** `.NET Framework 4.5`
+    1. **Name:** `.NET Framework 4.5`
 
     2. **コマンド ライン:** `dotNetFx45_Full_x86_x64.exe /q /norestart /ChainingPackage ADMINDEPLOYMENT` (コマンド ライン オプションの説明はこの手順の後の表にあります)
 
-    3. **実行:** **[非表示]** を選択します。
+    3. **実行:** **[非表示]** をクリックします。
 
     4. **プログラムの実行条件:** ユーザーがログオンしているかどうかに関係なく、プログラムを実行できることを指定するオプションを選択します。
 
@@ -131,13 +129,13 @@ System Center 2012 Configuration Manager を使用して、インストール処
 
 次の表は、手順 7. で指定したコマンド ライン オプションについて説明しています。
 
-|オプション|説明|
+|オプション|[説明]|
 |------------|-----------------|
-|**/q**|クワイエット モードを設定します。 ユーザー入力は必要なく、出力は表示されません。|
+|**/q**|非表示モードを設定します。 ユーザー入力は必要なく、出力は表示されません。|
 |**/norestart**|セットアップ プログラムが自動的に再起動しないようにします。 このオプションを使用する場合、Configuration Manager でコンピューターの再起動を処理する必要があります。|
-|**/chainingpackage** *PackageName*|チェーンを行っているパッケージの名前を指定します。 この情報は、[Microsoft カスタマー エクスペリエンス向上プログラム (CEIP)](https://go.microsoft.com/fwlink/p/?LinkId=248244) に申し込んだ場合のその他のインストール セッション情報と共に報告されます。 パッケージ名にスペースが含まれている場合は、区切り記号として二重引用符を使用します (例: **/chainingpackage "Chaining Product"** )。|
+|**/chainingpackage** *PackageName*|チェーンを行っているパッケージの名前を指定します。 この情報は、Microsoft カスタマー エクスペリエンス向上プログラム (CEIP) に申し込んだ場合のその他のインストール セッション情報と共に報告されます。 パッケージ名にスペースが含まれている場合は、区切り記号として二重引用符を使用します (例: **/chainingpackage "Chaining Product"** )。|
 
-これらの手順によって、.NET Framework 4.5 という名前のパッケージが作成されます。 プログラムは、.NET Framework 4.5 のサイレント インストールを配置します。 サイレント インストールでは、ユーザーはインストール プロセスと対話しないので、チェーン アプリケーションがリターン コードをキャプチャし、再起動を処理する必要があります。「[Getting Progress Information from an Installation Package](https://go.microsoft.com/fwlink/?LinkId=179606)」 (インストール パッケージからの進行状況に関する情報の取得) を参照してください。
+これらの手順によって、.NET Framework 4.5 という名前のパッケージが作成されます。 プログラムは、.NET Framework 4.5 のサイレント インストールを配置します。 サイレント インストールでは、ユーザーはインストール プロセスと対話しないので、チェーン アプリケーションがリターン コードをキャプチャし、再起動を処理する必要があります。「[Getting Progress Information from an Installation Package](https://docs.microsoft.com/previous-versions/cc825975(v=vs.100))」 (インストール パッケージからの進行状況に関する情報の取得) を参照してください。
 
 <a name="select_dist_point"></a>
 
@@ -163,11 +161,11 @@ System Center 2012 Configuration Manager を使用して、インストール処
 
 8. ウィザードを完了します。
 
-これでパッケージには、.NET Framework 4.5 をサイレントで配置するために必要なすべての情報が含まれています。 パッケージとプログラムを配置する前に、そのパッケージが配布ポイントにインストールされていることを確認します。Configuration Manager ドキュメント ライブラリの「[配布したコンテンツを System Center Configuration Manager で監視する](https://docs.microsoft.com/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed)」のコンテンツの監視に関するセクションを参照してください。
+これでパッケージには、.NET Framework 4.5 をサイレントで配置するために必要なすべての情報が含まれています。 パッケージとプログラムを配置する前に、そのパッケージが配布ポイントにインストールされていることを確認します。Configuration Manager ドキュメント ライブラリの「[Configuration Manager で配布するコンテンツを監視する](https://docs.microsoft.com/configmgr/core/servers/deploy/configure/monitor-content-you-have-distributed)」の「コンテンツのステータスの監視」セクションを参照してください。
 
 <a name="deploying_package"></a>
 
-### <a name="deploy-the-package"></a>パッケージの配置
+### <a name="deploy-the-package"></a>パッケージをデプロイする
 
 .NET Framework 4.5 パッケージとプログラムを配置するには
 
@@ -179,18 +177,18 @@ System Center 2012 Configuration Manager を使用して、インストール処
 
 4. **[ホーム]** タブの **[展開]** グループで、 **[展開]** をクリックします。
 
-5. **ソフトウェアの展開ウィザード**の **[全般]** ページで、 **[参照]** をクリックし、前に作成したコレクションを選択します。 **[次へ]** をクリックします。
+5. **ソフトウェアの展開ウィザード**の **[全般]** ページで、 **[参照]** をクリックし、前に作成したコレクションを選択します。 **[次へ]** を選択します。
 
 6. ウィザードの **[コンテンツ]** ページで、ソフトウェアを配布するポイントが表示されていることを確認し、 **[次へ]** をクリックします。
 
-7. ウィザードの **[展開設定]** ページで、 **[操作]** が **[インストール]** に設定され、 **[目的]** が **[必須]** に設定されていることを確認します。 これにより、ソフトウェア パッケージがターゲット コンピューターに対する必須インストールになることが保証されます。 **[次へ]** をクリックします。
+7. ウィザードの **[展開設定]** ページで、 **[操作]** が **[インストール]** に設定され、 **[目的]** が **[必須]** に設定されていることを確認します。 これにより、ソフトウェア パッケージがターゲット コンピューターに対する必須インストールになることが保証されます。 **[次へ]** を選択します。
 
-8. ウィザードの **[スケジュール]** ページで、.NET Framework をインストールする時期を指定します。 **[新規]** をクリックしてインストール時期を指定することも、ユーザーがログオンまたはログオフしたとき、またはできるだけ早い時期にインストールすることもできます。 **[次へ]** をクリックします。
+8. ウィザードの **[スケジュール]** ページで、.NET Framework をインストールする時期を指定します。 **[新規]** をクリックしてインストール時期を指定することも、ユーザーがログオンまたはログオフしたとき、またはできるだけ早い時期にインストールすることもできます。 **[次へ]** を選択します。
 
 9. ウィザードの **[ユーザー側の表示と操作]** ページで、既定値を使用し、 **[次へ]** をクリックします。
 
     > [!WARNING]
-    > 稼動環境では、配置スケジュールで異なる選択が必要になるポリシーが適用されている場合があります。 これらのオプションについて詳しくは、「[[提供情報の名前のプロパティ] の[スケジュール] タブ](https://docs.microsoft.com/previous-versions/system-center/configuration-manager-2007/bb694016%28v=technet.10%29)」をご覧ください。
+    > 稼動環境では、配置スケジュールで異なる選択が必要になるポリシーが適用されている場合があります。 これらのオプションについて詳しくは、「[[提供情報の名前のプロパティ]の[スケジュール]タブ](https://docs.microsoft.com/previous-versions/system-center/configuration-manager-2007/bb694016%28v=technet.10%29)」をご覧ください。
 
 10. ウィザードの **[配布ポイント]** ページで、既定値を使用し、 **[次へ]** をクリックします。
 
@@ -253,7 +251,7 @@ System Center 2012 Configuration Manager を使用して、インストール処
 
 詳細情報へのリンクについては、次の「[ダウンロードのエラー コード](#additional_error_codes)」セクションを参照してください。
 
-|リターン コード|説明|
+|リターン コード|[説明]|
 |-----------------|-----------------|
 |0|インストールは正常に終了しました。|
 |1602|ユーザーがインストールをキャンセルしました。|
@@ -278,7 +276,7 @@ System Center 2012 Configuration Manager を使用して、インストール処
 
 - [Windows Update エージェントの結果コード](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc720442(v=ws.10))
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [配置ガイド (開発者向け)](deployment-guide-for-developers.md)
 - [システム要件](../get-started/system-requirements.md)

@@ -1,21 +1,23 @@
 ---
-title: Visual Basic でのアプリケーションの開発
+title: アプリケーションの開発
 ms.date: 07/20/2015
 helpviewer_keywords:
 - Visual Basic, developing applications
 - applications [Visual Basic]
 ms.assetid: 1e1c0c81-6d95-4167-a98b-44b1efb6d25f
-ms.openlocfilehash: a8f3b530c6205572ccf6944af1620cb54486b306
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: f8eed001ed1daccdfb861b1bcc13337122133ab0
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62014428"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74349248"
 ---
 # <a name="developing-applications-with-visual-basic"></a>Visual Basic でのアプリケーションの開発
+
 このセクションでは、Visual Basic 言語の概念に関するドキュメントについて説明します。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
+
  [Visual Basic でのプログラミング](../../visual-basic/developing-apps/programming/index.md)  
  プログラミングのさまざまな情報について説明します。  
   
@@ -35,6 +37,7 @@ ms.locfileid: "62014428"
  プロジェクト テンプレートをカスタマイズして追加の `My` オブジェクトを提供する方法について説明します。  
   
 ## <a name="related-sections"></a>関連項目  
+
  [Visual Basic プログラミング ガイド](../../visual-basic/programming-guide/index.md)  
  Visual Basic でのプログラミングの重要な要素について確認します。  
   

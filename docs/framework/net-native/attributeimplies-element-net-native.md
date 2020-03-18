@@ -1,17 +1,15 @@
 ---
-title: <AttributeImplies>要素 (.NET ネイティブ)
+title: <AttributeImplies> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: 82db7193-a860-418b-84fc-fff2fdf2e025
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d15d572ee70e9c7a8cb29010d6debbd1874e5ae2
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 94f7813938e2179a2355e6ab2eff22479122d4b1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049902"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128482"
 ---
-# <a name="attributeimplies-element-net-native"></a>\<AttributeImplies 要素 (.NET ネイティブ) を意味します
+# <a name="attributeimplies-element-net-native"></a>\<AttributeImplies > 要素 (.NET ネイティブ)
 それを含む属性が適用されるコード要素のポリシーを定義します。  
   
 ## <a name="syntax"></a>構文  
@@ -49,7 +47,7 @@ ms.locfileid: "71049902"
   
 ## <a name="all-attributes"></a>すべての属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*policy_setting*|このポリシーの種類に適用する設定です。 指定できる値は、`All`、`Auto`、`Excluded`、`Public`、`PublicAndInternal`、`Required Public`、`Required PublicAndInternal`、および `Required All` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|  
   
@@ -69,7 +67,7 @@ ms.locfileid: "71049902"
   
 ## <a name="see-also"></a>関連項目
 
-- [\<> 要素を入力します](type-element-net-native.md)
+- [\<Type > 要素](type-element-net-native.md)
 - [ランタイム ディレクティブ (rd.xml) 構成ファイル リファレンス](runtime-directives-rd-xml-configuration-file-reference.md)
 - [ランタイム ディレクティブ要素](runtime-directive-elements.md)
 - [ランタイム ディレクティブ ポリシーの設定](runtime-directive-policy-settings.md)

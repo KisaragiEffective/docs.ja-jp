@@ -1,5 +1,5 @@
 ---
-title: ContextMenu コンポーネント (Windows フォーム)
+title: ContextMenu コンポーネント
 ms.date: 03/30/2017
 helpviewer_keywords:
 - menus [Windows Forms], shortcut menus
@@ -10,27 +10,27 @@ helpviewer_keywords:
 - context menus [Windows Forms], for Windows Forms
 - shortcut menus [Windows Forms], ContextMenu component
 ms.assetid: 9b93ccbc-c0fe-44a2-968e-faac25971831
-ms.openlocfilehash: 760a800e7e7fe0ef13a333525aa45088bea736d3
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 859a2c3c95691adadf1feadfc138b8c8ea692928
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69962172"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746167"
 ---
 # <a name="contextmenu-component-windows-forms"></a>ContextMenu コンポーネント (Windows フォーム)
 > [!NOTE]
-> <xref:System.Windows.Forms.MainMenu> とは、<xref:System.Windows.Forms.ContextMenu>以前のバージョン<xref:System.Windows.Forms.MainMenu>のとのコントロールに置き換えて機能を追加しますが、を選択した場合は、下位互換性と将来の使用の両方で保持されます。<xref:System.Windows.Forms.ContextMenu> `ContextMenuStrip` `MenuStrip`  
+> `MenuStrip` と `ContextMenuStrip` によって、以前のバージョンの <xref:System.Windows.Forms.MainMenu> および <xref:System.Windows.Forms.ContextMenu> のコントロールに置き換えられ、機能が追加されますが、<xref:System.Windows.Forms.MainMenu> と <xref:System.Windows.Forms.ContextMenu> は下位互換性と将来の使用の両方のために保持されます。  
   
- Windows フォーム`ContextMenu`コンポーネントは、選択したオブジェクトに関連付けられている、頻繁に使用するコマンドのショートカットメニューをユーザーに提供するために使用されます。 ショートカットメニューの項目は、多くの場合、アプリケーションの他の場所に表示されるメインメニューの項目のサブセットです。 ショートカットメニューは、通常、マウスを右クリックすると表示されます。 Windows フォームは、他のコントロールに関連付けられています。  
+ Windows フォーム `ContextMenu` コンポーネントは、選択したオブジェクトに関連付けられている頻繁に使用するコマンドのショートカットメニューをユーザーに提供するために使用されます。 ショートカットメニューの項目は、多くの場合、アプリケーションの他の場所に表示されるメインメニューの項目のサブセットです。 ショートカットメニューは、通常、マウスを右クリックすると表示されます。 Windows フォームは、他のコントロールに関連付けられています。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [ContextMenu コンポーネントの概要](contextmenu-component-overview-windows-forms.md)  
- ユーザーが選択したオブジェクト`ContextMenu`に関連付けられている頻繁に使用するコマンドのメニューを作成できるようにする、コンポーネントの一般的な概念について説明します。  
+ `ContextMenu` コンポーネントの一般的な概念について説明します。これにより、ユーザーは、選択したオブジェクトに関連付けられている頻繁に使用するコマンドのメニューを作成できます。  
   
- [方法: Windows フォーム ContextMenu コンポーネントでのメニュー項目の追加と削除](add-and-remove-menu-items-with-wf-contextmenu-component.md)  
+ [方法: Windows フォーム ContextMenu コンポーネントのメニュー項目を追加および削除する](add-and-remove-menu-items-with-wf-contextmenu-component.md)  
  Windows フォームでショートカットメニュー項目を追加および削除する方法について説明します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.ContextMenu>  
  <xref:System.Windows.Forms.ContextMenu> クラスとそのメンバーに関するリファレンス情報を提供します。  
   
@@ -38,7 +38,7 @@ ms.locfileid: "69962172"
  [Windows フォームで使用するコントロール](controls-to-use-on-windows-forms.md)  
  Windows フォーム コントロールの完全な一覧を、使用に関する情報リンクと共に提供します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.MenuStrip>
 - <xref:System.Windows.Forms.ContextMenuStrip>

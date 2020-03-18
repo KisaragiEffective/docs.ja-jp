@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 8bf3cb62-89bf-4159-ad53-de606aba89e8
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 62fa0969044504905d5c835f74873dc6f46cafa8
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: f7993ebc15f95df97a9b45523717f318d8c435ce
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67769442"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74448939"
 ---
 # <a name="isymunmanagedmethodgetoffset-method"></a>ISymUnmanagedMethod::GetOffset メソッド
-ドキュメント内の位置を指定するには、対応するこのメソッド内のオフセットを返します。  
+ドキュメント内の指定された位置に対応する、このメソッド内のオフセットを返します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,23 +37,23 @@ HRESULT GetOffset(
   
 ## <a name="parameters"></a>パラメーター  
  `document`  
- [in]オフセットを要求する対象のドキュメントへのポインター。  
+ からオフセットが要求されるドキュメントへのポインター。  
   
  `line`  
- [in]オフセットを要求する対象のドキュメント行。  
+ からオフセットの要求対象となるドキュメント行。  
   
  `column`  
- [in]オフセットが要求されるドキュメント列。  
+ からオフセットが要求されるドキュメント列。  
   
  `pRetVal`  
- [out]ポインター、`ULONG32`オフセットを受け取る。  
+ 入出力オフセットを受け取る `ULONG32` へのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。それ以外の場合、E_FAIL またはその他のエラー コード。  
+ メソッドが成功した場合は S_OK。それ以外の場合は、E_FAIL またはその他のエラーコードを指定します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl, CorSym.h  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** CorSym .idl、CorSym .h  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ISymUnmanagedMethod インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedmethod-interface.md)

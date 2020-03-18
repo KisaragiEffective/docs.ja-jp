@@ -10,7 +10,7 @@ ms.lasthandoff: 10/03/2019
 ms.locfileid: "71833885"
 ---
 # <a name="-divide-entity-sql"></a>/ (除算) (Entity SQL)
-ある数値を別の数値で除算します。  
+1 つの値を別の値で除算します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -31,12 +31,12 @@ dividend / divisor
 ## <a name="example"></a>例  
  次の Entity SQL クエリでは、/算術演算子を使用して、1つの数値を別の数値で除算します。 このクエリは、AdventureWorks Sales Model に基づいています。 このクエリをコンパイルして実行するには、次の手順を実行します。  
   
-1. @No__t の手順に従います。StructuralType Results @ no__t-0 を返すクエリを実行します。  
+1. 「 [How to: Execute a Query that Returns StructuralType Results](../how-to-execute-a-query-that-returns-structuraltype-results.md)」の手順に従います。  
   
 2. 次のクエリを引数として `ExecuteStructuralTypeQuery` メソッドに渡します。  
   
  [!code-sql[DP EntityServices Concepts#DIVIDE](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#divide)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Entity SQL リファレンス](entity-sql-reference.md)

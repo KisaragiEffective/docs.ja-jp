@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: f74ab4eb-cd1b-407c-a66d-8ec0d85647f3
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a874646a6746a9b2fc8ce597e6c1ca47340c199a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d29f4095a1d615285f4c4ff30e36b91404036949
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67759648"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76788406"
 ---
 # <a name="icordebugmanagedcallbackevalcomplete-method"></a>ICorDebugManagedCallback::EvalComplete メソッド
 評価が完了したことをデバッガーに通知します。  
@@ -39,16 +37,16 @@ HRESULT EvalComplete (
   
 ## <a name="parameters"></a>パラメーター  
  `pAppDomain`  
- [in]評価が実行されたアプリケーション ドメインを表す ICorDebugAppDomain オブジェクトへのポインター。  
+ から評価が実行されたアプリケーションドメインを表す、のオブジェクトへのポインター。  
   
  `pThread`  
- [in]評価が実行されたスレッドを表す ICorDebugThread オブジェクトへのポインター。  
+ から評価が実行されたスレッドを表す、スレッドオブジェクトへのポインター。  
   
  `pEval`  
- [in]評価を実行するコードを表す ICorDebugEval オブジェクトへのポインター。  
+ から評価を実行したコードを表す、のオブジェクトへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -58,4 +56,4 @@ HRESULT EvalComplete (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugManagedCallback インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-interface.md)
+- [ICorDebugManagedCallback インターフェイス](icordebugmanagedcallback-interface.md)

@@ -1,5 +1,5 @@
 ---
-title: Visual Basic でのファイルへの書き込み
+title: ファイルへの書き込み
 ms.date: 07/20/2015
 helpviewer_keywords:
 - I/O [Visual Basic], writing to files
@@ -8,17 +8,19 @@ helpviewer_keywords:
 - writing to files [Visual Basic]
 - Visual Basic, writing to files
 ms.assetid: ac6fb453-0d6c-4ce4-93b4-1bbcd06de83e
-ms.openlocfilehash: 92e9d717eb52fa393d9215068d8fe70c84f613ae
-ms.sourcegitcommit: 3d5d33f384eeba41b2dff79d096f47ccc8d8f03d
+ms.openlocfilehash: 8511a96c7abcc28997c293a09ef10bad543dc261
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33588120"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74352137"
 ---
 # <a name="writing-to-files-in-visual-basic"></a>Visual Basic でのファイルへの書き込み
+
 このセクションでは、ファイルへの書き込みを伴うタスクを実行する方法について説明します。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
+
  [方法: ファイルにテキストを書き込む](../../../../visual-basic/developing-apps/programming/drives-directories-files/how-to-write-text-to-files.md)  
  テキスト ファイルに書き込む方法を示します。  
   
@@ -34,7 +36,8 @@ ms.locfileid: "33588120"
  [方法: StreamWriter を使用してファイルにテキストを書き込む](../../../../visual-basic/developing-apps/programming/drives-directories-files/how-to-write-text-to-files-with-a-streamwriter.md)  
  <xref:System.IO.StreamWriter?displayProperty=nameWithType> オブジェクトでファイルに書き込む方法を示します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
+
  <xref:Microsoft.VisualBasic.FileIO.FileSystem>  
  `My.Computer.FileSystem` オブジェクト、そのメソッドおよびプロパティについて説明します。  
   
@@ -48,6 +51,7 @@ ms.locfileid: "33588120"
  `WriteAllText` メソッドについて説明します。  
   
 ## <a name="related-sections"></a>関連項目  
+
  [ファイルの読み取り](../../../../visual-basic/developing-apps/programming/drives-directories-files/reading-from-files.md)  
  ファイルの読み取りを伴うタスクを実行する方法について説明します。  
   

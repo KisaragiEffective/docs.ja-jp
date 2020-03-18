@@ -11,14 +11,12 @@ helpviewer_keywords:
 - Task-based Asynchronous Pattern, .NET Framework support for
 - .NET Framework, asynchronous design patterns
 ms.assetid: fab6bd41-91bd-44ad-86f9-d8319988aa78
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 670cdb369920663ffa62e224bdd5aa495fc7e622
-ms.sourcegitcommit: 4735bb7741555bcb870d7b42964d3774f4897a6e
+ms.openlocfilehash: 6218aa1a7b813601e9b718abf862e20a7cbcd313
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66377695"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73124293"
 ---
 # <a name="implementing-the-task-based-asynchronous-pattern"></a>タスク ベースの非同期パターンの実装
 タスク ベースの非同期パターン (TAP) は、3 つの方法 (Visual Studio の C# および Visual Basic コンパイラを使用する方法、手動で行う方法、またはコンパイラと手動による方法を組み合わせた方法) で実装できます。 以下のセクションでは、それぞれの方法について詳しく説明します。 TAP パターンを使用し、計算主体の非同期操作と I/O バインドの非同期操作の両方を実装できます。 [[ワークロード]](#workloads) セクションでは、操作の各種類を確認します。
@@ -52,7 +50,7 @@ TAP パターンは、実装の制御を強化するために手動で実装す�
 
 - .NET Framework 4 では、デリゲート (通常、<xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> または <xref:System.Action%601>) の非同期実行を許容する <xref:System.Func%601> メソッドを使用します。 <xref:System.Action%601> のデリゲートを指定する場合、メソッドはデリゲートの非同期実行を表す <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> オブジェクトを返します。 <xref:System.Func%601> のデリゲートを指定する場合、メソッドは <xref:System.Threading.Tasks.Task%601?displayProperty=nameWithType> オブジェクトを返します。 <xref:System.Threading.Tasks.TaskFactory.StartNew%2A> メソッドのオーバーロードは、キャンセル トークン (<xref:System.Threading.CancellationToken>)、タスクの作成オプション (<xref:System.Threading.Tasks.TaskCreationOptions>)、およびタスク スケジューラ (<xref:System.Threading.Tasks.TaskScheduler>) を受け取ります。 たとえば、<xref:System.Threading.Tasks.Task.Factory%2A> など、現在のタスク スケジューラをターゲットとするファクトリ インスタンスを、<xref:System.Threading.Tasks.Task> クラスの静的プロパティ (`Task.Factory.StartNew(…)`) として使用できます。
 
-- .NET Framework 4.5 以降のバージョンの場合 (.NET Core と .NET Standard を含む)、<xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> のショートカットとして静的 <xref:System.Threading.Tasks.Task.Run%2A?displayProperty=nameWithType> メソッドを使用します。 スレッド プールをターゲットとする計算主体のタスクを簡単に起動するには、<xref:System.Threading.Tasks.Task.Run%2A> を使用します。 .NET Framework 4.5 以降のバージョンでは、これが計算主体のタスクの推奨起動方法です。 タスクによりきめの細かい制御を行う場合のみ `StartNew` を直接使用します。
+- .NET Framework 4.5 以降のバージョンの場合 (.NET Core と .NET Standard を含む)、<xref:System.Threading.Tasks.Task.Run%2A?displayProperty=nameWithType> のショートカットとして静的 <xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> メソッドを使用します。 スレッド プールをターゲットとする計算主体のタスクを簡単に起動するには、<xref:System.Threading.Tasks.Task.Run%2A> を使用します。 .NET Framework 4.5 以降のバージョンでは、これが計算主体のタスクの推奨起動方法です。 タスクによりきめの細かい制御を行う場合のみ `StartNew` を直接使用します。
 
 - タスクを個別に生成およびスケジュールする場合は、`Task` 型のコンストラクターまたは `Start` メソッドを使用します。 パブリック メソッドは、既に開始されているタスクのみを返す必要があります。
 
@@ -101,8 +99,8 @@ TAP パターンは、実装の制御を強化するために手動で実装す�
 
 また、この例では、単一のキャンセル トークンが複数の非同期操作でどのようにスレッド化されるかも示します。 詳細については、「[タスク ベースの非同期パターンの利用](../../../docs/standard/asynchronous-programming-patterns/consuming-the-task-based-asynchronous-pattern.md)」のキャンセルの使用セクションをご覧ください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [タスク ベースの非同期パターン (TAP)](../../../docs/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap.md)
-- [T:System.Threading.Tasks.Task](../../../docs/standard/asynchronous-programming-patterns/consuming-the-task-based-asynchronous-pattern.md)
+- [タスク ベースの非同期パターンの利用](../../../docs/standard/asynchronous-programming-patterns/consuming-the-task-based-asynchronous-pattern.md)
 - [他の非同期パターンと型との相互運用](../../../docs/standard/asynchronous-programming-patterns/interop-with-other-asynchronous-patterns-and-types.md)

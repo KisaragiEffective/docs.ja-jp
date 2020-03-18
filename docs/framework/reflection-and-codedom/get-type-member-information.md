@@ -1,24 +1,22 @@
 ---
-title: '方法: リフレクションを使用して型とメンバーの情報を取得する'
+title: '方法: リフレクションを使用して型およびメンバーの情報を取得する'
 ms.date: 09/03/2019
 helpviewer_keywords:
 - reflection, obtaining member information
 - types [.NET Framework], obtaining member information from
 ms.assetid: 348ae651-ccda-4f13-8eda-19e8337e9438
-author: rpetrusha
-ms.author: ronpet
 dev_langs:
 - cpp
 - csharp
 - vb
-ms.openlocfilehash: da71845ea276267220636cfd661465ea02b2b50d
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
-ms.translationtype: HT
+ms.openlocfilehash: 9ffc173bbd0ed12eedea0c191f6d39baf181793a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70972859"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130216"
 ---
-# <a name="how-to-get-type-and-member-information-by-using-reflection"></a>方法: リフレクションを使用して型とメンバーの情報を取得する
+# <a name="how-to-get-type-and-member-information-by-using-reflection"></a>方法: リフレクションを使用して型およびメンバーの情報を取得する
 <xref:System.Reflection> 名前空間には、型とそのメンバーに関する情報を取得するための多くのメソッドがあります。 この記事では、これらのメソッドの 1 つである <xref:System.Type.GetMembers%2A?displayProperty=nameWithType> を例として示します。 詳細については、「[リフレクションの概要](reflection.md)」を参照してください。
   
 ## <a name="example"></a>例

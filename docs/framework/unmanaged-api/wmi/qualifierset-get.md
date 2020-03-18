@@ -14,14 +14,12 @@ helpviewer_keywords:
 - QualifierSet_Get function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 751694985248346187eff016ef7a4a8054cb1212
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: dc09cd30c43647fa00cccc1dc00da4f8de367e84
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798302"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127271"
 ---
 # <a name="qualifierset_get-function"></a>QualifierSet_Get 関数
 指定した名前付き修飾子が取得されます。  
@@ -56,16 +54,16 @@ HRESULT QualifierSet_Get (
 [in] 予約されています。 このパラメーターには0を指定する必要があります。
 
 `pVal`   
-入出力成功した場合は、修飾子の正しい型と値。 関数が失敗`VARIANT`した場合、が指す`pVal`を変更することはできません。 このパラメーターが`null`の場合、パラメーターは無視されます。
+入出力成功した場合は、修飾子の正しい型と値。 関数が失敗した場合、`pVal` が指す `VARIANT` は変更されません。 このパラメーターが `null`場合、パラメーターは無視されます。
 
 `plFlavor`   
-入出力要求された修飾子の修飾子フレーバービットを受け取る LONG へのポインター。 フレーバー情報が必要でない場合、このパラメーターは`null`にすることができます。 
+入出力要求された修飾子の修飾子フレーバービットを受け取る LONG へのポインター。 フレーバー情報が必要でない場合は、このパラメーターを `null`できます。 
 
 ## <a name="return-value"></a>戻り値
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_E_INVALID_PARAMETER` | 0x80041008 | パラメーターが有効ではありません。 |
 |`WBEM_E_NOT_FOUND` | 0x80041002 | 指定された修飾子は存在しません。 |
@@ -75,8 +73,8 @@ HRESULT QualifierSet_Get (
 
 この関数は、 [IWbemQualifierSet:: Get](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemqualifierset-get)メソッドの呼び出しをラップします。
 
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

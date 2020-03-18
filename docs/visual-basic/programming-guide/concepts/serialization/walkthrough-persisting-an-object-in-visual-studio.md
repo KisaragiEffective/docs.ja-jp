@@ -1,13 +1,13 @@
 ---
-title: Visual Studio でのオブジェクトの永続化 (Visual Basic)
+title: オブジェクトの永続化 (Visual Basic)
 ms.date: 07/20/2015
 ms.assetid: f1d0b562-e349-4dce-ab5f-c05108467030
-ms.openlocfilehash: 6f25c2a6f06b56dcbb5ba7e63165d06ff77d9ca8
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: fbd342c929e8519571c0f6bb76d4091efcfe4476
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69937363"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350395"
 ---
 # <a name="walkthrough-persisting-an-object-in-visual-studio-visual-basic"></a>チュートリアル: Visual Studio でのオブジェクトの永続化 (Visual Basic)
 オブジェクトのプロパティはデザイン時に既定値に設定できますが、そのオブジェクトが破棄されると、実行時に入力した値はすべて失われます。 シリアル化によってインスタンス間でオブジェクトのデータを永続化すると、値を保存しておき、次にそのオブジェクトをインスタンス化するときに、その値を取得することができます。  
@@ -89,7 +89,7 @@ ms.locfileid: "69937363"
   
 6. **[参照の追加]** ダイアログ ボックスで、 **[プロジェクト]** タブをクリックし、LoanClass プロジェクトを選択します。  
   
-7. **[OK]** をクリックしてダイアログ ボックスを閉じます。  
+7. **[OK]** をクリックして、ダイアログ ボックスを閉じます。  
   
 8. デザイナーで、フォームに <xref:System.Windows.Forms.TextBox> コントロールを 4 つ追加します。  
   
@@ -218,4 +218,4 @@ ms.locfileid: "69937363"
 ## <a name="see-also"></a>関連項目
 
 - [シリアル化 (Visual Basic)](../../../../visual-basic/programming-guide/concepts/serialization/index.md)
-- [Visual Basic プログラミング ガイド](../../../../visual-basic/programming-guide/index.md)
+- [Visual Basic のプログラミング ガイド](../../../../visual-basic/programming-guide/index.md)

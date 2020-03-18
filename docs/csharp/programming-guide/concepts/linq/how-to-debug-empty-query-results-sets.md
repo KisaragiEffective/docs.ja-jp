@@ -1,15 +1,15 @@
 ---
-title: '方法: 空のクエリ結果セットをデバッグする (C#)'
+title: 空のクエリ結果セットをデバッグする方法 (C#)
 ms.date: 07/20/2015
 ms.assetid: b569f0dc-425e-45a6-acbf-770fb761c981
-ms.openlocfilehash: 12d2132f1f088050fdd109d067069870b82f2661
-ms.sourcegitcommit: 2d792961ed48f235cf413d6031576373c3050918
+ms.openlocfilehash: 2716f7c525ac6bee8d2fb374e4ecc4c975d852a0
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2019
-ms.locfileid: "70205321"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "74141295"
 ---
-# <a name="how-to-debug-empty-query-results-sets-c"></a>方法: 空のクエリ結果セットをデバッグする (C#)
+# <a name="how-to-debug-empty-query-results-sets-c"></a>空のクエリ結果セットをデバッグする方法 (C#)
 XML ツリーのクエリにおける最も一般的な問題の 1 つは、XML ツリーに既定の名前空間がある場合に、XML が名前空間に含まれていないものとして開発者がクエリを記述してしまうことです。  
   
  このトピックの最初に示す一連の例では、既定の名前空間内の XML が読み込まれ、クエリが不適切に実行される典型的な例を示しています。  

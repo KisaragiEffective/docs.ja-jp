@@ -6,14 +6,12 @@ helpviewer_keywords:
 - native API reference [.NET Framework], fusion
 - fusion [.NET Framework], using the unmanaged API
 ms.assetid: f8f20967-ea17-4900-bf05-87a078095fe6
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ed9020aac5b9196eb9e074161371c4e42e79509e
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 2bf7bbb59cf983ed536a579ee3a418603f78b49a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796341"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73131639"
 ---
 # <a name="fusion-unmanaged-api-reference"></a>fusion (アンマネージ API リファレンス)
 Fusion API を使うと、ランタイム ホストで、アプリケーションに対するリソースの正しいバージョンを見つけるために、アプリケーションのリソースのプロパティにアクセスできます。  

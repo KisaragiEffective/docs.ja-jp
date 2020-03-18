@@ -1,18 +1,17 @@
 ---
 title: partial メソッド - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - partialmethod_CSharpKeyword
 helpviewer_keywords:
 - partial methods [C#]
 ms.assetid: 43f40242-17e0-4452-8573-090503ad3137
-ms.openlocfilehash: 14bcd3329b6ca8e46f6c180c97174a561108d143
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 62efd8b47fb565316b417a65e1b0fe37e40786c8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65633353"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75713223"
 ---
 # <a name="partial-method-c-reference"></a>partial (メソッド) (C# リファレンス)
 
@@ -30,7 +29,7 @@ ms.locfileid: "65633353"
 
 詳細については、「[部分クラスと部分メソッド](../../programming-guide/classes-and-structs/partial-classes-and-methods.md)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
 - [partial 型](partial-type.md)

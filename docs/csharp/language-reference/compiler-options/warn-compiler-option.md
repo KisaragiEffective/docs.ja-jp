@@ -13,10 +13,10 @@ helpviewer_keywords:
 - warn compiler option [C#]
 ms.assetid: 5f80ff59-4991-4382-9f9a-77da18446e71
 ms.openlocfilehash: 5b05e944a37e16fc1fcc422271be00c09a271a33
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69602405"
 ---
 # <a name="-warn-c-compiler-options"></a>-warn (C# コンパイラ オプション)
@@ -30,9 +30,9 @@ ms.locfileid: "69602405"
   
 ## <a name="arguments"></a>引数  
  `option`  
- コンパイルで表示する警告レベル:数値が小さいほど重要度が高い警告のみが表示され、数値が大きいほど多くの警告が表示されます。 有効な値は 0 から 4 です。  
+ コンパイルで表示する警告レベル: 数値が小さいほど重要度が高い警告のみが表示され、数値が大きいほど多くの警告が表示されます。 有効な値は 0 から 4 です。  
   
-|警告レベル|説明|  
+|警告レベル|意味|  
 |-------------------|-------------|  
 |0|すべての警告メッセージの出力をオフにします。|  
 |1|重大な警告メッセージを表示します。|  
@@ -64,7 +64,7 @@ ms.locfileid: "69602405"
 csc -warn:1 in.cs  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# コンパイラ オプション](./index.md)
 - [プロジェクトおよびソリューションのプロパティの管理](/visualstudio/ide/managing-project-and-solution-properties)

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c9a26ea3-b8eb-4b8e-854f-9a2ca26b3b39
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d672cf2375a5354c48608b3e4156867ba406992a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: afd16f1f31be9148422dd6d0be748036a8e5d99a
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67765017"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76790659"
 ---
 # <a name="icorpublishenumclone-method"></a>ICorPublishEnum::Clone メソッド
-このコピーを作成します[ICorPublishEnum](../../../../docs/framework/unmanaged-api/debugging/icorpublishenum-interface.md)オブジェクト。  
+この[ICorPublishEnum](icorpublishenum-interface.md)オブジェクトのコピーを作成します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,12 +35,12 @@ HRESULT Clone (
   
 ## <a name="parameters"></a>パラメーター  
  `ppEnum`  
- [out]アドレスへのポインター、`ICorPublishEnum`オブジェクトのこのコピーである`ICorPublishEnum`オブジェクト。  
+ 入出力この `ICorPublishEnum` オブジェクトのコピーである `ICorPublishEnum` オブジェクトのアドレスへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorPub.idl, CorPub.h  
+ **ヘッダー:** CorPub .idl、CorPub .h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -50,4 +48,4 @@ HRESULT Clone (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorPublishEnum インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icorpublishenum-interface.md)
+- [ICorPublishEnum インターフェイス](icorpublishenum-interface.md)

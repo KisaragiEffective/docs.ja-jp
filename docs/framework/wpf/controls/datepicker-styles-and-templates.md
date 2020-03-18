@@ -9,64 +9,64 @@ helpviewer_keywords:
 - styles [WPF], DatePicker
 - states [WPF], DatePicker
 ms.assetid: c430a657-692f-44bd-a549-2341f92d6115
-ms.openlocfilehash: 013076fdac8666b974fdf0ce9b09740197031c15
-ms.sourcegitcommit: a8d3504f0eae1a40bda2b06bd441ba01f1631ef0
+ms.openlocfilehash: 002d1c3271827239dcd3a319621f66fb5bc68d4e
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67170540"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74283772"
 ---
 # <a name="datepicker-styles-and-templates"></a>DatePicker のスタイルとテンプレート
-このトピックでは、スタイルとテンプレートについて説明します、<xref:System.Windows.Controls.DatePicker>コントロール。 <xref:System.Windows.Controls.ControlTemplate>の既定値を変更して外観を制御します。 詳細については、「[ControlTemplate の作成による既存のコントロールの外観のカスタマイズ](customizing-the-appearance-of-an-existing-control.md)」を参照してください。  
+このトピックでは、<xref:System.Windows.Controls.DatePicker> コントロールのスタイルとテンプレートについて説明します。 <xref:System.Windows.Controls.ControlTemplate>の既定値を変更して外観を制御します。 詳細については、「[コントロールのテンプレートを作成する](../../../desktop-wpf/themes/how-to-create-apply-template.md)」を参照してください。  
   
-## <a name="datepicker-parts"></a>DatePicker のパーツ  
- 次の表に、名前付きパーツ、<xref:System.Windows.Controls.DatePicker>コントロール。  
+## <a name="datepicker-parts"></a>DatePicker パーツ  
+ 次の表に、<xref:System.Windows.Controls.DatePicker> コントロールの名前付きの部分を示します。  
   
-|パーツ|型|説明|  
+|要素|型|説明|  
 |-|-|-|  
-|PART_Root|<xref:System.Windows.Controls.Grid>|コントロールのルートです。|  
-|PART_Button|<xref:System.Windows.Controls.Button>|ボタンを開いたり閉じたりすること、<xref:System.Windows.Controls.Calendar>します。|  
-|PART_TextBox|<xref:System.Windows.Controls.Primitives.DatePickerTextBox>|テキスト ボックスは、日付を入力することができます。|  
-|PART_Popup|<xref:System.Windows.Controls.Primitives.Popup>|ポップアップを<xref:System.Windows.Controls.DatePicker>コントロール。|  
+|PART_Root|<xref:System.Windows.Controls.Grid>|コントロールのルート。|  
+|PART_Button|<xref:System.Windows.Controls.Button>|<xref:System.Windows.Controls.Calendar>を開いて閉じるボタン。|  
+|PART_TextBox|<xref:System.Windows.Controls.Primitives.DatePickerTextBox>|日付を入力できるテキストボックス。|  
+|PART_Popup|<xref:System.Windows.Controls.Primitives.Popup>|<xref:System.Windows.Controls.DatePicker> コントロールのポップアップ。|  
   
 ## <a name="datepicker-states"></a>DatePicker の状態  
- 次の表のビジュアルの状態、<xref:System.Windows.Controls.DatePicker>コントロール。  
+ 次の表は、<xref:System.Windows.Controls.DatePicker> コントロールの表示状態を示しています。  
   
 |VisualState 名|VisualStateGroup 名|説明|  
 |-|-|-|  
 |標準|CommonStates|既定の状態です。|  
-|無効|CommonStates|<xref:System.Windows.Controls.DatePicker>は無効です。|  
-|有効|ValidationStates|コントロールを使用して、<xref:System.Windows.Controls.Validation>クラスおよび<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType>添付プロパティは`false`します。|  
-|InvalidFocused|ValidationStates|<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType>添付プロパティは`true`がコントロールにフォーカスします。|  
-|InvalidUnfocused|ValidationStates|<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType>添付プロパティは`true`がコントロールにフォーカスがないです。|  
+|Disabled|CommonStates|<xref:System.Windows.Controls.DatePicker> が無効になっています。|  
+|Valid|ValidationStates|コントロールは <xref:System.Windows.Controls.Validation> クラスを使用し、<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType> 添付プロパティは `false`ます。|  
+|InvalidFocused|ValidationStates|<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType> 添付プロパティは、コントロールにフォーカスがある `true` です。|  
+|InvalidUnfocused|ValidationStates|<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType> 添付プロパティは、コントロールにフォーカスがない `true` です。|  
   
 ## <a name="datepickertextbox-parts"></a>DatePickerTextBox パーツ  
- 次の表に、名前付きパーツ、<xref:System.Windows.Controls.Primitives.DatePickerTextBox>コントロール。  
+ 次の表に、<xref:System.Windows.Controls.Primitives.DatePickerTextBox> コントロールの名前付きの部分を示します。  
   
-|パーツ|型|説明|  
+|要素|型|説明|  
 |-|-|-|  
-|PART_Watermark|<xref:System.Windows.Controls.ContentControl>|最初のテキストを含む要素、<xref:System.Windows.Controls.DatePicker>します。|  
-|PART_ContentElement|<xref:System.Windows.FrameworkElement>|ビジュアル要素を含めることができます、<xref:System.Windows.FrameworkElement>します。 テキスト、<xref:System.Windows.Controls.TextBox>がこの要素に表示されます。|  
+|PART_Watermark|<xref:System.Windows.Controls.ContentControl>|<xref:System.Windows.Controls.DatePicker>の最初のテキストを含む要素。|  
+|PART_ContentElement|<xref:System.Windows.FrameworkElement>|<xref:System.Windows.FrameworkElement>を含むことができるビジュアル要素。 <xref:System.Windows.Controls.TextBox> のテキストがこの要素に表示されます。|  
   
-## <a name="datepickertextbox-states"></a>DatePickerTextBox 状態  
- 次の表のビジュアルの状態、<xref:System.Windows.Controls.Primitives.DatePickerTextBox>コントロール。  
+## <a name="datepickertextbox-states"></a>DatePickerTextBox の状態  
+ 次の表は、<xref:System.Windows.Controls.Primitives.DatePickerTextBox> コントロールの表示状態を示しています。  
   
 |VisualState 名|VisualStateGroup 名|説明|  
 |-|-|-|  
 |標準|CommonStates|既定の状態です。|  
-|無効|CommonStates|<xref:System.Windows.Controls.Primitives.DatePickerTextBox>は無効です。|  
-|MouseOver|CommonStates|マウス ポインターを置いた、<xref:System.Windows.Controls.Primitives.DatePickerTextBox>します。|  
-|ReadOnly|CommonStates|内のテキストを変更することはできません、ユーザー、<xref:System.Windows.Controls.Primitives.DatePickerTextBox>します。|  
+|Disabled|CommonStates|<xref:System.Windows.Controls.Primitives.DatePickerTextBox> が無効になっています。|  
+|MouseOver|CommonStates|マウスポインターが <xref:System.Windows.Controls.Primitives.DatePickerTextBox>上に配置されています。|  
+|ReadOnly|CommonStates|ユーザーは、<xref:System.Windows.Controls.Primitives.DatePickerTextBox>内のテキストを変更することはできません。|  
 |フォーカスされている|FocusStates|コントロールにフォーカスがあります。|  
 |フォーカスされていない|FocusStates|コントロールにフォーカスがありません。|  
-|透かし|WatermarkStates|コントロールには、その最初のテキストが表示されます。  <xref:System.Windows.Controls.Primitives.DatePickerTextBox>ユーザーがいないテキストを入力または日付を選択した場合は、状態です。|  
-|Unwatermarked|WatermarkStates|ユーザーがテキストを入力、<xref:System.Windows.Controls.Primitives.DatePickerTextBox>で日付を選択したか、<xref:System.Windows.Controls.DatePicker>します。|  
-|有効|ValidationStates|コントロールを使用して、<xref:System.Windows.Controls.Validation>クラスおよび<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType>添付プロパティは`false`します。|  
-|InvalidFocused|ValidationStates|<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType>添付プロパティは`true`コントロールにフォーカスがあるとします。|  
-|InvalidUnfocused|ValidationStates|<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType>添付プロパティは`true`コントロールにフォーカスがないとします。|  
+|目標|WatermarkStates|コントロールには、最初のテキストが表示されます。  <xref:System.Windows.Controls.Primitives.DatePickerTextBox> は、ユーザーがテキストを入力しなかった場合、または日付を選択した場合の状態になります。|  
+|Unwatermarked|WatermarkStates|ユーザーが <xref:System.Windows.Controls.Primitives.DatePickerTextBox> にテキストを入力したか、<xref:System.Windows.Controls.DatePicker>で日付を選択しました。|  
+|Valid|ValidationStates|コントロールは <xref:System.Windows.Controls.Validation> クラスを使用し、<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType> 添付プロパティは `false`ます。|  
+|InvalidFocused|ValidationStates|<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType> 添付プロパティが `true`、コントロールにフォーカスがあります。|  
+|InvalidUnfocused|ValidationStates|<xref:System.Windows.Controls.Validation.HasError%2A?displayProperty=nameWithType> 添付プロパティが `true`、コントロールにフォーカスがありません。|  
   
-## <a name="datepicker-controltemplate-example"></a>DatePicker の ControlTemplate の例  
- 次の例は、定義する方法を示します、<xref:System.Windows.Controls.ControlTemplate>の<xref:System.Windows.Controls.DatePicker>コントロール。  
+## <a name="datepicker-controltemplate-example"></a>DatePicker ControlTemplate の例  
+ 次の例は、<xref:System.Windows.Controls.DatePicker> コントロールの <xref:System.Windows.Controls.ControlTemplate> を定義する方法を示しています。  
   
  [!code-xaml[ControlTemplateExamples#DatePicker](~/samples/snippets/csharp/VS_Snippets_Wpf/ControlTemplateExamples/CS/resources/datepicker.xaml#datepicker)]  
   
@@ -82,5 +82,5 @@ ms.locfileid: "67170540"
 - <xref:System.Windows.Controls.ControlTemplate>
 - [コントロールのスタイルとテンプレート](control-styles-and-templates.md)
 - [コントロールのカスタマイズ](control-customization.md)
-- [スタイルとテンプレート](styling-and-templating.md)
-- [ControlTemplate の作成による既存のコントロールの外観のカスタマイズ](customizing-the-appearance-of-an-existing-control.md)
+- [スタイルとテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)
+- [コントロールのテンプレートを作成する](../../../desktop-wpf/themes/how-to-create-apply-template.md)

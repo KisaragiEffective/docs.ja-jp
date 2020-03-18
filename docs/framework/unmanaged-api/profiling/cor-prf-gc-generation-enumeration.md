@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: d6ece160-26ad-4d39-abd7-05acd6f78c48
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 74e70f58600205d44a9ba052981b2cc67b3a44ec
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 4eff8472e353c4e5fd2505b281cc9efc89f013fc
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67753810"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76867214"
 ---
-# <a name="corprfgcgeneration-enumeration"></a>COR_PRF_GC_GENERATION 列挙型
-ガベージ コレクション ジェネレーションを識別します。  
+# <a name="cor_prf_gc_generation-enumeration"></a>COR_PRF_GC_GENERATION 列挙型
+ガベージコレクションの生成を識別します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,22 +39,22 @@ typedef enum {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`COR_PRF_GC_GEN_0`|オブジェクトは、ジェネレーション 0 として格納されます。|  
-|`COR_PRF_GC_GEN_1`|オブジェクトは、第 1 世代として格納されます。|  
-|`COR_PRF_GC_GEN_2`|オブジェクトは、第 2 世代として格納されます。|  
-|`COR_PRF_GC_LARGE_OBJECT_HEAP`|オブジェクトは、大きなオブジェクト ヒープに格納されます。|  
+|`COR_PRF_GC_GEN_0`|オブジェクトは、ジェネレーション0として格納されます。|  
+|`COR_PRF_GC_GEN_1`|オブジェクトは、ジェネレーション1として格納されます。|  
+|`COR_PRF_GC_GEN_2`|オブジェクトは、ジェネレーション2として格納されます。|  
+|`COR_PRF_GC_LARGE_OBJECT_HEAP`|オブジェクトは、ラージオブジェクトヒープに格納されます。|  
   
-## <a name="remarks"></a>Remarks  
- ガベージ コレクターには、年齢に基づいてジェネレーションに分割オブジェクトによってメモリ管理のパフォーマンスが向上します。 現在、ガベージ コレクターは、0、1、2、およびラージ オブジェクトに使用される特殊なヒープ セグメントの番号、3 つの世代を使用します。 サイズが特定の値より大きいオブジェクトは、大きなオブジェクト ヒープに格納されます。 割り当てられたその他のオブジェクトをジェネレーション 0 に属するを起動します。 ジェネレーション 0 ガベージ コレクションが行われた後に存在するすべてのオブジェクトは、第 1 世代に昇格されます。 ジェネレーション 1 のガベージ コレクションが行われた後に存在するオブジェクトは、ジェネレーション 2 に移動します。  
+## <a name="remarks"></a>コメント  
+ ガベージコレクターは、オブジェクトを経過期間に基づいてジェネレーションに分割することによって、メモリ管理のパフォーマンスを向上させます。 現在、ガベージコレクターは、番号0、1、および2の3つのジェネレーションと、大きなオブジェクトに使用される特殊なヒープセグメントを使用しています。 サイズが特定の値より大きいオブジェクトは、大きなオブジェクトヒープに格納されます。 割り当てられた他のオブジェクトは、ジェネレーション0に属しています。 ジェネレーション0でガベージコレクションが発生した後に存在するすべてのオブジェクトは、ジェネレーション1に昇格されます。 ジェネレーション1でガベージコレクションが発生した後に存在するオブジェクトは、ジェネレーション2に移動します。  
   
- 生成結果の使用は、ガベージ コレクターはいつでも割り当てられたオブジェクトのサブセットのみを使用することを意味します。  
+ ジェネレーションを使用することは、ガベージコレクターが、割り当てられたオブジェクトのサブセットだけを一度に処理する必要があることを意味します。  
   
- `COR_PRF_GC_GENERATION`列挙型を使用して、 [COR_PRF_GC_GENERATION_RANGE](../../../../docs/framework/unmanaged-api/profiling/cor-prf-gc-generation-range-structure.md)構造体。  
+ `COR_PRF_GC_GENERATION` 列挙体は、 [COR_PRF_GC_GENERATION_RANGE](cor-prf-gc-generation-range-structure.md)構造体によって使用されます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -64,4 +62,4 @@ typedef enum {
   
 ## <a name="see-also"></a>関連項目
 
-- [列挙型のプロファイリング](../../../../docs/framework/unmanaged-api/profiling/profiling-enumerations.md)
+- [列挙型のプロファイリング](profiling-enumerations.md)

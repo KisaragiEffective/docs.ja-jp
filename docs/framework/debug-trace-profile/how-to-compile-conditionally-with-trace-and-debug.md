@@ -1,5 +1,5 @@
 ---
-title: '方法: トレースとデバッグを指定して条件付きコンパイルを実行する'
+title: '方法 : トレースとデバッグを指定して条件付きコンパイルを実行する'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - trace compiler options
@@ -10,21 +10,19 @@ helpviewer_keywords:
 - TRACE directive
 - conditional compilation, tracing code
 ms.assetid: 56d051c3-012c-42c1-9a58-7270edc624aa
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: d06d1ef8e1508aefa8c9ed9327b89f58ff6976fa
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 2c3ec54535319f4c7507563a5976038ca40d20aa
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052747"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217450"
 ---
-# <a name="how-to-compile-conditionally-with-trace-and-debug"></a>方法: トレースとデバッグを指定して条件付きコンパイルを実行する
+# <a name="how-to-compile-conditionally-with-trace-and-debug"></a>方法 : トレースとデバッグを指定して条件付きコンパイルを実行する
 開発時にアプリケーションをデバッグするときは、トレース出力とデバッグ出力の両方が Visual Studio の [出力] ウィンドウに表示されます。 ただし、配置されるアプリケーションにトレース機能を組み込むには、**TRACE** コンパイラ ディレクティブを有効にして、インストルメント化されたアプリケーションをコンパイルする必要があります。 これにより、コンパイルされたアプリケーションのリリース バージョンに、トレース コードが組み込まれます。 **TRACE** ディレクティブを有効にしないと、コンパイル時にすべてのトレース コードが無視され、配置する実行可能コードに含まれなくなります。  
   
  トレース用のメソッドとデバッグ用のメソッドにはどちらも、関連付けられた条件属性があります。 たとえば、トレースの条件属性が **true** の場合は、すべてのトレース ステートメントがアセンブリ (コンパイル済みの .exe ファイルや .dll ファイル) 内に組み込まれます。また、**Trace** 条件属性が **false** の場合、トレース ステートメントは組み込まれません。  
   
- ビルドでは、**Trace** 条件属性または **Debug** 条件属性をオンにすることも、両方をオンにすることも、あるいは両方をオフにすることもできます。 したがって、次の4種類のビルドがあります。**Debug**、 **Trace**、both のいずれか、またはどちらでもありません。 実際の配置用のリリース ビルドでは両方ともオフにする場合もありますが、大半のデバッグ ビルドでは両方ともオンにします。  
+ ビルドでは、**Trace** 条件属性または **Debug** 条件属性をオンにすることも、両方をオンにすることも、あるいは両方をオフにすることもできます。 したがって、**Debug** のみをオン、**Trace** のみをオン、両方ともオン、両方ともオフという、4 種類のビルド方法が存在します。 実際の配置用のリリース ビルドでは両方ともオフにする場合もありますが、大半のデバッグ ビルドでは両方ともオンにします。  
   
  アプリケーションのコンパイラ設定は、次に示すいくつかの方法で指定できます。  
   
@@ -59,7 +57,7 @@ ms.locfileid: "71052747"
   
      上記の例で使用した条件付きコンパイルのディレクティブの意味は次のとおりです。  
   
-    |ディレクティブ|説明|  
+    |Directive|意味|  
     |---------------|-------------|  
     |`vbc`|Visual Basic コンパイラ|  
     |`csc`|C# コンパイラ|  
@@ -67,13 +65,13 @@ ms.locfileid: "71052747"
     |`-d:`|条件付きコンパイル シンボルを定義します。|  
   
     > [!NOTE]
-    > TRACE または DEBUG は大文字で入力する必要があります。 条件付きコンパイル コマンドの詳細情報を参照するには、コマンド プロンプトに `vbc /?` (Visual Basic の場合) または `csc /?` (C# の場合) と入力します。 詳細については、「[コマンド ラインからのビルド](../../csharp/language-reference/compiler-options/how-to-set-environment-variables-for-the-visual-studio-command-line.md)」(C# の場合) または「[コマンド ライン コンパイラの起動](../../visual-basic/reference/command-line-compiler/how-to-invoke-the-command-line-compiler.md)」(Visual Basic の場合) を参照してください。  
+    > TRACE または DEBUG は大文字で入力する必要があります。 条件付きコンパイル コマンドの詳細情報を参照するには、コマンド プロンプトに `vbc /?` (Visual Basic の場合) または `csc /?` (c# の場合) と入力します。 詳細については、「[コマンド ラインからのビルド](../../csharp/language-reference/compiler-options/how-to-set-environment-variables-for-the-visual-studio-command-line.md)」(C# の場合) または「[コマンド ライン コンパイラの起動](../../visual-basic/reference/command-line-compiler/how-to-invoke-the-command-line-compiler.md)」(Visual Basic の場合) を参照してください。  
   
 ### <a name="to-perform-conditional-compilation-using-const-or-define"></a>#CONST または #define を使用して条件付きコンパイルを実行するには  
   
 1. ソース コード ファイルの先頭に、使用するプログラミング言語に該当するステートメントを入力します。  
   
-    |言語|ステートメント|結果|  
+    |言語|明細書|結果|  
     |--------------|---------------|------------|  
     |**Visual Basic**|**#CONST TRACE = true**|トレースを有効にします。|  
     ||**#CONST TRACE = false**|トレースを無効にします。|  
@@ -88,19 +86,19 @@ ms.locfileid: "71052747"
   
 ソース コードからコンパイラ ディレクティブを削除します。  
   
-\- または -  
+\- - または -  
   
 コンパイラ ディレクティブをコメント アウトします。  
   
 > [!NOTE]
 > コンパイルの準備ができたら、 **[ビルド]** メニューの **[ビルド]** を選択できます。または、条件付きコンパイル シンボルを定義するための「**d:** 」を入力せずにコマンド ライン メソッドを使用することもできます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [アプリケーションのトレースとインストルメント](tracing-and-instrumenting-applications.md)
-- [方法: トレーススイッチを作成、初期化、および構成する](how-to-create-initialize-and-configure-trace-switches.md)
+- [方法 : トレース スイッチを作成、初期化、および構成する](how-to-create-initialize-and-configure-trace-switches.md)
 - [トレース スイッチ](trace-switches.md)
 - [トレース リスナー](trace-listeners.md)
-- [方法: アプリケーションコードにトレースステートメントを追加する](how-to-add-trace-statements-to-application-code.md)
-- [方法: Visual Studio のコマンドラインのための環境変数を設定する](../../csharp/language-reference/compiler-options/how-to-set-environment-variables-for-the-visual-studio-command-line.md)
-- [方法: コマンド ライン コンパイラを起動する](../../visual-basic/reference/command-line-compiler/how-to-invoke-the-command-line-compiler.md)
+- [方法 : アプリケーション コードにトレース ステートメントを追加する](how-to-add-trace-statements-to-application-code.md)
+- [Visual Studio のコマンドラインのための環境変数を設定する方法](../../csharp/language-reference/compiler-options/how-to-set-environment-variables-for-the-visual-studio-command-line.md)
+- [方法 : コマンド ライン コンパイラを起動する](../../visual-basic/reference/command-line-compiler/how-to-invoke-the-command-line-compiler.md)

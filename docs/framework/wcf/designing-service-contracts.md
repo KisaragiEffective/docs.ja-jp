@@ -18,9 +18,9 @@ ms.locfileid: "72318382"
 ここでは、サービス コントラクトの概要、定義方法、使用できる操作 (および基になるメッセージ交換の影響)、使用するデータ型、およびシナリオの要件を満たす操作を設計する際に役立つその他の問題について説明します。  
   
 ## <a name="creating-a-service-contract"></a>サービス コントラクトの作成  
- サービスは複数の操作を公開します。 Windows Communication Foundation (WCF) アプリケーションでは、メソッドを作成し、@no__t 0 の属性を使用して操作を定義します。 次に、サービス コントラクトを作成するために、<xref:System.ServiceModel.ServiceContractAttribute> 属性でマークされたインターフェイス内で操作を宣言するか、この属性でマークされたクラス内で操作を定義することにより、操作をグループ化します (基本的な例については、「[方法: サービスコントラクトを定義](how-to-define-a-wcf-service-contract.md)する」を参照してください)。  
+ サービスは複数の操作を公開します。 Windows Communication Foundation (WCF) アプリケーションでは、メソッドを作成し、<xref:System.ServiceModel.OperationContractAttribute> 属性を使用して操作を定義します。 次に、サービス コントラクトを作成するために、<xref:System.ServiceModel.ServiceContractAttribute> 属性でマークされたインターフェイス内で操作を宣言するか、この属性でマークされたクラス内で操作を定義することにより、操作をグループ化します (基本的な例については、「[方法: サービスコントラクトを定義](how-to-define-a-wcf-service-contract.md)する」を参照してください)。  
   
- @No__t 0 の属性を持たないメソッドはサービス操作ではなく、WCF サービスによって公開されません。  
+ <xref:System.ServiceModel.OperationContractAttribute> 属性を持たないメソッドはサービス操作ではなく、WCF サービスによって公開されません。  
   
  ここでは、サービス コントラクトの設計時に決定すべき以下のポイントについて説明します。  
   
@@ -73,7 +73,7 @@ ms.locfileid: "72318382"
   
  データ コントラクトは opt-in 方式のコントラクトです。つまり、データ コントラクト属性を明示的に適用しない限り、型またはデータ メンバーはシリアル化されません。 データ コントラクトはマネージド コードのアクセス スコープとして関連付けられていません。プライベートのデータ メンバーはシリアル化され、パブリックにアクセスされる他の場所に送信されます (データコントラクトの基本的な例については、「[方法: クラスまたは構造体の基本的なデータコントラクトを作成](./feature-details/how-to-create-a-basic-data-contract-for-a-class-or-structure.md)する」を参照してください)。WCF では、基になる SOAP メッセージの定義を処理します。これにより、操作の機能を有効にすると共に、メッセージの本文との間でデータ型をシリアル化することができます。 使用するデータ型がシリアル化可能であれば、操作の設計時に、基盤となるメッセージ交換インフラストラクチャについて考える必要はありません。  
   
- 一般的な WCF アプリケーションでは、@no__t 0 と @no__t の属性を使用して操作のデータコントラクトを作成しますが、他のシリアル化メカニズムを使用することもできます。 <xref:System.Runtime.Serialization.ISerializable>、<xref:System.SerializableAttribute>、および <xref:System.Xml.Serialization.IXmlSerializable> の各標準機構はすべて、基になる SOAP メッセージへのデータ型のシリアル化を処理します。このメッセージはアプリケーション間でデータ型を伝達します。 使用するデータ型で特別なサポートが必要な場合は、さらに多くのシリアル化方法を使用できます。 WCF アプリケーションでのデータ型のシリアル化の選択肢の詳細については、「[サービスコントラクトでのデータ転送の指定](./feature-details/specifying-data-transfer-in-service-contracts.md)」を参照してください。  
+ 一般的な WCF アプリケーションでは、<xref:System.Runtime.Serialization.DataContractAttribute> と <xref:System.Runtime.Serialization.DataMemberAttribute> の属性を使用して操作のデータコントラクトを作成しますが、他のシリアル化メカニズムを使用することもできます。 <xref:System.Runtime.Serialization.ISerializable>、<xref:System.SerializableAttribute>、および <xref:System.Xml.Serialization.IXmlSerializable> の各標準機構はすべて、基になる SOAP メッセージへのデータ型のシリアル化を処理します。このメッセージはアプリケーション間でデータ型を伝達します。 使用するデータ型で特別なサポートが必要な場合は、さらに多くのシリアル化方法を使用できます。 WCF アプリケーションでのデータ型のシリアル化の選択肢の詳細については、「[サービスコントラクトでのデータ転送の指定](./feature-details/specifying-data-transfer-in-service-contracts.md)」を参照してください。  
   
 #### <a name="mapping-parameters-and-return-values-to-message-exchanges"></a>メッセージ交換へのパラメーターと戻り値のマッピング  
  サービス操作は、特定の標準セキュリティ、トランザクション、およびセッション関連の機能をサポートするためにアプリケーションが必要とするデータに加え、アプリケーション データをやり取りする SOAP メッセージの基になる交換によってサポートされます。 この場合、サービス操作の署名によって、データ転送をサポートできる特定の基になる*メッセージ交換パターン*(mep) と、操作に必要な機能が決まります。 WCF プログラミングモデルでは、要求/応答、一方向、および双方向のメッセージパターンの3つのパターンを指定できます。  
@@ -95,7 +95,7 @@ Function Hello (ByVal greeting As String) As String
   
  この操作シグネチャは、基になるメッセージ交換の形式を指定しています。 関連付けが存在しない場合、WCF は戻り値の対象となる操作を特定できません。  
   
- 別の基になるメッセージパターンを指定しない限り、`void` (Visual Basic の `Nothing`) を返すサービス操作でも、要求/応答メッセージ交換が行われることに注意してください。 クライアントが操作を非同期で呼び出していない場合、通常、メッセージが空の場合でも、戻りメッセージを受信するまでクライアントは処理を中止します。 クライアントが応答で空のメッセージを受信するまで制御が戻らない操作の C# コード例を次に示します。  
+ 別の基になるメッセージパターンを指定していない場合は、`void` (Visual Basic で`Nothing`) を返すサービス操作でも、要求/応答メッセージ交換が行われることに注意してください。 クライアントが操作を非同期で呼び出していない場合、通常、メッセージが空の場合でも、戻りメッセージを受信するまでクライアントは処理を中止します。 クライアントが応答で空のメッセージを受信するまで制御が戻らない操作の C# コード例を次に示します。  
   
 ```csharp  
 [OperationContractAttribute]  
@@ -149,7 +149,7 @@ Sub Hello (ByVal greeting As String)
 > サービスは、双方向メッセージを受信すると、その受信メッセージの `ReplyTo` 要素を参照して応答の送信先を決定します。 メッセージの受信に使用するチャネルがセキュリティで保護されていない場合、信頼関係のないクライアントが対象コンピューターの `ReplyTo` を使用して悪意のあるメッセージを送信し、その対象コンピューターのサービス拒否 (DOS: Denial Of Service) を引き起こすおそれがあります。  
   
 ##### <a name="out-and-ref-parameters"></a>Out パラメーターと Ref パラメーター  
- ほとんどの場合、`in` パラメーター (Visual Basic では `ByVal`) と `out` パラメーターと `ref` パラメーター (@no__t では Visual Basic) を使用できます。 `out` パラメーターと `ref` パラメーターは、操作からデータが返されることを示すため、操作シグネチャが `void` を返す場合でも、次のような操作シグネチャによって要求/応答操作が必要であることを指定します。  
+ ほとんどの場合、パラメーター (Visual Basic では`ByVal`) を使用して、`out` および `ref` のパラメーター (`ByRef` で Visual Basic) を `in` できます。 `out` パラメーターと `ref` パラメーターは、操作からデータが返されることを示すため、操作シグネチャが `void` を返す場合でも、次のような操作シグネチャによって要求/応答操作が必要であることを指定します。  
   
 ```csharp  
 [ServiceContractAttribute]  
@@ -260,21 +260,21 @@ End Interface
  保護レベルとその使用方法の詳細については、「[保護レベル](understanding-protection-level.md)について」を参照してください。 セキュリティの詳細については、「サービスのセキュリティ[保護](securing-services.md)」を参照してください。  
   
 ##### <a name="other-operation-signature-requirements"></a>操作シグネチャのその他の要件  
- アプリケーションの一部の機能では、特定の種類の操作シグネチャを必要とします。 たとえば、<xref:System.ServiceModel.NetMsmqBinding> バインディングは、永続的なサービスとクライアントをサポートします。永続的なサービスとクライアントでは、通信の途中でアプリケーションを再起動し、メッセージを失うことなく、アプリケーションが中止された場所を検出できます (詳細については、「 [WCF のキュー](./feature-details/queues-in-wcf.md)」を参照してください)。ただし、持続性のある操作では、1つの @no__t パラメーターのみを受け取り、戻り値を指定することはできません。  
+ アプリケーションの一部の機能では、特定の種類の操作シグネチャを必要とします。 たとえば、<xref:System.ServiceModel.NetMsmqBinding> バインディングは、永続的なサービスとクライアントをサポートします。永続的なサービスとクライアントでは、通信の途中でアプリケーションを再起動し、メッセージを失うことなく、アプリケーションが中止された場所を検出できます (詳細については、「 [WCF のキュー](./feature-details/queues-in-wcf.md)」を参照してください)。ただし、持続性のある操作では、`in` パラメーターを1つだけ受け取り、戻り値を指定することはできません。  
   
- もう 1 つの例として、操作における <xref:System.IO.Stream> 型の使用が挙げられます。 <xref:System.IO.Stream> パラメーターにはメッセージの本文全体が含まれるため、入力または出力 (つまり、`ref` パラメーター、`out` パラメーター、または戻り値) が <xref:System.IO.Stream> 型である場合、操作で指定された入力または出力に限定する必要があります。 また、パラメーターまたは戻り値の型は <xref:System.IO.Stream>、<xref:System.ServiceModel.Channels.Message?displayProperty=nameWithType>、<xref:System.Xml.Serialization.IXmlSerializable?displayProperty=nameWithType> のいずれかである必要があります。 ストリームの詳細については、「 [大規模データとストリーミング](./feature-details/large-data-and-streaming.md)」を参照してください。  
+ もう 1 つの例として、操作における <xref:System.IO.Stream> 型の使用が挙げられます。 <xref:System.IO.Stream> パラメーターにはメッセージの本文全体が含まれるため、入力または出力 (つまり、`ref` パラメーター、`out` パラメーター、または戻り値) が <xref:System.IO.Stream> 型である場合、操作で指定された入力または出力に限定する必要があります。 また、パラメーターまたは戻り値の型は <xref:System.IO.Stream>、<xref:System.ServiceModel.Channels.Message?displayProperty=nameWithType>、<xref:System.Xml.Serialization.IXmlSerializable?displayProperty=nameWithType> のいずれかである必要があります。 ストリームの詳細については、「 [Large Data And Streaming](./feature-details/large-data-and-streaming.md)」を参照してください。  
   
 ##### <a name="names-namespaces-and-obfuscation"></a>名前、名前空間、および隠ぺい  
  コントラクトおよび操作の定義内の .NET 型の名前や名前空間は、コントラクトが WSDL に変換されるとき、およびコントラクト メッセージが作成および送信されるときに重要になります。 したがって、サービス コントラクトの名前と名前空間は、`Name`、`Namespace`、<xref:System.ServiceModel.ServiceContractAttribute>、<xref:System.ServiceModel.OperationContractAttribute> などの、すべてのサポート対象コントラクト属性や、他のコントラクト属性の <xref:System.Runtime.Serialization.DataContractAttribute> プロパティと <xref:System.Runtime.Serialization.DataMemberAttribute> プロパティを使用して明示的に設定することを強くお勧めします。  
   
  この 1 つの結果として、名前と名前空間が明示的に設定されていない場合、アセンブリで IL 難読化を使用すると、コントラクトの型名と名前空間が変更され、その結果、WSDL が変更され、通常はネットワークでのメッセージ交換に失敗します。 コントラクトの名前と名前空間を明示的に設定せずに難読化を使用する場合は、<xref:System.Reflection.ObfuscationAttribute> 属性と <xref:System.Reflection.ObfuscateAssemblyAttribute> 属性を使用して、コントラクトの型名と名前空間が変更されないようにします。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [方法 : 要求/応答コントラクトを作成する](./feature-details/how-to-create-a-request-reply-contract.md)
 - [方法 : 一方向コントラクトを作成する](./feature-details/how-to-create-a-one-way-contract.md)
 - [方法 : 双方向コントラクトを作成する](./feature-details/how-to-create-a-duplex-contract.md)
-- [サービス コントラクトでのデータ転送の指定](./feature-details/specifying-data-transfer-in-service-contracts.md)
+- [Specifying Data Transfer in Service Contracts](./feature-details/specifying-data-transfer-in-service-contracts.md)
 - [コントラクトおよびサービスのエラーの指定と処理](specifying-and-handling-faults-in-contracts-and-services.md)
 - [セッションの使用](using-sessions.md)
 - [同期操作と非同期操作](synchronous-and-asynchronous-operations.md)

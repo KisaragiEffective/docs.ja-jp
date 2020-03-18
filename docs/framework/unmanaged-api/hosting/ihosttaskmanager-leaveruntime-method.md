@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 43689cc4-e48e-46e5-a22d-bafd768b8759
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8b2e8e636915b3921fcd727fc78a3fb18fc69104
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 8ac1c18d094deca50d461ef9ff0933a4f87176e0
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69959034"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73132994"
 ---
 # <a name="ihosttaskmanagerleaveruntime-method"></a>IHostTaskManager::LeaveRuntime メソッド
 現在実行中のタスクが共通言語ランタイム (CLR) を終了しようとしていることをホストに通知し、アンマネージコードを入力します。  
@@ -46,7 +44,7 @@ HRESULT LeaveRuntime (
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`LeaveRuntime`正常に返されました。|  
+|S_OK|`LeaveRuntime` が正常に返されました。|  
 |HOST_E_CLRNOTAVAILABLE|CLR がプロセスに読み込まれていないか、CLR がマネージドコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
 |HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
@@ -55,9 +53,9 @@ HRESULT LeaveRuntime (
 |E_OUTOFMEMORY|要求された割り当てを完了するために必要なメモリが不足しています。|  
   
 ## <a name="remarks"></a>Remarks  
- アンマネージコードとの間の呼び出しシーケンスは入れ子にすることができます。 たとえば、次の一覧は、、 `LeaveRuntime` [IHostTaskManager:: ReverseEnterRuntime](../../../../docs/framework/unmanaged-api/hosting/ihosttaskmanager-reverseenterruntime-method.md)、 [IHostTaskManager](../../../../docs/framework/unmanaged-api/hosting/ihosttaskmanager-reverseleaveruntime-method.md) `IHostTaskManager::EnterRuntime` :: ReverseLeaveRuntime に対する呼び出しのシーケンスによって、ホストが入れ子になったレイヤーを識別します。  
+ アンマネージコードとの間の呼び出しシーケンスは入れ子にすることができます。 たとえば、次の一覧では、`LeaveRuntime`、 [IHostTaskManager:: ReverseEnterRuntime](../../../../docs/framework/unmanaged-api/hosting/ihosttaskmanager-reverseenterruntime-method.md)、 [IHostTaskManager:: ReverseLeaveRuntime](../../../../docs/framework/unmanaged-api/hosting/ihosttaskmanager-reverseleaveruntime-method.md)、および `IHostTaskManager::EnterRuntime` の呼び出しのシーケンスによって、ホストが入れ子になったレイヤー。  
   
-|アクション|対応するメソッド呼び出し|  
+|操作|対応するメソッド呼び出し|  
 |------------|-------------------------------|  
 |マネージ Visual Basic 実行可能ファイルは、プラットフォーム呼び出しを使用して C で記述されたアンマネージ関数を呼び出します。|`IHostTaskManager::LeaveRuntime`|  
 |アンマネージ C 関数は、でC#記述されたマネージ DLL 内のメソッドを呼び出します。|`IHostTaskManager::ReverseEnterRuntime`|  
@@ -66,12 +64,12 @@ HRESULT LeaveRuntime (
 |関数C#は、最初のアンマネージ関数に実行を返します。|`IHostTaskManager::ReverseLeaveRuntime`|  
 |最初のアンマネージ関数は、実行を Visual Basic プログラムに返します。|`IHostTaskManager::EnterRuntime`|  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

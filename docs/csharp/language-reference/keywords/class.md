@@ -1,6 +1,5 @@
 ---
 title: class キーワード - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/18/2017
 f1_keywords:
 - class_CSharpKeyword
@@ -8,12 +7,12 @@ f1_keywords:
 helpviewer_keywords:
 - class keyword [C#]
 ms.assetid: b95d8815-de18-4c3f-a8cc-a0a53bdf8690
-ms.openlocfilehash: 0c4fc9645e43f23e340804b46bbe8a5faa19525d
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 500160d3bc9280b866e5f5ba24c5edc623e752c1
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69922387"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77673096"
 ---
 # <a name="class-c-reference"></a>class (C# リファレンス)
 
@@ -27,16 +26,16 @@ class TestClass
 }
 ```
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>Remarks
 
 C# では、単一継承のみを使用できます。 つまり、クラスは 1 つの基底クラスの実装だけを継承できます。 ただし、クラスは複数のインターフェイスを実装できます。 クラスの継承とインターフェイスの実装の例を次の表に示します。
 
 |継承|例|
 |-----------------|-------------|
-|なし|`class ClassA { }`|
-|Single|`class DerivedClass: BaseClass { }`|
-|なし。2 つのインターフェイスを実装|`class ImplClass: IFace1, IFace2 { }`|
-|1 つ。1 つのインターフェイスを実装|`class ImplDerivedClass: BaseClass, IFace1 { }`|
+|None|`class ClassA { }`|
+|Single|`class DerivedClass : BaseClass { }`|
+|なし。2 つのインターフェイスを実装|`class ImplClass : IFace1, IFace2 { }`|
+|1 つ。1 つのインターフェイスを実装|`class ImplDerivedClass : BaseClass, IFace1 { }`|
 
 名前空間内で直接宣言され、他のクラスに入れ子にされていないクラスは、[public](./public.md) または [internal](./internal.md) のいずれかです。 クラスは既定で `internal` です。
 
@@ -70,11 +69,11 @@ C# では、単一継承のみを使用できます。 つまり、クラスは 
 
 - [クラス](../../programming-guide/classes-and-structs/classes.md)
 
-- "[インターフェイス](../../programming-guide/interfaces/index.md)"
+- [インターフェイス](../../programming-guide/interfaces/index.md)
 
-- [構造体](../../programming-guide/classes-and-structs/structs.md)
+- [構造体型](../builtin-types/struct.md)
 
-- [列挙型](../../programming-guide/enumeration-types.md)
+- [列挙型](../builtin-types/enum.md)
 
 ## <a name="example"></a>例
 
@@ -82,7 +81,7 @@ C# では、単一継承のみを使用できます。 つまり、クラスは 
 
 [!code-csharp[csrefKeywordsTypes#5](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsTypes/CS/keywordsTypes.cs#5)]
 
-## <a name="comments"></a>説明
+## <a name="comments"></a>コメント
 
 前の例で、プライベート フィールド (`name` および `age`) にアクセスできるのは、`Child` クラスのパブリック メソッドだけであることに注意してください。 たとえば、次のステートメントを使用して `Main` メソッドから子の名前を印刷することはできません。
 

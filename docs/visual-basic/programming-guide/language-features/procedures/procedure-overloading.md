@@ -1,5 +1,5 @@
 ---
-title: プロシージャのオーバーロード (Visual Basic)
+title: プロシージャのオーバーロード
 ms.date: 07/20/2015
 helpviewer_keywords:
 - signatures
@@ -17,24 +17,24 @@ helpviewer_keywords:
 - procedure overloading
 - procedures [Visual Basic], parameter lists
 ms.assetid: fbc7fb18-e3b2-48b6-b554-64c00ed09d2a
-ms.openlocfilehash: 91e76e8c051b1d6f8b6fc1604018a26b23b4945b
-ms.sourcegitcommit: d6e27023aeaffc4b5a3cb4b88685018d6284ada4
+ms.openlocfilehash: 41a971896fe726cbe9849fd46334910e7288afe0
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67663302"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352598"
 ---
 # <a name="procedure-overloading-visual-basic"></a>プロシージャのオーバーロード (Visual Basic)
 
-*オーバー ロード*プロシージャでは、異なるパラメーター リストが同じ名前を使用して、複数のバージョンを定義することを意味します。 オーバー ロードの目的では、名前で区別せずに密接に関連するいくつかのバージョンのプロシージャを定義します。 パラメーター リストをさまざまなこれを行います。
+プロシージャを*オーバーロード*することは、同じ名前でパラメーターリストが異なる複数のバージョンで定義することを意味します。 オーバーロードの目的は、プロシージャの名前を区別せずに、密接に関連する複数のバージョンを定義することです。 これを行うには、パラメーターリストを変更します。
 
-## <a name="overloading-rules"></a>オーバー ロードの規則
+## <a name="overloading-rules"></a>オーバーロード (規則を)
 
-プロシージャをオーバー ロードする場合は、次の規則が適用されます。
+プロシージャをオーバーロードすると、次の規則が適用されます。
 
-- **同じ名前**します。 各オーバー ロードされたバージョンでは、同じプロシージャ名を使用する必要があります。
+- **同じ名前**です。 オーバーロードされた各バージョンは、同じプロシージャ名を使用する必要があります。
 
-- **異なる署名**します。 各オーバー ロードされたバージョンは、次のうちの少なくとも 1 つにその他のすべてのオーバー ロードされたバージョンと異なる必要があります。
+- **署名が異なり**ます。 オーバーロードされた各バージョンは、次のいずれかの点で、他のすべてのオーバーロードされたバージョンと異なる必要があります。
 
   - パラメーターの数
 
@@ -42,61 +42,61 @@ ms.locfileid: "67663302"
 
   - パラメーターのデータ型
 
-  - (ジェネリック プロシージャの場合) の型パラメーターの数
+  - 型パラメーターの数 (ジェネリックプロシージャの場合)
 
-  - 戻り値の型 (変換演算子) の場合のみ
+  - 戻り値の型 (変換演算子の場合のみ)
 
-  プロシージャ名、と共に、上記の項目は、総称、*署名*プロシージャのです。 オーバー ロードされたプロシージャを呼び出すときに、コンパイラは、呼び出しが、定義を正しくと一致することを確認するのに署名を使用します。
+  プロシージャ名と共に、前の項目は総称してプロシージャの*シグネチャ*と呼ばれます。 オーバーロードされたプロシージャを呼び出すと、コンパイラはシグネチャを使用して、呼び出しが定義と正しく一致することを確認します。
 
-- **シグネチャの一部ではない項目**します。 シグネチャを変更せず、プロシージャをオーバー ロードすることはできません。 具体的には、プロシージャをオーバー ロードするだけで、次のものの 1 つ以上ことはできません。
+- **項目はシグネチャの一部ではありません**。 シグネチャを変更せずにプロシージャをオーバーロードすることはできません。 特に、次の項目のうち1つ以上を変更してプロシージャをオーバーロードすることはできません。
 
-  - プロシージャ修飾子キーワードなど`Public`、`Shared`と `Static`
+  - プロシージャ修飾子キーワード (`Public`、`Shared`、`Static` など)
 
   - パラメーターまたは型パラメーター名
 
-  - (ジェネリック プロシージャの場合) の型パラメーターの制約
+  - 型パラメーターの制約 (ジェネリックプロシージャの場合)
 
-  - パラメーター修飾子キーワードなど`ByRef`と `Optional`
+  - `ByRef` や `Optional` などのパラメーター修飾子キーワード
 
   - 値を返すかどうか
 
-  - (変換演算子) を除く、戻り値のデータ型
+  - 戻り値のデータ型 (変換演算子を除く)
 
-  上記のリスト項目は、シグネチャの一部ではありません。 オーバー ロードされたバージョンを区別するために、それらを使用することはできませんは、そのシグネチャで区別する、オーバー ロードされたバージョン間で異なることができます。
+  前の一覧の項目は、署名に含まれていません。 オーバーロードされたバージョンを区別するために使用することはできませんが、シグネチャによって適切に区別されるオーバーロードされたバージョン間で変更することはできます。
 
-- **遅延バインディング引数**します。 として適切なパラメーターを宣言する必要があります、オーバー ロードされたバージョンに遅延バインディング オブジェクト変数を渡す場合は、<xref:System.Object>します。
+- **遅延**バインディングされた引数。 遅延バインディングされたオブジェクト変数をオーバーロードされたバージョンに渡す場合は、適切なパラメーターを <xref:System.Object>として宣言する必要があります。
 
 ## <a name="multiple-versions-of-a-procedure"></a>プロシージャの複数のバージョン
 
-作成すると、`Sub`に対して顧客のバランスでは、トランザクションをポストするプロシージャが名またはアカウントの数のいずれかを顧客に参照することができるようにします。 これに合わせて、2 つの異なる定義できます`Sub`手順については、次の例のように。
+顧客の残高に対してトランザクションを投稿するための `Sub` プロシージャを記述していて、名前またはアカウント番号で顧客を参照できるようにするとします。 これに対応するために、次の例に示すように、2つの異なる `Sub` プロシージャを定義できます。
 
 [!code-vb[VbVbcnProcedures#73](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#73)]
 
-### <a name="overloaded-versions"></a>オーバー ロードされたバージョン
+### <a name="overloaded-versions"></a>オーバーロードされたバージョン
 
-別の方法では、1 つのプロシージャ名をオーバー ロードします。 使用することができます、[オーバー ロード](../../../../visual-basic/language-reference/modifiers/overloads.md)キーワードを次のように各パラメーター一覧については、プロシージャのバージョンを定義します。
+別の方法として、1つのプロシージャ名をオーバーロードする方法があります。 次のように、 [Overloads](../../../../visual-basic/language-reference/modifiers/overloads.md)キーワードを使用して、各パラメーターリストのプロシージャのバージョンを定義できます。
 
 [!code-vb[VbVbcnProcedures#72](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#72)]
 
-#### <a name="additional-overloads"></a>追加のオーバー ロード
+#### <a name="additional-overloads"></a>追加のオーバーロード
 
-いずれかでトランザクションの量をそのまま使用したい場合`Decimal`または`Single`、オーバー ロードすることがさらに`post`このバリエーションの 1 つを許可します。 これを実行した場合に上記の例ではオーバー ロードごとに、4 つ必要がある`Sub`4 つの異なるシグネチャを持つが、同じ名前のすべての手順。
+また、`Decimal` または `Single`でトランザクション量を受け入れる場合は、`post` をオーバーロードして、このバリエーションに対応できるようにすることもできます。 前の例の各オーバーロードに対してこれを行った場合は、4つの `Sub` プロシージャがありますが、これらはすべて同じ名前ですが、4つの異なるシグネチャを持ちます。
 
-## <a name="advantages-of-overloading"></a>オーバー ロードの利点
+## <a name="advantages-of-overloading"></a>オーバーロードの利点
 
-プロシージャのオーバー ロードの利点は、呼び出しの柔軟性です。 使用する、`post`プロシージャ宣言の前の例では、呼び出し元のコードは、いずれか、顧客 id を取得できます、`String`または`Integer`、いずれの場合も同じ手順を呼び出します。 次に例を示します。
+プロシージャをオーバーロードする利点は、呼び出しの柔軟性です。 前の例で宣言した `post` プロシージャを使用するには、呼び出し元のコードが `String` または `Integer`として顧客 id を取得し、どちらの場合でも同じプロシージャを呼び出すことができます。 次に例を示します。
 
 [!code-vb[VbVbcnProcedures#56](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#56)]
 
 [!code-vb[VbVbcnProcedures#57](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#57)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [プロシージャ](./index.md)
-- [方法: 複数のバージョンのプロシージャを定義します。](./how-to-define-multiple-versions-of-a-procedure.md)
-- [方法: オーバー ロードされたプロシージャを呼び出す](./how-to-call-an-overloaded-procedure.md)
-- [方法: 省略可能なパラメーターを受け取るプロシージャをオーバー ロードします。](./how-to-overload-a-procedure-that-takes-optional-parameters.md)
-- [方法: 不特定数のパラメーターを受け取るプロシージャをオーバー ロードします。](./how-to-overload-a-procedure-that-takes-an-indefinite-number-of-parameters.md)
+- [Visual Basic におけるプロシージャ](./index.md)
+- [方法 : プロシージャの複数のバージョンを定義する](./how-to-define-multiple-versions-of-a-procedure.md)
+- [方法 : オーバーロードされたプロシージャを呼び出す](./how-to-call-an-overloaded-procedure.md)
+- [方法 : 省略可能なパラメーターを受け取るプロシージャをオーバーロードする](./how-to-overload-a-procedure-that-takes-optional-parameters.md)
+- [方法 : 不特定数のパラメーターを受け取るプロシージャをオーバーロードする](./how-to-overload-a-procedure-that-takes-an-indefinite-number-of-parameters.md)
 - [プロシージャのオーバーロードに関する注意事項](./considerations-in-overloading-procedures.md)
 - [オーバーロードの解決](./overload-resolution.md)
 - [Overloads](../../../../visual-basic/language-reference/modifiers/overloads.md)

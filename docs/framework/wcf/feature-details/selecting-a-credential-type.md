@@ -2,15 +2,15 @@
 title: 資格情報の種類の選択
 ms.date: 03/30/2017
 ms.assetid: bf707063-3f30-4304-ab53-0e63413728a8
-ms.openlocfilehash: b5dd757328fc04ccbbce7eaed2bd1a28b3e1282e
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 6737f7daeb37e2e296ca0429d73b963743c409a2
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69949224"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746140"
 ---
 # <a name="selecting-a-credential-type"></a>資格情報の種類の選択
-*資格情報* とはWindows Communication Foundation (WCF) が要求された身分証明または資格を確立するために使用するデータです。 たとえば、パスポートは、政府によって発行される、国籍または地域籍を証明するための資格情報です。 WCF では、資格情報は、ユーザー名トークンや x.509 証明書など、さまざまな形式になります。 このトピックでは、資格情報、WCF での使用方法、およびアプリケーションに適切な資格情報を選択する方法について説明します。  
+*資格情報*は、要求された id または機能のいずれかを確立するために使用されるデータ WINDOWS COMMUNICATION FOUNDATION (WCF) です。 たとえば、パスポートは、政府によって発行される、国籍または地域籍を証明するための資格情報です。 WCF では、資格情報は、ユーザー名トークンや x.509 証明書など、さまざまな形式になります。 このトピックでは、資格情報、WCF での使用方法、およびアプリケーションに適切な資格情報を選択する方法について説明します。  
   
  多くの国や地域において、運転免許証は資格情報の一例です。 運転免許証には、個人を識別する情報や能力を表すデータが記載されます。 この免許証には、所有者の写真という形式で所有の証明が含まれています。 免許証は、政府機関など、信頼された証明機関によって発行されます。 免許証には発行機関印が押され (国や地域によってはホログラムが使用され) ており、これによって、改ざんあるいは偽造されたものではないことが示されています。  
   
@@ -18,36 +18,36 @@ ms.locfileid: "69949224"
   
  ユーザー名資格情報で、ユーザー名はクレームされた ID を表しており、パスワードは所有の証明に使用されます。 この場合の信頼された証明機関とは、ユーザー名とパスワードを検証するシステムです。  
   
- X.509 証明書の資格情報では、サブジェクト名、サブジェクトの別名、または証明書内の特定のフィールドを id のクレームとして使用できますが`Valid From` 、 `Valid To`フィールドやフィールドなどの他のフィールドは、証明.  
+ X.509 証明書の資格情報を使用すると、サブジェクト名、サブジェクトの別名、または証明書内の特定のフィールドを id のクレームとして使用できます。また、`Valid From` フィールドや `Valid To` フィールドなどの他のフィールドは、証明書の有効性を指定します。  
   
 ## <a name="transport-credential-types"></a>トランスポート資格情報の種類  
  転送セキュリティ モードのバインディングによって使用できるクライアント資格情報の種類を次の表に示します。 サービスを作成する際には、`ClientCredentialType` プロパティを次のいずれかの値に設定し、クライアントがサービスと通信するときに提供する必要がある資格情報の種類を指定します。 この種類は、コードまたは構成ファイルで設定できます。  
   
-|設定|説明|  
+|設定|[説明]|  
 |-------------|-----------------|  
 |なし|クライアントが資格情報を提示する必要がないことを指定します。 匿名クライアントであると解釈されます。|  
-|Basic|クライアントに基本認証を指定します。 詳細については、「[RFC2617」を参照してください。 HTTP 認証:基本認証とダイジェスト認証](https://go.microsoft.com/fwlink/?LinkID=88313)」を参照してください。|  
-|Digest|クライアントにダイジェスト認証を指定します。 詳細については、「[RFC2617」を参照してください。 HTTP 認証:基本認証とダイジェスト認証](https://go.microsoft.com/fwlink/?LinkID=88313)」を参照してください。|  
-|Ntlm|NT LAN Manager (NTLM) 認証を指定します。 これは、何らかの理由で Kerberos 認証を使用できないときに使用されます。 また、 <xref:System.ServiceModel.Security.WindowsClientCredential.AllowNtlm%2A>プロパティをに設定する`false`と、フォールバックとしての使用を無効にすることもできます。これにより、NTLM が使用された場合に WCF がベストエフォートで例外をスローするようになります。 ただし、このプロパティを `false` に設定しても、ネットワーク経由で NTLM 資格情報が送信されなくなるとは限りません。|  
+|Basic|クライアントに基本認証を指定します。 詳細については、「RFC2617-[HTTP 認証: 基本認証とダイジェスト認証](ftp://ftp.rfc-editor.org/in-notes/rfc2617.txt)」を参照してください。|  
+|ダイジェスト|クライアントにダイジェスト認証を指定します。 詳細については、「RFC2617-[HTTP 認証: 基本認証とダイジェスト認証](ftp://ftp.rfc-editor.org/in-notes/rfc2617.txt)」を参照してください。|  
+|Ntlm|NT LAN Manager (NTLM) 認証を指定します。 これは、何らかの理由で Kerberos 認証を使用できないときに使用されます。 また、<xref:System.ServiceModel.Security.WindowsClientCredential.AllowNtlm%2A> プロパティを `false`に設定して、フォールバックとして使用を無効にすることもできます。これにより、NTLM が使用された場合に WCF がベストエフォートで例外をスローするようになります。 ただし、このプロパティを `false` に設定しても、ネットワーク経由で NTLM 資格情報が送信されなくなるとは限りません。|  
 |Windows|Windows 認証を指定します。 Windows ドメインで Kerberos プロトコルだけを指定するには、<xref:System.ServiceModel.Security.WindowsClientCredential.AllowNtlm%2A> プロパティを `false` (既定値は `true`) に設定する必要があります。|  
-|証明書|X.509 証明書を使用したクライアント認証を実行します。|  
-|[Password]|ユーザーは、ユーザー名とパスワードを提供する必要があります。 Windows 認証または他のカスタム ソリューションを使用して、ユーザー名とパスワードの組み合わせを検証します。|  
+|Certificate|X.509 証明書を使用したクライアント認証を実行します。|  
+|Password|ユーザーは、ユーザー名とパスワードを提供する必要があります。 Windows 認証または他のカスタム ソリューションを使用して、ユーザー名とパスワードの組み合わせを検証します。|  
   
 ### <a name="message-client-credential-types"></a>メッセージ クライアント資格情報の種類  
  メッセージ セキュリティを使用するアプリケーションを作成するときに使用できる資格情報の種類を次の表に示します。 これらの値は、コードまたは構成ファイルで使用できます。  
   
-|設定|説明|  
+|設定|[説明]|  
 |-------------|-----------------|  
 |なし|クライアントが資格情報を提示する必要がないことを指定します。 匿名クライアントであると解釈されます。|  
 |Windows|Windows 資格情報によって確立されたセキュリティ コンテキストで、SOAP メッセージ交換を実行できます。|  
-|[ユーザー名]|ユーザー名資格情報を使用したクライアントの認証をサービスで要求できるようにします。 WCF では、署名の生成やデータの暗号化など、ユーザー名を使用した暗号化操作が許可されていないことに注意してください。 WCF では、ユーザー名の資格情報を使用するときに、トランスポートが確実にセキュリティで保護されます。|  
-|証明書|X.509 証明書を使用したクライアントの認証をサービスで要求できるようにします。|  
+|ユーザー名|ユーザー名資格情報を使用したクライアントの認証をサービスで要求できるようにします。 WCF では、署名の生成やデータの暗号化など、ユーザー名を使用した暗号化操作が許可されていないことに注意してください。 WCF では、ユーザー名の資格情報を使用するときに、トランスポートが確実にセキュリティで保護されます。|  
+|Certificate|X.509 証明書を使用したクライアントの認証をサービスで要求できるようにします。|  
 |IssuedToken|セキュリティ ポリシーに従って構成されるカスタム トークンです。 既定のトークンの種類は、SAML (Security Assertion Markup Language) です。 トークンは、セキュリティ トークン サービスによって発行されます。 詳細については、「[フェデレーションと発行済みトークン](../../../../docs/framework/wcf/feature-details/federation-and-issued-tokens.md)」を参照してください。|  
   
 ### <a name="negotiation-model-of-service-credentials"></a>サービス資格情報のネゴシエーション モデル  
  *ネゴシエーション*は、資格情報を交換することによって、クライアントとサービスの間の信頼を確立するプロセスです。 このプロセスは、ネゴシエーション プロセスの次の手順に必要な情報だけを公開するために、クライアントとサービスとの間で反復して実行されます。 実際には、最後に、後続の操作で使用されるサービスの資格情報がクライアントに配信されます。  
   
- 1つの例外を除き、既定では、WCF のシステム指定のバインディングは、メッセージレベルのセキュリティを使用するときにサービス資格情報を自動的にネゴシエートします。 (例外とは、<xref:System.ServiceModel.BasicHttpBinding> の場合です。このバインディングでは、既定ではセキュリティが有効化されません)。この動作を無効にするには、<xref:System.ServiceModel.MessageSecurityOverHttp.NegotiateServiceCredential%2A> プロパティと <xref:System.ServiceModel.FederatedMessageSecurityOverHttp.NegotiateServiceCredential%2A> プロパティを参照してください。  
+ 1つの例外を除き、既定では、WCF のシステム指定のバインディングは、メッセージレベルのセキュリティを使用するときにサービス資格情報を自動的にネゴシエートします。 (例外は <xref:System.ServiceModel.BasicHttpBinding>であり、既定ではセキュリティは有効になっていません)。この動作を無効にするには、<xref:System.ServiceModel.MessageSecurityOverHttp.NegotiateServiceCredential%2A> と <xref:System.ServiceModel.FederatedMessageSecurityOverHttp.NegotiateServiceCredential%2A> のプロパティを参照してください。  
   
 > [!NOTE]
 > .NET Framework 3.5 以降で SSL セキュリティを使用する場合、WCF クライアントは、証明書ストア内の中間証明書と SSL ネゴシエーション中に受信した中間証明書の両方を使用して、サービスの証明書チェーンの検証を実行します。証明. .NET Framework 3.0 では、ローカルの証明書ストアにインストールされている中間証明書のみが使用されます。  
@@ -97,7 +97,7 @@ ms.locfileid: "69949224"
   
  資格情報とセキュリティで保護されたセッションの詳細については、「[セキュリティの考慮事項](../../../../docs/framework/wcf/feature-details/security-considerations-for-secure-sessions.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.ServiceModel.ClientBase%601?displayProperty=nameWithType>
 - <xref:System.ServiceModel.ClientBase%601.ClientCredentials%2A?displayProperty=nameWithType>

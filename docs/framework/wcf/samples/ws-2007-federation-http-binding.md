@@ -2,12 +2,12 @@
 title: WS 2007 フェデレーション HTTP バインディング
 ms.date: 03/30/2017
 ms.assetid: 91c1b477-a96e-4bf5-9330-5e9312113371
-ms.openlocfilehash: ad56665b5b6648fb93a9f31f18167a964b4cba92
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.openlocfilehash: 74f21494c08f33a61eb1e1b0a102638cff59a970
+ms.sourcegitcommit: 42ed59871db1f29a32b3d8e7abeb20e6eceeda7c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71834658"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74960195"
 ---
 # <a name="ws-2007-federation-http-binding"></a>WS 2007 フェデレーション HTTP バインディング
 
@@ -37,7 +37,7 @@ ms.locfileid: "71834658"
 </bindings>
 ```
 
-[@No__t-1security >](../../configure-apps/file-schema/wcf/security-element-of-ws2007federationhttpbinding.md)では、`security` の値で、使用するセキュリティモードを指定します。 このサンプルでは、`message` セキュリティが使用されています。これは、 [\<message >](../../configure-apps/file-schema/wcf/message-element-of-ws2007federationhttpbinding.md)が[\<security >](../../configure-apps/file-schema/wcf/security-element-of-ws2007federationhttpbinding.md)内で指定されているためです。 [@No__t-3message >](../../configure-apps/file-schema/wcf/message-element-of-ws2007federationhttpbinding.md)内の[\<issuer >](../../configure-apps/file-schema/wcf/issuer.md)要素は、クライアントが @no__t 4 サービスに対して認証できるように、セキュリティトークンをクライアントに発行する STS のアドレスとバインディングを指定します。
+[\<セキュリティ >](../../configure-apps/file-schema/wcf/security-element-of-ws2007federationhttpbinding.md)で、`security` の値によって、使用するセキュリティモードを指定します。 このサンプルでは、`message` セキュリティを使用します。このため、 [\<メッセージ >](../../configure-apps/file-schema/wcf/message-element-of-ws2007federationhttpbinding.md)は[\<セキュリティ >](../../configure-apps/file-schema/wcf/security-element-of-ws2007federationhttpbinding.md)内で指定されます。 [\<メッセージ >](../../configure-apps/file-schema/wcf/message-element-of-ws2007federationhttpbinding.md)内の[\<issuer >](../../configure-apps/file-schema/wcf/issuer.md)要素は、クライアントが `ICalculator` サービスに対して認証できるように、セキュリティトークンをクライアントに発行する STS のアドレスとバインディングを指定します。
   
 サービスでのこのバインディングの構成を次のコードに示します。
 
@@ -64,7 +64,7 @@ ms.locfileid: "71834658"
 </bindings>
 ```
 
-[@No__t-1security >](../../configure-apps/file-schema/wcf/security-element-of-ws2007federationhttpbinding.md)では、`security` の値で、使用するセキュリティモードを指定します。 このサンプルでは、`message` セキュリティが使用されています。これは、 [\<message >](../../configure-apps/file-schema/wcf/message-element-of-ws2007federationhttpbinding.md)が[\<security >](../../configure-apps/file-schema/wcf/security-element-of-ws2007federationhttpbinding.md)内で指定されているためです。 [@No__t-4message >](../../configure-apps/file-schema/wcf/message-element-of-ws2007federationhttpbinding.md)内の `ws2007FederationHttpBinding` の[\<issuermetadata >](../../configure-apps/file-schema/wcf/issuermetadata.md)要素は、STS のメタデータを取得するために使用できるエンドポイントのアドレスと id を指定します。
+[\<セキュリティ >](../../configure-apps/file-schema/wcf/security-element-of-ws2007federationhttpbinding.md)で、`security` の値によって、使用するセキュリティモードを指定します。 このサンプルでは、`message` セキュリティを使用します。このため、 [\<メッセージ >](../../configure-apps/file-schema/wcf/message-element-of-ws2007federationhttpbinding.md)は[\<セキュリティ >](../../configure-apps/file-schema/wcf/security-element-of-ws2007federationhttpbinding.md)内で指定されます。 [\<> メッセージ](../../configure-apps/file-schema/wcf/message-element-of-ws2007federationhttpbinding.md)内の `ws2007FederationHttpBinding` の[\<issuermetadata >](../../configure-apps/file-schema/wcf/issuermetadata.md)要素は、STS のメタデータを取得するために使用できるエンドポイントのアドレスと id を指定します。
 
 サービスの動作を次のコードに示します。
 
@@ -93,7 +93,7 @@ ms.locfileid: "71834658"
 </behaviors>
 ```
   
-[@No__t 1issuedTokenAuthentication >](../../configure-apps/file-schema/wcf/issuedtokenauthentication-of-servicecredentials.md)> を使用すると、サービスは、認証時にクライアントが提示できるトークンに対する制約を指定できます。 この構成の指定では、サブジェクト名が CN=STS である証明書によって署名されたトークンがサービスによって受け入れられます。
+[\<issuedTokenAuthentication >](../../configure-apps/file-schema/wcf/issuedtokenauthentication-of-servicecredentials.md)> を使用すると、サービスは、認証時にクライアントが提示できるトークンに対して制約を指定できます。 この構成の指定では、サブジェクト名が CN=STS である証明書によって署名されたトークンがサービスによって受け入れられます。
 
 STS は、標準の <xref:System.ServiceModel.WS2007HttpBinding> を使用して、単一のエンドポイントを利用できるようにします。 このサービスは、クライアントからのトークンの要求に応答し、 クライアントが Windows アカウントを使用して認証されている場合は、クライアントのユーザー名がクレームとして含まれているトークンを発行します。 STS は、トークン作成の一環として、CN=STS 証明書に関連付けられている秘密キーを使用して、トークンに署名します。 また、対称キーを作成し、CN=localhost 証明書に関連付けられている秘密キーを使用して暗号化します。 STS は、トークンをクライアントに返すときに、対称キーも返します。 クライアントは、発行されたトークンを `ICalculator` サービスに提示し、対称キーを使用してメッセージに署名することで対称キーを認識していることを証明します。
 
@@ -119,13 +119,13 @@ Press <ENTER> to terminate client.
 
 1. ソリューションの C# 版または Visual Basic .NET 版をビルドするには、「 [Building the Windows Communication Foundation Samples](building-the-samples.md)」の手順に従います。
 
-2. サンプルを単一コンピューター構成または複数コンピューター構成で実行するには、「 [Windows Communication Foundation サンプルの実行](running-the-samples.md)」の手順に従います。 @No__t-0 を使用している場合は、*サービス* *を管理*者特権で実行する必要があります (ファイルを右クリックし、[**管理者として実行** *] をクリック*します)。
+2. サンプルを単一コンピューター構成または複数コンピューター構成で実行するには、「 [Windows Communication Foundation サンプルの実行](running-the-samples.md)」の手順に従います。 Windows Vista を使用している場合は、*サービス* *を管理*者特権で実行する必要があります (ファイルを右クリックし、[**管理者として実行** *] をクリック*します)。
 
 > [!IMPORTANT]
 > サンプルは、既にコンピューターにインストールされている場合があります。 続行する前に、次の (既定の) ディレクトリを確認してください。
 > 
 > `<InstallDrive>:\WF_WCF_Samples`
 > 
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
 > 
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Binding\WS\WS2007FederationHttp`

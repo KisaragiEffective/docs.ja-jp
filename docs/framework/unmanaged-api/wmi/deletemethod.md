@@ -14,14 +14,12 @@ helpviewer_keywords:
 - DeleteMethod function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4db81c4c7e123eed82b3092912b8d871edb54618
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: db360584dacf250be2f35e5e6666f8332b39a8dd
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798665"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120647"
 ---
 # <a name="deletemethod-function"></a>DeleteMethod 関数
 指定したメソッドを CIM クラス定義から削除します。
@@ -47,13 +45,13 @@ HRESULT Delete (
 から[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスへのポインター。
 
 `wszName`  
-からクラステーブルから削除するメソッドの名前。 `wszName`は、有効`LPCWSTR`なへのポインターである必要があります。
+からクラステーブルから削除するメソッドの名前。 `wszName` は、有効な `LPCWSTR`へのポインターである必要があります。
 
 ## <a name="return-value"></a>戻り値
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `WBEM_E_NOT_FOUND` | 0x80041002 | 指定されたメソッドは存在しません。 |
 | `WBEM_E_OUT_OF_MEMORY` | 0x80041006 | 操作を完了するために必要なメモリが不足しています。 |
@@ -65,8 +63,8 @@ HRESULT Delete (
 
 CIM インスタンスを指す[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)ポインターでは、メソッドの削除はサポートされていません。
 
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

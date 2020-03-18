@@ -33,7 +33,7 @@ ms.locfileid: "72005397"
   
  警告 id の数値部分のみを指定する必要があります。 たとえば、BC42024 を抑制する場合は、使用されていないローカル変数の警告として、`-nowarn:42024` を指定します。  
   
- 警告 ID 番号の詳細については、「 [Visual Basic での警告の構成](/visualstudio/ide/configuring-warnings-in-visual-basic)」を参照してください。  
+ 警告 ID 番号の詳細については、「[Visual Basic での警告の構成](/visualstudio/ide/configuring-warnings-in-visual-basic)」を参照してください。  
   
 |Visual Studio 統合開発環境で-nowarn を設定するには|  
 |---|  
@@ -55,6 +55,6 @@ vbc -nowarn:42024 t2.vb
   
 ## <a name="see-also"></a>関連項目
 
-- [Visual Basic のコマンド ライン コンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
-- [コンパイル コマンド ラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)
-- [Configuring Warnings in Visual Basic](/visualstudio/ide/configuring-warnings-in-visual-basic)
+- [Visual Basic コマンドラインコンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
+- [コンパイルコマンドラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)
+- [Visual Basic での警告の構成](/visualstudio/ide/configuring-warnings-in-visual-basic)

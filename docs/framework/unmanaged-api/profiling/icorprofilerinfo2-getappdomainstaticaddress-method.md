@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 2a9e0ea7-a9e2-4817-b1c4-fcf15b215ea9
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: e68178a71d7ba73b4956a7d23854c23300301d8e
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 05d8c44655d8670194035c336bd62ae5d53bfec3
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67747855"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76862972"
 ---
 # <a name="icorprofilerinfo2getappdomainstaticaddress-method"></a>ICorProfilerInfo2::GetAppDomainStaticAddress メソッド
-指定したアプリケーション ドメインのスコープ内の指定されたアプリケーション ドメインの静的フィールドのアドレスを取得します。  
+指定したアプリケーションドメインのスコープ内にある、指定したアプリケーションドメインの静的フィールドのアドレスを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,30 +37,30 @@ RESULT GetAppDomainStaticAddress(
   
 ## <a name="parameters"></a>パラメーター  
  `classId`  
- [in]要求されたアプリケーション ドメインの静的フィールドを格納するクラスのクラス ID。  
+ から要求されたアプリケーションドメインの静的フィールドを含むクラスのクラス ID。  
   
  `fieldToken`  
- [in]要求されたアプリケーション ドメインの静的フィールドのメタデータ トークンです。  
+ から要求されたアプリケーションドメインの静的フィールドのメタデータトークン。  
   
  `appDomainId`  
- [in]要求された静的フィールドのスコープとなっているアプリケーション ドメインの ID。  
+ から要求された静的フィールドのスコープであるアプリケーションドメインの ID。  
   
  `ppAddress`  
- [out]指定したアプリケーション ドメイン内にある静的フィールドのアドレスへのポインター。  
+ 入出力指定されたアプリケーションドメイン内の静的フィールドのアドレスへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- `GetAppDomainStaticAddress`メソッドは、次のいずれかを返す可能性があります。  
+## <a name="remarks"></a>コメント  
+ `GetAppDomainStaticAddress` メソッドは、次のいずれかを返す場合があります。  
   
-- 指定された静的フィールドに指定したコンテキスト内のアドレスが割り当てられていない場合の CORPROF_E_DATAINCOMPLETE HRESULT。  
+- 指定されたコンテキストで、指定された静的フィールドにアドレスが割り当てられていない場合は CORPROF_E_DATAINCOMPLETE HRESULT。  
   
-- ガベージ コレクション ヒープで可能性のあるオブジェクトのアドレス。 これらのアドレスは、ガベージ コレクション後にプロファイラーを想定しないでくださいが有効であるために、ガベージ コレクションの後無効になる可能性があります。  
+- ガベージコレクションヒープ内に存在する可能性があるオブジェクトのアドレス。 これらのアドレスは、ガベージコレクションの後に無効になることがあります。そのため、ガベージコレクションの後、プロファイラーはそれらが有効であると想定してはなりません。  
   
- クラスのクラスのコンス トラクターが完了したら、前に`GetAppDomainStaticAddress`はいくつかの静的フィールドは既に初期化可能性がありますが、すべての静的フィールドの CORPROF_E_DATAINCOMPLETE を返し、ガベージ コレクション オブジェクトのルートします。  
+ クラスのクラスコンストラクターが完了する前に、`GetAppDomainStaticAddress` はすべての静的フィールドに対して CORPROF_E_DATAINCOMPLETE を返します。ただし、静的フィールドの一部は既に初期化されており、ガベージコレクションオブジェクトがルート化される場合があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -70,5 +68,5 @@ RESULT GetAppDomainStaticAddress(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerInfo インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo-interface.md)
-- [ICorProfilerInfo2 インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo2-interface.md)
+- [ICorProfilerInfo インターフェイス](icorprofilerinfo-interface.md)
+- [ICorProfilerInfo2 インターフェイス](icorprofilerinfo2-interface.md)

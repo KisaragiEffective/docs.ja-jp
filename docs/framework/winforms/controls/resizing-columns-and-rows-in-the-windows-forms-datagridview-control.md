@@ -1,45 +1,45 @@
 ---
-title: Windows フォーム DataGridView コントロール内の列と行のサイズ変更
+title: DataGridView コントロールでの列と行のサイズ変更
 ms.date: 03/30/2017
 helpviewer_keywords:
 - DataGridView control [Windows Forms], sizing rows and columns
 - columns [Windows Forms], resizing in grids
 - data grids [Windows Forms], resizing columns and rows
 ms.assetid: 7532764d-e5c1-4943-a08b-6377a722d3b6
-ms.openlocfilehash: e1fa2d57cfb2cd374d691fe03a0e0bdbd3ad7141
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 8f8394a837ccc11c469f9ad4feeb60464d0014fe
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61903189"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76742411"
 ---
 # <a name="resizing-columns-and-rows-in-the-windows-forms-datagridview-control"></a>Windows フォーム DataGridView コントロール内の列と行のサイズ変更
-`DataGridView`コントロールには、その列と行のサイズ変更動作をカスタマイズするためのさまざまなオプションが用意されています。 通常、`DataGridView`セル サイズを変更しないでその内容を基にします。 代わりに、セルよりも大きい任意の表示値のクリップです。 コンテンツを文字列として表示でき、セルにより、ツールヒントに表示します。  
+`DataGridView` コントロールには、列と行のサイズ変更動作をカスタマイズするためのさまざまなオプションが用意されています。 通常、`DataGridView` のセルは、その内容に基づいてサイズが変更されることはありません。 代わりに、セルよりも大きい表示値をクリップします。 コンテンツを文字列として表示できる場合、セルはツールヒントに表示されます。  
   
- 既定では、ユーザーは、行、列、および詳細情報を表示するには、マウスでのヘッダー区分線をドラッグできます。 ユーザーは、自動的にその内容に基づいて関連付けられている行、列、またはヘッダーのバンドのサイズを変更する区分線をダブルクリックすることもできます。  
+ 既定では、ユーザーは、行、列、およびヘッダーの区切り線をマウスでドラッグして、より多くの情報を表示できます。 ユーザーは、区分線をダブルクリックして、関連付けられている行、列、またはヘッダーのバンドのサイズをその内容に基づいて自動的に変更することもできます。  
   
- `DataGridView`プロパティ、メソッド、およびイベントをカスタマイズまたはすべてのユーザー向けのこれらの動作を無効にするためのコントロールを提供します。 さらに、行、列、およびヘッダーをその内容に合わせてサイズ変更できるプログラムでまたは自体の内容が変更されるたびにで自動的にサイズ変更するように構成することができます。 指定した比率で、コントロールの使用可能な幅を自動的に分割する列を構成することもできます。  
+ `DataGridView` コントロールには、これらのすべてのユーザー向け動作をカスタマイズまたは無効にするためのプロパティ、メソッド、およびイベントが用意されています。 また、行、列、ヘッダーの内容に合わせてプログラムによってサイズを変更することもできます。また、コンテンツが変更されるたびに自動的にサイズが変更されるように構成することもできます。 また、使用可能なコントロールの幅を指定した比率で自動的に分割するように列を構成することもできます。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [Windows フォーム DataGridView コントロールのサイズ変更オプション](sizing-options-in-the-windows-forms-datagridview-control.md)  
- サイズ設定行、列、およびヘッダーのオプションについて説明します。 サイズ変更に関連するプロパティとメソッドの詳細を説明し、一般的な使用シナリオについて説明します。  
+ 行、列、およびヘッダーのサイズを変更するためのオプションについて説明します。 また、サイズに関連するプロパティとメソッドの詳細について説明し、一般的な使用シナリオについても説明します。  
   
  [Windows フォーム DataGridView コントロールの列フィル モード](column-fill-mode-in-the-windows-forms-datagridview-control.md)  
- 列フィル モードとその他のモードを実験に使用できるデモ コードと列フィル モードの詳細を説明します。  
+ 列の塗りつぶしモードの詳細について説明し、列の塗りつぶしモードとその他のモードを試すために使用できるデモコードを示します。  
   
- [方法: Windows フォーム DataGridView コントロールのサイズ変更モードを設定します。](how-to-set-the-sizing-modes-of-the-windows-forms-datagridview-control.md)  
- 一般的な目的のサイズ変更モードを構成する方法について説明します。  
+ [方法: Windows フォーム DataGridView コントロールのサイズ変更モードを設定する](how-to-set-the-sizing-modes-of-the-windows-forms-datagridview-control.md)  
+ 一般的な目的でサイズ変更モードを構成する方法について説明します。  
   
- [方法: プログラムで Windows フォームの DataGridView コントロールのコンテンツに合わせてセルのサイズを変更します。](programmatically-resize-cells-to-fit-content-in-the-datagrid.md)  
- プログラムによるサイズ変更を実験に使用できるデモ コードを提供します。  
+ [方法: Windows フォームの DataGridView コントロールの内容に合わせてセルのサイズをプログラムで変更する](programmatically-resize-cells-to-fit-content-in-the-datagrid.md)  
+ プログラムによるサイズ変更のテストに使用できるデモコードを示します。  
   
- [方法: Windows フォームの DataGridView コントロールのコンテンツが変更されたときに、セルを自動的にサイズ変更します。](automatically-resize-cells-when-content-changes-in-the-datagrid.md)  
- 自動サイズ変更モードを実験に使用できるデモ コードを提供します。  
+ [方法: Windows フォームの DataGridView コントロールの内容変更時にセルのサイズを自動的に変更する](automatically-resize-cells-when-content-changes-in-the-datagrid.md)  
+ 自動サイズ調整モードを試すために使用できるデモコードを示します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.DataGridView>  
  <xref:System.Windows.Forms.DataGridView> コントロールのリファレンス ドキュメントを提供します。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [DataGridView コントロール](datagridview-control-windows-forms.md)

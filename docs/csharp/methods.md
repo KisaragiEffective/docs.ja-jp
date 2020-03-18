@@ -1,16 +1,15 @@
 ---
 title: メソッド - C# ガイド
 description: メソッド、メソッド パラメーター、メソッド戻り値の概要
-author: rpetrusha
-ms.author: ronpet
+ms.technology: csharp-fundamentals
 ms.date: 05/21/2018
 ms.assetid: 577a8527-1081-4b36-9b9e-0685b6553c6e
-ms.openlocfilehash: b95818e06d37b0e98bf55428ff97dd476f92fac7
-ms.sourcegitcommit: 1b020356e421a9314dd525539da12463d980ce7a
+ms.openlocfilehash: f44c83408e884d76eef5e2b5abbca511fbae2a1f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70168511"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398713"
 ---
 # <a name="methods"></a>メソッド
 
@@ -18,22 +17,6 @@ ms.locfileid: "70168511"
 
 > [!NOTE]
 > このトピックでは、名前付きメソッドについて説明します。 匿名関数については、「[匿名関数](programming-guide/statements-expressions-operators/anonymous-functions.md)」を参照してください。
-
-このトピックは、次のセクションで構成されています。
-
-- [メソッド シグネチャ](#signatures)
-- [メソッドの呼び出し](#invocation)
-- [継承されたメソッドとオーバーライドされたメソッド](#inherited)
-- [パラメーターを渡す](#passing)
-  - [パラメーターを値で渡す](#byval)
-  - [パラメーターを参照で渡す](#byref)
-  - [パラメーター配列](#paramarray)
-- [省略可能なパラメーターと引数](#optional)
-- [戻り値](#return)
-- [拡張メソッド](#extension)
-- [非同期メソッド](#async)
-- [式形式のメンバー](#expr)
-- [反復子](#iterators)
 
 <a name="signatures"></a>
 
@@ -66,7 +49,7 @@ ms.locfileid: "70168511"
 
 メソッドを呼び出すことは、フィールドにアクセスするのと似ています。 オブジェクトの名前 (インスタンス メソッドを呼び出す場合) または型の名前 (`static` メソッドを呼び出す場合) の後ろに、期間、メソッドの名前、かっこを追加します。 引数はかっこの中に記述し、コンマで区切ります。
 
-メソッド定義には、必要なパラメーターの名前と型を指定します。 呼び出し元からメソッドを呼び出すとき、各パラメーターに引数と呼ばれる具体的な値を指定します。 引数にはパラメーター型との互換性が必要ですが、呼び出し元のコードで引数名を使用する場合、引数名がメソッドで定義されるパラメーター名と同じである必要はありません。 次の例では、`Square` メソッドに型が `int` で *i* という名前のパラメーターが 1 つ含まれています。 最初のメソッド呼び出しでは、型が `int` で *num* という名前の変数が `Square` メソッドに渡されます。2 つ目のメソッド呼び出しでは数値定数が、3 つ目のメソッド呼び出しでは式が渡されます。
+メソッド定義には、必要なパラメーターの名前と型を指定します。 呼び出し元からメソッドを呼び出すとき、各パラメーターに引数と呼ばれる具体的な値を指定します。 引数にはパラメーター型との互換性が必要ですが、呼び出し元のコードで引数名を使用する場合、引数名がメソッドで定義されるパラメーター名と同じである必要はありません。 次の例では、`Square` メソッドに型が `int` で *i* という名前のパラメーターが 1 つ含まれています。 最初のメソッド呼び出しでは、型が `Square` で `int`num*という名前の変数が* メソッドに渡されます。2 つ目のメソッド呼び出しでは数値定数が、3 つ目のメソッド呼び出しでは式が渡されます。
 
 [!code-csharp[csSnippets.Methods#74](../../samples/snippets/csharp/concepts/methods/params74.cs#74)]
 
@@ -112,7 +95,7 @@ C# の型は、*値型*と*参照型*のどちらかに区別されます。 組
 
 参照型のオブジェクトが値でメソッドに渡されると、オブジェクトへの参照が値で渡されます。 つまり、メソッドは、オブジェクト自体ではなく、オブジェクトの場所を示す引数を受け取ります。 この参照を使用してオブジェクトのメンバーを変更した場合、コントロールが呼び出し元のメソッドに戻ると、オブジェクトで変更が反映されています。 ただし、メソッドに渡されるオブジェクトを置換しても、コントロールが呼び出し元に戻ったとき、元のオブジェクトで反映されません。
 
-次の例では、`SampleRefType` という名前のクラス (参照型) を定義します。 `SampleRefType` オブジェクトをインスタンス化し、その `value` フィールドに 44 を割り当て、`ModifyObject` メソッドにオブジェクトを渡します。 この例は、基本的に前の例と同様に、引数を値でメソッドに渡しています。 ただし、参照型を使用しているため、結果は異なります。 `ModifyObject` の `obj.value` フィールドを変更したことで、`Main` メソッドの引数 `rt` の `value` フィールドも 33 に変更されます。例の出力で確認できます。
+次の例では、`SampleRefType` という名前のクラス (参照型) を定義します。 `SampleRefType` オブジェクトをインスタンス化し、その `value` フィールドに 44 を割り当て、`ModifyObject` メソッドにオブジェクトを渡します。 この例は、基本的に前の例と同様に、引数を値でメソッドに渡しています。 ただし、参照型を使用しているため、結果は異なります。 `ModifyObject` の `obj.value` フィールドを変更したことで、`value` メソッドの引数 `rt` の `Main` フィールドも 33 に変更されます。例の出力で確認できます。
 
 [!code-csharp[csSnippets.Methods#42](../../samples/snippets/csharp/concepts/methods/byvalue42.cs#42)]
 
@@ -157,8 +140,8 @@ C# の型は、*値型*と*参照型*のどちらかに区別されます。 組
 パラメーターの既定値は、次の種類の式のいずれかで割り当てる必要があります。
 
 - リテラル文字列や数値など、定数。
-- `ValType` が値型となる、`new ValType` 形式の式。 値型の暗黙のパラメーターなしのコンストラクターが呼び出されることに注意してください。それは型の実際のメンバーではありません。
-- `ValType` が値型となる、`default(ValType)` 形式の式。
+- `new ValType()` が値型となる、`ValType` 形式の式。 値型の暗黙のパラメーターなしのコンストラクターが呼び出されることに注意してください。それは型の実際のメンバーではありません。
+- `default(ValType)` が値型となる、`ValType` 形式の式。
 
 メソッドに必須のパラメーターと省略可能なパラメーターの両方が含まれる場合、省略可能なパラメーターはパラメーター リストの終わりに定義されます (すべての必須パラメーターの後に)。
 
@@ -234,7 +217,7 @@ var person = GetPersonalInfo("111111111");
 Console.WriteLine("{person.FName} {person.LName}: age = {person.Age}");
 ```
 
-メソッドに引数として配列が渡されるとき、そのメソッドが個々の要素の値を変更する場合、メソッドが配列を返す必要はありません。ただし、見やすいから、値の流れが機能的になるからといった理由で配列を返してもかまいません。  配列を返す必要がないのは、C# ではすべての参照型が値で渡され、配列参照の値がその配列のポインターになるためです。 次の例では、`DoubleValues` メソッドで行われた `values` 配列の内容の変更を、配列の参照があるあらゆるコードで観察できます。
+メソッドに引数として配列が渡されるとき、そのメソッドが個々の要素の値を変更する場合、メソッドが配列を返す必要はありません。ただし、見やすいから、値の流れが機能的になるからといった理由で配列を返してもかまいません。  配列を返す必要がないのは、C# ではすべての参照型が値で渡され、配列参照の値がその配列のポインターになるためです。 次の例では、`values` メソッドで行われた `DoubleValues` 配列の内容の変更を、配列の参照があるあらゆるコードで観察できます。
 
 [!code-csharp[csSnippets.Methods#101](../../samples/snippets/csharp/concepts/methods/returnarray1.cs#101)]
 
@@ -264,7 +247,7 @@ Console.WriteLine("{person.FName} {person.LName}: age = {person.Age}");
 
 非同期メソッドの戻り値の型としては、<xref:System.Threading.Tasks.Task%601>、<xref:System.Threading.Tasks.Task>、`void` を指定できます。 戻り値の型 `void` は主として、戻り値の型 `void` が必要なイベント ハンドラーの定義に使用されます。 `void` を返す非同期メソッドは待機できません。void を返すメソッドの呼び出し元は、このメソッドがスローする例外をキャッチできません。 C# 7.0 以降、非同期メソッドは[タスクと同様の戻り値の型](./whats-new/csharp-7.md#generalized-async-return-types)を持つことができます。
 
-次の例では、`DelayAsync` は、整数を返す return ステートメントのある非同期メソッドです。 非同期メソッドであるため、そのメソッド宣言で戻り値の型 `Task<int>` を指定する必要があります。 戻り値の型が `Task<int>`であるため、次のステートメント `int result = await delayTask` に示すように、`DoSomethingAsync` 内の `await` 式を評価すると整数が生成されます。
+次の例では、`DelayAsync` は、整数を返す return ステートメントのある非同期メソッドです。 非同期メソッドであるため、そのメソッド宣言で戻り値の型 `Task<int>` を指定する必要があります。 戻り値の型が `Task<int>`であるため、次のステートメント `await` に示すように、`DoSomethingAsync` 内の `int result = await delayTask` 式を評価すると整数が生成されます。
 
 [!code-csharp[csSnippets.Methods#102](../../samples/snippets/csharp/concepts/methods/async1.cs#102)]
 
@@ -291,15 +274,15 @@ public Customer this[long id] => store.LookupCustomer(id);
 
 <a name="iterators"></a>
 
-## <a name="iterators"></a>Iterators
+## <a name="iterators"></a>反復子
 
 反復子は、リストや配列など、コレクションに対するカスタム イテレーションを実行します。 反復子は、[yield return](language-reference/keywords/yield.md) ステートメントを使用して、各要素を 1 回に 1 つ返します。 `yield return` ステートメントに到達すると、現在の場所が記録されます。呼び出し元は、シーケンス内の次の要素を要求できます。
 
-反復子の戻り値の型には、 <xref:System.Collections.IEnumerable>、 <xref:System.Collections.Generic.IEnumerable%601>、 <xref:System.Collections.IEnumerator>、または <xref:System.Collections.Generic.IEnumerator%601>を指定できます。
+反復子の戻り値の型には、<xref:System.Collections.IEnumerable>、<xref:System.Collections.Generic.IEnumerable%601>、<xref:System.Collections.IEnumerator>、または <xref:System.Collections.Generic.IEnumerator%601> を指定できます。
 
 詳細については、「 [反復子](programming-guide/concepts/iterators.md)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [アクセス修飾子](language-reference/keywords/access-modifiers.md)
 - [静的クラスと静的クラス メンバー](programming-guide/classes-and-structs/static-classes-and-static-class-members.md)

@@ -2,12 +2,12 @@
 title: コンテナーと Docker の概要
 description: Docker を使用することの主な利点を概説します。
 ms.date: 02/15/2019
-ms.openlocfilehash: a03c67ed4fbc55c84e69fba5b7978863c8305e00
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: 9ac08a64cd2465b4b88a266c1ec0925f37680bf9
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "70295049"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73738172"
 ---
 # <a name="introduction-to-containers-and-docker"></a>コンテナーと Docker の概要
 
@@ -19,7 +19,7 @@ ms.locfileid: "70295049"
 
 各コンテナーは、図 1-1 に示すように、Web アプリケーションまたはサービスの全体を実行することができます。 この例では、Docker ホストはコンテナー ホストであり、App1、App2、Svc1、Svc2 はコンテナー化されたアプリケーションまたはサービスです。
 
-![VM または物理サーバーの OS で実行されている 2 つのアプリケーションと 2 つのサービス](./media/image1.png)
+![VM またはサーバーで実行されている 4 つのコンテナーを示す図。](./media/index/multiple-containers-single-host.png)
 
 **(図 1-1)** 。 コンテナー ホストで実行されている複数のコンテナー
 

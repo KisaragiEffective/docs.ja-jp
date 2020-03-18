@@ -1,24 +1,24 @@
 ---
-title: 'チュートリアル: ハイブリッド アプリケーションのローカライズ'
+title: 'チュートリアル : ハイブリッド アプリケーションのローカライズ'
 ms.date: 08/18/2018
 helpviewer_keywords:
 - localization [WPF interoperability]
 - hybrid applications [WPF interoperability]
 ms.assetid: fbc0c54e-930a-4c13-8e9c-27b83665010a
-ms.openlocfilehash: b98bf7b3f0aa4e7698a5c0ca7c8ae16051ce6300
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: b406d539f2446824027e9462c8ecbe20c18cfb27
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70991776"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76794126"
 ---
-# <a name="walkthrough-localizing-a-hybrid-application"></a>チュートリアル: ハイブリッド アプリケーションのローカライズ
+# <a name="walkthrough-localizing-a-hybrid-application"></a>チュートリアル : ハイブリッド アプリケーションのローカライズ
 
-このチュートリアル[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)]では、ベースのハイブリッドアプリケーションで要素をローカライズする方法について説明します。
+このチュートリアルでは、Windows フォームベースのハイブリッドアプリケーションで [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] 要素をローカライズする方法について説明します。
 
 このチュートリアルでは、以下のタスクを行います。
 
-- ホストプロジェクト[!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)]を作成しています。
+- Windows フォームホストプロジェクトを作成しています。
 
 - ローカライズ可能なコンテンツの追加
 
@@ -32,7 +32,7 @@ ms.locfileid: "70991776"
 
 完了すると、ローカライズされたハイブリッドアプリケーションが完成します。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>Prerequisites
 
 このチュートリアルを実行するには、次のコンポーネントが必要です。
 
@@ -40,25 +40,25 @@ ms.locfileid: "70991776"
 
 ## <a name="creating-the-windows-forms-host-project"></a>Windows フォームホストプロジェクトの作成
 
-最初の手順では、 [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)]アプリケーションプロジェクトを作成し、ローカライズするコンテンツを含む要素を[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]追加します。
+最初の手順として、Windows フォームアプリケーションプロジェクトを作成し、ローカライズするコンテンツを含む [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] 要素を追加します。
 
 ### <a name="to-create-the-host-project"></a>ホストプロジェクトを作成するには
 
-1. という名前`LocalizingWpfInWf`の**WPF アプリ**プロジェクトを作成します。  ( **[ファイル** > ] [**新しい** > **プロジェクト** >  > **C#** ] [ビジュアル] または [Visual Basic クラシックデスクトップ WPF アプリケーション])。 > 
+1. `LocalizingWpfInWf`という名前の**WPF アプリ**プロジェクトを作成します。  (**ファイル** > **新しい** > **プロジェクト** > **Visual C#** または**Visual Basic** > **クラシックデスクトップ** > **WPF アプリケーション**)。
 
-2. という[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] <xref:System.Windows.Controls.UserControl>要素をプロジェクトに追加します。 `SimpleControl`
+2. `SimpleControl` という名前の [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]<xref:System.Windows.Controls.UserControl> 要素をプロジェクトに追加します。
 
-3. コントロールを使用して、 `SimpleControl`フォームに要素を配置します。 <xref:System.Windows.Forms.Integration.ElementHost> 詳細については、「[チュートリアル:Windows フォーム](walkthrough-hosting-a-3-d-wpf-composite-control-in-windows-forms.md)での 3-D WPF 複合コントロールのホスト。
+3. フォームに `SimpleControl` 要素を配置するには、<xref:System.Windows.Forms.Integration.ElementHost> コントロールを使用します。 詳細については、「[チュートリアル: Windows フォームでの 3-D WPF 複合コントロールのホスト](walkthrough-hosting-a-3-d-wpf-composite-control-in-windows-forms.md)」を参照してください。
 
 ## <a name="adding-localizable-content"></a>ローカライズ可能なコンテンツの追加
 
-次に、ラベルコントロールを[!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)]追加し、 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]要素の内容をローカライズ可能な文字列に設定します。
+次に、Windows フォーム label コントロールを追加し、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] 要素のコンテンツをローカライズ可能な文字列に設定します。
 
 ### <a name="to-add-localizable-content"></a>ローカライズ可能なコンテンツを追加するには
 
-1. **ソリューションエクスプローラー**で、 **[simplecontrol .xaml]** をダブルクリックして、 [!INCLUDE[wpfdesigner_current_short](../../../../includes/wpfdesigner-current-short-md.md)]で開きます。
+1. **ソリューションエクスプローラー**で、 **[simplecontrol .xaml]** をダブルクリックして、WPF デザイナーで開きます。
 
-2. 次のコードを使用<xref:System.Windows.Controls.Button>して、コントロールの内容を設定します。
+2. 次のコードを使用して、<xref:System.Windows.Controls.Button> コントロールの内容を設定します。
 
      [!code-xaml[LocalizingWpfInWf#10](~/samples/snippets/csharp/VS_Snippets_Wpf/LocalizingWpfInWf/CSharp/SimpleControl0.xaml#10)]
 
@@ -68,7 +68,7 @@ ms.locfileid: "70991776"
 
 5. **F5** キーを押してアプリケーションをビルドし、実行します。
 
-     要素と`SimpleControl`ラベルコントロールの両方に **"Hello"** というテキストが表示されます。
+     `SimpleControl` 要素と label コントロールの両方に **"Hello"** というテキストが表示されます。
 
 ## <a name="enabling-localization"></a>ローカライズの有効化
 
@@ -78,19 +78,19 @@ Windows フォームデザイナーには、サテライトアセンブリでロ
 
 1. **ソリューションエクスプローラー**で、 **[Form1.cs]** をダブルクリックして、Windows フォームデザイナーで開きます。
 
-2. **[プロパティ]** ウィンドウで、フォームの**ローカライズ**可能なプロパティの値を`true`に設定します。
+2. **[プロパティ]** ウィンドウで、フォームの**ローカライズ**可能なプロパティの値を `true`に設定します。
 
 3. **[プロパティ]** ウィンドウで、 **[言語]** プロパティの値を**スペイン語 (スペイン)** に設定します。
 
 4. Windows フォームデザイナーで、ラベル コントロールを選択します。
 
-5. **[プロパティ]** ウィンドウで、 <xref:System.Windows.Forms.Control.Text%2A>プロパティの値をに`"Hola"`設定します。
+5. **[プロパティ]** ウィンドウで、[<xref:System.Windows.Forms.Control.Text%2A>] プロパティの値を `"Hola"`に設定します。
 
      Form1.es という名前の新しいリソースファイルがプロジェクトに追加されます。
 
 6. **ソリューションエクスプローラー**で、 **[Form1.cs]** を右クリックし、 **[コードの表示]** をクリックしてコードエディターで開きます。
 
-7. `Form1` の`InitializeComponent`呼び出しの前に、次のコードをコンストラクターにコピーします。
+7. `InitializeComponent`への呼び出しの前に、次のコードを `Form1` コンストラクターにコピーします。
 
      [!code-csharp[LocalizingWpfInWf#2](~/samples/snippets/csharp/VS_Snippets_Wpf/LocalizingWpfInWf/CSharp/Form1.cs#2)]
 
@@ -102,7 +102,7 @@ Windows フォームデザイナーには、サテライトアセンブリでロ
 
      コードエディターでプロジェクトファイルが開きます。
 
-10. 次の行をプロジェクトファイルの`PropertyGroup`最初の行にコピーします。
+10. 次の行をプロジェクトファイルの最初の `PropertyGroup` にコピーします。
 
     ```xml
     <UICulture>en-US</UICulture>
@@ -114,7 +114,7 @@ Windows フォームデザイナーには、サテライトアセンブリでロ
 
 ## <a name="assigning-resource-identifiers"></a>リソース識別子の割り当て
 
-リソース識別子を使用して、ローカライズ可能なコンテンツをリソースアセンブリにマップできます。 `updateuid`オプションを指定すると、msbuild.exe アプリケーションによってリソース識別子が自動的に割り当てられます。
+リソース識別子を使用して、ローカライズ可能なコンテンツをリソースアセンブリにマップできます。 `updateuid` オプションを指定すると、Msbuild.exe アプリケーションによってリソース識別子が自動的に割り当てられます。
 
 ### <a name="to-assign-resource-identifiers"></a>リソース識別子を割り当てるには
 
@@ -126,7 +126,7 @@ Windows フォームデザイナーには、サテライトアセンブリでロ
     msbuild -t:updateuid LocalizingWpfInWf.csproj
     ```
 
-3. **ソリューションエクスプローラー**で、 **[simplecontrol .xaml]** をダブルクリックしてコードエディターで開きます。 `msbuild`コマンドによって`Uid`属性がすべての要素に追加されていることがわかります。 これにより、リソース識別子の割り当てによってローカライズが容易になります。
+3. **ソリューションエクスプローラー**で、 **[simplecontrol .xaml]** をダブルクリックしてコードエディターで開きます。 `msbuild` コマンドによって、`Uid` 属性がすべての要素に追加されていることがわかります。 これにより、リソース識別子の割り当てによってローカライズが容易になります。
 
      [!code-xaml[LocalizingWpfInWf#20](~/samples/snippets/csharp/VS_Snippets_Wpf/LocalizingWpfInWf/CSharp/SimpleControl.xaml#20)]
 
@@ -134,7 +134,7 @@ Windows フォームデザイナーには、サテライトアセンブリでロ
 
 ## <a name="using-locbaml-to-produce-a-satellite-assembly"></a>LocBaml を使用してサテライトアセンブリを生成する
 
-ローカライズされたコンテンツは、リソースのみの*サテライトアセンブリ*に格納されます。 コマンドラインツールの LocBaml を使用して[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] 、コンテンツのローカライズされたアセンブリを生成します。
+ローカライズされたコンテンツは、リソースのみの*サテライトアセンブリ*に格納されます。 コマンドラインツールの LocBaml を使用して、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツ用のローカライズされたアセンブリを生成します。
 
 ### <a name="to-produce-a-satellite-assembly"></a>サテライトアセンブリを生成するには
 
@@ -146,7 +146,7 @@ Windows フォームデザイナーには、サテライトアセンブリでロ
     LocBaml /parse LocalizingWpfInWf.g.en-US.resources /out:temp.csv
     ```
 
-3. Visual Studio または他のテキストエディターを使用して、一時 .csv ファイルを開きます。 文字列`"Hello"`をスペイン語`"Hola"`翻訳に置き換えます。
+3. Visual Studio または他のテキストエディターを使用して、一時 .csv ファイルを開きます。 文字列 `"Hello"` をスペイン語翻訳、`"Hola"`に置き換えます。
 
 4. 一時 .csv ファイルを保存します。
 
@@ -178,4 +178,4 @@ Windows フォームデザイナーには、サテライトアセンブリでロ
 - <xref:System.Windows.Forms.Integration.WindowsFormsHost>
 - [アプリケーションをローカライズする](how-to-localize-an-application.md)
 - [チュートリアル: Windows フォームのローカライズ](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2010/y99d1cd3(v=vs.100))
-- [Visual Studio で XAML をデザインする](/visualstudio/designers/designing-xaml-in-visual-studio)
+- [Visual Studio で XAML をデザインする](/visualstudio/xaml-tools/designing-xaml-in-visual-studio)

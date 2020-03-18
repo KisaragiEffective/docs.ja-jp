@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: dc437751-7093-44e2-bfdc-191d9ce3c192
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 99bd3e9ae1faec1b71933681fadf4816b4789c98
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 0944f3379c18cba56ab65fe40a5b94a64d8a8991
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69952211"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76778196"
 ---
 # <a name="icordebugarrayvalue-interface"></a>ICorDebugArrayValue インターフェイス
 
@@ -31,30 +29,30 @@ ms.locfileid: "69952211"
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[GetBaseIndicies メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugarrayvalue-getbaseindicies-method.md)|配列内の各次元のベースインデックスを取得します。|  
-|[GetCount メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugarrayvalue-getcount-method.md)|配列内の要素の合計数を取得します。|  
-|[GetDimensions メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugarrayvalue-getdimensions-method.md)|配列の次元を取得します。|  
-|[GetElement メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugarrayvalue-getelement-method.md)|配列内の指定された要素を表す値を取得します。|  
-|[GetElementAtPosition メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugarrayvalue-getelementatposition-method.md)|配列を0から始まる1次元配列として扱い、指定された位置にある要素を取得します。|  
-|[GetElementType メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugarrayvalue-getelementtype-method.md)|配列内の要素の単純型を取得します。|  
-|[GetRank メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugarrayvalue-getrank-method.md)|配列のディメンションの数を取得します。|  
-|[HasBaseIndicies メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugarrayvalue-hasbaseindicies-method.md)|配列にベースインデックスがあるかどうかを判断します。|  
+|[GetBaseIndicies メソッド](icordebugarrayvalue-getbaseindicies-method.md)|配列内の各次元のベースインデックスを取得します。|  
+|[GetCount メソッド](icordebugarrayvalue-getcount-method.md)|配列内の要素の合計数を取得します。|  
+|[GetDimensions メソッド](icordebugarrayvalue-getdimensions-method.md)|配列の次元を取得します。|  
+|[GetElement メソッド](icordebugarrayvalue-getelement-method.md)|配列内の指定された要素を表す値を取得します。|  
+|[GetElementAtPosition メソッド](icordebugarrayvalue-getelementatposition-method.md)|配列を0から始まる1次元配列として扱い、指定された位置にある要素を取得します。|  
+|[GetElementType メソッド](icordebugarrayvalue-getelementtype-method.md)|配列内の要素の単純型を取得します。|  
+|[GetRank メソッド](icordebugarrayvalue-getrank-method.md)|配列のディメンションの数を取得します。|  
+|[HasBaseIndicies メソッド](icordebugarrayvalue-hasbaseindicies-method.md)|配列にベースインデックスがあるかどうかを判断します。|  
   
-## <a name="remarks"></a>Remarks  
- `ICorDebugArrayValue`では、1次元配列と多次元配列の両方がサポートされています。  
+## <a name="remarks"></a>コメント  
+ `ICorDebugArrayValue` は、1次元配列と多次元配列の両方をサポートします。  
   
 > [!NOTE]
 > このインターフェイスは、コンピューター間またはプロセス間でのリモート呼び出しをサポートしていません。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

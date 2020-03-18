@@ -1,7 +1,5 @@
 ---
 title: PrepForRemoting メソッド (System)
-author: mairaw
-ms.author: mairaw
 ms.date: 10/08/2019
 topic_type:
 - apiref
@@ -11,14 +9,14 @@ api_location:
 - mscorlib.dll
 api_type:
 - Assembly
-ms.openlocfilehash: 057390d64f70d3cb8eba7d4b29b94570fdca77e3
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: ce1c24578690a1643b7f5af0e44eaae95ed7b0a2
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72405898"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77214895"
 ---
-# <a name="exceptionprepforremoting-method"></a>PrepForRemoting メソッド
+# <a name="exceptionprepforremoting-method"></a>Exception.PrepForRemoting メソッド
 
 クライアント呼び出しサイトで例外が再スローされる前に、サーバー側スタックトレースをメッセージに追加して保存します。
 
@@ -31,14 +29,14 @@ internal Exception PrepForRemoting();
 <xref:System.Exception>  
 この <xref:System.Exception> インスタンス。
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 > [!WARNING]
-> @No__t-0 メソッドは内部にあり、コードで直接使用するためのものではありません。
+> `Exception.PrepForRemoting` メソッドは内部であり、コードで直接使用するためのものではありません。
 >
 > Microsoft では、どのような状況でも、実稼働アプリケーションでこの方法を使用することはサポートしていません。
 
-## <a name="requirements"></a>［要件］
+## <a name="requirements"></a>要件
 
 **名前空間:** <xref:System>
 

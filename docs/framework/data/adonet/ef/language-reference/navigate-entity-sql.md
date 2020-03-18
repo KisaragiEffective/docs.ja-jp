@@ -21,19 +21,19 @@ navigate(instance-expression, [relationship-type], [to-end [, from-end] ])
 
 ## <a name="arguments"></a>引数
 
-`instance-expression` エンティティのインスタンス。
+エンティティのインスタンスを `instance-expression` します。
 
-`relationship-type` 概念スキーマ定義言語 (CSDL) ファイルからのリレーションシップの型名。 @No__t-0 は \< 名前空間 > として修飾されています。 \<relationship 型名 >。
+概念スキーマ定義言語 (CSDL) ファイルから、リレーションシップの型名を `relationship-type` します。 `relationship-type` は \<名前空間 > として修飾されます。リレーションシップの種類の名前 > を\<します。
 
-`to` リレーションシップの終了。
+リレーションシップの end を `to` します。
 
-`from` リレーションシップの先頭。
+リレーションシップの先頭を `from` します。
 
 ## <a name="return-value"></a>戻り値
 
 終端のカーディナリティが 1 の場合、戻り値は `Ref<T>` になります。 終端のカーディナリティが n の場合、戻り値は `Collection<Ref<T>>` になります。
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 リレーションシップは、Entity Data Model (EDM) のファーストクラスの構造体です。 リレーションシップは、複数のエンティティ型の間で確立され、ユーザーはエンティティ間のリレーションシップをナビゲートできます。 `from` と `to` は、リレーションシップ内の名前解決があいまいでない場合の条件付きのオプションです。
 
@@ -43,14 +43,14 @@ NAVIGATE は、O および C 空間で有効です。
 
 navigate(`instance-expression`, `relationship-type`, [ `to-end` [, `from-end` ] ] )
 
-(例:
+例 :
 
 ```sql
 Select o.Id, navigate(o, OrderCustomer, Customer, Order)
 From LOB.Orders as o
 ```
 
-ここで、OrderCustomer は `relationship`であり、Customer と Order はリレーションシップの `to-end` (顧客) と `from-end` (注文) です。 OrderCustomer が n:1 のリレーションシップである場合、navigate 式の結果の型は Ref @ no__t-0Customer > になります。
+ここで、OrderCustomer は `relationship`であり、Customer と Order はリレーションシップの `to-end` (顧客) と `from-end` (注文) です。 OrderCustomer が n:1 のリレーションシップである場合、navigate 式の結果の型は Ref\<Customer > になります。
 
 この式をより簡略化すると、次のようになります。
 
@@ -59,7 +59,7 @@ Select o.Id, navigate(o, OrderCustomer)
 From LOB.Orders as o
 ```
 
-同様に、次の形式のクエリでは、navigate 式によって < Ref @ no__t-0Order > > のコレクションが生成されます。
+同様に、次の形式のクエリでは、navigate 式によって、> > の Ref\<Order < コレクションが生成されます。
 
 ```sql
 Select c.Id, navigate(c, OrderCustomer, Order, Customer)
@@ -78,7 +78,7 @@ From LOB.Customers as c
 
  [!code-sql[DP EntityServices Concepts#NAVIGATE](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#navigate)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Entity SQL リファレンス](entity-sql-reference.md)
 - [Navigate 演算子を使用してリレーションシップをナビゲートする方法](navigate-entity-sql.md)

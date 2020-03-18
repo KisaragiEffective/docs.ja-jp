@@ -7,14 +7,12 @@ helpviewer_keywords:
 - common language runtime, about
 - common language runtime, overview
 ms.assetid: 29848c96-fc36-462d-8072-ba223a40b697
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: c7a3548cb0d7e841f32824eda52565e64279536e
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 397a78514dc5878e83708882ceeb4d92160d9a78
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71051996"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73975657"
 ---
 # <a name="overview-of-the-net-framework"></a>.NET Framework の概要
 
@@ -98,4 +96,4 @@ Windows フォーム クラスは、Windows GUI の開発を非常に簡単に�
 - [開発ガイド](../development-guide.md)
 - [ツール](../tools/index.md)
 - [.NET サンプルおよびチュートリアル](../../samples-and-tutorials/index.md)
-- [.NET Framework クラス ライブラリ](https://go.microsoft.com/fwlink/?LinkID=227195)
+- [.NET API ブラウザー](../../../api/index.md)

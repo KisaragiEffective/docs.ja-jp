@@ -16,14 +16,12 @@ helpviewer_keywords:
 ms.assetid: d977ad29-6619-42e1-b0be-bc25ea950e80
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b1c28f32a4b24393483241bd2d7d6f550b8b65ba
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 13e1468ef5a48f18910c1f8082cdd7c4849da14a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796908"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73132693"
 ---
 # <a name="getcachepath-function"></a>GetCachePath 関数
 指定したフラグを使用して、キャッシュされたアセンブリへのパスを取得します。  
@@ -46,10 +44,10 @@ HRESULT GetCachePath (
  入出力パスへの返されたポインター。  
   
  `pcchPath`  
- [入力、出力]要求された最大`pwzCachePath`長。戻り値は、の実際の`pwzCachePath`長さ。  
+ [入力、出力]要求された最大長 `pwzCachePath`、戻り値は `pwzCachePath`の実際の長さ。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Fusion. h  
   

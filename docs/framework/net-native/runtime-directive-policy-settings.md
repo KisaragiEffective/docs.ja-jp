@@ -2,14 +2,12 @@
 title: ランタイム ディレクティブ ポリシーの設定
 ms.date: 03/30/2017
 ms.assetid: cb52b1ef-47fd-4609-b69d-0586c818ac9e
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 33253c249842824a529f4e8b24d4ca4228733041
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 7a8933decaec45e8000f3f3d1717847f333deddd
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049214"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76738494"
 ---
 # <a name="runtime-directive-policy-settings"></a>ランタイム ディレクティブ ポリシーの設定
 
@@ -34,24 +32,24 @@ ms.locfileid: "71049214"
 
   次の表に、リフレクション ポリシー種類と、この種類で使用できるプログラム要素を示します。
 
-  |要素|Activate|参照|動的|
+  |要素|アクティブ化|参照|動的|
   |-------------|--------------|------------|-------------|
-  |[\<Application>](application-element-net-native.md)|✓|✓|✓|
-  |[\<Assembly>](assembly-element-net-native.md)|✓|✓|✓|
-  |[\<AttributeImplies>](attributeimplies-element-net-native.md)|✓|✓|✓|
-  |[\<Event>](event-element-net-native.md)||✓|✓|
-  |[\<Field>](field-element-net-native.md)||✓|✓|
-  |[\<GenericParameter>](genericparameter-element-net-native.md)|✓|✓|✓|
-  |[\<ImpliesType>](impliestype-element-net-native.md)|✓|✓|✓|
-  |[\<Method>](method-element-net-native.md)||✓|✓|
-  |[\<MethodInstantiation>](methodinstantiation-element-net-native.md)||✓|✓|
-  |[\<Namespace>](namespace-element-net-native.md)|✓|✓|✓|
-  |[\<Parameter>](parameter-element-net-native.md)|✓|✓|✓|
-  |[\<Property>](property-element-net-native.md)||✓|✓|
-  |[\<Subtypes>](subtypes-element-net-native.md)|✓|✓|✓|
-  |[\<Type>](type-element-net-native.md)|✓|✓|✓|
-  |[\<TypeInstantiation>](typeinstantiation-element-net-native.md)|✓|✓|✓|
-  |[\<TypeParameter>](typeparameter-element-net-native.md)|✓|✓|✓|
+  |[\<Application>](application-element-net-native.md)|✔️|✔️|✔️|
+  |[\<Assembly>](assembly-element-net-native.md)|✔️|✔️|✔️|
+  |[\<AttributeImplies>](attributeimplies-element-net-native.md)|✔️|✔️|✔️|
+  |[\<Event>](event-element-net-native.md)||✔️|✔️|
+  |[\<Field>](field-element-net-native.md)||✔️|✔️|
+  |[\<GenericParameter>](genericparameter-element-net-native.md)|✔️|✔️|✔️|
+  |[\<ImpliesType>](impliestype-element-net-native.md)|✔️|✔️|✔️|
+  |[\<Method>](method-element-net-native.md)||✔️|✔️|
+  |[\<MethodInstantiation>](methodinstantiation-element-net-native.md)||✔️|✔️|
+  |[\<Namespace>](namespace-element-net-native.md)|✔️|✔️|✔️|
+  |[\<Parameter>](parameter-element-net-native.md)|✔️|✔️|✔️|
+  |[\<Property>](property-element-net-native.md)||✔️|✔️|
+  |[\<Subtypes>](subtypes-element-net-native.md)|✔️|✔️|✔️|
+  |[\<Type>](type-element-net-native.md)|✔️|✔️|✔️|
+  |[\<TypeInstantiation>](typeinstantiation-element-net-native.md)|✔️|✔️|✔️|
+  |[\<TypeParameter>](typeparameter-element-net-native.md)|✔️|✔️|✔️|
 
 - シリアル化ポリシー種類は、実行時にシリアル化と逆シリアル化で使用できるメタデータを決定します。
 
@@ -67,22 +65,22 @@ ms.locfileid: "71049214"
 
   |要素|シリアル化|DataContractSerializer|DataContractJsonSerializer|XmlSerializer|
   |-------------|---------------|----------------------------|--------------------------------|-------------------|
-  |[\<Application>](application-element-net-native.md)|✓|✓|✓|✓|
-  |[\<Assembly>](assembly-element-net-native.md)|✓|✓|✓|✓|
-  |[\<AttributeImplies>](attributeimplies-element-net-native.md)|✓|✓|✓|✓|
+  |[\<Application>](application-element-net-native.md)|✔️|✔️|✔️|✔️|
+  |[\<Assembly>](assembly-element-net-native.md)|✔️|✔️|✔️|✔️|
+  |[\<AttributeImplies>](attributeimplies-element-net-native.md)|✔️|✔️|✔️|✔️|
   |[\<Event>](event-element-net-native.md)|||||
-  |[\<Field>](field-element-net-native.md)|✓||||
-  |[\<GenericParameter>](genericparameter-element-net-native.md)|✓|✓|✓|✓|
-  |[\<ImpliesType>](impliestype-element-net-native.md)|✓|✓|✓|✓|
+  |[\<Field>](field-element-net-native.md)|✔️||||
+  |[\<GenericParameter>](genericparameter-element-net-native.md)|✔️|✔️|✔️|✔️|
+  |[\<ImpliesType>](impliestype-element-net-native.md)|✔️|✔️|✔️|✔️|
   |[\<Method>](method-element-net-native.md)|||||
   |[\<MethodInstantiation>](methodinstantiation-element-net-native.md)|||||
-  |[\<Namespace>](namespace-element-net-native.md)|✓|✓|✓|✓|
-  |[\<Parameter>](parameter-element-net-native.md)|✓|✓|✓|✓|
-  |[\<Property>](property-element-net-native.md)|✓||||
-  |[\<Subtypes>](subtypes-element-net-native.md)|✓|✓|✓|✓|
-  |[\<Type>](type-element-net-native.md)|✓|✓|✓|✓|
-  |[\<TypeInstantiation>](typeinstantiation-element-net-native.md)|✓|✓|✓|✓|
-  |[\<TypeParameter>](typeparameter-element-net-native.md)|✓|✓|✓|✓|
+  |[\<Namespace>](namespace-element-net-native.md)|✔️|✔️|✔️|✔️|
+  |[\<Parameter>](parameter-element-net-native.md)|✔️|✔️|✔️|✔️|
+  |[\<Property>](property-element-net-native.md)|✔️||||
+  |[\<Subtypes>](subtypes-element-net-native.md)|✔️|✔️|✔️|✔️|
+  |[\<Type>](type-element-net-native.md)|✔️|✔️|✔️|✔️|
+  |[\<TypeInstantiation>](typeinstantiation-element-net-native.md)|✔️|✔️|✔️|✔️|
+  |[\<TypeParameter>](typeparameter-element-net-native.md)|✔️|✔️|✔️|✔️|
 
 - 相互運用ポリシー種類は、COM および Windows ランタイムに参照型、値型、および関数ポインターを渡すために実行時に使用できるメタデータを決定します。
 
@@ -96,41 +94,41 @@ ms.locfileid: "71049214"
 
   |要素|MarshalObject|MarshalDelegate|MarshalStructure|
   |-------------|-------------------|---------------------|----------------------|
-  |[\<Application>](application-element-net-native.md)|✓|✓|✓|
-  |[\<Assembly>](assembly-element-net-native.md)|✓|✓|✓|
-  |[\<AttributeImplies>](attributeimplies-element-net-native.md)|✓|✓|✓|
+  |[\<Application>](application-element-net-native.md)|✔️|✔️|✔️|
+  |[\<Assembly>](assembly-element-net-native.md)|✔️|✔️|✔️|
+  |[\<AttributeImplies>](attributeimplies-element-net-native.md)|✔️|✔️|✔️|
   |[\<Event>](event-element-net-native.md)||||
   |[\<Field>](field-element-net-native.md)||||
-  |[\<GenericParameter>](genericparameter-element-net-native.md)|✓|✓|✓|
-  |[\<ImpliesType>](impliestype-element-net-native.md)|✓|✓|✓|
+  |[\<GenericParameter>](genericparameter-element-net-native.md)|✔️|✔️|✔️|
+  |[\<ImpliesType>](impliestype-element-net-native.md)|✔️|✔️|✔️|
   |[\<Method>](method-element-net-native.md)||||
   |[\<MethodInstantiation>](methodinstantiation-element-net-native.md)||||
-  |[\<Namespace>](namespace-element-net-native.md)|✓|✓|✓|
-  |[\<Parameter>](parameter-element-net-native.md)|✓|✓|✓|
+  |[\<Namespace>](namespace-element-net-native.md)|✔️|✔️|✔️|
+  |[\<Parameter>](parameter-element-net-native.md)|✔️|✔️|✔️|
   |[\<Property>](property-element-net-native.md)||||
-  |[\<Subtypes>](subtypes-element-net-native.md)|✓|✓|✓|
-  |[\<Type>](type-element-net-native.md)|✓|✓|✓|
-  |[\<TypeInstantiation>](typeinstantiation-element-net-native.md)|✓|✓|✓|
-  |[\<TypeParameter>](typeparameter-element-net-native.md)|✓|✓|✓|
+  |[\<Subtypes>](subtypes-element-net-native.md)|✔️|✔️|✔️|
+  |[\<Type>](type-element-net-native.md)|✔️|✔️|✔️|
+  |[\<TypeInstantiation>](typeinstantiation-element-net-native.md)|✔️|✔️|✔️|
+  |[\<TypeParameter>](typeparameter-element-net-native.md)|✔️|✔️|✔️|
 
-## <a name="policy-settings"></a>ポリシーの設定
+## <a name="policy-settings"></a>ポリシー設定
 
 各ポリシーの種類は、次の表に示すいずれかの値に設定できます。 型のメンバーを表す要素は、他の要素とは異なる一連のポリシー設定をサポートしていることに注意してください。
 
-|ポリシーの設定|説明|`Assembly`、`Namespace`、`Type`、および `TypeInstantiation` 要素|`Event`、`Field`、`Method`、`MethodInstantiation`、および `Property` 要素|
+|ポリシー設定|[説明]|`Assembly`、`Namespace`、`Type`、および `TypeInstantiation` 要素|`Event`、`Field`、`Method`、`MethodInstantiation`、および `Property` 要素|
 |--------------------|-----------------|-----------------------------------------------------------------------|--------------------------------------------------------------------------------|
-|`All`|.NET ネイティブ ツール チェーンが削除しないすべての型とメンバーのポリシーを有効にします。|✓||
-|`Auto`|そのプログラム要素のポリシーの種類に、既定のポリシーを使用する必要があることを指定します。 これは、そのポリシーの種類のポリシーを省略することと同じです。 `Auto` は通常、ポリシーが親要素から継承されることを示すために使用されます。|✓|✓|
-|`Excluded`|特定のプログラム要素についてポリシーを無効にすることを指定します。 たとえば、次のランタイム ディレクティブは、<br /><br /> `<Type Name="BusinessClasses.Person" Browse="Excluded" Dynamic="Excluded" />`<br /><br /> `BusinessClasses.Person` オブジェクトの参照、および動的なインスタンス化と変更のいずれにも、`Person` クラスのメタデータを使用できないことを示しています。|✓|✓|
-|`Included`|親型のメタデータが使用可能な場合に、ポリシーを有効にします。||✓|
-|`Public`|ツール チェーンによってパブリック型またはパブリック メンバーが不要と判断され、削除されない限り、それらの型またはメンバーのポリシーを有効にします。 この設定は、ツール チェーンによって不要であると判断された場合でもパブリック型とパブリック メンバーのメタデータを常に使用可能にする `Required Public` とは異なります。|✓||
-|`PublicAndInternal`|ツール チェーンでパブリックおよび内部の型またはメンバーが不要であると判断され、削除されない限り、それらの型またはメンバーのポリシーを有効にします。 この設定は、ツール チェーンによって不要と判断された場合でもパブリックおよび内部の型とメンバーのメタデータを常に使用可能にする `Required PublicAndInternal` とは異なります。|✓||
-|`Required`|メンバーが使用されていると見なされる場合でも、メンバーのポリシーを有効にし、そのメタデータを使用できるようにすることを指定します。||✓|
-|`Required Public`|パブリック型またはパブリック メンバーのポリシーを有効にして、パブリック型およびパブリック メンバーのメタデータが常に使用可能であるようにします。 この設定は、ツール チェーンが必要であると判断した場合にのみ、パブリック型とパブリック メンバーのメタデータを使用可能にする `Public` とは異なります。|✓||
-|`Required PublicAndInternal`|パブリックおよび内部の型またはメンバーのポリシーを有効にして、パブリックおよび内部の型とメンバーのメタデータが常に使用可能であるようにします。 この設定は、ツール チェーンが必要であると判断した場合にのみ、パブリックおよび内部の型とメンバーのメタデータを使用可能にする `PublicAndInternal` とは異なります。|✓||
-|`Required All`|使用されているかどうかに関係なく、すべての型とメンバーを保持し、そのポリシーを有効にするために、ツール チェーンを要求します。|✓||
+|`All`|.NET ネイティブ ツール チェーンが削除しないすべての型とメンバーのポリシーを有効にします。|✔️||
+|`Auto`|そのプログラム要素のポリシーの種類に、既定のポリシーを使用する必要があることを指定します。 これは、そのポリシーの種類のポリシーを省略することと同じです。 `Auto` は通常、ポリシーが親要素から継承されることを示すために使用されます。|✔️|✔️|
+|`Excluded`|特定のプログラム要素についてポリシーを無効にすることを指定します。 たとえば、次のランタイム ディレクティブは、<br /><br /> `<Type Name="BusinessClasses.Person" Browse="Excluded" Dynamic="Excluded" />`<br /><br /> `BusinessClasses.Person` オブジェクトの参照、および動的なインスタンス化と変更のいずれにも、`Person` クラスのメタデータを使用できないことを示しています。|✔️|✔️|
+|`Included`|親型のメタデータが使用可能な場合に、ポリシーを有効にします。||✔️|
+|`Public`|ツール チェーンによってパブリック型またはパブリック メンバーが不要と判断され、削除されない限り、それらの型またはメンバーのポリシーを有効にします。 この設定は、ツール チェーンによって不要であると判断された場合でもパブリック型とパブリック メンバーのメタデータを常に使用可能にする `Required Public` とは異なります。|✔️||
+|`PublicAndInternal`|ツール チェーンでパブリックおよび内部の型またはメンバーが不要であると判断され、削除されない限り、それらの型またはメンバーのポリシーを有効にします。 この設定は、ツール チェーンによって不要と判断された場合でもパブリックおよび内部の型とメンバーのメタデータを常に使用可能にする `Required PublicAndInternal` とは異なります。|✔️||
+|`Required`|メンバーが使用されていると見なされる場合でも、メンバーのポリシーを有効にし、そのメタデータを使用できるようにすることを指定します。||✔️|
+|`Required Public`|パブリック型またはパブリック メンバーのポリシーを有効にして、パブリック型およびパブリック メンバーのメタデータが常に使用可能であるようにします。 この設定は、ツール チェーンが必要であると判断した場合にのみ、パブリック型とパブリック メンバーのメタデータを使用可能にする `Public` とは異なります。|✔️||
+|`Required PublicAndInternal`|パブリックおよび内部の型またはメンバーのポリシーを有効にして、パブリックおよび内部の型とメンバーのメタデータが常に使用可能であるようにします。 この設定は、ツール チェーンが必要であると判断した場合にのみ、パブリックおよび内部の型とメンバーのメタデータを使用可能にする `PublicAndInternal` とは異なります。|✔️||
+|`Required All`|使用されているかどうかに関係なく、すべての型とメンバーを保持し、そのポリシーを有効にするために、ツール チェーンを要求します。|✔️||
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ランタイム ディレクティブ (rd.xml) 構成ファイル リファレンス](runtime-directives-rd-xml-configuration-file-reference.md)
 - [ランタイム ディレクティブ要素](runtime-directive-elements.md)

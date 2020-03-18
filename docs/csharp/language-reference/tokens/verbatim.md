@@ -1,6 +1,5 @@
 ---
 title: '@ - C# リファレンス'
-ms.custom: seodec18
 ms.date: 02/09/2017
 f1_keywords:
 - '@_CSharpKeyword'
@@ -9,18 +8,16 @@ helpviewer_keywords:
 - '@ special character [C#]'
 - '@ language element [C#]'
 ms.assetid: 89bc7e53-85f5-478a-866d-1cca003c4e8c
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b2290c87f7d4d2ba8da122d4f5ddb9ea423852ec
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: a3446eceb0d3c415e36ea1d2c7d8d6d34f65350d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69608725"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75712417"
 ---
 # <a name="-c-reference"></a>@ (C# リファレンス)
 
-特殊文字 `@` は、逐語的識別子として機能します。 これは次の目的に使用できます。
+特殊文字 `@` は、逐語的識別子として機能します。 次のように使用できます。
 
 1. C# のキーワードを識別子として使用できるようにする。 コード要素のプレフィックスとして `@` 文字を使用すると、その要素はC# のキーワードではなく、識別子としてコンパイラに解釈されます。 次の例では、`@` 文字を使用して、`for` ループで使用する `for` という識別子を定義しています。
 
@@ -38,8 +35,8 @@ ms.locfileid: "69608725"
 
    [!code-csharp[verbatim4](../../../../samples/snippets/csharp/language-reference/keywords/verbatim2.cs#1)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
-- [C# 特殊文字](./index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
+- [C# の特殊文字](./index.md)

@@ -15,19 +15,17 @@ helpviewer_keywords:
 ms.assetid: 4517ada3-4417-4ac5-a150-73da7a87c686
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 65ac05a524297029ca50970bdd231c6a9112e35c
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 8c72f58bb65bd862b0625bfa0398b26bad0197e9
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67748385"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73192088"
 ---
 # <a name="iclrruntimeinfoloadlibrary-method"></a>ICLRRuntimeInfo::LoadLibrary メソッド
-によって表される共通言語ランタイム (CLR) から .NET Framework ライブラリを読み込み、 [ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイス。  
+[ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイスによって表される共通言語ランタイム (CLR) から .NET Framework ライブラリを読み込みます。  
   
- このメソッドは、 [LoadLibraryShim](../../../../docs/framework/unmanaged-api/hosting/loadlibraryshim-function.md)関数。  
+ このメソッドは、 [LoadLibraryShim](../../../../docs/framework/unmanaged-api/hosting/loadlibraryshim-function.md)関数よりも優先されます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,10 +37,10 @@ HRESULT LoadLibrary(
   
 ## <a name="parameters"></a>パラメーター  
  `pwzDllName`  
- [in]読み込まれるアセンブリの名前。  
+ から読み込むアセンブリの名前。  
   
  `phndModule`  
- [out]読み込まれたアセンブリへのハンドル。  
+ 入出力読み込まれたアセンブリへのハンドル。  
   
 ## <a name="return-value"></a>戻り値  
  このメソッドは、次の特定の HRESULT と、メソッドの失敗を示す HRESULT エラーも返します。  
@@ -51,17 +49,17 @@ HRESULT LoadLibrary(
 |-------------|-----------------|  
 |S_OK|メソッドは正常に完了しました。|  
 |E_POINTER|`pwzDllName` または `phndModule` が null です。|  
-|E_OUTOFMEMORY|メモリが不足は、要求を処理するために使用できます。|  
+|E_OUTOFMEMORY|要求を処理するのに十分なメモリがありません。|  
   
 ## <a name="remarks"></a>Remarks  
- このメソッドは、.NET Framework 再頒布可能パッケージに含まれている Dll のみを読み込みます。 ユーザーが生成したアセンブリを読み込むことことはできません。  
+ このメソッドは、.NET Framework 再頒布可能パッケージに含まれている Dll のみを読み込みます。 ユーザーが生成したアセンブリを読み込むことはできません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MetaHost.h  
+ **ヘッダー:** メタホスト .h  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

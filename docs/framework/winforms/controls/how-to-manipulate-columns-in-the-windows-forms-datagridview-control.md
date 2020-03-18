@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォーム DataGridView コントロールの列を操作する'
+title: DataGridView コントロールの列を操作する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,16 +10,16 @@ helpviewer_keywords:
 - columns [Windows Forms], manipulating
 - data grids [Windows Forms], manipulating columns
 ms.assetid: d8cfe6b3-bbab-4182-bec2-0517d9f1eaf6
-ms.openlocfilehash: 1f964314b9fe2f4b1ca235f9e74ca80391a58105
-ms.sourcegitcommit: c7a7e1468bf0fa7f7065de951d60dfc8d5ba89f5
+ms.openlocfilehash: 485df2594b8f07df784ebbefd9011ca562556eb8
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65592337"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76736099"
 ---
-# <a name="how-to-manipulate-columns-in-the-windows-forms-datagridview-control"></a>方法: Windows フォーム DataGridView コントロールの列を操作する
+# <a name="how-to-manipulate-columns-in-the-windows-forms-datagridview-control"></a>方法 : Windows フォーム DataGridView コントロールの列を操作する
 
-<xref:System.Windows.Forms.DataGridViewColumn> クラスのプロパティを使用して <xref:System.Windows.Forms.DataGridView> の列を操作するさまざまな方法を次のコード例に示します。
+<xref:System.Windows.Forms.DataGridView> クラスのプロパティを使用して <xref:System.Windows.Forms.DataGridViewColumn> の列を操作するさまざまな方法を次のコード例に示します。
 
 ## <a name="example"></a>例
 
@@ -33,7 +33,7 @@ ms.locfileid: "65592337"
 
 - System、System.Drawing、および System.Windows.Forms の各アセンブリへの参照。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - <xref:System.Windows.Forms.DataGridViewBand>

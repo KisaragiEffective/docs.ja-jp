@@ -1,15 +1,15 @@
 ---
-title: FindPrivateKey サンプル-WCF
+title: FindPrivateKey サンプル
 ms.date: 12/04/2017
 helpviewer_keywords:
 - FindPrivateKey
 ms.assetid: 16b54116-0ceb-4413-af0c-753bb2a785a6
-ms.openlocfilehash: 4ba4316489c1494da9421bea5c513e44c6eb50a7
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 0ed1e5e81a5d2f7f3586e5dce306e8244b5ebd48
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70989882"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75346013"
 ---
 # <a name="findprivatekey-sample"></a>FindPrivateKey サンプル
 
@@ -46,13 +46,13 @@ cacls.exe "C:\Documents and Settings\All Users\Application Data\Microsoft\Crypto
 
 プロジェクトをダウンロードするには、 [Windows Communication Foundation (WCF) および Windows Workflow Foundation (WF) のサンプル .NET Framework 4 を](https://www.microsoft.com/download/details.aspx?id=21459)参照してください。
 
-1. ファイルエクスプローラーを開き、サンプルをインストールしたディレクトリの場所にある*WF_WCF_Samples\WCF\Setup\FindPrivateKey\CS*フォルダーに移動します。
+1. ファイルエクスプローラーを開き、サンプルをインストールしたディレクトリの場所にある*WF_WCF_Samples \wcf\setup\findprivatekey\cs*フォルダーに移動します。
 
 2. .sln ファイルのアイコンをダブルクリックして、このファイルを Visual Studio で開きます。
 
 3. **[ビルド]** メニューの **[ソリューションのリビルド]** をクリックします。
 
-4. ソリューションをビルドすると、ファイルが生成されます。FindPrivateKey。
+4. ソリューションをビルドすると、FindPrivateKey.exe ファイルが生成されます。
 
 ## <a name="conventionscommand-line-entries"></a>規則-コマンドラインエントリ
 
@@ -62,17 +62,17 @@ cacls.exe "C:\Documents and Settings\All Users\Application Data\Microsoft\Crypto
 
  "*オプション 1* &#124; *option2*" は、オプションのセット間の選択を表します。
 
- "\<*value*>" は、入力するパラメーター値を表します。
+ "\<*値*>" は、入力するパラメーター値を表します。
 
-## <a name="usage"></a>使用方法
+## <a name="usage"></a>使用状況
 
 ```console
 FindPrivateKey <storeName> <storeLocation> [{ {-n <subjectName>} | {-t <thumbprint>} } [-f | -d | -a]]
 ```
 
-この場合、
+ここで:
 
-| パラメーター         | 説明                                                                       |
+| パラメータ         | 説明                                                                       |
 |-----------------|-----------------------------------------------------------------------------------|
 | `<subjectName>` | 証明書のサブジェクト名                                               |
 | `<thumbprint>`  | 証明書のサムプリント (この検索には、Certmgr.exe ツールを使用できます) |

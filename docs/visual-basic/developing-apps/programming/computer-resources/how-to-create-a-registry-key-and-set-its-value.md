@@ -1,5 +1,5 @@
 ---
-title: '方法: レジストリ キーを作成し、その値を設定する (Visual Basic)'
+title: '方法: レジストリ キーを作成し、その値を設定する'
 ms.date: 07/20/2015
 f1_keywords:
 - RegistryKey.CreateSubKey
@@ -11,16 +11,16 @@ helpviewer_keywords:
 - registry keys [Visual Basic], setting values
 - examples [Visual Basic], registry
 ms.assetid: d3e40f74-c283-480c-ab18-e5e9052cd814
-ms.openlocfilehash: 84fc824ad5911621c679d70f480d9b5e83c095ad
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 459c4b3f971009ee4b6b669c55bc058db0826595
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71054129"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74349201"
 ---
 # <a name="how-to-create-a-registry-key-and-set-its-value-in-visual-basic"></a>方法: レジストリ キーを作成し、その値を設定する (Visual Basic)
 
-レジストリ キーを作成するには、`My.Computer.Registry` オブジェクトの `CreateSubKey` メソッドを使用します。
+レジストリ キーを作成するには、`CreateSubKey` オブジェクトの `My.Computer.Registry` メソッドを使用します。
 
 ## <a name="procedure"></a>プロシージャ
 
@@ -52,7 +52,7 @@ ms.locfileid: "71054129"
 
 Web アプリケーションからレジストリを読み取る際、現在のユーザーは Web アプリケーションに実装されている認証と偽装によります。
 
-ローカル コンピューター (<xref:Microsoft.Win32.Registry.LocalMachine>) よりもユーザー フォルダー (<xref:Microsoft.Win32.Registry.CurrentUser>) にデータを書き込む方が安全です。
+ローカル コンピューター (<xref:Microsoft.Win32.Registry.CurrentUser>) よりもユーザー フォルダー (<xref:Microsoft.Win32.Registry.LocalMachine>) にデータを書き込む方が安全です。
 
 レジストリの値を作成するときは、その値が既存の値である場合の処理を決めておく必要があります。 悪意のあるユーザーによって作成された別のプロセスが既に値を作成し、アクセス権を持っている可能性があります。 レジストリ値にデータを設定すると、そのデータを他のプロセスから利用できるようになります。 これを回避するには、<xref:Microsoft.Win32.RegistryKey.GetValue%2A> メソッドを使います。 このメソッドは、キーがまだ存在しない場合、`Nothing` を返します。
 
@@ -70,11 +70,11 @@ Web アプリケーションからレジストリを読み取る際、現在の�
 
 - レジストリ キーが読み取り専用の場合 (<xref:System.UnauthorizedAccessException>)。
 
-## <a name="net-framework-security"></a>.NET Framework セキュリティ
+## <a name="net-framework-security"></a>.NET Framework のセキュリティ
 
 このプロセスを実行するには、アセンブリに対して <xref:System.Security.Permissions.RegistryPermission> クラスで特権レベルが許可されている必要があります。 部分的に信頼されたコンテキストで実行している場合、プロセスは、特権がないために例外をスローする可能性があります。 同様に、ユーザーには、設定に対する作成や書き込みを行うための適切な ACL が必要です。 たとえば、コード アクセス セキュリティのアクセス許可を持つローカル アプリケーションには、オペレーティング システムのアクセス許可がない可能性があります。 詳しくは、「[コード アクセス セキュリティの基礎](../../../../framework/misc/code-access-security-basics.md)」をご覧ください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:Microsoft.VisualBasic.MyServices.RegistryProxy>
 - <xref:Microsoft.VisualBasic.MyServices.RegistryProxy.CurrentUser%2A>

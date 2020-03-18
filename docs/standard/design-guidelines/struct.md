@@ -11,42 +11,41 @@ helpviewer_keywords:
 - type design guidelines, structures
 - structures [.NET Framework], design guidelines
 ms.assetid: 1f48b2d8-608c-4be6-9ba4-d8f203ed9f9f
-author: KrzysztofCwalina
-ms.openlocfilehash: e787c5b34848a561b43c3457341673f11cc2bd00
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b6d06bc8a1e8535f1452af0726138abaebfd4951
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67775548"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76743606"
 ---
 # <a name="struct-design"></a>構造体のデザイン
-ほとんどの場合、汎用的な値の型は構造体、c# のキーワードと呼ばれます。 このセクションでは、一般的な構造体のデザインのガイドラインを示します。  
-  
- **X しないで**構造体をパラメーターなしのコンス トラクターを提供します。  
-  
- このガイドラインに従うには、配列の各項目に対して、コンス トラクターを実行することがなく作成する構造体の配列が使用できます。 注意C#構造体をパラメーターなしのコンス トラクターがあることはできません。  
-  
- **X DO NOT** 変更可能な値の型を定義します。  
-  
- 変更可能な値の型には、いくつかの問題があります。 たとえば、プロパティ get アクセス操作子が値型を返すときに、呼び出し元は、コピーを受け取ります。 コピーが暗黙的に作成されるため、開発者があります、コピー、および元の値ではなくを変更することに注意してくださかった。 また、(動的言語、特に) の一部の言語では、ローカル変数を逆参照時にも、コピーできるようにするために、変更可能な値の型を使用して問題があります。  
-  
- **✓ DO** すべてのインスタンス データの状態が 0 に設定されている、false の場合、または null (該当する場合) が有効であることを確認します。  
-  
- 構造体の配列が作成されたときに、無効なインスタンスの偶発的な作成ができないようにします。  
-  
- **✓ DO** 実装<xref:System.IEquatable%601>を値の型。  
-  
- <xref:System.Object.Equals%2A?displayProperty=nameWithType>値型のメソッドとボックス化、および既定の実装がリフレクションを使用しているために、非常に効率的です。 <xref:System.IEquatable%601.Equals%2A> 優れたパフォーマンスを持つことができ、ボックス化が発生しないように実装することができます。  
-  
- **X DO NOT** 明示的に拡張<xref:System.ValueType>です。 実際、ほとんどの言語は、これを回避します。  
-  
- 一般に、構造体は非常に役に立ちますが、頻繁には手書きされませんが小さく、1 つ、不変の値にのみ使用する必要があります。  
-  
- *Portions © 2005, 2009 Microsoft Corporation.All rights reserved.*  
-  
- *Pearson Education, Inc. からのアクセス許可によって了承を得て転載[Framework デザイン ガイドライン。規則、手法、および再利用可能な .NET ライブラリの第 2 版のパターン](https://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)Krzysztof Cwalina、Brad 内容では、Microsoft Windows の開発シリーズの一部として、Addison-wesley Professional、2008 年 10 月 22日を公開します。*  
-  
-## <a name="see-also"></a>関連項目
+一般的な目的の値型は、ほとんどの場合、構造体であるC#キーワードと呼ばれます。 このセクションでは、一般的な構造体のデザインに関するガイドラインを示します。
+
+ ❌ は、構造体のパラメーターなしのコンストラクターを提供しません。
+
+ このガイドラインに従うことで、配列の各項目に対してコンストラクターを実行しなくても、構造体の配列を作成できます。 ではC# 、構造体にパラメーターなしのコンストラクターを含めることはできないことに注意してください。
+
+ ❌ は、変更可能な値の型を定義しません。
+
+ 変更可能な値の型にはいくつかの問題があります。 たとえば、プロパティ getter が値型を返す場合、呼び出し元はコピーを受け取ります。 コピーは暗黙的に作成されるため、開発者は元の値ではなくコピーを変更することを認識していない可能性があります。 また、一部の言語 (特に動的言語) では、変更可能な値型を使用した場合に問題が発生します。これは、ローカル変数でも逆参照した場合にコピーが作成されるためです。
+
+ ✔️、すべてのインスタンスデータが0、false、または null (必要に応じて) に設定されている状態であることを確認します。
+
+ これにより、構造体の配列が作成されたときに無効なインスタンスが誤って作成されるのを防ぐことができます。
+
+ ✔️値型に <xref:System.IEquatable%601> を実装します。
+
+ 値型の <xref:System.Object.Equals%2A?displayProperty=nameWithType> メソッドでは、ボックス化が発生しますが、リフレクションを使用するため、既定の実装はあまり効率的ではありません。 <xref:System.IEquatable%601.Equals%2A> のパフォーマンスは大幅に向上し、ボックス化が行われないように実装できます。
+
+ ❌ 明示的に <xref:System.ValueType>を拡張しないでください。 実際、ほとんどの言語ではこれを回避できます。
+
+ 一般に、構造体は非常に便利ですが、頻繁にボックス化されない小さな単一の変更できない値に対してのみ使用してください。
+
+ *©2005、2009 Microsoft Corporation の部分。すべての権限が予約されています。*
+
+ *2008 年 10 月 22 日に Microsoft Windows Development シリーズの一部として、Addison-Wesley Professional によって発行された、Krzysztof Cwalina および Brad Abrams による「[Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries, 2nd Edition](https://www.informit.com/store/framework-design-guidelines-conventions-idioms-and-9780321545619)」 (フレームワーク デザイン ガイドライン: 再利用可能な .NET ライブラリの規則、用法、パターン、第 2 版) から Pearson Education, Inc. の許可を得て再印刷されています。*
+
+## <a name="see-also"></a>参照
 
 - [型デザインのガイドライン](../../../docs/standard/design-guidelines/type.md)
 - [フレームワーク デザインのガイドライン](../../../docs/standard/design-guidelines/index.md)

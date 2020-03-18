@@ -1,13 +1,13 @@
 ---
 title: 関数
-description: 関数の F# と、F# が共通の関数型プログラミング構成要素をどのようにがサポートする方法について説明します。
+description: での関数とF# 、でF#共通の関数型プログラミングコンストラクトをサポートする方法について説明します。
 ms.date: 05/16/2016
-ms.openlocfilehash: 6f65ce692169b71abe8d2eff7ef07b66975d478b
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: c6b8307f51ffcdc77fe4352b2305fca1f247ccbb
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68630704"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73423951"
 ---
 # <a name="functions"></a>関数
 
@@ -36,9 +36,9 @@ let f x = x + 1
 
 この例では、関数の名前は `f`、引数は `x`、引数の型は `int`、関数本体は `x + 1`、戻り値の型は `int` です。
 
-関数は、`inline` としてマークできます。 `inline` の詳細については、「[インライン関数](../functions/inline-functions.md)」(インライン関数) を参照してください。
+関数は、`inline` としてマークできます。 `inline` の詳細については、「[Inline Functions](../functions/inline-functions.md)」(インライン関数) を参照してください。
 
-## <a name="scope"></a>スコープ
+## <a name="scope"></a>[スコープ]
 
 モジュール スコープ以外のスコープの任意のレベルでは、値または関数の名前を再利用してもエラーになりません。 名前を再利用する場合、後から宣言した名前が前に宣言した名前をシャドウします。 ただし、モジュールの最上位のスコープでは名前が一意である必要があります。 たとえば次のコードは、モジュール スコープではエラーになりますが、関数内ではエラーになりません。
 
@@ -76,7 +76,7 @@ let f x = (x, x)
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet103.fs)]
 
-詳細については、「[コードのフォーマットに関するガイドライン](../code-formatting-guidelines.md)」および「[詳細構文](../verbose-syntax.md)」 (冗語構文) を参照してください。
+詳細については、「[コードのフォーマットに関するガイドライン](../../style-guide/formatting.md)」および「[Verbose Syntax](../verbose-syntax.md)」 (冗語構文) を参照してください。
 
 ## <a name="return-values"></a>戻り値
 
@@ -142,7 +142,7 @@ F# では、すべての関数が値と見なされ、実際に、*関数値*と
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet112.fs)]
 
-ラムダ式を定義するには、`fun` キーワードを使用します。 ラムダ式は関数定義に似ていますが、引数リストと関数本体の区切りに `=` トークンではなく `->` トークンを使用する点が異なります。 通常の関数定義と同様に、引数の型は、推論されるようにすることも、明示的に指定することもできます。ラムダ式の戻り値の型も、本体の最後の式の型から推論されます。 詳細については[、「ラムダ式:`fun`キーワード](../functions/lambda-expressions-the-fun-keyword.md)します。
+ラムダ式を定義するには、`fun` キーワードを使用します。 ラムダ式は関数定義に似ていますが、引数リストと関数本体の区切りに `=` トークンではなく `->` トークンを使用する点が異なります。 通常の関数定義と同様に、引数の型は、推論されるようにすることも、明示的に指定することもできます。ラムダ式の戻り値の型も、本体の最後の式の型から推論されます。 詳細については、「[ラムダ式: `fun` キーワード](../functions/lambda-expressions-the-fun-keyword.md)」を参照してください。
 
 ## <a name="function-composition-and-pipelining"></a>関数合成とパイプライン処理
 

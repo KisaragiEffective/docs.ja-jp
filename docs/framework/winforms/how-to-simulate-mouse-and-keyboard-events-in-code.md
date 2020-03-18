@@ -1,5 +1,5 @@
 ---
-title: '方法: マウス イベントとキーボード イベントをコードでシミュレートする'
+title: '方法 : マウス イベントとキーボード イベントをコードでシミュレートする'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -12,14 +12,14 @@ helpviewer_keywords:
 - mouse clicks [Windows Forms], simulating
 - mouse [Windows Forms], event simulation
 ms.assetid: 6abcb67e-3766-4af2-9590-bf5dabd17e41
-ms.openlocfilehash: 1a7a0fa6295cd8332313a983ca78345bfbac393e
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 52f89df8d7f28f0e00c3becd9005b46e52b5532c
+ms.sourcegitcommit: 42ed59871db1f29a32b3d8e7abeb20e6eceeda7c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70046388"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74960205"
 ---
-# <a name="how-to-simulate-mouse-and-keyboard-events-in-code"></a>方法: マウス イベントとキーボード イベントをコードでシミュレートする
+# <a name="how-to-simulate-mouse-and-keyboard-events-in-code"></a>方法 : マウス イベントとキーボード イベントをコードでシミュレートする
 
 Windows フォームは、プログラムでマウスおよびキーボード入力をシミュレートするためのいくつかのオプションを提供します。 ここでは、これらのオプションの概要について説明します。
 
@@ -29,7 +29,7 @@ Windows フォームは、プログラムでマウスおよびキーボード入
 
 #### <a name="to-programmatically-click-the-right-mouse-button"></a>プログラムでマウスの右ボタンをクリックするには
 
-1. <xref:System.Windows.Forms.MouseEventArgs.Button%2A> プロパティが <xref:System.Windows.Forms.MouseButtons.Right?displayProperty=nameWithType> 値に設定された <xref:System.Windows.Forms.MouseEventArgs> を作成します。
+1. <xref:System.Windows.Forms.MouseEventArgs> プロパティが <xref:System.Windows.Forms.MouseEventArgs.Button%2A> 値に設定された <xref:System.Windows.Forms.MouseButtons.Right?displayProperty=nameWithType> を作成します。
 
 2. この <xref:System.Windows.Forms.Control.OnMouseClick%2A> を持つ <xref:System.Windows.Forms.MouseEventArgs> メソッドを引数として呼び出します。
 
@@ -42,7 +42,7 @@ Windows フォームは、プログラムでマウスおよびキーボード入
 前述のマウス入力に関する戦略を使用することで、キーボード入力をシミュレートできますが、Windows フォームはアクティブなアプリケーションにキー入力を送信するための <xref:System.Windows.Forms.SendKeys> クラスも提供します。
 
 > [!CAUTION]
-> アプリケーションが国際対応し、さまざまなキーボードの使用を想定している場合は、<xref:System.Windows.Forms.SendKeys.Send%2A?displayProperty=nameWithType> の使用により予期しない結果になる可能性があるため、回避する必要があります。
+> アプリケーションが国際対応し、さまざまなキーボードの使用を想定している場合は、 <xref:System.Windows.Forms.SendKeys.Send%2A?displayProperty=nameWithType> の使用により予期しない結果になる可能性があるため、回避する必要があります。
 
 > [!NOTE]
 > .NET Framework 3.0 の <xref:System.Windows.Forms.SendKeys> クラスが更新され、Windows Vista で実行されるアプリケーションで使用できるようになりました。 Windows Vista の強化されたセキュリティ、(ユーザー アカウント制御または UAC と呼ばれます) により、前の実装は想定どおり機能できません。
@@ -72,13 +72,13 @@ Windows フォームは、プログラムでマウスおよびキーボード入
 1. キー入力を受信するアプリケーション ウィンドウをアクティブ化し、 <xref:System.Windows.Forms.SendKeys.Send%2A> メソッドまたは <xref:System.Windows.Forms.SendKeys.SendWait%2A> メソッドを呼び出します。 別のアプリケーションをアクティブ化するマネージド メソッドがないため、ネイティブ Windows メソッドを使用して他のアプリケーションにフォーカスを設定する必要があります。 次のコード例は、プラットフォーム呼び出しを使用して `FindWindow` メソッドと `SetForegroundWindow` メソッドを呼び出し、電卓アプリケーションのウィンドウをアクティブ化してから、 <xref:System.Windows.Forms.SendKeys.SendWait%2A> を呼び出して電卓アプリケーションに一連の計算を発行します。
 
     > [!NOTE]
-    > 電卓アプリケーションを特定する `FindWindow` 呼び出しの適切なパラメーターは、Windows のバージョンに応じて異なります。  次のコードでは、 [!INCLUDE[win7](../../../includes/win7-md.md)]の電卓アプリケーションを検索します。 [!INCLUDE[windowsver](../../../includes/windowsver-md.md)]では、最初のパラメーターを「SciCalc」に変更します。 Visual Studio に付属の Spy++ ツールを使用して、適切なパラメーターを特定します。
+    > 電卓アプリケーションを特定する `FindWindow` 呼び出しの適切なパラメーターは、Windows のバージョンに応じて異なります。  次のコードは、Windows 7 の電卓アプリケーションを検索します。 Windows Vista では、最初のパラメーターを "Scて c" に変更します。 Visual Studio に付属の Spy++ ツールを使用して、適切なパラメーターを特定します。
 
     [!code-cpp[System.Windows.Forms.SimulateKeyPress#5](~/samples/snippets/cpp/VS_Snippets_Winforms/System.Windows.Forms.SimulateKeyPress/cpp/form1.cpp#5)]
     [!code-csharp[System.Windows.Forms.SimulateKeyPress#5](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.SimulateKeyPress/CS/form1.cs#5)]
     [!code-vb[System.Windows.Forms.SimulateKeyPress#5](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.SimulateKeyPress/VB/form1.vb#5)]
 
-## <a name="example"></a>例
+## <a name="example"></a>使用例
 
 次のコード例は、前のコード例の完全なアプリケーションです。
 
@@ -86,12 +86,12 @@ Windows フォームは、プログラムでマウスおよびキーボード入
 [!code-csharp[System.Windows.Forms.SimulateKeyPress#0](~/samples/snippets/csharp/VS_Snippets_Winforms/System.Windows.Forms.SimulateKeyPress/CS/form1.cs#0)]
 [!code-vb[System.Windows.Forms.SimulateKeyPress#0](~/samples/snippets/visualbasic/VS_Snippets_Winforms/System.Windows.Forms.SimulateKeyPress/VB/form1.vb#0)]
 
-## <a name="compiling-the-code"></a>コードのコンパイル
+## <a name="compiling-the-code"></a>コードのコンパイル方法
 
 この例で必要な要素は次のとおりです。
 
 - System、System.Drawing、および System.Windows.Forms の各アセンブリへの参照。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Windows フォームでのユーザー入力](user-input-in-windows-forms.md)

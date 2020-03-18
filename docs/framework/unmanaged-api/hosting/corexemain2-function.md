@@ -14,16 +14,14 @@ helpviewer_keywords:
 ms.assetid: 72ea68b4-689f-4733-9416-9664b75e8892
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 46dab35c44e59a149822005575c83c13e9350455
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: cc5324683daa9a02a6a89b2a3fb57ee9fd5dbe72
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67758539"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136962"
 ---
-# <a name="corexemain2-function"></a>_CorExeMain2 関数
+# <a name="_corexemain2-function"></a>_CorExeMain2 関数
 指定されたメモリ マップト コードのエントリ ポイントを実行します。 この関数は、オペレーティング システム ローダーによって呼び出されます。  
   
 ## <a name="syntax"></a>構文  
@@ -40,26 +38,26 @@ __int32 STDMETHODCALLTYPE _CorExeMain2 (
   
 ## <a name="parameters"></a>パラメーター  
  `pUnmappedPE`  
- [in]メモリ マップト コードへのポインター。  
+ からメモリマップトコードへのポインター。  
   
  `cUnmappedPE`  
- [in]要素の数`pUnmappedPE`を保持できます。  
+ から`pUnmappedPE` 保持できる要素の数。  
   
  `pImageNameIn`  
- [in]実行可能イメージの名前へのポインター。  
+ から実行可能イメージの名前へのポインター。  
   
  `pLoadersFileName`  
- [in]ローダーのファイルの名前。  
+ からローダーファイルの名前。  
   
  `pCmdLine`  
- [in]コマンド ライン パラメーター、存在する場合。  
+ からコマンドラインパラメーター (存在する場合)。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

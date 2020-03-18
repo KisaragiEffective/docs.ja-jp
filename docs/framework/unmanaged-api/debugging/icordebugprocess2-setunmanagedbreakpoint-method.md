@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 93829d15-d942-4e2d-b7a4-dfc9d7fb96be
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: f16a5d1bad80a5aad8573508aab5fbf98c8c2a03
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: ffab2762fd86e95c3272ca456039028e0897bc41
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67736835"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73137179"
 ---
 # <a name="icordebugprocess2setunmanagedbreakpoint-method"></a>ICorDebugProcess2::SetUnmanagedBreakpoint メソッド
-ネイティブ イメージを指定したオフセットで非管理対象のブレークポイントを設定します。  
+指定したネイティブイメージオフセットにアンマネージブレークポイントを設定します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,22 +39,22 @@ HRESULT SetUnmanagedBreakpoint (
   
 ## <a name="parameters"></a>パラメーター  
  `address`  
- [in]A`CORDB_ADDRESS`ネイティブ イメージのオフセットを指定するオブジェクト。  
+ からネイティブイメージオフセットを指定する `CORDB_ADDRESS` オブジェクト。  
   
  `bufsize`  
- [in]サイズ (バイト単位) の`buffer`配列。  
+ から`buffer` 配列のサイズ (バイト単位)。  
   
  `buffer`  
- [out]ブレークポイントで置き換えられるオペコードを含む配列。  
+ 入出力ブレークポイントによって置き換えられるオペコードを格納している配列。  
   
  `bufLen`  
- [out]返されるバイト数へのポインター、`buffer`配列。  
+ 入出力`buffer` 配列で返されたバイト数へのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- ネイティブ イメージのオフセットが共通言語ランタイム (CLR) 内にある場合は、ブレークポイントは無視されます。 これにより、デバッガーでブレークポイントが設定されている場合、帯域外のブレークポイントのディスパッチを回避するために CLR ができます。  
+ ネイティブイメージオフセットが共通言語ランタイム (CLR) 内にある場合、ブレークポイントは無視されます。 これにより、ブレークポイントがデバッガーによって設定されたときに、CLR は帯域外のブレークポイントのディスパッチを回避できます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

@@ -2,12 +2,12 @@
 title: クエリ式
 description: F#プログラミング言語における LINQ のクエリ式のサポートについて説明します。
 ms.date: 05/16/2016
-ms.openlocfilehash: 6eaac16336cca752eaac355276300c6809c570a8
-ms.sourcegitcommit: 56f1d1203d0075a461a10a301459d3aa452f4f47
+ms.openlocfilehash: f0c7245a930a06576487a61d73a1e5b94190ee59
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71216811"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73424882"
 ---
 # <a name="query-expressions"></a>クエリ式
 
@@ -22,9 +22,9 @@ ms.locfileid: "71216811"
 query { expression }
 ```
 
-## <a name="remarks"></a>コメント
+## <a name="remarks"></a>Remarks
 
-クエリ式は、シーケンス式に似た計算式の一種です。 シーケンス式にコードを提供することでシーケンスを指定するのと同じように、クエリ式にコードを提供することによってデータのセットを指定します。 シーケンス式では、キーワード`yield`は、結果のシーケンスの一部として返されるデータを識別します。 クエリ式では、 `select`キーワードは同じ関数を実行します。 `select`キーワードに加えて、でF#は、SQL SELECT ステートメントの部分とよく似た多数のクエリ演算子もサポートされています。 Northwind OData ソースに接続するコードと共に、単純なクエリ式の例を次に示します。
+クエリ式は、シーケンス式に似た計算式の一種です。 シーケンス式にコードを提供することでシーケンスを指定するのと同じように、クエリ式にコードを提供することによってデータのセットを指定します。 シーケンス式では、`yield` キーワードによって、結果のシーケンスの一部として返されるデータが識別されます。 クエリ式では、`select` キーワードは同じ関数を実行します。 `select` キーワードに加えて、でF#は、SQL SELECT ステートメントの部分とよく似た多数のクエリ演算子もサポートされています。 Northwind OData ソースに接続するコードと共に、単純なクエリ式の例を次に示します。
 
 ```fsharp
 // Use the OData type provider to create types that can be used to access the Northwind database.
@@ -46,15 +46,15 @@ query1
 |> Seq.iter (fun customer -> printfn "Company: %s Contact: %s" customer.CompanyName customer.ContactName)
 ```
 
-前のコード例では、クエリ式は中かっこで囲まれています。 式のコードの意味はで、クエリ結果のデータベースの Customers テーブルにあるすべての顧客を返します。 クエリ式は、と<xref:System.Linq.IQueryable%601> <xref:System.Collections.Generic.IEnumerable%601>を実装する型を返します。このため、例に示すように、 [Seq モジュール](https://msdn.microsoft.com/library/54e8f059-ca52-4632-9ae9-49685ee9b684)を使用して反復処理できます。
+前のコード例では、クエリ式は中かっこで囲まれています。 式のコードの意味はで、クエリ結果のデータベースの Customers テーブルにあるすべての顧客を返します。 クエリ式は、<xref:System.Linq.IQueryable%601> と <xref:System.Collections.Generic.IEnumerable%601>を実装する型を返します。このため、例に示すように、 [Seq モジュール](https://msdn.microsoft.com/library/54e8f059-ca52-4632-9ae9-49685ee9b684)を使用して反復処理できます。
 
-すべてのコンピュテーション式の型は、ビルダークラスから構築されます。 クエリ計算式のビルダークラスは`QueryBuilder`です。 詳細については、「[コンピュテーション式](computation-expressions.md)」および「[ビルダークラス](https://msdn.microsoft.com/visualfsharpdocs/conceptual/linq.querybuilder-class-%5bfsharp%5d)」を参照してください。
+すべてのコンピュテーション式の型は、ビルダークラスから構築されます。 クエリ計算式のビルダークラスが `QueryBuilder`。 詳細については、「[コンピュテーション式](computation-expressions.md)」および「[ビルダークラス](https://msdn.microsoft.com/visualfsharpdocs/conceptual/linq.querybuilder-class-%5bfsharp%5d)」を参照してください。
 
 ## <a name="query-operators"></a>クエリ演算子
 
-クエリ演算子を使用すると、クエリの詳細を指定できます。たとえば、返されるレコードに条件を配置したり、結果の並べ替え順序を指定したりすることができます。 クエリソースではクエリ演算子がサポートされている必要があります。 サポートされていないクエリ演算子を使用`System.NotSupportedException`しようとすると、がスローされます。
+クエリ演算子を使用すると、クエリの詳細を指定できます。たとえば、返されるレコードに条件を配置したり、結果の並べ替え順序を指定したりすることができます。 クエリソースではクエリ演算子がサポートされている必要があります。 サポートされていないクエリ演算子を使用しようとすると、`System.NotSupportedException` がスローされます。
 
-クエリ式では、SQL に変換できる式のみを使用できます。 たとえば、 `where`クエリ演算子を使用する場合、式で関数呼び出しを使用することはできません。
+クエリ式では、SQL に変換できる式のみを使用できます。 たとえば、`where` クエリ演算子を使用する場合、式で関数呼び出しを使用することはできません。
 
 表1に、使用できるクエリ演算子を示します。 また、このトピックで後述する「Table2」を参照しF#てください。これは、SQL クエリと同等のクエリ式を比較したものです。 一部のクエリ演算子は、一部の型プロバイダーではサポートされていません。 特に、odata の型プロバイダーは、OData の制限によってサポートされるクエリ演算子で制限されます。 詳細については、「 [Odataservice TypeF#Provider ()](https://msdn.microsoft.com/library/bac609dd-9d12-4bf9-a662-24bdf4faa43e)」を参照してください。
 
@@ -231,7 +231,7 @@ let data = [ 1; 5; 7; 11; 18; 21]
 </code></pre>
 
 </td></tr><tr>
-<td><code>thenBy</code></td><td>これまでに指定した並べ替えキーによって昇順に選択された要素の後続の順序付けを実行します。 この<code>sortBy</code>演算子は<code>sortByDescending</code> <code>thenByDescending</code>、、、、またはの後にのみ使用できます。 <code>thenBy</code><br/><br/>
+<td><code>thenBy</code></td><td>これまでに指定した並べ替えキーによって昇順に選択された要素の後続の順序付けを実行します。 この演算子は、<code>sortBy</code>、<code>sortByDescending</code>、<code>thenBy</code>、または <code>thenByDescending</code>の後にのみ使用できます。<br/><br/>
 
 <pre><code class="lang-fsharp">query {
     for student in db.Student do
@@ -243,7 +243,7 @@ let data = [ 1; 5; 7; 11; 18; 21]
 </code></pre>
 
 </td></tr><tr>
-<td><code>thenByDescending</code></td><td>これまでに指定した並べ替えキーによって降順に選択された要素の後続の順序付けを実行します。 この<code>sortBy</code>演算子は<code>sortByDescending</code> <code>thenByDescending</code>、、、、またはの後にのみ使用できます。 <code>thenBy</code><br/><br/>
+<td><code>thenByDescending</code></td><td>これまでに指定した並べ替えキーによって降順に選択された要素の後続の順序付けを実行します。 この演算子は、<code>sortBy</code>、<code>sortByDescending</code>、<code>thenBy</code>、または <code>thenByDescending</code>の後にのみ使用できます。<br/><br/>
 
 <pre><code class="lang-fsharp">query {
     for student in db.Student do
@@ -265,7 +265,7 @@ let data = [ 1; 5; 7; 11; 18; 21]
 </code></pre>
 
 </td></tr><tr>
-<td><code>join</code></td><td>一致するキーに基づいて、選択された2つの値のセットを関連付けます。 結合式の等号 (=) の前後のキーの順序は重要であることに注意してください。 すべての結合で、行が記号の<code>-&gt;</code>後に分割されている場合は、インデントを少なくともキーワード<code>for</code>にインデントする必要があります。<br/><br/>
+<td><code>join</code></td><td>一致するキーに基づいて、選択された2つの値のセットを関連付けます。 結合式の等号 (=) の前後のキーの順序は重要であることに注意してください。 すべての結合で、行が <code>-&gt;</code> 記号の後に分割されている場合は、インデントを少なくともキーワード <code>for</code>にインデントする必要があります。<br/><br/>
 
 <pre><code class="lang-fsharp">query {
     for student in db.Student do
@@ -353,7 +353,7 @@ let data = [ 1; 5; 7; 11; 18; 21]
     for student in db.Student do
     join selection in db.CourseSelection
         on (student.StudentID = selection.StudentID)
-    distinct       
+    distinct
 }
 </code></pre>
 
@@ -474,7 +474,7 @@ let data = [ 1; 5; 7; 11; 18; 21]
 </code></pre>
 
 </td></tr><tr>
-<td><code>thenByNullable</code></td><td>これまでに、指定した null 許容の並べ替えキーによって昇順に選択された要素の後続の並べ替えを実行します。 この<code>sortBy</code>演算子は<code>sortByDescending</code> <code>thenByDescending</code>、、、、またはの直後、または null 許容型の後でのみ使用できます。 <code>thenBy</code><br/><br/>
+<td><code>thenByNullable</code></td><td>これまでに、指定した null 許容の並べ替えキーによって昇順に選択された要素の後続の並べ替えを実行します。 この演算子は、<code>sortBy</code>、<code>sortByDescending</code>、<code>thenBy</code>、または <code>thenByDescending</code>の直後、または null 許容型である場合にのみ使用できます。<br/><br/>
 
 <pre><code class="lang-fsharp">query {
     for student in db.Student do
@@ -485,7 +485,7 @@ let data = [ 1; 5; 7; 11; 18; 21]
 </code></pre>
 
 </td></tr><tr>
-<td><code>thenByNullableDescending</code></td><td>これまでに指定された null 許容の並べ替えキーによって降順に選択された要素の後続の並べ替えを実行します。 この<code>sortBy</code>演算子は<code>sortByDescending</code> <code>thenByDescending</code>、、、、またはの直後、または null 許容型の後でのみ使用できます。 <code>thenBy</code><br/><br/>
+<td><code>thenByNullableDescending</code></td><td>これまでに指定された null 許容の並べ替えキーによって降順に選択された要素の後続の並べ替えを実行します。 この演算子は、<code>sortBy</code>、<code>sortByDescending</code>、<code>thenBy</code>、または <code>thenByDescending</code>の直後、または null 許容型である場合にのみ使用できます。<br/><br/>
 
 <pre><code class="lang-fsharp">query {
     for student in db.Student do
@@ -499,6 +499,7 @@ let data = [ 1; 5; 7; 11; 18; 21]
 </table>
 
 ## <a name="comparison-of-transact-sql-and-f-query-expressions"></a>Transact-SQL と F# のクエリ式の比較
+
 次の表に、の一般的な Transact-sql クエリとそれに対応F#するの例を示します。 また、この表のコードでは、前の表と同じデータベースと、型プロバイダーを設定するための同じ初期コードを前提としています。
 
 ### <a name="table-2-transact-sql-and-f-query-expressions"></a>表 2. Transact-SQL と F# のクエリ式
@@ -533,7 +534,7 @@ query {
 
 <pre><code class="lang-fsharp">// Count of students.
 query {
-    for student in db.Student do       
+    for student in db.Student do
     count
 }
 </code></pre>
@@ -638,7 +639,7 @@ GROUP BY Student.Age
 <pre><code class="lang-fsharp">// Group students by age and sum ages.
 query {
     for student in db.Student do
-    groupBy student.Age into g       
+    groupBy student.Age into g
     let total =
         query {
             for student in g do
@@ -666,14 +667,14 @@ ORDER BY COUNT( * ) DESC
 query {
     for student in db.Student do
     groupBy student.Age into g
-    where (g.Count() > 1)       
+    where (g.Count() > 1)
     sortByDescending (g.Count())
     select (g.Key, g.Count())
 }
 </code></pre>
 
-</td></tr><tr><td>
-<code>IN</code>指定された値のセット<br/>
+</td></tr><tr><td>指定された値のセットを 
+<code>IN</code> します。<br/>
 
 <pre><code class="lang-sql">SELECT *
 FROM Student
@@ -713,8 +714,8 @@ query {
 }
 </code></pre>
 
-</td></tr><tr><td>
-<code>LIKE</code>パターン一致が設定されています。<br/>
+</td></tr><tr><td>パターン一致セットで 
+<code>LIKE</code> します。<br/>
 
 <pre><code class="lang-sql">-- '[abc]%' matches strings where the first character is
 -- 'a', 'b', 'c', 'A', 'B', or 'C'
@@ -726,12 +727,12 @@ WHERE Student.Name LIKE '[abc]%'
 <pre><code class="lang-fsharp">query {
     for student in db.Student do
     where (SqlMethods.Like( student.Name, "[abc]%") )
-    select student 
+    select student
 }
 </code></pre>
 
-</td></tr><tr><td>
-<code>LIKE</code>を設定します。<br/>
+</td></tr><tr><td>設定の除外パターンで 
+<code>LIKE</code> します。<br/>
 
 <pre><code class="lang-sql">-- '[^abc]%' matches strings where the first character is
 -- not 'a', 'b', 'c', 'A', 'B', or 'C'
@@ -749,8 +750,8 @@ query {
 }
 </code></pre>
 
-</td></tr><tr><td>
-<code>LIKE</code>1つのフィールドを選択しますが、別のフィールドを選択します。<br/>
+</td></tr><tr><td>1つのフィールドに 
+<code>LIKE</code> ますが、別のフィールドを選択します。<br/>
 
 <pre><code class="lang-sql">SELECT StudentID AS ID FROM Student
 WHERE Student.Name LIKE '[^abc]%'
@@ -761,11 +762,11 @@ WHERE Student.Name LIKE '[^abc]%'
 <pre><code class="lang-fsharp">query {
     for n in db.Student do
     where (SqlMethods.Like( n.Name, "[^abc]%") )
-    select n.StudentID   
+    select n.StudentID
 }
 </code></pre>
 
-</td></tr><tr><td><code>LIKE</code>。部分文字列検索を使用します。<br/>
+</td></tr><tr><td><code>LIKE</code>、部分文字列検索を使用します。<br/>
 
 <pre><code class="lang-sql">SELECT * FROM Student
 WHERE Student.Name like '%A%'
@@ -782,7 +783,7 @@ query {
 </code></pre>
 
 </td></tr><tr><td>
-2 <code>JOIN</code>つのテーブルを使用した単純な。<br/>
+2つのテーブルを含む単純な <code>JOIN</code>。<br/>
 
 <pre><code class="lang-sql">SELECT * FROM Student
 JOIN CourseSelection
@@ -800,7 +801,7 @@ query {
 }
 </code></pre>
 
-</td></tr><tr><td><code>LEFT JOIN</code>2つのテーブルを使用します。<br/>
+</td></tr><tr><td>2つのテーブルを含む <code>LEFT JOIN</code>。<br/>
 
 <pre><code class="lang-sql">SELECT * FROM Student
 LEFT JOIN CourseSelection
@@ -819,7 +820,7 @@ query {
 }
 </code></pre>
 
-</td></tr><tr><td><code>JOIN</code>で<code>COUNT</code><br/>
+</td></tr><tr><td><code>COUNT</code> での <code>JOIN</code><br/>
 
 <pre><code class="lang-sql">SELECT COUNT( * ) FROM Student
 JOIN CourseSelection
@@ -902,7 +903,7 @@ query {
 }
 </code></pre>
 
-</td></tr><tr><td><code>OR</code>順序付き<br/>
+</td></tr><tr><td>順序の <code>OR</code><br/>
 
 <pre><code class="lang-sql">SELECT * FROM Student
 WHERE Student.Age = 12 OR Student.Age = 13
@@ -920,7 +921,7 @@ query {
 }
 </code></pre>
 
-</td></tr><tr><td><code>TOP</code>、 <code>OR</code>、およびの順序付け。<br/>
+</td></tr><tr><td><code>TOP</code>、<code>OR</code>、および順序付け。<br/>
 
 <pre><code class="lang-sql">SELECT TOP 2 student.Name FROM Student
 WHERE Student.Age = 11 OR Student.Age = 12
@@ -942,7 +943,7 @@ query {
 }
 </code></pre>
 
-</td></tr><tr><td><code>UNION</code>2つのクエリの。<br/>
+</td></tr><tr><td>2つのクエリの <code>UNION</code>。<br/>
 
 <pre><code class="lang-sql">SELECT * FROM Student
 UNION
@@ -991,7 +992,7 @@ let query2 =
 query1.Intersect(query2)
 </code></pre>
 
-</td></tr><tr><td><code>CASE</code>フィルター.<br/>
+</td></tr><tr><td><code>CASE</code> 条件。<br/>
 
 <pre><code class="lang-sql">SELECT student.StudentID,
 CASE Student.Age

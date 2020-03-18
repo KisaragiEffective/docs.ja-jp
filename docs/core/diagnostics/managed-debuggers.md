@@ -1,15 +1,13 @@
 ---
 title: マネージド デバッガー - .NET Core
 description: Visual Studio および Visual Studio Code のマネージド デバッガーの概要。
-author: sdmaclea
-ms.author: stmaclea
 ms.date: 08/05/2019
-ms.openlocfilehash: 3741011d22ab6c4240b7f88a9ab790ea61ecd0d2
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: 065b1b0fc32eb76b398cb3821c8592a1955c9359
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "72303648"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75715567"
 ---
 # <a name="net-core-managed-debuggers"></a>.NET Core マネージド デバッガー
 

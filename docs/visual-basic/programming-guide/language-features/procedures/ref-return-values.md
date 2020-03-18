@@ -1,17 +1,17 @@
 ---
-title: Ref 戻り値 (Visual Basic)
+title: Ref 戻り値
 ms.date: 04/28/2017
 helpviewer_keywords:
 - variables [Visual Basic]
 - ref return values [Visual Basic]
 - ref returns [Visual Basic]
 ms.assetid: 5ef0cc69-eb3a-4a67-92a2-78585f223cb5
-ms.openlocfilehash: 7401fdd0fa876d21a87dbe9faf9d979e6b3bdc5c
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 2d2a302a899fbde549161469f281d3e580bcb71f
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72581131"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352537"
 ---
 # <a name="support-for-reference-return-values-visual-basic"></a>参照戻り値のサポート (Visual Basic)
 
@@ -27,7 +27,7 @@ Visual Basic では、参照戻り値を使用してメソッドを作成する�
 
 [!code-csharp[Ref-Return](../../../../../samples/snippets/visualbasic/programming-guide/language-features/procedures/ref-returns1.cs)]
 
-次の Visual Basic 例では、呼び出し元によって参照戻り値が変更されます。 @No__t_0 メソッドの呼び出しを含む行では、メソッドに値が割り当てられないことに注意してください。 代わりに、メソッドによって返される参照戻り値に値を割り当てます。
+次の Visual Basic 例では、呼び出し元によって参照戻り値が変更されます。 `NumericValue.IncrementValue` メソッドの呼び出しを含む行では、メソッドに値が割り当てられないことに注意してください。 代わりに、メソッドによって返される参照戻り値に値を割り当てます。
 
 [!code-vb[Ref-Return](../../../../../samples/snippets/visualbasic/programming-guide/language-features/procedures/use-ref-returns1.vb)]
 
@@ -39,7 +39,7 @@ Visual Basic では、参照戻り値を使用してメソッドを作成する�
 
 [!code-csharp[Ref-Return](../../../../../samples/snippets/visualbasic/getting-started/ref-returns.cs)]
 
-この場合、参照戻り値を直接変更しても信頼できません。これは、メソッドの呼び出しで一致が検出されず、文の最初の単語が返される可能性があるためです。 その場合、呼び出し元は誤って文の最初の単語を変更します。 これは、呼び出し元が `null` (または Visual Basic で `Nothing`) を返すことによって阻止される可能性があります。 ただし、その場合は、値が `Nothing` 文字列を変更しようとすると、<xref:System.NullReferenceException> がスローされます。 呼び出し元が <xref:System.String.Empty?displayProperty=nameWithType> を返すことによってもを回避できる場合がありますが、そのためには、値が <xref:System.String.Empty?displayProperty=nameWithType> である文字列変数を呼び出し元で定義する必要があります。 呼び出し元はこの文字列を変更することができますが、変更した文字列には、`Sentence` クラスによって格納されている文の単語との関係がないため、変更自体は目的がありません。
+この場合、参照戻り値を直接変更しても信頼できません。これは、メソッドの呼び出しで一致が検出されず、文の最初の単語が返される可能性があるためです。 その場合、呼び出し元は誤って文の最初の単語を変更します。 これは、呼び出し元が `null` (または Visual Basic で `Nothing`) を返すことによって阻止される可能性があります。 ただし、その場合は、値が `Nothing` 文字列を変更しようとすると、<xref:System.NullReferenceException>がスローされます。 呼び出し元が <xref:System.String.Empty?displayProperty=nameWithType>を返すことによってもを回避できる場合がありますが、そのためには、値が <xref:System.String.Empty?displayProperty=nameWithType>である文字列変数を呼び出し元で定義する必要があります。 呼び出し元はこの文字列を変更することができますが、変更した文字列には、`Sentence` クラスによって格納されている文の単語との関係がないため、変更自体は目的がありません。
 
 このシナリオを処理する最善の方法は、参照によって参照の戻り値をヘルパーメソッドに渡すことです。 ヘルパーメソッドには、メソッド呼び出しが成功したかどうかを判断するロジックが含まれています。成功した場合は、参照戻り値を変更します。 次の例では、可能な実装を示します。
 

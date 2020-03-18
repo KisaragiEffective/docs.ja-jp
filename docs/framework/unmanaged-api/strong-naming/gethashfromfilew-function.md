@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 97c2d7a6-5376-45a1-ba65-146a249147cc
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: fd96b5acb22f63b6e06c981119186680d6593a79
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: db6f39119d143d27c0d3a80a9c65565d4dfd0d39
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70799188"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73140678"
 ---
 # <a name="gethashfromfilew-function"></a>GetHashFromFileW 関数
 Unicode 文字列で指定されたファイルの内容に対してハッシュが作成されます。  
@@ -45,26 +43,26 @@ HRESULT GetHashFromFileW (
  からハッシュするファイルの Unicode 名。  
   
  `piHashAlg`  
- [入力、出力]ハッシュを生成するときに使用するアルゴリズム。 有効なアルゴリズムは、Win32 CryptoAPI によって定義されているものです。 が`piHashAlg` 0 に設定されている場合は、既定のアルゴリズム CALG_SHA が使用されます。  
+ [入力、出力]ハッシュを生成するときに使用するアルゴリズム。 有効なアルゴリズムは、Win32 CryptoAPI によって定義されているものです。 `piHashAlg` が0に設定されている場合は、既定のアルゴリズム CALG_SHA が使用されます。  
   
  `pbHash`  
  入出力生成されたハッシュを格納しているバイト配列。  
   
  `cchHash`  
- からが指す`pbHash`バッファーの最大サイズ。  
+ から`pbHash`が指すバッファーの最大サイズ。  
   
  `pchHash`  
- 入出力の`pbHash`サイズ (バイト単位)。  
+ 入出力`pbHash`のサイズ (バイト単位)。  
   
 ## <a name="remarks"></a>Remarks  
  この関数は[GetHashFromFile](gethashfromfile-function.md)と同じですが、ファイル名の指定は ANSI ではなく Unicode である点が異なります。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** StrongName  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

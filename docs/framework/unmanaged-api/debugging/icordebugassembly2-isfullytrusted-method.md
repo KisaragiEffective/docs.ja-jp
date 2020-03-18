@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 26cbd27d-12bf-444a-8197-ccd14d37dda3
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d231595ab2c7b41d1a24f654e9785b90b34ac780
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: bef51fe9df0f85659603c637f11ed4e856c8e01a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67744506"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73133952"
 ---
 # <a name="icordebugassembly2isfullytrusted-method"></a>ICorDebugAssembly2::IsFullyTrusted メソッド
-かどうか、アセンブリで許可されている完全な信頼ランタイムのセキュリティ システムを示す値を取得します。  
+アセンブリにランタイムセキュリティシステムによる完全信頼が付与されているかどうかを示す値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,13 +35,13 @@ HRESULT IsFullyTrusted(
   
 ## <a name="parameters"></a>パラメーター  
  `pbFullyTrusted`  
- [out]`true`場合は、アセンブリで許可されている完全な信頼ランタイムのセキュリティ システムです。 それ以外の場合、`false`します。  
+ [out] アセンブリにランタイムセキュリティシステムによる完全信頼が付与されているかどうかを `true` します。それ以外の場合は、`false`ます。  
   
 ## <a name="remarks"></a>Remarks  
- このメソッドは、HRESULT の CORDBG_E_NOTREADY アセンブリのセキュリティ ポリシーはまだ解決されていません、つまり、アセンブリでコードが見つからない場合はまだ実行されているを返します。  
+ アセンブリのセキュリティポリシーがまだ解決されていない場合、つまり、アセンブリ内のコードがまだ実行されていない場合は、このメソッドは CORDBG_E_NOTREADY の HRESULT を返します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

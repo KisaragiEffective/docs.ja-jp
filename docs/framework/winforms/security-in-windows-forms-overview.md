@@ -1,5 +1,5 @@
 ---
-title: Windows フォームのセキュリティの概要
+title: セキュリティの概要
 ms.date: 03/30/2017
 helpviewer_keywords:
 - code access security [Windows Forms], Windows Forms
@@ -8,12 +8,12 @@ helpviewer_keywords:
 - security [Windows Forms], about security
 - access control [Windows Forms], Windows Forms
 ms.assetid: 4810dc9f-ea23-4ce1-8ea1-657f0ff1d820
-ms.openlocfilehash: 08c80eccee395d9141978a7d4594205af1a51ed9
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: 9010b45383f856079661359fdf82180526d96dde
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70972130"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76734843"
 ---
 # <a name="security-in-windows-forms-overview"></a>Windows フォームのセキュリティの概要
 
@@ -56,7 +56,7 @@ Windows フォームアプリケーションの配置に使用する ClickOnce �
 
 次のトピックでは、Windows フォームの追加のセキュリティ機能について説明します。
 
-|トピック|説明|
+|トピック|[説明]|
 |-----------|-----------------|
 |- [Windows フォームにおけるファイルおよびデータへのより安全なアクセス](more-secure-file-and-data-access-in-windows-forms.md)|部分信頼環境でファイルとデータにアクセスする方法について説明します。|
 |- [Windows フォームでのより安全な印刷](more-secure-printing-in-windows-forms.md)|部分信頼環境で印刷機能にアクセスする方法について説明します。|
@@ -70,22 +70,22 @@ ClickOnce には、クライアントコンピューターに対する昇格さ�
 
 次の表では、それらのテクノロジについて説明します。
 
-|昇格されたアクセス許可のテクノロジ|説明|
+|昇格されたアクセス許可のテクノロジ|[説明]|
 |------------------------------------|-----------------|
 |アクセス許可の昇格|アプリケーションを最初に実行するときにセキュリティ ダイアログ ボックスをユーザーに表示します。 **[アクセス許可の昇格]** ダイアログ ボックスは、アプリケーションの発行者についてユーザーに通知するので、ユーザーは十分な情報に基づいて追加の信頼を付与するかどうかを決定できます。|
 |信頼されたアプリケーションの配置|システム管理者がクライアント コンピューターで、発行元の Authenticode 証明書のインストールを 1 回実行する必要があります。 その時点から、その証明書で署名されたアプリケーションは信頼済みとみなされ、追加メッセージを表示せずに、ローカル コンピューター上で完全信頼で実行できます。|
 
 どのテクノロジを選択するかは、配置環境に応じて異なります。 詳細については、「[ClickOnce 配置ストラテジの選択](/visualstudio/deployment/choosing-a-clickonce-deployment-strategy)」を参照してください。
 
-既定では、Visual Studio または .NET Framework SDK ツール (Mage.exe および Mageui.exe) のいずれかを使用して配置された ClickOnce アプリケーションは、完全に信頼されているクライアントコンピューターで実行するように構成されています。 部分信頼を使用して、またはいくつか追加のアクセス許可のみを使用して、アプリケーションを配置している場合、この既定を変更する必要があります。 これは、配置を構成するときに、Visual Studio または .NET Framework SDK ツールの Mageui.exe を使用して実行できます。 Mageui.exe の使用方法の詳細については、「 [チュートリアル:ClickOnce アプリケーション](/visualstudio/deployment/walkthrough-manually-deploying-a-clickonce-application)を手動で配置します。  「 [方法:ClickOnce アプリケーション](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2012/hafybdaa(v=vs.110))のカスタムアクセス許可を設定[するか、次の方法を実行します。ClickOnce アプリケーション](/visualstudio/deployment/how-to-set-custom-permissions-for-a-clickonce-application)のカスタムアクセス許可を設定します。
+既定では、Visual Studio または .NET Framework SDK ツール (Mage.exe および Mageui.exe) のいずれかを使用して配置された ClickOnce アプリケーションは、完全に信頼されているクライアントコンピューターで実行するように構成されています。 部分信頼を使用して、またはいくつか追加のアクセス許可のみを使用して、アプリケーションを配置している場合、この既定を変更する必要があります。 これは、配置を構成するときに、Visual Studio または .NET Framework SDK ツールの Mageui.exe を使用して実行できます。 Mageui.exe の使用方法の詳細については、「[チュートリアル: ClickOnce アプリケーションを手動で配置](/visualstudio/deployment/walkthrough-manually-deploying-a-clickonce-application)する」を参照してください。  「[方法 : ClickOnce アプリケーションのカスタム アクセス許可を設定する](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2012/hafybdaa(v=vs.110))」または「[方法 : ClickOnce アプリケーションのカスタム アクセス許可を設定する](/visualstudio/deployment/how-to-set-custom-permissions-for-a-clickonce-application)」も参照してください。
 
 ClickOnce とアクセス許可の昇格のセキュリティ面の詳細については、「 [Clickonce アプリケーション](/visualstudio/deployment/securing-clickonce-applications)のセキュリティ保護」を参照してください。 信頼されたアプリケーションの配置の詳細については、「[信頼されたアプリケーションの配置の概要](/visualstudio/deployment/trusted-application-deployment-overview)」を参照してください。
 
 ### <a name="testing-the-application"></a>アプリケーションのテスト
 
-Visual Studio を使用して Windows フォームアプリケーションを配置した場合は、開発環境から、部分信頼または制限されたアクセス許可セットでのデバッグを有効にすることができます。  「 [方法:アクセス許可が制限された ClickOnce アプリケーションをデバッグする](/visualstudio/deployment/how-to-debug-a-clickonce-application-with-restricted-permissions)」を参照してください。
+Visual Studio を使用して Windows フォームアプリケーションを配置した場合は、開発環境から、部分信頼または制限されたアクセス許可セットでのデバッグを有効にすることができます。  「[方法: アクセス許可が制限された ClickOnce アプリケーションをデバッグ](/visualstudio/deployment/how-to-debug-a-clickonce-application-with-restricted-permissions)する」も参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Windows フォームのセキュリティ](windows-forms-security.md)
 - [コード アクセス セキュリティの基礎](../misc/code-access-security-basics.md)

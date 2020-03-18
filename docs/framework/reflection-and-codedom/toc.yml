@@ -26,7 +26,7 @@
           href: how-to-hook-up-a-delegate-using-reflection.md
         - name: Windows ストア アプリのための .NET Framework のリフレクション
           href: reflection-for-windows-store-apps.md
-    - name: 動的メソッドおよびアセンブリの出力
+    - name: 動的メソッドおよびアセンブリを出力する
       href: emitting-dynamic-methods-and-assemblies.md
       items:
         - name: リフレクション出力のセキュリティ関連事項
@@ -44,13 +44,14 @@
     - name: 動的言語ランタイムの概要
       href: dynamic-language-runtime-overview.md
     - name: 動的なソース コードの生成とコンパイル
-      href: dynamic-source-code-generation-and-compilation.md
       items:
-        - name: CodeDOM の使用方法
+        - name: 概要
+          href: dynamic-source-code-generation-and-compilation.md
+        - name: CodeDOM を使用する
           href: using-the-codedom.md
-        - name: CodeDOM グラフからのソース コードの生成およびコンパイル
+        - name: CodeDOM グラフからソース コードを生成およびコンパイルする
           href: generating-and-compiling-source-code-from-a-codedom-graph.md
-        - name: '方法: CodeDOM を使用して XML ドキュメント ファイルを作成する'
+        - name: CodeDOM を使用して XML ドキュメント ファイルを作成する
           href: how-to-create-an-xml-documentation-file-using-codedom.md
-        - name: '方法: CodeDOM を使用してクラスを作成する'
+        - name: CodeDOM を使用してクラスを作成する
           href: how-to-create-a-class-using-codedom.md

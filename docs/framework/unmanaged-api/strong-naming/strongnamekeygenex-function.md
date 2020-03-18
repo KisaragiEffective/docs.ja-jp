@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 36bd10b9-9857-45f3-8d3b-0da091d6169e
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: f9ab908866402bd7a883114466f32921321a5ee6
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 63ddd90f3a8090853d10f03052915d10e1503ea6
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70799011"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73125210"
 ---
 # <a name="strongnamekeygenex-function"></a>StrongNameKeyGenEx 関数
 厳密な名前の使用のために、指定されたキーサイズを持つ新しい公開/秘密キーのペアを生成します。  
@@ -42,12 +40,12 @@ BOOLEAN StrongNameKeyGenEx (
   
 ## <a name="parameters"></a>パラメーター  
  `wszKeyContainer`  
- から要求されたキーコンテナー名。 `wszKeyContainer`は空でない文字列である必要があります。または、一時名を生成する場合は null にする必要があります。  
+ から要求されたキーコンテナー名。 `wszKeyContainer` は、空でない文字列であるか、または一時名を生成するために null である必要があります。  
   
  `dwFlags`  
  からキーを登録したままにするかどうかを指定します。 次の値がサポートされています。  
   
-- 0x00000000-が null `wszKeyContainer`の場合に、一時キーコンテナー名を生成するために使用されます。  
+- 0x00000000-一時キーコンテナー名を生成するために `wszKeyContainer` が null の場合に使用します。  
   
 - 0x00000001 (`SN_LEAVE_KEY`)-キーを登録したままにすることを指定します。  
   
@@ -58,24 +56,24 @@ BOOLEAN StrongNameKeyGenEx (
  入出力返された公開/秘密キーのペア。  
   
  `pcbKeyBlob`  
- 入出力の`ppbKeyBlob`サイズ (バイト単位)。  
+ 入出力`ppbKeyBlob`のサイズ (バイト単位)。  
   
 ## <a name="return-value"></a>戻り値  
- `true`正常に完了した場合は。それ以外`false`の場合は。  
+ 正常に完了した場合は `true`。それ以外の場合は、`false`ます。  
   
 ## <a name="remarks"></a>Remarks  
- .NET Framework バージョン1.0 および1.1 では、 `dwKeySize`厳密な名前でアセンブリに署名するには1024ビットが必要です。バージョン2.0 では、2048ビットキーのサポートが追加されます。  
+ .NET Framework バージョン1.0 および1.1 では、厳密な名前でアセンブリに署名するには、1024ビットの `dwKeySize` が必要です。バージョン2.0 では、2048ビットキーのサポートが追加されています。  
   
  キーが取得されたら、 [StrongNameFreeBuffer](strongnamefreebuffer-function.md)関数を呼び出して、割り当てられたメモリを解放する必要があります。  
   
- 関数が正常に完了しない場合は、[StrongNameErrorInfo](strongnameerrorinfo-function.md) 関数を呼び出して、最後に生成されたエラーを取得します。`StrongNameKeyGenEx`  
+ `StrongNameKeyGenEx` 関数が正常に完了しない場合は、 [StrongNameErrorInfo](strongnameerrorinfo-function.md)関数を呼び出して、最後に生成されたエラーを取得します。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** StrongName  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

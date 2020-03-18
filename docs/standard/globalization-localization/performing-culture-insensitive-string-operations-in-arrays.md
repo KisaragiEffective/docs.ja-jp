@@ -7,14 +7,12 @@ helpviewer_keywords:
 - arrays [.NET Framework], culture-insensitive string operations
 - comparer parameter
 ms.assetid: f12922e1-6234-4165-8896-63f0653ab478
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b52ff8d72132c1076dfdece5e1ce47bbece37b81
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: 051ee77ae5d6552e26e0216d58734d90188475f9
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70855995"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73120803"
 ---
 # <a name="performing-culture-insensitive-string-operations-in-arrays"></a>カルチャの影響を受けない配列の操作の実行
 
@@ -23,7 +21,7 @@ ms.locfileid: "70855995"
 > [!NOTE]
 > **CultureInfo.InvariantCulture** を比較メソッドに渡すと、カルチャを認識しない比較が実行されます。 ただし、これによって、ファイル パス、レジストリ キー、環境変数などで、非言語的な比較が行われることはありません。 また、比較結果に基づいたセキュリティに関する決定もサポートされません。 非言語的な比較や、結果に基づくセキュリティに関する決定については、アプリケーションは <xref:System.StringComparison> 値を受け入れる比較メソッドを使用する必要があります。 アプリケーションは <xref:System.StringComparison.Ordinal> を渡します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Array.Sort%2A?displayProperty=nameWithType>
 - <xref:System.Array.BinarySearch%2A?displayProperty=nameWithType>

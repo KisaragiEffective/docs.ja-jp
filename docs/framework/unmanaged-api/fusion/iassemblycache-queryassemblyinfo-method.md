@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 09313cb5-06f6-43bd-94f4-1055c6b0c99a
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 08b9fdee1138becd4cd5a933f96021c470aadf1f
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: e975db68252e866a0bf7898f1c9d3cbe67bbe24f
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796793"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73134579"
 ---
 # <a name="iassemblycachequeryassemblyinfo-method"></a>IAssemblyCache::QueryAssemblyInfo メソッド
 指定したアセンブリに関する要求されたデータを取得します。  
@@ -51,8 +49,8 @@ HRESULT QueryAssemblyInfo (
  `pAsmInfo`  
  [入力、出力]アセンブリに関するデータを格納する[ASSEMBLY_INFO](assembly-info-structure.md)構造体。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Fusion. h  
   

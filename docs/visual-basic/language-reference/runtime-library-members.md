@@ -1,5 +1,5 @@
 ---
-title: Visual Basic ランタイム ライブラリのメンバー
+title: ランタイムライブラリのメンバー
 ms.date: 07/20/2015
 f1_keywords:
 - VisualBasic
@@ -9,30 +9,31 @@ helpviewer_keywords:
 - Microsoft.VisualBasic namespace
 - members [Visual Basic], Visual Basic run-time library
 ms.assetid: f5e82c6e-3500-452b-bdb8-78f0d5477604
-ms.openlocfilehash: 061782dbd0ac54286a6c0da74fe769d98848f118
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: a73589c4b0d0faeac321090e6030f1f8392a5342
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61945185"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74349614"
 ---
 # <a name="visual-basic-runtime-library-members"></a>Visual Basic ランタイム ライブラリのメンバー
-`Microsoft.VisualBasic`名前空間には、クラス、モジュール、定数、および Visual Basic ランタイム ライブラリを構成する列挙体が含まれています。 これらのライブラリ メンバーは、プロシージャ、プロパティ、およびコードで使用できる定数値を提供します。 各モジュールとクラスは、特定のカテゴリの機能を表します。  
+
+`Microsoft.VisualBasic` 名前空間には、Visual Basic ランタイムライブラリを構成するクラス、モジュール、定数、および列挙が含まれています。 これらのライブラリメンバーには、コードで使用できるプロシージャ、プロパティ、および定数値が用意されています。 各モジュールおよびクラスは、特定のカテゴリの機能を表します。  
   
-## <a name="microsoftvisualbasiccollection-class"></a>Microsoft.VisualBasic.Collection クラス  
+## <a name="microsoftvisualbasiccollection-class"></a>Microsoft... コレクションクラス  
   
 |||||  
 |---|---|---|---|  
 |<xref:Microsoft.VisualBasic.Collection.Add%2A>|<xref:Microsoft.VisualBasic.Collection.Clear%2A>|<xref:Microsoft.VisualBasic.Collection.Contains%2A>|<xref:Microsoft.VisualBasic.Collection.Count%2A>|  
 |<xref:Microsoft.VisualBasic.Collection.GetEnumerator%2A>|<xref:Microsoft.VisualBasic.Collection.Item%2A>|<xref:Microsoft.VisualBasic.Collection.Remove%2A>||  
   
-## <a name="microsoftvisualbasiccomclassattribute-class"></a>'Microsoft.visualbasic.comclassattribute' クラス  
+## <a name="microsoftvisualbasiccomclassattribute-class"></a>ComClassAttribute クラス  
   
 |||||  
 |---|---|---|---|  
 |<xref:Microsoft.VisualBasic.ComClassAttribute.ClassID%2A>|<xref:Microsoft.VisualBasic.ComClassAttribute.EventID%2A>|<xref:Microsoft.VisualBasic.ComClassAttribute.InterfaceID%2A>|<xref:Microsoft.VisualBasic.ComClassAttribute.InterfaceShadows%2A>|  
   
-## <a name="microsoftvisualbasiccontrolchars-class"></a>Microsoft.VisualBasic.ControlChars クラス  
+## <a name="microsoftvisualbasiccontrolchars-class"></a>Microsoft. Basic. ControlChars クラス  
   
 |||||  
 |---|---|---|---|  
@@ -40,7 +41,7 @@ ms.locfileid: "61945185"
 |<xref:Microsoft.VisualBasic.ControlChars.Lf>|<xref:Microsoft.VisualBasic.ControlChars.NewLine>|<xref:Microsoft.VisualBasic.ControlChars.NullChar>|<xref:Microsoft.VisualBasic.ControlChars.Quote>|  
 |<xref:Microsoft.VisualBasic.ControlChars.Tab>|<xref:Microsoft.VisualBasic.ControlChars.VerticalTab>|||  
   
-## <a name="microsoftvisualbasicconstants-class"></a>Microsoft.VisualBasic.Constants クラス  
+## <a name="microsoftvisualbasicconstants-class"></a>Microsoft... Constants クラス  
   
 |||||  
 |---|---|---|---|  
@@ -71,14 +72,14 @@ ms.locfileid: "61945185"
 |<xref:Microsoft.VisualBasic.Constants.vbVolume>|<xref:Microsoft.VisualBasic.Constants.vbWednesday>|<xref:Microsoft.VisualBasic.Constants.vbWide>|<xref:Microsoft.VisualBasic.Constants.vbYes>|  
 |<xref:Microsoft.VisualBasic.Constants.vbYesNo>|<xref:Microsoft.VisualBasic.Constants.vbYesNoCancel>|||  
   
-## <a name="microsoftvisualbasicconversion-module"></a>Microsoft.VisualBasic.Conversion モジュール  
+## <a name="microsoftvisualbasicconversion-module"></a>Microsoft... 変換モジュール  
   
 |||||  
 |---|---|---|---|  
 |<xref:Microsoft.VisualBasic.Conversion.ErrorToString%2A>|<xref:Microsoft.VisualBasic.Conversion.Fix%2A>|<xref:Microsoft.VisualBasic.Conversion.Hex%2A>|<xref:Microsoft.VisualBasic.Conversion.Int%2A>|  
 |<xref:Microsoft.VisualBasic.Conversion.Oct%2A>|<xref:Microsoft.VisualBasic.Conversion.Str%2A>|<xref:Microsoft.VisualBasic.Conversion.Val%2A>||  
   
-## <a name="microsoftvisualbasicdateandtime-module"></a>Microsoft.VisualBasic.DateAndTime モジュール  
+## <a name="microsoftvisualbasicdateandtime-module"></a>Microsoft... DateAndTime モジュール  
   
 |||||  
 |---|---|---|---|  
@@ -89,7 +90,7 @@ ms.locfileid: "61945185"
 |<xref:Microsoft.VisualBasic.DateAndTime.TimeString%2A>|<xref:Microsoft.VisualBasic.DateAndTime.TimeValue%2A>|<xref:Microsoft.VisualBasic.DateAndTime.Today%2A>|<xref:Microsoft.VisualBasic.DateAndTime.Weekday%2A>|  
 |<xref:Microsoft.VisualBasic.DateAndTime.WeekdayName%2A>|<xref:Microsoft.VisualBasic.DateAndTime.Year%2A>|||  
   
-## <a name="microsoftvisualbasicerrobject-class"></a>Microsoft.VisualBasic.ErrObject クラス  
+## <a name="microsoftvisualbasicerrobject-class"></a>ErrObject クラス  
   
 |||||  
 |---|---|---|---|  
@@ -97,7 +98,7 @@ ms.locfileid: "61945185"
 |<xref:Microsoft.VisualBasic.ErrObject.HelpContext%2A>|<xref:Microsoft.VisualBasic.ErrObject.HelpFile%2A>|<xref:Microsoft.VisualBasic.ErrObject.LastDllError%2A>|<xref:Microsoft.VisualBasic.ErrObject.Number%2A>|  
 |<xref:Microsoft.VisualBasic.ErrObject.Raise%2A>|<xref:Microsoft.VisualBasic.ErrObject.Raise%2A>|||  
   
-## <a name="microsoftvisualbasicfilesystem-module"></a>Microsoft.VisualBasic.FileSystem モジュール  
+## <a name="microsoftvisualbasicfilesystem-module"></a>Microsoft. ファイルシステムモジュール  
   
 |||||  
 |---|---|---|---|  
@@ -112,7 +113,7 @@ ms.locfileid: "61945185"
 |<xref:Microsoft.VisualBasic.FileSystem.SetAttr%2A>|<xref:Microsoft.VisualBasic.FileSystem.SPC%2A>|<xref:Microsoft.VisualBasic.FileSystem.TAB%2A>|<xref:Microsoft.VisualBasic.FileSystem.Unlock%2A>|  
 |<xref:Microsoft.VisualBasic.FileSystem.Write%2A>|<xref:Microsoft.VisualBasic.FileSystem.WriteLine%2A>|||  
   
-## <a name="microsoftvisualbasicfinancial-module"></a>Microsoft.VisualBasic.Financial モジュール  
+## <a name="microsoftvisualbasicfinancial-module"></a>Microsoft... 財務モジュール  
   
 |||||  
 |---|---|---|---|  
@@ -121,19 +122,19 @@ ms.locfileid: "61945185"
 |<xref:Microsoft.VisualBasic.Financial.PPmt%2A>|<xref:Microsoft.VisualBasic.Financial.PV%2A>|<xref:Microsoft.VisualBasic.Financial.Rate%2A>|<xref:Microsoft.VisualBasic.Financial.SLN%2A>|  
 |<xref:Microsoft.VisualBasic.Financial.SYD%2A>||||  
   
-## <a name="microsoftvisualbasicglobals-module"></a>Microsoft.VisualBasic.Globals モジュール  
+## <a name="microsoftvisualbasicglobals-module"></a>Microsoft... Globals モジュール  
   
 |||||  
 |---|---|---|---|  
 |<xref:Microsoft.VisualBasic.Globals.ScriptEngine%2A>|<xref:Microsoft.VisualBasic.Globals.ScriptEngineBuildVersion%2A>|<xref:Microsoft.VisualBasic.Globals.ScriptEngineMajorVersion%2A>|<xref:Microsoft.VisualBasic.Globals.ScriptEngineMinorVersion%2A>|  
   
-## <a name="microsoftvisualbasichidemodulenameattribute-class"></a>Microsoft.VisualBasic.HideModuleNameAttribute クラス  
+## <a name="microsoftvisualbasichidemodulenameattribute-class"></a>HideModuleNameAttribute クラス  
   
 |||||  
 |---|---|---|---|  
 |<xref:Microsoft.VisualBasic.HideModuleNameAttribute>||||  
   
-## <a name="microsoftvisualbasicinformation-module"></a>Microsoft.VisualBasic.Information モジュール  
+## <a name="microsoftvisualbasicinformation-module"></a>Microsoft... 情報モジュール  
   
 |||||  
 |---|---|---|---|  
@@ -143,7 +144,7 @@ ms.locfileid: "61945185"
 |<xref:Microsoft.VisualBasic.Information.SystemTypeName%2A>|<xref:Microsoft.VisualBasic.Information.TypeName%2A>|<xref:Microsoft.VisualBasic.Information.UBound%2A>|<xref:Microsoft.VisualBasic.Information.VarType%2A>|  
 |<xref:Microsoft.VisualBasic.Information.VbTypeName%2A>||||  
   
-## <a name="microsoftvisualbasicinteraction-module"></a>Microsoft.VisualBasic.Interaction モジュール  
+## <a name="microsoftvisualbasicinteraction-module"></a>Microsoft... 対話モジュール  
   
 |||||  
 |---|---|---|---|  
@@ -153,13 +154,13 @@ ms.locfileid: "61945185"
 |<xref:Microsoft.VisualBasic.Interaction.InputBox%2A>|<xref:Microsoft.VisualBasic.Interaction.MsgBox%2A>|<xref:Microsoft.VisualBasic.Interaction.Partition%2A>|<xref:Microsoft.VisualBasic.Interaction.SaveSetting%2A>|  
 |<xref:Microsoft.VisualBasic.Interaction.Shell%2A>|<xref:Microsoft.VisualBasic.Interaction.Switch%2A>|||  
   
-## <a name="microsoftvisualbasicmygroupcollectionattribute-class"></a>Microsoft.VisualBasic.MyGroupCollectionAttribute クラス  
+## <a name="microsoftvisualbasicmygroupcollectionattribute-class"></a>Microsoft. MyGroupCollectionAttribute クラス  
   
 |||||  
 |---|---|---|---|  
 |<xref:Microsoft.VisualBasic.MyGroupCollectionAttribute.CreateMethod%2A>|<xref:Microsoft.VisualBasic.MyGroupCollectionAttribute.DefaultInstanceAlias%2A>|<xref:Microsoft.VisualBasic.MyGroupCollectionAttribute.DisposeMethod%2A>|<xref:Microsoft.VisualBasic.MyGroupCollectionAttribute.MyGroupName%2A>|  
   
-## <a name="microsoftvisualbasicstrings-module"></a>Microsoft.VisualBasic.Strings モジュール  
+## <a name="microsoftvisualbasicstrings-module"></a>Microsoft... Strings モジュール  
   
 |||||  
 |---|---|---|---|  
@@ -172,28 +173,29 @@ ms.locfileid: "61945185"
 |<xref:Microsoft.VisualBasic.Strings.Space%2A>|<xref:Microsoft.VisualBasic.Strings.Split%2A>|<xref:Microsoft.VisualBasic.Strings.StrComp%2A>|<xref:Microsoft.VisualBasic.Strings.StrConv%2A>|  
 |<xref:Microsoft.VisualBasic.Strings.StrDup%2A>|<xref:Microsoft.VisualBasic.Strings.StrReverse%2A>|<xref:Microsoft.VisualBasic.Strings.Trim%2A>|<xref:Microsoft.VisualBasic.Strings.UCase%2A>|  
   
-## <a name="microsoftvisualbasicvbfixedarrayattribute-class"></a>Microsoft.VisualBasic.VBFixedArrayAttribute クラス  
+## <a name="microsoftvisualbasicvbfixedarrayattribute-class"></a>VBFixedArrayAttribute クラス  
   
 |||||  
 |---|---|---|---|  
 |<xref:Microsoft.VisualBasic.VBFixedArrayAttribute.Bounds%2A>|<xref:Microsoft.VisualBasic.VBFixedArrayAttribute.Length%2A>|||  
   
-## <a name="microsoftvisualbasicvbfixedstringattribute-class"></a>Microsoft.VisualBasic.VBFixedStringAttribute クラス  
+## <a name="microsoftvisualbasicvbfixedstringattribute-class"></a>VBFixedStringAttribute クラス  
   
 |||||  
 |---|---|---|---|  
 |<xref:Microsoft.VisualBasic.VBFixedStringAttribute.Length%2A>||||  
   
-## <a name="microsoftvisualbasicvbmath-module"></a>Microsoft.VisualBasic.VbMath モジュール  
+## <a name="microsoftvisualbasicvbmath-module"></a>Microsoft... VbMath モジュール  
   
 |||||  
 |---|---|---|---|  
 |<xref:Microsoft.VisualBasic.VBMath.Randomize%2A>|<xref:Microsoft.VisualBasic.VBMath.Rnd%2A>|||  
   
-## <a name="microsoftvisualbasic-constants-and-enumerations"></a>Microsoft.VisualBasic 定数と列挙型  
- `Microsoft.VisualBasic`名前空間が、Visual Basic ランタイム ライブラリの一部として定数と列挙型を提供します。 コードでは、これらの定数値を使用できます。 各列挙体は、特定のカテゴリの機能を表します。 詳細については、次を参照してください。[定数と列挙体](../../visual-basic/language-reference/constants-and-enumerations.md)します。  
+## <a name="microsoftvisualbasic-constants-and-enumerations"></a>Microsoft Visual Basic の定数と列挙型  
+
+ `Microsoft.VisualBasic` 名前空間は、Visual Basic ランタイムライブラリの一部として定数と列挙を提供します。 これらの定数値は、コード内で使用できます。 各列挙は、特定の機能のカテゴリを表します。 詳細については、「[定数と列挙型](../../visual-basic/language-reference/constants-and-enumerations.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [定数と列挙体](../../visual-basic/language-reference/constants-and-enumerations.md)
 - [キーワード](../../visual-basic/language-reference/keywords/index.md)

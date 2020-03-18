@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: e44d9f97b852a8b7275d3e526d51a463f019f924
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: f40b888efacfc1b524ff6b6683675b6bb4a33585
+ms.sourcegitcommit: 7f8eeef060ddeb2cabfa52843776faf652c5a1f5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65672513"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089304"
 ---
-4.6、4.5.2、4.5.1、4.5、4、3.5 SP1、3.5、3.0 SP1、3.0
+3\.0 以降で使用可能

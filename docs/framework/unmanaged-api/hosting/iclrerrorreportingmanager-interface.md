@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: ea8af0d5-4133-4472-8a1f-50570d7e85fa
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2a9d9cff0360e4eb27584fe0f22c1c20396ff8f0
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 49a60b6b9b076138d8ff1f8a15041e9a6bacfede
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69966258"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129252"
 ---
 # <a name="iclrerrorreportingmanager-interface"></a>ICLRErrorReportingManager インターフェイス
 エラー報告のためにホストがカスタムスタックダンプを構成できるようにするメソッドを提供します。  
@@ -31,21 +29,21 @@ ms.locfileid: "69966258"
 |メソッド|説明|  
 |------------|-----------------|  
 |[BeginCustomDump メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrerrorreportingmanager-begincustomdump-method.md)|エラー報告用のカスタムスタックダンプの構成を指定します。|  
-|[EndCustomDump メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrerrorreportingmanager-endcustomdump-method.md)|以前のの呼び出し`BeginCustomDump`で設定されたカスタムスタックダンプ構成を消去します。|  
+|[EndCustomDump メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrerrorreportingmanager-endcustomdump-method.md)|`BeginCustomDump`の以前の呼び出しで設定されたカスタムスタックダンプ構成をクリアします。|  
 |[GetBucketParametersForCurrentException メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrerrorreportingmanager-getbucketparametersforcurrentexception-method.md)|呼び出し元のスレッドで現在の例外の Watson バケットを取得します。|  
   
 ## <a name="remarks"></a>Remarks  
- メソッド`BeginCustomDump`は、カスタムスタックダンプ構成を設定します。 メソッド`EndCustomDump`は、カスタムスタックダンプ構成をクリアし、関連付けられているすべての状態を解放します。 カスタムダンプの完了後に呼び出す必要があります。  
+ `BeginCustomDump` メソッドは、カスタムスタックダンプ構成を設定します。 `EndCustomDump` メソッドは、カスタムスタックダンプ構成をクリアし、関連付けられているすべての状態を解放します。 カスタムダンプの完了後に呼び出す必要があります。  
   
 > [!IMPORTANT]
-> を呼び出さ`EndCustomDump`ないと、メモリがリークします。  
+> `EndCustomDump` を呼び出さないと、メモリがリークします。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

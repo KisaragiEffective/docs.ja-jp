@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 1ee7c434-9681-4fa8-badd-652cb1a9742b
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: e0bcabb32d50b236d42a555c073b50ba3a234dde
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 8b7edf1cc642228c4a79c855b51727264f31741c
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796489"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73107982"
 ---
 # <a name="identity_attribute-structure"></a>IDENTITY_ATTRIBUTE 構造体
 [IDefinitionIdentity](idefinitionidentity-interface.md)インスタンスに関するメタデータ属性情報を格納します。  
@@ -45,12 +43,12 @@ typedef struct _IDENTITY_ATTRIBUTE {
 |`pszValue`|属性の値を格納している null で終わる文字列へのポインター。|  
   
 ## <a name="remarks"></a>Remarks  
- 構造`IDENTITY_ATTRIBUTE`体には、null で終わる文字列への3つのポインターが含まれています。 これら3つの文字列は、1つの属性を表します。  
+ `IDENTITY_ATTRIBUTE` 構造体には、null で終わる文字列への3つのポインターが含まれています。 これら3つの文字列は、1つの属性を表します。  
   
- `IDENTITY_ATTRIBUTE`構造体のインスタンスは、 [IDENTITY_ATTRIBUTE_BLOB](identity-attribute-blob-structure.md)構造体のインスタンスに関連付けられています。 構造体には実際の文字列が含まれ`IDENTITY_ATTRIBUTE_BLOB` 、対応する構造体には、 `IDENTITY_ATTRIBUTE`構造体に示されている3つの文字列へのオフセットが一覧表示されます。 `IDENTITY_ATTRIBUTE`  
+ `IDENTITY_ATTRIBUTE` 構造体のインスタンスは、 [IDENTITY_ATTRIBUTE_BLOB](identity-attribute-blob-structure.md)構造体のインスタンスに関連付けられています。 `IDENTITY_ATTRIBUTE` 構造体には実際の文字列が含まれ、対応する `IDENTITY_ATTRIBUTE_BLOB` 構造体には、`IDENTITY_ATTRIBUTE` 構造体に示されている3つの文字列へのオフセットが一覧表示されます。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** 分離 .h  
   

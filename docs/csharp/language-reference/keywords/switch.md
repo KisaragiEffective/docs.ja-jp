@@ -12,12 +12,12 @@ helpviewer_keywords:
 - case statement [C#]
 - default keyword [C#]
 ms.assetid: 44bae8b8-8841-4d85-826b-8a94277daecb
-ms.openlocfilehash: 5257d1d677246cdd6d826cd71ed3ffe116d2a4a6
-ms.sourcegitcommit: 9b1ac36b6c80176fd4e20eb5bfcbd9d56c3264cf
+ms.openlocfilehash: e5580e81b9175cd95491fdba724bacbffa692a5e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67424126"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75345387"
 ---
 # <a name="switch-c-reference"></a>switch (C# リファレンス)
 
@@ -43,11 +43,11 @@ match 式は、`case` ラベルのパターンと照合する値を指定しま�
 
 C# 6 以前では、match 式は、次の型の値を返す必要があります。
 
-- [char](char.md)。
-- [string](string.md)。
-- [bool](bool.md)。
-- 整数値。[int](../builtin-types/integral-numeric-types.md)、[long](../builtin-types/integral-numeric-types.md) など。
-- [enum](enum.md)値。
+- [char](../builtin-types/char.md)。
+- [string](../builtin-types/reference-types.md)。
+- [bool](../builtin-types/bool.md)。
+- [integral](../builtin-types/integral-numeric-types.md) 値。`int` や `long` など。
+- [enum](../builtin-types/enum.md)値。
 
 C# 7.0 以降は、match 式は NULL 以外の式にできます。
 
@@ -120,12 +120,12 @@ C# 6 でサポートされるのは定数パターンのみで、定数値の繰
 
 ここで *constant* はテスト対象の値です。 *constant* には、次のいずれかの定数式を指定できます。
 
-- [bool](bool.md) リテラル。`true` または `false`。
-- 任意の整数定数。[int](../builtin-types/integral-numeric-types.md)、[long](../builtin-types/integral-numeric-types.md)、[byte](../builtin-types/integral-numeric-types.md) など。
+- [bool](../builtin-types/bool.md) リテラル。`true` または `false`。
+- 任意の [integral](../builtin-types/integral-numeric-types.md) 定数。`int`、`long`、`byte` など。
 - 宣言された `const` 変数の名前。
 - 列挙定数。
-- [char](char.md) リテラル。
-- [string](string.md) リテラル。
+- [char](../builtin-types/char.md) リテラル。
+- [string](../builtin-types/reference-types.md) リテラル。
 
 定数式は以下のように評価されます。
 
@@ -183,7 +183,7 @@ case null:
 
 [!code-csharp[type-pattern2#1](~/samples/snippets/csharp/language-reference/keywords/switch/type-pattern2.cs#1)]
 
-## <a name="a-namewhen--the-case-statement-and-the-when-clause"></a><a name="when" /> `case`ステートメントおよび `when` 句
+## <a name="a-namewhen--the-case-statement-and-the-when-clause"></a><a name="when" />`case`ステートメントおよび `when` 句
 
 C# 7.0 以降では、case ステートメントは相互に排他的である必要がないため、`when` 句を追加して、case ステートメントを true に評価するために満たされなければならない条件を指定できます。 `when` 句には、ブール値を返す任意の式を指定できます。
 
@@ -195,7 +195,7 @@ C# 7.0 以降では、case ステートメントは相互に排他的である�
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳細については、[C# 言語仕様](../language-specification/index.md)に関するページの「[switch ステートメント](~/_csharplang/spec/statements.md#the-switch-statement)」を参照してください。 言語仕様は、C# の構文と使用法に関する信頼性のある情報源です。
+詳細については、[C# 言語仕様](/dotnet/csharp/language-reference/language-specification/introduction)に関するページの「[switch ステートメント](~/_csharplang/spec/statements.md#the-switch-statement)」を参照してください。 言語仕様は、C# の構文と使用法に関する信頼性のある情報源です。
 
 ## <a name="see-also"></a>関連項目
 

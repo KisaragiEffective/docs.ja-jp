@@ -1,16 +1,16 @@
 ---
-title: '方法: カスタム永続参加要素を作成する'
+title: カスタム永続参加要素を作成する方法
 ms.date: 03/30/2017
 ms.assetid: 1d9cc47a-8966-4286-94d5-4221403d9c06
-ms.openlocfilehash: 47283375b618422d91a6279ee9049fae469f540a
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 0e61395cb59a7d162668445d23241e3ff562d67b
+ms.sourcegitcommit: 32a575bf4adccc901f00e264f92b759ced633379
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70989677"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74802545"
 ---
-# <a name="how-to-create-a-custom-persistence-participant"></a>方法: カスタム永続参加要素を作成する
-次の手順では、永続参加要素を作成します。 永続参加要素の実装例については、永続化のサンプルと[ストアの機能拡張](store-extensibility.md)[に](https://go.microsoft.com/fwlink/?LinkID=177735)関するトピックを参照してください。  
+# <a name="how-to-create-a-custom-persistence-participant"></a>カスタム永続参加要素を作成する方法
+次の手順では、永続参加要素を作成します。 永続参加要素の実装例については、永続化のサンプルと[ストアの機能拡張](store-extensibility.md)[に](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/dd699769(v=vs.100))関するトピックを参照してください。  
   
 1. <xref:System.Activities.Persistence.PersistenceParticipant> または <xref:System.Activities.Persistence.PersistenceIOParticipant> クラスから派生するクラスを作成します。 PersistenceIOParticipant クラスは、i/o 操作に参加できるだけでなく、PersistenceParticipant クラスと同じ機能拡張ポイントを提供します。 次のうち、必要な手順を行います。  
   

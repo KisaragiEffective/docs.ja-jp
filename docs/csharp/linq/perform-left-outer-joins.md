@@ -4,11 +4,11 @@ description: C# で LINQ を使用して、左外部結合を実行する方法�
 ms.date: 12/01/2016
 ms.assetid: f542cee6-3169-4dcf-a631-3a6a79ccd473
 ms.openlocfilehash: cc08a1c8670623a10d1e0bf10221d02037a8d7bc
-ms.sourcegitcommit: 5dcfeb59179e81071f54840d4902cbe00b184294
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857581"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "61688580"
 ---
 # <a name="perform-left-outer-joins"></a>左外部結合の実行
 

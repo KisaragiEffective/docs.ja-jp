@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 2b94bda7-09ee-435d-91b9-c4e31af1896c
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 77c88786befb92960f4cfa4a960cbfc624318b26
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: c4b01b2c346d3173b2a5ecc144474d7fb1e6dce5
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67771595"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73138966"
 ---
 # <a name="icordebugstringvaluegetstring-method"></a>ICorDebugStringValue::GetString メソッド
-この ICorDebugStringValue によって参照される文字列を取得します。  
+このによって参照される文字列を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,13 +41,13 @@ HRESULT GetString (
  [in] `szString` 配列のサイズ。  
   
  `pcchString`  
- [out]返される文字数へのポインター、`szString`配列。  
+ 入出力`szString` 配列に返された文字数へのポインター。  
   
  `szString`  
- [out]取得した文字列を格納する配列。  
+ 入出力取得した文字列を格納する配列。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

@@ -1,5 +1,5 @@
 ---
-title: ICorDebugVariableHome::GetArgumentIndex メソッド
+title: 'いい変数 Home:: GetArgumentIndex メソッド'
 ms.date: 03/30/2017
 api_name:
 - ICorDebugVariableHome.GetArgumentIndex
@@ -15,16 +15,14 @@ helpviewer_keywords:
 ms.assetid: e86fcc72-388d-4009-ab21-8f9c3323e9a3
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2457dff3063e47f1fb9d040caac1bc08441e1739
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 12d4e63480f03bfad613f30362ddaeaf12b57a88
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61986792"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76791047"
 ---
-# <a name="icordebugvariablehomegetargumentindex-method"></a>ICorDebugVariableHome::GetArgumentIndex メソッド
+# <a name="icordebugvariablehomegetargumentindex-method"></a>いい変数 Home:: GetArgumentIndex メソッド
 
 関数の引数のインデックスを取得します。
 
@@ -39,24 +37,24 @@ HRESULT GetArgumentIndex(
 ## <a name="parameters"></a>パラメーター
 
 `pArgumentIndex`\
-[out]引数のインデックスへのポインター。
+入出力引数インデックスへのポインター。
 
 ## <a name="return-value"></a>戻り値
 
 メソッドは、次の値を返します。
 
-|[値]|説明|
+|Value|説明|
 |-----------|-----------------|
-|`S_OK`|メソッドの呼び出しには、有効な引数のインデックスが返されます。|
-|`E_FAIL`|現在[ICorDebugVariableHome](../../../../docs/framework/unmanaged-api/debugging/icordebugvariablehome-interface.md)インスタンスがローカル変数を表します。|
+|`S_OK`|メソッド呼び出しによって有効な引数インデックスが返されました。|
+|`E_FAIL`|現在の[ページ](icordebugvariablehome-interface.md)は、ローカル変数を表します。|
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-この引数のメタデータを取得する引数のインデックスを使用できます。
+引数インデックスは、この引数のメタデータを取得するために使用できます。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
-**プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** CorDebug.idl、CorDebug.h
 
@@ -66,4 +64,4 @@ HRESULT GetArgumentIndex(
 
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugVariableHome インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugvariablehome-interface.md)
+- [ICorDebugVariableHome インターフェイス](icordebugvariablehome-interface.md)

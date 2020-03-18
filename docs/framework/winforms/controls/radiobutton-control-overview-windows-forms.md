@@ -1,5 +1,5 @@
 ---
-title: RadioButton コントロールの概要 (Windows フォーム)
+title: RadioButton コントロールの概要
 ms.date: 03/30/2017
 f1_keywords:
 - RadioButton
@@ -9,28 +9,28 @@ helpviewer_keywords:
 - radio buttons [Windows Forms], determining state
 - radio buttons [Windows Forms], about radio buttons
 ms.assetid: cd11f0c2-d098-4022-adf9-1455bc166a13
-ms.openlocfilehash: 1210658226d9bcacbf4904fdc90a9908c34f5b73
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: bbc93046b69d39caadde4986ff56f067fc206a9e
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61755949"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76741135"
 ---
 # <a name="radiobutton-control-overview-windows-forms"></a>RadioButton コントロールの概要 (Windows フォーム)
-Windows フォーム<xref:System.Windows.Forms.RadioButton>コントロールがユーザーに一連の 2 つ以上の相互に排他的な選択肢を提示します。 同様に機能するラジオ ボタンおよびチェック ボックスがあります、中には、重要な違いがあります。 ユーザーは、ラジオ ボタンを選択するときに、同じグループ内の他のオプション ボタンをも選択できません。 これに対し、任意の数のチェック ボックスを選択できます。 ユーザーに通知するラジオ ボタン グループを定義する、"Here is の選択肢の 1 つだけを選択できます"  
+Windows フォーム <xref:System.Windows.Forms.RadioButton> コントロールは、複数の相互に排他的な選択肢のセットをユーザーに提示します。 オプションボタンやチェックボックスは同様に機能するように見えますが、重要な違いがあります。ユーザーがラジオボタンを選択したときに、同じグループ内の他のオプションボタンを選択することはできません。 これに対して、任意の数のチェックボックスを選択できます。 ラジオボタングループを定義すると、ユーザーに "次のような選択肢があります" と表示されます。  
   
-## <a name="using-the-control"></a>コントロールを使用します。  
- ときに、<xref:System.Windows.Forms.RadioButton>コントロールをクリックすると、その<xref:System.Windows.Forms.RadioButton.Checked%2A>プロパティに設定されて`true`と<xref:System.Windows.Forms.Control.Click>イベント ハンドラーが呼び出されます。 <xref:System.Windows.Forms.RadioButton.CheckedChanged>イベントが発生したときの値、<xref:System.Windows.Forms.RadioButton.Checked%2A>プロパティの変更。 場合、<xref:System.Windows.Forms.RadioButton.AutoCheck%2A>プロパティに設定されて`true`(既定) ラジオ ボタンを選択すると、グループの他のすべては自動的にクリアします。 このプロパティは通常にしか設定`false`ラジオ ボタンが選択されていることを確認する検証コードを使用する場合は、有効なオプションです。 コントロール内で表示されるテキストに設定されて、<xref:System.Windows.Forms.Control.Text%2A>プロパティで、アクセス キーのショートカットを含めることができます。 アクセス キーには、アクセス キーと ALT キーを押して、コントロールを「クリックして」にユーザーができます。 詳細については、「[方法 :Windows フォーム コントロールのアクセス キーを作成](how-to-create-access-keys-for-windows-forms-controls.md)と[方法。によって表示されるテキストを設定、Windows フォーム コントロール](how-to-set-the-text-displayed-by-a-windows-forms-control.md)します。  
+## <a name="using-the-control"></a>コントロールの使用  
+ <xref:System.Windows.Forms.RadioButton> コントロールがクリックされると、その <xref:System.Windows.Forms.RadioButton.Checked%2A> プロパティが `true` に設定され、<xref:System.Windows.Forms.Control.Click> イベントハンドラーが呼び出されます。 <xref:System.Windows.Forms.RadioButton.Checked%2A> プロパティの値が変更されると、<xref:System.Windows.Forms.RadioButton.CheckedChanged> イベントが発生します。 <xref:System.Windows.Forms.RadioButton.AutoCheck%2A> プロパティが `true` (既定値) に設定されている場合、オプションボタンが選択されていると、グループ内の他のすべてのユーザーが自動的にクリアされます。 このプロパティは、通常、選択したオプションボタンが許可されているオプションであることを確認するために検証コードを使用する場合にのみ `false` に設定されます。 コントロール内に表示されるテキストは、<xref:System.Windows.Forms.Control.Text%2A> プロパティで設定されます。このプロパティには、アクセスキーのショートカットを含めることができます。 アクセスキーを使用すると、ユーザーは ALT キーを押しながらアクセスキーを押してコントロールを "クリック" できます。 詳細については、「[方法: Windows フォームコントロールのアクセスキーを作成](how-to-create-access-keys-for-windows-forms-controls.md)する」および「[方法: Windows フォームコントロールによって表示されるテキストを設定する](how-to-set-the-text-displayed-by-a-windows-forms-control.md)」を参照してください。  
   
- <xref:System.Windows.Forms.RadioButton>場合に選択した場合、押されたように見えますコマンド ボタンのように、コントロールの表示、<xref:System.Windows.Forms.RadioButton.Appearance%2A>プロパティに設定されて<xref:System.Windows.Forms.Appearance.Button>します。 ラジオ ボタンを使用してイメージを表示も、<xref:System.Windows.Forms.ButtonBase.Image%2A>と<xref:System.Windows.Forms.ButtonBase.ImageList%2A>プロパティ。 詳細については、「[方法 :によって表示されるイメージの設定を Windows フォーム コントロール](how-to-set-the-image-displayed-by-a-windows-forms-control.md)します。  
+ <xref:System.Windows.Forms.RadioButton> コントロールは、<xref:System.Windows.Forms.RadioButton.Appearance%2A> プロパティが <xref:System.Windows.Forms.Appearance.Button>に設定されている場合、選択されている場合には押されたようなコマンドボタンのように表示されます。 オプションボタンでは、<xref:System.Windows.Forms.ButtonBase.Image%2A> と <xref:System.Windows.Forms.ButtonBase.ImageList%2A> のプロパティを使用してイメージを表示することもできます。 詳細については、「[方法: Windows フォームコントロールによって表示されるイメージを設定する](how-to-set-the-image-displayed-by-a-windows-forms-control.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.RadioButton>
 - [Panel コントロールの概要](panel-control-overview-windows-forms.md)
 - [GroupBox コントロールの概要](groupbox-control-overview-windows-forms.md)
 - [CheckBox コントロールの概要](checkbox-control-overview-windows-forms.md)
-- [方法: Windows フォーム コントロールのアクセス キーを作成します。](how-to-create-access-keys-for-windows-forms-controls.md)
-- [方法: によって表示されるテキストを設定、Windows フォーム コントロール](how-to-set-the-text-displayed-by-a-windows-forms-control.md)
-- [方法: セットとして機能する Windows フォーム RadioButton コントロールをグループ化](how-to-group-windows-forms-radiobutton-controls-to-function-as-a-set.md)
+- [方法: Windows フォーム コントロールのアクセス キーを作成する](how-to-create-access-keys-for-windows-forms-controls.md)
+- [方法: Windows フォーム コントロールによって表示されるテキストを設定する](how-to-set-the-text-displayed-by-a-windows-forms-control.md)
+- [方法: セットとして機能する Windows フォーム RadioButton コントロールをグループ化する](how-to-group-windows-forms-radiobutton-controls-to-function-as-a-set.md)
 - [RadioButton コントロール](radiobutton-control-windows-forms.md)

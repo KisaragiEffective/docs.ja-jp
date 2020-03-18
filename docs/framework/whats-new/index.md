@@ -8,16 +8,14 @@ dev_langs:
 helpviewer_keywords:
 - what's new [.NET Framework]
 ms.assetid: 1d971dd7-10fc-4692-8dac-30ca308fc0fa
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8c9bdb3149834cd3dd04c7627bca440925f5273f
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: fa7138127379b069b646c4b2488d1973a3ddd628
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73040768"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79143318"
 ---
-# <a name="whats-new-in-the-net-framework"></a>.NET Framework の新機能
+# <a name="whats-new-in-net-framework"></a>.NET Framework の新機能
 
 この記事は、.NET Framework の次のバージョンにおける主な新機能と機能強化の概要を示します。
 
@@ -48,9 +46,9 @@ ms.locfileid: "73040768"
 
 .NET Framework 4.8 は、次の場所からダウンロードできます。
 
-- [.NET Framework 4.8 の Web インストーラー](https://go.microsoft.com/fwlink/?LinkId=2085155)
+- [.NET Framework 4.8 の Web インストーラー](https://dotnet.microsoft.com/download/dotnet-framework/net48)
 
-- [NET Framework 4.8 のオフライン インストーラー](https://go.microsoft.com/fwlink/?linkid=2088631)
+- [NET Framework 4.8 のオフライン インストーラー](https://dotnet.microsoft.com/download/dotnet-framework/net48)
 
 .NET Framework 4.8 は、Windows 10、Windows 8.1、Windows 7 SP1、および Windows Server 2008 R2 SP1 以降に相当するサーバー プラットフォームにインストールできます。 .NET Framework 4.8 は、Web インストーラーまたはオフライン インストーラーを使用してインストールできます。 ほとんどのユーザーにお勧めする方法は、Web インストーラーの使用です。
 
@@ -104,7 +102,7 @@ ms.locfileid: "73040768"
 
 正常性エンドポイントを公開し、WCF サービスの正常性情報を公開するには、2 つの方法があります。
 
-- コードの使用。 例:
+- コードの使用。 次に例を示します。
 
   ```csharp
   ServiceHost host = new ServiceHost(typeof(Service1),
@@ -126,7 +124,7 @@ ms.locfileid: "73040768"
   host.Description.Behaviors.Add(healthBehavior)
   ```
 
-- 構成ファイルの使用。 例:
+- 構成ファイルの使用。 次に例を示します。
 
   ```xml
   <behaviors>
@@ -138,7 +136,7 @@ ms.locfileid: "73040768"
   </behaviors>
   ```
 
-`OnServiceFailure`、`OnDispatcherFailure`、`OnListenerFailure`、`OnThrottlePercentExceeded` などのクエリ パラメーターを使用して、サービスの正常性状態のクエリを実行することができ、各クエリ パラメーターに対して HTTP 応答コードを指定できます。 クエリ パラメーターで HTTP 応答コードを省略すると、503 HTTP 応答コードが既定で使われます。 例:
+`OnServiceFailure`、`OnDispatcherFailure`、`OnListenerFailure`、`OnThrottlePercentExceeded` などのクエリ パラメーターを使用して、サービスの正常性状態のクエリを実行することができ、各クエリ パラメーターに対して HTTP 応答コードを指定できます。 クエリ パラメーターで HTTP 応答コードを省略すると、503 HTTP 応答コードが既定で使われます。 次に例を示します。
 
 - OnServiceFailure: `https://contoso:81/Service1?health&OnServiceFailure=450`
 
@@ -155,7 +153,7 @@ ms.locfileid: "73040768"
 
 - OnThrottlePercentExceeded: `https://contoso:81/Service1?health&OnThrottlePercentExceeded= 70:350,95:500`
 
-  応答をトリガーする割合 {1 – 100} とその HTTP 応答コード {200 – 599} を指定します。 次の点に注意してください。
+  応答をトリガーする割合 {1 – 100} とその HTTP 応答コード {200 – 599} を指定します。 この例では、次のように記述されています。
 
   - 割合が 95 より大きい場合、500 HTTP 応答コードが返されます。
 
@@ -254,7 +252,7 @@ Using rsa = RSA.Create(rsaParameters)
 End Using
 ```
 
-<xref:System.Security.Cryptography.DSA.Create(System.Int32)?displayProperty=nameWithType> および <xref:System.Security.Cryptography.RSA.Create(System.Int32)?displayProperty=nameWithType> メソッドでは、特定のキー サイズを指定して、新しい <xref:System.Security.Cryptography.DSA> または <xref:System.Security.Cryptography.RSA> キーを生成することができます。 例:
+<xref:System.Security.Cryptography.DSA.Create(System.Int32)?displayProperty=nameWithType> および <xref:System.Security.Cryptography.RSA.Create(System.Int32)?displayProperty=nameWithType> メソッドでは、特定のキー サイズを指定して、新しい <xref:System.Security.Cryptography.DSA> または <xref:System.Security.Cryptography.RSA> キーを生成することができます。 次に例を示します。
 
 ```csharp
 using (DSA dsa = DSA.Create(2048))
@@ -352,7 +350,7 @@ Windows API を使用した圧縮解除のサポートは .NET Framework 4.7.2 �
 
 **追加のコレクション API**
 
-.NET Framework 4.7.2 でいくつかの新しい API が <xref:System.Collections.Generic.SortedSet%601> および <xref:System.Collections.Generic.HashSet%601> 型に追加されました。 チェックの内容は次のとおりです
+.NET Framework 4.7.2 でいくつかの新しい API が <xref:System.Collections.Generic.SortedSet%601> および <xref:System.Collections.Generic.HashSet%601> 型に追加されました。 次の設定があります。
 
 - `TryGetValue` メソッドは、他のコレクション型で使用する try パターンを次の 2 つの型に拡張します。 これらのメソッドを以下に示します。
 
@@ -436,11 +434,11 @@ web config ファイルを変更することによって、<xref:System.Web.Secu
 
 <a name="net472" />
 
-#### <a name="networking"></a>ネットワーク
+#### <a name="networking"></a>ネットワーキング
 
 **HttpClientHandler プロパティの実装**
 
-.NET Framework 4.7.1 で 8 個のプロパティが、<xref:System.Net.Http.HttpClientHandler?displayProperty=nameWithType> クラスに追加されました。 ただし、2 つは <xref:System.PlatformNotSupportedException> をスローしていました。 .NET Framework 4.7.2 では、それらのプロパティの実装が提供されるようになりました。 プロパティは次のとおりです。
+.NET Framework 4.7.1 で 8 個のプロパティが、<xref:System.Net.Http.HttpClientHandler?displayProperty=nameWithType> クラスに追加されました。 ただし、2 つは <xref:System.PlatformNotSupportedException> をスローしていました。 .NET Framework 4.7.2 では、それらのプロパティの実装が提供されるようになりました。 次のプロパティです。
 
 - <xref:System.Net.Http.HttpClientHandler.CheckCertificateRevocationList>
 - <xref:System.Net.Http.HttpClientHandler.SslProtocols>
@@ -469,12 +467,12 @@ NET Framework 4.7.2 では、エンクレーブ ベースの Always Encrypted �
 
 - <xref:System.Data.SqlClient.SqlEnclaveAttestationParameters>。SQL Server によって、特定の構成証明プロトコルを実行するために必要な情報を取得するために使用される構成証明パラメーター。
 
-アプリケーション構成ファイルで、エンクレーブ プロバイダーの機能を提供する抽象 <xref:System.Data.SqlClient.SqlColumnEncryptionEnclaveProvider?displayProperty=nameWithType> クラスの完全な実装を指定します。 例:
+アプリケーション構成ファイルで、エンクレーブ プロバイダーの機能を提供する抽象 <xref:System.Data.SqlClient.SqlColumnEncryptionEnclaveProvider?displayProperty=nameWithType> クラスの完全な実装を指定します。 次に例を示します。
 
 ```xml
 <configuration>
   <configSections>
-    <section name="SqlColumnEncryptionEnclaveProviders" type="System.Data.SqlClient.SqlColumnEncryptionEnclaveProviderConfigurationSection,System.Data,Version=4.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089"/> 
+    <section name="SqlColumnEncryptionEnclaveProviders" type="System.Data.SqlClient.SqlColumnEncryptionEnclaveProviderConfigurationSection,System.Data,Version=4.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089"/>
   </configSections>
   <SqlColumnEncryptionEnclaveProviders>
     <providers>
@@ -521,7 +519,7 @@ Dim dictionaries As IEnumerable(Of ResourceDictionary) = ResourceDictionaryDiagn
 
 .NET Framework 4.7.2 以降、診断アシスタントでは、特定の <xref:Windows.UI.Xaml.ResourceDictionary> の所有者を見つけることができます。 (この機能は、実稼働アプリケーションではなく診断アシスタントによって使用されます。)<xref:Windows.UI.Xaml.ResourceDictionary> の変更が行われたときに、WPF が、変更の影響を受ける可能性があるすべての [DynamicResource](../wpf/advanced/dynamicresource-markup-extension.md) の参照を自動的に見つけます。
 
-Visual Studio の "エディット コンティニュ" 機能などの診断アシスタントが、場合によっては [StaticResource](../wpf/advanced/staticresource-markup-extension.md) 参照を処理するためにこれを拡張する必要があります。 このプロセスの最初の手順は、ディクショナリの所有者を検索することです。つまり、`Resources` プロパティがディクショナリを (直接または <xref:System.Windows.ResourceDictionary.MergedDictionaries?displayProperty=nameWithType> プロパティを使用して間接的に) 参照しているすべてのオブジェクトを見つけます。 <xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics?displayProperty=nameWithType> クラスに実装された 3 つの新しい静的メソッドは、`Resources` プロパティを持つ各基本データ型ごとに 1 つずつあり、次の手順をサポートします。
+Visual Studio の "エディット コンティニュ" 機能などの診断アシスタントでは、場合によっては [StaticResource](../wpf/advanced/staticresource-markup-extension.md) 参照を処理するためにこれを拡張する必要があります。 このプロセスの最初の手順は、ディクショナリの所有者を検索することです。つまり、`Resources` プロパティがディクショナリを (直接または <xref:System.Windows.ResourceDictionary.MergedDictionaries?displayProperty=nameWithType> プロパティを使用して間接的に) 参照しているすべてのオブジェクトを見つけます。 <xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics?displayProperty=nameWithType> クラスに実装された 3 つの新しい静的メソッドは、`Resources` プロパティを持つ各基本データ型ごとに 1 つずつあり、次の手順をサポートします。
 
 - [`public static IEnumerable<FrameworkElement> GetFrameworkElementOwners(ResourceDictionary dictionary);`](xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics.GetFrameworkElementOwners%2A)
 
@@ -602,7 +600,7 @@ Windows フォーム アプリケーションの場合、DPI 認識をアプリ�
 
 **.NET Standard 2.0 のサポート**
 
-[.NET Standard](../../standard/net-standard.md) は、そのバージョンの標準をサポートする各 .NET 実装で使用する必要がある API のセットを定義します。 .NET Framework 4.7.1 では、.NET Standard 2.0 が完全にサポートされており、.NET Standard 2.0 で定義されていて .NET Framework 4.6.1、4.6.2、および 4.7 にはなかった[約 200 の API](https://github.com/dotnet/standard/blob/master/netstandard/src/ApiCompatBaseline.net461.txt) が追加されています。 (これらのバージョンの .NET Framework は、追加の .NET Standard サポート ファイルもターゲット システムにも展開されている場合にのみ .NET Standard 2.0 をサポートします)。詳細については、「[.NET Framework 4.7.1 Runtime and Compiler Features](https://devblogs.microsoft.com/dotnet/net-framework-4-7-1-runtime-and-compiler-features/)」(.NET Framework 4.7.1 ランタイムとコンパイラの機能) ブログ投稿の「BCL - .NET Standard 2.0 Support」(BCL - .NET Standard 2.0 のサポート) を参照してください。
+[.NET Standard](../../standard/net-standard.md) は、そのバージョンの標準をサポートする各 .NET 実装で使用する必要がある API のセットを定義します。 .NET Framework 4.7.1 では、.NET Standard 2.0 が完全にサポートされており、.NET Standard 2.0 で定義されていて .NET Framework 4.6.1、4.6.2、および 4.7 にはなかった[約 200 の API](https://github.com/dotnet/standard/blob/master/src/netstandard/src/ApiCompatBaseline.net461.txt) が追加されています。 (これらのバージョンの .NET Framework は、追加の .NET Standard サポート ファイルもターゲット システムにも展開されている場合にのみ .NET Standard 2.0 をサポートします)。詳細については、「[.NET Framework 4.7.1 Runtime and Compiler Features](https://devblogs.microsoft.com/dotnet/net-framework-4-7-1-runtime-and-compiler-features/)」(.NET Framework 4.7.1 ランタイムとコンパイラの機能) ブログ投稿の「BCL - .NET Standard 2.0 Support」(BCL - .NET Standard 2.0 のサポート) を参照してください。
 
 **構成ビルダーのサポート**
 
@@ -628,11 +626,11 @@ Windows フォーム アプリケーションの場合、DPI 認識をアプリ�
 
 **ガベージ コレクションのパフォーマンス改善**
 
-.NET Framework 4.7.1 でのガベージ コレクション (GC) に対する変更により、特に大きなオブジェクト ヒープ (LOH) の割り当ての場合に全体的なパフォーマンスが向上します。 .NET Framework 4.7.1 では、小さなオブジェクト ヒープ (SOH) と LOH の割り当てに個別のロックが使用されます。これにより、バックグラウンド GC (BGC) で SOH をスイープするときに、LOH を割り当てることができます。 その結果、多数の LOH の割り当てを行うアプリケーションでは、割り当てのロックの競合が減少し、パフォーマンスが向上します。 詳細については、「[.NET Framework 4.7.1 Runtime and Compiler Features](https://devblogs.microsoft.com/dotnet/net-framework-4-7-1-runtime-and-compiler-features/)」(.NET Framework 4.7.1 ランタイムとコンパイラの機能) ブログ投稿の「Runtime -- GC Performance Improvements」(ランタイム - GC のパフォーマンスの向上) セクションを参照してください。
+.NET Framework 4.7.1 でのガベージ コレクション (GC) に対する変更により、特に大きなオブジェクト ヒープ (LOH) の割り当ての場合に全体的なパフォーマンスが向上します。 .NET Framework 4.7.1 では、小さなオブジェクト ヒープ (SOH) と LOH の割り当てに個別のロックが使用されます。これにより、バックグラウンド GC で SOH をスイープするときに、LOH を割り当てることができます。 その結果、多数の LOH の割り当てを行うアプリケーションでは、割り当てのロックの競合が減少し、パフォーマンスが向上します。 詳細については、「[.NET Framework 4.7.1 Runtime and Compiler Features](https://devblogs.microsoft.com/dotnet/net-framework-4-7-1-runtime-and-compiler-features/)」(.NET Framework 4.7.1 ランタイムとコンパイラの機能) ブログ投稿の「Runtime -- GC Performance Improvements」(ランタイム - GC のパフォーマンスの向上) セクションを参照してください。
 
 <a name="net471"/>
 
-#### <a name="networking"></a>ネットワーク
+#### <a name="networking"></a>ネットワーキング
 
 **Message.HashAlgorithm 用の SHA-2 のサポート**
 
@@ -652,7 +650,7 @@ ASP.NET は、23 のイベントを含む定義済みのパイプラインで要
 
 **ASP.NET フォーム認証資格情報の SHA-2 ハッシュ オプション**
 
-.NET Framework 4.7 およびそれ以前のバージョンの ASP.NET では、開発者は、MD5 または SHA1 を使用して、ユーザーの資格情報とハッシュされたパスワードを構成ファイルに格納できました。 .NET Framework 4.7.1 以降の ASP.NET では、SHA256、SHA384、SHA512 などの新しい安全な SHA-2 ハッシュ オプションもサポートされるようになっています。 SHA1 は既定のまま残り、Web 構成ファイルで既定以外のハッシュ アルゴリズムを定義することができます。 例:
+.NET Framework 4.7 およびそれ以前のバージョンの ASP.NET では、開発者は、MD5 または SHA1 を使用して、ユーザーの資格情報とハッシュされたパスワードを構成ファイルに格納できました。 .NET Framework 4.7.1 以降の ASP.NET では、SHA256、SHA384、SHA512 などの新しい安全な SHA-2 ハッシュ オプションもサポートされるようになっています。 SHA1 は既定のまま残り、Web 構成ファイルで既定以外のハッシュ アルゴリズムを定義することができます。 次に例を示します。
 
 ```xml
 <system.web>
@@ -679,7 +677,7 @@ ASP.NET は、23 のイベントを含む定義済みのパイプラインで要
 - [Windows フォーム](#wf47)
 - [Windows Presentation Foundation (WPF)](#WPF47)
 
-.NET Framework 4.7 に追加された新しい API の一覧については、GitHub で [.NET Framework 4.7 API の変更点](https://github.com/Microsoft/dotnet/blob/master/releases/net47/dotnet47-api-changes.md)に関するページをご覧ください。 .NET Framework 4.7 における機能の改善とバグ修正の一覧については、GitHub で「[.NET Framework 4.7 List of Changes (.NET Framework 4.7 の変更点の一覧)](https://github.com/Microsoft/dotnet/blob/master/releases/net47/dotnet47-changes.md)」を参照してください。  詳細については、.NET Blog の「[Announcing the .NET Framework 4.7 (.NET Framework 4.7 の発表)](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-7/)」をご覧ください。
+.NET Framework 4.7 に追加された新しい API の一覧については、GitHub で [.NET Framework 4.7 API の変更点](https://github.com/Microsoft/dotnet/blob/master/releases/net47/dotnet47-api-changes.md)に関するページをご覧ください。 .NET Framework 4.7 における機能の改善とバグ修正の一覧については、GitHub で「[.NET Framework 4.7 List of Changes (.NET Framework 4.7 の変更点の一覧)](https://github.com/Microsoft/dotnet/blob/master/releases/net47/dotnet47-changes.md)」を参照してください。 詳細については、.NET ブログの「[.NET Framework 4.7 の発表](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-7/)」を参照してください。
 
 <a name="Core47" />
 
@@ -701,7 +699,7 @@ GitHub で [.NET Framework 4.7 の暗号化の向上の例](https://gist.github.
 
 <a name="net47" />
 
-#### <a name="networking"></a>ネットワーク
+#### <a name="networking"></a>ネットワーキング
 
 .NET Framework 4.7 では、次のネットワーク関連機能が追加されています。
 
@@ -786,7 +784,7 @@ Windows Ink Services Platform (WISP) の代わりに [WM_POINTER メッセージ
 
 - [文字カテゴリ](#Strings)
 
-- [暗号化](#Crypto462)
+- [暗号](#Crypto462)
 
 - [SQLClient](#SQLClient)
 
@@ -802,7 +800,7 @@ Windows Ink Services Platform (WISP) の代わりに [WM_POINTER メッセージ
 
 - [デバッグの機能強化](#Debug462)
 
-.NET Framework 4.6.2 に追加された新しい API の一覧については、GitHub で「[.NET Framework 4.6.2 API Changes (.NET Framework 4.6.2 API の変更点)](https://github.com/Microsoft/dotnet/blob/master/releases/net462/dotnet462-api-changes.md)」をご覧ください。 .NET Framework 4.6.2 における機能の改善とバグ修正の一覧については、GitHub で「[.NET Framework 4.6.2 List of Changes (.NET Framework 4.6.2 の変更点の一覧)](https://go.microsoft.com/fwlink/?LinkId=708778)」を参照してください。  詳細については、.NET Blog の「[Announcing .NET Framework 4.6.2](https://devblogs.microsoft.com/dotnet/announcing-net-framework-4-6-2/)」(.NET Framework 4.6.2 の発表) を参照してください。
+.NET Framework 4.6.2 に追加された新しい API の一覧については、GitHub で「[.NET Framework 4.6.2 API Changes (.NET Framework 4.6.2 API の変更点)](https://github.com/Microsoft/dotnet/blob/master/releases/net462/dotnet462-api-changes.md)」をご覧ください。 .NET Framework 4.6.2 における機能の改善とバグ修正の一覧については、GitHub で「[.NET Framework 4.6.2 List of Changes (.NET Framework 4.6.2 の変更点の一覧)](https://github.com/Microsoft/dotnet/blob/master/releases/net462/dotnet462-changes.md)」を参照してください。 詳細については、.NET ブログの「[.NET Framework 4.6.2 の発表](https://devblogs.microsoft.com/dotnet/announcing-net-framework-4-6-2/)」を参照してください。
 
 <a name="ASPNET462" />
 
@@ -843,7 +841,7 @@ End Class
 
 キーがエラー メッセージ文字列であり、その値がローカライズされたエラー メッセージであるようにリソース ファイル DataAnnotation.Localization.fr.resx を作成します。 ファイルは `App.LocalResources` フォルダーになければいけません。 たとえば下記は、キーとその値で、値はローカライズされたフランス語 (fr) のエラー メッセージです。
 
-| 名前                                 | 値                                     |
+| 名前                                 | [値]                                     |
 | ------------------------------------ | ----------------------------------------- |
 | 評価は、1 から 10 の範囲である必要があります。 | La note doit être comprise entre 1 et 10. |
 
@@ -903,7 +901,7 @@ Unicode 6.0 から Unicode 7.0 への文字カテゴリの変更については�
 
 <a name="Crypto462" />
 
-### <a name="cryptography"></a>暗号化
+### <a name="cryptography"></a>暗号
 
 **FIPS 186-3 DSA を含む X509 証明書のサポート**
 
@@ -967,7 +965,7 @@ End Function
 
 Windows の暗号化ライブラリ (CNG) では、永続化された対称キーの格納とハードウェアに格納された対称キーの使用のサポートが追加され、.NET Framework 4.6.2 で開発者はこの機能を利用できるようになりました。  キー名とキー プロバイダーの概念が実装に固有であるため、この機能を使用するには、推奨されるファクトリ手法 (`Aes.Create` の呼び出しなど) ではなく、具象実装型のコンストラクターを利用する必要があります。
 
-永続化されたキーによる対称暗号化は、AES (<xref:System.Security.Cryptography.AesCng>) と 3DES (<xref:System.Security.Cryptography.TripleDESCng>) アルゴリズムでサポートされます。 例:
+永続化されたキーによる対称暗号化は、AES (<xref:System.Security.Cryptography.AesCng>) と 3DES (<xref:System.Security.Cryptography.TripleDESCng>) アルゴリズムでサポートされます。 次に例を示します。
 
 ```csharp
 public static byte[] EncryptDataWithPersistedKey(byte[] data, byte[] iv)
@@ -1012,7 +1010,7 @@ End Function
 
 以下のように、URI 定数はすべて <xref:System.Security.Cryptography.Xml.SignedXml> で示されます。
 
-|SignedXml フィールド|常時|
+|SignedXml フィールド|定数|
 |---------------------|--------------|
 |<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigSHA256Url>|"http://www.w3.org/2001/04/xmlenc#sha256"|
 |<xref:System.Security.Cryptography.Xml.SignedXml.XmlDsigRSASHA256Url>|"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"|
@@ -1031,11 +1029,11 @@ End Function
 
 **Azure SQL Database への接続プールとタイムアウト**
 
-接続プールが有効な状態で、タイムアウトまたは他のログイン エラーが発生した場合は、例外がキャッシュされ、キャッシュされた例外は次の 5 秒から 1 分の間の後続の接続試行時にすべてスローされます。  詳細については、「[SQL Server の接続プール (ADO.NET)](../data/adonet/sql-server-connection-pooling.md)」を参照してください。
+接続プールが有効な状態で、タイムアウトまたは他のログイン エラーが発生した場合は、例外がキャッシュされ、キャッシュされた例外は次の 5 秒から 1 分の間の後続の接続試行時にすべてスローされます。 詳しくは、「[SQL Server の接続プール (ADO.NET)](../data/adonet/sql-server-connection-pooling.md)」をご覧ください。
 
 通常は迅速に復旧される一時的なエラーで接続試行が失敗する可能性があるため、Azure SQL Database への接続時のこの動作は望ましくありません。 接続試行操作をより最適化するため、Azure SQL Database への接続が失敗した場合は、接続プールのブロック期間の動作は削除されます。
 
-新しい `PoolBlockingPeriod` キーワードを追加することで、使用しているアプリに最適なブロック期間を選択できます。 次の値が含まれます。
+新しい `PoolBlockingPeriod` キーワードを追加することで、ご利用のアプリに最適なブロック期間を選択できます。 次の値が含まれます。
 
 <xref:System.Data.SqlClient.PoolBlockingPeriod.Auto>
 
@@ -1170,17 +1168,17 @@ WCF には、クライアント アプリケーションで設定できる新し
 </SortDescriptions>
 ```
 
-**ソフト キーボードのサポート**
+**タッチ キーボードのサポート**
 
-ソフト キーボードのサポートにより、WPF アプリケーションでのフォーカス追跡が可能になります。テキスト入力が可能なコントロールによりタッチ入力を受信すると、Windows 10 の新しいソフト キーボードが自動的に起動および終了します。
+タッチ キーボードのサポートにより、WPF アプリケーションでのフォーカス追跡が可能になります。テキスト入力が可能なコントロールによってタッチ入力が受信されると、Windows 10 の新しいタッチ キーボードが自動的に起動および終了します。
 
-.NET Framework の以前のバージョンでは、WPF アプリケーションは、WPF のペン/タッチ ジェスチャ サポートを無効にしないとフォーカス追跡を選択できません。  そのため、WPF アプリケーションは完全な WPF タッチのフル サポートを選ぶか、Windows のマウス プロモーションに依存する必要があります。
+.NET Framework の以前のバージョンでは、WPF アプリケーションで、WPF のペンまたはタッチ ジェスチャ サポートを無効にしないとフォーカス追跡を選択できません。 そのため、WPF アプリケーションは完全な WPF タッチのフル サポートを選ぶか、Windows のマウス プロモーションに依存する必要があります。
 
 **モニターごとの DPI**
 
 WPF アプリ用の高 DPI とハイブリッド DPI 環境の最近の急激な増加に対応するために、.NET Framework 4.6.2 の WPF でモニターごとに対応できるようになりました。 ご使用の WPF アプリでモニターごとの DPI 対応を有効にする方法の詳細については、GitHub の[サンプルと開発者向けガイド](https://github.com/Microsoft/WPF-Samples/tree/master/PerMonitorDPI)に関するページを参照してください。
 
-.NET Framework の以前のバージョンでは、WPF アプリはシステム DPI 対応です。 つまり、アプリケーションの UI は、アプリがレンダリングされるモニターの DPI に基づき、必要に応じて OS でスケーリングされます。 ,
+.NET Framework の以前のバージョンでは、WPF アプリはシステム DPI 対応です。 つまり、アプリケーションの UI は、アプリがレンダリングされるモニターの DPI に基づき、必要に応じて OS でスケーリングされます。
 
 .NET Framework 4.6.2 で実行されるアプリの場合、次のように、アプリケーションの構成ファイルの [\<runtime>](../configure-apps/file-schema/runtime/runtime-element.md) セクションに構成ステートメントを追加して、WPF アプリでモニターごとの DPI 変更を無効にすることができます。
 
@@ -1198,9 +1196,9 @@ WPF アプリ用の高 DPI とハイブリッド DPI 環境の最近の急激な
 
 **再ホストされた WF デザイナーにおける C# 式と IntelliSense のサポート**
 
-.NET Framework 4.5 以降では、WF によって、Visual Studio デザイナーとコード ワークフローの両方で C# 式がサポートされます。 再ホストされたワークフロー デザイナーは WF の主な機能です。これにより、ワークフロー デザイナーを Visual Studio の外部のアプリケーション (WPF など) で使用できるようになります。  Windows Workflow Foundation は、再ホストされたワークフロー デザイナーで C# 式と IntelliSense をサポートできるようにします。 詳細については、[Windows Workflow Foundation のブログ](https://go.microsoft.com/fwlink/?LinkID=809042&clcid=0x409)を参照してください。
+.NET Framework 4.5 以降では、WF によって、Visual Studio デザイナーとコード ワークフローの両方で C# 式がサポートされます。 再ホストされたワークフロー デザイナーは WF の主な機能です。これにより、ワークフロー デザイナーを Visual Studio の外部のアプリケーション (WPF など) で使用できるようになります。  Windows Workflow Foundation は、再ホストされたワークフロー デザイナーで C# 式と IntelliSense をサポートできるようにします。 詳細については、[Windows Workflow Foundation のブログ](https://docs.microsoft.com/archive/blogs/workflowteam/building-c-expressions-support-and-intellisense-in-the-rehosted-workflow-designer)を参照してください。
 
-`Availability of IntelliSense when a customer rebuilds a workflow project from Visual Studio` .NET Framework 4.6.2 より前のバージョンの .NET Framework で、お客様が Visual Studio からワークフロー プロジェクトをリビルドした場合、WF Designer IntelliSense は破損してしまいます。 プロジェクトのビルドに成功しても、デザイナーでワークフローの種類が見つからず、 **[エラー一覧]** ウィンドウにワークフローの種類が欠落していることを示す IntelliSense からの警告が表示されます。 .NET Framework 4.6.2 はこの問題に対処し、IntelliSense を使うことができるようにします。
+`Availability of IntelliSense when a customer rebuilds a workflow project from Visual Studio` 4.6.2 より前のバージョンの .NET Framework で、お客様が Visual Studio からワークフロー プロジェクトを再ビルドした場合、WF Designer IntelliSense は破損してしまいます。 プロジェクトのビルドに成功しても、デザイナーでワークフローの種類が見つからず、 **[エラー一覧]** ウィンドウにワークフローの種類が欠落していることを示す IntelliSense からの警告が表示されます。 .NET Framework 4.6.2 ではこのイシューに対処し、IntelliSense を使用できるようにします。
 
 **ワークフロー追跡を有効にしたワークフロー V1 アプリケーションを FIPS モードで実行**
 
@@ -1250,7 +1248,7 @@ Windows では、WPF および Windows フォーム アプリを含む、既存�
 
 .NET Framework 4.6.1 には、次の領域における新機能が含まれています。
 
-- [暗号化](#Crypto)
+- [暗号](#Crypto)
 
 - [ADO.NET](#ADO.NET461)
 
@@ -1258,17 +1256,17 @@ Windows では、WPF および Windows フォーム アプリを含む、既存�
 
 - [Windows Workflow Foundation](#WWF461)
 
-- [プロファイリング](#Profile461)
+- [プロファイル](#Profile461)
 
 - [NGen](#NGEN461)
 
 .NET Framework 4.6.1 の詳細については、次のトピックを参照してください。
 
-- [.NET Framework 4.6.1 の変更の一覧](https://go.microsoft.com/fwlink/?LinkId=622964)
+- [.NET Framework 4.6.1 の変更の一覧](https://github.com/Microsoft/dotnet/blob/master/releases/net461/dotnet461-changes.md)
 
-- [4.6.1 でのアプリケーションの互換性](../migration-guide/application-compatibility-in-the-net-framework-4-6-1.md)
+- [4.6.1 でのアプリケーションの互換性](../migration-guide/application-compatibility.md)
 
-- [.NET Framework API の diff (差分)](https://go.microsoft.com/fwlink/?LinkId=622989) (GitHub 上)
+- [.NET Framework API の diff (差分)](https://github.com/Microsoft/dotnet/blob/master/releases/net461/dotnet461-api-changes.md) (GitHub 上)
 
 <a name="Crypto" />
 
@@ -1326,7 +1324,7 @@ WPF のスペル チェック機能が、追加の言語のスペル チェッ�
 
 - 現在のスレッド カルチャ。
 
-WPF での言語サポートの詳細については、[.NET Framework 4.6.1 機能に関する WPF ブログの記事](https://go.microsoft.com/fwlink/?LinkID=691819)を参照してください。
+WPF での言語サポートの詳細については、[.NET Framework 4.6.1 機能に関する WPF ブログの記事](https://devblogs.microsoft.com/wpf/wpf-in-net-4-6-1/)を参照してください。
 
 **ユーザーごとのユーザー辞書の追加サポート**
 
@@ -1351,7 +1349,7 @@ WPF のサンプルは、[Microsoft/WPF サンプル](https://github.com/Microso
 
 **DirectX の拡張機能**
 
-WPF には、DX10 および Dx11 のコンテンツとの相互運用を容易にする、<xref:System.Windows.Interop.D3DImage> の新しい実装を提供する [NuGet パッケージ](https://go.microsoft.com/fwlink/?LinkID=691342)が含まれています。 このパッケージのコードはオープン ソース化されており、[GitHub で](https://github.com/Microsoft/WPFDXInterop)入手できます。
+WPF には、DX10 および Dx11 のコンテンツとの相互運用を容易にする、<xref:System.Windows.Interop.D3DImage> の新しい実装を提供する [NuGet パッケージ](https://www.nuget.org/packages/Microsoft.Wpf.Interop.DirectX-x86/)が含まれています。 このパッケージのコードはオープン ソース化されており、[GitHub で](https://github.com/Microsoft/WPFDXInterop)入手できます。
 
 <a name="WWF461" />
 
@@ -1373,7 +1371,7 @@ MSDTC 以外のトランザクション プロモーターが登録されると�
 
 <a name="Profile461" />
 
-### <a name="profiling"></a>プロファイリング
+### <a name="profiling"></a>プロファイル
 
 アンマネージド プロファイリング API が、次のように拡張されました。
 
@@ -1464,7 +1462,7 @@ NGen PDB を使用すれば、IL PDB に依存することなく、NGen で IL �
 
 - **マネージド コードの JIT コンパイラ (64 ビット)**
 
-  .NET Framework 4.6 の特徴の 1 つとして、新しいバージョンの 64 ビット JIT コンパイラ (RyuJIT というコードネームで呼ばれていたもの) があります。 この新しい 64 ビット コンパイラは、これまでの 64 ビット JIT コンパイラよりもパフォーマンスが大幅に向上しています。 新しい 64 ビット コンパイラは、.NET Framework 4.6 上で実行される 64 ビット プロセスで有効になります。 64 ビットまたは AnyCPU としてコンパイルされ、64 ビット オペレーティング システム上で実行されるアプリは、64 ビットで動作します。 新しいコンパイラへの移行をできる限り透過的に行うように注意を払いましたが、動作の変更が発生する可能性があります。 新しい JIT コンパイラの使用中に発生した問題については、直接お聞かせいただければと思います。 新しい 64 ビット JIT コンパイラに関連する可能性のある問題が発生した場合は、[Microsoft Connect](https://connect.microsoft.com/) にご連絡ください。
+  .NET Framework 4.6 の特徴の 1 つとして、新しいバージョンの 64 ビット JIT コンパイラ (RyuJIT というコードネームで呼ばれていたもの) があります。 この新しい 64 ビット コンパイラは、これまでの 64 ビット JIT コンパイラよりもパフォーマンスが大幅に向上しています。 新しい 64 ビット コンパイラは、.NET Framework 4.6 上で実行される 64 ビット プロセスで有効になります。 64 ビットまたは AnyCPU としてコンパイルされ、64 ビット オペレーティング システム上で実行されるアプリは、64 ビットで動作します。 新しいコンパイラへの移行をできる限り透過的に行うように注意を払いましたが、動作の変更が発生する可能性があります。
 
   新しい 64 ビット JIT コンパイラには、ハードウェア SIMD アクセラレータ機能も含まれています。これを <xref:System.Numerics> 名前空間の SIMD 対応の型と組み合わせると、パフォーマンスが大幅に向上する可能性があります。
 
@@ -1530,7 +1528,7 @@ NGen PDB を使用すれば、IL PDB に依存することなく、NGen で IL �
 
   - **互換性スイッチ**
 
-    新しい <xref:System.AppContext> クラスは、ライブラリの作成者が統一された新機能のオプトアウト メカニズムをユーザーに提供できるようにする、新しい互換性機能を追加します。 これは、オプトアウト要求を伝達するために、コンポーネント間に疎結合のコントラクトを確立します。 通常、この機能は既存の機能が変更されるときに重要となります。 それに対して、新しい機能には暗黙のオプトインが既に存在しています。
+    <xref:System.AppContext> クラスでは、ライブラリの作成者が統一された新機能のオプトアウト メカニズムをユーザーに提供できるようにする、新しい互換性機能を追加します。 これにより、オプトアウト要求を伝達するために、コンポーネント間に疎結合のコントラクトが確立されます。 通常、この機能は既存の機能が変更されるときに重要となります。 それに対して、新しい機能には暗黙のオプトインが既に存在しています。
 
     <xref:System.AppContext> によって、ライブラリは互換性スイッチを定義して公開します。また、それらに依存するコードは、それらのスイッチを設定してライブラリの動作に影響を与えることができます。 ライブラリは、既定では新しい機能を提供し、スイッチが設定されている場合のみそれを変更する (つまり以前の機能を提供する) ことができます。
 
@@ -1693,7 +1691,7 @@ NGen PDB を使用すれば、IL PDB に依存することなく、NGen で IL �
 
   既定値は 60 秒です。 `value` を 0 に設定すると、順序不定の要求はただちに拒否され、次のようなテキストを含むエラーが返されます。
 
-  ```
+  ```console
   Operation 'Request3|{http://tempuri.org/}IService' on service instance with identifier '2b0667b6-09c8-4093-9d02-f6c67d534292' cannot be performed at this time. Please ensure that the operations are performed in the correct order and that the binding in use provides ordered delivery guarantees.
   ```
 
@@ -1717,7 +1715,7 @@ NGen PDB を使用すれば、IL PDB に依存することなく、NGen で IL �
 
     Windows 10 には、送信 TCP 接続のローカル ポートを再利用してコンピューターのリソースを効率的に使用する新しいスケーラビリティの高いネットワーク アルゴリズムが含まれています。 .NET Framework 4.6 では、この新しいアルゴリズムがサポートされ、.NET アプリで新しい動作を利用できます。 以前のバージョンの Windows では、人工的なコンカレント接続の制限 (通常は動的なポート範囲の既定のサイズである 16,384) があったため、負荷がかかったときにポートが使い尽くされ、サービスのスケーラビリティが制限されることがありました。
 
-    .NET Framework 4.6 では、ポートの再利用を有効にする次の 2 つの新しい API が追加され、コンカレント接続に対する 64K の制限が実質的になくなりました。
+    .NET Framework 4.6 では、ポートの再利用を有効にする次の 2 つの API が追加され、コンカレント接続に対する 64 KB の制限が実質的になくなりました。
 
     - <xref:System.Net.Sockets.SocketOptionName?displayProperty=nameWithType> 列挙型値。
 
@@ -1745,7 +1743,7 @@ NGen PDB を使用すれば、IL PDB に依存することなく、NGen で IL �
 
 - **コード ページのエンコーディングのサポート**
 
-  .NET Core は、本来 Unicode エンコードをサポートし、既定ではコード ページ エンコーディングに関するサポートは限定的です。 <xref:System.Text.Encoding.RegisterProvider%2A?displayProperty=nameWithType> メソッドを使用してコード ページ エンコードを登録することで、.NET Framework では利用できるものの .NET Core ではサポートされていないコード ページ エンコードのサポートを追加できます。 詳細については、<xref:System.Text.CodePagesEncodingProvider?displayProperty=nameWithType> を参照してください。
+  .NET Core は、本来 Unicode エンコードをサポートし、既定ではコード ページ エンコーディングに関するサポートは限定的です。 <xref:System.Text.Encoding.RegisterProvider%2A?displayProperty=nameWithType> メソッドを使用してコード ページ エンコードを登録することで、.NET Framework では利用できるものの .NET Core ではサポートされていないコード ページ エンコードのサポートを追加できます。 詳細については、「<xref:System.Text.CodePagesEncodingProvider?displayProperty=nameWithType>」を参照してください。
 
 - **.NET ネイティブ**
 
@@ -1757,7 +1755,7 @@ NGen PDB を使用すれば、IL PDB に依存することなく、NGen で IL �
 
 - **オープン ソースの .NET Framework パッケージ**
 
-  .NET Core のパッケージ (変更できないコレクションなど)、[SIMD API](https://go.microsoft.com/fwlink/?LinkID=518639)、およびネットワーク API (<xref:System.Net.Http> 名前空間に含まれるものなど) は、[GitHub](https://github.com/) でオープン ソース パッケージとして入手できるようになりました。 このコードにアクセスするには、[GitHub で CoreFx](https://github.com/dotnet/corefx) を参照してください。 これらのパッケージの詳細、および投稿方法については、「[.NET Core とオープン ソース](../get-started/net-core-and-open-source.md)」および [GitHub の .NET ホーム ページ](https://github.com/dotnet/home)を参照してください。
+  .NET Core のパッケージ (変更できないコレクションなど)、[SIMD API](https://www.nuget.org/packages/Microsoft.Bcl.Simd)、およびネットワーク API (<xref:System.Net.Http> 名前空間に含まれるものなど) は、[GitHub](https://github.com/) でオープンソース パッケージとして入手できるようになりました。 このコードにアクセスするには、[GitHub 上の .NET](https://github.com/dotnet/runtime) をご覧ください。 これらのパッケージの詳細、および投稿方法については、「[.NET Core とオープン ソース](../get-started/net-core-and-open-source.md)」および [GitHub の .NET ホーム ページ](https://github.com/dotnet/home)を参照してください。
 
 <a name="v452" />
 
@@ -1862,7 +1860,7 @@ NGen PDB を使用すれば、IL PDB に依存することなく、NGen で IL �
 
 .NET Framework 4.5.1 の基底クラスの新機能と機能強化には次が含まれます。
 
-- アセンブリの自動バインディング リダイレクト。 Visual Studio 2013 以降では、アプリまたはそのコンポーネントが同じアセンブリの複数バージョンを参照している場合、.NET Framework 4.5.1 を対象とするアプリのコンパイル時に、バインディング リダイレクトをアプリ構成ファイルに追加できます。 また、.NET Framework の以前のバージョンを対象とするプロジェクトで、この機能を有効にすることもできます。 詳細については、[方法:自動バインディング リダイレクトを有効/無効にする](../configure-apps/how-to-enable-and-disable-automatic-binding-redirection.md)」をご覧ください。
+- アセンブリの自動バインディング リダイレクト。 Visual Studio 2013 以降では、アプリまたはそのコンポーネントが同じアセンブリの複数バージョンを参照している場合、.NET Framework 4.5.1 を対象とするアプリのコンパイル時に、バインディング リダイレクトをアプリ構成ファイルに追加できます。 また、.NET Framework の以前のバージョンを対象とするプロジェクトで、この機能を有効にすることもできます。 詳細については、[自動バインディング リダイレクトを有効/無効にする](../configure-apps/how-to-enable-and-disable-automatic-binding-redirection.md)」をご覧ください。
 
 - 開発者がサーバーおよびクラウド アプリケーションのパフォーマンスを向上するために役立つ診断情報を収集する機能。 詳細については、<xref:System.Diagnostics.Tracing.EventSource.WriteEventWithRelatedActivityId%2A> クラスの <xref:System.Diagnostics.Tracing.EventSource.WriteEventWithRelatedActivityIdCore%2A> メソッドと <xref:System.Diagnostics.Tracing.EventSource> メソッドを参照してください。
 
@@ -1894,9 +1892,9 @@ Visual Studio 2013 で .NET Framework アプリをデバッグするときの改
 
 - 非同期対応のデバッグ。 Visual Studio 2013 で非同期アプリを簡単にデバッグするために、呼び出し履歴には、非同期プログラミングをサポートするためにコンパイラに用意されているインフラストラクチャ コード、および論理上の親フレーム内のチェーンが表示されません。これにより、論理的なプログラムの実行をよりわかりやすく行うことができます。 [タスク] ウィンドウが [並列タスク] ウィンドウに代わって使用され、特定のブレークポイントに関連するタスクが表示されます。また、現在アクティブなタスクやアプリでスケジュールされているタスクなども表示されます。 この機能については、「[.NET Framework 4.5.1 announcement](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/)」(.NET Framework 4.5.1 についてのお知らせ) の「Async-aware debugging」(非同期対応のデバッグ) セクションを参照してください。
 
-- Windows ランタイム コンポーネント向けのより適切な例外処理のサポート。 [!INCLUDE[win81](../../../includes/win81-md.md)] では、言語の種類に関係なく、Windows ストア アプリから発生する例外には、例外を発生させたエラーに関する情報が保持されます。 この機能については、「[.NET Framework 4.5.1 announcement](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/)」(.NET Framework 4.5.1 についてのお知らせ) の「Windows Store app development」(Windows ストア アプリ開発) のセクションを参照してください。
+- Windows ランタイム コンポーネント向けのより適切な例外処理のサポート。 Windows 8.1 では、言語の種類に関係なく、Windows ストア アプリから発生する例外には、例外を発生させたエラーに関する情報が保持されます。 この機能については、「[.NET Framework 4.5.1 announcement](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/)」(.NET Framework 4.5.1 についてのお知らせ) の「Windows Store app development」(Windows ストア アプリ開発) のセクションを参照してください。
 
-Visual Studio 2013 以降では、[Mpgo.exe (マネージド プロファイル ガイド付き最適化ツール)](../tools/mpgo-exe-managed-profile-guided-optimization-tool.md) を使って、[!INCLUDE[win8_appname_long](../../../includes/win8-appname-long-md.md)] アプリとデスクトップ アプリを最適化することができます。
+Visual Studio 2013 以降では、[Mpgo.exe (マネージド プロファイル ガイド付き最適化ツール)](../tools/mpgo-exe-managed-profile-guided-optimization-tool.md) を使って、Windows 8.x ストア アプリとデスクトップ アプリを最適化することができます。
 
 ASP.NET 4.5.1 の新機能については、「[ASP.NET and Web Tools for Visual Studio 2013 のリリース ノート](/aspnet/visual-studio/overview/2013/release-notes)」を参照してください。
 
@@ -1928,9 +1926,9 @@ ASP.NET 4.5.1 の新機能については、「[ASP.NET and Web Tools for Visual
 
 - <xref:System.Reflection.Context.CustomReflectionContext> クラスを使用して、既定のリフレクションの動作をオーバーライドするリフレクション コンテキストをカスタマイズできる機能。
 
-- <xref:System.Globalization.IdnMapping?displayProperty=nameWithType> クラスを [!INCLUDE[win8](../../../includes/win8-md.md)] で使用した場合の IDNA (Internationalized Domain Names in Applications) 規格の 2008 バージョンのサポート。
+- <xref:System.Globalization.IdnMapping?displayProperty=nameWithType> クラスを Windows 8 で使用した場合の IDNA (Internationalized Domain Names in Applications) 規格の 2008 バージョンのサポート。
 
-- オペレーティング システムへの文字列比較の処理代行。 .NET Framework を [!INCLUDE[win8](../../../includes/win8-md.md)] で使用したときに、Unicode 6.0 が実装されます。 他のプラットフォームで実行されている場合、.NET Framework には、Unicode 5.x. を実装する独自の文字列比較データが含まれています。 <xref:System.String> クラスおよび <xref:System.Globalization.SortVersion> クラスの「コメント」セクションを参照してください。
+- オペレーティング システムへの文字列比較の処理代行。 .NET Framework を Windows 8 で使ったときに、Unicode 6.0 が実装されます。 他のプラットフォームで実行されている場合、.NET Framework には、Unicode 5.x. を実装する独自の文字列比較データが含まれています。 <xref:System.String> クラスおよび <xref:System.Globalization.SortVersion> クラスの「コメント」セクションを参照してください。
 
 - アプリケーション ドメインごとに文字列のハッシュ コードを計算する機能。 「[\<UseRandomizedStringHashAlgorithm> 要素](../configure-apps/file-schema/runtime/userandomizedstringhashalgorithm-element.md)」をご覧ください。
 
@@ -1946,7 +1944,7 @@ ASP.NET 4.5.1 の新機能については、「[ASP.NET and Web Tools for Visual
 
 - 複数のスコープ。
 
-- [!INCLUDE[win8_appname_long](../../../includes/win8-appname-long-md.md)] アプリを作成するときに使用できる MEF のサブセット。 このサブセットは、[ダウンロード可能パッケージ](https://go.microsoft.com/fwlink/?LinkId=256238)として NuGet ギャラリーから入手できます。 パッケージをインストールするには、Visual Studio でプロジェクトを開き、 **[プロジェクト]** メニューの **[NuGet パッケージの管理]** をクリックし、`Microsoft.Composition` パッケージをオンラインで検索します。
+- Windows 8.x ストア アプリを作成するときに使うことができる MEF のサブセット。 このサブセットは、[ダウンロード可能パッケージ](https://www.nuget.org/packages/Microsoft.Composition)として NuGet ギャラリーから入手できます。 パッケージをインストールするには、Visual Studio でプロジェクトを開き、 **[プロジェクト]** メニューの **[NuGet パッケージの管理]** をクリックし、`Microsoft.Composition` パッケージをオンラインで検索します。
 
 詳しくは、「[Managed Extensibility Framework (MEF)](../mef/index.md)」を参照してください。
 
@@ -1958,15 +1956,15 @@ ASP.NET 4.5.1 の新機能については、「[ASP.NET and Web Tools for Visual
 
 ### <a name="tools"></a>ツール
 
-.NET Framework 4.5 では、リソース ファイル ジェネレーター (Resgen.exe) を使うと、.NET Framework アセンブリに埋め込まれた .resources ファイルから [!INCLUDE[win8_appname_long](../../../includes/win8-appname-long-md.md)] アプリで使うための .resw ファイルを作成することができます。 詳しくは、「[Resgen.exe (リソース ファイル ジェネレーター)](../tools/resgen-exe-resource-file-generator.md)」をご覧ください。
+.NET Framework 4.5 では、リソース ファイル ジェネレーター (Resgen.exe) を使うと、.NET Framework アセンブリに埋め込まれた .resources ファイルから Windows 8.x ストア アプリ用の .resw ファイルを作成することができます。 詳しくは、「[Resgen.exe (リソース ファイル ジェネレーター)](../tools/resgen-exe-resource-file-generator.md)」をご覧ください。
 
-マネージド プロファイル ガイド付き最適化ツール (Mpgo.exe) を使用すると、ネイティブ イメージ アセンブリを最適化することによって、アプリケーションの起動時間、メモリの使用率 (ワーキング セットのサイズ)、およびスループットを向上させることができます。 このコマンド ライン ツールは、ネイティブ イメージ アプリケーション アセンブリ用のプロファイル データを生成します。 「[Mpgo.exe (マネージド プロファイル ガイド付き最適化ツール)](../tools/mpgo-exe-managed-profile-guided-optimization-tool.md)」をご覧ください。 Visual Studio 2013 以降では、[!INCLUDE[win8_appname_long](../../../includes/win8-appname-long-md.md)] アプリおよびデスクトップ アプリを最適化するために、Mpgo.exe を使うことができます。
+マネージド プロファイル ガイド付き最適化ツール (Mpgo.exe) を使用すると、ネイティブ イメージ アセンブリを最適化することによって、アプリケーションの起動時間、メモリの使用率 (ワーキング セットのサイズ)、およびスループットを向上させることができます。 このコマンド ライン ツールは、ネイティブ イメージ アプリケーション アセンブリ用のプロファイル データを生成します。 「[Mpgo.exe (マネージド プロファイル ガイド付き最適化ツール)](../tools/mpgo-exe-managed-profile-guided-optimization-tool.md)」をご覧ください。 Visual Studio 2013 以降では、Windows 8.x ストア アプリおよびデスクトップ アプリを最適化するために、Mpgo.exe を使うことができます。
 
 <a name="parallel" />
 
 ### <a name="parallel-computing"></a>並列コンピューティング
 
-.NET Framework 4.5 では、並列計算用にいくつかの新機能と機能強化が提供されています。 パフォーマンスの向上、コントロールの強化、非同期プログラミングのサポートの改善、新しいデータフロー ライブラリ、並列デバッグとパフォーマンス分析のためのサポートの強化などが挙げられます。 ブログ「Parallel Programming with .NET」(.NET での並列プログラミング) の記事「[What’s New for Parallelism in .NET 4.5](https://go.microsoft.com/fwlink/?LinkId=235061)」(.NET 4.5 での並列処理の新機能) を参照してください。
+.NET Framework 4.5 では、並列計算用にいくつかの新機能と機能強化が提供されています。 パフォーマンスの向上、コントロールの強化、非同期プログラミングのサポートの改善、新しいデータフロー ライブラリ、並列デバッグとパフォーマンス分析のためのサポートの強化などが挙げられます。 ブログ「Parallel Programming with .NET」(.NET での並列プログラミング) の記事「[What’s New for Parallelism in .NET 4.5](https://devblogs.microsoft.com/pfxteam/whats-new-for-parallelism-in-net-4-5/)」(.NET 4.5 での並列処理の新機能) を参照してください。
 
 <a name="web" />
 
@@ -2060,7 +2058,7 @@ ASP.NET 4.5 および 4.5.1 では、Web フォーム モデルのバインデ�
 
 - 国際化ドメイン名 (IDN: Internationalized Domain Name) を使用する WCF サービスのサポート。
 
-詳細については、「[Windows Communication Foundation 4.5 の新機能](https://go.microsoft.com/fwlink/?LinkId=228173)」を参照してください。
+詳細については、「[Windows Communication Foundation 4.5 の新機能](../wcf/whats-new.md)」を参照してください。
 
 <a name="windows_workflow_foundation" />
 
@@ -2068,7 +2066,7 @@ ASP.NET 4.5 および 4.5.1 では、Web フォーム モデルのバインデ�
 
 .NET Framework 4.5 では、次に示すようないくつかの新しい機能が Windows Workflow Foundation (WF) に追加されました。
 
-- 最初に .NET Framework 4.0.1 ([.NET Framework 4 Platform Update 1](https://go.microsoft.com/fwlink/?LinkID=215092)) の一部として導入された、ステート マシンのワークフロー。 この更新プログラムには、開発者がステート マシン ワークフローを作成できるようにする新しいクラスとアクティビティが複数含まれていました。 .NET Framework 4.5 では、これらのクラスとアクティビティが、次を含むように更新されました。
+- 最初に .NET Framework 4.0.1 ([.NET Framework 4 Platform Update 1](https://docs.microsoft.com/archive/blogs/endpoint/microsoft-net-framework-4-platform-update-1)) の一部として導入された、ステート マシンのワークフロー。 この更新プログラムには、開発者がステート マシン ワークフローを作成できるようにする新しいクラスとアクティビティが複数含まれていました。 .NET Framework 4.5 では、これらのクラスとアクティビティが、次を含むように更新されました。
 
   - 状態でブレークポイントを設定する機能。
 
@@ -2114,22 +2112,23 @@ ASP.NET 4.5 および 4.5.1 では、Web フォーム モデルのバインデ�
 
 - 既存のサービス コントラクトに合わせて自動的にアクティビティを生成するサポートが提供されるコントラクト優先のワークフロー サービス開発。
 
-詳細については、「[.NET 4.5 での Windows Workflow Foundation の新機能](https://go.microsoft.com/fwlink/?LinkId=228176)」を参照してください。
+詳細については、「[.NET 4.5 での Windows Workflow Foundation の新機能](../windows-workflow-foundation/whats-new-in-wf-in-dotnet.md)」を参照してください。
 
 <a name="tailored" />
 
-### [!INCLUDE[net_win8_profile](../../../includes/net-win8-profile-md.md)]
+### <a name="net-for-windows-8x-store-apps"></a>Windows 8.x ストア アプリ用 .NET
 
-[!INCLUDE[win8_appname_long](../../../includes/win8-appname-long-md.md)] のアプリは、特定のフォーム ファクターに合わせて設計されており、Windows オペレーティング システムの機能を利用します。 C# または Visual Basic を使って Windows 用の [!INCLUDE[win8_appname_long](../../../includes/win8-appname-long-md.md)] アプリをビルドするために、.NET Framework 4.5 または 4.5.1 のサブセットを使うことができます。 このサブセットは [!INCLUDE[net_win8_profile](../../../includes/net-win8-profile-md.md)] と呼ばれ、Windows デベロッパー センターの[概要](https://go.microsoft.com/fwlink/?LinkId=228491)のページで説明されています。
+Windows 8.x ストア アプリは、特定のフォーム ファクターに合わせて設計されており、Windows オペレーティング システムの機能を利用します。 C# または Visual Basic を使って Windows 用の Windows 8.x ストア アプリをビルドするために、.NET Framework 4.5 または 4.5.1 のサブセットを使うことができます。 このサブセットは Windows 8.x ストア アプリ用 .NET と呼ばれ、[概要](https://docs.microsoft.com/previous-versions/windows/apps/br230302(v=vs.140))のページで説明されています。
 
 ### <a name="portable-class-libraries-a-nameportable-"></a>ポータブル クラス ライブラリ <a name="portable" />
 
-Visual Studio 2012 (および以降のバージョン) のポータブル クラス ライブラリ プロジェクトを使うと、複数の .NET Framework プラットフォームで動作するマネージド アセンブリを作成してビルドできます。 ポータブル クラス ライブラリ プロジェクトを使用して、対象とするプラットフォーム (Windows Phone や [!INCLUDE[net_win8_profile](../../../includes/net-win8-profile-md.md)]など) を選択します。 プロジェクトで使用できる型およびメンバーは、自動的にこれらのプラットフォーム間で共通の型とメンバーに制限されます。 詳細については、[ポータブル クラス ライブラリ](../../standard/cross-platform/cross-platform-development-with-the-portable-class-library.md)に関するページを参照してください。
+Visual Studio 2012 (および以降のバージョン) のポータブル クラス ライブラリ プロジェクトを使うと、複数の .NET Framework プラットフォームで動作するマネージド アセンブリを作成してビルドできます。 ポータブル クラス ライブラリ プロジェクトを使って、対象とするプラットフォーム (Windows Phone や Windows 8.x ストア アプリ用 .NET など) を選択できます。 プロジェクトで使用できる型およびメンバーは、自動的にこれらのプラットフォーム間で共通の型とメンバーに制限されます。 詳細については、[ポータブル クラス ライブラリ](../../standard/cross-platform/cross-platform-development-with-the-portable-class-library.md)に関するページを参照してください。
 
 ## <a name="see-also"></a>関連項目
 
 - [NET Framework および特別なリリース](../get-started/the-net-framework-and-out-of-band-releases.md)
 - [.NET Framework のアクセシビリティの新機能](whats-new-in-accessibility.md)
-- [Visual Studio 2017 の新機能](/visualstudio/ide/whats-new-in-visual-studio)
+- [Visual Studio 2017 の新機能](/visualstudio/ide/whats-new-visual-studio-2017)
+- [Visual Studio 2019 の新機能](/visualstudio/ide/whats-new-visual-studio-2019)
 - [ASP.NET](/aspnet)
-- [Visual C++ の新機能](/cpp/what-s-new-for-visual-cpp-in-visual-studio)
+- [Visual Studio での C++ の新機能](/cpp/what-s-new-for-visual-cpp-in-visual-studio)

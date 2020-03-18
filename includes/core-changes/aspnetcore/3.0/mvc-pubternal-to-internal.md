@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 09fd95ba5f3aee59f2abdfbb4e64eb6202e2b873
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 5741e8cdd51e00d5459c4c1032a56682429aab17
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72394424"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75901999"
 ---
-### <a name="mvc-pubternal-types-changed-to-internal"></a>MVC: "pubternal" 型を internal に変更
+### <a name="mvc-pubternal-types-changed-to-internal"></a>MVC:"pubternal" 型を internal に変更
 
 ASP.NET Core 3.0 では、MVC のすべての "pubternal" 型が、サポートされている名前空間で `public` になるか、必要に応じて `internal` になるように更新されました。
 
@@ -30,11 +30,11 @@ MVC の一部の型は `public` でしたが、`.Internal` 名前空間に存在
 
 "pubternal" 型が誤って使用されることが多かったため、これらのプロジェクトに破壊的変更が加えられ、フレームワークを維持する機能が制限されることになりました。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 真に `public` になり、サポートされている新しい名前空間に移動された型を使用する場合は、新しい名前空間に一致するように参照を更新してください。
 
-`internal` としてマークされるようになった型を使用する場合は、代替を見つける必要があります。 以前の "pubternal" 型は、一般的な使用ではサポートされていませんでした。 これらの名前空間に、アプリにとって重要な特定の型が存在する場合は、[aspnet/AspNetCore](https://github.com/aspnet/AspNetCore/issues) で問題を報告してください。 要求された型を `public` にするために検討される可能性があります。
+`internal` としてマークされるようになった型を使用する場合は、代替を見つける必要があります。 以前の "pubternal" 型は、一般的な使用ではサポートされていませんでした。 これらの名前空間に、アプリにとって重要な特定の型が存在する場合は、[dotnet/aspnetcore](https://github.com/dotnet/aspnetcore/issues) で問題を報告してください。 要求された型を `public` にするために検討される可能性があります。
 
 #### <a name="category"></a>カテゴリ
 

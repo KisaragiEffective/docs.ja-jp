@@ -12,19 +12,17 @@ helpviewer_keywords:
 - trace switches
 - trace switches, creating custom
 ms.assetid: 8ab913aa-f400-4406-9436-f45bc6e54fbe
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: b796d79fc6acf7d54aac7c69d376e587144d14d1
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: c164e26c6757094b9820af14a098229ab11eb137
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052257"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217204"
 ---
 # <a name="trace-switches"></a>トレース スイッチ
 トレース スイッチを使用すると、トレース出力を有効/無効にしたり、トレースの出力をフィルター処理したりできます。 トレース スイッチは、コードに存在すれるオブジェクトであり、.config ファイルによって外部的に設定できます。 .NET Framework に用意されたトレース スイッチには、 <xref:System.Diagnostics.BooleanSwitch> クラス、 <xref:System.Diagnostics.TraceSwitch> クラス、および <xref:System.Diagnostics.SourceSwitch> クラスの 3 種類があります。 <xref:System.Diagnostics.BooleanSwitch> クラスは、トグル スイッチとして機能し、各種のトレース ステートメントを有効にしたり無効にしたりできます。 <xref:System.Diagnostics.TraceSwitch> クラスと <xref:System.Diagnostics.SourceSwitch> クラスを使用すると、特定のトレース レベルごとにトレース スイッチを有効にすることができます。これにより、該当するレベルおよびそれ以下のすべてのレベルに対して指定された <xref:System.Diagnostics.Trace> メッセージまたは <xref:System.Diagnostics.TraceSource> メッセージが表示されます。 スイッチを無効にした場合、トレース メッセージは表示されません。 すべてのクラスは、他のユーザー定義のスイッチと同様に、どちらも**Switch**という抽象 ( **MustInherit**) クラスから派生したクラスです。  
   
- トレース スイッチは情報のフィルター処理に役立つことがあります。 たとえば、データ アクセス モジュールではすべてのトレース メッセージを表示し、アプリケーションの他の部分ではエラー メッセージだけを表示できます。 この場合は、データ アクセス モジュールに対してトレース スイッチを 1 つ使用し、アプリケーションの他の部分に対してスイッチを 1 つ使用します。 .config ファイルの構成でスイッチを適切に設定することにより、受け取るトレース メッセージの種類を制御できます。 詳細については、「[方法 :トレーススイッチ](how-to-create-initialize-and-configure-trace-switches.md)を作成、初期化、および構成します。  
+ トレース スイッチは情報のフィルター処理に役立つことがあります。 たとえば、データ アクセス モジュールではすべてのトレース メッセージを表示し、アプリケーションの他の部分ではエラー メッセージだけを表示できます。 この場合は、データ アクセス モジュールに対してトレース スイッチを 1 つ使用し、アプリケーションの他の部分に対してスイッチを 1 つ使用します。 .config ファイルの構成でスイッチを適切に設定することにより、受け取るトレース メッセージの種類を制御できます。 詳細については、「[方法 : トレース スイッチを作成、初期化、および構成する](how-to-create-initialize-and-configure-trace-switches.md)」を参照してください。  
   
  一般に、配置されたアプリケーションはスイッチが無効にされた状態で実行されるため、ユーザーにとって意味のないトレース メッセージが画面に表示されたり、アプリケーションの実行ごとにログ ファイルに書き込んだりする必要はありません。 アプリケーションの実行時に問題が発生した場合は、アプリケーションを中断し、スイッチを有効にしてからアプリケーションを再起動します。 これにより、トレース メッセージが表示されるようになります。  
   
@@ -50,14 +48,14 @@ ms.locfileid: "71052257"
 |列挙値|整数値|表示されるメッセージ (または指定された出力対象に書き込まれるメッセージ) の種類|  
 |----------------------|-------------------|---------------------------------------------------------------------------|  
 |オフ|0|なし|  
-|Error|1|エラー メッセージのみ|  
-|警告|2|警告メッセージとエラー メッセージ|  
-|Info|3|通知メッセージ、警告メッセージ、およびエラー メッセージ|  
-|詳細|4|詳細メッセージ、情報メッセージ、警告メッセージ、およびエラー メッセージ|  
+|エラー|1|エラー メッセージのみ|  
+|［警告］|2|警告メッセージとエラー メッセージ|  
+|[情報]|3|通知メッセージ、警告メッセージ、およびエラー メッセージ|  
+|"詳細"|4|詳細メッセージ、情報メッセージ、警告メッセージ、およびエラー メッセージ|  
   
  **TraceSwitch** のプロパティは、スイッチの最大トレース レベルを示します。 つまり、指定されたレベルとそれ以下のすべてのレベルについて、トレース情報が書き込まれます。 たとえば、 **TraceInfo** が **true**の場合、 **TraceError** と **TraceWarning** も **true** になりますが、 **TraceVerbose** は **false**になることがあります。  
   
- これらのプロパティは読み取り専用です。 **TraceSwitch** オブジェクトは、 **TraceLevel** プロパティの設定時にこれらのプロパティを自動的に設定します。 例えば:  
+ これらのプロパティは読み取り専用です。 **TraceSwitch** オブジェクトは、 **TraceLevel** プロパティの設定時にこれらのプロパティを自動的に設定します。 例 :  
   
 ```vb  
 Dim myTraceSwitch As New TraceSwitch("SwitchOne", "The first switch")  
@@ -83,8 +81,8 @@ MessageBox.Show(myTraceSwitch.TraceVerbose.ToString());
 ## <a name="developer-defined-switches"></a>開発者が定義するスイッチ  
  **BooleanSwitch** と **TraceSwitch**を指定する以外に、 **Switch** クラスから継承される独自のスイッチを定義して、カスタマイズしたメソッドで基本クラスのメソッドをオーバーライドできます。 開発者定義スイッチの作成方法については、「.NET Framework リファレンス」の「 <xref:System.Diagnostics.Switch> クラス」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [トレース リスナー](trace-listeners.md)
-- [方法: アプリケーションコードにトレースステートメントを追加する](how-to-add-trace-statements-to-application-code.md)
+- [方法 : アプリケーション コードにトレース ステートメントを追加する](how-to-add-trace-statements-to-application-code.md)
 - [アプリケーションのトレースとインストルメント](tracing-and-instrumenting-applications.md)

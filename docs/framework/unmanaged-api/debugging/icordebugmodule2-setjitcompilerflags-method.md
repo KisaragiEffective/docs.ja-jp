@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: ea574c84-c622-4589-9a14-b55771af5e06
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 114f4ff261d9612a81d17bf5b3df2f87323f77f2
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: b28e457ea0b51d320581c0fbe36574698081ea36
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67764205"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76792958"
 ---
 # <a name="icordebugmodule2setjitcompilerflags-method"></a>ICorDebugModule2::SetJITCompilerFlags メソッド
-この ICorDebugModule2 の・ イン タイム (JIT) コンパイルを制御するフラグを設定します。  
+この ICorDebugModule2 の just-in-time (JIT) コンパイルを制御するフラグを設定します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,17 +35,17 @@ HRESULT SetJITCompilerFlags (
   
 ## <a name="parameters"></a>パラメーター  
  `dwFlags`  
- [in]ビットごとの組み合わせ、 [CorDebugJITCompilerFlags](../../../../docs/framework/unmanaged-api/debugging/cordebugjitcompilerflags-enumeration.md)列挙値。  
+ から[CorDebugJITCompilerFlags](cordebugjitcompilerflags-enumeration.md)列挙値のビットごとの組み合わせ。  
   
-## <a name="remarks"></a>Remarks  
- 場合、`dwFlags`値が有効で、`SetJITCompilerFlags`メソッドは失敗します。  
+## <a name="remarks"></a>コメント  
+ `dwFlags` 値が無効な場合、`SetJITCompilerFlags` メソッドは失敗します。  
   
- `SetJITCompilerFlags`メソッド内からのみ呼び出すことができます、 [icordebugmanagedcallback::loadmodule](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-loadmodule-method.md)このモジュールのコールバック。 後の呼び出しを行う、`ICorDebugManagedCallback::LoadModule`コールバック配信されたが失敗します。  
+ `SetJITCompilerFlags` メソッドを呼び出すことができるのは、このモジュールの " [LoadModule](icordebugmanagedcallback-loadmodule-method.md) " コールバック内からだけです。 `ICorDebugManagedCallback::LoadModule` コールバックが配信された後に呼び出しを試みると失敗します。  
   
- 64 ビット プラットフォームまたは Win9x プラットフォームでは、エディット コンティニュはサポートされていません。 そのため、呼び出す場合、 `SetJITCompilerFlags` CORDEBUG_JIT_ENABLE_ENC フラグで設定を使用してこれら 2 つのプラットフォームのいずれかのメソッド`dwFlags`、`SetJITCompilerFlags`メソッドと特定のすべてのメソッドの編集し、続行などを[ICorDebugModule2:。ApplyChanges](../../../../docs/framework/unmanaged-api/debugging/icordebugmodule2-applychanges-method.md)は失敗します。  
+ 64ビットまたは Win9x プラットフォームでは、エディットコンティニュはサポートされていません。 したがって、`dwFlags`で CORDEBUG_JIT_ENABLE_ENC フラグを設定して、これら2つのプラットフォームのいずれかで `SetJITCompilerFlags` メソッドを呼び出すと、 [ICorDebugModule2:: ApplyChanges](icordebugmodule2-applychanges-method.md)など、`SetJITCompilerFlags` メソッドと、エディットコンティニュに固有のすべてのメソッドが失敗します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

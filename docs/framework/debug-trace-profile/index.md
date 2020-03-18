@@ -13,14 +13,12 @@ helpviewer_keywords:
 - troubleshooting applications [.NET Framework]
 - application development [.NET Framework], profiling
 ms.assetid: 4a04863e-2475-46f4-bc3f-3c11510c2a4b
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 43927be83b8b2a9163656f8d6d54c2cf83a23e28
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 1a43c7fbcb810b22ff9bc409c233d2b1da67370e
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052652"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217399"
 ---
 # <a name="debugging-tracing-and-profiling"></a>デバッグ、トレース、およびプロファイリング
 .NET Framework アプリケーションをデバッグするには、アプリケーションにデバッガーをアタッチできるようにコンパイラとランタイム環境を構成する必要があり、可能であれば、アプリケーションとそれに対応する Microsoft Intermediate Language (MSIL) について記号マップと行マップの両方を生成する必要があります。 マネージド アプリケーションのデバッグが完了した後は、パフォーマンスを向上するようにプロファイルできます。 プロファイルでは、最も頻繁に実行されるコードを生成するソース コード行と、そのコードの実行に要する時間を評価して記述します。  
@@ -46,8 +44,8 @@ ms.locfileid: "71052652"
  [パフォーマンス カウンター](performance-counters.md)  
  アプリケーションのパフォーマンスを追跡するために使用できるカウンターについて説明します。  
   
-## <a name="related-sections"></a>関連項目  
- [Visual Studio での ASP.NET または ASP.NET Core アプリのデバッグ](/visualstudio/debugger/debugging-aspnet-and-ajax-applications)  
+## <a name="related-sections"></a>関連セクション  
+ [Visual Studio での ASP.NET または ASP.NET Core アプリのデバッグ](/visualstudio/debugger/how-to-enable-debugging-for-aspnet-applications)  
  開発時と配置後に ASP.NET アプリケーションをデバッグするための要件と手順について説明します。  
   
  [開発ガイド](../development-guide.md)  

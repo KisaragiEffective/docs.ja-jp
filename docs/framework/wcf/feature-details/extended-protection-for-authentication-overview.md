@@ -2,12 +2,12 @@
 title: 認証の拡張保護の概要
 ms.date: 03/30/2017
 ms.assetid: 3d2ceffe-a7bf-4bd9-a5a2-9406423bd7f8
-ms.openlocfilehash: 2c166ae4795a64983c0df81629669c9cbf5b0d97
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 400bf7987b5fcd4ec75628d19a30739dd5f23b08
+ms.sourcegitcommit: c01c18755bb7b0f82c7232314ccf7955ea7834db
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64665948"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75964607"
 ---
 # <a name="extended-protection-for-authentication-overview"></a>認証の拡張保護の概要
 認証時の拡張保護によって、攻撃者がクライアントの資格情報をインターセプトして特定のサーバーに転送する man-in-the-middle (MITM) 攻撃を防ぐことができます。  
@@ -24,7 +24,7 @@ ms.locfileid: "64665948"
   
  サーバーには、次の保護レベルを設定できます。  
   
-- なし。 チャネル バインディングの検証は実行されません。 更新されていないすべてのサーバーの動作です。  
+- ありません。 チャネル バインディングの検証は実行されません。 更新されていないすべてのサーバーの動作です。  
   
 - 一部。 更新されたすべてのクライアントは、サーバーにチャネル バインディング情報を提供する必要があります。 クライアントが更新されていなければ、その必要はありません。 アプリケーションの互換性を許容する中間のオプションです。  
   
@@ -34,4 +34,4 @@ ms.locfileid: "64665948"
   
 ## <a name="see-also"></a>関連項目
 
-- [Windows Server App Fabric のセキュリティ モデル](https://go.microsoft.com/fwlink/?LinkID=201279&clcid=0x409)
+- [Windows Server App Fabric のセキュリティモデル](https://docs.microsoft.com/previous-versions/appfabric/ee677202(v=azure.10))

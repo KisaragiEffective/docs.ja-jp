@@ -1,5 +1,5 @@
 ---
-title: タスク 1:新しい Windows Presentation Foundation アプリケーションの作成
+title: 'タスク 1: 新しい Windows Presentation Foundation アプリケーションの作成'
 ms.date: 03/30/2017
 ms.assetid: 270eaeba-9492-4532-af9f-403ce5c9935b
 ms.openlocfilehash: 3205840da575041b449eb841fc8084e89937fca7
@@ -9,9 +9,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72031894"
 ---
-# <a name="task-1-create-a-new-windows-presentation-foundation-application"></a>タスク 1:新しい Windows Presentation Foundation アプリケーションの作成
+# <a name="task-1-create-a-new-windows-presentation-foundation-application"></a>タスク 1: 新しい Windows Presentation Foundation アプリケーションの作成
 
-このタスクでは、WPF Application Visual Studio テンプレートを使用して空の Windows Presentation Foundation (WPF) アプリケーションを作成し、適切な @no__t 0 のワークフローアセンブリに参照を追加します。  
+このタスクでは、WPF Application Visual Studio テンプレートを使用して空の Windows Presentation Foundation (WPF) アプリケーションを作成し、適切な [!INCLUDE[netfx_current_short](../../../includes/netfx-current-short-md.md)] ワークフローアセンブリに参照を追加します。  
   
 ## <a name="to-create-the-wpf-application-project"></a>WPF アプリケーション プロジェクトを作成するには
 
@@ -37,9 +37,9 @@ ms.locfileid: "72031894"
     - System.Activities.Presentation
     - System.Activities.Core.Presentation
 
-10. @No__t-0Task 2 を参照してください。ワークフローデザイナーデザインキャンバスをホストする方法については、ワークフローデザイナー @ no__t-0 をホストしてください。
+10. ワークフローデザイナーデザインキャンバスをホストする方法については[、「タスク 2: ワークフローデザイナーのホスト](task-2-host-the-workflow-designer.md)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ワークフロー デザイナーのホスト変更](rehosting-the-workflow-designer.md)
-- [Task 2:ワークフローデザイナー @ no__t をホストします。
+- [タスク 2: ワークフロー デザイナーのホスティング](task-2-host-the-workflow-designer.md)

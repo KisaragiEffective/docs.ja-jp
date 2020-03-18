@@ -1,31 +1,31 @@
 ---
-title: '方法: 深度がわからないデータに TreeView をバインドする'
+title: '方法 : 深度がわからないデータに TreeView をバインドする'
 ms.date: 03/30/2017
 helpviewer_keywords:
 - TreeView control [WPF], binding to data of indeterminate depth
 ms.assetid: daddcd74-1b0f-4ffd-baeb-ec934c5e0f53
-ms.openlocfilehash: 7da0a121cdb854c787c105c92cec70b7c4b3244e
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: cd9a1ee015ebb707a7a06d1c062a1bb3003c96e8
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61911080"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73458613"
 ---
-# <a name="how-to-bind-a-treeview-to-data-that-has-an-indeterminable-depth"></a>方法: 深度がわからないデータに TreeView をバインドする
-バインドに必要な場合がある可能性があります、<xref:System.Windows.Controls.TreeView>深さがわからない場合は、データ ソースにします。  これは、データが再帰的な場所のフォルダーは、フォルダーを含めることができます、ファイル システム、または企業の組織の構造など、本質的に直属の部下として他の従業員の従業員がある場合に発生します。  
+# <a name="how-to-bind-a-treeview-to-data-that-has-an-indeterminable-depth"></a>方法 : 深度がわからないデータに TreeView をバインドする
+深さが不明なデータソースに <xref:System.Windows.Controls.TreeView> をバインドすることが必要になる場合があります。  これは、ファイルシステムなどのデータが再帰的に行われている場合、フォルダーにフォルダーを格納できる場合、または従業員が直属の部下として他の従業員を持っている企業の組織構造の場合に発生します。  
   
- データ ソースには、階層化されたオブジェクト モデルが必要です。 たとえば、`Employee`クラスには、従業員の直属の部下である従業員のオブジェクトのコレクションが含まれます。 データは、階層ではない方法で表される、データの階層的な表現をビルドする必要があります。  
+ データソースには、階層オブジェクトモデルが必要です。 たとえば、`Employee` クラスには、従業員の直属の部下である Employee オブジェクトのコレクションが含まれている場合があります。 データが階層化されていない方法で表されている場合は、データの階層表現を作成する必要があります。  
   
- 設定すると、<xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A?displayProperty=nameWithType>プロパティ場合に、<xref:System.Windows.Controls.ItemsControl>が生成されます、 <xref:System.Windows.Controls.ItemsControl> 、各子項目では後で、子<xref:System.Windows.Controls.ItemsControl>同じ<xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A>親として。 設定する場合など、<xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A>データ バインドされたプロパティ<xref:System.Windows.Controls.TreeView>、それぞれ<xref:System.Windows.Controls.TreeViewItem>生成された使用されている、<xref:System.Windows.DataTemplate>に割り当てられた、<xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A>のプロパティ、<xref:System.Windows.Controls.TreeView>します。  
+ <xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A?displayProperty=nameWithType> プロパティを設定し、<xref:System.Windows.Controls.ItemsControl> が各子項目の <xref:System.Windows.Controls.ItemsControl> を生成した場合、子 <xref:System.Windows.Controls.ItemsControl> は親と同じ <xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A> を使用します。 たとえば、データバインド <xref:System.Windows.Controls.TreeView>の <xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A> プロパティを設定した場合、生成される各 <xref:System.Windows.Controls.TreeViewItem> は、<xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A> の <xref:System.Windows.Controls.TreeView>プロパティに割り当てられた <xref:System.Windows.DataTemplate> を使用します。  
   
- <xref:System.Windows.HierarchicalDataTemplate>を指定することができます、<xref:System.Windows.Controls.ItemsControl.ItemsSource%2A>の<xref:System.Windows.Controls.TreeViewItem>、または any <xref:System.Windows.Controls.HeaderedItemsControl>、データ テンプレートにします。 設定すると、 <xref:System.Windows.HierarchicalDataTemplate.ItemsSource%2A?displayProperty=nameWithType> 、プロパティ値である場合に使用、<xref:System.Windows.HierarchicalDataTemplate>が適用されます。 使用して、 <xref:System.Windows.HierarchicalDataTemplate>、再帰的に設定する、<xref:System.Windows.Controls.ItemsControl.ItemsSource%2A>各<xref:System.Windows.Controls.TreeViewItem>で、<xref:System.Windows.Controls.TreeView>します。  
+ <xref:System.Windows.HierarchicalDataTemplate> を使用すると、データテンプレートで <xref:System.Windows.Controls.TreeViewItem>または <xref:System.Windows.Controls.HeaderedItemsControl>の <xref:System.Windows.Controls.ItemsControl.ItemsSource%2A> を指定できます。 <xref:System.Windows.HierarchicalDataTemplate.ItemsSource%2A?displayProperty=nameWithType> プロパティを設定すると、<xref:System.Windows.HierarchicalDataTemplate> が適用されるときにその値が使用されます。 <xref:System.Windows.HierarchicalDataTemplate>を使用すると、<xref:System.Windows.Controls.TreeView>内の各 <xref:System.Windows.Controls.TreeViewItem> の <xref:System.Windows.Controls.ItemsControl.ItemsSource%2A> を再帰的に設定できます。  
   
 ## <a name="example"></a>例  
- 次の例では、バインドする方法、<xref:System.Windows.Controls.TreeView>階層データを使用して、<xref:System.Windows.HierarchicalDataTemplate>を指定する、<xref:System.Windows.Controls.ItemsControl.ItemsSource%2A>各<xref:System.Windows.Controls.TreeViewItem>します。  <xref:System.Windows.Controls.TreeView>社内の従業員を表す XML データをバインドします。  各`Employee`要素はその他を含めることができます`Employee`をユーザーに報告を示す要素。 データは再帰的であるため、<xref:System.Windows.HierarchicalDataTemplate>各レベルに適用できます。  
+ 次の例では、<xref:System.Windows.Controls.TreeView> を階層データにバインドし、<xref:System.Windows.HierarchicalDataTemplate> を使用して各 <xref:System.Windows.Controls.TreeViewItem>の <xref:System.Windows.Controls.ItemsControl.ItemsSource%2A> を指定する方法を示します。  <xref:System.Windows.Controls.TreeView> は、会社の従業員を表す XML データにバインドされます。  各 `Employee` 要素には、だれに報告するかを示す他の `Employee` 要素を含めることができます。 データが再帰的であるため、<xref:System.Windows.HierarchicalDataTemplate> を各レベルに適用できます。  
   
  [!code-xaml[TreeViewWithUnknownDepth#1](~/samples/snippets/csharp/VS_Snippets_Wpf/TreeViewWithUnknownDepth/CS/Window1.xaml#1)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [データ バインディングの概要](../data/data-binding-overview.md)
+- [データ バインディングの概要](../../../desktop-wpf/data/data-binding-overview.md)
 - [データ テンプレートの概要](../data/data-templating-overview.md)

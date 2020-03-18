@@ -14,19 +14,17 @@ helpviewer_keywords:
 ms.assetid: 5bb12f9a-0612-434b-b4ed-2db636a20bec
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9dfce10c94e04dcd405e06ab6d0984e64984709e
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: ce0c6307defd93dcf63ac4e9051fc798041475f3
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779564"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73127053"
 ---
 # <a name="getrequestedruntimeversionforclsid-function"></a>GetRequestedRuntimeVersionForCLSID 関数
-適切な共通言語ランタイム (CLR) のバージョン情報と、指定したクラスを取得します。`CLSID`します。  
+指定した `CLSID`を使用して、クラスの適切な共通言語ランタイム (CLR) のバージョン情報を取得します。  
   
- この関数は、.NET Framework 4 では廃止されました。  
+ この関数は .NET Framework 4 で非推奨とされました。  
   
 ## <a name="syntax"></a>構文  
   
@@ -42,38 +40,38 @@ HRESULT GetRequestedRuntimeVersionForCLSID (
   
 ## <a name="parameters"></a>パラメーター  
  `rclsid`  
- [in] `CLSID`のコンポーネント。  
+ から コンポーネントの `CLSID`。  
   
  `pVersion`  
- [out] 正常完了時にバージョン番号の文字列を格納するバッファー。  
+ 入出力 正常に完了したときのバージョン番号の文字列を格納するバッファー。  
   
  `cchBuffer`  
- [in] ワイド文字単位のサイズの`pVersion`バッファー。  
+ から `pVersion` バッファーのサイズ (ワイド文字単位)。  
   
  `dwLength`  
- [out]返されたバッファーの長さ、(バイト単位)。  
+ 入出力返されたバッファーの長さ (バイト単位)。  
   
  `dwResolutionFlags`  
- [in] CLSID_RESOLUTION_FLAGS 値の 1 つ。 次の値がサポートされています。  
+ から CLSID_RESOLUTION_FLAGS 値の1つ。 次の値がサポートされています。  
   
-- CLSID_RESOLUTION_DEFAULT:(0x0) 既定の相互運用機能の動作を使用することを指定します。  
+- CLSID_RESOLUTION_DEFAULT: (0x0) 既定の相互運用動作を使用することを指定します。  
   
-- CLSID_RESOLUTION_REGISTERED:(0x1)、レジストリを検索する必要があるし、shim のポリシーを適用することを指定します。  
+- CLSID_RESOLUTION_REGISTERED: (0x1) レジストリを検索し、shim ポリシーを適用する必要があることを指定します。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|関数が正常に返されます。|  
-|E_INVALIDARG|パラメーターの 1 つに、無効な型または形式。|  
-|ERROR_INSUFFICIENT_BUFFER|`pVersion`バッファーはバージョン文字列全体を保持するために十分な大きさがありません。|  
-|REGDB_E_CLASSNOTREG|クラスの指定した登録がない`CLSID`します。|  
-|E_POINTER|`dwLength` null の場合または`cchBuffer`バージョン文字列を保持するために十分な大きさが`pVersion`が null です。|  
+|S_OK|関数が正常に返されました。|  
+|E_INVALIDARG|パラメーターの1つに無効な型または形式が指定されています。|  
+|ERROR_INSUFFICIENT_BUFFER|`pVersion` バッファーが、バージョン文字列全体を格納するのに十分な大きさではありません。|  
+|REGDB_E_CLASSNOTREG|指定された `CLSID`に登録されているクラスがありません。|  
+|E_POINTER|`dwLength` が null であるか、または `cchBuffer` がバージョン文字列を保持するのに十分な大きさですが、`pVersion` が null です。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v11plus](../../../../includes/net-current-v11plus-md.md)]  
   

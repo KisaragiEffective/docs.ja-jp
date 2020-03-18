@@ -1,5 +1,5 @@
 ---
-title: MustInherit (Visual Basic)
+title: MustInherit
 ms.date: 07/20/2015
 f1_keywords:
 - MustInherit
@@ -10,44 +10,44 @@ helpviewer_keywords:
 - abstract classes [Visual Basic], MustInherit class
 - MustInherit keyword [Visual Basic]
 ms.assetid: b8f05185-90e3-4dd7-adc2-90d852fab5b4
-ms.openlocfilehash: 05b1e6b646c519216eba2d4f0df7a3e32f3dafbf
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 30befaaf194d78d26a57f29c59bf0a603e9f07a3
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64661261"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351496"
 ---
 # <a name="mustinherit-visual-basic"></a>MustInherit (Visual Basic)
-クラスを基底クラスとしてのみ使用できることと、オブジェクトを直接作成できないことを指定します。  
+クラスを基底クラスとしてのみ使用でき、そこからオブジェクトを直接作成することはできないことを指定します。  
   
-## <a name="remarks"></a>Remarks  
- 目的を*基本クラス*(とも呼ばれます、*抽象クラス*) それから派生したすべてのクラスに共通した機能を定義することです。 これにより、派生クラスが共通の要素を再定義する必要がなくなります。 場合によっては、この共通の機能が、使用可能なオブジェクトを作成するのに十分な完了していませんし、各派生クラスが不足している機能を定義します。 このような場合は、派生クラスからのみオブジェクトを作成、使用側コードをします。 使用する`MustInherit`でこれを強制する基本クラス。  
+## <a name="remarks"></a>コメント  
+ *基底クラス*(*抽象クラス*とも呼ばれます) の目的は、このクラスから派生したすべてのクラスに共通の機能を定義することです。 これにより、派生クラスで共通の要素を再定義する必要がなくなります。 場合によっては、この共通機能は使用可能なオブジェクトを作成するのに十分ではないため、各派生クラスは不足している機能を定義します。 このような場合は、コンシューマー側のコードで派生クラスからのみオブジェクトを作成する必要があります。 これを適用するには、基本クラスで `MustInherit` を使用します。  
   
- 別の用途を`MustInherit`クラスは、関連するクラスのセットに変数を制限します。 基本クラスを定義し、そこからこれらのすべての関連するクラスを派生できます。 基本クラスは、すべての派生クラスに共通の機能を提供する必要はありませんが、その変数に値を割り当てるためのフィルターとして使用できます。 使用側コードでは、基底クラスとしての変数を宣言する場合に、Visual Basic を使用すると、派生クラスの 1 つのオブジェクトのみをその変数に代入できます。  
+ `MustInherit` クラスのもう1つの用途は、変数を関連クラスのセットに制限することです。 基本クラスを定義し、そこからすべての関連クラスを派生させることができます。 基底クラスは、すべての派生クラスに共通する機能を提供する必要はありませんが、変数に値を代入するためのフィルターとして使用できます。 コンシューマーコードが基底クラスとして変数を宣言している場合、Visual Basic によって、派生クラスのいずれかからその変数にオブジェクトのみを割り当てることができます。  
   
- .NET Framework では、いくつかを定義します`MustInherit`クラスは、それらの間で<xref:System.Array>、 <xref:System.Enum>、および<xref:System.ValueType>します。 <xref:System.ValueType> 変数を制限する基底クラスの例に示します。 すべての値の型から派生<xref:System.ValueType>します。 として変数を宣言する場合<xref:System.ValueType>、その変数に値型のみを割り当てることができます。  
+ .NET Framework は、<xref:System.Array>、<xref:System.Enum>、<xref:System.ValueType>の複数の `MustInherit` クラスを定義します。 <xref:System.ValueType> は、変数を制限する基底クラスの例です。 すべての値型は <xref:System.ValueType>から派生します。 変数を <xref:System.ValueType>として宣言する場合は、その変数に値型のみを割り当てることができます。  
   
 ## <a name="rules"></a>ルール  
   
-- **宣言コンテキスト。** 使用することができます`MustInherit`でのみ、`Class`ステートメント。  
+- **宣言コンテキスト。** `MustInherit` は、`Class` ステートメントでのみ使用できます。  
   
-- **結合された修飾子。** 指定することはできません`MustInherit`と共に`NotInheritable`同じ宣言内。  
+- **結合された修飾子。** 同じ宣言内の `NotInheritable` と共に `MustInherit` を指定することはできません。  
   
 ## <a name="example"></a>例  
- 次の例は、強制的な継承と強制的なオーバーライドを示しています。 基本クラス`shape`変数を定義します`acrossLine`します。 クラスは、`circle`と`square`から派生`shape`します。 定義を継承`acrossLine`、関数を定義する必要がありますが、`area`計算は図形の種類ごとに異なるためです。  
+ 強制継承と強制オーバーライドの両方の例を次に示します。 基本クラス `shape` は `acrossLine`変数を定義します。 クラス `circle` および `square` は `shape`から派生します。 `acrossLine`の定義を継承しますが、その計算は図形の種類によって異なるため、関数 `area` を定義する必要があります。  
   
  [!code-vb[VbVbalrKeywords#2](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrKeywords/VB/Class1.vb#2)]  
   
- 宣言できます`shape1`と`shape2`型`shape`します。 オブジェクトを作成することはできませんただし、`shape`関数の機能がないため`area`がマークされていると`MustInherit`します。  
+ `shape1` を宣言して `shape`型で `shape2` することができます。 ただし、`shape` からオブジェクトを作成することはできません。これは、関数 `area` の機能がなく、`MustInherit`としてマークされているためです。  
   
- として宣言されているため、 `shape`、変数`shape1`と`shape2`派生クラスからオブジェクトに制限される`circle`と`square`します。 Visual Basic はできません、他のオブジェクトをこれらの変数に割り当てることにより、タイプ セーフの高レベル。  
+ これらは `shape`として宣言されているため、`shape1` と `shape2` の変数は、派生クラス `circle` および `square`のオブジェクトに限定されます。 Visual Basic では、これらの変数に他のオブジェクトを割り当てることはできません。これにより、高いレベルのタイプセーフが得られます。  
   
 ## <a name="usage"></a>使用法  
- `MustInherit`修飾子は、このコンテキストで使用できます。  
+ このコンテキストでは、`MustInherit` 修飾子を使用できます。  
   
  [Class ステートメント](../../../visual-basic/language-reference/statements/class-statement.md)  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Inherits ステートメント](../../../visual-basic/language-reference/statements/inherits-statement.md)
 - [NotInheritable](../../../visual-basic/language-reference/modifiers/notinheritable.md)

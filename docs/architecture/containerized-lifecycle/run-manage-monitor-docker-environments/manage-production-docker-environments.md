@@ -3,10 +3,10 @@ title: Docker の実稼働環境を管理する
 description: コンテナーベースの実稼働環境を管理する際に重要な点について説明します。
 ms.date: 02/15/2019
 ms.openlocfilehash: 26e7a3319afe593d75e2384d023c901a389245dc
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "71834500"
 ---
 # <a name="manage-production-docker-environments"></a>Docker の実稼働環境を管理する
@@ -23,7 +23,7 @@ ms.locfileid: "71834500"
 
 **表 6-1**. Docker 管理ツール
 
-| 管理ツール | 説明 | 関連するオーケストレーター |
+| 管理ツール | [説明] | 関連するオーケストレーター |
 |------------------|-------------|-----------------------|
 | [コンテナー用 Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview) | Azure 専用 Kubernetes 管理ツール | Azure Kubernetes Services (AKS) |
 | [Kubernetes Web UI (ダッシュボード)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) | Kubernetes 管理ツールでは、ローカル Kubernetes クラスターを監視および管理できます | Azure Kubernetes Service (AKS)<br/>ローカルの Kubernetes |

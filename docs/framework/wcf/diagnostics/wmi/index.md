@@ -2,12 +2,12 @@
 title: 診断用の WMI (Windows Management Instrumentation) の使用
 ms.date: 03/30/2017
 ms.assetid: fe48738d-e31b-454d-b5ec-24c85c6bf79a
-ms.openlocfilehash: 0b67f06b9a99d7e9001c8415d0e94adef8436a3d
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: 26758c8a4f537f9522d5ab650ae6b3cd8f044db2
+ms.sourcegitcommit: a4f9b754059f0210e29ae0578363a27b9ba84b64
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70855808"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74837442"
 ---
 # <a name="using-windows-management-instrumentation-for-diagnostics"></a>診断用の WMI (Windows Management Instrumentation) の使用
 Windows Communication Foundation (WCF) は、WCF Windows Management Instrumentation (WMI) プロバイダーを介して実行時にサービスの検査データを公開します。  
@@ -17,7 +17,7 @@ Windows Communication Foundation (WCF) は、WCF Windows Management Instrumentat
   
  WMI プロバイダーは、WBEM と互換性のあるインターフェイスを通して実行時にインストルメンテーションを公開するコンポーネントです。 これは、属性と値のペアを持つ WMI オブジェクトのセットで構成されます。 ペアには多くの単純型を指定できます。 管理ツールは、実行時にインターフェイスを介してサービスに接続できます。 WCF は、アドレス、バインディング、動作、リスナーなどのサービスの属性を公開します。  
   
- 組み込みの WMI プロバイダーは、アプリケーションの構成ファイルでアクティブにできます。 これを行うには`wmiProviderEnabled` 、次のサンプル構成に示すように、 [ \<system.servicemodel >](../../../configure-apps/file-schema/wcf/system-servicemodel.md)セクションの[ \<診断 >](../../../configure-apps/file-schema/wcf/diagnostics.md)の属性を使用します。  
+ 組み込みの WMI プロバイダーは、アプリケーションの構成ファイルでアクティブにできます。 これを行うには、次のサンプル構成に示すように、 [\<system.servicemodel >](../../../configure-apps/file-schema/wcf/system-servicemodel.md)セクションの[\<診断 >](../../../configure-apps/file-schema/wcf/diagnostics.md)の `wmiProviderEnabled` 属性を使用します。  
   
 ```xml  
 <system.serviceModel>  
@@ -35,22 +35,22 @@ Windows Communication Foundation (WCF) は、WCF Windows Management Instrumentat
 > [!CAUTION]
 > .NET Framework 提供のメソッドを使用し、プログラムで WMI データにアクセスする場合、そのようなメソッドは接続確立時に例外をスローする場合があることを認識しておく必要があります。 接続は、<xref:System.Management.ManagementObject> インスタンスの構築中に確立されませんが、実際のデータ交換が含まれた最初の要求時に確立されます。 したがって、`try..catch` ブロックを使用して例外をキャッチする必要があります。  
   
- トレース レベルやメッセージ ログ レベルだけでなく、WMI の `System.ServiceModel` トレース ソースのメッセージ ログ オプションも変更できます。 これを行うには、 [AppDomainInfo](appdomaininfo.md)インスタンスにアクセスします。このインスタンスは`LogMessagesAtServiceLevel`、 `LogMessagesAtTransportLevel` `LogMalformedMessages`、、、 `TraceLevel`およびのブール型プロパティを公開します。 そのため、メッセージ ログ用のトレース リスナーを構成していても、これらのオプションを構成で `false` に設定している場合は、後でアプリケーションを実行しているときに `true` に変更できます。 これで、メッセージ ログが実行時に有効になります。 同様に、構成ファイルでメッセージ ログを有効にしている場合は、実行時に WMI を使用して無効にできます。  
+ トレース レベルやメッセージ ログ レベルだけでなく、WMI の `System.ServiceModel` トレース ソースのメッセージ ログ オプションも変更できます。 これを行うには、 [AppDomainInfo](appdomaininfo.md)インスタンスにアクセスします。これにより、`LogMessagesAtServiceLevel`、`LogMessagesAtTransportLevel`、`LogMalformedMessages`、および `TraceLevel`のブール型プロパティが公開されます。 そのため、メッセージ ログ用のトレース リスナーを構成していても、これらのオプションを構成で `false` に設定している場合は、後でアプリケーションを実行しているときに `true` に変更できます。 これで、メッセージ ログが実行時に有効になります。 同様に、構成ファイルでメッセージ ログを有効にしている場合は、実行時に WMI を使用して無効にできます。  
   
  構成ファイルで、メッセージ ログのメッセージ ログ トレース リスナーまたはトレースの `System.ServiceModel` トレース リスナーが指定されていない場合、WMI が変更を受け入れても変更は有効になりません。 各リスナーを適切に設定する方法の詳細については、「[メッセージログの構成](../configuring-message-logging.md)」および「[トレースの構成](../tracing/configuring-tracing.md)」を参照してください。 構成で設定された他のすべてのトレース ソースのトレース レベルは、アプリケーションが開始されると有効になり変更できません。  
   
- WCF は、 `GetOperationCounterInstanceName`スクリプト作成のためのメソッドを公開します。 このメソッドに操作名を指定した場合、このメソッドはパフォーマンス カウンターのインスタンス名を返します。 ただし、このメソッドは入力を検証しません。 したがって、正しくない操作名を指定した場合、正しくないカウンター名が返されます。  
+ WCF は、スクリプト作成のための `GetOperationCounterInstanceName` メソッドを公開します。 このメソッドに操作名を指定した場合、このメソッドはパフォーマンス カウンターのインスタンス名を返します。 ただし、このメソッドは入力を検証しません。 したがって、正しくない操作名を指定した場合、正しくないカウンター名が返されます。  
   
- インスタンスのプロパティは、接続先のサービスに対して WCF クライアント`Service`が作成されていない場合に、別のサービスに接続するためにサービスによって開かれたチャネルをカウントしません。 `OutgoingChannel` `Service`  
+ `Service` インスタンスの `OutgoingChannel` プロパティでは、サービスによって開かれたチャネルをカウントして別のサービスに接続することはできません。これは、宛先サービスに対する WCF クライアントが `Service` メソッド内に作成されていない場合です。  
   
- **注意**WMI は、最大<xref:System.TimeSpan> 3 つの小数点以下の値をサポートします。 たとえば、サービスでプロパティの 1 つを <xref:System.TimeSpan.MaxValue> に設定した場合、WMI ではその値を小数点以下 3 桁より下を切り捨て表示します。  
+ **注意**WMI でサポートされるのは、最大3つの小数点以下の <xref:System.TimeSpan> 値のみです。 たとえば、サービスでプロパティの 1 つを <xref:System.TimeSpan.MaxValue> に設定した場合、WMI ではその値を小数点以下 3 桁より下を切り捨て表示します。  
   
 ## <a name="security"></a>セキュリティ  
  WCF WMI プロバイダーでは環境内のサービスを検出できるため、アクセス権を付与するには細心の注意を払ってください。 既定の "管理者のみ" のアクセスを緩めた場合、信頼性の低いパーティに環境内の機密性のあるデータへのアクセスを許可する場合があります。 特にリモート WMI アクセスに対するアクセス許可を緩めた場合、大量の攻撃を受ける可能性があります。 過剰の WMI 要求により大量の処理が発生した場合、パフォーマンスが低下する可能性があります。  
   
  さらに、MOF ファイルに対するアクセス許可を緩めた場合、信頼性の低いパーティが WMI の動作を操作して WMI スキーマに読み込まれるオブジェクトを変更することができます。 たとえば、フィールドを削除して、重要データを管理者から隠したり、例外を設定しないかまたは例外の原因とならないフィールドを追加したりすることができます。  
   
- 既定では、WCF WMI プロバイダーは、管理者に対して "execute method"、"provider write"、および "enable account" アクセス許可を付与し、ASP.NET、Local Service、および Network Service に対する "アカウントの有効化" アクセス許可を付与します。 特に、[!INCLUDE[wv](../../../../../includes/wv-md.md)] 以外のプラットフォームでは、ASP.NET アカウントは WMI ServiceModel 名前空間に対して読み取りアクセスが可能です。 特定のユーザー グループに対してこれらの権限を付与したくない場合は、WMI プロバイダーを非アクティブにするか (既定では無効に設定されています)、特定のユーザー グループのアクセスを無効にする必要があります。  
+ 既定では、WCF WMI プロバイダーは、管理者に対して "execute method"、"provider write"、および "enable account" アクセス許可を付与し、ASP.NET、Local Service、および Network Service に対する "アカウントの有効化" アクセス許可を付与します。 特に、Windows Vista 以外のプラットフォームでは、ASP.NET アカウントには WMI ServiceModel 名前空間への読み取りアクセス権があります。 特定のユーザー グループに対してこれらの権限を付与したくない場合は、WMI プロバイダーを非アクティブにするか (既定では無効に設定されています)、特定のユーザー グループのアクセスを無効にする必要があります。  
   
  また、構成を使用して WMI を有効にする場合、ユーザー権限が不十分のため WMI が有効にならない場合があります。 ただし、このエラーを記録するイベントはイベント ログに書き込まれません。  
   

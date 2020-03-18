@@ -5,16 +5,16 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 41ade767-eeab-437d-9121-9797e8fb8045
-ms.openlocfilehash: 9995a509bf997298d991a1f66cfdf3cae6cd0395
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 4beaba24e42b15ebc45ece6e5319a2b14df54ab6
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70790968"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73975381"
 ---
 # <a name="creating-the-net-framework-client-application-wcf-data-services-quickstart"></a>.NET Framework クライアント アプリケーションの作成 (WCF Data Services クイック スタート)
 
-これは、WCF Data Services のクイックスタートの最後のタスクです。 このタスクでは、コンソールアプリケーションをソリューションに追加し、この新しいクライアントアプリケーションに[!INCLUDE[ssODataFull](../../../../includes/ssodatafull-md.md)]フィードへの参照を追加し、生成されたクライアントデータサービスクラスおよびクライアントライブラリを使用してクライアントアプリケーションから OData フィードにアクセスします.
+これは、WCF Data Services のクイックスタートの最後のタスクです。 このタスクでは、コンソールアプリケーションをソリューションに追加し、この新しいクライアントアプリケーションに Open Data Protocol (OData) フィードへの参照を追加します。生成されたクライアントデータサービスクラスとクライアントを使用して、クライアントアプリケーションから OData フィードにアクセスします。ライブラリ.
 
 > [!NOTE]
 > データ フィードへのアクセスには .NET Framework ベースのクライアント アプリケーションは必要ありません。 データサービスには、OData フィードを使用する任意のアプリケーションコンポーネントからアクセスできます。 詳細については、「[クライアントアプリケーションでのデータサービスの使用](using-a-data-service-in-a-client-application-wcf-data-services.md)」を参照してください。
@@ -25,7 +25,7 @@ ms.locfileid: "70790968"
 
 2. 左側のウィンドウで、**インストールされ**た > [ **C#ビジュアル**または**Visual Basic**] > **[Windows デスクトップ]** の順に選択し、 **[WPF アプリケーション]** テンプレートを選択します。
 
-3. プロジェクト`NorthwindClient`名として「」と入力し、[ **OK]** をクリックします。
+3. プロジェクト名として `NorthwindClient` を入力し、[ **OK]** をクリックします。
 
 4. ファイル MainWindow.xaml を開き、XAML コードを次のコードに置き換えます。
 
@@ -33,11 +33,11 @@ ms.locfileid: "70790968"
 
 ## <a name="to-add-a-data-service-reference-to-the-project"></a>データ サービス参照をプロジェクトに追加するには
 
-1. **ソリューションエクスプローラー**で、NorthwindClient プロジェクトを右クリックし、[**サービス参照**の**追加** > ] をクリックして、 **[探索]** をクリックします。
+1. **ソリューションエクスプローラー**で、NorthwindClient プロジェクトを右クリックし、[ > **サービス参照**の**追加**] をクリックして、 **[探索]** をクリックします。
 
      最初のタスクで作成した Northwind データ サービスが表示されます。
 
-2. **[名前空間]** テキストボックスに`Northwind`「」と入力し、[ **OK]** をクリックします。
+2. **[名前空間]** テキストボックスに「`Northwind`」と入力し、[ **OK]** をクリックします。
 
      プロジェクトに新しいコード ファイルが追加されます。このコード ファイルには、データ サービス リソースにアクセスし、オブジェクトとしてデータ サービス リソースと対話するデータ クラスが含まれています。 データ クラスは、名前空間 `NorthwindClient.Northwind` で作成されます。
 
@@ -47,7 +47,7 @@ ms.locfileid: "70790968"
 
 2. **参照の追加** ダイアログボックスで、 **.net** タブをクリックし、system.servicemodel アセンブリを選択して、 **OK** をクリックします。
 
-3. [NorthwindClient] の下の []**ソリューションエクスプローラー**で、mainwindow.xaml ファイルのコードページを開き、 `using`次の`Imports`ステートメント (Visual Basic) を追加します。
+3. **NorthwindClient**の下の**ソリューションエクスプローラー**で、mainwindow.xaml ファイルのコードページを開き、次の `using` ステートメント (Visual Basic で`Imports`) を追加します。
 
     [!code-csharp[Astoria Quickstart Client#Using](../../../../samples/snippets/csharp/VS_Snippets_Misc/astoria_quickstart_client/cs/window1.xaml.cs#using)]
     [!code-vb[Astoria Quickstart Client#Using](../../../../samples/snippets/visualbasic/VS_Snippets_Misc/astoria_quickstart_client/vb/window1.xaml.vb#using)]
@@ -80,7 +80,7 @@ ms.locfileid: "70790968"
     > [!NOTE]
     > このバージョンの NorthwindClient アプリケーションでは、エンティティの追加と削除はサポートされません。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 これで、サンプルの Northwind OData フィードにアクセスするクライアントアプリケーションが正常に作成されました。 WCF Data Services クイックスタートも完了しました。
 

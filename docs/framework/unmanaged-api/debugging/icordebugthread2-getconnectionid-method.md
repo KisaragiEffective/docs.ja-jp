@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 9c76b587-f941-4fa1-8b86-f3494fb10c8e
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: bc4963dcf686fe62f473aea1af86868df03718df
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: a81842132769934a6f5f34e6dc462bba77b3854a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67768970"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73138685"
 ---
 # <a name="icordebugthread2getconnectionid-method"></a>ICorDebugThread2::GetConnectionID メソッド
 この ICorDebugThread2 オブジェクトの接続識別子を取得します。  
@@ -37,15 +35,15 @@ HRESULT GetConnectionID (
   
 ## <a name="parameters"></a>パラメーター  
  `pdwConnectionId`  
- [out]A`CONNID`接続識別子を表します。  
+ 入出力接続識別子を表す `CONNID`。  
   
 ## <a name="remarks"></a>Remarks  
- `GetConnectionID`にゼロが返される、`pdwConnectionId`パラメーターをこのスレッドの接続の一部でない場合。  
+ このスレッドが接続の一部でない場合、`GetConnectionID` メソッドは、`pdwConnectionId` パラメーターで0を返します。  
   
- このスレッドがの Microsoft SQL Server 2005 Analysis Services (SSAS)、インスタンスに接続されている場合、`CONNID`サーバー プロセス識別子 (SPID) にマップされます。  
+ このスレッドが Microsoft SQL Server 2005 Analysis Services (SSAS) のインスタンスに接続されている場合、`CONNID` はサーバープロセス識別子 (SPID) にマップされます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

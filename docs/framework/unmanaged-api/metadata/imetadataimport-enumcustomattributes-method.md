@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 798513a0-68b1-4d04-bc5b-782a4445ea68
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: c38b7f060c34f7408195484dec2c49305db422fe
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: a43c1883038e41cac1b58c78bc26f20d436ebbd1
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781318"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74440236"
 ---
 # <a name="imetadataimportenumcustomattributes-method"></a>IMetaDataImport::EnumCustomAttributes メソッド
-指定した型またはメンバーに関連付けられたカスタム属性定義トークンを列挙します。  
+指定した型またはメンバーに関連付けられているカスタム属性定義トークンを列挙します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -45,33 +43,33 @@ HRESULT EnumCustomAttributes (
  [入力、出力]返された列挙子へのポインター。  
   
  `tk`  
- [in]列挙体、またはすべてのカスタム属性に 0 のスコープのトークンです。  
+ から列挙体のスコープのトークン、またはすべてのカスタム属性の0。  
   
  `tkType`  
- [in]列挙するには、属性の型のコンス トラクターのトークンまたは`null`すべての種類。  
+ から列挙する属性の型のコンストラクターのトークン、またはすべての型の `null`。  
   
  `rCustomAttributes`  
- [out]トークンのカスタム属性の配列。  
+ 入出力カスタム属性トークンの配列。  
   
  `cMax`  
  [in] `rCustomAttributes` 配列の最大サイズ。  
   
  `pcCustomAttributes`  
- [out] 省略可能実際に返されるトークンの値数`rCustomAttributes`します。  
+ [out、省略可能]`rCustomAttributes`で返されるトークン値の実際の数。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|`S_OK`|`EnumCustomAttributes` 正常に返されます。|  
-|`S_FALSE`|カスタム属性を列挙することはありません。 その場合は、`pcCustomAttributes`は 0 です。|  
+|`S_OK`|`EnumCustomAttributes` が正常に返されました。|  
+|`S_FALSE`|列挙するカスタム属性はありません。 この場合、`pcCustomAttributes` は0になります。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

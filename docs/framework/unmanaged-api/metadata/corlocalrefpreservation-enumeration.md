@@ -1,5 +1,5 @@
 ---
-title: CorLocalRefPreservation 列挙型
+title: CorLocalRefPreservation Enumeration
 ms.date: 03/30/2017
 api_name:
 - CorLocalRefPreservation
@@ -14,16 +14,14 @@ helpviewer_keywords:
 ms.assetid: 44757163-1228-4213-a4c4-d4de503cc75d
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 6338034d6714e8770e06ff61994fdf4433eb1684
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 706ea37101f9f961e92d8cef2cf508c1dd0d56c1
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781788"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74450246"
 ---
-# <a name="corlocalrefpreservation-enumeration"></a>CorLocalRefPreservation 列挙型
+# <a name="corlocalrefpreservation-enumeration"></a>CorLocalRefPreservation Enumeration
 ローカル参照の処理のためのフラグ値が格納されます。  
   
 ## <a name="syntax"></a>構文  
@@ -41,17 +39,17 @@ typedef enum CorLocalRefPreservation
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`MDPreserveLocalRefsNone`|ローカルの参照を保存しません。|  
-|`MDPreserveLocalTypeRef`|ローカル型の参照を保持します。|  
-|`MDPreserveLocalMemberRef`|ローカル メンバーの参照を保持します。|  
+|`MDPreserveLocalRefsNone`|ローカル参照を保持しません。|  
+|`MDPreserveLocalTypeRef`|ローカル型参照を保持します。|  
+|`MDPreserveLocalMemberRef`|ローカルメンバー参照を保持します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v45plus](../../../../includes/net-current-v45plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

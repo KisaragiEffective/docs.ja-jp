@@ -1,15 +1,14 @@
 ---
 title: ML.NET アルゴリズムの選び方
 description: 機械学習モデルに適した ML.NET アルゴリズムの選び方について説明します
-author: natke
 ms.topic: overview
 ms.date: 06/05/2019
-ms.openlocfilehash: dfea21908258e6eb0b696de7affe1b03cff5cb3b
-ms.sourcegitcommit: a97ecb94437362b21fffc5eb3c38b6c0b4368999
+ms.openlocfilehash: 0fed33203c02303e37e47f548e08ec131eeb1c77
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972087"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75739994"
 ---
 # <a name="how-to-choose-an-mlnet-algorithm"></a>ML.NET アルゴリズムの選び方
 
@@ -19,9 +18,9 @@ ms.locfileid: "68972087"
 
 ## <a name="trainer--algorithm--task"></a>トレーナー = アルゴリズム + タスク
 
-アルゴリズムは、**モデル**を生成するために実行される数学です。 アルゴリズムが異なると、特性が異なるモデルが生成されます。 
+アルゴリズムは、**モデル**を生成するために実行される数学です。 アルゴリズムが異なると、特性が異なるモデルが生成されます。
 
-ML.NET では、同じアルゴリズムを異なるタスクに適用できます。 たとえば、確率的双対座標上昇法は、二項分類、多クラス分類、回帰に使用できます。 違いは、タスクに合わせてアルゴリズムの出力が解釈される方法にあります。 
+ML.NET では、同じアルゴリズムを異なるタスクに適用できます。 たとえば、確率的双対座標上昇法は、二項分類、多クラス分類、回帰に使用できます。 違いは、タスクに合わせてアルゴリズムの出力が解釈される方法にあります。
 
 ML.NET には、各アルゴリズムとタスクの組み合わせに対して、トレーニング アルゴリズムを実行し、解釈するコンポーネントが用意されています。 これらのコンポーネントはトレーナーと呼ばれます。 たとえば、<xref:Microsoft.ML.Trainers.SdcaRegressionTrainer> には、**回帰**タスクに適用される **StochasticDualCoordinatedAscent** アルゴリズムが使用されます。
 
@@ -39,7 +38,7 @@ ML.NET には、各アルゴリズムとタスクの組み合わせに対して�
 
 **線形トレーナー**
 
-|アルゴリズム|プロパティ|トレーナー|
+|アルゴリズム|Properties|トレーナー|
 |---------|----------|--------|
 |Averaged perceptron (平均化パーセプトロン)|テキスト分類に最適です|<xref:Microsoft.ML.Trainers.AveragedPerceptronTrainer>|
 |確率的双対座標上昇法|既定のパフォーマンスが適切な場合は、調整が不要です|<xref:Microsoft.ML.Trainers.SdcaLogisticRegressionBinaryTrainer> <xref:Microsoft.ML.Trainers.SdcaNonCalibratedBinaryTrainer> <xref:Microsoft.ML.Trainers.SdcaMaximumEntropyMulticlassTrainer> <xref:Microsoft.ML.Trainers.SdcaNonCalibratedMulticlassTrainer> <xref:Microsoft.ML.Trainers.SdcaRegressionTrainer>|
@@ -62,7 +61,7 @@ Boosted decision trees (ブースト デシジョン ツリー) は小さなツ�
 
 **デシジョン ツリー トレーナー**
 
-|アルゴリズム|プロパティ|トレーナー|
+|アルゴリズム|Properties|トレーナー|
 |---------|----------|--------|
 |Light gradient boosted machine (軽勾配ブースト マシン)|最も高速で最も正確な二項分類ツリー トレーナー。 高度に調整可能|<xref:Microsoft.ML.Trainers.LightGbm.LightGbmBinaryTrainer> <xref:Microsoft.ML.Trainers.LightGbm.LightGbmMulticlassTrainer> <xref:Microsoft.ML.Trainers.LightGbm.LightGbmRegressionTrainer> <xref:Microsoft.ML.Trainers.LightGbm.LightGbmRankingTrainer>|
 |Fast tree (高速ツリー)|特徴付けされた画像データに使用します。 不均衡なデータに対応できます。 高度に調整可能 | <xref:Microsoft.ML.Trainers.FastTree.FastTreeBinaryTrainer> <xref:Microsoft.ML.Trainers.FastTree.FastTreeRegressionTrainer> <xref:Microsoft.ML.Trainers.FastTree.FastTreeTweedieTrainer> <xref:Microsoft.ML.Trainers.FastTree.FastTreeRankingTrainer>|
@@ -71,7 +70,7 @@ Boosted decision trees (ブースト デシジョン ツリー) は小さなツ�
 
 ## <a name="matrix-factorization"></a>行列因子分解
 
-|プロパティ|トレーナー|
+|Properties|トレーナー|
 |----------|--------|
 |データセットが大規模で、カテゴリ別のスパース データに最適です|<xref:Microsoft.ML.Trainers.FieldAwareFactorizationMachineTrainer>|
 
@@ -79,31 +78,31 @@ Boosted decision trees (ブースト デシジョン ツリー) は小さなツ�
 
 これらのトレーナーでは、二項トレーナーから多クラストレーナーを作成します。 <xref:Microsoft.ML.Trainers.AveragedPerceptronTrainer>、<xref:Microsoft.ML.Trainers.LbfgsLogisticRegressionBinaryTrainer>、<xref:Microsoft.ML.Trainers.SymbolicSgdLogisticRegressionBinaryTrainer>、<xref:Microsoft.ML.Trainers.LightGbm.LightGbmBinaryTrainer>、<xref:Microsoft.ML.Trainers.FastTree.FastTreeBinaryTrainer>、<xref:Microsoft.ML.Trainers.FastTree.FastForestBinaryTrainer>、<xref:Microsoft.ML.Trainers.FastTree.GamBinaryTrainer> と共に使用します。
 
-|アルゴリズム|プロパティ|トレーナー|
+|アルゴリズム|Properties|トレーナー|
 |---------|----------|--------|
 |One versus all (1 対すべて)|この多クラス分類子では、クラスごとに 1 つの二項分類子がトレーニングされます。これにより、そのクラスは他のすべてのクラスと区別されます。 分類するクラスの数によってスケールが制限されます|[OneVersusAllTrainer\<BinaryClassificationTrainer>](xref:Microsoft.ML.Trainers.OneVersusAllTrainer) |
 |Pairwise coupling (ペアワイズ結合)|この多クラス分類子では、クラスの各ペアに対して二項分類アルゴリズムがトレーニングされます。 2 つのクラスの各組み合わせをトレーニングする必要があるので、クラスの数によってスケールが制限されます。|[PairwiseCouplingTrainer\<BinaryClassificationTrainer>](xref:Microsoft.ML.Trainers.PairwiseCouplingTrainer)|
 
 ## <a name="k-means"></a>K-Means
 
-|プロパティ|トレーナー|
+|Properties|トレーナー|
 |----------|--------|
 |クラスタリングに使用します|<xref:Microsoft.ML.Trainers.KMeansTrainer>|
 
 ## <a name="principal-component-analysis"></a>主成分分析
 
-|プロパティ|トレーナー|
+|Properties|トレーナー|
 |----------|--------|
 |異常検出に使用されます|<xref:Microsoft.ML.Trainers.RandomizedPcaTrainer>|
 
-## <a name="naive-bayes"></a>ナイーブ ベイズ
+## <a name="naive-bayes"></a>Naive Bayes
 
-|プロパティ|トレーナー|
+|Properties|トレーナー|
 |----------|--------|
 |特徴が独立しており、トレーニング データセットが小さい場合は、この多クラス分類トレーナーを使用します。|<xref:Microsoft.ML.Trainers.NaiveBayesMulticlassTrainer>|
 
 ## <a name="prior-trainer"></a>以前のトレーナー
 
-|プロパティ|トレーナー|
+|Properties|トレーナー|
 |----------|--------|
 |他のトレーナーのパフォーマンスを基準にするには、この二項分類トレーナーを使用します。 他のトレーナーのメトリックは以前のトレーナーよりも効果の点で優れています。 |<xref:Microsoft.ML.Trainers.PriorTrainer>|

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 8a4d9c86-b5ef-460a-9731-1d8c91b93a0b
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8c9486b8ad0acb53e13f6a9202ce2d713ffe5fce
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e7c60355d4c0e0f34f591a48270e388d0ff53a29
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67765004"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76790607"
 ---
 # <a name="icorpublishenumreset-method"></a>ICorPublishEnum::Reset メソッド
-列挙体の先頭のカーソルを移動します。  
+のカーソルを列挙体の先頭に移動します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -34,12 +32,12 @@ HRESULT Reset ();
 ```  
   
 ## <a name="parameters"></a>パラメーター  
- `Reset` パラメーターはありません。  
+ `Reset` はパラメーターを受け取りません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorPub.idl, CorPub.h  
+ **ヘッダー:** CorPub .idl、CorPub .h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -47,4 +45,4 @@ HRESULT Reset ();
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorPublishEnum インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icorpublishenum-interface.md)
+- [ICorPublishEnum インターフェイス](icorpublishenum-interface.md)

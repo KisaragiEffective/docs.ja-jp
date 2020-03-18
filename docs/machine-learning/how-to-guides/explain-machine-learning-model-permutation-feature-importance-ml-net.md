@@ -1,32 +1,32 @@
 ---
-title: Permutation Feature Importance を使用したモデル予測の説明
+title: Permutation Feature Importance を使用して ML.NET モデルを解釈する
 description: ML.NET の Permutation Feature Importance を使ってモデルの特徴の重要度を理解する
-ms.date: 08/29/2019
+ms.date: 01/30/2020
 author: luisquintanilla
 ms.author: luquinta
 ms.custom: mvc,how-to
-ms.openlocfilehash: 8090e4565a7e55aaa9cc9939e61eb728a169de8d
-ms.sourcegitcommit: 878ca7550b653114c3968ef8906da2b3e60e3c7a
+ms.openlocfilehash: c1163a41cd2feb0e8785ae9d4c6a71dfbedf3f12
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71736871"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77092617"
 ---
-# <a name="explain-model-predictions-using-permutation-feature-importance"></a>Permutation Feature Importance を使用してモデル予測を説明する
+# <a name="interpret-model-predictions-using-permutation-feature-importance"></a>Permutation Feature Importance を使用してモデル予測を解釈する
 
-Permutation Feature Importance (PFI) を使用した予測に対する特徴のコントリビューションを理解して、ML.NET の機械学習モデル予測を説明する方法について学習します。
+Permutation Feature Importance (PFI) を使用して、ML.NET 機械学習モデルの予測を解釈する方法について学習します。 PFI によって、各特徴がもたらす予測への相対的な貢献度が示されます。
 
 機械学習モデルは、入力を受け取り、出力を生成するブラック ボックスと考えられることがよくあります。 出力に影響する中間手順や特徴間の相互作用は、あまり理解されていません。 医療など、日常生活の多くの側面に機械学習が導入されるにつれて、機械学習モデルが決定を下す理由を理解することの重要度が最も高くなりました。 たとえば、機械学習モデルによって診断が行われる場合、医療従事者には、その診断が下された要因を調べる方法が必要です。 適切な診断を提供することは、患者が迅速に回復するかどうかに大きな違いをもたらす可能性があります。 そのため、モデル内の説明可能性のレベルが高いほど、モデルによって行われた決定を医療従事者が承認または拒否する必要がある場合の信頼性が高くなります。
 
-モデルの説明にはさまざまな手法が使用されており、その 1 つに PFI があります。 PFI は、[Breiman の「*Random Forests*」(ランダム フォレスト) 論文](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (セクション 10 を参照してください) にインスパイアされた、分類および回帰モデルの説明に使用される手法です。 概要を説明すると、データセット全体に対して一度に 1 つの特徴のデータをランダムにシャッフルし、関心のあるパフォーマンス メトリックがどのくらい低下するかを計算するしくみです。 変更が大きいほど、その特徴の重要度は高くなります。 
+モデルの説明にはさまざまな手法が使用されており、その 1 つに PFI があります。 PFI は、[Breiman の「*Random Forests*」(ランダム フォレスト) 論文](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (セクション 10 を参照してください) にインスパイアされた、分類および回帰モデルの説明に使用される手法です。 概要を説明すると、データセット全体に対して一度に 1 つの特徴のデータをランダムにシャッフルし、関心のあるパフォーマンス メトリックがどのくらい低下するかを計算するしくみです。 変更が大きいほど、その特徴の重要度は高くなります。
 
 さらに、最も重要な特徴を強調することで、モデル作成者はより重要な特徴のサブセットの使用に集中し、ノイズとトレーニング時間を減らすことができるようになります。
 
 ## <a name="load-the-data"></a>データを読み込む
 
-このサンプルに使用されているデータセットの特徴は、1 - 12 列目にあります。 目標は `Price` を予測することです。 
+このサンプルに使用されているデータセットの特徴は、1 - 12 列目にあります。 目標は `Price` を予測することです。
 
-| Column | 機能 | 説明 
+| 列 | 機能 | [説明]
 | --- | --- | --- |
 | 1 | CrimeRate | 1 人当たりの犯罪率
 | 2 | ResidentialZones | 町の住宅地区
@@ -103,7 +103,7 @@ class HousingPriceData
 
 ```csharp
 // 1. Get the column name of input features.
-string[] featureColumnNames = 
+string[] featureColumnNames =
     data.Schema
         .Select(column => column.Name)
         .Where(columnName => columnName != "Label").ToArray();
@@ -131,15 +131,15 @@ var sdcaModel = sdcaEstimator.Fit(preprocessedTrainData);
 ML.NET では、それぞれのタスクに [`PermutationFeatureImportance`](xref:Microsoft.ML.PermutationFeatureImportanceExtensions) メソッドを使用します。
 
 ```csharp
-ImmutableArray<RegressionMetricsStatistics> permutationFeatureImportance = 
+ImmutableArray<RegressionMetricsStatistics> permutationFeatureImportance =
     mlContext
         .Regression
         .PermutationFeatureImportance(sdcaModel, preprocessedTrainData, permutationCount:3);
 ```
 
-トレーニング データセットに対して [`PermutationFeatureImportance`](xref:Microsoft.ML.PermutationFeatureImportanceExtensions) を使用した結果は、[`RegressionMetricsStatistics`](xref:Microsoft.ML.Data.RegressionMetricsStatistics) オブジェクトの [`ImmutableArray`](xref:System.Collections.Immutable.ImmutableArray) になります。 [`RegressionMetricsStatistics`](xref:Microsoft.ML.Data.RegressionMetricsStatistics) は、`permutationCount` パラメーターに指定された順列の数と等しい [`RegressionMetrics`](xref:Microsoft.ML.Data.RegressionMetrics)の複数の観測値について、平均や標準偏差などの概要の統計情報を提供します。
+トレーニング データセットに対して [`PermutationFeatureImportance`](xref:Microsoft.ML.PermutationFeatureImportanceExtensions) を使用した結果は、[`ImmutableArray`](xref:System.Collections.Immutable.ImmutableArray) オブジェクトの [`RegressionMetricsStatistics`](xref:Microsoft.ML.Data.RegressionMetricsStatistics) になります。 [`RegressionMetricsStatistics`](xref:Microsoft.ML.Data.RegressionMetricsStatistics) は、[ パラメーターに指定された順列の数と等しい `RegressionMetrics`](xref:Microsoft.ML.Data.RegressionMetrics)`permutationCount`の複数の観測値について、平均や標準偏差などの概要の統計情報を提供します。
 
-重要度、このケースで言い換えると、[`PermutationFeatureImportance`](xref:Microsoft.ML.PermutationFeatureImportanceExtensions) によって計算される R-2 乗メトリックの絶対平均減少は、最も高い重要度から最も低い重要度の順に並べ替えることができます。  
+重要度、このケースで言い換えると、[`PermutationFeatureImportance`](xref:Microsoft.ML.PermutationFeatureImportanceExtensions) によって計算される R-2 乗メトリックの絶対平均減少は、最も高い重要度から最も低い重要度の順に並べ替えることができます。
 
 ```csharp
 // Order features by importance
@@ -156,7 +156,7 @@ foreach (var feature in featureImportanceMetrics)
 }
 ```
 
-`featureImportanceMetrics` の各特徴の値を出力すると、以下のような出力が生成されます。 これらの値は指定されたデータに基づいて変わるため、異なる結果が表示されることを想定する点に注意してください。  
+`featureImportanceMetrics` の各特徴の値を出力すると、以下のような出力が生成されます。 これらの値は指定されたデータに基づいて変わるため、異なる結果が表示されることを想定する点に注意してください。
 
 | 機能 | R-2 乗に変更 |
 |:--|:--:|

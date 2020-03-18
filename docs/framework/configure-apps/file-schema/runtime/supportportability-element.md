@@ -5,14 +5,12 @@ helpviewer_keywords:
 - supportPortability element
 - <supportPortability> element
 ms.assetid: 6453ef66-19b4-41f3-b712-52d0c2abc9ca
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7a76c378038a19d3edb9fe0c5e61012cc854c1b7
-ms.sourcegitcommit: 559259da2738a7b33a46c0130e51d336091c2097
+ms.openlocfilehash: 63c309a8a93c1d31ed8f73a495cf5154c3590d56
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72773930"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73115653"
 ---
 # <a name="supportportability-element"></a>> 要素の \<supportPortability
 .NET Framework の 2 つの異なる実装にある同じアセンブリを 1 つのアプリケーションから参照できるように、既定の動作を無効にすることができます。既定の動作では、アプリケーションの移植性を高めるために、このようなアセンブリは同等のものとして扱われます。  

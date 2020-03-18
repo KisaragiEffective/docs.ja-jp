@@ -14,19 +14,17 @@ helpviewer_keywords:
 ms.assetid: 5fb645d9-b818-401c-8c2c-c30d86de58ba
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: dcf63000de549b42d92ba157a7e550ac605bbfcd
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 103ac75e7c3eaf9739c3a448ff1c052c158621db
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67768381"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73090902"
 ---
-# <a name="lpoverlappedcompletionroutine-function-pointer"></a>LPOVERLAPPED_COMPLETION_ROUTINE 関数ポインター
+# <a name="lpoverlapped_completion_routine-function-pointer"></a>LPOVERLAPPED_COMPLETION_ROUTINE 関数ポインター
 デバイスに対する重複 I/O (非同期 I/O) が完了したときに、ホストに通知する関数を指します。  
   
- この関数ポインターは、.NET Framework 4 では廃止されました。  
+ この関数ポインターは .NET Framework 4 で非推奨とされました。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,25 +38,25 @@ typedef VOID (*LPOVERLAPPED_COMPLETION_ROUTINE) (
   
 ## <a name="parameters"></a>パラメーター  
  `dwErrorCode`  
- [in]デバイスが閉じられていない場合、エラー コードである値それ以外の場合、この値は 0 です。  
+ からデバイスが閉じられている場合は、エラーコードである値。それ以外の場合、この値は0です。  
   
- デバイスを閉じる、保留中のすべてのデバイスに I/O をすぐに完了するとします。  
+ デバイスを閉じると、デバイスに対するすべての保留中の i/o が直ちに完了します。  
   
  `dwNumberOfBytesTransfered`  
- [in]I/O 操作によって転送されたバイト数。  
+ からI/o 操作によって転送されたバイト数。  
   
  `lpOverlapped`  
- [in]I/O 要求を完了するために使用する情報を格納する構造体へのポインター。  
+ からI/o 要求を完了するために使用される情報を格納する構造体へのポインター。  
   
 ## <a name="remarks"></a>Remarks  
- 関数`LPOVERLAPPED_COMPLETION_ROUTINE`ポイントはコールバック関数であり、ホスト アプリケーションの作成者によって実装する必要があります。 コールバック関数では、ホストが完了した I/O 要求を処理できるようにします。  
+ `LPOVERLAPPED_COMPLETION_ROUTINE` ポイントする関数はコールバック関数であり、ホストアプリケーションのライターによって実装される必要があります。 コールバック関数を使用すると、ホストは、完了した i/o 要求を処理できます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorWks.dll  
+ **ライブラリ:** Mscorwks.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

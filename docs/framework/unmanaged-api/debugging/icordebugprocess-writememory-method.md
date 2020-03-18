@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: d5c07d86-045d-4391-893b-0bcd2959f90e
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4599bf310a0b819bc662b90a5a86e87ac27c37b1
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: fb3e0ccb57cf3b056bd25e643706e49b8bc75531
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67737021"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76792538"
 ---
 # <a name="icordebugprocesswritememory-method"></a>ICorDebugProcess::WriteMemory メソッド
-このプロセスでメモリの領域にデータを書き込みます。  
+このプロセスのメモリ領域にデータを書き込みます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,24 +37,24 @@ HRESULT WriteMemory(
   
 ## <a name="parameters"></a>パラメーター  
  `address`  
- [in]A`CORDB_ADDRESS`データ メモリ領域のベース アドレスは、値が書き込まれます。 データ転送が発生する前に、システムは、ベース アドレスで始まる、指定したサイズのメモリ領域が書き込み用にアクセスできることを確認します。 アクセスできない場合、メソッドは失敗します。  
+ からデータが書き込まれるメモリ領域のベースアドレスである `CORDB_ADDRESS` 値。 データ転送が行われる前に、システムは、ベースアドレスを開始位置として、指定したサイズのメモリ領域が書き込み可能であることを確認します。 アクセスできない場合、メソッドは失敗します。  
   
  `size`  
- [in]メモリ領域に書き込まれるバイト数。  
+ からメモリ領域に書き込まれるバイト数。  
   
  `buffer`  
- [in]書き込むデータを格納するバッファー。  
+ から書き込むデータを格納するバッファー。  
   
  `written`  
- [out]このプロセスのメモリ領域に書き込まれたバイト数を受け取る変数へのポインター。 場合`written`が null の場合、このパラメーターは無視されます。  
+ 入出力このプロセスのメモリ領域に書き込まれたバイト数を受け取る変数へのポインター。 `written` が NULL の場合、このパラメーターは無視されます。  
   
-## <a name="remarks"></a>Remarks  
- データは、ブレークポイントの背後に自動的に書き込まれます。 .NET framework version 2.0 では、ネイティブ デバッガーは、命令ストリームにブレークポイントを挿入するのにこのメソッドを使用する必要があります。 使用[icordebugprocess 2::setunmanagedbreakpoint](../../../../docs/framework/unmanaged-api/debugging/icordebugprocess2-setunmanagedbreakpoint-method.md)代わりにします。  
+## <a name="remarks"></a>コメント  
+ データは、ブレークポイントの背後に自動的に書き込まれます。 .NET Framework バージョン2.0 では、ネイティブデバッガーは、このメソッドを使用して命令ストリームにブレークポイントを挿入することはできません。 代わりに[ICorDebugProcess2:: SetUnmanagedBreakpoint](icordebugprocess2-setunmanagedbreakpoint-method.md)を使用してください。  
   
- `WriteMemory`メソッドは、マネージ コードの外側でのみ使用する必要があります。 このメソッドは、誤って使用すると、ランタイムを破壊できます。  
+ `WriteMemory` メソッドは、マネージコードの外部でのみ使用する必要があります。 不適切に使用された場合、このメソッドはランタイムを破損する可能性があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

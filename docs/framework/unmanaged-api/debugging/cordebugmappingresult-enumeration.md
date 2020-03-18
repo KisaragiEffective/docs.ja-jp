@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 701281dd-2936-45c8-a1f0-3bf7332b093b
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: c2042d0936359a85d203375c42be0d8a096f004e
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 317dc2fe8403ae25949410423f1a28ad365caf6a
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67739753"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76789308"
 ---
 # <a name="cordebugmappingresult-enumeration"></a>CorDebugMappingResult 列挙型
 命令ポインター (IP) の値が得られた方法の詳細を提供します。  
@@ -43,18 +41,18 @@ typedef enum CorDebugMappingResult {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`MAPPING_PROLOG`|Ip アドレスの値は 0 は、プロローグでネイティブ コードです。|  
-|`MAPPING_EPILOG`|Ip アドレスの値は、メソッドの最後の命令のアドレスは、エピローグでネイティブ コード。|  
-|`MAPPING_NO_INFO`|マッピング情報がない、メソッドの使用可能なため、IP の値は 0 です。|  
-|`MAPPING_UNMAPPED_ADDRESS`|メソッドのマッピング情報が、現在のアドレスは、Microsoft intermediate language (MSIL) コードにマップできません。 Ip アドレスの値は 0 です。|  
-|`MAPPING_EXACT`|メソッドの MSIL コードに正確にマップまたはフレームが解釈されているので、ip アドレスの値は正確です。|  
-|`MAPPING_APPROXIMATE`|メソッドが正常にマップされましたが、ip アドレスの値は概数である可能性があります。|  
+|`MAPPING_PROLOG`|ネイティブコードはプロローグ内にあるため、IP の値は0です。|  
+|`MAPPING_EPILOG`|ネイティブコードはエピローグ内にあるため、IP の値はメソッドの最後の命令のアドレスになります。|  
+|`MAPPING_NO_INFO`|メソッドに使用できるマッピング情報がないため、IP の値は0になります。|  
+|`MAPPING_UNMAPPED_ADDRESS`|メソッドのマッピング情報は存在しますが、現在のアドレスを MSIL (Microsoft 中間言語) コードにマップすることはできません。 IP の値は0です。|  
+|`MAPPING_EXACT`|メソッドが MSIL コードに厳密にマップされているか、フレームが解釈されているため、IP の値は正確です。|  
+|`MAPPING_APPROXIMATE`|メソッドは正常にマップされましたが、IP の値は概数である可能性があります。|  
   
-## <a name="remarks"></a>Remarks  
- 使用することができます、 [icordebugilframe::getip](../../../../docs/framework/unmanaged-api/debugging/icordebugilframe-getip-method.md)命令ポインターの値を取得します。  
+## <a name="remarks"></a>コメント  
+ 指示ポインターの値を取得するには、「ツール」を[使用します](icordebugilframe-getip-method.md)。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -64,4 +62,4 @@ typedef enum CorDebugMappingResult {
   
 ## <a name="see-also"></a>関連項目
 
-- [列挙型のデバッグ](../../../../docs/framework/unmanaged-api/debugging/debugging-enumerations.md)
+- [列挙型のデバッグ](debugging-enumerations.md)

@@ -5,14 +5,12 @@ helpviewer_keywords:
 - strong-named assemblies, about strong-named assemblies
 - assemblies [.NET Framework], strong-named
 ms.assetid: d4a80263-f3e0-4d81-9b61-f0cbeae3797b
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 67beeba6ce33fb1a8c3d02337d98282ccf30341a
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 12b8df3195b2708e4556d4f8065227054db9eb14
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70991303"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75711572"
 ---
 # <a name="strong-named-assemblies"></a>厳密な名前付きアセンブリ
 
@@ -22,7 +20,7 @@ ms.locfileid: "70991303"
 
 厳格な名前付きのアセンブリは、アセンブリと一緒に配布された公開キーに対応する秘密キーとアセンブリ自体を使用して生成されます。 アセンブリには、アセンブリ マニフェストが含まれます。ここには、アセンブリを構成するすべてのファイルの名前とハッシュが格納されています。 同じ厳格な名前を持つ複数のアセンブリは、同一である必要があります。
 
-Visual Studio またはコマンド ライン ツールを使用して、アセンブリに厳格な名前を付けることができます。 詳細については、「[方法 :厳密な名前でアセンブリに署名する](sign-strong-name.md)」または「[Sn.exe (厳密な名前ツール)](../../framework/tools/sn-exe-strong-name-tool.md)」 を参照してください。
+Visual Studio またはコマンド ライン ツールを使用して、アセンブリに厳格な名前を付けることができます。 詳細については、[厳密な名前でアセンブリに署名する](sign-strong-name.md)」または「[Sn.exe (厳密な名前ツール)](../../framework/tools/sn-exe-strong-name-tool.md)」 を参照してください。
 
 厳格に名前付けされたアセンブリには、アセンブリの単純テキスト名、バージョン番号、カルチャ情報 (省略可能)、デジタル署名、および署名に使用する秘密キーに対応した公開キーが含まれています。
 

@@ -7,29 +7,27 @@ helpviewer_keywords:
 - .NET Framework 2.0, hosting global static functions
 - hosting global static functions [.NET Framework], version 2.0
 ms.assetid: 91fbbb35-e543-4814-b806-371cebae8c5a
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: dde711f2d626d88fd80009fa83f1198dd9d47810
-ms.sourcegitcommit: 155012a8a826ee8ab6aa49b1b3a3b532e7b7d9bd
+ms.openlocfilehash: 62773ce526b1f21c57ab85a106708589fcf92f6f
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66490481"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73138266"
 ---
 # <a name="deprecated-clr-hosting-functions"></a>非推奨の CLR ホスト関数
 このセクションでは、以前のバージョンのホスト API で使用されていたアンマネージ グローバル静的関数について説明します。  
   
- インフラストラクチャ関数を除く (`_Cor*`関数)、.NET Framework でのみ使用されますが、これらの関数が .NET Framework 4 では非推奨とされました。  
+ .NET Framework によってのみ使用されるインフラストラクチャ関数 (`_Cor*` 関数) を除き、これらの関数は .NET Framework 4 で非推奨とされました。  
   
 ## <a name="activation-functions"></a>アクティブ化関数  
  [ClrCreateManagedInstance 関数](../../../../docs/framework/unmanaged-api/hosting/clrcreatemanagedinstance-function.md)  
  非推奨。 指定したマネージド型のインスタンスを作成します。  
   
  [CoInitializeCor 関数](../../../../docs/framework/unmanaged-api/hosting/coinitializecor-function.md)  
- 互換性のために残されています。 共通言語ランタイム (CLR) を初期化するためにいずれかの操作を使用して[CorBindToRuntimeEx](../../../../docs/framework/unmanaged-api/hosting/corbindtoruntimeex-function.md)または[CorBindToCurrentRuntime](../../../../docs/framework/unmanaged-api/hosting/corbindtocurrentruntime-function.md)します。  
+ 互換性のために残されています。 共通言語ランタイム (CLR) を初期化するには、 [Corbindtoruntimeex](../../../../docs/framework/unmanaged-api/hosting/corbindtoruntimeex-function.md)または[Corbindtoの entruntime](../../../../docs/framework/unmanaged-api/hosting/corbindtocurrentruntime-function.md)を使用します。  
   
  [CoInitializeEE 関数](../../../../docs/framework/unmanaged-api/hosting/coinitializeee-function.md)  
- 非推奨。 CLR 実行エンジンがプロセスに読み込まれていることを確認します。 使用して、 [iclrruntimehost::start](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-start-method.md)メソッド代わりにします。  
+ 非推奨。 CLR 実行エンジンがプロセスに読み込まれていることを確認します。 代わりに[ICLRRuntimeHost:: Start](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-start-method.md)メソッドを使用してください。  
   
  [CorBindToCurrentRuntime 関数](../../../../docs/framework/unmanaged-api/hosting/corbindtocurrentruntime-function.md)  
  非推奨。 XML ファイルに格納されているバージョン情報を使用して、共通言語ランタイム (CLR: Common Language Runtime) をプロセスに読み込みます。  
@@ -102,13 +100,13 @@ ms.locfileid: "66490481"
  互換性のために残されています。  
   
  [CreateDebuggingInterfaceFromVersion 関数](../../../../docs/framework/unmanaged-api/hosting/createdebugginginterfacefromversion-function.md)  
- 非推奨。 作成、 [ICorDebug](../../../../docs/framework/unmanaged-api/debugging/icordebug-interface.md)オブジェクトが指定されたバージョン情報に基づきます。  
+ 非推奨。 指定されたバージョン情報に基づいて[ICorDebug](../../../../docs/framework/unmanaged-api/debugging/icordebug-interface.md)オブジェクトを作成します。  
   
  [CreateICeeFileGen 関数](../../../../docs/framework/unmanaged-api/hosting/createiceefilegen-function.md)  
- 非推奨。 作成、 [ICeeFileGen](../../../../docs/framework/unmanaged-api/hosting/iceefilegen-class.md)オブジェクト。  
+ 非推奨。 [ICeeFileGen](../../../../docs/framework/unmanaged-api/hosting/iceefilegen-class.md)オブジェクトを作成します。  
   
  [DestroyICeeFileGen 関数](../../../../docs/framework/unmanaged-api/hosting/destroyiceefilegen-function.md)  
- 非推奨。 破棄、 [ICeeFileGen](../../../../docs/framework/unmanaged-api/hosting/iceefilegen-class.md)オブジェクト。  
+ 非推奨。 [ICeeFileGen](../../../../docs/framework/unmanaged-api/hosting/iceefilegen-class.md)オブジェクトを破棄します。  
   
  [FExecuteInAppDomainCallback 関数ポインター](../../../../docs/framework/unmanaged-api/hosting/fexecuteinappdomaincallback-function-pointer.md)  
  非推奨。 CLR がマネージド コードを実行するために呼び出す関数を指します。  

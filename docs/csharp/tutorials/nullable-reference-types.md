@@ -2,17 +2,18 @@
 title: null 許容参照型を使用して設計する
 description: この高度なチュートリアルでは、null 許容参照型の概要について説明します。 参照値で null がいつ許容されるかに関する設計意図を表すことで、コンパイラで null が許容されるようにします。
 ms.date: 02/19/2019
+ms.technology: csharp-null-safety
 ms.custom: mvc
-ms.openlocfilehash: e58f2bac23fabf734df93aa2a643106f1c1bd5f3
-ms.sourcegitcommit: 9c3a4f2d3babca8919a1e490a159c1500ba7a844
+ms.openlocfilehash: b00050c1d151b95e330f94eb9393a4031e47d5a8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72291382"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "78240068"
 ---
-# <a name="tutorial-express-your-design-intent-more-clearly-with-nullable-and-non-nullable-reference-types"></a>チュートリアル:null 許容参照型と null 非許容参照型を使用して設計意図をもっと明確に示す
+# <a name="tutorial-express-your-design-intent-more-clearly-with-nullable-and-non-nullable-reference-types"></a>チュートリアル: null 許容参照型と null 非許容参照型を使用して設計意図をもっと明確に示す
 
-C# 8.0 には [null 許容参照型](../nullable-references.md)が導入されています。これは、null 許容値型が値型を補完するのと同じように、参照型を補完するものです。 型に `?` を追加することで、変数が **null 許容参照型**であることを宣言します。 たとえば、`string?` は、null が許容される `string` を表します。 これらの新しい型を使用して、一部の変数では*常に値を持つ必要があり*、他の変数では*値が欠落することも可能である*という設計意図をさらに明確に示すことができます。
+C# 8.0 には [null 許容参照型](../nullable-references.md)が導入されています。これは、null 許容値型が値型を補完するのと同じように、参照型を補完するものです。 型に **を追加することで、変数が**null 許容参照型`?`であることを宣言します。 たとえば、`string?` は、null が許容される `string` を表します。 これらの新しい型を使用して、一部の変数では*常に値を持つ必要があり*、他の変数では*値が欠落することも可能である*という設計意図をさらに明確に示すことができます。
 
 このチュートリアルでは、次の作業を行う方法について説明します。
 
@@ -23,7 +24,7 @@ C# 8.0 には [null 許容参照型](../nullable-references.md)が導入され�
 > - コンパイラでこれらの設計上の決定が適用されるコードを記述する。
 > - 自分の設計の中で null 許容参照機能を使用する。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 お使いのコンピューターを、.NET Core が実行されるように設定する必要があります。C# 8.0 コンパイラも実行されるようにします。 C# 8.0 コンパイラは、[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) または [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0) で使用できます。
 
@@ -73,7 +74,7 @@ C# 8.0 には [null 許容参照型](../nullable-references.md)が導入され�
 
 ## <a name="build-the-survey-with-nullable-and-non-nullable-types"></a>null 許容型と null 非許容型を含むアンケートを作成する
 
-最初に記述するコードによって、アンケートが作成されます。 アンケートの質問とアンケートの実行をモデル化するクラスを記述します。 アンケートには、回答の形式によって区別される 3 種類の質問があります:はい/いいえで回答するもの、番号で回答するもの、およびテキストで回答するもの。 `public SurveyQuestion` クラスを作成します。
+最初に記述するコードによって、アンケートが作成されます。 アンケートの質問とアンケートの実行をモデル化するクラスを記述します。 アンケートには、回答の形式によって区別される 3 種類の質問があります (はい/いいえで回答するもの、番号で回答するもの、およびテキストで回答するもの)。 `public SurveyQuestion` クラスを作成します。
 
 ```csharp
 namespace NullableIntroduction
@@ -106,11 +107,11 @@ namespace NullableIntroduction
 
 `QuestionText` を初期化していないため、コンパイラによって、null を許容しないプロパティが初期化されていないことを示す警告が発行されます。 この設計では、質問のテキストを null 以外にする必要があるため、初期化するためのコンストラクターを追加します。`QuestionType` 値も同様にします。 完成したクラス定義は、次のコードのようになります。
 
-[!code-csharp[DefineQuestion](~/samples/csharp/NullableIntroduction/NullableIntroduction/SurveyQuestion.cs)]
+[!code-csharp[DefineQuestion](~/samples/snippets/csharp/NullableIntroduction/NullableIntroduction/SurveyQuestion.cs)]
 
 コンストラクターを追加すると、警告が解除されます。 コンストラクターの引数も、null 非許容参照型であるため、コンパイラによる警告は発行されません。
 
-次に、`SurveyRun` という名前の `public` クラスを作成します。 次のコードに示すように、このクラスには、アンケートに質問を追加する `SurveyQuestion` オブジェクトとメソッドの一覧が含まれます。
+次に、`public` という名前の `SurveyRun` クラスを作成します。 次のコードに示すように、このクラスには、アンケートに質問を追加する `SurveyQuestion` オブジェクトとメソッドの一覧が含まれます。
 
 ```csharp
 using System.Collections.Generic;
@@ -132,7 +133,7 @@ namespace NullableIntroduction
 
 お使いのエディターで *Program.cs* に切り替え、`Main` の内容を次のコード行に置き換えます。
 
-[!code-csharp[AddQuestions](~/samples/csharp/NullableIntroduction/NullableIntroduction/Program.cs#AddQuestions)]
+[!code-csharp[AddQuestions](~/samples/snippets/csharp/NullableIntroduction/NullableIntroduction/Program.cs#AddQuestions)]
 
 プロジェクト全体が、有効な null 許容注釈コンテキスト内にあるので、null 非許容参照型が必要なメソッドに `null` を渡すと、警告が発生します。 次の行を `Main` に追加して試してください。
 
@@ -164,7 +165,7 @@ namespace NullableIntroduction
 
 次に、`static` メソッドを追加し、ランダム ID を生成することで新しい参加者を作成します。
 
-[!code-csharp[GenerateRespondents](~/samples/csharp/NullableIntroduction/NullableIntroduction/SurveyResponse.cs#Random)]
+[!code-csharp[GenerateRespondents](~/samples/snippets/csharp/NullableIntroduction/NullableIntroduction/SurveyResponse.cs#Random)]
 
 このクラスの主な役割は、アンケートの質問に対する参加者の回答を生成することです。 この役割には、いくつかの手順があります。
 
@@ -173,49 +174,49 @@ namespace NullableIntroduction
 
 `SurveyResponse` クラスに次のコードを追加します。
 
-[!code-csharp[AnswerSurvey](~/samples/csharp/NullableIntroduction/NullableIntroduction/SurveyResponse.cs#AnswerSurvey)]
+[!code-csharp[AnswerSurvey](~/samples/snippets/csharp/NullableIntroduction/NullableIntroduction/SurveyResponse.cs#AnswerSurvey)]
 
-アンケートの回答用のストレージは `Dictionary<int, string>?` であり、null が可能であることを示しています。 新しい言語機能を使用して、コンパイラーと後日コードを読む人の両方に対して、設計意図が宣言されています。 先に `null` 値のチェックを行わずに `surveyResponses` を逆参照した場合は、コンパイラの警告が表示されます。 `AnswerSurvey` メソッドで警告が表示されないのは、上記で `surveyResponses` 変数が null 以外の値に設定されたことをコンパイラが判断できるためです。
+アンケートの回答用のストレージは `Dictionary<int, string>?` であり、null が可能であることを示しています。 新しい言語機能を使用して、コンパイラーと後日コードを読む人の両方に対して、設計意図が宣言されています。 先に `surveyResponses` 値のチェックを行わずに `null` を逆参照した場合は、コンパイラの警告が表示されます。 `AnswerSurvey` メソッドで警告が表示されないのは、上記で `surveyResponses` 変数が null 以外の値に設定されたことをコンパイラが判断できるためです。
 
 欠落している回答に対して `null` を使用すると、null 許容参照型を処理するための重要なポイントが強調表示されます。目標は、プログラムからすべての `null` 値を削除することではありません。 本当の目標は、記述しているコードで設計の意図が確実に表されるようにすることです。 欠落値は、コードでの表現に必要な概念です。 `null` 値は、これらの欠落値を表現する明確な方法です。 すべての `null` を削除しようとしても、`null` を使わずにそれらの欠落値を表すための他の何らかの方法を定義することになるだけです。
 
-次に、`SurveyRun` クラス内に `PerformSurvey` メソッドを記述する必要があります。 `SurveyRun` クラスに次のコードを追加します。
+次に、`PerformSurvey` クラス内に `SurveyRun` メソッドを記述する必要があります。 `SurveyRun` クラスに次のコードを追加します。
 
-[!code-csharp[PerformSurvey](~/samples/csharp/NullableIntroduction/NullableIntroduction/SurveyRun.cs#PerformSurvey)]
+[!code-csharp[PerformSurvey](~/samples/snippets/csharp/NullableIntroduction/NullableIntroduction/SurveyRun.cs#PerformSurvey)]
 
 ここでも、null を許容する `List<SurveyResponse>?` の選択によって、応答で null が可能であることが示されす。 これは、アンケートがまだ回答者に表示されていないことを示します。 十分な数の同意が得られるまで回答者が追加されることに注意してください。
 
 アンケートを実行する最後の手順は、`Main` メソッドの最後にアンケートを実行する呼び出しを追加することです。
 
-[!code-csharp[RunSurvey](~/samples/csharp/NullableIntroduction/NullableIntroduction/Program.cs#RunSurvey)]
+[!code-csharp[RunSurvey](~/samples/snippets/csharp/NullableIntroduction/NullableIntroduction/Program.cs#RunSurvey)]
 
 ## <a name="examine-survey-responses"></a>アンケートの回答を調べる
 
 最後の手順は、アンケートの結果を表示することです。 記述したクラスの多くにコードを追加します。 このコードでは、null 許容参照型と null 非許容参照型を区別する値を示します。 `SurveyResponse` クラスに次の 2 つの式形式メンバーを追加することから始めます。
 
-[!code-csharp[ReportResponses](~/samples/csharp/NullableIntroduction/NullableIntroduction/SurveyResponse.cs#SurveyStatus)]
+[!code-csharp[ReportResponses](~/samples/snippets/csharp/NullableIntroduction/NullableIntroduction/SurveyResponse.cs#SurveyStatus)]
 
 `surveyResponses` は null 許容参照型であるため、それを逆参照する前にチェックが必要です。 `Answer` メソッドからは null 非許容の文字列が返されます。そのため、null 合体演算子を使用して、不足している回答のケースをカバーする必要があります。
 
 次に、次の 3 つの式形式メンバーを `SurveyRun` クラスに追加します。
 
-[!code-csharp[ReportResults](~/samples/csharp/NullableIntroduction/NullableIntroduction/SurveyRun.cs#RunReport)]
+[!code-csharp[ReportResults](~/samples/snippets/csharp/NullableIntroduction/NullableIntroduction/SurveyRun.cs#RunReport)]
 
 `AllParticipants` メンバーでは、`respondents` 変数は null の場合があるが、戻り値を null にすることはできないことを考慮する必要があります。 この式を `??` とその後ろの空のシーケンスを削除することで変更すると、コンパイラーによって、メソッドで `null` が返され、その戻り値のシグネチャで null 非許容型が返される可能性があることが警告されます。
 
 最後に、次のループを `Main` メソッドの末尾に追加します。
 
-[!code-csharp[DisplaySurveyResults](~/samples/csharp/NullableIntroduction/NullableIntroduction/Program.cs#WriteAnswers)]
+[!code-csharp[DisplaySurveyResults](~/samples/snippets/csharp/NullableIntroduction/NullableIntroduction/Program.cs#WriteAnswers)]
 
 基になるインターフェースを非許容参照型を返すように設計しているため、このコードでは `null` のチェックは必要ありません。
 
 ## <a name="get-the-code"></a>コードの入手
 
-[csharp/NullableIntroduction](https://github.com/dotnet/samples/tree/master/csharp/NullableIntroduction) フォルダーの [samples](https://github.com/dotnet/samples) リポジトリから、完成したチュートリアルのコードを取得できます。
+[csharp/NullableIntroduction](https://github.com/dotnet/samples) フォルダーの [samples](https://github.com/dotnet/samples/tree/master/csharp/NullableIntroduction) リポジトリから、完成したチュートリアルのコードを取得できます。
 
 null 許容参照型と null 非許容参照型の間で型宣言を変更することで試してください。 それによって生成される警告が変わることを確認して、`null` を間違って逆参照することがないようにしてください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 既存のアプリケーションを null 許容参照型を使用するように移行することについてさらに詳しく学習します。
 > [!div class="nextstepaction"]

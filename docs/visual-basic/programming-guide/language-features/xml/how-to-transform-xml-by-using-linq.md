@@ -1,20 +1,20 @@
 ---
-title: '方法 : LINQ を使用して XML を変換する (Visual Basic)'
+title: '方法 : LINQ を使用した XML の変換'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - XML [Visual Basic], transforming
 - LINQ to XML [Visual Basic], transforming XML
 ms.assetid: 815687f4-0bc2-4c0b-adc6-d78744aa356f
-ms.openlocfilehash: 347ca45c2417c1ffb9a86f3bcb51c75f3382bfad
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: a531b189074ac7bdd1c02935368c408ff506a6f1
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524812"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74353645"
 ---
 # <a name="how-to-transform-xml-by-using-linq-visual-basic"></a>方法 : LINQ を使用して XML を変換する (Visual Basic)
 
-[Xml リテラル](../../../../visual-basic/language-reference/xml-literals/index.md)を使用すると、1つのソースから xml を簡単に読み取り、新しい xml 形式に変換することができます。 LINQ クエリを利用して、変換するコンテンツを取得したり、既存のドキュメントの内容を新しい XML 形式に変更したりできます。
+[XML リテラル](../../../../visual-basic/language-reference/xml-literals/index.md)を使用すると、1つのソースから xml を簡単に読み取り、新しい xml 形式に変換することができます。 LINQ クエリを利用して、変換するコンテンツを取得したり、既存のドキュメントの内容を新しい XML 形式に変更したりできます。
 
 このトピックの例では、XML ソースドキュメントから HTML にコンテンツを変換し、ブラウザーで表示されるようにします。
 
@@ -24,7 +24,7 @@ ms.locfileid: "72524812"
 
 1. Visual Studio で、**コンソールアプリケーション**プロジェクトテンプレートに新しい Visual Basic プロジェクトを作成します。
 
-2. プロジェクトで作成された module1.vb ファイルをダブルクリックして、Visual Basic コードを変更します。 @No__t_1 モジュールの `Sub Main` に次のコードを追加します。 このコードでは、ソース XML ドキュメントを <xref:System.Xml.Linq.XDocument> オブジェクトとして作成します。
+2. プロジェクトで作成された module1.vb ファイルをダブルクリックして、Visual Basic コードを変更します。 `Module1` モジュールの `Sub Main` に次のコードを追加します。 このコードでは、ソース XML ドキュメントを <xref:System.Xml.Linq.XDocument> オブジェクトとして作成します。
 
     ```vb
     Dim catalog =
@@ -60,7 +60,7 @@ ms.locfileid: "72524812"
 
      [方法: ファイル、文字列、またはストリームから XML を読み込む](../../../../visual-basic/programming-guide/language-features/xml/how-to-load-xml-from-a-file-string-or-stream.md)
 
-3. ソース XML ドキュメントを作成するコードの後に、次のコードを追加して、オブジェクトからすべての \<Book > 要素を取得し、HTML ドキュメントに変換します。 @No__t_0Book > 要素の一覧は、変換された HTML を含む <xref:System.Xml.Linq.XElement> オブジェクトのコレクションを返す LINQ クエリを使用して作成されます。 埋め込み式を使用して、ソースドキュメントの値を新しい XML 形式で格納できます。
+3. ソース XML ドキュメントを作成するコードの後に、次のコードを追加して、オブジェクトからすべての \<Book > 要素を取得し、それらを HTML ドキュメントに変換します。 \<Book > の要素の一覧は、変換された HTML を含む <xref:System.Xml.Linq.XElement> オブジェクトのコレクションを返す LINQ クエリを使用して作成されます。 埋め込み式を使用して、ソースドキュメントの値を新しい XML 形式で格納できます。
 
      結果として得られる HTML ドキュメントは、<xref:System.Xml.Linq.XElement.Save%2A> メソッドを使用してファイルに書き込まれます。
 
@@ -83,11 +83,11 @@ ms.locfileid: "72524812"
     htmlOutput.Save("BookDescription.html")
     ```
 
-4. @No__t_1 を `Sub Main` した後、新しいメソッド (`Sub`) を追加して、\<Description の > ノードを指定された HTML 形式に変換します。 このメソッドは、前の手順のコードによって呼び出され、\<Description > 要素の書式を保持するために使用されます。
+4. `Module1`の `Sub Main` 後に、新しいメソッド (`Sub`) を追加して、\<説明 > ノードを指定された HTML 形式に変換します。 このメソッドは、前の手順のコードによって呼び出され、\<Description > 要素の形式を維持するために使用されます。
 
-     このメソッドは、\<Description > 要素のサブ要素を HTML に置き換えます。 @No__t_0 メソッドは、サブ要素の場所を保持するために使用されます。 @No__t_0Description > 要素の変換された内容は、HTML 段落 (\<p >) 要素に含まれます。 @No__t_0 プロパティは、\<Description > 要素の変換された内容を取得するために使用されます。 これにより、変換されたコンテンツにサブ要素が含まれるようになります。
+     このメソッドは、\<Description > 要素のサブ要素を HTML に置き換えます。 `ReplaceWith` メソッドは、サブ要素の場所を保持するために使用されます。 \<Description > 要素の変換された内容は、HTML 段落 (\<p >) 要素に含まれます。 <xref:System.Xml.Linq.XContainer.Nodes%2A> プロパティは、\<Description > 要素の変換された内容を取得するために使用されます。 これにより、変換されたコンテンツにサブ要素が含まれるようになります。
 
-     @No__t_1 の `Sub Main` の後に、次のコードを追加します。
+     `Module1`の `Sub Main` の後に、次のコードを追加します。
 
     ```vb
     Public Function TransformDescription(ByVal desc As XElement) As XElement
@@ -115,7 +115,7 @@ ms.locfileid: "72524812"
     End Function
     ```
 
-5. 変更内容を保存します。
+5. 変更を [保存] します。
 
 6. F5 キーを押してコードを実行します。 結果として保存されるドキュメントは、次のようになります。
 
@@ -156,7 +156,7 @@ ms.locfileid: "72524812"
     </html>
     ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [XML リテラル](../../../../visual-basic/language-reference/xml-literals/index.md)
 - [Visual Basic での XML の操作](../../../../visual-basic/programming-guide/language-features/xml/manipulating-xml.md)

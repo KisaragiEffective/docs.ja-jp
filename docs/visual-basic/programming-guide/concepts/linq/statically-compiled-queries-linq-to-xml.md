@@ -1,13 +1,13 @@
 ---
-title: 静的にコンパイルされたクエリ (LINQ to XML) (Visual Basic)
+title: 静的にコンパイルされたクエリ (LINQ to XML)
 ms.date: 07/20/2015
 ms.assetid: 3f4825c7-c3b0-48da-ba4e-8e97fb2a2f34
-ms.openlocfilehash: f295e8aa8b747b90933d6a35e5352f66740ef071
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: e9f56366f1566f831f1e0ea5bd5a06775d698c3d
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582908"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350574"
 ---
 # <a name="statically-compiled-queries-linq-to-xml-visual-basic"></a>静的にコンパイルされたクエリ (LINQ to XML) (Visual Basic)
 

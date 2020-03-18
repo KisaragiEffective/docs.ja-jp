@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 93424a87-ba13-4fa1-b4dc-69d44437b7ae
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 98eebd489792f57f7f98d3596d4f25be2e847441
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 7153ac214ab99228ac9c59032aa8248d06d14c3b
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69966276"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129299"
 ---
 # <a name="iclrerrorreportingmanagerbegincustomdump-method"></a>ICLRErrorReportingManager::BeginCustomDump メソッド
 エラー報告のためのカスタムヒープダンプの構成を指定します。  
@@ -43,10 +41,10 @@ HRESULT BeginCustomDump (
  からカスタムヒープダンプを構築するときに使用するヒープダンプの種類を示す[ECustomDumpFlavor](../../../../docs/framework/unmanaged-api/hosting/ecustomdumpflavor-enumeration.md)値です。  
   
  `dwNumItems`  
- から`items`配列の長さ。 が`dwFlavor` DUMP_FLAVOR_Mini でない場合`dwNumItems`は、を0にする必要があります。  
+ から`items` 配列の長さ。 `dwFlavor` が DUMP_FLAVOR_Mini でない場合は、`dwNumItems` を0にする必要があります。  
   
  `items`  
- からミニダンプに追加する項目を指定する、 [Customdumpitem](../../../../docs/framework/unmanaged-api/hosting/customdumpitem-structure.md)インスタンスの配列。 が`dwFlavor` DUMP_FLAVOR_Mini でない場合`items`は、を null にする必要があります。  
+ からミニダンプに追加する項目を指定する、 [Customdumpitem](../../../../docs/framework/unmanaged-api/hosting/customdumpitem-structure.md)インスタンスの配列。 `dwFlavor` が DUMP_FLAVOR_Mini でない場合は、`items` を null にする必要があります。  
   
  `dwReserved`  
  から将来使用するために予約されています。  
@@ -63,17 +61,17 @@ HRESULT BeginCustomDump (
 |E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された後は、そのプロセス内で CLR を使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
 ## <a name="remarks"></a>Remarks  
- メソッド`BeginCustomDump`は、カスタムヒープダンプ構成を設定します。 [Endcustomdump](../../../../docs/framework/unmanaged-api/hosting/iclrerrorreportingmanager-endcustomdump-method.md)メソッドは、カスタムヒープダンプ構成をクリアし、関連付けられているすべての状態を解放します。 カスタムヒープダンプの完了後に呼び出す必要があります。  
+ `BeginCustomDump` メソッドは、カスタムヒープダンプ構成を設定します。 [Endcustomdump](../../../../docs/framework/unmanaged-api/hosting/iclrerrorreportingmanager-endcustomdump-method.md)メソッドは、カスタムヒープダンプ構成をクリアし、関連付けられているすべての状態を解放します。 カスタムヒープダンプの完了後に呼び出す必要があります。  
   
 > [!IMPORTANT]
-> を呼び出さ`EndCustomDump`ないと、メモリがリークします。  
+> `EndCustomDump` を呼び出さないと、メモリがリークします。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Mscoree.dll  
   
- **ライブラリ**Mscoree.dll にリソースとして含まれています  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

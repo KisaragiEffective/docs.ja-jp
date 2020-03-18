@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 27fae01a-ecec-423a-973e-24f8de55826c
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: fdf3998d7430348cb71af8e7dd75cf2203d380ce
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9b9a301714ea60b4e3220eb75721e56e39bd9659
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67769035"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73139935"
 ---
 # <a name="icordebugthread2getactivefunctions-method"></a>ICorDebugThread2::GetActiveFunctions メソッド
-このスレッドのフレームのそれぞれに、アクティブな関数についての情報を取得します。  
+このスレッドの各フレームのアクティブな関数に関する情報を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,20 +41,20 @@ HRESULT GetActiveFunctions (
  [in] `pFunctions` 配列のサイズ。  
   
  `pcFunctions`  
- [out]返されるオブジェクトの数へのポインター、`pFunctions`配列。 返されるオブジェクトの数は、スタック上のマネージ フレームの数と等しくなります。  
+ 入出力`pFunctions` 配列で返されたオブジェクトの数へのポインター。 返されるオブジェクトの数は、スタック上のマネージフレームの数と同じになります。  
   
  `pFunctions`  
- [入力、出力]このスレッドのフレームでアクティブな関数についての情報を含む、COR_ACTIVE_FUNCTION オブジェクトの配列。  
+ [入力、出力]COR_ACTIVE_FUNCTION オブジェクトの配列。各オブジェクトには、このスレッドのフレーム内のアクティブな関数に関する情報が含まれています。  
   
- 最初の要素は、リーフ フレームとスタックのルートに戻る ために使用されます。  
+ 最初の要素はリーフフレームに使用され、その後スタックのルートに戻ります。  
   
 ## <a name="remarks"></a>Remarks  
- 場合`pFunctions`が null の入力で`GetActiveFunctions`スタック上にある関数の数のみを返します。 つまり場合、`pFunctions`が入力で null`GetActiveFunctions`値を返しますでのみ`pcFunctions`します。  
+ 入力時に null が `pFunctions` 場合、`GetActiveFunctions` はスタック上の関数の数のみを返します。 つまり、入力時に null が `pFunctions` 場合、`GetActiveFunctions` は `pcFunctions`でのみ値を返します。  
   
- `GetActiveFunctions`メソッドは、最適化として、スタック トレース内のフレームから同じ情報の取得をありありました ICorDebugILFrame オブジェクトに完全なスタック トレース フレームのみが含まれています。  
+ `GetActiveFunctions` メソッドは、スタックトレース内のフレームから同じ情報を取得することを目的とした最適化として使用されます。また、完全なスタックトレースでは、そのオブジェクトに対しては、表示されていないフレームだけが含まれています。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

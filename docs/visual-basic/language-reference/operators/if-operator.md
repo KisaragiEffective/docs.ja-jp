@@ -1,5 +1,5 @@
 ---
-title: If 演算子 (Visual Basic)
+title: If 演算子
 ms.date: 07/20/2015
 f1_keywords:
 - vb.IfOperator
@@ -11,12 +11,12 @@ helpviewer_keywords:
 - conditional operator [Visual Basic]
 - If Operator [Visual Basic]
 ms.assetid: dd56c9df-7cd4-442c-9ba6-20c70ee44c8f
-ms.openlocfilehash: 483b58dd9c79c716fdc3d272cf699e33dec9c671
-ms.sourcegitcommit: 9bd1c09128e012b6e34bdcbdf3576379f58f3137
+ms.openlocfilehash: 6d25519dac31dc91f8560fd3252ba3e2622de370
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799016"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74331014"
 ---
 # <a name="if-operator-visual-basic"></a>If 演算子 (Visual Basic)
 
@@ -36,9 +36,9 @@ If( [argument1,] argument2, argument3 )
 
 |用語|定義|
 |---|---|
-|`argument1`|必須です。 `Boolean`. 他のどの引数を評価して返すかを決定します。|
-|`argument2`|必須です。 `Object`. 評価され、`argument1` が `True`に評価される場合に返されます。|
-|`argument3`|必須です。 `Object`. `argument1` が `False` と評価された場合、または `argument1` が[Nothing](../../../visual-basic/language-reference/nothing.md)に評価される[null 許容](../../../visual-basic/programming-guide/language-features/data-types/nullable-value-types.md)の`Boolean` 変数である場合に評価され、返されます。|
+|`argument1`|必須。 `Boolean` で初期化します。 他のどの引数を評価して返すかを決定します。|
+|`argument2`|必須。 `Object` で初期化します。 評価され、`argument1` が `True`に評価される場合に返されます。|
+|`argument3`|必須。 `Object` で初期化します。 `argument1` が `False` と評価された場合、または `argument1` が[Nothing](../../../visual-basic/language-reference/nothing.md)に評価される[null 許容](../../../visual-basic/programming-guide/language-features/data-types/nullable-value-types.md)の`Boolean` 変数である場合に評価され、返されます。|
 
 3つの引数を指定して呼び出される `If` 演算子は、ショートサーキット評価を使用する点を除いて、`IIf` 関数と同様に機能します。 `IIf` 関数は、常に3つの引数をすべて評価します。一方、3つの引数を持つ `If` 演算子は、そのうち2つだけを評価します。 最初の `If` 引数が評価され、結果は `Boolean` 値、`True`、または `False`としてキャストされます。 値が `True`場合、`argument2` が評価され、その値が返されますが、`argument3` は評価されません。 `Boolean` 式の値が `False`場合、`argument3` が評価され、その値が返されますが、`argument2` は評価されません。 次の例は、3つの引数を使用する場合の `If` の使用方法を示しています。
 
@@ -56,8 +56,8 @@ If( [argument1,] argument2, argument3 )
 
 |用語|定義|
 |---|---|
-|`argument2`|必須です。 `Object`. 参照または null 許容型である必要があります。 評価され、`Nothing`以外のものに評価された場合に返されます。|
-|`argument3`|必須です。 `Object`. 評価され、`argument2` が `Nothing`に評価される場合に返されます。|
+|`argument2`|必須。 `Object` で初期化します。 参照または null 許容型である必要があります。 評価され、`Nothing`以外のものに評価された場合に返されます。|
+|`argument3`|必須。 `Object` で初期化します。 評価され、`argument2` が `Nothing`に評価される場合に返されます。|
 
 `Boolean` 引数を省略した場合、最初の引数は参照または null 許容型である必要があります。 最初の引数が `Nothing`に評価された場合、2番目の引数の値が返されます。 それ以外の場合は、最初の引数の値が返されます。 次の例は、この評価のしくみを示しています。
 

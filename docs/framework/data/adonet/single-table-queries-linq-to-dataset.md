@@ -5,22 +5,22 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 0b74bcf8-3f87-449f-bff7-6bcb0d69d212
-ms.openlocfilehash: 8807125bd61c71217ca96f3b5a38148ed100073b
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 1f4462f617eb81d30f893b52bdc674e1eee8961c
+ms.sourcegitcommit: 7bc6887ab658550baa78f1520ea735838249345e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70794364"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75634769"
 ---
 # <a name="single-table-queries-linq-to-dataset"></a>単一テーブルのクエリ (LINQ to DataSet)
-[!INCLUDE[vbteclinqext](../../../../includes/vbteclinqext-md.md)]<xref:System.Collections.Generic.IEnumerable%601> クエリ<xref:System.Linq.IQueryable%601>は、インターフェイスまたはインターフェイスを実装するデータソースに対して機能します。 クラス<xref:System.Data.DataTable>はどちらのインターフェイスも実装していないので<xref:System.Data.DataTableExtensions.AsEnumerable%2A> 、 <xref:System.Data.DataTable> [!INCLUDE[vbteclinq](../../../../includes/vbteclinq-md.md)]クエリの`From`句でソースとしてを使用する場合は、メソッドを呼び出す必要があります。  
+統合言語クエリ (LINQ) クエリは、<xref:System.Collections.Generic.IEnumerable%601> インターフェイスまたは <xref:System.Linq.IQueryable%601> インターフェイスを実装するデータソースに対して機能します。 <xref:System.Data.DataTable> クラスはどちらのインターフェイスも実装していないため、LINQ クエリの `From` 句でソースとして <xref:System.Data.DataTable> を使用する場合は、<xref:System.Data.DataTableExtensions.AsEnumerable%2A> メソッドを呼び出す必要があります。  
   
  次の例では、SalesOrderHeader テーブルからオンラインでの注文をすべて取得し、注文 ID、注文日、および注文番号をコンソールに出力します。  
   
  [!code-csharp[DP LINQ to DataSet Examples#Where1](../../../../samples/snippets/csharp/VS_Snippets_ADO.NET/DP LINQ to DataSet Examples/CS/Program.cs#where1)]  
  [!code-vb[DP LINQ to DataSet Examples#Where1](../../../../samples/snippets/visualbasic/VS_Snippets_ADO.NET/DP LINQ to DataSet Examples/VB/Module1.vb#where1)] 
   
- ローカル変数クエリは、クエリ式を使用して初期化されます。クエリ式では、標準クエリ演算子のいずれかから1つ以上のクエリ演算子を適用することによって1つ以上の情報ソースを操作します。または、LINQ to DataSet <xref:System.Data.DataSet>の場合は、クラス。 前の例のクエリ式には、2 つの標準クエリ演算子、`Where` と `Select` が使用されています。  
+ ローカル変数クエリは、クエリ式を使用して初期化されます。これは、1つ以上のクエリ演算子を標準クエリ演算子から適用するか、LINQ to DataSet の場合は <xref:System.Data.DataSet> クラスに固有の演算子を適用することによって、1つまたは複数の情報ソースで動作します。 前の例のクエリ式には、2 つの標準クエリ演算子、`Where` と `Select` が使用されています。  
   
  この場合、`Where` 句では、`OnlineOrderFlag` = `true` という条件に基づいてデータを抽出します。 `Select` 演算子は、その演算子に渡された引数をキャプチャする列挙可能なオブジェクトを割り当てて返します。 上の例では、`SalesOrderID`、`OrderDate`、`SalesOrderNumber` の 3 つのプロパティを使って匿名型を作成しています。 この 3 つのプロパティの値は、`SalesOrderID` テーブルの `OrderDate` 列、`SalesOrderNumber` 列、および `SalesOrderHeader` 列の値に設定されます。  
   

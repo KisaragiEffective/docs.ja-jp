@@ -5,14 +5,12 @@ helpviewer_keywords:
 - assemblies [.NET Framework], how-tos
 - application domains, how-tos
 ms.assetid: 2264054e-712e-47e4-8657-1aa1cfec3e3d
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b5d7f97a4ec67e4932aaee922897a16362f6a78c
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: bcb2ae00b02571b97dfc23100a1e5a7d3e7d8f12
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71053237"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73119990"
 ---
 # <a name="application-domains-and-assemblies-how-to-topics"></a>アプリケーション ドメインとアセンブリに関する方法のトピック
 次のセクションには、アプリケーション ドメインとアセンブリを使用したプログラミングの概念に関するドキュメントに用意されているすべての方法トピックへのリンクが含まれています。  
@@ -41,11 +39,11 @@ ms.locfileid: "71053237"
   
 - [方法: 厳密な名前でアセンブリに署名する](../../standard/assembly/sign-strong-name.md)  
   
-- [方法: 厳密な名前のアセンブリを参照する](../../standard/assembly/reference-strong-named.md)  
+- [方法 : 厳密な名前のアセンブリを参照する](../../standard/assembly/reference-strong-named.md)  
   
 - [方法: 厳密な名前のバイパス機能を無効にする](../../standard/assembly/disable-strong-name-bypass-feature.md)  
   
-- [方法: アセンブリをグローバル アセンブリ キャッシュにインストールする](install-assembly-into-gac.md)  
+- [方法: グローバル アセンブリ キャッシュにアセンブリをインストールする](install-assembly-into-gac.md)  
   
 - [方法: グローバル アセンブリ キャッシュの内容を表示する](how-to-view-the-contents-of-the-gac.md)  
   

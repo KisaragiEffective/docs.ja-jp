@@ -1,17 +1,16 @@
 ---
 title: 暗黙的に型指定されるローカル変数 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - implicitly-typed local variables [C#]
 - var [C#]
 ms.assetid: b9218fb2-ef5d-4814-8a8e-2bc29b0bbc9b
-ms.openlocfilehash: 8c09ddc5a9db71a4e0bef0434d2fc14a4c088352
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 692a0f8ad933f3ba4bef50681cb3487fa0a7eea9
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65635548"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75714830"
 ---
 # <a name="implicitly-typed-local-variables-c-programming-guide"></a>暗黙的に型指定されるローカル変数 (C# プログラミング ガイド)
 
@@ -30,13 +29,13 @@ ms.locfileid: "65635548"
 - [for](../../language-reference/keywords/for.md) 初期化ステートメント。
 
     ```csharp
-    for(var x = 1; x < 10; x++)
+    for (var x = 1; x < 10; x++)
     ```
 
 - [foreach](../../language-reference/keywords/foreach-in.md) 初期化ステートメント。
 
     ```csharp
-    foreach(var item in list){...}
+    foreach (var item in list) {...}
     ```
 
 - [using](../../language-reference/keywords/using-statement.md) ステートメント。
@@ -45,17 +44,17 @@ ms.locfileid: "65635548"
     using (var file = new StreamReader("C:\\myfile.txt")) {...}
     ```
 
-詳細については、「[方法 :クエリ式で暗黙的に型指定されるローカル変数および配列を使用する](how-to-use-implicitly-typed-local-variables-and-arrays-in-a-query-expression.md)」をご覧ください。
+詳細については、「[「クエリ式で暗黙的に型指定されるローカル変数および配列を使用する方法](how-to-use-implicitly-typed-local-variables-and-arrays-in-a-query-expression.md)」を参照してください。
 
 ## <a name="var-and-anonymous-types"></a>var と匿名型
 
-多くの場合、`var` の使用は任意であり、構文上便利なだけです。 ただし、変数が匿名型で初期化される場合、後でオブジェクトのプロパティへのアクセスが必要になったら、変数を `var` として宣言する必要があります。 これは、[!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] クエリ式では一般的なシナリオです。 詳細については、「[匿名型](anonymous-types.md)」を参照してください。
+多くの場合、`var` の使用は任意であり、構文上便利なだけです。 ただし、変数が匿名型で初期化される場合、後でオブジェクトのプロパティへのアクセスが必要になったら、変数を `var` として宣言する必要があります。 これは、LINQ クエリ式では一般的なシナリオです。 詳細については、「[匿名型](anonymous-types.md)」を参照してください。
 
 ソース コードの観点から見ると、匿名型には名前がありません。 そのため、クエリ変数が `var` で初期化された場合、返されたオブジェクトのシーケンスのプロパティにアクセスするための唯一の方法は、`foreach` ステートメント内の繰り返し変数の型として `var` を使用することです。
 
 [!code-csharp[csProgGuideLINQ#44](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideLINQ/CS/csRef30LangFeatures_2.cs#44)]
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>Remarks
 
 暗黙的に型指定される変数の宣言には、次の制限が適用されます。
 
@@ -63,7 +62,7 @@ ms.locfileid: "65635548"
 
 - `var` は、クラス スコープのフィールドで使用できません。
 
-- `var` を使用して宣言された変数は、初期化式では使用できません。 つまり、`: int i = (i = 20);` という式は有効ですが、`var i = (i = 20);` という式はコンパイル時のエラーを生成します。
+- `var` を使用して宣言された変数は、初期化式では使用できません。 つまり、`int i = (i = 20);` という式は有効ですが、`var i = (i = 20);` という式はコンパイル時エラーが生成されます。
 
 - 暗黙的に型指定された複数の変数を同じステートメント内で初期化することはできません。
 
@@ -95,11 +94,11 @@ private var bookTitles = new List<string>();
 
 - [C# リファレンス](../../language-reference/index.md)
 - [暗黙的に型指定される配列](../arrays/implicitly-typed-arrays.md)
-- [方法: クエリ式で暗黙的に型指定されるローカル変数および配列を使用する](how-to-use-implicitly-typed-local-variables-and-arrays-in-a-query-expression.md)
+- [クエリ式で暗黙的に型指定されるローカル変数および配列を使用する方法](how-to-use-implicitly-typed-local-variables-and-arrays-in-a-query-expression.md)
 - [匿名型](anonymous-types.md)
 - [オブジェクト初期化子とコレクション初期化子](object-and-collection-initializers.md)
 - [var](../../language-reference/keywords/var.md)
-- [LINQ クエリ式](../linq-query-expressions/index.md)
+- [C# での LINQ](../../linq/index.md)
 - [統合言語クエリ (LINQ)](../../linq/index.md)
 - [for](../../language-reference/keywords/for.md)
 - [foreach、in](../../language-reference/keywords/foreach-in.md)

@@ -1,15 +1,15 @@
 ---
-title: '方法: ServiceContractGenerator の拡張を記述する'
+title: '方法 : ServiceContractGenerator の拡張を記述する'
 ms.date: 03/30/2017
 ms.assetid: 876ca823-bd16-4bdf-9e0f-02092df90e51
-ms.openlocfilehash: af23babd9255c45b9fa89b5c167de6960f0f690e
-ms.sourcegitcommit: 205b9a204742e9c77256d43ac9d94c3f82909808
+ms.openlocfilehash: 68b380a40448f21ba770aa47c7188b818fa8f9e7
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70855725"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73975876"
 ---
-# <a name="how-to-write-an-extension-for-the-servicecontractgenerator"></a>方法: ServiceContractGenerator の拡張を記述する
+# <a name="how-to-write-an-extension-for-the-servicecontractgenerator"></a>方法 : ServiceContractGenerator の拡張を記述する
 このトピックでは、<xref:System.ServiceModel.Description.ServiceContractGenerator> の拡張を記述する方法について説明します。 これは、操作の動作に <xref:System.ServiceModel.Description.IOperationContractGenerationExtension> インターフェイスを実装するか、コントラクトの動作に <xref:System.ServiceModel.Description.IServiceContractGenerationExtension> インターフェイスを実装することで可能になります。 このトピックでは、<xref:System.ServiceModel.Description.IServiceContractGenerationExtension> インターフェイスをコントラクト動作に実装する方法を説明します。  
   
  <xref:System.ServiceModel.Description.ServiceContractGenerator> は、サービス コントラクト、クライアント型、およびクライアント構成を <xref:System.ServiceModel.Description.ServiceEndpoint>、<xref:System.ServiceModel.Description.ContractDescription>、<xref:System.ServiceModel.Channels.Binding> の各インターフェイスから生成します。 通常は、サービス メタデータから <xref:System.ServiceModel.Description.ServiceEndpoint>、<xref:System.ServiceModel.Description.ContractDescription>、および <xref:System.ServiceModel.Channels.Binding> インスタンスをインポートし、これらのインスタンスを使用してサービスを呼び出すコードを生成します。 この例では、<xref:System.ServiceModel.Description.IWsdlImportExtension> の実装を使用して WSDL 注釈を処理し、生成されたコードに関するコメントを生成するために、インポートしたコントラクトにコード生成拡張を追加します。  
@@ -22,42 +22,42 @@ ms.locfileid: "70855725"
     public void GenerateContract(ServiceContractGenerationContext context)  
     {  
         Console.WriteLine("In generate contract.");  
-    context.ContractType.Comments.AddRange(Formatter.FormatComments(commentText));  
+        context.ContractType.Comments.AddRange(Formatter.FormatComments(commentText));  
     }  
     ```  
   
 2. 同じクラスに <xref:System.ServiceModel.Description.IWsdlImportExtension> を実装します。 <xref:System.ServiceModel.Description.IWsdlImportExtension.ImportContract%28System.ServiceModel.Description.WsdlImporter%2CSystem.ServiceModel.Description.WsdlContractConversionContext%29> メソッドは、インポートされた <xref:System.ServiceModel.Description.ContractDescription> インスタンスにコード生成拡張を追加することによって、特定の WSDL 拡張 (この場合は WSDL 注釈) を処理できます。  
   
     ```csharp
-    public void ImportContract(WsdlImporter importer, WsdlContractConversionContext context)  
-       {  
-                // Contract documentation  
-             if (context.WsdlPortType.Documentation != null)  
-             {  
-                    context.Contract.Behaviors.Add(new WsdlDocumentationImporter(context.WsdlPortType.Documentation));  
-             }  
-             // Operation documentation  
-             foreach (Operation operation in context.WsdlPortType.Operations)  
-             {  
-                if (operation.Documentation != null)  
-                {  
-                   OperationDescription operationDescription = context.Contract.Operations.Find(operation.Name);  
-                   if (operationDescription != null)  
-                   {  
-                            operationDescription.Behaviors.Add(new WsdlDocumentationImporter(operation.Documentation));  
-                   }  
-                }  
-             }  
-          }  
-          public void BeforeImport(ServiceDescriptionCollection wsdlDocuments, XmlSchemaSet xmlSchemas, ICollection<XmlElement> policy)   
-            {  
-                Console.WriteLine("BeforeImport called.");  
-            }  
-  
-          public void ImportEndpoint(WsdlImporter importer, WsdlEndpointConversionContext context)   
-            {  
-                Console.WriteLine("ImportEndpoint called.");  
-            }  
+    public void ImportContract(WsdlImporter importer, WsdlContractConversionContext context)
+    {
+        // Contract documentation
+        if (context.WsdlPortType.Documentation != null)
+        {
+            context.Contract.Behaviors.Add(new WsdlDocumentationImporter(context.WsdlPortType.Documentation));
+        }
+        // Operation documentation
+        foreach (Operation operation in context.WsdlPortType.Operations)
+        {
+            if (operation.Documentation != null)
+            {
+                OperationDescription operationDescription = context.Contract.Operations.Find(operation.Name);
+                if (operationDescription != null)
+                {
+                    operationDescription.Behaviors.Add(new WsdlDocumentationImporter(operation.Documentation));
+                }
+            }
+        }
+    }
+    public void BeforeImport(ServiceDescriptionCollection wsdlDocuments, XmlSchemaSet xmlSchemas, ICollection<XmlElement> policy)
+    {
+        Console.WriteLine("BeforeImport called.");
+    }
+
+    public void ImportEndpoint(WsdlImporter importer, WsdlEndpointConversionContext context)
+    {
+        Console.WriteLine("ImportEndpoint called.");
+    }
     ```  
   
 3. クライアント構成に WSDL インポーターを追加します。  
@@ -72,22 +72,23 @@ ms.locfileid: "70855725"
   
 4. クライアント コードで、`MetadataExchangeClient` を作成して `GetMetadata` を呼び出します。  
   
-    ```csharp  
-    MetadataExchangeClient mexClient = new MetadataExchangeClient(metadataAddress);  
+    ```csharp
+    var mexClient = new MetadataExchangeClient(metadataAddress);  
     mexClient.ResolveMetadataReferences = true;  
     MetadataSet metaDocs = mexClient.GetMetadata();  
     ```  
   
 5. `WsdlImporter` を作成して `ImportAllContracts` を呼び出します。  
   
-    ```csharp  
-    WsdlImporter importer = new WsdlImporter(metaDocs);            System.Collections.ObjectModel.Collection<ContractDescription> contracts = importer.ImportAllContracts();  
+    ```csharp
+    var importer = new WsdlImporter(metaDocs);
+    System.Collections.ObjectModel.Collection<ContractDescription> contracts = importer.ImportAllContracts();  
     ```  
   
 6. `ServiceContractGenerator` を作成して、コントラクトごとに `GenerateServiceContractType` を呼び出します。  
   
-    ```csharp  
-    ServiceContractGenerator generator = new ServiceContractGenerator();  
+    ```csharp
+    var generator = new ServiceContractGenerator();  
     foreach (ContractDescription contract in contracts)  
     {  
        generator.GenerateServiceContractType(contract);  
@@ -101,4 +102,4 @@ ms.locfileid: "70855725"
 ## <a name="see-also"></a>関連項目
 
 - [メタデータ](../feature-details/metadata.md)
-- [方法: カスタム WSDL のインポート](how-to-import-custom-wsdl.md)
+- [方法 : カスタム WSDL をインポートする](how-to-import-custom-wsdl.md)

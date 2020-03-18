@@ -4,12 +4,12 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - security [WCF], scenarios
 ms.assetid: 201923b5-5162-4a8a-8d4c-e7bd242748d5
-ms.openlocfilehash: af58d6b529fba32380bedb9a892a2b1fd4807d96
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 578ec2d7d5abe1285007ad22d8bacd69e695b1d3
+ms.sourcegitcommit: c01c18755bb7b0f82c7232314ccf7955ea7834db
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61857572"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75964277"
 ---
 # <a name="common-security-scenarios"></a>一般的なセキュリティ シナリオ
 ここでは、考えられるさまざまなクライアントおよびサービスのセキュリティ構成の一覧を示します。 構成はさまざまな要因により異なります。 たとえば、サービスやクライアントがイントラネット上にあるかどうか、また、セキュリティが Windows とトランスポート (HTTPS など) のどちらで提供されるかなどが考えられます。  
@@ -19,7 +19,7 @@ ms.locfileid: "61857572"
  セキュリティで保護されていないパブリックなクライアントとサービスの例です。  
   
  [セキュリティで保護されていないイントラネットのクライアントとサービス](../../../../docs/framework/wcf/feature-details/intranet-unsecured-client-and-service.md)  
- WCF アプリケーションをセキュリティで保護されたプライベート ネットワーク上の情報を提供する基本的な Windows Communication Foundation (WCF) サービスを開発しました。  
+ セキュリティで保護されたプライベートネットワークに関する情報を WCF アプリケーションに提供するために開発された基本的な Windows Communication Foundation (WCF) サービス。  
   
  [基本認証を使用する場合のトランスポート セキュリティ](../../../../docs/framework/wcf/feature-details/transport-security-with-basic-authentication.md)  
  アプリケーションは、カスタム認証を使用して、クライアントにログオンを許可します。  
@@ -34,7 +34,7 @@ ms.locfileid: "61857572"
  証明書によってセキュリティ保護されたクライアントとサービスを示します。  
   
  [メッセージ セキュリティと匿名クライアント](../../../../docs/framework/wcf/feature-details/message-security-with-an-anonymous-client.md)  
- クライアントと WCF メッセージ セキュリティで保護されたサービスを示します。  
+ WCF メッセージセキュリティによってセキュリティ保護されたクライアントとサービスを示します。  
   
  [ユーザー名クライアントを使用したメッセージ セキュリティ](../../../../docs/framework/wcf/feature-details/message-security-with-a-user-name-client.md)  
  クライアントは、ドメイン ユーザー名とパスワードを使用してクライアントのログオンを許可する Windows フォーム アプリケーションです。  
@@ -57,19 +57,19 @@ ms.locfileid: "61857572"
  [信頼できるサブシステム](../../../../docs/framework/wcf/feature-details/trusted-subsystem.md)  
  クライアントは、ネットワーク全体に分散している 1 つ以上の Web サービスにアクセスします。 Web サービスは、セキュリティで保護する必要がある追加のリソース (データベースや他の Web サービスなど) にアクセスします。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>参照先  
  <xref:System.ServiceModel>  
   
-## <a name="related-sections"></a>関連項目  
+## <a name="related-sections"></a>関連セクション  
  [承認](../../../../docs/framework/wcf/feature-details/authorization-in-wcf.md)  
   
  [セキュリティの概要](../../../../docs/framework/wcf/feature-details/security-overview.md)  
   
- [セキュリティ](../../../../docs/framework/wcf/feature-details/security.md)  
+ [Security](../../../../docs/framework/wcf/feature-details/security.md)  
   
  [バインディングとセキュリティ](../../../../docs/framework/wcf/feature-details/bindings-and-security.md)  
   
- [サービスおよびクライアントのセキュリティ保護](../../../../docs/framework/wcf/feature-details/securing-services-and-clients.md)  
+ [Securing Services and Clients](../../../../docs/framework/wcf/feature-details/securing-services-and-clients.md)  
   
  [認証](../../../../docs/framework/wcf/feature-details/authentication-in-wcf.md)  
   
@@ -82,4 +82,4 @@ ms.locfileid: "61857572"
 ## <a name="see-also"></a>関連項目
 
 - [セキュリティ ガイドラインとベスト プラクティス](../../../../docs/framework/wcf/feature-details/security-guidance-and-best-practices.md)
-- [Windows Server App Fabric のセキュリティ モデル](https://go.microsoft.com/fwlink/?LinkID=201279&clcid=0x409)
+- [Windows Server App Fabric のセキュリティモデル](https://docs.microsoft.com/previous-versions/appfabric/ee677202(v=azure.10))

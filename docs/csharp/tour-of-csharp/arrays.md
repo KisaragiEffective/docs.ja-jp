@@ -1,14 +1,14 @@
 ---
 title: C# の配列 - C# 言語のツアー
 description: 配列は、C# 言語において最も基本的なコレクション型です。
-ms.date: 08/10/2016
+ms.date: 02/27/2020
 ms.assetid: a440704c-9e88-4c75-97dd-bfe30ca0fb97
-ms.openlocfilehash: 56a053ac8525d4c6c34592d6092f3f162cb04247
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 3e045c0933a21beab6958c7851546ba6e0b55ef9
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65634605"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "78159196"
 ---
 # <a name="arrays"></a>配列
 
@@ -35,14 +35,14 @@ new 演算子では、配列要素の初期値を、区切り記号 `{` およ�
 
 [!code-csharp[ArrayInitialization](../../../samples/snippets/csharp/tour/arrays/Program.cs#L39-L39)]
 
-配列の長さが { and } の間にある式の数から推論されることに注意してください。 ローカル変数およびフィールド宣言をさらに短縮して、配列型を再起動する必要がないようにできます。
+配列の長さは、{ と } の間にある式の数から推論されます。 ローカル変数およびフィールド宣言をさらに短縮して、配列型の記述を省略することができます。
 
 [!code-csharp[ArrayInitialization](../../../samples/snippets/csharp/tour/arrays/Program.cs#L44-L44)]
 
-前述の例はどちらも、次の例と同等です。
+前述の例はどちらも、次のコードと同等です。
 
 [!code-csharp[ArrayAssignment](../../../samples/snippets/csharp/tour/arrays/Program.cs#L49-L53)]
 
 >[!div class="step-by-step"]
->[前へ](structs.md)
+>[前へ](classes-and-objects.md)
 >[次へ](interfaces.md)

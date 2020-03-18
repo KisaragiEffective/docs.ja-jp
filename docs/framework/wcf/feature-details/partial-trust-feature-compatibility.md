@@ -2,12 +2,12 @@
 title: 部分信頼機能の互換性
 ms.date: 03/30/2017
 ms.assetid: a36a540b-1606-4e63-88e0-b7c59e0e6ab7
-ms.openlocfilehash: adeef7a8fa12751c53e2096ae6bf844f091a5545
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 3e0f1c2f673d4ba603df7da431d10c211cf779ac
+ms.sourcegitcommit: 09b4090b78f52fd09b0e430cd4b26576f1fdf96e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69965313"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76212124"
 ---
 # <a name="partial-trust-feature-compatibility"></a>部分信頼機能の互換性
 Windows Communication Foundation (WCF) は、部分的に信頼された環境で実行される場合に、限られた機能のサブセットをサポートします。 部分信頼でサポートされる機能は、「 [Supported Deployment Scenarios](../../../../docs/framework/wcf/feature-details/supported-deployment-scenarios.md) 」のトピックで説明される特定のシナリオを念頭にデザインされています。  
@@ -58,7 +58,7 @@ Windows Communication Foundation (WCF) は、部分的に信頼された環境�
 ### <a name="unsupported-bindings"></a>サポートされないバインディング  
  信頼できるメッセージング、トランザクション、またはメッセージ レベルのセキュリティを使用するバインディングはサポートされません。  
   
-## <a name="serialization"></a>シリアル化  
+## <a name="serialization"></a>Serialization  
  部分信頼環境では、 <xref:System.Runtime.Serialization.DataContractSerializer> と <xref:System.Xml.Serialization.XmlSerializer> の両方がサポートされています。 ただし、 <xref:System.Runtime.Serialization.DataContractSerializer> の使用は、次の条件に従う必要があります。  
   
 - シリアル化可能なすべての `[DataContract]` 型は `public`である必要があります。  
@@ -76,7 +76,7 @@ Windows Communication Foundation (WCF) は、部分的に信頼された環境�
 ### <a name="collection-types"></a>コレクション型  
  コレクション型の中には、 <xref:System.Collections.Generic.IEnumerable%601> と <xref:System.Collections.IEnumerable>の両方を実装するものがあります。 たとえば、 <xref:System.Collections.Generic.ICollection%601>を実装する型がこれに当たります。 このような型では、 `public` の `GetEnumerator()`な実装と、 `GetEnumerator()`の明示的な実装を実装できます。 この場合、 <xref:System.Runtime.Serialization.DataContractSerializer> は `public` の `GetEnumerator()`な実装を呼び出し、 `GetEnumerator()`の明示的な実装は呼び出しません。 `GetEnumerator()` 実装のいずれも `public` ではなく、すべてが明示的な実装である場合、 <xref:System.Runtime.Serialization.DataContractSerializer> は `IEnumerable.GetEnumerator()`を呼び出します。  
   
- WCF が部分信頼環境で実行されている場合、コレクション型の場合`GetEnumerator()` 、 `public`実装のいずれもでない場合、または明示的なインターフェイスの実装でない場合は、セキュリティ例外がスローされます。  
+ WCF が部分信頼環境で実行されている場合、コレクション型の場合、`GetEnumerator()` 実装のいずれも `public`ない場合、または明示的なインターフェイスの実装でない場合は、セキュリティ例外がスローされます。  
   
 ### <a name="netdatacontractserializer"></a>NetDataContractSerializer  
  部分信頼の場合、 <xref:System.Collections.Generic.List%601>、 <xref:System.Collections.ArrayList>、 <xref:System.Collections.Generic.Dictionary%602> 、および <xref:System.Collections.Hashtable> などの、.NET Framework コレクション型の多くは、 <xref:System.Runtime.Serialization.NetDataContractSerializer> によってサポートされていません。 これらの型には `[Serializable]` 属性セットがあり、シリアル化のセクションで説明したように、この属性は部分信頼ではサポートされません。 <xref:System.Runtime.Serialization.DataContractSerializer> はコレクションを特殊な方法で扱うため、この制限を回避できますが、 <xref:System.Runtime.Serialization.NetDataContractSerializer> には、この制限の適用を避けるメカニズムはありません。  
@@ -86,16 +86,16 @@ Windows Communication Foundation (WCF) は、部分的に信頼された環境�
  部分信頼で実行するときは、( <xref:System.Runtime.Serialization.NetDataContractSerializer> メカニズムを使用して) <xref:System.Runtime.Serialization.SurrogateSelector> でサロゲートを使用できません。 この制限は、シリアル化ではなく、サロゲートの使用に適用されることに注意してください。  
   
 ## <a name="enabling-common-behaviors-to-run"></a>実行する共通動作の有効化  
- 構成ファイルの[ \<commonbehaviors >](../../../../docs/framework/configure-apps/file-schema/wcf/commonbehaviors.md)セクションに<xref:System.Security.AllowPartiallyTrustedCallersAttribute>追加された属性 (APTCA) でマークされていないサービスまたはエンドポイントの動作は、アプリケーションが部分信頼環境で実行されている場合は実行されません。このエラーが発生すると、例外がスローされます。 共通動作を強制的に実行するには、次のいずれかを行う必要があります。  
+ 構成ファイルの[\<commonbehaviors >](../../../../docs/framework/configure-apps/file-schema/wcf/commonbehaviors.md)セクションに追加された <xref:System.Security.AllowPartiallyTrustedCallersAttribute> 属性 (APTCA) でマークされていないサービスまたはエンドポイントの動作は、アプリケーションが部分信頼環境で実行されている場合は実行されず、この発生時に例外がスローされることはありません。 共通動作を強制的に実行するには、次のいずれかを行う必要があります。  
   
-- 共通動作を <xref:System.Security.AllowPartiallyTrustedCallersAttribute> 属性でマークし、部分信頼アプリケーションとして展開したときに実行できるようにします。 APTCA でマークされたアセンブリを実行できないように、コンピューターでレジストリ エントリを設定できます。 である必要があります。  
+- 共通動作を <xref:System.Security.AllowPartiallyTrustedCallersAttribute> 属性でマークし、部分信頼アプリケーションとして展開したときに実行できるようにします。 APTCA でマークされたアセンブリを実行できないように、コンピューターでレジストリ エントリを設定できます。 を確認しています。  
   
 - アプリケーションが完全信頼アプリケーションとして配置されている場合に、ユーザーが部分信頼環境でアプリケーションを実行するようにコード アクセス セキュリティ設定を変更できないことを確認します。 ユーザーがこのような変更を行うことができる場合、動作は実行されず、例外もスローされません。 これを確認するには、 [caspol.exe (コードアクセスセキュリティポリシーツール)](../../../../docs/framework/tools/caspol-exe-code-access-security-policy-tool.md)を使用して、 **levelfinal**オプションを参照してください。  
   
- 一般的な動作の例については[、「方法:企業](../../../../docs/framework/wcf/extending/how-to-lock-down-endpoints-in-the-enterprise.md)内のエンドポイントをロックダウンします。  
+ 一般的な動作の例については、「[方法: 企業内のエンドポイントをロックダウンする](../../../../docs/framework/wcf/extending/how-to-lock-down-endpoints-in-the-enterprise.md)」を参照してください。  
   
-## <a name="configuration"></a>構成  
- 1つの例外を除き、部分信頼コードは、ローカル`app.config`ファイルの WCF 構成セクションのみを読み込むことができます。 Machine.config またはルートの web.config ファイル内の WCF セクションを参照する WCF 構成セクションを読み込むには、ConfigurationPermission (無制限) が必要です。 このアクセス許可がない場合、ローカル構成ファイルの外部にある WCF 構成セクション (動作、バインド) を参照すると、構成の読み込み時に例外が発生します。  
+## <a name="configuration"></a>の構成  
+ ただし、部分信頼コードでは、ローカル `app.config` ファイルの WCF 構成セクションのみを読み込むことができます。 Machine.config またはルートの web.config ファイル内の WCF セクションを参照する WCF 構成セクションを読み込むには、ConfigurationPermission (無制限) が必要です。 このアクセス許可がない場合、ローカル構成ファイルの外部にある WCF 構成セクション (動作、バインド) を参照すると、構成の読み込み時に例外が発生します。  
   
  例外は、このトピックのシリアル化のセクションで説明したように、シリアル化の既知の型の構成です。  
   
@@ -111,7 +111,7 @@ Windows Communication Foundation (WCF) は、部分的に信頼された環境�
  WCF が部分信頼環境で実行されている場合、メッセージログは機能しません。 部分信頼環境下で有効になっても、サービスのアクティブ化には失敗しませんが、メッセージはログに記録されません。  
   
 ### <a name="tracing"></a>トレース  
- 部分信頼環境で実行される場合、利用できるトレース機能には制限があります。 構成ファイルの`listeners`< > 要素では、追加できる型は<xref:System.Diagnostics.TextWriterTraceListener>と新しい<xref:System.Diagnostics.EventSchemaTraceListener>だけです。 標準の <xref:System.Diagnostics.XmlWriterTraceListener> を使用すると、ログが不完全または不正確になります。  
+ 部分信頼環境で実行される場合、利用できるトレース機能には制限があります。 構成ファイルの <`listeners`> 要素では、追加できる型は <xref:System.Diagnostics.TextWriterTraceListener> と新しい <xref:System.Diagnostics.EventSchemaTraceListener>だけです。 標準の <xref:System.Diagnostics.XmlWriterTraceListener> を使用すると、ログが不完全または不正確になります。  
   
  次のトレース ソースがサポートされています。  
   
@@ -119,7 +119,7 @@ Windows Communication Foundation (WCF) は、部分的に信頼された環境�
   
 - <xref:System.Runtime.Serialization>  
   
-- <xref:System.IdentityModel.Claims>、 <xref:System.IdentityModel.Policy>、 <xref:System.IdentityModel.Selectors>、および <xref:System.IdentityModel.Tokens>。  
+- <xref:System.IdentityModel.Claims>、<xref:System.IdentityModel.Policy>、<xref:System.IdentityModel.Selectors>、および <xref:System.IdentityModel.Tokens>。  
   
  次のトレース ソースはサポートされていません。  
   
@@ -144,13 +144,14 @@ Windows Communication Foundation (WCF) は、部分的に信頼された環境�
  WCF サービスホストは部分信頼をサポートしていません。 部分信頼で WCF サービスを使用する場合は、サービスをビルドするために Visual Studio で WCF サービスライブラリプロジェクトテンプレートを使用しないでください。 代わりに、wcf 部分信頼がサポートされている Web サーバーでサービスをホストできる WCF サービス Web サイトテンプレートを選択して、Visual Studio で新しい Web サイトを作成します。  
   
 ## <a name="other-limitations"></a>他の制約  
- WCF は、一般に、ホスティングアプリケーションによって課せられるセキュリティ上の考慮事項に限定されます。 たとえば、WCF が XAML ブラウザーアプリケーション (XBAP) でホストされている場合、「 [Windows Presentation Foundation 部分信頼セキュリティ](https://go.microsoft.com/fwlink/?LinkId=89138)」で説明されているように、xbap の制限が適用されます。  
+
+  WCF は、一般に、ホスティングアプリケーションによって課せられるセキュリティ上の考慮事項に限定されます。 たとえば、WCF が XAML ブラウザーアプリケーション (XBAP) でホストされている場合、「 [Windows Presentation Foundation 部分信頼セキュリティ](../../wpf/wpf-partial-trust-security.md)」で説明されているように、xbap の制限が適用されます。  
   
  次の追加機能は indigo2 が部分信頼環境で実行されていると有効になりません。  
   
-- WMI (Windows Management Instrumentation)  
+- Windows Management Instrumentation (WMI)  
   
-- イベント ログは部分的にしか有効になりません (**診断の**セクションの説明を参照 )。  
+- イベント ログは部分的にしか有効になりません (診断のセクションの説明を参照 )。  
   
 - パフォーマンス カウンター  
   
@@ -166,4 +167,4 @@ Windows Communication Foundation (WCF) は、部分的に信頼された環境�
 - <xref:System.ServiceModel.Channels.TextMessageEncodingBindingElement>
 - <xref:System.ServiceModel.Channels.WebMessageEncodingBindingElement>
 - [サポートされている配置シナリオ](../../../../docs/framework/wcf/feature-details/supported-deployment-scenarios.md)
-- [部分信頼のベスト プラクティス](../../../../docs/framework/wcf/feature-details/partial-trust-best-practices.md)
+- [T:System.Runtime.Serialization.DataContractSerializer](../../../../docs/framework/wcf/feature-details/partial-trust-best-practices.md)

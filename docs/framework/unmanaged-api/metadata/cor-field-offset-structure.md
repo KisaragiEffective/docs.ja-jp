@@ -14,16 +14,14 @@ helpviewer_keywords:
 ms.assetid: cced5298-277f-4a5a-8ecf-a0050c1096ea
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: fdfbb22d231d16be7757ff5df26a5a010928af54
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 646952d5cd55b74081a0ba6171a6eee6b0138512
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67767054"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74443962"
 ---
-# <a name="corfieldoffset-structure"></a>COR_FIELD_OFFSET 構造体
+# <a name="cor_field_offset-structure"></a>COR_FIELD_OFFSET 構造体
 指定したフィールドのクラス内の相対位置を格納します。  
   
 ## <a name="syntax"></a>構文  
@@ -39,20 +37,20 @@ typedef struct COR_FIELD_OFFSET {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`ridOfField`|`mdFieldDef`フィールドを表すメタデータ トークン。|  
-|`ulOffset`|そのクラス内のフィールドをオフセットします。|  
+|`ridOfField`|フィールドを表す `mdFieldDef` メタデータトークン。|  
+|`ulOffset`|クラス内のフィールドのオフセット。|  
   
-## <a name="remarks"></a>Remarks  
- [Imetadataimport::getclasslayout](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-getclasslayout-method.md)と[imetadataemit::setclasslayout](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-setclasslayout-method.md)メソッドは、型のパラメーターを受け取る`COR_FIELD_OFFSET`します。  
+## <a name="remarks"></a>コメント  
+ [IMetaDataImport:: GetClassLayout](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-getclasslayout-method.md)メソッドと[IMetaDataEmit:: SetClassLayout](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-setclasslayout-method.md)メソッドは `COR_FIELD_OFFSET`型のパラメーターを受け取ります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h, CorProf.idl  
+ **ヘッダー:** CorHdr .h、Corprof.idl  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ構造体](../../../../docs/framework/unmanaged-api/metadata/metadata-structures.md)
 - [IMetaDataEmit インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-interface.md)

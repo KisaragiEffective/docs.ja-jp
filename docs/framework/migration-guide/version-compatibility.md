@@ -7,18 +7,16 @@ helpviewer_keywords:
 - .NET Framework, compatibility with earlier versions
 - .NET Framework versions, compatibility
 ms.assetid: 2f25e522-456a-48c3-8a53-e5f39275649f
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8db23f8e670406faff01644e751a948096f5fc7c
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: e0de18b5a40875d1fec2633c16688111d8f4b9ee
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64592884"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73974953"
 ---
 # <a name="version-compatibility-in-the-net-framework"></a>.NET Framework のバージョンの互換性
 
-下位互換とは、プラットフォームの特定のバージョンで開発されたアプリが、そのプラットフォームの新しいバージョンでも実行できることを意味します。 .NET Framework では、下位互換性が最大限に高め67られています。 .NET Framework のあるバージョンで記述されたソース コードは、.NET Framework の新しいバージョンでコンパイルでき、.NET Framework のあるバージョンで実行されるバイナリは、新しいバージョンの .NET Framework でも同じように動作します。
+下位互換とは、プラットフォームの特定のバージョンで開発されたアプリが、そのプラットフォームの新しいバージョンでも実行できることを意味します。 .NET Framework では、下位互換性が最大限に高められています。 .NET Framework のあるバージョンで記述されたソース コードは、.NET Framework の新しいバージョンでコンパイルでき、.NET Framework のあるバージョンで実行されるバイナリは、新しいバージョンの .NET Framework でも同じように動作します。
 
 ## <a name="Apps"></a> アプリのバージョンの互換性
 
@@ -35,7 +33,7 @@ ms.locfileid: "64592884"
 </configuration>
 ```
 
-詳細については、「[方法 :.NET Framework 4 以降のバージョンをサポートするアプリを構成する](../migration-guide/how-to-configure-an-app-to-support-net-framework-4-or-4-5.md)」を参照してください。
+詳しくは、[.NET Framework 4 または 4.x をサポートするアプリの構成方法](../migration-guide/how-to-configure-an-app-to-support-net-framework-4-or-4-5.md)に関するページをご覧ください。
 
 ## <a name="version-compatibility-for-components"></a>コンポーネントのバージョンの互換性
 
@@ -51,13 +49,13 @@ ms.locfileid: "64592884"
 
 アプリまたはコンポーネントが .NET Framework 4.5 (ポイント リリースである .NET Framework 4.5.1、4.5.2、4.6、4.6.1、4.6.2、4.7、4.7.1、4.7.2、4.8 を含む) 上で期待どおりに動作しない場合は、次のチェックリストを利用してください。
 
-- アプリが .NET Framework 4.0 以降の任意の .NET Framework バージョンで実行できるように開発されている場合、「[.NET Framework のアプリケーションの互換性](application-compatibility.md)」を参照し、ターゲットの .NET Framework バージョンとアプリを実行しているバージョン間の違いの一覧を作成します。
+- アプリが .NET Framework 4.0 以降の任意バージョンの .NET Framework で実行できるように開発されている場合、[アプリケーションの互換性](application-compatibility.md)に関する記事を参照して、ターゲットの .NET Framework バージョンとアプリを実行しているバージョン間の違いの一覧を作成します。
 
 - .NET Framework 3.5 のアプリがある場合、「[.NET Framework 4 の移行に関する問題](../migration-guide/net-framework-4-migration-issues.md)」も参照してください。
 
-- .NET Framework 2.0 のアプリがある場合、「[.NET Framework 3.5 SP1 の変更点](https://go.microsoft.com/fwlink/?LinkId=186989)」も参照してください。
+- .NET Framework 2.0 のアプリがある場合、「[.NET Framework 3.5 SP1 の変更点](https://docs.microsoft.com/previous-versions/dotnet/articles/dd310284(v=msdn.10))」も参照してください。
 
-- .NET Framework 1.1 アプリがある場合、「[.NET Framework 2.0 の互換性に影響する変更点](https://go.microsoft.com/fwlink/?LinkID=125263)」も参照してください。
+- .NET Framework 1.1 アプリがある場合、「[.NET Framework 2.0 の互換性に影響する変更点](https://docs.microsoft.com/previous-versions/aa570326(v=msdn.10))」も参照してください。
 
 - .NET Framework 4.5 またはそのポイント リリース上で実行するために既存のソース コードを再コンパイルする場合、あるいは、.NET Framework 4.5 またはそのポイント リリースをターゲットとするアプリまたはコンポーネントの新しいバージョンを既存のソース コード ベースから開発する場合は、「[クラス ライブラリの互換性のために残されている機能](../whats-new/whats-obsolete.md)」で、古い型とメンバーを確認し、説明されている回避策を適用してください。 (コンパイル済みのコードは、互換性のために残されている旧式の型とメンバーに対して引き続き実行されます)。
 
@@ -69,10 +67,10 @@ ms.locfileid: "64592884"
 
 問題の適切な解決策が見つからない場合は、.NET Framework 4.5 (またはそのポイント リリースのいずれか) はバージョン 1.1、2.0、3.5 と side-by-side で実行でき、バージョン 4 に置き換わるインプレース更新であることを思い出してください。 Version 1.1、2.0、3.5 を対象とするアプリでは、適切なバージョンの .NET Framework を対象コンピューターにインストールして、アプリを最良の環境で実行できます。 side-by-side 実行について詳しくは、[side-by-side 実行](../deployment/side-by-side-execution.md)に関するページを参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [新機能](../whats-new/index.md)
-- [クラス ライブラリの互換性のために残されている機能](../whats-new/whats-obsolete.md)
+- [最新情報](../whats-new/index.md)
+- [クラス ライブラリ内にある旧版のもの](../whats-new/whats-obsolete.md)
 - [アプリケーションの互換性](../migration-guide/application-compatibility.md)
-- [Microsoft .NET Framework のサポート ライフサイクル ポリシー](https://go.microsoft.com/fwlink/p/?LinkId=248212)
+- [.NET Framework の公式サポート ポリシー](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework)
 - [.NET framework 4 への移行に関する問題](../migration-guide/net-framework-4-migration-issues.md)

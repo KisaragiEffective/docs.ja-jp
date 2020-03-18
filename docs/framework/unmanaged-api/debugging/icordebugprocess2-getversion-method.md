@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: e11d5a75-61d9-4548-aedf-79c26079bd17
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 07f3be81431201a4bb6011ea9b8f973061d3d101
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 5f618f6779f6931785bba18f70fb1ac9baf46753
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61948872"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73137192"
 ---
 # <a name="icordebugprocess2getversion-method"></a>ICorDebugProcess2::GetVersion メソッド
 
@@ -39,15 +37,15 @@ HRESULT GetVersion (
 ## <a name="parameters"></a>パラメーター
 
 `version`\
-[out]ランタイムのバージョン番号を格納する COR_VERSION 構造体へのポインター。
+入出力ランタイムのバージョン番号を格納する COR_VERSION 構造体へのポインター。
 
 ## <a name="remarks"></a>Remarks
 
-`GetVersion`プロセスのランタイムが読み込まれていない場合、メソッドがエラー コードを返します。
+プロセスにランタイムが読み込まれていない場合、`GetVersion` メソッドはエラーコードを返します。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
-**プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。
 
 **ヘッダー:** CorDebug.idl、CorDebug.h
 

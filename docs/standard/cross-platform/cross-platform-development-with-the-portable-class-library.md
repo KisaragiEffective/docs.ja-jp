@@ -7,44 +7,42 @@ helpviewer_keywords:
 - targeting multiple platforms
 - multiple platforms, targeting
 ms.assetid: c31e1663-c164-4e65-b66d-d3aa8750a154
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: e5b6a32aa465700fb316bf2269c4d057ff823443
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: dd5e5612de15a499c0dce34dc30faa6fd5731c17
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64590335"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77124534"
 ---
-# <a name="cross-platform-development-with-the-portable-class-library"></a>ポータブル クラス ライブラリを使用したクロス プラットフォーム開発
+# <a name="cross-platform-development-with-the-portable-class-library"></a>ポータブルクラスライブラリを使用したクロスプラットフォーム開発
 
-Visual Studio でポータブル クラス ライブラリ プロジェクトの種類を使用して、迅速かつ簡単に、クロス プラットフォーム アプリとライブラリの Microsoft プラットフォームを構築できます。
+Visual Studio のポータブルクラスライブラリのプロジェクトの種類を使用すると、Microsoft プラットフォーム向けのクロスプラットフォームアプリやライブラリをすばやく簡単にビルドできます。
 
 [!INCLUDE[standard](../../../includes/pcl-to-standard.md)]
 
-ポータブル クラス ライブラリにより、コードの開発とテストにかかる時間とコストを削減できます。 このプロジェクトの種類を使用して、書き込みし、ポータブルの .NET Framework アセンブリをビルドし、.NET Framework、iOS、またはファルダなどの複数のプラットフォームを対象とするアプリからこれらのアセンブリを参照
+ポータブル クラス ライブラリにより、コードの開発とテストにかかる時間とコストを削減できます。 このプロジェクトの種類を使用して、ポータブル .NET Framework アセンブリを作成してビルドし、.NET Framework、iOS、Mac などの複数のプラットフォームを対象とするアプリからそれらのアセンブリを参照します。
 
-Visual Studio でポータブル クラス ライブラリ プロジェクトを作成し、プロジェクトの開発を開始した後でも、ターゲット プラットフォームを変更できます。 Visual Studio では、コードにする必要がある変更の特定に役立てることにより、新しいアセンブリでは、ライブラリをコンパイルします。
+Visual Studio でポータブル クラス ライブラリ プロジェクトを作成し、プロジェクトの開発を開始した後でも、ターゲット プラットフォームを変更できます。 Visual Studio では、新しいアセンブリを使用してライブラリをコンパイルします。これにより、コードで行う必要がある変更を特定できます。
 
-## <a name="create-a-portable-class-library-project"></a>ポータブル クラス ライブラリ プロジェクトを作成します。
+## <a name="create-a-portable-class-library-project"></a>ポータブルクラスライブラリプロジェクトを作成する
 
-ポータブル クラス ライブラリを作成するには、Visual Studio で提供されているテンプレートを使用します。 新しいプロジェクトを作成 (**ファイル** > **新しいプロジェクト**)、および、**新しいプロジェクト** ダイアログ ボックスを使用するプログラミング言語 (Visual c# または Visual Basic) を選択します。 次に、選択、**クラス ライブラリ (レガシ ポータブル)** テンプレート。 プロジェクトの名前を入力し、選択**OK**します。
+ポータブルクラスライブラリを作成するには、Visual Studio に用意されているテンプレートを使用します。 新しいプロジェクト (**ファイル** > **新しいプロジェクト**) を作成し、 **[新しいプロジェクト]** ダイアログボックスで、プログラミング言語 (ビジュアルC#または Visual Basic) を選択します。 次に、 **[クラスライブラリ (レガシポータブル)]** テンプレートを選択します。 プロジェクトの名前を入力し、[ **OK]** を選択します。
 
-**ポータブル クラス ライブラリの追加** ダイアログ ボックスが表示されます。 2 つ以上のターゲットを選択し、 **OK**します。
+**[ポータブルクラスライブラリの追加]** ダイアログボックスが表示されます。 2つ以上のターゲットを選択し、[ **OK]** をクリックします。
 
-![Visual Studio でのポータブル クラス ライブラリのターゲットを追加します。](media/add-portable-class-library.png)
+![Visual Studio でポータブルクラスライブラリターゲットを追加する](media/add-portable-class-library.png)
 
-## <a name="change-targets"></a>ターゲットを変更します。
+## <a name="change-targets"></a>ターゲットの変更
 
-作成するときに、または開発を開始した後は、ポータブル クラス ライブラリ プロジェクトのターゲット プラットフォームを変更できます。 プロジェクトを作成した後、ターゲットを変更したい場合**ソリューション エクスプ ローラー**(ソリューションではなく)、ポータブル クラス ライブラリ プロジェクトのショートカット メニューを開き、選択し、**プロパティ**. プロジェクトのプロパティ ページ、**ライブラリ** タブは、プロジェクトが現在対象とするプラットフォームを示します。
+ポータブルクラスライブラリプロジェクトを作成するとき、または開発を開始した後で、ターゲットプラットフォームを変更できます。 プロジェクトの作成後にターゲットを変更する場合は、**ソリューションエクスプローラー**で、ポータブルクラスライブラリプロジェクト (ソリューションではない) のショートカットメニューを開き、 **[プロパティ]** を選択します。 プロジェクトのプロパティページの **[ライブラリ]** タブに、プロジェクトが現在対象としているプラットフォームが表示されます。
 
-![Visual Studio でポータブル クラス ライブラリのプロジェクトのプロパティ](media/pcl-project-properties.png)
+![Visual Studio のポータブルクラスライブラリのプロジェクトプロパティ](media/pcl-project-properties.png)
 
-追加またはターゲットの削除、選択、**変更** ボタンを選択して、該当するチェック ボックスをオフにします。
+ターゲットを追加または削除するには、 **[変更]** ボタンをクリックし、適切なチェックボックスをオンまたはオフにします。
 
 ターゲットを変更すると、変更後のターゲットに合わせて、プロジェクトの開発に使用できる API が変更されます。 Visual Studio は、ターゲットを変更したことで発生する可能性があるエラーと警告を報告します。
 
-Visual Studio で変更を加える前に、アセンブリの移植性を評価する場合は、使用することができます、 [.NET Portability Analyzer](https://visualstudiogallery.msdn.microsoft.com/1177943e-cfb7-4822-a8a6-e56c7905292b)します。
+Visual Studio で変更を加える前にアセンブリの移植性を評価する場合は、 [.Net 移植性アナライザー](https://visualstudiogallery.msdn.microsoft.com/1177943e-cfb7-4822-a8a6-e56c7905292b)を使用できます。
 
 ## <a name="supported-types-and-members"></a>サポートされている型とメンバー
 
@@ -64,30 +62,30 @@ Visual Studio で変更を加える前に、アセンブリの移植性を評価
 
 サポートされるすべてのプラットフォームでポータブル クラス ライブラリ アセンブリの互換性を確保するために、ポータブル クラス ライブラリでは一部のメンバーが若干変更されています。
 
-## <a name="use-the-portable-class-library"></a>ポータブル クラス ライブラリを使用します。
+## <a name="use-the-portable-class-library"></a>ポータブルクラスライブラリを使用する
 
 ポータブル クラス ライブラリ プロジェクトをビルドしたら、他のプロジェクトからそのプロジェクトを参照します。 プロジェクトを参照することも、アクセスする必要のあるクラスを含む特定のアセンブリを参照することもできます。
 
 ポータブル クラス ライブラリ アセンブリを参照するアプリを実行するには、ターゲット プラットフォームの必要なバージョン (またはそれ以上のバージョン) がコンピューターにインストールされている必要があります。 Visual Studio には必要なすべてのフレームワークが含まれるため、さらに変更を加えることなく、アプリケーションの開発に使用したコンピューターでアプリケーションを実行できます。
 
-### <a name="deploy-a-universal-windows-app"></a>ユニバーサル Windows アプリをデプロイします。
+### <a name="deploy-a-universal-windows-app"></a>ユニバーサル Windows アプリを展開する
 
-ユニバーサル Windows アプリを作成するときに、ポータブル クラス ライブラリ アセンブリを参照して、アプリ パッケージに含まれているアプリを展開する必要があるすべてが以降の手順は必要ありません。
+ポータブルクラスライブラリアセンブリを参照するユニバーサル Windows アプリを作成する場合、アプリを展開するために必要なものはすべてアプリパッケージに含まれており、それ以上の手順は必要ありません。
 
-### <a name="deploy-a-net-framework-app"></a>デプロイを .NET Framework アプリ
+### <a name="deploy-a-net-framework-app"></a>.NET Framework アプリをデプロイする
 
 ポータブル クラス ライブラリ アセンブリを参照する .NET Framework アプリを配置するときは、.NET Framework の正しいバージョンに対する依存関係を指定する必要があります。 この依存関係を指定することで、必要なバージョンがアプリケーションと共に確実にインストールされます。
 
-- ClickOnce 配置で依存関係を作成します。**ソリューション エクスプ ローラー**、発行するプロジェクトのプロジェクト ノードを選択します。 (これは、ポータブル クラス ライブラリ プロジェクトを参照するプロジェクトです。)メニュー バーで、**プロジェクト** > **プロパティ**を選択し、**発行**タブ。**発行**ページで、選択**の前提条件**します。 必須コンポーネントとして、必要な .NET Framework のバージョンを選択します。
+- ClickOnce 配置を使用して依存関係を作成するには:**ソリューションエクスプローラー**で、発行するプロジェクトのプロジェクトノードを選択します。 (これは、ポータブルクラスライブラリプロジェクトを参照するプロジェクトです)。メニューバーで、[**プロジェクト** > **プロパティ**] を選択し、 **[発行]** タブを選択します。 **[発行]** ページで、 **[前提条件]** を選択します。 必須コンポーネントとして、必要な .NET Framework のバージョンを選択します。
 
-- セットアップ プロジェクトの依存関係を作成します。**ソリューション エクスプ ローラー**、セットアップ プロジェクトを選択します。 メニュー バーで、**プロジェクト** > **プロパティ** > **の前提条件**します。 必須コンポーネントとして、必要な .NET Framework のバージョンを選択します。
+- セットアッププロジェクトとの依存関係を作成するには、**ソリューションエクスプローラー**で、セットアッププロジェクトを選択します。 メニューバーで、[**プロジェクト** > の**プロパティ** > **必須コンポーネント**] を選択します。 必須コンポーネントとして、必要な .NET Framework のバージョンを選択します。
 
-.NET Framework アプリの展開についての詳細については、次を参照してください。[開発者向け配置ガイド](../../../docs/framework/deployment/deployment-guide-for-developers.md)します。
+.NET Framework アプリのデプロイの詳細については、「[開発者向け配置ガイド](../../../docs/framework/deployment/deployment-guide-for-developers.md)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [MVVM を利用した汎用性のあるクラス ライブラリの使用](../../../docs/standard/cross-platform/using-portable-class-library-with-model-view-view-model.md)
 - [複数のプラットフォームを対象とするライブラリのアプリケーション リソース](../../../docs/standard/cross-platform/app-resources-for-libraries-that-target-multiple-platforms.md)
-- [.NET portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
+- [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
 - [Windows ストア アプリおよび Windows ランタイムのための .NET Framework サポート](../../../docs/standard/cross-platform/support-for-windows-store-apps-and-windows-runtime.md)
-- [配置](../../../docs/framework/deployment/net-framework-applications.md)
+- [デプロイ](../../../docs/framework/deployment/net-framework-applications.md)

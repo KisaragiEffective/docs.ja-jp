@@ -15,16 +15,16 @@ topic_type:
 - apiref
 author: cshung
 ms.author: andrewau
-ms.openlocfilehash: f62cbdc4b3e73f0c27492f7ed20b35378654d399
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: c51825433bbc86c897c097475d5c15c855f6ec8b
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61775503"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76790406"
 ---
 # <a name="ixclrdatamethodinstance-interface"></a>IXCLRDataMethodInstance インターフェイス
 
-メソッド インスタンスの情報を照会するためのメソッドを提供します。
+メソッドインスタンスに関する情報を照会するためのメソッドを提供します。
 
 [!INCLUDE[debugging-api-recommended-note](../../../../includes/debugging-api-recommended-note.md)]
 
@@ -32,21 +32,21 @@ ms.locfileid: "61775503"
 
 | メソッド                                                                                                                  | 説明                                 |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| [GetILAddressMap](../../../../docs/framework/unmanaged-api/debugging/ixclrdatamethodinstance-getiladdressmap-method.md) | アドレスのマッピング情報の IL を取得します。 |
-| [GetRepresentativeEntryAddress](../../../../docs/framework/unmanaged-api/debugging/ixclrdatamethodinstance-getrepresentativeentryaddress-method.md) | メソッドのエントリ ポイントは、すべてのネイティブ コンパイルの最も代表的なエントリ ポイントのアドレスを取得します。 |
+| [GetILAddressMap](ixclrdatamethodinstance-getiladdressmap-method.md) | マッピング情報をアドレス付けする IL を取得します。 |
+| [GetRepresentativeEntryAddress](ixclrdatamethodinstance-getrepresentativeentryaddress-method.md) | メソッドに対して使用可能なすべてのエントリポイントのネイティブコンパイルを行うための最も代表的なエントリポイントアドレスを取得します。 |
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-このインターフェイスは、ランタイム内に収めるを任意のヘッダーまたはライブラリ ファイルでは公開されません。 ただし、これは COM インターフェイスから派生した`IUnknown`GUID を持つ`ECD73800-22CA-4b0d-AB55-E9BA7E6318A5`を通常の COM メカニズムを通じて取得できます。
+このインターフェイスはランタイム内に存在し、ヘッダーまたはライブラリファイルを介して公開されることはありません。 ただし、これは、通常の COM 機構を通じて取得できる GUID `ECD73800-22CA-4b0d-AB55-E9BA7E6318A5` を `IUnknown` から派生する COM インターフェイスです。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
-**プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
-**ヘッダー:** なし  
-**ライブラリ:** なし  
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
+**ヘッダー:** 存在  
+**ライブラリ:** 存在  
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v47plus](../../../../includes/net-current-v47plus.md)]  
 
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [デバッグ](index.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

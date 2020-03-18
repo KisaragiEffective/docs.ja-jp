@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: fbaa0794-a031-4015-8beb-2749e47ac340
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ca64e392b930ed57691f05ae771bbaf305df8eb3
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9a4f533c0ab817d800c2d35b7d64c7aee78faaea
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67754076"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73121167"
 ---
 # <a name="icordebugframegetcode-method"></a>ICorDebugFrame::GetCode メソッド
-このスタック フレームに関連付けられているコードにポインターを取得します。  
+このスタックフレームに関連付けられているコードへのポインターを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,10 +35,10 @@ HRESULT GetCode (
   
 ## <a name="parameters"></a>パラメーター  
  `ppCode`  
- [out]このフレームに関連付けられているコードを表す ICorDebugCode オブジェクトのアドレスへのポインター。  
+ 入出力このフレームに関連付けられているコードを表す、コードオブジェクトのアドレスへのポインター。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

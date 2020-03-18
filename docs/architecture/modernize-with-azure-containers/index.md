@@ -2,12 +2,12 @@
 title: Azure クラウドおよび Windows コンテナーを使用して既存の .NET アプリケーションを最新化する (第 2 版)
 description: この電子書籍では、既存のアプリケーションを Azure クラウドおよびコンテナーへとリフト アンド シフトして最新化する方法について説明します。
 ms.date: 04/28/2018
-ms.openlocfilehash: 99265e6179554214ae1684b6ea266693be7f80c1
-ms.sourcegitcommit: c70542d02736e082e8dac67dad922c19249a8893
+ms.openlocfilehash: 9439de84dd46ac3153d951378764d10184c33a52
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70374159"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77628410"
 ---
 # <a name="modernize-existing-net-applications-with-azure-cloud-and-windows-containers-2nd-edition"></a>Azure クラウドおよび Windows コンテナーを使用して既存の .NET アプリケーションを最新化する (第 2 版)
 
@@ -19,13 +19,13 @@ Divisions of Microsoft Corporation
 One Microsoft Way  
 Redmond, Washington 98052-6399  
 
-Copyright © 2018 by Microsoft Corporation  
+Copyright © 2020 by Microsoft Corporation  
 
 All rights reserved. 本書のいかなる部分も、書面による発行者の許可なしに、いかなる形式または方法によっても、複製することを禁じます。
 
 このブックは、電子書籍の形式で、<https://dot.net/architecture> などのマイクロソフトの複数のチャネルを介して利用できます。
 
-この書籍で電子メールに関連する質問がある場合は、[dotnet-architecture-ebooks-feedback@service.microsoft.com](mailto:dotnet-architecture-ebooks-feedback@service.microsoft.com?subject=Feedback%20for%20.NET%20Container%20&%20Microservices%20Architecture%20book) に電子メールをお送りください。
+この書籍に関する質問がある場合は、[dotnet-architecture-ebooks-feedback@service.microsoft.com](mailto:dotnet-architecture-ebooks-feedback@service.microsoft.com?subject=Feedback%20for%20.NET%20Container%20&%20Microservices%20Architecture%20book) にメールでお問い合わせください。
 
 本書は "現状有姿" で提供され、著者の見解と意見を表しています。 URL および他の参照されているインターネットの Web サイトをはじめ、本書に記載されている見解、意見、および情報は、通知なく変更されることがあります。
 
@@ -56,7 +56,7 @@ Web アプリケーションまたはサービスを最新化し、クラウド�
 
 ## <a name="about-this-guide"></a>このガイドについて
 
-このガイドでは、主に既存の Microsoft .NET Framework Web またはサービス指向アプリケーションの最初の最新化に焦点を当てています。つまり、アプリケーションのコードと基本的なアーキテクチャを大幅に変更することなく、ワークロードをより新しい、または現代的な環境に移行します。 
+このガイドでは、主に既存の Microsoft .NET Framework Web またはサービス指向アプリケーションの最初の最新化に焦点を当てています。つまり、アプリケーションのコードと基本的なアーキテクチャを大幅に変更することなく、ワークロードをより新しい、または現代的な環境に移行します。
 
 また、このガイドでは、Windows コンテナーや、Windows コンテナーをサポートする Azure 内の関連するコンピューティング プラットフォームなど、特定の一連の新しいテクノロジとアプローチを使用して、アプリをクラウドに移行し、アプリを部分的に最新化する利点についても説明します。
 
@@ -119,7 +119,8 @@ Web アプリケーションまたはサービスを最新化し、クラウド�
 
 - **クラウド インフラストラクチャ対応** (再ホストまたは基本的なリフト アンド シフト):多くの組織では、最初の手順としてクラウド移行戦略を迅速に実行するだけです。 この場合、アプリケーションは再ホストされます。 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)、[Azure Database Migration Service](https://azure.microsoft.com/campaigns/database-migration/) などのクラウドツールを基にした Azure への移行を支援するために必要なガイダンス、洞察、メカニズムを提供するサービスである [Azure Migrate](https://aka.ms/azuremigrate) を使用することで、ほとんどの再ホストは自動化することができます。 レガシ アプリケーションをクラウドに移動するときに、資産についてインフラストラクチャの詳細を確認することができるように、再ホストを手動で変更を設定することもできます。 たとえば、ほとんど変更せずに (おそらく少しの構成変更だけで) Azure の VM にアプリケーションを移動することができます。 特に Azure で仮想ネットワークを作成する場合、このケースでのネットワークは、オンプレミス環境に似ています。
 
-- **クラウド最適化** (マネージド サービスおよび Windows コンテナー):このモデルでは、アプリケーションの主要なアーキテクチャを変更することなく、クラウドからのいくつかの重要な利点を取得するために、いくつかの重要な展開の最適化を行います。 ここでの基本的な手順は、[Windows コンテナー](https://docs.microsoft.com/virtualization/windowscontainers/about/) サポートを既存の .NET Framework アプリケーションに追加することです。 この重要な手順 (コンテナー化) は、コードを操作しないので、全体的なリフト アンド シフトの作業が少なくなります。 [Image2Docker](https://github.com/docker/communitytools-image2docker-win) や Visual Studio などのツールと、[Docker](https://www.docker.com/) 用のツールを使用できます。 Visual Studio は、ASP.NET アプリケーションおよび Windows コンテナー イメージ用のスマート有効な既定値を自動的に選択します。 これらのツールは、迅速な内側のループと Azure へのコンテナーを取得する高速なパスの両方を提供します。 複数の環境に展開するときの機敏性が向上します。 これで、運用環境に移行すると、[Azure Web App for Containers](https://azure.microsoft.com/services/app-service/containers/)、[Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/) と、IaaS アプローチが好みの場合は Windows Server 2016 とコンテナーを備えた Azure VM に Windows コンテナーをデプロイできるようになります。 より複雑なマルチコンテナー アプリケーションの場合は、[Azure Kubernetes Service (AKS/ACS)](https://azure.microsoft.com/services/container-service/) などのオーケストレーター使用することを検討してください。 
+- **クラウド最適化** (マネージド サービスおよび Windows コンテナー):このモデルでは、アプリケーションの主要なアーキテクチャを変更することなく、クラウドからのいくつかの重要な利点を取得するために、いくつかの重要な展開の最適化を行います。 ここでの基本的な手順は、[Windows コンテナー](https://docs.microsoft.com/virtualization/windowscontainers/about/) サポートを既存の .NET Framework アプリケーションに追加することです。 この重要な手順 (コンテナー化) は、コードを操作しないので、全体的なリフト アンド シフトの作業が少なくなります。 [Image2Docker](https://github.com/docker/communitytools-image2docker-win) や Visual Studio などのツールと、[Docker](https://www.docker.com/) 用のツールを使用できます。 Visual Studio は、ASP.NET アプリケーションおよび Windows コンテナー イメージ用のスマート有効な既定値を自動的に選択します。 これらのツールは、迅速な内側のループと Azure へのコンテナーを取得する高速なパスの両方を提供します。 複数の環境に展開するときの機敏性が向上します。
+これで、運用環境に移行すると、[Azure Web App for Containers](https://azure.microsoft.com/services/app-service/containers/)、[Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/) と、IaaS アプローチが好みの場合は Windows Server 2016 とコンテナーを備えた Azure VM に Windows コンテナーをデプロイできるようになります。 より複雑なマルチコンテナー アプリケーションの場合は、[Azure Kubernetes Service (AKS/ACS)](https://azure.microsoft.com/services/container-service/) などのオーケストレーター使用することを検討してください。
 
 この初期最新化中に、[Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) などのツールによる監視、[Azure DevOps Services](https://azure.microsoft.com/services/devops/) を使用したアプリ ライフサイクルの CI/CD パイプライン、および Azure で使用可能な多数のデータ リソース サービスなどのクラウドの資産を追加することもできます。 たとえば、従来の [ASP.NET Web Forms](https://www.asp.net/web-forms) や [ASP.NET MVC](https://www.asp.net/mvc) を使用して最初に開発され、しかし現在は Windows コンテナーを使用して展開されるモノリシック Web アプリを変更することができます。 Windows コンテナーを使用するときには、データも [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/) のデータベースに移行する必要があります。アプリケーションの主要なアーキテクチャを変更せずにすべてを移行できます。
 
@@ -198,7 +199,7 @@ GitHub の [EShopModernizing](https://github.com/dotnet-architecture/eShopModern
 
 ## <a name="send-your-feedback"></a>フィードバックの送信
 
-このガイドは、既存の .NET Web アプリケーションの改善と最新化のオプションについて理解できるように設計されています。 ガイドと関連するサンプル アプリケーションは進化しています。 ご意見をお待ちしております。 このガイドを改善する方法についてご意見があれば、[dotnet-architecture-ebooks-feedback@service.microsoft.com](mailto:dotnet-architecture-ebooks-feedback@service.microsoft.com?subject=Feedback%20for%20.NET%20Container%20&%20Microservices%20Architecture%20book) に送信してください。
+このガイドは、既存の .NET Web アプリケーションの改善と最新化のオプションについて理解できるように設計されています。 ガイドと関連するサンプル アプリケーションは進化しています。 皆様からのご意見をお待ちしております。 このガイドを改善する方法についてご意見があれば、[dotnet-architecture-ebooks-feedback@service.microsoft.com](mailto:dotnet-architecture-ebooks-feedback@service.microsoft.com?subject=Feedback%20for%20.NET%20Container%20&%20Microservices%20Architecture%20book) に送信してください。
 
 >[!div class="step-by-step"]
 >[次へ](lift-and-shift-existing-apps-azure-iaas.md) <!-- Next Chapter -->

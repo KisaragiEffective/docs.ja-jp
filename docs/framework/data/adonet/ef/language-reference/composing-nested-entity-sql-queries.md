@@ -10,10 +10,10 @@ ms.lasthandoff: 10/16/2019
 ms.locfileid: "72395561"
 ---
 # <a name="composing-nested-entity-sql-queries"></a>入れ子になった Entity SQL クエリの作成
-[!INCLUDE[esql](../../../../../../includes/esql-md.md)] は、機能の豊富な関数言語です。 @No__t-0 のビルディングブロックは式です。 従来の SQL とは異なり、@no__t 0 は表形式の結果セットに限定されません。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] は、リテラル、パラメーター、または入れ子になった式を含む複雑な式の作成をサポートします。 式の値は、パラメーター化することも、他の式で構成することもできます。  
+[!INCLUDE[esql](../../../../../../includes/esql-md.md)] は機能が豊富な言語です。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] のビルディングブロックは式です。 従来の SQL とは異なり、[!INCLUDE[esql](../../../../../../includes/esql-md.md)] は表形式の結果セットに限定されません。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] では、リテラル、パラメーター、または入れ子になった式を含む複雑な式の作成がサポートされています。 式の値は、パラメーター化することも、他の式で構成することもできます。  
   
 ## <a name="nested-expressions"></a>入れ子になった式  
- 入れ子になった式は、その式によって返される型の値が受け入れられる場所であればどこにでも配置できます。 (例:  
+ 入れ子になった式は、その式によって返される型の値が受け入れられる場所であればどこにでも配置できます。 例 :  
   
 ```sql  
 -- Returns a hierarchical collection of three elements at top-level.   
@@ -25,7 +25,7 @@ ROW(@x, {@x}, {@x, 4, 5}, {@x, 7, 8, 9})
 {{{@x}}};  
 ```  
   
- 入れ子になったクエリは、projection 句に配置できます。 (例:  
+ 入れ子になったクエリは、projection 句に配置できます。 例 :  
   
 ```sql  
 -- Returns a collection of rows where each row contains an Address entity.  
@@ -46,7 +46,7 @@ UNION ALL
 FROM … );  
 ```  
   
- 次の例では、式を適切に入れ子にする方法を示します。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)]:[方法: 2 つのクエリの和集合を並べ替え](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/bb896299(v=vs.100))ます。  
+ 次の例では、[!INCLUDE[esql](../../../../../../includes/esql-md.md)]で式を適切に入れ子にする方法を示します。[方法: 2 つのクエリの和集合を並べ替える](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/bb896299(v=vs.100))  
   
 ## <a name="nested-queries-in-projection"></a>投影内の入れ子になったクエリ  
  project 句内の入れ子になったクエリは、サーバーでデカルト積に変換されないことがあります。 SQL Server を含む一部のバックエンドサーバーでは、これによって TempDB テーブルのサイズが非常に大きくなり、サーバーのパフォーマンスに悪影響を及ぼす可能性があります。  
@@ -75,6 +75,6 @@ SELECT C2.FirstName, C2.LastName
         ORDER BY C1.LastName) as C2  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Entity SQL の概要](entity-sql-overview.md)

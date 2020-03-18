@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 5f5a311a-839a-465f-89d9-ff1c74da9736
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d05bc472711838236ed18b00ce808d022d9581dc
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 3531cfc0815c3f8a9479e35b2df60b2825801b39
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67758205"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136851"
 ---
 # <a name="couninitializeee-function"></a>CoUninitializeEE 関数
-`CoUninitializeEE` 廃止され、機能はありません。  
+`CoUninitializeEE` は互換性のために残されていますが、機能はありません。  
   
 ## <a name="syntax"></a>構文  
   
@@ -36,7 +34,7 @@ void CoUninitializeEE (
 ```  
   
 ## <a name="remarks"></a>Remarks  
- 共通言語ランタイムの実行エンジンは、プロセスからアンロードすることはできません。 実行エンジンの呼び出しをシャット ダウン[CorExitProcess](../../../../docs/framework/unmanaged-api/hosting/corexitprocess-function.md)します。  
+ 共通言語ランタイムの実行エンジンをプロセスからアンロードできません。 実行エンジンをシャットダウンするには、 [CorExitProcess](../../../../docs/framework/unmanaged-api/hosting/corexitprocess-function.md)を呼び出します。  
   
 ## <a name="see-also"></a>関連項目
 

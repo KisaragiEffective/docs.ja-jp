@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 84e1e605-37c1-49a5-8e12-35db85654622
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: ad62b267eb0c49ff8fbefeb45b523c21edc705fe
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d0dc301c67d09ebb15bf47cef15e642fb7c78fb9
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67766048"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76792605"
 ---
 # <a name="icordebugprocessgethelperthreadid-method"></a>ICorDebugProcess::GetHelperThreadID メソッド
-デバッガーの内部ヘルパーのスレッドのオペレーティング システム (OS) のスレッド ID を取得します。  
+デバッガーの内部ヘルパースレッドのオペレーティングシステム (OS) スレッド ID を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,19 +35,19 @@ HRESULT GetHelperThreadID (
   
 ## <a name="parameters"></a>パラメーター  
  `pThreadID`  
- [out]OS へのポインターはスレッド、デバッガーの内部ヘルパーのスレッドの ID です。  
+ 入出力デバッガーの内部ヘルパースレッドの OS スレッド ID へのポインター。  
   
-## <a name="remarks"></a>Remarks  
- マネージ コードとアンマネージ デバッグ中は、デバッガーでブレークポイントにヒットした場合、指定した ID を持つスレッド引き続き実行されているようにする、デバッガーの責任です。 デバッガーは、ユーザーからは、このスレッドを非表示にする可能性がありますも。 ヘルパーのスレッドが存在しない場合、プロセスで、まだ、`GetHelperThreadID`にゼロが返される *`pThreadID`します。  
+## <a name="remarks"></a>コメント  
+ マネージデバッグおよびアンマネージデバッグ中は、デバッガーによって設定されたブレークポイントにヒットした場合に、指定した ID を持つスレッドが実行された状態を維持する必要があります。 デバッガーでは、このスレッドをユーザーに対して非表示にすることもできます。 まだプロセスにヘルパースレッドが存在しない場合、`GetHelperThreadID` メソッドは *`pThreadID`に0を返します。  
   
- 時間の経過と共に変更可能性がありますので、ヘルパーのスレッドのスレッド ID をキャッシュすることはできません。 停止イベントごとにスレッド ID を再クエリする必要があります。  
+ ヘルパースレッドのスレッド ID は、時間の経過と共に変更される可能性があるため、キャッシュすることはできません。 停止イベントが発生するたびにスレッド ID を再照会する必要があります。  
   
- なければ、デバッガーのヘルパーのスレッドのスレッド ID すべてアンマネージ[icordebugmanagedcallback::createthread](../../../../docs/framework/unmanaged-api/debugging/icordebugmanagedcallback-createthread-method.md)イベント、ため、デバッガー ヘルパー スレッドのスレッド ID を特定し、ユーザーから非表示にすることができます。 アンマネージの中にヘルパー スレッドとして識別されるスレッド`ICorDebugManagedCallback::CreateThread`イベントではマネージ ユーザー コードは実行されません。  
+ デバッガーのヘルパースレッドのスレッド ID は、すべてのアンマネージコードに対して、すべてのアンマネージ[コールバック:: CreateThread](icordebugmanagedcallback-createthread-method.md)イベントに対して適切になります。これにより、デバッガーはヘルパースレッドのスレッド id を判断し、ユーザーに対して非表示にすることができます。 アンマネージ `ICorDebugManagedCallback::CreateThread` イベント中にヘルパースレッドとして識別されたスレッドは、マネージユーザーコードを実行しません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug.idl します。 CorDebug.h  
+ **ヘッダー:** CorDebug。 CorDebug. h  
   
  **ライブラリ:** CorGuids.lib  
   

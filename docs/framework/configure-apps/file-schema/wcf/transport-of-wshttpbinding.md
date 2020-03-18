@@ -2,24 +2,24 @@
 title: <transport> の <wsHttpBinding>
 ms.date: 03/30/2017
 ms.assetid: 21e38acf-450a-4bda-82b6-de305e1f7cd8
-ms.openlocfilehash: 95cfa076f62f767af431ff5a0bcc2ca31b824e30
-ms.sourcegitcommit: 093571de904fc7979e85ef3c048547d0accb1d8a
+ms.openlocfilehash: 1afeed62fcbf3b083d69a7cedb7eb80b81f5c17b
+ms.sourcegitcommit: 22be09204266253d45ece46f51cc6f080f2b3fd6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70399243"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73732739"
 ---
-# <a name="transport-of-wshttpbinding"></a>\<wsHttpBinding > の\<transport >
+# <a name="transport-of-wshttpbinding"></a>\<\<wsHttpBinding のトランスポート > >
 
 HTTP トランスポートの認証設定を定義します。
 
 [ **\<configuration>** ](../configuration-element.md)\
-&nbsp;&nbsp;[ **\<System.servicemodel >** ](system-servicemodel.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;[ **\<バインド >** ](bindings.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ **\<wsHttpBinding >** ](wshttpbinding.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<バインド >** \
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ **\<セキュリティ >** ](security-of-wshttpbinding.md)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **\<トランスポート >**  
+&nbsp; &nbsp;[ **\<system >** ](system-servicemodel.md) \
+&nbsp;&nbsp;&nbsp;&nbsp;\<[**バインド**](bindings.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<[**wsHttpBinding >** ](wshttpbinding.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**バインド >** \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<[**セキュリティ >** ](security-of-wshttpbinding.md)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<**トランスポート >**  
 
 ## <a name="syntax"></a>構文
 
@@ -41,7 +41,7 @@ HTTP トランスポートの認証設定を定義します。
 </wsHttpBinding>
 ```
 
-## <a name="type"></a>型
+## <a name="type"></a>[種類]
 
 <xref:System.ServiceModel.HttpTransportSecurity>
 
@@ -56,11 +56,11 @@ HTTP トランスポートの認証設定を定義します。
 |`clientCredentialType`|サービスに対するクライアントの認証に使用される資格情報を指定します。 この属性は <xref:System.ServiceModel.HttpClientCredentialType> 型です。|
 |`proxyCredentialType`|ドメイン プロキシに対するクライアントの認証に使用される資格情報を指定します。 この属性は <xref:System.ServiceModel.HttpProxyCredentialType> 型です。|
 |`realm`|ダイジェストまたは基本認証の認証レルムを指定する文字列。 既定値は空の文字列です。<br /><br /> 認証レルムでは、少なくとも、認証を実行するホストの名前を指定します。 アクセス権のあるユーザーのコレクションも指定できます。 ユーザーは、認証レルムを照会して、複数のユーザー名およびパスワードの候補のうち、どれを使用できるかを確認することができます。|
-|`policyEnforcement`|この列挙体は、<xref:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy> を適用するタイミングを指定します。<br /><br /> 1. Never – ポリシーが適用されることはありません (拡張保護は無効になります)。<br />2. WhenSupported – ポリシーが適用されるのは、クライアントが拡張保護をサポートしている場合のみです。<br />3.Always – ポリシーは常に適用されます。 拡張保護をサポートしていないクライアントは認証に失敗します。|
+|`policyEnforcement`|この列挙体は、<xref:System.Security.Authentication.ExtendedProtection.ExtendedProtectionPolicy> を適用するタイミングを指定します。<br /><br /> 1. never –ポリシーは適用されません (拡張保護は無効になります)。<br />2. WhenSupported –ポリシーは、クライアントが拡張保護をサポートしている場合にのみ適用されます。<br />3. always –ポリシーは常に適用されます。 拡張保護をサポートしていないクライアントは認証に失敗します。|
 
 ## <a name="clientcredentialtype-attribute"></a>clientCredentialType 属性
 
-|値|説明|
+|[値]|説明|
 |-----------|-----------------|
 |`None`|セキュリティを無効にします。|
 |`Basic`|基本認証を使用します。|
@@ -71,7 +71,7 @@ HTTP トランスポートの認証設定を定義します。
 
 ## <a name="proxycredentialtype-attribute"></a>proxyCredentialType 属性
 
-|値|説明|
+|[値]|説明|
 |-----------|-----------------|
 |`None`|セキュリティを無効にします。|
 |`Basic`|基本認証を使用します。|
@@ -88,7 +88,7 @@ HTTP トランスポートの認証設定を定義します。
 
 |要素|説明|
 |-------------|-----------------|
-|[\<security>](security-of-wshttpbinding.md)|[ \<WsHttpBinding >](wshttpbinding.md)のセキュリティ機能を表します。|
+|[\< セキュリティ >](security-of-wshttpbinding.md)|[\<wsHttpBinding >](wshttpbinding.md)のセキュリティ機能を表します。|
 
 ## <a name="see-also"></a>関連項目
 
@@ -100,4 +100,4 @@ HTTP トランスポートの認証設定を定義します。
 - [バインディング](../../../wcf/bindings.md)
 - [システムが提供するバインディングの構成](../../../wcf/feature-details/configuring-system-provided-bindings.md)
 - [サービスとクライアントを構成するためのバインディングの使用](../../../wcf/using-bindings-to-configure-services-and-clients.md)
-- [\<binding>](../../../misc/binding.md)
+- [\<binding >](bindings.md)

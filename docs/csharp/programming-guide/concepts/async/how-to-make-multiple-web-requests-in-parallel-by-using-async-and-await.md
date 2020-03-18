@@ -1,15 +1,15 @@
 ---
-title: '方法: async と await を使用して複数の Web 要求を並列実行する (C#)'
+title: async と await を使用して複数の Web 要求を並列実行する方法 (C#)
 ms.date: 07/20/2015
 ms.assetid: 19745899-f97a-4499-a7c7-e813d1447580
-ms.openlocfilehash: 06b70f5f3b2e1f3e7e423b16463f0b6b613f62c2
-ms.sourcegitcommit: 1b020356e421a9314dd525539da12463d980ce7a
+ms.openlocfilehash: 9f7420113d4af83d7d057b772af307bd8d4bcc00
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70168379"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79169950"
 ---
-# <a name="how-to-make-multiple-web-requests-in-parallel-by-using-async-and-await-c"></a>方法: async と await を使用して複数の Web 要求を並列実行する (C#)
+# <a name="how-to-make-multiple-web-requests-in-parallel-by-using-async-and-await-c"></a>async と await を使用して複数の Web 要求を並列実行する方法 (C#)
 非同期メソッドでは、タスクは作成されると開始されます。 [await](../../../language-reference/operators/await.md) 演算子は、メソッド内でタスクが終了するまで処理が続行できなくなった時点で、タスクに適用されます。 次の例に示すように、タスクは多くの場合、作成されるとすぐに待機します。  
   
 ```csharp  
@@ -37,7 +37,7 @@ var result = await myTask;
 > [!NOTE]
 > このプロジェクトを完成させるには、Visual Studio 2012 以降および .NET Framework 4.5 以降がコンピューターにインストールされている必要があります。  
   
- 複数のタスクを同時に開始する別の例については、「[方法: Task.WhenAll を使用して AsyncWalkthrough を拡張する (C#)](./how-to-extend-the-async-walkthrough-by-using-task-whenall.md)」を参照してください。  
+ 複数のタスクを同時に開始する別の例については、「[Task.WhenAll を使用して AsyncWalkthrough を拡張する方法 (C#)](./how-to-extend-the-async-walkthrough-by-using-task-whenall.md)」を参照してください。
   
  この例のコードは、[開発者コード サンプル](https://code.msdn.microsoft.com/Async-Make-Multiple-Web-49adb82e)のページからダウンロードできます。  
   
@@ -49,7 +49,7 @@ var result = await myTask;
   
     - <xref:System.Net.Http> への参照を追加します。  
   
-    - MainWindow.xaml.cs ファイルで、`System.Net.Http` に `using` ディレクティブを追加します。  
+    - MainWindow.xaml.cs ファイルで、`using` に `System.Net.Http` ディレクティブを追加します。  
   
 ### <a name="to-add-the-code"></a>コードを追加するには  
   
@@ -83,7 +83,7 @@ var result = await myTask;
   
     private void DisplayResults(string url, byte[] content)  
     {  
-        // Display the length of each website. The string format   
+        // Display the length of each website. The string format
         // is designed to be used with a monospaced font, such as  
         // Lucida Console or Global Monospace.  
         var bytes = content.Length;  
@@ -113,13 +113,13 @@ var result = await myTask;
         HttpClient client =  
             new HttpClient() { MaxResponseContentBufferSize = 1000000 };  
   
-        // Create and start the tasks. As each task finishes, DisplayResults   
+        // Create and start the tasks. As each task finishes, DisplayResults
         // displays its length.  
-        Task<int> download1 =   
+        Task<int> download1 =
             ProcessURLAsync("https://msdn.microsoft.com", client);  
-        Task<int> download2 =   
+        Task<int> download2 =
             ProcessURLAsync("https://msdn.microsoft.com/library/hh156528(VS.110).aspx", client);  
-        Task<int> download3 =   
+        Task<int> download3 =
             ProcessURLAsync("https://msdn.microsoft.com/library/67w7t67f.aspx", client);  
   
         // Await each task.  
@@ -183,13 +183,13 @@ namespace AsyncExample_MultipleTasks
             HttpClient client =  
                 new HttpClient() { MaxResponseContentBufferSize = 1000000 };  
   
-            // Create and start the tasks. As each task finishes, DisplayResults   
+            // Create and start the tasks. As each task finishes, DisplayResults
             // displays its length.  
-            Task<int> download1 =   
+            Task<int> download1 =
                 ProcessURLAsync("https://msdn.microsoft.com", client);  
-            Task<int> download2 =   
+            Task<int> download2 =
                 ProcessURLAsync("https://msdn.microsoft.com/library/hh156528(VS.110).aspx", client);  
-            Task<int> download3 =   
+            Task<int> download3 =
                 ProcessURLAsync("https://msdn.microsoft.com/library/67w7t67f.aspx", client);  
   
             // Await each task.  
@@ -212,7 +212,7 @@ namespace AsyncExample_MultipleTasks
   
         private void DisplayResults(string url, byte[] content)  
         {  
-            // Display the length of each website. The string format   
+            // Display the length of each website. The string format
             // is designed to be used with a monospaced font, such as  
             // Lucida Console or Global Monospace.  
             var bytes = content.Length;  
@@ -224,8 +224,8 @@ namespace AsyncExample_MultipleTasks
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [チュートリアル: Async と Await を使用した Web へのアクセス (C#)](./walkthrough-accessing-the-web-by-using-async-and-await.md)
+- [チュートリアル: async と await を使用した Web へのアクセス (C#)](./walkthrough-accessing-the-web-by-using-async-and-await.md)
 - [Async および Await を使用した非同期プログラミング (C#)](./index.md)
-- [方法: Task.WhenAll を使用して AsyncWalkthrough を拡張する (C#)](./how-to-extend-the-async-walkthrough-by-using-task-whenall.md)
+- [Task.WhenAll を使用して AsyncWalkthrough を拡張する方法 (C#)](./how-to-extend-the-async-walkthrough-by-using-task-whenall.md)

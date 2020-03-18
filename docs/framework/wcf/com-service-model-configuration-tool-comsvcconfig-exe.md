@@ -21,7 +21,7 @@ COM+ サービス モデル構成コマンド ライン ツール (ComSvcConfig.
 ComSvcConfig.exe /install | /uninstall | /list [/application:<ApplicationID | ApplicationName>] [/contract:<ClassID | ProgID | *,InterfaceID | InterfaceName | *>] [/hosting:<complus | was>] [/webSite:<WebsiteName>] [/webDirectory:<WebDirectoryName>] [/mex] [/id] [/nologo] [/verbose] [/help] [/partial]  
 ```  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
   
 > [!NOTE]
 > ComSvcConfig.exe を使用するには、ローカル コンピューターの管理者である必要があります。  
@@ -45,8 +45,8 @@ ComSvcConfig.exe /install | /uninstall | /list [/application:<ApplicationID | Ap
 |オプション|説明|  
 |------------|-----------------|  
 |`/application:` \<*ApplicationID* &#124; *ApplicationName*\>|構成する COM+ アプリケーションを指定します。<br /><br /> 短縮形 : `/a`。|  
-|`/contract:` \<*ClassID* &#124; *ProgID* &#124; \*、*interfaceid* &#124; *InterfaceName* &#124; 1 @ no__t|サービスのコントラクトとして構成される COM+ コンポーネントとインターフェイスを指定します。<br /><br /> 短縮形 : `/c`。<br /><br /> コンポーネントとインターフェイスの名前を指定するときにはワイルドカード文字 (@no__t 0) を使用できますが、意図していないインターフェイスを公開する可能性があるため、使用しないことをお勧めします。|  
-|`/hosting:` \< の*complus* &#124; *が*\>|COM+ ホスト モードと Web ホスト モードのどちらを使用するかを指定します。<br /><br /> 短縮形 : `/h`。<br /><br /> COM+ ホスト モードを使用するには、COM + アプリケーションの明示的なアクティブ化が必要です。 Web ホスト モードを使用すると、COM+ アプリケーションを必要なときに自動的にアクティブ化できます。 COM+ アプリケーションがライブラリ アプリケーションの場合は、インターネット インフォメーション サービス (IIS) のプロセスで実行します。 COM+ アプリケーションがサーバー アプリケーションの場合は、Dllhost.exe のプロセスで実行します。|  
+|`/contract:` \<*ClassID* &#124; *ProgID* &#124; \*、*interfaceid* &#124; *InterfaceName* &#124; \*\>|サービスのコントラクトとして構成される COM+ コンポーネントとインターフェイスを指定します。<br /><br /> 短縮形 : `/c`。<br /><br /> コンポーネントとインターフェイスの名前を指定するときにはワイルドカード文字 (\*) を使用できますが、意図していないインターフェイスを公開する可能性があるため、使用しないことをお勧めします。|  
+|`/hosting:` \<*complus* &#124; *\>*|COM+ ホスト モードと Web ホスト モードのどちらを使用するかを指定します。<br /><br /> 短縮形 : `/h`。<br /><br /> COM+ ホスト モードを使用するには、COM + アプリケーションの明示的なアクティブ化が必要です。 Web ホスト モードを使用すると、COM+ アプリケーションを必要なときに自動的にアクティブ化できます。 COM+ アプリケーションがライブラリ アプリケーションの場合は、インターネット インフォメーション サービス (IIS) のプロセスで実行します。 COM+ アプリケーションがサーバー アプリケーションの場合は、Dllhost.exe のプロセスで実行します。|  
 |`/webSite:` \<*WebsiteName*\>|Web ホスト モードを使用する場合は、ホストする Web サイトを指定します (`/hosting` フラグを参照)。<br /><br /> 短縮形 : `/w`。<br /><br /> Web サイトを指定しない場合は、既定の Web サイトが使用されます。|  
 |`/webDirectory:` \<*WebDirectoryName*\>|Web ホストを使用する場合は、ホストする仮想ディレクトリを指定します (`/hosting` フラグを参照)。<br /><br /> 短縮形 : `/d`。|  
 |`/mex`|サービスからコントラクト定義を取得するクライアントをサポートするには、既定のサービス構成に Metadata Exchange (MEX) サービス エンドポイントを追加します。<br /><br /> 短縮形 : `/x`。|  
@@ -94,6 +94,6 @@ ComSvcConfig.exe /uninstall /application:OnlineStore /interface:ItemOrders.Finan
 ComSvcConfig.exe /list /application:OnlineStore /hosting:complus  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [方法 : COM+ サービス モデル構成ツールを使用する](./feature-details/how-to-use-the-com-service-model-configuration-tool.md)

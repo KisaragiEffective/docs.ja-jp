@@ -1,13 +1,13 @@
 ---
 title: 呼び出し元情報
 description: 呼び出し元情報の引数属性を使用して、メソッドから呼び出し元情報を取得する方法について説明します。
-ms.date: 04/25/2017
-ms.openlocfilehash: e7bbc3830a95bd25cfc2fb369b204d367b775815
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.date: 11/04/2019
+ms.openlocfilehash: d995b37149277b7c7d1b6217ee484d3c90a7f8b3
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70106581"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73976796"
 ---
 # <a name="caller-information"></a>呼び出し元情報
 
@@ -15,7 +15,7 @@ ms.locfileid: "70106581"
 
 この情報を取得するには、省略可能なパラメーターに適用される属性を使用します。各パラメーターには既定値があります。 次の表に、 [system.runtime.compilerservices](/dotnet/api/system.runtime.compilerservices)名前空間で定義されている呼び出し元情報の属性を示します。
 
-|属性|説明|種類|
+|属性|説明|[種類]|
 |---------|-----------|----|
 |[CallerFilePath](/dotnet/api/system.runtime.compilerservices.callerfilepathattribute)|呼び出し元を含むソース ファイルのフル パスです。 これは、コンパイル時のファイル パスです。|`String`
 |[CallerLineNumber](/dotnet/api/system.runtime.compilerservices.callerlinenumberattribute)|メソッドが呼び出されたソース ファイルの行番号。|`Integer`|
@@ -31,7 +31,7 @@ open System.Runtime.CompilerServices
 open System.Runtime.InteropServices
 
 type Tracer() =
-    member __.DoTrace(message: string,
+    member _.DoTrace(message: string,
                       [<CallerMemberName; Optional; DefaultParameterValue("")>] memberName: string,
                       [<CallerFilePath; Optional; DefaultParameterValue("")>] path: string,
                       [<CallerLineNumber; Optional; DefaultParameterValue(0)>] line: int) =
@@ -51,7 +51,7 @@ type Tracer() =
 
 ## <a name="member-names"></a>メンバー名
 
-[`CallerMemberName`](/dotnet/api/system.runtime.compilerservices.callermembernameattribute)属性を使用し`String`て、呼び出されたメソッドの引数としてメンバー名を指定しないようにすることができます。 この手法を使用すると、リファクタリングの名前変更によって値`String`が変更されないという問題を回避できます。 この利点は、次のタスクで役立ちます。
+[`CallerMemberName`](/dotnet/api/system.runtime.compilerservices.callermembernameattribute)属性を使用して、呼び出されたメソッドの `String` 引数としてメンバー名を指定しないようにすることができます。 この手法を使用すると、リファクタリングの名前変更によって `String` 値が変更されないという問題を回避できます。 この利点は、次のタスクで役立ちます。
 
 - トレース ルーチンと診断ルーチンの使用。
 - データをバインドするときに[INotifyPropertyChanged](/dotnet/api/system.componentmodel.inotifypropertychanged)インターフェイスを実装します。 このインターフェイスを使用すると、オブジェクトのプロパティが、プロパティが変更されたことをデータ バインド コントロールに通知できます。これによって、このコントロールは、更新された情報を表示できます。 [`CallerMemberName`](/dotnet/api/system.runtime.compilerservices.callermembernameattribute)属性を指定しない場合は、プロパティ名をリテラルとして指定する必要があります。

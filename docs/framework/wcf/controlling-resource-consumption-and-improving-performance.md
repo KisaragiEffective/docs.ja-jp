@@ -2,12 +2,12 @@
 title: リソース消費の制御とパフォーマンスの向上
 ms.date: 03/30/2017
 ms.assetid: 9a829669-5f76-4c88-80ec-92d0c62c0660
-ms.openlocfilehash: 976eb1e4a507d3c09bbc6e030985cbc3143b5946
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 16d6f29235455ff30e115b7aff3425412bc7ba6a
+ms.sourcegitcommit: 32a575bf4adccc901f00e264f92b759ced633379
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72320619"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74802256"
 ---
 # <a name="controlling-resource-consumption-and-improving-performance"></a>リソース消費の制御とパフォーマンスの向上
 このトピックでは、Windows Communication Foundation (WCF) アーキテクチャのさまざまな領域におけるさまざまなプロパティについて説明します。このアーキテクチャでは、リソースの消費量を制御し、パフォーマンスメトリックに影響を与えます。
@@ -24,7 +24,7 @@ ms.locfileid: "72320619"
 > [!NOTE]
 > 特定の問題が発生した場合は、まず、 [WCF トラブルシューティングクイックスタート](wcf-troubleshooting-quickstart.md)を読んで、問題 (および解決策) がそこに表示されているかどうかを確認する必要があります。
 
- シリアル化プロセスを制限するプロパティは、「[データに関するセキュリティの考慮事項](./feature-details/security-considerations-for-data.md)」に一覧で表示されています。 トランスポートに関連するリソースの消費を制限するプロパティについては、「[トランスポートクォータ](./feature-details/transport-quotas.md)」を参照してください。 アプリケーション層でリソースの消費を制限するプロパティは、<xref:System.ServiceModel.Dispatcher.ServiceThrottle> クラスのメンバーです。
+ シリアル化プロセスを制限するプロパティは、「[データのセキュリティに関する考慮事項](./feature-details/security-considerations-for-data.md)」に記載されています。 トランスポートに関連するリソースの消費を制限するプロパティについては、「[トランスポートクォータ](./feature-details/transport-quotas.md)」を参照してください。 アプリケーション層でリソースの消費を制限するプロパティは、<xref:System.ServiceModel.Dispatcher.ServiceThrottle> クラスのメンバーです。
 
 ## <a name="detecting-application-and-performance-issues-related-to-quota-settings"></a>クォータ設定に関連するアプリケーションとパフォーマンスの問題の検出
  上記の値の既定値は、一般的なセキュリティの問題に対する基本的な保護を提供しながら、さまざまなアプリケーションで基本的なアプリケーション機能を使用できるように選択されたものです。 ただし、アプリケーション デザインによっては、1 つ以上のスロットル設定を超えてしまったためにアプリケーションがセキュリティで保護されなかったり、設計どおりに動作しなかったりする場合があります。 その場合は、超過したスロットル値とそのレベルを特定し、アプリケーションのスループットを向上するための適切な手順を決定する必要があります。
@@ -44,9 +44,10 @@ ms.locfileid: "72320619"
  [ServiceModel メタデータユーティリティツール (svcutil.exe)](servicemodel-metadata-utility-tool-svcutil-exe.md)を使用すると、アプリケーションのコンパイル済みアセンブリから必要なシリアル化コードを生成することで、これらのアプリケーションの起動時のパフォーマンスを向上させることができます。 詳細については、「[方法: XmlSerializer を使用して WCF クライアントアプリケーションの起動時間を向上させる](./feature-details/startup-time-of-wcf-client-applications-using-the-xmlserializer.md)」を参照してください。
 
 ## <a name="performance-issues-when-hosting-wcf-services-under-aspnet"></a>ASP.NET で WCF サービスをホストする場合のパフォーマンスの問題
- WCF サービスを IIS および ASP.NET でホストする場合、IIS と ASP.NET の構成設定が WCF サービスのスループットやメモリの占有領域に影響する場合があります。  ASP.NET のパフォーマンスの詳細については、「 [ASP.NET パフォーマンスの向上](https://go.microsoft.com/fwlink/?LinkId=186462)」を参照してください。  予想外の結果を引き起こす可能性のある設定の 1 つに、<xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A> があります。これは、<xref:System.Web.Configuration.ProcessModelSection> のプロパティです。 アプリケーションのクライアントが固定数または少数である場合、<xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A> を 2 に設定すると、CPU の使用率が 100% に近いマルチプロセッサ コンピューターのスループットが向上する場合があります。 このパフォーマンスの向上にはコストが伴います。つまり、メモリの使用率も増加するため、スケーラビリティが低下する場合があります。
 
-## <a name="see-also"></a>関連項目
+WCF サービスを IIS および ASP.NET でホストする場合、IIS と ASP.NET の構成設定が WCF サービスのスループットやメモリの占有領域に影響する場合があります。  ASP.NET のパフォーマンスの詳細については、「 [ASP.NET パフォーマンスの向上](https://docs.microsoft.com/previous-versions/msp-n-p/ff647787(v=pandp.10))」を参照してください。 予想外の結果を引き起こす可能性のある設定の 1 つに、<xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A> があります。これは、<xref:System.Web.Configuration.ProcessModelSection> のプロパティです。 アプリケーションのクライアントが固定数または少数である場合、<xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A> を 2 に設定すると、CPU の使用率が 100% に近いマルチプロセッサ コンピューターのスループットが向上する場合があります。 このパフォーマンスの向上にはコストが伴います。つまり、メモリの使用率も増加するため、スケーラビリティが低下する場合があります。
+
+## <a name="see-also"></a>参照
 
 - [管理と診断](./diagnostics/index.md)
 - [大規模データとストリーミング](./feature-details/large-data-and-streaming.md)

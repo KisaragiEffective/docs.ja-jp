@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: ef77efd1-849c-4e51-ba92-7ee3d2bf0339
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: d080a3077df2cb4ad57ef463b5e02a3a28d8429d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: f6b5e12df60663b75e10b04eaa008a75d720d753
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779406"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74434431"
 ---
 # <a name="imetadataassemblyemitsetmanifestresourceprops-method"></a>IMetaDataAssemblyEmit::SetManifestResourceProps メソッド
 指定された `ManifestResource` メタデータ構造体を変更します。  
@@ -40,29 +38,29 @@ HRESULT SetManifestResourceProps (
   
 ## <a name="parameters"></a>パラメーター  
  `mr`  
- [in]トークンを指定する、`ManifestResource`メタデータ構造を変更します。  
+ から変更する `ManifestResource` メタデータ構造を指定するトークン。  
   
  `tkImplementation`  
- [in]型のトークン`File`または`AssemblyRef`、リソース プロバイダーにマップされます。  
+ からリソースプロバイダーにマップされる、型 `File` または `AssemblyRef`のトークン。  
   
  `dwOffset`  
- [in]リソース ファイル内の先頭までのオフセット。  
+ からファイル内のリソースの先頭へのオフセット。  
   
  `dwResourceFlags`  
- [in]リソースの属性を指定するフラグの値のビットごとの組み合わせ。  
+ からリソースの属性を指定するフラグ値のビットごとの組み合わせ。  
   
-## <a name="remarks"></a>Remarks  
- 作成する、`ManifestResource`メタデータ構造体を使用して、 [imetadataassemblyemit::definemanifestresource](../../../../docs/framework/unmanaged-api/metadata/imetadataassemblyemit-definemanifestresource-method.md)メソッド。  
+## <a name="remarks"></a>コメント  
+ `ManifestResource` メタデータ構造体を作成するには、 [IMetaDataAssemblyEmit::D efinemanifestresource](../../../../docs/framework/unmanaged-api/metadata/imetadataassemblyemit-definemanifestresource-method.md)メソッドを使用します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataAssemblyEmit インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataassemblyemit-interface.md)

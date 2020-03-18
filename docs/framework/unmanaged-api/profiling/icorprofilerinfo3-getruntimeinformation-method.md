@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 4400fb8c-0407-4791-8557-f011fd2aee51
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 7087864d0305f0cdb0b4977f037cf5a7c4dee18d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: e3d167be9a4091ae57a3283424186142e90ca7a1
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67783141"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76868552"
 ---
 # <a name="icorprofilerinfo3getruntimeinformation-method"></a>ICorProfilerInfo3::GetRuntimeInformation メソッド
-プロファイリングされている共通言語ランタイム (CLR) のバージョンについて説明します。  
+プロファイリングされている共通言語ランタイム (CLR) に関するバージョン情報を提供します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -45,39 +43,39 @@ HRESULT GetRuntimeInformation(
   
 ## <a name="parameters"></a>パラメーター  
  `pClrInstanceId`  
- [out]プロセスで実行中の CLR インスタンスの担当者の ID。 これと同じ、 `ClrInstanceID` Windows (ETW) のスタートアップ イベント トレーシングのイベントをレポートすることです。  
+ 入出力プロセス内で実行されている CLR インスタンスの代表 ID。 これは、event tracing for Windows (ETW) のスタートアップイベントで報告される `ClrInstanceID` と同じです。  
   
  `pRuntimeType`  
- [out]ランタイム型。 このパラメーターを返します`COR_PRF_DESKTOP_CLR`、CLR のデスクトップ バージョンのまたは`COR_PRF_CORE_CLR`Silverlight で使用されている CLR の core バージョン。  
+ 入出力ランタイム型。 このパラメーターは、CLR のデスクトップバージョンの `COR_PRF_DESKTOP_CLR`、または Silverlight で使用される CLR のコアバージョンの `COR_PRF_CORE_CLR` を返します。  
   
  `pMajorVersion`  
- [out]CLR のメジャー バージョン番号。  
+ 入出力CLR のメジャーバージョン番号。  
   
  `pMinorVersion`  
- [out]CLR のマイナー バージョン番号。  
+ 入出力CLR のマイナーバージョン番号。  
   
  `pBuildVersion`  
- [out]CLR のビルド バージョン番号。  
+ 入出力CLR のビルドバージョン番号。  
   
  `pQFEVersion`  
- [out]ソフトウェア更新プログラムに関連付けられている CLR のバージョン番号。  
+ 入出力ソフトウェア更新プログラムに関連付けられている CLR のバージョン番号。  
   
  `cchVersionString`  
- [in]バッファーの文字の長さを`szVersionString`を指します。  
+ から`szVersionString` が指すバッファーの長さ (文字数)。  
   
  `pcchVersionString`  
- [out]長さを文字単位の`szVersionString`します。  
+ 入出力`szVersionString`の長さ (文字数)。  
   
  `szVersionString`  
- [out]CLR バージョン文字列です。  
+ 入出力CLR のバージョン文字列。  
   
 ## <a name="remarks"></a>Remarks  
- 任意のパラメーターに null を渡すことがあります。 ただし、 `pcchVersionString` null にすることはできませんしない限り、`szVersionString`も null です。  
+ 任意のパラメーターに null を渡すことができます。 ただし、`szVersionString` が null の場合を除き、`pcchVersionString` を null にすることはできません。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -85,6 +83,6 @@ HRESULT GetRuntimeInformation(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerInfo3 インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo3-interface.md)
-- [プロファイリングのインターフェイス](../../../../docs/framework/unmanaged-api/profiling/profiling-interfaces.md)
-- [プロファイル](../../../../docs/framework/unmanaged-api/profiling/index.md)
+- [ICorProfilerInfo3 インターフェイス](icorprofilerinfo3-interface.md)
+- [プロファイリングのインターフェイス](profiling-interfaces.md)
+- [プロファイル](index.md)

@@ -1,5 +1,5 @@
 ---
-title: Assembly (Visual Basic)
+title: アセンブリ
 ms.date: 07/20/2015
 f1_keywords:
 - vb.Assembly
@@ -10,24 +10,24 @@ helpviewer_keywords:
 - Assembly keyword [Visual Basic]
 - attribute blocks, Assembly keyword
 ms.assetid: 925e7471-3bdf-4b51-bb93-cbcfc6efc52f
-ms.openlocfilehash: 819fa9cf1bd25e9426fb1e75925a269fcf7a71cd
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 1385919a1205a60104125fff1bdd24f409a091df
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61801994"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351648"
 ---
 # <a name="assembly-visual-basic"></a>Assembly (Visual Basic)
-ソース ファイルの先頭にある属性がアセンブリ全体に適用されることを指定します。  
+ソースファイルの先頭の属性がアセンブリ全体に適用されることを指定します。  
   
-## <a name="remarks"></a>Remarks  
- 多くの属性は、クラスやプロパティなどの個別のプログラミング要素に適用されます。 山かっこ内で、属性ブロックを接続することによってこのような属性を適用する (`< >`)、宣言ステートメントに直接します。  
+## <a name="remarks"></a>コメント  
+ クラスやプロパティなど、多くの属性が個々のプログラミング要素に関連しています。 このような属性を適用するには、山かっこ (`< >`) 内で属性ブロックを宣言ステートメントに直接アタッチします。  
   
- 属性ブロックをソース ファイルの先頭に配置しを持つ属性を特定するだけでなく、次の要素をアセンブリ全体に属性が関係している場合、`Assembly`キーワード。 現在のアセンブリ モジュールに適用される場合に使用する、[モジュール](../../../visual-basic/language-reference/modifiers/module-keyword.md)キーワード。  
+ 属性が次の要素だけでなく、アセンブリ全体に関連する場合は、属性ブロックをソースファイルの先頭に配置し、`Assembly` キーワードを使用して属性を識別します。 現在のアセンブリモジュールに適用される場合は、 [module](../../../visual-basic/language-reference/modifiers/module-keyword.md)キーワードを使用します。  
   
- 適用することも、属性、AssemblyInfo.vb ファイルでアセンブリに、メインのソース コード ファイルで属性ブロックを使用するがあるない場合。  
+ また、AssemblyInfo ファイル内のアセンブリに属性を適用することもできます。この場合、メインのソースコードファイルで属性ブロックを使用する必要はありません。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Module \<キーワード>](../../../visual-basic/language-reference/modifiers/module-keyword.md)
 - [属性の概要](../../../visual-basic/programming-guide/concepts/attributes/index.md)

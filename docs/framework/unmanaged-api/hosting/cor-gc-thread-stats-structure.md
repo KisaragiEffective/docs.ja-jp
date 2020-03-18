@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 01f9a59b-7679-4d42-9ced-4a8981625c3d
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3f56ceca5269ebffb29908c63e698ce794027d8a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 37da471aaa8e9f802a8430d7b3289b375ff1b40a
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67768061"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73136980"
 ---
-# <a name="corgcthreadstats-structure"></a>COR_GC_THREAD_STATS 構造体
-ガベージ コレクションに関連するスレッドごとの統計情報が含まれています。  
+# <a name="cor_gc_thread_stats-structure"></a>COR_GC_THREAD_STATS 構造体
+ガベージコレクションに関連するスレッドごとの統計情報を格納します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,18 +37,18 @@ typedef struct _COR_GC_THREAD_STATS {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`PerThreadAllocation`|現在関連付けられているスレッドに割り当てられたメモリのバイト数`COR_GC_THREAD_STATS`インスタンス。 この数は、ジェネレーション 0 ガベージ コレクションが発生するたびに 0 にクリアされます。|  
-|`Flags`|バイト数では、最新のガベージ コレクションを上位のジェネレーションに昇格します。|  
+|`PerThreadAllocation`|現在の `COR_GC_THREAD_STATS` インスタンスに関連付けられているスレッドに割り当てられたメモリのバイト数。 ジェネレーション0のガベージコレクションが発生するたびに、この数値はゼロにクリアされます。|  
+|`Flags`|最新のガベージコレクションで上位のジェネレーションに昇格されたバイト数。|  
   
 ## <a name="remarks"></a>Remarks  
- [Iclrtask::getmemstats](../../../../docs/framework/unmanaged-api/hosting/iclrtask-getmemstats-method.md)型の出力パラメーターを受け取る`COR_GC_THREAD_STATS`します。  
+ [ICLRTask:: GetMemStats](../../../../docs/framework/unmanaged-api/hosting/iclrtask-getmemstats-method.md)は `COR_GC_THREAD_STATS`型の出力パラメーターを受け取ります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** GCHost.idl  
+ **ヘッダー:** GCHost  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

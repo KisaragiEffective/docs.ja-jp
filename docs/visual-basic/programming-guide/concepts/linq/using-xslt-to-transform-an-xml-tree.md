@@ -1,13 +1,13 @@
 ---
-title: XSLT を使用した XML ツリーの変換 (Visual Basic)
+title: XSLT を使用した XML ツリーの変換
 ms.date: 07/20/2015
 ms.assetid: 3390ca68-c270-4e1d-b64b-6a063a77017c
-ms.openlocfilehash: 0d6255767b241083f5623a8b379ab6554b03f0e9
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: f8d7de508fb954148b8b16ddf24966289f191bbb
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72582344"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350526"
 ---
 # <a name="using-xslt-to-transform-an-xml-tree-visual-basic"></a>XSLT を使用した XML ツリーの変換 (Visual Basic)
 
@@ -61,7 +61,7 @@ Console.WriteLine(newTree)
 </Root>
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Xml.Linq.XContainer.CreateWriter%2A?displayProperty=nameWithType>
 - <xref:System.Xml.Linq.XNode.CreateReader%2A?displayProperty=nameWithType>

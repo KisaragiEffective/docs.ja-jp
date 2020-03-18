@@ -2,12 +2,12 @@
 title: 命令型コードを使用してワークフロー、アクティビティ、および式を作成する方法
 ms.date: 03/30/2017
 ms.assetid: cefc9cfc-2882-4eb9-8c94-7a6da957f2b2
-ms.openlocfilehash: 22f5928dda55d77fde2ee518510eb2890e55b446
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 97f57067e72be2ed2fb6b3846e2ab876c13e049f
+ms.sourcegitcommit: 32a575bf4adccc901f00e264f92b759ced633379
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69940894"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74802701"
 ---
 # <a name="authoring-workflows-activities-and-expressions-using-imperative-code"></a>命令型コードを使用してワークフロー、アクティビティ、および式を作成する方法
 ワークフロー定義は、構成済みのアクティビティ オブジェクトのツリーです。 このアクティビティ ツリーは、手動で XAML を編集したり、ワークフロー デザイナーを使用して XAML を生成したりするなど、多くの方法で定義することができます。 ただし、XAML の使用は必須ではありません。 ワークフロー定義は、プログラムで作成することもできます。 このトピックでは、コードを使用したワークフローの定義、アクティビティ、および式の作成の概要について説明します。 コードを使用した XAML ワークフローの使用例については、「 [xaml との間でのワークフローとアクティビティのシリアル](serializing-workflows-and-activities-to-and-from-xaml.md)化」を参照してください。  
@@ -29,7 +29,7 @@ ms.locfileid: "69940894"
   
  [!code-csharp[CFX_WorkflowApplicationExample#49](~/samples/snippets/csharp/VS_Snippets_CFX/cfx_workflowapplicationexample/cs/program.cs#49)]  
   
- オブジェクト初期化子の詳細について[は、「」を参照してください。コンストラクターを呼び出さずにオブジェクトC#を初期化する](https://go.microsoft.com/fwlink/?LinkId=161015) ( [プログラミングガイド) と方法:オブジェクト初期化子](https://go.microsoft.com/fwlink/?LinkId=161016)を使用してオブジェクトを宣言します。  
+ オブジェクト初期化子の詳細については、「[方法: コンストラクターを呼び出さずC#にオブジェクトを初期化する (プログラミングガイド)](../../csharp/programming-guide/classes-and-structs/how-to-initialize-objects-by-using-an-object-initializer.md) 」および「[方法: オブジェクト初期化子を使用してオブジェクトを宣言](../../visual-basic/programming-guide/language-features/objects-and-classes/how-to-declare-an-object-by-using-an-object-initializer.md)する」を参照してください。  
   
 ### <a name="working-with-variables-literal-values-and-expressions"></a>変数、リテラル値、および式の使用  
  コードを使用してワークフロー定義を作成する場合は、ワークフロー定義の作成の一部としてコードが実行する内容、およびそのワークフローのインスタンスの実行の一部としてコードが実行する内容に注意してください。 たとえば、次のワークフローはランダムな数値を生成し、それをコンソールに出力します。  
@@ -50,7 +50,7 @@ new Assign<int>
 }  
 ```  
   
- C# 式は、その式を含むワークフローが呼び出される前にコンパイルする必要があります。 C#式がコンパイルされていない<xref:System.NotSupportedException>場合は、次のようなメッセージを使用してワークフローが呼び出されると、がスローされます。`Expression Activity type 'CSharpValue`1 ' を実行するには、コンパイルが必要です。  ワークフローがコンパイルされていることを確認してください。「Visual Studio で作成さC#れたワークフローを含むほとんどのシナリオでは、式は自動的にコンパイルC#されますが、コードワークフローなどの一部のシナリオでは、式を手動で行う必要があります。時. 式をコンパイルC#する方法の例については、「 [ C#式](csharp-expressions.md)」トピックの「[コードワークフローでの式の使用C# ](csharp-expressions.md#CodeWorkflows) 」セクションを参照してください。  
+ C# 式は、その式を含むワークフローが呼び出される前にコンパイルする必要があります。 C# 式がコンパイルされていない場合、ワークフローが呼び出されると <xref:System.NotSupportedException> がスローされ、"``Expression Activity type 'CSharpValue`1' requires compilation in order to run.  Please ensure that the workflow has been compiled.``" のようなメッセージが表示されます。Visual Studio で作成されたワークフローが関連するほとんどのシナリオでは、C# 式が自動的にコンパイルされますが、コード ワークフローなどの一部のシナリオでは、C# 式を手動でコンパイルする必要があります。 式をコンパイルC#する方法の例については、「 [ C#式](csharp-expressions.md)」トピックの「[コードワークフローでの式の使用C# ](csharp-expressions.md#CodeWorkflows) 」セクションを参照してください。  
   
  <xref:Microsoft.VisualBasic.Activities.VisualBasicValue%601> は式の右辺値として使用できる Visual Basic 構文の式を表し、<xref:Microsoft.CSharp.Activities.CSharpValue%601> は式の右辺値として使用できる C# 構文の式を表します。 これらの式は、含まれるアクティビティが実行されるたびに評価されます。 式の結果はワークフローの変数 `n` に代入され、これらの結果はワークフローの次のアクティビティによって使用されます。 実行時にワークフローの変数 `n` の値にアクセスするには、<xref:System.Activities.ActivityContext> が必要です。 次のようなラムダ式を使用するとアクセスできます。  
   
@@ -61,9 +61,9 @@ new Assign<int>
   
  [!code-csharp[CFX_WorkflowApplicationExample#52](~/samples/snippets/csharp/VS_Snippets_CFX/cfx_workflowapplicationexample/cs/program.cs#52)]  
   
- ラムダ式の詳細については、「[ラムダC#式 (プログラミングガイド)](https://go.microsoft.com/fwlink/?LinkID=152436) 」または「ラムダ[式 (Visual Basic)](https://go.microsoft.com/fwlink/?LinkID=152437)」を参照してください。  
+ ラムダ式の詳細については、「[ラムダC#式 (プログラミングガイド)](../../csharp/programming-guide/statements-expressions-operators/lambda-expressions.md) 」または「ラムダ[式 (Visual Basic)](../../visual-basic/programming-guide/language-features/procedures/lambda-expressions.md)」を参照してください。  
   
- ラムダ式は XAML 形式にシリアル化できません。 ラムダ式<xref:System.Activities.Expressions.LambdaSerializationException>を使用してワークフローをシリアル化しようとすると、次のメッセージと共にがスローされます。"このワークフローには、コードで指定されたラムダ式が含まれています。 これらの式は XAML にシリアル化できません。 このワークフローを XAML にシリアル化できるようにするには、VisualBasicValue/VisualBasicReference を使用するか、ExpressionServices.Convert(lambda) を使用します。 これにより、ラムダ式が式アクティビティに変換されます。" というメッセージが表示されます。 この式に XAML との互換性を持たせるには、次の例に示すように <xref:System.Activities.Expressions.ExpressionServices> および <xref:System.Activities.Expressions.ExpressionServices.Convert%2A> を使用します。  
+ ラムダ式は XAML 形式にシリアル化できません。 ラムダ式を使用してワークフローのシリアル化を試みると、<xref:System.Activities.Expressions.LambdaSerializationException> がスローされ、"このワークフローには、コードで指定されたラムダ式が含まれています。 これらの式は XAML にシリアル化できません。 このワークフローを XAML にシリアル化できるようにするには、VisualBasicValue/VisualBasicReference を使用するか、ExpressionServices.Convert(lambda) を使用します。 これにより、ラムダ式が式アクティビティに変換されます。" というメッセージが表示されます。 この式に XAML との互換性を持たせるには、次の例に示すように <xref:System.Activities.Expressions.ExpressionServices> および <xref:System.Activities.Expressions.ExpressionServices.Convert%2A> を使用します。  
   
  [!code-csharp[CFX_WorkflowApplicationExample#53](~/samples/snippets/csharp/VS_Snippets_CFX/cfx_workflowapplicationexample/cs/program.cs#53)]  
   
@@ -97,7 +97,7 @@ new Assign
 },  
 ```  
   
- このアクティビティを含むワークフローが検証されると、次の検証エラーが返されます。"リテラルは、値型と変更できない型 System.string だけをサポートします。 型 System.Collections.Generic.List`1[System.String] はリテラルとして使用できません。" という検証エラーが返されます。 ワークフローが呼び出されると、検証エラーのテキストを含む <xref:System.Activities.InvalidWorkflowException> がスローされます。 参照型のリテラル式を作成しても、ワークフローの各インスタンスに対して参照型の新しいインスタンスが作成されないため、これは検証エラーとなります。 このエラーを解決するには、リテラル式を、参照型の新しいインスタンスを作成して返すリテラル式に置き換えます。  
+ このアクティビティを含むワークフローを検証すると、"リテラルは、値の型と変更不可の型 System.String のみをサポートします。 型 System.Collections.Generic.List`1[System.String] はリテラルとして使用できません。" という検証エラーが返されます。 ワークフローが呼び出されると、検証エラーのテキストを含む <xref:System.Activities.InvalidWorkflowException> がスローされます。 参照型のリテラル式を作成しても、ワークフローの各インスタンスに対して参照型の新しいインスタンスが作成されないため、これは検証エラーとなります。 このエラーを解決するには、リテラル式を、参照型の新しいインスタンスを作成して返すリテラル式に置き換えます。  
   
 ```csharp  
 new Assign  
@@ -142,7 +142,7 @@ new InvokeMethod<int>
 ## <a name="compiled-activities"></a>コンパイルされたアクティビティ  
  動的アクティビティは、コードを使用して引数を格納するアクティビティを定義するための 1 つの方法ですが、アクティビティをコードで作成して型にコンパイルすることもできます。 <xref:System.Activities.CodeActivity> から派生する単純なアクティビティと、<xref:System.Activities.AsyncCodeActivity> から派生する非同期アクティビティを作成できます。 これらのアクティビティは、引数を保持し、値を返して、命令型コードを使用してロジックを定義できます。 これらの種類のアクティビティを作成する例については、「 [CodeActivity Base Class](workflow-activity-authoring-using-the-codeactivity-class.md) 」と「[非同期アクティビティの作成](creating-asynchronous-activities-in-wf.md)」を参照してください。  
   
- <xref:System.Activities.NativeActivity> から派生するアクティビティは、命令型コードを使用してロジックを定義できるだけでなく、ロジックを定義する子アクティビティを含むこともできます。 これらのアクティビティは、ブックマークの作成など、ランタイムの機能をすべて利用できます。 ベースのアクティビティを作成<xref:System.Activities.NativeActivity>する例については、「 [NativeActivity Base Class](nativeactivity-base-class.md)」を[参照してください。アクティビティ](how-to-create-an-activity.md)を作成し、[ネイティブアクティビティサンプルを使用してカスタム複合](./samples/custom-composite-using-native-activity.md)を作成します。  
+ <xref:System.Activities.NativeActivity> から派生するアクティビティは、命令型コードを使用してロジックを定義できるだけでなく、ロジックを定義する子アクティビティを含むこともできます。 これらのアクティビティは、ブックマークの作成など、ランタイムの機能をすべて利用できます。 <xref:System.Activities.NativeActivity>ベースのアクティビティを作成する例については、「 [NativeActivity 基底クラス](nativeactivity-base-class.md)」、「[方法: アクティビティを作成する](how-to-create-an-activity.md)」、および「[ネイティブアクティビティを使用したカスタム複合](./samples/custom-composite-using-native-activity.md)アクティビティのサンプル」を参照してください。  
   
  <xref:System.Activities.Activity> から派生するアクティビティは、子アクティビティを使用してロジックだけを定義します。 これらのアクティビティは、通常、ワークフロー デザイナーを使用して作成されますが、コードを使用して定義することもできます。 次の例では、`Square` から派生する `Activity<int>` アクティビティが定義されます。 `Square` アクティビティには <xref:System.Activities.InArgument%601> という名前の 1 つの `Value` があり、そのロジックが <xref:System.Activities.Statements.Sequence> プロパティを使用して <xref:System.Activities.Activity.Implementation%2A> アクティビティを指定してロジックを定義します。 <xref:System.Activities.Statements.Sequence> アクティビティには、<xref:System.Activities.Statements.WriteLine> アクティビティと <xref:System.Activities.Statements.Assign%601> アクティビティが含まれています。 この 3 つのアクティビティは、`Square` アクティビティのロジックを実装します。  
   
@@ -183,5 +183,5 @@ Console.WriteLine("Result: {0}", result);
   
  このワークフローが呼び出されると、次の出力がコンソールに表示されます。  
   
- **2乗の値を指定します。5/5**  
-**結果ほど**
+ **2乗の値: 5**  
+**結果:25**

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 7c0af9e9-a73f-41aa-a685-b21c439e059d
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 354e1b0dad942534068d5fb07071ed4ac695fb49
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 7f2e644340a2ec7fe807830422b927ce811ddcf9
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67764883"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76790574"
 ---
 # <a name="icorpublishprocessgetdisplayname-method"></a>ICorPublishProcess::GetDisplayName メソッド
-これによって参照されるプロセスの実行可能ファイルの完全なパスを取得[ICorPublishProcess](../../../../docs/framework/unmanaged-api/debugging/icorpublishprocess-interface.md)します。  
+この[ICorPublishProcess](icorpublishprocess-interface.md)によって参照されるプロセスの実行可能ファイルの完全パスを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -43,15 +41,15 @@ HRESULT GetDisplayName (
  [in] `szName` 配列のサイズ。  
   
  `pcchName`  
- [out]返されるワイド文字の数、`szName`配列。  
+ 入出力`szName` 配列で返されるワイド文字数。  
   
  `szName`  
- [out]実行可能ファイルの完全なパスを含む、名前を格納する配列。 名前では、null で終わります。  
+ 入出力実行可能ファイルの完全パスを含む、名前を格納する配列。 名前が null で終了しています。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorPub.idl, CorPub.h  
+ **ヘッダー:** CorPub .idl、CorPub .h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -59,4 +57,4 @@ HRESULT GetDisplayName (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorPublishProcess インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icorpublishprocess-interface.md)
+- [ICorPublishProcess インターフェイス](icorpublishprocess-interface.md)

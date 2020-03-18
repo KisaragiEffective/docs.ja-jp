@@ -1,5 +1,5 @@
 ---
-title: 位置と名前による引数渡し (Visual Basic)
+title: 位置と名前による引数渡し
 ms.date: 02/01/2018
 helpviewer_keywords:
 - arguments [Visual Basic], passing by name
@@ -22,16 +22,16 @@ helpviewer_keywords:
 - argument passing [Visual Basic], by position
 - arguments [Visual Basic], listing by name
 ms.assetid: 1ad7358f-1da9-48da-a95b-f3c7ed41eff3
-ms.openlocfilehash: 2fa07a4ecf31b9dc0fee91593e793f3b00c5a83b
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: b6588335f7634cc87a9fc14cbfc4ba80baad1abb
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524436"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352618"
 ---
 # <a name="passing-arguments-by-position-and-by-name-visual-basic"></a>位置と名前による引数渡し (Visual Basic)
 
-@No__t_0 または `Function` プロシージャを呼び出すと、プロシージャの定義に出現する順序で*位置によって*引数を渡すことができます。また、位置に関係なく*名前で*渡すこともできます。
+`Sub` または `Function` プロシージャを呼び出すと、プロシージャの定義に出現する順序で*位置によって*引数を渡すことができます。また、位置に関係なく*名前で*渡すこともできます。
 
 引数を名前で渡す場合は、引数の宣言名の後にコロンと等号 (`:=`) を指定し、その後に引数の値を指定します。 名前付き引数は任意の順序で指定できます。
 
@@ -43,7 +43,7 @@ ms.locfileid: "72524436"
 
 ## <a name="passing-arguments-by-position"></a>渡す (位置によって引数を)
 
-@No__t_0 メソッドは、次の例に示すように、位置によって渡され、コンマで区切られた引数を使用して呼び出すことができます。
+`Display` メソッドは、次の例に示すように、位置によって渡され、コンマで区切られた引数を使用して呼び出すことができます。
 
 [!code-vb[ByPosition](../../../../../samples/snippets/visualbasic/programming-guide/language-features/passing-named-arguments/module1.vb#2)]
 
@@ -73,15 +73,15 @@ ms.locfileid: "72524436"
 
 Visual Basic 15.5 以降では、位置指定引数は、終了位置引数が正しい位置にある場合に名前付き引数に従うことができます。 Visual Basic 15.5 の下でコンパイルした場合、`Display` メソッドの前の呼び出しが正常にコンパイルされ、コンパイラエラー [BC30241](../../../misc/bc30241.md)が生成されなくなります。
 
-この機能は、名前付き引数と位置指定引数を任意の順序で組み合わせることができ、コードを読みやすくするために名前付き引数を使用する場合に特に便利です。 たとえば、次の `Person` クラスコンストラクターには、`Person` 型の2つの引数が必要です。どちらも `Nothing` できます。
+この機能は、名前付き引数と位置指定引数を任意の順序で組み合わせることができ、コードを読みやすくするために名前付き引数を使用する場合に特に便利です。 たとえば、次の `Person` クラスコンストラクターには、`Person`型の2つの引数が必要です。どちらも `Nothing`できます。
 
 [!code-vb[ByNameAndPosition](../../../../../samples/snippets/visualbasic/programming-guide/language-features/passing-named-arguments/module1.vb#7)]
 
-名前付き引数と位置指定引数を混在させることで、`father` 引数と `mother` 引数の値が `Nothing` 場合に、コードの意図を明確にすることができます。
+名前付き引数と位置指定引数を混在させることで、`father` 引数と `mother` 引数の値が `Nothing`場合に、コードの意図を明確にすることができます。
 
 [!code-vb[ByNameAndPosition](../../../../../samples/snippets/visualbasic/programming-guide/language-features/passing-named-arguments/module1.vb#8)]
 
-名前付き引数を使用して位置指定引数を実行するには、次の要素を Visual Basic プロジェクト (\* .vbproj) ファイルに追加する必要があります。
+名前付き引数を使用して位置指定引数を実行するには、次の要素を Visual Basic プロジェクト (\*.vbproj) ファイルに追加する必要があります。
 
 ```xml
 <PropertyGroup>
@@ -97,7 +97,7 @@ Visual Basic 15.5 以降では、位置指定引数は、終了位置引数が�
 
 パラメーター配列を名前で渡すことはできません。 これは、プロシージャを呼び出すときに、パラメーター配列に対してコンマで区切られた少数の引数を指定し、コンパイラが1つの名前に複数の引数を関連付けることができないためです。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [手順](./index.md)
 - [プロシージャのパラメーターと引数](./procedure-parameters-and-arguments.md)

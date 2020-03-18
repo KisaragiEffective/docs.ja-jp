@@ -1,5 +1,6 @@
 ---
-title: 'チュートリアル: WPF での ActiveX コントロールのホスト'
+title: WPF で ActiveX コントロールをホストする
+titleSuffix: ''
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,12 +9,12 @@ helpviewer_keywords:
 - ActiveX controls [WPF interoperability]
 - hosting ActiveX controls [WPF]
 ms.assetid: 1931d292-0dd1-434f-963c-dcda7638d75a
-ms.openlocfilehash: 959bc7942eaae91c0a7a72124f6ab1ab92a3553f
-ms.sourcegitcommit: ad800f019ac976cb669e635fb0ea49db740e6890
+ms.openlocfilehash: 4ca40c0f6e62fd413e7f305649c5c01ddc152b2a
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73040825"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76794147"
 ---
 # <a name="walkthrough-hosting-an-activex-control-in-wpf"></a>チュートリアル: WPF での ActiveX コントロールのホスト
 ブラウザーとの対話を強化するために、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]ベースのアプリケーションで Microsoft ActiveX コントロールを使用できます。 このチュートリアルでは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] ページのコントロールとして Microsoft Windows Media Player をホストする方法について説明します。
@@ -28,7 +29,7 @@ ms.locfileid: "73040825"
 
  このチュートリアルを完了すると、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]ベースのアプリケーションで Microsoft ActiveX コントロールを使用する方法を理解できるようになります。
 
-## <a name="prerequisites"></a>必要条件
+## <a name="prerequisites"></a>Prerequisites
  このチュートリアルを実行するには、次のコンポーネントが必要です。
 
 - Microsoft Windows Media Player、Visual Studio がインストールされているコンピューターにインストールされます。
@@ -82,7 +83,7 @@ ms.locfileid: "73040825"
 
 2. Windowsフォーム統合アセンブリへの参照を追加します。このアセンブリには、Windowsフォーム統合 dll という名前が付けられています。
 
-3. [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] アセンブリへの参照を追加します。このアセンブリには、「system.string」という名前が付けられています。
+3. Windows フォームアセンブリへの参照を追加します。このアセンブリには、「system.string」という名前が付けられています。
 
 4. WPF デザイナーで Mainwindow.xaml を開きます。
 
@@ -109,6 +110,6 @@ ms.locfileid: "73040825"
 
 - <xref:System.Windows.Forms.Integration.ElementHost>
 - <xref:System.Windows.Forms.Integration.WindowsFormsHost>
-- [Visual Studio で XAML をデザインする](/visualstudio/designers/designing-xaml-in-visual-studio)
+- [Visual Studio で XAML をデザインする](/visualstudio/xaml-tools/designing-xaml-in-visual-studio)
 - [チュートリアル: WPF での Windows フォーム複合コントロールのホスト](walkthrough-hosting-a-windows-forms-composite-control-in-wpf.md)
 - [チュートリアル: Windows フォームでの WPF 複合コントロールのホスト](walkthrough-hosting-a-wpf-composite-control-in-windows-forms.md)

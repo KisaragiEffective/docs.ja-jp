@@ -3,22 +3,26 @@ title: C# における数値 - C# の概要に関するチュートリアル
 description: 数値型とそのプロパティ、およびメソッドを詳しく見ていくことで C# について学習します。
 ms.date: 10/31/2017
 ms.custom: mvc
-ms.openlocfilehash: 731824fefcf4966a885c53be8f71e77140541383
-ms.sourcegitcommit: 8a0fe8a2227af612f8b8941bdb8b19d6268748e7
+ms.openlocfilehash: 7e9af4b3b859f74d7e92ff10b3964ddd59d2473b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71834100"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79156546"
 ---
 # <a name="manipulate-integral-and-floating-point-numbers-in-c"></a>C\# で整数と浮動小数点数を操作する
 
 このチュートリアルでは、対話形式で C# の数値型について説明します。 少量のコードを記述したら、そのコードをコンパイルして実行します。 このチュートリアルには、C# の数値と算術演算に関する一連のレッスンが含まれています。 これらのレッスンでは、C# 言語の基本を説明します。
 
-このチュートリアルでは、開発用に使用できるマシンがあることを想定しています。 Windows、Linux、または macOS 上でローカルの開発環境を設定する手順については、.NET チュートリアル [Hello World in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro) (10 分で Hello World) に記載されています。 使用するコマンドの概要については、詳細な情報へのリンクが掲載されている、[開発ツールに対する理解を深める](local-environment.md)方法に関するページをご覧ください。
+このチュートリアルでは、開発用に使用できるマシンがあることを想定しています。 Windows、Linux、または macOS 上でローカルの開発環境を設定する手順については、.NET チュートリアル [Hello World in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro) (10 分で Hello World) に記載されています。 使用するコマンドの概要については、[開発ツールの概要](local-environment.md)のページと詳細へのリンクをご覧ください。
 
 ## <a name="explore-integer-math"></a>整数の演算の確認
 
-「*numbers-quickstart*」という名前のディレクトリを作成します。 それを現在のディレクトリとし、`dotnet new console -n NumbersInCSharp -o .` を実行します。
+「*numbers-quickstart*」という名前のディレクトリを作成します。 それを現在のディレクトリにして、次のコマンドを実行します。
+
+```dotnetcli
+dotnet new console -n NumbersInCSharp -o .
+```
 
 好みのエディターで *Program.cs* を開き、`Console.WriteLine("Hello World!");` の行を次のコードで置き換えます。
 
@@ -40,10 +44,16 @@ Console.WriteLine(c);
 まずは、上記の各種演算を実行してみます。 `c` の値を記述した行の後に、次の数行を追加します。
 
 ```csharp
+
+// subtraction
 c = a - b;
 Console.WriteLine(c);
+
+// multiplication
 c = a * b;
 Console.WriteLine(c);
+
+// division
 c = a / b;
 Console.WriteLine(c);
 ```
@@ -56,7 +66,7 @@ Console.WriteLine(c);
 > C# (または何らかのプログラミング言語) について詳しく学習するに従い、コードを記述する際にミスをすることもあるでしょう。 **コンパイラ**は、そうしたエラーを発見して報告します。 エラー メッセージが出力された場合は、例のコードをよく確認して、ウィンドウで修正すべきコードを見つけます。
 > こうした実習が C# コードの構造を理解するのに役立ちます。
 
-最初の手順が完了しました。 次のセクションを開始する前に、現在のコードを別のメソッドに移動してみましょう。 移動しておくと、新しい例で作業を開始するときに楽になります。 `Main` メソッドの名前を `WorkingWithIntegers` に変更し、`WorkingWithIntegers` を呼び出す新しい `Main` メソッドを記述します。 完成したコードは次のようになります。
+最初の手順が完了しました。 次のセクションを開始する前に、現在のコードを別のメソッドに移動してみましょう。 移動しておくと、新しい例で作業を開始するときに楽になります。 `Main` メソッドの名前を `WorkingWithIntegers` に変更し、`Main` を呼び出す新しい `WorkingWithIntegers` メソッドを記述します。 完成したコードは次のようになります。
 
 ```csharp
 using System;
@@ -69,12 +79,20 @@ namespace NumbersInCSharp
         {
             int a = 18;
             int b = 6;
+
+            // addition
             int c = a + b;
             Console.WriteLine(c);
+
+            // subtraction
             c = a - b;
             Console.WriteLine(c);
+
+            // multiplication
             c = a * b;
             Console.WriteLine(c);
+
+            // division
             c = a / b;
             Console.WriteLine(c);
         }
@@ -153,12 +171,20 @@ namespace NumbersInCSharp
         {
             int a = 18;
             int b = 6;
+
+            // addition
             int c = a + b;
             Console.WriteLine(c);
+
+            // subtraction
             c = a - b;
             Console.WriteLine(c);
+
+            // multiplication
             c = a * b;
             Console.WriteLine(c);
+
+            // division
             c = a / b;
             Console.WriteLine(c);
         }
@@ -198,7 +224,7 @@ namespace NumbersInCSharp
 ## <a name="explore-integer-precision-and-limits"></a>整数の有効桁数と制限の確認
 
 この最後のサンプルでは、整数の除算における結果の切り捨てについて確認します。
-**modulo** 演算子 (`%` 文字) を使用して、**剰余**を得ることができます。 `Main` メソッドで次のコードを試してみてください。
+**modulo** 演算子 ( **文字) を使用して、** 剰余`%`を得ることができます。 `Main` メソッドで次のコードを試してみてください。
 
 ```csharp
 int a = 7;
@@ -320,8 +346,6 @@ decimal 型を使用した演算では、小数点の右側の桁数がより多
 
 C# の数値の詳細については、次のトピックで学習できます。
 
-- [整数型](../../language-reference/builtin-types/integral-numeric-types.md)
-- [浮動小数点型の一覧表](../../language-reference/builtin-types/floating-point-numeric-types.md)
-- [組み込み型の一覧表](../../language-reference/keywords/built-in-types-table.md)
-- [暗黙的な数値変換の一覧表](../../language-reference/keywords/implicit-numeric-conversions-table.md)
-- [明示的な数値変換の一覧表](../../language-reference/keywords/explicit-numeric-conversions-table.md)
+- [整数数値型](../../language-reference/builtin-types/integral-numeric-types.md)
+- [浮動小数点数値型](../../language-reference/builtin-types/floating-point-numeric-types.md)
+- [組み込みの数値変換](../../language-reference/builtin-types/numeric-conversions.md)

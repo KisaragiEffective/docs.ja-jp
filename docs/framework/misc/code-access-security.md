@@ -15,14 +15,12 @@ helpviewer_keywords:
 - user authentication, code access security
 - code access security
 ms.assetid: 859af632-c80d-4736-8d6f-1e01b09ce127
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: bdb4e84170d4d3b95b8b51f12e0787937aaaf961
-ms.sourcegitcommit: 2d792961ed48f235cf413d6031576373c3050918
+ms.openlocfilehash: a8021fade8df2c8bee5e3bf26da784a91526540f
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2019
-ms.locfileid: "70205649"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77215890"
 ---
 # <a name="code-access-security"></a>コード アクセス セキュリティ
 [!INCLUDE[net_security_note](../../../includes/net-security-note-md.md)]  
@@ -36,9 +34,9 @@ ms.locfileid: "70205649"
 > [!NOTE]
 > .NET Framework 4 のコードアクセスセキュリティに大きな変更が加えられました。 最も注目すべき変更点は[セキュリティの透過性](security-transparent-code.md)ですが、コードアクセスセキュリティに影響する重要な変更も他にもあります。 これらの変更の詳細については、「[セキュリティの変更](../security/security-changes.md)」を参照してください。  
   
- コード アクセス セキュリティは、主にライブラリ コードと部分的に信頼されたアプリケーションに影響します。 ライブラリ開発者は、部分的に信頼されたアプリケーションによる認証されていないアクセスからコードを保護する必要があります。 部分的に信頼されたアプリケーションは、インターネットなどの外部リソースから読み込まれるアプリケーションです。 デスクトップまたはローカル イントラネットにインストールされているアプリケーションは、完全に信頼されたアプリケーションとして実行されます。 完全に信頼されたアプリケーションは、完全に信頼されているため、[セキュリティ透過的](security-transparent-code.md)としてマークされている場合を除き、コードアクセスセキュリティの影響を受けません。 完全に信頼されたアプリケーションの唯一の制限事項は、<xref:System.Security.SecurityTransparentAttribute> 属性でマークされているアプリケーションは <xref:System.Security.SecurityCriticalAttribute> 属性でマークされているコードを呼び出すことができない点です。 部分的に信頼されたアプリケーションは、コード アクセス セキュリティを適用できるように、サンドボックス (Internet Explorer など) で実行する必要があります。 アプリケーションをインターネットからダウンロードし、デスクトップから実行しようとすると、次のメッセージが表示<xref:System.NotSupportedException>されます。"ネットワークの場所からアセンブリを読み込もうとしましたが、以前のバージョンの .NET Framework では、アセンブリがサンドボックス化される可能性がありました。 このリリースの .NET Framework では CAS ポリシーが既定で有効ではないため、この読み込みは危険な場合があります。" というメッセージが表示されます。 アプリケーションが信頼できることが確実な場合は、 [ \<loadFromRemoteSources > 要素](../configure-apps/file-schema/runtime/loadfromremotesources-element.md)を使用して、アプリケーションを完全信頼として実行できるようにすることができます。 サンドボックスでアプリケーションを実行する方法について[は、「方法:Run Partially Trusted Code in a Sandbox](how-to-run-partially-trusted-code-in-a-sandbox.md)」 (方法: サンドボックスで部分信頼コードを実行する) を参照してください。  
+ コード アクセス セキュリティは、主にライブラリ コードと部分的に信頼されたアプリケーションに影響します。 ライブラリ開発者は、部分的に信頼されたアプリケーションによる認証されていないアクセスからコードを保護する必要があります。 部分的に信頼されたアプリケーションは、インターネットなどの外部リソースから読み込まれるアプリケーションです。 デスクトップまたはローカル イントラネットにインストールされているアプリケーションは、完全に信頼されたアプリケーションとして実行されます。 完全に信頼されたアプリケーションは、完全に信頼されているため、[セキュリティ透過的](security-transparent-code.md)としてマークされている場合を除き、コードアクセスセキュリティの影響を受けません。 完全に信頼されたアプリケーションの唯一の制限事項は、<xref:System.Security.SecurityTransparentAttribute> 属性でマークされているアプリケーションは <xref:System.Security.SecurityCriticalAttribute> 属性でマークされているコードを呼び出すことができない点です。 部分的に信頼されたアプリケーションは、コード アクセス セキュリティを適用できるように、サンドボックス (Internet Explorer など) で実行する必要があります。 インターネットからアプリケーションをダウンロードし、デスクトップから実行しようとすると、<xref:System.NotSupportedException> が返されます。このとき、"ネットワーク上の場所からアセンブリの読み込みを試みました。以前のバージョンの .NET Framework では、これによりアセンブリがサンドボックス化されました。 このリリースの .NET Framework では CAS ポリシーが既定で有効ではないため、この読み込みは危険な場合があります。" というメッセージが表示されます。 アプリケーションが信頼できることが確実な場合は、 [\<loadFromRemoteSources > 要素](../configure-apps/file-schema/runtime/loadfromremotesources-element.md)を使用して、アプリケーションを完全信頼として実行できるようにすることができます。 サンドボックスでアプリケーションを実行する方法の詳細については、「[方法: サンドボックスで部分信頼コードを実行する](how-to-run-partially-trusted-code-in-a-sandbox.md)」を参照してください。  
   
- 共通言語ランタイムに対応したマネージド コードすべては、単一コード アクセス セキュリティ呼び出しを行わない場合でも、コード アクセス セキュリティの利点を享受することになります。 詳しくは、「[コード アクセス セキュリティの基礎](code-access-security-basics.md)」をご覧ください。  
+ 共通言語ランタイムに対応したマネージド コードすべては、単一コード アクセス セキュリティ呼び出しを行わない場合でも、コード アクセス セキュリティの利点を享受することになります。 詳細については、「 [Code Access Security Basics](code-access-security-basics.md)」を参照してください。  
   
 <a name="key_functions"></a>   
 ## <a name="key-functions-of-code-access-security"></a>コード アクセス セキュリティの主な機能  
@@ -71,4 +69,4 @@ ms.locfileid: "70205649"
 |[部分信頼コードからのライブラリの使用](using-libraries-from-partially-trusted-code.md)|ライブラリを有効にしてアンマネージ コードと共に使用できるようにする方法と、アンマネージ コードからライブラリを使用する方法について説明します。|  
 |[セキュリティの基本概念](../../standard/security/key-security-concepts.md)|.NET Framework セキュリティ システムで使用されるさまざまな重要用語と概念について、概要を示します。|  
 |[ロール ベースのセキュリティ](../../standard/security/role-based-security.md)|ロールに基づいて、セキュリティを組み込む方法について説明します。|  
-|[Cryptographic Services](../../standard/security/cryptographic-services.md)|アプリケーションに暗号を組み込む方法について説明します。|
+|[暗号サービス](../../standard/security/cryptographic-services.md)|アプリケーションに暗号を組み込む方法について説明します。|

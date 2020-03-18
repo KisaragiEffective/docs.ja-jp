@@ -1,17 +1,15 @@
 ---
-title: <TypeInstantiation>要素 (.NET ネイティブ)
+title: <TypeInstantiation> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: a5eada64-075b-4162-9655-ded84e4681f2
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 375c95a30f4f60bb711e176cb6c2d0c5fd763e2f
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 9069856b3d8739724d148b5eea5d4188c8b8b9e1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049109"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128673"
 ---
-# <a name="typeinstantiation-element-net-native"></a>\<TypeInstantiation 化 > 要素 (.NET ネイティブ)
+# <a name="typeinstantiation-element-net-native"></a>TypeInstantiation 化 > 要素の \<(.NET ネイティブ)
 構築されたジェネリック型にランタイム リフレクション ポリシーを適用します。  
   
 ## <a name="syntax"></a>構文  
@@ -53,19 +51,19 @@ ms.locfileid: "71049109"
   
 ## <a name="name-attribute"></a>Name 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*type_name*|型名。 この `<TypeInstantiation>` 要素が [\<Namespace>](namespace-element-net-native.md) 要素、[\<Type>](type-element-net-native.md) 要素、または別の `<TypeInstantiation>` 要素の子である場合、*type_name* には名前空間なしで型の名前を指定できます。 それ以外の場合は、*type_name* には完全修飾型名を含める必要があります。 型名は修飾されません。 たとえば、<xref:System.Collections.Generic.List%601?displayProperty=nameWithType> オブジェクトの場合、`<TypeInstantiation>` 要素は次のように示されることがあります。<br /><br /> `\<TypeInstantiation Name=System.Collections.Generic.List Dynamic="Required Public" />`|  
   
 ## <a name="arguments-attribute"></a>引数属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*type_argument*|ジェネリック型引数を指定します。 複数の引数が存在する場合は、コンマで区切られます。 各引数は、完全修飾型名で構成されている必要があります。|  
   
 ## <a name="all-other-attributes"></a>その他すべての属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*policy_setting*|構築されたジェネリック型のこのポリシーの種類に適用する設定です。 指定できる値は、`All`、`Auto`、`Excluded`、`Public`、`PublicAndInternal`、`Required Public`、`Required PublicAndInternal`、および `Required All` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|  
   
@@ -99,11 +97,11 @@ ms.locfileid: "71049109"
  `<TypeInstantiation>` 要素が [\<Assembly>](assembly-element-net-native.md)、[\<Namespace>](namespace-element-net-native.md)、[\<Type>](type-element-net-native.md) 要素の子である場合、親要素により定義されたポリシー設定をオーバーライドします。 [\<Type>](type-element-net-native.md) 要素が対応するジェネリック型定義を定義している場合、`<TypeInstantiation>` 要素は、指定の構築されたジェネリック型のインスタンス化についてのみランタイム リフレクション ポリシーをオーバーライドします。  
   
 ## <a name="example"></a>例  
- 次の例では、リフレクションを使用して、構築された <xref:System.Collections.Generic.Dictionary%602> オブジェクトからジェネリック型定義を取得します。 また、リフレクションを使用して、構築されたジェネリック型とジェネリック型定義を表す <xref:System.Type> オブジェクトに関する情報も表示します。 この例`b`の変数<xref:Windows.UI.Xaml.Controls.TextBlock>は、コントロールです。  
+ 次の例では、リフレクションを使用して、構築された <xref:System.Collections.Generic.Dictionary%602> オブジェクトからジェネリック型定義を取得します。 また、リフレクションを使用して、構築されたジェネリック型とジェネリック型定義を表す <xref:System.Type> オブジェクトに関する情報も表示します。 この例の変数 `b` は <xref:Windows.UI.Xaml.Controls.TextBlock> コントロールです。  
   
  [!code-csharp[ProjectN_Reflection#2](../../../samples/snippets/csharp/VS_Snippets_CLR/projectn_reflection/cs/makegenerictype1.cs#2)]  
   
- .NET ネイティブツールチェーンを使用してコンパイルした後、 [MissingMetadataException](missingmetadataexception-class-net-native.md)この例では、 <xref:System.Type.GetGenericTypeDefinition%2A?displayProperty=nameWithType>メソッドを呼び出す行で MissingMetadataException 例外がスローされます。 次の `<TypeInstantiation>` 要素をランタイム ディレクティブ ファイルに追加すると、この例外を排除して、必要なメタデータを提供できます。  
+ .NET ネイティブツールチェーンを使用してコンパイルした後、この例では、<xref:System.Type.GetGenericTypeDefinition%2A?displayProperty=nameWithType> メソッドを呼び出す行で[MissingMetadataException](missingmetadataexception-class-net-native.md)例外をスローします。 次の `<TypeInstantiation>` 要素をランタイム ディレクティブ ファイルに追加すると、この例外を排除して、必要なメタデータを提供できます。  
   
 ```xml  
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">  

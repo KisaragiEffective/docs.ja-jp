@@ -1,6 +1,5 @@
 ---
 title: アンセーフ コードとポインター - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - security [C#], type safety
@@ -11,12 +10,12 @@ helpviewer_keywords:
 - C# language, pointers
 - pointers [C#], about pointers
 ms.assetid: b0fcca10-a92d-4f2a-835b-b0ccae6739ee
-ms.openlocfilehash: 99f0b925a37bff8b6ab1ff46e9ce2f0ea0a38aed
-ms.sourcegitcommit: ffd7dd79468a81bbb0d6449f6d65513e050c04c4
+ms.openlocfilehash: 013af4e55c8fc396bbc92058d7fb454484f3263e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65959482"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75711832"
 ---
 # <a name="unsafe-code-and-pointers-c-programming-guide"></a>アンセーフ コードとポインター (C# プログラミング ガイド)
 
@@ -49,9 +48,9 @@ ms.locfileid: "65959482"
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳細については、[C# 言語仕様](~/_csharplang/spec/introduction.md)の[アンセーフ コード](~/_csharplang/spec/unsafe-code.md)に関するトピックを参照してください。
+詳細については、[C# 言語仕様](~/_csharplang/spec/unsafe-code.md)の[アンセーフ コード](~/_csharplang/spec/introduction.md)に関するトピックを参照してください。
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [unsafe](../../language-reference/keywords/unsafe.md)

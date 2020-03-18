@@ -3,12 +3,12 @@ title: C# 7.0 の新機能 - C# ガイド
 description: C# 言語のバージョン 7.0 での新機能の概要を説明します。
 ms.date: 02/20/2019
 ms.assetid: fd41596d-d0c2-4816-b94d-c4d00a5d0243
-ms.openlocfilehash: 0f26a9647503ebb667d961fefaa05a25a71ec6f5
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: a6ac5c00ceb2ce8e5e56e2a86a8cde937d5108e2
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70926571"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79398341"
 ---
 # <a name="whats-new-in-c-70"></a>C# 7.0 の新機能
 
@@ -126,7 +126,7 @@ if (input is int count)
 switch 一致式には、既に C# 言語に含まれている `switch` ステートメントに基づいた、使い慣れた構文があります。 更新された switch 式には新しいコンストラクトがいくつか含まれます。
 
 - `switch` 式を制御する型は、整数型、`Enum` 型、`string`、あるいはそれらの型のいずれかに対応する null 許容型に制限されなくなります。 任意の型を使用できます。
-- 各 `case` ラベルで `switch` 式の型をテストできます。 `is` 式と同様に、その型に新しい変数を割り当てることができます。
+- 各 `switch` ラベルで `case` 式の型をテストできます。 `is` 式と同様に、その型に新しい変数を割り当てることができます。
 - `when` 句を追加し、その変数で条件をさらにテストできます。
 - `case` ラベルの順序が重要になります。 一致する最初の分岐が実行されます。他の分岐はスキップされます。
 
@@ -181,7 +181,7 @@ public static int SumPositiveNumbers(IEnumerable<object> sequence)
 
 C# 言語には、`ref` ローカル変数と戻り値の誤用を防ぐ規則がいくつかあります。
 
-- メソッド シグネチャと、メソッド内のすべての `return` ステートメントに `ref` キーワードを追加する必要があります。
+- メソッド シグネチャと、メソッド内のすべての `ref` ステートメントに `return` キーワードを追加する必要があります。
   - それにより、メソッド全体でメソッドは参照渡しで返すことになります。
 - `ref return` は値の変数か `ref` 変数に割り当てることができます。
   - 呼び出し元により、戻り値がコピーされるかどうかが制御されます。 戻り値を割り当てるとき、`ref` 修飾子を省略すると、呼び出し元はストレージの参照ではなく、値のコピーを求めることになります。
@@ -211,7 +211,7 @@ ref ローカル変数および ref 戻り値の追加により、値のコピ�
 [!code-csharp[TaskExample](~/samples/snippets/csharp/new-in-7/AsyncWork.cs#TaskExample "Task returning method with local function")]
 
 > [!NOTE]
-> ローカル関数によってサポートされる設計の中には、"*ラムダ式*" を使用して実現できるものもあります。 興味のある方は、[その違いの詳細を確認してください](../local-functions-vs-lambdas.md)。
+> ローカル関数によってサポートされる設計の中には、"*ラムダ式*" を使用して実現できるものもあります。 詳細については、[ローカル関数とラムダ式](../local-functions-vs-lambdas.md)に関するページをご覧ください。
 
 ## <a name="more-expression-bodied-members"></a>式形式のメンバーの追加
 
@@ -222,7 +222,7 @@ C# 6 では、メンバー関数の[式形式のメンバー](csharp-6.md#expres
 > [!NOTE]
 > この例ではファイナライザーは必要ありませんが、その構文を紹介するために示しています。 アンマネージ リソースを解放する必要がない限り、クラスにファイナライザーを実装しないでください。 また、アンマネージ リソースを直接管理する代わりに、<xref:System.Runtime.InteropServices.SafeHandle> クラスの使用を検討する必要もあります。
 
-式形式のメンバー用のこれらの新しい場所は、C# 言語の重要なマイルストーンです。これらの機能は、オープン ソースの [Roslyn](https://github.com/dotnet/Roslyn) プロジェクトに関わるコミュニティ メンバーによって実装されました。
+式形式のメンバーに関するこのような新しい場所は、C# 言語にとって重要なマイルストーンを表します。これらの機能は、オープンソースの [Roslyn](https://github.com/dotnet/Roslyn) プロジェクトに従事しているコミュニティ メンバーによって実装されました。
 
 メソッドを式のようなメンバーに変更することは、[バイナリ互換性がある変更](version-update-considerations.md#binary-compatible-changes)です。
 
@@ -236,12 +236,12 @@ C# では、`throw` は常にステートメントでした。 `throw` は式で
 
 非同期メソッドから `Task` オブジェクトを返すと、特定のパスでパフォーマンスのボトルネックが発生する可能性があります。 `Task` は参照型です。したがって、これを使うことは、オブジェクトを割り当てることを意味します。 `async` 修飾子で宣言されたメソッドがキャッシュされた結果を返すか、同期的に完了する場合、追加の割り当ては、コードのパフォーマンスが重要なセクションにおいて大きな時間コストにつながります。 厳密なループ処理でこのような割り当てが発生した場合、コストがかかる場合があります。
 
-新しい言語機能では、非同期メソッドの戻り値の型が `Task`、`Task<T>`、`void` に限定されません。 返される型は引き続き非同期パターンを満たす必要があります。つまり、`GetAwaiter` メソッドはアクセス可能である必要があります。 1 つの具体的な例として、この新しい言語機能を使用するために .NET Framework に `ValueTask` 型が追加されました。
+新しい言語機能では、非同期メソッドの戻り値の型が `Task`、`Task<T>`、`void` に限定されません。 返される型は引き続き非同期パターンを満たす必要があります。つまり、`GetAwaiter` メソッドはアクセス可能である必要があります。 1 つの具体的な例として、この新しい言語機能を使用するために .NET に `ValueTask` 型が追加されました。
 
 [!code-csharp[UsingValueTask](~/samples/snippets/csharp/new-in-7/AsyncWork.cs#UsingValueTask "Using ValueTask")]
 
 > [!NOTE]
-> <xref:System.Threading.Tasks.ValueTask%601> 型を使用するには、NuGet パッケージ [`System.Threading.Tasks.Extensions`](https://www.nuget.org/packages/System.Threading.Tasks.Extensions/) を追加する必要があります。
+> [ 型を使用するには、NuGet パッケージ `System.Threading.Tasks.Extensions`](https://www.nuget.org/packages/System.Threading.Tasks.Extensions/)<xref:System.Threading.Tasks.ValueTask%601> を追加する必要があります。
 
 この機能強化は、ライブラリの作成時、パフォーマンス クリティカルなコードに `Task` を割り当てることを回避する目的で非常に便利です。
 

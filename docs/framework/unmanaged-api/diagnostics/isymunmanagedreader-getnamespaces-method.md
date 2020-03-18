@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 3feb4796-2fab-45ce-beca-6f5bc530b971
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: e0c72cd6e7dce784064f7653ba35e488061d9fd7
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 458faedea418e626a6494ca2afcdbf0e034472e8
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67773587"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74447735"
 ---
 # <a name="isymunmanagedreadergetnamespaces-method"></a>ISymUnmanagedReader::GetNamespaces メソッド
-このシンボル ストア内のグローバル スコープで定義された名前空間を取得します。  
+このシンボルストア内のグローバルスコープで定義されている名前空間を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,20 +38,20 @@ HRESULT GetNamespaces (
   
 ## <a name="parameters"></a>パラメーター  
  `cNameSpaces`  
- [in]名前空間の配列のサイズ。  
+ から名前空間配列のサイズ。  
   
  `pcNameSpaces`  
- [out]名前空間の一覧の長さを受け取る変数へのポインター。  
+ 入出力名前空間リストの長さを受け取る変数へのポインター。  
   
  `namespaces`  
- [out]名前空間の一覧を受け取る変数へのポインター。  
+ 入出力名前空間リストを受け取る変数へのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。それ以外の場合、E_FAIL またはその他のエラー コード。  
+ メソッドが成功した場合は S_OK。それ以外の場合は、E_FAIL またはその他のエラーコードを指定します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl, CorSym.h  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** CorSym .idl、CorSym .h  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ISymUnmanagedReader インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedreader-interface.md)

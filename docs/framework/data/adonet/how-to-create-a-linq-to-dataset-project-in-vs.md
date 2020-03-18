@@ -2,18 +2,18 @@
 title: Visual Studio で LINQ to DataSet プロジェクトを作成する
 ms.date: 08/15/2018
 ms.assetid: 49ba6cb0-cdd2-4571-aeaa-25bf0f40e9b3
-ms.openlocfilehash: 8b905c65575c3c567459d843b2a5d1606bc63228
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 91032766248b11e51b90aa788b1c64c140347c25
+ms.sourcegitcommit: 32a575bf4adccc901f00e264f92b759ced633379
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70783779"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74802027"
 ---
 # <a name="how-to-create-a-linq-to-dataset-project-in-visual-studio"></a>方法: Visual Studio で LINQ to DataSet プロジェクトを作成する
 
-LINQ プロジェクトの種類によっては、特定のアセンブリ参照とインポートされた名前空間C#(Visual Basic) または [using](../../../csharp/language-reference/keywords/using-directive.md) ディレクティブ () が必要になります。 LINQ の最小要件*は、の system.object への*参照と`using`の<xref:System.Linq>ディレクティブです。
+LINQ プロジェクトの種類によっては、特定のアセンブリ参照とインポートされた名前空間C#(Visual Basic) または [using](../../../csharp/language-reference/keywords/using-directive.md) ディレクティブ () が必要になります。 LINQ の最小要件は、<xref:System.Linq>用の*system.servicemodel および `using`* ディレクティブへの参照です。
 
-これらの要件は、Visual Studio 2017 で新しいC#コンソールアプリプロジェクトを作成した場合に既定で提供されます。 以前のバージョンの Visual Studio からプロジェクトをアップグレードする場合は、これらの LINQ 関連の参照を手動で指定することが必要になる場合があります。
+これらの要件は、Visual Studio 2017 以降のバージョンC#で新しいコンソールアプリプロジェクトを作成した場合に既定で提供されます。 以前のバージョンの Visual Studio からプロジェクトをアップグレードする場合は、これらの LINQ 関連の参照を手動で指定することが必要になる場合があります。
 
 LINQ to DataSet*には、次の 2*つの追加の参照が必要*です。*
 
@@ -35,8 +35,8 @@ LINQ to DataSet*には、次の 2*つの追加の参照が必要*です。*
    using System.Linq;
    ```
 
-1. 必要に応じて`using` 、データベースへ`Imports`の接続方法に応じ**て、** **システム**のディレクティブ (またはステートメント) を追加します。
+1. 必要に応じて、データベースへの接続方法に応じ**て、`using`** ディレクティブ (または `Imports` のステートメント) を**追加します**。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [LINQ to DataSet を使ってみる](getting-started-linq-to-dataset.md)

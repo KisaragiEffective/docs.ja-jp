@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 1e172b14-ee22-4943-b3b8-3740e7bdcd2e
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5d76fa4b2352da18b5ef0e547ebc4e2e99d980b8
-ms.sourcegitcommit: 3caa92cb97e9f6c31f21769c7a3f7c4304024b39
+ms.openlocfilehash: 4f6dbe8c17bd6a91078b87a87c1055fbf4977a88
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273996"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73132307"
 ---
 # <a name="cor_typeid-structure"></a>COR_TYPEID 構造体
 型識別子が含まれます。  
@@ -43,9 +41,9 @@ typedef struct COR_TYPEID{
 |`token2`|2番目のトークン。|  
   
 ## <a name="remarks"></a>コメント  
- 構造`COR_TYPEID`体は、ガベージコレクションされるオブジェクトに関する情報を提供する多数のデバッグメソッドによって返されます。 その後、その項目に関する追加情報を提供する他のデバッグメソッドに引数として渡すことができます。 たとえば、COR_HEAPOBJECT [ICorDebugHeapEnum](icordebugheapenum-interface.md)オブジェクトを列挙することによって、マネージヒープ上の個々のオブジェクトを表す個々の[COR_HEAPOBJECT](cor-heapobject-structure.md)オブジェクトを取得できます。 次に、 `COR_HEAPOBJECT.type`フィールドの`COR_TYPEID`値を[ICorDebugProcess5:: gettypefortypeid](icordebugprocess5-gettypefortypeid-method.md)メソッドに渡して、オブジェクトに関する型情報を提供する、テキストオブジェクトを取得します。  
+ `COR_TYPEID` 構造体は、ガベージコレクトされるオブジェクトに関する情報を提供するさまざまなデバッグメソッドによって返されます。 その後、その項目に関する追加情報を提供する他のデバッグメソッドに引数として渡すことができます。 たとえば、COR_HEAPOBJECT [ICorDebugHeapEnum](icordebugheapenum-interface.md)オブジェクトを列挙することによって、マネージヒープ上の個々のオブジェクトを表す個々の[COR_HEAPOBJECT](cor-heapobject-structure.md)オブジェクトを取得できます。 その後、`COR_TYPEID` の値を `COR_HEAPOBJECT.type` フィールドから[ICorDebugProcess5:: GetTypeForTypeID](icordebugprocess5-gettypefortypeid-method.md)メソッドに渡して、オブジェクトに関する型情報を提供する、テキストオブジェクトを取得できます。  
   
- `COR_TYPEID`オブジェクトは不透明であることが想定されています。 個々のフィールドにアクセスしたり操作したりすることはできません。 唯一の用途は、メソッドの呼び出しで`out`パラメーターとして指定された識別子として使用され、さらに情報を提供するために他のメソッドに渡すことができます。  
+ `COR_TYPEID` オブジェクトは不透明であることが想定されています。 個々のフィールドにアクセスしたり操作したりすることはできません。 唯一の用途は、メソッドの呼び出しで `out` パラメーターとして提供され、さらに他のメソッドに渡して追加情報を提供できる識別子として使用することです。  
   
 ## <a name="requirements"></a>要件  
  **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  

@@ -7,24 +7,24 @@ f1_keywords:
 helpviewer_keywords:
 - BC30712
 ms.assetid: c7ffbd6d-05c6-4261-b44b-1bcd521bb350
-ms.openlocfilehash: 42f31df7f4bc849374d8beb09e17394c3cdd5ec4
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: b3ef2aa5e25d61f005159e06852e23c2c036fd54
+ms.sourcegitcommit: 5a28f8eb071fcc09b045b0c4ae4b96898673192e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61774863"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73198177"
 ---
-# <a name="unable-to-load-information-for-class-classname"></a>クラスの情報を読み込めません\<classname >'
-無効なクラスに参照が行われました。  
+# <a name="unable-to-load-information-for-class-classname"></a>クラス '\<classname > ' の情報を読み込めません
+使用できないクラスへの参照が作成されました。  
   
  **エラー ID:** BC30712  
   
 ## <a name="to-correct-this-error"></a>このエラーを解決するには  
   
-1. クラスが定義されていると、名前のスペルが正しいことを確認します。  
+1. クラスが定義されていること、および名前のスペルが正しいことを確認します。  
   
 2. モジュールで宣言されたいずれかのメンバーにアクセスします。 宣言されているモジュールがまだ読み込まれていないために、デバッグ環境ではメンバーを特定できないという場合もあります。  
   
 ## <a name="see-also"></a>関連項目
 
-- [Visual Studio でのデバッグ](/visualstudio/debugger/debugging-in-visual-studio)
+- [Visual Studio でのデバッグ](/visualstudio/debugger/debugger-feature-tour)

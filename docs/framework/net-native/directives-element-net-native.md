@@ -1,15 +1,13 @@
 ---
-title: <Directives>要素 (.NET ネイティブ)
+title: <Directives> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: 444846f3-48d5-4341-a43e-69f7221389eb
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a9ec9a09e2fc03adbfcff0d7e69489e37da6e4a5
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: abe2e7221e0afb984a6178b12fabc36ea24deb35
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049878"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128465"
 ---
 # <a name="directives-element-net-native"></a>\<ディレクティブ > 要素 (.NET ネイティブ)
 .NET ネイティブのすべてのランタイムディレクティブファイルのルート要素。  
@@ -28,7 +26,7 @@ ms.locfileid: "71049878"
   
 |属性|説明|  
 |---------------|-----------------|  
-|`xmlns`|XML 名前空間。 この値は常**に"http://schemas.microsoft.com/netfx/2013/01/metadata"** です。|  
+|`xmlns`|XML 名前空間。 値は常に **"http://schemas.microsoft.com/netfx/2013/01/metadata"** です。|  
   
 ## <a name="child-elements"></a>子要素  
   

@@ -2,35 +2,35 @@
 title: セキュリティ プロトコル バージョン 1.0
 ms.date: 03/30/2017
 ms.assetid: ee3402d2-1076-410b-a3cb-fae0372bd7af
-ms.openlocfilehash: 71855b73bb08d5edef05747dcff9e1ac04fb951f
-ms.sourcegitcommit: 9b1ac36b6c80176fd4e20eb5bfcbd9d56c3264cf
+ms.openlocfilehash: e22150d21638cffdf804008c32285f900bb1e263
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67425097"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73459046"
 ---
 # <a name="security-protocols-version-10"></a>セキュリティ プロトコル バージョン 1.0
-Web サービス セキュリティ プロトコルには、既存のエンタープライズ メッセージング セキュリティのあらゆる要件に対応する Web サービス セキュリティ機構が用意されています。 このセクションは、Windows Communication Foundation (WCF) バージョン 1.0 の詳細を説明します (で実装された、 <xref:System.ServiceModel.Channels.SecurityBindingElement>) の次の Web サービス セキュリティ プロトコル。  
+Web サービス セキュリティ プロトコルには、既存のエンタープライズ メッセージング セキュリティのあらゆる要件に対応する Web サービス セキュリティ機構が用意されています。 このセクションでは、次の Web サービスのセキュリティプロトコルについて、Windows Communication Foundation (WCF) バージョン1.0 の詳細 (<xref:System.ServiceModel.Channels.SecurityBindingElement>に実装) について説明します。  
   
-|仕様/ドキュメント|リンク|  
+|仕様/ドキュメント|Link|  
 |-|-|  
-|WSS:SOAP Message Security 1.0|<https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf>|
-|WSS:ユーザー名 Token Profile 1.0|<https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0.pdf>|
-|WSS:X509 token Profile 1.0|<https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0.pdf>|
-|WSS:SAML 1.1 トークン Profile 1.0|<https://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.0.pdf>|
-|WSS:SOAP Message Security 1.1|<https://www.oasis-open.org/committees/download.php/16790/wss-v1.1-spec-os-SOAPMessageSecurity.pdf>|
+|WSS SOAP Message Security 1.0|<https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf>|
+|WSS: Username Token Profile 1.0|<https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0.pdf>|
+|WSS: X509 Token Profile 1.0|<https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0.pdf>|
+|WSS: SAML 1.1 Token Profile 1.0|<https://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.0.pdf>|
+|WSS SOAP Message Security 1.1|<https://www.oasis-open.org/committees/download.php/16790/wss-v1.1-spec-os-SOAPMessageSecurity.pdf>|
 |WSS Username Token Profile 1.1|<https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0.pdf>|
-|WSS:X.509 Token Profile 1.1|<https://www.oasis-open.org/committees/download.php/16785/wss-v1.1-spec-os-x509TokenProfile.pdf>|
-|WSS:Kerberos トークン プロファイル 1.1|<https://www.oasis-open.org/committees/download.php/16788/wss-v1.1-spec-os-KerberosTokenProfile.pdf>|
-|WSS:SAML 1.1 トークン プロファイル 1.1|<https://www.oasis-open.org/committees/download.php/16768/wss-v1.1-spec-os-SAMLTokenProfile.pdf>|
-|WS-SecureConversation|<http://specs.xmlsoap.org/ws/2005/02/sc/WS-SecureConversation.pdf>|
-|WS-Trust|<http://specs.xmlsoap.org/ws/2005/02/trust/ws-trust.pdf>|
+|WSS: X.509 Token Profile 1.1|<https://www.oasis-open.org/committees/download.php/16785/wss-v1.1-spec-os-x509TokenProfile.pdf>|
+|WSS: Kerberos Token Profile 1.1|<https://www.oasis-open.org/committees/download.php/16788/wss-v1.1-spec-os-KerberosTokenProfile.pdf>|
+|WSS: SAML 1.1 Token Profile 1.1|<https://www.oasis-open.org/committees/download.php/16768/wss-v1.1-spec-os-SAMLTokenProfile.pdf>|
+|WS-SecureConversation|<https://specs.xmlsoap.org/ws/2005/02/sc/WS-SecureConversation.pdf>|
+|WS-Trust|<https://specs.xmlsoap.org/ws/2005/02/trust/ws-trust.pdf>|
 |Application Note:<br /><br /> Using WS-Trust for TLS Handshake|公開予定|  
 |Application Note:<br /><br /> Using WS-Trust for SPNEGO|公開予定|  
 |Application Note:<br /><br /> Web Services Addressing Endpoint References And Identity|公開予定|  
-|WS-SecurityPolicy 1.1<br /><br /> (2005/07)|<http://specs.xmlsoap.org/ws/2005/07/securitypolicy/ws-securitypolicy.pdf><br /><br /> 修正されています[招く](https://lists.oasis-open.org/archives/ws-sx/200512/msg00017.html)OASIS WS-SX 技術委員会に提出 |  
+|WS-SecurityPolicy 1.1<br /><br /> (2005/07)|<https://specs.xmlsoap.org/ws/2005/07/securitypolicy/ws-securitypolicy.pdf><br /><br /> OASIS WS SX テクニカル委員会に提出された[エラッタ](https://lists.oasis-open.org/archives/ws-sx/200512/msg00017.html)によって修正されました |  
   
- WCF では、バージョン 1 では、Web サービス セキュリティの構成の基礎として使用できる 17 の認証モードを提供します。 各モードは、次のような一般的な展開要件について最適化されています。  
+ WCF version 1 には、Web サービスのセキュリティ構成の基礎として使用できる17の認証モードが用意されています。 各モードは、次のような一般的な展開要件について最適化されています。  
   
 - クライアントとサービスの認証に使用する資格情報  
   
@@ -45,32 +45,32 @@ Web サービス セキュリティ プロトコルには、既存のエンタ�
 |KerberosOverTransport|Windows|X509|Transport|  
 |IssuedTokenOverTransport|フェデレーション|X509|Transport|  
 |SspiNegotiatedOverTransport|Windows SSPI ネゴシエーション|Windows SSPI ネゴシエーション|Transport|  
-|AnonymousForCertificate|なし|X509|メッセージ|  
-|UserNameForCertificate|ユーザー名/パスワード|X509|メッセージ|  
-|MutualCertificate|X509|X509|メッセージ|  
-|MutualCertificateDuplex|X509|X509|メッセージ|  
-|IssuedTokenForCertificate|フェデレーション|X509|メッセージ|  
-|Kerberos|Windows|Windows|メッセージ|  
-|IssuedToken|フェデレーション|フェデレーション|メッセージ|  
-|SspiNegotiated|Windows SSPI ネゴシエーション|Windows SSPI ネゴシエーション|メッセージ|  
-|AnonymousForSslNegotiated|なし|X509、TLS ネゴシエーション|メッセージ|  
-|UserNameForSslNegotiated|ユーザー名/パスワード|X509、TLS ネゴシエーション|メッセージ|  
-|MutualSslNegotiated|X509|X509、TLS ネゴシエーション|メッセージ|  
-|IssuedTokenForSslNegotiated|フェデレーション|X509、TLS ネゴシエーション|メッセージ|  
+|AnonymousForCertificate|None|X509|[メッセージ]|  
+|UserNameForCertificate|ユーザー名/パスワード|X509|[メッセージ]|  
+|MutualCertificate|X509|X509|[メッセージ]|  
+|MutualCertificateDuplex|X509|X509|[メッセージ]|  
+|IssuedTokenForCertificate|フェデレーション|X509|[メッセージ]|  
+|Kerberos|Windows|Windows|[メッセージ]|  
+|IssuedToken|フェデレーション|フェデレーション|[メッセージ]|  
+|SspiNegotiated|Windows SSPI ネゴシエーション|Windows SSPI ネゴシエーション|[メッセージ]|  
+|AnonymousForSslNegotiated|None|X509、TLS ネゴシエーション|[メッセージ]|  
+|UserNameForSslNegotiated|ユーザー名/パスワード|X509、TLS ネゴシエーション|[メッセージ]|  
+|MutualSslNegotiated|X509|X509、TLS ネゴシエーション|[メッセージ]|  
+|IssuedTokenForSslNegotiated|フェデレーション|X509、TLS ネゴシエーション|[メッセージ]|  
   
  このような認証モードを使用するエンドポイントは、WS-SecurityPolicy (WS-SP) を使用してセキュリティ要件を表現できます。 ここでは、各認証モードのセキュリティ ヘッダーとインフラストラクチャ メッセージの構造について説明します。また、ポリシーとメッセージの例も示します。  
   
- WCF では、アプリケーション間で複数のメッセージ交換を保護するセキュリティで保護されたセッションのサポートを提供するには、Ws-secureconversation を活用します。  実装の詳細については、後述の「セキュリティで保護されたセッション」を参照してください。  
+ WCF では、Ws-secureconversation を利用して、アプリケーション間での複数メッセージの交換を保護するために、セキュリティで保護されたセッションをサポートしています。  実装の詳細については、後述の「セキュリティで保護されたセッション」を参照してください。  
   
- WCF だけでなく、認証モードには、たとえば、ほとんどのメッセージ セキュリティ ベースの認証モードに適用される一般的な保護機構を制御する設定が用意されています: 署名と暗号化操作、アルゴリズム スイート、キー派生の順序、および署名の確認。  
+ WCF には、認証モードに加えて、ほとんどのメッセージセキュリティベースの認証モードに適用される一般的な保護メカニズムを制御するための設定が用意されています。たとえば、署名と暗号化操作の順序、アルゴリズムスイート、キーの派生などです。、および署名の確認。  
   
  このドキュメントでは、以下のプレフィックスと名前空間を使用します。  
   
-|プレフィックス|名前空間|  
+|プレフィックス|Namespace|  
 |------------|---------------|  
-|s|<https://www.w3.org/2003/05/soap-envelope/>|
+|s|<http://www.w3.org/2003/05/soap-envelope/>|
 |sp|<http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/>|
-|a|<https://www.w3.org/2005/08/addressing>|  
+|a|<http://www.w3.org/2005/08/addressing>|  
 |wsse|未定 - OASIS WSS 1.0 の URI|  
 |wsse11|未定 - OASIS WSS 1.1 の URI|  
 |wsu|未定 - OASIS WSS 1.0 Utility の URI|  
@@ -81,19 +81,19 @@ Web サービス セキュリティ プロトコルには、既存のエンタ�
 |wsp|<http://schemas.xmlsoap.org/ws/2004/09/policy>|  
 |mssp|<http://schemas.xmlsoap.org/ws/2005/07/securitypolicy>|
   
-## <a name="1-token-profiles"></a>1.トークン プロファイル  
- Web サービス セキュリティ仕様では、資格情報をセキュリティ トークンとして表します。 WCF には、次のトークンの種類がサポートされています。  
+## <a name="1-token-profiles"></a>1. トークンプロファイル  
+ Web サービス セキュリティ仕様では、資格情報をセキュリティ トークンとして表します。 WCF では、次のトークンの種類がサポートされています。  
   
 ### <a name="11-usernametoken"></a>1.1 UsernameToken  
- WCF には、以下の制約で UsernameToken10 および UsernameToken11 プロファイルが次に示します。  
+ WCF は、次の制約がある UsernameToken10 および UsernameToken11 プロファイルに従います。  
   
  R1101 : UsernameToken\Password 要素の PasswordType 属性では、#PasswordText (既定値) を省略するか、指定する必要があります。  
   
- 機能拡張を使用すると、#PasswordDigest を実装できます。 #PasswordDigest は、十分に安全性の高いパスワード保護機構であると誤解されがちであることが報告されています。 しかし、#PasswordDigest は、UsernameToken の暗号化の代替として使用できるわけではありません。 #PasswordDigest の第一の目的は、リプレイ攻撃から保護することです。 WCF 認証モードでは、リプレイ攻撃の脅威はメッセージ署名を使用して軽減されます。  
+ 機能拡張を使用すると、#PasswordDigest を実装できます。 #PasswordDigest は、十分に安全性の高いパスワード保護機構であると誤解されがちであることが報告されています。 しかし、#PasswordDigest は、UsernameToken の暗号化の代替として使用できるわけではありません。 #PasswordDigest の第一の目的は、リプレイ攻撃から保護することです。 WCF 認証モードでは、メッセージ署名を使用することによって、リプレイ攻撃の脅威が軽減されます。  
   
- B1102 WCF は、決して UsernameToken の Nonce および作成済みのサブ要素を出力します。  
+ B1102 WCF は、UsernameToken の Nonce および作成されたサブ要素を出力しません。  
   
- これらのサブ要素は、リプレイ検出を支援するためのものです。 WCF では、代わりにメッセージの署名を使用します。  
+ これらのサブ要素は、リプレイ検出を支援するためのものです。 WCF では、代わりにメッセージ署名を使用します。  
   
  OASIS WSS SOAP Message Security UsernameToken Profile 1.1 (UsernameToken11) では、パスワードからのキー派生機能が導入されています。  
   
@@ -102,11 +102,11 @@ Web サービス セキュリティ プロトコルには、既存のエンタ�
  理由 : パスワードは、一般に暗号化操作に使用するには脆弱すぎると見なされています。  
   
 ### <a name="12-x509-token"></a>1.2 X509 トークン  
- WCF では、資格情報の種類として X509v3 証明書をサポートしているし、以下の制約で X509TokenProfile1.0 と X509TokenProfile1.1 に依存します。  
+ WCF では、資格情報の種類として X509v3 証明書をサポートしており、次の制約がある X509TokenProfile 1.0 と X509TokenProfile 1.1 に従います。  
   
  R1201 : BinarySecurityToken 要素に X509v3 証明書が含まれている場合、この要素の ValueType 属性の値は #X509v3 であることが必要です。  
   
- WSS X509 Token Profile 1.0 および 1.1 では、値の種類として #X509PKIPathv1 と #PKCS7 も定義されています。 WCF は、これらの型をサポートしていません。  
+ WSS X509 Token Profile 1.0 および 1.1 では、値の種類として #X509PKIPathv1 と #PKCS7 も定義されています。 WCF では、これらの型はサポートされていません。  
   
  R1202 : X509 証明書に SubjectKeyIdentifier (SKI) 拡張が含まれている場合、トークンへの外部参照に wsse:KeyIdentifier を使用する必要があります。この場合、ValueType 属性に #X509SubjectKeyIdentifier を指定し、証明書の SKI 拡張の Base64 でエンコードされた値を含めます。  
   
@@ -116,37 +116,37 @@ Web サービス セキュリティ プロトコルには、既存のエンタ�
   
  R1204 : X509TokenProfile1.1 を使用している場合、X509 セキュリティ トークンへの外部参照では、WS-Security 1.1 で導入された拇印を使用する必要があります。  
   
- WCF では、X509IssuerSerial をサポートします。 ただし、X509IssuerSerial に相互運用性の問題があります。WCF では、文字列を使用して X509IssuerSerial の 2 つの値を比較します。 そのため、サブジェクト名の構成要素を並べ替えます 1 つの WCF サービスに証明書への参照を送信すると、その見つからない可能性があります。  
+ WCF は、X509issuerserial をサポートしています。 ただし、、X509issuerserial には相互運用性の問題があります。 WCF では、文字列を使用して、X509issuerserial の2つの値を比較します。 したがって、サブジェクト名のコンポーネントの並べ替えと、WCF サービスへの送信に証明書への参照が含まれている場合、証明書が見つからない可能性があります。  
   
 ### <a name="13-kerberos-token"></a>1.3 Kerberos トークン  
- WCF では、次の制約を使用して Windows 認証の目的で KerberosTokenProfile1.1 をサポートしています。  
+ WCF では、次の制約により、Windows 認証の目的で KerberosTokenProfile 1.1 がサポートされています。  
   
  R1301 : GSS_API と Kerberos 仕様で定義されているように、Kerberos トークンは GSS によってラップされた Kerberos v4 AP_REQ の値を伝達する必要があります。また、値 #GSS_Kerberosv5_AP_REQ が指定された ValueType 属性を持つ必要があります。  
   
- WCF は gss によってラップ Kerberos AP-REQ、いない、ベア AP の求人 これは、セキュリティのベスト プラクティスです。  
+ WCF では、ベア AP-要求ではなく、GSS によってラップされた Kerberos AP を使用します。 これは、セキュリティのベスト プラクティスです。  
   
 ### <a name="14-saml-v11-token"></a>1.4 SAML v1.1 トークン  
- WCF では、SAML v1.1 トークンの WSS SAML Token profile 1.0 および 1.1 をサポートしています。 SAML トークンの形式のその他のバージョンも実装できます。  
+ WCF は、SAML v1.1 トークンの WSS SAML トークンプロファイル1.0 および1.1 をサポートしています。 SAML トークンの形式のその他のバージョンも実装できます。  
   
 ### <a name="15-security-context-token"></a>1.5 セキュリティ コンテキスト トークン  
- WCF は、セキュリティ コンテキスト トークン (SCT)、Ws-secureconversation で導入されたをサポートします。 SCT は、SecureConversation と、後述する TLS および SSPI の各バイナリ ネゴシエーション プロトコルで確立されたセキュリティ コンテキストを表すために使用されます。  
+ WCF では、Ws-secureconversation で導入されたセキュリティコンテキストトークン (SCT) がサポートされています。 SCT は、SecureConversation と、後述する TLS および SSPI の各バイナリ ネゴシエーション プロトコルで確立されたセキュリティ コンテキストを表すために使用されます。  
   
-## <a name="2-common-message-security-parameters"></a>2.一般的なメッセージ セキュリティ パラメーター  
+## <a name="2-common-message-security-parameters"></a>2. 一般的なメッセージセキュリティパラメーター  
   
 ### <a name="21-timestamp"></a>2.1 タイムスタンプ  
- タイムスタンプの有無は、<xref:System.ServiceModel.Channels.SecurityBindingElement.IncludeTimestamp%2A> クラスの <xref:System.ServiceModel.Channels.SecurityBindingElement> プロパティを使用して制御します。 WCF では、wsse:TimeStamp を常にシリアル化: 作成と wsse: フィールドの有効期限が切れます。 署名を使用する場合、wsse:TimeStamp は必ず署名されます。  
+ タイムスタンプの有無は、<xref:System.ServiceModel.Channels.SecurityBindingElement.IncludeTimestamp%2A> クラスの <xref:System.ServiceModel.Channels.SecurityBindingElement> プロパティを使用して制御します。 WCF は、常に wsse: Created および wsse: Expires フィールドを使用して wsse: TimeStamp をシリアル化します。 署名を使用する場合、wsse:TimeStamp は必ず署名されます。  
   
 ### <a name="22-protection-order"></a>2.2 保護の順序  
- WCF では、メッセージ保護の順序「署名前に暗号化」と「署名前に暗号化」(Security Policy 1.1) をサポートします。 WS-Security 1.1 の SignatureConfirmation 機構を使用していない場合、"署名前に暗号化" を使用して保護されたメッセージを開くと、置き換え攻撃への署名が行われます。また、暗号化された内容に署名すると監査が困難になります。これらの理由から、"暗号化前に署名" を使用することをお勧めします。  
+ WCF は、"暗号化前に署名する" と "署名前に暗号化する" (セキュリティポリシー 1.1) をサポートしています。 WS-Security 1.1 の SignatureConfirmation 機構を使用していない場合、"署名前に暗号化" を使用して保護されたメッセージを開くと、置き換え攻撃への署名が行われます。また、暗号化された内容に署名すると監査が困難になります。これらの理由から、"暗号化前に署名" を使用することをお勧めします。  
   
 ### <a name="23-signature-protection"></a>2.3 署名の保護  
  "署名前に暗号化" を使用する場合、暗号化された内容や署名キー (特に、脆弱なキー マテリアルでカスタム トークンを使用する場合) を推測するブルート フォース攻撃を防ぐために、署名を保護することをお勧めします。  
   
 ### <a name="24-algorithm-suite"></a>2.4 アルゴリズム スイート  
- WCF では、Security Policy 1.1 に記載するすべてのアルゴリズム スイートをサポートします。  
+ WCF では、セキュリティポリシー1.1 に示されているすべてのアルゴリズムスイートがサポートされています。  
   
 ### <a name="25-key-derivation"></a>2.5 キー派生  
- WCF は、Ws-secureconversation に記載された「対称キーのキー派生」を使用します。  
+ WCF では、「Ws-secureconversation」で説明されているように、"対称キーのキー派生" を使用します。  
   
 ### <a name="26-signature-confirmation"></a>2.6 署名確認  
  署名確認によって "man-in-the-middle" 攻撃から保護することで、署名セットを保護できます。  
@@ -157,17 +157,17 @@ Web サービス セキュリティ プロトコルには、既存のエンタ�
 |||  
 |-|-|  
 |Strict|"使用前に宣言する" という一般的原則に基づき、Security Policy のセクション 7.7.1 に記載された番号付きレイアウト ルールに従って、項目がセキュリティ ヘッダーに追加されます。|  
-|Lax|項目は、WSS に準じた任意の順序で、セキュリティ ヘッダーに追加されます。SOAP メッセージ セキュリティ。|  
+|Lax|WSS: SOAP Message Security に準拠した任意の順序で、項目がセキュリティ ヘッダーに追加されます。|  
 |LaxTimestampFirst|セキュリティ ヘッダー内の最初の項目が wsse:Timestamp でなければならないという点を除き、Lax と同じです。|  
 |LaxTimestampLast|セキュリティ ヘッダー内の最後の項目が wsse:Timestamp でなければならないという点を除き、Lax と同じです。|  
   
- WCF では、セキュリティ ヘッダーのレイアウトのすべての 4 つのモードをサポートします。 後ほど示す各認証モードのセキュリティ ヘッダーの構造とメッセージの例では、"Strict" モードに従っています。  
+ WCF では、セキュリティヘッダーレイアウトの4つのモードすべてがサポートされています。 後ほど示す各認証モードのセキュリティ ヘッダーの構造とメッセージの例では、"Strict" モードに従っています。  
   
-## <a name="2-common-message-security-parameters"></a>2.一般的なメッセージ セキュリティ パラメーター  
+## <a name="2-common-message-security-parameters"></a>2. 一般的なメッセージセキュリティパラメーター  
  このセクションでは、各認証モードのポリシーの例、およびクライアントとサービスによって交換されるメッセージのセキュリティ ヘッダーの構造を示す例を紹介します。  
   
 ### <a name="61-transport-protection"></a>6.1 トランスポートの保護  
- WCF には、セキュリティで保護されたトランスポートを使用してメッセージを保護する 5 つの認証モードが用意されていますUserNameOverTransport、CertificateOverTransport、KerberosOverTransport、IssuedTokenOverTransport、および SspiNegotiatedOverTransport します。  
+ WCF は、セキュリティで保護されたトランスポートを使用してメッセージを保護する5つの認証モードを提供します。UserNameOverTransport、CertificateOverTransport、KerberosOverTransport、IssuedTokenOverTransport、および SspiNegotiatedOverTransport。  
   
  これらの認証モードは、SecurityPolicy に記載されたトランスポート バインディングを使用して構築されます。 UserNameOverTransport 認証モードの場合、UsernameToken は署名付きサポート トークンです。 その他の認証モードでは、トークンは署名付き保証トークンとして表示されます。 SecurityPolicy の Appendix C.1.2 および C.1.3 には、セキュリティ ヘッダーのレイアウトの詳細が記載されています。 以降のセキュリティ ヘッダーの例は、指定の認証モードの Strict レイアウトを示しています。  
   
@@ -177,9 +177,9 @@ Web サービス セキュリティ プロトコルには、既存のエンタ�
   
  タイムスタンプ : true  
   
- セキュリティ ヘッダーのレイアウト:Strict  
+ セキュリティ ヘッダーのレイアウト : Strict  
   
- アルゴリズム スイート。Basic256  
+ アルゴリズム スイート : Basic256  
   
 #### <a name="611-usernameovertransport"></a>6.1.1 UsernameOverTransport  
  この認証モードでは、クライアントはユーザー名トークンを使用して認証を行います。ユーザー名トークンは、イニシエーターから受信者に必ず送信される署名付きサポート トークンとして SOAP 層に表示されます。 サービスはトランスポート層で X.509 証明書を使用して認証されます。 使用するバインディングは、トランスポート バインディングです。  
@@ -549,7 +549,7 @@ Namespace='http://www.w3.org/2005/08/addressing' />
 ```  
   
 #### <a name="615-sspinegotiatedovertransport"></a>6.1.5 SspiNegotiatedOverTransport  
- このモードでは、ネゴシエーション プロトコルを使用して、クライアントとサーバーの認証を行います。 Kerberos を使用できる場合は Kerberos が使用され、それ以外の場合は NTLM が使用されます。 発行された SCT は、イニシエーターから受信者に必ず送信される保証サポート トークンとして SOAP 層に表示されます。 サービスは、トランスポート層で X.509 証明書により追加的に認証されます。 使用するバインディングは、トランスポート バインディングです。 "SPNEGO"(ネゴシエーション) では、WCF が Ws-trust で SSPI バイナリ ネゴシエーション プロトコルを使用する方法について説明します。 このセクションで示すセキュリティ ヘッダーの例は、SPNEGO ハンドシェイクによって SCT が確立された後の状態を示しています。  
+ このモードでは、ネゴシエーション プロトコルを使用して、クライアントとサーバーの認証を行います。 Kerberos を使用できる場合は Kerberos が使用され、それ以外の場合は NTLM が使用されます。 発行された SCT は、イニシエーターから受信者に必ず送信される保証サポート トークンとして SOAP 層に表示されます。 サービスは、トランスポート層で X.509 証明書により追加的に認証されます。 使用するバインディングは、トランスポート バインディングです。 "SPNEGO" (ネゴシエーション) では、WCF が WS-TRUST で SSPI バイナリネゴシエーションプロトコルを使用する方法について説明します。 このセクションで示すセキュリティ ヘッダーの例は、SPNEGO ハンドシェイクによって SCT が確立された後の状態を示しています。  
   
  ポリシー  
   
@@ -640,7 +640,7 @@ Namespace='http://www.w3.org/2005/08/addressing' />
 ```  
   
 ### <a name="62-using-x509-certificates-for-service-authentication"></a>6.2 X.509 証明書を使用したサービス認証  
- このセクションでは、次の認証モードについて説明します。MutualCertificate WSS1.0、Mutual CertificateDuplex、MutualCertificate WSS1.1、AnonymousForCertificate、UserNameForCertificate および issuedtokenforcertificate の各します。  
+ このセクションでは、MutualCertificate WSS1.0、Mutual CertificateDuplex、MutualCertificate WSS1.1、AnonymousForCertificate、UserNameForCertificate、および IssuedTokenForCertificate の各認証モードについて説明します。  
   
 #### <a name="621-mutualcertificate-wss10"></a>6.2.1 MutualCertificate WSS1.0  
  この認証モードでは、クライアントは X.509 証明書を使用して認証を行います。X.509 証明書は、イニシエーター トークンとして SOAP 層に表示されます。 また、サービスは X.509 証明書を使用して認証されます。  
@@ -649,15 +649,15 @@ Namespace='http://www.w3.org/2005/08/addressing' />
   
  イニシエーター トークン : インクルード モードが .../IncludeToken/AlwaysToRecipient に設定されたクライアントの X.509 証明書  
   
- 受信者トークン:サーバーの X.509 証明書のインクルード モードが .../IncludeToken/Never に設定されます。  
+ 受信者トークン : インクルード モードが …/IncludeToken/Never に設定されたサーバーの X.509 証明書  
   
- トークンの保護:False  
+ トークンの保護 : False  
   
- すべてのヘッダーと本文の署名:True  
+ ヘッダーと本文全体の署名 : True  
   
- 保護の順序:SignBeforeEncrypt  
+ 保護の順序 : SignBeforeEncrypt  
   
- 署名を暗号化するには。True  
+ 署名の暗号化 : True  
   
  ポリシー  
   
@@ -721,7 +721,7 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
 </wsp:Policy>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -763,7 +763,7 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
 </wsse:Security>  
 ```  
   
- セキュリティ ヘッダーの例:EncryptBeforeSign  
+ セキュリティ ヘッダーの例 : EncryptBeforeSign  
   
  要求  
   
@@ -811,17 +811,17 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
   
  使用するバインディングは、次のプロパティ値が設定された非対称バインディングです。  
   
- イニシエーター トークン:クライアントの X509 証明書、インクルード モードが .../IncludeToken/AlwaysToRecipient に設定  
+ イニシエーター トークン : インクルード モードが .../IncludeToken/AlwaysToRecipient に設定されたクライアントの X.509 証明書  
   
- 受信者トークン:サーバーの X509 証明書、インクルード モードが .../IncludeToken/AlwaysToInitiator に設定  
+ 受信者トークン : インクルード モードが .../IncludeToken/AlwaysToInitiator に設定されたサーバーの X509 証明書  
   
- トークンの保護:False  
+ トークンの保護 : False  
   
- すべてのヘッダーと本文の署名:True  
+ ヘッダーと本文全体の署名 : True  
   
- 保護の順序:SignBeforeEncrypt  
+ 保護の順序 : SignBeforeEncrypt  
   
- 署名を暗号化するには。True  
+ 署名の暗号化 : True  
   
  ポリシー  
   
@@ -885,7 +885,7 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
 </wsp:Policy>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求と応答  
   
 ```xml  
@@ -908,7 +908,7 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
 </wsse:Security>  
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求と応答  
   
 ```xml  
@@ -938,14 +938,14 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
   
  AnonymousForCertificate、UsernameForCertificate、MutualCertificate WSS11、および IssuedTokenForCertificate の各認証モードはすべて、以下のプロパティ値が設定された sp:SymmetricBinding の同様のインスタンスを使用します。  
   
- 保護トークン:サーバーの X509 証明書、インクルード モードが .../IncludeToken/Never に設定  
-トークンの保護:False  
+ 保護トークン: インクルード モードが .../IncludeToken/Never に設定されたサーバーの X509 証明書  
+トークンの保護 : False  
   
- すべてのヘッダーと本文の署名:True  
+ ヘッダーと本文全体の署名 : True  
   
- 保護の順序:SignBeforeEncrypt  
+ 保護の順序 : SignBeforeEncrypt  
   
- 署名を暗号化するには。True  
+ 署名の暗号化 : True  
   
  前述の各認証モードは、使用するサポート トークンだけが異なります。 AnonymousForCertificate はサポート トークンをまったく使用せず、MutualCertificate WSS 1.1 は保証サポート トークンとしてクライアントの X509 証明書を使用します。また、UserNameForCertificate は署名付きサポート トークンとしてユーザー名トークンを使用し、IssuedTokenForCertificate は保証サポート トークンとして発行済みトークンを使用します。  
   
@@ -1017,7 +1017,7 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
   
  バインディングの詳細については、前述の 6.2.3 の「ポリシー」を参照してください。  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -1068,7 +1068,7 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
 </wsse:Security>  
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -1138,7 +1138,7 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
 </sp:SignedSupportingTokens>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -1189,7 +1189,7 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
 </wsse:Security>  
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -1262,7 +1262,7 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
 </sp:EndorsingSupportingTokens>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -1325,7 +1325,7 @@ sp:IncludeToken='http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeTok
 </wsse:Security>  
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -1411,7 +1411,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </sp:EndorsingSupportingTokens>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -1474,7 +1474,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsse:Security>  
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -1536,14 +1536,14 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 ## <a name="63-kerberos"></a>6.3 Kerberos  
  この認証モードを使用すると、クライアントは Kerberos チケットを使用してサービスに対する認証を行います。 また、その同じチケットによってサーバーが認証されます。 使用するバインディングは、以下のプロパティが設定された対称バインディングです。  
   
- 保護トークン:Kerberos チケット、インクルード モードが .../IncludeToken/Once に設定します。  
-トークンの保護:False  
+ 保護トークン: インクルード モードが .../IncludeToken/Once に設定された Kerberos チケット  
+トークンの保護 : False  
   
- すべてのヘッダーと本文の署名:True  
+ ヘッダーと本文全体の署名 : True  
   
- 保護の順序:SignBeforeEncrypt  
+ 保護の順序 : SignBeforeEncrypt  
   
- 署名を暗号化するには。True  
+ 署名の暗号化 : True  
   
  ポリシー  
   
@@ -1599,7 +1599,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsp:Policy>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -1647,7 +1647,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsse:Security>    
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -1667,14 +1667,14 @@ TBD
 #### <a name="64-issuedtoken"></a>6.4 IssuedToken  
  この認証モードでは、クライアントはサービスに対する認証を行わず、STS により発行されたトークンを示すことで、共有キーの有無を示します。 サービスはクライアントに対する認証を行いませんが、そのサービスだけがキーを復号化できるように、STS は発行されたトークンの一部として共有キーを暗号化します。 使用するバインディングは、以下のプロパティが設定された対称バインディングです。  
   
- 保護トークン:トークンを発行するには、インクルード モードが .../IncludeToken/AlwaysToRecipient に設定します。  
-トークンの保護:False  
+ 保護トークン: インクルード モードが .../IncludeToken/AlwaysToRecipient に設定された発行済みトークン  
+トークンの保護 : False  
   
- すべてのヘッダーと本文の署名:True  
+ ヘッダーと本文全体の署名 : True  
   
- 保護の順序:SignBeforeEncrypt  
+ 保護の順序 : SignBeforeEncrypt  
   
- 署名を暗号化するには。True  
+ 署名の暗号化 : True  
   
  ポリシー  
   
@@ -1735,7 +1735,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsp:Policy>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -1783,7 +1783,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsse:Security>    
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -1836,14 +1836,14 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
   
  使用するバインディングは、以下のプロパティが設定された対称バインディングです。  
   
- 保護トークン:インクルード インクルード モードが .../IncludeToken/Never に設定されます。  
-トークンの保護:False  
+ 保護トークン: インクルード モードが .../IncludeToken/Never に設定された SslContextToken  
+トークンの保護 : False  
   
- すべてのヘッダーと本文の署名:True  
+ ヘッダーと本文全体の署名 : True  
   
- 保護の順序:SignBeforeEncrypt  
+ 保護の順序 : SignBeforeEncrypt  
   
- 署名を暗号化するには。True  
+ 署名の暗号化 : True  
   
 #### <a name="651-policy-for-sslnegotiated-service-authentication"></a>6.5.1 SslNegotiated サービス認証のポリシー  
  このセクションで説明するすべての認証モードのポリシーは、使用する署名付きサポート トークンまたは保証トークンだけが異なります。  
@@ -1908,7 +1908,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
   
  バインディングの詳細については、前述の 6.5.1 の「ポリシー」を参照してください。  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -1956,7 +1956,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsse:Security>    
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -2025,7 +2025,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </sp:SignedSupportingTokens>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -2076,7 +2076,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsse:Security>    
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -2154,7 +2154,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </sp:EndorsingSupportingTokens>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -2217,7 +2217,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsse:Security>    
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -2298,7 +2298,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </sp:EndorsingSupportingTokens>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -2346,7 +2346,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsse:Security>    
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -2397,14 +2397,14 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 ### <a name="66-sspinegotiated"></a>6.6 SspiNegotiated  
  この認証モードを使用すると、クライアントとサーバーの認証を実行するために、ネゴシエーション プロトコルが使用されます。 Kerberos を使用できる場合は Kerberos が使用され、それ以外の場合は NTLM が使用されます。 使用するバインディングは、以下のプロパティが設定された対称バインディングです。  
   
- 保護トークン:された SpnegoContextToken インクルード モードが .../IncludeToken/AlwaysToRecipient に設定します。  
-トークンの保護:False  
+ 保護トークン: インクルード モードが .../IncludeToken/AlwaysToRecipient に設定された SpnegoContextToken  
+トークンの保護 : False  
   
- すべてのヘッダーと本文の署名:True  
+ ヘッダーと本文全体の署名 : True  
   
- 保護の順序:SignBeforeEncrypt  
+ 保護の順序 : SignBeforeEncrypt  
   
- 署名を暗号化するには。True  
+ 署名の暗号化 : True  
   
  ポリシー  
   
@@ -2459,7 +2459,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsp:Policy>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -2507,7 +2507,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsse:Security>    
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  
@@ -2669,7 +2669,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsp:Policy>  
 ```  
   
-### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例:SignBeforeEncrypt、EncryptSignature  
+### <a name="security-header-examples-signbeforeencrypt-encryptsignature"></a>セキュリティ ヘッダーの例 : SignBeforeEncrypt、EncryptSignature  
  要求  
   
 ```xml  
@@ -2717,7 +2717,7 @@ http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey
 </wsse:Security>    
 ```  
   
-### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例:EncryptBeforeSign  
+### <a name="security-header-examples-encryptbeforesign"></a>セキュリティ ヘッダーの例 : EncryptBeforeSign  
  要求  
   
 ```xml  

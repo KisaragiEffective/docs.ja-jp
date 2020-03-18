@@ -1,23 +1,23 @@
 ---
-title: WF の XAML ファイルに追加、デザイナーのビューステートの削除
+title: デザイナーによって XAML ファイルに追加されるビューステートを削除する-WF
 ms.date: 03/30/2017
 ms.assetid: a801ce22-8699-483c-a392-7bb3834aae4f
-ms.openlocfilehash: af57f838ea12d7199268988bf01baa0b61447650
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: f431275140e821aa5ec4d2235322f06be87d5ee2
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65637856"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715621"
 ---
-# <a name="removing-the-view-state-the-designer-adds-to-an-xaml-file"></a>デザイナーのビューステートの削除を XAML ファイルに追加します
+# <a name="removing-the-view-state-the-designer-adds-to-an-xaml-file"></a>デザイナーによって XAML ファイルに追加されるビューステートを削除する
 
-このサンプルでは、<xref:System.Xaml.XamlWriter> から派生するクラスを作成する方法を示し、XAML ファイルからビュー ステートを削除します。 [!INCLUDE[wfd1](../../../../includes/wfd1-md.md)] は、ビュー ステートと呼ばれる情報を XAML ドキュメントに書き込みます。 ビュー ステートは、ランタイムでは不必要なレイアウト配置などの、デザイン時に必要な情報を参照します。 [!INCLUDE[wfd2](../../../../includes/wfd2-md.md)] は、編集時に、XAML ドキュメントにこの情報を挿入します。 [!INCLUDE[wfd2](../../../../includes/wfd2-md.md)] は、`mc:Ignorable` 属性を持つ XAML ファイルにビュー ステートを書き込みます。この結果、ランタイムが XAML ファイルを読み込みとき、この情報は読み込まれません。 このサンプルでは、XAML ノードの処理中にそのビューステート情報を削除するクラスを作成する方法を示します。
+このサンプルでは、<xref:System.Xaml.XamlWriter> から派生するクラスを作成する方法を示し、XAML ファイルからビュー ステートを削除します。 Windows ワークフローデザイナーは、ビューステートと呼ばれる情報を XAML ドキュメントに書き込みます。 ビュー ステートは、ランタイムでは不必要なレイアウト配置などの、デザイン時に必要な情報を参照します。 ワークフローデザイナーは、編集時にこの情報を XAML ドキュメントに挿入します。 ワークフローデザイナーは、`mc:Ignorable` 属性を使用してビューステートを XAML ファイルに書き込みます。このため、ランタイムが XAML ファイルを読み込むときに、この情報は読み込まれません。 このサンプルでは、XAML ノードの処理中にそのビューステート情報を削除するクラスを作成する方法を示します。
 
 ## <a name="discussion"></a>説明
 
 このサンプルでは、カスタム ライターを作成する方法を示します。
 
-カスタム XAML ライターをビルドするには、<xref:System.Xaml.XamlWriter> を継承するクラスを作成します。 XAML ライターは多くの場合、入れ子になっていると、「内部」XAML ライターを追跡するのには一般的です。 これら"内部"ライターすると、仕事を行い、スタックの残りの部分の処理を委任し、複数のエントリ ポイントを持つことができます、XAML ライターの残りのスタックへの参照として考えることができます。
+カスタム XAML ライターをビルドするには、<xref:System.Xaml.XamlWriter> を継承するクラスを作成します。 多くの場合、XAML ライターは入れ子になっているため、"内部" の XAML ライターを追跡します。 これらの "内部" ライターは、XAML ライターの残りのスタックへの参照と考えることができます。これにより、複数のエントリポイントを使用して処理を行い、処理をスタックの残りの部分に委任することができます。
 
 このサンプルには、重要な項目がいくつかあります。 その 1 つとして、書き込まれる項目がデザイナー名前空間からのものであるかどうかの確認が挙げられます。 これにより、ワークフローでデザイナー名前空間の他の型の使用が排除されることに注意してください。
 
@@ -87,7 +87,7 @@ XamlServices.Save(new ViewStateCleaningWriter(ActivityXamlServices.CreateBuilder
 
 ## <a name="to-use-this-sample"></a>このサンプルを使用するには
 
-1. Visual Studio 2010 を使用して、ViewStateCleaningWriter.sln ソリューション ファイルを開きます。
+1. Visual Studio 2010 を使用して、ViewStateCleaningWriter ソリューションファイルを開きます。
 
 2. コマンド プロンプトを開き、ViewStageCleaningWriter.exe がビルドされているディレクトリに移動します。
 
@@ -99,7 +99,7 @@ XamlServices.Save(new ViewStateCleaningWriter(ActivityXamlServices.CreateBuilder
    ViewStateCleaningWriter.exe [input file] [output file]
    ```
 
-   これにより、XAML ファイルを出力\[出力ファイル]、削除されたすべてのビュー状態情報を持ちます。
+   これにより、すべてのビューステート情報が削除された \の [ファイル名] に XAML ファイルが出力されます。
 
 > [!NOTE]
 > <xref:System.Activities.Statements.Sequence> ワークフローでは、多数の仮想化のヒントが削除されます。 その結果、デザイナーは次回の読み込み時にレイアウトを再計算します。 このサンプルを <xref:System.Activities.Statements.Flowchart> に対して使用すると、すべての配置情報および線のルーティング情報が削除され、後続のデザイナーへの読み込み時にすべてのアクティビティが画面の左側に積み上げられます。
@@ -121,6 +121,6 @@ XamlServices.Save(new ViewStateCleaningWriter(ActivityXamlServices.CreateBuilder
 >
 > `<InstallDrive>:\WF_WCF_Samples`
 >
-> このディレクトリが存在しない場合に移動[Windows Communication Foundation (WCF) と .NET Framework 4 向けの Windows Workflow Foundation (WF) サンプル](https://go.microsoft.com/fwlink/?LinkId=150780)すべて Windows Communication Foundation (WCF) をダウンロードして[!INCLUDE[wf1](../../../../includes/wf1-md.md)]サンプル。 このサンプルは、次のディレクトリに格納されます。
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
 >
 > `<InstallDrive>:\WF_WCF_Samples\WF\Basic\Designer\ViewStateCleaningWriter`

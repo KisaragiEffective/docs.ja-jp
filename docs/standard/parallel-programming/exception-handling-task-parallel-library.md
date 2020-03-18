@@ -8,14 +8,12 @@ dev_langs:
 helpviewer_keywords:
 - tasks, exceptions
 ms.assetid: beb51e50-9061-4d3d-908c-56a4f7c2e8c1
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a3e602057bfd2dea15887daee9058b12f26992f2
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 12777a5f34b8aadcc80977b8796fc2cd53c626a8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65639038"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73134251"
 ---
 # <a name="exception-handling-task-parallel-library"></a>例外処理 (タスク並列ライブラリ)
 
@@ -30,7 +28,7 @@ ms.locfileid: "65639038"
 
 ハンドルされない例外は、 <xref:System.AggregateException> をキャッチして、内部例外を確認しないことで回避できます。 ただし、並列でない状況で基本的な <xref:System.Exception> の種類をキャッチする場合と類似しているため、この操作はお勧めしません。 特定の操作を取得することなく例外をキャッチして回復しようとすると、プログラムが中間状態のままになるおそれがあります。
 
-<xref:System.Threading.Tasks.Task.Wait%2A?displayProperty=nameWithType> メソッドを呼び出してタスクの完了を待機する処理を行わない場合は、次の例のようにタスクの <xref:System.Threading.Tasks.Task.Exception%2A> プロパティから <xref:System.AggregateException> 例外を取得することもできます。 詳細については、このトピックの「[Task.Exception プロパティによる例外の確認](#observing-exceptions-by-using-the-taskexception-property)」セクションを参照してください。
+<xref:System.Threading.Tasks.Task.Wait%2A?displayProperty=nameWithType> メソッドを呼び出してタスクの完了を待機する処理を行わない場合は、次の例のようにタスクの <xref:System.AggregateException> プロパティから <xref:System.Threading.Tasks.Task.Exception%2A> 例外を取得することもできます。 詳細については、このトピックの「[Task.Exception プロパティによる例外の確認](#observing-exceptions-by-using-the-taskexception-property)」セクションを参照してください。
 
 [!code-csharp[TPL_Exceptions#29](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_exceptions/cs/handling22.cs#29)]
 [!code-vb[TPL_Exceptions#29](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_exceptions/vb/handling22.vb#29)]
@@ -44,12 +42,12 @@ ms.locfileid: "65639038"
 
 ## <a name="attached-child-tasks-and-nested-aggregateexceptions"></a>アタッチされた子タスクと入れ子の AggregateExceptions
 
-タスクに、例外をスローする子タスクがアタッチされている場合、その例外は親タスクに反映される前に <xref:System.AggregateException> でラップされます。つまり、呼び出し元のスレッドに反映される前に、その例外が固有の <xref:System.AggregateException> でラップされるということです。 このような場合、<xref:System.Threading.Tasks.Task.Wait%2A?displayProperty=nameWithType>、<xref:System.Threading.Tasks.Task.WaitAny%2A>、<xref:System.Threading.Tasks.Task.WaitAll%2A> の各メソッドでキャッチされた <xref:System.AggregateException> 例外の <xref:System.AggregateException.InnerExceptions%2A> プロパティには、違反の原因となった元の例外ではなく、1 つ以上の <xref:System.AggregateException> インスタンスが含まれます。 入れ子の <xref:System.AggregateException> 例外を反復処理しなくて済むようにするには、<xref:System.AggregateException.Flatten%2A> メソッドを使用して入れ子の <xref:System.AggregateException> をすべて削除します。これにより、<xref:System.AggregateException.InnerExceptions%2A?displayProperty=nameWithType> プロパティに元の例外が含まれるようになります。 次の例では、入れ子の <xref:System.AggregateException> インスタンスが 1 つのループで平坦化され、処理されています。
+タスクに、例外をスローする子タスクがアタッチされている場合、その例外は親タスクに反映される前に <xref:System.AggregateException> でラップされます。つまり、呼び出し元のスレッドに反映される前に、その例外が固有の <xref:System.AggregateException> でラップされるということです。 このような場合、<xref:System.AggregateException.InnerExceptions%2A>、<xref:System.AggregateException>、<xref:System.Threading.Tasks.Task.Wait%2A?displayProperty=nameWithType> の各メソッドでキャッチされた <xref:System.Threading.Tasks.Task.WaitAny%2A> 例外の <xref:System.Threading.Tasks.Task.WaitAll%2A> プロパティには、違反の原因となった元の例外ではなく、1 つ以上の <xref:System.AggregateException> インスタンスが含まれます。 入れ子の <xref:System.AggregateException> 例外を反復処理しなくて済むようにするには、 <xref:System.AggregateException.Flatten%2A> メソッドを使用して入れ子の <xref:System.AggregateException> をすべて削除します。これにより、 <xref:System.AggregateException.InnerExceptions%2A?displayProperty=nameWithType> プロパティに元の例外が含まれるようになります。 次の例では、入れ子の <xref:System.AggregateException> インスタンスが 1 つのループで平坦化され、処理されています。
 
 [!code-csharp[TPL_Exceptions#22](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_exceptions/cs/flatten2.cs#22)]
 [!code-vb[TPL_Exceptions#22](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_exceptions/vb/flatten2.vb#22)]
 
-また、次の例のように、<xref:System.AggregateException.Flatten%2A?displayProperty=nameWithType> メソッドを使用して、単一の <xref:System.AggregateException> インスタンス内の複数のタスクによってスローされた複数の <xref:System.AggregateException> インスタンスから内部例外を再スローすることもできます。
+また、次の例のように、 <xref:System.AggregateException.Flatten%2A?displayProperty=nameWithType> メソッドを使用して、単一の <xref:System.AggregateException> インスタンス内の複数のタスクによってスローされた複数の <xref:System.AggregateException> インスタンスから内部例外を再スローすることもできます。
 
 [!code-csharp[TPL_Exceptions#13](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_exceptions/cs/taskexceptions2.cs#13)]
 [!code-vb[TPL_Exceptions#13](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_exceptions/vb/taskexceptions2.vb#13)]
@@ -79,7 +77,7 @@ ms.locfileid: "65639038"
 [!code-csharp[TPL_Exceptions#26](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_exceptions/cs/handlemethod21.cs#26)]
 [!code-vb[TPL_Exceptions#26](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_exceptions/vb/handlemethod21.vb#26)]
 
-次の例はさらに複雑です。<xref:System.AggregateException.Handle%2A?displayProperty=nameWithType> メソッドを使用して、ファイルの列挙時に <xref:System.UnauthorizedAccessException> 例外の特別な処理を行っています。
+次の例はさらに複雑です。 <xref:System.AggregateException.Handle%2A?displayProperty=nameWithType> メソッドを使用して、ファイルの列挙時に <xref:System.UnauthorizedAccessException> 例外の特別な処理を行っています。
 
 [!code-csharp[TPL_Exceptions#12](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_exceptions/cs/taskexceptions.cs#12)]
 [!code-vb[TPL_Exceptions#12](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_exceptions/vb/taskexceptions.vb#12)]
@@ -97,6 +95,6 @@ ms.locfileid: "65639038"
 
 信頼関係のないプラグインをホストするときなど、シナリオによっては、問題のない例外がよく発生する場合や、難しすぎてすべてを手動で観察できなくなる場合があります。 このような場合、 <xref:System.Threading.Tasks.TaskScheduler.UnobservedTaskException?displayProperty=nameWithType> イベントを処理できます。 ハンドラーに渡される <xref:System.Threading.Tasks.UnobservedTaskExceptionEventArgs?displayProperty=nameWithType> インスタンスを使用して、観察されない例外が連結しているスレッドに反映されないようにすることができます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [タスク並列ライブラリ (TPL)](../../../docs/standard/parallel-programming/task-parallel-library-tpl.md)

@@ -6,14 +6,12 @@ helpviewer_keywords:
 - cryptography [.NET Framework], model
 - encryption [.NET Framework], model
 ms.assetid: 12fecad4-fbab-432a-bade-2f05976a2971
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 42e5c7018f83f3849f46f33e09e09ea1749e7c70
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: f878f73497b83aaf31f2ba3b23cca1f685867b3e
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64753287"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77095269"
 ---
 # <a name="net-framework-cryptography-model"></a>.NET Framework の暗号モデル
 
@@ -35,27 +33,23 @@ ms.locfileid: "64753287"
 
 アルゴリズムに使用できるさまざまな実装例として、対称アルゴリズムを検討します。 すべての対称アルゴリズムのベースは <xref:System.Security.Cryptography.SymmetricAlgorithm> であり、次のアルゴリズムによって継承されます。
 
-1. <xref:System.Security.Cryptography.Aes>
-
-2. <xref:System.Security.Cryptography.DES>
-
-3. <xref:System.Security.Cryptography.RC2>
-
-4. <xref:System.Security.Cryptography.Rijndael>
-
-5. <xref:System.Security.Cryptography.TripleDES>
+* <xref:System.Security.Cryptography.Aes>
+* <xref:System.Security.Cryptography.DES>
+* <xref:System.Security.Cryptography.RC2>
+* <xref:System.Security.Cryptography.Rijndael>
+* <xref:System.Security.Cryptography.TripleDES>
 
 <xref:System.Security.Cryptography.Aes> は、<xref:System.Security.Cryptography.AesCryptoServiceProvider> と <xref:System.Security.Cryptography.AesManaged> の 2 つのクラスによって継承されます。 <xref:System.Security.Cryptography.AesCryptoServiceProvider> クラスは Aes の Windows 暗号化 API (CAPI) 実装のラッパーですが、<xref:System.Security.Cryptography.AesManaged> クラスは全体がマネージド コードで書かれています。 さらに、マネージド実装と CAPI 実装に加え、3 つ目の実装、Cryptography Next Generation (CNG) もあります。 CNG アルゴリズムの例が <xref:System.Security.Cryptography.ECDiffieHellmanCng> です。 CNG アルゴリズムは、Windows Vista 以降のバージョンで利用可能です。
 
-ご自身にとって最適な実装を選択できます。  マネージド実装は、.NET Framework をサポートするすべてのプラットフォームで利用できます。  CAPI 実装は、以前のオペレーティング システムで使用可能ですが、開発中止となっています。 CNG はまさに最新の実装であり、新しい開発が行われます。 ただし、マネージド実装は連邦情報処理規格 (FIPS: Federal Information Processing Standard) に認定されておらず、ラッパー クラスよりも低速である場合があります。
+ご自身にとって最適な実装を選択できます。 マネージ実装は、.NET Framework をサポートするすべてのプラットフォームで使用できます。 CAPI 実装は、以前のオペレーティングシステムで使用でき、開発されなくなりました。 CNG は、新しい開発が行われる最新の実装です。 ただし、マネージド実装は連邦情報処理規格 (FIPS: Federal Information Processing Standard) に認定されておらず、ラッパー クラスよりも低速である場合があります。
 
 ## <a name="stream-design"></a>ストリーム デザイン
 
-共通言語ランタイムは、対称アルゴリズムおよびハッシュ アルゴリズムを実装するためのストリーム指向デザインを使用しています。 この設計の中心となるは、<xref:System.IO.Stream> クラスから派生する <xref:System.Security.Cryptography.CryptoStream> クラスです。 ストリーム ベースの暗号化オブジェクトは、単一の標準インターフェイス (`CryptoStream`) をサポートし、オブジェクトのデータ転送部分を処理します。 すべてのオブジェクトは標準のインターフェイス上に構築されるため、複数のオブジェクト (ハッシュ オブジェクトに続く暗号化オブジェクトなど) を連結したり、データ用の中間ストレージなしでデータ上で複数の操作を実行したりできます。 また、ストリーミング モデルを使用して、より小さなオブジェクトからオブジェクトを構築することもできます。 たとえば、複合暗号化とハッシュ アルゴリズムは 1 つのストリーム オブジェクトと見ることができますが、このオブジェクトは一連の複数のストリーム オブジェクトから作成されているかもしれません。
+共通言語ランタイムは、対称アルゴリズムおよびハッシュ アルゴリズムを実装するためのストリーム指向デザインを使用しています。 この設計の中心となるは、<xref:System.Security.Cryptography.CryptoStream> クラスから派生する <xref:System.IO.Stream> クラスです。 ストリーム ベースの暗号化オブジェクトは、単一の標準インターフェイス (`CryptoStream`) をサポートし、オブジェクトのデータ転送部分を処理します。 すべてのオブジェクトは標準のインターフェイス上に構築されるため、複数のオブジェクト (ハッシュ オブジェクトに続く暗号化オブジェクトなど) を連結したり、データ用の中間ストレージなしでデータ上で複数の操作を実行したりできます。 また、ストリーミング モデルを使用して、より小さなオブジェクトからオブジェクトを構築することもできます。 たとえば、複合暗号化とハッシュ アルゴリズムは 1 つのストリーム オブジェクトと見ることができますが、このオブジェクトは一連の複数のストリーム オブジェクトから作成されているかもしれません。
 
 ## <a name="cryptographic-configuration"></a>暗号化の構成
 
-暗号化の構成によって、アルゴリズムの特定の実装のアルゴリズム名への解決が可能になり、.NET Framework の暗号化クラスの機能を拡張できます。 アルゴリズムの独自のハードウェアまたはソフトウェア実装を追加して、実装を任意のアルゴリズム名にマップすることができます。 構成ファイルでアルゴリズムを指定しない場合は、既定の設定が使用されます。 暗号の構成の詳細については、次を参照してください。[暗号化クラスの構成](../../../docs/framework/configure-apps/configure-cryptography-classes.md)します。
+暗号化の構成によって、アルゴリズムの特定の実装のアルゴリズム名への解決が可能になり、.NET Framework の暗号化クラスの機能を拡張できます。 アルゴリズムの独自のハードウェアまたはソフトウェア実装を追加して、実装を任意のアルゴリズム名にマップすることができます。 構成ファイルでアルゴリズムを指定しない場合は、既定の設定が使用されます。 暗号化の構成の詳細については、「[暗号化クラスの構成](../../../docs/framework/configure-apps/configure-cryptography-classes.md)」を参照してください。
 
 ## <a name="choosing-an-algorithm"></a>アルゴリズムの選択
 
@@ -63,36 +57,23 @@ ms.locfileid: "64753287"
 
 アプリケーションで推奨されるアルゴリズムの一覧を示します。
 
-- データのプライバシー : 
-
+- データのプライバシー :
   - <xref:System.Security.Cryptography.Aes>
-
-- データの整合性 : 
-
+- データの整合性 :
   - <xref:System.Security.Cryptography.HMACSHA256>
-
   - <xref:System.Security.Cryptography.HMACSHA512>
-
-- デジタル署名 : 
-
+- デジタル署名:
   - <xref:System.Security.Cryptography.ECDsa>
-
   - <xref:System.Security.Cryptography.RSA>
-
-- キー交換 : 
-
+- キー交換 :
   - <xref:System.Security.Cryptography.ECDiffieHellman>
-
   - <xref:System.Security.Cryptography.RSA>
-
-- 乱数生成 : 
-
+- 乱数生成 :
   - <xref:System.Security.Cryptography.RNGCryptoServiceProvider>
-
-- パスワードからのキー生成 :  
-
+- パスワードからのキー生成 :
   - <xref:System.Security.Cryptography.Rfc2898DeriveBytes>
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [Cryptographic Services](../../../docs/standard/security/cryptographic-services.md)
+- [暗号サービス](../../../docs/standard/security/cryptographic-services.md)
+- [C での暗号化プロトコル、アルゴリズム、およびソースコードの適用 (Schneier)](https://www.schneier.com/books/applied_cryptography/)

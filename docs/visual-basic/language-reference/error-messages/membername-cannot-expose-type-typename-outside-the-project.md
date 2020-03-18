@@ -1,5 +1,5 @@
 ---
-title: "'<membername>' は、型 '<typename>' を <containertype> '<containertypename>' 経由でプロジェクトの外側に公開できません。"
+title: "'<membername>' は、型 '<typename>' を <containertype>'<containertypename>' 経由でプロジェクトの外側に公開できません。"
 ms.date: 07/20/2015
 f1_keywords:
 - bc30909
@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71700897"
 ---
-# <a name="membername-cannot-expose-type-typename-outside-the-project-through-containertype-containertypename"></a>' \<membername > ' は、2containertype @no__t ' >-3containertypename @no__t ' 経由でプロジェクトの外部の型 ' \< typename > ' を公開できません
+# <a name="membername-cannot-expose-type-typename-outside-the-project-through-containertype-containertypename"></a>'\<membername>' は、型 '\<typename>' を \<containertype>'\<containertypename>' 経由でプロジェクトの外側に公開できません。
 変数、プロシージャパラメーター、または関数の戻り値は、コンテナーの外部に公開されますが、コンテナーの外部に公開されてはならない型として宣言されています。  
   
  次のスケルトンコードは、このエラーを生成する状況を示しています。  
@@ -37,4 +37,4 @@ End Class
   
 ## <a name="see-also"></a>関連項目
 
-- [Visual Basic のアクセスレベル](../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)
+- [Visual Basic でのアクセス レベル](../../../visual-basic/programming-guide/language-features/declared-elements/access-levels.md)

@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: a56c5fc32b5fd274d5da0d9b295918f5ea3b345e
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: de06825f1031d05bc83183a83bae165e2f9512ff
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72394231"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75901874"
 ---
 ### <a name="signalr-hubconnection-resetsendping-and-resettimeout-methods-removed"></a>SignalR: HubConnection の ResetSendPing メソッドと ResetTimeout メソッドが削除された
 
-`ResetSendPing` メソッドと `ResetTimeout` メソッドが、SignalR の `HubConnection` API から削除されました。 これらのメソッドはもともと内部使用のみを目的としていましたが、ASP.NET Core 2.2 で公開されました。 これらのメソッドは、ASP.NET Core 3.0 Preview 4 リリース以降では使用できません。 ディスカッションについては、[aspnet/AspNetCore#8543](https://github.com/aspnet/AspNetCore/issues/8543) を参照してください。
+`ResetSendPing` メソッドと `ResetTimeout` メソッドが、SignalR の `HubConnection` API から削除されました。 これらのメソッドはもともと内部使用のみを目的としていましたが、ASP.NET Core 2.2 で公開されました。 これらのメソッドは、ASP.NET Core 3.0 Preview 4 リリース以降では使用できません。 ディスカッションについては、[dotnet/aspnetcore#8543](https://github.com/dotnet/aspnetcore/issues/8543) を参照してください。
 
 #### <a name="version-introduced"></a>導入されたバージョン
 
@@ -26,7 +26,7 @@ API は削除されています。
 
 これらのメソッドはもともと内部使用のみを目的としていましたが、ASP.NET Core 2.2 で公開されました。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 これらのメソッドは使用しないでください。
 

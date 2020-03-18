@@ -1,19 +1,17 @@
 ---
-title: Visual Studio for Mac を使用した macOS での .NET Core の概要
+title: Visual Studio for Mac を使用した .NET Core の概要
 description: このトピックでは、Visual Studio for Mac と .NET Core を使用して、単純なコンソール アプリケーションをビルドする手順を示します。
-author: mairaw
-ms.date: 07/11/2019
-ms.custom: seodec18
-ms.openlocfilehash: 77e676c327b62369e7ddb9444bf8f246d3c5c2e8
-ms.sourcegitcommit: 55f438d4d00a34b9aca9eedaac3f85590bb11565
+ms.date: 12/19/2019
+ms.openlocfilehash: 4cd7e311411bce62698e291e763227496877ea39
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71182498"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75740493"
 ---
 # <a name="get-started-with-net-core-on-macos-using-visual-studio-for-mac"></a>Visual Studio for Mac を使用した macOS での .NET Core の概要
 
-Visual Studio for Mac では、.NET Core アプリケーション開発用の機能をすべて備えた統合開発環境 (IDE) が提供されます。 このトピックでは、Visual Studio for Mac と .NET Core を使用して、単純なコンソール アプリケーションをビルドする手順を示します。
+Visual Studio for Mac では、.NET Core アプリケーション開発用の機能をすべて備えた統合開発環境 (IDE) が提供されます。 この記事では、Visual Studio for Mac と .NET Core を使用して、単純なコンソール アプリケーションをビルドする手順を示します。
 
 > [!NOTE]
 > お客様のフィードバックは非常に貴重です。 次の 2 つの方法で Visual Studio for Mac の開発チームにフィードバックを送信できます。
@@ -21,17 +19,17 @@ Visual Studio for Mac では、.NET Core アプリケーション開発用の機
 > * Visual Studio for Mac で、メニューから **[ヘルプ]**  >  **[問題の報告]** の順に選択するか、ようこそ画面から **[問題の報告]** を選択して、バグ報告を提出するためのウィンドウを開きます。 お客様のフィードバックは、[開発者コミュニティ](https://developercommunity.visualstudio.com/spaces/8/index.html) ポータルで追跡することができます。
 > * 提案するには、メニューから **[ヘルプ]**  >  **[提案の送信]** の順に選択するか、ようこそ画面から **[提案の送信]** を選択し、[Visual Studio for Mac の開発者コミュニティの Web ページ](https://developercommunity.visualstudio.com/content/idea/post.html?space=41)に移動します。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
-「[Mac における .NET Core の前提条件](../macos-prerequisites.md)」のトピックをご覧ください。
+[.NET Core の依存関係と要件](../install/dependencies.md?pivots=os-macos)に関する記事を参照してください。
 
 サポートされているバージョンの .NET Core を使用していることを確認するには、「[.NET Core サポート](/visualstudio/mac/net-core-support)」の記事を参照してください。
 
-## <a name="get-started"></a>作業開始
+## <a name="get-started"></a>はじめに
 
 必須コンポーネントと Visual Studio for Mac を既にインストールしている場合は、このセクションをスキップして、「[プロジェクトの作成](#creating-a-project)」に進みます。 以下の手順に従って、必須コンポーネントと Visual Studio for Mac をインストールします。
 
-[Visual Studio for Mac インストーラー](https://visualstudio.microsoft.com/vs/mac/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link)をダウンロードします。 インストーラーを実行します。 使用許諾契約書を読み、同意します。 インストール時に、.NET Core をインストールするオプションを選択します。 Xamarin (クロスプラットフォーム モバイル アプリ開発テクノロジ) をインストールすることができます。 .NET Core の開発の場合、Xamarin とその関連コンポーネントのインストールは省略できます。 Visual Studio for Mac のインストール プロセスのチュートリアルについては、[Visual Studio for Mac のドキュメント](/visualstudio/mac/)をご覧ください。 インストールが完了したら、Visual Studio for Mac IDE を起動します。
+[Visual Studio for Mac インストーラー](https://visualstudio.microsoft.com/vs/mac/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link)をダウンロードします。 インストーラーを実行します。 使用許諾契約を読み、同意します。 インストール時に、.NET Core をインストールするオプションを選択します。 Xamarin (クロスプラットフォーム モバイル アプリ開発テクノロジ) をインストールすることができます。 .NET Core の開発の場合、Xamarin とその関連コンポーネントのインストールは省略できます。 Visual Studio for Mac のインストール プロセスのチュートリアルについては、[Visual Studio for Mac のドキュメント](/visualstudio/mac/)をご覧ください。 インストールが完了したら、Visual Studio for Mac IDE を起動します。
 
 ## <a name="creating-a-project"></a>プロジェクトの作成
 
@@ -49,7 +47,7 @@ Visual Studio for Mac では、.NET Core アプリケーション開発用の機
 
    ![[Configure your new Console Application (新しいコンソール アプリケーションの構成)] ダイアログ](./media/using-on-mac-vs/visual-studio-mac-new-options.png)
 
-1. プロジェクトの依存関係が復元されるまで待ちます。 プロジェクトには、`Main` メソッドを持つ `Program` クラスを含む *Program.cs* という C# ファイルが 1 つあります。 `Console.WriteLine` ステートメントは、アプリの実行時に コンソールに "Hello World!" と出力します。
+1. プロジェクトの依存関係が復元されるまで待ちます。 プロジェクトには、*メソッドを持つ* クラスを含む `Program`Program.cs`Main` という C# ファイルが 1 つあります。 `Console.WriteLine` ステートメントは、アプリの実行時に コンソールに "Hello World!" と出力します。
 
    ![Program.cs ファイルが開かれた状態のメイン ウィンドウ](./media/using-on-mac-vs/visual-studio-mac-editor.png)
 

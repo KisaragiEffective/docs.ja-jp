@@ -7,14 +7,12 @@ helpviewer_keywords:
 - Regasm.exe
 - registering assemblies
 ms.assetid: e190e342-36ef-4651-a0b4-0e8c2c0281cb
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 4038f8e4a3c012fab9df6019b5f9f19375f61f2a
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 45b4c6c08d3afb948444a8c97dc32bd41f2615ce
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71044288"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73104951"
 ---
 # <a name="regasmexe-assembly-registration-tool"></a>Regasm.exe (アセンブリ登録ツール)
 

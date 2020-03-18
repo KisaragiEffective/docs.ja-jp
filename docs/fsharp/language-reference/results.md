@@ -1,17 +1,17 @@
 ---
 title: 結果
-description: 使用する方法について説明します、 F# 'Result' の入力エラー トレラントなコードを作成できるようにします。
+description: "\"Result\" 型をF#使用して、エラートレラントなコードを記述する方法について説明します。"
 ms.date: 04/24/2017
-ms.openlocfilehash: 36f60df8a2991c1d318e4921af6c9e89a0156918
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 187aa26ccbaac7e0ec998756377bb7b0489eb1ab
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65645320"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73424846"
 ---
 # <a name="results"></a>結果
 
-以降でF#4.1 は、`Result<'T,'TFailure>`できるエラー トレラントのコードを書くために使用できる型。
+F# 4.1 以降では、構成可能なエラートレラントコードを記述するために使用できる `Result<'T,'TFailure>` 型があります。
 
 ## <a name="syntax"></a>構文
 
@@ -20,20 +20,20 @@ ms.locfileid: "65645320"
 [<StructuralEquality; StructuralComparison>]
 [<CompiledName("FSharpResult`2")>]
 [<Struct>]
-type Result<'T,'TError> = 
-    | Ok of ResultValue:'T 
+type Result<'T,'TError> =
+    | Ok of ResultValue:'T
     | Error of ErrorValue:'TError
 ```
 
 ## <a name="remarks"></a>Remarks
 
-結果型は、[構造体の判別共用体](discriminated-unions.md#struct-discriminated-unions)、F# 4.1 で導入されたもう 1 つの機能であります。  構造の等値セマンティクスがここに適用されます。
+結果の型は、4.1 でF#導入された別の機能である[構造体の判別共用体](discriminated-unions.md#struct-discriminated-unions)であることに注意してください。  ここでは構造的等値セマンティクスが適用されます。
 
-`Result`モナディック エラー処理と呼ばれるに多くの場合で、型が通常使用される[鉄道指向プログラミング](https://swlaschin.gitbooks.io/fsharpforfunandprofit/content/posts/recipe-part2.html)F# コミュニティ内で。  次の単純な例では、この方法を示します。
+`Result` の種類は、通常、monadic のエラー処理で使用されます。これは、 F#コミュニティ内では、"[フロント指向" プログラミング](https://swlaschin.gitbooks.io/fsharpforfunandprofit/content/posts/recipe-part2.html)と呼ばれることがよくあります。  次の簡単な例は、この方法を示しています。
 
 ```fsharp
 // Define a simple type which has fields that can be validated
-type Request = 
+type Request =
     { Name: string
       Email: string }
 
@@ -57,11 +57,11 @@ let validateEmail req =
     | _ -> Ok req
 
 let validateRequest reqResult =
-    reqResult 
+    reqResult
     |> Result.bind validateName
     |> Result.bind validateEmail
 
-let test() = 
+let test() =
     // Now, create a Request and pattern match on the result.
     let req1 = { Name = "Phillip"; Email = "phillip@contoso.biz" }
     let res1 = validateRequest (Ok req1)
@@ -80,7 +80,7 @@ let test() =
 test()
 ```
 
-非常に簡単に返すためにすべてを強制する場合は、さまざまな検証機能を連結、ご覧のとおり、`Result`します。  このような機能を必要に応じて、コンポーザブルである小規模なを分割するこのことができます。  これも、追加の値を持つ*を適用する*の使用[パターンに一致する](pattern-matching.md)検証のラウンドの末尾には、プログラムの正確性の高いを適用すると、それに続いて。
+ご覧のように、すべてを強制的に `Result`を返す場合は、さまざまな検証関数を連結するのが非常に簡単です。  これにより、このような機能を、必要に応じてコンポーザブルな小さな部分に分割できます。  これには、検証のラウンドの最後に[パターン一致](pattern-matching.md)の使用を*強制*するための追加の値も含まれます。これにより、より高度なプログラムの正確性が適用されます。
 
 ## <a name="see-also"></a>関連項目
 

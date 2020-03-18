@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: e7e3c630-9691-46d6-94df-b5593a7bb08a
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 715e53ae04532214d4011d4a40503b2ade5a014d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: ff6932b6040a19e0ccda2f8d2140fa131cdd9224
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67782071"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74450076"
 ---
 # <a name="imetadataimportenummethodsemantics-method"></a>IMetaDataImport::EnumMethodSemantics メソッド
 指定したメソッドが関連付けられているプロパティおよびプロパティ変更イベントを列挙します。  
@@ -41,40 +39,40 @@ HRESULT EnumMethodSemantics (
   
 ## <a name="parameters"></a>パラメーター  
  `phEnum`  
- [入力、出力]列挙子へのポインター。 このメソッドの最初の呼び出しで NULL があります。  
+ [入力、出力]列挙子へのポインター。 このメソッドの最初の呼び出しでは、この値は NULL である必要があります。  
   
  `mb`  
- [in]列挙体のスコープを制限する MethodDef トークンです。  
+ から列挙型のスコープを制限する MethodDef トークン。  
   
  `rEventProp`  
- [out]イベントまたはプロパティを格納する配列。  
+ 入出力イベントまたはプロパティを格納するために使用される配列。  
   
  `cMax`  
  [in] `rEventProp` 配列の最大サイズ。  
   
  `pcEventProp`  
- [out]イベントまたはプロパティで返される数`rEventProp`します。  
+ 入出力`rEventProp`で返されるイベントまたはプロパティの数。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|`S_OK`|`EnumMethodSemantics` 正常に返されます。|  
-|`S_FALSE`|イベントまたはプロパティを列挙するためにはありません。 その場合は、`pcEventProp`は 0 です。|  
+|`S_OK`|`EnumMethodSemantics` が正常に返されました。|  
+|`S_FALSE`|列挙するイベントやプロパティはありません。 この場合、`pcEventProp` は0になります。|  
   
-## <a name="remarks"></a>Remarks  
- 多くの共通言語ランタイム型を定義*プロパティ*`Changed`イベントと`On`*プロパティ*`Changed`それらのプロパティに関連するメソッド。 たとえば、<xref:System.Windows.Forms.Control?displayProperty=nameWithType>型を定義しますを<xref:System.Windows.Forms.Control.Font%2A>プロパティ、<xref:System.Windows.Forms.Control.FontChanged>イベント、および<xref:System.Windows.Forms.Control.OnFontChanged%2A>メソッド。 Set アクセサー メソッド、<xref:System.Windows.Forms.Control.Font%2A>プロパティ呼び出し<xref:System.Windows.Forms.Control.OnFontChanged%2A>メソッドを生成させる、<xref:System.Windows.Forms.Control.FontChanged>イベント。 呼び出しは`EnumMethodSemantics`の MethodDef を使用して<xref:System.Windows.Forms.Control.OnFontChanged%2A>への参照を取得する、<xref:System.Windows.Forms.Control.Font%2A>プロパティおよび<xref:System.Windows.Forms.Control.FontChanged>イベント。  
+## <a name="remarks"></a>コメント  
+ 多くの共通言語ランタイム型では、プロパティ`Changed` イベント *、`On`プロパティ*に関連*するプロパティ`Changed`* メソッドが定義されています。 たとえば、<xref:System.Windows.Forms.Control?displayProperty=nameWithType> 型は、<xref:System.Windows.Forms.Control.Font%2A> プロパティ、<xref:System.Windows.Forms.Control.FontChanged> イベント、および <xref:System.Windows.Forms.Control.OnFontChanged%2A> メソッドを定義します。 <xref:System.Windows.Forms.Control.Font%2A> プロパティの set アクセサーメソッドは <xref:System.Windows.Forms.Control.OnFontChanged%2A> メソッドを呼び出します。このメソッドによって、<xref:System.Windows.Forms.Control.FontChanged> イベントが発生します。 <xref:System.Windows.Forms.Control.OnFontChanged%2A> に対して MethodDef を使用して `EnumMethodSemantics` を呼び出し、<xref:System.Windows.Forms.Control.Font%2A> プロパティと <xref:System.Windows.Forms.Control.FontChanged> イベントへの参照を取得します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataImport インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-interface.md)
 - [IMetaDataImport2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport2-interface.md)

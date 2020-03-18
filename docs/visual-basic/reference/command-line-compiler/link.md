@@ -1,5 +1,5 @@
 ---
-title: -link (Visual Basic)
+title: -link
 ms.date: 03/10/2018
 helpviewer_keywords:
 - l compiler option [Visual Basic]
@@ -11,12 +11,12 @@ helpviewer_keywords:
 - -l compiler option [Visual Basic]
 - /l compiler option [Visual Basic]
 ms.assetid: 1885f24a-86f5-486c-a064-9fb7e455ccec
-ms.openlocfilehash: 0a6a6b6436210e699d8fd176dc1ba6e4aded7c8d
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: c15f55f3a3c2b4e404767ddf96e258bc1e9771d7
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72523986"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75716752"
 ---
 # <a name="-link-visual-basic"></a>-link (Visual Basic)
 指定したアセンブリ内の COM 型情報を、現在のコンパイル対象のプロジェクトで使用できるようにします。  
@@ -27,7 +27,7 @@ ms.locfileid: "72523986"
 -link:fileList  
 ```
 
-、または  
+または  
 
 ```console
 -l:fileList  
@@ -35,9 +35,9 @@ ms.locfileid: "72523986"
   
 ## <a name="arguments"></a>引数  
   
-|用語|定義|  
+|用語|Definition|  
 |---|---|  
-|`fileList`|必須です。 アセンブリ ファイル名のコンマ区切りリスト。 ファイル名に空白が含まれている場合は、名前を二重引用符で囲みます。|  
+|`fileList`|必ず指定します。 アセンブリ ファイル名のコンマ区切りリスト。 ファイル名に空白が含まれている場合は、名前を二重引用符で囲みます。|  
   
 ## <a name="remarks"></a>Remarks  
  `-link` オプションを使用すると、埋め込み型情報を含むアプリケーションを配置できます。 その後、このアプリケーションは、埋め込み型情報を実装する、ランタイム アセンブリ内の型を使用できます。その際、ランタイム アセンブリへの参照は必要ありません。 ランタイム アセンブリのさまざまなバージョンが公開されている場合、埋め込み型情報を含むアプリケーションは、再コンパイルする必要なく、各種バージョンで動作できます。 例については、「[チュートリアル: マネージド アセンブリからの型の埋め込み](../../../standard/assembly/embed-types-visual-studio.md)」を参照してください。  
@@ -82,11 +82,11 @@ ms.locfileid: "72523986"
   
  [!code-vb[VbLinkCompiler#5](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/vblinkcompiler/vb/module1.vb#5)]  
   
-## <a name="example"></a>例  
- 次のコマンドラインは、`COMData1.dll` と `COMData2.dll` からソースファイル `OfficeApp.vb` と参照アセンブリをコンパイルして `OfficeApp.exe` を生成します。  
+## <a name="example"></a>使用例  
+ 次のコマンドラインは、`COMData1.dll` と `COMData2.dll` からソースファイル `OfficeApp.vb` と参照アセンブリをコンパイルして `OfficeApp.exe`を生成します。  
   
 ```console  
-vbc -link:COMData1.dll,COMData2.dll /out:OfficeApp.exe OfficeApp.vb  
+vbc -link:COMData1.dll,COMData2.dll -out:OfficeApp.exe OfficeApp.vb  
 ```  
   
 ## <a name="see-also"></a>関連項目

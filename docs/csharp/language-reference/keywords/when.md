@@ -1,6 +1,5 @@
 ---
 title: コンテキスト キーワード when - C# リファレンス
-ms.custom: seodec18
 ms.date: 03/07/2017
 f1_keywords:
 - when_CSharpKeyword
@@ -8,21 +7,21 @@ f1_keywords:
 helpviewer_keywords:
 - when keyword [C#]
 ms.assetid: dd543335-ae37-48ac-9560-bd5f047b9aea
-ms.openlocfilehash: f0dbfb611ab563c16c97b1f6313134df38a174df
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 6a61c42ba2d01e84ffae376bf95c99877437be85
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65633112"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75712833"
 ---
 # <a name="when-c-reference"></a>when (C# リファレンス)
 
 コンテキスト キーワード `when` は、次の 2 つのコンテキストでフィルター条件を指定するために使用できます。
 
-- [try/catch](try-catch.md) または [try/catch/finally](try-catch-finally.md) ブロックの `catch` ステートメント。
-- [switch](switch.md) ステートメントの `case` ラベル。
+- `catch`try/catch[ または ](try-catch.md)try/catch/finally[ ブロックの ](try-catch-finally.md) ステートメント。
+- `case`switch[ ステートメントの ](switch.md) ラベル。
 
-## <a name="when-in-a-catch-statement"></a>`catch` ステートメントでの `when`
+## <a name="when-in-a-catch-statement"></a>`when` ステートメントでの `catch`
 
 C# 6 から、`when` を `catch` ステートメントで使用して、特定の例外のハンドラーを実行するために true になる必要がある条件を指定できるようになりました。 構文は次のとおりです。
 
@@ -36,9 +35,9 @@ catch (ExceptionType [e]) when (expr)
 
 [!code-csharp[when-with-catch](~/samples/snippets/csharp/language-reference/keywords/when/catch.cs)]
 
-## <a name="when-in-a-switch-statement"></a>`switch` ステートメントでの `when`
+## <a name="when-in-a-switch-statement"></a>`when` ステートメントでの `switch`
 
-C# 7.0 以降では、`case` ラベルが相互に排他的である必要がなくなり、`switch` ステートメントでの `case` ラベルの表示順序によって、実行される switch ブロックを決定できるようになりました。 `when` キーワードを使用すると、フィルター条件が true である場合にのみ、関連付けられた case ラベルも true になるフィルター条件を指定できます。 構文は次のとおりです。
+C# 7.0 以降では、`case` ラベルが相互に排他的である必要がなくなり、`case` ステートメントでの `switch` ラベルの表示順序によって、実行される switch ブロックを決定できるようになりました。 `when` キーワードを使用すると、フィルター条件が true である場合にのみ、関連付けられた case ラベルも true になるフィルター条件を指定できます。 構文は次のとおりです。
 
 ```csharp
 case (expr) when (when-condition):
@@ -50,7 +49,7 @@ case (expr) when (when-condition):
 
 [!code-csharp[when-with-case#1](~/samples/snippets/csharp/language-reference/keywords/when/when.cs#1)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [switch ステートメント](switch.md)
 - [try/catch ステートメント](try-catch.md)

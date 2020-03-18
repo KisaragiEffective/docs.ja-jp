@@ -1,37 +1,37 @@
 ---
 title: F# のツアー
 description: このツアーのF#プログラミング言語の主な機能のいくつかを、コードサンプルで確認します。
-ms.date: 11/06/2018
-ms.openlocfilehash: eba136da3cd829dcb2b0726dd4f1c24434aeba5b
-ms.sourcegitcommit: 55f438d4d00a34b9aca9eedaac3f85590bb11565
+ms.date: 02/09/2020
+ms.openlocfilehash: ac2eef40e2dbc494e41a9760f0a70edb0f7ce399
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71182615"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77124573"
 ---
-# <a name="tour-of-f"></a>F#のツアー
+# <a name="tour-of-f"></a>F\# のツアー
 
-F# について学習する最善の方法は、F# コードを読み書きすることです。 この記事は、F# 言語のいくつかの主な機能の手引きとしての役割を果たし、コンピューターで実行できるいくつかのコード スニペットを示します。 開発環境を設定する方法については、[Getting Started](./tutorials/getting-started/index.md) を参照してください。
+F# について学習する最善の方法は、F# コードを読み書きすることです。 この記事は、F# 言語のいくつかの主な機能の手引きとしての役割を果たし、コンピューターで実行できるいくつかのコード スニペットを示します。 開発環境を設定する方法については、[Getting Started](get-started/index.md) を参照してください。
 
 には、関数と型F#という2つの主要な概念があります。  このツアーでは、この2つの概念に分類される言語の機能に重点を置いています。
 
 ## <a name="executing-the-code-online"></a>コードをオンラインで実行する
 
-コンピューターに F# がインストールされていない場合は、[WebAssembly におけるF# の使用](https://tryfsharp.fsbolero.io/) をブラウザーですべてのサンプルを実行します。 Fable は、ブラウザーで直接実行されるF# の言語です。 REPL の後に続くサンプルを確認するには、Fable REPL の左側のメニューバーにある  **サンプル> 学習 > F＃のツアー** を参照してください。
+コンピューターに F# がインストールされていない場合は、[WebAssembly におけるF# の使用](https://tryfsharp.fsbolero.io/) をブラウザーですべてのサンプルを実行します。 Fable は、ブラウザーで直接実行されるF# の言語です。 REPL の後に続くサンプルを確認するには、Fable REPL の左側のメニューバーにある **サンプル> 学習 > F＃のツアー** を参照してください。
 
 ## <a name="functions-and-modules"></a>関数とモジュール
 
-任意の F# プログラムの最も基本的な部分が***関数***編成***モジュール***します。  [関数](./language-reference/functions/index.md)出力を生成する入力に作業を実行し、で構成される[モジュール](./language-reference/modules.md)、F# でグループ化する主な方法であります。  これらは、 [ `let`バインディング](./language-reference/functions/let-bindings.md)を使用して定義されます。これにより、関数に名前を付け、引数を定義します。
+任意の F# プログラムの最も基本的な部分が***関数***編成***モジュール***します。  [関数](./language-reference/functions/index.md)出力を生成する入力に作業を実行し、で構成される[モジュール](./language-reference/modules.md)、F# でグループ化する主な方法であります。  これらは[`let` バインディング](./language-reference/functions/let-bindings.md)を使用して定義されます。これにより、関数に名前を付け、引数を定義します。
 
 [!code-fsharp[BasicFunctions](~/samples/snippets/fsharp/tour.fs#L101-L133)]
 
-`let`バインドは、他の言語の変数と同様に、値を名前にバインドする方法でもあります。  `let`既定では、バインドは変更できません。つまり、値または関数が名前に***バインドされる***と、その場で変更することはできません。  これは、変更可能な他の言語の変数と***は対照的***です。つまり、値は任意の時点で変更できます。  変更可能なバインドが必要な場合は、 `let mutable ...`構文を使用できます。
+`let` バインドは、他の言語の変数と同様に、値を名前にバインドする方法でもあります。  `let` バインディングは、既定で***は変更でき***ません。つまり、値または関数が名前にバインドされると、その代わりに変更することはできません。  これは、変更可能な他の言語の変数と***は対照的***です。つまり、値は任意の時点で変更できます。  変更可能なバインドが必要な場合は、`let mutable ...` 構文を使用できます。
 
 [!code-fsharp[Immutability](~/samples/snippets/fsharp/tour.fs#L75-L94)]
 
 ## <a name="numbers-booleans-and-strings"></a>数値、ブール値、および文字列
 
-.NET 言語として F# をサポートしています、同じ基になる[プリミティブ型](./language-reference/primitive-types.md).NET 内に存在します。
+.NET 言語として F# をサポートしています、同じ基になる[プリミティブ型](language-reference/basic-types.md).NET 内に存在します。
 
 さまざまな数値型は F# で表されます。 次に示します。
 
@@ -45,17 +45,17 @@ F# について学習する最善の方法は、F# コードを読み書きす�
 
 [!code-fsharp[Strings](~/samples/snippets/fsharp/tour.fs#L158-L180)]
 
-## <a name="tuples"></a>タプル
+## <a name="tuples"></a>Tuples
 
 [タプル](./language-reference/tuples.md)は F# の大きな問題です。  これらは名前のない、順序付けされた値をグループ化したもので、値自体として扱うことができます。  これらは、他の値から集計された値と考えることができます。  多くの用途があります。たとえば、関数から複数の値を返すことができるようにしたり、特別な便宜を行うために値をグループ化したりします。
 
 [!code-fsharp[Tuples](~/samples/snippets/fsharp/tour.fs#L186-L203)]
 
-F# 4.1 では、タプルを作成`struct`することもできます。  これらは`struct` 、c# 7/Visual Basic 15 組 (タプル) と完全に相互運用することもできます。
+`struct` 組を作成することもできます。  これらは、C# 7/Visual Basic 15 組で完全に相互運用することもできます。タプルも `struct` ます。
 
 [!code-fsharp[Tuples](~/samples/snippets/fsharp/tour.fs#L205-L218)]
 
-タプルは値型であるため`struct` 、暗黙的に参照タプルに変換することはできず、逆の場合もあります。  参照と構造体の組の間で明示的に変換する必要があります。
+`struct` 組は値型であるため、暗黙的に参照タプルに変換することはできず、その逆も可能であることに注意してください。  参照と構造体の組の間で明示的に変換する必要があります。
 
 ## <a name="pipelines-and-composition"></a>パイプラインとコンポジション
 
@@ -86,7 +86,7 @@ F# 4.1 では、タプルを作成`struct`することもできます。  これ
 コレクションまたは要素のシーケンス処理で通常実行[再帰](./language-reference/functions/index.md#recursive-functions)F# でします。  にF#はループと命令型プログラミングがサポートされていますが、正確性を保証するのが簡単であるため、再帰が推奨されています。
 
 > [!NOTE]
-> 次の例では、式を`match`使用してパターンマッチングを使用します。  この基本的な構成要素については、この記事の後半で説明します。
+> 次の例では、`match` 式を使用してパターンマッチングを使用します。  この基本的な構成要素については、この記事の後半で説明します。
 
 [!code-fsharp[RecursiveFunctions](~/samples/snippets/fsharp/tour.fs#L461-L500)]
 
@@ -100,7 +100,7 @@ F#では、末尾呼び出しの最適化も完全にサポートされていま
 
 [!code-fsharp[Records](~/samples/snippets/fsharp/tour.fs#L507-L559)]
 
-4\.1 のF#ように、レコードをとして`struct`表すこともできます。  これは、属性を`[<Struct>]`使用して行います。
+レコードを構造体として表すこともできます。 これは、`[<Struct>]` 属性を使用して行います。
 
 [!code-fsharp[Records](~/samples/snippets/fsharp/tour.fs#L561-L568)]
 
@@ -114,13 +114,13 @@ F#では、末尾呼び出しの最適化も完全にサポートされていま
 
 上の例で示すように、単一ケースの判別共用体の基になる値を取得するには、明示的にラップ解除する必要があります。
 
-また、Du は再帰的な定義もサポートしているので、ツリーや本質的に再帰的なデータを簡単に表すことができます。  たとえば、 `exists` `insert`関数と関数を使用してバイナリ検索ツリーを表現する方法を次に示します。
+また、Du は再帰的な定義もサポートしているので、ツリーや本質的に再帰的なデータを簡単に表すことができます。  たとえば、`exists` と `insert` 関数を含むバイナリ検索ツリーを表現する方法を次に示します。
 
 [!code-fsharp[Unions](~/samples/snippets/fsharp/tour.fs#L656-L683)]
 
 Du では、データ型のツリーの再帰構造を表すことができるため、この再帰構造での操作は簡単で、正確性が保証されます。  次に示すように、パターンマッチングでもサポートされています。
 
-また、次の`struct` `[<Struct>]`属性を使用して、の du をとして表すことができます。
+また、`[<Struct>]` 属性を使用して、`struct`s として Du を表すことができます。
 
 [!code-fsharp[Unions](~/samples/snippets/fsharp/tour.fs#L685-L696)]
 
@@ -133,11 +133,15 @@ Du では、データ型のツリーの再帰構造を表すことができる�
 
 ## <a name="pattern-matching"></a>パターン マッチ
 
-[パターン照合](./language-reference/pattern-matching.md)により、F# の型に対する操作のための正確性が F# 言語機能です。  上記のサンプルでは、非常に多くの`match x with ...`構文に気付きます。  このコンストラクトを使用すると、コンパイラはデータ型の "形状" を理解でき、完全なパターンマッチングとして知られているデータ型を使用する場合に、すべてのケースを考慮する必要があります。  これは、正確さを実現するために非常に強力であり、通常はランタイムの問題としてコンパイル時に巧妙を "リフト" するために使用できます。
+[パターン照合](./language-reference/pattern-matching.md)により、F# の型に対する操作のための正確性が F# 言語機能です。  上記のサンプルでは、`match x with ...` 構文が非常に複雑であることに気付きます。  このコンストラクトを使用すると、コンパイラはデータ型の "形状" を理解でき、完全なパターンマッチングとして知られているデータ型を使用する場合に、すべてのケースを考慮する必要があります。  これは、正確さを実現するために非常に強力であり、通常はランタイムの問題としてコンパイル時に巧妙を "リフト" するために使用できます。
 
 [!code-fsharp[PatternMatching](~/samples/snippets/fsharp/tour.fs#L705-L742)]
 
-ご存知かもしれませんが、 `_`パターンを使用しています。  これは、[ワイルドカードパターン](./language-reference/pattern-matching.md#wildcard-pattern)と呼ばれます。これは、"何が何であるかを気にしない" と言うことができます。  便利ですが、を使用`_`するのが十分でない場合は、完全なパターンマッチングを誤ってバイパスし、コンパイル時の実施の恩恵を受けることができなくなります。  パターンマッチングの際に分解された型の特定の部分を気にしない場合、またはパターン一致式ですべての意味のあるケースを列挙した場合は final 句を使用することをお勧めします。
+ご存知かもしれませんが、`_` パターンを使用しています。  これは、[ワイルドカードパターン](./language-reference/pattern-matching.md#wildcard-pattern)と呼ばれます。これは、"何が何であるかを気にしない" と言うことができます。  便利ですが、`_`を使用することに注意していない場合は、完全なパターンマッチングを誤ってバイパスし、コンパイル時の実施からメリットを得られなくなりました。  パターンマッチングの際に分解された型の特定の部分を気にしない場合、またはパターン一致式ですべての意味のあるケースを列挙した場合は final 句を使用することをお勧めします。
+
+次の例では、解析操作が失敗した場合に `_` ケースが使用されます。
+
+[!code-fsharp[PatternMatching](~/samples/snippets/fsharp/tour.fs#L744-L762)]
 
 [アクティブパターン](./language-reference/active-patterns.md)は、パターンマッチングで使用するもう1つの強力な構成要素です。  これにより、入力データをカスタムフォームに分割し、パターンマッチ呼び出しサイトで分解することができます。  また、パラメーター化して、がパーティションを関数として定義できるようにすることもできます。  アクティブなパターンをサポートするために前の例を拡張すると、次のようになります。
 
@@ -147,7 +151,7 @@ Du では、データ型のツリーの再帰構造を表すことができる�
 
 判別共用体の型の 1 つの特殊なケースは非常に役立つ、F# コア ライブラリの一部であるあるオプションの種類です。
 
-[オプションの種類](./language-reference/options.md)は、値または nothing の2つのケースのいずれかを表す型です。  このメソッドは、特定の操作の結果として値が異なる可能性がある場合に、どのようなシナリオでも使用されます。  これにより、実行時の問題ではなく、コンパイル時の問題になるように、両方のケースを考慮する必要があります。  これらは多くの場合、 `null`が "nothing" を表すために使用される api で使用されるため、多くの状況`NullReferenceException`では心配する必要がありません。
+[オプションの種類](./language-reference/options.md)は、値または nothing の2つのケースのいずれかを表す型です。  このメソッドは、特定の操作の結果として値が異なる可能性がある場合に、どのようなシナリオでも使用されます。  これにより、実行時の問題ではなく、コンパイル時の問題になるように、両方のケースを考慮する必要があります。  これらは多くの場合、`null` が "nothing" を表すために使用される Api で使用されるため、多くの状況で `NullReferenceException` を気にする必要がなくなります。
 
 [!code-fsharp[Options](~/samples/snippets/fsharp/tour.fs#L789-L814)]
 
@@ -173,7 +177,7 @@ F#では、.NET クラス、[インターフェイス](./language-reference/inte
 
 [!code-fsharp[Classes](~/samples/snippets/fsharp/tour.fs#L883-L908)]
 
-インターフェイスを実装するには、構文また`interface ... with`は[オブジェクト式](./language-reference/object-expressions.md)のいずれかを使用します。
+インターフェイスを実装するには、`interface ... with` 構文または[オブジェクト式](./language-reference/object-expressions.md)のいずれかを使用できます。
 
 [!code-fsharp[Classes](~/samples/snippets/fsharp/tour.fs#L911-L934)]
 
@@ -191,7 +195,7 @@ F#では、.NET クラス、[インターフェイス](./language-reference/inte
 
 ## <a name="next-steps"></a>次の手順
 
-言語の主な機能のいくつかを確認したらには、最初の F# プログラムを作成できるようにする必要があります。  開発環境を設定してコードを記述する方法については、[はじめに](./tutorials/getting-started/index.md)を参照してください。
+言語の主な機能のいくつかを確認したらには、最初の F# プログラムを作成できるようにする必要があります。  開発環境を設定してコードを記述する方法については、[はじめに](get-started/index.md)を参照してください。
 
 さらに学習するための次の手順は任意のものにすることができますが、コア関数型プログラミングの概念を理解するために、[のF#関数型プログラミングの概要](./introduction-to-functional-programming/index.md)をお勧めします。  これらは、F# で堅牢なアプリケーションの構築に不可欠になります。
 

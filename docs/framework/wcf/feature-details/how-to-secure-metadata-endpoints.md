@@ -1,5 +1,5 @@
 ---
-title: '方法: セキュリティで保護されたメタデータ エンドポイント'
+title: '方法 : セキュリティで保護されたメタデータ エンドポイント'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/03/2019
 ms.locfileid: "71834681"
 ---
-# <a name="how-to-secure-metadata-endpoints"></a>方法: セキュリティで保護されたメタデータ エンドポイント
+# <a name="how-to-secure-metadata-endpoints"></a>方法 : セキュリティで保護されたメタデータ エンドポイント
 
 サービスのメタデータには、悪意のあるユーザーに利用される可能性がある、アプリケーションに関する機密情報が含まれています。 また、サービスのコンシューマーにも、サービスのメタデータを取得するためのセキュリティで保護された機構が必要です。 したがって、状況に応じて、セキュリティで保護されたエンドポイントを使用してメタデータを公開する必要があります。
 
@@ -22,7 +22,7 @@ ms.locfileid: "71834681"
 
 ### <a name="to-create-a-secure-https-get-metadata-endpoint-in-code"></a>セキュリティで保護された HTTPS GET メタデータ エンドポイントをコードで作成するには
 
-1. 適切な X.509 証明書を使用してポートを構成します。 この証明書は信頼された証明機関から発行され、かつ "サービス承認" の用途に使用される必要があります。 証明書をポートに関連付けるには、HttpCfg.exe ツールを使用する必要があります。 「[SSL 証明書 @ no__t を使用してポートを構成します。
+1. 適切な X.509 証明書を使用してポートを構成します。 この証明書は信頼された証明機関から発行され、かつ "サービス承認" の用途に使用される必要があります。 証明書をポートに関連付けるには、HttpCfg.exe ツールを使用する必要があります。 「[方法: SSL 証明書を使用してポートを構成する](../../../../docs/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate.md)」を参照してください。
 
     > [!IMPORTANT]
     > 証明書またはそのドメイン ネーム システム (DNS: Domain Name System) のサブジェクトが、コンピューターの名前と一致している必要があります。 これは、HTTPS 機構が最初に実行する手順に、呼び出されたアドレスと同じ URI (Uniform Resource Identifier) に対して証明書が発行されているかどうかのチェックが含まれるために必要です。
@@ -40,21 +40,21 @@ ms.locfileid: "71834681"
 
 ### <a name="to-create-a-secure-https-get-metadata-endpoint-in-configuration"></a>セキュリティで保護された HTTPS GET メタデータ エンドポイントを構成で作成するには
 
-1. サービスの構成ファイルの[\<System >](../../../../docs/framework/configure-apps/file-schema/wcf/system-servicemodel.md)要素に[\<behaviors >](../../../../docs/framework/configure-apps/file-schema/wcf/behaviors.md)要素を追加します。
+1. サービスの構成ファイルの[\<system.servicemodel >](../../../../docs/framework/configure-apps/file-schema/wcf/system-servicemodel.md)要素に[\<の動作 >](../../../../docs/framework/configure-apps/file-schema/wcf/behaviors.md)要素を追加します。
 
-2. [@No__t-3behaviors >](../../../../docs/framework/configure-apps/file-schema/wcf/behaviors.md)要素に[\<servicebehaviors >](../../../../docs/framework/configure-apps/file-schema/wcf/servicebehaviors.md)要素を追加します。
+2. [\<behavior >](../../../../docs/framework/configure-apps/file-schema/wcf/behaviors.md)要素に[\<servicebehaviors >](../../../../docs/framework/configure-apps/file-schema/wcf/servicebehaviors.md)要素を追加します。
 
-3. @No__t-2 要素に[\<behavior >](../../../../docs/framework/configure-apps/file-schema/wcf/behavior-of-servicebehaviors.md)要素を追加します。
+3. `<serviceBehaviors>` 要素に[\<動作 >](../../../../docs/framework/configure-apps/file-schema/wcf/behavior-of-servicebehaviors.md)要素を追加します。
 
 4. `name` 要素の `<behavior>` 属性を適切な値に設定します。 `name` 属性は必須です。 下の例では、`mySvcBehavior` を値として使用しています。
 
-5. [@No__t-1serviceMetadata >](../../../../docs/framework/configure-apps/file-schema/wcf/servicemetadata.md)を `<behavior>` 要素に追加します。
+5. `<behavior>` 要素に[\<serviceMetadata >](../../../../docs/framework/configure-apps/file-schema/wcf/servicemetadata.md)を追加します。
 
 6. `httpsGetEnabled` 要素の `<serviceMetadata>` 属性を `true` に設定します。
 
 7. `httpsGetUrl` 要素の `<serviceMetadata>` 属性を適切な値に設定します。 絶対アドレスを指定する場合、URL は "https://" で開始する必要があります。 相対アドレスを指定する場合は、サービス ホストに HTTPS ベースのアドレスを指定する必要があります。 このプロパティが設定されていない場合、既定のアドレスは ""、またはサービスに HTTPS ベースのアドレスを直接指定したものになります。
 
-8. サービスで動作を使用するには、 [\<service >](../../../../docs/framework/configure-apps/file-schema/wcf/service.md)要素の `behaviorConfiguration` 属性を behavior 要素の name 属性の値に設定します。 完全な構成コードを次の例に示します。
+8. サービスで動作を使用するには、 [\<サービスの >](../../../../docs/framework/configure-apps/file-schema/wcf/service.md)要素の `behaviorConfiguration` 属性を behavior 要素の name 属性の値に設定します。 完全な構成コードを次の例に示します。
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -95,12 +95,12 @@ ms.locfileid: "71834681"
 
 - <xref:System.ServiceModel.Description?displayProperty=nameWithType>
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.ServiceModel.Description.ServiceMetadataBehavior.HttpsGetEnabled%2A>
 - <xref:System.ServiceModel.Description.ServiceMetadataBehavior>
 - <xref:System.ServiceModel.Description.ServiceMetadataBehavior.HttpsGetUrl%2A>
-- [2 つのオブジェクトが等しいかどうかをテストする方法SSL 証明書を使用してポートを構成する @ no__t-0
+- [方法 : SSL 証明書を使用してポートを構成する](../../../../docs/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate.md)
 - [証明書の使用](../../../../docs/framework/wcf/feature-details/working-with-certificates.md)
 - [メタデータを使用する場合のセキュリティ上の考慮事項](../../../../docs/framework/wcf/feature-details/security-considerations-with-metadata.md)
-- [サービスおよびクライアントのセキュリティ保護](../../../../docs/framework/wcf/feature-details/securing-services-and-clients.md)
+- [Securing Services and Clients](../../../../docs/framework/wcf/feature-details/securing-services-and-clients.md)

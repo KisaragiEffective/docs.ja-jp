@@ -1,6 +1,6 @@
 ---
 title: LINQ (統合言語クエリ)
-description: LINQ が言語レベルのクエリ機能と、表現力豊かな宣言コードを記述する方法として C# および VB に API を提供する方法を説明します。
+description: LINQ が言語レベルのクエリ機能と、表現力豊かな宣言コードを記述する方法として C# および Visual Basic に API を提供する方法を説明します。
 author: cartermp
 ms.author: wiwagn
 ms.date: 06/20/2016
@@ -9,18 +9,18 @@ dev_langs:
 - vb
 ms.technology: dotnet-standard
 ms.assetid: c00939e1-59e3-4e61-8fe9-08ad6b3f1295
-ms.openlocfilehash: 2e4b23b7bf197c9984c53b2f4cc2acaa61731d38
-ms.sourcegitcommit: 4d8efe00f2e5ab42e598aff298d13b8c052d9593
+ms.openlocfilehash: eafd8f78c3d8de1ba064021111f869571d5a570f
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68238633"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78160327"
 ---
 # <a name="linq-language-integrated-query"></a>LINQ (統合言語クエリ)
 
-## <a name="what-is-it"></a>LINQ とは
+## <a name="what-is-it"></a>紹介
 
-LINQ では、言語レベルのクエリ機能と、表現力豊かな宣言コードを記述する方法として C# および VB に[高階関数](https://en.wikipedia.org/wiki/Higher-order_function) API が提供されます。
+LINQ では、言語レベルのクエリ機能と、表現力豊かな宣言コードを記述する方法として C# および Visual Basic に[高階関数](https://en.wikipedia.org/wiki/Higher-order_function) API が提供されます。
 
 言語レベルのクエリ構文:
 
@@ -257,7 +257,7 @@ var allShortHairedDogs = kennel1.Dogs.Union(kennel2.Dogs, new DogHairLengthCompa
 ```
 
 ```vb
-Public Class DogHairLengthComparer 
+Public Class DogHairLengthComparer
   Inherits IEqualityComparer(Of Dog)
 
   Public Function Equals(a As Dog,b As Dog) As Boolean
@@ -321,7 +321,7 @@ public static bool PublicInstancePropertiesEqual<T>(this T self, T to, params st
     {
         return self == to;
     }
-    
+
     // Selects the properties which have unequal values into a sequence of those properties.
     var unequalProperties = from property in typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance)
                             where !ignore.Contains(property.Name)
@@ -334,14 +334,14 @@ public static bool PublicInstancePropertiesEqual<T>(this T self, T to, params st
 ```
 
 ```vb
-<System.Runtime.CompilerServices.Extension()> 
+<System.Runtime.CompilerServices.Extension()>
 Public Function PublicInstancePropertiesEqual(Of T As Class)(self As T, [to] As T, ParamArray ignore As String()) As Boolean
     If self Is Nothing OrElse [to] Is Nothing Then
         Return self Is [to]
     End If
 
     ' Selects the properties which have unequal values into a sequence of those properties.
-    Dim unequalProperties = From [property] In GetType(T).GetProperties(BindingFlags.Public Or BindingFlags.Instance) 
+    Dim unequalProperties = From [property] In GetType(T).GetProperties(BindingFlags.Public Or BindingFlags.Instance)
                             Where Not ignore.Contains([property].Name)
                             Let selfValue = [property].GetValue(self, Nothing)
                             Let toValue = [property].GetValue([to], Nothing)
@@ -354,7 +354,7 @@ End Function
 
 PLINQ (Parallel LINQ) は、LINQ 式の並列実行エンジンです。 つまり、LINQ の正規表現は、任意の数のスレッドで普通に並列化できます。 これは、式の前に `AsParallel()` を指定して呼び出すことで実行できます。
 
-次に例を示します。
+次の点を考慮します。
 
 ```csharp
 public static string GetAllFacebookUserLikesMessage(IEnumerable<FacebookUser> facebookUsers)
@@ -395,5 +395,5 @@ LINQ で簡単に表すことができる (つまり、純粋関数で副作用�
 ## <a name="further-resources"></a>他のリソース:
 
 * [101 個の LINQ サンプル](https://code.msdn.microsoft.com/101-LINQ-Samples-3fb9811b)
-* [Linqpad](https://www.linqpad.net/)。プレイグラウンド環境とデータベース クエリ エンジン (C#/F#/VB 用)
+* [Linqpad](https://www.linqpad.net/)。プレイグラウンド環境とデータベース クエリ エンジン (C#/F#/Visual Basic 用)
 * [EduLinq](https://codeblog.jonskeet.uk/2011/02/23/reimplementing-linq-to-objects-part-45-conclusion-and-list-of-posts/)。LINQ to Objects の実装方法を学習するための電子書籍

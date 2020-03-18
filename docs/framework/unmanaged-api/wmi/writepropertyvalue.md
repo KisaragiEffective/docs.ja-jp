@@ -14,14 +14,12 @@ helpviewer_keywords:
 - WritePropertyValue function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a3c42129835f9b30bed493a0992d49d7e2a458e2
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: f02fb3877d55e9f47384b281573202712c29c606
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798175"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73107287"
 ---
 # <a name="writepropertyvalue-function"></a>WritePropertyValue 関数
 指定したバイト数が、プロパティ ハンドルによって識別されるプロパティに書き込まれます。
@@ -61,7 +59,7 @@ HRESULT WritePropertyValue (
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_E_INVALID_PARAMETER` | 0x80041008 | パラメーターが有効ではありません。 |
 |`WBEM_E_TYPE_MISMATCH` | 0x80041005 | 型の不一致が発生しました。 |
@@ -71,12 +69,12 @@ HRESULT WritePropertyValue (
 
 この関数は、 [IWbemClassObject:: WritePropertyValue](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemobjectaccess-writepropertyvalue)メソッドの呼び出しをラップします。
 
-この関数を使用すると、文字列とその他`DWORD`すべての非`QWORD`データまたは非データを設定できます。
+この関数を使用すると、文字列およびその他のすべての非`DWORD` データまたは非`QWORD` データを設定できます。
 
-文字列以外のプロパティ値`lNumBytes`の場合、は、指定されたプロパティ型の正しいデータサイズである必要があります。 文字列プロパティ値の場合`lNumBytes` 、は指定された文字列の長さ (バイト単位) である必要があり、文字列自体はバイト単位の長さで、その後に null 終端文字が続く必要があります。
+文字列以外のプロパティ値の場合、`lNumBytes` は、指定されたプロパティ型の適切なデータサイズである必要があります。 文字列プロパティ値の場合、`lNumBytes` は指定した文字列の長さをバイト単位で指定する必要があり、文字列自体はバイト単位の長さで、その後に null 終端文字が続く必要があります。
 
-## <a name="requirements"></a>必要条件  
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

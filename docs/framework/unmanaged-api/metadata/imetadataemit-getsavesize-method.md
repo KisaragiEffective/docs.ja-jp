@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 8aea2e2c-23a3-4cda-9a06-e19f97383830
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 7337222f7f419c68ae21d604d1673158acca85ba
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 125a63638a41707b8eed918253cb1f93abb907eb
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777389"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74434325"
 ---
 # <a name="imetadataemitgetsavesize-method"></a>IMetaDataEmit::GetSaveSize メソッド
-現在のスコープ内のアセンブリとそのメタデータの推定のバイナリのサイズを取得します。  
+現在のスコープ内のアセンブリとそのメタデータの推定バイナリサイズを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,34 +36,34 @@ HRESULT GetSaveSize (
   
 ## <a name="parameters"></a>パラメーター  
  `fSave`  
- [in]値、 [CorSaveSize](../../../../docs/framework/unmanaged-api/metadata/corsavesize-enumeration.md)正確でないかおおよそのサイズを取得するかどうかを指定する列挙体。 のみの 3 つの値が無効です: cssAccurate、cssQuick、および cssDiscardTransientCAs:  
+ から正確またはおおよそのサイズを取得するかどうかを指定する[CorSaveSize](../../../../docs/framework/unmanaged-api/metadata/corsavesize-enumeration.md)列挙体の値。 有効な値は、cssAccurate、cssQuick、cssDiscardTransientCAs の3つだけです。  
   
-- cssAccurate は正確なサイズの保存を返しますが、計算に時間がかかります。  
+- cssAccurate は正確な保存サイズを返しますが、計算にかかる時間は長くなります。  
   
-- cssQuick は安全性、用に埋め込まれて、サイズを返しますが、計算時間がかかりません。  
+- cssQuick は、サイズを返します。これは安全性のために埋め込まれていますが、計算にかかる時間は短くなります。  
   
-- cssDiscardTransientCAs 指示`GetSaveSize`こと、破棄できる破棄できるカスタム属性。  
+- cssDiscardTransientCAs は、破棄可能なカスタム属性を破棄できることを `GetSaveSize` に伝えます。  
   
  `pdwSaveSize`  
- [out]ファイルを保存するために必要なサイズへのポインター。  
+ 入出力ファイルを保存するために必要なサイズへのポインター。  
   
-## <a name="remarks"></a>Remarks  
- `GetSaveSize` 必要に応じて、(バイト単位) を現在のスコープ内でアセンブリとそのすべてのメタデータを保存する領域が計算されます。 (への呼び出し、 [imetadataemit::savetostream](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-savetostream-method.md)メソッドの出力をこのバイト数)。  
+## <a name="remarks"></a>コメント  
+ `GetSaveSize` は、現在のスコープ内のアセンブリとそのすべてのメタデータを保存するために必要な領域をバイト単位で計算します。 ( [IMetaDataEmit:: SaveToStream](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-savetostream-method.md)メソッドを呼び出すと、このバイト数が出力されます)。  
   
- 呼び出し元が実装されている場合、 [IMapToken](../../../../docs/framework/unmanaged-api/metadata/imaptoken-interface.md)インターフェイス (を通じて[imetadataemit::sethandler](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-sethandler-method.md)または[imetadataemit::merge](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-merge-method.md))、`GetSaveSize`は 2 つのパスを実行最適化し、圧縮するメタデータ。 それ以外の場合、最適化は実行されません。  
+ 呼び出し元が[IMapToken](../../../../docs/framework/unmanaged-api/metadata/imaptoken-interface.md)インターフェイス ( [IMetaDataEmit:: SetHandler](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-sethandler-method.md)または[IMetaDataEmit:: Merge](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-merge-method.md)) を実装している場合、`GetSaveSize` はメタデータに対して2つのパスを実行し、最適化と圧縮を行います。 それ以外の場合、最適化は実行されません。  
   
- 最適化を実行すると、最初のパスは単に検索のインポート時のパフォーマンスをチューニングするメタデータ構造体を並べ替えます。 この手順は、今後の参照用のツールによって保持されるトークンは無効になります影響で、レコードが移動は通常なります。 メタデータはできません、呼び出し元に通知までこれらのトークンの変更の 2 番目のパスの後ただし。 2 番目のパスのさまざまな最適化は、メタデータ、退席中 (事前バインディング) の最適化などの全体的なサイズを小さくことを意図したことがあります`mdTypeRef`と`mdMemberRef`トークンの参照が、型またはメンバーで宣言されているときに、現在のメタデータ スコープ。 このパスでは、別の一連のトークンのマッピングが発生します。 メタデータ エンジンは、このパスの後、を通じて、呼び出し元を通知しますその`IMapToken`のいずれかのインターフェイスは、トークンの値を変更します。  
+ 最適化が実行された場合、最初のパスは単にメタデータ構造を並べ替えて、インポート時の検索のパフォーマンスを調整します。 この手順では、通常、後で参照するためにツールによって保持されているトークンが無効になるという副作用で、レコードを移動します。 ただし、メタデータは、2番目のパスの後に、これらのトークンの変更を呼び出し元に通知しません。 2番目のパスでは、現在のメタデータスコープ内で宣言されている型またはメンバーへの参照である場合に、メタ `mdMemberRef` `mdTypeRef` データの全体的なサイズを縮小することを目的としたさまざまな最適化を実行します このパスでは、別のトークンマッピングのラウンドが発生します。 このパスが経過すると、メタデータエンジンは、変更されたトークン値の `IMapToken` インターフェイスを介して呼び出し元に通知します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MSCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v11plus](../../../../includes/net-current-v11plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataEmit インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit-interface.md)
 - [IMetaDataEmit2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataemit2-interface.md)

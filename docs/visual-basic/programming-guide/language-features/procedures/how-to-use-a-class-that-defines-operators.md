@@ -1,5 +1,5 @@
 ---
-title: '方法: 演算子を定義するクラスを使用する (Visual Basic)'
+title: '方法: 演算子を定義するクラスを使用する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - operator procedures [Visual Basic], calling
@@ -11,43 +11,43 @@ helpviewer_keywords:
 - return values [Visual Basic], Operator procedures
 - operator overloading
 ms.assetid: 7ccce94a-6ca0-47d1-9f3f-13385d34f5d5
-ms.openlocfilehash: bd512adf2f06ed0fbd3d36ed3175a0928bf1c57c
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 455c839702b90738ec5aea37c1b09d72eba42ff4
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61863494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75347888"
 ---
 # <a name="how-to-use-a-class-that-defines-operators-visual-basic"></a>方法: 演算子を定義するクラスを使用する (Visual Basic)
-クラスまたは独自の演算子を定義する構造体を使用している場合は、これらの演算子を Visual Basic からアクセスできます。  
+独自の演算子を定義するクラスまたは構造体を使用している場合は、Visual Basic からこれらの演算子にアクセスできます。  
   
- クラスまたは構造体で演算子を定義が呼び出されますも*オーバー ロード*演算子。  
+ クラスまたは構造体に対して演算子を定義することは、演算子の*オーバーロード*とも呼ばれます。  
   
-## <a name="example"></a>例  
- 次の例では、SQL 構造<xref:System.Data.SqlTypes.SqlString>、変換演算子を定義する ([CType Function](../../../../visual-basic/language-reference/functions/ctype-function.md)) SQL 文字列および Visual Basic の文字列間の双方向でします。 使用`CType(` *SQL 文字列式*、 `String)` SQL 文字列を Visual Basic の文字列に変換して`CType(` *Visual Basic の文字列式*、 <xref:System.Data.SqlTypes.SqlString> `)`に他の方向に変換します。  
+## <a name="example"></a>使用例  
+ 次の例では、sql 構造 <xref:System.Data.SqlTypes.SqlString>にアクセスします。これにより、SQL 文字列と Visual Basic 文字列の双方向の変換演算子 ([CType 関数](../../../../visual-basic/language-reference/functions/ctype-function.md)) が定義されます。 `CType(`*sql 文字列式*、`String)` を使用して sql 文字列を Visual Basic 文字列に変換し、Visual Basic*文字列式*を `CType(`して、他の方向に変換します。  
   
  [!code-vb[VbVbcnProcedures#30](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#30)]  
   
  [!code-vb[VbVbcnProcedures#31](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnProcedures/VB/Class1.vb#31)]  
   
- <xref:System.Data.SqlTypes.SqlString>構造体には、変換演算子が定義されています ([CType Function](../../../../visual-basic/language-reference/functions/ctype-function.md)) から`String`に<xref:System.Data.SqlTypes.SqlString>とから<xref:System.Data.SqlTypes.SqlString>に`String`します。 代入するステートメント`title`に`jobTitle`の最初の演算子を使用し、<xref:Microsoft.VisualBasic.Interaction.MsgBox%2A>関数呼び出し、2 つ目の使用します。  
+ <xref:System.Data.SqlTypes.SqlString> 構造体は、`String` から <xref:System.Data.SqlTypes.SqlString> への変換演算子 (CType 関数) と、<xref:System.Data.SqlTypes.SqlString> から `String`への変換演算子 ([CType 関数](../../../../visual-basic/language-reference/functions/ctype-function.md)) を定義します。 `jobTitle` に `title` を割り当てるステートメントは、最初の演算子を使用し、<xref:Microsoft.VisualBasic.Interaction.MsgBox%2A> 関数呼び出しは2番目の演算子を使用します。  
   
-## <a name="compiling-the-code"></a>コードのコンパイル  
- 必ず、クラスまたは構造体を使用しているが、使用する演算子を定義します。 クラスまたは構造体の定義がすべての演算子はオーバー ロード可能なことを前提としてはいません。 利用可能な演算子の一覧は、次を参照してください。 [Operator Statement](../../../../visual-basic/language-reference/statements/operator-statement.md)します。  
+## <a name="compile-the-code"></a>コードのコンパイル  
+ 使用するクラスまたは構造体で、使用する演算子が定義されていることを確認してください。 クラスまたは構造体で、オーバーロードに使用できるすべての演算子が定義されていると想定しないでください。 使用可能な演算子の一覧については、「 [Operator ステートメント](../../../../visual-basic/language-reference/statements/operator-statement.md)」を参照してください。  
   
- 含める、適切な`Imports`ソース ファイルの先頭にある SQL 文字列の文 (ここで<xref:System.Data.SqlTypes>)。  
+ ソースファイルの先頭にある SQL 文字列に適切な `Imports` ステートメント (この場合は <xref:System.Data.SqlTypes>) を含めます。  
   
- プロジェクトは、System.Data および System.XML への参照が必要です。  
+ プロジェクトは、system.string と SYSTEM.XML への参照を持っている必要があります。  
   
 ## <a name="see-also"></a>関連項目
 
 - [演算子プロシージャ](./operator-procedures.md)
-- [方法: 演算子を定義する](./how-to-define-an-operator.md)
-- [方法: 変換演算子を定義する](./how-to-define-a-conversion-operator.md)
-- [方法: 演算子プロシージャを呼び出す](./how-to-call-an-operator-procedure.md)
+- [方法 : 演算子を定義する](./how-to-define-an-operator.md)
+- [方法 : 変換演算子を定義する](./how-to-define-a-conversion-operator.md)
+- [方法 : 演算子プロシージャを呼び出す](./how-to-call-an-operator-procedure.md)
 - [Widening](../../../../visual-basic/language-reference/modifiers/widening.md)
 - [Narrowing](../../../../visual-basic/language-reference/modifiers/narrowing.md)
 - [Structure ステートメント](../../../../visual-basic/language-reference/statements/structure-statement.md)
-- [方法: 構造体を宣言する](../../../../visual-basic/programming-guide/language-features/data-types/how-to-declare-a-structure.md)
+- [方法 : 構造体を宣言する](../../../../visual-basic/programming-guide/language-features/data-types/how-to-declare-a-structure.md)
 - [暗黙の型変換と明示的な型変換](../../../../visual-basic/programming-guide/language-features/data-types/implicit-and-explicit-conversions.md)
 - [拡大変換と縮小変換](../../../../visual-basic/programming-guide/language-features/data-types/widening-and-narrowing-conversions.md)

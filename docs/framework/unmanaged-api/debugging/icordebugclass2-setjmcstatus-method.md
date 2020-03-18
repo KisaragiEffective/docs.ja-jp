@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 077e6c7f-f857-480c-bebb-76ee1de4e8fc
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 23f248625753c15a4798ea69a1eb3b377b79f95d
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: a862dd3f6a9c10c6b3a5a0bb41208d351c4ca9f1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67747752"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73125700"
 ---
 # <a name="icordebugclass2setjmcstatus-method"></a>ICorDebugClass2::SetJMCStatus メソッド
-クラスの各メソッドでは、メソッドは、ユーザー定義のコードかどうかを示す値を設定します。  
+クラスの各メソッドについて、メソッドがユーザー定義のコードかどうかを示す値を設定します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,15 +35,15 @@ HRESULT SetJMCStatus (
   
 ## <a name="parameters"></a>パラメーター  
  `bIsJustMyCode`  
- [in]設定`true`メソッドがユーザー定義であることを示すコードは、それ以外の場合、`false`します。  
+ からメソッドがユーザー定義コードであることを示すには `true` に設定します。それ以外の場合は、を `false`に設定します。  
   
 ## <a name="remarks"></a>Remarks  
- マイ コード (のみ JMC) のステッパでは、非ユーザー定義のコードをスキップします。 ユーザー定義のコードは、デバッグできるコードのサブセットである必要があります。  
+ マイコードのみ (JMC) のステッパは、ユーザー定義ではないコードをスキップします。 ユーザー定義コードは、デバッグ可能なコードのサブセットである必要があります。  
   
- `SetJMCStatus` 場合でも、その他のすべてのメソッドの値を正常に設定、任意のメソッドの値の設定に失敗した場合は、S_FALSE の HRESULT 値を返します。  
+ `SetJMCStatus` は、他のすべてのメソッドの値が正常に設定されていても、どのメソッドにも値を設定できない場合に、S_FALSE の HRESULT 値を返します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

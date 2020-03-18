@@ -1,12 +1,10 @@
 - name: Visual Basic のガイド
-  href: index.md
+  href: index.yml
 - name: Visual Basic の新機能
   href: getting-started/whats-new.md
-- name: 開始するには
+- name: はじめに
   href: getting-started/index.md
   items:
-    - name: Visual Studio における Visual Basic の互換性に影響する変更点
-      href: getting-started/breaking-changes-in-visual-studio.md
     - name: Visual Basic プログラマのための追加リソース
       href: getting-started/additional-resources.md
 - name: アプリケーションの開発
@@ -214,7 +212,7 @@
       href: programming-guide/language-features/objects-and-classes/index.md
     - name: 演算子および式
       href: programming-guide/language-features/operators-and-expressions/index.md
-    - name: 手順
+    - name: プロシージャ
       href: programming-guide/language-features/procedures/index.md
     - name: ステートメント
       href: programming-guide/language-features/statements.md
@@ -373,13 +371,13 @@
           href: language-reference/modifiers/assembly.md
         - name: Async
           href: language-reference/modifiers/async.md
-        - name: 自動
+        - name: Auto
           href: language-reference/modifiers/auto.md
         - name: ByRef
           href: language-reference/modifiers/byref.md
         - name: ByVal
           href: language-reference/modifiers/byval.md
-        - name: 既定値
+        - name: Default
           href: language-reference/modifiers/default.md
         - name: Friend
           href: language-reference/modifiers/friend.md
@@ -387,7 +385,7 @@
           href: language-reference/modifiers/in-generic-modifier.md
         - name: Iterator
           href: language-reference/modifiers/iterator.md
-        - name: キー
+        - name: Key
           href: language-reference/modifiers/key.md
         - name: Module
           href: language-reference/modifiers/module-keyword.md
@@ -409,17 +407,17 @@
           href: language-reference/modifiers/overloads.md
         - name: Overridable
           href: language-reference/modifiers/overridable.md
-        - name: オーバーライド
+        - name: Overrides
           href: language-reference/modifiers/overrides.md
         - name: ParamArray
           href: language-reference/modifiers/paramarray.md
-        - name: 部分的
+        - name: Partial
           href: language-reference/modifiers/partial.md
         - name: Private
           href: language-reference/modifiers/private.md
         - name: Private Protected
           href: language-reference/modifiers/private-protected.md
-        - name: プロテクト
+        - name: Protected
           href: language-reference/modifiers/protected.md
         - name: Protected Friend
           href: language-reference/modifiers/protected-friend.md
@@ -431,7 +429,7 @@
           href: language-reference/modifiers/shadows.md
         - name: Shared
           href: language-reference/modifiers/shared.md
-        - name: スタティック
+        - name: Static
           href: language-reference/modifiers/static.md
         - name: Unicode
           href: language-reference/modifiers/unicode.md
@@ -605,6 +603,8 @@
               href: language-reference/operators/like-operator.md
             - name: Mod 演算子
               href: language-reference/operators/mod-operator.md
+            - name: NameOf 演算子
+              href: language-reference/operators/nameof.md
             - name: new 演算子
               href: language-reference/operators/new-operator.md
             - name: Not 演算子
@@ -807,7 +807,7 @@
           href: language-reference/statements/attribute-list.md
         - name: パラメーター リスト
           href: language-reference/statements/parameter-list.md
-        - name: Type List
+        - name: 型リスト
           href: language-reference/statements/type-list.md
     - name: XML のコメント用タグ
       href: language-reference/xmldoc/index.md
@@ -961,22 +961,22 @@
           href: language-reference/error-messages/bad-file-name-or-number.md
         - name: レコード長が正しくありません。
           href: language-reference/error-messages/bad-record-length.md
-        - name: この呼び出しは待機されなかったため、現在のメソッドの実行は呼び出しの完了を待たずに続行されます。
-          href: language-reference/error-messages/because-this-call-is-not-awaited-the-current-method-continues-to-run.md
-        - name: 型のプロパティは別のプロパティを初期化するために使用されるため、匿名型を式のツリーに変換することはできません。
-          href: language-reference/error-messages/cannot-convert-anonymous-type-to-expression-tree.md
+        - name: この呼び出しは待機されなかったため、現在のメソッドの実行は呼び出しの完了を待たずに続行されます
+          href: language-reference/error-messages/bc42358.md
+        - name: 匿名型を式ツリーに変換できません。この型のプロパティは、別のプロパティを初期化するために使用されます
+          href: language-reference/error-messages/bc36548.md
         - name: ActiveX コンポーネントを作成できません。
           href: language-reference/error-messages/cannot-create-activex-component.md
         - name: '''<name>'' は、''System.MarshalByRefObject'' を基本クラスとして持つクラス ''<name>'' の値付きフィールド ''<classname>'' のメンバーであるため、参照できません。'
-          href: language-reference/error-messages/cannot-refer-to-name-because-it-is-member-of-value-typed-field-name-of-class.md
+          href: language-reference/error-messages/bc30310.md
         - name: クラスの明示的なインスタンスを指定しないで、共有メソッドまたは共有メンバー初期化子内からクラスのインスタンス メンバーへ参照することはできません。
-          href: language-reference/error-messages/cannot-refer-to-an-instance-member-of-a-class.md
+          href: language-reference/error-messages/bc30369.md
         - name: 必要な一時ファイルを作成できません。
           href: language-reference/error-messages/can-t-create-necessary-temporary-file.md
         - name: '''<filename>'' を書き込むために開くことができません。'
-          href: language-reference/error-messages/can-t-open-filename-for-writing.md
+          href: language-reference/error-messages/bc2012.md
         - name: クラス '<classname>' が見つかりません。
-          href: language-reference/error-messages/class-classname-cannot-be-found.md
+          href: language-reference/error-messages/bc31098.md
         - name: クラスがオートメーションをサポートしていないか、必要なインターフェイスをサポートしていません。
           href: language-reference/error-messages/class-does-not-support-automation-or-does-not-support-expected-interface.md
         - name: '''Class'' ステートメントの終わりには、対応する ''End Class'' を指定しなければなりません。'
@@ -1323,7 +1323,7 @@
               href: reference/command-line-compiler/errorreport.md
             - name: '-filealign'
               href: reference/command-line-compiler/filealign.md
-            - name: '-help, /?'
+            - name: '-help, -?'
               href: reference/command-line-compiler/help.md
             - name: '-highentropyva'
               href: reference/command-line-compiler/highentropyva.md

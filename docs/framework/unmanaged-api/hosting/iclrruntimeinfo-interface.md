@@ -14,41 +14,39 @@ helpviewer_keywords:
 ms.assetid: 287e5ede-b3a7-4ef8-a756-4fca3f285a82
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 213fa9fda6b154d4548b4163cc7b5890bfcfb49c
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: f6608b03df80fa37ebf5049b53bce46da3e155e0
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61771726"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120367"
 ---
 # <a name="iclrruntimeinfo-interface"></a>ICLRRuntimeInfo インターフェイス
-バージョン、ディレクトリ、および負荷の状態を含む特定の共通言語ランタイム (CLR) に関する情報を返すメソッドを提供します。 このインターフェイスには、ランタイムを初期化せずランタイム固有の機能も提供します。 実行時の相対パスが含まれています[LoadLibrary](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-loadlibrary-method.md)メソッドは、ランタイム モジュール固有[GetProcAddress](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getprocaddress-method.md)メソッド、およびランタイムで提供されるインターフェイスを、 [GetInterface](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getinterface-method.md)メソッド。  
+バージョン、ディレクトリ、読み込み状態など、特定の共通言語ランタイム (CLR) に関する情報を返すメソッドを提供します。 このインターフェイスは、ランタイムを初期化せずにランタイム固有の機能も提供します。 これには、ランタイム相対[LoadLibrary](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-loadlibrary-method.md)メソッド、ランタイムモジュール固有の[GetProcAddress](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getprocaddress-method.md)メソッド、および[getinterface](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getinterface-method.md)メソッドを使用したランタイム提供のインターフェイスが含まれます。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[BindAsLegacyV2Runtime メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-bindaslegacyv2runtime-method.md)|すべてレガシー CLR バージョン 2 のアクティブ化ポリシーを決定するためには、このランタイムをバインドします。|  
-|[GetDefaultStartupFlags メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getdefaultstartupflags-method.md)|ホスト構成ファイルの CLR スタートアップ フラグを取得します。|  
-|[GetInterface メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getinterface-method.md)|現在のプロセスに CLR をロードし、ランタイム、インターフェイス ポインターをなど返します[ICLRRuntimeHost](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-interface.md)、 [ICLRStrongName](../../../../docs/framework/unmanaged-api/hosting/iclrstrongname-interface.md)と[IMetaDataDispenser](../../../../docs/framework/unmanaged-api/metadata/imetadatadispenser-interface.md)します。 このメソッドはすべて、`CorBindTo*`関数。|  
-|[GetProcAddress メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getprocaddress-method.md)|このインターフェイスに関連付けられた CLR からエクスポートされた、指定された関数のアドレスを取得します。 このメソッドは、 [GetRealProcAddress](../../../../docs/framework/unmanaged-api/hosting/getrealprocaddress-function.md)メソッド。|  
-|[GetRuntimeDirectory メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getruntimedirectory-method.md)|このインターフェイスに関連付けられている CLR のインストール ディレクトリを取得します。 このメソッドは、 [GetCORSystemDirectory](../../../../docs/framework/unmanaged-api/hosting/getcorsystemdirectory-function.md)メソッド。|  
-|[GetVersionString メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getversionstring-method.md)|関連付けられている共通言語ランタイム (CLR) バージョン情報を取得する指定された[ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイス。 このメソッドは、 [GetRequestedRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/getrequestedruntimeinfo-function.md)と[GetRequestedRuntimeVersion](../../../../docs/framework/unmanaged-api/hosting/getrequestedruntimeversion-function.md)メソッド。|  
-|[IsLoadable メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-isloadable-method.md)|このインターフェイスに関連付けられているランタイムを考慮して、現在のプロセスに読み込めるかどうかを示す、プロセスに読み込まれることが既にある他のランタイム。|  
-|[IsLoaded メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-isloaded-method.md)|CLR が関連付けられているかどうかを示す、 [ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイスが、プロセスに読み込まれます。|  
-|[IsStarted メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-isstarted-method.md)|かどうか、CLR に関連付けられていることを示します、 [ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイスが開始されました。|  
-|[LoadErrorString メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-loaderrorstring-method.md)|HRESULT 値を指定したカルチャの適切なエラー メッセージに変換します。 このメソッドは、 [LoadStringRC](../../../../docs/framework/unmanaged-api/hosting/loadstringrc-function.md)と[LoadStringRCEx](../../../../docs/framework/unmanaged-api/hosting/loadstringrcex-function.md)メソッド。|  
-|[LoadLibrary メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-loadlibrary-method.md)|によって表される CLR の framework ディレクトリからライブラリを読み込み、 [ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイス。 このメソッドは、 [LoadLibraryShim](../../../../docs/framework/unmanaged-api/hosting/loadlibraryshim-function.md)メソッド。|  
-|[SetDefaultStartupFlags メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-setdefaultstartupflags-method.md)|CLR スタートアップ フラグとホスト構成ファイルを設定します。|  
+|[BindAsLegacyV2Runtime メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-bindaslegacyv2runtime-method.md)|すべてのレガシ CLR バージョン2アクティブ化ポリシーの決定にこのランタイムをバインドします。|  
+|[GetDefaultStartupFlags メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getdefaultstartupflags-method.md)|CLR スタートアップフラグとホスト構成ファイルを取得します。|  
+|[GetInterface メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getinterface-method.md)|現在のプロセスに CLR を読み込み、 [ICLRRuntimeHost](../../../../docs/framework/unmanaged-api/hosting/iclrruntimehost-interface.md)、 [ICLRStrongName](../../../../docs/framework/unmanaged-api/hosting/iclrstrongname-interface.md) 、 [IMetaDataDispenser](../../../../docs/framework/unmanaged-api/metadata/imetadatadispenser-interface.md)などのランタイムインターフェイスポインターを返します。 このメソッドは、すべての `CorBindTo*` 関数を置き換えます。|  
+|[GetProcAddress メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getprocaddress-method.md)|このインターフェイスに関連付けられている CLR からエクスポートされた、指定された関数のアドレスを取得します。 このメソッドは、 [GetRealProcAddress](../../../../docs/framework/unmanaged-api/hosting/getrealprocaddress-function.md)メソッドよりも優先されます。|  
+|[GetRuntimeDirectory メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getruntimedirectory-method.md)|このインターフェイスに関連付けられている CLR のインストールディレクトリを取得します。 このメソッドは、 [Getcorsystemdirectory](../../../../docs/framework/unmanaged-api/hosting/getcorsystemdirectory-function.md)メソッドよりも優先されます。|  
+|[GetVersionString メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-getversionstring-method.md)|指定した[ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイスに関連付けられている共通言語ランタイム (CLR) のバージョン情報を取得します。 このメソッドは、 [Getrequestedruntimeinfo](../../../../docs/framework/unmanaged-api/hosting/getrequestedruntimeinfo-function.md)および[Getrequestedruntimeinfo](../../../../docs/framework/unmanaged-api/hosting/getrequestedruntimeversion-function.md)メソッドを置き換えます。|  
+|[IsLoadable メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-isloadable-method.md)|このインターフェイスに関連付けられているランタイムを現在のプロセスに読み込むことができるかどうかを示します。プロセスに既に読み込まれている可能性のある他のランタイムを考慮してください。|  
+|[IsLoaded メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-isloaded-method.md)|[ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイスに関連付けられている CLR がプロセスに読み込まれているかどうかを示します。|  
+|[IsStarted メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-isstarted-method.md)|[ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイスに関連付けられている CLR が開始されているかどうかを示します。|  
+|[LoadErrorString メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-loaderrorstring-method.md)|HRESULT 値を、指定したカルチャの適切なエラーメッセージに変換します。 このメソッドは、 [LoadStringRC](../../../../docs/framework/unmanaged-api/hosting/loadstringrc-function.md)メソッドと[LoadStringRCEx](../../../../docs/framework/unmanaged-api/hosting/loadstringrcex-function.md)メソッドよりも優先されます。|  
+|[LoadLibrary メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-loadlibrary-method.md)|[ICLRRuntimeInfo](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-interface.md)インターフェイスによって表される CLR のフレームワークディレクトリからライブラリを読み込みます。 このメソッドは、 [LoadLibraryShim](../../../../docs/framework/unmanaged-api/hosting/loadlibraryshim-function.md)メソッドよりも優先されます。|  
+|[SetDefaultStartupFlags メソッド](../../../../docs/framework/unmanaged-api/hosting/iclrruntimeinfo-setdefaultstartupflags-method.md)|CLR スタートアップフラグとホスト構成ファイルを設定します。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MetaHost.h  
+ **ヘッダー:** メタホスト .h  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   

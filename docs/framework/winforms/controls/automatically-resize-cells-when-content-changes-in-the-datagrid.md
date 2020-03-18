@@ -1,5 +1,5 @@
 ---
-title: '方法: Windows フォームの DataGridView コントロールの内容変更時にセルのサイズを自動的に変更する'
+title: DataGridView コントロールのコンテンツの変更時にセルのサイズを自動的に変更する
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,19 +10,19 @@ helpviewer_keywords:
 - cells [Windows Forms], resizing automatically
 - DataGridView control [Windows Forms], resizing cells
 ms.assetid: 1d68934d-a04c-4b12-9e66-c856c6828131
-ms.openlocfilehash: 3411b68b4dcc64dba86cd9fa8804e0a487cec76d
-ms.sourcegitcommit: c7a7e1468bf0fa7f7065de951d60dfc8d5ba89f5
+ms.openlocfilehash: 86e3bce993aa06546e301c6d7a7e03a31013c337
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586629"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76732060"
 ---
-# <a name="how-to-automatically-resize-cells-when-content-changes-in-the-windows-forms-datagridview-control"></a>方法: Windows フォームの DataGridView コントロールの内容変更時にセルのサイズを自動的に変更する
+# <a name="how-to-automatically-resize-cells-when-content-changes-in-the-windows-forms-datagridview-control"></a>方法 : Windows フォームの DataGridView コントロールの内容変更時にセルのサイズを自動的に変更する
 コンテンツが変更されたときは常に行、列、ヘッダーのサイズを自動的に変更し、クリッピングなしでセルが値を表示するのに十分な大きさになるように、 <xref:System.Windows.Forms.DataGridView> コントロールを構成できます。  
   
  新しいサイズを決定するために使用するセルを制限する多くのオプションがあります。 たとえば、現在表示されている行の値のみに基づいて、その列の幅のサイズを自動的に変更するコントロールを構成できます。 これにより、大量の行を処理するときの非効率性を回避できますが、この場合では、 <xref:System.Windows.Forms.DataGridView.AutoResizeColumns%2A> などのサイズ調整のメソッドを使用して、選択時にサイズを調整することをお勧めします。  
   
- 自動サイズ変更の詳細については、「 [Windows フォーム DataGridView コントロールのサイズ変更オプション](sizing-options-in-the-windows-forms-datagridview-control.md)」を参照してください。  
+ 自動サイズ変更の詳細については、「 [Sizing Options in the Windows Forms DataGridView Control](sizing-options-in-the-windows-forms-datagridview-control.md)」を参照してください。  
   
  次のコード例は、自動サイズ変更に使用できるオプションを示します。  
   
@@ -36,7 +36,7 @@ ms.locfileid: "65586629"
   
 - System、System.Drawing、および System.Windows.Forms の各アセンブリへの参照。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.DataGridView>
 - <xref:System.Windows.Forms.DataGridView.ColumnHeadersHeightSizeMode%2A?displayProperty=nameWithType>

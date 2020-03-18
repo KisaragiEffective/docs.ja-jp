@@ -8,14 +8,12 @@ helpviewer_keywords:
 - event wait handles [.NET Framework]
 - threading [.NET Framework], cross-process synchronization
 ms.assetid: 11ee0b38-d663-4617-b793-35eb6c64e9fc
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d9c90a3bd272b54d2884d013e62123dd67d836e3
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 80c90254978495a58d228c4302eda84d6165c800
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69960050"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73138072"
 ---
 # <a name="eventwaithandle"></a>EventWaitHandle
 <xref:System.Threading.EventWaitHandle> クラスを使用すると、スレッドは通知および通知の待機により、互いに通信できます。 イベント待機ハンドル (単にイベントとも呼ばれます) は、通知を受けて、1 つ以上の待機中のイベントを解放できる待機ハンドルです。 通知を受けると、イベント待機ハンドルは手動または自動でリセットされます。 <xref:System.Threading.EventWaitHandle> クラスは、ローカルのイベント待機ハンドル (ローカル イベント) または名前付きのシステム イベント待機ハンドル (名前付きのイベントまたはシステム イベント。すべてのプロセスから参照できます) を表すことができます。  
@@ -26,7 +24,7 @@ ms.locfileid: "69960050"
  ローカル イベント待機ハンドルと名前付きイベント待機ハンドルはどちらも、システム同期オブジェクトを使用します。これは <xref:Microsoft.Win32.SafeHandles.SafeWaitHandle> ラッパーによって保護されており、リソースが確実に解放されるようにします。 <xref:System.Threading.WaitHandle.Dispose%2A> メソッドを使用すると、オブジェクトを使い終わったらすぐにリソースを解放できます。  
   
 ## <a name="event-wait-handles-that-reset-automatically"></a>自動的にリセットされるイベント待機ハンドル  
- 自動リセット イベントを作成するには、<xref:System.Threading.EventWaitHandle> オブジェクトを作成するときに <xref:System.Threading.EventResetMode.AutoReset?displayProperty=nameWithType> を指定します。 その名前が示すとおり、この同期イベントは通知を受けたときに、単一の待機中のスレッドを解放した後、自動的にリセットされます。 イベントを通知するには、その <xref:System.Threading.EventWaitHandle.Set%2A> メソッドを呼び出します。  
+ 自動リセット イベントを作成するには、<xref:System.Threading.EventResetMode.AutoReset?displayProperty=nameWithType> オブジェクトを作成するときに <xref:System.Threading.EventWaitHandle> を指定します。 その名前が示すとおり、この同期イベントは通知を受けたときに、単一の待機中のスレッドを解放した後、自動的にリセットされます。 イベントを通知するには、その <xref:System.Threading.EventWaitHandle.Set%2A> メソッドを呼び出します。  
   
  通常、自動リセット イベントは、単一のスレッドのリソースに一度に排他アクセスを提供するために使用されます。 スレッドは、<xref:System.Threading.WaitHandle.WaitOne%2A> メソッドを呼び出してリソースを要求します。 他のスレッドに待機ハンドルがない場合、メソッドは `true` を返し、呼び出し元スレッドはリソースの制御権を持ちます。  
   
@@ -36,14 +34,14 @@ ms.locfileid: "69960050"
  自動リセット イベントが通知を受けたとき、待機中のスレッドがない場合は、スレッドが待機中になるまでシグナル状態のままです。 イベントはスレッドを解放してすぐにリセットされ、以降のスレッドをブロックします。  
   
 ## <a name="event-wait-handles-that-reset-manually"></a>手動でリセットされるイベント待機ハンドル  
- 手動リセット イベントを作成するには、<xref:System.Threading.EventWaitHandle> オブジェクトを作成するときに <xref:System.Threading.EventResetMode.ManualReset?displayProperty=nameWithType> を指定します。 その名前が示すとおり、この同期イベントは、通知を受けた後に手動でリセットする必要があります。 <xref:System.Threading.EventWaitHandle.Reset%2A> メソッドを呼び出してリセットするまで、イベント ハンドルを待っているスレッドはすぐに続行され、ブロックされません。  
+ 手動リセット イベントを作成するには、<xref:System.Threading.EventResetMode.ManualReset?displayProperty=nameWithType> オブジェクトを作成するときに <xref:System.Threading.EventWaitHandle> を指定します。 その名前が示すとおり、この同期イベントは、通知を受けた後に手動でリセットする必要があります。 <xref:System.Threading.EventWaitHandle.Reset%2A> メソッドを呼び出してリセットするまで、イベント ハンドルを待っているスレッドはすぐに続行され、ブロックされません。  
   
  手動リセット イベントは、家畜を飼う囲いのゲートのように動作します。 イベントが通知を受けないと、待機中のスレッドは囲いの中の馬のようにブロックされます。 イベントが通知を受けると、その <xref:System.Threading.EventWaitHandle.Set%2A> メソッドを呼び出して、すべての待機中のスレッドは自由に続行できます。 イベントは、その <xref:System.Threading.EventWaitHandle.Reset%2A> メソッドが呼び出されるまで、シグナル状態のままです。 これにより、手動リセット イベントは、1 つのスレッドがタスクを終えるまで待機させる必要のあるスレッドを保持する理想的な方法となっています。  
   
  馬が囲いから出るように、解放されたスレッドがオペレーティング システムによってスケジュールされ、実行が再開されるには時間がかかります。 すべてのスレッドの実行が再開される前に <xref:System.Threading.EventWaitHandle.Reset%2A> メソッドが呼び出された場合、残りのスレッドは再びブロックされます。 再開されるスレッドとブロックされるスレッドは、システム上の負荷や、スケジューラを待っているスレッドの数など、ランダムな要素によって異なります。 イベントを通知したスレッドが通知後に終了した場合 (これは最も一般的な使用パターンです)、これは問題ではありません。 すべての待機中のスレッドが再開された後で、イベントを通知したスレッドに新しいタスクを開始させる場合は、すべての待機中のスレッドが再開されるまで、そのスレッドをブロックする必要があります。 それ以外の場合は競合状態で、コードの動作は予測できません。  
   
 ## <a name="features-common-to-automatic-and-manual-events"></a>自動イベントと手動イベントの共通の機能  
- 通常、ブロックされていないスレッドが <xref:System.Threading.EventWaitHandle.Set%2A> メソッドを呼び出して、いずれかの待機中のスレッド (自動リセット イベントの場合) またはそれらすべて (手動リセット イベントの場合) を解放するまで、1 つ以上のスレッドが <xref:System.Threading.EventWaitHandle> でブロックします。 スレッドは、静的な <xref:System.Threading.WaitHandle.SignalAndWait%2A?displayProperty=nameWithType> メソッドを呼び出すことにより、<xref:System.Threading.EventWaitHandle> の通知とブロックを分割できない操作として行うことができます。  
+ 通常、ブロックされていないスレッドが <xref:System.Threading.EventWaitHandle> メソッドを呼び出して、いずれかの待機中のスレッド (自動リセット イベントの場合) またはそれらすべて (手動リセット イベントの場合) を解放するまで、1 つ以上のスレッドが <xref:System.Threading.EventWaitHandle.Set%2A> でブロックします。 スレッドは、静的な <xref:System.Threading.EventWaitHandle> メソッドを呼び出すことにより、<xref:System.Threading.WaitHandle.SignalAndWait%2A?displayProperty=nameWithType> の通知とブロックを分割できない操作として行うことができます。  
   
  <xref:System.Threading.EventWaitHandle> オブジェクトは、静的な <xref:System.Threading.WaitHandle.WaitAll%2A?displayProperty=nameWithType> および <xref:System.Threading.WaitHandle.WaitAny%2A?displayProperty=nameWithType> メソッドと共に使用できます。 <xref:System.Threading.EventWaitHandle> および <xref:System.Threading.Mutex> クラスはいずれも <xref:System.Threading.WaitHandle> から派生するため、両方のクラスをこれらのメソッドで使用できます。  
   
@@ -62,7 +60,7 @@ ms.locfileid: "69960050"
 > [!NOTE]
 > <xref:System.Threading.EventWaitHandle> クラスとは異なり、派生したクラスである <xref:System.Threading.AutoResetEvent> および <xref:System.Threading.ManualResetEvent> は、ローカルの待機ハンドルのみを表すことができます。 名前付きのシステム イベントを表すことはできません。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Threading.EventWaitHandle>
 - <xref:System.Threading.WaitHandle>

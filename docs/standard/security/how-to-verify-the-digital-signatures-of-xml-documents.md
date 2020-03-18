@@ -14,21 +14,19 @@ helpviewer_keywords:
 - XML digital signatures
 - digital signatures, verifying
 ms.assetid: a4d5ceb1-b9f5-47e8-9e4a-a2b39110002f
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 8be946a7d4937a00b8c1738735362c7cc0ecb163
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 5d562c23d3b0fd7eda5dc273932ada77709641a1
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64602549"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75706007"
 ---
 # <a name="how-to-verify-the-digital-signatures-of-xml-documents"></a>方法: XML ドキュメントのデジタル署名を検証する
 <xref:System.Security.Cryptography.Xml> 名前空間にあるクラスを使用すると、デジタル署名で署名された XML データを検証できます。 XML デジタル署名 (XMLDSIG) を使用すると、データが署名後に変更されなかったことを確認できます。 XMLDSIG 標準の詳細についてにある World Wide Web Consortium (W3C) 仕様を参照して <https://www.w3.org/TR/xmldsig-core/> です。
   
- この手順のコード例に含まれている XML デジタル署名を確認する方法を示します、<`Signature`> 要素。  この例では、キー コンテナーから RSA 公開キーを取得してから、キーを使用して署名を確認します。  
+ この手順のコード例では、<`Signature`> 要素に含まれている XML デジタル署名を検証する方法を示します。  この例では、キー コンテナーから RSA 公開キーを取得してから、キーを使用して署名を確認します。  
   
- この手法を使用して検証できるデジタル署名を作成する方法についてを参照してください。[方法。デジタル署名で XML ドキュメント](../../../docs/standard/security/how-to-sign-xml-documents-with-digital-signatures.md)します。  
+ この手法を使用して検証できるデジタル署名を作成する方法については、「[方法: デジタル署名で XML ドキュメントに署名](../../../docs/standard/security/how-to-sign-xml-documents-with-digital-signatures.md)する」を参照してください。  
   
 ### <a name="to-verify-the-digital-signature-of-an-xml-document"></a>XML ドキュメントのデジタル署名を検証するには  
   
@@ -52,12 +50,12 @@ ms.locfileid: "64602549"
      [!code-csharp[HowToVerifyXMLDocumentRSA#5](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToVerifyXMLDocumentRSA/cs/sample.cs#5)]
      [!code-vb[HowToVerifyXMLDocumentRSA#5](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToVerifyXMLDocumentRSA/vb/sample.vb#5)]  
   
-5. 検索、<`signature`> 要素を新規作成および<xref:System.Xml.XmlNodeList>オブジェクト。  
+5. `signature`> 要素を検索し、新しい <xref:System.Xml.XmlNodeList> オブジェクトを作成します。  
   
      [!code-csharp[HowToVerifyXMLDocumentRSA#6](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToVerifyXMLDocumentRSA/cs/sample.cs#6)]
      [!code-vb[HowToVerifyXMLDocumentRSA#6](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToVerifyXMLDocumentRSA/vb/sample.vb#6)]  
   
-6. 最初の XML を読み込む <`signature`> 要素に、<xref:System.Security.Cryptography.Xml.SignedXml>オブジェクト。  
+6. 最初の <`signature`> 要素の XML を <xref:System.Security.Cryptography.Xml.SignedXml> オブジェクトに読み込みます。  
   
      [!code-csharp[HowToVerifyXMLDocumentRSA#7](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToVerifyXMLDocumentRSA/cs/sample.cs#7)]
      [!code-vb[HowToVerifyXMLDocumentRSA#7](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToVerifyXMLDocumentRSA/vb/sample.vb#7)]  
@@ -67,13 +65,13 @@ ms.locfileid: "64602549"
      [!code-csharp[HowToVerifyXMLDocumentRSA#8](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToVerifyXMLDocumentRSA/cs/sample.cs#8)]
      [!code-vb[HowToVerifyXMLDocumentRSA#8](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToVerifyXMLDocumentRSA/vb/sample.vb#8)]  
   
-## <a name="example"></a>例  
- この例では、`"test.xml"` という名前のファイルがコンパイル済みのプログラムと同じディレクトリに存在することを前提としています。  `"test.xml"`で説明する手法を使用してファイルを署名する必要があります[方法。デジタル署名で XML ドキュメント](../../../docs/standard/security/how-to-sign-xml-documents-with-digital-signatures.md)します。  
+## <a name="example"></a>使用例  
+ この例では、`"test.xml"` という名前のファイルがコンパイル済みのプログラムと同じディレクトリに存在することを前提としています。  「[方法: デジタル署名で XML ドキュメントに署名](../../../docs/standard/security/how-to-sign-xml-documents-with-digital-signatures.md)する」で説明されている方法を使用して、`"test.xml"` ファイルに署名する必要があります。  
   
  [!code-csharp[HowToVerifyXMLDocumentRSA#1](../../../samples/snippets/csharp/VS_Snippets_CLR/HowToVerifyXMLDocumentRSA/cs/sample.cs#1)]
  [!code-vb[HowToVerifyXMLDocumentRSA#1](../../../samples/snippets/visualbasic/VS_Snippets_CLR/HowToVerifyXMLDocumentRSA/vb/sample.vb#1)]  
   
-## <a name="compiling-the-code"></a>コードのコンパイル  
+## <a name="compiling-the-code"></a>コードのコンパイル方法  
   
 - この例をコンパイルするには、`System.Security.dll` への参照を含める必要があります。  
   
@@ -87,4 +85,4 @@ ms.locfileid: "64602549"
 ## <a name="see-also"></a>関連項目
 
 - <xref:System.Security.Cryptography.Xml>
-- [方法: XML ドキュメントにデジタル署名を使用](../../../docs/standard/security/how-to-sign-xml-documents-with-digital-signatures.md)
+- [方法: デジタル署名で XML ドキュメントに署名する](../../../docs/standard/security/how-to-sign-xml-documents-with-digital-signatures.md)

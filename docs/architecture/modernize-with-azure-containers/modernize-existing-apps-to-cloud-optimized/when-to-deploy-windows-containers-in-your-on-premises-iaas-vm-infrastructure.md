@@ -1,21 +1,21 @@
 ---
 title: オンプレミスの IaaS VM インフラストラクチャで Windows コンテナーを展開するタイミング
-description: Azure クラウドおよび Windows コンテナーで既存の .NET アプリケーションを最新化する |オンプレミスの IaaS VM インフラストラクチャに Windows コンテナーを展開するタイミング
+description: Azure Cloud と Windows コンテナーで既存の .NET アプリケーションを最新化する | オンプレミス IaaS VM インフラストラクチャで Windows コンテナーをデプロイするタイミング
 ms.date: 04/28/2018
 ms.openlocfilehash: 5986073e295eeba5921a2d899b236c68a27251fd
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
-ms.translationtype: MT
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69577975"
 ---
 # <a name="when-to-deploy-windows-containers-in-your-on-premises-iaas-vm-infrastructure"></a>オンプレミスの IaaS VM インフラストラクチャで Windows コンテナーを展開するタイミング
 
-- 組織がクラウドに移行する準備ができていない可能性があります。または、ビジネス上の理由からクラウドに移行できない可能性があります。 しかし、お客様のデータセンターで Windows コンテナーを使用するメリットも得られます。
+- クラウドに移行する準備が組織でまだできていないかもしれません。あるいは、ビジネス上の理由からクラウドに移行できないのかもしれません。 それでも、自社のデータセンターで Windows コンテナーを利用することにはメリットがあります。
 
-- オンプレミスで使用されている他のアーティファクトがある場合、クラウドに移行しようとすると遅くなる可能性があります。 たとえば、オンプレミスの Windows Server Active Directory、またはその他のオンプレミス資産とのセキュリティまたは認証の依存関係などです。
+- その他の成果物がオンプレミスで使用されており、クラウドへの移行を試みるとき、それが作業を遅らせるかもしれません。 たとえば、オンプレミスの Windows Server Active Directory、またはその他のオンプレミス資産のセキュリティや認証の依存関係です。
 
-- 現在、Windows コンテナーの使用を開始すると、より良い立場からクラウドへの段階的な移行を行うことができます。 Windows コンテナーは、任意のクラウドの展開の単位になりつつあり、ロックインはありません。
+- Windows コンテナーの使用を今すぐ開始すれば、将来的には、より良い位置から段階的にクラウド移行できます。 Windows コンテナーはロックインがなく、あらゆるクラウドのデプロイ単位になりつつあります。
 
 >[!div class="step-by-step"]
 >[前へ](when-not-to-deploy-to-windows-containers.md)

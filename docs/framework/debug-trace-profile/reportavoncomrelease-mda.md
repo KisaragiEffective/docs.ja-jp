@@ -11,19 +11,17 @@ helpviewer_keywords:
 - report access violation on Com release
 - reference counting errors
 ms.assetid: a2b86b63-08b2-4943-b344-3c2cf46ccd31
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 0bea73a30cb103f0e72caf73a633229a0719dc6c
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: fca6b209e6432678a264f10762adb3871e3596ce
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052328"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217223"
 ---
 # <a name="reportavoncomrelease-mda"></a>reportAvOnComRelease MDA
 COM 相互運用を実行していて、COM の生呼び出しと組み合わせた `reportAvOnComRelease` または <xref:System.Runtime.InteropServices.Marshal.Release%2A> メソッドを使用しているときに、ユーザー参照カウントのエラーが原因で例外がスローされると、<xref:System.Runtime.InteropServices.Marshal.ReleaseComObject%2A> マネージド デバッグ アシスタント (MDA) がアクティブ化されます。  
   
-## <a name="symptoms"></a>症状  
+## <a name="symptoms"></a>現象  
  アクセス違反およびメモリ破損が発生します。  
   
 ## <a name="cause"></a>原因  
@@ -48,7 +46,7 @@ COM 相互運用を実行していて、COM の生呼び出しと組み合わせ
 </mdaConfig>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.InteropServices.MarshalAsAttribute>
 - [マネージド デバッグ アシスタントによるエラーの診断](diagnosing-errors-with-managed-debugging-assistants.md)

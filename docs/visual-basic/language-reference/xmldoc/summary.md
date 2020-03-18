@@ -1,18 +1,18 @@
 ---
-title: <summary> (Visual Basic)
+title: <summary>
 ms.date: 07/20/2015
 helpviewer_keywords:
 - <summary> XML tag
 - summary XML tag
 ms.assetid: 861c847d-dd94-478a-aa23-bf4899cdc848
-ms.openlocfilehash: 25a0b307756401bed4d4c77d3668c2af53ba8b42
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 3bc4393d2fa14f804c6383780e238b1ac2610a94
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524632"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74352198"
 ---
-# <a name="summary-visual-basic"></a>\<summary > (Visual Basic)
+# <a name="summary-visual-basic"></a>\<概要 > (Visual Basic)
 メンバーの概要を指定します。  
   
 ## <a name="syntax"></a>構文  
@@ -25,10 +25,10 @@ ms.locfileid: "72524632"
  `description`  
  オブジェクトの概要。  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
  型または型のメンバーを記述するには、`<summary>` タグを使用します。 型の説明に補足情報を追加するには、[\<remarks>](../../../visual-basic/language-reference/xmldoc/remarks.md) タグを使用します。  
   
- @No__t_0 タグのテキストは、IntelliSense の型に関する唯一の情報源であり、オブジェクトブラウザーにも表示されます。 オブジェクトブラウザーの詳細については、「[コードの構造の表示](/visualstudio/ide/viewing-the-structure-of-code)」を参照してください。  
+ `<summary>` タグのテキストは、IntelliSense の型に関する唯一の情報源であり、オブジェクトブラウザーにも表示されます。 オブジェクトブラウザーの詳細については、「[コードの構造の表示](/visualstudio/ide/viewing-the-structure-of-code)」を参照してください。  
   
  コンパイル時に [-doc](../../../visual-basic/reference/command-line-compiler/doc.md) を指定して、ドキュメント コメントをファイルに出力します。  
   
@@ -37,6 +37,6 @@ ms.locfileid: "72524632"
   
  [!code-vb[VbVbcnXmlDocComments#1](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnXmlDocComments/VB/Class1.vb#1)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [XML のコメント用タグ](../../../visual-basic/language-reference/xmldoc/index.md)

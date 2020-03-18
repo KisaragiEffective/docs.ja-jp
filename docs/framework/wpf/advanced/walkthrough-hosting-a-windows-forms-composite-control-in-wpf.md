@@ -1,5 +1,6 @@
 ---
-title: 'チュートリアル: WPF での Windows フォーム複合コントロールのホスト'
+title: WPF で Windows フォーム複合コントロールをホストする
+titleSuffix: ''
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,15 +9,15 @@ helpviewer_keywords:
 - hosting Windows Forms control in WPF [WPF]
 - composite controls [WPF], hosting in WPF
 ms.assetid: 96fcd78d-1c77-4206-8928-3a0579476ef4
-ms.openlocfilehash: e30b1bb45cc2dae2783cddf54dda400b742cdf73
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: 22eb323d1c1921832630d1d1b30463b4ecb7d1fd
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920330"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76794228"
 ---
 # <a name="walkthrough-hosting-a-windows-forms-composite-control-in-wpf"></a>チュートリアル: WPF での Windows フォーム複合コントロールのホスト
-[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] は、アプリケーションの作成に適した環境を提供します。 ただし [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] コードに多大な投資をしている場合は、最初から書き換えるのではなく、少なくともそのコードの一部を [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションで再利用する方が効率的な場合があります。 最も一般的なシナリオは、既存の Windows フォームコントロールがある場合です。 場合によっては、これらのコントロールのソースコードにアクセスできないこともあります。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] には、このようなコントロールを [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションでホストするための簡単な手順が用意されています。 たとえば、特殊な <xref:System.Windows.Forms.DataGridView> コントロールをホストしているときに、ほとんどのプログラミングで [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] を使用できます。  
+[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] は、アプリケーションの作成に適した環境を提供します。 ただし Windows フォームコードに多大な投資をしている場合は、最初から書き換えるのではなく、少なくともそのコードの一部を [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションで再利用する方が効率的な場合があります。 最も一般的なシナリオは、既存の Windows フォームコントロールがある場合です。 場合によっては、これらのコントロールのソースコードにアクセスできないこともあります。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] には、このようなコントロールを [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションでホストするための簡単な手順が用意されています。 たとえば、特殊な <xref:System.Windows.Forms.DataGridView> コントロールをホストしているときに、ほとんどのプログラミングで [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] を使用できます。  
   
  このチュートリアルでは、Windows フォーム複合コントロールをホストし、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションでデータ入力を実行するアプリケーションについて説明します。 複合コントロールは DLL にパッケージ化されています。 この一般的な手順は、より複雑なアプリケーションやコントロールに拡張することができます。 このチュートリアルは、 [「チュートリアル: Windows フォームでの WPF 複合コントロールのホスト](walkthrough-hosting-a-wpf-composite-control-in-windows-forms.md)」と同様の外観と機能を持つように設計されています。 主な違いは、ホストする側とされる側が逆であることです。  
   
@@ -30,7 +31,7 @@ ms.locfileid: "72920330"
   
  このチュートリアルで示すタスクの完全なコード一覧については、「 [WPF での Windows フォーム複合コントロールのホスト](https://go.microsoft.com/fwlink/?LinkID=159999)」のサンプルを参照してください。  
   
-## <a name="prerequisites"></a>必要条件  
+## <a name="prerequisites"></a>Prerequisites  
 
 このチュートリアルを完了するには Visual Studio が必要です。
   
@@ -58,7 +59,7 @@ ms.locfileid: "72920330"
   
  プロジェクトは、以下のシステム DLL を参照している必要があります。 これらの Dll のいずれかが既定で含まれていない場合は、プロジェクトに追加します。  
   
-- システム  
+- System  
   
 - System.Data  
   
@@ -242,6 +243,6 @@ using MyControls;
 
 - <xref:System.Windows.Forms.Integration.ElementHost>
 - <xref:System.Windows.Forms.Integration.WindowsFormsHost>
-- [Visual Studio で XAML をデザインする](/visualstudio/designers/designing-xaml-in-visual-studio)
+- [Visual Studio で XAML をデザインする](/visualstudio/xaml-tools/designing-xaml-in-visual-studio)
 - [チュートリアル: WPF での Windows フォーム コントロールのホスト](walkthrough-hosting-a-windows-forms-control-in-wpf.md)
 - [チュートリアル: Windows フォームでの WPF 複合コントロールのホスト](walkthrough-hosting-a-wpf-composite-control-in-windows-forms.md)

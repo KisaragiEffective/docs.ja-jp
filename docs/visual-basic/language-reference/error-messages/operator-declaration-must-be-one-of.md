@@ -1,5 +1,5 @@
 ---
-title: '演算子の宣言は、のいずれかを指定する必要があります: +、-、*、-、-、^、&amp;などの Mod、Or、Xor、Not、<<>>、、<> を =、<、< =、>、> =、CType、IsTrue、または IsFalse'
+title: "'演算子宣言は次のいずれかでなければなりません: +、-、*、\\\\、/、^、&amp;、Like、Mod、And、Or、Xor、Not、<<、>>、=、<>、<、<=、>、 >=、CType、IsTrue、または IsFalse'"
 ms.date: 07/20/2015
 f1_keywords:
 - bc33000
@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61946602"
 ---
-# <a name="operator-declaration-must-be-one-of----amp-like-mod-and-or-xor-not--"></a>演算子の宣言は、のいずれかを指定する必要があります: +、-、*、\,/、^、&amp;などの Mod、Or、Xor、Not、 \< \<、>>.
+# <a name="operator-declaration-must-be-one-of----amp-like-mod-and-or-xor-not--"></a>演算子宣言は次のいずれかでなければなりません: +、-、*、\,、/、^、&amp;、Like、Mod、And、Or、Xor、Not、\<\<、>>、=、\<>、\<、\<=、>、 >=、CType、
 オーバー ロードできるは、演算子のみを宣言できます。 次の表は、演算子を宣言することができます。  
   
 |型|演算子|  
@@ -37,6 +37,6 @@ ms.locfileid: "61946602"
 
 - [Operator ステートメント](../../../visual-basic/language-reference/statements/operator-statement.md)
 - [演算子プロシージャ](../../../visual-basic/programming-guide/language-features/procedures/operator-procedures.md)
-- [方法: 演算子を定義します。](../../../visual-basic/programming-guide/language-features/procedures/how-to-define-an-operator.md)
-- [方法: 変換演算子を定義します。](../../../visual-basic/programming-guide/language-features/procedures/how-to-define-a-conversion-operator.md)
+- [方法: 演算子を定義する](../../../visual-basic/programming-guide/language-features/procedures/how-to-define-an-operator.md)
+- [方法: 変換演算子を定義する](../../../visual-basic/programming-guide/language-features/procedures/how-to-define-a-conversion-operator.md)
 - [Function ステートメント](../../../visual-basic/language-reference/statements/function-statement.md)

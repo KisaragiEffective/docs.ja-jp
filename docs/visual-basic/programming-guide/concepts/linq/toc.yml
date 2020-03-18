@@ -65,7 +65,7 @@
           href: how-to-query-for-sentences-that-contain-a-specified-set-of-words.md
         - name: '方法: 文字列内の文字をクエリする (LINQ)'
           href: how-to-query-for-characters-in-a-string-linq.md
-        - name: '方法: LINQ クエリと正規表現を組み合わせる'
+        - name: LINQ クエリと正規表現を組み合わせる方法
           href: how-to-combine-linq-queries-with-regular-expressions.md
         - name: '方法: 2 つのリストの差集合を見つける (LINQ)'
           href: how-to-find-the-set-difference-between-two-lists-linq.md
@@ -103,7 +103,7 @@
           href: how-to-query-for-the-largest-file-or-files-in-a-directory-tree.md
         - name: '方法: ディレクトリ ツリーで重複するファイルをクエリする (LINQ)'
           href: how-to-query-for-duplicate-files-in-a-directory-tree-linq.md
-        - name: '方法: フォルダー内のファイルの内容を照会する (LINQ)'
+        - name: フォルダー内のファイルの内容を照会する方法 (LINQ)
           href: how-to-query-the-contents-of-files-in-a-folder-linq.md
         - name: '方法: LINQ を使用して ArrayList を照会する'
           href: how-to-query-an-arraylist-with-linq.md

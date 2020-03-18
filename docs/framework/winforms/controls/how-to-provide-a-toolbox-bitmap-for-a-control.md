@@ -1,5 +1,5 @@
 ---
-title: '方法: コントロールにツールボックス ビットマップを指定する'
+title: '方法 : コントロールにツールボックス ビットマップを指定する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -9,25 +9,25 @@ helpviewer_keywords:
 - custom controls [Windows Forms], Toolbox bitmaps
 - bitmaps [Windows Forms], custom controls
 ms.assetid: 0ed0840a-616d-41ba-a27d-3573241932ad
-author: gewarren
-ms.author: gewarren
+author: jillre
+ms.author: jillfra
 manager: jillfra
-ms.openlocfilehash: e6da7318ba481af721a9220c8f71af2a18e764a3
-ms.sourcegitcommit: 121ab70c1ebedba41d276e436dd2b1502748a49f
+ms.openlocfilehash: 61f60aaeab904dff80408a1dc46c2882fb5e22b9
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70015787"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73458314"
 ---
-# <a name="how-to-provide-a-toolbox-bitmap-for-a-control"></a>方法: コントロールにツールボックス ビットマップを指定する
+# <a name="how-to-provide-a-toolbox-bitmap-for-a-control"></a>方法 : コントロールにツールボックス ビットマップを指定する
 
-コントロールの特殊なアイコンを Visual Studio の**ツールボックス**に表示する場合は、 <xref:System.Drawing.ToolboxBitmapAttribute>を使用して特定のイメージを指定できます。 このクラスは"*属性*"であり、他のクラスに追加できる特殊なクラスです。 属性の詳細については、[属性の概要 (Visual Basic)](../../../visual-basic/programming-guide/concepts/attributes/index.md)(Visual basic)  または、[属性 (C#)](../../../csharp/programming-guide/concepts/attributes/index.md) (C#) を参照してください。
+コントロールの特殊なアイコンを Visual Studio の**ツールボックス**に表示する場合は、<xref:System.Drawing.ToolboxBitmapAttribute>を使用して特定のイメージを指定できます。 このクラスは "*属性*" であり、他のクラスに追加できる特殊なクラスです。 属性の詳細につい[てはC#、「」の「](../../../csharp/programming-guide/concepts/attributes/index.md)属性 Visual Basic の[概要 (Visual Basic)](../../../visual-basic/programming-guide/concepts/attributes/index.md) 」を参照C#してください。
 
-を使用すると、16x16ピクセルのビットマップのパスとファイル名を示す文字列を指定できます。<xref:System.Drawing.ToolboxBitmapAttribute> コントロールを**ツールボックス**に追加すると、このビットマップがコントロールの横に表示されます。 また、を指定<xref:System.Type>することもできます。この場合、その型に関連付けられているビットマップが読み込まれます。 <xref:System.Type>と文字列の両方を指定した場合、コントロールは、 <xref:System.Type>パラメーターで指定された型を含むアセンブリ内の文字列パラメーターで指定された名前を持つイメージリソースを検索します。
+<xref:System.Drawing.ToolboxBitmapAttribute>を使用すると、16 x 16 ピクセルのビットマップのパスとファイル名を示す文字列を指定できます。 コントロールを**ツールボックス**に追加すると、このビットマップがコントロールの横に表示されます。 また、<xref:System.Type>を指定することもできます。この場合、その型に関連付けられているビットマップが読み込まれます。 <xref:System.Type> と文字列の両方を指定した場合、コントロールは、<xref:System.Type> パラメーターで指定された型を含むアセンブリの文字列パラメーターで指定された名前を持つイメージリソースを検索します。
 
 ## <a name="to-specify-a-toolbox-bitmap-for-your-control"></a>コントロールのツールボックス ビットマップを指定するには
 
-1. <xref:System.Drawing.ToolboxBitmapAttribute>を、コントロールのクラス宣言の Visual Basic の `Class`キーワードの前、および Visual C# のクラス宣言の上に追加します。
+1. Visual Basic の `Class` キーワードの前、およびビジュアルC#のクラス宣言の上にある、コントロールのクラス宣言に <xref:System.Drawing.ToolboxBitmapAttribute> を追加します。
 
     ```vb
     ' Specifies the bitmap associated with the Button type.
@@ -65,12 +65,12 @@ ms.locfileid: "70015787"
 2. プロジェクトをリビルドします。
 
     > [!NOTE]
-    > ビットマップは、自動生成されたコントロールとコンポーネントのツールボックスには表示されません。 ビットマップを表示するには、 **[ツールボックス アイテムの選択]** ダイアログ ボックスを使用してコントロールを再読み込みします。 詳細については、「[チュートリアル:ツールボックスにカスタムコンポーネント](walkthrough-automatically-populating-the-toolbox-with-custom-components.md)を自動的に設定します。
+    > ビットマップは、自動生成されたコントロールとコンポーネントのツールボックスには表示されません。 ビットマップを表示するには、 **[ツールボックス アイテムの選択]** ダイアログ ボックスを使用してコントロールを再読み込みします。 詳細については、「[チュートリアル: ツールボックスへのカスタム コンポーネントの自動設定](walkthrough-automatically-populating-the-toolbox-with-custom-components.md)」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 
 - <xref:System.Drawing.ToolboxBitmapAttribute>
-- [チュートリアル: ツールボックスへのカスタムコンポーネントの自動設定](walkthrough-automatically-populating-the-toolbox-with-custom-components.md)
+- [チュートリアル: ツールボックスへのカスタム コンポーネントの自動設定](walkthrough-automatically-populating-the-toolbox-with-custom-components.md)
 - [デザイン時の Windows フォーム コントロールの開発](developing-windows-forms-controls-at-design-time.md)
 - [属性の概要 (Visual Basic)](../../../visual-basic/programming-guide/concepts/attributes/index.md)
 - [属性 (C#)](../../../csharp/programming-guide/concepts/attributes/index.md)

@@ -1,48 +1,73 @@
 ---
 title: シーケンス
 description: シーケンスを使用F#する方法について説明します。データの大きな順序で並べ替えられたコレクションがあり、必ずしもすべての要素を使用するとは限りません。
-ms.date: 02/19/2019
-ms.openlocfilehash: 63e878c2c11db25a08d449070ab779a6e6a2c2eb
-ms.sourcegitcommit: 56f1d1203d0075a461a10a301459d3aa452f4f47
+ms.date: 11/04/2019
+ms.openlocfilehash: 34e03f1cead0a9f678f637afcb6c8397ef7572bc
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71216762"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73971442"
 ---
 # <a name="sequences"></a>シーケンス
 
 > [!NOTE]
 > この記事の API リファレンスのリンクをクリックすると MSDN に移動します。  docs.microsoft.com API リファレンスは完全ではありません。
 
-*シーケンス*は、すべて1つの型からなる論理的な一連の要素です。 シーケンスは、大量の順序付けられたデータのコレクションがあり、すべての要素を使用するとは限らない場合に特に便利です。 個々のシーケンス要素は必要に応じてのみ計算されるので、すべての要素が使用されるわけではありません。 シーケンスは、の`seq<'T>` `System.Collections.Generic.IEnumerable`エイリアスである型によって表されます。 したがって、を実装`System.IEnumerable`するすべての .NET Framework 型をシーケンスとして使用できます。 [Seq モジュール](https://msdn.microsoft.com/library/54e8f059-ca52-4632-9ae9-49685ee9b684)は、シーケンスに関連する操作のサポートを提供します。
+*シーケンス*は、すべて1つの型からなる論理的な一連の要素です。 シーケンスは、大量の順序付けられたデータのコレクションがあり、すべての要素を使用するとは限らない場合に特に便利です。 個々のシーケンス要素は必要に応じてのみ計算されるので、すべての要素が使用されるわけではありません。 シーケンスは、<xref:System.Collections.Generic.IEnumerable%601>のエイリアスである `seq<'T>` 型によって表されます。 したがって、<xref:System.Collections.Generic.IEnumerable%601> インターフェイスを実装するすべての .NET 型をシーケンスとして使用できます。 [Seq モジュール](https://msdn.microsoft.com/library/54e8f059-ca52-4632-9ae9-49685ee9b684)は、シーケンスに関連する操作のサポートを提供します。
 
 ## <a name="sequence-expressions"></a>シーケンス式
 
-*シーケンス式*は、シーケンスに評価される式です。 シーケンス式は、さまざまな形式を取ることができます。 最も単純な形式は範囲を指定します。 たとえば、は`seq { 1 . 5 }` 、エンドポイント1と5を含む5つの要素を含むシーケンスを作成します。 2つの2つの期間の間にインクリメント (またはデクリメント) を指定することもできます。 たとえば、次のコードでは、10の倍数のシーケンスが作成されます。
+*シーケンス式*は、シーケンスに評価される式です。 シーケンス式は、さまざまな形式を取ることができます。 最も単純な形式は範囲を指定します。 たとえば、`seq { 1 .. 5 }` は、エンドポイント1と5を含む5つの要素を含むシーケンスを作成します。 2つの2つの期間の間にインクリメント (またはデクリメント) を指定することもできます。 たとえば、次のコードでは、10の倍数のシーケンスが作成されます。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1502.fs)]
 
-シーケンス式は、シーケンスのF#値を生成する式で構成されます。 `yield`キーワードを使用して、シーケンスの一部となる値を生成できます。
-
-次に例を示します。
+シーケンス式は、シーケンスのF#値を生成する式で構成されます。 プログラムで値を生成することもできます。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1503.fs)]
 
-次の例に`->`示すように`yield`、の代わりに演算子を使用する`do`ことができます。その場合は、キーワードを省略できます。
+前のサンプルでは、`->` 演算子を使用しています。これにより、値がシーケンスの一部になる式を指定できます。 `->` は、その後に続くコードのすべての部分が値を返す場合にのみ使用できます。
+
+または、次に示すオプションの `yield` を使用して、`do` キーワードを指定することもできます。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1504.fs)]
 
-次のコードでは、グリッドを表す配列へのインデックスと共に、座標ペアのリストが生成されます。
+次のコードでは、グリッドを表す配列へのインデックスと共に、座標ペアのリストが生成されます。 最初の `for` 式では、`do` を指定する必要があることに注意してください。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1505.fs)]
 
-シーケンスで使用される式は、フィルターです。`if` たとえば、型`isprime` `int -> bool`の関数があると仮定して、素数だけのシーケンスを生成するには、次のようにシーケンスを作成します。
+シーケンスで使用される `if` 式は、フィルターです。 たとえば、`int -> bool`型の関数 `isprime` があると仮定して、素数のみのシーケンスを生成するには、次のようにシーケンスを構築します。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1506.fs)]
 
-反復処理で`yield`また`->`はを使用する場合、各反復処理では、シーケンスの1つの要素が生成されます。 各反復処理で要素のシーケンスが生成さ`yield!`れる場合は、を使用します。 その場合、各反復処理で生成された要素が連結され、最終的なシーケンスが生成されます。
+前に説明したように、ここでは `do` が必要です。 `if`を持つ `else` 分岐が存在しないためです。 `->`を使用しようとすると、すべてのブランチが値を返すわけではないというエラーが表示されます。
 
-シーケンス式では、複数の式を組み合わせることができます。 各式によって生成される要素は、連結されます。 例については、このトピックの「例」のセクションを参照してください。
+## <a name="the-yield-keyword"></a>`yield!` キーワード
+
+場合によっては、要素のシーケンスを別のシーケンスに含めることが必要になることがあります。 シーケンスを別のシーケンス内に含めるには、`yield!` キーワードを使用する必要があります。
+
+```fsharp
+// Repeats '1 2 3 4 5' ten times
+seq {
+    for _ in 1..10 do
+        yield! seq { 1; 2; 3; 4; 5}
+}
+```
+
+`yield!` を検討するもう1つの方法は、内部シーケンスを平坦化し、それを含んでいるシーケンスに含めることです。
+
+`yield!` が式で使用されている場合、他のすべての単一の値では `yield` キーワードを使用する必要があります。
+
+```fsharp
+// Combine repeated values with their values
+seq {
+    for x in 1..10 do
+        yield x
+        yield! seq { for i in 1..x -> i}
+}
+```
+
+前の例で `x` だけを指定すると、シーケンスに値が生成されなくなります。
 
 ## <a name="examples"></a>使用例
 
@@ -50,11 +75,11 @@ ms.locfileid: "71216762"
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1507.fs)]
 
-次のコードで`yield`は、を使用して、3つの要素の組で構成される乗算テーブルを作成します。各要素は2つの要素と製品で構成されています。
+次の例では、3つの要素の組で構成される乗算テーブルを作成します。各要素は2つの要素と製品で構成されています。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1508.fs)]
 
-次の例では、を`yield!`使用して個々のシーケンスを1つの最終シーケンスに結合する方法を示します。 この場合、バイナリツリー内の各サブツリーのシーケンスは、最後のシーケンスを生成するために再帰関数で連結されます。
+次の例では、`yield!` を使用して、個々のシーケンスを1つの最終シーケンスに結合する方法を示します。 この場合、バイナリツリー内の各サブツリーのシーケンスは、最後のシーケンスを生成するために再帰関数で連結されます。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet1509.fs)]
 
@@ -62,7 +87,7 @@ ms.locfileid: "71216762"
 
 シーケンスは、[リスト](lists.md)と同じ機能の多くをサポートします。 シーケンスは、キー生成関数を使用したグループ化やカウントなどの操作もサポートします。 シーケンスは、サブシーケンスを抽出するためのさまざまな関数もサポートします。
 
-リスト、配列、セット、マップなどの多くのデータ型は、列挙可能なコレクションであるため、暗黙的にシーケンスされます。 シーケンスを引数として受け取る関数は、を実装F# `System.Collections.Generic.IEnumerable<'T>`する任意の .NET Framework データ型に加えて、任意の共通データ型に対して機能します。 リストを引数として受け取る関数と比較します。この関数はリストを受け取ることしかできません。 型`seq<'T>`は、の`IEnumerable<'T>`型略称です。 これは、ジェネリック`System.Collections.Generic.IEnumerable<'T>`を実装する任意の型 (配列、リスト、セット、マップF#など) と、.NET Framework コレクション型のほとんどが`seq`型と互換性があり、シーケンスが必要な場合に使用できることを意味します.
+リスト、配列、セット、マップなどの多くのデータ型は、列挙可能なコレクションであるため、暗黙的にシーケンスされます。 引数としてシーケンスを受け取る関数は、`System.Collections.Generic.IEnumerable<'T>`を実装するすべてF#の .net データ型に加えて、共通のデータ型のいずれかで動作します。 リストを引数として受け取る関数と比較します。この関数はリストを受け取ることしかできません。 型 `seq<'T>` は `IEnumerable<'T>`の型略称です。 これは、のF#配列、リスト、セット、マップを含むジェネリック `System.Collections.Generic.IEnumerable<'T>`を実装する型、およびほとんどの .net コレクション型は、`seq` の型と互換性があり、シーケンスが必要な場合に使用できることを意味します。
 
 ## <a name="module-functions"></a>モジュール関数
 
@@ -90,7 +115,7 @@ ms.locfileid: "71216762"
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet11.fs)]
 
-[Seq. cast](https://msdn.microsoft.com/library/1d087db3-a8b2-41dd-8ddc-227544529334)を使用すると、で`System.Collections`定義されているような、弱く型指定されたコレクションからシーケンスを作成できます。 このように弱く型指定され`System.Object`たコレクションには要素型があり、 `System.Collections.Generic.IEnumerable&#96;1`非ジェネリック型を使用して列挙されます。 次の`Seq.cast`コードは、を使用してを`System.Collections.ArrayList`シーケンスに変換する方法を示しています。
+[Seq](https://msdn.microsoft.com/library/1d087db3-a8b2-41dd-8ddc-227544529334)を使用することにより、`System.Collections`で定義されているような、弱く型指定されたコレクションからシーケンスを作成できます。 このように弱い型指定のコレクションには `System.Object` 要素型があり、非ジェネリック `System.Collections.Generic.IEnumerable&#96;1` 型を使用して列挙されます。 次のコードは、`Seq.cast` を使用して `System.Collections.ArrayList` をシーケンスに変換する方法を示しています。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet12.fs)]
 
@@ -98,7 +123,7 @@ ms.locfileid: "71216762"
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet13.fs)]
 
-[Seq](https://msdn.microsoft.com/library/7d9232fc-742e-42bc-bdf7-6f130f0eff21)は、状態を受け取るコンピュテーション関数からシーケンスを生成し、シーケンス内の後続の各要素を生成するように変換します。 状態は、各要素を計算するために使用される値であり、各要素が計算されるたびに変更できます。 の2番目`Seq.unfold`の引数は、シーケンスを開始するために使用される初期値です。 `Seq.unfold`状態にオプションの種類を使用します。これにより、 `None`値を返すことによってシーケンスを終了できます。 次のコードは、 `seq1` `unfold`操作によって生成`fib`されるシーケンス (と) の2つの例を示しています。 1つ目`seq1`のは、数が20までの単純なシーケンスです。 2番目`fib`のは`unfold` 、を使用してフィボナッチシーケンスを計算します。 フィボナッチシーケンス内の各要素は前の2つのフィボナッチ数の合計であるため、状態の値は、シーケンス内の前の2つの数値で構成される組になります。 初期値は、 `(1,1)`シーケンスの最初の2つの数値です。
+[Seq](https://msdn.microsoft.com/library/7d9232fc-742e-42bc-bdf7-6f130f0eff21)は、状態を受け取るコンピュテーション関数からシーケンスを生成し、シーケンス内の後続の各要素を生成するように変換します。 状態は、各要素を計算するために使用される値であり、各要素が計算されるたびに変更できます。 `Seq.unfold` の2番目の引数は、シーケンスを開始するために使用される初期値です。 `Seq.unfold` では、状態にオプションの種類を使用します。これにより、`None` 値を返すことによってシーケンスを終了できます。 次のコードは、`unfold` 操作によって生成される、`seq1` と `fib`のシーケンスの2つの例を示しています。 1つ目の `seq1`は、数が20までの単純なシーケンスです。 2番目の `fib`では、`unfold` を使用してフィボナッチシーケンスを計算します。 フィボナッチシーケンス内の各要素は前の2つのフィボナッチ数の合計であるため、状態の値は、シーケンス内の前の2つの数値で構成される組になります。 初期値は `(1,1)`、シーケンスの最初の2つの数値です。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet14.fs)]
 
@@ -120,38 +145,38 @@ The sequence fib contains Fibonacci numbers.
 
 ## <a name="searching-and-finding-elements"></a>要素の検索と検索
 
-シーケンスは、リストで使用できる機能をサポートしています。[Seq.exists](https://msdn.microsoft.com/library/428c97bf-599d-4c39-a5b9-f8717c198ad1)、[Seq.exists2](https://msdn.microsoft.com/library/efdf14a4-27f7-4dc1-9281-52639e66d565)、[Seq.find](https://msdn.microsoft.com/library/02c21ecd-97e5-4e99-a4c1-b4d0b730b7d8)、[Seq.findIndex](https://msdn.microsoft.com/library/96dfe86b-df15-4d92-8316-7cd6055e09f3)、[Seq.pick](https://msdn.microsoft.com/library/a87bc771-55f7-43f9-94f9-33d8f9bf325d)、[Seq.tryFind](https://msdn.microsoft.com/library/ac43c6f5-4dc7-4e9a-a222-00b5736aee47)、および [Seq.tryFindIndex](https://msdn.microsoft.com/library/c357b221-edf6-4f68-bf40-82a3156d945a)を参照してください。 シーケンスで使用できるこれらの関数のバージョンによって、シーケンスは検索対象の要素までのみ評価されます。 例については、「[リスト](https://msdn.microsoft.com/library/83102799-f251-42e1-93ef-64232e8c5b1d)」を参照してください。
+シーケンスは、リストで使用できる機能をサポートし[ています](https://msdn.microsoft.com/library/428c97bf-599d-4c39-a5b9-f8717c198ad1)。 [list.exists2](https://msdn.microsoft.com/library/efdf14a4-27f7-4dc1-9281-52639e66d565)、 [seq、Seq](https://msdn.microsoft.com/library/02c21ecd-97e5-4e99-a4c1-b4d0b730b7d8)、seq。 [findindex](https://msdn.microsoft.com/library/96dfe86b-df15-4d92-8316-7cd6055e09f3) [、Seq](https://msdn.microsoft.com/library/a87bc771-55f7-43f9-94f9-33d8f9bf325d). [tryfind](https://msdn.microsoft.com/library/ac43c6f5-4dc7-4e9a-a222-00b5736aee47)、および[seq. tryfindindex](https://msdn.microsoft.com/library/c357b221-edf6-4f68-bf40-82a3156d945a)。 シーケンスで使用できるこれらの関数のバージョンによって、シーケンスは検索対象の要素までのみ評価されます。 例については、「[リスト](https://msdn.microsoft.com/library/83102799-f251-42e1-93ef-64232e8c5b1d)」を参照してください。
 
 ## <a name="obtaining-subsequences"></a>サブシーケンスの取得
 
 [Seq. filter](https://msdn.microsoft.com/library/7f2e9850-a660-460c-9831-3bbff5613770)と[seq. choose](https://msdn.microsoft.com/library/63b83b06-4b24-4239-bf69-a2c12d891395)は、リストで使用できる対応する関数と似ています。ただし、フィルター処理と選択は、シーケンス要素が評価されるまで発生しません。
 
-[Seq. truncate](https://msdn.microsoft.com/library/1892dfeb-308e-45e2-857a-3c3405d02244)は、別のシーケンスからシーケンスを作成しますが、シーケンスは指定した数の要素に制限されます。 [Seq. take](https://msdn.microsoft.com/library/6e75f701-640b-4c4a-9d63-4313fc090596)は、シーケンスの先頭から指定された数の要素のみを含む新しいシーケンスを作成します。 指定した数よりも多い要素がシーケンス内にある場合`Seq.take` 、は`System.InvalidOperationException`をスローします。 との違いは`Seq.truncate` 、要素`Seq.truncate`の数が指定した数よりも小さい場合、はエラーを生成しないという点です。 `Seq.take`
+[Seq. truncate](https://msdn.microsoft.com/library/1892dfeb-308e-45e2-857a-3c3405d02244)は、別のシーケンスからシーケンスを作成しますが、シーケンスは指定した数の要素に制限されます。 [Seq. take](https://msdn.microsoft.com/library/6e75f701-640b-4c4a-9d63-4313fc090596)は、シーケンスの先頭から指定された数の要素のみを含む新しいシーケンスを作成します。 指定した数よりも多くの要素がシーケンス内にある場合、`Seq.take` は `System.InvalidOperationException`をスローします。 `Seq.take` と `Seq.truncate` の違いは、要素の数が指定した数よりも小さい場合、`Seq.truncate` によってエラーが生成されないことです。
 
-次のコードは、との動作との`Seq.truncate`違い`Seq.take`を示しています。
+次のコードは、`Seq.truncate` と `Seq.take`の動作を示しています。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet16.fs)]
 
 エラーが発生する前の出力は次のとおりです。
 
 ```console
-1 4 9 16 25 
-1 4 9 16 25 36 49 64 81 100 
-1 4 9 16 25 
+1 4 9 16 25
+1 4 9 16 25 36 49 64 81 100
+1 4 9 16 25
 1 4 9 16 25 36 49 64 81 100
 ```
 
-Seq を使用することにより、述語関数 (ブール関数) を指定し、述語がある元のシーケンスの要素で構成さ`true`れた別のシーケンスのシーケンスを作成し、最初の要素の前に停止することができ[ます。](https://msdn.microsoft.com/library/19eea4ce-66e0-4353-b015-72eb03421d92)述語が返さ`false`れる。 [Seq. skip](https://msdn.microsoft.com/library/b4eb3f08-8594-4d17-8180-852c6c688bf1)は、指定された数の別のシーケンスの最初の要素をスキップし、残りの要素を返すシーケンスを返します。 [Seq. skipwhile](https://msdn.microsoft.com/library/fb729021-2a3c-430f-83c3-0b37526f1a16)は、述語がを返し`true`た限り、別のシーケンスの最初の要素をスキップし、残りの要素を返すシーケンスを返します。このシーケンスは、述語が返す`false`最初の要素から始まります.
+Seq を使用することにより、述語関数 (ブール関数) を指定し、述語を `true`元のシーケンスの要素で構成される別のシーケンスからシーケンスを作成し、の最初の要素の前に停止し[ます。](https://msdn.microsoft.com/library/19eea4ce-66e0-4353-b015-72eb03421d92)述語から `false`が返されます。 [Seq. skip](https://msdn.microsoft.com/library/b4eb3f08-8594-4d17-8180-852c6c688bf1)は、指定された数の別のシーケンスの最初の要素をスキップし、残りの要素を返すシーケンスを返します。 [Seq. skipWhile](https://msdn.microsoft.com/library/fb729021-2a3c-430f-83c3-0b37526f1a16)は、述語が `true`返す限り、別のシーケンスの最初の要素をスキップし、残りの要素を返すシーケンスを返します。これは、述語が `false`返す最初の要素から始まります。
 
-次のコード例は、の動作と`Seq.takeWhile`、 `Seq.skip`、、および`Seq.skipWhile`の違いを示しています。
+次のコード例は、の動作と、`Seq.takeWhile`、`Seq.skip`、および `Seq.skipWhile`の違いを示しています。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet17.fs)]
 
 出力は次のとおりです。
 
 ```console
-1 4 9 
-36 49 64 81 100 
+1 4 9
+36 49 64 81 100
 16 25 36 49 64 81 100
 ```
 
@@ -161,9 +186,9 @@ Seq を使用することにより、述語関数 (ブール関数) を指定し
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet18.fs)]
 
-[Seq. ウィンドウ](https://msdn.microsoft.com/library/8b565b8f-d645-4dba-be22-099075fe4744)は似`Seq.pairwise`ていますが、組のシーケンスを生成するのではなく、シーケンスから隣接する要素 (*ウィンドウ*) のコピーを格納する配列のシーケンスを生成します。 各配列で隣接する要素の数を指定します。
+[Seq。ウィンドウ](https://msdn.microsoft.com/library/8b565b8f-d645-4dba-be22-099075fe4744)は `Seq.pairwise`に似ていますが、組のシーケンスを生成する代わりに、シーケンスから隣接する要素 (*ウィンドウ*) のコピーを格納する配列のシーケンスが生成されます。 各配列で隣接する要素の数を指定します。
 
-次のコード例は、`Seq.windowed` の使用方法を示します。 この場合、ウィンドウ内の要素の数は3です。 この例で`printSeq`は、前のコード例で定義されているを使用します。
+次のコード例は、`Seq.windowed` の使用方法を示します。 この場合、ウィンドウ内の要素の数は3です。 この例では、前のコード例で定義されている `printSeq`を使用します。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet180.fs)]
 
@@ -172,12 +197,12 @@ Seq を使用することにより、述語関数 (ブール関数) を指定し
 初期シーケンス:
 
 ```console
-1.0 1.5 2.0 1.5 1.0 1.5 
+1.0 1.5 2.0 1.5 1.0 1.5
 
-Windows of length 3: 
-[|1.0; 1.5; 2.0|] [|1.5; 2.0; 1.5|] [|2.0; 1.5; 1.0|] [|1.5; 1.0; 1.5|] 
+Windows of length 3:
+[|1.0; 1.5; 2.0|] [|1.5; 2.0; 1.5|] [|2.0; 1.5; 1.0|] [|1.5; 1.0; 1.5|]
 
-Moving average: 
+Moving average:
 1.5 1.666666667 1.5 1.333333333
 ```
 
@@ -197,7 +222,7 @@ Moving average:
 
 前のコードでは、最初の要素のみが計算され、検査され、結果は-1 になります。
 
-[CountBy](https://msdn.microsoft.com/library/721702a5-150e-4fe8-81cd-ffbf8476cc1f)は、各要素の*キー*と呼ばれる値を生成する関数を受け取ります。 各要素に対してこの関数を呼び出すことにより、各要素に対してキーが生成されます。 `Seq.countBy`次に、キー値を含むシーケンスと、キーの各値を生成した要素の数を返します。
+[CountBy](https://msdn.microsoft.com/library/721702a5-150e-4fe8-81cd-ffbf8476cc1f)は、各要素の*キー*と呼ばれる値を生成する関数を受け取ります。 各要素に対してこの関数を呼び出すことにより、各要素に対してキーが生成されます。 次に、キー値を含むシーケンスと、キーの各値を生成した要素の数を返します。 `Seq.countBy`
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet201.fs)]
 
@@ -209,9 +234,9 @@ Moving average:
 
 前の出力は、キー1、キー2を生成した33値、およびキー0を生成した33値を生成した、元のシーケンスの34要素があることを示しています。
 
-シーケンスの要素をグループ化するには、 [Seq. groupBy](https://msdn.microsoft.com/library/d46a04df-1a42-40cc-a368-058c9c5806fd)を呼び出します。 `Seq.groupBy`は、シーケンスと、要素からキーを生成する関数を受け取ります。 関数は、シーケンスの各要素に対して実行されます。 `Seq.groupBy`組のシーケンスを返します。各組の最初の要素はキーで、2番目の要素はそのキーを生成する要素のシーケンスです。
+シーケンスの要素をグループ化するには、 [Seq. groupBy](https://msdn.microsoft.com/library/d46a04df-1a42-40cc-a368-058c9c5806fd)を呼び出します。 `Seq.groupBy` は、要素からキーを生成するシーケンスと関数を受け取ります。 関数は、シーケンスの各要素に対して実行されます。 `Seq.groupBy` は組のシーケンスを返します。各組の最初の要素はキーで、2番目の要素はそのキーを生成する要素のシーケンスです。
 
-次のコード例では、 `Seq.groupBy`を使用して、0、1、および2の個別のキー値を持つ3つのグループに、1 ~ 100 の一連の数値を分割しています。
+次のコード例では、`Seq.groupBy` を使用して、0、1、および2の個別のキー値を持つ3つのグループに、1 ~ 100 の一連の数値を分割しています。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet202.fs)]
 
@@ -223,21 +248,21 @@ Moving average:
 
 [Seq](https://msdn.microsoft.com/library/99d01014-7e0e-4e7b-9d0a-41a61d93f401)を呼び出すことで、重複する要素を排除するシーケンスを作成できます。 または、 [seq.distinctby](https://msdn.microsoft.com/library/9293293b-9420-49c8-848f-401a9cd49b75)を使用することもできます。この場合、各要素に対して呼び出されるキー生成関数を受け取ります。 結果のシーケンスには、一意のキーを持つ元のシーケンスの要素が含まれます。それより前の要素に対して重複するキーを生成する要素は破棄されます。
 
-`Seq.distinct` の使用方法を次のコード例に示します。 `Seq.distinct`は、バイナリ数値を表すシーケンスを生成して、個別の要素だけが0と1であることを示すことによって示されます。
+`Seq.distinct` の使用方法を次のコード例に示します。 `Seq.distinct` は、バイナリ数値を表すシーケンスを生成し、個別の要素だけが0と1であることを示すことによって示されます。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet22.fs)]
 
-次のコードは`Seq.distinctBy` 、負の数値と正の数値を格納し、キー生成関数として絶対値関数を使用するシーケンスを使用してを開始することで、を示しています。 結果のシーケンスには、シーケンスの負の数値に対応する正の数値がすべて不足しています。負の数値はシーケンスの前に表示されるため、絶対値が同じ正の数値の代わりに選択されるためです。値、またはキー。
+次のコードは、負の数値と正の数値を格納し、キー生成関数として絶対値関数を使用するシーケンスから開始することによって `Seq.distinctBy` を示しています。 結果のシーケンスには、シーケンスの負の数値に対応する正の数値がすべて不足しています。負の数値はシーケンスの前に表示されるため、絶対値が同じ正の数値の代わりに選択されるためです。値、またはキー。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet23.fs)]
 
 ## <a name="readonly-and-cached-sequences"></a>読み取り専用とキャッシュされたシーケンス
 
-[Seq. readonly](https://msdn.microsoft.com/library/88059cb4-3bb0-4126-9448-fbcd48fe13a7)は、シーケンスの読み取り専用コピーを作成します。 `Seq.readonly`は、配列などの読み取り/書き込みコレクションがあり、元のコレクションを変更しない場合に便利です。 この関数は、データのカプセル化を維持するために使用できます。 次のコード例では、配列を含む型が作成されます。 プロパティは配列を公開しますが、配列を返すのではなく、を使用`Seq.readonly`して配列から作成されたシーケンスを返します。
+[Seq. readonly](https://msdn.microsoft.com/library/88059cb4-3bb0-4126-9448-fbcd48fe13a7)は、シーケンスの読み取り専用コピーを作成します。 `Seq.readonly` は、配列などの読み取り/書き込みコレクションがあり、元のコレクションを変更したくない場合に便利です。 この関数は、データのカプセル化を維持するために使用できます。 次のコード例では、配列を含む型が作成されます。 プロパティは配列を公開しますが、配列を返す代わりに、`Seq.readonly`を使用して配列から作成されたシーケンスを返します。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/fssequences/snippet24.fs)]
 
-[Seq. cache](https://msdn.microsoft.com/library/d197f9cc-08bf-4986-9869-246e72ca73f0)は、シーケンスの格納されているバージョンを作成します。 シーケンス`Seq.cache`の再評価を避けるため、またはシーケンスを使用する複数のスレッドがある場合は、を使用して、各要素が1回だけ動作するようにする必要があります。 複数のスレッドで使用されているシーケンスがある場合は、元のシーケンスの値を列挙して計算するスレッドを1つ持つことができ、残りのスレッドはキャッシュされたシーケンスを使用できます。
+[Seq. cache](https://msdn.microsoft.com/library/d197f9cc-08bf-4986-9869-246e72ca73f0)は、シーケンスの格納されているバージョンを作成します。 シーケンスの再評価を避けるため、またはシーケンスを使用する複数のスレッドがある場合は、`Seq.cache` を使用します。ただし、各要素が1回だけ実行されるようにする必要があります。 複数のスレッドで使用されているシーケンスがある場合は、元のシーケンスの値を列挙して計算するスレッドを1つ持つことができ、残りのスレッドはキャッシュされたシーケンスを使用できます。
 
 ## <a name="performing-computations-on-sequences"></a>シーケンスに対する計算の実行
 

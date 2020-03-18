@@ -17,18 +17,18 @@ helpviewer_keywords:
 - literal XML serialization
 - serialization, attributes
 ms.assetid: a416192f-8102-458e-bc0a-0b8f3f784da9
-ms.openlocfilehash: 79cc53be0f099151db1b64190c844b1d57205a44
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 2301f30a55e136b9a75a414d9325e4cf71c161da
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62018069"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78159534"
 ---
 # <a name="xml-serialization-with-xml-web-services"></a>XML Web サービスを使用した XML シリアル化
-XML シリアル化は、XML Web サービス アーキテクチャで使用される基礎的なトランスポート機構であり、<xref:System.Xml.Serialization.XmlSerializer> クラスによって実行されます。 XML Web サービスによって生成される XML を制御するには、「[XML シリアル化を制御する属性](../../../docs/standard/serialization/attributes-that-control-xml-serialization.md)」および「[エンコード済み SOAP シリアル化を制御する属性](../../../docs/standard/serialization/attributes-that-control-encoded-soap-serialization.md)」の一覧に示されている属性を、XML Web サービスの作成に使用するファイル (.asmx) のクラス、戻り値、パラメーター、およびフィールドに適用します。 XML Web サービスを作成する方法の詳細については、次を参照してください。 [XML Web サービスを使用して ASP.NET](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ba0z6a33(v=vs.100))します。  
+XML シリアル化は、XML Web サービス アーキテクチャで使用される基礎的なトランスポート機構であり、<xref:System.Xml.Serialization.XmlSerializer> クラスによって実行されます。 XML Web サービスによって生成される XML を制御するには、「[XML シリアル化を制御する属性](../../../docs/standard/serialization/attributes-that-control-xml-serialization.md)」および「[エンコード済み SOAP シリアル化を制御する属性](../../../docs/standard/serialization/attributes-that-control-encoded-soap-serialization.md)」の一覧に示されている属性を、XML Web サービスの作成に使用するファイル (.asmx) のクラス、戻り値、パラメーター、およびフィールドに適用します。 XML Web サービスの作成の詳細については、「 [ASP.NET を使用した Xml Web サービス](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ba0z6a33(v=vs.100))」を参照してください。  
   
 ## <a name="literal-and-encoded-styles"></a>リテラル スタイルとエンコード済みスタイル  
- XML Web サービスによって生成された XML を 2 つの方法では、リテラルのいずれかで書式設定されたかで説明したように、エンコードされた[SOAP メッセージの書式設定をカスタマイズする](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/dkwy2d72(v=vs.100))します。 このため、XML シリアル化を制御する属性セットは 2 つになります。 「[XML シリアル化を制御する属性](../../../docs/standard/serialization/attributes-that-control-xml-serialization.md)」の一覧に示される属性は、リテラル スタイルの XML を制御するように設計されています。 一方、「[エンコード済み SOAP シリアル化を制御する属性](../../../docs/standard/serialization/attributes-that-control-encoded-soap-serialization.md)」の一覧に示される属性は、エンコード済みスタイルを制御します。 これらの属性を選択的に適用することで、2 つのスタイルのいずれかまたは両方を返すようにアプリケーションを調整できます。 さらに、これらの属性は、必要に応じて戻り値やパラメーターにも適用できます。  
+ XML Web サービスによって生成される XML は、「 [SOAP メッセージの書式設定のカスタマイズ](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/dkwy2d72(v=vs.100))」で説明されているように、リテラルまたはエンコード済みの2つの方法のいずれかで書式設定できます。 このため、XML シリアル化を制御する属性セットは 2 つになります。 「[XML シリアル化を制御する属性](../../../docs/standard/serialization/attributes-that-control-xml-serialization.md)」の一覧に示される属性は、リテラル スタイルの XML を制御するように設計されています。 一方、「[エンコード済み SOAP シリアル化を制御する属性](../../../docs/standard/serialization/attributes-that-control-encoded-soap-serialization.md)」の一覧に示される属性は、エンコード済みスタイルを制御します。 これらの属性を選択的に適用することで、2 つのスタイルのいずれかまたは両方を返すようにアプリケーションを調整できます。 さらに、これらの属性は、必要に応じて戻り値やパラメーターにも適用できます。  
   
 ### <a name="example-of-using-both-styles"></a>両方のスタイルの使用例  
  XML Web サービスを作成する場合、両方の属性セットをメソッドで使用できます。 次のコード例では、`MyService` という名前のクラスに、`MyLiteralMethod` と `MyEncodedMethod` という 2 つの XML Web サービス メソッドが含まれています。 いずれのメソッドも、`Order` クラスのインスタンスを返すという同じ機能を実行します。 `Order` クラスでは、<xref:System.Xml.Serialization.XmlTypeAttribute> 属性と <xref:System.Xml.Serialization.SoapTypeAttribute> 属性の両方が `OrderID` フィールドに適用され、両方の属性の `ElementName` プロパティには異なる値が設定されます。  
@@ -51,12 +51,12 @@ End Class
   
 Public Class MyService  
     <WebMethod, SoapDocumentMethod> _  
-    public Function MyLiteralMethod() As Order   
+    public Function MyLiteralMethod() As Order
         Dim myOrder As Order = New Order()  
         return myOrder  
     End Function  
     <WebMethod, SoapRpcMethod> _  
-    public Function MyEncodedMethod() As Order   
+    public Function MyEncodedMethod() As Order
         Dim myOrder As Order = New Order()  
         return myOrder  
     End Function  
@@ -129,7 +129,7 @@ public class MyService {
 public Function MyLiteralMethod() As _  
 <XmlElement(Namespace:="http://www.cohowinery.com", _  
 ElementName:= "BookOrder")> _  
-Order   
+Order
     Dim myOrder As Order = New Order()  
     return myOrder  
 End Function  
@@ -169,7 +169,7 @@ public Function MyLiteralMethod(<XmlElement _
 ("MyOrderID", Namespace:="http://www.microsoft.com")>ID As String) As _  
 <XmlElement(Namespace:="http://www.cohowinery.com", _  
 ElementName:= "BookOrder")> _  
-Order   
+Order
     Dim myOrder As Order = New Order()  
     myOrder.OrderID = ID  
     return myOrder  
@@ -180,12 +180,12 @@ End Function
 [return: XmlElement(Namespace = "http://www.cohowinery.com",  
 ElementName = "BookOrder")]  
 [WebMethod][SoapDocumentMethod]  
-public Order MyLiteralMethod([XmlElement("MyOrderID",   
+public Order MyLiteralMethod([XmlElement("MyOrderID",
 Namespace="http://www.microsoft.com")] string ID){  
     Order myOrder = new Order();  
     myOrder.OrderID = ID;  
     return myOrder;  
-}   
+}
 ```  
   
  SOAP 要求は、次のようになります。  
@@ -232,21 +232,22 @@ public class Order {
   
  次のコード例に示すように、`XmlTypeAttribute` と `SoapTypeAttribute` を適用した結果は、サービスの説明を調べると確認できます。  
   
-```xml  
-    <s:element name="BookOrderForm" type="s0:BigBookService" />   
-- <s:complexType name="BigBookService">  
-- <s:sequence>  
-    <s:element minOccurs="0" maxOccurs="1" name="LiteralOrderID" type="s:string" />   
-    </s:sequence>  
-  
-- <s:schema targetNamespace="http://tempuri.org/encodedTypes">  
-- <s:complexType name="SoapBookService">  
-- <s:sequence>  
-    <s:element minOccurs="1" maxOccurs="1" name="EncodedOrderID" type="s:string" />   
-    </s:sequence>  
-    </s:complexType>  
-    </s:schema>  
-```  
+```xml
+<s:element name="BookOrderForm" type="s0:BigBookService" />
+<s:complexType name="BigBookService">
+  <s:sequence>
+    <s:element minOccurs="0" maxOccurs="1" name="LiteralOrderID" type="s:string" />
+  </s:sequence>
+
+  <s:schema targetNamespace="http://tempuri.org/encodedTypes">
+    <s:complexType name="SoapBookService">
+      <s:sequence>
+        <s:element minOccurs="1" maxOccurs="1" name="EncodedOrderID" type="s:string" />
+      </s:sequence>
+    </s:complexType>
+  </s:schema>
+</s:complexType>
+```
   
  また、`XmlRootAttribute` を適用した結果も、次に示す HTTP GET と HTTP POST の結果から確認できます。  
   
@@ -257,12 +258,12 @@ public class Order {
 </BookOrderForm>  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [XML シリアル化および SOAP シリアル化](../../../docs/standard/serialization/xml-and-soap-serialization.md)
-- [エンコード済み SOAP シリアル化を制御する属性](../../../docs/standard/serialization/attributes-that-control-encoded-soap-serialization.md)
-- [方法: SOAP エンコード済み XML Stream としてオブジェクトをシリアル化します。](../../../docs/standard/serialization/how-to-serialize-an-object-as-a-soap-encoded-xml-stream.md)
-- [方法: SOAP エンコード済み XML シリアル化をオーバーライドします。](../../../docs/standard/serialization/how-to-override-encoded-soap-xml-serialization.md)
-- [XML シリアル化の概要](../../../docs/standard/serialization/introducing-xml-serialization.md)
-- [方法: オブジェクトをシリアル化します。](../../../docs/standard/serialization/how-to-serialize-an-object.md)
-- [方法: オブジェクトを逆シリアル化します。](../../../docs/standard/serialization/how-to-deserialize-an-object.md)
+- [XML シリアル化および SOAP シリアル化](xml-and-soap-serialization.md)
+- [エンコード済み SOAP シリアル化を制御する属性](attributes-that-control-encoded-soap-serialization.md)
+- [方法 : オブジェクトを SOAP エンコード済み XML ストリームとしてシリアル化する](how-to-serialize-an-object-as-a-soap-encoded-xml-stream.md)
+- [方法 : SOAP エンコード済み XML シリアル化をオーバーライドする](how-to-override-encoded-soap-xml-serialization.md)
+- [XML シリアル化の概要](introducing-xml-serialization.md)
+- [方法 : オブジェクトをシリアル化する](how-to-serialize-an-object.md)
+- [方法 : オブジェクトを逆シリアル化する](how-to-deserialize-an-object.md)

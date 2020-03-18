@@ -2,15 +2,15 @@
 title: メッセージ セキュリティを使用したメッセージのセキュリティ保護
 ms.date: 03/30/2017
 ms.assetid: a17ebe67-836b-4c52-9a81-2c3d58e225ee
-ms.openlocfilehash: 1098057042c0842161258fd081d3ee63e82b4c5f
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: a6b062d0d6a74ce2a2ff9afa7e8a0a18853dbd22
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72395715"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746445"
 ---
 # <a name="securing-messages-using-message-security"></a>メッセージ セキュリティを使用したメッセージのセキュリティ保護
-このセクションでは、<xref:System.ServiceModel.NetMsmqBinding> を使用する場合の WCF メッセージセキュリティについて説明します。  
+このセクションでは、<xref:System.ServiceModel.NetMsmqBinding>を使用する場合の WCF メッセージセキュリティについて説明します。  
   
 > [!NOTE]
 > このトピックを読む前に、「[セキュリティの概念](../../../../docs/framework/wcf/feature-details/security-concepts.md)」を読むことをお勧めします。  
@@ -34,14 +34,14 @@ ms.locfileid: "72395715"
   
  ここでは、さまざまな資格情報の種類およびそれらをキューで使用する方法について説明します。  
   
-### <a name="certificate"></a>証明書  
+### <a name="certificate"></a>Certificate  
  資格情報の種類に証明書を設定すると、X509 証明書を使用してサービスとクライアントが識別されます。  
   
  一般的なシナリオでは、信頼された証明機関によってクライアントとサービスに有効な証明書が発行されます。 その後、接続が確立され、クライアントは、サービスの証明書を使用してサービスの有効性を確認することにより、サービスを信頼できるかどうかを判断します。 同様に、サービスは、クライアントの証明書を使用してクライアントの信頼性を検証します。  
   
  キューは切断されているため、クライアントとサービスが同時にオンライン状態にならない可能性があります。 したがって、クライアントとサービスは、帯域外で証明書を交換する必要があります。 特にクライアントは、信頼されたストア内にサービスの証明書 (証明機関にチェーンできる) を保持しているという理由で、正しいサービスと通信していると信じる必要があります。 クライアントを認証する場合、サービスはメッセージに添付された X509 証明書を使用し、ストア内の証明書と照合してクライアントの信頼性を確認します。 この場合も、証明書は証明機関にチェーンされている必要があります。  
   
- Windows を実行しているコンピューターでは、証明書は数種類のストアで保持されています。 さまざまなストアの詳細については、「[証明書ストア](https://go.microsoft.com/fwlink/?LinkId=87787)」を参照してください。  
+ Windows を実行しているコンピューターでは、証明書は数種類のストアで保持されています。 さまざまなストアの詳細については、「[証明書ストア](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc757138(v=ws.10))」を参照してください。  
   
 ### <a name="windows"></a>Windows  
  メッセージ資格情報の種類に Windows を設定すると、Kerberos プロトコルが使用されます。  
@@ -63,7 +63,7 @@ ms.locfileid: "72395715"
 ## <a name="using-transport-and-message-security"></a>トランスポート セキュリティとメッセージ セキュリティの使用  
  トランスポート セキュリティとメッセージ セキュリティの両方を使用する場合は、トランスポート レベルと SOAP メッセージ レベルの両方で同じ証明書を使用してメッセージを保護する必要があります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [トランスポート セキュリティを使用したメッセージのセキュリティ保護](../../../../docs/framework/wcf/feature-details/securing-messages-using-transport-security.md)
 - [メッセージ キューを介したメッセージ セキュリティ](../../../../docs/framework/wcf/samples/message-security-over-message-queuing.md)

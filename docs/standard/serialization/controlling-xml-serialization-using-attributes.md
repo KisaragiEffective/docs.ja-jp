@@ -15,19 +15,19 @@ helpviewer_keywords:
 - serialization, examples
 - serialization, attributes
 ms.assetid: 47d4c39d-30e1-4c7b-8a2e-301325390647
-ms.openlocfilehash: 54660244c1b3cca8cb75539edbe23628b370afd5
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: d4e30984a232b17d1f40e300655c519ec1a6e191
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61934506"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78159911"
 ---
 # <a name="controlling-xml-serialization-using-attributes"></a>属性を使用した XML シリアル化の制御
 
-属性を使用すると、オブジェクトの XML シリアル化を制御したり、同じ一連のクラスから代替 XML ストリームを作成したりできます。 代替 XML ストリームを作成する方法の詳細については、次を参照してください。[方法。XML Stream の代替要素名を指定](how-to-specify-an-alternate-element-name-for-an-xml-stream.md)します。
+属性を使用すると、オブジェクトの XML シリアル化を制御したり、同じ一連のクラスから代替 XML ストリームを作成したりできます。 代替 XML ストリームの作成の詳細については、「[方法 : XML ストリームの代替要素名を指定する](how-to-specify-an-alternate-element-name-for-an-xml-stream.md)」を参照してください。
 
 > [!NOTE]
-> XML が生成される必要があります、World Wide Web Consortium (W3C) ドキュメントのセクション 5 に準拠しているかどうかは[簡易オブジェクト アクセス プロトコル (SOAP) 1.1](https://www.w3.org/TR/2000/NOTE-SOAP-20000508/)に記載の属性を使用して[属性をコントロールでエンコードされた SOAPシリアル化](attributes-that-control-encoded-soap-serialization.md)します。
+> 生成された XML が[Simple Object Access Protocol (SOAP) 1.1](https://www.w3.org/TR/2000/NOTE-SOAP-20000508/)という名前の WORLD WIDE WEB コンソーシアム (W3C) ドキュメントのセクション5に準拠している必要がある場合は、「属性」に示されている属性を使用して、エンコードされた[soap シリアル化を制御](attributes-that-control-encoded-soap-serialization.md)します。
 
 既定では、クラス名またはメンバー名によって XML 要素名が決まります。 次の例に示すように、`Book` という名前の単純なクラスでは、`ISBN` という名前のフィールドから \<ISBN> という XML 要素タグが生成されます。
 
@@ -66,11 +66,11 @@ public class TaxRates {
 }
 ```
 
-属性の詳細については、「[属性](../../../docs/standard/attributes/index.md)」を参照してください。 XML シリアル化を制御する属性の一覧については、「[XML シリアル化を制御する属性](attributes-that-control-xml-serialization.md)」(XML シリアル化を制御する属性) を参照してください。
+属性の詳細については、「[属性](../../../docs/standard/attributes/index.md)」を参照してください。 XML シリアル化を制御する属性の一覧については、「[Attributes That Control XML Serialization](attributes-that-control-xml-serialization.md)」(XML シリアル化を制御する属性) を参照してください。
 
 ## <a name="controlling-array-serialization"></a>配列のシリアル化の制御
 
-<xref:System.Xml.Serialization.XmlArrayAttribute> 属性および <xref:System.Xml.Serialization.XmlArrayItemAttribute> 属性は、配列のシリアル化を制御できるようにデザインされています。 これらの属性を使用して制御できます要素名、名前空間、および XML スキーマ (XSD) データ型 (「World Wide Web Consortium [www.w3.org] ドキュメントで定義されている"XML Schema Part 2。データ型")。 また、配列に挿入できる型も指定できます。
+<xref:System.Xml.Serialization.XmlArrayAttribute> 属性および <xref:System.Xml.Serialization.XmlArrayItemAttribute> 属性は、配列のシリアル化を制御できるようにデザインされています。 この 2 つの属性を使用して、要素名、名前空間、および XML スキーマ (XSD) データ型 (W3C (www.w3.org) のドキュメント『XML Schema Part 2: Datatypes』で定義) を制御できます。 また、配列に挿入できる型も指定できます。
 
 <xref:System.Xml.Serialization.XmlArrayAttribute> は、配列をシリアル化すると生成される外側の XML 要素のプロパティを決定します。 たとえば、次に示す配列をシリアル化すると、既定で `Employees` という名前の XML 要素が生成されます。 この `Employees` 要素は、`Employee` 配列型に基づいた名前の一連の要素で構成されます。
 
@@ -202,7 +202,7 @@ public class Manager:Employee {
     <Employee xsi:type = "Manager">
         <Name>Ann</Name>
         <Level>3</Level>
-    <Employee>
+    </Employee>
 </Employees>
 </Group>
 ```
@@ -241,7 +241,7 @@ public class Group {
 </Group>
 ```
 
-2 つの XML ストリームを区別するもう 1 つの方法は、XML スキーマ定義ツールを使用して、コンパイル済みのコードから XML スキーマ (XSD) ドキュメント ファイルを生成することです (ツールの使用の詳細については、「[XML スキーマ定義ツールと XML シリアル化](the-xml-schema-definition-tool-and-xml-serialization.md)」を参照してください)。フィールドに属性を適用しないと、スキーマには次のように要素が記述されます。
+2 つの XML ストリームを区別するもう 1 つの方法は、XML スキーマ定義ツールを使用して、コンパイル済みのコードから XML スキーマ (XSD) ドキュメント ファイルを生成することです (このツールの使用方法の詳細については、「 [Xml スキーマ定義ツールと Xml シリアル化](the-xml-schema-definition-tool-and-xml-serialization.md)」を参照してください)。フィールドに属性が適用されていない場合、スキーマは次の方法で要素を記述します。
 
 ```xml
 <xs:element minOccurs="0" maxOccurs ="1" name="Employees" type="ArrayOfEmployee" />
@@ -250,7 +250,7 @@ public class Group {
 フィールドに <xref:System.Xml.Serialization.XmlElementAttribute> を適用すると、生成されたスキーマには次のように要素が記述されます。
 
 ```xml
-<xs:element minOccurs="0" maxOccurs="unbounded" name="Employees" type="Employee" /> 
+<xs:element minOccurs="0" maxOccurs="unbounded" name="Employees" type="Employee" />
 ```
 
 ## <a name="serializing-an-arraylist"></a>ArrayList のシリアル化
@@ -267,7 +267,7 @@ End Class
 
 ```csharp
 public class Group {
-    [XmlElement(Type = typeof(Employee)), 
+    [XmlElement(Type = typeof(Employee)),
     XmlElement(Type = typeof(Manager))]
     public ArrayList Info;
 }
@@ -315,12 +315,12 @@ public class Group {
 
 パブリック プロパティやパブリック フィールドをシリアル化する必要がない場合があります。 たとえば、メタデータの格納に使用しているフィールドまたはプロパティの場合、 <xref:System.Xml.Serialization.XmlIgnoreAttribute> を適用すると、<xref:System.Xml.Serialization.XmlSerializer> がそのフィールドまたはプロパティをスキップします。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [XML シリアル化を制御する属性](attributes-that-control-xml-serialization.md)
 - [エンコード済み SOAP シリアル化を制御する属性](attributes-that-control-encoded-soap-serialization.md)
 - [XML シリアル化の概要](introducing-xml-serialization.md)
 - [XML シリアル化の例](examples-of-xml-serialization.md)
-- [方法: XML Stream の代替要素名を指定します。](how-to-specify-an-alternate-element-name-for-an-xml-stream.md)
-- [方法: オブジェクトをシリアル化します。](how-to-serialize-an-object.md)
-- [方法: オブジェクトを逆シリアル化します。](how-to-deserialize-an-object.md)
+- [方法 : XML ストリームの代替要素名を指定する](how-to-specify-an-alternate-element-name-for-an-xml-stream.md)
+- [方法 : オブジェクトをシリアル化する](how-to-serialize-an-object.md)
+- [方法 : オブジェクトを逆シリアル化する](how-to-deserialize-an-object.md)

@@ -2,12 +2,12 @@
 title: 外部キーのプロパティ
 ms.date: 03/30/2017
 ms.assetid: 23cb6729-544d-4f67-9ee7-44e8a6545587
-ms.openlocfilehash: e2f41c2db9aea26c7954a99ebf3f40b03e8df735
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: a77f7479ce38cb34830377021157f312916baca4
+ms.sourcegitcommit: 22be09204266253d45ece46f51cc6f080f2b3fd6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70795033"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73738398"
 ---
 # <a name="foreign-key-property"></a>外部キーのプロパティ
 Entity Data Model (EDM) の*外部キープロパティ*は、別のエンティティ型の[エンティティキー](entity-key.md)を含む[エンティティ型](entity-type.md)のプリミティブ型の[プロパティ](property.md)(またはプリミティブ型のプロパティのセット) です。  
@@ -19,7 +19,7 @@ Entity Data Model (EDM) の*外部キープロパティ*は、別のエンティ
   
  ![RefConstraintModel](./media/foreign-key-property/reference-constraint-model.gif "参照制約モデルの例")  
   
- [ADO.NET Entity Framework](./ef/index.md)は、概念スキーマ定義言語 ([CSDL](./ef/language-reference/csdl-specification.md)) と呼ばれるドメイン固有言語 (DSL) を使用して概念モデルを定義します。 次の CSDL は、外部キーのプロパティ `PublisherId` を使用して、上の概念モデルに示された `PublishedBy` アソシエーションに参照整合性制約を定義します。  
+ [ADO.NET Entity Framework](./ef/index.md)は、概念スキーマ定義言語 ([CSDL](/ef/ef6/modeling/designer/advanced/edmx/csdl-spec)) と呼ばれるドメイン固有言語 (DSL) を使用して概念モデルを定義します。 次の CSDL は、外部キーのプロパティ `PublisherId` を使用して、上の概念モデルに示された `PublishedBy` アソシエーションに参照整合性制約を定義します。  
   
  [!code-xml[EDM_Example_Model#RefConstraint](../../../../samples/snippets/xml/VS_Snippets_Data/edm_example_model/xml/books4.edmx#refconstraint)]  
   

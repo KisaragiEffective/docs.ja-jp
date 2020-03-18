@@ -3,10 +3,10 @@ title: マイクロサービス アプリケーション レイヤーと Web API
 description: '.NET マイクロサービス: コンテナー化された .NET アプリケーションのアーキテクチャ | アプリケーション レイヤーを設計するための SOLID の原則の概要。'
 ms.date: 10/08/2018
 ms.openlocfilehash: 3c3b9f74e76e01deafa1f97de5d3250d57716014
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "68676519"
 ---
 # <a name="design-the-microservice-application-layer-and-web-api"></a>マイクロサービス アプリケーション レイヤーと Web API を設計する

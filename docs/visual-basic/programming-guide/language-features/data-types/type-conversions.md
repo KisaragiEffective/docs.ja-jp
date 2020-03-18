@@ -1,5 +1,5 @@
 ---
-title: Visual Basic における型変換
+title: 型変換
 ms.date: 07/20/2015
 helpviewer_keywords:
 - conversions [Visual Basic], type
@@ -10,38 +10,38 @@ helpviewer_keywords:
 - changing data types [Visual Basic]
 - data type conversion [Visual Basic]
 ms.assetid: 1cdacd21-ba31-4b62-b5be-395e41eeaa17
-ms.openlocfilehash: 026b2a250abfac0782feb0946bc50a94f504f7ed
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: fbf0c9877cf9a9b4364c8c058c61e847ad7bf049
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61663285"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74348722"
 ---
 # <a name="type-conversions-in-visual-basic"></a>Visual Basic における型変換
-1 つのデータ型から別の型に値を変更するプロセスと呼ばれます*変換*します。 変換は、いずれかの*拡大*または*縮小*、関与する型のデータ容量によって異なります。 *暗黙的な*または*明示的な*、ソース コード内の構文によって異なります。  
+あるデータ型から別の型に値を変更するプロセスは、*変換*と呼ばれます。 変換は、関連する型のデータ容量に応じて、*拡大*または*縮小*されます。 また、ソースコードの構文によっては、*暗黙的*または*明示的*にもなります。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [拡大変換と縮小変換](../../../../visual-basic/programming-guide/language-features/data-types/widening-and-narrowing-conversions.md)  
- 変換先の型がデータを保持するかどうかによって分類される変換について説明します。  
+ 変換先の型がデータを保持できるかどうかによって分類される変換について説明します。  
   
  [暗黙の型変換と明示的な型変換](../../../../visual-basic/programming-guide/language-features/data-types/implicit-and-explicit-conversions.md)  
- かどうか Visual Basic でに実行によって自動的に分類される変換をについて説明します。  
+ Visual Basic が自動的に実行するかどうかによって分類される変換について説明します。  
   
  [文字列とその他の型との変換](../../../../visual-basic/programming-guide/language-features/data-types/conversions-between-strings-and-other-types.md)  
- 文字列と数値、間の変換を示しています。 `Boolean`、または日付/時刻値。  
+ 文字列と数値、`Boolean`、または日付/時刻値の変換を示します。  
   
- [方法: オブジェクトを Visual Basic で別の型に変換します。](../../../../visual-basic/programming-guide/language-features/data-types/how-to-convert-an-object-to-another-type.md)  
- 変換する方法を示しています、`Object`変数を他のデータ型にします。  
+ [方法: Visual Basic でオブジェクトを別の型に変換する](../../../../visual-basic/programming-guide/language-features/data-types/how-to-convert-an-object-to-another-type.md)  
+ `Object` 変数を他の任意のデータ型に変換する方法について説明します。  
   
  [配列変換](../../../../visual-basic/programming-guide/language-features/data-types/array-conversions.md)  
- 手順について説明するさまざまなデータ型の配列間で変換するプロセス。  
+ 異なるデータ型の配列を変換する手順について説明します。  
   
 ## <a name="related-sections"></a>関連項目  
  [データの種類](../../../../visual-basic/programming-guide/language-features/data-types/index.md)  
- Visual Basic のデータ型を紹介し、それらを使用する方法について説明します。  
+ Visual Basic のデータ型について説明し、その使用方法について説明します。  
   
  [データの種類](../../../../visual-basic/language-reference/data-types/index.md)  
- Visual Basic によって提供される基本データ型を一覧表示します。  
+ Visual Basic によって提供される基本データ型の一覧を示します。  
   
  [トラブルシューティング (データ型)](../../../../visual-basic/programming-guide/language-features/data-types/troubleshooting-data-types.md)  
- データ型を使用する場合に生じる可能性のある一般的な問題について説明します。
+ データ型を使用するときに発生する可能性のある一般的な問題について説明します。

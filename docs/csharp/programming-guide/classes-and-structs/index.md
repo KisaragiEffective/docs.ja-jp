@@ -1,6 +1,5 @@
 ---
 title: クラスと構造体 - C# プログラミング ガイド
-ms.custom: seodec18
 description: C# でのクラスと構造体の使用について説明します。
 ms.date: 01/17/2016
 helpviewer_keywords:
@@ -11,12 +10,12 @@ helpviewer_keywords:
 - objects [C#]
 - C# language, classes
 ms.assetid: cc39dbda-8754-423e-b5b1-16a1db0734c0
-ms.openlocfilehash: c0b7e52cbbf0b49dee3598239f96e113ba929a80
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: afd9e688bd716375bafb370fad4af082a9498411
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69922257"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79397660"
 ---
 # <a name="classes-and-structs-c-programming-guide"></a>クラスと構造体 (C# プログラミング ガイド)
 クラスと構造体は、.NET Framework の共通型システムの 2 つの基本構成です。 クラスと構造体は、どちらも基本的にはデータと動作のセットを 1 つの論理単位としてカプセル化するデータ構造です。 データと動作はクラスまたは構造体の "*メンバー*" です。このトピックで後述するように、メソッド、プロパティ、イベントなどが含まれます。  
@@ -29,7 +28,7 @@ ms.locfileid: "69922257"
   
  一般に、クラスは、より複雑な動作、つまりクラス オブジェクトの作成後に変更されることを意図されたデータをモデル化するために使用されます。 構造体は、主として構造体の作成後に変更されることを意図しないデータを含む、小規模なデータ構造に最適です。  
   
- 詳細については、「[クラス](./classes.md)」、「[オブジェクト](./objects.md)」、および「[構造体](./structs.md)」を参照してください。  
+ 詳細については、[クラス](./classes.md)、[オブジェクト](./objects.md)、[構造体型](../../language-reference/builtin-types/struct.md)に関する記事をご覧ください。  
   
 ## <a name="example"></a>例  
  次の例では、`ProgrammingGuide` 名前空間の `CustomClass` に 3 つのメンバー (インスタンス コンストラクター、`Number` という名前のプロパティ、`Multiply` という名前のメソッド) があります。 `Program` クラスの `Main` メソッドによって `CustomClass` のインスタンス (オブジェクト) が作成され、オブジェクトのメソッドとプロパティにはドット表記を使用してアクセスします。

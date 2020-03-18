@@ -24,13 +24,13 @@ ms.locfileid: "72004977"
   
 ## <a name="arguments"></a>引数  
  `+` &#124; `-`  
- 任意。 @No__t-0 の指定は、`-verbose+` を指定した場合と同じです。これにより、コンパイラは詳細なメッセージを出力します。 このオプションの既定値は `-verbose-` です。  
+ 省略可能です。 `-verbose` を指定すると `-verbose+` を指定した場合と同じになり、詳細なメッセージが生成されます。このオプションの既定値は `-verbose-` です。  
   
 ## <a name="remarks"></a>コメント  
- @No__t-0 オプションは、コンパイラによって発行されたエラーの合計数に関する情報を表示し、どのアセンブリがモジュールによって読み込まれているかを報告し、現在コンパイルされているファイルを表示します。  
+ `-verbose` オプションを指定すると、コンパイラが生成したエラーの総数についての情報、モジュールが読み込んでいるアセンブリ、および現在コンパイルされているファイルが表示されます。
   
 > [!NOTE]
-> @No__t-0 オプションは、Visual Studio 開発環境内からは使用できません。これは、コマンドラインからコンパイルする場合にのみ使用できます。  
+> `-verbose` オプションは Visual Studio の開発環境内からは利用できません。このオプションを利用できるのは、コマンド ラインからコンパイルする場合のみです。  
   
 ## <a name="example"></a>例  
  次のコードは `In.vb` をコンパイルし、詳細な状態情報を表示するようにコンパイラに指示します。  
@@ -41,5 +41,5 @@ vbc -verbose in.vb
   
 ## <a name="see-also"></a>関連項目
 
-- [Visual Basic のコマンド ライン コンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
-- [コンパイル コマンド ラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)
+- [Visual Basic コマンドラインコンパイラ](../../../visual-basic/reference/command-line-compiler/index.md)
+- [コンパイルコマンドラインのサンプル](../../../visual-basic/reference/command-line-compiler/sample-compilation-command-lines.md)

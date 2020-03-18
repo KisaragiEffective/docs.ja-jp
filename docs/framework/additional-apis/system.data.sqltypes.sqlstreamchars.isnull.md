@@ -22,7 +22,7 @@ ms.locfileid: "72395736"
 ---
 # <a name="sqlstreamcharsisnull-property"></a>SqlStreamChars. IsNull プロパティ
 
-派生クラスでオーバーライドされた場合、ストリームが @no__t 0 かどうかを示す値を取得します。 このプロパティを含むアセンブリには、SQLAccess .dll とのフレンド関係があります。 SQL Server での使用を目的としています。 他のデータベースの場合は、そのデータベースによって提供されるホスティングメカニズムを使用します。
+派生クラスでオーバーライドされた場合、ストリームが `null`かどうかを示す値を取得します。 このプロパティを含むアセンブリには、SQLAccess .dll とのフレンド関係があります。 SQL Server での使用を目的としています。 他のデータベースの場合は、そのデータベースによって提供されるホスティングメカニズムを使用します。
 
 ## <a name="syntax"></a>構文
 
@@ -30,19 +30,19 @@ ms.locfileid: "72395736"
 public abstract bool IsNull { get; }
 ```
 
-## <a name="property-value"></a>プロパティ値
+## <a name="property-value"></a>［プロパティ値］
 
 <xref:System.Boolean>\
-`true` の場合、ストリームが `null` です。それ以外の場合は、`false` です。
+ストリームが `null`場合は `true`。それ以外の場合は、`false`ます。
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
 > [!WARNING]
-> @No__t-0 プロパティはプライベートであり、コードで直接使用するためのものではありません。
+> `SqlStreamChars.IsNull` プロパティはプライベートであり、コードで直接使用するためのものではありません。
 >
 > Microsoft では、どのような状況でも、実稼働アプリケーションでのこのプロパティの使用はサポートしていません。
 
-## <a name="requirements"></a>［要件］
+## <a name="requirements"></a>要件
 
 **名前空間:** <xref:System.Data.SqlTypes>
 

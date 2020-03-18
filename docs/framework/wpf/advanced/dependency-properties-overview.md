@@ -14,19 +14,19 @@ helpviewer_keywords:
 - dependency properties [WPF]
 - resources [WPF], references to
 ms.assetid: d119d00c-3afb-48d6-87a0-c4da4f83dee5
-ms.openlocfilehash: b7401cd3e9551b378983193f4c5e8e4107954b74
-ms.sourcegitcommit: 24a4a8eb6d8cfe7b8549fb6d823076d7c697e0c6
+ms.openlocfilehash: 5803d656d765f3f4fe3039e28b9c06202218fcfc
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68401418"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73973985"
 ---
 # <a name="dependency-properties-overview"></a>依存関係プロパティの概要
 
 Windows Presentation Foundation (WPF) には、型の[プロパティ](../../../standard/base-types/common-type-system.md#Properties)の機能を拡張するために使用できる一連のサービスが用意されています。 通常、これらのサービスをまとめて WPF プロパティ システムと呼びます。 WPF プロパティ システムによって使用されるプロパティは、依存関係プロパティと呼ばれています。 ここでは、WPF プロパティ システムと、依存関係プロパティの機能について説明します。 この説明では、既存の依存関係プロパティを XAML およびコードで使用する方法を示します。 また、依存関係プロパティ メタデータなどの依存関係プロパティの特殊な側面や、カスタム クラスで独自の依存関係プロパティを作成する方法についても説明します。
 
-## <a name="prerequisites"></a>必須コンポーネント
-ここでは、.NET 型システムおよびオブジェクト指向プログラミングに関する基礎知識があることを前提にしています。 このトピックの例について理解するには、XAML および WPF アプリケーションの記述方法について知っておく必要もあります。 詳細については、「[チュートリアル:初めての WPF デスクトップ](../getting-started/walkthrough-my-first-wpf-desktop-application.md)アプリケーション。  
+## <a name="prerequisites"></a>必要条件
+ここでは、.NET 型システムおよびオブジェクト指向プログラミングに関する基礎知識があることを前提にしています。 このトピックの例について理解するには、XAML および WPF アプリケーションの記述方法について知っておく必要もあります。 詳細については、「[チュートリアル: WPF の概要](../getting-started/walkthrough-my-first-wpf-desktop-application.md)」を参照してください。  
   
 ## <a name="dependency-properties-and-clr-properties"></a>依存関係プロパティおよび CLR プロパティ
  WPF では通常、プロパティは通常、標準の .NET [プロパティ](../../../standard/base-types/common-type-system.md#Properties)として公開されます。 基本的なレベルでは、これらのプロパティと直接対話でき、これらのプロパティが依存関係として実装されることを認識することはありません。 ただし、WPF プロパティ システムの一部またはすべての機能を利用できるように、これらの機能に精通しておく必要があります。
@@ -40,9 +40,9 @@ SDK リファレンスで、プロパティのマネージド リファレンス
 
 依存関係プロパティで使用される用語を次に示します。
 
-- **依存関係プロパティ:** によって<xref:System.Windows.DependencyProperty>サポートされるプロパティ。
+- **依存関係プロパティ:** <xref:System.Windows.DependencyProperty> によって補助されているプロパティ。
 
-- **依存関係プロパティの識別子:** <xref:System.Windows.DependencyProperty>インスタンス。依存関係プロパティを登録するときに戻り値として取得され、クラスの静的メンバーとして格納されます。 この識別子は、WPF プロパティ システムと対話する多くの API でパラメーターとして使用されます。
+- **依存関係プロパティの識別子:** 依存関係プロパティの登録時に戻り値として取得され、クラスの静的メンバーとして格納される <xref:System.Windows.DependencyProperty> インスタンス。 この識別子は、WPF プロパティ システムと対話する多くの API でパラメーターとして使用されます。
 
 - **CLR "ラッパー":** プロパティの実際の get および set 実装。 これらの実装では、<xref:System.Windows.DependencyObject.GetValue%2A> と <xref:System.Windows.DependencyObject.SetValue%2A> の呼び出しで使用することにより依存関係プロパティ識別子を組み込んで、WPF プロパティ システムを使用するプロパティを補助します。
 
@@ -61,7 +61,7 @@ SDK リファレンスで、プロパティのマネージド リファレンス
 
 [!code-xaml[PropertiesOvwSupport#MostBasicProperty](~/samples/snippets/csharp/VS_Snippets_Wpf/PropertiesOvwSupport/CSharp/Page1.xaml#mostbasicproperty)]
 
-XAML は、プロパティを設定するためのさまざまな構文形式をサポートします。 特定のプロパティに対してどの構文を使用するかは、プロパティで使用される値型、および型コンバーターの有無などのその他の要素によって決定されます。 プロパティ設定の XAML 構文の詳細については、「[XAML の概要 (WPF)](xaml-overview-wpf.md)」および「[XAML 構文の詳細](xaml-syntax-in-detail.md)」を参照してください。
+XAML は、プロパティを設定するためのさまざまな構文形式をサポートします。 特定のプロパティに対してどの構文を使用するかは、プロパティで使用される値型、および型コンバーターの有無などのその他の要素によって決定されます。 プロパティ設定の XAML 構文の詳細については、「[XAML の概要 (WPF)](../../../desktop-wpf/fundamentals/xaml.md)」および「[XAML 構文の詳細](xaml-syntax-in-detail.md)」を参照してください。
 
 属性以外の構文の例として、別のボタンの背景を次の XAML の例に示します。 今回は単純な純色を設定するのではなく、背景をイメージに設定し、そのイメージおよびそのイメージのソースを表す要素を、入れ子にした要素の属性として指定します。 これは、プロパティ要素構文の例です。
 
@@ -78,7 +78,7 @@ XAML は、プロパティを設定するためのさまざまな構文形式を
 [!code-csharp[PropertiesOvwSupport#ProceduralPropertyGet](~/samples/snippets/csharp/VS_Snippets_Wpf/PropertiesOvwSupport/CSharp/Page1.xaml.cs#proceduralpropertyget)]
  [!code-vb[PropertiesOvwSupport#ProceduralPropertyGet](~/samples/snippets/visualbasic/VS_Snippets_Wpf/PropertiesOvwSupport/visualbasic/page1.xaml.vb#proceduralpropertyget)]
 
-また、プロパティシステム api <xref:System.Windows.DependencyObject.GetValue%2A>とを<xref:System.Windows.DependencyObject.SetValue%2A>直接呼び出すこともできます。 これは通常、既存のプロパティを使用している場合は必要ありません (ラッパーの方が便利で、開発者ツールのプロパティがよりわかりやすくなります) が、Api を直接呼び出すことは、特定のシナリオに適しています。
+また、プロパティシステム Api <xref:System.Windows.DependencyObject.GetValue%2A> 呼び出して、直接 <xref:System.Windows.DependencyObject.SetValue%2A> することもできます。 これは通常、既存のプロパティを使用している場合は必要ありません (ラッパーの方が便利で、開発者ツールのプロパティがよりわかりやすくなります) が、Api を直接呼び出すことは、特定のシナリオに適しています。
 
 プロパティは、XAML で設定してから分離コードを介してコードでアクセスすることもできます。 詳細については、「[WPF における分離コードと XAML](code-behind-and-xaml-in-wpf.md)」を参照してください。
 
@@ -136,7 +136,7 @@ XAML は、プロパティを設定するためのさまざまな構文形式を
 
 詳しくは、「 [スタイルとテンプレート](../controls/styling-and-templating.md)」をご覧ください。
 
-### <a name="animations"></a>アニメーション
+### <a name="animations"></a>Animations
 依存関係プロパティは、アニメーション化することができます。 アニメーションが適用されて実行されると、アニメーション化された値は、それ以外の場合のプロパティの値 (ローカル値など) よりも高い優先順位で動作します。
 
 次の例は、<xref:System.Windows.Controls.Button> プロパティ上の <xref:System.Windows.Controls.Control.Background%2A> をアニメーション化します (技術的には、空白の <xref:System.Windows.Media.SolidColorBrush> を <xref:System.Windows.Controls.Control.Background%2A> として指定するために、プロパティ要素構文を使用して <xref:System.Windows.Controls.Control.Background%2A> がアニメーション化されます。すると、その <xref:System.Windows.Media.SolidColorBrush> の <xref:System.Windows.Media.SolidColorBrush.Color%2A> プロパティが直接アニメーション化されるプロパティになります)。
@@ -168,7 +168,7 @@ XAML は、プロパティを設定するためのさまざまな構文形式を
 詳細については、「[プロパティ値の継承](property-value-inheritance.md)」を参照してください。
 
 ### <a name="wpf-designer-integration"></a>WPF デザイナーの統合
-依存関係プロパティとして実装されるプロパティを使用するカスタム コントロールは、適切な [!INCLUDE[wpfdesigner_current_long](../../../../includes/wpfdesigner-current-long-md.md)] のサポートを受けます。 1 つの例として、 **[プロパティ]** ウィンドウで、直接依存関係プロパティと添付依存関係プロパティを編集できる機能が挙げられます。 詳しくは、「[コントロールの作成の概要](../controls/control-authoring-overview.md)」を参照してください。
+依存関係プロパティとして実装されているプロパティを持つカスタムコントロールは、Visual Studio のサポートに適した WPF デザイナーを受け取ります。 1 つの例として、 **[プロパティ]** ウィンドウで、直接依存関係プロパティと添付依存関係プロパティを編集できる機能が挙げられます。 詳細については、「[コントロールの作成の概要](../controls/control-authoring-overview.md)」を参照してください。
 
 ## <a name="dependency-property-value-precedence"></a>依存関係プロパティ値の優先順位
 依存関係プロパティの値を取得する場合、WPF プロパティ システムに関係する他のプロパティに基づく入力のいずれかを介して、そのプロパティに設定された値を取得する可能性があります。 プロパティの値の取得方法に関するさまざまなシナリオが予測可能な方法で相互作用できるように、依存関係プロパティ値の優先順位が存在しています。
@@ -200,5 +200,5 @@ XAML は、プロパティを設定するためのさまざまな構文形式を
 
 - [カスタム依存関係プロパティ](custom-dependency-properties.md)
 - [読み取り専用の依存関係プロパティ](read-only-dependency-properties.md)
-- [XAML の概要 (WPF)](xaml-overview-wpf.md)
+- [XAML の概要 (WPF)](../../../desktop-wpf/fundamentals/xaml.md)
 - [WPF アーキテクチャ](wpf-architecture.md)

@@ -2,16 +2,16 @@
 title: 探索検索と FindCriteria
 ms.date: 03/30/2017
 ms.assetid: 99016fa4-1778-495b-b4cc-0e22fbec42c6
-ms.openlocfilehash: 477edabb5d6fe263db43debc2f1d4f29df862609
-ms.sourcegitcommit: d6e27023aeaffc4b5a3cb4b88685018d6284ada4
+ms.openlocfilehash: da4c3c4a1d765e4f91b03f4f8fc1a73c3fea1535
+ms.sourcegitcommit: c01c18755bb7b0f82c7232314ccf7955ea7834db
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67663358"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75964845"
 ---
 # <a name="discovery-find-and-findcriteria"></a>探索検索と FindCriteria
 
-探索検索操作は、1 つ以上のサービスを探索するためにクライアントによって開始される操作であり、探索における主要なアクションの 1 つです。 検索を実行すると、WS-Discovery Probe メッセージがネットワークを介して送信されます。 指定された条件に一致するサービスは、WS-Discovery ProbeMatch メッセージを使用して応答します。 探索メッセージの詳細については、次を参照してください。、 [Ws-discovery 仕様](https://go.microsoft.com/fwlink/?LinkID=122347)します。
+探索検索操作は、1 つ以上のサービスを探索するためにクライアントによって開始される操作であり、探索における主要なアクションの 1 つです。 検索を実行すると、WS-Discovery Probe メッセージがネットワークを介して送信されます。 指定された条件に一致するサービスは、WS-Discovery ProbeMatch メッセージを使用して応答します。 探索メッセージの詳細については、「 [ws-management 仕様](http://schemas.xmlsoap.org/ws/2004/10/discovery/ws-discovery.pdf)」を参照してください。
 
 ## <a name="discoveryclient"></a>DiscoveryClient
 
@@ -23,7 +23,7 @@ ms.locfileid: "67663358"
 
 検索条件は、次のとおりです。
 
-- <xref:System.ServiceModel.Discovery.Configuration.ContractTypeNameElement> - 省略できます。 検索対象のサービスのコントラクト名、およびサービスの検索に通常使用される条件を指定します。 複数のコントラクト名が指定されると、すべてのコントラクトに一致するサービス エンドポイントのみが応答します。 Wcf エンドポイントのみをサポートできること 1 つのコントラクトに注意してください。
+- <xref:System.ServiceModel.Discovery.Configuration.ContractTypeNameElement> - 省略できます。 検索対象のサービスのコントラクト名、およびサービスの検索に通常使用される条件を指定します。 複数のコントラクト名が指定されると、すべてのコントラクトに一致するサービス エンドポイントのみが応答します。 WCF では、エンドポイントは1つのコントラクトしかサポートできないことに注意してください。
 
 - <xref:System.ServiceModel.Discovery.Configuration.ScopeElement> - 省略できます。 Scopes は、個々のサービス エンドポイントの分類に使用される絶対 URI です。 複数のエンドポイントが同じコントラクトを公開し、これらのエンドポイントのサブセットを検索する手段が必要な場合は、これを使用できます。 複数のスコープが指定されると、すべてのスコープに一致するサービス エンドポイントのみが応答します。
 
@@ -31,7 +31,7 @@ ms.locfileid: "67663358"
 
   - <xref:System.ServiceModel.Discovery.FindCriteria.ScopeMatchByExact?displayProperty=nameWithType>: 大文字と小文字が区別される基本の文字列比較を実行します。
 
-  - <xref:System.ServiceModel.Discovery.FindCriteria.ScopeMatchByPrefix?displayProperty=nameWithType> 区切られたセグメント単位で一致する「/」。 検索する`http://contoso/building1`スコープを持つサービスに一致`http://contoso/building/floor1`します。 一致しないので注意`http://contoso/building100`最後の 2 つのセグメントが一致しないためです。
+  - "/" で区切られたセグメントで一致を <xref:System.ServiceModel.Discovery.FindCriteria.ScopeMatchByPrefix?displayProperty=nameWithType> します。 `http://contoso/building1` の検索は、スコープ `http://contoso/building/floor1`を持つサービスと一致します。 最後の2つのセグメントが一致しないため、`http://contoso/building100` と一致しないことに注意してください。
 
   - <xref:System.ServiceModel.Discovery.FindCriteria.ScopeMatchByLdap?displayProperty=nameWithType>: LDAP URL を使用してセグメント単位でスコープの一致を判定します。
 

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 036db5e7-8211-4645-9a34-03d1a89be955
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 0b0a190ce57091434006421e6d8551c78cbe66b8
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 219d3196e3b2125033a23623b7e77e31c6f1ff03
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67777173"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74440492"
 ---
 # <a name="imetadataemit2getdeltasavesize-method"></a>IMetaDataEmit2::GetDeltaSaveSize メソッド
-エディット コンティニュの現在のセッションから生成されるメタデータのサイズ変更を示す値を取得します。  
+現在のエディットコンティニュセッションの結果として得られるメタデータサイズの変更を示す値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,17 +36,17 @@ HRESULT GetDeltaSaveSize (
   
 ## <a name="parameters"></a>パラメーター  
  `fSave`  
- [in]1 つ、 [CorSaveSize](../../../../docs/framework/unmanaged-api/metadata/corsavesize-enumeration.md)必要に応じて有効桁数のレベルを示す値。 .NET Framework version 2.0 では、このパラメーターは無視されます。  
+ から[CorSaveSize](../../../../docs/framework/unmanaged-api/metadata/corsavesize-enumeration.md)値の1つ。必要な精度のレベルを示します。 .NET Framework バージョン2.0 では、このパラメーターは無視されます。  
   
  `pdwSaveSize`  
- [out]メタデータのサイズに変更します。  
+ 入出力メタデータのサイズの変更。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

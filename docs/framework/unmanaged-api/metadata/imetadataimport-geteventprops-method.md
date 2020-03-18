@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 5eaf3b4a-92b7-4d5b-97e0-1e83721e0052
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: c87f2212c761dc31a75addabca6970c5497aa2a0
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 18fe0c834506d0ac4cd15fd7af4c4f15904b0f81
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67782427"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74437576"
 ---
 # <a name="imetadataimportgeteventprops-method"></a>IMetaDataImport::GetEventProps メソッド
-宣言する型の追加と削除メソッドのデリゲート、任意のフラグと関連付けられているその他のデータを含め、指定したイベント トークンによって表されるイベントのメタデータ情報を取得します。  
+宣言する型、デリゲートの add メソッドおよび remove メソッド、すべてのフラグおよびその他の関連データを含む、指定したイベントトークンによって表されるイベントのメタデータ情報を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -49,47 +47,47 @@ HRESULT GetEventProps (
   
 ## <a name="parameters"></a>パラメーター  
  `ev`  
- [in]メタデータを取得するイベントを表すイベントのメタデータ トークンです。  
+ からメタデータを取得するイベントを表すイベントメタデータトークン。  
   
  `pClass`  
- [out]イベントを宣言するクラスを表す TypeDef トークンへのポインター。  
+ 入出力イベントを宣言するクラスを表す TypeDef トークンへのポインター。  
   
  `szEvent`  
- [out]によって参照されるイベントの名前`ev`します。  
+ 入出力`ev`によって参照されるイベントの名前。  
   
  `pchEvent`  
- [in]要求された長さのワイド文字で`szEvent`します。  
+ から`szEvent`の、要求された長さをワイド文字数で指定します。  
   
  `pdwEventFlags`  
- [out]ワイド文字で返される長さ`szEvent`します。  
+ 入出力`szEvent`のワイド文字数で返された長さ。  
   
  `ptkEventType`  
- [out]TypeRef または TypeDef メタデータ トークンを表すへのポインター、<xref:System.Delegate>イベントの種類。  
+ 入出力イベントの <xref:System.Delegate> 型を表す TypeRef または TypeDef メタデータトークンへのポインター。  
   
  `pmdAddOn`  
- [out]イベントのハンドラーを追加するメソッドを表すメタデータ トークンへのポインター。  
+ 入出力イベントのハンドラーを追加するメソッドを表すメタデータトークンへのポインター。  
   
  `pmdRemoveOn`  
- [out]イベントのハンドラーを削除するメソッドを表すメタデータ トークンへのポインター。  
+ 入出力イベントのハンドラーを削除するメソッドを表すメタデータトークンへのポインター。  
   
  `pmdFire`  
- [out]イベントを発生させるメソッドを表すメタデータ トークンへのポインター。  
+ 入出力イベントを発生させるメソッドを表すメタデータトークンへのポインター。  
   
  `rmdOtherMethod`  
- [out]イベントに関連付けられているその他のメソッドへのトークンのポインターの配列。  
+ 入出力イベントに関連付けられている他のメソッドへのトークンポインターの配列。  
   
  `cMax`  
  [in] `rmdOtherMethod` 配列の最大サイズ。  
   
  `pcOtherMethod`  
- [out]トークンで返される数`rmdOtherMethod`します。  
+ 入出力`rmdOtherMethod`で返されたトークンの数。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

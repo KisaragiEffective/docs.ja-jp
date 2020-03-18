@@ -14,17 +14,15 @@ helpviewer_keywords:
 ms.assetid: 7c36a7c2-75a2-4971-bc23-abf54c812154
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: f1e003ba23f680c4a5525a956d758aac6b823eb9
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: ee749fd40f440e92f1d1b09c2ea5e7bdd51f1cbe
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67769709"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73131131"
 ---
 # <a name="eclrevent-enumeration"></a>EClrEvent 列挙型
-ホストがコールバックを登録できる共通言語ランタイム (CLR) のイベントについて説明します。  
+ホストがコールバックを登録できる共通言語ランタイム (CLR) イベントについて説明します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,24 +39,24 @@ typedef enum {
   
 |メンバー|説明|  
 |------------|-----------------|  
-|`Event_ClrDisabled`|CLR の致命的なエラーを指定します。|  
-|`Event_DomainUnload`|特定のアンロードを指定します。<xref:System.AppDomain>します。|  
-|`Event_MDAFired`|マネージ デバッグ アシスタント (MDA) メッセージが生成されたことを指定します。|  
-|`Event_StackOverflow`|スタックのオーバーフロー エラーが発生したことを指定します。|  
+|`Event_ClrDisabled`|致命的な CLR エラーを指定します。|  
+|`Event_DomainUnload`|特定の <xref:System.AppDomain>のアンロードを指定します。|  
+|`Event_MDAFired`|マネージデバッグアシスタント (MDA) メッセージが生成されたことを示します。|  
+|`Event_StackOverflow`|スタックオーバーフローエラーが発生したことを示します。|  
   
 ## <a name="remarks"></a>Remarks  
- ホストで説明されているイベントの種類のいずれかのコールバックを登録できる`EClrEvent`のメソッドを呼び出すことによって、 [ICLROnEventManager](../../../../docs/framework/unmanaged-api/hosting/iclroneventmanager-interface.md)インターフェイス。 ホストは、呼び出すことによってこのインターフェイスにポインターを取得、 [iclrcontrol::getclrmanager](../../../../docs/framework/unmanaged-api/hosting/iclrcontrol-getclrmanager-method.md)メソッド。  
+ ホストは、 [ICLROnEventManager](../../../../docs/framework/unmanaged-api/hosting/iclroneventmanager-interface.md)インターフェイスのメソッドを呼び出すことによって、`EClrEvent` によって記述されたイベントの種類のコールバックを登録できます。 ホストは、 [ICLRControl:: GetCLRManager](../../../../docs/framework/unmanaged-api/hosting/iclrcontrol-getclrmanager-method.md)メソッドを呼び出すことによって、このインターフェイスへのポインターを取得します。  
   
- `Event_CLRDisabled`と`Event_DomainUnload`2 回以上、アンロード、または CLR の無効化を通知する別のスレッドからイベントを発生させることができます。  
+ `Event_CLRDisabled` イベントと `Event_DomainUnload` イベントを複数回発生させることができ、さまざまなスレッドから、アンロードまたは CLR の無効化を通知することができます。  
   
- `Event_MDAFired`イベント発生の作成、 [MDAInfo](../../../../docs/framework/unmanaged-api/hosting/mdainfo-structure.md) MDA メッセージの詳細を格納しているインスタンス。 Mda の詳細については、次を参照してください。[マネージ デバッグ アシスタントによるエラーの診断](../../../../docs/framework/debug-trace-profile/diagnosing-errors-with-managed-debugging-assistants.md)します。  
+ `Event_MDAFired` イベントは、MDA メッセージの詳細を含む[MDAInfo](../../../../docs/framework/unmanaged-api/hosting/mdainfo-structure.md)インスタンスの作成を発生させます。 Mda の詳細については、「[マネージデバッグアシスタントによるエラーの診断](../../../../docs/framework/debug-trace-profile/diagnosing-errors-with-managed-debugging-assistants.md)」を参照してください。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll  
+ **ライブラリ:** Mscoree.dll  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

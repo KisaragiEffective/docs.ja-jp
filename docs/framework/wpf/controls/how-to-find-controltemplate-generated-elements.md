@@ -1,5 +1,5 @@
 ---
-title: '方法: ControlTemplate によって生成された要素を検索する'
+title: '方法 : ControlTemplate によって生成された要素を検索する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -8,22 +8,22 @@ helpviewer_keywords:
 - ControlTemplates [WPF], finding elements
 - finding ControlTemplate elements [WPF]
 ms.assetid: d7b25447-ceff-4bb4-9be5-fd7c40ef00af
-ms.openlocfilehash: 426f6c93433711ac72fe67eff2ee3006aa4d9166
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 232ee7d2859059591c9beff753f45781598a8127
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62037142"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73460703"
 ---
-# <a name="how-to-find-controltemplate-generated-elements"></a>方法: ControlTemplate によって生成された要素を検索する
-この例によって生成される要素を検索する方法を示しています、<xref:System.Windows.Controls.ControlTemplate>します。  
+# <a name="how-to-find-controltemplate-generated-elements"></a>方法 : ControlTemplate によって生成された要素を検索する
+この例では、<xref:System.Windows.Controls.ControlTemplate>によって生成された要素を検索する方法を示します。  
   
 ## <a name="example"></a>例  
- 次の例は、単純なを作成するスタイル<xref:System.Windows.Controls.ControlTemplate>の<xref:System.Windows.Controls.Button>クラス。  
+ 次の例は、<xref:System.Windows.Controls.Button> クラスの単純な <xref:System.Windows.Controls.ControlTemplate> を作成するスタイルを示しています。  
   
  [!code-xaml[FindGeneratedItems#CT](~/samples/snippets/csharp/VS_Snippets_Wpf/FindGeneratedItems/CSharp/Window1.xaml#ct)]  
   
- テンプレートが適用された後は、テンプレート内の要素を検索を呼び出すことができます、<xref:System.Windows.FrameworkTemplate.FindName%2A>のメソッド、<xref:System.Windows.Controls.Control.Template%2A>します。 次の例の実際の幅の値を示すメッセージ ボックスの作成、<xref:System.Windows.Controls.Grid>コントロール テンプレート内で。  
+ テンプレートが適用された後にテンプレート内の要素を検索するには、<xref:System.Windows.Controls.Control.Template%2A>の <xref:System.Windows.FrameworkTemplate.FindName%2A> メソッドを呼び出すことができます。 次の例では、コントロールテンプレート内の <xref:System.Windows.Controls.Grid> の実際の幅の値を示すメッセージボックスを作成します。  
   
  [!code-csharp[FindGeneratedItems#CTFindElement](~/samples/snippets/csharp/VS_Snippets_Wpf/FindGeneratedItems/CSharp/Window1.xaml.cs#ctfindelement)]
  [!code-vb[FindGeneratedItems#CTFindElement](~/samples/snippets/visualbasic/VS_Snippets_Wpf/FindGeneratedItems/VisualBasic/Window1.xaml.vb#ctfindelement)]  
@@ -31,6 +31,6 @@ ms.locfileid: "62037142"
 ## <a name="see-also"></a>関連項目
 
 - [DataTemplate によって生成された要素を検索する](../data/how-to-find-datatemplate-generated-elements.md)
-- [スタイルとテンプレート](styling-and-templating.md)
+- [スタイルとテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)
 - [WPF XAML 名前スコープ](../advanced/wpf-xaml-namescopes.md)
 - [WPF のツリー](../advanced/trees-in-wpf.md)

@@ -3,13 +3,13 @@ title: ASP.NET Core アプリでのデータの操作
 description: ASP.NET Core および Azure での最新の Web アプリケーションの設計 | ASP.NET Core アプリでのデータの操作
 author: ardalis
 ms.author: wiwagn
-ms.date: 01/30/2019
-ms.openlocfilehash: 9d9e75767f5ed5010f618d5dbe1e58fe79454597
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+ms.date: 12/04/2019
+ms.openlocfilehash: 5a38ca94b6df676858e7cb058272e450aaf1572e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71117304"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "78241040"
 ---
 # <a name="working-with-data-in-aspnet-core-apps"></a>ASP.NET Core アプリでのデータの操作
 
@@ -55,7 +55,7 @@ public class CatalogContext : DbContext
 }
 ```
 
-DbContext には、DbContextOptions を受け入れるコンストラクターが必要です。また、この引数を基本の DbContext コンストラクターに渡す必要があります。 ご利用のアプリケーションに DbContext が 1 つだけ存在する場合は、DbContextOptions のインスタンスを渡すことができますが、複数存在する場合は、ジェネリックの DbContextOptions\<T> 型を使用して、ジェネリック パラメーターとして DbContext 型を渡す必要があることに注意してください。
+DbContext には、DbContextOptions を受け入れるコンストラクターが必要です。また、この引数を基本の DbContext コンストラクターに渡す必要があります。 ご利用のアプリケーションに DbContext が 1 つだけ存在する場合は、DbContextOptions のインスタンスを渡すことができますが、複数存在する場合は、ジェネリックの DbContextOptions\<T> 型を使用し、ジェネリック パラメーターとして DbContext 型を渡す必要があります。
 
 ### <a name="configuring-ef-core"></a>EF Core の構成
 
@@ -200,9 +200,9 @@ private void ConfigureOrder(EntityTypeBuilder<Order> builder)
 }
 ```
 
-この例では、`ShipToAddress` プロパティの型は `Address` です。 `Address` は、`Street` や `City` など、いくつかのプロパティを持つ値オブジェクトです。 EF Core では、`Address` プロパティごとに 1 列の配分で `Order` オブジェクトがそのテーブルにマッピングされます。各列の名前の先頭にプロパティの名前が接頭辞として付きます。 この例で、`Order` テーブルに `ShipToAddress_Street` や `ShipToAddress_City` などの列が含まれます。
+この例では、`ShipToAddress` プロパティの型は `Address` です。 `Address` は、`Street` や `City` など、いくつかのプロパティを持つ値オブジェクトです。 EF Core では、`Address` プロパティごとに 1 列の配分で `Order` オブジェクトがそのテーブルにマッピングされます。各列の名前の先頭にプロパティの名前が接頭辞として付きます。 この例で、`Order` テーブルに `ShipToAddress_Street` や `ShipToAddress_City` などの列が含まれます。 必要に応じて、所有型を別のテーブルに格納することもできます。
 
-[EF Core 2.2 では、所有エンティティのコレクションがサポートされました](https://docs.microsoft.com/ef/core/what-is-new/ef-core-2.2#collections-of-owned-entities)
+詳細については、[EF Core の所有エンティティのサポート](/ef/core/modeling/owned-entities)に関する記事を参照してください。
 
 ### <a name="resilient-connections"></a>回復力のある接続
 
@@ -261,7 +261,7 @@ await strategy.ExecuteAsync(async () =>
 
         // Save to EventLog only if product price changed
         if (raiseProductPriceChangedEvent)
-        await _integrationEventLogService.SaveEventAsync(priceChangedEvent);
+            await _integrationEventLogService.SaveEventAsync(priceChangedEvent);
         transaction.Commit();
     }
 });
@@ -271,18 +271,18 @@ await strategy.ExecuteAsync(async () =>
 
 > ### <a name="references--entity-framework-core"></a>参照 – Entity Framework Core
 >
-> - **EF Core ドキュメント**  
+> - **EF Core ドキュメント**
 >   <https://docs.microsoft.com/ef/>
-> - **EF Core: 関連データ**  
+> - **EF Core: 関連データ**
 >   <https://docs.microsoft.com/ef/core/querying/related-data>
-> - **ASPNET アプリケーションでのエンティティの遅延読み込みを回避する**  
+> - **ASPNET アプリケーションでのエンティティの遅延読み込みを回避する**
 >   <https://ardalis.com/avoid-lazy-loading-entities-in-asp-net-applications>
 
 ## <a name="ef-core-or-micro-orm"></a>EF Core または micro-ORM の選択
 
-永続化を管理する場合は EF Core を選択することをお勧めしますが、アプリケーション開発者からのデータベースの詳細をカプセル化する場合はこれ以外も選択できます。 [Dapper](https://github.com/StackExchange/Dapper) (いわゆる micro-ORM) という一般的なオープン ソースも使用できます。 micro-ORM はデータ構造にオブジェクトをマップするための軽量なツールであり、すべての機能が備わっているわけではありません。 Dapper の場合、その設計目標は、データの取得と更新に使用される基になるクエリの完全なカプセル化ではなく、パフォーマンスに重点を置くことです。 開発者からの SQL が抽象化されないため、Dapper は "機械により近い" ものであり、開発者は特定のデータ アクセス操作で使用する正確なクエリを記述することができます。
+EF Core は、永続化を管理するための優れた選択肢であり、ほとんどの場合でアプリケーション開発者からデータベースの詳細をカプセル化することができますが、これが唯一の選択肢というわけではありません。 もう 1 つの一般的なオープンソースの代替手段として、[Dapper](https://github.com/StackExchange/Dapper) (いわゆる micro-ORM) もあります。 micro-ORM はデータ構造にオブジェクトをマップするための軽量なツールであり、すべての機能が備わっているわけではありません。 Dapper の場合、その設計目標は、データの取得と更新に使用される基になるクエリの完全なカプセル化ではなく、パフォーマンスに重点を置くことです。 開発者からの SQL が抽象化されないため、Dapper は "機械により近い" ものであり、開発者は特定のデータ アクセス操作で使用する正確なクエリを記述することができます。
 
-EF Core では 2 つの重要な機能が提供されます。これらは Dapper とは異なり、パフォーマンスのオーバーヘッドも増えます。 1 つ目は、LINQ 式から SQL への変換です。 これらの変換はキャッシュされますが、それでも最初の実行時にオーバーヘッドが発生します。 2 つ目は、エンティティの変更追跡です (効率的な更新ステートメントを生成できます)。 AsNotTracking 拡張機能を使用して、この動作を特定のクエリに対してオフにすることができます。 また、EF Core は、通常は非常に効率的で、パフォーマンスの観点から完全に受け入れ可能である場合に SQL クエリを生成します。ただし、実行する正確なクエリを微調整する必要がある場合は、EF Core を使用して、カスタム SQL を渡す (またはストアド プロシージャを実行する) こともできます。 この場合も、Dapper はほんのわずかですが EE Core より優れています。 Julie Lerman は、2016 年 5 月の MSDN 記事「[Dapper、Entity Framework、およびハイブリッド アプリ](https://msdn.microsoft.com/magazine/mt703432.aspx)」で一部のパフォーマンス データを提供しています。 さまざまなデータ アクセス方法の追加のパフォーマンス ベンチマーク データについては、[Dapper サイト](https://github.com/StackExchange/Dapper)を参照してください。
+EF Core では 2 つの重要な機能が提供されます。これらは Dapper とは異なり、パフォーマンスのオーバーヘッドも増えます。 1 つ目は、LINQ 式から SQL への変換です。 これらの変換はキャッシュされますが、それでも最初の実行時にオーバーヘッドが発生します。 2 つ目は、エンティティの変更追跡です (効率的な更新ステートメントを生成できます)。 AsNotTracking 拡張機能を使用して、この動作を特定のクエリに対してオフにすることができます。 また、EF Core は、通常は非常に効率的で、パフォーマンスの観点から完全に受け入れ可能である場合に SQL クエリを生成します。ただし、実行する正確なクエリを微調整する必要がある場合は、EF Core を使用して、カスタム SQL を渡す (またはストアド プロシージャを実行する) こともできます。 この場合も、Dapper はほんのわずかですが EE Core より優れています。 Julie Lerman は、2016 年 5 月の MSDN 記事「[Dapper、Entity Framework、およびハイブリッド アプリ](https://docs.microsoft.com/archive/msdn-magazine/2016/may/data-points-dapper-entity-framework-and-hybrid-apps)」で一部のパフォーマンス データを提供しています。 さまざまなデータ アクセス方法の追加のパフォーマンス ベンチマーク データについては、[Dapper サイト](https://github.com/StackExchange/Dapper)を参照してください。
 
 EF Core と Dapper との構文の違いを確認するために、アイテム リストを取得する同じ方法の次の 2 つのバージョンについて考えてみます。
 
@@ -332,7 +332,7 @@ var data = connection.Query<Post, User, Post>(sql,
 
 ## <a name="sql-or-nosql"></a>SQL または NoSQL
 
-従来、SQL Server などのリレーショナル データベースが永続的なデータ記憶域のマーケットプレースの多くを占めますが、使用可能な唯一のソリューションではありません。 [MongoDB](https://www.mongodb.com/what-is-mongodb) などの NoSQL データベースでは、オブジェクトを格納するさまざまな方法が提供されます。 オブジェクトをテーブルと行にマップするのではなく、オブジェクト グラフ全体をシリアル化して、結果を格納することもできます。 この方法の利点は、少なくとも最初は単純さとパフォーマンスとなります。 オブジェクトがデータベースから最後に取得されてから変更された可能性のある、リレーションシップ、更新プログラム、および行を持つ多くのテーブルにオブジェクトを分解するよりも、キーを持つ単一のシリアル化されたオブジェクトを格納する方が確実に簡単です。 同様に、キーベースのストアから単一のオブジェクトをフェッチして逆シリアル化することは、リレーショナル データベースから同じオブジェクトを完全に構成するために必要な複雑な結合や複数のデータベース クエリよりも通常ははるかに速くて簡単です。 また、ロックやトランザクションあるいは固定スキーマがないため、NoSQL データベースは多くのコンピューターでのスケーリングに非常に適しており、非常に大規模なデータセットをサポートできます。
+従来、SQL Server などのリレーショナル データベースが永続的なデータ記憶域のマーケットプレースの多くを占めますが、使用可能な唯一のソリューションではありません。 [MongoDB](https://www.mongodb.com/what-is-mongodb) などの NoSQL データベースでは、オブジェクトを格納するさまざまな方法が提供されます。 オブジェクトをテーブルと行にマップするのではなく、オブジェクト グラフ全体をシリアル化して、結果を格納することもできます。 この方法の利点は、少なくとも最初は単純さとパフォーマンスとなります。 オブジェクトを、そのオブジェクトがデータベースから最後に取得されてから変更された可能性のある、リレーションシップ、更新、および行を持つ多くのテーブルに分解するよりも、キーを持つ単一のシリアル化されたオブジェクトを格納する方が簡単です。 同様に、キーベースのストアから単一のオブジェクトをフェッチして逆シリアル化することは、リレーショナル データベースから同じオブジェクトを完全に構成するために必要な複雑な結合や複数のデータベース クエリよりも通常ははるかに速くて簡単です。 また、ロックやトランザクションあるいは固定スキーマがないため、NoSQL データベースは多くのコンピューターにわたるスケーリングに適しており、非常に大規模なデータセットをサポートできます。
 
 その一方で、NoSQL データベース (通常は呼び出し時に) には欠点があります。 リレーショナル データベースでは、正規化を使用して整合性を適用し、データの重複を防ぎます。 これにより、データベースの合計サイズが小さくなり、共有データの更新プログラムがデータベース全体ですぐに使用できるようになります。 リレーショナル データベースでは、Address テーブルによって、ID を使用して Country テーブルが参照される場合があります。国/地域の名前が変更された場合、アドレス レコードは更新プログラムの利点が得られ、それ自体の更新は必要ありません。 ただし、NoSQL データベースでは、Address とそれに関連付けられている Country が、格納されている多くのオブジェクトの一部としてシリアル化される可能性があります。 国/地域の名前を更新するには、単一行ではなく、すべてのオブジェクトを更新する必要があります。 リレーショナル データベースでは、外部キーのようなルールを適用することで、リレーショナルの整合性を確認することもできます。 通常、NoSQL データベースでは、そのデータに対するこのような制約は提供されません。
 
@@ -340,22 +340,21 @@ NoSQL データベースで対処する必要があるもう 1 つの複雑な�
 
 NoSQL データベースには、リレーショナル データベースでは通常サポートされない固定スキーマなど、複数のバージョンのオブジェクトを格納できます。 ただし、その場合、アプリケーション コードでは以前のバージョンのオブジェクトの存在を考慮する必要があり、複雑さが増します。
 
-通常、NoSQL データベースでは [ACID](https://en.wikipedia.org/wiki/ACID) が適用されません。つまり、リレーショナル データベースよりもパフォーマンスとスケーラビリティの両方が優れています。 正規化されたテーブル構造には最適ではない、非常に大規模なデータセットとオブジェクトに最適です。 単一のアプリケーションでリレーショナル データベースと NoSQL データベースの両方 (それぞれ適宜使用) を利用できない理由はありません。
+通常、NoSQL データベースでは [ACID](https://en.wikipedia.org/wiki/ACID) が適用されません。つまり、リレーショナル データベースよりもパフォーマンスとスケーラビリティの両方が優れています。 これは、正規化されたテーブル構造のストレージには適さない非常に大規模なデータセットとオブジェクトに最適です。 単一のアプリケーションでリレーショナル データベースと NoSQL データベースの両方 (それぞれ適宜使用) を利用できない理由はありません。
 
-## <a name="azure-documentdb"></a>Azure DocumentDB
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure DocumentDB はフル マネージドの NoSQL データベース サービスであり、クラウドベースのスキーマレスなデータ ストレージを提供します。 DocumentDB は、高速で予測可能なパフォーマンス、高可用性、エラスティック スケーリング、およびグローバル配布用に作成されています。 NoSQL データベースであるにもかかわらず、開発者は JSON データで豊富で使い慣れた SQL クエリ機能を使用できます。 DocumentDB のすべてのリソースは、JSON ドキュメントとして格納されます。 リソースは、_アイテム_ (メタデータを含むドキュメント) および_フィード_ (アイテムのコレクション) として管理されます。 図 8-2 は、さまざまな DocumentDB リソース間の関係を示しています。
+Azure Cosmos DB はフル マネージドの NoSQL データベース サービスであり、クラウドベースのスキーマレスなデータ ストレージを提供します。 Azure Cosmos DB は、高速で予測可能なパフォーマンス、高可用性、エラスティック スケーリング、およびグローバル配布用に作成されています。 NoSQL データベースであるにもかかわらず、開発者は JSON データで豊富で使い慣れた SQL クエリ機能を使用できます。 Azure Cosmos DB のすべてのリソースは、JSON ドキュメントとして保存されます。 リソースは、_アイテム_ (メタデータを含むドキュメント) および_フィード_ (アイテムのコレクション) として管理されます。 図 8-2 は、さまざまな Azure Cosmos DB リソース間の関係を示しています。
 
-![DocumentDB (NoSQL JSON データベース) のリソース間の階層関係](./media/image8-2.png)
+![Azure Cosmos DB (NoSQL JSON データベース) のリソース間の階層関係](./media/image8-2.png)
 
-**図 8-2** DocumentDB リソースの組織。
+**図 8-2** Azure Cosmos DB リソースの編成。
 
-DocumentDB クエリ言語は、JSON ドキュメントを照会するための簡単かつ強力なインターフェイスです。 言語では ANSI SQL 文法のサブセットがサポートされ、JavaScript のオブジェクト、配列、オブジェクトの構築、関数呼び出しと緊密に統合できます。
+Azure Cosmos DB のクエリ言語は、JSON ドキュメントを照会するためのシンプルで強力なインターフェイスです。 言語では ANSI SQL 文法のサブセットがサポートされ、JavaScript のオブジェクト、配列、オブジェクトの構築、関数呼び出しと緊密に統合できます。
 
-**参照 – DocumentDB**
+**参照 – Azure Cosmos DB**
 
-- DocumentDB の概要  
-  <https://docs.microsoft.com/azure/documentdb/documentdb-introduction>
+- Azure Cosmos DB の概要 <https://docs.microsoft.com/azure/cosmos-db/introduction>
 
 ## <a name="other-persistence-options"></a>その他の永続性オプション
 
@@ -371,8 +370,7 @@ DocumentDB クエリ言語は、JSON ドキュメントを照会するための�
 
 **参照 – Azure Storage**
 
-- Azure Storage の概要  
-  <https://docs.microsoft.com/azure/storage/storage-introduction>
+- Azure Storage の概要 <https://docs.microsoft.com/azure/storage/storage-introduction>
 
 ## <a name="caching"></a>キャッシュ
 
@@ -385,10 +383,9 @@ Web アプリケーションでは、各 Web 要求をできるだけ短時間�
 ASP.NET Core では、2 つのレベルの応答キャッシュがサポートされます。 最初のレベルではサーバーには何もキャッシュしませんが、応答をキャッシュするようにクライアントおよびプロキシ サーバーに指示する HTTP ヘッダーを追加します。 これは、個々のコントローラーまたはアクションに ResponseCache 属性を追加することで実装されます。
 
 ```csharp
-    [ResponseCache(Duration = 60)]
-    public IActionResult Contact()
-    { }
-
+[ResponseCache(Duration = 60)]
+public IActionResult Contact()
+{
     ViewData["Message"] = "Your contact page.";
     return View();
 }
@@ -439,7 +436,6 @@ public class CachedCatalogService : ICatalogService
     private readonly CatalogService _catalogService;
     private static readonly string _brandsKey = "brands";
     private static readonly string _typesKey = "types";
-    private static readonly string _itemsKeyTemplate = "items-{0}-{1}-{2}-{3}";
     private static readonly TimeSpan _defaultCacheDuration = TimeSpan.FromSeconds(30);
     public CachedCatalogService(IMemoryCache cache,
     CatalogService catalogService)
@@ -459,7 +455,7 @@ public class CachedCatalogService : ICatalogService
 
     public async Task<Catalog> GetCatalogItems(int pageIndex, int itemsPage, int? brandID, int? typeId)
     {
-        string cacheKey = String.Format(_itemsKeyTemplate, pageIndex, itemsPage, brandID, typeId);
+        string cacheKey = $"items-{pageIndex}-{itemsPage}-{brandID}-{typeId}";
         return await _cache.GetOrCreateAsync(cacheKey, async entry =>
         {
             entry.SlidingExpiration = _defaultCacheDuration;
@@ -486,9 +482,9 @@ services.AddScoped<ICatalogService, CachedCatalogService>();
 services.AddScoped<CatalogService>();
 ```
 
-こうすることで、カタログ データをフェッチするデータセット呼び出しは、要求ごとではなく、1 分ごとに 1 回だけ行われるようになります。 サイトへのトラフィックによっては、データベースに対して行われるクエリの数と、このサービスによって公開される 3 つのすべてのクエリに現在依存しているホーム ページの平均ページ読み込み時間に非常に大きく影響する場合があります。
+こうすることで、カタログ データをフェッチするデータセット呼び出しは、要求ごとではなく、1 分ごとに 1 回だけ行われるようになります。 サイトへのトラフィックによっては、データベースに対して行われるクエリの数と、このサービスによって公開されている 3 つのクエリすべてに現在依存しているホーム ページの平均ページ読み込み時間に、これが大きな影響を与える可能性があります。
 
-キャッシュの実装時に問題になるのは、_古いデータ_です。つまり、データがソースで変更されても、その古いバージョンのデータがキャッシュに保持されます。 この問題を緩和する簡単な方法は、短いキャッシュ期間を使用することです。ビジー状態のアプリケーションの場合、データのキャッシュ期間を延長することで得られる限られた追加の利点があるためです。 たとえば、単一のデータベース クエリを実行し、1 秒ごとに 10 回要求されるページがあるとします。 このページが 1 分間キャッシュされると、1 分ごとに実行されるデータベース クエリの数は 600 から 1 に減り、99.8% の減少率となります。 代わりにキャッシュ期間を 1 時間にした場合、全体的な減少率は 99.997% となりますが、古いデータの確率的および潜在的な経過期間はどちらも大幅に増えます。
+キャッシュの実装時に発生する問題は、"_古いデータ_" です。つまり、ソースで変更されても、その古いバージョンがキャッシュ内に残っているデータです。 この問題を緩和する簡単な方法は、短いキャッシュ期間を使用することです。ビジー状態のアプリケーションの場合、データのキャッシュ期間を延長することで得られる限られた追加の利点があるためです。 たとえば、単一のデータベース クエリを実行し、1 秒ごとに 10 回要求されるページがあるとします。 このページが 1 分間キャッシュされると、1 分ごとに実行されるデータベース クエリの数は 600 から 1 に減り、99.8% の減少率となります。 代わりにキャッシュ期間を 1 時間にした場合、全体的な減少率は 99.997% となりますが、古いデータの確率的および潜在的な経過期間はどちらも大幅に増えます。
 
 含まれているデータを更新する場合、事前にキャッシュ エントリを削除することもできます。 キーがわかっている場合は、個々のエントリを削除できます。
 
@@ -496,7 +492,7 @@ services.AddScoped<CatalogService>();
 _cache.Remove(cacheKey);
 ```
 
-アプリケーションでキャッシュされているエントリを更新する機能が公開されている場合は、更新を実行するコードの対応するキャッシュ エントリを削除することができます。 特定のデータ セットに依存する多くの異なるエントリが存在する場合もあります。 その場合は、CancellationChangeToken を使用して、キャッシュ エントリ間の依存関係を作成すると便利です。 CancellationChangeToken を使用すれば、トークンを取り消すことで一度に複数のキャッシュ エントリを期限切れにすることができます。
+アプリケーションでキャッシュされているエントリを更新する機能が公開されている場合は、更新を実行するコードの対応するキャッシュ エントリを削除することができます。 特定のデータ セットに依存する多くの異なるエントリが存在する場合もあります。 その場合は、CancellationChangeToken を使用して、キャッシュ エントリ間の依存関係を作成すると便利です。 CancellationChangeToken を使用すれば、トークンをキャンセルすることで一度に複数のキャッシュ エントリを期限切れにすることができます。
 
 ```csharp
 // configure CancellationToken and add entry to cache

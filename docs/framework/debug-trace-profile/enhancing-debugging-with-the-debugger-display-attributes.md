@@ -13,14 +13,12 @@ helpviewer_keywords:
 - display attributes for debugger
 - DebuggerBrowsableAttribute attribute
 ms.assetid: 72bb7aa9-459b-42c4-9163-9312fab4c410
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: c27732de448e19c4227062706c7a7d73c98e5f19
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: ca118bffb045a0e7e3a5084916a0ff8020ebda90
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69966873"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77216492"
 ---
 # <a name="enhancing-debugging-with-the-debugger-display-attributes"></a>デバッガー表示属性によるデバッグ機能の拡張
 
@@ -97,7 +95,7 @@ class MyHashtable : Hashtable
 
 ### <a name="description"></a>説明
 
-次のコード例を Visual Studio で表示すると<xref:System.Diagnostics.DebuggerDisplayAttribute>、、 <xref:System.Diagnostics.DebuggerBrowsableAttribute>、および<xref:System.Diagnostics.DebuggerTypeProxyAttribute>の各属性を適用した結果を確認できます。
+次のコード例を Visual Studio で表示すると、<xref:System.Diagnostics.DebuggerDisplayAttribute>、<xref:System.Diagnostics.DebuggerBrowsableAttribute>、および <xref:System.Diagnostics.DebuggerTypeProxyAttribute> 属性を適用した結果を確認できます。
 
 ### <a name="code"></a>コード
 
@@ -105,7 +103,7 @@ class MyHashtable : Hashtable
 [!code-csharp[System.Diagnostics.DebuggerBrowsableAttribute#1](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.Diagnostics.DebuggerBrowsableAttribute/CS/program.cs#1)]
 [!code-vb[System.Diagnostics.DebuggerBrowsableAttribute#1](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.Diagnostics.DebuggerBrowsableAttribute/VB/module1.vb#1)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Diagnostics.DebuggerDisplayAttribute>
 - <xref:System.Diagnostics.DebuggerBrowsableAttribute>

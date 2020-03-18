@@ -1,19 +1,17 @@
 ---
 title: Visual Studio を使用して .NET Core アプリを展開する
 description: Visual Studio で .NET Core アプリをデプロイする方法を説明します。
-author: rpetrusha
-ms.author: ronpet
 ms.date: 09/03/2018
 dev_langs:
 - csharp
 - vb
-ms.custom: vs-dotnet, seodec18
-ms.openlocfilehash: e905d48da31bb5a2e16a645620f2c4f57dda4413
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.custom: vs-dotnet
+ms.openlocfilehash: 11a322278ce3ff38964fe2fa389e0b4a58897ec4
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72522809"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77449024"
 ---
 # <a name="deploy-net-core-apps-with-visual-studio"></a>Visual Studio を使用して .NET Core アプリを展開する
 
@@ -26,11 +24,11 @@ ms.locfileid: "72522809"
 - 自己完結型の展開
 - サードパーティの依存関係を含む、自己完結型の展開
 
-Visual Studio を使用して、.NET Core アプリケーションを開発する方法の詳細については、「[Windows における .NET Core の前提条件](../windows-prerequisites.md#prerequisites-to-develop-net-core-apps-with-visual-studio)」を参照してください。
+Visual Studio を使用して、.NET Core アプリケーションを開発する方法の詳細については、[.NET Core の依存関係と要件](../install/dependencies.md?pivots=os-windows)に関する記事を参照してください。
 
 ## <a name="framework-dependent-deployment"></a>フレームワークに依存する展開
 
-サードパーティの依存関係を含まない、フレームワークに依存する展開を展開するプロセスには、アプリのビルド、テスト、および発行が含まれます。 C# で記述された次の単純な例は、このプロセスを示しています。  
+サードパーティの依存関係を含まない、フレームワークに依存する展開を展開するプロセスには、アプリのビルド、テスト、および発行が含まれます。 C# で記述された次の単純な例は、このプロセスを示しています。
 
 1. プロジェクトを作成します。
 
@@ -73,11 +71,11 @@ Visual Studio を使用して、.NET Core アプリケーションを開発す�
 
 1. **NuGet パッケージ マネージャー**を使用し、プロジェクトに NuGet パッケージへの参照を追加します。このとき、パッケージがシステムにまだない場合はそれをインストールします。 パッケージ マネージャーを開くには、 **[ツール]**  >  **[NuGet パッケージ マネージャー]**  >  **[ソリューションの NuGet パッケージの管理]** を順に選択します。
 
-1. `Newtonsoft.Json` がシステムにインストールされていることを確認します。されていない場合はインストールします。 **[インストール済み]** タブに、システムにインストールされた NuGet パッケージの一覧が表示されます。 `Newtonsoft.Json` がそこにない場合、 **[参照]** タブを選択し、検索ボックスに "Newtonsoft.Json" と入力します。 `Newtonsoft.Json` を選択し、右側のウィンドウでプロジェクトを選択してから、 **[インストール]** を選択します。
+1. サードパーティの依存関係 (`Newtonsoft.Json` など) がシステムにインストールされていることを確認し、インストールされていない場合はインストールします。 **[インストール済み]** タブに、システムにインストールされた NuGet パッケージの一覧が表示されます。 `Newtonsoft.Json` がそこにない場合、 **[参照]** タブを選択し、検索ボックスに "Newtonsoft.Json" と入力します。 `Newtonsoft.Json` を選択し、右側のウィンドウでプロジェクトを選択してから、 **[インストール]** を選択します。
 
 1. `Newtonsoft.Json` が既にシステムにインストールされている場合、 **[ソリューション パッケージの管理]** タブの右のウィンドウからプロジェクトを選択し、プロジェクトに追加します。
 
-サードパーティの依存関係を含む、フレームワークに依存する展開は、サードパーティの依存関係と同じ移植性を持つことに注意してください。 たとえば、サードパーティ ライブラリが macOS のみをサポートする場合、そのアプリを Windows システムに移植することはできません。 この状況は、サードパーティの依存関係自体がネイティブ コードに依存する場合に生じる可能性があります。 このよい例は、[libuv](https://github.com/libuv/libuv) に対してネイティブの依存関係が必要な [Kestrel サーバー](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel)です。 このようなサードパーティの依存関係を含むアプリケーションに対して FDD が作成されると、発行された出力には、ネイティブの依存関係がサポートする (そして、その NuGet パッケージ内に存在する) 各[ランタイム識別子 (RID)](../rid-catalog.md) のフォルダーが含まれます。
+サードパーティの依存関係を含む、フレームワークに依存する展開は、サードパーティの依存関係と同じ移植性を持ちます。 たとえば、サードパーティ ライブラリが macOS のみをサポートする場合、そのアプリを Windows システムに移植することはできません。 この状況は、サードパーティの依存関係自体がネイティブ コードに依存する場合に生じる可能性があります。 このよい例は、[libuv](https://github.com/libuv/libuv) に対してネイティブの依存関係が必要な [Kestrel サーバー](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel)です。 このようなサードパーティの依存関係を含むアプリケーションに対して FDD が作成されると、発行された出力には、ネイティブの依存関係がサポートする (そして、その NuGet パッケージ内に存在する) 各[ランタイム識別子 (RID)](../rid-catalog.md) のフォルダーが含まれます。
 
 ## <a name="simpleSelf"></a> サードパーティの依存関係を含まない、自己完結型の展開
 
@@ -96,11 +94,11 @@ Visual Studio を使用して、.NET Core アプリケーションを開発す�
 
 1. グローバリゼーション インバリアント モードを使用するかどうかを決定します。
 
-   特にアプリの対象が Linux の場合、[グローバリゼーション インバリアント モード](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/globalization-invariant-mode.md)を活用することで展開の合計サイズを減らすことができます。 グローバリゼーション インバリアント モードは、全世界を意識するものではなく、[インバリアント カルチャ](xref:System.Globalization.CultureInfo.InvariantCulture)の書式設定規則、大文字/小文字の区別規則、文字列比較、並べ替え順序を使用できるアプリケーションにとって便利です。
+   特にアプリの対象が Linux の場合、[グローバリゼーション インバリアント モード](https://github.com/dotnet/runtime/blob/master/docs/design/features/globalization-invariant-mode.md)を活用することで展開の合計サイズを減らすことができます。 グローバリゼーション インバリアント モードは、全世界を意識するものではなく、[インバリアント カルチャ](xref:System.Globalization.CultureInfo.InvariantCulture)の書式設定規則、大文字/小文字の区別規則、文字列比較、並べ替え順序を使用できるアプリケーションにとって便利です。
 
    インバリアント モードを有効にするには、**ソリューション エクスプローラー**で (ソリューションではなく) プロジェクトを右クリックし、 **[SCD.csproj の編集]** または **[SCD.vbproj の編集]** を選択します。 次の強調表示された行をファイルに追加します。
 
- [!code-xml[globalization-invariant-mode](~/samples/snippets/core/deploying/xml/invariant.csproj)]
+   [!code-xml[globalization-invariant-mode](~/samples/snippets/core/deploying/xml/invariant.csproj?highlight=6-8)]
 
 1. アプリケーションのデバッグ ビルドを作成します。
 
@@ -112,7 +110,7 @@ Visual Studio を使用して、.NET Core アプリケーションを開発す�
 
 <!-- markdownlint-disable MD025 -->
 
-# <a name="visual-studio-156-and-earliertabvs156"></a>[Visual Studio 15.6 以前](#tab/vs156)
+# <a name="visual-studio-156-and-earlier"></a>[Visual Studio 15.6 以前](#tab/vs156)
 
 プログラムをデバッグしてテストしたら、アプリと共に展開するファイルをアプリの対象のプラットフォームごとに作成します。
 
@@ -122,7 +120,7 @@ Visual Studio でアプリを発行するには、次の操作を行います。
 
    1. **ソリューション エクスプローラー**で (ソリューションではなく) プロジェクトを右クリックし、 **[Edit SCD.csproj]\(SCD.csproj の編集\)** を選択します。
 
-   1. *csproj* ファイルの `<PropertyGroup>` セクションに、アプリの対象のプラットフォームを定義する `<RuntimeIdentifiers>` タグを作成し、対象とするプラットフォームごとにランタイム識別子 (RID) を指定します。 なお、RID の分離にはセミコロンを追加する必要があることに注意してください。 ランタイム識別子の一覧については、「[ランタイム識別子のカタログ](../rid-catalog.md)」 (ランタイム識別子のカタログ) を参照してください。
+   1. *csproj* ファイルの `<PropertyGroup>` セクションに、アプリの対象のプラットフォームを定義する `<RuntimeIdentifiers>` タグを作成し、対象とするプラットフォームごとにランタイム識別子 (RID) を指定します。 なお、RID を分離するにはセミコロンを追加する必要があります。 ランタイム識別子の一覧については、「[ランタイム識別子のカタログ](../rid-catalog.md)」 (ランタイム識別子のカタログ) を参照してください。
 
    たとえば、次の例は、アプリが 64 ビット Windows 10 オペレーティング システムおよび 64 ビット OS X バージョン 10.11 オペレーティング システムで実行されることを示します。
 
@@ -132,7 +130,7 @@ Visual Studio でアプリを発行するには、次の操作を行います。
    </PropertyGroup>
    ```
 
-   なお、`<RuntimeIdentifiers>` 要素は、*csproj* ファイルの任意の `<PropertyGroup>` に入れることが可能です。 *csproj* ファイルの完全なサンプルは、このセクションの後の部分で示しています。
+   `<RuntimeIdentifiers>` 要素は、*csproj* ファイルの任意の `<PropertyGroup>` に入れることが可能です。 *csproj* ファイルの完全なサンプルは、このセクションの後の部分で示しています。
 
 1. アプリケーションを発行します。
 
@@ -178,7 +176,7 @@ Visual Studio でアプリを発行するには、次の操作を行います。
 </Project>
 ```
 
-# <a name="visual-studio-157-and-latertabvs157"></a>[Visual Studio 15.7 以降](#tab/vs157)
+# <a name="visual-studio-157-and-later"></a>[Visual Studio 15.7 以降](#tab/vs157)
 
 プログラムをデバッグしてテストしたら、アプリと共に展開するファイルをアプリの対象のプラットフォームごとに作成します。 これを行う場合、対象のプラットフォームごとに別のプロファイルも作成します。
 
@@ -191,12 +189,12 @@ Visual Studio でアプリを発行するには、次の操作を行います。
    プロファイルを既に作成している場合、そのプロファイルを右クリックし、 **[発行]** ダイアログを開きます (まだ開いていない場合)。 **[新しいプロファイル]** を選択します。
 
    **[発行先を選択]** ダイアログ ボックスが開きます。
-  
+
 1. Visual Studio によってアプリケーションが発行される場所を選択します。
 
    発行先のプラットフォームが 1 つだけの場合、 **[フォルダーを選択してください]** テキスト ボックスで既定値をそのまま選択しても問題ありません。これでアプリケーションのフレームワーク依存展開が *\<project-directory>\bin\Release\netcoreapp2.1\publish* ディレクトリに発行されます。
 
-   発行先のプラットフォームが複数になる場合、ターゲット プラットフォームを識別する文字列を追加します。 たとえば、文字列 "linux" をファイル パスに追加する場合、Visual Studio によって、アプリケーションのフレームワーク依存展開が *\<project-directory>\bin\Release\netcoreapp2.1\publish\linux* ディクショナリに発行されます。
+   発行先のプラットフォームが複数になる場合、ターゲット プラットフォームを識別する文字列を追加します。 たとえば、文字列 "linux" をファイル パスに追加する場合、Visual Studio によって、アプリケーションのフレームワーク依存展開が *\<project-directory>\bin\Release\netcoreapp2.1\publish\linux* ディレクトリに発行されます。
 
 1. **[発行]** ボタンの隣にあるドロップダウン リスト アイコンを選択し、 **[プロファイルの作成]** を選択してプロファイルを作成します。 次に、 **[プロファイルの作成]** ボタンを選択し、プロファイルを作成します。
 
@@ -212,7 +210,7 @@ Visual Studio でアプリを発行するには、次の操作を行います。
 
 1. プロファイルに名前を付けます。
 
-   1. **[アクション]** 、 **[プロファイル名の変更]** の順に選択し、プロファイルに名前を付けます。
+   1. **[アクション]**  >  **[プロファイル名の変更]** の順に選択し、プロファイルに名前を付けます。
 
    2. ターゲット プラットフォームを識別する名前をプロファイルに割り当て、* *[保存]* を選択します。
 
@@ -246,7 +244,7 @@ Visual Studio でアプリを発行するには、次の操作を行います。
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-https://go.microsoft.com/fwlink/?LinkID=208121. 
+https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
@@ -270,13 +268,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 
 1. **NuGet パッケージ マネージャー**を使用し、プロジェクトに NuGet パッケージへの参照を追加します。このとき、パッケージがシステムにまだない場合はそれをインストールします。 パッケージ マネージャーを開くには、 **[ツール]**  >  **[NuGet パッケージ マネージャー]**  >  **[ソリューションの NuGet パッケージの管理]** を順に選択します。
 
-1. `Newtonsoft.Json` がシステムにインストールされていることを確認します。されていない場合はインストールします。 **[インストール済み]** タブに、システムにインストールされた NuGet パッケージの一覧が表示されます。 `Newtonsoft.Json` がそこにない場合、 **[参照]** タブを選択し、検索ボックスに "Newtonsoft.Json" と入力します。 `Newtonsoft.Json` を選択し、右側のウィンドウでプロジェクトを選択してから、 **[インストール]** を選択します。
+1. サードパーティの依存関係 (`Newtonsoft.Json` など) がシステムにインストールされていることを確認し、インストールされていない場合はインストールします。 **[インストール済み]** タブに、システムにインストールされた NuGet パッケージの一覧が表示されます。 `Newtonsoft.Json` がそこにない場合、 **[参照]** タブを選択し、検索ボックスに "Newtonsoft.Json" と入力します。 `Newtonsoft.Json` を選択し、右側のウィンドウでプロジェクトを選択してから、 **[インストール]** を選択します。
 
 1. `Newtonsoft.Json` が既にシステムにインストールされている場合、 **[ソリューション パッケージの管理]** タブの右のウィンドウからプロジェクトを選択し、プロジェクトに追加します。
 
 このプロジェクトの完全な *csproj* ファイルを次に示します。
 
-# <a name="visual-studio-156-and-earliertabvs156"></a>[Visual Studio 15.6 以前](#tab/vs156)
+# <a name="visual-studio-156-and-earlier"></a>[Visual Studio 15.6 以前](#tab/vs156)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -291,7 +289,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 </Project>
 ```
 
-# <a name="visual-studio-157-and-latertabvs157"></a>[Visual Studio 15.7 以降](#tab/vs157)
+# <a name="visual-studio-157-and-later"></a>[Visual Studio 15.7 以降](#tab/vs157)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

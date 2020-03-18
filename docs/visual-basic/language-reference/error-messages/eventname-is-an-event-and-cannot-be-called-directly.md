@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61803323"
 ---
-# <a name="eventname-is-an-event-and-cannot-be-called-directly"></a>'\<eventname >' は、イベントで、直接呼び出すことはできません
+# <a name="eventname-is-an-event-and-cannot-be-called-directly"></a>'\<eventname >' はイベントであるため、直接呼び出すことはできません
 ' <`eventname`>' は、イベントで、これは直接呼び出すことができません。 使用して、`RaiseEvent`イベントを発生させるステートメントです。  
   
  プロシージャ呼び出しでは、イベント プロシージャ名を指定します。 イベント ハンドラーは、プロシージャが、イベント自体はシグナル デバイスで発生して処理する必要がありますが、です。  

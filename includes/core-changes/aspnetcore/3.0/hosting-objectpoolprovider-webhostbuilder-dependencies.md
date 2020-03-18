@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: 16b9fde49f513643a37f65f3e926a34fc991c55a
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: 4d99d0b6e99a7a9b976cf11832b33ad3bdc6d299
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72394313"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75901686"
 ---
 ### <a name="hosting-objectpoolprovider-removed-from-webhostbuilder-dependencies"></a>ホスティング:ObjectPoolProvider が WebHostBuilder 依存関係から削除されました
 
 ASP.NET Core の定額課金を増やすために、`ObjectPoolProvider` が主な依存関係のセットから削除されました。 `ObjectPoolProvider` に依存する特定のコンポーネント自体で、それが追加されるようになりました。
 
-詳細については、[aspnet/AspNetCore#5944](https://github.com/aspnet/AspNetCore/issues/5944) を参照してください。
+ディスカッションについては、[dotnet/aspnetcore#5944](https://github.com/dotnet/aspnetcore/issues/5944) を参照してください。
 
 #### <a name="version-introduced"></a>導入されたバージョン
 
@@ -28,7 +28,7 @@ ASP.NET Core の定額課金を増やすために、`ObjectPoolProvider` が主�
 
 この変更は、ASP.NET Core の定額課金を増やすために行われました。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 コンポーネントに `ObjectPoolProvider` が必要な場合は、`IServiceCollection` を介して依存関係に追加する必要があります。
 
@@ -38,7 +38,7 @@ ASP.NET Core
 
 #### <a name="affected-apis"></a>影響を受ける API
 
-なし
+None
 
 <!-- 
 

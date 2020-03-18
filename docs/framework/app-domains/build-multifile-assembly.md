@@ -1,5 +1,5 @@
 ---
-title: '方法: マルチファイル アセンブリをビルドする'
+title: '方法: マルチファイルアセンブリをビルドする'
 ms.date: 08/20/2019
 helpviewer_keywords:
 - assemblies [.NET Framework], multifile
@@ -17,16 +17,14 @@ dev_langs:
 - vb
 - cpp
 ms.assetid: 261c5583-8a76-412d-bda7-9b8ee3b131e5
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9b95d686529da83a5a52edb80219874530212dcc
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
-ms.translationtype: HT
+ms.openlocfilehash: 0f8c6d57425657e321d80f9edffa20f27bc28770
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70991252"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74429559"
 ---
-# <a name="how-to-build-a-multifile-assembly"></a>方法: マルチファイル アセンブリをビルドする
+# <a name="how-to-build-a-multifile-assembly"></a>方法: マルチファイルアセンブリをビルドする
 
 この記事では、マルチファイル アセンブリを作成する方法を説明し、プロシージャの各手順を示すコードを提供します。
 
@@ -74,8 +72,6 @@ ms.locfileid: "70991252"
 
    ```vb
    ' Assembly building example in the .NET Framework.
-   Imports System
-
    Namespace myStringer
        Public Class Stringer
            Public Sub StringerMethod()
@@ -103,7 +99,7 @@ ms.locfileid: "70991252"
 
 3. コード内で参照されるほかのモジュールを示すために必要なコンパイラ オプションを使用して、ほかのすべてのモジュールをコンパイルします。 この手順では、 **/addmodule** コンパイラ オプションを使用します。
 
-   次の例では、*Client* というコード モジュールに、手順 1. で作成した *Stringer.dll* モジュール内のメソッドを参照するエントリ ポイント `Main` メソッドがあります。
+   次の例では、*Client* というコード モジュールに、手順 1. で作成した `Main`Stringer.dll*モジュール内のメソッドを参照するエントリ ポイント* メソッドがあります。
 
    ```cpp
    #using "Stringer.netmodule"
@@ -146,7 +142,6 @@ ms.locfileid: "70991252"
    ```
 
    ```vb
-   Imports System
    Imports myStringer
 
    Class MainClientApp
@@ -173,7 +168,7 @@ ms.locfileid: "70991252"
    vbc /addmodule:Stringer.netmodule /t:module Client.vb
    ```
 
-   このモジュールは後の手順でアセンブリに追加するため、 **/t:module** オプションを指定します。 *Client* 内のコードが *Stringer.netmodule* 内のコードによって作成された名前空間を参照するため、 **/addmodule** オプションを指定します。 コンパイラにより、*Stringer.netmodule* という別のモジュールへの参照を格納する、*Client.netmodule* というモジュールが生成されます。
+   このモジュールは後の手順でアセンブリに追加するため、 **/t:module** オプションを指定します。 **Client** 内のコードが *Stringer.netmodule* 内のコードによって作成された名前空間を参照するため、 */addmodule* オプションを指定します。 コンパイラにより、*Stringer.netmodule* という別のモジュールへの参照を格納する、*Client.netmodule* というモジュールが生成されます。
 
    > [!NOTE]
    > C# コンパイラと Visual Basic コンパイラは、マルチファイル アセンブリを直接作成する場合、次の 2 種類の構文を使用します。
@@ -218,7 +213,7 @@ ms.locfileid: "70991252"
 
     このコマンドで、*module name* 引数はアセンブリに含める各モジュールの名前を指定します。 **/main:** オプションは、アセンブリのエントリ ポイントであるメソッド名を指定します。 **/out:** オプションは、アセンブリ メタデータを格納する出力ファイルの名前を指定します。 **/target:** オプションは、アセンブリがコンソール アプリケーション実行可能 ( *.exe*) ファイル、Windows 実行可能 ( *.win*) ファイル、またはライブラリ ( *.lib*) ファイルであることを指定します。
 
-    *Al.exe* を使用して、*myAssembly.exe* というコンソール アプリケーション実行可能ファイルであるアセンブリを作成する例を次に示します。 このアプリケーションは、*Client.netmodule* および *Stringer.netmodule* という 2 つのモジュール、および *myAssembly.exe* というアセンブリ メタデータだけを格納する実行可能ファイルで構成されます。 アセンブリのエントリ ポイントは `MainClientApp` クラスの `Main` メソッドで、*Client.dll* 内に配置されています。
+    *Al.exe* を使用して、*myAssembly.exe* というコンソール アプリケーション実行可能ファイルであるアセンブリを作成する例を次に示します。 このアプリケーションは、*Client.netmodule* および *Stringer.netmodule* という 2 つのモジュール、および *myAssembly.exe* というアセンブリ メタデータだけを格納する実行可能ファイルで構成されます。 アセンブリのエントリ ポイントは `Main` クラスの `MainClientApp` メソッドで、*Client.dll* 内に配置されています。
 
     ```cmd
     al Client.netmodule Stringer.netmodule /main:MainClientApp.Main /out:myAssembly.exe /target:exe

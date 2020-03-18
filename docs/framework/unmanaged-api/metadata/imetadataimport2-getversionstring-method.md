@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 308183ee-fd44-4432-9d86-ef00d181b49b
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: d500584afd608f79e41e932be259d29ae51db2db
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 0c9f667edf30feb23e1cdaa28950503283fce42e
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67781580"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74445227"
 ---
 # <a name="imetadataimport2getversionstring-method"></a>IMetaDataImport2::GetVersionString メソッド
 アセンブリのビルドに使用されたランタイムのバージョン番号を取得します。  
@@ -39,27 +37,27 @@ HRESULT GetVersionString (
   
 ## <a name="parameters"></a>パラメーター  
  `pwzBuf`  
- [out]バージョンを指定する文字列を格納する配列。  
+ 入出力バージョンを指定する文字列を格納する配列。  
   
  `ccBufSize`  
- [in]ワイド文字単位のサイズの`pwzBuf`配列。  
+ から`pwzBuf` 配列のサイズ (ワイド文字単位)。  
   
  `pccBufSize`  
- [out]返される、null 終端文字を含め、ワイド文字の数、`pwzBuf`配列。  
+ 入出力`pwzBuf` 配列で返されるワイド文字の数 (null 終端記号を含む)。  
   
-## <a name="remarks"></a>Remarks  
- `GetVersionString`メソッドは、現在のメタデータ スコープのビルドのバージョンを取得します。 スコープが保存されていないこと、ビルドのバージョンはありませんし、空の文字列が返されます。  
+## <a name="remarks"></a>コメント  
+ `GetVersionString` メソッドは、現在のメタデータスコープの組み込みバージョンを取得します。 スコープが一度も保存されていない場合は、ビルドされたバージョンがないため、空の文字列が返されます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [IMetaDataImport2 インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport2-interface.md)
 - [IMetaDataImport インターフェイス](../../../../docs/framework/unmanaged-api/metadata/imetadataimport-interface.md)

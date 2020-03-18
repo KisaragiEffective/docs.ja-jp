@@ -2,12 +2,12 @@
 title: Windows のイベント トレースへの追跡イベント
 ms.date: 03/30/2017
 ms.assetid: f812659b-0943-45ff-9430-4defa733182b
-ms.openlocfilehash: 2a8e93604654d20c210015896e02d76b4b8bd36e
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 2c397bcfa809a1306e9c31bf3f652b055d997f38
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70037902"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77094580"
 ---
 # <a name="tracking-events-into-event-tracing-in-windows"></a>Windows のイベント トレースへの追跡イベント
 
@@ -19,7 +19,7 @@ ms.locfileid: "70037902"
 
 Windows Workflow Foundation は、ワークフローインスタンスの実行を追跡するための追跡インフラストラクチャを提供します。 追跡ランタイムは、ワークフロー ライフサイクルに関連するイベント、ワークフロー アクティビティのイベント、およびカスタム イベントを出力するワークフロー インスタンスを作成します。 次の表で、追跡インフラストラクチャの主要コンポーネントの詳細を説明します。
 
-|コンポーネント|説明|
+|コンポーネント|[説明]|
 |---------------|-----------------|
 |追跡ランタイム|追跡レコードを出力するためのインフラストラクチャを提供します。|
 |追跡参加要素|追跡レコードにアクセスします。 [!INCLUDE[netfx_current_short](../../../../includes/netfx-current-short-md.md)] には、追跡レコードを Event Tracing for Windows (ETW) イベントとして書き込む追跡参加要素が用意されています。|
@@ -27,7 +27,7 @@ Windows Workflow Foundation は、ワークフローインスタンスの実行�
 
 次の表で、ワークフロー ランタイムが出力する追跡レコードの詳細を説明します。
 
-|追跡レコード|説明|
+|追跡レコード|[説明]|
 |---------------------|-----------------|
 |ワークフロー インスタンスの追跡レコード|ワークフロー インスタンスのライフサイクルを表します。 たとえば、ワークフローの開始時または完了時にインスタンス レコードが出力されます。|
 |アクティビティ状態の追跡レコード|アクティビティの実行状況を詳しく記録します。 これらのレコードは、アクティビティをスケジュールしたとき、アクティビティが完了したとき、エラーがスローされたときなど、ワークフロー アクティビティの状態を示します。|
@@ -47,21 +47,21 @@ Windows Workflow Foundation は、ワークフローインスタンスの実行�
 
 3. ソリューションを実行するには、F5 キーを押します。
 
-    既定では、サービスはポート 53797 (http://localhost:53797/SampleWorkflowService.xamlx) ) でリッスンしています。
+    既定では、サービスはポート 53797 (http://localhost:53797/SampleWorkflowService.xamlx)でリッスンしています。
 
 4. ファイルエクスプローラーを使用して、WCF テストクライアントを開きます。
 
-    WCF テストクライアント (wcftestclient.exe) は、 \<Visual Studio 2010 のインストールフォルダー > \Common7\IDE\ フォルダーにあります。
+    WCF テストクライアント (Wcftestclient.exe) は、Visual Studio 2010 のインストールフォルダー > \Common7\IDE\ フォルダー \<にあります。
 
     既定の Visual Studio 2010 インストールフォルダーは、C:\Program の Visual Studio 10.0 です。
 
 5. WCF テストクライアントで、 **[ファイル]** メニューの **[サービスの追加]** を選択します。
 
-    入力ボックスにエンドポイントのアドレスを追加します。 既定値は `http://localhost:53797/SampleWorkflowService.xamlx` です。
+    入力ボックスにエンドポイントのアドレスを追加します。 既定では、 `http://localhost:53797/SampleWorkflowService.xamlx`です。
 
 6. イベント ビューアー アプリケーションを開きます。
 
-    サービスを呼び出す前に、 **[スタート]** メニューからイベントビューアーを開始し、[ `eventvwr.exe`**実行**] を選択して「」と入力します。 ワークフロー サービスから生成された追跡イベントをイベント ログでリッスンしていることを確認します。
+    サービスを呼び出す前に、 **[スタート]** メニューからイベントビューアーを開始し、 **[実行]** を選択して `eventvwr.exe`を入力します。 ワークフロー サービスから生成された追跡イベントをイベント ログでリッスンしていることを確認します。
 
 7. イベントビューアーのツリービューで、 **[イベントビューアー]** 、 **[アプリケーションとサービスログ]** 、 **[Microsoft]** の順に移動します。 **[Microsoft]** を右クリックして **[表示]** を選択し、 **[分析およびデバッグログの表示]** をクリックして、分析ログとデバッグログを有効にします。
 
@@ -138,7 +138,7 @@ Windows Workflow Foundation は、ワークフローインスタンスの実行�
 > [!NOTE]
 > イベント ビューアーの既知の問題により、ETW イベントをデコードできない場合があります。 その場合、次のようなエラー メッセージが表示されます。
 >
-> ソース Microsoft-Windows- \<アプリケーションサーバーから > イベント id id の説明が見つかりません。 このイベントを発生させるコンポーネントがローカル コンピューターにインストールされていないか、インストールが破損しています。 ローカル コンピューターにコンポーネントをインストールするか、コンポーネントを修復してください。
+> ソース Microsoft-Windows-アプリケーションサーバーからのイベント ID \<id > の説明が見つかりません。 このイベントを発生させるコンポーネントがローカル コンピューターにインストールされていないか、インストールが壊れています。 ローカル コンピューターにコンポーネントをインストールするか、コンポーネントを修復してください。
 >
 > このエラーが発生した場合は、操作ウィンドウで [最新の情報に更新] をクリックしてください。 これにより、イベントが正常にデコードされます。
 
@@ -147,10 +147,10 @@ Windows Workflow Foundation は、ワークフローインスタンスの実行�
 >
 > `<InstallDrive>:\WF_WCF_Samples`
 >
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
 >
 > `<InstallDrive>:\WF_WCF_Samples\WF\Basic\Tracking\EtwTracking`
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [AppFabric の監視のサンプル](https://go.microsoft.com/fwlink/?LinkId=193959)
+- [AppFabric の監視のサンプル](https://docs.microsoft.com/previous-versions/appfabric/ff383407(v=azure.10))

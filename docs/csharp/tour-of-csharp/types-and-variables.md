@@ -1,18 +1,18 @@
 ---
 title: C# の型と変数 - C# 言語のツアー
 description: C# における型の定義と変数の宣言について説明します
-ms.date: 08/10/2016
+ms.date: 02/25/2020
 ms.assetid: f8a8051e-0049-43f1-b594-9c84cc7b1224
-ms.openlocfilehash: 22a91b101d5361091b09217d4562703851c86940
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: b2a5255a243c12543a1cd59b5724b6c826306e04
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70105589"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "78159092"
 ---
 # <a name="types-and-variables"></a>型と変数
 
-C# には、*値型*と*参照型*という 2 種類の型があります。 値型の変数が直接データを格納するのに対して、参照型の変数はデータへの参照を格納し、後者はオブジェクトとして知られています。 参照型を使用すると 2 つの変数が同じオブジェクトを参照できるため、1 つの変数に対する演算によって、もう一方の変数によって参照されるオブジェクトに影響を与えることができます。 値型の場合、各変数が独自のデータ コピーを保持し、1 つの変数に対する演算で別の変数に影響を与えることはできません (`ref` と `out` のパラメーターの変数の場合を除く)。
+C# には、*値型*と*参照型*という 2 種類の型があります。 値型の変数が直接データを格納するのに対して、参照型の変数はデータへの参照を格納し、後者はオブジェクトとして知られています。 参照型を使用すると 2 つの変数が同じオブジェクトを参照できるため、1 つの変数に対する演算によって、もう一方の変数によって参照されるオブジェクトに影響を与えることができます。 値型の場合、各変数によって独自のデータ コピーが保持され、1 つの変数に対する演算によって別の変数に影響を与えることはできません (`ref` と `out` のパラメーターの変数を除く)。
 
 C# の値型はさらに、*単純型*、*列挙型*、*構造体型*、および *null 許容値型* に分けられます。 C# の参照型はさらに、*クラス型*、*インターフェイス型*、*配列型*、および*デリゲート型*に分けられます。
 
@@ -44,11 +44,11 @@ C# の値型はさらに、*単純型*、*列挙型*、*構造体型*、およ�
   - [デリゲート型][DelegateTypes]
     - `delegate int D(...)` 形式のユーザー定義型
 
-[ValueTypes]: ../language-reference/keywords/value-types-table.md
-[SimpleTypes]: ../language-reference/keywords/value-types.md#simple-types
-[EnumTypes]: ../language-reference/keywords/enum.md
-[StructTypes]: ../language-reference/keywords/struct.md
-[NullableTypes]: ../programming-guide/nullable-types/index.md
+[ValueTypes]: ../language-reference/builtin-types/value-types.md
+[SimpleTypes]: ../language-reference/builtin-types/value-types.md#built-in-value-types
+[EnumTypes]: ../language-reference/builtin-types/enum.md
+[StructTypes]: ../language-reference/builtin-types/struct.md
+[NullableTypes]: ../language-reference/builtin-types/nullable-value-types.md
 [ReferenceTypes]: ../language-reference/keywords/reference-types.md
 [ClassTypes]: ../language-reference/keywords/class.md
 [InterfaceTypes]: ../language-reference/keywords/interface.md
@@ -65,13 +65,13 @@ C# プログラムでは*型宣言*を使用して新しい型を作成します
 
 `class` 型は、データ メンバー (フィールド) と関数メンバー (メソッド、プロパティ、その他) を含むデータ構造を定義します。 クラス型では、単一継承とポリモーフィズムをサポートします。このメカニズムによって派生クラスが基底クラスを拡張して特殊化できます。
 
-`struct` 型は、データ メンバーおよび関数メンバーで構造体を表す点において、クラス型に似ています。 ただしクラスと異なり、構造体は値型で、通常はヒープ割り当てが不要です。 構造体型はユーザー指定の継承をサポートせず、すべての構造体型は暗黙的に `object` 型を継承します。
+`struct` 型は、データ メンバーおよび関数メンバーで構造体を表す点において、クラス型に似ています。 ただしクラスと異なり、構造体は値型で、通常はヒープ割り当てが不要です。 構造体型ではユーザー指定の継承がサポートされず、すべての構造体型によって暗黙的に `object` 型が継承されます。
 
 `interface` 型は、パブリック関数メンバーの名前付きセットとしてコントラクトを定義します。 `interface` を実装する `class` または `struct` は、インターフェイスの関数メンバーの実装を提供する必要があります。 `interface` は複数の基底インターフェイスから継承することがあり、`class` または `struct` は複数のインターフェイスを実装することがあります。
 
-`delegate` 型は、特定のパラメーター リストおよび戻り値を使用してメソッドへの参照を表します。 デリゲートを使用すると、変数に割り当ててパラメーターとして渡すことのできるエンティティとして、メソッドを処理できます。 デリゲートは、関数型言語で提供される関数の型に似ています。 さらに、他のいくつかの言語にみられる関数ポインターの概念に似ていますが、関数ポインターと異なり、デリゲートはオブジェクト指向でタイプ セーフです。
+`delegate` 型は、特定のパラメーター リストおよび戻り値を使用してメソッドへの参照を表します。 デリゲートを使用すると、変数に割り当ててパラメーターとして渡すことのできるエンティティとして、メソッドを処理できます。 デリゲートは、関数型言語で提供される関数の型に似ています。 また、他のいくつかの言語で見られる関数ポインターの概念に似ています。 ただし、関数ポインターとは異なり、デリゲートはオブジェクト指向で、タイプ セーフです。
 
-`class`、`struct`、`interface` および `delegate`の型はすべてジェネリックをサポートし、他の型と共にパラメーター化できます。
+`class`、`struct`、`interface` および `delegate` の型はすべてジェネリックをサポートし、他の型と共にパラメーター化できます。
 
 `enum` 型は、名前付き定数を持つ固有の型です。 `enum` 型にはそれぞれ基になる型があり、これは 8 つの整数型のいずれかでなければいけません。 `enum` 型の値のセットは、その基になる型の値のセットと同じです。
 

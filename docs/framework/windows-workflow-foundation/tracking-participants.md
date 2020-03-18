@@ -2,12 +2,12 @@
 title: 追跡参加要素
 ms.date: 03/30/2017
 ms.assetid: f13e360c-eeb7-4a49-98a0-8f6a52d64f68
-ms.openlocfilehash: 45a92c3ab710fc9bc86fbf269a4672f1d34737cc
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: a033b65125a562307c6247eeda93dcacb31f5382
+ms.sourcegitcommit: a4f9b754059f0210e29ae0578363a27b9ba84b64
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69963680"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74837650"
 ---
 # <a name="tracking-participants"></a>追跡参加要素
 追跡参加要素は、ワークフロー開発者が <xref:System.Activities.Tracking.InteropTrackingRecord.TrackingRecord%2A> オブジェクトにアクセスし、そのオブジェクトを処理する機能拡張ポイントです。 [!INCLUDE[netfx_current_long](../../../includes/netfx-current-long-md.md)] には、追跡レコードを Event Tracing for Windows (ETW) イベントとして書き込む標準の追跡参加要素が含まれています。 これで要件が満たされない場合は、カスタムの追跡参加要素を作成することもできます。  
@@ -15,7 +15,7 @@ ms.locfileid: "69963680"
 ## <a name="tracking-participants"></a>追跡参加要素  
  追跡インフラストラクチャを使用すると、送信の追跡レコードにフィルターを適用して、参加要素からレコードのサブセットに定期受信できるようになります。 フィルターを適用するメカニズムは、追跡プロファイルを通して行われます。  
   
- の Windows Workflow Foundation (WF) [!INCLUDE[netfx_current_short](../../../includes/netfx-current-short-md.md)]には、追跡レコードを ETW セッションに書き込む追跡参加要素が用意されています。 参加要素は、追跡固有の動作を構成ファイルに追加することによって、ワークフロー サービスで構成されます。 ETW 追跡参加要素を有効にすると、追跡レコードをイベント ビューアーで表示できます。 ETW ベースの追跡用の SDK のサンプルを使用すると、ETW ベースの追跡参加要素を使用した WF の追跡を理解するうえで便利です。  
+ [!INCLUDE[netfx_current_short](../../../includes/netfx-current-short-md.md)] の Windows Workflow Foundation (WF) には、追跡レコードを ETW セッションに書き込む追跡参加要素が用意されています。 参加要素は、追跡固有の動作を構成ファイルに追加することによって、ワークフロー サービスで構成されます。 ETW 追跡参加要素を有効にすると、追跡レコードをイベント ビューアーで表示できます。 ETW ベースの追跡用の SDK のサンプルを使用すると、ETW ベースの追跡参加要素を使用した WF の追跡を理解するうえで便利です。  
   
 ## <a name="etw-tracking-participant"></a>ETW 追跡参加要素  
  [!INCLUDE[netfx_current_short](../../../includes/netfx-current-short-md.md)] には、追跡レコードを ETW セッションに書き込む ETW 追跡参加要素が含まれています。 これは、アプリケーションのパフォーマンスやサーバーのスループットに与える影響を最小限に抑えたまま、非常に効率的な方法で実行されます。 標準の ETW 追跡参加要素を使用する利点は、受信する追跡レコードを他のアプリケーションや Windows イベント ビューアーのシステム ログで表示できることです。  
@@ -67,7 +67,7 @@ ms.locfileid: "69963680"
   
  ETW イベントのサイズは、ETW バッファーのサイズまたは ETW イベントの最大ペイロードのいずれか小さいほうの値に制限されます。 イベントのサイズが ETW のどちらかの制限を超えると、イベントが切り捨てられ、任意の方法でその内容が削除されます。 変数、引数、注釈、およびカスタム データは選択的に削除されません。 切り捨てが発生する場合は、イベント サイズが ETW の制限を超える原因となった値にかかわらず、これらのすべてが切り捨てられます。  削除されたデータは、`<item>..<item>` で置き換えられます。  
   
- 変数、引数、およびカスタムデータ項目の複合型は、 [NetDataContractSerializer クラス](https://go.microsoft.com/fwlink/?LinkId=177537)を使用して ETW イベントレコードにシリアル化されます。 このクラスでは、シリアル化された XML ストリームに CRL 型情報が含まれます。  
+ 変数、引数、およびカスタムデータ項目の複合型は、<xref:System.Runtime.Serialization.NetDataContractSerializer> クラスを使用して ETW イベントレコードにシリアル化されます。 このクラスでは、シリアル化された XML ストリームに CRL 型情報が含まれます。  
   
  ETW の制限によってペイロード データが切り捨てられると、ETW セッションに送信される追跡レコードの重複が生じる可能性があります。 このような状況は、複数のセッションがイベントをリッスンしており、セッションがそのイベントに対して異なるペイロードの制限を持っている場合に発生します。  
   
@@ -140,7 +140,7 @@ instance.Extensions.Add(new ConsoleTrackingParticipant());
             Console.ReadLine();  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [Windows Server App Fabric の監視](https://go.microsoft.com/fwlink/?LinkId=201273)
-- [App Fabric を使用したアプリケーションの監視](https://go.microsoft.com/fwlink/?LinkId=201275)
+- [Windows Server App Fabric の監視](https://docs.microsoft.com/previous-versions/appfabric/ee677251(v=azure.10))
+- [App Fabric を使用したアプリケーションの監視](https://docs.microsoft.com/previous-versions/appfabric/ee677276(v=azure.10))

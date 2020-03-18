@@ -13,14 +13,12 @@ helpviewer_keywords:
 - runtime, language interoperability
 - common language runtime, language interoperability
 ms.assetid: 4f0b77d0-4844-464f-af73-6e06bedeafc6
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 6ecb2c2e6a80f36ea1426b6145fd89b869a77f1b
-ms.sourcegitcommit: d6e27023aeaffc4b5a3cb4b88685018d6284ada4
+ms.openlocfilehash: 689ca9f7278dcf91b12bc62b5255a968388bb9f8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67663021"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "79398785"
 ---
 # <a name="language-independence-and-language-independent-components"></a>言語への非依存性、および言語非依存コンポーネント
 
@@ -29,7 +27,7 @@ ms.locfileid: "67663021"
 > [!NOTE]
 > この記事の最初の部分では、言語に依存しないコンポーネント、つまり、どの言語で記述されたアプリからでも使用できるコンポーネントの作成について説明します。 また、複数の言語で記述されたソース コードから 1 つのコンポーネントまたはアプリを作成することもできます。この記事の 2 番目のパートにある「[言語間の相互運用性](#CrossLang)」を参照してください。
 
-任意の言語で記述された他のオブジェクトと完全に対話するには、すべての言語に共通の機能だけを呼び出し側に公開するようにオブジェクトを実装する必要があります。 この共通の機能セットは、生成されたアセンブリに適用される規則のセットである、共通言語仕様 (CLS: Common Language Specification) によって定義されます。 共通言語仕様は、「[ECMA-335 Standard: Common Language Infrastructure](https://www.ecma-international.org/publications/standards/Ecma-335.htm)」(標準の ECMA-335: 共通言語基盤) の第 1 部の第 7 ～ 11 項で定義されています。
+任意の言語で記述された他のオブジェクトと完全に対話するには、すべての言語に共通の機能だけを呼び出し側に公開するようにオブジェクトを実装する必要があります。 この共通の機能セットは、生成されたアセンブリに適用される規則のセットである、共通言語仕様 (CLS: Common Language Specification) によって定義されます。 共通言語仕様は、「[Standard ECMA-335: Common Language Infrastructure](https://www.ecma-international.org/publications/standards/Ecma-335.htm)」(標準の ECMA-335: 共通言語基盤) の第 1 部の第 7 ～ 11 項で定義されています。
 
 コンポーネントが共通言語仕様に準拠している場合は、CLS に準拠することが保証され、CLS をサポートするすべてのプログラミング言語で記述されたアセンブリのコードからアクセスできます。 コンパイル時にコンポーネントが共通言語仕様に準拠しているかどうかを確認するには、<xref:System.CLSCompliantAttribute> 属性をソース コードに適用します。 詳細については、「[CLSCompliantAttribute 属性](#CLSAttribute)」を参照してください。
 
@@ -47,7 +45,7 @@ ms.locfileid: "67663021"
 
   - [インターフェイス](#Interfaces)
 
-  - [列挙型](#enums)
+  - [列挙体](#enums)
 
   - [一般的な型メンバー](#members)
 
@@ -57,11 +55,11 @@ ms.locfileid: "67663021"
 
   - [コンストラクター](#ctors)
 
-  - [プロパティ](#properties)
+  - [Properties](#properties)
 
   - [イベント](#events)
 
-  - [Overloads](#overloads)
+  - [オーバーロード](#overloads)
 
   - [例外](#exceptions)
 
@@ -75,7 +73,7 @@ ms.locfileid: "67663021"
 
 ## <a name="cls-compliance-rules"></a>CLS 準拠の規則
 
-ここでは、CLS に準拠したコンポーネントを作成するための規則について説明します。 規則規則の完全な一覧については、「[ECMA-335 Standard: Common Language Infrastructure](https://www.ecma-international.org/publications/standards/Ecma-335.htm)」(標準の ECMA-335: 共通言語基盤) の第 1 部の第 11 項を参照してください。
+ここでは、CLS に準拠したコンポーネントを作成するための規則について説明します。 規則の一覧については、「[ECMA-335 Standard: Common Language Infrastructure](https://www.ecma-international.org/publications/standards/Ecma-335.htm)」(標準の ECMA-335: 共通言語基盤) の第 1 部の第 11 項を参照してください。
 
 > [!NOTE]
 > 共通言語仕様では、コンシューマー (プログラムによって CLS 準拠のコンポーネントにアクセスする開発者)、フレームワーク (言語コンパイラを使用して CLS 準拠のライブラリを作成する開発者)、およびエクステンダー (CLS 準拠のコンポーネントを作成する言語コンパイラ、コード パーサーなどのツールを作成する開発者) に適用する、CLS 準拠の各規則について説明します。 ここでは、フレームワークに適用するときの規則に焦点を当てます。 エクステンダーに適用する一部の規則は、Reflection.Emit を使用して作成されたアセンブリに適用されることもあります。
@@ -103,26 +101,26 @@ ms.locfileid: "67663021"
 
 - パブリック クラスのパブリック メソッドのパラメーターおよび戻り値の型、派生クラスからアクセスできるメソッドのパラメーターおよび戻り値の型。
 
-CLS 準拠の規則を次の表に示します。 これらの規則のテキストは、「[ECMA-335 Standard: Common Language Infrastructure](https://www.ecma-international.org/publications/standards/Ecma-335.htm)」(標準の ECMA-335: 共通言語基盤) からの引用で、Ecma International が 2012 年の著作権を保有しています。 これらの規則の詳細については、以降のセクションを参照してください。
+CLS 準拠の規則を次の表に示します。 この規則は、「[ECMA-335 Standard: Common Language Infrastructure](https://www.ecma-international.org/publications/standards/Ecma-335.htm)」(標準の ECMA-335: 共通言語基盤) からの引用で、Ecma International が 2012 年の著作権を保有しています。 これらの規則の詳細については、以降のセクションを参照してください。
 
-|カテゴリ|解決方法については、|ルール|規則番号|
+|カテゴリ|参照先|規則|規則番号|
 |--------------|---------|----------|-----------------|
-|ユーザー補助|[メンバーのアクセシビリティ](#MemberAccess)|継承されたメソッドをオーバーライドする場合、アクセシビリティは変更してはいけない。ただし、別のアセンブリから継承されたメソッドをアクセシビリティ `family-or-assembly` でオーバーライドする場合は除く。 この場合、オーバーライドのアクセシビリティは `family` にすること。|10|
-|ユーザー補助|[メンバーのアクセシビリティ](#MemberAccess)|型およびメンバーの可視性およびアクセシビリティについて、メンバーのシグネチャに指定されている型は、そのメンバーが可視でアクセス可能な場合、必ず可視でアクセス可能でなければいけない。 たとえば、アセンブリ外部から参照できるパブリックなメソッドには、アセンブリ内部でだけ可視である型が引数として含まれていてはいけない。 メンバーのシグネチャに使用されているジェネリック型のインスタンスを構成する型の可視性およびアクセシビリティは、メンバーが可視でアクセス可能の場合、必ず可視でアクセス可能でなければいけない。 たとえば、アセンブリ外部から参照できるメンバーのシグネチャに指定されているジェネリック型のインスタンスに、アセンブリ内部でだけ可視である型の汎用引数が含まれていてはいけない。|12|
+|アクセシビリティ|[メンバーのアクセシビリティ](#MemberAccess)|継承されたメソッドをオーバーライドする場合、アクセシビリティは変更してはいけない。ただし、別のアセンブリから継承されたメソッドをアクセシビリティ `family-or-assembly` でオーバーライドする場合は除く。 この場合、オーバーライドのアクセシビリティは `family` にすること。|10|
+|アクセシビリティ|[メンバーのアクセシビリティ](#MemberAccess)|型およびメンバーの可視性およびアクセシビリティについて、メンバーのシグネチャに指定されている型は、そのメンバーが可視でアクセス可能な場合、必ず可視でアクセス可能でなければいけない。 たとえば、アセンブリ外部から参照できるパブリックなメソッドには、アセンブリ内部でだけ可視である型が引数として含まれていてはいけない。 メンバーのシグネチャに使用されているジェネリック型のインスタンスを構成する型の可視性およびアクセシビリティは、メンバーが可視でアクセス可能の場合、必ず可視でアクセス可能でなければいけない。 たとえば、アセンブリ外部から参照できるメンバーのシグネチャに指定されているジェネリック型のインスタンスに、アセンブリ内部でだけ可視である型の汎用引数が含まれていてはいけない。|12|
 |配列|[配列](#arrays)|配列は、要素が CLS 準拠型で、すべての次元でインデックス番号が 0 から始まらなければならない。 項目が配列の場合、オーバーロードどうしを区別するには配列要素の型を必要とする。 オーバーロードが 2 つ以上の配列型に基づく場合、要素型は名前付きの型でなければいけない。|16|
 |属性|[属性](#attributes)|属性の型 <xref:System.Attribute?displayProperty=nameWithType>、またはそれを継承する型である。|41|
 |属性|[属性](#attributes)|CLS ではカスタム属性のエンコーディングのサブセットのみ使用できる。 これらのエンコーディングに表示される型 (第 4 部を参照) は、<xref:System.Type?displayProperty=nameWithType>、<xref:System.String?displayProperty=nameWithType>、<xref:System.Char?displayProperty=nameWithType>、<xref:System.Boolean?displayProperty=nameWithType>、<xref:System.Byte?displayProperty=nameWithType>、<xref:System.Int16?displayProperty=nameWithType>、<xref:System.Int32?displayProperty=nameWithType>、<xref:System.Int64?displayProperty=nameWithType>、<xref:System.Single?displayProperty=nameWithType>、<xref:System.Double?displayProperty=nameWithType>、CLS 準拠の基底の整数型に基づく列挙型のみである。|34|
 |属性|[属性](#attributes)|CLS では、公開参照される必須の修飾子 (`modreq`、第 2 部を参照) は使用できない。ただし、認識しないオプションの修飾子 (`modopt`、第 2 部を参照) は使用できる。|35|
 |コンストラクター|[コンストラクター](#ctors)|オブジェクト コンストラクターでは、継承しているインスタンス データへのアクセスが発生する前に、基底クラスのインスタンス コンストラクターを呼び出さなければいけない (コンストラクターが不要である値型は除く)。|21|
 |コンストラクター|[コンストラクター](#ctors)|オブジェクト コンストラクターがオブジェクトの作成時以外で呼び出されてはならず、またオブジェクトが 2 度初期化されてもいけない。|22|
-|列挙|[列挙型](#enums)|enum の基になる型は組み込みの CLS 整数型、フィールド名は "value__" であり、そのフィールドには `RTSpecialName` のマークが付けられる。|7|
-|列挙型|[列挙型](#enums)|enum には 2 種類あり、<xref:System.FlagsAttribute?displayProperty=nameWithType> カスタム属性 (第 4 部のライブラリを参照) の有無で区別する。 片方は名前付き整数値を表し、もう片方は名前付きビット フラグを表す。名前付きビット フラグは、それを組み合わせて名前のない値を生成できる。 `enum` の値は、指定した値に限定されない。|8|
-|列挙|[列挙型](#enums)|enum のリテラルな静的フィールドの型は、その enum 自体の型である。|9|
-|イベント|[イベント](#events)|イベントを実装するメソッドは、メタデータ内で `SpecialName` のマークが付けられる。|29|
-|イベント|[イベント](#events)|イベントとイベントのアクセサーのアクセシビリティは同一である。|30|
-|イベント|[イベント](#events)|イベントの `add` メソッドおよび `remove` メソッドは、どちらもあってもなくてもよい。|31|
-|イベント|[イベント](#events)|`add` メソッドおよび `remove` メソッドは、それぞれパラメーターを 1 つ使用する。このパラメーターの型がイベントの型を規定する。また、パラメーターの型は <xref:System.Delegate?displayProperty=nameWithType> の派生でなければいけない。|32|
-|イベント|[イベント](#events)|イベントは、特定の名前付けパターンに従わなくてはいけない。 CLS 規則 29 で触れられている `SpecialName` 属性は、適切な名前比較で無視され、識別子規則に従わなければいけない。|33|
+|列挙体|[列挙体](#enums)|enum の基になる型は組み込みの CLS 整数型、フィールド名は "value__" であり、そのフィールドには `RTSpecialName` のマークが付けられる。|7|
+|列挙体|[列挙体](#enums)|enum には 2 種類あり、<xref:System.FlagsAttribute?displayProperty=nameWithType> カスタム属性 (第 4 部のライブラリを参照) の有無で区別する。 片方は名前付き整数値を表し、もう片方は名前付きビット フラグを表す。名前付きビット フラグは、それを組み合わせて名前のない値を生成できる。 `enum` の値は、指定した値に限定されない。|8|
+|列挙体|[列挙体](#enums)|enum のリテラルな静的フィールドの型は、その enum 自体の型である。|9|
+|events|[イベント](#events)|イベントを実装するメソッドは、メタデータ内で `SpecialName` のマークが付けられる。|29|
+|events|[イベント](#events)|イベントとイベントのアクセサーのアクセシビリティは同一である。|30|
+|events|[イベント](#events)|イベントの `add` メソッドおよび `remove` メソッドは、どちらもあってもなくてもよい。|31|
+|events|[イベント](#events)|`add` メソッドおよび `remove` メソッドは、それぞれパラメーターを 1 つ使用する。このパラメーターの型がイベントの型を規定する。また、パラメーターの型は <xref:System.Delegate?displayProperty=nameWithType> の派生でなければいけない。|32|
+|events|[イベント](#events)|イベントは、特定の名前付けパターンに従わなくてはいけない。 CLS 規則 29 で触れられている `SpecialName` 属性は、適切な名前比較で無視され、識別子規則に従わなければいけない。|33|
 |例外|[例外](#exceptions)|スローできるオブジェクト型は、<xref:System.Exception?displayProperty=nameWithType>、またはそれを継承する型である。 ただし、CLS 準拠のメソッドで他の型の例外のスローをブロックする必要はない。|40|
 |全般|[CLS 準拠: 規則](#Rules)|CLS 規則は、型の構成部分のうち、その型を定義しているアセンブリの外部からアクセスまたは参照できる部分にのみ適用される。|1|
 |全般|[CLS 準拠: 規則](#Rules)|CLS 非準拠型のメンバーを CLS 準拠と指定しない。|2|
@@ -140,20 +138,20 @@ CLS 準拠の規則を次の表に示します。 これらの規則のテキス
 |名前付け規則|[名前付け規則](#naming)|アセンブリは、識別子の頭文字および構成文字として使用できる文字セットを規定する Unicode Standard 3.0 の『Technical Report 15』の「Annex 7」に従う必要がある。詳細については、「<https://www.unicode.org/unicode/reports/tr15/tr15-18.html>」を参照。 識別子は、Unicode 正規形 C に定義されている標準形式で記述する必要がある。CLS で 2 つの識別子が同じと見なされるのは、小文字マッピング (Unicode のロケール非依存で 1 対 1 の小文字による対応付け) が同じ場合である。 つまり、CLS で 2 つの識別子が異なる場合、大文字小文字の違いだけではない。 ただし、継承された定義をオーバーライドする場合、CLI では元の宣言と厳密に同じエンコーディングの使用が求められる。|4|
 |オーバーロード|[名前付け規則](#naming)|CLS 準拠のスコープに導入されるすべての名前は、完全に独立した種類である必要があります。ただし、名前が同じでオーバーロードによって解決できる場合を除きます。 CTS では 1 つの型でメソッドとフィールドとに同じ名前を使用できるが、CLS では使用できない。|5|
 |オーバーロード|[名前付け規則](#naming)|フィールドおよび入れ子になった型について、CTS ではシグネチャでの区別が可能だが、CLS では識別子の比較だけで区別できる必要がある。 CLS 規則 39 の指定を除き、識別子の比較により名前が同じであるメソッド、プロパティ、およびイベントでは、相違点は戻り値の型だけに限定されない。|6|
-|オーバーロード|[Overloads](#overloads)|プロパティおよびメソッドのみオーバーロードできる。|37|
-|オーバーロード|[Overloads](#overloads)|プロパティおよびメソッドは、パラメーターの数値と型にのみ基づいてオーバーロードできる。ただし、戻り値の型に基づいてオーバーロードできる変換演算子の `op_Implicit` と o`op_Explicit` は例外である。|38|
+|オーバーロード|[オーバーロード](#overloads)|プロパティおよびメソッドのみオーバーロードできる。|37|
+|オーバーロード|[オーバーロード](#overloads)|プロパティおよびメソッドは、パラメーターの数値と型にのみ基づいてオーバーロードできる。ただし、戻り値の型に基づいてオーバーロードできる変換演算子の `op_Implicit` と o`op_Explicit` は例外である。|38|
 |オーバーロード|--|型で宣言された複数の CLS 準拠のメソッドに同じ名前が指定されている場合、特定の一連の型のインスタンス化において、これらのメソッドのパラメーターと戻り値の型は同じである。また、これらの型のインスタンス化で、すべてのメソッドをセマンティクス レベルで等価にする必要がある。|48|
-|種類|[型および型メンバーのシグネチャ](#Types)|<xref:System.Object?displayProperty=nameWithType> は CLS 準拠である。 これ以外のあらゆる CLS 準拠クラスは CLS 準拠クラスの継承でなければならない。|23|
-|プロパティ|[プロパティ](#properties)|プロパティの getter メソッドおよび setter メソッドを実装するメソッドは、メタデータで `SpecialName` とマークする。|24|
-|プロパティ|[プロパティ](#properties)|プロパティ アクセサーはすべて静的、すべて仮想、またはすべてインスタンスになる。|26|
-|プロパティ|[プロパティ](#properties)|プロパティの型は、getter の戻り値の型であり、かつ setter の最後の引数の型でなければいけない。 プロパティのパラメーターの型は、getter へのパラメーターの型であり、かつ setter の最後のパラメーター以外のすべての型でなければいけない。 すべての型は CLS 準拠でなければならない。また、マネージド ポインターであってはいけない。つまり、参照渡しではいけない。|27|
-|プロパティ|[プロパティ](#properties)|プロパティは、特定の名前付けパターンに従わなくてはいけない。 CLS 規則 24 で触れられている `SpecialName` 属性は、適切な名前比較で無視され、識別子規則に従わなければいけない。 プロパティには getter メソッド、setter メソッド、またはこの両方が必ずなければいけない。|28|
+|型|[型および型メンバーのシグネチャ](#Types)|<xref:System.Object?displayProperty=nameWithType> は CLS 準拠である。 これ以外のあらゆる CLS 準拠クラスは CLS 準拠クラスの継承でなければならない。|23|
+|Properties|[Properties](#properties)|プロパティの getter メソッドおよび setter メソッドを実装するメソッドは、メタデータで `SpecialName` とマークする。|24|
+|Properties|[Properties](#properties)|プロパティ アクセサーはすべて静的、すべて仮想、またはすべてインスタンスになる。|26|
+|Properties|[Properties](#properties)|プロパティの型は、getter の戻り値の型であり、かつ setter の最後の引数の型でなければいけない。 プロパティのパラメーターの型は、getter へのパラメーターの型であり、かつ setter の最後のパラメーター以外のすべての型でなければいけない。 すべての型は CLS 準拠でなければならない。また、マネージド ポインターであってはいけない。つまり、参照渡しではいけない。|27|
+|Properties|[Properties](#properties)|プロパティは、特定の名前付けパターンに従わなくてはいけない。 CLS 規則 24 で触れられている `SpecialName` 属性は、適切な名前比較で無視され、識別子規則に従わなければいけない。 プロパティには getter メソッド、setter メソッド、またはこの両方が必ずなければいけない。|28|
 |型変換|[型変換](#conversion)|`op_Implicit` または `op_Explicit` が指定されている場合は、強制変換のための別の方法を用意する必要がある。|39|
-|種類|[型および型メンバーのシグネチャ](#Types)|ボックス化された値型は CLS 準拠ではない。|3|
-|種類|[型および型メンバーのシグネチャ](#Types)|シグネチャに出現するすべての型は CLS 準拠でなければいけない。 ジェネリック型のインスタンスを構成するすべての型は CLS 準拠でなければいけない。|11|
-|種類|[型および型メンバーのシグネチャ](#Types)|型指定された参照は CLS 準拠ではありません。|14|
-|種類|[型および型メンバーのシグネチャ](#Types)|アンマネージ ポインター型は CLS 準拠ではない。|17|
-|種類|[型および型メンバーのシグネチャ](#Types)|CLS 準拠のクラス、値型、およびインターフェイスでは、CLS に準拠しないメンバーの実装は不要である。|20|
+|型|[型および型メンバーのシグネチャ](#Types)|ボックス化された値型は CLS 準拠ではない。|3|
+|型|[型および型メンバーのシグネチャ](#Types)|シグネチャに出現するすべての型は CLS 準拠でなければいけない。 ジェネリック型のインスタンスを構成するすべての型は CLS 準拠でなければいけない。|11|
+|型|[型および型メンバーのシグネチャ](#Types)|型指定された参照は CLS 準拠ではありません。|14|
+|型|[型および型メンバーのシグネチャ](#Types)|アンマネージ ポインター型は CLS 準拠ではない。|17|
+|型|[型および型メンバーのシグネチャ](#Types)|CLS 準拠のクラス、値型、およびインターフェイスでは、CLS に準拠しないメンバーの実装は不要である。|20|
 
 <a name="Types"></a>
 
@@ -174,7 +172,7 @@ CLS 準拠の規則を次の表に示します。 これらの規則のテキス
 
 .NET Framework の[共通型システム](../../docs/standard/base-types/common-type-system.md)には、共通言語ランタイムが直接サポートする組み込み型がいくつか含まれ、アセンブリのメタデータで特別にエンコードされています。 これらの組み込み型のうち、次の表に示す型は CLS に準拠しています。
 
-|CLS 準拠型|説明|
+|CLS 準拠型|[説明]|
 |-------------------------|-----------------|
 |<xref:System.Byte>|8 ビット符号なし整数|
 |<xref:System.Int16>|16 ビット符号付き整数|
@@ -190,7 +188,7 @@ CLS 準拠の規則を次の表に示します。 これらの規則のテキス
 
 次の表に示す組み込み型は CLS に準拠していません。
 
-|非準拠型|説明|CLS に準拠する代替|
+|非準拠型|[説明]|CLS に準拠する代替|
 |-------------------------|-----------------|--------------------------------|
 |<xref:System.SByte>|8 ビット符号付き整数データ型|<xref:System.Int16>|
 |<xref:System.TypedReference>|オブジェクトとそのランタイム型へのポインター|なし|
@@ -233,7 +231,7 @@ CLS 準拠の抽象クラス (つまり、`abstract` (C# の場合) または `M
 
 [!code-csharp[Conceptual.CLSCompliant#16](../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.clscompliant/cs/naming1.cs#16)]
 
-名前空間、型、メンバーの名前など、プログラミング言語の識別子は [Unicode Standard 3.0 の Technical Report 15 の Annex 7](https://www.unicode.org/reports/tr15/tr15-18.html) に準拠する必要があります。 これによって、次のことが起こります。
+名前空間、型、メンバーの名前など、プログラミング言語の識別子は [Unicode Standard 3.0 の Technical Report 15 の Annex 7](https://www.unicode.org/reports/tr15/tr15-18.html) に準拠する必要があります。 これは、次のことを意味します。
 
 - 識別子の最初の文字は Unicode の大文字と小文字、大文字と小文字の組み合わせ、修飾子文字、その他の文字、または文字数の番号を指定できます。 Unicode 文字のカテゴリの詳細については、「<xref:System.Globalization.UnicodeCategory?displayProperty=nameWithType> 列挙体」を参照してください。
 
@@ -325,7 +323,7 @@ CLS 準拠の言語コンパイラでは、クラスによって、複数のイ�
 
 <a name="enums"></a>
 
-### <a name="enumerations"></a>列挙
+### <a name="enumerations"></a>列挙体
 
 CLS 準拠の列挙型は、次の規則に従う必要があります。
 
@@ -354,7 +352,7 @@ CLS 準拠の列挙型は、次の規則に従う必要があります。
 
 共通言語仕様では、すべてのフィールドとメソッドに、特定のクラスのメンバーとしてアクセスする必要があります。 したがって、グローバルな静的フィールドおよび静的メソッド (つまり、型とは別に定義された静的フィールドまたは静的メソッド) は CLS に準拠していません。 グローバル フィールドまたはグローバル メソッドをソース コードに追加しようとすると、C# と Visual Basic の両方のコンパイラでコンパイラ エラーが発生します。
 
-共通言語仕様では、標準のマネージド呼び出し規約のみがサポートされます。 アンマネージ呼び出し規約と、`varargs` キーワードでマークされた可変個引数リストを持つメソッドはサポートされません。 標準のマネージド呼び出し規約と互換性がある可変個引数リストについては、`params` キーワード (C# の場合)、`ParamArray` キーワード (Visual Basic の場合) など、<xref:System.ParamArrayAttribute> 属性または個々の言語の実装を使用します。
+共通言語仕様では、標準のマネージド呼び出し規約のみがサポートされます。 アンマネージ呼び出し規約と、`varargs` キーワードでマークされた可変個引数リストを持つメソッドはサポートされません。 標準のマネージド呼び出し規約と互換性がある可変個引数リストについては、<xref:System.ParamArrayAttribute> キーワード (C# の場合)、`params` キーワード (Visual Basic の場合) など、`ParamArray` 属性または個々の言語の実装を使用します。
 
 <a name="MemberAccess"></a>
 
@@ -424,7 +422,7 @@ CLS 準拠のクラスと構造体のコンストラクターは、次の規則�
 
 <a name="properties"></a>
 
-### <a name="properties"></a>プロパティ
+### <a name="properties"></a>Properties
 
 CLS 準拠型のプロパティは、次の規則に従う必要があります。
 
@@ -436,7 +434,7 @@ CLS 準拠型のプロパティは、次の規則に従う必要があります�
 
 <a name="events"></a>
 
-### <a name="events"></a>イベント
+### <a name="events"></a>events
 
 イベントは、名前と型によって定義されます。 イベントの型は、イベントの表示に使用されるデリゲートです。 たとえば、<xref:System.AppDomain.AssemblyResolve?displayProperty=nameWithType> イベントは <xref:System.ResolveEventHandler> 型です。 イベント自体のほか、イベント名に基づく名前の 3 つのメソッドがイベントの実装を提供し、アセンブリのメタデータで `SpecialName` としてマークされています。
 
@@ -458,7 +456,7 @@ CLS 準拠型のプロパティは、次の規則に従う必要があります�
 
 <a name="overloads"></a>
 
-### <a name="overloads"></a>Overloads
+### <a name="overloads"></a>Shadows
 
 共通言語仕様では、次の要件がオーバーロード メンバーに適用されます。
 
@@ -622,6 +620,6 @@ C# でコンパイルするには、コンパイラの名前を **vbc** から *
 csc example.cs /r:UtilityLib.dll
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.CLSCompliantAttribute>

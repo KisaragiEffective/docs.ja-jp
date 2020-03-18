@@ -26,14 +26,12 @@ helpviewer_keywords:
 - localizing resources
 - neutral cultures
 ms.assetid: b224d7c0-35f8-4e82-a705-dd76795e8d16
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: aae38c8c2446ead128925e0e1d910ae12c8f220f
-ms.sourcegitcommit: 878ca7550b653114c3968ef8906da2b3e60e3c7a
+ms.openlocfilehash: 9c8d459195693e8eb084f7e87427a3ea37dd63ba
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71736756"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129926"
 ---
 # <a name="packaging-and-deploying-resources-in-net-apps"></a>.NET アプリでのリソースのパッケージ化と配置
 
@@ -55,7 +53,7 @@ ms.locfileid: "71736756"
 アプリケーションのリソースをパッケージ化するときは、共通言語ランタイムで想定されているリソース名前付け規則を使って、リソースに名前を付ける必要があります。 ランタイムは、そのカルチャ名でリソースを識別します。 各カルチャには一意の名前が指定されています。通常は、言語に関連付けられた小文字 2 文字のカルチャ名と、必要に応じて、国または地域に関連付けられた大文字 2 文字のサブカルチャ名を組み合わせたものです。 カルチャ名の後にダッシュ (-) で区切ってサブカルチャ名は記述します。 日本で話される日本語は ja-JP、米国で話される英語は en-US、ドイツで話されるドイツ語は de-DE、オーストリアで話されるドイツ語は de-AT などとなります。 [Windows でサポートされている言語/地域名の一覧](https://docs.microsoft.com/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c)の「**Language tag (言語タグ)** 」列をご覧ください。 カルチャ名は、[BCP 47](https://tools.ietf.org/html/bcp47) によって定義されている標準に準拠します。
 
 > [!NOTE]
-> 2文字のカルチャ名には、`zh-Hans` (簡体字) のような例外がいくつかあります。
+> 中国語 (簡体字) の `zh-Hans` など、2文字のカルチャ名にはいくつかの例外があります。
 
 > [!NOTE]
 > リソース ファイルの作成については、「[リソース ファイルの作成](creating-resource-files-for-desktop-apps.md)」および「[サテライト アセンブリの作成](creating-satellite-assemblies-for-desktop-apps.md)」をご覧ください。

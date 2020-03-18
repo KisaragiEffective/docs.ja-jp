@@ -1,32 +1,30 @@
 ---
 title: Ocelot を使った API ゲートウェイの実装
 description: Ocelot を使用して API ゲートウェイを実装する方法と、コンテナー ベースの環境で Ocelot を使用する方法について説明します。
-ms.date: 10/02/2018
-ms.openlocfilehash: 2a1c7b0f4baa979864ac32d555f65397531884b8
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.date: 01/30/2020
+ms.openlocfilehash: 0eb834829a418cfa1ccdf13c5fc8849f6855c4ba
+ms.sourcegitcommit: f38e527623883b92010cf4760246203073e12898
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68676189"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77502414"
 ---
 # <a name="implement-api-gateways-with-ocelot"></a>Ocelot を使った API ゲートウェイの実装
 
-参照マイクロサービス アプリケーション [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) では、[Ocelot](https://github.com/ThreeMammals/Ocelot) を使用しています。Ocelot はマイクロサービス/コンテナーと共に展開できるシンプルかつ簡易な API ゲートウェイであり、eShopOnContainers で使用される次のような環境であれば、どこにでも展開できます。
-
-- Docker ホスト、ローカル開発用 PC、オンプレミス、またはクラウド。
-- Kubernetes クラスター、オンプレミスまたは Azure Kubernetes Service (AKS) などのマネージド クラウド。
-- Service Fabric クラスター、オンプレミス、またはクラウド。
-- Service Fabric メッシュ、Azure で PaaS/Serverless として。
+> [!IMPORTANT]
+> 現在、参照マイクロサービス アプリケーション [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) では、[Envoy](https://www.envoyproxy.io/) が提供する機能を使用して、前に参照された [Ocelot](https://github.com/ThreeMammals/Ocelot) ではなく、API ゲートウェイを実装しています。
+> この設計が選択されたのは、eShopOnContainers に実装される新しい gRPC サービス間通信で必要な WebSocket プロトコルのサポートが Envoy に組み込まれているためです。
+> ただし、ガイドにこのセクションが含まれているのは、Ocelot を実稼働レベルのシナリオに適したシンプルで有能な軽量の API ゲートウェイとして 検討できるようにするためです。
 
 ## <a name="architect-and-design-your-api-gateways"></a>API ゲートウェイのアーキテクチャとデザイン
 
-次のアーキテクチャ図は、eShopOnContainers で Ocelot を使用した API ゲートウェイの実装方法を示しています。
+次のアーキテクチャ図は、eShopOnContainers で Ocelot を使用して API ゲートウェイがどのように実装されたかを示しています。
 
-![クライアント アプリ、マイクロサービス、およびその間の API ゲートウェイを示す eShopOnContainers アーキテクチャ図](./media/image28.png)
+![eShopOnContainers アーキテクチャを示す図。](./media/implement-api-gateways-with-ocelot/eshoponcontainers-architecture.png)
 
 **図 6-28**。 API ゲートウェイを使用した eShopOnContainers アーキテクチャ
 
-この図では、アプリケーション全体を 1 つの Docker ホスト、または "Docker for Windows" または "Docker for Mac" を搭載した開発 PC に配置する方法を示しています。 ただし、任意のオーケストレーターに配置することはよく似ていますが、図の任意のコンテナーがオーケストレーターでスケールアウトする可能性があります。
+この図では、アプリケーション全体を 1 つの Docker ホスト、または "Docker for Windows" または "Docker for Mac" を搭載した開発 PC に配置する方法を示しています。 ただし、どのオーケストレーターでもそれに配置する方法は似ていますが、図のコンテナーはいずれも、オーケストレーターでスケールアウトする可能性があります。
 
 さらに、データベース、キャッシュ、メッセージ ブローカーなどのインフラストラクチャ資産は、オーケストレーターからオフロードして、Azure SQL Database、Azure Cosmos DB、Azure Redis、Azure Service Bus、またはオンプレミスの任意の HA クラスタリング ソリューションのような、インフラストラクチャの可用性が高いシステムに配置する必要があります。
 
@@ -34,27 +32,27 @@ ms.locfileid: "68676189"
 
 1 つのポイントが複数の開発チームによって更新されることを意味するモノリシック API ゲートウェイがあれば、アプリケーションの 1 つの部分にすべてのマイクロサービスを組み合わせることができたかもしれません。
 
-デザインにさらに踏み込むと、きめ細かい API ゲートウェイを、選択したアーキテクチャに応じて、1 つのビジネス マイクロサービスに制限できる場合があります。 ビジネスまたはドメインで API ゲートウェイの境界を示すことは、より優れた設計にするのに役立ちます。
+デザインにさらに踏み込むと、きめ細かい API ゲートウェイを、選択したアーキテクチャに応じて、1 つのビジネス マイクロサービスに制限できる場合があります。 ビジネスまたはドメインで API ゲートウェイの境界を示すとデザインが良くなります。
 
 たとえば、API ゲートウェイ層を細分化することは、マイクロサービスに基づくより高度な複合 UI アプリケーションで特に役立つ場合があります。これは、きめ細かい API ゲートウェイの概念が UI コンポジション サービスと似ているためです。
 
-詳細は前のセクション「[Creating composite UI based on microservices](../architect-microservice-container-applications/microservice-based-composite-ui-shape-layout.md)」(マイクロサービスを基にしている複合 UI を作成する) で取り上げています。
+詳細は前のセクション「[マイクロサービスを基にしている複合 UI を作成する](../architect-microservice-container-applications/microservice-based-composite-ui-shape-layout.md)」で取り上げています。
 
 重要な点は、多くの中規模および大規模なアプリケーションの場合、カスタム ビルドの API ゲートウェイ製品の使用は、通常は有効なアプローチですが、API ゲートウェイで自立型マイクロサービスを作成している複数の開発チームに対して、複数の独立した構成領域を許可している場合を除き、単一のモノシリック アグリゲーターや一意の中央カスタム API ゲートウェイとしては適切なアプローチではないことです。
 
-### <a name="sample-microservicescontainers-to-re-route-through-the-api-gateways"></a>API ゲートウェイ経由で経路変更するマイクロサービス/コンテナーのサンプル
+### <a name="sample-microservicescontainers-to-reroute-through-the-api-gateways"></a>API ゲートウェイ経由で経路変更するマイクロサービス/コンテナーのサンプル
 
 例として、eShopOnContainers には、次の図に示すように、API ゲートウェイ経由で公開する必要がある約 6 種類の内部のマイクロサービスがあります。
 
-![Basket、Catalog、Location、Marketing、Ordering、Payment というマイクロサービスのみ API ゲートウェイ経由で公開されます。](./media/image29.png)
+![Services フォルダーのスクリーンショット。そのサブフォルダーを確認できます。](./media/implement-api-gateways-with-ocelot/eshoponcontainers-microservice-folders.png)
 
 **図 6-29**。 Visual Studio の eShopOnContainers ソリューション内のマイクロサービス フォルダー
 
 ID サービスについては、システム内の唯一の横断的関心事のため、デザインでは API ゲートウェイのルーティングから除外されていますが、Ocelot を使用すると、経路変更リストの一部として含めることができます。
 
-コードからわかるように、これらのサービスはすべて、ASP.NET Core Web API サービスとして現在実装されています。 Catalog マイクロサービス コードなどのマイクロサービスのいずれかに注目してみましょう。
+コードからわかるように、これらのサービスはすべて、ASP.NET Core Web API サービスとして現在実装されています。 マイクロサービスの 1 つに注目してみましょう。Catalog マイクロサービス コードなどがあります。
 
-![ソリューション エクスプローラーの Catalog.API プロジェクトのビュー。](./media/image30.png)
+![Catalog.API プロジェクトのコンテンツを示すソリューション エクスプローラーのスクリーンショット。](./media/implement-api-gateways-with-ocelot/catalog-api-microservice-folders.png)
 
 **図 6-30**。 サンプル Web API マイクロサービス (Catalog マイクロサービス)
 
@@ -86,10 +84,10 @@ public async Task<IActionResult> GetItemById(int id)
 
 HTTP 要求は、マイクロサービス データベースと追加の必須アクションにアクセスするような C# コードの実行で終了します。
 
-マイクロサービス URL については、コンテナーがローカル開発用 PC (ローカル Docker ホスト) に配置されると、各マイクロサービスのコンテナーは、次の dockerfile にあるように、その dockerfile で指定された内部ポート (通常はポート 80) を常に持ちます。
+マイクロサービス URL については、コンテナーがローカル開発用 PC (ローカル Docker ホスト) に配置されると、各マイクロサービスのコンテナーには、次の dockerfile にあるように、その dockerfile で指定された内部ポート (通常はポート 80) が常に与えられます。
 
 ```Dockerfile
-FROM microsoft/aspnetcore:2.0.5 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
 WORKDIR /app
 EXPOSE 80
 ```
@@ -100,12 +98,12 @@ EXPOSE 80
 
 運用環境に配置するときに、このような外部ポートを公開しないでください。 クライアント アプリとマイクロサービス間の直接通信を回避するために、API ゲートウェイを使用する理由がここにあります。
 
-ただし、開発時には、マイクロサービス/コンテナーに直接アクセスして、Swagger を経由して実行できる必要があります。 そのため、eShopOnContainers では、外部ポートが API ゲートウェイまたはクライアント アプリで使われなくなっても、指定されたままにしています。
+ただし、開発時には、マイクロサービス/コンテナーに直接アクセスして、Swagger を経由して実行できる必要があります。 そのため、eShopOnContainers では、API ゲートウェイまたはクライアント アプリで使われなくなっても、外部ポートは指定されたままになります。
 
 Catalog マイクロサービスの `docker-compose.override.yml` ファイルの例を次に示します。
 
 ```yml
-catalog.api:
+catalog-api:
   environment:
     - ASPNETCORE_ENVIRONMENT=Development
     - ASPNETCORE_URLS=http://0.0.0.0:80
@@ -116,21 +114,21 @@ catalog.api:
                   # The API Gateway redirects and access through the internal port (80).
 ```
 
-docker-compose.override.yml の構成では、Catalog コンテナーの内部ポートがポート 80 になっていますが、外部アクセスのポートは 5101 になっていることがわかります。 ただし、このポートは、API ゲートウェイを使用する場合には、アプリケーションでは使用せずに、Catalog マイクロサービスのデバッグ、実行、およびテストのためにだけ使用します。
+docker-compose.override.yml の構成では、Catalog コンテナーの内部ポートがポート 80 になっていますが、外部アクセスのポートは 5101 になっていることがわかります。 ただし、このポートは、API ゲートウェイを使用する場合には、アプリケーションでは使用せずに、Catalog マイクロサービスのデバッグ、実行、テストのためにだけ使用します。
 
 マイクロサービスの適切な運用配置環境は、Kubernetes や Service Fabric などのオーケストレーターであるため、通常は docker-compose を使用して運用環境に配置することはありません。 これらの環境に配置する場合は、マイクロサービスに対してどの外部ポートも直接公開しない別の構成ファイルを使用しますが、API ゲートウェイからのリバース プロキシは常に使用します。
 
-ローカルの Docker ホストで Catalog マイクロサービスを実行します。これには、Visual Studio から完全な eShopOnContainers ソリューションを実行する (docker-compose ファイル内のすべてのサービスを実行する) か、`docker-compose.yml` と docker-compose.override.yml が配置されているフォルダーにある CMD または PowerShell で次の docker-compose コマンドを使用して、単に Catalog マイクロサービスを起動します。
+ローカルの Docker ホストで Catalog マイクロサービスを実行します。 Visual Studio から完全な eShopOnContainers ソリューションを実行する (docker-compose ファイル内のすべてのサービスを実行する) か、`docker-compose.yml` と `docker-compose.override.yml` が配置されているフォルダーにある CMD または PowerShell で次の docker-compose コマンドを使用して Catalog マイクロサービスを起動します。
 
 ```console
-docker-compose run --service-ports catalog.api
+docker-compose run --service-ports catalog-api
 ```
 
-このコマンドは、catalog.api サービス コンテナーと docker-compose.yml で指定されている依存関係のみを実行します。 この例では、SQL Server コンテナーと RabbitMQ コンテナーです。
+このコマンドでは、catalog.api サービス コンテナーと docker-compose.yml に指定されている依存関係のみが実行されます。 この例では、SQL Server コンテナーと RabbitMQ コンテナーです。
 
 こうすると、"外部" ポート (この例では `http://localhost:5101/swagger`) を経由して直接アクセスする Swagger UI を使用して、Catalog マイクロサービスに直接アクセスして、そのメソッドを表示できるようになります。
 
-![Catalog.API REST API の Swagger UI 期間のブラウザー ビュー。](./media/image31.png)
+![Catalog.API REST API を表示している Swagger UI のスクリーンショット。](./media/implement-api-gateways-with-ocelot/test-catalog-microservice.png)
 
 **図 6-31**。 Swagger UI を使用した Catalog マイクロサービスのテスト
 
@@ -142,7 +140,7 @@ docker-compose run --service-ports catalog.api
 
 Ocelot は、基本的に特定の順序で適用できるミドルウェアのセットです。
 
-Ocelot は、ASP.NET Core でのみ動作するように設計されています。 これは netstandard 2.0 をターゲットにしているため、.NET Standard 2.0 がサポートされていれば、どこでも使用できます。これには、.NET Core 2.0 ランタイムと .NET Framework 4.6.1 ランタイム以降が含まれます。
+Ocelot は、ASP.NET Core でのみ動作するように設計されています。 これは `netstandard2.0` をターゲットにしているため、.NET Standard 2.0 がサポートされていれば、どこでも使用できます。これには、.NET Core 2.0 ランタイムと .NET Framework 4.6.1 ランタイム以降が含まれます。
 
 [Ocelot の NuGet パッケージ](https://www.nuget.org/packages/Ocelot/)を使用して、Visual Studio から ASP.NET Core プロジェクトに Ocelot とその依存関係をインストールします。
 
@@ -150,9 +148,9 @@ Ocelot は、ASP.NET Core でのみ動作するように設計されています
 Install-Package Ocelot
 ```
 
-eShopOnContainers では、その API ゲートウェイの実装はシンプルな ASP.NET Core WebHost プロジェクトで、次の図に示すように、Ocelot のミドルウェアがすべての API ゲートウェイ機能を処理します。
+eShopOnContainers では、その API ゲートウェイの実装はシンプルな ASP.NET Core WebHost プロジェクトであり、次の図に示すように、Ocelot のミドルウェアによってすべての API ゲートウェイ機能が処理されます。
 
-![ソリューション エクスプローラーの画像。Ocelot API ゲートウェイ プロジェクトを確認できます。](./media/image32.png)
+![Ocelot API ゲートウェイ プロジェクトを表示しているソリューション エクスプローラーのスクリーンショット。](./media/implement-api-gateways-with-ocelot/ocelotapigw-base-project.png)
 
 **図 6-32**。 eShopOnContainers の OcelotApiGw 基本プロジェクト
 
@@ -195,9 +193,9 @@ namespace OcelotApiGw
 }
 ```
 
-構成には 2 つのセクションがあります。 ReRoute の配列と GlobalConfiguration です。 ReRoute は、Ocelot にアップストリーム要求の処理方法を指示するオブジェクトです。 グローバル構成を使用すると、ReRoute 固有の設定をオーバーライドすることができます。 多くの ReRoute 固有の設定を管理したくない場合に便利です。
+構成には 2 つのセクションがあります。 ReRoute の配列と GlobalConfiguration です。 ReRoute は、Ocelot にアップストリーム要求の処理方法を指示するオブジェクトです。 グローバル構成を使用すると、ReRoute 固有の設定をオーバーライドできます。 ReRoute 固有の設定をたくさん管理しない場合に便利です。
 
-eShopOnContainers のうちの 1 つの API ゲートウェイから、[ReRoute 構成ファイル](https://github.com/dotnet-architecture/eShopOnContainers/blob/dev/src/ApiGateways/Web.Bff.Shopping/apigw/configuration.json)の簡素化した例を次に示します。
+eShopOnContainers のうちの 1 つの API ゲートウェイから、[ReRoute 構成ファイル](https://github.com/dotnet-architecture/eShopOnContainers/blob/master/src/ApiGateways/Web.Bff.Shopping/apigw/configuration.json)の単純な例を次に示します。
 
 ```json
 {
@@ -207,7 +205,7 @@ eShopOnContainers のうちの 1 つの API ゲートウェイから、[ReRoute 
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "catalog.api",
+          "Host": "catalog-api",
           "Port": 80
         }
       ],
@@ -219,7 +217,7 @@ eShopOnContainers のうちの 1 つの API ゲートウェイから、[ReRoute 
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "basket.api",
+          "Host": "basket-api",
           "Port": 80
         }
       ],
@@ -249,7 +247,7 @@ Ocelot API ゲートウェイの主な機能は、HTTP 要求を受け取り、�
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "basket.api",
+          "Host": "basket-api",
           "Port": 80
         }
       ],
@@ -280,11 +278,11 @@ UpstreamPathTemplate は、クライアントから特定の要求に対し、�
 
 eShopOnContainers では、Ocelot API ゲートウェイと共に 1 つの Docker コンテナー イメージを使用していますが、その後、実行時、サービスごとに異なる PC フォルダーにアクセスする Docker ボリュームを使用し、configuration.json ファイルを提供することで、API ゲートウェイ/BFF コンテナーの種類ごとに異なるサービス/コンテナーを作成します。
 
-![Ocelot API ゲートウェイの 1 つの Docker イメージが 4 つすべての API ゲートウェイに使用される](./media/image33.png)
+![すべての API ゲートウェイに対する単一 Ocelot ゲートウェイの Docker イメージの図。](./media/implement-api-gateways-with-ocelot/reusing-single-ocelot-docker-image.png)
 
 **図 6-33**。 複数の API ゲートウェイの種類で 1 つの Ocelot Docker イメージを再利用する
 
-eShopOnContainers では、'OcelotApiGw' という名前のプロジェクトと、docker-compose.yml ファイルで指定されたイメージ名 “eshop/ocelotapigw” を使用して、“汎用 Ocelot API ゲートウェイ Docker イメージ” が作成されます。 次に、Docker に配置すると、次の docker-compose.yml ファイルからの抜粋に示されているように、同じ Docker イメージから作成された 4 つの API ゲートウェイ コンテナーができます。
+eShopOnContainers では、"OcelotApiGw" という名前のプロジェクトと、docker-compose.yml ファイルで指定されたイメージ名 "eshop/ocelotapigw" を使用して、"汎用 Ocelot API ゲートウェイ Docker イメージ" が作成されます。 次に、Docker に配置すると、次の docker-compose.yml ファイルからの抜粋に示されているように、同じ Docker イメージから作成された 4 つの API ゲートウェイ コンテナーができます。
 
 ```yml
   mobileshoppingapigw:
@@ -318,7 +316,7 @@ eShopOnContainers では、'OcelotApiGw' という名前のプロジェクトと
 mobileshoppingapigw:
   environment:
     - ASPNETCORE_ENVIRONMENT=Development
-    - IdentityUrl=http://identity.api
+    - IdentityUrl=http://identity-api
   ports:
     - "5200:80"
   volumes:
@@ -327,7 +325,7 @@ mobileshoppingapigw:
 mobilemarketingapigw:
   environment:
     - ASPNETCORE_ENVIRONMENT=Development
-    - IdentityUrl=http://identity.api
+    - IdentityUrl=http://identity-api
   ports:
     - "5201:80"
   volumes:
@@ -336,7 +334,7 @@ mobilemarketingapigw:
 webshoppingapigw:
   environment:
     - ASPNETCORE_ENVIRONMENT=Development
-    - IdentityUrl=http://identity.api
+    - IdentityUrl=http://identity-api
   ports:
     - "5202:80"
   volumes:
@@ -345,7 +343,7 @@ webshoppingapigw:
 webmarketingapigw:
   environment:
     - ASPNETCORE_ENVIRONMENT=Development
-    - IdentityUrl=http://identity.api
+    - IdentityUrl=http://identity-api
   ports:
     - "5203:80"
   volumes:
@@ -354,23 +352,23 @@ webmarketingapigw:
 
 次の Visual Studio エクスプローラーに示されているように、前のコードにより、特定のビジネス/BFF API ゲートウェイをそれぞれ定義するために必要な唯一のファイルは、configuration.json ファイルだけです。これは、4 つの API ゲートウェイが同じ Docker イメージに基づいているためです。
 
-![すべての API ゲートウェイの唯一の違いは、それぞれのゲートウェイの configuration.json ファイルです。](./media/image34.png)
+![configuration.json ファイルを含むすべての API ゲートウェイを示すスクリーンショット。](./media/implement-api-gateways-with-ocelot/ocelot-configuration-files.png)
 
 **図 6-34**。 Ocelot で各 API ゲートウェイ/BFF を定義するために必要な唯一のファイル
 
 API ゲートウェイを複数の API ゲートウェイに分割することで、マイクロサービスの異なるサブセットに重点を置いているさまざまな開発チームが、独立した Ocelot 構成ファイルを使用して、独自の API ゲートウェイを管理できます。 くわえて、同時に同じ Ocelot Docker イメージを再利用することができます。
 
-ここで、(eShopOnContainers ServicesAndWebApps.sln ソリューションを開くとき、または “docker-compose up” を実行している場合に、VS に既定で含まれる) API ゲートウェイを使用して eShopOnContainers を実行すると、次のサンプル ルートが実行されます。
+ここで、(eShopOnContainers ServicesAndWebApps.sln ソリューションを開くとき、または "docker-compose up" を実行している場合に、VS に既定で含まれる) API ゲートウェイを使用して eShopOnContainers を実行すると、次のサンプル ルートが実行されます。
 
-たとえば、webshoppingapigw API ゲートウェイによって提供されるアップストリーム URL `http://localhost:5202/api/v1/c/catalog/items/2/` にアクセスすると、次のブラウザーにあるように、Docker ホスト内の内部ダウンストリーム URL `http://catalog.api/api/v1/2` からの同じ結果が得られます。
+たとえば、webshoppingapigw API ゲートウェイによって提供されるアップストリーム URL `http://localhost:5202/api/v1/c/catalog/items/2/` にアクセスすると、次のブラウザーにあるように、Docker ホスト内の内部ダウンストリーム URL `http://catalog-api/api/v1/2` からの同じ結果が得られます。
 
-![API ゲートウェイ経由で送信される Catalog.api からの応答を示すブラウザーのビュー。](./media/image35.png)
+![API ゲートウェイ経由の応答を表示しているブラウザーのスクリーンショット。](./media/implement-api-gateways-with-ocelot/access-microservice-through-url.png)
 
 **図 6-35**。 API ゲートウェイによって提供される URL からマイクロサービスにアクセスする
 
 テストまたはデバッグの理由から、API ゲートウェイを通過せずに Catalog Docker コンテナーに直接アクセスしたい場合 (開発環境でのみ)、'catalog.api' は Docker ホスト (docker-compose サービス名により処理されるサービス検索) 内部の DNS 解決であるため、コンテナーに直接アクセスする唯一の方法は、次のブラウザーにある `http://localhost:5101/api/v1/Catalog/items/1` のように、開発テスト用にのみ提供される docker-compose.override.yml で公開されている外部ポートを経由することです。
 
-![Catalog.api に直接送信される Catalog.api からの応答を示すブラウザーのビュー。API ゲートウェイ経由の場合と同じです。](./media/image36.png)
+![Catalog.api への直接応答を表示しているブラウザーのスクリーンショット。](./media/implement-api-gateways-with-ocelot/direct-access-microservice-testing.png)
 
 **図 6-36**。 テスト目的でのマイクロサービスへの直接アクセス
 
@@ -384,19 +382,19 @@ API ゲートウェイを複数の API ゲートウェイに分割すること�
 
 次の図では、アグリゲーター サービスがその関連する API ゲートウェイとどのように連携するかも確認できます。
 
-![eShopOnContainers アーキテクチャ。アグリゲーター サービスを確認できます。](./media/image37.png)
+![アグリゲーター サービスを示している eShopOnContainers アーキテクチャの図。](./media/implement-api-gateways-with-ocelot/eshoponcontainers-architecture-aggregator-services.png)
 
 **図 6-37**。 アグリゲーター サービスを使用した eShopOnContainers アーキテクチャ
 
 さらに拡大してみると、次の画像の "Shopping" 事業領域では、API ゲートウェイでアグリゲーター サービスを使用するとき、クライアント アプリとマイクロサービスの間の通信が減ることを確認できます。
 
-![eShopOnContainers アーキテクチャの拡大画像。アグリゲーター サービスは応答を "組み立て"、複数のマイクロサービスからの応答を "結合" し、エンド クライアントとの通信を減らしています。](./media/image38.png)
+![eShopOnContainers アーキテクチャの拡大を示す図。](./media/implement-api-gateways-with-ocelot/zoom-in-vision-aggregator-services.png)
 
 **図 6-38**。 アグリゲーター サービスのビジョンの拡大表示
 
-API ゲートウェイから送信される可能性がある要求を図に示すと、非常に複雑になる可能性があることがわかります。 しかし、クライアント アプリの視点かラ見て、青の矢印がどのように簡略化されるかがわかります。アグリゲーター パターンを使用すると、頻繁な通信と通信の待機時間を減らすことで、最終的にユーザー エクスペリエンス、とりわけリモート アプリ (モバイルおよび SPA アプリ) のユーザー エクスペリエンスが大幅に向上します。
+API ゲートウェイから送信される可能性がある要求を図に示すと、複雑になる可能性があることがわかります。 しかし、クライアント アプリの視点かラ見て、青の矢印がどのように簡略化されるかがわかります。アグリゲーター パターンを使用すると、頻繁な通信と通信の待機時間を減らすことで、最終的にユーザー エクスペリエンス、とりわけリモート アプリ (モバイルおよび SPA アプリ) のユーザー エクスペリエンスが大幅に向上します。
 
-"マーケティング" ビジネス領域とマイクロサービスの場合は、非常にシンプルなユース ケースであるため、アグリゲーターを使用する必要はありませんでしたが、必要に応じて使用することもできます。
+"マーケティング" ビジネス領域とマイクロサービスの場合は、シンプルなユース ケースであるため、アグリゲーターを使用する必要はありませんでしたが、必要に応じて使用することもできます。
 
 ### <a name="authentication-and-authorization-in-ocelot-api-gateways"></a>Ocelot API ゲートウェイでの認証と承認
 
@@ -404,17 +402,17 @@ Ocelot API ゲートウェイでは、認証トークンを提供する [Identit
 
 eShopOnContainers では、BFF に基づく境界とビジネス領域を持つ複数の API ゲートウェイを使用しているため、ID/認証サービス (次の図に黄色で強調表示) は、API ゲートウェイから除外されています。
 
-![eShopOnContainers アーキテクチャ図。API ゲートウェイの下に ID マイクロサービスを確認できます。](./media/image39.png)
+![API ゲートウェイの下にある ID マイクロサービスを示す図。](./media/implement-api-gateways-with-ocelot/eshoponcontainers-identity-service-position.png)
 
 **図 6-39**。 eShopOnContainers 内の ID サービスの位置
 
 ただし、Ocelot では、この別の図に示されているように、ID/認証マイクロサービスを API ゲートウェイの境界内に配置することもサポートしています。
 
-![API ゲートウェイ (AG) の下で ID マイクロサービスを使用して認証する: 1) AG が ID マイクロサービスに認証トークンを要求する、2) ID マイクロサービスが AG にトークンを返す、3-4) AG が認証トークンを使用してマイクロサービスに要求する。](./media/image40.png)
+![Ocelot API ゲートウェイの認証を示す図。](./media/implement-api-gateways-with-ocelot/ocelot-authentication.png)
 
 **図 6-40**。 Ocelot での認証
 
-eShopOnContainers アプリケーションは API ゲートウェイを複数の Backend for Frontend (BFF) とビジネス領域の API ゲートウェイに分割しているため、もう 1 つのオプションは、横断的関心事に対して追加の API ゲートウェイを作成することでした。 その選択は、複数の横断的関心事のマイクロサービスを持つより複雑なマイクロサービス ベースのアーキテクチャでは適切でしょう。 eShopOnContainers には横断的関心事は 1 つしかないので、簡素化するため、API ゲートウェイ領域外のセキュリティ サービスだけを処理すると判断されました。
+前の図に示したように、ID マイクロサービスが API ゲートウェイ (AG) の下にある場合は、次のようになります。1) AG で ID マイクロサービスに認証トークンを要求し、2) ID マイクロサービスによって AG にトークンが返され、3-4) AG で認証トークンを使用してマイクロサービスに要求します。 eShopOnContainers アプリケーションによって API ゲートウェイが複数の BFF (Backend for Frontend) とビジネス領域の API ゲートウェイに分割されているため、もう 1 つのオプションは、横断的な問題に対して追加の API ゲートウェイを作成することでした。 その選択は、複数の横断的関心事のマイクロサービスを持つより複雑なマイクロサービス ベースのアーキテクチャでは適切でしょう。 eShopOnContainers には横断的関心事は 1 つしかないので、簡素化するため、API ゲートウェイ領域外のセキュリティ サービスだけを処理すると判断されました。
 
 いずれの場合も、アプリが API ゲートウェイ レベルでセキュリティ保護されている場合は、任意のセキュリティで保護されたマイクロサービスを使用するときに、最初にアクセスされるのは、Ocelot API ゲートウェイの認証モジュールです。 これは HTTP 要求をリダイレクトして、ID/認証マイクロサービスにアクセスして、access_token で保護されたサービスにアクセスできるように、アクセス トークンを取得します。
 
@@ -426,7 +424,7 @@ eShopOnContainers アプリケーションは API ゲートウェイを複数の
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "basket.api",
+          "Host": "basket-api",
           "Port": 80
         }
       ],
@@ -487,7 +485,7 @@ namespace Microsoft.eShopOnContainers.Services.Basket.API.Controllers
 }
 ```
 
-“basket” などの ValidAudiences は、次のコードのように、Startup クラスの ConfigureServices() で、`AddJwtBearer()` を使用して各マイクロサービスで定義されている対象ユーザーと関連付けられます。
+"basket" などの ValidAudiences は、次のコードのように、Startup クラスの ConfigureServices() で、`AddJwtBearer()` を使用して各マイクロサービスで定義されている対象ユーザーと関連付けられます。
 
 ```csharp
 // prevent from mapping "sub" claim to nameidentifier.
@@ -534,17 +532,17 @@ eShopOnContainers では、ローカルで開発し、開発用コンピュー�
 
 ただし、Kubernetes に基づいて "運用" 環境をターゲットにする場合は、eShopOnContainers では、API ゲートウェイの前にイングレスが使用されます。 これにより、クライアントは引き続き同じベース URL を呼び出しますが、要求は複数の API ゲートウェイまたは BFF にルーティングされます。
 
-API ゲートウェイは、サービスのみに接するフロント エンドまたはファサードで、Web アプリケーションではなく、通常はその範囲外であることに注意してください。 さらに、API ゲートウェイは、特定の内部マイクロサービスを非表示にすることがあります。
+API ゲートウェイはサービスのみに接するフロント エンドまたはファサードであり、通常はその範囲外となる Web アプリケーションではありません。 さらに、API ゲートウェイは、特定の内部マイクロサービスを非表示にすることがあります。
 
 ただし、イングレスは、HTTP 要求をリダイレクトするだけですが、どのマイクロサービスまたは Web アプリも非表示にはしません。
 
 次の図に示すように、Web アプリケーションの前の Kubernetes にイングレス Nginx 層と、複数の Ocelot API ゲートウェイ/BFF を配置するのが理想的なアーキテクチャです。
 
-![Kubernetes イングレスは、Web アプリケーションなど、通常は API ゲートウェイの範囲外となるアプリに宛てられるすべてのトラフィックのリバース プロキシとして機能します。](./media/image41.png)
+![イングレス層が AKS 環境にどのように適合しているかを示す図。](./media/implement-api-gateways-with-ocelot/eshoponcontainer-ingress-tier.png)
 
 **図 6-41**。 Kubernetes に配置するときの eShopOnContainers のイングレス層
 
-Kubernetes に eShopOnContainers を配置すると、少数のサービスまたはエンドポイントだけが_イングレス_経由で公開されます。基本的に、URL の接尾辞は次のとおりです。
+Kubernetes イングレスは、Web アプリケーションなど、通常は API ゲートウェイの範囲外となるアプリに宛てられるすべてのトラフィックのリバース プロキシとして機能します。 Kubernetes に eShopOnContainers を配置すると、少数のサービスまたはエンドポイントだけが_イングレス_経由で公開されます。基本的に、URL の接尾辞は次のとおりです。
 
 - `/`: クライアント SPA Web アプリケーション用
 - `/webmvc`: クライアント MVC Web アプリケーション用
@@ -554,7 +552,7 @@ Kubernetes に eShopOnContainers を配置すると、少数のサービスま�
 - `/mobileshoppingapigw`: モバイル BFF とショッピング ビジネス プロセス用
 - `/mobilemarketingapigw`: モバイル BFF とマーケティング ビジネス プロセス用
 
-Kubernetes に配置するときに、各 Ocelot API ゲートウェイは、API ゲートウェイを実行している_ポッド_ごとに異なる "configuration.json" ファイルを使用します。 これらの "configuration.json" ファイルは、‘ocelot’ という名前の Kubernetes _構成マップ_に基づいて作成されたボリュームを (もともとは deploy.ps1 スクリプトを使用して) マウントすることによって提供されます。 各コンテナーにより、関連する構成ファイルが `/app/configuration` という名前のコンテナーのフォルダーにマウントされます。
+Kubernetes に配置するときに、各 Ocelot API ゲートウェイは、API ゲートウェイを実行している_ポッド_ごとに異なる "configuration.json" ファイルを使用します。 これらの "configuration.json" ファイルは、"ocelot" という名前の Kubernetes _構成マップ_に基づいて作成されたボリュームを (もともとは deploy.ps1 スクリプトを使用して) マウントすることによって提供されます。 各コンテナーにより、関連する構成ファイルが `/app/configuration` という名前のコンテナーのフォルダーにマウントされます。
 
 eShopOnContainers のソース コード ファイルでは、元の "configuration.json" ファイルは `k8s/ocelot/` フォルダー内にあります。 BFF/API ゲートウェイごとに 1 つのファイルがあります。
 

@@ -3,13 +3,12 @@ title: C# および Visual Studio Code の使用を開始する
 description: Visual Studio Code を使用した、C# で初めての .NET Core アプリケーションを作成してデバッグする方法について説明します。
 author: kendrahavens
 ms.date: 12/05/2018
-ms.custom: seodec18
-ms.openlocfilehash: 4e283f631f463953185a37bf196a1a9b706eee2b
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: 8eaf1ba2314dcab96db615a8691afed82c5011a7
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72002325"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79397885"
 ---
 # <a name="get-started-with-c-and-visual-studio-code"></a>C# および Visual Studio Code の使用を開始する
 
@@ -19,7 +18,7 @@ ms.locfileid: "72002325"
 
 1. [Visual Studio Code](https://code.visualstudio.com/) のインストール。
 2. [.NET Core SDK](https://dotnet.microsoft.com/download) のインストール。
-3. Visual Studio Code の [C# 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)のインストール。 Visual Studio Code に拡張機能をインストールする方法については、[VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) を参照してください。
+3. Visual Studio Code の [C# 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)のインストール。 Visual Studio Code に拡張機能をインストールする方法については、[VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) を参照してください。
 
 ## <a name="hello-world"></a>Hello World
 
@@ -29,13 +28,13 @@ ms.locfileid: "72002325"
 
     - Visual Studio Code を開きます。
     - 左側のメニューで [エクスプローラー] アイコンをクリックし、 **[フォルダーを開く]** をクリックします。
-    - メイン メニューから **[ファイル]** 、 **[フォルダーを開く]** の順に選択し、C# プロジェクトを保存するフォルダーを開き、 **[フォルダーの選択]** をクリックします。 ここで、*Hello World* という名前のプロジェクトのフォルダーを作成します。
+    - メイン メニューから **[ファイル]**  >  **[フォルダーを開く]** の順に選択し、C# プロジェクトを保存するフォルダーを開き、 **[フォルダーの選択]** をクリックします。 ここで、*Hello World* という名前のプロジェクトのフォルダーを作成します。
 
       ![Visual Studio Code の [フォルダーを開く]](media/with-visual-studio-code/vs-code-open-folder.png)
 
 2. C# プロジェクトを初期化する
 
-    - Visual Studio Code から統合ターミナルを開きます。メイン メニューで **[表示]** 、 **[統合端末]** の順に選択してください。
+    - Visual Studio Code から統合ターミナルを開きます。メイン メニューで **[表示]**  >  **[統合端末]** の順に選択してください。
     - ターミナル ウィンドウで、`dotnet new console` と入力します。
     - このコマンドは、*HelloWorld.csproj* という名前の C# プロジェクト ファイルと共に、単純な "Hello World" プログラムが既に書き込まれた *Program.cs* ファイルをフォルダーに作成します。
 
@@ -114,7 +113,7 @@ ms.locfileid: "72002325"
 
     ```csharp
     using System;
-    
+
     namespace HelloWorld
     {
         class Program
@@ -130,8 +129,13 @@ ms.locfileid: "72002325"
 
 5. 変更を保存し、プログラムを再度実行します。 新しいメッセージと共に追加した文字列が表示されます。
 
+    ```dotnetcli
+    dotnet run
+    ```
+
+    次の出力が得られます。
+
     ```console
-    > dotnet run
     Hello World! Happy coding!
     ```
 

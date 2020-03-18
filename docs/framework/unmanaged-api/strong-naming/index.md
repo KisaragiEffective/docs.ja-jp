@@ -6,14 +6,12 @@ helpviewer_keywords:
 - native API reference [.NET Framework], strong naming
 - unmanaged API reference [.NET Framework], strong naming
 ms.assetid: 428c68b6-a7b4-44be-b280-75905f46612c
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a697d96864f336982c05b5bcc7c48efef2df0f6a
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 7d18513450111d58b5d26fd834addd465cfc4267
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70799205"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73140637"
 ---
 # <a name="strong-naming-unmanaged-api-reference"></a>厳密な名前付け (アンマネージ API リファレンス)
 厳密な名前付け API を使用すると、アセンブリに対する厳密な名前の署名をクライアントで管理できます。  
@@ -106,7 +104,7 @@ ms.locfileid: "70799205"
  [PublicKeyBlob 構造体](publickeyblob-structure.md)  
  公開/秘密キーの組の公開キーがバイナリ形式で表されます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ICLRStrongName インターフェイス](../hosting/iclrstrongname-interface.md)
 - [アンマネージ API リファレンス](../index.md)

@@ -3,13 +3,13 @@ title: ASP.NET Core MVC アプリの開発
 description: ASP.NET Core および Azure での最新の Web アプリケーションの設計 | ASP.NET Core MVC アプリの開発
 author: ardalis
 ms.author: wiwagn
-ms.date: 01/30/2019
-ms.openlocfilehash: 19d1d5f81b5be9b843698b6e61d8571d4edfa66f
-ms.sourcegitcommit: 55f438d4d00a34b9aca9eedaac3f85590bb11565
+ms.date: 12/04/2019
+ms.openlocfilehash: a18b4dfc60c7d3971136f73f333b7225735710b3
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181943"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77503951"
 ---
 # <a name="develop-aspnet-core-mvc-apps"></a>ASP.NET Core MVC アプリを開発する
 
@@ -26,15 +26,15 @@ ASP.NET Core MVC は、Web ベースの API やアプリを構築する際に便
 
 ### <a name="why-razor-pages"></a>Razor Pages とは
 
-Razor Pages は、Visual Studio における新しい Web アプリケーションの既定の手法です。 Razor Pages では、非 SPA フォームなど、ページ ベースのアプリケーション機能を一層簡単に構築できます。 コントローラーやビューを使用し、さまざまな依存関係やビュー モデルと連動し、さまざまなビューを返す大掛かりなコントローラーをアプリケーションに与えることが一般的でした。 その結果、非常に複雑となり、単一責任の原則または開放/閉鎖の原則にコントローラーが効果的に従わなくなることがありました。 Razor Pages では、その Razor マークアップを使用し、Web アプリケーションで特定の論理 "ページ" に対してサーバー側ロジックをカプセル化することでこの問題に対処しています。 サーバー側ロジックのない Razor ページは単純に 1 つの Razor ファイル ("Index.cshtml" など) から構成されます。 ただし、重要な Razor Pages にはほとんどの場合、ページ モデル クラスが関連付けられます。これには慣例として Razor ファイルと同じ名前と ".cs" 拡張子が付けられます。たとえば、"Index.cshtml.cs" のようになります。
+Razor Pages は、Visual Studio における新しい Web アプリケーションの既定の手法です。 Razor Pages では、非 SPA フォームなど、ページ ベースのアプリケーション機能を一層簡単に構築できます。 コントローラーやビューを使用し、さまざまな依存関係やビュー モデルと連動し、さまざまなビューを返す大掛かりなコントローラーをアプリケーションに与えることが一般的でした。 これにより、複雑さが増加しました。また、単一責任の原則または開放/閉鎖原則に効果的に従わないコントローラーが生じることがよくありました。 Razor Pages では、その Razor マークアップを使用し、Web アプリケーションで特定の論理 "ページ" に対してサーバー側ロジックをカプセル化することでこの問題に対処しています。 サーバー側ロジックのない Razor ページは単純に 1 つの Razor ファイル ("Index.cshtml" など) から構成されます。 ただし、重要な Razor Pages にはほとんどの場合、ページ モデル クラスが関連付けられます。これには慣例として Razor ファイルと同じ名前と ".cs" 拡張子が付けられます。たとえば、"Index.cshtml.cs" のようになります。
 
 Razor ページのページ モデルでは、MVC コントローラーとビューモデルの責任が組み合わされます。 コントローラー アクションのメソッドで要求を処理する代わりに、"OnGet()" のようなページ モデル ハンドラーが実行され、関連付けられているページが既定でレンダリングされます。 Razor Pages では、ASP.NET Core アプリで個々のページを構築するプロセスが簡単になります。それでありながら、ASP.NET Core MVC のアーキテクチャ機能をすべて備えています。 新しいページ ベース機能の既定の選択肢として最適です。
 
 ### <a name="when-to-use-mvc"></a>MVC を使用する場面
 
-Web API を構築する場合、Razor Pages を使用してみるより、MVC パターンの方が合理的です。 プロジェクトで Web API エンドポイントのみを公開する場合、Web API プロジェクト テンプレートから始めることが理想的ですが、そうでなければ、コントローラーや関連 API エンドポイントを ASP.NET Core アプリに追加することは簡単です。 バージョン 5 以前の ASP.NET MVC から ASP.NET Core MVC に既存のアプリケーションを移行するとき、労力を最小限に抑えるなら、ビュー ベースの MVC 手法も利用してください。 最初の移行後、新しい機能のために、さらには大規模な移行として Razor Pages を採用することが合理的かどうかを判断できます。
+Web API を構築する場合、Razor Pages を使用してみるより、MVC パターンの方が合理的です。 ご自分のプロジェクトで Web API エンドポイントだけを公開する場合は、Web API のプロジェクト テンプレートから始めるのが理想的です。 それ以外の場合は、任意の ASP.NET Core アプリに、コントローラーと関連付けらた API エンドポイントを簡単に追加できます。 バージョン 5 以前の ASP.NET MVC から ASP.NET Core MVC に既存のアプリケーションを移行する場合、その労力を最小限に抑えるには、ビュー ベースの MVC 手法を使用します。 最初の移行後、新しい機能のために、さらには大規模な移行として Razor Pages を採用することが合理的かどうかを判断できます。
 
-Web アプリの構築方法として Razor Pages を選択した場合でも MVC ビューを選択した場合でも、アプリの性能は同じようなものになり、依存関係挿入、フィルター、モデル バインド、妥当性確認などのサポートが含まれます。
+Web アプリの構築方法として Razor Pages を選択した場合でも MVC ビューを選択した場合でも、アプリのパフォーマンスは同じようなものになり、依存関係の注入、フィルター、モデル バインド、妥当性確認などのサポートが含まれます。
 
 ## <a name="mapping-requests-to-responses"></a>応答と要求のマッピング
 
@@ -43,15 +43,15 @@ ASP.NET Core アプリの中心となる機能は、受信した要求を送信�
 ASP.NET Core MVC アプリは、規則ルートと属性ルートのどちらか一方または両方を使用できます。 規則ルートはコードで定義されており、次の例のような構文を使ってルーティングの "_規則_" を指定します。
 
 ```csharp
-app.UseMvc(routes =>
+app.UseEndpoints(endpoints =>
 {
-    routes.MapRoute("default","{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 ```
 
 この例では、"default" という名前のルートがルーティング テーブルに追加されます。 _controller_、_action_、_id_ のプレースホルダーでルート テンプレートを定義します。controller と action プレースホルダーには既定値が指定されており (それぞれ、"Home" と "Index")、id プレースホルダーは ("?" が適用されているので) 省略可能です。 ここで定義されている規則は、要求の最初の部分はコントローラーの名前に対応する必要があり、2 番目の部分はアクションに対応する必要があり、3 番目の部分は必要に応じて id パラメーターを表す、というものです。 規則ルートは通常、Startup クラスの Configure メソッドなど、アプリケーションに対して 1 か所で定義されます。
 
-属性ルートは、グローバルに指定されるのではなく、コントローラーとアクションに直接適用されます。 この方法の場合、特定のメソッドを探しているときに検出しやすいという利点がありますが、ルーティング情報がアプリケーション内の 1 か所に保持されないことを意味します。 属性ルートでは、特定のアクションに対する複数ルートや、コントローラーとアクションの組み合わせルートを、簡単に指定できます。 例:
+属性ルートは、グローバルに指定されるのではなく、コントローラーとアクションに直接適用されます。 この方法の場合、特定のメソッドを探しているときに検出しやすいという利点がありますが、ルーティング情報がアプリケーション内の 1 か所に保持されないことを意味します。 属性ルートでは、特定のアクションに対する複数ルートや、コントローラーとアクションの組み合わせルートを、簡単に指定できます。 次に例を示します。
 
 ```csharp
 [Route("Home")]
@@ -129,9 +129,9 @@ public class Startup
     public Startup(IHostingEnvironment env)
     {
         var builder = new ConfigurationBuilder()
-        .SetBasePath(env.ContentRootPath)
-        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+            .SetBasePath(env.ContentRootPath)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
     }
 }
 ```
@@ -152,7 +152,7 @@ public void Configure(IApplicationBuilder app,
 ただし、ConfigureServices メソッドはこの動作の例外であり、IServiceCollection 型のパラメーターを 1 つだけ受け取る必要があります。 このメソッドは、サービス コンテナーにオブジェクトを追加する役割を持ち、IServiceCollection パラメーターを介して現在構成されているすべてのサービスにアクセスできるため、依存関係の挿入をサポートする必要はまったくありません。 したがって、必要なサービスをパラメーターとして要求するか、ConfigureServices で IServiceCollection を使うことにより、Startup クラスのすべての部分で、ASP.NET Core のサービス コレクションで定義されている依存関係を使用できます。
 
 > [!NOTE]
-> 特定のサービスを Startup クラスで確実に利用できるようにする必要がある場合は、WebHostBuilder とその ConfigureServices メソッドを使ってサービスを構成できます。
+> 特定のサービスを Startup クラスで確実に利用できるようにする必要がある場合は、CreateDefaultBuilder 呼び出しの中で IWebHostBuilder とその ConfigureServices メソッドを使用して、それらを構成できます。
 
 Startup クラスは、独自のサービスに対するコントローラーからミドルウェアやフィルターまで、ASP.NET Core アプリケーションの他の部分で必要な構成方法のモデルになります。 いずれの場合も、[明示的な依存関係の原則](https://deviq.com/explicit-dependencies-principle/)に従い、依存関係を直接作成するのではなく要求し、アプリケーション全体で依存関係の挿入を利用する必要があります。 実装を直接インスタンス化する場所と方法に注意する必要があります (特に、インフラストラクチャを使用する、または副作用があるサービスとオブジェクトの場合)。 特定の実装の種類に対する参照をハードコーディングするのではなく、抽象化をアプリケーション コアで定義し、引数として渡すようにします。
 
@@ -172,7 +172,7 @@ ASP.NET Core UI プロジェクトは、UI レベルの処理を行いますが�
 
 ### <a name="feature-organization"></a>機能の編成
 
-既定では、ASP.NET Core アプリケーションは、コントローラーとビューさらに多くの場合は ViewModels を含むように、フォルダー構造を編成します。 通常、これらのサーバー側構造をサポートするためのクライアント側のコードは、wwwroot フォルダーに個別に格納されます。 ただし、大規模なアプリケーションでは、特定の機能を使用するためにこれらのフォルダー間を移動する必要があるため、このような編成では問題が発生する可能性があります。 各フォルダー内のファイルとサブフォルダーの数が増えるとますます困難になり、ソリューション エクスプローラーのスクロール量が膨大になります。 この問題の 1 つの解決策は、アプリケーションのコードをファイルの種類別ではなく "_機能_" 別に整理することです。 この編成スタイルは、通常、機能フォルダーまたは[機能スライス](https://msdn.microsoft.com/magazine/mt763233.aspx)と呼ばれます ([垂直スライス](https://deviq.com/vertical-slices/)も参照してください)。
+既定では、ASP.NET Core アプリケーションは、コントローラーとビューさらに多くの場合は ViewModels を含むように、フォルダー構造を編成します。 通常、これらのサーバー側構造をサポートするためのクライアント側のコードは、wwwroot フォルダーに個別に格納されます。 ただし、大規模なアプリケーションでは、特定の機能を使用するためにこれらのフォルダー間を移動する必要があるため、このような編成では問題が発生する可能性があります。 各フォルダー内のファイルとサブフォルダーの数が増えるとますます困難になり、ソリューション エクスプローラーのスクロール量が膨大になります。 この問題の 1 つの解決策は、アプリケーションのコードをファイルの種類別ではなく "_機能_" 別に整理することです。 この編成スタイルは、通常、機能フォルダーまたは[機能スライス](https://docs.microsoft.com/archive/msdn-magazine/2016/september/asp-net-core-feature-slices-for-asp-net-core-mvc)と呼ばれます ([垂直スライス](https://deviq.com/vertical-slices/)も参照してください)。
 
 ASP.NET Core MVC では、この目的のために区分 (Area) がサポートされています。 区分を使うと、各区分フォルダー内にコントローラー フォルダーとビュー フォルダー (および関連するすべてのモデル) のセットを個別に作成できます。 図 7-1 は、区分を使用したフォルダー構造の例です。
 
@@ -191,15 +191,10 @@ public class HomeController
 また、区分のサポートをルートに追加する必要があります。
 
 ```csharp
-app.UseMvc(routes =>
+app.UseEndpoints(endpoints =>
 {
-    // Areas support
-    routes.MapRoute(
-    name: "areaRoute",
-    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-    routes.MapRoute(
-    name: "default",
-    template: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapControllerRoute(name: "areaRoute", pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 });
 ```
 
@@ -237,7 +232,7 @@ public class FeatureConvention : IControllerModelConvention
 services.AddMvc(o => o.Conventions.Add(new FeatureConvention()));
 ```
 
-また、ASP.NET Core MVC はビューを配置する場合にも規則を使います。 これをカスタム規則でオーバーライドして、ビューが独自の機能フォルダーに配置されるようにすることができます (上の FeatureConvention によって提供される機能名を使用)。 この方法について詳しくは、MSDN の記事「[ASP.NET Core MVC 向け機能スライス](https://msdn.microsoft.com/magazine/mt763233.aspx)」をご覧ください。実際に動くサンプルをダウンロードすることもできます。
+また、ASP.NET Core MVC はビューを配置する場合にも規則を使います。 これをカスタム規則でオーバーライドして、ビューが独自の機能フォルダーに配置されるようにすることができます (上の FeatureConvention によって提供される機能名を使用)。 この方法について詳しくは、MSDN Magazine の記事「[ASP.NET Core MVC 向け機能スライス](https://docs.microsoft.com/archive/msdn-magazine/2016/september/asp-net-core-feature-slices-for-asp-net-core-mvc)」をご覧ください。実際に動くサンプルをダウンロードすることもできます。
 
 ### <a name="cross-cutting-concerns"></a>横断的な問題
 
@@ -311,18 +306,18 @@ public async Task<IActionResult> Put(int id, [FromBody]Author author)
 }
 ```
 
-フィルターの実装の詳細については、MSDN の記事「[実際の ASP.NET Core MVC フィルター](https://msdn.microsoft.com/magazine/mt767699.aspx)」を参照してください。また、実際に動作するサンプルをダウンロードすることもできます。
+フィルターの実装の詳細については、MSDN Magazine の記事「[実際の ASP.NET Core MVC フィルター](https://docs.microsoft.com/archive/msdn-magazine/2016/august/asp-net-core-real-world-asp-net-core-mvc-filters)」を参照してください。また、実際に動作するサンプルをダウンロードすることもできます。
 
 > ### <a name="references--structuring-applications"></a>参照 – アプリケーションの構成
 >
 > - **領域**  
 >   <https://docs.microsoft.com/aspnet/core/mvc/controllers/areas>
 > - **MSDN マガジン - ASP.NET Core MVC 向け機能スライス**  
->   <https://msdn.microsoft.com/magazine/mt763233.aspx>
+>   <https://docs.microsoft.com/archive/msdn-magazine/2016/september/asp-net-core-feature-slices-for-asp-net-core-mvc>
 > - **フィルター**  
 >   <https://docs.microsoft.com/aspnet/core/mvc/controllers/filters>
-> - **MSDN – 実際の ASP.NET Core MVC フィルター**  
->   <https://msdn.microsoft.com/magazine/mt767699.aspx>
+> - **MSDN Magazine – 実際の ASP.NET Core MVC フィルター**  
+>   <https://docs.microsoft.com/archive/msdn-magazine/2016/august/asp-net-core-real-world-asp-net-core-mvc-filters>
 
 ## <a name="security"></a>セキュリティ
 
@@ -356,11 +351,9 @@ public void Configure(IApplicationBuilder app)
 {
     app.UseStaticFiles();
     app.UseIdentity();
-    app.UseMvc(routes =>
+    app.UseEndpoints(endpoints =>
     {
-        routes.MapRoute(
-        name: "default",
-        template: "{controller=Home}/{action=Index}/{id?}");
+        endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
     });
 }
 ```
@@ -420,7 +413,7 @@ public void ConfigureServices(IServiceCollection services)
 
 **図 7-4.** Web API に対するトークン ベースの認証。
 
-独自の認証サービスを作成したり、Azure AD や OAuth と統合したり、[IdentityServer](https://github.com/IdentityServer) のようなオープン ソースのツールを利用してサービスを実装したりできます。
+独自の認証サービスを作成したり、Azure AD や OAuth と統合したり、[IdentityServer](https://github.com/IdentityServer) のようなオープンソースのツールを利用してサービスを実装したりできます。
 
 #### <a name="custom-security"></a>カスタム セキュリティ
 
@@ -444,8 +437,6 @@ public void ConfigureServices(IServiceCollection services)
 ## <a name="client-communication"></a>クライアントの通信
 
 Web API によりページを提供してデータの要求に応答するだけでなく、ASP.NET Core アプリは接続されているクライアントと直接通信できます。 この送信通信では、さまざまなトランスポート テクノロジを使うことができ、最も一般的なものは WebSocket です。 ASP.NET Core SignalR は、サーバーとクライアントの間のリアルタイム通信機能をアプリケーションに容易に追加できるようにするライブラリです。 SignalR は、WebSocket などのさまざまなトランスポート テクノロジをサポートしており、多くの実装の詳細を開発者から抽象化します。
-
-ASP.NET Core SignalR は、バージョン 2.1 以降の ASP.NET Core で利用できます。
 
 WebSocket を直接使うか、他の技法を使うかに関係なく、リアルタイムのクライアント通信は、さまざまなアプリケーション シナリオで役に立ちます。 次に、それらの例の一部を示します。
 
@@ -500,7 +491,7 @@ public class Program
 > ### <a name="references--client-communication"></a>参照 – クライアントの通信
 >
 > - **ASP.NET Core SignalR**  
->   <https://github.com/aspnet/SignalR>
+>   <https://github.com/dotnet/aspnetcore/tree/master/src/SignalR>
 > - **WebSocket マネージャー**  
 >   https://github.com/radu-matei/websocket-manager
 
@@ -520,7 +511,7 @@ DDD 手法でソフトウェアを作成する場合、チーム (非技術的�
 
 - [ドメイン イベント](https://martinfowler.com/eaaDev/DomainEvent.html)は、システムの他の部分にとって重要な、システム内で発生している出来事を表します。
 
-DDD ドメイン モデルでは、モデル内に複雑な動作をカプセル化する必要があることに注意してください。 特にエンティティは、プロパティの単なるコレクションであってはなりません。 ドメイン モデルに動作が欠如していて、システムの状態を表しているだけの場合は、[貧血症のモデル](https://deviq.com/anemic-model/)と呼ばれ、DDD では望ましくないことです。
+DDD ドメイン モデルでは、モデル内に複雑な動作をカプセル化する必要があります。 特にエンティティは、プロパティの単なるコレクションであってはなりません。 ドメイン モデルに動作が欠如していて、システムの状態を表しているだけの場合は、[貧血症のモデル](https://deviq.com/anemic-model/)と呼ばれ、DDD では望ましくないことです。
 
 これらのモデルの種類に加えて、通常、DDD ではさまざまなパターンが使用されます。
 
@@ -540,7 +531,7 @@ DDD ドメイン モデルでは、モデル内に複雑な動作をカプセル
 
 ### <a name="when-should-you-apply-ddd"></a>DDD を適用する必要がある場合
 
-DDD は、(技術的だけでなく) ビジネス的にも非常に複雑な大規模アプリケーションに最適です。 アプリケーションでは、ドメイン専門家の知識が必要になります。 ドメイン モデル自体にも重要な動作が存在する必要があり、データ ストアからさまざまなレコードの現在の状態を単に取得するだけでなく、ビジネス ルールや相互作用を表します。
+DDD は、(技術的だけでなく) ビジネス的にも非常に複雑な大規模アプリケーションに適しています。 アプリケーションでは、ドメイン専門家の知識が必要になります。 ドメイン モデル自体にも重要な動作が存在する必要があり、データ ストアからさまざまなレコードの現在の状態を単に取得するだけでなく、ビジネス ルールや相互作用を表します。
 
 ### <a name="when-shouldnt-you-apply-ddd"></a>DDD を適用してはならない場合
 
@@ -555,11 +546,11 @@ DDD では、モデリング、アーキテクチャ、コミュニケーショ�
 
 ## <a name="deployment"></a>配置
 
-ホストされる場所に関係なく、ASP.NET Core アプリケーションを展開するプロセスには複数のステップがあります。 最初のステップであるアプリケーションの発行は、dotnet publish CLI コマンド使って行うことができます。 アプリケーションがコンパイルされて、アプリケーションの実行に必要なすべてのファイルが指定したフォルダに配置されます。 Visual Studio から展開する場合、このステップは自動的に実行されます。 publish フォルダーには、アプリケーションとその依存関係の .exe ファイルと .dll ファイルが格納されます。 自己充足型のアプリケーションには、.NET ランタイムのバージョンも含まれます。 ASP.NET Core アプリケーションには、構成ファイル、静的クライアント資産、MVC ビューも含まれます。
+ホストされる場所に関係なく、ASP.NET Core アプリケーションを展開するプロセスには複数のステップがあります。 最初のステップであるアプリケーションの発行は、`dotnet publish` CLI コマンドを使用して実行できます。 アプリケーションがコンパイルされて、アプリケーションの実行に必要なすべてのファイルが指定したフォルダに配置されます。 Visual Studio から展開する場合、このステップは自動的に実行されます。 publish フォルダーには、アプリケーションとその依存関係の .exe ファイルと .dll ファイルが格納されます。 自己充足型のアプリケーションには、.NET ランタイムのバージョンも含まれます。 ASP.NET Core アプリケーションには、構成ファイル、静的クライアント資産、MVC ビューも含まれます。
 
 ASP.NET Core アプリケーションはコンソール アプリケーションであり、サーバーの起動時、およびアプリケーション (またはサーバー) がクラッシュした場合の再起動時に、起動される必要があります。 プロセス マネージャーを使って、このプロセスを自動化できます。 ASP.NET Core の最も一般的なプロセス マネージャーは、Linux の場合は Nginx と Apache、Windows の場合は IIS と Windows Service です。
 
-Kestrel Web サーバーでホストされる ASP.NET Core アプリケーションの場合は、プロセス マネージャーだけでなく、リバース プロキシ サーバーも使う必要があります。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。 リバース プロキシ サーバーは、アプリケーションにセキュリティのレイヤーを提供し、(インターネットからのトラフィックに対して公開される) エッジ展開に必要です。 Kestrel は比較的新しく、ある種の攻撃に対する防御がまだ提供されていません。 また、Kestrel は同じポートでの複数アプリケーションのホストもサポートしていないので、ホスト ヘッダーなどの手法を使って同じポートと IP アドレスで複数のアプリケーションをホストすることはできません。
+プロセス マネージャーに加え、ASP.NET Core アプリケーションでは、リバース プロキシ サーバーも使用できます。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。 リバース プロキシ サーバーによって、アプリケーションにセキュリティ層が提供されます。 また、Kestrel は同じポートでの複数アプリケーションのホストもサポートしていないので、ホスト ヘッダーなどの手法を使って同じポートと IP アドレスで複数のアプリケーションをホストすることはできません。
 
 ![インターネットに対する Kestrel](./media/image7-5.png)
 

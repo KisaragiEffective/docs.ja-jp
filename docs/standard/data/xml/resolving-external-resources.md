@@ -3,14 +3,12 @@ title: 外部リソースの解決
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 ms.assetid: ad3fa320-4b8f-4e5c-b549-01157591007a
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: b4ba0cbb25e2c83a33ffba99ccbb29d5b414b3c1
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
-ms.translationtype: HT
+ms.openlocfilehash: 05cc41cef7da07581d4f0ec8e584858b913d1a80
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69918203"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75710272"
 ---
 # <a name="resolving-external-resources"></a>外部リソースの解決
 **XmlDocument** クラスでは、外部のドキュメント型定義 (DTD)、エンティティ、スキーマなど、XML データのインラインでないリソースを検索するときに **XmlDocument** の **XmlResolver** プロパティを使用します。 これらのリソースは、ネットワーク上やローカル ドライブ上にあり、URI (Uniform Resource Identifier) で識別できます。 そのため、**XmlDocument** は、ドキュメント内にある **EntityReference** ノードを解決し、外部の DTD またはスキーマに基づいてドキュメントを検証することができます。  
@@ -43,7 +41,7 @@ ms.locfileid: "69918203"
   
 |XmlResolver プロパティ|関数|メモ|  
 |--------------------------|--------------|-----------|  
-|**XmlDocument** で使用される **XmlResolver** クラスが、**XmlReader** で使用されるクラスと同じである。|**XmlDocument** は、**XmlReader** に割り当てられた **XmlResolver** を使用します。<br /><br /> **XmlReader**  から **XmlResolver** を取得しているため、**XmlDocument** の信頼レベルにかかわらず、**XmlDocument.Resolver** プロパティは設定できません。 **XmlDocument** の **XmlResolver** プロパティを設定することによって **XmlReaders** の **XmlResolver** の設定をオーバーライドすることはできません。|**XmlTextReader**、検証用の <xref:System.Xml.XmlReader>、または独自に作成したリーダーを **XmlTextReader** として使用できます。 使用するリーダーでエンティティ解決がサポートされている場合は、外部エンティティが解決されます。 渡されたリーダーでエンティティ参照がサポートされていない場合は、エンティティ参照は解決されません。|  
+|**XmlDocument** で使用される **XmlResolver** クラスが、**XmlReader** で使用されるクラスと同じである。|**XmlDocument** は、**XmlReader** に割り当てられた **XmlResolver** を使用します。<br /><br /> **XmlReader**  から **XmlResolver** を取得しているため、**XmlDocument** の信頼レベルにかかわらず、**XmlDocument.Resolver** プロパティは設定できません。 **XmlDocument**の**xmlresolver**プロパティを設定することにより、 **xmlreaders** **xmlresolver**の設定をオーバーライドすることはできません。|**XmlTextReader**、検証用の <xref:System.Xml.XmlReader>、または独自に作成したリーダーを **XmlTextReader** として使用できます。 使用するリーダーでエンティティ解決がサポートされている場合は、外部エンティティが解決されます。 渡されたリーダーでエンティティ参照がサポートされていない場合は、エンティティ参照は解決されません。|  
   
  XmlResolver が正しい資格情報を持つように設定すれば、外部リソースにアクセスできます。  
   

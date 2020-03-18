@@ -1,5 +1,5 @@
 ---
-title: WPF ウィンドウの概要
+title: Windows の概要
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -28,18 +28,18 @@ helpviewer_keywords:
 - modal dialog boxes [WPF]
 - displaying XAML pages [WPF]
 ms.assetid: 737d04ec-8861-46c3-8d44-fa11d3528d23
-ms.openlocfilehash: b9aa3f4e386ca5de79fe028b10d0d68343aba06b
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: 17582192fabf85777bba250f6f53047a84f264b9
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72920033"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76742359"
 ---
 # <a name="wpf-windows-overview"></a>WPF ウィンドウの概要
-ユーザーは、Windows を通じて Windows Presentation Foundation (WPF) スタンドアロンアプリケーションと対話します。 ウィンドウの主な目的は、データを視覚化してユーザーがデータと対話できるコンテンツをホストすることです。 スタンドアロンの [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] アプリケーションは、<xref:System.Windows.Window> クラスを使用して独自のウィンドウを提供します。 このトピックでは、スタンドアロンアプリケーションでのウィンドウの作成と管理の基礎について説明する前に、<xref:System.Windows.Window> について説明します。  
+ユーザーは、Windows を通じて Windows Presentation Foundation (WPF) スタンドアロンアプリケーションと対話します。 ウィンドウの主な目的は、データを視覚化してユーザーがデータと対話できるコンテンツをホストすることです。 スタンドアロン WPF アプリケーションは、<xref:System.Windows.Window> クラスを使用して独自のウィンドウを提供します。 このトピックでは、スタンドアロンアプリケーションでのウィンドウの作成と管理の基礎について説明する前に、<xref:System.Windows.Window> について説明します。  
   
 > [!NOTE]
-> ブラウザーでホストされる [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] アプリケーション ([!INCLUDE[TLA#tla_xbap#plural](../../../../includes/tlasharptla-xbapsharpplural-md.md)] やルース [!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)] ページを含む) では、独自のウィンドウは提供されません。 代わりに、Windows Internet Explorer によって提供される windows でホストされます。 「 [WPF XAML ブラウザーアプリケーションの概要](wpf-xaml-browser-applications-overview.md)」を参照してください。  
+> XAML ブラウザーアプリケーション (Xbap) や疎 [!INCLUDE[TLA#tla_xaml](../../../../includes/tlasharptla-xaml-md.md)] ページなど、ブラウザーでホストされる WPF アプリケーションは、独自のウィンドウを提供しません。 代わりに、Windows Internet Explorer によって提供される windows でホストされます。 「 [WPF XAML ブラウザーアプリケーションの概要](wpf-xaml-browser-applications-overview.md)」を参照してください。  
 
 <a name="TheWindowClass"></a>   
 ## <a name="the-window-class"></a>ウィンドウ クラス  
@@ -49,7 +49,7 @@ ms.locfileid: "72920033"
   
  ウィンドウは、非クライアント領域とクライアント領域の 2 つに分かれます。  
   
- ウィンドウの*非クライアント領域*は [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] によって実装され、次のような、ほとんどのウィンドウに共通のウィンドウ部分が含まれます。  
+ ウィンドウの*非クライアント領域*は WPF によって実装され、次のような、ほとんどのウィンドウに共通のウィンドウ部分が含まれています。  
   
 - 境界線。  
   
@@ -65,7 +65,7 @@ ms.locfileid: "72920033"
   
  ウィンドウの*クライアント領域*は、ウィンドウの非クライアント領域内の領域であり、開発者がメニューバー、ツールバー、コントロールなどのアプリケーション固有のコンテンツを追加するために使用されます。  
   
- [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)]では、ウィンドウは、次の操作を実行するために使用する <xref:System.Windows.Window> クラスによってカプセル化されます。  
+ WPF では、ウィンドウは、次の操作を実行するために使用する <xref:System.Windows.Window> クラスによってカプセル化されます。  
   
 - ウィンドウを表示する。  
   
@@ -77,7 +77,7 @@ ms.locfileid: "72920033"
   
 <a name="DefiningAWindow"></a>   
 ## <a name="implementing-a-window"></a>ウィンドウの実装  
- 一般的なウィンドウの実装は、外観と動作の両方で構成されます。*外観*はウィンドウがユーザーにどのように見えるかを定義し、*動作*は、ユーザーがウィンドウを操作するときにウィンドウがどのように機能するかを定義します。 [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)]では、コードまたは [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] マークアップを使用して、ウィンドウの外観と動作を実装できます。  
+ 一般的なウィンドウの実装は、外観と動作の両方で構成されます。*外観*はウィンドウがユーザーにどのように見えるかを定義し、*動作*は、ユーザーがウィンドウを操作するときにウィンドウがどのように機能するかを定義します。 WPF では、コードまたは [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] マークアップのいずれかを使用して、ウィンドウの外観と動作を実装できます。  
   
  ただし、一般に、ウィンドウの外観は [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] マークアップを使用して実装され、その動作は分離コードを使用して実装されます。次に例を示します。  
   
@@ -88,7 +88,7 @@ ms.locfileid: "72920033"
   
  [!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] マークアップファイルと分離コードファイルを連携させるには、次のものが必要です。  
   
-- マークアップでは、`Window` 要素に `x:Class` 属性が含まれている必要があります。 アプリケーションがビルドされると、マークアップファイルに `x:Class` が存在することにより、Microsoft build engine (MSBuild) によって <xref:System.Windows.Window> から派生した `partial` クラスが作成され、`x:Class` 属性によって指定された名前になります。 そのためには、[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] スキーマ (`xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"`) に [!INCLUDE[TLA2#tla_xml](../../../../includes/tla2sharptla-xml-md.md)] 名前空間宣言を追加する必要があります。 生成された `partial` クラスは、`InitializeComponent` メソッドを実装します。このメソッドは、イベントを登録し、マークアップで実装されるプロパティを設定するために呼び出されます。  
+- マークアップでは、`Window` 要素に `x:Class` 属性が含まれている必要があります。 アプリケーションがビルドされると、マークアップファイルに `x:Class` が存在することにより、Microsoft build engine (MSBuild) によって <xref:System.Windows.Window> から派生した `partial` クラスが作成され、`x:Class` 属性によって指定された名前になります。 そのためには、[!INCLUDE[TLA2#tla_xaml](../../../../includes/tla2sharptla-xaml-md.md)] スキーマ (`xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"`) の XML 名前空間宣言を追加する必要があります。 生成された `partial` クラスは、`InitializeComponent` メソッドを実装します。このメソッドは、イベントを登録し、マークアップで実装されるプロパティを設定するために呼び出されます。  
   
 - 分離コードでは、クラスは、マークアップで `x:Class` 属性によって指定された名前と同じ名前を持つ `partial` クラスである必要があり、<xref:System.Windows.Window>から派生する必要があります。 これにより、分離コードファイルは、アプリケーションのビルド時にマークアップファイル用に生成される `partial` クラスに関連付けられます (「 [WPF アプリケーションのビルド](building-a-wpf-application-wpf.md)」を参照してください)。  
   
@@ -124,7 +124,7 @@ ms.locfileid: "72920033"
 </Project>  
 ```  
   
- [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)] アプリケーションのビルドの詳細については、「 [WPF アプリケーションのビルド](building-a-wpf-application-wpf.md)」を参照してください。  
+ WPF アプリケーションのビルドの詳細については、「 [Wpf アプリケーションのビルド](building-a-wpf-application-wpf.md)」を参照してください。  
   
 <a name="WindowLifetime"></a>   
 ## <a name="window-lifetime"></a>ウィンドウの有効期間  
@@ -167,7 +167,7 @@ ms.locfileid: "72920033"
   
 - もう一方のウィンドウに影響を与えずに、最小化/最大化し、元のサイズに戻す。  
   
- 一部のウィンドウには、そのウィンドウを開いたウィンドウとの関係が必要です。 たとえば、統合開発環境 (IDE: Integrated Development Environment) アプリケーションでは、プロパティウィンドウとツールウィンドウを開くことができます。このウィンドウは、通常の動作が、そのウィンドウを作成するウィンドウをカバーするために使用されます。 また、そのようなウィンドウは、必ず作成元のウィンドウと一緒に閉じ、最小化/最大化し、元のサイズに戻す必要があります。 このような関係を確立するには、1*つのウィンドウを別の*ウィンドウにし、所有*ウィンドウ*の [<xref:System.Windows.Window.Owner%2A>] プロパティに [*所有者] ウィンドウ*への参照を設定します。 これを次の例に示します。  
+ 一部のウィンドウには、そのウィンドウを開いたウィンドウとの関係が必要です。 たとえば、統合開発環境 (IDE: Integrated Development Environment) アプリケーションでは、プロパティウィンドウとツールウィンドウを開くことができます。このウィンドウは、通常の動作が、そのウィンドウを作成するウィンドウをカバーするために使用されます。 また、そのようなウィンドウは、必ず作成元のウィンドウと一緒に閉じ、最小化/最大化し、元のサイズに戻す必要があります。 このような関係を確立するには、1*つのウィンドウを別の*ウィンドウにし、所有*ウィンドウ*の [<xref:System.Windows.Window.Owner%2A>] プロパティに [*所有者] ウィンドウ*への参照を設定します。 次の例を参照してください。  
   
  [!code-csharp[WindowOwnerOwnedWindowsSnippets#SetWindowOwnerCODE](~/samples/snippets/csharp/VS_Snippets_Wpf/WindowOwnerOwnedWindowsSnippets/CSharp/MainWindow.xaml.cs#setwindowownercode)]
  [!code-vb[WindowOwnerOwnedWindowsSnippets#SetWindowOwnerCODE](~/samples/snippets/visualbasic/VS_Snippets_Wpf/WindowOwnerOwnedWindowsSnippets/visualbasic/mainwindow.xaml.vb#setwindowownercode)]  
@@ -262,7 +262,7 @@ ms.locfileid: "72920033"
  <xref:System.Windows.Window.Closing> が処理されない場合、または処理されても取り消されない場合は、ウィンドウが閉じます。 ウィンドウが実際に閉じられる直前に、<xref:System.Windows.Window.Closed> が発生します。 この時点で、ウィンドウが閉じるのを防ぐことはできません。  
   
 > [!NOTE]
-> メインアプリケーションウィンドウを閉じるか、最後のウィンドウを閉じると、アプリケーションを自動的にシャットダウンするように構成できます (「<xref:System.Windows.Application.MainWindow%2A>」を参照)。 詳細については、「<xref:System.Windows.Application.ShutdownMode%2A>」を参照してください。  
+> メインアプリケーションウィンドウを閉じるか、最後のウィンドウを閉じると、アプリケーションを自動的にシャットダウンするように構成できます (「<xref:System.Windows.Application.MainWindow%2A>」を参照)。 詳細については、<xref:System.Windows.Application.ShutdownMode%2A> を参照してください。  
   
  ウィンドウは、非クライアント領域とクライアント領域に用意されている機構を使用して明示的に閉じることができますが、次のようなアプリケーションまたはウィンドウの他の部分での動作の結果として、ウィンドウを暗黙的に閉じることもできます。  
   
@@ -272,7 +272,7 @@ ms.locfileid: "72920033"
   
 - メインアプリケーションウィンドウが閉じられ、<xref:System.Windows.Application.ShutdownMode%2A> が <xref:System.Windows.ShutdownMode.OnMainWindowClose>ます。  
   
-- <xref:System.Windows.Application.Shutdown%2A> が呼ばれたとき。  
+- <xref:System.Windows.Application.Shutdown%2A> が呼び出されます  
   
 > [!NOTE]
 > ウィンドウを閉じると、再度開くことはできません。  
@@ -293,7 +293,7 @@ ms.locfileid: "72920033"
   
  また、<xref:System.Windows.Window.WindowStartupLocation%2A> プロパティに次のいずれかの <xref:System.Windows.WindowStartupLocation> 列挙値を設定して最初に表示されたときに <xref:System.Windows.Window> の初期位置を指定することもできます。  
   
-- <xref:System.Windows.WindowStartupLocation.CenterOwner> (既定値)  
+- <xref:System.Windows.WindowStartupLocation.CenterOwner> (規定値)  
   
 - <xref:System.Windows.WindowStartupLocation.CenterScreen>  
   
@@ -325,13 +325,13 @@ ms.locfileid: "72920033"
   
  ウィンドウの幅と高さに、ウィンドウのコンテンツのサイズに合わせてサイズを設定する場合は、次の値を持つ <xref:System.Windows.Window.SizeToContent%2A> プロパティを使用できます。  
   
-- <xref:System.Windows.SizeToContent.Manual>. 効果 (既定値)。  
+- [https://login.microsoftonline.com/consumers/](<xref:System.Windows.SizeToContent.Manual>) 効果 (既定値)。  
   
-- <xref:System.Windows.SizeToContent.Width>. コンテンツの幅に合わせる。 <xref:System.Windows.FrameworkElement.MinWidth%2A> と <xref:System.Windows.FrameworkElement.MaxWidth%2A> の両方をコンテンツの幅に設定するのと同じ効果があります。  
+- [https://login.microsoftonline.com/consumers/](<xref:System.Windows.SizeToContent.Width>) コンテンツの幅に合わせる。 <xref:System.Windows.FrameworkElement.MinWidth%2A> と <xref:System.Windows.FrameworkElement.MaxWidth%2A> の両方をコンテンツの幅に設定するのと同じ効果があります。  
   
-- <xref:System.Windows.SizeToContent.Height>. コンテンツの高さに合わせる。 <xref:System.Windows.FrameworkElement.MinHeight%2A> と <xref:System.Windows.FrameworkElement.MaxHeight%2A> の両方をコンテンツの高さに設定するのと同じ効果があります。  
+- [https://login.microsoftonline.com/consumers/](<xref:System.Windows.SizeToContent.Height>) コンテンツの高さに合わせる。 <xref:System.Windows.FrameworkElement.MinHeight%2A> と <xref:System.Windows.FrameworkElement.MaxHeight%2A> の両方をコンテンツの高さに設定するのと同じ効果があります。  
   
-- <xref:System.Windows.SizeToContent.WidthAndHeight>. コンテンツの幅と高さに合わせる。 <xref:System.Windows.FrameworkElement.MinHeight%2A> と <xref:System.Windows.FrameworkElement.MaxHeight%2A> の両方をコンテンツの高さに設定し、<xref:System.Windows.FrameworkElement.MinWidth%2A> と <xref:System.Windows.FrameworkElement.MaxWidth%2A> の両方をコンテンツの幅に設定した場合と同じ効果を持ちます。  
+- [https://login.microsoftonline.com/consumers/](<xref:System.Windows.SizeToContent.WidthAndHeight>) コンテンツの幅と高さに合わせる。 <xref:System.Windows.FrameworkElement.MinHeight%2A> と <xref:System.Windows.FrameworkElement.MaxHeight%2A> の両方をコンテンツの高さに設定し、<xref:System.Windows.FrameworkElement.MinWidth%2A> と <xref:System.Windows.FrameworkElement.MaxWidth%2A> の両方をコンテンツの幅に設定した場合と同じ効果を持ちます。  
   
  次の例では、ウィンドウを最初に表示するときに、そのコンテンツに合わせて垂直方向と水平方向の両方のサイズを自動的に変更するウィンドウを示しています。  
   
@@ -381,7 +381,7 @@ ms.locfileid: "72920033"
   
  ウィンドウの状態を構成するには、その <xref:System.Windows.Window.WindowState%2A> プロパティを設定します。次の <xref:System.Windows.WindowState> 列挙値のいずれかを指定できます。  
   
-- <xref:System.Windows.WindowState.Normal> (既定値)  
+- <xref:System.Windows.WindowState.Normal> (規定値)  
   
 - <xref:System.Windows.WindowState.Maximized>  
   
@@ -401,7 +401,7 @@ ms.locfileid: "72920033"
 
 <a name="Resize_Mode"></a>   
 ### <a name="resize-mode"></a>サイズ変更モード  
- <xref:System.Windows.Window.WindowStyle%2A> プロパティに応じて、ユーザーがウィンドウのサイズを変更する方法 (および場合) を制御できます。 ウィンドウスタイルの選択は、ユーザーがマウスで境界線をドラッグしてウィンドウのサイズを変更できるかどうか、 **[最小化]** 、 **[最大化]** 、 **[サイズ変更]** の各ボタンが非クライアント領域に表示されるかどうか、表示されているかどうかに影響します。enabled.  
+ <xref:System.Windows.Window.WindowStyle%2A> プロパティに応じて、ユーザーがウィンドウのサイズを変更する方法 (および場合) を制御できます。 ウィンドウスタイルの選択は、ユーザーがマウスで境界線をドラッグしてウィンドウのサイズを変更できるかどうか、非クライアント領域に**最小化**、**最大化**、および**サイズ変更**の各ボタンが表示されるかどうか、また、有効になっているかどうかにかかわらず、表示されるかどうかに影響します。  
   
  <xref:System.Windows.Window.ResizeMode%2A> プロパティを設定して、ウィンドウのサイズを変更する方法を構成できます。これは、次の <xref:System.Windows.ResizeMode> 列挙値のいずれかになります。  
   
@@ -409,7 +409,7 @@ ms.locfileid: "72920033"
   
 - <xref:System.Windows.ResizeMode.CanMinimize>  
   
-- <xref:System.Windows.ResizeMode.CanResize> (既定値)  
+- <xref:System.Windows.ResizeMode.CanResize> (規定値)  
   
 - <xref:System.Windows.ResizeMode.CanResizeWithGrip>  
   
@@ -427,7 +427,7 @@ ms.locfileid: "72920033"
   
 - <xref:System.Windows.WindowStyle.None>  
   
-- <xref:System.Windows.WindowStyle.SingleBorderWindow> (既定値)  
+- <xref:System.Windows.WindowStyle.SingleBorderWindow> (規定値)  
   
 - <xref:System.Windows.WindowStyle.ThreeDBorderWindow>  
   
@@ -442,7 +442,7 @@ ms.locfileid: "72920033"
  [!code-xaml[WindowsOverviewSnippets#WindowStyleWindowMARKUP1](~/samples/snippets/csharp/VS_Snippets_Wpf/WindowsOverviewSnippets/CSharp/WindowStyleWindow.xaml#windowstylewindowmarkup1)]  
   
 #### <a name="non-rectangular-window-style"></a>四角形以外のウィンドウ スタイル  
- <xref:System.Windows.Window.WindowStyle%2A> に許可されている罫線のスタイルでは不十分な場合もあります。 たとえば、[!INCLUDE[TLA#tla_wmp](../../../../includes/tlasharptla-wmp-md.md)] で使用するような、四角形以外の境界線を持つアプリケーションを作成することができます。  
+ <xref:System.Windows.Window.WindowStyle%2A> に許可されている罫線のスタイルでは不十分な場合もあります。 たとえば、Microsoft Windows Media Player で使用するような、四角形以外の境界線を持つアプリケーションを作成することができます。  
   
  たとえば、次の図に示すように、音声バブルウィンドウについて考えてみます。  
   
@@ -466,12 +466,12 @@ ms.locfileid: "72920033"
  [!code-xaml[WindowsOverviewSnippets#ShowInTaskbarWindowMARKUP1](~/samples/snippets/csharp/VS_Snippets_Wpf/WindowsOverviewSnippets/CSharp/ShowInTaskbarWindow.xaml#showintaskbarwindowmarkup1)]  
   
 <a name="SecurityConsiderations"></a>   
-## <a name="security-considerations"></a>セキュリティの考慮事項  
+## <a name="security-considerations"></a>セキュリティに関する考慮事項  
  <xref:System.Windows.Window> には、`UnmanagedCode` セキュリティ権限をインスタンス化する必要があります。 ローカル コンピューターにインストールされ、ローカル コンピューターから起動されるアプリケーションの場合は、アプリケーションに付与されるアクセス許可セットの範囲内になります。  
   
  ただし、これは、ClickOnce を使用してインターネットまたはローカルイントラネットゾーンから起動されるアプリケーションに付与されるアクセス許可のセットの範囲外です。 その結果、ユーザーには ClickOnce のセキュリティ警告が表示され、アプリケーションのアクセス許可セットを完全信頼に昇格させる必要があります。  
   
- また、既定では、windows またはダイアログボックスを表示 [!INCLUDE[TLA2#tla_xbap#plural](../../../../includes/tla2sharptla-xbapsharpplural-md.md)] ことはできません。 スタンドアロンアプリケーションのセキュリティに関する考慮事項については、「 [WPF のセキュリティ方針-プラットフォームのセキュリティ](../wpf-security-strategy-platform-security.md)」を参照してください。  
+ また、Xbap では既定でウィンドウまたはダイアログボックスを表示できません。 スタンドアロンアプリケーションのセキュリティに関する考慮事項については、「 [WPF のセキュリティ方針-プラットフォームのセキュリティ](../wpf-security-strategy-platform-security.md)」を参照してください。  
   
 <a name="Other_Types_of_Windows"></a>   
 ## <a name="other-types-of-windows"></a>その他の種類のウィンドウ  
@@ -479,7 +479,7 @@ ms.locfileid: "72920033"
   
  ダイアログ ボックスは、ユーザーから情報を収集して機能を完了するためによく使用されるウィンドウです。 たとえば、ユーザーがファイルを開こうとした場合、通常、 **[ファイルを開く]** ダイアログボックスは、ユーザーからファイル名を取得するためにアプリケーションによって表示されます。 詳細については、「[ダイアログ ボックスの概要](dialog-boxes-overview.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Window>
 - <xref:System.Windows.MessageBox>

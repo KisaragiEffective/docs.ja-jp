@@ -1,18 +1,17 @@
 ---
-title: '方法: .NET Framework ガイドラインに準拠したイベントを発行する - C# プログラミング ガイド'
-ms.custom: seodec18
+title: .NET Framework ガイドラインに準拠したイベントを発行する方法 - C# プログラミング ガイド
 ms.date: 07/20/2015
 helpviewer_keywords:
 - events [C#], implementation guidelines
 ms.assetid: 9310ae16-8627-44a2-b08c-05e5976202b1
-ms.openlocfilehash: 8cf0f57caad41da0a29b935029731260154a2dc7
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 90c079b9f7dbf2a1d963b7eee4447145d7a10432
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69924030"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79167536"
 ---
-# <a name="how-to-publish-events-that-conform-to-net-framework-guidelines-c-programming-guide"></a>方法: .NET Framework ガイドラインに準拠したイベントを発行する (C# プログラミング ガイド)
+# <a name="how-to-publish-events-that-conform-to-net-framework-guidelines-c-programming-guide"></a>.NET Framework ガイドラインに準拠したイベントを発行する方法 (C# プログラミング ガイド)
 ここでは、.NET Framework の標準のパターンに従うイベントをクラスおよび構造体に追加する方法について説明します。 .NET Framework クラス ライブラリ内のすべてのイベントは、次のように定義されている <xref:System.EventHandler> デリゲートに基づいています。  
   
 ```csharp  
@@ -39,7 +38,7 @@ public delegate void EventHandler(object sender, EventArgs e);
         public string Message  
         {  
             get { return msg; }  
-        }   
+        }
     }  
     ```  
   

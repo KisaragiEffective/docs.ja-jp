@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c7ae84d6-81e8-4cb7-a1f9-d48b6cde5d79
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a7fa192a8e8b8a876f672e36bb906a714b1266e2
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 70c1d87ae32fb70f8d9f6e32b527394022459526
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67736665"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74446430"
 ---
 # <a name="isymunmanagedreader2getmethodsindocument-method"></a>ISymUnmanagedReader2::GetMethodsInDocument メソッド
-指定されたドキュメント内の行情報を持つすべてのメソッドを取得します。  
+指定されたドキュメントに行情報が含まれるすべてのメソッドを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,22 +38,22 @@ HRESULT GetMethodsInDocument(
   
 ## <a name="parameters"></a>パラメーター  
  `document`  
- [in]ドキュメントへのポインター。  
+ からドキュメントへのポインター。  
   
  `cMethod`  
- [in]A`ULONG32`のサイズを示す、`pRetVal`配列。  
+ から`pRetVal` 配列のサイズを示す `ULONG32`。  
   
  `pcMethod`  
- [out]ポインターを`ULONG32`メソッドの格納に必要なバッファーのサイズを受け取る。  
+ 入出力メソッドを格納するために必要なバッファーのサイズを受け取る `ULONG32` へのポインター。  
   
  `pRetVal`  
- [out]メソッドが受け取るバッファーへのポインター。  
+ 入出力メソッドを受け取るバッファーへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。それ以外の場合、E_FAIL またはその他のエラー コード。  
+ メソッドが成功した場合は S_OK。それ以外の場合は、E_FAIL またはその他のエラーコードを指定します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl, CorSym.h  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** CorSym .idl、CorSym .h  
   
 ## <a name="see-also"></a>関連項目
 

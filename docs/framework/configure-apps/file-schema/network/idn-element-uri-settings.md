@@ -14,8 +14,8 @@ ms.locfileid: "71698171"
 国際化ドメイン名 (IDN) の解析がドメイン名に適用されるかどうかを指定します。
   
 [ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1[ **\< uri >** ](uri-element-uri-settings.md)  
-&nbsp; @ no__t-1 @ no__t @ no__t-3 **\<idn >**  
+&nbsp;&nbsp;[ **\<uri >** ](uri-element-uri-settings.md)  
+&nbsp;&nbsp;&nbsp;&nbsp; **\<idn >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -25,12 +25,12 @@ ms.locfileid: "71698171"
 />  
 ```  
   
-## <a name="attributes-and-elements"></a>属性および要素  
- 以降のセクションでは、属性、子要素、および親要素について説明します。  
+## <a name="attributes-and-elements"></a>属性と要素  
+ 次のセクションでは、属性、子要素、親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
 
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |`enabled`|国際化ドメイン名 (IDN) の解析がドメイン名に適用されるかどうかを指定します。既定値は none です。|  
 
@@ -40,7 +40,7 @@ ms.locfileid: "71698171"
   
 ### <a name="parent-elements"></a>親要素
 
-|**要素**|**[説明]**|  
+|**要素**|**説明**|  
 |-----------------|---------------------|  
 |[uri](uri-element-uri-settings.md)|.NET Framework が、uniform resource identifier (Uri) を使用して表された web アドレスを処理する方法を指定する設定が含まれます。|  
 
@@ -91,7 +91,7 @@ IRI のサポートを有効にするには、次の2つの変更が必要です
 </configuration>
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Configuration.IdnElement?displayProperty=nameWithType>
 - <xref:System.Configuration.UriSection?displayProperty=nameWithType>

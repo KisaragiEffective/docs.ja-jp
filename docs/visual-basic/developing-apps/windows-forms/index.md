@@ -1,16 +1,16 @@
 ---
-title: Windows フォーム アプリケーションの基礎 (Visual Basic)
+title: Windows フォーム アプリケーションの基礎
 ms.date: 07/20/2015
 helpviewer_keywords:
 - Windows applications
 - Windows Forms, Visual Basic
 ms.assetid: 0b919d30-7fd6-42db-85c8-543d15312441
-ms.openlocfilehash: f1b70209d6daf412be56949f349c242a83578e71
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 1aa1edf0130e388c6cc87662d83591f41a8e2325
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72524764"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74349160"
 ---
 # <a name="windows-forms-application-basics-visual-basic"></a>Windows フォーム アプリケーションの基礎 (Visual Basic)
 
@@ -18,7 +18,7 @@ Visual Basic の重要な部分は、ユーザーのコンピューター上で�
 
 ## <a name="designing-windows-forms-applications"></a>Windows フォームアプリケーションの設計
 
-Visual Studio で Windows フォームおよび Windows サービスアプリケーションを作成できます。 詳細については、以下のトピックを参照してください。
+Visual Studio で Windows フォームおよび Windows サービスアプリケーションを作成できます。 詳細については、次のトピックを参照してください。
 
 - [Windows フォームではじめに](../../../framework/winforms/getting-started-with-windows-forms.md)します。 Windows フォームを作成およびプログラミングする方法について説明します。
 
@@ -30,17 +30,17 @@ Visual Studio で Windows フォームおよび Windows サービスアプリケ
 
 Windows フォームは、.NET Framework のスマートクライアントコンポーネントであり、ファイルシステムへの読み取りや書き込みなどの一般的なアプリケーションタスクを可能にするマネージライブラリのセットです。 Visual Studio などの開発環境を使用すると、情報を表示し、ユーザーからの入力を要求し、ネットワーク経由でリモートコンピューターと通信する Windows フォームアプリケーションを作成できます。
 
-Windows フォームのフォームは、ユーザーに情報を表示するための視覚的なサーフェイスです。 一般的には、フォームにコントロールを配置し、マウスのクリックやキーの押下などのユーザーアクションへの応答を開発することによって Windows フォームアプリケーションを構築します。 "*コントロール*" は、データを表示したりデータ入力を受け入れたりする独立したユーザー インターフェイス (UI) 要素です。
+Windows フォームでは、フォームはユーザーに情報を表示するビジュアル サーフェイスです。 一般的には、フォームにコントロールを配置し、マウスのクリックやキーの押下などのユーザーアクションへの応答を開発することによって Windows フォームアプリケーションを構築します。 "*コントロール*" は、データを表示したりデータ入力を受け入れたりする独立したユーザー インターフェイス (UI) 要素です。
 
 ### <a name="events"></a>イベント
 
 ユーザーがフォームまたはコントロールのいずれかに対して何らかの操作を行うと、イベントが生成されます。 アプリケーションは、コードを使用してこれらのイベントに反応し、イベントが発生したときにそのイベントを処理します。 詳細については、「[Windows フォーム内でのイベント ハンドラーの作成](../../../framework/winforms/creating-event-handlers-in-windows-forms.md)」を参照してください。
 
-### <a name="controls"></a>コントロール
+### <a name="controls"></a>Controls
 
 Windows フォームには、テキストボックス、ボタン、ドロップダウンボックス、オプションボタン、さらに Web ページを表示するコントロールなど、フォームに配置できるさまざまなコントロールが含まれています。 フォーム上で使用できるすべてのコントロールの一覧については、「[Windows フォームで使用するコントロール](../../../framework/winforms/controls/controls-to-use-on-windows-forms.md)」を参照してください。 既存のコントロールがニーズを満たしていない場合に、Windows フォームは <xref:System.Windows.Forms.UserControl> クラスを使用した独自のカスタム コントロールの作成もサポートしています。
 
-Windows フォームには、Microsoft Office のようなハイエンド アプリケーションの機能をエミュレートする豊富な UI コントロールが用意されています。 @No__t_0 と <xref:System.Windows.Forms.MenuStrip> コントロールを使用すると、テキストや画像を含むツールバーやメニューを作成したり、サブメニューを表示したり、テキストボックスやコンボボックスなどの他のコントロールをホストしたりできます。
+Windows フォームには、Microsoft Office のようなハイエンド アプリケーションの機能をエミュレートする豊富な UI コントロールが用意されています。 <xref:System.Windows.Forms.ToolStrip> と <xref:System.Windows.Forms.MenuStrip> コントロールを使用すると、テキストや画像を含むツールバーやメニューを作成したり、サブメニューを表示したり、テキストボックスやコンボボックスなどの他のコントロールをホストしたりできます。
 
 Visual Studio のドラッグアンドドロップフォームデザイナーを使用すると、Windows フォームアプリケーションを簡単に作成できます。カーソルを使用してコントロールを選択し、フォーム上の任意の場所に配置するだけです。 デザイナーには、グリッド線や "スナップ線" などのツールが用意されており、コントロールの配置が煩雑になります。 また、Visual Studio を使用するか、コマンドラインでコンパイルするかにかかわらず、<xref:System.Windows.Forms.FlowLayoutPanel>、<xref:System.Windows.Forms.TableLayoutPanel> および <xref:System.Windows.Forms.SplitContainer> コントロールを使用して、最小限の時間と労力で高度なフォームレイアウトを作成できます。
 
@@ -50,18 +50,18 @@ Visual Studio のドラッグアンドドロップフォームデザイナーを
 
 これらの機能の使用に関する詳細な手順については、次のヘルプトピックを参照してください。
 
-|終了|解決方法については、|
+|目的|参照先|
 |--------|---------|
 |Visual Studio を使用して新しい Windows フォームアプリケーションを作成する|[チュートリアル 1: ピクチャビューアーを作成する](/visualstudio/ide/tutorial-1-create-a-picture-viewer)|
-|フォーム上のコントロールを使用する|[方法: Windows フォームにコントロールを追加する](../../../framework/winforms/controls/how-to-add-controls-to-windows-forms.md)|
-|@No__t_0 を使用してグラフィックスを作成する|[グラフィックス プログラミングについて](../../../framework/winforms/advanced/getting-started-with-graphics-programming.md)|
-|カスタムコントロールの作成|[方法 : UserControl クラスを継承する](../../../framework/winforms/controls/how-to-inherit-from-the-usercontrol-class.md)|
+|フォーム上のコントロールを使用する|[方法 : Windows フォームにコントロールを追加する](../../../framework/winforms/controls/how-to-add-controls-to-windows-forms.md)|
+|<xref:System.Drawing> を使用してグラフィックスを作成する|[グラフィックス プログラミングについて](../../../framework/winforms/advanced/getting-started-with-graphics-programming.md)|
+|カスタムコントロールの作成|[方法: UserControl クラスを継承する](../../../framework/winforms/controls/how-to-inherit-from-the-usercontrol-class.md)|
 
 ## <a name="displaying-and-manipulating-data"></a>データの表示と操作
 
-多くのアプリケーションは、データベース、XML ファイル、XML Web サービス、またはその他のデータ ソースからデータを表示する必要があります。 Windows フォームには、このような表形式のデータを従来の行形式や列形式で表示するための <xref:System.Windows.Forms.DataGridView> コントロールと呼ばれる柔軟なコントロールが用意されています。これにより、すべてのデータが独自のセルを占有するようになります。 @No__t_0 を使用すると、個々のセルの外観をカスタマイズしたり、任意の行や列を固定したり、他の機能の中で複雑なコントロールをセル内に表示したりすることができます。
+多くのアプリケーションは、データベース、XML ファイル、XML Web サービス、またはその他のデータ ソースからデータを表示する必要があります。 Windows フォームには、このような表形式のデータを従来の行形式や列形式で表示するための <xref:System.Windows.Forms.DataGridView> コントロールと呼ばれる柔軟なコントロールが用意されています。これにより、すべてのデータが独自のセルを占有するようになります。 <xref:System.Windows.Forms.DataGridView> を使用すると、個々のセルの外観をカスタマイズしたり、任意の行や列を固定したり、他の機能の中で複雑なコントロールをセル内に表示したりすることができます。
 
-ネットワーク経由のデータ ソースへの接続は、Windows フォームのスマート クライアントを使用すればシンプルなタスクです。 @No__t_0 コンポーネント、Visual Studio 2005 の Windows フォームと .NET Framework 2.0 は、データソースへの接続を表し、データをコントロールにバインドしたり、前のレコードと次のレコードに移動したり、レコードを編集したり、保存したりするためのメソッドを公開します。元のソースに変更を戻します。 <xref:System.Windows.Forms.BindingNavigator> コントロールは、ユーザーがレコード間を移動する <xref:System.Windows.Forms.BindingSource> コンポーネントに対して、シンプルなインターフェイスを提供します。
+ネットワーク経由のデータ ソースへの接続は、Windows フォームのスマート クライアントを使用すればシンプルなタスクです。 <xref:System.Windows.Forms.BindingSource> コンポーネント、Visual Studio 2005 の Windows フォームと .NET Framework 2.0 は、データソースへの接続を表し、データをコントロールにバインドしたり、前のレコードと次のレコードに移動したり、レコードを編集したり、変更内容を元のソースに保存したりするためのメソッドを公開します。 <xref:System.Windows.Forms.BindingNavigator> コントロールは、ユーザーがレコード間を移動する <xref:System.Windows.Forms.BindingSource> コンポーネントに対して、シンプルなインターフェイスを提供します。
 
 ### <a name="data-bound-controls"></a>データバインドコントロール
 
@@ -69,14 +69,14 @@ Visual Studio のドラッグアンドドロップフォームデザイナーを
 
 ### <a name="settings"></a>設定
 
-Windows フォームで管理できる別の種類のデータバインドは、[設定] です。 ほとんどのスマートクライアントアプリケーションは、フォームの最後のサイズなどの実行時の状態に関する情報を保持し、保存されたファイルの既定の場所などのユーザー設定データを保持する必要があります。 アプリケーション設定機能は、クライアントコンピューターに両方の種類の設定を簡単に格納できるようにすることで、これらの要件に対処します。 Visual Studio またはコードエディターを使用して定義すると、これらの設定は XML として永続化され、実行時に自動的にメモリに読み込まれます。
+Windows フォームで管理できる別の種類のデータ バインディングは設定です。 ほとんどのスマートクライアントアプリケーションは、フォームの最後のサイズなどの実行時の状態に関する情報を保持し、保存されたファイルの既定の場所などのユーザー設定データを保持する必要があります。 アプリケーション設定機能は、クライアントコンピューターに両方の種類の設定を簡単に格納できるようにすることで、これらの要件に対処します。 Visual Studio またはコードエディターを使用して定義すると、これらの設定は XML として永続化され、実行時に自動的にメモリに読み込まれます。
 
 これらの機能の使用に関する詳細な手順については、次のヘルプトピックを参照してください。
 
-|終了|解決方法については、|
+|目的|参照先|
 |--------|---------|
-|@No__t_0 コンポーネントの使用|[方法: デザイナーを使用して Windows フォーム コントロールを BindingSource コンポーネントにバインドする](../../../framework/winforms/controls/bind-wf-controls-with-the-bindingsource.md)|
-|ADO.NET データソースを操作する|[方法: Windows フォーム BindingSource コンポーネントで ADO.NET データを並べ替える/フィルター処理する](../../../framework/winforms/controls/sort-and-filter-ado-net-data-with-wf-bindingsource-component.md)|
+|<xref:System.Windows.Forms.BindingSource> コンポーネントの使用|[方法 : デザイナーを使用して Windows フォーム コントロールを BindingSource コンポーネントにバインドする](../../../framework/winforms/controls/bind-wf-controls-with-the-bindingsource.md)|
+|ADO.NET データソースを操作する|[方法 : Windows フォーム BindingSource コンポーネントで ADO.NET データを並べ替える/フィルター処理する](../../../framework/winforms/controls/sort-and-filter-ado-net-data-with-wf-bindingsource-component.md)|
 |[データソース] ウィンドウを使用する|[チュートリアル: Windows フォームでのデータの表示](/visualstudio/data-tools/accessing-data-in-visual-studio)|
 
 ## <a name="deploying-applications-to-client-computers"></a>クライアント コンピューターにアプリケーションを配置する
@@ -89,7 +89,7 @@ ClickOnce アプリケーションは、ユーザーがネットワークに接�
 
 ClickOnce の完全な概要については、「 [clickonce のセキュリティと配置](/visualstudio/deployment/clickonce-security-and-deployment)」を参照してください。 これらの機能の使用に関する詳細な手順については、次のヘルプトピックを参照してください。
 
-|終了|解決方法については、|
+|目的|参照先|
 |--------|---------|
 |ClickOnce を使用してアプリケーションを配置する|[方法: 発行ウィザードを使用して ClickOnce アプリケーションを発行する](/visualstudio/deployment/how-to-publish-a-clickonce-application-using-the-publish-wizard)<br /><br /> [チュートリアル : ClickOnce アプリケーションを手動で配置する](/visualstudio/deployment/walkthrough-manually-deploying-a-clickonce-application)|
 |ClickOnce 配置を更新する|[方法 : ClickOnce アプリケーションの更新プログラムを管理する](/visualstudio/deployment/how-to-manage-updates-for-a-clickonce-application)|
@@ -101,9 +101,9 @@ Windows フォームには、ダイアログ ボックスの作成、ヘルプ�
 
 これらの機能の使用に関する詳細な手順については、次のヘルプトピックを参照してください。
 
-|終了|解決方法については、|
+|目的|参照先|
 |--------|---------|
-|フォームの内容を印刷する|[方法: Windows フォームでグラフィックスを印刷する](../../../framework/winforms/advanced/how-to-print-graphics-in-windows-forms.md)<br /><br /> [方法: Windows フォームで複数ページのテキスト ファイルを印刷する](../../../framework/winforms/advanced/how-to-print-a-multi-page-text-file-in-windows-forms.md)|
+|フォームの内容を印刷する|[方法 : Windows フォームでグラフィックスを印刷する](../../../framework/winforms/advanced/how-to-print-graphics-in-windows-forms.md)<br /><br /> [方法 : Windows フォームで複数ページのテキスト ファイルを印刷する](../../../framework/winforms/advanced/how-to-print-a-multi-page-text-file-in-windows-forms.md)|
 |Windows フォームのセキュリティについての詳細|[Windows フォームのセキュリティの概要](../../../framework/winforms/security-in-windows-forms-overview.md)|
 
 ## <a name="see-also"></a>関連項目

@@ -2,12 +2,12 @@
 title: 永続性データベース スキーマ
 ms.date: 03/30/2017
 ms.assetid: 34f69f4c-df81-4da7-b281-a525a9397a5c
-ms.openlocfilehash: 65d8b2f7a6283d65823e1a186239d398ee4a530a
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 025e04acb0d9cf75ea54814274c1875f8661eb88
+ms.sourcegitcommit: 32a575bf4adccc901f00e264f92b759ced633379
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70038332"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74802506"
 ---
 # <a name="persistence-database-schema"></a>永続性データベース スキーマ
 このトピックでは、SQL Workflow Instance Store でサポートされるパブリック ビューについて説明します。  
@@ -39,9 +39,9 @@ ms.locfileid: "70038332"
 |IdentityName|Nvarchar(max)|ワークフロー定義の名前。|  
 |IdentityPackage|Nvarchar(max)|ワークフローが作成されたときに指定されたパッケージの情報 (アセンブリ名など)。|  
 |Build|BigInt|ワークフロー バージョンのビルド番号。|  
-|メジャー|BigInt|ワークフロー バージョンのメジャー番号。|  
+|Major|BigInt|ワークフロー バージョンのメジャー番号。|  
 |マイナー|BigInt|ワークフロー バージョンのマイナー番号。|  
-|リビジョン|BigInt|ワークフロー バージョンのリビジョン番号。|  
+|Revision|BigInt|ワークフロー バージョンのリビジョン番号。|  
   
 > [!CAUTION]
 > **インスタンス**ビューには、Delete トリガーも含まれています。 適切な権限を持つユーザーは、このビューに対して delete ステートメントを実行して、データベースからワークフロー インスタンスを強制的に削除することができます。 ただし、ワークフロー ランタイムからインスタンスを削除すると意図しない結果を引き起こすことがあるため、ビューから直接削除する方法は最後の手段としてのみ使用することをお勧めします。 代わりに、ワークフロー インスタンス管理エンドポイントを使用して、ワークフロー ランタイムでインスタンスを終了するようにしてください。 ビューから多数のインスタンスを削除する場合は、それらのインスタンスで稼動しているアクティブなランタイムがないことを確認してください。  
@@ -78,4 +78,4 @@ ms.locfileid: "70038332"
  InstancePromotedProperties ビューはスキーマ バインドであるため、このビューに対するクエリを最適化するために、1 つまたは複数の列にインデックスを追加することができます。  
   
 > [!NOTE]
-> インデックス付きビューを使用する場合、必要なストレージが多くなり、処理のオーバーヘッドが増加します。 詳細については、 [SQL Server 2008 のインデックス付きビューでのパフォーマンスの向上](https://go.microsoft.com/fwlink/?LinkId=179529)に関する説明を参照してください。
+> インデックス付きビューを使用する場合、必要なストレージが多くなり、処理のオーバーヘッドが増加します。 詳細については、 [SQL Server 2008 のインデックス付きビューでのパフォーマンスの向上](https://docs.microsoft.com/previous-versions/sql/sql-server-2008/dd171921(v=sql.100))に関する説明を参照してください。

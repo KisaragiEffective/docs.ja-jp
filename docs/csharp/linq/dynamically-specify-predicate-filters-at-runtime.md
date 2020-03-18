@@ -4,11 +4,11 @@ description: C# で LINQ を使用して、実行時に述語フィルターを�
 ms.date: 12/01/2016
 ms.assetid: 90238470-0767-497c-916c-52d0d16845e0
 ms.openlocfilehash: 314be8f98b9ff014f14bef11a1f3581eff8574b4
-ms.sourcegitcommit: 5dcfeb59179e81071f54840d4902cbe00b184294
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857737"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "61659944"
 ---
 # <a name="dynamically-specify-predicate-filters-at-runtime"></a>実行時における述語フィルターの動的指定
 
@@ -18,15 +18,15 @@ ms.locfileid: "54857737"
 
 1. 新しいコンソール アプリケーションを開き、それに `PredicateFilters` という名前を付けます。
 
-2. 「[オブジェクトのコレクションを照会する](query-a-collection-of-objects.md)」から `StudentClass` クラスをコピーし、クラス `Program` の下の名前空間 `PredicateFilters` に貼り付けます。 `StudentClass` は、`Student` オブジェクトの一覧を提供します。
+2. 「`StudentClass`オブジェクトのコレクションを照会する[」から ](query-a-collection-of-objects.md) クラスをコピーし、クラス `PredicateFilters` の下の名前空間 `Program` に貼り付けます。 `StudentClass` は、`Student` オブジェクトの一覧を提供します。
 
-3. `StudentClass` で `Main` メソッドをコメント アウトします。
+3. `Main` で `StudentClass` メソッドをコメント アウトします。
 
 4. クラス `Program` を次のコードで置き換えます。
 
      [!code-csharp[csProgGuideLINQ#26](~/samples/snippets/csharp/concepts/linq/how-to-dynamically-specify-predicate-filters-at-runtime_1.cs)]
 
-5. 次の行をクラス `DynamicPredicates` の `Main` メソッドに追加します。`ids` の宣言の下です。
+5. 次の行をクラス `Main` の `DynamicPredicates` メソッドに追加します。`ids` の宣言の下です。
 
      ```csharp
      QueryById(ids);
@@ -36,25 +36,25 @@ ms.locfileid: "54857737"
 
 7. 次の出力がコンソール ウィンドウに表示されます。
 
-     Garcia:114
+     Garcia: 114
 
-     O'Donnell:112
+     O'Donnell: 112
 
-     Omelchenko:111
+     Omelchenko: 111
 
-8. 次の手順はプロジェクトをもう一度実行することですが、今度は配列 `ids` の代わりに実行時に提供された入力を使用します。 `Main` メソッドで `QueryByID(ids)` を `QueryByID(args)` に変更します。
+8. 次の手順はプロジェクトをもう一度実行することですが、今度は配列 `ids` の代わりに実行時に提供された入力を使用します。 `QueryByID(ids)` メソッドで `QueryByID(args)` を `Main` に変更します。
 
-9. コマンド ライン引数 `122 117 120 115` でプロジェクトを実行します。 プロジェクトが実行されると、これらの値が `Main` メソッドのパラメーター、`args` の要素になります。
+9. コマンド ライン引数 `122 117 120 115` でプロジェクトを実行します。 プロジェクトが実行されると、これらの値が `args` メソッドのパラメーター、`Main` の要素になります。
 
 10. 次の出力がコンソール ウィンドウに表示されます。
 
-     Adams:120
+     Adams: 120
 
-     Feng:117
+     Feng: 117
 
-     Garcia:115
+     Garcia: 115
 
-     Tucker:122
+     Tucker: 122
 
 ## <a name="to-filter-by-using-a-switch-statement"></a>switch ステートメントを使用してフィルター処理するには
 
@@ -68,7 +68,7 @@ ms.locfileid: "54857737"
 
 4. 1 から 4 の整数をコマンド ライン引数としてプロジェクトを実行します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [統合言語クエリ (LINQ)](index.md)
 - [where 句](../language-reference/keywords/where-clause.md)

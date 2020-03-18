@@ -2,12 +2,12 @@
 title: Windows ストア クライアント アプリを使用した WCF サービスへのアクセス
 ms.date: 03/30/2017
 ms.assetid: e2002ef4-5dee-4a54-9d87-03b33d35fc52
-ms.openlocfilehash: 7a50454c5189c48704adfaaed2c90d2638dd677f
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: 77dc5d19bc40dc09148a8d2368c56e522bfafc1a
+ms.sourcegitcommit: 7e2128d4a4c45b4274bea3b8e5760d4694569ca1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70928972"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75938178"
 ---
 # <a name="accessing-wcf-services-with-a-windows-store-client-app"></a>Windows ストア クライアント アプリを使用した WCF サービスへのアクセス
 Windows 8 では、Windows ストア アプリケーションと呼ばれる新しい種類のアプリケーションが導入されています。 これらのアプリケーションはタッチ スクリーンのインターフェイスを念頭にデザインされています。 .NET Framework 4.5 により、Windows ストア アプリケーションから WCF サービスを呼び出すことができます。  
@@ -16,12 +16,12 @@ Windows 8 では、Windows ストア アプリケーションと呼ばれる新�
  WCF 機能の一部は、Windows ストア アプリケーション内から利用できます。詳細については、以降のセクションを参照してください。  
   
 > [!IMPORTANT]
-> WCF で公開される API ではなく、WinRT 配信 API を使用してください。 詳細については、「 [Windows.Web.Syndication 名前空間](https://go.microsoft.com/fwlink/?LinkId=236265)」を参照してください。  
+> WCF で公開される API ではなく、WinRT 配信 API を使用してください。 詳細については、「 [Windows.Web.Syndication 名前空間](xref:Windows.Web.Syndication)」を参照してください。  
   
 > [!WARNING]
 > サービス参照の追加を使用して Windows ランタイム コンポーネントへの Web サービス参照を追加することはサポートされていません。  
   
-### <a name="supported-bindings"></a>サポートされているバインド  
+### <a name="supported-bindings"></a>サポート対象のバインド  
  Windows ストア アプリケーションでは、以下の WCF バインドがサポートされています。  
   
 1. <xref:System.ServiceModel.BasicHttpBinding>  
@@ -55,7 +55,7 @@ Windows 8 では、Windows ストア アプリケーションと呼ばれる新�
  テキスト エンコードとバイナリ エンコードの両方がサポートされています。 すべての WCF 転送モードがサポートされています。 詳細については、「 [Streaming Message Transfer](../../../../docs/framework/wcf/feature-details/streaming-message-transfer.md)」を参照してください。  
   
 ### <a name="add-service-reference"></a>サービス参照の追加  
- WCF サービスを Windows ストア アプリケーションから呼び出すには、Visual Studio 2012 の "サービス参照の追加" 機能を使用します。 Windows ストア アプリケーションでは、"サービス参照の追加" 機能にいくつかの変更が行われていることがわかります。 まず、構成ファイルが生成されません。 Windows ストア アプリケーションでは構成ファイルが使用されないため、コードで構成する必要があります。 この構成コードは、"サービス参照の追加" によって生成される References.cs ファイルにあります。 このファイルを表示するには、ソリューションエクスプローラーで [すべてのファイルを表示] を選択してください。 このファイルは、[サービス参照] の下のプロジェクト内の Reference.svcmap ノードにあります。 Windows ストア アプリケーション内で WCF サービスに対して生成されるすべての操作は非同期で、タスク ベースの非同期パターンが使用されます。 詳細については、「[非同期タスク-タスクを使用した非同期プログラミングの簡素化](https://msdn.microsoft.com/magazine/ff959203.aspx)」を参照してください。  
+ WCF サービスを Windows ストア アプリケーションから呼び出すには、Visual Studio 2012 の "サービス参照の追加" 機能を使用します。 Windows ストア アプリケーションでは、"サービス参照の追加" 機能にいくつかの変更が行われていることがわかります。 まず、構成ファイルが生成されません。 Windows ストア アプリケーションでは構成ファイルが使用されないため、コードで構成する必要があります。 この構成コードは、"サービス参照の追加" によって生成される References.cs ファイルにあります。 このファイルを表示するには、ソリューションエクスプローラーで [すべてのファイルを表示] を選択してください。 このファイルは、[サービス参照] の下のプロジェクト内の Reference.svcmap ノードにあります。 Windows ストア アプリケーション内で WCF サービスに対して生成されるすべての操作は非同期で、タスク ベースの非同期パターンが使用されます。 詳細については、「[非同期タスク-タスクを使用した非同期プログラミングの簡素化](https://docs.microsoft.com/archive/msdn-magazine/2010/september/async-tasks-simplify-asynchronous-programming-with-tasks)」を参照してください。  
   
  構成がコードで生成されるようになったため、サービス参照を更新するたびに、Reference.cs ファイルで行ったすべての変更が上書きされます。 この状況に対処するために、構成コードは部分メソッド内に生成され、これをクライアント プロキシ クラスで実装できます。 部分メソッドは次のように宣言されています。  
   
@@ -94,7 +94,7 @@ public partial class Service1Client : System.ServiceModel.ClientBase<MetroWcfCli
     }  
 ```  
   
-### <a name="serialization"></a>シリアル化  
+### <a name="serialization"></a>Serialization  
  Windows ストア アプリケーションでは、次のシリアライザーがサポートされています。  
   
 1. DataContractSerializer  
@@ -120,7 +120,7 @@ Windows ストアアプリケーションでは、次のセキュリティモー
   
 Windows ストアアプリケーションでは、次のクライアント資格情報の種類がサポートされています。
   
-1. なし  
+1. [なし]  
   
 2. Basic  
   
@@ -139,7 +139,7 @@ Windows ストアアプリケーションでは、次のクライアント資格
  Windows ストア アプリケーションから既定の Windows 資格情報にアクセスして送信するためには、Package.appmanifest ファイル内でこの機能を有効にする必要があります。 このファイルを開き、[機能] タブを選択し、[既定の Windows 資格情報] を選択します。 これにより、ドメイン資格情報を必要とするイントラネット リソースにアプリケーションが接続できるようになります。  
   
 > [!IMPORTANT]
-> Windows ストアアプリケーションでコンピューター間の呼び出しを行うには、"ホーム/社内ネットワーク" と呼ばれる別の機能を有効にする必要があります。 この設定は、Package.appmanifest ファイル内の [機能] タブにもあります。[ホーム/社内ネットワーク] チェック ボックスをオンにします。 これで、アプリケーションは、自宅や職場など、ユーザーが信頼できる場所のネットワークに着信および発信アクセスできるようになります。 着信方向の重要なポートは常にブロックされます。 また、インターネット上のサービスにアクセスするには、インターネット (クライアント) の機能も有効にする必要があります。  
+> Windows ストアアプリケーションでコンピューター間の呼び出しを行うには、"ホーム/社内ネットワーク" と呼ばれる別の機能を有効にする必要があります。 この設定は、appmanifest.xaml ファイルの [機能] タブにもあります。 [ホーム/社内ネットワーク] チェックボックスをオンにします。 これで、アプリケーションは、自宅や職場など、ユーザーが信頼できる場所のネットワークに着信および発信アクセスできるようになります。 着信方向の重要なポートは常にブロックされます。 また、インターネット上のサービスにアクセスするには、インターネット (クライアント) の機能も有効にする必要があります。  
   
 ### <a name="misc"></a>[その他]  
  Windows ストア アプリケーションでは、次のクラスの使用がサポートされています。  
@@ -176,9 +176,9 @@ void async SomeMethod()
   
 ## <a name="see-also"></a>関連項目
 
-- [Windows ストアアプリブログの WCF](https://blogs.msdn.microsoft.com/piyushjo/2011/09/21/wcf-in-windows-8-metro-styled-apps-absolutely-supported/)
-- [WCF Windows ストアクライアントおよびセキュリティ](https://blogs.msdn.microsoft.com/piyushjo/2011/10/11/calling-a-wcf-service-from-a-metro-application-adding-security/)
-- [Windows ストアアプリとコンピューター間の呼び出し](https://blogs.msdn.microsoft.com/piyushjo/2011/10/21/calling-a-wcf-service-from-a-metro-application-cross-machine-scenario/)
-- [Windows ストアアプリから Azure にデプロイされた WCF サービスの呼び出し](https://blogs.msdn.com/b/piyushjo/archive/2011/10/22/calling-a-wcf-service-from-a-metro-application-cross-machine-scenario.aspx)
+- [Windows ストアアプリブログの WCF](https://docs.microsoft.com/archive/blogs/piyushjo/wcf-in-windows-8-metro-styled-apps-absolutely-supported)
+- [WCF Windows ストアクライアントおよびセキュリティ](https://docs.microsoft.com/archive/blogs/piyushjo/calling-a-wcf-service-from-a-metro-application-adding-security)
+- [Windows ストアアプリとコンピューター間の呼び出し](https://docs.microsoft.com/archive/blogs/piyushjo/calling-a-wcf-service-from-a-metro-application-cross-machine-scenario)
+- [Windows ストアアプリから Azure にデプロイされた WCF サービスの呼び出し](https://docs.microsoft.com/archive/blogs/piyushjo/calling-a-wcf-service-from-a-metro-application-cross-machine-scenario)
 - [WCF セキュリティのプログラミング](../../../../docs/framework/wcf/feature-details/programming-wcf-security.md)
 - [バインディング](../../../../docs/framework/wcf/bindings.md)

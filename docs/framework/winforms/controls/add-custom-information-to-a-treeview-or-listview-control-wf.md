@@ -1,5 +1,5 @@
 ---
-title: '方法: TreeView コントロールまたは ListView コントロール (Windows フォーム) にカスタム情報を追加する'
+title: '方法: TreeView コントロールまたは ListView コントロールにカスタム情報を追加する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -13,19 +13,19 @@ helpviewer_keywords:
 - ListView control [Windows Forms], adding custom information
 - TreeView control [Windows Forms], adding custom information
 ms.assetid: 68be11de-1d5b-430e-901f-cfbe48d14b19
-ms.openlocfilehash: f588a00c430eb1ae1f0cdcde6b7dd22f0c8671c5
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: fe507c41de97e9332f3f27e453a476d992f86627
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69956997"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76732215"
 ---
-# <a name="how-to-add-custom-information-to-a-treeview-or-listview-control-windows-forms"></a>方法: TreeView コントロールまたは ListView コントロール (Windows フォーム) にカスタム情報を追加する
-派生ノードは、Windows フォーム<xref:System.Windows.Forms.TreeView>コントロールまたは<xref:System.Windows.Forms.ListView>コントロールの派生した項目で作成できます。 派生により、必要なフィールドだけではなく、それらを処理するためのカスタム メソッドやコンストラクターも追加できます。 この機能を使用して、顧客オブジェクトを各ツリー ノードや各リスト項目にアタッチすることもできます。 ここでの例は<xref:System.Windows.Forms.TreeView>コントロールを対象としていますが、同じアプローチを<xref:System.Windows.Forms.ListView>コントロールに使用することもできます。  
+# <a name="how-to-add-custom-information-to-a-treeview-or-listview-control-windows-forms"></a>方法 : TreeView コントロールまたは ListView コントロール (Windows フォーム) にカスタム情報を追加する
+派生ノードは、<xref:System.Windows.Forms.ListView> コントロールの Windows フォーム <xref:System.Windows.Forms.TreeView> コントロールまたは派生した項目で作成できます。 派生により、必要なフィールドだけではなく、それらを処理するためのカスタム メソッドやコンストラクターも追加できます。 この機能を使用して、顧客オブジェクトを各ツリー ノードや各リスト項目にアタッチすることもできます。 ここでは、<xref:System.Windows.Forms.TreeView> コントロールの例を示していますが、<xref:System.Windows.Forms.ListView> コントロールには同じアプローチを使用できます。  
   
 ### <a name="to-derive-a-tree-node"></a>ツリー ノードを派生するには  
   
-- <xref:System.Windows.Forms.TreeNode>クラスから派生した新しいノードクラスを作成します。このクラスには、ファイルパスを記録するカスタムフィールドがあります。  
+- ファイルパスを記録するカスタムフィールドを持つ <xref:System.Windows.Forms.TreeNode> クラスから派生した新しいノードクラスを作成します。  
   
     ```vb  
     Class myTreeNode  
@@ -100,7 +100,7 @@ ms.locfileid: "69956997"
        "\\TextFile.txt")));  
     ```  
   
-2. ツリーノードが渡され、それが<xref:System.Windows.Forms.TreeNode>クラスとして型指定されている場合は、派生クラスにキャストする必要があります。 キャストとは、ある型のオブジェクトから別の型のオブジェクトに明示的に変換することです。 キャストの詳細については、「[暗黙的および明示的な変換](../../../visual-basic/programming-guide/language-features/data-types/implicit-and-explicit-conversions.md)(Visual Basic)」、「 C#[キャストと型変換](../../../csharp/programming-guide/types/casting-and-type-conversions.md)(ビジュアル)」、またC++は「[キャスト演算子: ()](/cpp/cpp/cast-operator-parens) (ビジュアル)」を参照してください。  
+2. ツリーノードが渡され、それが <xref:System.Windows.Forms.TreeNode> クラスとして型指定されている場合は、派生クラスにキャストする必要があります。 キャストとは、ある型のオブジェクトから別の型のオブジェクトに明示的に変換することです。 キャストの詳細については、「[暗黙的および明示的な変換](../../../visual-basic/programming-guide/language-features/data-types/implicit-and-explicit-conversions.md)(Visual Basic)」、「 C#[キャストと型変換](../../../csharp/programming-guide/types/casting-and-type-conversions.md)(ビジュアル)」、またC++は「[キャスト演算子: ()](/cpp/cpp/cast-operator-parens) (ビジュアル)」を参照してください。  
   
     ```vb  
     Public Sub TreeView1_AfterSelect(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeView1.AfterSelect  
@@ -130,7 +130,7 @@ ms.locfileid: "69956997"
        }  
     ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [TreeView コントロール](treeview-control-windows-forms.md)
 - [ListView コントロール](listview-control-windows-forms.md)

@@ -1,0 +1,79 @@
+### YamlMime:Landing
+title: F#書
+summary: .NET でF#プログラミング言語を使用してアプリケーションを作成する方法について説明します。
+metadata:
+  title: F#ドキュメント-入門、チュートリアル、リファレンス。
+  description: プログラミングF#について学習するF#-開発者向けF# 、経験豊富な開発者向け
+  ms.topic: landing-page
+  author: cartermp
+  ms.author: phcart
+  ms.date: 11/25/2019
+  ms.openlocfilehash: 113a99d75f77cba56639abf485bf646155f0ff36
+  ms.sourcegitcommit: 79a2d6a07ba4ed08979819666a0ee6927bbf1b01
+  ms.translationtype: MT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 11/28/2019
+  ms.locfileid: "74569499"
+landingContent:
+- title: プログラムについてF#
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: F#概要
+      url: what-is-fsharp.md
+    - text: F# をインストールする
+      url: get-started/install-fsharp.md
+    - text: Visual Studio でF#の作業の開始
+      url: get-started/get-started-visual-studio.md
+    - text: Visual Studio Code でのF#使用を開始する
+      url: get-started/get-started-vscode.md
+  - linkListType: download
+    links:
+    - text: .NET Core SDK をダウンロードする
+      url: https://dotnet.microsoft.com/download
+- title: F#技術
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: F# のツアー
+      url: tour.md
+    - text: F# の関数型プログラミングの概要
+      url: introduction-to-functional-programming/index.md
+    - text: ファーストクラス関数
+      url: introduction-to-functional-programming/first-class-functions.md
+  - linkListType: concept
+    links:
+    - text: F# スタイル ガイド
+      url: style-guide/index.md
+    - text: F# コードのフォーマットに関するガイドライン
+      url: style-guide/formatting.md
+    - text: F# のコーディング規則
+      url: style-guide/conventions.md
+  - linkListType: tutorial
+    links:
+    - text: での非同期プログラミングF#
+      url: tutorials/asynchronous-and-concurrent-programming/async.md
+- title: の新機能F#
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: 4.7 のF#新機能
+      url: whats-new/fsharp-47.md
+    - text: 4.6 のF#新機能
+      url: whats-new/fsharp-46.md
+    - text: 4.5 のF#新機能
+      url: whats-new/fsharp-45.md
+- title: F#言語リファレンス
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 言語リファレンス
+      url: language-reference/index.md
+    - text: キーワードリファレンス
+      url: language-reference/keyword-reference.md
+    - text: シンボルと演算子のリファレンス
+      url: language-reference/symbol-and-operator-reference/index.md
+    - text: 関数
+      url: language-reference/functions/index.md
+    - text: F#な
+      url: language-reference/fsharp-types.md

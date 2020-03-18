@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 229437e3-1465-4bd8-8846-9804b2488133
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b1a557191c5649f2ed87cf4f4dfdb4167133e597
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 8d6e130981693268ae5c2cd615036b84ca8ed2d8
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67774260"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76790700"
 ---
 # <a name="icorpublishappdomaingetid-method"></a>ICorPublishAppDomain::GetID メソッド
-この一意識別子を取得します。 [ICorPublishAppDomain](../../../../docs/framework/unmanaged-api/debugging/icorpublishappdomain-interface.md)します。  
+この[ICorPublishAppDomain](icorpublishappdomain-interface.md)の一意の識別子を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,15 +35,15 @@ HRESULT GetID (
   
 ## <a name="parameters"></a>パラメーター  
  `puId`  
- [out]アプリケーション ドメインの識別子へのポインター。  
+ 入出力アプリケーションドメインの識別子へのポインター。  
   
-## <a name="remarks"></a>Remarks  
- 識別子は、格納しているプロセスのスコープ内でのみ一意です。  
+## <a name="remarks"></a>コメント  
+ 識別子は、含んでいるプロセスのスコープ内でのみ一意です。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorPub.idl, CorPub.h  
+ **ヘッダー:** CorPub .idl、CorPub .h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -53,4 +51,4 @@ HRESULT GetID (
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorPublishAppDomain インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icorpublishappdomain-interface.md)
+- [ICorPublishAppDomain インターフェイス](icorpublishappdomain-interface.md)

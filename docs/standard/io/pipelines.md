@@ -9,12 +9,12 @@ helpviewer_keywords:
 - I/O [.NET], Pipelines
 author: rick-anderson
 ms.author: riande
-ms.openlocfilehash: 9efd7a7581a1e8bd2cb5f544edd1b4c965aa1866
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.openlocfilehash: b18b2bf31787fa58e614cd4f057fba9037fe8ad8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72395936"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77627553"
 ---
 # <a name="systemiopipelines-in-net"></a>.NET の System.IO.Pipelines
 
@@ -67,6 +67,8 @@ async Task ProcessLinesAsync(NetworkStream stream)
 [!code-csharp[](~/samples/snippets/csharp/pipelines/ProcessLinesAsync.cs?name=snippet)]
 
 上記のコードは複雑で、特定されたすべての問題には対処していません。 ハイ パフォーマンス ネットワークは、通常、パフォーマンスを最大化するために非常に複雑なコードを記述することを意味します。 `System.IO.Pipelines` は、この種のコードをより簡単に記述できるように設計されています。
+
+[!INCLUDE [localized code comments](../../../includes/code-comments-loc.md)]
 
 ## <a name="pipe"></a>パイプ
 
@@ -163,7 +165,7 @@ I/O を行う場合は、I/O が実行される場所をきめ細かく制御す
 
 ## <a name="pipereader"></a>PipeReader
 
-<xref:System.IO.Pipelines.PipeReader> では、呼び出し元の代わりにメモリを管理します。 <xref:System.IO.Pipelines.PipeReader.ReadAsync%2A?displayProperty=nameWithType> を呼び出した後に、**常に** <xref:System.IO.Pipelines.PipeReader.AdvanceTo%2A?displayProperty=nameWithType> を呼び出します。 これにより、`PipeReader` では、呼び出し元がメモリを使用して実行されるタイミングを把握し、追跡できるようになります。 `PipeReader.ReadAsync` から返された `ReadOnlySequence<byte>` が有効なのは、`PipeReader.AdvanceTo` が呼び出されるまでのみとなります。 `PipeReader.AdvanceTo` を呼び出した後、`ReadOnlySequence<byte>` を使用することはできません。
+<xref:System.IO.Pipelines.PipeReader> では、呼び出し元の代わりにメモリを管理します。 <xref:System.IO.Pipelines.PipeReader.ReadAsync%2A?displayProperty=nameWithType> を呼び出した後に、**常に**<xref:System.IO.Pipelines.PipeReader.AdvanceTo%2A?displayProperty=nameWithType> を呼び出します。 これにより、`PipeReader` では、呼び出し元がメモリを使用して実行されるタイミングを把握し、追跡できるようになります。 `PipeReader.ReadAsync` から返された `ReadOnlySequence<byte>` が有効なのは、`PipeReader.AdvanceTo` が呼び出されるまでのみとなります。 `PipeReader.AdvanceTo` を呼び出した後、`ReadOnlySequence<byte>` を使用することはできません。
 
 `PipeReader.AdvanceTo` では、次の 2 つの <xref:System.SequencePosition> 引数を受け取ります。
 
@@ -191,7 +193,7 @@ bool TryParseMessage(ref ReadOnlySequence<byte> buffer, out Message message);
 
 [!code-csharp[ReadSingleMsg](~/samples/snippets/csharp/pipelines/ReadSingleMsg.cs?name=snippet)]
 
-上のコードでは以下の操作が行われます。
+上記のコードでは次の操作が行われます。
 
 * 1 つのメッセージを解析します。
 * 消費された `SequencePosition` と検査された `SequencePosition` を更新し、トリミングされた入力バッファーの先頭を指すようにします。
@@ -311,8 +313,8 @@ bool TryParseMessage(ref ReadOnlySequence<byte> buffer, out Message message);
 
 上記のコードでは、次のようになります。
 
-* <xref:System.IO.Pipelines.PipeWriter.GetSpan%2A> を使用して、`PipeWriter` から少なくとも 5 バイトのバッファーを要求します。
-* ASCII 文字列である `"Hello"` のバイトを、返された `Span<byte>` に書き込みます。
+* <xref:System.IO.Pipelines.PipeWriter.GetMemory%2A> を使用して、`PipeWriter` から少なくとも 5 バイトのバッファーを要求します。
+* ASCII 文字列である `"Hello"` のバイトを、返された `Memory<byte>` に書き込みます。
 * <xref:System.IO.Pipelines.PipeWriter.Advance%2A> を呼び出して、バッファーに書き込まれたバイト数を示します。
 * 基になるデバイスにバイトを送信する、`PipeWriter` をフラッシュします。
 

@@ -11,20 +11,18 @@ helpviewer_keywords:
 - secure coding, race conditions
 - code security, race conditions
 ms.assetid: ea3edb80-b2e8-4e85-bfed-311b20cb59b6
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 57ceaedc7c38ae70a0db5a7fd584a765a7474aff
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: bc0d9f481fd212ede55bffde6cc20c3e080629e4
+ms.sourcegitcommit: 00aa62e2f469c2272a457b04e66b4cc3c97a800b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61933810"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78159417"
 ---
 # <a name="security-and-race-conditions"></a>セキュリティと競合状態
-問題の別の領域は、競合状態によって生じるセキュリティ ホールが発生する可能性です。 これが発生するいくつかの方法はあります。 次のサブトピックをアウトラインの主要な落とし穴を開発者は避ける必要があります。  
+問題のもう1つの領域は、競合状態によってセキュリティホールが悪用される可能性があることです。 これにはいくつかの方法があります。 次のサブトピックでは、開発者が回避する必要のある主要な落とし穴をいくつか紹介します。  
   
-## <a name="race-conditions-in-the-dispose-method"></a>Dispose メソッドで競合状態  
- クラスの場合、 **Dispose**メソッド (詳細については、次を参照してください[ガベージ コレクション](../../../docs/standard/garbage-collection/index.md)) が同期されていないことができます内でクリーンアップ コード**Dispose**実行できる複数の。1 回、次の例に示すようにします。  
+## <a name="race-conditions-in-the-dispose-method"></a>Dispose メソッドの競合状態  
+ クラスの**dispose**メソッド (詳細については、「[ガベージコレクション](../../../docs/standard/garbage-collection/index.md)」を参照) が同期されていない場合は、次の例に示すように、 **dispose**内のクリーンアップコードを複数回実行できる可能性があります。  
   
 ```vb  
 Sub Dispose()  
@@ -36,9 +34,9 @@ End Sub
 ```  
   
 ```csharp  
-void Dispose()   
+void Dispose()
 {  
-    if (myObj != null)   
+    if (myObj != null)
     {  
         Cleanup(myObj);  
         myObj = null;  
@@ -46,13 +44,13 @@ void Dispose()
 }  
 ```  
   
- ため、この**Dispose**実装が同期されていない、可能性があります`Cleanup`最初の 1 つのスレッドとし前に、の 2 番目のスレッドによって呼び出される`_myObj`に設定されている**null**します。 これはセキュリティ上の問題であるかどうかによって起こる異なるときに、`Cleanup`コードの実行。 同期されていない主な課題**Dispose**実装は、ファイルなどのリソース ハンドルを使用します。 不適切な廃棄には、多くの場合、セキュリティの脆弱性につながる不適切なハンドルを使用することがあります。  
+ この**Dispose**実装は同期されていないため、最初の1つのスレッドによって `Cleanup` が呼び出され、`_myObj` が**null**に設定される前に2番目のスレッドが呼び出される可能性があります。 これがセキュリティ上の問題であるかどうかは、`Cleanup` コードの実行時の動作によって異なります。 非同期の**Dispose**実装の主な問題は、ファイルなどのリソースハンドルを使用することです。 不適切な破棄によって、誤ったハンドルが使用されることがあります。これは、多くの場合、セキュリティの脆弱性につながります。  
   
-## <a name="race-conditions-in-constructors"></a>コンス トラクターでの競合状態  
- 一部のアプリケーションでは、他のスレッドがそのクラス コンス トラクターが完全に実行する前にクラス メンバーにアクセスすることができる場合があります。 すべてのクラス コンス トラクターがないセキュリティの問題、発生するかに応じてスレッドを同期させる場合になっていることを確認するを確認してください。  
+## <a name="race-conditions-in-constructors"></a>コンストラクターの競合状態  
+ アプリケーションによっては、クラスコンストラクターが完全に実行される前に、他のスレッドがクラスメンバーにアクセスできる場合があります。 すべてのクラスコンストラクターを確認して、このような場合にセキュリティの問題が発生していないことを確認し、必要に応じてスレッドを同期してください。  
   
-## <a name="race-conditions-with-cached-objects"></a>キャッシュされたオブジェクトの競合状態  
- セキュリティ情報をキャッシュしたり、コード アクセス セキュリティを使用するコード[Assert](../../../docs/framework/misc/using-the-assert-method.md)操作もされる恐れがあります競合状態、クラスの他の部分が適切に同期されていない場合、次の例に示すようにします。  
+## <a name="race-conditions-with-cached-objects"></a>キャッシュされたオブジェクトを使用した競合状態  
+ 次の例に示すように、セキュリティ情報をキャッシュしたり、コードアクセスセキュリティ[アサート](../../../docs/framework/misc/using-the-assert-method.md)操作を使用したりするコードは、クラスの他の部分が適切に同期されていない場合に、競合状態に対して脆弱になることがあります。  
   
 ```vb  
 Sub SomeSecureFunction()  
@@ -74,22 +72,22 @@ End Sub
 ```  
   
 ```csharp  
-void SomeSecureFunction()   
+void SomeSecureFunction()
 {  
-    if (SomeDemandPasses())   
+    if (SomeDemandPasses())
     {  
         fCallersOk = true;  
         DoOtherWork();  
         fCallersOk = false;  
     }  
 }  
-void DoOtherWork()   
+void DoOtherWork()
 {  
-    if (fCallersOK)   
+    if (fCallersOK)
     {  
         DoSomethingTrusted();  
     }  
-    else   
+    else
     {  
         DemandSomething();  
         DoSomethingTrusted();  
@@ -97,13 +95,13 @@ void DoOtherWork()
 }  
 ```  
   
- 他のパスがある場合`DoOtherWork`が同じオブジェクトと別のスレッドから呼び出すことできますが、信頼されていないの呼び出し元は、過去の需要を遅らせることができます。  
+ 同じオブジェクトを持つ別のスレッドから呼び出すことができる `DoOtherWork` へのパスが他にある場合は、信頼されていない呼び出し元が要求を過去にスリップすることができます。  
   
- コードは、セキュリティ情報をキャッシュする場合は、この脆弱性を確認することを確認します。  
+ コードでセキュリティ情報がキャッシュされている場合は、この脆弱性を確認してください。  
   
 ## <a name="race-conditions-in-finalizers"></a>ファイナライザーでの競合状態  
- 競合状態は、そのファイナライザーで解放し、静的またはアンマネージ リソースを参照するオブジェクトでも発生することができます。 複数のオブジェクトは、クラスのファイナライザーで操作されるリソースを共有している場合、オブジェクトは、そのリソースに対するすべてのアクセスを同期する必要があります。  
+ 競合状態は、静的またはアンマネージリソースを参照するオブジェクトでも発生し、その後、そのファイナライザーで解放されます。 クラスのファイナライザーで操作されているリソースを複数のオブジェクトが共有している場合、そのオブジェクトは、そのリソースへのすべてのアクセスを同期する必要があります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [安全なコーディングのガイドライン](../../../docs/standard/security/secure-coding-guidelines.md)

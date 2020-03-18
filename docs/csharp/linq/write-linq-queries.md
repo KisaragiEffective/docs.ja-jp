@@ -4,10 +4,10 @@ description: C# で LINQ クエリを作成する方法について説明しま�
 ms.date: 12/01/2016
 ms.assetid: 30703f79-cf3a-4d02-b892-c95d58a1d9ed
 ms.openlocfilehash: ed32543b0422e0664a8577f2c27f7c7c00a719a1
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "65632873"
 ---
 # <a name="write-linq-queries-in-c"></a>C\# での LINQ クエリの作成
@@ -79,7 +79,7 @@ var numCount = numbers.Where(n => n < 3 || n > 7).Count();
 int numCount = numbers.Where(n => n < 3 || n > 7).Count();
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [チュートリアル: C# でのクエリの作成](../programming-guide/concepts/linq/walkthrough-writing-queries-linq.md)
 - [統合言語クエリ (LINQ)](index.md)

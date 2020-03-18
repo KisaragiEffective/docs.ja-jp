@@ -2,12 +2,12 @@
 title: インターネット インフォメーション サービス ホスティングのベスト プラクティス
 ms.date: 03/30/2017
 ms.assetid: 0834768e-9665-46bf-86eb-d4b09ab91af5
-ms.openlocfilehash: e09a42f0f4a98728e588961425d8b6f5b50e6ccb
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 092e6ab675cf807db44c2085f8b0e7bbf67d7b28
+ms.sourcegitcommit: 09b4090b78f52fd09b0e430cd4b26576f1fdf96e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69957215"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76211917"
 ---
 # <a name="internet-information-services-hosting-best-practices"></a>インターネット インフォメーション サービス ホスティングのベスト プラクティス
 このトピックでは、Windows Communication Foundation (WCF) サービスをホストするためのいくつかのベストプラクティスについて説明します。  
@@ -30,19 +30,19 @@ ms.locfileid: "69957215"
 ## <a name="optimizing-performance-in-middle-tier-scenarios"></a>中間層シナリオでのパフォーマンスの最適化  
  *中間層シナリオ*で最適なパフォーマンスを実現するために、受信メッセージへの応答として他のサービスを呼び出すサービスは、WCF サービスクライアントをリモートサービスに1回インスタンス化して、複数の受信要求にわたって再利用します。 WCF サービスクライアントのインスタンス化は、既存のクライアントインスタンスでのサービス呼び出しを行う場合に比べてコストのかかる操作であり、中間層シナリオでは、複数の要求にわたってリモートクライアントをキャッシュすることによって、パフォーマンスが個別に向上します。 WCF サービスクライアントはスレッドセーフであるため、複数のスレッドにわたってクライアントへのアクセスを同期する必要はありません。  
   
- また、中間層シナリオでは、`svcutil /a` オプションによって生成された非同期 API を使用してパフォーマンスを向上させます。 オプション`/a`を指定すると、 [ServiceModel メタデータユーティリティツール (svcutil.exe)](../../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md)に`BeginXXX/EndXXX`よって各サービス操作のメソッドが生成されます。これにより、バックグラウンドスレッドでリモートサービスへの実行時間の長い呼び出しが行われる可能性があります。  
+ また、中間層シナリオでは、`svcutil /a` オプションによって生成された非同期 API を使用してパフォーマンスを向上させます。 `/a` オプションを指定すると、 [ServiceModel メタデータユーティリティツール (svcutil.exe)](../../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md)によって各サービス操作の `BeginXXX/EndXXX` メソッドが生成されます。これにより、バックグラウンドスレッドでリモートサービスへの実行に時間のかかる可能性がある呼び出しを行うことができます。  
   
 ## <a name="wcf-in-multi-homed-or-multi-named-scenarios"></a>マルチホーム シナリオまたはマルチネーム シナリオでの WCF  
- IIS Web ファーム内に WCF サービスを展開できます。この場合、一連のコンピューターが共通の外部名 (など`http://www.contoso.com`) を共有していても、異なるホスト名`http://www.contoso.com`によって個別にアドレス指定されます (たとえば、2つの異なるコンピューターにトラフィックを転送する可能性があります)。`http://machine1.internal.contoso.com` と`http://machine2.internal.contoso.com`の名前が付けられます)。 この展開シナリオは WCF で完全にサポートされていますが、サービスのメタデータ (Web サービス記述言語) に正しい (外部の) ホスト名を表示するには、WCF サービスをホストする IIS Web サイトの特別な構成が必要です。  
+ IIS Web ファーム内に WCF サービスを展開することができます。この場合、一連のコンピューターが共通の外部名 (`http://www.contoso.com`など) を共有していても、異なるホスト名で個別にアドレス指定されます (たとえば、`http://www.contoso.com` は `http://machine1.internal.contoso.com` `http://machine2.internal.contoso.com`とという名前の2つの異なるコンピューターにトラフィックを転送する場合があります)。 この展開シナリオは WCF で完全にサポートされていますが、サービスのメタデータ (Web サービス記述言語) に正しい (外部の) ホスト名を表示するには、WCF サービスをホストする IIS Web サイトの特別な構成が必要です。  
   
- WCF によって生成されるサービスメタデータに正しいホスト名が表示されるようにするには、明示的なホスト名を使用するように WCF サービスをホストする IIS Web サイトの既定の id を構成します。 たとえば、 `www.contoso.com`ファーム内に存在するコンピューターでは、HTTP の場合は *:80: www. contoso .com、HTTPS の場合は 443 \*: www. contoso .com という IIS サイトバインドを使用する必要があります。  
+ WCF によって生成されるサービスメタデータに正しいホスト名が表示されるようにするには、明示的なホスト名を使用するように WCF サービスをホストする IIS Web サイトの既定の id を構成します。 たとえば、`www.contoso.com` ファーム内に存在するコンピューターでは、HTTP に対して *:80: www. contoso .com の IIS サイトバインドを使用し、\*: 443: www. contoso .com を HTTPS に使用する必要があります。  
   
  Microsoft 管理コンソール (MMC) スナップインを使用して、IIS Web サイト バインディングを構成できます。  
   
 ## <a name="application-pools-running-in-different-user-contexts-overwrite-assemblies-from-other-accounts-in-the-temporary-folder"></a>異なるユーザー コンテキストで実行されるアプリケーション プールが、一時フォルダー内の他のアカウントのアセンブリを上書きする  
  異なるユーザーコンテキストで実行されているアプリケーションプールが、一時的な ASP.NET files フォルダー内の他のアカウントのアセンブリを上書きできないようにするには、アプリケーションごとに異なる id と一時フォルダーを使用します。 たとえば、/Application1 と /Application2 という 2 つの仮想アプリケーションがある場合は、2 つの異なる ID を使用して、A と B の 2 つのアプリケーション プールを作成できます。 アプリケーション プール A は、一方のユーザー ID (user1) の下で、アプリケーション プール B は、もう一方のユーザー ID (user2) の下で実行でき、/Application1 が A を、/Application2 が B を使用するように構成します。  
   
- Web.config では、> を使用して\< system.web/compilation/@tempFolder一時フォルダーを構成できます。 /Application1 の場合、"c:\tempForUser1" にすることができ、アプリケーション2起動には "c:\tempForUser2" を指定できます。 これらのフォルダーに対応する書き込みアクセス許可を 2 つの ID に与えます。  
+ Web.config では、\<system.web/compilation/@tempFolder> を使用して一時フォルダーを構成できます。 /Application1 の場合、"c:\tempForUser1" にすることができ、アプリケーション2起動には "c:\tempForUser2" を指定できます。 これらのフォルダーに対応する書き込みアクセス許可を 2 つの ID に与えます。  
   
  これで、user2 は、(c:\tempForUser1 の下にある) /Application2 のコード生成フォルダーを変更できなくなります。  
   
@@ -84,4 +84,4 @@ ms.locfileid: "69957215"
 ## <a name="see-also"></a>関連項目
 
 - [サービスホスティングのサンプル](../samples/hosting.md)
-- [AppFabric のホスティング機能](https://go.microsoft.com/fwlink/?LinkId=201276)
+- [AppFabric のホスティング機能](https://docs.microsoft.com/previous-versions/appfabric/ee677189(v=azure.10))

@@ -1,13 +1,13 @@
 ---
 title: シンボルと演算子のリファレンス
-description: シンボルと F# のプログラミング言語で使用される演算子について説明します。
+description: F#プログラミング言語で使用される記号と演算子について説明します。
 ms.date: 02/11/2019
-ms.openlocfilehash: 14ea7a66f7e9a79d24b62a4aa0564eecb891ee1a
-ms.sourcegitcommit: a970268118ea61ce14207e0916e17243546a491f
+ms.openlocfilehash: 0c177242991c39aa1a2b7566415b50385f3403d1
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67306184"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73424061"
 ---
 # <a name="symbol-and-operator-reference"></a>シンボルと演算子のリファレンス
 
@@ -23,14 +23,14 @@ ms.locfileid: "67306184"
 |シンボルまたは演算子|リンク|説明|
 |------------------|-----|-----------|
 |`!`|[参照セル](../reference-cells.md)<br /><br />[コンピュテーション式](../computation-expressions.md)|<ul><li>参照セルを逆参照します。<br /></li><li>キーワードの後に付いて、ワークフローで制御されるキーワードの動作の変更済みバージョンを示します。<br /></li></ul>|
-|`!=`|該当なし。|<ul><li>F# では使用されません。 非等値演算には `<>` を使用します。<br /></li></ul>|
+|`!=`|該当しない。|<ul><li>F# では使用されません。 非等値演算には `<>` を使用します。<br /></li></ul>|
 |`"`|[リテラル](../literals.md)<br /><br />[文字列](../strings.md)|<ul><li>テキスト文字列を区切ります。<br /></li></ul>|
 |`"""`|[文字列](../strings.md)|逐語的テキスト文字列を区切ります。 文字列内で単一引用符を使用することで引用符文字を示すことができる `@"..."` とは異なります。|
 |`#`|[コンパイラ ディレクティブ](../compiler-directives.md)<br /><br />[フレキシブル型](../flexible-types.md)|<ul><li>`#light` のように、プリプロセッサまたはコンパイラ ディレクティブの前に付けられます。<br /></li><li>型で使用されている場合は、*フレキシブル型*を示します。これは、型またはその派生型のいずれかを指します。<br /></li></ul>|
 |`$`|詳細情報はありません。|<ul><li>コンパイラで生成された特定の変数名と関数名に、内部的に使用されます。<br /></li></ul>|
 |`%`|[算術演算子](arithmetic-operators.md)<br /><br />[コード クォート](../code-quotations.md)|<ul><li>整数の剰余を計算します。<br /></li><li>型指定されたコード クォートに式をスプライスするために使用されます。<br /></li></ul>|
 |`%%`|[コード クォート](../code-quotations.md)|<ul><li>型指定されていないコード クォートに式をスプライスするために使用されます。<br /></li></ul>|
-|`%?`|[Null 許容の演算子](nullable-operators.md)|<ul><li>右辺が null 許容型の場合は、整数の剰余を計算します。<br /></li></ul>|
+|`%?`|[Null 許容の演算子](nullable-operators.md)|<ul><li>右辺が null 許容型である場合に、整数の剰余を計算します。<br /></li></ul>|
 |`&`|[match 式](../match-expressions.md)|<ul><li>他の言語と相互運用するときに使用するための、変更可能な値のアドレスを計算します。<br /></li><li>AND パターンで使用されます。<br /></li></ul>|
 |`&&`|[ブール演算子](boolean-operators.md)|<ul><li>ブール値の AND 演算を実行します。<br /></li></ul>|
 |`&&&`|[ビット処理演算子](bitwise-operators.md)|<ul><li>ビットごとの AND 演算を実行します。<br /></li></ul>|
@@ -49,9 +49,9 @@ ms.locfileid: "67306184"
 |`-`|[算術演算子](arithmetic-operators.md)|<ul><li>二項演算子として使用されている場合は、左辺から右辺を減算します。<br /></li><li>単項演算子として使用されている場合は、否定演算を実行します。<br /></li></ul>|
 |`-?`|[Null 許容の演算子](nullable-operators.md)|<ul><li>右辺が null 許容型である場合は、左辺から右辺を減算します。<br /></li></ul>|
 |`->`|[関数](../functions/index.md)<br /><br />[match 式](../match-expressions.md)|<ul><li>関数の型では、引数と戻り値を区切ります。<br /></li><li>(シーケンス式の) 式を生成します。`yield` キーワードと等価です。<br /></li><li>match 式で使用されます。<br /></li></ul>|
-|`.`|[メンバー](../members/index.md)<br /><br />[プリミティブ型](../primitive-types.md)|<ul><li>メンバーにアクセスし、完全修飾名の個々の名前を区切ります。<br /></li><li>浮動小数点数の小数点を示します。<br /></li></ul>|
-|`..`|[ループ:`for...in` 式](../loops-for-in-expression.md)|<ul><li>範囲を指定します。<br /></li></ul>|
-|`.. ..`|[ループ:`for...in` 式](../loops-for-in-expression.md)|<ul><li>インクリメントと共に範囲を指定します。<br /></li></ul>|
+|`.`|[メンバー](../members/index.md)<br /><br />[プリミティブ型](../basic-types.md)|<ul><li>メンバーにアクセスし、完全修飾名の個々の名前を区切ります。<br /></li><li>浮動小数点数の小数点を示します。<br /></li></ul>|
+|`..`|[ループ: `for...in` 式](../loops-for-in-expression.md)|<ul><li>範囲を指定します。<br /></li></ul>|
+|`.. ..`|[ループ: `for...in` 式](../loops-for-in-expression.md)|<ul><li>インクリメントと共に範囲を指定します。<br /></li></ul>|
 |`.[...]`|[配列](../arrays.md)|<ul><li>配列要素にアクセスします。<br /></li></ul>|
 |`/`|[算術演算子](arithmetic-operators.md)<br /><br />[測定単位](../units-of-measure.md)|<ul><li>左辺 (分子) を右辺 (分母) で除算します。<br /></li><li>測定単位の型で使用されます。<br /></li></ul>|
 |`/?`|[Null 許容の演算子](nullable-operators.md)|<ul><li>右辺が null 許容型である場合は、左辺を右辺で除算します。<br /></li></ul>|
@@ -61,7 +61,7 @@ ms.locfileid: "67306184"
 |`::`|[リスト](../lists.md)<br /><br />[match 式](../match-expressions.md)|<ul><li>リストを作成します。 左辺の要素が右辺のリストに追加されます。<br /></li><li>リストの各部分を区切るためにパターン マッチで使用されます。<br /></li></ul>|
 |`:=`|[参照セル](../reference-cells.md)|<ul><li>参照セルに値を割り当てます。<br /></li></ul>|
 |`:>`|[キャストと変換](../casting-and-conversions.md)|<ul><li>型を階層の上位の型に変換します。<br /></li></ul>|
-|`:?`|[match 式](../match-expressions.md)|<ul><li>返します`true`値 (サブタイプである場合を含む) 指定した型に一致する場合、それ`false`(型テスト演算子)。<br /></li></ul>|
+|`:?`|[match 式](../match-expressions.md)|<ul><li>値が指定した型と一致する (サブタイプである場合を含む) 場合は `true` を返します。それ以外の場合は `false` を返します (型テスト演算子)。<br /></li></ul>|
 |`:?>`|[キャストと変換](../casting-and-conversions.md)|<ul><li>型を階層の下位にある型に変換します。<br /></li></ul>|
 |`;`|[冗語構文](../verbose-syntax.md)<br /><br />[リスト](../lists.md)<br /><br />[レコード](../records.md)|<ul><li>式を区切ります (ほとんどの場合、冗語構文で使用されます)。<br /></li><li>リストの要素を区切ります。<br /></li><li>レコードのフィールドを区切ります。<br /></li></ul>|
 |`<`|[算術演算子](arithmetic-operators.md)|<ul><li>小なり演算を実行します。<br /></li></ul>|
@@ -81,12 +81,12 @@ ms.locfileid: "67306184"
 |`<@@...@@>`|[コード クォート](../code-quotations.md)|<ul><li>型指定されていないコード クォートを区切ります。<br /></li></ul>|
 |`=`|[算術演算子](arithmetic-operators.md)|<ul><li>左辺が右辺と等しい場合は `true` を返します。それ以外の場合は `false` を返します。<br /></li></ul>|
 |`=?`|[Null 許容の演算子](nullable-operators.md)|<ul><li>右辺が null 許容型である場合は、"等しい" 演算を実行します。<br /></li></ul>|
-|`==`|該当なし。|<ul><li>F# では使用されません。 等値演算には `=` を使用します。<br /></li></ul>|
+|`==`|該当しない。|<ul><li>F# では使用されません。 等値演算には `=` を使用します。<br /></li></ul>|
 |`>`|[算術演算子](arithmetic-operators.md)|<ul><li>左辺が右辺より大きい場合は `true` を返します。それ以外の場合は `false` を返します。<br /></li></ul>|
-|`>?`|[Null 許容の演算子](nullable-operators.md)|<ul><li>右辺が null 許容型の場合は、「より大きい」操作を実行します。<br /></li></ul>|
+|`>?`|[Null 許容の演算子](nullable-operators.md)|<ul><li>右辺が null 許容型である場合は、"より大きい" 演算を実行します。<br /></li></ul>|
 |`>>`|[関数](../functions/index.md)|<ul><li>2 つの関数を合成します (前方合成演算子)。<br /></li></ul>|
 |`>>>`|[ビット処理演算子](bitwise-operators.md)|<ul><li>左辺にある数のビットを、右辺に指定された桁数だけ右にシフトします。<br /></li></ul>|
-|`>=`|[算術演算子](arithmetic-operators.md)|<ul><li>返します`true`左側にあるが、右側にある; 以上の場合を返しますそれ以外の場合、`false`します。<br /></li></ul>|
+|`>=`|[算術演算子](arithmetic-operators.md)|<ul><li>左辺が右辺以上の場合に `true` を返します。それ以外の場合は `false`を返します。<br /></li></ul>|
 |`>=?`|[Null 許容の演算子](nullable-operators.md)|<ul><li>右辺が null 許容型である場合は、"以上" 演算を実行します。<br /></li></ul>|
 |`?`|[パラメーターと引数](../parameters-and-arguments.md)|<ul><li>省略可能な引数を指定します。<br /></li><li>動的メソッドや動的プロパティの呼び出しのための演算子として使用されます。 独自の実装を提供する必要があります。<br /></li></ul>|
 |`? ... <- ...`|詳細情報はありません。|<ul><li>動的プロパティを設定するための演算子として使用されます。 独自の実装を提供する必要があります。<br /></li></ul>|
@@ -120,33 +120,33 @@ ms.locfileid: "67306184"
 
 |演算子|結合規則|
 |--------|-------------|
-|`as`|Right|
-|`when`|権限|
-|<code>&#124;</code> (パイプ)|Left|
-|`;`|権限|
+|`as`|右|
+|`when`|右|
+|<code>&#124;</code> (パイプ)|左|
+|`;`|右|
 |`let`|非結合|
 |`function`, `fun`, `match`, `try`|非結合|
 |`if`|非結合|
-|`not`|権限|
-|`->`|権限|
-|`:=`|権限|
+|`not`|右|
+|`->`|右|
+|`:=`|右|
 |`,`|非結合|
-|`or`, <code>&#124;&#124;</code>|Left|
-|`&`, `&&`|Left|
-|`:>`, `:?>`|権限|
-|`<`*op*、 `>` *op*、 `=`、 <code>&#124;</code> *op*、 `&` *op*、 `&`<br /><br />(`<<<`、`>>>`、<code>&#124;&#124;&#124;</code>、`&&&` を含む)|Left|
-|`^`*op*<br /><br />(`^^^` を含む)|権限|
-|`::`|権限|
+|`or`、 <code>&#124;&#124;</code>|左|
+|`&`、 `&&`|左|
+|`:>`、 `:?>`|右|
+|`<`*op*、`>`*op*、`=`、<code>&#124;</code>*op*、`&`*op*、`&`<br /><br />(`<<<`、`>>>`、<code>&#124;&#124;&#124;</code>、`&&&` を含む)|左|
+|`^`*op*<br /><br />(`^^^` を含む)|右|
+|`::`|右|
 |`:?`|非結合|
 |`-`*op*、`+`*op*|これらのシンボルを挿入辞として使用するために適用|
 |`*`*op*、`/`*op*、`%`*op*|左|
-|`**`*op*|権限|
-|`f x` (関数適用)|Left|
-|<code>&#124;</code> (パターン マッチ)|権限|
-|前置演算子 (`+`*op*、`-`*op*、`%`、`%%`、`&`、`&&`、`!`*op*、`~`*op*)|Left|
-|`.`|Left|
-|`f(x)`|Left|
-|`f<`*types*`>`|Left|
+|`**`*op*|右|
+|`f x` (関数適用)|左|
+|<code>&#124;</code> (パターン一致)|右|
+|前置演算子 (`+`*op*、`-`*op*、`%`、`%%`、`&`、`&&`、`!`*op*、`~`*op*)|左|
+|`.`|左|
+|`f(x)`|左|
+|`f<`*types*`>`|左|
 
 F# はカスタム演算子のオーバー ロードをサポートしています。 これは、独自の演算子を定義できることを意味します。 上記の表では、*op* に、組み込みまたはユーザー定義の有効な (場合によっては空の) 演算子文字シーケンスを指定できます。 つまり、この表を使用して、カスタム演算子に使用する文字のシーケンスを決定し、目的のレベルの優先順位を実現することができます。 先行する `.` 文字は、コンパイラが優先順位を決定する場合は無視されます。
 

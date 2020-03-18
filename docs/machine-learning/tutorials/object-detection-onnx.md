@@ -1,28 +1,28 @@
 ---
-title: チュートリアル:ONNX と ML.NET でディープ ラーニングを使用してオブジェクトを検出する
+title: 'チュートリアル: ONNX ディープ ラーニング モデルを使用してオブジェクトを検出する'
 description: このチュートリアルでは、ML.NET の事前トレーニング済みの ONNX ディープ ラーニング モデルを使用して画像内のオブジェクトを検出する方法について説明します。
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 08/27/2019
+ms.date: 01/30/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: f31c5155dd3ca59b1a370599b3ffabb2648791b1
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 7ff9986c09e39f5c4d24f52c351db6455ff63e77
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72318529"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "77092721"
 ---
-# <a name="tutorial-detect-objects-using-onnx-in-mlnet"></a>チュートリアル:ML.NET で ONNX を使用してオブジェクトを検出する
+# <a name="tutorial-detect-objects-using-onnx-in-mlnet"></a>チュートリアル: ML.NET で ONNX を使用してオブジェクトを検出する
 
 ML.NET の事前トレーニング済みの ONNX モデルを使用して画像内のオブジェクトを検出する方法について説明します。
 
 オブジェクト検出モデルを最初からトレーニングするには、数百万のパラメーター、大量のラベル付きトレーニング データ、膨大な量の計算リソース (数百時間の GPU) を設定する必要があります。 事前トレーニング済みモデルを使用すると、トレーニング プロセスをショートカットできます。
 
-このチュートリアルでは、以下の内容を学習します。
+このチュートリアルでは、次の作業を行う方法について説明します。
 > [!div class="checklist"]
 >
-> - 問題を理解する
+> - 問題を把握する
 > - ONNX の概要と ML.NET でどのように動作するかについて説明します。
 > - モデルの概要
 > - 事前トレーニング済みモデルを再利用する
@@ -30,7 +30,7 @@ ML.NET の事前トレーニング済みの ONNX モデルを使用して画像�
 
 ## <a name="pre-requisites"></a>前提条件
 
-- [Visual Studio 2017 15.6 以降](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2017)が ".NET Core クロスプラット フォーム開発" とともにインストールされていること。
+- [Visual Studio 2017 バージョン 15.6 以降](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2017)が ".NET Core クロスプラットフォーム開発" ワークロードと共にインストールされている。
 - [Microsoft.ML NuGet パッケージ](https://www.nuget.org/packages/Microsoft.ML/)
 - [Microsoft.ML.ImageAnalytics NuGet パッケージ](https://www.nuget.org/packages/Microsoft.ML.ImageAnalytics/)
 - [Microsoft.ML.OnnxTransformer NuGet パッケージ](https://www.nuget.org/packages/Microsoft.ML.OnnxTransformer/)
@@ -45,7 +45,7 @@ ML.NET の事前トレーニング済みの ONNX モデルを使用して画像�
 
 オブジェクト検出はコンピューターのビジョンの問題です。 画像の分類に密接に関連していますが、オブジェクト検出では、より詳細なスケールで画像分類が実行されます。 オブジェクト検出では、画像内のエンティティの特定 "_と_" 分類の両方が行われます。 オブジェクト検出は、画像に異なる種類のオブジェクトが複数含まれる場合に使用します。
 
-![左側に犬の画像分類、右側にドッグ ショーのグループのオブジェクト分類がある横並びの画像](./media/object-detection-onnx/img-classification-obj-detection.PNG)
+![画像の分類とオブジェクトの分類を示すスクリーンショット。](./media/object-detection-onnx/img-classification-obj-detection.png)
 
 オブジェクト検出のユース ケースには、次のようなものがあります。
 
@@ -66,7 +66,7 @@ ML.NET の事前トレーニング済みの ONNX モデルを使用して画像�
 
 オブジェクト検出は、画像処理タスクです。 そのため、この問題を解決するためにトレーニングされるほとんどのディープ ラーニング モデルは、CNN です。 このチュートリアルで使用するモデルは、次のドキュメントで説明されている YOLOv2 モデルのコンパクトなバージョンである Tiny YOLOv2 モデルです。[「YOLO9000:Better, Faster, Stronger」 (YOLO9000: より良く、より速く、より強く) (Redmon、Fadhari 著)](https://arxiv.org/pdf/1612.08242.pdf)。 Tiny YOLOv2 は Pascal VOC データセットでトレーニングされ、20 種類のクラスのオブジェクトを予測できる 15 個のレイヤーで構成されています。 Tiny YOLOv2 は元の YOLOv2 モデルを凝縮したバージョンなので、速度と精度のトレードオフが生じます。 Netron などのツールを使用して、モデルを構成するさまざまなレイヤーを視覚化できます。 モデルを検査すると、ニューラル ネットワークを構成するすべてのレイヤー間の接続のマッピングが生成されます。各レイヤーには、レイヤーの名前と共にそれぞれの入力/出力の寸法が含まれます。 モデルの入力と出力を記述するために使用されるデータ構造は、テンソルと呼ばれます。 テンソルは、データを N 次元に格納するコンテナーと考えることができます。 Tiny YOLOv2 の場合、入力レイヤーの名前は `image` であり、`3 x 416 x 416` の寸法のテンソルが想定されています。 出力レイヤーの名前は `grid` であり、`125 x 13 x 13` の寸法の出力テンソルが生成されます。
 
-![非表示レイヤーに分割される入力レイヤー、次に出力レイヤー](./media/object-detection-onnx/netron-model-map.png)
+![非表示レイヤーに分割される入力レイヤー、次に出力レイヤー](./media/object-detection-onnx/netron-model-map-layers.png)
 
 YOLO モデルは `3(RGB) x 416px x 416px` の画像を受け取ります。 この入力はモデルによって取得され、さまざまなレイヤーを経由して出力が生成されます。 出力では入力画像が `13 x 13` グリッドに分割されます。グリッド内の各セルは、`125` 値で構成されます。
 
@@ -74,17 +74,17 @@ YOLO モデルは `3(RGB) x 416px x 416px` の画像を受け取ります。 こ
 
 Open Neural Network Exchange (ONNX) は、AI モデルのオープン ソース形式です。 ONNX は、フレームワーク間の相互運用性をサポートしています。 つまり、PyTorch などの多くの一般的な機械学習フレームワークのいずれかでモデルをトレーニングして ONNX 形式に変換し、ML.NET などの別のフレームワークで ONNX モデルを使用することができます。 詳細については、[ONNX の Web サイト](https://onnx.ai/)を参照してください。
 
-![ONNX でサポートされている形式を ONNX にインポートし、他の ONNX でサポートされている形式から使用する](./media/object-detection-onnx/onnx-frameworks.png)
+![使用されている、ONNX でサポートされる形式の図。](./media/object-detection-onnx/onnx-supported-formats.png)
 
 事前トレーニング済みの Tiny YOLOv2 モデルは ONNX 形式で格納されます。これはレイヤーのシリアル化された表現であり、それらのレイヤーの学習済みパターンです。 ML.NET では、ONNX との相互運用性は [`ImageAnalytics`](xref:Microsoft.ML.Transforms.Image) および [`OnnxTransformer`](xref:Microsoft.ML.Transforms.Onnx.OnnxTransformer) NuGet パッケージを使用して実現されます。 [`ImageAnalytics`](xref:Microsoft.ML.Transforms.Image) パッケージには、画像を受け取り、予測またはトレーニング パイプラインへの入力として使用できる数値にエンコードする一連の変換が含まれています。 [`OnnxTransformer`](xref:Microsoft.ML.Transforms.Onnx.OnnxTransformer) パッケージでは、ONNX ランタイムを利用して ONNX モデルを読み込み、それを使用して、指定された入力に基づいて予測を行います。
 
-![ONNX ファイルから ONNX ランタイム、最後に C# アプリケーションのデータ フロー](./media/object-detection-onnx/onnx-ml-net-integration.png)
+![ONNX ランタイムへの ONNX ファイルのデータ フロー。](./media/object-detection-onnx/onnx-ml-net-integration.png)
 
 ## <a name="set-up-the-net-core-project"></a>.NET Core プロジェクトを設定する
 
 ONNX の概要と Tiny YOLOv2 のしくみについて全般的な知識が得られたので、次はアプリケーションをビルドします。
 
-### <a name="create-a-console-application"></a>コンソール アプリケーションの作成
+### <a name="create-a-console-application"></a>コンソール アプリケーションを作成する
 
 1. "ObjectDetection" という名前の **.NET Core コンソール アプリケーション**を作成します。
 
@@ -213,7 +213,7 @@ ONNX の概要と Tiny YOLOv2 のしくみについて全般的な知識が得�
 
     [!code-csharp [DimensionsBaseClass](~/machinelearning-samples/samples/csharp/getting-started/DeepLearning_ObjectDetection_Onnx/ObjectDetectionConsoleApp/YoloParser/DimensionsBase.cs#L3-L9)]
 
-    `DimensionsBase` には、次の `float` フィールドがあります。
+    `DimensionsBase` には、次の `float` プロパティがあります。
 
     - `X` には、x 軸に沿ったオブジェクトの位置が格納されます。
     - `Y` には、y 軸に沿ったオブジェクトの位置が格納されます。
@@ -237,7 +237,7 @@ ONNX の概要と Tiny YOLOv2 のしくみについて全般的な知識が得�
 
     [!code-csharp [YoloBoundingBoxClass](~/machinelearning-samples/samples/csharp/getting-started/DeepLearning_ObjectDetection_Onnx/ObjectDetectionConsoleApp/YoloParser/YoloBoundingBox.cs#L7-L21)]
 
-    `YoloBoundingBox` には次のフィールドがあります。
+    `YoloBoundingBox` には、次のプロパティがあります。
 
     - `Dimensions` には、境界ボックスの寸法が格納されます。
     - `Label` には、境界ボックス内で検出されるオブジェクトのクラスが格納されます。
@@ -454,7 +454,7 @@ for (var j = i + 1; j < boxes.Count; j++)
 
 後処理の場合と同様に、スコアリングの手順にはいくつかの手順があります。 このために、スコアリング ロジックを格納するクラスをプロジェクトに追加します。
 
-1. **ソリューション エクスプローラー**で、プロジェクトを右クリックして、 **[追加]**  >  **[新しいアイテム]** の順に選択します。
+1. **ソリューション エクスプローラー**で、プロジェクトを右クリックし、 **[追加]**  >  **[新しい項目]** を選択します。
 1. **[新しい項目の追加]** ダイアログボックスで **[クラス]** を選択し、 **[名前]** フィールドを "*OnnxModelScorer.cs*" に変更します。 次に **[追加]** を選択します。
 
     コード エディターで "*OnnxModelScorer.cs*" ファイルが開きます。 "*OnnxModelScorer.cs*" の先頭に次の `using` ステートメントを追加します。
@@ -703,16 +703,16 @@ person and its Confidence score: 0.5551759
 
 画像を境界ボックスと共に表示するには、`assets/images/output/` ディレクトリに移動します。 処理された画像の 1 つのサンプルを次に示します。
 
-![ダイニング ルームの処理済み画像のサンプル](./media/object-detection-onnx/image3.jpg)
+![ダイニング ルームの処理済み画像のサンプル](./media/object-detection-onnx/dinning-room-table-chairs.png)
 
-お疲れさまでした。 これで、ML.NET でトレーニング済みの `ONNX` モデルを再利用してオブジェクト検出用の機械学習モデルを構築できました。
+おめでとうございます! これで、ML.NET でトレーニング済みの `ONNX` モデルを再利用してオブジェクト検出用の機械学習モデルを構築できました。
 
 このチュートリアルのソース コードは、[dotnet/machinelearning-samples](https://github.com/dotnet/machinelearning-samples/tree/master/samples/csharp/getting-started/DeepLearning_ObjectDetection_Onnx) リポジトリにあります。
 
-このチュートリアルでは、以下の内容を学習しました。
+このチュートリアルでは、次の作業を行う方法を学びました。
 > [!div class="checklist"]
 >
-> - 問題を理解する
+> - 問題を把握する
 > - ONNX の概要と ML.NET でどのように動作するかについて説明します。
 > - モデルの概要
 > - 事前トレーニング済みモデルを再利用する

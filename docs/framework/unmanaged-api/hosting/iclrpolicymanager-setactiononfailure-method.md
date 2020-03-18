@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 4664033f-db97-4388-b988-2ec470796e58
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 76f064d1683615ef8f665cf1facaa31d61b294a5
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 143052febe136e969987c35bc06f6c3b3356aedf
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67759598"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73140779"
 ---
 # <a name="iclrpolicymanagersetactiononfailure-method"></a>ICLRPolicyManager::SetActionOnFailure メソッド
-共通言語ランタイム (CLR) が指定したエラーが発生したときに実行する必要がありますポリシーのアクションを指定します。  
+指定したエラーが発生したときに共通言語ランタイム (CLR) が実行するポリシーアクションを指定します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,45 +36,45 @@ HRESULT SetActionOnFailure (
   
 ## <a name="parameters"></a>パラメーター  
  `failure`  
- [in]1 つ、 [EClrFailure](../../../../docs/framework/unmanaged-api/hosting/eclrfailure-enumeration.md)アクションを実行する対象のエラーの種類を示す値。  
+ から[Eclrfailure](../../../../docs/framework/unmanaged-api/hosting/eclrfailure-enumeration.md)値の1つで、アクションを実行するエラーの種類を示します。  
   
  `action`  
- [in]1 つ、 [EPolicyAction](../../../../docs/framework/unmanaged-api/hosting/epolicyaction-enumeration.md)障害が発生したときに実行されるアクションを示す値。 サポートされている値の一覧は、「解説」を参照してください。  
+ から[Epolicyaction](../../../../docs/framework/unmanaged-api/hosting/epolicyaction-enumeration.md)値の1つ。エラーが発生したときに実行するアクションを示します。 サポートされている値の一覧については、「解説」を参照してください。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`SetActionOnFailure` 正常に返されます。|  
-|HOST_E_CLRNOTAVAILABLE|プロセスに CLR が読み込まれていないか、CLR は状態をマネージ コードを実行または呼び出しを正常に処理ができません。|  
-|HOST_E_TIMEOUT|呼び出しがタイムアウトになりました。|  
+|S_OK|`SetActionOnFailure` が正常に返されました。|  
+|HOST_E_CLRNOTAVAILABLE|CLR がプロセスに読み込まれていないか、CLR がマネージドコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
+|HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
-|HOST_E_ABANDONED|イベントがキャンセルされましたブロックされたスレッドまたはファイバーが待機しています。|  
-|E_FAIL|不明な致命的なエラーが発生しました。 メソッドには、E_FAIL が返された、後に、CLR は、プロセス内で使用可能ではなくなりました。 メソッドをホストする後続の呼び出しには、HOST_E_CLRNOTAVAILABLE が返されます。|  
-|E_INVALIDARG|指定された操作のポリシーのアクションを設定することはできませんまたは操作に無効なポリシー アクションが指定されました。|  
+|HOST_E_ABANDONED|ブロックされたスレッドまたはファイバーが待機しているときに、イベントが取り消されました。|  
+|E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された後は、そのプロセス内で CLR を使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
+|E_INVALIDARG|指定された操作に対してポリシーアクションを設定できないか、操作に無効なポリシーアクションが指定されました。|  
   
 ## <a name="remarks"></a>Remarks  
- 既定では、CLR は、メモリなどのリソースの割り当てに失敗した場合に例外をスローします。 `SetActionOnFailure` により、ホストは、障害発生時に実行するポリシーのアクションを指定することでこの動作をオーバーライドします。 次の表は、組み合わせの[EClrFailure](../../../../docs/framework/unmanaged-api/hosting/eclrfailure-enumeration.md)と[EPolicyAction](../../../../docs/framework/unmanaged-api/hosting/epolicyaction-enumeration.md)サポートされている値。 (から FAIL_ プレフィックスを省略すると[EClrFailure](../../../../docs/framework/unmanaged-api/hosting/eclrfailure-enumeration.md)値)。  
+ 既定では、メモリなどのリソースの割り当てに失敗した場合、CLR は例外をスローします。 `SetActionOnFailure` では、エラー発生時に実行するポリシーアクションを指定することにより、ホストはこの動作をオーバーライドできます。 次の表は、サポートされている[Eclrfailure](../../../../docs/framework/unmanaged-api/hosting/eclrfailure-enumeration.md)値と[epolicyaction](../../../../docs/framework/unmanaged-api/hosting/epolicyaction-enumeration.md)値の組み合わせを示しています。 (FAIL_ プレフィックスは[Eclrfailure](../../../../docs/framework/unmanaged-api/hosting/eclrfailure-enumeration.md)値から省略されています)。  
   
-||NonCriticalResource|CriticalResource|FatalRuntime|OrphanedLock|StackOverflow|AccessViolation|CodeContract|  
+||NonCriticalResource|CriticalResource|Fat (Alruntime)|OrphanedLock|StackOverflow|AccessViolation|CodeContract|  
 |-|-------------------------|----------------------|------------------|------------------|-------------------|---------------------|------------------|  
 |`eNoAction`|x|x||||N/A||  
-|eThrowException|x|x||||N/A||  
+|の例外|x|x||||N/A||  
 |`eAbortThread`|x|x||||N/A|x|  
-|`eRudeAbortThread`|X|x||||N/A|x|  
-|`eUnloadAppDomain`|X|X||x||N/A|x|  
-|`eRudeUnloadAppDomain`|X|X||X|x|N/A|x|  
-|`eExitProcess`|X|X||X|x|N/A|x|  
-|eFastExitProcess|x|X||X|x|N/A||  
-|`eRudeExitProcess`|x|X|X|X|x|N/A||  
-|`eDisableRuntime`|x|X|X|X|x|N/A||  
+|`eRudeAbortThread`|x|x||||N/A|x|  
+|`eUnloadAppDomain`|x|x||x||N/A|x|  
+|`eRudeUnloadAppDomain`|x|x||x|x|N/A|x|  
+|`eExitProcess`|x|x||x|x|N/A|x|  
+|eFastExitProcess|x|x||x|x|N/A||  
+|`eRudeExitProcess`|x|x|x|x|x|N/A||  
+|`eDisableRuntime`|x|x|x|x|x|N/A||  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

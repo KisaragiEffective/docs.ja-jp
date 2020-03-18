@@ -1,5 +1,5 @@
 ---
-title: 'チュートリアル: カスタム データ フロー ブロックの型の作成'
+title: 'チュートリアル: カスタム データフロー ブロックの型の作成'
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 dev_langs:
@@ -10,19 +10,17 @@ helpviewer_keywords:
 - TPL dataflow library, creating custom dataflow blocks
 - dataflow blocks, creating custom in TPL
 ms.assetid: a6147146-0a6a-4d9b-ab0f-237b3c1ac691
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 62e2a25e48ead730112a37af451d64c6ccc2e141
-ms.sourcegitcommit: c7a7e1468bf0fa7f7065de951d60dfc8d5ba89f5
+ms.openlocfilehash: cb953952bbed90edd2db799e92d44ec9f062babf
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65593443"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73139884"
 ---
-# <a name="walkthrough-creating-a-custom-dataflow-block-type"></a>チュートリアル: カスタム データ フロー ブロックの型の作成
+# <a name="walkthrough-creating-a-custom-dataflow-block-type"></a>チュートリアル: カスタム データフロー ブロックの型の作成
 TPL データ フロー ライブラリには、さまざまな機能が有効になるいくつかのデータフロー ブロックの種類が用意されていますが、カスタム ブロックの種類を作成することもできます。 このドキュメントでは、カスタム動作を実装するデータフロー ブロックの種類を作成する方法について説明します。  
   
-## <a name="prerequisites"></a>必須コンポーネント  
+## <a name="prerequisites"></a>前提条件  
  [データフロー](../../../docs/standard/parallel-programming/dataflow-task-parallel-library.md)に関するページを読んでからこのドキュメントをお読みください。  
 
 [!INCLUDE [tpl-install-instructions](../../../includes/tpl-install-instructions.md)]
@@ -39,9 +37,9 @@ TPL データ フロー ライブラリには、さまざまな機能が有効�
  [!code-vb[TPLDataflow_SlidingWindowBlock#1](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_slidingwindowblock/vb/slidingwindowblock.vb#1)]  
   
 ## <a name="deriving-from-ipropagatorblock-to-define-the-sliding-window-dataflow-block"></a>IPropagatorBlock から派生してスライディング ウィンドウのデータフロー ブロックを定義する  
- `SlidingWindowBlock` クラスの例を次に示します。 このクラスは <xref:System.Threading.Tasks.Dataflow.IPropagatorBlock%602> から派生しているので、データのソースとターゲットの両方として機能することができます。 前の例と同様に、`SlidingWindowBlock` クラスは既存のデータフロー ブロックの種類に基づいて構築されています。 ただし、`SlidingWindowBlock` クラスは、<xref:System.Threading.Tasks.Dataflow.ISourceBlock%601>、<xref:System.Threading.Tasks.Dataflow.ITargetBlock%601>、および <xref:System.Threading.Tasks.Dataflow.IDataflowBlock> インターフェイスで必要なメソッドも実装しています。 これらのメソッドはすべて、処理を定義済みデータフロー ブロックの種類のメンバーに転送します。 たとえば、`Post` メソッドは <xref:System.Threading.Tasks.Dataflow.ITargetBlock%601> オブジェクトでもある `m_target` データ メンバーに処理を委任します。  
+ `SlidingWindowBlock` クラスの例を次に示します。 このクラスは <xref:System.Threading.Tasks.Dataflow.IPropagatorBlock%602> から派生しているので、データのソースとターゲットの両方として機能することができます。 前の例と同様に、`SlidingWindowBlock` クラスは既存のデータフロー ブロックの種類に基づいて構築されています。 ただし、`SlidingWindowBlock` クラスは、<xref:System.Threading.Tasks.Dataflow.ISourceBlock%601>、<xref:System.Threading.Tasks.Dataflow.ITargetBlock%601>、および <xref:System.Threading.Tasks.Dataflow.IDataflowBlock> インターフェイスで必要なメソッドも実装しています。 これらのメソッドはすべて、処理を定義済みデータフロー ブロックの種類のメンバーに転送します。 たとえば、`Post` メソッドは `m_target` オブジェクトでもある <xref:System.Threading.Tasks.Dataflow.ITargetBlock%601> データ メンバーに処理を委任します。  
   
- この手法は、カスタムのデータフロー機能が必要で、追加のメソッド、プロパティ、またはフィールドを提供する種類も必要な場合に便利です。 たとえば、`SlidingWindowBlock` クラスは <xref:System.Threading.Tasks.Dataflow.IReceivableSourceBlock%601.TryReceive%2A> メソッドと <xref:System.Threading.Tasks.Dataflow.IReceivableSourceBlock%601.TryReceiveAll%2A> メソッドを提供できるように <xref:System.Threading.Tasks.Dataflow.IReceivableSourceBlock%601> からも派生しています。 `SlidingWindowBlock` クラスには、`WindowSize` プロパティがあることからもその拡張性がわかります。このプロパティを使用すると、スライディング ウィンドウ内の要素の数を取得できます。  
+ この手法は、カスタムのデータフロー機能が必要で、追加のメソッド、プロパティ、またはフィールドを提供する種類も必要な場合に便利です。 たとえば、`SlidingWindowBlock` クラスは <xref:System.Threading.Tasks.Dataflow.IReceivableSourceBlock%601> メソッドと <xref:System.Threading.Tasks.Dataflow.IReceivableSourceBlock%601.TryReceive%2A> メソッドを提供できるように <xref:System.Threading.Tasks.Dataflow.IReceivableSourceBlock%601.TryReceiveAll%2A> からも派生しています。 `SlidingWindowBlock` クラスには、`WindowSize` プロパティがあることからもその拡張性がわかります。このプロパティを使用すると、スライディング ウィンドウ内の要素の数を取得できます。  
   
  [!code-csharp[TPLDataflow_SlidingWindowBlock#2](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_slidingwindowblock/cs/slidingwindowblock.cs#2)]
  [!code-vb[TPLDataflow_SlidingWindowBlock#2](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_slidingwindowblock/vb/slidingwindowblock.vb#2)]  
@@ -52,6 +50,6 @@ TPL データ フロー ライブラリには、さまざまな機能が有効�
  [!code-csharp[TPLDataflow_SlidingWindowBlock#100](../../../samples/snippets/csharp/VS_Snippets_Misc/tpldataflow_slidingwindowblock/cs/slidingwindowblock.cs#100)]
  [!code-vb[TPLDataflow_SlidingWindowBlock#100](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpldataflow_slidingwindowblock/vb/slidingwindowblock.vb#100)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [データフロー](../../../docs/standard/parallel-programming/dataflow-task-parallel-library.md)

@@ -1,5 +1,5 @@
 ---
-title: '方法: リフレクションのみのコンテキストにアセンブリを読み込む'
+title: '方法 : リフレクションのみのコンテキストにアセンブリを読み込む'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -12,16 +12,14 @@ helpviewer_keywords:
 - assemblies [.NET Framework], reflection-only loader context
 - reflection-only loader context
 ms.assetid: 9818b660-52f5-423d-a9af-e75163aa7068
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 8e22dcf7db5ec2c78a79e574604e0b39b4962727
-ms.sourcegitcommit: a97ecb94437362b21fffc5eb3c38b6c0b4368999
-ms.translationtype: HT
+ms.openlocfilehash: cac6b3b3adf070ad6070e5c5941653f20dedd907
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68971853"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73130111"
 ---
-# <a name="how-to-load-assemblies-into-the-reflection-only-context"></a>方法: リフレクションのみのコンテキストにアセンブリを読み込む
+# <a name="how-to-load-assemblies-into-the-reflection-only-context"></a>方法 : リフレクションのみのコンテキストにアセンブリを読み込む
 
 リフレクションのみの読み込みコンテキストでは、他のプラットフォームや .NET Framework の他のバージョン用にコンパイルされたアセンブリを検査できます。 このコンテキストに読み込まれたコードは検査のみ可能で、実行できません。 つまり、コンストラクターを実行できないので、オブジェクトは作成できません。 また、コードを実行できないため、依存関係は自動的には読み込まれません。 依存関係を検査する必要がある場合は、依存関係を独自に読み込む必要があります。
 

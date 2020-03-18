@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: b2f7007f-c446-4b18-aed1-a25cff8aee31
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3bb2f6333f306c8a19c8b2f67986b23819b74ee0
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: e1044386bd6251132703c4e98a0cf2ed267d34e0
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69966862"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76791137"
 ---
 # <a name="icordebugvalue-interface"></a>ICorDebugValue インターフェイス
 デバッグ中のプロセスの値を表します。 値には、読み取りまたは書き込みの値を指定できます。  
@@ -30,29 +28,29 @@ ms.locfileid: "69966862"
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[CreateBreakpoint メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugvalue-createbreakpoint-method.md)|このメソッドは現在実装されていません。|  
-|[GetAddress メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugvalue-getaddress-method.md)|このオブジェクトのアドレスを`ICorDebugValue`取得します。このアドレスは、デバッグ中のプロセスです。|  
-|[GetSize メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugvalue-getsize-method.md)|この`ICorDebugValue`オブジェクトのサイズ (バイト単位) を取得します。|  
-|[GetType メソッド](../../../../docs/framework/unmanaged-api/debugging/icordebugvalue-gettype-method.md)|この`ICorDebugValue`オブジェクトのプリミティブ型を取得します。|  
+|[CreateBreakpoint メソッド](icordebugvalue-createbreakpoint-method.md)|このメソッドは、現在実装されていません。|  
+|[GetAddress メソッド](icordebugvalue-getaddress-method.md)|この `ICorDebugValue` オブジェクトのアドレスを取得します。これはデバッグ中のプロセスです。|  
+|[GetSize メソッド](icordebugvalue-getsize-method.md)|この `ICorDebugValue` オブジェクトのサイズ (バイト単位) を取得します。|  
+|[GetType メソッド](icordebugvalue-gettype-method.md)|この `ICorDebugValue` オブジェクトのプリミティブ型を取得します。|  
   
-## <a name="remarks"></a>Remarks  
+## <a name="remarks"></a>コメント  
  一般に、値オブジェクトの所有権は、返されるときに渡されます。 オブジェクトの終了時に、オブジェクトからの参照を削除するのは、受信者の責任です。  
   
- 値が取得された場所によっては、プロセスが再開された後も値が有効なままにならないことがあります。 そのため、一般に、次のように、値は、は、「いいね[:: Continue](../../../../docs/framework/unmanaged-api/debugging/icordebugcontroller-continue-method.md)メソッドの呼び出し」で保持するべきではありません。  
+ 値が取得された場所によっては、プロセスが再開された後も値が有効なままにならないことがあります。 そのため、一般に、次のように、値は、は、「いいね[:: Continue](icordebugcontroller-continue-method.md)メソッドの呼び出し」で保持するべきではありません。  
   
 > [!NOTE]
 > このインターフェイスは、コンピューター間またはプロセス間でのリモート呼び出しをサポートしていません。  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorDebug .idl、CorDebug. h  
+ **ヘッダー:** CorDebug.idl、CorDebug.h  
   
- **ライブラリ**CorGuids .lib  
+ **ライブラリ:** CorGuids.lib  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugValue3 インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugvalue3-interface.md)
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [ICorDebugValue3 インターフェイス](icordebugvalue3-interface.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

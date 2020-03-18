@@ -1,15 +1,13 @@
 ---
-title: <Subtypes>要素 (.NET ネイティブ)
+title: <Subtypes> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: fb854070-248b-46cf-9dab-c322e2b4d624
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 2af1acc02b18c5b97ef66ccae9b70c1f5327bff4
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 9f090e7d1558d31111345e2c9b8dabb55b7122c1
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049126"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128101"
 ---
 # <a name="subtypes-element-net-native"></a>\<サブタイプ > 要素 (.NET ネイティブ)
 それを含む型から継承されたすべてのクラスに実行時ポリシーを適用します。  
@@ -49,7 +47,7 @@ ms.locfileid: "71049126"
   
 ## <a name="all-attributes"></a>すべての属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*policy_setting*|このポリシーの種類に適用する設定です。 指定できる値は、`All`、`Auto`、`Excluded`、`Public`、`PublicAndInternal`、`Required Public`、`Required PublicAndInternal`、および `Required All` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|  
   
@@ -91,7 +89,7 @@ ms.locfileid: "71049126"
   
 ## <a name="see-also"></a>関連項目
 
-- [\<> 要素を入力します](type-element-net-native.md)
+- [\<Type > 要素](type-element-net-native.md)
 - [ランタイム ディレクティブ (rd.xml) 構成ファイル リファレンス](runtime-directives-rd-xml-configuration-file-reference.md)
 - [ランタイム ディレクティブ要素](runtime-directive-elements.md)
 - [ランタイム ディレクティブ ポリシーの設定](runtime-directive-policy-settings.md)

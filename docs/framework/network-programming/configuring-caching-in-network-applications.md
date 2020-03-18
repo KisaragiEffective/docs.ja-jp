@@ -5,10 +5,10 @@ helpviewer_keywords:
 - cache [.NET Framework], configuring
 ms.assetid: 3f694a1c-de5d-47cf-a6eb-cfc369fb8a9f
 ms.openlocfilehash: d8ff64e4ab42283732d7f632efab6b4e9afad0a0
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/15/2020
 ms.locfileid: "71048702"
 ---
 # <a name="configuring-caching-in-network-applications"></a>ネットワーク アプリケーションでのキャッシュの構成
@@ -24,7 +24,7 @@ ms.locfileid: "71048702"
   
  アプリケーションまたはマシン構成ファイルを使用して、キャッシュ ポリシーを構成することもできます。 詳細については、「[\<requestCaching> 要素 (ネットワーク設定)](../configure-apps/file-schema/network/requestcaching-element-network-settings.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ネットワーク アプリケーションのキャッシュ管理](cache-management-for-network-applications.md)
 - [キャッシュ ポリシー](cache-policy.md)

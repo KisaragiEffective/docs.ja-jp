@@ -5,12 +5,12 @@ helpviewer_keywords:
 - WCF [WCF], troubleshooting
 - Windows Communication Foundation [WCF], troubleshooting
 ms.assetid: a9ea7a53-f31a-46eb-806e-898e465a4992
-ms.openlocfilehash: 86aab2b39aaa9c7d7d92f7d5738482723cf6852f
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: d1cae7ad2ac0fdf963d11911484b1bd534cbc129
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72320182"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77094736"
 ---
 # <a name="wcf-troubleshooting-quickstart"></a>WCF トラブルシューティング クイックスタート
 このトピックでは、WCF クライアントと WCF サービスの開発時に生じるさまざまな既知の問題の一覧を示します。 発生している問題がこの一覧にない場合は、サービスに対してトレースを構成することをお勧めします。 これにより、トレース ファイル ビューアーで表示し、サービス内で発生することがある例外に関する詳細情報を取得できるトレース ファイルが生成されます。 トレースの構成の詳細については、「 [Configuring Tracing](./diagnostics/tracing/configuring-tracing.md)」を参照してください。 トレース ファイル ビューアーの詳細については、「 [Service Trace Viewer Tool (SvcTraceViewer.exe)](service-trace-viewer-tool-svctraceviewer-exe.md)」を参照してください。  
@@ -27,7 +27,7 @@ ms.locfileid: "72320182"
   
 5. [サービスとクライアントは正常に機能しますが、クライアントが別のコンピューターにある場合は機能しませんか。どうしたんですか。](#BKMK_q4)  
   
-6. [型が例外である > FaultException @ no__t-1Exception をスローすると、常に、ジェネリック型ではなく、クライアントで一般的な FaultException 型を受け取ります。どうしたんですか。](#BKMK_q5)  
+6. [型が例外である > FaultException\<Exception をスローすると、常に、ジェネリック型ではなく、クライアントで一般的な FaultException 型を受け取ります。どうしたんですか。](#BKMK_q5)  
   
 7. [応答にデータが含まれていない場合は、一方向の操作と要求/応答操作がほぼ同じ速度で返されるように見えます。どうしたんですか。](#BKMK_q6)  
   
@@ -47,19 +47,19 @@ ms.locfileid: "72320182"
   
  HTTP エラー 404.3 - Not Found 拡張構成により、要求しているページは使用できません。 ページがスクリプトの場合は、ハンドラーを追加します。 ファイルをダウンロードする場合は、MIME マップを追加します。 エラーの詳細: InformationModule StaticFileModule。  
   
- このエラーメッセージは、コントロールパネルで "Windows Communication Foundation HTTP Activation" が明示的に設定されていない場合に発生します。 これを設定するには、コントロール パネルに移動し、ウィンドウの左下にある [プログラム] をクリックします。 [Windows の機能の有効化または無効化] をクリックします。 [Microsoft .NET Framework 3.5.1] を展開し、[Windows Communication Foundation HTTP Activation] をクリックします。  
+ このエラーメッセージは、コントロールパネルで "Windows Communication Foundation HTTP Activation" が明示的に設定されていない場合に発生します。 これを設定するには、コントロールパネルに移動し、ウィンドウの左下隅にある [プログラム] をクリックします。 [Windows の機能の有効化または無効化] をクリックします。 [Microsoft .NET Framework 3.5.1] を展開し、[Windows Communication Foundation HTTP Activation] をクリックします。  
   
 <a name="BKMK_q1"></a>   
-## <a name="sometimes-i-receive-a-messagesecurityexception-on-the-second-request-if-my-client-is-idle-for-a-while-after-the-first-request-what-is-happening"></a>最初の要求の後でクライアントがしばらくアイドル状態になった場合、2 番目の要求で MessageSecurityException を受け取ることがあります。 どうしてでしょうか。  
- 2 番目の要求は、主に次の 2 つの理由から失敗する可能性があります。(1) セッションがタイムアウトした。(2) サービスをホストしている Web サーバーがリサイクルされている。 最初のケースでは、セッションはサービスがタイムアウトするまで有効です。サービスが、サービスのバインド (<xref:System.ServiceModel.Channels.Binding.ReceiveTimeout%2A>) で指定された期間内にクライアントから要求を受信しなかった場合、サービスはセキュリティセッションを終了します。 それ以降のクライアント メッセージでは、 <xref:System.ServiceModel.Security.MessageSecurityException>が発生します。 クライアントは、セキュリティで保護されたセッションをサービスとの間に再度確立して、後続のメッセージを送信するか、ステートフルなセキュリティ コンテキスト トークンを使用する必要があります。 また、ステートフルなセキュリティ コンテキスト トークンによって、セキュリティで保護されたセッションは、再利用される Web サーバーで存続することができます。 セキュリティで保護されたセッションでのステートフルなセキュリティで保護されたコンテキストトークンの使用の詳細については、「[方法: セキュリティ保護されたセッションのセキュリティコンテキストトークンを作成](./feature-details/how-to-create-a-security-context-token-for-a-secure-session.md)する」を参照してください。 また、セキュリティで保護されたセッションは無効にできます。 [@No__t-1wsHttpBinding >](../configure-apps/file-schema/wcf/wshttpbinding.md)バインドを使用すると、`establishSecurityContext` プロパティを `false` に設定して、セキュリティで保護されたセッションを無効にすることができます。 その他のバインディングでセキュリティで保護されたセッションを無効にするには、カスタム バインディングを作成する必要があります。 カスタム バインディングの作成の詳細については、「 [How to: Create a Custom Binding Using the SecurityBindingElement](./feature-details/how-to-create-a-custom-binding-using-the-securitybindingelement.md)」を参照してください。 このオプションを適用する前に、アプリケーションのセキュリティ要件を確認する必要があります。  
+## <a name="sometimes-i-receive-a-messagesecurityexception-on-the-second-request-if-my-client-is-idle-for-a-while-after-the-first-request-what-is-happening"></a>最初の要求の後でクライアントがしばらくアイドル状態になった場合、2 番目の要求で MessageSecurityException を受け取ることがあります。 状況  
+ 2 番目の要求は、主に次の 2 つの理由から失敗する可能性があります。(1) セッションがタイムアウトした。(2) サービスをホストしている Web サーバーがリサイクルされている。 最初のケースでは、セッションはサービスがタイムアウトするまで有効です。サービスが、サービスのバインド (<xref:System.ServiceModel.Channels.Binding.ReceiveTimeout%2A>) で指定された期間内にクライアントから要求を受信しなかった場合、サービスはセキュリティセッションを終了します。 それ以降のクライアント メッセージでは、 <xref:System.ServiceModel.Security.MessageSecurityException>が発生します。 クライアントは、セキュリティで保護されたセッションをサービスとの間に再度確立して、後続のメッセージを送信するか、ステートフルなセキュリティ コンテキスト トークンを使用する必要があります。 また、ステートフルなセキュリティ コンテキスト トークンによって、セキュリティで保護されたセッションは、再利用される Web サーバーで存続することができます。 セキュリティで保護されたセッションでのステートフルなセキュリティで保護されたコンテキストトークンの使用の詳細については、「[方法: セキュリティ保護されたセッションのセキュリティコンテキストトークンを作成](./feature-details/how-to-create-a-security-context-token-for-a-secure-session.md)する」を参照してください。 また、セキュリティで保護されたセッションは無効にできます。 [\<wsHttpBinding >](../configure-apps/file-schema/wcf/wshttpbinding.md) binding を使用する場合は、`establishSecurityContext` プロパティを `false` に設定して、セキュリティで保護されたセッションを無効にすることができます。 その他のバインディングでセキュリティで保護されたセッションを無効にするには、カスタム バインディングを作成する必要があります。 カスタム バインディングの作成の詳細については、「 [How to: Create a Custom Binding Using the SecurityBindingElement](./feature-details/how-to-create-a-custom-binding-using-the-securitybindingelement.md)」を参照してください。 このオプションを適用する前に、アプリケーションのセキュリティ要件を確認する必要があります。  
   
 <a name="BKMK_q2"></a>   
-## <a name="my-service-starts-to-reject-new-clients-after-about-10-clients-are-interacting-with-it-what-is-happening"></a>サービスと対話しているクライアントの数が約 10 個になると、サービスが新しいクライアントを拒否し始めます。 どうしてでしょうか。  
- 既定では、サービスは、10 個の同時セッションだけをサポートできます。 したがって、サービス バインディングでセッションを使用する場合、サービスは 10 個に到達するまで新しいクライアント接続を受け入れますが、その数に到達した後は、現在実行中のセッションの 1 つが終了するまで新しいクライアント接続を拒否します。 いくつかの方法で、より多くのクライアントをサポートできます。 サービスにセッションが必要ない場合、セッションの多いバインディングを使用しないでください (詳細については、「[セッションの使用](using-sessions.md)」を参照してください)。もう1つの方法として、<xref:System.ServiceModel.Description.ServiceThrottlingBehavior.MaxConcurrentSessions%2A> プロパティの値を自分の状況に適した数値に変更することで、セッションの制限を増やすこともできます。  
+## <a name="my-service-starts-to-reject-new-clients-after-about-10-clients-are-interacting-with-it-what-is-happening"></a>サービスと対話しているクライアントの数が約 10 個になると、サービスが新しいクライアントを拒否し始めます。 状況  
+ 既定では、サービスは、10 個の同時セッションだけをサポートできます。 したがって、サービス バインディングでセッションを使用する場合、サービスは 10 個に到達するまで新しいクライアント接続を受け入れますが、その数に到達した後は、現在実行中のセッションの 1 つが終了するまで新しいクライアント接続を拒否します。 いくつかの方法で、より多くのクライアントをサポートできます。 サービスにセッションが必要ない場合、セッションの多いバインディングを使用しないでください (詳細については、「[セッションの使用](using-sessions.md)」を参照してください)。別の方法として、[<xref:System.ServiceModel.Description.ServiceThrottlingBehavior.MaxConcurrentSessions%2A>] プロパティの値を自分の状況に適した数値に変更することで、セッションの制限を増やすこともできます。  
   
 <a name="BKMK_q3"></a>   
 ## <a name="can-i-load-my-service-configuration-from-somewhere-other-than-the-wcf-applications-configuration-file"></a>WCF アプリケーションの構成ファイル以外の場所からサービス構成を読み込むことはできますか。  
- できます。ただし、 <xref:System.ServiceModel.ServiceHost> メソッドをオーバーライドするカスタムの <xref:System.ServiceModel.ServiceHostBase.ApplyConfiguration%2A> クラスを作成する必要があります。 そのメソッドでは、ベースを呼び出して最初に構成を読み込むことができますが (標準の構成情報も読み込む場合)、構成読み込みシステム全体を置き換えることもできます。 アプリケーションの構成ファイルとは異なる構成ファイルから構成を読み込む場合は、構成ファイルを自分で解析して構成を読み込む必要があります。  
+ できます。ただし、 <xref:System.ServiceModel.ServiceHost> メソッドをオーバーライドするカスタムの <xref:System.ServiceModel.ServiceHostBase.ApplyConfiguration%2A> クラスを作成する必要があります。 そのメソッドでは、ベースを呼び出して最初に構成を読み込むことができますが (標準の構成情報も読み込む場合)、構成読み込みシステム全体を置き換えることもできます。 アプリケーション構成ファイルとは異なる構成ファイルから構成を読み込む場合は、構成ファイルを自分で解析し、構成を読み込む必要があります。  
   
  <xref:System.ServiceModel.ServiceHostBase.ApplyConfiguration%2A> メソッドをオーバーライドし、エンドポイントを直接構成する方法を次のコード例に示します。  
   
@@ -100,7 +100,7 @@ public class MyServiceHost : ServiceHost
   
 - 場合によっては、クライアントのエンドポイント アドレスを "localhost" ではなくホスト名に変更する必要があります。  
   
-- 場合によっては、アプリケーションに対してポートを開く必要があります。 詳細については、SDK サンプルから「 [ファイアウォール手順](./samples/firewall-instructions.md) 」を参照してください。  
+- 場合によっては、アプリケーションに対してポートを開く必要があります。 詳細については、SDK サンプルから「 [Firewall Instructions](./samples/firewall-instructions.md) 」を参照してください。  
   
 - その他の問題については、 [Windows Communication Foundation サンプルを実行](./samples/running-the-samples.md)するサンプルトピックを参照してください。  
   
@@ -130,18 +130,18 @@ public class MyServiceHost : ServiceHost
   
     3. 既定でサービス プリンシパル名 (SPN) アカウントを使用するインターネット インフォメーション サービス (IIS) でのサービスをホストします。  
   
-    4. SetSPN を使用してドメインに新しい SPN を登録します。 この操作を行えるのは、ドメイン管理者のみです。  
+    4. SetSPN を使用してドメインに新しい SPN を登録します。 これを行うには、ドメイン管理者である必要があります。  
   
- Kerberos プロトコルの詳細については、「 [WCF で使用されるセキュリティの概要](./feature-details/security-concepts-used-in-wcf.md)」および次を参照してください。  
+ Kerberos プロトコルの詳細については、「 [WCF およびで使用されるセキュリティの概念](./feature-details/security-concepts-used-in-wcf.md)」を参照してください。  
   
 - [Windows 認証エラーのデバッグ](./feature-details/debugging-windows-authentication-errors.md)  
   
-- [Http.sys を使用した Kerberos サービス プリンシパル名の登録](https://go.microsoft.com/fwlink/?LinkId=86943)  
+- [Http.sys を使用した Kerberos サービス プリンシパル名の登録](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms178119(v=sql.105))  
   
-- [Kerberos の説明](https://go.microsoft.com/fwlink/?LinkId=86946)  
+- [Kerberos の説明](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/bb742516(v%3dtechnet.10))  
   
 <a name="BKMK_q5"></a>   
-## <a name="when-i-throw-a-faultexceptionexception-where-the-type-is-an-exception-i-always-receive-a-general-faultexception-type-on-the-client-and-not-the-generic-type-whats-happening"></a>型が例外である > FaultException @ no__t-0Exception をスローすると、常に、ジェネリック型ではなく、クライアントで一般的な FaultException 型を受け取ります。 どうしてでしょうか。  
+## <a name="when-i-throw-a-faultexceptionexception-where-the-type-is-an-exception-i-always-receive-a-general-faultexception-type-on-the-client-and-not-the-generic-type-whats-happening"></a>型が例外である > FaultException\<Exception をスローすると、常に、ジェネリック型ではなく、クライアントで一般的な FaultException 型を受け取ります。 どうしてでしょうか。  
  独自のカスタム エラー データ型を作成し、エラー コントラクトで詳細な型としてその型を宣言することをお勧めします。 その理由は、システム指定の例外型を使用すると、次のような状況が起こるためです。  
   
 - サービス指向アプリケーションの長所の 1 つを排除する型依存関係が作成されます。  
@@ -158,7 +158,7 @@ public class MyServiceHost : ServiceHost
   
 <a name="BKMK_q77"></a>   
 ## <a name="im-using-an-x509-certificate-with-my-service-and-i-get-a-systemsecuritycryptographycryptographicexception-whats-happening"></a>サービスで X.509 証明書を使用していますが、System.Security.Cryptography.CryptographicException を受け取ります。 どうしてでしょうか。  
- この例外は通常、IIS ワーカー プロセスの実行に使用しているユーザー アカウントを変更すると発生します。 たとえば、 [!INCLUDE[wxp](../../../includes/wxp-md.md)]で、既定のユーザー アカウントを使用して Aspnet_wp.exe を実行しているときにそのアカウントを ASPNET からカスタムのユーザー アカウントに変更した場合、このエラーが発生します。 秘密キーを使用している場合、そのキーを使用するプロセスには、そのキーを格納しているファイルにアクセスするためのアクセス許可が必要になります。  
+ この例外は通常、IIS ワーカー プロセスの実行に使用しているユーザー アカウントを変更すると発生します。 たとえば、Windows XP では、Aspnet_wp が実行される既定のユーザーアカウントを ASPNET からカスタムユーザーアカウントに変更すると、このエラーが表示されることがあります。 秘密キーを使用している場合、そのキーを使用するプロセスには、そのキーを格納しているファイルにアクセスするためのアクセス許可が必要になります。  
   
  この場合、秘密キーを格納しているファイルについて、プロセスのアカウントに読み取りアクセス権を与える必要があります。 たとえば、IIS ワーカー プロセスを Bob というアカウントで実行している場合、秘密キーを格納しているファイルへの読み取りアクセス権を Bob に与える必要があります。  
   
@@ -166,11 +166,11 @@ public class MyServiceHost : ServiceHost
   
 <a name="BKMK_q88"></a>   
 ## <a name="i-changed-the-first-parameter-of-an-operation-from-uppercase-to-lowercase-now-my-client-throws-an-exception-whats-happening"></a>操作の最初のパラメーターを大文字から小文字に変更したら、クライアントが例外をスローするようになりました。 どうしてでしょうか。  
- 操作シグネチャのパラメーター名の値はコントラクトに含まれ、大文字と小文字が区別されます。 ローカル パラメーター名と、クライアント アプリケーションの操作を記述するメタデータを区別する必要がある場合は、 <xref:System.ServiceModel.MessageParameterAttribute?displayProperty=nameWithType> 属性を使用します。  
+ 操作シグネチャのパラメーター名の値は、コントラクトの一部であり、大文字と小文字が区別されます。 ローカル パラメーター名と、クライアント アプリケーションの操作を記述するメタデータを区別する必要がある場合は、 <xref:System.ServiceModel.MessageParameterAttribute?displayProperty=nameWithType> 属性を使用します。  
   
 <a name="BKMK_q99"></a>   
 ## <a name="im-using-one-of-my-tracing-tools-and-i-get-an-endpointnotfoundexception-whats-happening"></a>トレース ツールの 1 つを使用していますが、EndpointNotFoundException を受け取りました。 どうしてでしょうか。  
- システム提供の WCF トレースメカニズムではないトレースツールを使用していて、アドレスフィルターが一致しなかったことを示す @no__t 0 を受け取った場合は、<xref:System.ServiceModel.Description.ClientViaBehavior> クラスを使用して、メッセージをトレースユーティリティに送信し、ユーティリティは、これらのメッセージをサービスアドレスにリダイレクトします。 <xref:System.ServiceModel.Description.ClientViaBehavior> クラスは、 `Via` アドレス指定ヘッダーを変更して、 `To` アドレス指定ヘッダーで示されている最終受信者とは別に、次のネットワーク アドレスを指定します。 ただし、このとき、エンドポイント アドレスは `To` 値の設定に使用されるので変更しないでください。  
+ システムが提供する WCF トレースメカニズムではないトレースツールを使用していて、アドレスフィルターの不一致があったことを示す <xref:System.ServiceModel.EndpointNotFoundException> を受け取った場合は、<xref:System.ServiceModel.Description.ClientViaBehavior> クラスを使用してメッセージをトレースユーティリティに送信し、そのメッセージをサービスアドレスにリダイレクトするようにユーティリティに指示する必要があります。 <xref:System.ServiceModel.Description.ClientViaBehavior> クラスは、 `Via` アドレス指定ヘッダーを変更して、 `To` アドレス指定ヘッダーで示されている最終受信者とは別に、次のネットワーク アドレスを指定します。 ただし、このとき、エンドポイント アドレスは `To` 値の設定に使用されるので変更しないでください。  
   
  次のコード例は、クライアント構成ファイルの例を示しています。  
   
@@ -224,7 +224,7 @@ public class MyServiceHost : ServiceHost
 </bindings>  
 ```  
   
- 次のようなエラーが表示されます。未処理の例外: System.servicemodel.addressalreadyinuseexception: IP エンドポイント0.0.0.0 にリスナーが既に存在します。9000の場合、このエラーを回避するには、別のポートを持つ完全修飾 URL を指定します。次の構成スニペットに示すように、MEX エンドポイント。  
+ "ハンドルされない例外: System.ServiceModel.AddressAlreadyInUseException: IP エンドポイント 0.0.0.0:9000 には既にリスナーがあります。" というエラーが表示されます。このエラーは、次の構成スニペットに示すように、ポートが異なる完全修飾 URL を MEX エンドポイントに対して指定することで回避できます。  
   
 ```xml
 <services>  
@@ -237,7 +237,7 @@ public class MyServiceHost : ServiceHost
   
 <a name="BK_MK99"></a>   
 ## <a name="when-calling-a-wcf-web-http-application-from-a-wcf-soap-application-the-service-returns-the-following-error-405-method-not-allowed"></a>WCF SOAP アプリケーションから WCF Web HTTP アプリケーションを呼び出すと、サービスから "405 メソッドは許可されていません" というエラーが返されます  
- Wcf Web HTTP アプリケーション (<xref:System.ServiceModel.WebHttpBinding> と <xref:System.ServiceModel.Description.WebHttpBehavior> を使用するサービス) を WCF サービスから呼び出すと、次の例外が発生する可能性があります。 `Unhandled Exception: System.ServiceModel.FaultException`1 [System.servicemodel 詳細]: リモートサーバーが予期しない応答を返しました: (405) メソッド Not許可します。 ' この例外は、WCF によって送信 <xref:System.ServiceModel.OperationContext> が受信 <xref:System.ServiceModel.OperationContext> で上書きされるために発生します。 この問題を解決するには、WCF Web HTTP サービス操作内で <xref:System.ServiceModel.OperationContextScope> を作成します。 (例:  
+ Wcf サービスから wcf Web HTTP アプリケーション (<xref:System.ServiceModel.WebHttpBinding> と <xref:System.ServiceModel.Description.WebHttpBehavior>を使用するサービス) を呼び出すと、次の例外が発生する可能性があり ``Unhandled Exception: System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: The remote server returned an unexpected response: (405) Method Not Allowed.`` ます。この例外が発生するのは、WCF が受信 <xref:System.ServiceModel.OperationContext>で送信 <xref:System.ServiceModel.OperationContext> を上書きするためです。 この問題を解決するには、WCF Web HTTP サービス操作内で <xref:System.ServiceModel.OperationContextScope> を作成します。 次に例を示します。  
   
 ```csharp
 public string Echo(string input)  
@@ -249,6 +249,6 @@ public string Echo(string input)
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Windows 認証エラーのデバッグ](./feature-details/debugging-windows-authentication-errors.md)

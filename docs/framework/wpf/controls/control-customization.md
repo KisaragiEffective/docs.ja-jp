@@ -7,15 +7,15 @@ helpviewer_keywords:
 - customizing controls [WPF]
 - controls [WPF], customization
 ms.assetid: a3d9930e-5597-470e-a636-dcf65eac500b
-ms.openlocfilehash: b70a6654e5c3722ad1ef1d926ee3a441d24d9e68
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 946724cc388c9c9456973ef164b8b6f38fd85869
+ms.sourcegitcommit: 944ddc52b7f2632f30c668815f92b378efd38eea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62017697"
+ms.lasthandoff: 11/03/2019
+ms.locfileid: "73460750"
 ---
 # <a name="control-customization"></a>コントロールのカスタマイズ
-このカテゴリは、さまざまな基本クラス、インターフェイス、およびその他の要素および完全に機能の作成に使用される概念について説明します。[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]コントロール。  
+このカテゴリは、完全に機能する [!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] コントロールの作成に使用される、さまざまな基本クラス、インターフェイス、およびその他の要素と概念について説明します。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [コントロールの作成の概要](control-authoring-overview.md)  
@@ -26,4 +26,4 @@ ms.locfileid: "62017697"
   
 ## <a name="see-also"></a>関連項目
 
-- [スタイルとテンプレート](styling-and-templating.md)
+- [スタイルとテンプレート](../../../desktop-wpf/fundamentals/styles-templates-overview.md)

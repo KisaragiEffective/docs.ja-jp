@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: fe4150e8-071d-43fb-8e06-c3c616dbeed2
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 2796be32154275387da891683cc5053095f534af
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 39f72e670ddc700c257f50f6bad6fab702ec21b6
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67772329"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74432774"
 ---
 # <a name="corsetenc-enumeration"></a>CorSetENC 列挙型
 メタデータの生成中の動作を決定する値が格納されます。  
@@ -50,20 +48,20 @@ typedef enum CorSetENC {
 |------------|-----------------|  
 |`MDSetENCOn`|互換性のために残されています。|  
 |`MDSetENCOff`|互換性のために残されています。|  
-|`MDUpdateENC`|一方、メタデータを更新するには、トークン移動できないことを示します。|  
-|`MDUpdateFull`|トークンを更新中に移動できることを示します。|  
-|`MDUpdateExtension`|追加機能のみを更新できますで構成されることを示します。 トークンを移動することはできません。|  
+|`MDUpdateENC`|メタデータを更新できるのに対して、トークンを移動できないことを示します。|  
+|`MDUpdateFull`|更新中にトークンを移動できることを示します。|  
+|`MDUpdateExtension`|更新プログラムが追加のみで構成されることを示します。 トークンは移動できません。|  
 |`MDUpdateIncremental`|コンパイルが増分であることを示します。|  
-|`MDUpdateDelta`|その唯一の変更されたメタデータを保存するかを示します。|  
-|`MDUpdateMask`|含まれています`MDUpdateENC`、`MDUpdateFull`と`MDUpdateIncremental`します。|  
+|`MDUpdateDelta`|は、変更されたメタデータのみを保存することを示します。|  
+|`MDUpdateMask`|`MDUpdateENC`、`MDUpdateFull` および `MDUpdateIncremental`が含まれます。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorHdr.h  
+ **ヘッダー:** CorHdr. h  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [メタデータ列挙型](../../../../docs/framework/unmanaged-api/metadata/metadata-enumerations.md)

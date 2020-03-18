@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: e1efedcb-3dd7-42ae-a399-21c24728aec5
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 2f3d74830de0541ec789081c47352beca8d81d74
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 4faf8646b81f92ddf65eff15fdc610d275b37864
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67780707"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74440015"
 ---
 # <a name="imetadataimportenumevents-method"></a>IMetaDataImport::EnumEvents メソッド
 指定した TypeDef トークンのイベント定義トークンを列挙します。  
@@ -44,30 +42,30 @@ HRESULT EnumEvents (
  [入力、出力]列挙子へのポインター。  
   
  `td`  
- [in]イベント定義を持つが列挙 TypeDef トークンです。  
+ からイベント定義を列挙する TypeDef トークン。  
   
  `rEvents`  
- [out]返されるイベントの配列。  
+ 入出力返されたイベントの配列。  
   
  `cMax`  
  [in] `rEvents` 配列の最大サイズ。  
   
  `pcEvents`  
- [out]実際に返されるイベントの数`rEvents`します。  
+ 入出力`rEvents`で返されるイベントの実際の数。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|`S_OK`|`EnumEvents` 正常に返されます。|  
-|`S_FALSE`|列挙するためにイベントはありません。 その場合は、`pcEvents`は 0 です。|  
+|`S_OK`|`EnumEvents` が正常に返されました。|  
+|`S_FALSE`|列挙するイベントがありません。 この場合、`pcEvents` は0になります。|  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

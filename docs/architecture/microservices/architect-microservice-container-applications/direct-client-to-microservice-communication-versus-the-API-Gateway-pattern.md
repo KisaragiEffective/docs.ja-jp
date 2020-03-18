@@ -2,12 +2,12 @@
 title: API ゲートウェイ パターンと、クライアントからマイクロサービスへの直接通信との比較
 description: API ゲートウェイ パターンと、クライアントからマイクロサービスへの直接通信との相違点およびそれぞれの用途について説明します。
 ms.date: 01/07/2019
-ms.openlocfilehash: 6b42650b2dbce093f12fe02b1605c95076dc8592
-ms.sourcegitcommit: 4f4a32a5c16a75724920fa9627c59985c41e173c
+ms.openlocfilehash: 47e9a383c1fcb6c9fec38cb376b60a4ab839077d
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72522955"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79401557"
 ---
 # <a name="the-api-gateway-pattern-versus-the-direct-client-to-microservice-communication"></a>API ゲートウェイ パターンと、クライアントからマイクロサービスへの直接通信との比較
 
@@ -132,7 +132,7 @@ API ゲートウェイ製品の実装によっては、さらに幅広い横断�
 
 **図 4-14**. API ゲートウェイでの Azure API Management の使用
 
-Azure API Management では、ログ記録、セキュリティ、使用状況測定など、API ゲートウェイおよび管理の両方のニーズが解決されます。この場合、Azure API Management などの製品を使用する際に単一の API ゲートウェイを使用することはそれほど危険ではありません。この種の API ゲートウェイは "細かい" ためです。つまり、モノシリック コンポーネントに進化する可能性のあるカスタム C# コードを実装することはありません。 
+Azure API Management では、ログ記録、セキュリティ、使用状況測定など、API ゲートウェイおよび管理の両方のニーズが解決されます。この場合、Azure API Management などの製品を使用する際に単一の API ゲートウェイを使用することはそれほど危険ではありません。この種の API ゲートウェイは "細かい" ためです。つまり、モノシリック コンポーネントに進化する可能性のあるカスタム C# コードを実装することはありません。
 
 API ゲートウェイ製品は通常、イングレス通信のリバース プロキシに近い動作をします。ここでは内部マイクロサービスから API をフィルター処理し、さらにこの単一層で公開された API に承認を適用することもできます。
 

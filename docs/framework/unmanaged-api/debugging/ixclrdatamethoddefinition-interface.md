@@ -15,41 +15,41 @@ topic_type:
 - apiref
 author: cshung
 ms.author: andrewau
-ms.openlocfilehash: 4b1e8cb1cf34bb1c5ade1353351aab953e2b734a
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 708c681a98113a406249a360c2fc81087e5b97f8
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61670106"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76790419"
 ---
 # <a name="ixclrdatamethoddefinition-interface"></a>IXCLRDataMethodDefinition インターフェイス
 
-メソッドの定義に関する情報を照会するためのメソッドを提供します。
+メソッド定義に関する情報を照会するためのメソッドを提供します。
 
 [!INCLUDE[debugging-api-recommended-note](../../../../includes/debugging-api-recommended-note.md)]
 
 ## <a name="methods"></a>メソッド
 
-次の方法では、インターフェイスで使用可能なメソッドの一部を示します。
+次のメソッドは、インターフェイスで使用できるメソッドの一部です。
 
 | メソッド                                                                                                                          | 説明                                                                                 |
 | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| [StartEnumInstances](../../../../docs/framework/unmanaged-api/debugging/ixclrdatamethoddefinition-startenuminstances-method.md) | メソッド インスタンスの列挙体のハンドルを提供する、指定された`IXCLRDataAppDomain`します。 |
-| [EnumInstance](../../../../docs/framework/unmanaged-api/debugging/ixclrdatamethoddefinition-enuminstance-method.md)             | このメソッドの定義のインスタンスを列挙します。                                         |
-| [EndEnumInstances](../../../../docs/framework/unmanaged-api/debugging/ixclrdatamethoddefinition-endenuminstances-method.md)     | インスタンスの列挙中に使用される内部の反復子によって使用されるリソースを解放します。         |
+| [StartEnumInstances](ixclrdatamethoddefinition-startenuminstances-method.md) | 指定された `IXCLRDataAppDomain`のメソッドインスタンスの列挙体のハンドルを提供します。 |
+| [EnumInstance](ixclrdatamethoddefinition-enuminstance-method.md)             | このメソッド定義のインスタンスを列挙します。                                         |
+| [EndEnumInstances](ixclrdatamethoddefinition-endenuminstances-method.md)     | インスタンスの列挙中に使用される内部反復子によって使用されるリソースを解放します。         |
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>コメント
 
-このインターフェイスは、ランタイム内に収めるを任意のヘッダーまたはライブラリ ファイルでは公開されません。 ただし、これは COM インターフェイスから派生した`IUnknown`GUID を持つ`AAF60008-FB2C-420b-8FB1-42D244A54A97`を通常の COM メカニズムを通じて取得できます。
+このインターフェイスはランタイム内に存在し、ヘッダーまたはライブラリファイルを介して公開されることはありません。 ただし、これは、通常の COM 機構を通じて取得できる GUID `AAF60008-FB2C-420b-8FB1-42D244A54A97` を `IUnknown` から派生する COM インターフェイスです。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
-**プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
-**ヘッダー:** なし  
-**ライブラリ:** なし  
+**:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
+**ヘッダー:** 存在  
+**ライブラリ:** 存在  
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v47plus](../../../../includes/net-current-v47plus.md)]  
 
 ## <a name="see-also"></a>関連項目
 
-- [デバッグ](../../../../docs/framework/unmanaged-api/debugging/index.md)
-- [デバッグ インターフェイス](../../../../docs/framework/unmanaged-api/debugging/debugging-interfaces.md)
+- [デバッグ](index.md)
+- [デバッグ インターフェイス](debugging-interfaces.md)

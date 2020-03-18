@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 45efb8ba-c4de-4109-945f-e734d376b43c
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 973f975885bbbf5cbed74adef7b9f4f423c42583
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9476bcc9706e89fd3d7e0abc14031f70a0aa0ad0
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67753657"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73084830"
 ---
 # <a name="icordebugeval2newparameterizedarray-method"></a>ICorDebugEval2::NewParameterizedArray メソッド
-指定した要素型とディメンションの新しい配列を割り当てます。  
+指定した要素の型と次元の新しい配列を割り当てます。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,22 +38,22 @@ HRESULT NewParameterizedArray(
   
 ## <a name="parameters"></a>パラメーター  
  `pElementType`  
- [in]配列に格納されている要素の型を表す ICorDebugType オブジェクトへのポインター。  
+ から配列に格納されている要素の型を表す、の型のオブジェクトへのポインター。  
   
  `rank`  
- [in]配列の次元の数。 .NET framework version 2.0 では、この値は 1 にある必要があります。  
+ から配列の次元数。 .NET Framework バージョン2.0 では、この値は1である必要があります。  
   
  `dims`  
- [in]配列の各次元のバイト単位のサイズ。  
+ から配列の各次元のサイズ (バイト単位)。  
   
  `lowBounds`  
- [in] オプション。 配列の各次元の下限値です。 この値を省略すると、各ディメンションの下限を 0 が使われます。  
+ [in] オプション。 配列の各次元の下限。 この値を省略すると、次元ごとに下限0が想定されます。  
   
 ## <a name="remarks"></a>Remarks  
- 配列の要素には、ジェネリック型のインスタンスを使用できます。 配列が常に、スレッドが現在実行されているアプリケーション ドメインで作成されます。 .NET Framework 2.0 の値で`rank`1 である必要があります。  
+ 配列の要素は、ジェネリック型のインスタンスである場合があります。 配列は常に、スレッドが現在実行されているアプリケーションドメインで作成されます。 .NET Framework 2.0 では、`rank` の値は1である必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

@@ -2,23 +2,24 @@
 title: LINQ の使用
 description: このチュートリアルでは、LINQ を使用してシーケンスを生成し、LINQ クエリで使用するためのメソッドを作成し、先行評価と遅延評価を区別する方法を説明します。
 ms.date: 10/29/2018
+ms.technology: csharp-linq
 ms.assetid: 0db12548-82cb-4903-ac88-13103d70aa77
-ms.openlocfilehash: 72bb7475fc6b18650e0870bf99c4b8ddbac3ec9f
-ms.sourcegitcommit: 33c8d6f7342a4bb2c577842b7f075b0e20a2fa40
+ms.openlocfilehash: ece001e82c0aa44a91999bea78d2fd695ff9362b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70926612"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "78240016"
 ---
-# <a name="working-with-linq"></a>LINQ の使用
+# <a name="work-with-language-integrated-query-linq"></a>統合言語クエリ (LINQ) を使用する
 
 ## <a name="introduction"></a>はじめに
 
-このチュートリアルでは、.NET Core と C# 言語の機能を説明します。 内容は以下のとおりです。
+このチュートリアルでは、.NET Core と C# 言語の機能を説明します。 以下の方法について説明します。
 
-- LINQ を使用してシーケンスを生成する方法。
-- LINQ クエリで簡単に使用できるメソッドを記述する方法
-- 先行評価と遅延評価を区別する方法
+- LINQ を使用してシーケンスを生成する。
+- LINQ クエリで簡単に使用できるメソッドを記述する。
+- 先行評価と遅延評価を区別する。
 
 これらの方法を、マジシャンの基本的スキルの 1 つである[ファロ― シャッフル](https://en.wikipedia.org/wiki/Faro_shuffle)を再現するアプリケーションを作成しながら学習していきます。 ファロ― シャッフルとは、簡単に言うと、カード デッキを正確に 2 等分し、双方のデッキから 1 枚ずつ交互に並ぶようにシャッフルして、元のデッキを並べ替えることです。
 
@@ -30,7 +31,7 @@ ms.locfileid: "70926612"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-お使いのコンピューターを、.NET Core が実行されるように設定する必要があります。 インストールの手順については、[.NET Core のダウンロード](https://dotnet.microsoft.com/download) ページを参照してください。 このアプリケーションは、Windows、Ubuntu Linux、OS X または Docker コンテナーで実行できます。 お好みのコード エディターをインストールしてください。 次の説明では、オープン ソースのクロス プラットフォーム エディターである [Visual Studio Code](https://code.visualstudio.com/) を使用しています。 しかし、他の使い慣れたツールを使用しても構いません。
+お使いのコンピューターを、.NET Core が実行されるように設定する必要があります。 インストールの手順については、[.NET Core のダウンロード](https://dotnet.microsoft.com/download) ページを参照してください。 このアプリケーションは、Windows、Ubuntu Linux、または OS X 上、あるいは Docker コンテナーで実行できます。 お好みのコード エディターをインストールしてください。 次の説明では、オープン ソースのクロス プラットフォーム エディターである [Visual Studio Code](https://code.visualstudio.com/) を使用しています。 しかし、他の使い慣れたツールを使用しても構いません。
 
 ## <a name="create-the-application"></a>アプリケーションを作成する
 
@@ -38,7 +39,7 @@ ms.locfileid: "70926612"
 
 C# を始めて使用する方向けに、[このチュートリアル](console-teleprompter.md)で C# プログラムの構造について説明しています。 そのチュートリアルを先に読んでから、ここに戻って LINQ の詳細について学ぶのも良いでしょう。
 
-## <a name="creating-the-data-set"></a>データ セットの作成
+## <a name="create-the-data-set"></a>データ セットを作成する
 
 開始する前に、`dotnet new console` によって生成された `Program.cs` ファイルの上部に次の行があることを確認してください。
 
@@ -117,7 +118,7 @@ var startingDeck = Suits().SelectMany(suit => Ranks().Select(rank => new { Suit 
 
 ![アプリが 52 枚のカードを書き出しているコンソール ウィンドウ](./media/working-with-linq/console-52-card-application.png)
 
-## <a name="manipulating-the-order"></a>順序の操作
+## <a name="manipulate-the-order"></a>順序を操作する
 
 次に、カード デッキをどのようにシャッフルするかに注目します。 適切なシャッフルの最初の手順は、カード デッキを 2 つの山に分けることです。 LINQ API の一部である <xref:System.Linq.Enumerable.Take%2A> メソッドと <xref:System.Linq.Enumerable.Skip%2A> メソッドの機能を利用できます。 それらを `foreach` ループの下に配置します。
 
@@ -178,7 +179,7 @@ public static IEnumerable<T> InterleaveSequenceWith<T> (this IEnumerable<T> firs
 
 そのメソッドの実装を以下に示します。
 
-[!CODE-csharp[InterleaveSequenceWith](../../../samples/csharp/getting-started/console-linq/extensions.cs?name=snippet1)]
+[!CODE-csharp[InterleaveSequenceWith](../../../samples/snippets/csharp/getting-started/console-linq/extensions.cs?name=snippet1)]
 
 このメソッドが作成できたので、`Main` メソッドに戻り、デッキを 1 回シャッフルします。
 
@@ -212,7 +213,7 @@ public static void Main(string[] args)
 
 2 つのシーケンスが等しいかどうかを判断するメソッドの記述は簡単です。 デッキのシャッフル用に記述したメソッドと似た構造です。 今回に限り、各要素を `yield return` するのではなく、各シーケンスの一致する要素を比較します。 シーケンス全体が列挙されている場合、各要素が一致すれば、シーケンスは同じです。
 
-[!CODE-csharp[SequenceEquals](../../../samples/csharp/getting-started/console-linq/extensions.cs?name=snippet2)]
+[!CODE-csharp[SequenceEquals](../../../samples/snippets/csharp/getting-started/console-linq/extensions.cs?name=snippet2)]
 
 これは 2 つ目の LINQ の表現形式であるターミナル メソッドを示しています。 これらは、シーケンスを入力として受け取り (この場合 2 つのシーケンス)、単一のスカラー値を返します。 ターミナル メソッドを使用した場合、それらは常に LINQ クエリ用のメソッド チェーンの最後のメソッドになります。そのため、名前が "ターミナル" (終点) になっています。
 
@@ -266,7 +267,7 @@ shuffle = shuffle.Skip(26).InterleaveSequenceWith(shuffle.Take(26));
 
 `Extensions.cs` ファイルに、次のメソッドを入力するかコピーします。 この拡張メソッドによって、プロジェクト ディレクトリ内に `debug.log` と呼ばれる新しいファイルが作成され、このログ ファイルに現在どのようなクエリが実行されているかが記録されます。 この拡張メソッドはどんなクエリにも追加でき、そのクエリが実行されたことをマークできます。
 
-[!CODE-csharp[LogQuery](../../../samples/csharp/getting-started/console-linq/extensions.cs?name=snippet3)]
+[!CODE-csharp[LogQuery](../../../samples/snippets/csharp/getting-started/console-linq/extensions.cs?name=snippet3)]
 
 `File` の下に、存在しないことを意味する赤い波線が表示されます。 コンパイラがどのような `File` かを把握できないため、これはコンパイルされません。 この問題を解決するには、`Extensions.cs` の最初の行の下に次のコード行を追加してください。
 
@@ -328,7 +329,7 @@ public static void Main(string[] args)
 
 ここでコードのパフォーマンスを向上させて、実行回数を減らすことができます。 実行できる単純な修正は、カード デッキを構築する元の LINQ クエリの結果を "*キャッシュ*" することです。 現時点では、do-while loop が繰り返されるたびに、何度もクエリが実行され、カード デッキが再構築され、シャッフルが毎回実行されています。 カード デッキをキャッシュするには、LINQ メソッドの <xref:System.Linq.Enumerable.ToArray%2A> と <xref:System.Linq.Enumerable.ToList%2A> を活用できます。それらをクエリに追加すると、実行するように指示したのと同じアクションが実行されますが、今回は、呼び出すように選択したメソッドに応じて、結果が配列または一覧内に格納されます。 LINQ メソッド <xref:System.Linq.Enumerable.ToArray%2A> を両方のクエリに追加し、もう一度プログラムを実行します。
 
-[!CODE-csharp[Main](../../../samples/csharp/getting-started/console-linq/Program.cs?name=snippet1)]
+[!CODE-csharp[Main](../../../samples/snippets/csharp/getting-started/console-linq/Program.cs?name=snippet1)]
 
 これで、アウト シャッフルのクエリが 30 回に減少します。 イン シャッフルで再実行しても、同様の改善がみられます。今回は 162 回のクエリが実行されます。
 
@@ -350,8 +351,8 @@ LINQ の他に、マジシャンがカードのトリックで使用するテク
 LINQ の詳細については、以下を参照してください。
 
 - [統合言語クエリ (LINQ)](../programming-guide/concepts/linq/index.md)
-  - [LINQ の概要](../programming-guide/concepts/linq/index.md)
-  - [LINQ クエリの基本操作 (C#)](../programming-guide/concepts/linq/basic-linq-query-operations.md)
-  - [LINQ によるデータ変換 (C#)](../programming-guide/concepts/linq/data-transformations-with-linq.md)
-  - [LINQ でのクエリ構文とメソッド構文 (C#)](../programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq.md)
-  - [LINQ をサポートする C# の機能](../programming-guide/concepts/linq/features-that-support-linq.md)
+- [LINQ の概要](../programming-guide/concepts/linq/index.md)
+- [LINQ クエリの基本操作 (C#)](../programming-guide/concepts/linq/basic-linq-query-operations.md)
+- [LINQ によるデータ変換 (C#)](../programming-guide/concepts/linq/data-transformations-with-linq.md)
+- [LINQ でのクエリ構文とメソッド構文 (C#)](../programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq.md)
+- [LINQ をサポートする C# の機能](../programming-guide/concepts/linq/features-that-support-linq.md)

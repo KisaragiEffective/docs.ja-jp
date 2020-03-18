@@ -2,12 +2,12 @@
 title: 安全なデータ アクセス
 ms.date: 03/30/2017
 ms.assetid: 473ebd69-21a3-4627-b95e-4e04d035c56f
-ms.openlocfilehash: 122bdaf8467994f8f56ce3f6c92457be6b8b3155
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: ede8b1a2e840b56d6e7f45e6d26e09fa5e8bcc25
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70782775"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75337523"
 ---
 # <a name="secure-data-access"></a>安全なデータ アクセス
 セキュリティで保護された ADO.NET コードを作成するには、基になるデータ ストア、つまりデータベースで利用可能なセキュリティ機構を理解しておく必要があります。 さらに、アプリケーションに含まれる他の機能またはコンポーネントのセキュリティへの影響も考慮する必要があります。  
@@ -21,7 +21,7 @@ ms.locfileid: "70782775"
   
  詳細については、次のリソースを参照してください。  
   
-|リソース|説明|  
+|Resource|説明|  
 |--------------|-----------------|  
 |[接続情報の保護](protecting-connection-information.md)|保護構成を使用して接続文字列を暗号化する方法など、セキュリティのベスト プラクティスと接続情報を保護する手法について説明します。|  
 |[データアクセス戦略に関する推奨事項](https://docs.microsoft.com/previous-versions/visualstudio/visual-studio-2008/8fxztkff(v=vs.90))|データへのアクセスおよびデータベース操作の実行に関連した推奨事項について説明します。|  
@@ -33,7 +33,7 @@ ms.locfileid: "70782775"
   
  パラメーター化コマンドの使い方の詳細については、次のリソースを参照してください。  
   
-|リソース|説明|  
+|Resource|説明|  
 |--------------|-----------------|  
 |[DataAdapter パラメーター](dataadapter-parameters.md)|`DataAdapter` でパラメーターを使用する方法について説明します。|  
 |[ストアド プロシージャでのデータの変更](modifying-data-with-stored-procedures.md)|パラメーターの指定方法および戻り値の取得方法について説明します。|  
@@ -44,7 +44,7 @@ ms.locfileid: "70782775"
   
  詳細については、次のリソースを参照してください。  
   
-|リソース|説明|  
+|Resource|説明|  
 |--------------|-----------------|  
 |[スクリプト攻略の概要](https://docs.microsoft.com/previous-versions/aspnet/w1sw53ds(v=vs.100))|スクリプトによる攻略および SQL ステートメントによる攻略から保護する方法について説明します。|  
   
@@ -53,9 +53,9 @@ ms.locfileid: "70782775"
   
  詳細については、次のリソースを参照してください。  
   
-|リソース|説明|  
+|Resource|説明|  
 |--------------|-----------------|  
-|[例外処理の基本事項](../../../standard/exceptions/exception-handling-fundamentals.md)|try/catch/finally 構造化例外処理の基本的な形式について説明します。|  
+|[.NET での例外の処理とスロー](../../../standard/exceptions/index.md)|try/catch/finally 構造化例外処理の基本的な形式について説明します。|  
 |[例外の推奨事項](../../../standard/exceptions/best-practices-for-exceptions.md)|例外処理のベスト プラクティスについて説明します。|  
   
 ## <a name="protecting-microsoft-access-and-excel-data-sources"></a>Microsoft Access および Excel データ ソースの保護  
@@ -63,17 +63,16 @@ ms.locfileid: "70782775"
   
  Access データおよび Excel データの保護の詳細については、次のリソースを参照してください。  
   
-|リソース|説明|  
+|Resource|説明|  
 |--------------|-----------------|  
-|[アクセス2007のセキュリティに関する考慮事項とガイダンス](https://go.microsoft.com/fwlink/?LinkId=98354)|Access 2007 のセキュリティ手法 (ファイルの暗号化、パスワードの管理、新しい ACCDB 形式および ACCDE 形式へのデータベースの変換、他のセキュリティ オプションの使用など) について説明します。|  
-|[アクセスセキュリティにおけるワークグループ情報ファイルの役割について](https://support.microsoft.com/kb/305542)|Access 2003 のセキュリティの作業グループ情報ファイルのロールおよびリレーションシップについて説明します。|  
-|[Microsoft access セキュリティについてよく寄せられる質問 2.0 ~ 2000](https://go.microsoft.com/fwlink/?LinkId=47698)|ダウンロード可能なバージョンの Microsoft Access セキュリティ FAQ です。|  
+|[アクセス2007のセキュリティに関する考慮事項とガイダンス](https://docs.microsoft.com/previous-versions/office/developer/office-2007/bb421308(v=office.12))|Access 2007 のセキュリティ手法 (ファイルの暗号化、パスワードの管理、新しい ACCDB 形式および ACCDE 形式へのデータベースの変換、他のセキュリティ オプションの使用など) について説明します。|  
+|[Access 2010 セキュリティの概要](https://support.office.com/article/Introduction-to-Access-2010-security-CAE6D764-0318-4622-955F-68D9F186D6CA)|Access 2010 で提供されるセキュリティ機能の概要について説明します。|  
 ## <a name="enterprise-services"></a>Enterprise Services  
  COM+ は、Windows NT アカウントおよびプロセスやスレッドの偽装に基づく独自のセキュリティ モデルを備えています。 <xref:System.EnterpriseServices> 名前空間は、.NET アプリケーションが、<xref:System.EnterpriseServices.ServicedComponent> クラスを使用して、マネージド コードと COM+ セキュリティ サービスを統合できるようにするラッパーを提供します。  
   
  詳細については、次のリソースを参照してください。  
   
-|リソース|説明|  
+|Resource|説明|  
 |--------------|-----------------|  
 |[ロール ベースのセキュリティ](https://docs.microsoft.com/previous-versions/dotnet/netframework-1.1/s6y8k15h(v=vs.71))|マネージド コードを COM+ セキュリティ サービスに統合する方法について説明します。|  
   
@@ -82,7 +81,7 @@ ms.locfileid: "70782775"
   
  詳細については、次のリソースを参照してください。  
   
-|リソース|説明|  
+|Resource|説明|  
 |--------------|-----------------|  
 |[アンマネージ コードとの相互運用](../../interop/index.md)|COM コンポーネントを .NET Framework に公開する方法、および .NET Framework コンポーネントを COM に公開する方法について説明します。|
 |[高度な COM 相互運用性](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/bd9cdfyx(v=vs.100))|プライマリ相互運用機能アセンブリ、スレッド処理、カスタム マーシャリングなど高度なトピックが含まれています。|

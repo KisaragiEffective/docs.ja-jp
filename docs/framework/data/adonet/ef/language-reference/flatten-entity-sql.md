@@ -23,17 +23,17 @@ FLATTEN ( collection )
  値のコレクションのコレクションをフラット化して単一のコレクションとして返す有効な任意の式。  
   
 ## <a name="remarks"></a>コメント  
- `FLATTEN` は、 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] の集合演算子の 1 つです。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] のすべての集合演算子は左から右に評価されます。 Set 演算子の優先順位につい[!INCLUDE[esql](../../../../../../includes/esql-md.md)]ては、「[EXCEPT](except-entity-sql.md)」を参照してください。  
+ `FLATTEN` は、 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] の集合演算子の 1 つです。 [!INCLUDE[esql](../../../../../../includes/esql-md.md)] のすべての集合演算子は左から右に評価されます。 Set 演算子の優先順位につい[ては、「](except-entity-sql.md)EXCEPT[!INCLUDE[esql](../../../../../../includes/esql-md.md)]」を参照してください。  
   
 ## <a name="example"></a>例  
  次の Entity SQL クエリでは、 `FLATTEN` 演算子を使用して、コレクションのコレクションをフラット化されたコレクションに変換します。 このクエリをコンパイルして実行するには、次の手順を実行します。  
   
-1. @No__t の手順に従います。StructuralType Results @ no__t-0 を返すクエリを実行します。  
+1. 「 [How to: Execute a Query that Returns StructuralType Results](../how-to-execute-a-query-that-returns-structuraltype-results.md)」の手順に従います。  
   
 2. 次のクエリを引数として `ExecuteStructuralTypeQuery` メソッドに渡します。  
   
  [!code-sql[DP EntityServices Concepts#FLATTEN](~/samples/snippets/tsql/VS_Snippets_Data/dp entityservices concepts/tsql/entitysql.sql#flatten)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Entity SQL リファレンス](entity-sql-reference.md)

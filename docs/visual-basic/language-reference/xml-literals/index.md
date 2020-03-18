@@ -1,5 +1,5 @@
 ---
-title: XML リテラル (Visual Basic)
+title: XML リテラル
 ms.date: 07/20/2015
 helpviewer_keywords:
 - declaring XML literals [Visual Basic]
@@ -9,15 +9,15 @@ helpviewer_keywords:
 - XML literals [Visual Basic], reference
 - literals [Visual Basic], XML
 ms.assetid: 16b28c40-8768-423f-bd9c-22ff10de2b54
-ms.openlocfilehash: 98f81bfb4a49bbac2a1e07533e1584d7c2b23302
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: cf70486c1c33013d84f68c9ea9dbc9463a751ad7
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61649804"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74349411"
 ---
 # <a name="xml-literals-visual-basic"></a>XML リテラル (Visual Basic)
-このセクションのトピックでは、Visual Basic で XML リテラルの構文を文書化します。 XML リテラルの構文を使用すると、コード内に直接 XML を組み込むことができます。  
+このセクションのトピックでは、Visual Basic の XML リテラルの構文について説明します。 XML リテラルの構文を使用すると、コード内に直接 XML を組み込むことができます。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
   

@@ -1,6 +1,5 @@
 ---
 title: 名前空間の使用 - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - cs.names
@@ -8,12 +7,12 @@ helpviewer_keywords:
 - fully qualified names [C#]
 - namespaces [C#], how to use
 ms.assetid: 1fe8bf39-addc-438a-bd9e-86410e32381d
-ms.openlocfilehash: b27a2fa42fc8e0d9ff0d1524c5d1bc19acbfbdb0
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: 5193fc7aaae83cbc0c75e81835244eaaaece69a5
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69588857"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75700199"
 ---
 # <a name="using-namespaces-c-programming-guide"></a>名前空間の使用 (C# プログラミング ガイド)
 
@@ -31,7 +30,7 @@ C# プログラム内では名前空間が 2 つの方法でよく使用され�
   
  [!code-csharp[csProgGuide#31](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuide/CS/progGuide.cs#31)]  
   
- 代替のデータ型は次のとおりです。  
+ 次の表記の代わりに、  
   
  [!code-csharp[csProgGuide#30](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuide/CS/progGuide.cs#30)]  
   
@@ -71,7 +70,7 @@ C# プログラム内では名前空間が 2 つの方法でよく使用され�
   
  通常、[名前空間エイリアス修飾子 `::`](../../language-reference/operators/namespace-alias-qualifier.md) は名前空間エイリアスを参照するために使い、`global::` はグローバル名前空間を参照するために使います。`.` は型またはメンバーを修飾するために使います。  
   
- 名前空間ではなく型を参照するエイリアスで `::` を使用するのは誤りです。 例:  
+ 名前空間ではなく型を参照するエイリアスで `::` を使用するのは誤りです。 次に例を示します。  
   
  [!code-csharp[csProgGuideNamespaces#11](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideNamespaces/CS/Namespaces2.cs#11)]  
   
@@ -91,9 +90,9 @@ C# プログラム内では名前空間が 2 つの方法でよく使用され�
   
  このコードは動作しますが、`Alias` という名前の型が後で導入された場合、`Alias.` は代わりにその型にバインドされます。 `Alias::Exception` を使用すれば、`Alias` は名前空間エイリアスとして扱われ、型と間違われることがなくなります。  
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [名前空間](./index.md)
 - [演算子 .](../../language-reference/operators/member-access-operators.md#member-access-operator-)
 - [:: 演算子](../../language-reference/operators/namespace-alias-qualifier.md)

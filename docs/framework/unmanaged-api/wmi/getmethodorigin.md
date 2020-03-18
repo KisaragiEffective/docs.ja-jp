@@ -14,14 +14,12 @@ helpviewer_keywords:
 - GetMethodOrigin function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9cea7251353dae093f64448c8d84157917fa74c5
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 1f669d5721a7bd9434f0ce4b1e2290c0633e1b46
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798558"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102538"
 ---
 # <a name="getmethodorigin-function"></a>GetMethodOrigin 関数
 メソッドを宣言しているクラスが特定されます。
@@ -57,7 +55,7 @@ HRESULT GetMethodOrigin (
 
 この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_E_NOT_FOUND` | 0x80041002 | 指定されたメソッドが見つかりませんでした。 |
 |`WBEM_E_INVALID_PARAMETER` | 0x80041008 | 1つ以上のパラメーターが無効です。 |
@@ -69,10 +67,10 @@ HRESULT GetMethodOrigin (
 
 クラスは1つまたは複数の基底クラスからメソッドを継承できるため、多くの場合、開発者は特定のメソッドが定義されているクラスを特定する必要があります。
 
-パラメーター `pstrClassName`であるため`out` 、関数が呼び出さ`BSTR`れる前に、パラメーターは有効なを指していない必要があります。このポインターは、関数から制御が戻った後に割り当て解除されません。
+`pstrClassName` パラメーターは `out` パラメーターであるため、関数が呼び出される前に、有効な `BSTR` をポイントすることはできません。関数から制御が戻った後、このポインターの割り当ては解除されません。
 
-## <a name="requirements"></a>必要条件  
-**・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** WMINet_Utils  
   

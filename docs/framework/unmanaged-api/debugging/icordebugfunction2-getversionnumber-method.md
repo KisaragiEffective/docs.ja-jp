@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: e3a1ce48-9bb9-4ed6-a5fe-5e1819a6333f
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 89cf2a12b0a693bbed3e8a3c1134d0f2b2a72a30
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: d85885d750f3c98e46b3e44418564da18850d3ec
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67754454"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76794497"
 ---
 # <a name="icordebugfunction2getversionnumber-method"></a>ICorDebugFunction2::GetVersionNumber メソッド
-この関数のエディット コンティニュ バージョンを取得します。  
+この関数のエディットコンティニュバージョンを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,19 +35,19 @@ HRESULT GetVersionNumber (
   
 ## <a name="parameters"></a>パラメーター  
  `pnVersion`  
- [out]ICorDebugFunction2 オブジェクトによって表される関数のバージョン番号を示す整数へのポインター。  
+ 入出力この ICorDebugFunction2 オブジェクトによって表される関数のバージョン番号である整数を指すポインターです。  
   
-## <a name="remarks"></a>Remarks  
- ランタイムは、デバッグ セッション中に各モジュールに行われた編集回数の追跡を保持します。 関数のバージョン番号は、いずれかの関数を導入した編集の数よりも詳細です。 関数の元のバージョンは 1 です。 毎回数が、モジュールのインクリメント[icordebugmodule 2::applychanges](../../../../docs/framework/unmanaged-api/debugging/icordebugmodule2-applychanges-method.md)がそのモジュールで呼び出されます。 したがって、関数の本体は、最初と 3 番目の呼び出しで置き換えられた場合`ICorDebugModule2::ApplyChanges`、 `GetVersionNumber` 1、2、またはその関数では、4 のバージョンがバージョン 3 ではなく返す可能性があります。 (その関数がないバージョン 3 です。)  
+## <a name="remarks"></a>コメント  
+ ランタイムは、デバッグセッション中に各モジュールに対して行われた編集の数を追跡します。 関数のバージョン番号は、関数を導入した編集の数を1つ超えています。 関数の元のバージョンは、バージョン1です。 この値は、そのモジュールで[ICorDebugModule2:: ApplyChanges](icordebugmodule2-applychanges-method.md)が呼び出されるたびに、モジュールに対してインクリメントされます。 したがって、関数の本体が `ICorDebugModule2::ApplyChanges`への最初の呼び出しと3回目の呼び出しで置き換えられた場合、`GetVersionNumber` はその関数のバージョン1、2、または4を返すことがありますが、バージョン3は返されません。 (この関数にはバージョン3はありません)。  
   
- バージョン番号は、モジュールごとに個別に追跡されます。 そのため、モジュール 1、および none モジュール 2 で 4 つの編集を実行する場合に、モジュール 1 で、[次へ] の編集は 6 のバージョン番号をモジュール 1 で編集されたすべての関数に割り当てられます。 同時に編集モジュール 2、第 2 章の関数により、2 のバージョン番号が表示されます。  
+ バージョン番号は、モジュールごとに個別に追跡されます。 したがって、モジュール1で4つの編集を実行し、モジュール2では何も実行しない場合、モジュール1の次の編集では、モジュール1のすべての編集された関数にバージョン番号6が割り当てられます。 同じ編集がモジュール2の場合、モジュール2の関数のバージョン番号は2になります。  
   
- バージョン番号を取得して、`GetVersionNumber`メソッドによって取得するよりも低い場合があります[icordebugfunction::getcurrentversionnumber](../../../../docs/framework/unmanaged-api/debugging/icordebugfunction-getcurrentversionnumber-method.md)します。  
+ `GetVersionNumber` メソッドによって取得されたバージョン番号は、 [GetCurrentVersionNumber 関数::](icordebugfunction-getcurrentversionnumber-method.md)によって取得された値よりも小さくなる場合があります。  
   
- [Icordebugcode::getversionnumber](../../../../docs/framework/unmanaged-api/debugging/icordebugcode-getversionnumber-method.md)メソッドと同じ操作を実行する`ICorDebugFunction2::GetVersionNumber`します。  
+ [コード:: GetVersionNumber](icordebugcode-getversionnumber-method.md)メソッドは、`ICorDebugFunction2::GetVersionNumber`と同じ操作を実行します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

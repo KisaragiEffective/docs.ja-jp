@@ -5,15 +5,15 @@ helpviewer_keywords:
 - printing [WPF]
 - print system management [WPF]
 ms.assetid: 637911b3-0c78-4493-a4fb-91db56d767cd
-ms.openlocfilehash: 5d2380db3b8d2c5c41d04a34f9b86a97eb7b27b1
-ms.sourcegitcommit: 3eeea78f52ca771087a6736c23f74600cc662658
+ms.openlocfilehash: 3e27e6ff526edc33e06bfc19ff7d5a284c0d30f2
+ms.sourcegitcommit: f348c84443380a1959294cdf12babcb804cfa987
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672027"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73975760"
 ---
 # <a name="printing-and-print-system-management"></a>印刷および印刷システムの管理
-[!INCLUDE[TLA#tla_winvista](../../../../includes/tlasharptla-winvista-md.md)]また、Microsoft .NET Framework には、Microsoft Windows グラフィックスデバイスインターフェイス (GDI) 印刷の代わりとなる新しい印刷パスと、大幅に拡張された一連の印刷システム管理 Api が導入されています。  
+Windows Vista および Microsoft .NET Framework には、Microsoft Windows グラフィックスデバイスインターフェイス (GDI) 印刷の代替となる新しい印刷パスと、大幅に拡張された一連の印刷システム管理 Api が導入されています。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [印刷の概要](printing-overview.md)  

@@ -1,17 +1,16 @@
 ---
 title: メソッド - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - methods [C#]
 - C# language, methods
 ms.assetid: cc738f07-e8cd-4683-9585-9f40c0667c37
-ms.openlocfilehash: 318f51afefd780ed7be0ab8c2a72acb5fcf9db15
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: 114fa2973c50be9a4199db9729e3cd9ea6122866
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71699965"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77626530"
 ---
 # <a name="methods-c-programming-guide"></a>メソッド (C# プログラミング ガイド)
 
@@ -22,7 +21,7 @@ ms.locfileid: "71699965"
 
 ## <a name="method-signatures"></a>メソッド シグネチャ
 
-メソッドは、 [クラス](../../language-reference/keywords/class.md) または [構造体](../../language-reference/keywords/struct.md) で、アクセス レベル ( `public` や `private`など)、オプションの修飾子 ( `abstract` や `sealed`など)、戻り値、メソッドの名前、およびメソッド パラメーターを指定して宣言します。 これらのまとまりがメソッドのシグネチャとなります。
+メソッドは、[クラス](../../language-reference/keywords/class.md)、[構造体](../../language-reference/builtin-types/struct.md)、または[インターフェイス](../interfaces/index.md)内で、アクセス レベル (`public` や `private` など)、オプションの修飾子 (`abstract` や `sealed` など)、戻り値、メソッドの名前、およびメソッド パラメーターを指定して宣言されます。 これらのまとまりがメソッドのシグネチャとなります。
 
 > [!NOTE]
 > メソッドのオーバーロードを可能にするために、メソッドの戻り値の型はメソッドのシグネチャには含まれません。 ただし、デリゲートとそれが指すメソッドの互換性を決定する場合には、メソッドのシグネチャの一部となります。
@@ -45,7 +44,7 @@ ms.locfileid: "71699965"
 
 ## <a name="passing-by-reference-vs-passing-by-value"></a>参照渡しと値渡し
 
-既定では、値型がメソッドに渡されるときは、オブジェクト自体ではなく、そのコピーが渡されます。 したがって、引数に加えた変更は、呼び出し元のメソッドにある元のコピーには影響しません。 ref キーワードを使用すると、値型を参照によって引き渡すことができます。 詳細については、「[値型パラメーターの引き渡し](./passing-value-type-parameters.md)」を参照してください。 組み込みの値型の一覧については、「[値型の一覧表](../../language-reference/keywords/value-types-table.md)」を参照してください。
+既定では、[値の型](../../language-reference/builtin-types/value-types.md)のインスタンスがメソッドに渡されるときは、インスタンス自体ではなく、そのコピーが渡されます。 したがって、引数に加えた変更は、呼び出し元のメソッドにある元のインスタンスには影響しません。 値の型インスタンスを参照で渡すには、`ref` キーワードを使用します。 詳細については、「[値型パラメーターの引き渡し](./passing-value-type-parameters.md)」を参照してください。
 
 参照型のオブジェクトがメソッドに渡されると、オブジェクトへの参照が渡されます。 つまり、メソッドは、オブジェクト自体ではなく、オブジェクトの場所を示す引数を受け取ります。 この参照を使用してオブジェクトのメンバーを変更した場合は、オブジェクトを値で渡しても、呼び出し元のメソッドの引数に変更が反映されます。
 
@@ -133,7 +132,7 @@ public static void FillMatrix(int[,] matrix)
 
 [!code-csharp[csAsyncMethod#2](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csasyncmethod/cs/mainwindow.xaml.cs#2)]
 
-非同期メソッドで [ref](../../language-reference/keywords/ref.md) パラメーターまたは [out](../../language-reference/keywords/out-parameter-modifier.md) パラメーターを宣言することはできませんが、これらのパラメーターを持つメソッドを呼び出すことはできます。
+非同期メソッドで [ref](../../language-reference/keywords/ref.md) パラメーターまたは [out](../../language-reference/keywords/out-parameter-modifier.md) パラメーターを宣言することはできませんが、これらのパラメーターが含まれたメソッドを呼び出すことはできます。
 
 非同期メソッドの詳細については、「[Async および Await を使用した非同期プログラミング](../concepts/async/index.md)」、「[非同期プログラムにおける制御フロー](../concepts/async/control-flow-in-async-programs.md)」、「[非同期の戻り値の型](../concepts/async/async-return-types.md)」を参照してください。
 
@@ -152,13 +151,13 @@ public Customer this[long id] => store.LookupCustomer(id);
 
 メソッドが `void` を返すか、非同期メソッドである場合は、メソッドの本文を (ラムダの場合と同様に) ステートメント式にする必要があります。 プロパティとインデクサーは読み取り専用にする必要があるため、 `get` アクセサー キーワードは使用しないでください。
 
-## <a name="iterators"></a>Iterators
+## <a name="iterators"></a>反復子
 
-反復子は、リストや配列など、コレクションに対するカスタム イテレーションを実行します。 反復子は、 [yield return](../../language-reference/keywords/yield.md) ステートメントを使用して、各要素を 1 回に1 つ返します。 [yield return](../../language-reference/keywords/yield.md) ステートメントに達すると、コードの現在の場所が記憶されます。 反復子が次回呼び出されたとき、この場所から実行が再開されます。
+反復子は、リストや配列など、コレクションに対するカスタム イテレーションを実行します。 反復子は、[yield return](../../language-reference/keywords/yield.md) ステートメントを使用して、各要素を 1 回に 1 つ返します。 [yield return](../../language-reference/keywords/yield.md) ステートメントに達すると、コードの現在の場所が記憶されます。 反復子が次回呼び出されたとき、この場所から実行が再開されます。
 
 [foreach](../../language-reference/keywords/foreach-in.md) ステートメントを使用して、クライアント コードから反復子を呼び出します。
 
-反復子の戻り値の型には、 <xref:System.Collections.IEnumerable>、 <xref:System.Collections.Generic.IEnumerable%601>、 <xref:System.Collections.IEnumerator>、または <xref:System.Collections.Generic.IEnumerator%601>を指定できます。
+反復子の戻り値の型には、<xref:System.Collections.IEnumerable>、<xref:System.Collections.Generic.IEnumerable%601>、<xref:System.Collections.IEnumerator>、または <xref:System.Collections.Generic.IEnumerator%601> を指定できます。
 
 詳細については、「 [反復子](../concepts/iterators.md)」を参照してください。
 
@@ -166,9 +165,9 @@ public Customer this[long id] => store.LookupCustomer(id);
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [クラスと構造体](index.md)
 - [アクセス修飾子](access-modifiers.md)
 - [静的クラスと静的クラス メンバー](static-classes-and-static-class-members.md)

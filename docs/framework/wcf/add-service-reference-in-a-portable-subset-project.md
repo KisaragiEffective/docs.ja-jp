@@ -2,15 +2,16 @@
 title: ポータブル サブセット プロジェクトでサービス参照を追加する
 ms.date: 03/30/2017
 ms.assetid: 61ccfe0f-a34b-40ca-8f5e-725fa1b8095e
-ms.openlocfilehash: 764ce487d8f2673eb2c75f8cd05da4ccbae3c935
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.openlocfilehash: 8bedfb44523b4f67845d40fadfaa72d64622ba26
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72320853"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77449479"
 ---
 # <a name="add-service-reference-in-a-portable-subset-project"></a>ポータブル サブセット プロジェクトでサービス参照を追加する
-ポータブルサブセットプロジェクトを使用すると、.NET アセンブリプログラマは、1つのソースツリーとビルドシステムを維持しながら、複数の .NET 実装 (デスクトップ、Silverlight、Windows Phone、XBOX) を引き続きサポートできます。 ポータブルサブセットプロジェクトは、.net の任意の実装で使用できる .net framework アセンブリである .NET ポータブルライブラリのみを参照します。  
+
+ポータブルサブセットプロジェクトを使用すると、.NET アセンブリプログラマは、1つのソースツリーとビルドシステムを維持しながら、複数の .NET 実装 (デスクトップ、Silverlight、Windows Phone、Xbox) を引き続きサポートできます。 ポータブルサブセットプロジェクトは、任意の .NET 実装で使用できる .NET アセンブリであるポータブルライブラリのみを参照します。
   
 ## <a name="add-service-reference-details"></a>サービス参照の追加の詳細  
  ポータブル サブセット プロジェクトでサービス参照を追加する場合は、次の制限が適用されます。  
@@ -43,7 +44,7 @@ ms.locfileid: "72320853"
   
 14. ポータブル サブセット プロジェクトでは <xref:System.ServiceModel.MessageContractAttribute.IsWrapped%2A> はサポートされません。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [WCF クライアントを使用したサービスへのアクセス](accessing-services-using-a-wcf-client.md)
 - [ポータブル クラス ライブラリ](../../standard/cross-platform/cross-platform-development-with-the-portable-class-library.md)

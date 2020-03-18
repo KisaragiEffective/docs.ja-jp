@@ -9,21 +9,19 @@ helpviewer_keywords:
 - container tags, <developmentMode> element
 - <developmentMode> element
 ms.assetid: 60e79a8c-415a-497d-be29-b9d0fd9bdee3
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0253c3ced52b575097fe5d18abb8ce188c0164fb
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 4a062da31740edb8f0c7a4f4db8b09800c687587
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252696"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73117633"
 ---
-# <a name="developmentmode-element"></a>\<developmentMode> 要素
+# <a name="developmentmode-element"></a>\<developmentMode > 要素
 DEVPATH 環境変数によって指定されたディレクトリで、ランタイムがアセンブリの検索を行うかどうかを指定します。  
   
 [ **\<configuration>** ](../configuration-element.md)\
 &nbsp;&nbsp;[ **\<runtime>** ](runtime-element.md)\
-&nbsp;&nbsp;&nbsp;&nbsp; **\<developmentMode>**  
+&nbsp;&nbsp;&nbsp;&nbsp; **\<developmentMode >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -42,7 +40,7 @@ DEVPATH 環境変数によって指定されたディレクトリで、ランタ
   
 ## <a name="developerinstallation-attribute"></a>developerInstallation 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |**true**|DEVPATH 環境変数によって指定されたディレクトリ内のアセンブリを検索します。|  
 |**false**|は、DEVPATH 環境変数によって指定されたディレクトリ内のアセンブリを検索しません。 これは既定値です。|  
@@ -75,4 +73,4 @@ DEVPATH 環境変数によって指定されたディレクトリで、ランタ
 
 - [ランタイム設定スキーマ](index.md)
 - [構成ファイル スキーマ](../index.md)
-- [方法: DEVPATH を使用してアセンブリを検索する](../../how-to-locate-assemblies-by-using-devpath.md)
+- [方法 : DEVPATH を使用してアセンブリを指定する](../../how-to-locate-assemblies-by-using-devpath.md)

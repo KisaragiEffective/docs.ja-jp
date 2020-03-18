@@ -1,16 +1,15 @@
 ---
 title: in (ジェネリック修飾子) - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 helpviewer_keywords:
 - contravariance, in keyword [C#]
 - in keyword [C#]
-ms.openlocfilehash: f736540a37d3226bccfc07749dcf06ca018663e8
-ms.sourcegitcommit: 6b308cf6d627d78ee36dbbae8972a310ac7fd6c8
+ms.openlocfilehash: 57da13f6dc6719166b9051afeb2532ba5fbeff3a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54694572"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75713483"
 ---
 # <a name="in-generic-modifier-c-reference"></a>in (ジェネリック修飾子) (C# リファレンス)
 
@@ -20,7 +19,7 @@ ms.locfileid: "54694572"
 
 型をジェネリック インターフェイスまたはデリゲートで反変として宣言できるのは、メソッドの戻り値の型ではなく、メソッドのパラメーターの型を定義する場合のみです。 `In`、`ref`、`out` パラメーターはインバリアントである必要があります。これは、これらのパラメーターが共変でも反変でもないことを意味します。
 
-反変の型パラメーターを持つインターフェイスを使用すると、そのインターフェイスのメソッドは、インターフェイス型パラメーターによって指定された型よりも弱い派生型の引数を受け取ることができます。 たとえば、<xref:System.Collections.Generic.IComparer%601> インターフェイスでは、T 型が反変なので、`Employee` が `Person` を継承する場合、特別な変換メソッドを使用しなくても `IComparer<Person>` 型のオブジェクトを `IComparer<Employee>` 型のオブジェクトに割り当てることができます。
+反変の型パラメーターを持つインターフェイスを使用すると、そのインターフェイスのメソッドは、インターフェイス型パラメーターによって指定された型よりも弱い派生型の引数を受け取ることができます。 たとえば、<xref:System.Collections.Generic.IComparer%601> インターフェイスでは、T 型が反変なので、`IComparer<Person>` が `IComparer<Employee>` を継承する場合、特別な変換メソッドを使用しなくても `Employee` 型のオブジェクトを `Person` 型のオブジェクトに割り当てることができます。
 
 反変のデリゲートには、型は同じでありながらより弱い派生ジェネリック型パラメーターを持つ別のデリゲートを割り当てることができます。
 
@@ -42,8 +41,8 @@ ms.locfileid: "54694572"
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [out](out-generic-modifier.md)
 - [共変性と反変性](../../programming-guide/concepts/covariance-contravariance/index.md)
-- [修飾子](modifiers.md)
+- [修飾子](index.md)

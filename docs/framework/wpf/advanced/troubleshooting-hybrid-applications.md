@@ -9,34 +9,34 @@ helpviewer_keywords:
 - hybrid applications [WPF interoperability]
 - message loops [WPF]
 ms.assetid: f440c23f-fa5d-4d5a-852f-ba61150e6405
-ms.openlocfilehash: 541d71efa66d14855704797892cac68799215159
-ms.sourcegitcommit: 82f94a44ad5c64a399df2a03fa842db308185a76
+ms.openlocfilehash: 7af110b9b00b080bf40bc9ee4b85aa293940bbc3
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72919754"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76794261"
 ---
 # <a name="troubleshooting-hybrid-applications"></a>ハイブリッド アプリケーションのトラブルシューティング
-<a name="introduction"></a>このトピックでは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] と [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] の両方のテクノロジを使用するハイブリッドアプリケーションを作成するときに発生する可能性がある一般的な問題をいくつか紹介します。  
+<a name="introduction"></a>このトピックでは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] と Windows フォームの両方のテクノロジを使用するハイブリッドアプリケーションを作成するときに発生する可能性がある一般的な問題をいくつか紹介します。  
 
 <a name="overlapping_controls"></a>   
 ## <a name="overlapping-controls"></a>コントロールの重複  
- コントロールは、意図したとおりに重ならない場合があります。 [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] は、コントロールごとに個別の HWND を使用します。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] は、ページ上のすべてのコンテンツに対して1つの HWND を使用します。 この実装の違いにより、予期しない重複動作が発生します。  
+ コントロールは、意図したとおりに重ならない場合があります。 Windows フォームは、コントロールごとに個別の HWND を使用します。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] は、ページ上のすべてのコンテンツに対して1つの HWND を使用します。 この実装の違いにより、予期しない重複動作が発生します。  
   
- [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] でホストされている [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] コントロールは、常に [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツの上に表示されます。  
+ [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] でホストされている Windows フォームコントロールは、常に [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツの上に表示されます。  
   
  <xref:System.Windows.Forms.Integration.ElementHost> コントロールでホストされている [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツは、<xref:System.Windows.Forms.Integration.ElementHost> コントロールの z オーダーに表示されます。 <xref:System.Windows.Forms.Integration.ElementHost> コントロールを重ねることはできますが、ホストされている [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] コンテンツは結合または対話しません。  
   
 <a name="child_property"></a>   
 ## <a name="child-property"></a>子プロパティ  
- <xref:System.Windows.Forms.Integration.WindowsFormsHost> クラスと <xref:System.Windows.Forms.Integration.ElementHost> クラスは、1つの子コントロールまたは要素だけをホストできます。 複数のコントロールまたは要素をホストするには、子コンテンツとしてコンテナーを使用する必要があります。 たとえば、[!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] ボタンとチェックボックスコントロールを <xref:System.Windows.Forms.Panel?displayProperty=nameWithType> コントロールに追加し、パネルを <xref:System.Windows.Forms.Integration.WindowsFormsHost> コントロールの <xref:System.Windows.Forms.Integration.WindowsFormsHost.Child%2A> プロパティに割り当てることができます。 ただし、ボタンとチェックボックスのコントロールを、同じ <xref:System.Windows.Forms.Integration.WindowsFormsHost> コントロールに個別に追加することはできません。  
+ <xref:System.Windows.Forms.Integration.WindowsFormsHost> クラスと <xref:System.Windows.Forms.Integration.ElementHost> クラスは、1つの子コントロールまたは要素だけをホストできます。 複数のコントロールまたは要素をホストするには、子コンテンツとしてコンテナーを使用する必要があります。 たとえば、Windows フォームボタンとチェックボックスコントロールを <xref:System.Windows.Forms.Panel?displayProperty=nameWithType> コントロールに追加し、パネルを <xref:System.Windows.Forms.Integration.WindowsFormsHost> コントロールの <xref:System.Windows.Forms.Integration.WindowsFormsHost.Child%2A> プロパティに割り当てることができます。 ただし、ボタンとチェックボックスのコントロールを、同じ <xref:System.Windows.Forms.Integration.WindowsFormsHost> コントロールに個別に追加することはできません。  
   
 <a name="scaling"></a>   
 ## <a name="scaling"></a>スケーリング  
- [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] と [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] には、異なるスケーリングモデルがあります。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] スケーリング変換には、[!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] コントロールにとって意味があるものもあれば、そうでないものもあります。 たとえば、[!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] コントロールのスケーリングを0に設定した場合は機能しますが、同じコントロールを0以外の値にスケーリングしようとすると、コントロールのサイズは0のままになります。 詳細については、「 [WindowsFormsHost 要素のレイアウトに関する考慮事項](layout-considerations-for-the-windowsformshost-element.md)」を参照してください。  
+ [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] と Windows フォームには、異なるスケーリングモデルがあります。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] スケーリング変換には、Windows フォームコントロールにとって意味があるものもあれば、そうでないものもあります。 たとえば、Windows フォームコントロールのスケーリングを0に設定した場合は機能しますが、同じコントロールを0以外の値にスケーリングしようとすると、コントロールのサイズは0のままになります。 詳細については、「 [WindowsFormsHost 要素のレイアウトに関する考慮事項](layout-considerations-for-the-windowsformshost-element.md)」を参照してください。  
   
 <a name="adapter"></a>   
-## <a name="adapter"></a>アダプター  
+## <a name="adapter"></a>アダプタ  
  <xref:System.Windows.Forms.Integration.WindowsFormsHost> クラスと <xref:System.Windows.Forms.Integration.ElementHost> クラスを操作するときに混乱が生じる可能性があります。これは、非表示のコンテナーが含まれているためです。 <xref:System.Windows.Forms.Integration.WindowsFormsHost> クラスと <xref:System.Windows.Forms.Integration.ElementHost> クラスには、コンテンツをホストするために使用する*アダプター*と呼ばれる非表示のコンテナーがあります。 <xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素の場合、アダプターは <xref:System.Windows.Forms.ContainerControl?displayProperty=nameWithType> クラスから派生します。 <xref:System.Windows.Forms.Integration.ElementHost> コントロールの場合、アダプターは <xref:System.Windows.Controls.DockPanel> 要素から派生します。 他の相互運用のトピックでアダプターへの参照が表示されている場合は、このコンテナーについて説明します。  
   
 <a name="nesting"></a>   
@@ -45,13 +45,13 @@ ms.locfileid: "72919754"
   
 <a name="focus"></a>   
 ## <a name="focus"></a>フォーカス  
- [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] と [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)]ではフォーカスの動作が異なります。これは、ハイブリッドアプリケーションでフォーカスの問題が発生する可能性があることを意味します。 たとえば、<xref:System.Windows.Forms.Integration.WindowsFormsHost> の要素の中にフォーカスがあり、ページを最小化して復元するか、モーダルダイアログボックスを表示すると、<xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素内のフォーカスが失われる可能性があります。 <xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素にはフォーカスがありますが、その中のコントロールはフォーカスを持つことはできません。  
+ [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] と Windows フォームではフォーカスの動作が異なります。これは、ハイブリッドアプリケーションでフォーカスの問題が発生する可能性があることを意味します。 たとえば、<xref:System.Windows.Forms.Integration.WindowsFormsHost> の要素の中にフォーカスがあり、ページを最小化して復元するか、モーダルダイアログボックスを表示すると、<xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素内のフォーカスが失われる可能性があります。 <xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素にはフォーカスがありますが、その中のコントロールはフォーカスを持つことはできません。  
   
  データの検証は、フォーカスによっても影響を受けます。 検証は <xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素で機能しますが、<xref:System.Windows.Forms.Integration.WindowsFormsHost> の要素から tab キーを使用するか、2つの異なる <xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素の間で tab キーを使用しても機能しません。  
   
 <a name="property_mapping"></a>   
 ## <a name="property-mapping"></a>プロパティのマッピング  
- 一部のプロパティマッピングでは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] と [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] テクノロジ間の異なる実装をブリッジするために広範な解釈が必要です。 プロパティマッピングを使用すると、フォント、色、およびその他のプロパティの変更にコードを反応させることができます。 一般に、プロパティマッピングは、*プロパティ変更イベント*または*プロパティ*変更された呼び出しをリッスンし、子コントロールまたはそのアダプターで適切なプロパティを設定することによって機能します。 詳細については、「 [Windows フォームと WPF プロパティのマッピング](windows-forms-and-wpf-property-mapping.md)」を参照してください。  
+ 一部のプロパティマッピングでは、[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] と Windows フォームテクノロジ間の異なる実装をブリッジするために広範な解釈が必要です。 プロパティマッピングを使用すると、フォント、色、およびその他のプロパティの変更にコードを反応させることができます。 一般に、プロパティマッピングは、*プロパティ変更イベント*または*プロパティ*変更された呼び出しをリッスンし、子コントロールまたはそのアダプターで適切なプロパティを設定することによって機能します。 詳細については、「 [Windows フォームと WPF プロパティのマッピング](windows-forms-and-wpf-property-mapping.md)」を参照してください。  
   
 <a name="layoutrelated_properties_on_hosted_content"></a>   
 ## <a name="layout-related-properties-on-hosted-content"></a>ホストされたコンテンツのレイアウト関連のプロパティ  
@@ -72,9 +72,9 @@ ms.locfileid: "72919754"
   
 <a name="message_loop_interoperation"></a>   
 ## <a name="message-loop-interoperation"></a>メッセージループの相互運用  
- [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] メッセージループを使用する場合、メッセージが想定どおりに処理されない可能性があります。 <xref:System.Windows.Forms.Integration.WindowsFormsHost.EnableWindowsFormsInterop%2A> メソッドは、<xref:System.Windows.Forms.Integration.WindowsFormsHost> コンストラクターによって呼び出されます。 このメソッドは、メッセージフィルターを [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] メッセージループに追加します。 このフィルターは、<xref:System.Windows.Forms.Control?displayProperty=nameWithType> がメッセージのターゲットであり、メッセージを変換/ディスパッチする場合に、<xref:System.Windows.Forms.Control.PreProcessMessage%2A?displayProperty=nameWithType> メソッドを呼び出します。  
+ Windows フォームメッセージループを使用する場合、メッセージが想定どおりに処理されない可能性があります。 <xref:System.Windows.Forms.Integration.WindowsFormsHost.EnableWindowsFormsInterop%2A> メソッドは、<xref:System.Windows.Forms.Integration.WindowsFormsHost> コンストラクターによって呼び出されます。 このメソッドは、メッセージフィルターを [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] メッセージループに追加します。 このフィルターは、<xref:System.Windows.Forms.Control?displayProperty=nameWithType> がメッセージのターゲットであり、メッセージを変換/ディスパッチする場合に、<xref:System.Windows.Forms.Control.PreProcessMessage%2A?displayProperty=nameWithType> メソッドを呼び出します。  
   
- <xref:System.Windows.Forms.Application.Run%2A?displayProperty=nameWithType>を持つ [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] メッセージループに <xref:System.Windows.Window> を表示する場合、<xref:System.Windows.Forms.Integration.ElementHost.EnableModelessKeyboardInterop%2A> メソッドを呼び出さないと、何も入力できません。 <xref:System.Windows.Forms.Integration.ElementHost.EnableModelessKeyboardInterop%2A> メソッドは、<xref:System.Windows.Window> を受け取り、<xref:System.Windows.Forms.IMessageFilter?displayProperty=nameWithType>を追加します。これにより、キー関連のメッセージを [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] メッセージループに再ルーティングします。 詳細については、「 [Windows フォームと WPF の相互運用性入力アーキテクチャ](windows-forms-and-wpf-interoperability-input-architecture.md)」を参照してください。  
+ <xref:System.Windows.Forms.Application.Run%2A?displayProperty=nameWithType>を持つ Windows フォームメッセージループに <xref:System.Windows.Window> を表示する場合、<xref:System.Windows.Forms.Integration.ElementHost.EnableModelessKeyboardInterop%2A> メソッドを呼び出さないと、何も入力できません。 <xref:System.Windows.Forms.Integration.ElementHost.EnableModelessKeyboardInterop%2A> メソッドは、<xref:System.Windows.Window> を受け取り、<xref:System.Windows.Forms.IMessageFilter?displayProperty=nameWithType>を追加します。これにより、キー関連のメッセージを [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] メッセージループに再ルーティングします。 詳細については、「 [Windows フォームと WPF の相互運用性入力アーキテクチャ](windows-forms-and-wpf-interoperability-input-architecture.md)」を参照してください。  
   
 <a name="opacity_and_layering"></a>   
 ## <a name="opacity-and-layering"></a>不透明度とレイヤー化  
@@ -82,21 +82,21 @@ ms.locfileid: "72919754"
   
 <a name="dispose"></a>   
 ## <a name="dispose"></a>Dispose  
- クラスを正しく破棄しないと、リソースがリークする可能性があります。 ハイブリッドアプリケーションでは、<xref:System.Windows.Forms.Integration.WindowsFormsHost> クラスと <xref:System.Windows.Forms.Integration.ElementHost> クラスが破棄されていること、またはリソースがリークしていることを確認します。 非モーダル <xref:System.Windows.Forms.Form> 親が閉じるときに <xref:System.Windows.Forms.Integration.ElementHost> コントロールを破棄 [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)]。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションのシャットダウン時に <xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素を破棄します。 [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] メッセージループの <xref:System.Windows.Window> に <xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素を表示することができます。 この場合、アプリケーションがシャットダウンしているという通知をコードで受信できないことがあります。  
+ クラスを正しく破棄しないと、リソースがリークする可能性があります。 ハイブリッドアプリケーションでは、<xref:System.Windows.Forms.Integration.WindowsFormsHost> クラスと <xref:System.Windows.Forms.Integration.ElementHost> クラスが破棄されていること、またはリソースがリークしていることを確認します。 非モーダル <xref:System.Windows.Forms.Form> 親が閉じるときに <xref:System.Windows.Forms.Integration.ElementHost> コントロールを破棄 Windows フォーム。 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションのシャットダウン時に <xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素を破棄します。 Windows フォームメッセージループの <xref:System.Windows.Window> に <xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素を表示することができます。 この場合、アプリケーションがシャットダウンしているという通知をコードで受信できないことがあります。  
   
 <a name="enabling_visual_styles"></a>   
 ## <a name="enabling-visual-styles"></a>視覚スタイルを有効にする  
- [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] コントロールの [!INCLUDE[TLA#tla_winxp](../../../../includes/tlasharptla-winxp-md.md)] の視覚スタイルが有効になっていない可能性があります。 <xref:System.Windows.Forms.Application.EnableVisualStyles%2A?displayProperty=nameWithType> メソッドは、[!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] アプリケーションのテンプレートで呼び出されます。 このメソッドは既定では呼び出されませんが、Visual Studio を使用してプロジェクトを作成すると、Comctl32.dll のバージョン6.0 が使用可能な場合に、コントロールの視覚スタイルが [!INCLUDE[TLA#tla_winxp](../../../../includes/tlasharptla-winxp-md.md)] 表示されます。 スレッドでハンドルが作成される前に、<xref:System.Windows.Forms.Application.EnableVisualStyles%2A> メソッドを呼び出す必要があります。 詳細については、「[方法: ハイブリッドアプリケーションで Visual スタイルを有効](how-to-enable-visual-styles-in-a-hybrid-application.md)にする」を参照してください。  
+ Windows フォームコントロールの Microsoft Windows XP visual スタイルが有効になっていない可能性があります。 <xref:System.Windows.Forms.Application.EnableVisualStyles%2A?displayProperty=nameWithType> メソッドは、Windows フォームアプリケーションのテンプレートで呼び出されます。 このメソッドは既定では呼び出されませんが、Visual Studio を使用してプロジェクトを作成する場合、Comctl32.dll のバージョン6.0 が使用可能な場合は、Microsoft Windows XP visual スタイルのコントロールが表示されます。 スレッドでハンドルが作成される前に、<xref:System.Windows.Forms.Application.EnableVisualStyles%2A> メソッドを呼び出す必要があります。 詳細については、「[方法: ハイブリッドアプリケーションで Visual スタイルを有効](how-to-enable-visual-styles-in-a-hybrid-application.md)にする」を参照してください。  
   
 <a name="licensed_controls"></a>   
 ## <a name="licensed-controls"></a>ライセンスされたコントロール  
- ライセンスされた [!INCLUDE[TLA#tla_winforms](../../../../includes/tlasharptla-winforms-md.md)] コントロールが、ユーザーに対してメッセージボックスにライセンス情報を表示すると、ハイブリッドアプリケーションで予期しない動作が発生する可能性があります。 一部のライセンスされたコントロールでは、ハンドルの作成に応じてダイアログボックスが表示されます。 たとえば、ライセンスが付与されたコントロールは、ライセンスが必要であることをユーザーに通知します。または、ユーザーが3つの試用版のコントロールを使用していることを示します。  
+ ライセンスされた Windows フォームコントロールが、ユーザーに対してメッセージボックスにライセンス情報を表示すると、ハイブリッドアプリケーションで予期しない動作が発生する可能性があります。 一部のライセンスされたコントロールでは、ハンドルの作成に応じてダイアログボックスが表示されます。 たとえば、ライセンスが付与されたコントロールは、ライセンスが必要であることをユーザーに通知します。または、ユーザーが3つの試用版のコントロールを使用していることを示します。  
   
  <xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素は <xref:System.Windows.Interop.HwndHost> クラスから派生し、子コントロールのハンドルは <xref:System.Windows.Forms.Integration.WindowsFormsHost.BuildWindowCore%2A> メソッド内に作成されます。 <xref:System.Windows.Interop.HwndHost> クラスでは、<xref:System.Windows.Forms.Integration.WindowsFormsHost.BuildWindowCore%2A> メソッドでメッセージを処理することはできませんが、ダイアログボックスを表示すると、メッセージが送信されます。 このライセンスシナリオを有効にするには、コントロールの <xref:System.Windows.Forms.Control.CreateControl%2A?displayProperty=nameWithType> メソッドを呼び出してから、<xref:System.Windows.Forms.Integration.WindowsFormsHost> 要素の子として割り当てます。  
   
 <a name="wpf_designer"></a>   
 ## <a name="wpf-designer"></a>WPF デザイナー  
- [!INCLUDE[wpfdesigner_current_long](../../../../includes/wpfdesigner-current-long-md.md)]を使用して、WPF コンテンツをデザインできます。 次のセクションでは、[!INCLUDE[wpfdesigner_current_short](../../../../includes/wpfdesigner-current-short-md.md)]でハイブリッドアプリケーションを作成するときに発生する可能性のある一般的な問題について説明します。  
+ Wpf コンテンツをデザインするには、Visual Studio の WPF デザイナーを使用します。 次のセクションでは、WPF デザイナーを使用してハイブリッドアプリケーションを作成するときに発生する可能性がある一般的な問題について説明します。  
   
 ### <a name="backcolortransparent-is-ignored-at-design-time"></a>BackColorTransparent はデザイン時には無視されます  
  <xref:System.Windows.Forms.Integration.ElementHost.BackColorTransparent%2A> プロパティは、デザイン時に予期したとおりに動作しない可能性があります。  

@@ -1,16 +1,15 @@
 ---
 title: 引数としての配列の受け渡し - C# プログラミング ガイド
-ms.custom: seodec18
 ms.date: 07/05/2018
 helpviewer_keywords:
 - arrays [C#], passing as arguments
 ms.assetid: f3a0971e-c87c-4a1f-8262-bc0a3b712772
-ms.openlocfilehash: 1538988c1145a19055074b440f04cbaac4ef7aa7
-ms.sourcegitcommit: 6b308cf6d627d78ee36dbbae8972a310ac7fd6c8
+ms.openlocfilehash: 2e53008910a9062ada25680eb4b8e54a225fd226
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54741179"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75705692"
 ---
 # <a name="passing-arrays-as-arguments-c-programming-guide"></a>引数としての配列の受け渡し (C# プログラミング ガイド)
 
@@ -56,9 +55,9 @@ ms.locfileid: "54741179"
 
 [!code-csharp[csProgGuideArrays#31](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideArrays/CS/Arrays.cs#31)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [配列](index.md)
 - [1 次元配列](single-dimensional-arrays.md)
 - [多次元配列](multidimensional-arrays.md)

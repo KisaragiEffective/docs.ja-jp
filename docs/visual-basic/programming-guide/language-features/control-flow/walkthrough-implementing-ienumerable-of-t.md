@@ -1,5 +1,5 @@
 ---
-title: Visual Basic での IEnumerable を実装します。
+title: IEnumerable の実装
 ms.date: 07/31/2018
 helpviewer_keywords:
 - control flow [Visual Basic]
@@ -7,93 +7,93 @@ helpviewer_keywords:
 - loop structures [Visual Basic], optimizing performance
 - control flow [Visual Basic]
 ms.assetid: c60d7589-51f2-4463-a2d5-22506bbc1554
-ms.openlocfilehash: b13fd85ae01fd0b6f3c963d87a372add930be99d
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: f40fcf7e0724addc478b261dcd36d09e1d8a751a
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61975300"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74333688"
 ---
-# <a name="walkthrough-implementing-ienumerableof-t-in-visual-basic"></a>チュートリアル: Visual Basic で IEnumerable(Of T) を実装します。
-<xref:System.Collections.Generic.IEnumerable%601>インターフェイスは、一度に 1 つの項目の値のシーケンスを返すことができるクラスによって実装されます。 一度に 1 つの項目がメモリに読み込むデータの完全なセットを扱うことがないことをデータを返すことの利点です。 のみ、データから 1 つの項目を読み込むに十分なメモリを使用する必要があるとします。 実装するクラス、`IEnumerable(T)`インターフェイスで使用できる`For Each`ループまたは LINQ クエリ。  
+# <a name="walkthrough-implementing-ienumerableof-t-in-visual-basic"></a>チュートリアル: Visual Basic での IEnumerable(Of T) の実装
+<xref:System.Collections.Generic.IEnumerable%601> インターフェイスは、一度に1つの値のシーケンスを返すことができるクラスによって実装されます。 データを一度に1つずつ返す利点は、データの完全なセットをメモリに読み込んで使用する必要がないことです。 データから1つの項目を読み込むには、十分なメモリを使用する必要があります。 `IEnumerable(T)` インターフェイスを実装するクラスは、`For Each` ループまたは LINQ クエリで使用できます。  
   
- たとえば、大きなテキスト ファイルを読み取るし、特定の検索条件に一致するファイルからそれぞれの行を返す必要がありますアプリケーションがあるとします。 アプリケーションでは、LINQ クエリを使用して、指定した条件に一致するファイルから行を返します。 LINQ クエリを使用して、ファイルの内容を照会するには、アプリケーションは、配列またはコレクションに、ファイルの内容を読み込む可能性があります。 ただし、配列またはコレクションにファイル全体を読み込むには、必要なよりはるかに多くのメモリが消費します。 LINQ クエリは、検索条件に一致する値のみを返す、列挙可能なクラスを使用して、ファイルの内容を代わりにクエリでした。 いくつかのみを返すクエリを一致する値ははるかに少ないメモリを消費します。  
+ たとえば、大きなテキストファイルを読み取って、特定の検索条件に一致するファイルから各行を返すアプリケーションがあるとします。 アプリケーションでは、LINQ クエリを使用して、指定した条件に一致する行をファイルから取得します。 LINQ クエリを使用してファイルの内容を照会するために、アプリケーションでは、ファイルの内容を配列またはコレクションに読み込むことができます。 ただし、ファイル全体を配列またはコレクションに読み込むと、必要以上に多くのメモリが消費されます。 LINQ クエリでは、列挙可能なクラスを使用してファイルの内容に対してクエリを実行し、検索条件に一致する値のみを返すこともできます。 一致する値をいくつか返すクエリでは、使用するメモリがはるかに少なくなります。  
   
- 実装するクラスを作成することができます、<xref:System.Collections.Generic.IEnumerable%601>として列挙可能なデータ ソースのデータを公開するインターフェイス。 実装するクラス、`IEnumerable(T)`インターフェイスを実装する別のクラスが必要になります、<xref:System.Collections.Generic.IEnumerator%601>ソース データを反復処理するインターフェイス。 これら 2 つのクラスを使用すると、順番には、特定の種類のデータ項目を返すことができます。  
+ <xref:System.Collections.Generic.IEnumerable%601> インターフェイスを実装するクラスを作成して、ソースデータを列挙可能なデータとして公開することができます。 `IEnumerable(T)` インターフェイスを実装するクラスには、ソースデータを反復処理するために <xref:System.Collections.Generic.IEnumerator%601> インターフェイスを実装する別のクラスが必要です。 これらの2つのクラスを使用すると、特定の型としてデータの項目を順番に返すことができます。  
   
- このチュートリアルでは、実装するクラスを作成します、`IEnumerable(Of String)`インターフェイスと実装するクラス、`IEnumerator(Of String)`を一度に 1 行ずつテキスト ファイルを読み取るインターフェイス。  
+ このチュートリアルでは、`IEnumerable(Of String)` インターフェイスを実装するクラスと、テキストファイルを一度に1行読み取るための `IEnumerator(Of String)` インターフェイスを実装するクラスを作成します。  
   
 [!INCLUDE[note_settings_general](~/includes/note-settings-general-md.md)]  
   
-## <a name="creating-the-enumerable-class"></a>列挙可能なクラスを作成します。  
+## <a name="creating-the-enumerable-class"></a>列挙可能なクラスの作成  
   
-**クラスの列挙可能なプロジェクトを作成します。**
+**列挙可能なクラスプロジェクトを作成する**
 
-1. Visual basic での**ファイル**メニューで、**新規**順にクリックします**プロジェクト**します。
+1. Visual Basic で、 **[ファイル]** メニューの **[新規作成]** をポイントし、 **[プロジェクト]** をクリックします。
 
-1. **[新しいプロジェクト]** ダイアログ ボックスの **[プロジェクトの種類]** ペインで、**[Windows]** が選択されていることを確認します。 **[テンプレート]** ペインで **[クラス ライブラリ]** を選択します。 **[名前]** ボックスに `StreamReaderEnumerable` と入力して、**[OK]** をクリックします。 新しいプロジェクトが表示されます。
+1. **[新しいプロジェクト]** ダイアログ ボックスの **[プロジェクトの種類]** ペインで、 **[Windows]** が選択されていることを確認します。 **[テンプレート]** ペインで **[クラス ライブラリ]** を選択します。 **[名前]** ボックスに `StreamReaderEnumerable` と入力して、 **[OK]** をクリックします。 新しいプロジェクトが表示されます。
 
-1. **ソリューション エクスプ ローラー**Class1.vb ファイルを右クリックし、クリックして、**の名前を変更**します。 ファイルの名前を `StreamReaderEnumerable.vb` に変更し、Enter キーを押します。 ファイルの名前を変更すると、クラスの名前も `StreamReaderEnumerable` に変更されます。 このクラスが `IEnumerable(Of String)` インターフェイスを実装します。
+1. **ソリューションエクスプローラー**で、Class1 ファイルを右クリックし、[名前の**変更**] をクリックします。 ファイルの名前を `StreamReaderEnumerable.vb` に変更し、Enter キーを押します。 ファイルの名前を変更すると、クラスの名前も `StreamReaderEnumerable` に変更されます。 このクラスが `IEnumerable(Of String)` インターフェイスを実装します。
 
-1. StreamReaderEnumerable プロジェクトを右クリックし、[**追加**、] をクリックし、**新しい項目の**します。 選択、**クラス**テンプレート。 **名前**ボックスに「 `StreamReaderEnumerator.vb`  をクリック**OK**します。
+1. StreamReaderEnumerable プロジェクトを右クリックし、 **[追加]** をポイントして、 **[新しい項目]** をクリックします。 **クラス**テンプレートを選択します。 **[名前]** ボックスに「`StreamReaderEnumerator.vb`」と入力し、[ **OK]** をクリックします。
 
- このプロジェクトの最初のクラスは列挙可能なクラスであり、実装、`IEnumerable(Of String)`インターフェイス。 このジェネリック インターフェイスを実装して、<xref:System.Collections.IEnumerable>インターフェイスと、このクラスのコンシューマーとして型指定された値にアクセスできることの保証`String`します。  
+ このプロジェクトの最初のクラスは列挙可能なクラスであり、`IEnumerable(Of String)` インターフェイスを実装します。 このジェネリックインターフェイスは <xref:System.Collections.IEnumerable> インターフェイスを実装し、このクラスのコンシューマーが `String`として型指定された値にアクセスできることを保証します。  
   
 **IEnumerable を実装するコードを追加します。**
 
-1. StreamReaderEnumerable.vb ファイルを開きます。
+1. StreamReaderEnumerable ファイルを開きます。
 
-2. 後の行に`Public Class StreamReaderEnumerable`次を入力し、ENTER キーを押します。
+2. `Public Class StreamReaderEnumerable`の後の行で、次のように入力し、enter キーを押します。
 
      [!code-vb[VbVbalrIteratorWalkthrough#1](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrIteratorWalkthrough/VB/StreamReaderIterator.vb#1)]
 
-   Visual Basic では必要なメンバーを持つクラスを自動的に設定する、`IEnumerable(Of String)`インターフェイス。
+   Visual Basic は、`IEnumerable(Of String)` インターフェイスに必要なメンバーをクラスに自動的に設定します。
   
-3. この列挙可能なクラスに、一度に 1 行ずつテキスト ファイルから行を読み取ります。 入力パラメーターとしてファイル パスを受け取るパブリック コンス トラクターを公開するクラスには、次のコードを追加します。
+3. この列挙可能なクラスは、一度に1行ずつテキストファイルから行を読み取ります。 次のコードをクラスに追加して、入力パラメーターとしてファイルパスを受け取るパブリックコンストラクターを公開します。
 
      [!code-vb[VbVbalrIteratorWalkthrough#2](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrIteratorWalkthrough/VB/StreamReaderIterator.vb#2)]
 
-4. 実装、<xref:System.Collections.Generic.IEnumerable%601.GetEnumerator%2A>のメソッド、`IEnumerable(Of String)`インターフェイスはの新しいインスタンスを返します、`StreamReaderEnumerator`クラス。 実装、`GetEnumerator`のメソッド、`IEnumerable`インターフェイスにできる`Private`のメンバーのみを公開する必要があるため、`IEnumerable(Of String)`インターフェイス。 Visual Basic 用に生成するコードに置き換えます、`GetEnumerator`メソッドを次のコード。
+4. `IEnumerable(Of String)` インターフェイスの <xref:System.Collections.Generic.IEnumerable%601.GetEnumerator%2A> メソッドを実装すると、`StreamReaderEnumerator` クラスの新しいインスタンスが返されます。 `IEnumerable(Of String)` インターフェイスのメンバーのみを公開する必要があるため、`IEnumerable` インターフェイスの `GetEnumerator` メソッドの実装は `Private`できます。 `GetEnumerator` メソッドに対して生成された Visual Basic コードを次のコードに置き換えます。
 
      [!code-vb[VbVbalrIteratorWalkthrough#3](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrIteratorWalkthrough/VB/StreamReaderIterator.vb#3)]  
   
-**IEnumerator を実装するコードを追加します。**
+**IEnumerator を実装するコードを追加する**
 
-1. StreamReaderEnumerator.vb ファイルを開きます。
+1. StreamReaderEnumerator .vb ファイルを開きます。
 
-2. 後の行に`Public Class StreamReaderEnumerator`次を入力し、ENTER キーを押します。
+2. `Public Class StreamReaderEnumerator`の後の行で、次のように入力し、enter キーを押します。
 
      [!code-vb[VbVbalrIteratorWalkthrough#4](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrIteratorWalkthrough/VB/StreamReaderIterator.vb#4)]
 
-   Visual Basic では必要なメンバーを持つクラスを自動的に設定する、`IEnumerator(Of String)`インターフェイス。
+   Visual Basic は、`IEnumerator(Of String)` インターフェイスに必要なメンバーをクラスに自動的に設定します。
 
-3. 列挙子クラスは、テキスト ファイルを開き、ファイルをファイルから行を読み取る I/O を実行します。 クラス ファイルのパスを入力パラメーターとして受け取るパブリック コンス トラクターを公開し、テキスト ファイルを読み取り用に次のコードを追加します。
+3. 列挙子クラスはテキストファイルを開き、ファイルの行を読み取るためにファイル i/o を実行します。 次のコードをクラスに追加して、ファイルパスを入力パラメーターとして受け取り、テキストファイルを読み取り用に開くパブリックコンストラクターを公開します。
 
      [!code-vb[VbVbalrIteratorWalkthrough#5](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrIteratorWalkthrough/VB/StreamReaderIterator.vb#5)]
 
-4. `Current`両方のプロパティ、`IEnumerator(Of String)`と`IEnumerator`インターフェイスとしてテキスト ファイルから現在の項目を返す、`String`します。 実装、`Current`のプロパティ、`IEnumerator`インターフェイスにできる`Private`のメンバーのみを公開する必要があるため、`IEnumerator(Of String)`インターフェイス。 Visual Basic 用に生成するコードに置き換えます、`Current`プロパティを次のコード。
+4. `IEnumerator(Of String)` インターフェイスと `IEnumerator` インターフェイスの両方の `Current` プロパティは、テキストファイルから現在の項目を `String`として返します。 `IEnumerator(Of String)` インターフェイスのメンバーのみを公開する必要があるため、`IEnumerator` インターフェイスの `Current` プロパティの実装は `Private`できます。 `Current` のプロパティに対して生成 Visual Basic コードを次のコードに置き換えます。
 
      [!code-vb[VbVbalrIteratorWalkthrough#6](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrIteratorWalkthrough/VB/StreamReaderIterator.vb#6)]
 
-5. `MoveNext`のメソッド、`IEnumerator`インターフェイスが、テキスト ファイルに次の項目に移動し、によって返される値を更新して、`Current`プロパティ。 読み取るには、これ以上項目がある場合、`MoveNext`メソッドを返します。 `False`。 そうしないと、`MoveNext`メソッドを返します。`True`します。 `MoveNext` メソッドに次のコードを追加します。
+5. `IEnumerator` インターフェイスの `MoveNext` メソッドは、テキストファイル内の次の項目に移動し、`Current` プロパティによって返される値を更新します。 読み取る項目がそれ以上ない場合、`MoveNext` メソッドは `False`を返します。それ以外の場合、`MoveNext` メソッドは `True`を返します。 `MoveNext` メソッドに次のコードを追加します。
 
      [!code-vb[VbVbalrIteratorWalkthrough#7](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrIteratorWalkthrough/VB/StreamReaderIterator.vb#7)]
 
-6. `Reset`のメソッド、`IEnumerator`インターフェイスは、テキスト ファイルの先頭を指す反復子に指示し、現在の項目の値を消去します。 `Reset` メソッドに次のコードを追加します。
+6. `IEnumerator` インターフェイスの `Reset` メソッドは、テキストファイルの先頭を指すように反復子に指示し、現在の項目の値をクリアします。 `Reset` メソッドに次のコードを追加します。
 
      [!code-vb[VbVbalrIteratorWalkthrough#8](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrIteratorWalkthrough/VB/StreamReaderIterator.vb#8)]
 
-7. `Dispose`のメソッド、`IEnumerator`インターフェイス、反復子が破棄される前にすべてのアンマネージ リソースが解放されることを保証します。 によって使用されるファイル ハンドル、`StreamReader`オブジェクトは、アンマネージ リソースし、反復子インスタンスが破棄される前に閉じる必要があります。 Visual Basic 用に生成するコードに置き換えます、`Dispose`メソッドを次のコード。
+7. `IEnumerator` インターフェイスの `Dispose` メソッドは、反復子が破棄される前にすべてのアンマネージリソースが解放されることを保証します。 `StreamReader` オブジェクトによって使用されるファイルハンドルはアンマネージリソースであり、反復子インスタンスが破棄される前に閉じる必要があります。 `Dispose` メソッドに対して生成 Visual Basic コードを次のコードに置き換えます。
 
      [!code-vb[VbVbalrIteratorWalkthrough#9](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrIteratorWalkthrough/VB/StreamReaderIterator.vb#9)] 
   
-## <a name="using-the-sample-iterator"></a>サンプルの反復子を使用
+## <a name="using-the-sample-iterator"></a>サンプル反復子の使用
 
- 制御構造を実装するオブジェクトを必要とすると、コード内の列挙可能なクラスを使用できます`IEnumerable`などを`For Next`ループまたは LINQ クエリ。 次の例は、 `StreamReaderEnumerable` LINQ クエリでします。  
+ コード内で列挙可能なクラスを、`For Next` ループや LINQ クエリなどの `IEnumerable`を実装するオブジェクトを必要とする制御構造と共に使用できます。 次の例は、LINQ クエリの `StreamReaderEnumerable` を示しています。  
   
  [!code-vb[VbVbalrIteratorWalkthrough#10](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrIteratorWalkthrough/VB/Module1.vb#10)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Visual Basic における LINQ の概要](../../../../visual-basic/programming-guide/language-features/linq/introduction-to-linq.md)
 - [制御フロー](../../../../visual-basic/programming-guide/language-features/control-flow/index.md)

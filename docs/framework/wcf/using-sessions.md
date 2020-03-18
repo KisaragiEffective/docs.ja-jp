@@ -30,7 +30,7 @@ Windows Communication Foundation (WCF) アプリケーションでは、*セッ�
   
 - WCF セッションに関連付けられている一般的なデータストアはありません。  
   
- ASP.NET アプリケーションの @no__t 0 クラスと、それによって提供される機能に慣れている場合は、そのようなセッションと WCF セッションの間に次の違いがあることがわかります。  
+ ASP.NET アプリケーションの <xref:System.Web.SessionState.HttpSessionState?displayProperty=nameWithType> クラスと、それによって提供される機能に慣れている場合は、そのようなセッションと WCF セッションの間で次の点が異なることに気付くことがあります。  
   
 - ASP.NET セッションは常にサーバーによって開始されます。  
   
@@ -49,7 +49,7 @@ Windows Communication Foundation (WCF) アプリケーションでは、*セッ�
 - セッションの作成と終了、およびセッションとサービス インスタンスの関係を理解し、制御する方法。  
   
 ## <a name="default-execution-behavior-using-sessions"></a>セッションを使用した既定の実行動作  
- セッションの開始を試みるバインディングは、 *セッション ベース* のバインディングと呼ばれます。 サービス コントラクトで、セッション ベースのバインディングを要求、許可、または拒否するように指定するときは、サービス コントラクト インターフェイス (またはクラス) の <xref:System.ServiceModel.ServiceContractAttribute.SessionMode%2A?displayProperty=nameWithType> プロパティを <xref:System.ServiceModel.SessionMode?displayProperty=nameWithType> 列挙値に設定します。 既定では、このプロパティの値は0に設定さ @no__t れています。つまり、クライアントが WCF サービス実装でセッションベースのバインディングを使用する場合、サービスは提供されたセッションを確立して使用します。  
+ セッションの開始を試みるバインディングは、 *セッション ベース* のバインディングと呼ばれます。 サービス コントラクトで、セッション ベースのバインディングを要求、許可、または拒否するように指定するときは、サービス コントラクト インターフェイス (またはクラス) の <xref:System.ServiceModel.ServiceContractAttribute.SessionMode%2A?displayProperty=nameWithType> プロパティを <xref:System.ServiceModel.SessionMode?displayProperty=nameWithType> 列挙値に設定します。 既定では、このプロパティの値は <xref:System.ServiceModel.SessionMode.Allowed>です。つまり、クライアントが WCF サービス実装でセッションベースのバインディングを使用する場合、サービスは提供されたセッションを確立して使用します。  
   
  WCF サービスがクライアントセッションを受け入れると、既定では次の機能が有効になります。  
   
@@ -108,7 +108,7 @@ Windows Communication Foundation (WCF) アプリケーションでは、*セッ�
 > [!NOTE]
 > 既定の動作は、ローカルのコンストラクターとデストラクターに似ていますが、あくまで似ているだけです。 すべての WCF サービス操作は、開始または終了操作、またはその両方を同時に実行できます。 さらに既定では、開始操作は、任意の順序で何回でも呼び出すことができます。そのため、 <xref:System.ServiceModel.InstanceContext?displayProperty=nameWithType> オブジェクトを操作することでサービス インスタンスの有効期間を明示的に制御しない限り、セッションが確立されインスタンスに関連付けられた後に、追加セッションは作成されません。 また、状態はセッションに関連付けられ、サービス オブジェクトには関連付けられません。  
   
- たとえば、前の例で使用されている `ICalculatorSession` コントラクトでは、WCF クライアントオブジェクトが、その他の操作の前に最初に `Clear` 操作を呼び出し、この WCF クライアントオブジェクトとのセッションが `Equals` 操作を呼び出すときに終了する必要があります。 次のコード例は、この要件を強制的に適用するコントラクトを示しています。 セッションを開始するにはまず`Clear` を呼び出す必要があります。 `Equals` を呼び出すとセッションが終了します。  
+ たとえば、前の例で使用した `ICalculatorSession` コントラクトでは、WCF クライアントオブジェクトが、その他の操作の前に最初に `Clear` 操作を呼び出し、この WCF クライアントオブジェクトとのセッションが `Equals` 操作を呼び出すときに終了する必要があります。 次のコード例は、この要件を強制的に適用するコントラクトを示しています。 セッションを開始するにはまず`Clear` を呼び出す必要があります。 `Equals` を呼び出すとセッションが終了します。  
   
  [!code-csharp[SCA.IsInitiatingIsTerminating#1](../../../samples/snippets/csharp/VS_Snippets_CFX/sca.isinitiatingisterminating/cs/service.cs#1)]
  [!code-vb[SCA.IsInitiatingIsTerminating#1](../../../samples/snippets/visualbasic/VS_Snippets_CFX/sca.isinitiatingisterminating/vb/service.vb#1)]  
@@ -117,7 +117,7 @@ Windows Communication Foundation (WCF) アプリケーションでは、*セッ�
   
 - <xref:System.ServiceModel.ICommunicationObject.Open%2A?displayProperty=nameWithType> の呼び出しによって返されるチャネルの <xref:System.ServiceModel.ChannelFactory%601.CreateChannel%2A?displayProperty=nameWithType>。  
   
-- [ServiceModel メタデータユーティリティツール (svcutil.exe)](servicemodel-metadata-utility-tool-svcutil-exe.md)によって生成される WCF クライアントオブジェクトの <xref:System.ServiceModel.ClientBase%601.Open%2A?displayProperty=nameWithType>。  
+- [ServiceModel メタデータユーティリティツール (svcutil.exe)](servicemodel-metadata-utility-tool-svcutil-exe.md)によって生成される WCF クライアントオブジェクトに <xref:System.ServiceModel.ClientBase%601.Open%2A?displayProperty=nameWithType> します。  
   
 - どちらの種類の WCF クライアントオブジェクトの開始操作 (既定では、すべての操作が開始されます)。 最初の操作が呼び出されると、WCF クライアントオブジェクトは自動的にチャネルを開き、セッションを開始します。  
   
@@ -125,11 +125,11 @@ Windows Communication Foundation (WCF) アプリケーションでは、*セッ�
   
 - <xref:System.ServiceModel.ICommunicationObject.Close%2A?displayProperty=nameWithType> の呼び出しによって返されるチャネルの <xref:System.ServiceModel.ChannelFactory%601.CreateChannel%2A?displayProperty=nameWithType>。  
   
-- Svcutil.exe によって生成される WCF クライアントオブジェクトの <xref:System.ServiceModel.ClientBase%601.Close%2A?displayProperty=nameWithType>。  
+- Svcutil.exe によって生成される WCF クライアントオブジェクトに <xref:System.ServiceModel.ClientBase%601.Close%2A?displayProperty=nameWithType> します。  
   
 - どちらの種類の WCF クライアントオブジェクトに対しても終了操作 (既定では、操作は終了しません。コントラクトは、終了操作を明示的に指定する必要があります)。 最初の操作が呼び出されると、WCF クライアントオブジェクトは自動的にチャネルを開き、セッションを開始します。  
   
- 例については、「 [方法: セッションを必要とするサービスを作成する](./feature-details/how-to-create-a-service-that-requires-sessions.md) 」、および「 [既定のサービスの動作](./samples/default-service-behavior.md) 」と「 [インスタンス化](./samples/instancing.md) 」のサンプルをご覧ください。  
+ 例については、「 [How to: Create a Service That Requires Sessions](./feature-details/how-to-create-a-service-that-requires-sessions.md) 」、および「 [Default Service Behavior](./samples/default-service-behavior.md) 」や「 [Instancing](./samples/instancing.md) 」のサンプルを参照してください。  
   
  クライアントとセッションの詳細については、「 [WCF クライアントを使用したサービスへのアクセス](./feature-details/accessing-services-using-a-client.md)」を参照してください。  
   
@@ -140,12 +140,12 @@ Windows Communication Foundation (WCF) アプリケーションでは、*セッ�
  ユーザーが自ら関連付けを行うことにより、どの <xref:System.ServiceModel.InstanceContext> オブジェクトに、どのセッション ベースのチャネルまたは呼び出しを関連付けるかを制御することもできます。 
   
 ## <a name="sessions-and-streaming"></a>セッションとストリーミング  
- 大量のデータを転送する場合、WCF のストリーミング転送モードは、メッセージをメモリ内でバッファー処理して処理する既定の動作に代わるものです。 セッション ベースのバインディングでストリーミングを呼び出すと、予期しない動作を引き起こすことがあります。 すべてのストリーミング呼び出しは単一のチャネル (データグラム チャネル) を通じて行われますが、このチャネルは使用されるバインディングがセッションを使用するように構成されている場合であっても、セッションをサポートしません。 セッション ベースのバインディングによって複数のクライアントが同一のサービス オブジェクトに対してストリーミング呼び出しを行う場合、このサービス オブジェクトのコンカレンシー モードが単一に設定され、インスタンス コンテキスト モードが `PerSession` に設定されていると、すべての呼び出しがこのデータグラム チャネルを通過する必要があるため、同時に処理される呼び出しは 1 つに限られることになります。 その後、1つまたは複数のクライアントがタイムアウトする可能性があります。この問題を回避するには、サービスオブジェクトの `InstanceContextMode` を `PerCall` または Concurrency を複数に設定します。  
+ 大量のデータを転送する場合、WCF のストリーミング転送モードは、メッセージをメモリ内でバッファー処理して処理する既定の動作に代わるものです。 セッション ベースのバインディングでストリーミングを呼び出すと、予期しない動作を引き起こすことがあります。 すべてのストリーミング呼び出しは単一のチャネル (データグラム チャネル) を通じて行われますが、このチャネルは使用されるバインディングがセッションを使用するように構成されている場合であっても、セッションをサポートしません。 セッション ベースのバインディングによって複数のクライアントが同一のサービス オブジェクトに対してストリーミング呼び出しを行う場合、このサービス オブジェクトのコンカレンシー モードが単一に設定され、インスタンス コンテキスト モードが `PerSession` に設定されていると、すべての呼び出しがこのデータグラム チャネルを通過する必要があるため、同時に処理される呼び出しは 1 つに限られることになります。 その後、1つまたは複数のクライアントがタイムアウトする可能性があります。この問題を回避するには、サービスオブジェクトの `InstanceContextMode` を `PerCall` または Concurrency に設定します。  
   
 > [!NOTE]
 > この場合、利用可能になる "セッション" は 1 つしかないため、MaxConcurrentSessions は効力を失います。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.ServiceModel.OperationContractAttribute.IsInitiating%2A>
 - <xref:System.ServiceModel.OperationContractAttribute.IsTerminating%2A>

@@ -1,5 +1,5 @@
 ---
-title: '方法: トレース リスナーを作成し初期化する'
+title: '方法 : トレース リスナーを作成し初期化する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -11,16 +11,14 @@ helpviewer_keywords:
 - tracing [.NET Framework], trace listeners
 - logs, trace listeners
 ms.assetid: 21726de1-61ee-4fdc-9dd0-3be49324d066
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a67bd2c0daa8acc81113a1e38ea463753ae34077
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: ce0df0af32d6798c89c8db6761d18febc1c398bb
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71052724"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217442"
 ---
-# <a name="how-to-create-and-initialize-trace-listeners"></a>方法: トレース リスナーを作成し初期化する
+# <a name="how-to-create-and-initialize-trace-listeners"></a>方法 : トレース リスナーを作成し初期化する
 
 <xref:System.Diagnostics.Debug?displayProperty=nameWithType> クラスと <xref:System.Diagnostics.Trace?displayProperty=nameWithType> クラスは、メッセージの受け取りと処理を実行する、リスナーと呼ばれるオブジェクトにメッセージを送ります。 トレースまたはデバッグを有効にすると、こうしたリスナーの 1 つである <xref:System.Diagnostics.DefaultTraceListener?displayProperty=nameWithType> が自動的に作成および初期化されます。 <xref:System.Diagnostics.Trace> または <xref:System.Diagnostics.Debug> の出力を別のソースに送るには、別のトレース リスナーを作成して初期化する必要があります。
 
@@ -30,7 +28,7 @@ ms.locfileid: "71052724"
 
 ### <a name="to-create-and-use-a-trace-listener-by-using-a-configuration-file"></a>構成ファイルを使用してトレース リスナーを作成して使用するには
 
-1. アプリケーション構成ファイルでトレース リスナーを宣言します。 作成しているリスナーで他のオブジェクトが必要な場合は、必要なオブジェクトも宣言します。 テキスト ファイル `TextWriterOutput.log` への書き込みを実行する `myListener` というリスナーの作成方法を次の例に示します。
+1. アプリケーション構成ファイルでトレース リスナーを宣言します。 作成しているリスナーで他のオブジェクトが必要な場合は、必要なオブジェクトも宣言します。 テキスト ファイル `myListener` への書き込みを実行する `TextWriterOutput.log` というリスナーの作成方法を次の例に示します。
 
     ```xml
     <configuration>
@@ -77,7 +75,7 @@ ms.locfileid: "71052724"
     Trace.Flush();
     ```
 
-    \- または -
+    \- - または -
 
 - リスナーがトレース出力を受け取らないようにするには、リスナーを <xref:System.Diagnostics.Trace.Listeners%2A> コレクションに追加しないようにします。 リスナー自体の出力メソッドを呼び出すことにより、<xref:System.Diagnostics.Trace.Listeners%2A> コレクションから独立したリスナーを通じて出力を生成できます。 <xref:System.Diagnostics.Trace.Listeners%2A> コレクションに属さないリスナーに行を書き込む方法を次の例に示します。
 
@@ -95,9 +93,9 @@ ms.locfileid: "71052724"
     myListener.Flush();
     ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [トレース リスナー](trace-listeners.md)
 - [トレース スイッチ](trace-switches.md)
-- [方法: アプリケーションコードにトレースステートメントを追加する](how-to-add-trace-statements-to-application-code.md)
+- [方法 : アプリケーション コードにトレース ステートメントを追加する](how-to-add-trace-statements-to-application-code.md)
 - [アプリケーションのトレースとインストルメント](tracing-and-instrumenting-applications.md)

@@ -1,5 +1,6 @@
 ---
-title: WPF アプリケーションへのグラス フレームの拡張
+title: WPF アプリへのグラスフレームの拡張
+titleSuffix: ''
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -10,19 +11,19 @@ helpviewer_keywords:
 - extending glass frames into applications [WPF]
 - glass frames [WPF], extending into applications
 ms.assetid: 74388a3a-4b69-4a9d-ba1f-e107636bd660
-ms.openlocfilehash: f8d50cb4d0112232f86579542650418a1906bda2
-ms.sourcegitcommit: cf9515122fce716bcfb6618ba366e39b5a2eb81e
+ms.openlocfilehash: b78547aa8b414c585bb2e5c9c6680ed159731bc3
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69039843"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746532"
 ---
 # <a name="extend-glass-frame-into-a-wpf-application"></a>WPF アプリケーションへのグラス フレームの拡張
 
-このトピックでは、Windows Presentation Foundation ( [!INCLUDE[TLA#tla_winvista](../../../../includes/tlasharptla-winvista-md.md)] WPF) アプリケーションのクライアント領域にグラスフレームを拡張する方法について説明します。
+このトピックでは、Windows Vista のグラスフレームを Windows Presentation Foundation (WPF) アプリケーションのクライアント領域に拡張する方法について説明します。
 
 > [!NOTE]
-> この例は、グラスが有効なデスクトップ ウィンドウ マネージャー (DWM) を実行している [!INCLUDE[TLA2#tla_winvista](../../../../includes/tla2sharptla-winvista-md.md)] コンピューターでしか動作しません。 [!INCLUDE[TLA2#tla_winvista](../../../../includes/tla2sharptla-winvista-md.md)] Home Basic エディションは、透明グラス効果をサポートしていません。 [!INCLUDE[TLA2#tla_winvista](../../../../includes/tla2sharptla-winvista-md.md)] の他のエディションで通常透明グラス効果がレンダリングされる領域は、不透明でレンダリングされます。
+> この例は、ガラスが有効になっているデスクトップウィンドウマネージャー (DWM) を実行している Windows Vista コンピューターでのみ機能します。 Windows Vista Home Basic edition では、透明なガラス効果はサポートされていません。 通常、他のエディションの Windows Vista では、透明なガラス効果でレンダリングされる領域は不透明に表示されます。
 
 ## <a name="example"></a>例
 
@@ -30,7 +31,7 @@ ms.locfileid: "69039843"
 
 ![IE7 アドレスバーの背後に拡張されたグラスフレームを示すスクリーンショット。](./media/extend-glass-frame-into-a-wpf-application/internet-explorer-glass-frame-extended-address-bar.png)
 
-[!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)]アプリケーションのグラスフレームを拡張するには、アンマネージ API へのアクセスが必要です。 次のコード例では、クライアント領域にフレームを拡張するために必要な2つの API のプラットフォーム呼び出し (pinvoke) を実行します。 これらの API はそれぞれ**Nonclientregionapi**と呼ばれるクラスで宣言されています。
+WPF アプリケーションのグラスフレームを拡張するには、アンマネージ API へのアクセスが必要です。 次のコード例では、クライアント領域にフレームを拡張するために必要な2つの API のプラットフォーム呼び出し (pinvoke) を実行します。 これらの API はそれぞれ**Nonclientregionapi**と呼ばれるクラスで宣言されています。
 
 ```csharp
 [StructLayout(LayoutKind.Sequential)]
@@ -66,7 +67,7 @@ End Function
 
 ## <a name="example"></a>例
 
-[DwmExtendFrameIntoClientArea](/windows/desktop/api/dwmapi/nf-dwmapi-dwmextendframeintoclientarea) 関数を使うには、ウィンドウ ハンドルを取得する必要があります。 で[!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)]は、ウィンドウハンドルはの<xref:System.Windows.Interop.HwndSource.Handle%2A> <xref:System.Windows.Interop.HwndSource>プロパティから取得できます。 次の例では、ウィンドウの<xref:System.Windows.FrameworkElement.Loaded>イベントでフレームがクライアント領域に拡張されます。
+[DwmExtendFrameIntoClientArea](/windows/desktop/api/dwmapi/nf-dwmapi-dwmextendframeintoclientarea) 関数を使うには、ウィンドウ ハンドルを取得する必要があります。 WPF では、ウィンドウハンドルは、<xref:System.Windows.Interop.HwndSource>の <xref:System.Windows.Interop.HwndSource.Handle%2A> プロパティから取得できます。 次の例では、フレームがウィンドウの <xref:System.Windows.FrameworkElement.Loaded> イベントのクライアント領域に拡張されます。
 
 ```csharp
 void OnLoaded(object sender, RoutedEventArgs e)
@@ -111,7 +112,7 @@ void OnLoaded(object sender, RoutedEventArgs e)
 
 ## <a name="example"></a>例
 
-次の例では、クライアント領域にフレームが拡張される簡単なウィンドウを示します。 フレームは、2つ<xref:System.Windows.Controls.TextBox>のオブジェクトを含む上罫線の背後に拡張されます。
+次の例では、クライアント領域にフレームが拡張される簡単なウィンドウを示します。 フレームは、2つの <xref:System.Windows.Controls.TextBox> オブジェクトを含む上罫線の背後に拡張されます。
 
 ```xaml
 <Window x:Class="SDKSample.Window1"
@@ -145,11 +146,11 @@ void OnLoaded(object sender, RoutedEventArgs e)
 </Window>
 ```
 
-次の図は、 [!INCLUDE[TLA2#tla_wpf](../../../../includes/tla2sharptla-wpf-md.md)]アプリケーションに拡張されたグラスフレームを示しています。
+次の図は、WPF アプリケーションに拡張されたグラスフレームを示しています。
 
 ![WPF アプリケーションに拡張されたグラスフレームを示すスクリーンショット。](./media/extend-glass-frame-into-a-wpf-application/glass-frame-extended-wpf-application.png)
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [デスクトップウィンドウマネージャーの概要](/windows/desktop/dwm/dwm-overview)
 - [ぼかしのデスクトップウィンドウマネージャーの概要](/windows/desktop/dwm/blur-ovw)

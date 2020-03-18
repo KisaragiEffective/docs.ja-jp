@@ -8,14 +8,12 @@ helpviewer_keywords:
 - resource files, .resx files
 - .resx files
 ms.assetid: 168f941a-2b84-43f8-933f-cf4a8548d824
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7e5a57664c5d86ebf394ce026608be9a55872eb8
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 2bbca5712639e14370d090e95b78bb89eba134e4
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71045533"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73129906"
 ---
 # <a name="working-with-resx-files-programmatically"></a>プログラムによる .resx ファイルの使用
 XML リソース (.resx) ファイルは適切に定義された XML で構成する必要があり、特定のスキーマに従ったヘッダーの後に、名前と値のペアになったデータが続きます。そのため、手動で作成するとエラーが発生しやすくなります。 代わりに、.NET クラス ライブラリの型とメンバーを使用して、.resx ファイルをプログラムで作成できます。 また、.NET クラス ライブラリを使用して、.resx ファイルに格納されているリソースを取得することもできます。 このトピックでは、 <xref:System.Resources> 名前空間の型とメンバーを使って、.resx ファイルを操作する方法を説明します。
@@ -48,7 +46,7 @@ XML リソース (.resx) ファイルは適切に定義された XML で構成�
 > [!TIP]
 > [Visual Studio](https://visualstudio.microsoft.com/vs/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link) を使用して .resx ファイルを作成することもできます。 コンパイル時に、Visual Studio は [リソース ファイル ジェネレーター (Resgen.exe)](../tools/resgen-exe-resource-file-generator.md) を使って、.resx ファイルをバイナリ リソース (.resources) ファイルに変換し、アプリケーション アセンブリかサテライト アセンブリのいずれかに埋め込みます。
 
-.resx ファイルをランタイムの実行可能ファイルに埋め込むことや、サテライト アセンブリにコンパイルすることはできません。 [リソース ファイル ジェネレーター (Resgen.exe)](../tools/resgen-exe-resource-file-generator.md)を使って、.resx ファイルをバイナリ リソース (.resources) ファイルに変換する必要があります。 結果として得られる .resources ファイルは、アプリケーション アセンブリやサテライト アセンブリに埋め込むことができます。 詳細については、[リソース ファイルの作成](creating-resource-files-for-desktop-apps.md) に関するページを参照してください。
+.resx ファイルをランタイムの実行可能ファイルに埋め込むことや、サテライト アセンブリにコンパイルすることはできません。 [リソース ファイル ジェネレーター (Resgen.exe)](../tools/resgen-exe-resource-file-generator.md)を使って、.resx ファイルをバイナリ リソース (.resources) ファイルに変換する必要があります。 結果として得られる .resources ファイルは、アプリケーション アセンブリやサテライト アセンブリに埋め込むことができます。 詳細については、「 [Creating Resource Files](creating-resource-files-for-desktop-apps.md)」を参照してください。
 
 ## <a name="enumerate-resources"></a>リソースを列挙する
  場合によっては、.resx ファイルから、特定のリソースではなく、すべてのリソースを取得したいことがあります。 これを行うには、.resx ファイル内のすべてのリソースの列挙子を提供する <xref:System.Resources.ResXResourceReader?displayProperty=nameWithType> クラスを使います。 <xref:System.Resources.ResXResourceReader?displayProperty=nameWithType> クラスは <xref:System.Collections.IDictionaryEnumerator>を実装します。これは、ループの反復処理ごとに特定のリソースを示す <xref:System.Collections.DictionaryEntry> を返します。 その <xref:System.Collections.DictionaryEntry.Key%2A?displayProperty=nameWithType> プロパティはリソースのキーを返し、その <xref:System.Collections.DictionaryEntry.Value%2A?displayProperty=nameWithType> プロパティはリソースの値を返します。

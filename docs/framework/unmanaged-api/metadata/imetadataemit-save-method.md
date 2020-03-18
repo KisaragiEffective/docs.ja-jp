@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: c1de8400-adfe-4a71-b828-a1d0cc1ea505
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 7ece16d8dcdc685db960a485cd19261f6b9f2fbe
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: afd60cdf566bea459816ee890d44cc09258de516
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67757597"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74435940"
 ---
 # <a name="imetadataemitsave-method"></a>IMetaDataEmit::Save メソッド
-指定したアドレスにあるファイルに現在のスコープ内のすべてのメタデータを保存します。  
+現在のスコープ内のすべてのメタデータを、指定したアドレスにあるファイルに保存します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,17 +36,17 @@ HRESULT Save (
   
 ## <a name="parameters"></a>パラメーター  
  `wzFile`  
- [in]保存するファイルの名前。 この値が null の場合は、メモリ内のコピーは、最後に使用された場所に保存されます。  
+ から保存先のファイルの名前。 この値が null の場合、メモリ内のコピーは、使用された最後の場所に保存されます。  
   
  `dwSaveFlags`  
  [in] 予約されています。 ゼロを指定してください。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MSCorEE.dll にリソースとして使用  
+ **ライブラリ:** Mscoree.dll のリソースとして使用されます。  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

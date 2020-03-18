@@ -1,6 +1,5 @@
 ---
 title: $ - 文字列補間 - C# リファレンス
-ms.custom: seodec18
 description: 文字列補間では、従来の複合文字列の書式設定よりも読み取りやすく、便利な構文を書式指定文字列の出力に提供します。
 ms.date: 09/02/2019
 f1_keywords:
@@ -11,13 +10,12 @@ helpviewer_keywords:
 - string interpolation [C#]
 - interpolated string [C#]
 author: pkulikov
-ms.author: ronpet
-ms.openlocfilehash: 53a8938a373136df65e23c162b94c4d8dc1f30b4
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 97bc606569b83bd14cd3b32495deb8e529747e9c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70253861"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "76980120"
 ---
 # <a name="---string-interpolation-c-reference"></a>$ - 文字列補間 (C# リファレンス)
 
@@ -39,7 +37,7 @@ ms.locfileid: "70253861"
 
 角かっこ内の要素は省略可能です。 次の表は、それぞれの要素の説明です。
 
-|要素|説明|
+|要素|[説明]|
 |-------------|-----------------|
 |`interpolationExpression`|書式設定される結果を生成する式です。 `null` の文字列表記は <xref:System.String.Empty?displayProperty=nameWithType> です。|
 |`alignment`|式の結果の文字列表現で、最小文字数を定義する値を持つ定数式です。 正の場合は、文字列表現は右揃えで配置され、負の場合は、左揃えで配置されます。 詳細については、「[Alignment コンポーネント](../../../standard/base-types/composite-formatting.md#alignment-component)」を参照してください。|
@@ -59,7 +57,7 @@ ms.locfileid: "70253861"
 
 [!code-csharp-interactive[example with ternary conditional operator](~/samples/snippets/csharp/language-reference/tokens/string-interpolation.cs#3)]
 
-verbatim 補間文字列は、`$` 文字で始まり、`@` 文字が続きます。 逐語的文字列の詳細については、[string](../keywords/string.md) と [逐語的識別子](verbatim.md)に関するトピックを参照してください。
+verbatim 補間文字列は、`$` 文字で始まり、`@` 文字が続きます。 逐語的文字列の詳細については、[string](../builtin-types/reference-types.md) と [逐語的識別子](verbatim.md)に関するトピックを参照してください。
 
 > [!NOTE]
 > C# 8.0 以降では、`$` と `@` のトークンを任意の順序で使用できます。`$@"..."` と `@$"..."` はどちらも有効な verbatim 補間文字列です。 以前のバージョンの C# では、`$` トークンは `@` トークンの前に記述する必要があります。
@@ -72,8 +70,8 @@ verbatim 補間文字列は、`$` 文字で始まり、`@` 文字が続きます
 
 1. 書式設定される式の結果と、挿入文字列から複合書式指定文字列を表す <xref:System.FormattableString> インスタンスへの変換。 これは、単一の <xref:System.FormattableString> インスタンスから、カルチャ固有のコンテンツを持つ複数の結果文字列の作成を可能にするものです。 そのためには、次のいずれかのメソッドを呼び出します。
 
-      - <xref:System.Globalization.CultureInfo.CurrentCulture> の結果文字列を生成する <xref:System.FormattableString.ToString> オーバーロード。
-      - <xref:System.Globalization.CultureInfo.InvariantCulture> の結果文字列を生成する <xref:System.FormattableString.Invariant%2A> メソッド。
+      - <xref:System.FormattableString.ToString> の結果文字列を生成する <xref:System.Globalization.CultureInfo.CurrentCulture> オーバーロード。
+      - <xref:System.FormattableString.Invariant%2A> の結果文字列を生成する <xref:System.Globalization.CultureInfo.InvariantCulture> メソッド。
       - 特定のカルチャの結果文字列を生成する <xref:System.FormattableString.ToString(System.IFormatProvider)> メソッド。
 
     <xref:System.FormattableString.ToString(System.IFormatProvider)> メソッドを使用して、カスタム書式設定をサポートする <xref:System.IFormatProvider> インターフェイスのユーザー定義の実装を提供することもできます。 詳細については、「[ICustomFormatter を使用したカスタム書式設定](../../../standard/base-types/formatting-types.md#custom-formatting-with-icustomformatter)」の「[.NET での書式設定](../../../standard/base-types/formatting-types.md)」のセクションを参照してください。
@@ -84,7 +82,7 @@ verbatim 補間文字列は、`$` 文字で始まり、`@` 文字が続きます
 
 [!code-csharp-interactive[create culture-specific result strings](~/samples/snippets/csharp/language-reference/tokens/string-interpolation.cs#4)]
 
-## <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他のリソース
 
 文字列補間を初めてお使いの場合は、[C# の文字列補完](../../tutorials/exploration/interpolated-strings.yml)に関する対話形式チュートリアルを参照してください。 また、補完された文字列を使用して書式設定された文字列を生成する方法を示したもう 1 つのチュートリアル「[C# における文字列補完](../../tutorials/string-interpolation.md)」も確認してください。
 
@@ -96,13 +94,13 @@ verbatim 補間文字列は、`$` 文字で始まり、`@` 文字が続きます
 
 ## <a name="c-language-specification"></a>C# 言語仕様
 
-詳しくは、[C# 言語仕様](~/_csharplang/spec/introduction.md)に関するページの[補完文字列](~/_csharplang/spec/expressions.md#interpolated-strings)のセクションを参照してください。
+詳しくは、[C# 言語仕様](~/_csharplang/spec/expressions.md#interpolated-strings)に関するページの[補完文字列](~/_csharplang/spec/introduction.md)のセクションを参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [C# リファレンス](../index.md)
 - [C# 特殊文字](index.md)
 - [文字列](../../programming-guide/strings/index.md)
-- [数値結果テーブルの書式設定](../keywords/formatting-numeric-results-table.md)
+- [標準の数値書式指定文字列](../../../standard/base-types/standard-numeric-format-strings.md)
 - [複合書式指定](../../../standard/base-types/composite-formatting.md)
 - <xref:System.String.Format%2A?displayProperty=nameWithType>

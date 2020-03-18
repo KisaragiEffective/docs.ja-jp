@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 55674b68-678a-4747-ae06-4e91519c7305
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 4c1bf9e572ee88bd299f23ebb435c1b4d24ed717
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 5d9474f78dd8b999a37f60e0698cfd04240b897a
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67762918"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76866573"
 ---
 # <a name="icorprofilercallbackclassunloadfinished-method"></a>ICorProfilerCallback::ClassUnloadFinished メソッド
-クラスのアンロードが完了したことをプロファイラーに通知します。  
+クラスのアンロードが終了したことをプロファイラーに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -35,20 +33,23 @@ HRESULT ClassUnloadFinished(
     [in] HRESULT hrStatus);  
 ```  
   
-## <a name="parameters"></a>パラメーター  
- `classId`  
- [in]アンロードされたクラスを識別します。  
-  
- `hrStatus`  
- [in]かどうか、クラスがアンロードされた正常を示す HRESULT。  
+## <a name="parameters"></a>パラメーター
+
+- `classId`
+
+  の \[] は、アンロードされたクラスを識別します。
+
+- `hrStatus`
+
+  \[]) クラスが正常にアンロードされたかどうかを示す HRESULT。
   
 ## <a name="remarks"></a>Remarks  
- クラスのアンロードの一部が後に続ける可能性があります、`ClassUnloadFinished`コールバック。 エラーの HRESULT で`hrStatus`失敗を示します。 ただし、成功 HRESULT で`hrStatus`のみに、クラスのアンロードの最初の部分が成功したことを示します。  
+ `ClassUnloadFinished` コールバックの後に、クラスのアンロードの一部が続行される場合があります。 `hrStatus` のエラー HRESULT はエラーを示します。 ただし、`hrStatus` の成功 HRESULT は、クラスのアンロードの最初の部分が成功したことのみを示します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -56,5 +57,5 @@ HRESULT ClassUnloadFinished(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerCallback インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-interface.md)
-- [ClassUnloadStarted メソッド](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-classunloadstarted-method.md)
+- [ICorProfilerCallback インターフェイス](icorprofilercallback-interface.md)
+- [ClassUnloadStarted メソッド](icorprofilercallback-classunloadstarted-method.md)

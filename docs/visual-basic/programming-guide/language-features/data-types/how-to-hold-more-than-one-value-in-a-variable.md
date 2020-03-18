@@ -1,5 +1,5 @@
 ---
-title: '方法: 1つの変数に複数の値を保持する (Visual Basic)'
+title: '方法 : 変数内で複数の値を保持する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - classes [Visual Basic], composite data types
@@ -11,14 +11,14 @@ helpviewer_keywords:
 - arrays [Visual Basic], compilation errors
 - types [Visual Basic], composite
 ms.assetid: 5fe0e558-aac2-4a40-b7f2-7cfea7336917
-ms.openlocfilehash: 8d07a34a98303f9d220dba0a3c955120b421340e
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: d452fbf35f9d200348234b38c40f8636f0ec4b4e
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71054194"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74350014"
 ---
-# <a name="how-to-hold-more-than-one-value-in-a-variable-visual-basic"></a>方法: 1つの変数に複数の値を保持する (Visual Basic)
+# <a name="how-to-hold-more-than-one-value-in-a-variable-visual-basic"></a>方法: 変数内で複数の値を保持する (Visual Basic)
 
 *複合データ型*として宣言すると、変数に複数の値が保持されます。
 
@@ -36,13 +36,13 @@ ms.locfileid: "71054194"
 
     - Class[ステートメント](../../../../visual-basic/language-reference/statements/class-statement.md)を使用してクラスを定義します。
 
-3. ステートメントを`Dim`使用して変数を宣言します。
+3. `Dim` ステートメントを使用して変数を宣言します。
 
-4. 変数名`As`の後に句を指定します。
+4. 変数名の後に `As` 句を指定します。
 
-5. キーワードの`As`後に、適切な複合データ型の名前を入力します。
+5. `As` キーワードに続けて、適切な複合データ型の名前を指定します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [データの種類](../../../../visual-basic/language-reference/data-types/index.md)
 - [型文字](../../../../visual-basic/programming-guide/language-features/data-types/type-characters.md)

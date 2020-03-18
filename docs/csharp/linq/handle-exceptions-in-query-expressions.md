@@ -4,11 +4,11 @@ description: C# で LINQ クエリ式の例外を処理する方法について�
 ms.date: 12/01/2016
 ms.assetid: 2bf0c397-13fb-4f68-bc2b-531c6c88a167
 ms.openlocfilehash: f900669412026e69598d3939c51ff8208b51b7ec
-ms.sourcegitcommit: 5dcfeb59179e81071f54840d4902cbe00b184294
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857503"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "61688502"
 ---
 # <a name="handle-exceptions-in-query-expressions"></a>クエリ式の例外の処理
 
@@ -30,6 +30,6 @@ ms.locfileid: "54857503"
 
 [!code-csharp[csProgGuideLINQ#12](~/samples/snippets/csharp/concepts/linq/how-to-handle-exceptions-in-query-expressions_2.cs)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [統合言語クエリ (LINQ)](index.md)

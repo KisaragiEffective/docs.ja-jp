@@ -7,21 +7,19 @@ helpviewer_keywords:
 - <enforceFIPSPolicy> element
 - Federal Information Processing Standards (FIPS)
 ms.assetid: c35509c4-35cf-43c0-bb47-75e4208aa24e
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: f90abf9f6c2bc0aed2cf01558b2c0cca4e967e81
-ms.sourcegitcommit: 4e2d355baba82814fa53efd6b8bbb45bfe054d11
+ms.openlocfilehash: 0d6dd291a24928487a040c0427f058dee80bf836
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70252645"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73117386"
 ---
-# <a name="enforcefipspolicy-element"></a>\<enforceFIPSPolicy> 要素
+# <a name="enforcefipspolicy-element"></a>\<enforceFIPSPolicy > 要素
 暗号化アルゴリズムが連邦情報処理規格 (FIPS: Federal Information Processing Standard) に準拠する必要があるコンピューターの構成要件を強制するかどうかを指定します。  
   
 [ **\<configuration>** ](../configuration-element.md)\
 &nbsp;&nbsp;[ **\<runtime>** ](runtime-element.md)\
-&nbsp;&nbsp;&nbsp;&nbsp; **\<enforceFIPSPolicy>**  
+&nbsp;&nbsp;&nbsp;&nbsp; **\<enforceFIPSPolicy >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,9 +38,9 @@ ms.locfileid: "70252645"
   
 ## <a name="enabled-attribute"></a>enabled 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
-|`true`|暗号化アルゴリズムが FIPS に準拠するようにコンピューターが構成されている場合は、その要件が適用されます。 クラスが FIPS に準拠していないアルゴリズムを実装している場合`Create` 、そのクラスのコンストラクターまたはメソッドは、そのコンピューターで実行されるときに例外をスローします。 既定値です。|  
+|`true`|暗号化アルゴリズムが FIPS に準拠するようにコンピューターが構成されている場合は、その要件が適用されます。 クラスが FIPS に準拠していないアルゴリズムを実装している場合、そのクラスのコンストラクターまたは `Create` メソッドは、そのコンピューターで実行されるときに例外をスローします。 既定値です。|  
 |`false`|アプリケーションで使用される暗号化アルゴリズムは、コンピューターの構成に関係なく、FIPS に準拠している必要はありません。|  
   
 ### <a name="child-elements"></a>子要素  
@@ -56,7 +54,7 @@ ms.locfileid: "70252645"
 |`runtime`|アセンブリのバインディングとガベージ コレクションに関する情報が含まれています。|  
   
 ## <a name="remarks"></a>Remarks  
- .NET Framework 2.0 以降では、暗号化アルゴリズムを実装するクラスの作成は、コンピューターの構成によって制御されます。 アルゴリズムが FIPS に準拠していることを必要とするようにコンピューターが構成されており、クラスが FIPS に準拠していないアルゴリズムを実装している場合、そのクラスのインスタンスを作成しようとすると、例外がスローされます。 コンストラクターは<xref:System.InvalidOperationException>例外`Create`をスローし、メソッドは<xref:System.Reflection.TargetInvocationException>内部<xref:System.InvalidOperationException>例外を使用して例外をスローします。  
+ .NET Framework 2.0 以降では、暗号化アルゴリズムを実装するクラスの作成は、コンピューターの構成によって制御されます。 アルゴリズムが FIPS に準拠していることを必要とするようにコンピューターが構成されており、クラスが FIPS に準拠していないアルゴリズムを実装している場合、そのクラスのインスタンスを作成しようとすると、例外がスローされます。 コンストラクターは <xref:System.InvalidOperationException> 例外をスローし、`Create` メソッドは、内部 <xref:System.InvalidOperationException> 例外を使用して <xref:System.Reflection.TargetInvocationException> 例外をスローします。  
   
  構成が FIPS に準拠している必要があり、アプリケーションで fips に準拠していないアルゴリズムが使用されているコンピューターでアプリケーションを実行する場合は、構成ファイルでこの要素を使用して、共通言語ランタイム (CLR) がFIPS 準拠の強制。 この要素は、.NET Framework 2.0 Service Pack 1 で導入されました。  
   

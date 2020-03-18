@@ -6,21 +6,21 @@ helpviewer_keywords:
 - dependency objects [WPF], constructor patterns
 - FXCop tool [WPF]
 ms.assetid: f704b81c-449a-47a4-ace1-9332e3cc6d60
-ms.openlocfilehash: fce17979fbd43df0496f972cac525fd79dcbfe32
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 66e380a9428395c772d0dcfe45a995374774aec6
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70991814"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74283825"
 ---
 # <a name="safe-constructor-patterns-for-dependencyobjects"></a>DependencyObject の安全なコンストラクター パターン
-一般的に、コンストラクターは派生クラスのコンストラクターの基底の初期化として呼び出されることがあるため、クラスのコンストラクターでは、仮想メソッドやデリゲートなどのコールバックを呼び出しません。 対象オブジェクトの初期化が不完全な状態で、仮想メソッドに入ることがあります。 ただし、プロパティ システム自体は、依存関係プロパティ システムの一部としてコールバックを呼び出し、内部的に公開します。 単純に、呼び出しで<xref:System.Windows.DependencyObject.SetValue%2A>依存関係プロパティの値を設定する操作は、特定の場所にコールバックが含まれる可能性があります。 このため、使用する型が基底クラスとして使われる場合に、コンストラクター本体内に依存関係プロパティ値を設定すると問題が発生する可能性があり、注意が必要です。 依存関係プロパティの状態と固有<xref:System.Windows.DependencyObject>のコールバックに関する特定の問題を回避するコンストラクターを実装するための特定のパターンがあります。これについては、こちらを参照してください。  
+一般的に、コンストラクターは派生クラスのコンストラクターの基底の初期化として呼び出されることがあるため、クラスのコンストラクターでは、仮想メソッドやデリゲートなどのコールバックを呼び出しません。 対象オブジェクトの初期化が不完全な状態で、仮想メソッドに入ることがあります。 ただし、プロパティ システム自体は、依存関係プロパティ システムの一部としてコールバックを呼び出し、内部的に公開します。 <xref:System.Windows.DependencyObject.SetValue%2A> の呼び出しで依存関係プロパティの値を設定する操作と同様に、特定の場所にコールバックが含まれる可能性があります。 このため、使用する型が基底クラスとして使われる場合に、コンストラクター本体内に依存関係プロパティ値を設定すると問題が発生する可能性があり、注意が必要です。 依存関係プロパティの状態と固有のコールバックに関する特定の問題を回避する <xref:System.Windows.DependencyObject> コンストラクターを実装するための特定のパターンがあります。これについては、こちらを参照してください。  
 
 <a name="Property_System_Virtual_Methods"></a>   
 ## <a name="property-system-virtual-methods"></a>プロパティ システムの仮想メソッド  
- <xref:System.Windows.DependencyObject.SetValue%2A>依存関係プロパティ<xref:System.Windows.ValidateValueCallback>値を設定する呼び出しの計算中に、 <xref:System.Windows.PropertyChangedCallback> <xref:System.Windows.CoerceValueCallback>、、、 <xref:System.Windows.DependencyObject.OnPropertyChanged%2A>の各仮想メソッドまたはコールバックが呼び出される可能性があります。 これらの仮想メソッドまたはコールバックは、[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] のプロパティ システムと依存関係プロパティの汎用性を高めるうえで、それぞれ特定の目的を果たします。 これらの仮想メソッドを使用してプロパティ値の決定をカスタマイズする方法の詳細については、「[依存関係プロパティのコールバックと検証](dependency-property-callbacks-and-validation.md)」を参照してください。  
+ 依存関係プロパティ値 (<xref:System.Windows.ValidateValueCallback>、<xref:System.Windows.PropertyChangedCallback>、<xref:System.Windows.CoerceValueCallback>、<xref:System.Windows.DependencyObject.OnPropertyChanged%2A>) を設定する <xref:System.Windows.DependencyObject.SetValue%2A> 呼び出しの計算中に、次の仮想メソッドまたはコールバックが呼び出される可能性があります。 これらの仮想メソッドまたはコールバックは、[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] のプロパティ システムと依存関係プロパティの汎用性を高めるうえで、それぞれ特定の目的を果たします。 これらの仮想メソッドを使用してプロパティ値の決定をカスタマイズする方法の詳細については、「[依存関係プロパティのコールバックと検証](dependency-property-callbacks-and-validation.md)」を参照してください。  
   
-### <a name="fxcop-rule-enforcement-vs-property-system-virtuals"></a>FXCop ルールの適用とプロパティ システムの仮想メソッドの比較  
+### <a name="fxcop-rule-enforcement-vs-property-system-virtuals"></a>FXCop ルールの強制とプロパティシステム純粋  
  ビルド プロセスの一部として Microsoft ツールの FXCop を使用している場合、基底コンストラクターを呼び出す特定の [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] フレームワーク クラスを派生させるとき、派生クラスで独自の依存関係プロパティを実装するときに、FXCop の特定のルール違反が発生することがあります。 ルール違反に該当する名前文字列は次のとおりです。  
   
  `DoNotCallOverridableMethodsInConstructors`  
@@ -60,7 +60,7 @@ public class MyClass : DependencyObject
 }  
 ```  
   
- アプリケーションコードがを`new MyClass(objectvalue)`呼び出すと、パラメーターなしのコンストラクターと基底クラスのコンストラクターが呼び出されます。 次に、 `Property1 = object1`を設定します。これ`OnPropertyChanged`により、 `MyClass`所有<xref:System.Windows.DependencyObject>しているの仮想メソッドが呼び出されます。  オーバーライドでは、まだ初期化されていない `_myList` が参照されます。  
+ アプリケーションコードが `new MyClass(objectvalue)`を呼び出すと、パラメーターなしのコンストラクターと基底クラスのコンストラクターが呼び出されます。 次に `Property1 = object1`を設定します。これにより、所有している `MyClass` <xref:System.Windows.DependencyObject>の仮想メソッド `OnPropertyChanged` が呼び出されます。  オーバーライドでは、まだ初期化されていない `_myList` が参照されます。  
   
  これらの問題を回避する方法の 1 つは、コールバックが他の依存関係プロパティのみを使用し、それぞれの使用する依存関係プロパティが、登録済みのメタデータの一部として確立された既定値を持つようにすることです。  
   
@@ -96,7 +96,7 @@ public MyClass : SomeBaseClass {
 #### <a name="non-default-convenience-constructors-which-do-match-base-signatures"></a>基底クラスのシグネチャと一致する、既定以外の (簡易) コンストラクター  
  同じパラメーター化を使用して基底コンストラクターを呼び出す代わりに、独自のクラスのパラメーターなしのコンストラクターを再度呼び出します。 基底初期化子を呼び出さないでください。代わりに `this()` を呼び出す必要があります。 次に、渡されたパラメーターを関連プロパティを設定する値として使用し、元のコンストラクターの動作を複製します。 特定のパラメーターを設定するプロパティを決定する場合は、参考として元の基底コンストラクターのドキュメントを使用します。  
   
-```  
+```csharp  
 public MyClass : SomeBaseClass {  
     public MyClass(object toSetProperty1) : this() {  
         // Class initialization NOT done by default.  
@@ -110,9 +110,9 @@ public MyClass : SomeBaseClass {
  基本型に複数のシグネチャがある場合は、さらに設定する前に、使用可能なすべてのシグネチャを独自のコンストラクター実装と意図的に一致させる必要があります。属性.  
   
 #### <a name="setting-dependency-properties-with-setvalue"></a>SetValue による依存関係プロパティの設定  
- プロパティ設定の便宜のためにラッパーを持たないプロパティを設定し、値をに<xref:System.Windows.DependencyObject.SetValue%2A>設定する場合も、これらの同じパターンが適用されます。 の呼び出しで<xref:System.Windows.DependencyObject.SetValue%2A> 、コンストラクターパラメーターをパススルーする場合は、初期化のためにクラスのパラメーターなしのコンストラクターも呼び出す必要があります。  
+ プロパティ設定の便宜のためにラッパーを持たないプロパティを設定し、<xref:System.Windows.DependencyObject.SetValue%2A>で値を設定する場合にも、同じパターンが適用されます。 コンストラクターパラメーターをパススルーする <xref:System.Windows.DependencyObject.SetValue%2A> を呼び出すと、初期化のためにクラスのパラメーターなしのコンストラクターも呼び出される必要があります。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [カスタム依存関係プロパティ](custom-dependency-properties.md)
 - [依存関係プロパティの概要](dependency-properties-overview.md)

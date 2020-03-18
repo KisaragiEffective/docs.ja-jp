@@ -1,28 +1,28 @@
 ---
-title: '方法: 日付または時刻を表す文字列を検証 (Visual Basic)'
+title: '方法: 日付または時刻を表す文字列を検証する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - strings [Visual Basic], validating
 - String data type [Visual Basic], validation
 ms.assetid: ae7d4b29-3436-4032-bdbf-4650eb1c8e19
-ms.openlocfilehash: f24ff05e48327c21c02eb92b07db17266f743a80
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 5321e7a85c45ddb6ce17433bd25ce9ca2165f0a3
+ms.sourcegitcommit: 30a558d23e3ac5a52071121a52c305c85fe15726
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62024613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348411"
 ---
-# <a name="how-to-validate-strings-that-represent-dates-or-times-visual-basic"></a>方法: 日付または時刻を表す文字列を検証 (Visual Basic)
-次のコード例のセットを`Boolean`文字列が有効な日付または時刻を表すかどうかを示す値です。  
+# <a name="how-to-validate-strings-that-represent-dates-or-times-visual-basic"></a>方法: 日付または時刻を表す文字列を検証する (Visual Basic)
+次のコード例では、文字列が有効な日付または時刻を表すかどうかを示す `Boolean` 値を設定します。  
   
-## <a name="example"></a>例  
+## <a name="example"></a>使用例  
  [!code-vb[VbVbcnRegEx#2](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbcnRegEx/VB/Class1.vb#2)]  
   
-## <a name="compiling-the-code"></a>コードのコンパイル  
- 置換`("01/01/03")`と`"9:30 PM"`日付と時刻に検証したいとします。 文字列を別のハード コーディングされた文字列を置き換えることができます、`String`など、文字列を返す変数、またはメソッドで`InputBox`します。  
+## <a name="compile-the-code"></a>コードのコンパイル  
+ `("01/01/03")` と `"9:30 PM"` を、検証する日付と時刻に置き換えます。 文字列を別のハードコーディングされた文字列に置き換えたり、`String` 変数を使用したり、文字列を返すメソッド (`InputBox`など) に置き換えることができます。  
   
-## <a name="robust-programming"></a>信頼性の高いプログラミング  
- このメソッドに変換する前に、文字列の検証を使用して、`String`を`DateTime`変数。 最初の日付または時刻をチェックする場合は、実行時に例外を生成を回避できます。  
+## <a name="robust-programming"></a>堅牢性の高いプログラミング  
+ `String` を `DateTime` 変数に変換する前に、このメソッドを使用して文字列を検証します。 最初に日付または時刻を確認することで、実行時に例外が生成されないようにすることができます。  
   
 ## <a name="see-also"></a>関連項目
 

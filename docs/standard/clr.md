@@ -15,15 +15,13 @@ helpviewer_keywords:
 - source code execution
 - code, runtime functionality
 ms.assetid: 059a624e-f7db-4134-ba9f-08b676050482
-author: rpetrusha
-ms.author: ronpet
 ms.custom: updateeachrelease
-ms.openlocfilehash: a1e1fd2b7843299fdd8fbd62dbfba6c62a7be50f
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: 6f9ad8aafc37039b55ae3bf6eb743e07ad8e2235
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65645002"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "74884411"
 ---
 # <a name="common-language-runtime-clr-overview"></a>共通言語ランタイム (CLR) の概要
 
@@ -64,30 +62,13 @@ ms.locfileid: "65645002"
 
 ## <a name="clr-versions"></a>CLR のバージョン
 
-.NET Framework のバージョン番号はそれに含まれている CLR のバージョン番号には必ずしも対応しません。 2 つのバージョン番号がどのように対応しているのかを次の表に示します。
-
-|.NET Framework のバージョン|含まれている CLR のバージョン|
-|----------------------------|--------------------------|
-|1|1|
-|1.1|1.1|
-|2.0|2.0|
-|3.0|2.0|
-|3.5|2.0|
-|4|4|
-|4.5 (4.5.1 および 4.5.2 を含む)|4|
-|4.6 (4.6.1 と 4.6.2 を含む)|4|
-|4.7 (4.7.1 と 4.7.2 を含む)|4|
-|4.8|4|
+.NET Framework のバージョン番号はそれに含まれている CLR のバージョン番号には必ずしも対応しません。 .NET Framework のバージョンとそれに対応する CLR バージョンの一覧については、「[.NET Framework のバージョンおよび依存関係](../framework/migration-guide/versions-and-dependencies.md)」を参照してください。 .NET Core のリリースの製品バージョンは 1 つです。つまり、個別の CLR バージョンはありません。 .NET Core バージョンの一覧については、「[Download .NET Core](https://dotnet.microsoft.com/download/dotnet-core)」(.NET Core のダウンロード) を参照してください。
 
 ## <a name="related-topics"></a>関連トピック
 
-|Title|説明|
+|タイトル|[説明]|
 |-----------|-----------------|
 |[マネージド実行プロセス](managed-execution-process.md)|共通言語ランタイム利用するために必要な手順について説明します。|
 |[自動メモリ管理](automatic-memory-management.md)|ガベージ コレクターによるメモリの割り当て方法および解放方法について説明します。|
 |[.NET Framework の概要](../framework/get-started/overview.md)|共通型システム、言語間での相互運用性、マネージド実行、アプリケーション ドメイン、アセンブリなどの .NET Framework の主要な概念について説明します。|
 |[共通型システム](./base-types/common-type-system.md)|言語間の統合をサポートするために共通言語ランタイムで型を宣言、使用、および管理する方法について説明します。|
-
-## <a name="see-also"></a>関連項目
-
-- [バージョンおよび依存関係](../framework/migration-guide/versions-and-dependencies.md)

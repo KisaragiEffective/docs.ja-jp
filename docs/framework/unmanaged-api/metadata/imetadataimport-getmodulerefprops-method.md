@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: b558e766-4c11-4628-ae47-b4e0a1800168
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: be4408758db1cbf7839c12cb66ff395625925f69
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: dce9b9c20cbc73c6a70a34afa6c348c23164ed9e
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779016"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74437322"
 ---
 # <a name="imetadataimportgetmodulerefprops-method"></a>IMetaDataImport::GetModuleRefProps メソッド
 指定したメタデータ トークンによって参照されるモジュールの名前を取得します。  
@@ -40,23 +38,23 @@ HRESULT GetModuleRefProps (
   
 ## <a name="parameters"></a>パラメーター  
  `mur`  
- [in]メタデータ情報を取得するモジュールを参照する ModuleRef メタデータ トークンです。  
+ からメタデータ情報を取得するモジュールを参照する ModuleRef メタデータトークン。  
   
  `szName`  
- [out]モジュール名を保持するバッファー。  
+ 入出力モジュール名を保持するバッファー。  
   
  `cchName`  
- [in]要求されたサイズの`szName`ワイド文字。  
+ から要求されたサイズの `szName` ワイド文字数。  
   
  `pchName`  
- [out]サイズが返される`szName`ワイド文字。  
+ 入出力`szName` の返されたサイズをワイド文字数で返します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

@@ -1,5 +1,5 @@
 ---
-title: 構造体の変数 (Visual Basic)
+title: 構造体の変数
 ms.date: 07/20/2015
 helpviewer_keywords:
 - structures [Visual Basic], variables
@@ -7,12 +7,12 @@ helpviewer_keywords:
 - variables [Visual Basic], structure variables
 - structure variables [Visual Basic]
 ms.assetid: 156872f8-aabc-4454-8e2d-f2253c3c13c9
-ms.openlocfilehash: a86a60def9ac1b8140194ecb6f5e784c62a0e101
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: 16b6cdc5a849b50f6caa8b7963dac5c12d63cf3e
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68630968"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346305"
 ---
 # <a name="structure-variables-visual-basic"></a>構造体の変数 (Visual Basic)
 
@@ -37,7 +37,7 @@ Dim mySystem, yourSystem As systemInfo
 
 ## <a name="access-to-structure-values"></a>構造体の値へのアクセス
 
-構造体変数の要素の値を割り当てたり、取得したりするには、オブジェクトのプロパティの設定と取得に使用するのと同じ構文を使用します。 構造体変数名と要素名`.`の間にメンバーアクセス演算子 () を配置します。 次の例では、以前に型`systemInfo`として宣言された変数の要素にアクセスします。
+構造体変数の要素の値を割り当てたり、取得したりするには、オブジェクトのプロパティの設定と取得に使用するのと同じ構文を使用します。 メンバーアクセス演算子 (`.`) は、構造体変数名と要素名の間に配置します。 次の例では、以前に型 `systemInfo`として宣言された変数の要素にアクセスします。
 
 ```vb
 mySystem.cPU = "486"
@@ -53,9 +53,9 @@ If yourSystem.purchaseDate < #1/1/1992# Then tooOld = True
 yourSystem = mySystem
 ```
 
-構造体要素が`String`、 `Object`、または配列などの参照型である場合、データへのポインターがコピーされます。 前の例で、に`systemInfo`オブジェクト変数が含まれていた場合、前の例ではから`mySystem`へ`yourSystem`のポインターがコピーされ、1つの構造体を通じてオブジェクトのデータへの変更は、アクセス時に有効になります。他の構造体を経由します。
+構造体要素が `String`、`Object`、配列などの参照型である場合、データへのポインターがコピーされます。 前の例では、`systemInfo` にオブジェクト変数が含まれていた場合、前の例ではポインターが `mySystem` から `yourSystem`にコピーされています。また、1つの構造体を介してオブジェクトのデータを変更すると、他の構造体を使用してアクセスしたときに有効になります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [データの種類](../../../../visual-basic/programming-guide/language-features/data-types/index.md)
 - [基本データ型](../../../../visual-basic/programming-guide/language-features/data-types/elementary-data-types.md)
@@ -63,7 +63,7 @@ yourSystem = mySystem
 - [値型と参照型](../../../../visual-basic/programming-guide/language-features/data-types/value-types-and-reference-types.md)
 - [構造体](../../../../visual-basic/programming-guide/language-features/data-types/structures.md)
 - [トラブルシューティング (データ型)](../../../../visual-basic/programming-guide/language-features/data-types/troubleshooting-data-types.md)
-- [方法: 構造体を宣言する](../../../../visual-basic/programming-guide/language-features/data-types/how-to-declare-a-structure.md)
+- [方法 : 構造体を宣言する](../../../../visual-basic/programming-guide/language-features/data-types/how-to-declare-a-structure.md)
 - [構造体とその他のプログラミング要素](../../../../visual-basic/programming-guide/language-features/data-types/structures-and-other-programming-elements.md)
 - [構造体とクラス](../../../../visual-basic/programming-guide/language-features/data-types/structures-and-classes.md)
 - [Structure ステートメント](../../../../visual-basic/language-reference/statements/structure-statement.md)

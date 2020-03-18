@@ -15,14 +15,12 @@ helpviewer_keywords:
 - format providers [.NET Framework]
 - custom format strings
 ms.assetid: a281bfbf-6596-45ed-a2d6-3782d535ada2
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b3898caa90c695ae681c2d9b20abbba57a2a9f61
-ms.sourcegitcommit: c7a7e1468bf0fa7f7065de951d60dfc8d5ba89f5
+ms.openlocfilehash: 151bf40cf042517b7441b89688122373259dc7dc
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65590474"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73140066"
 ---
 # <a name="how-to-define-and-use-custom-numeric-format-providers"></a>方法: カスタム数値書式プロバイダーを定義して使用する
 .NET Framework では、数値の文字列形式を広範囲に制御できます。 数値の書式をカスタマイズするため、次の機能をサポートしています。  
@@ -51,7 +49,7 @@ ms.locfileid: "65590474"
   
     1. 必要に応じて、`provider` パラメーターを調べることで、メソッドが書式指定サービスを提供する正当なものであることを確認します。 <xref:System.IFormatProvider> と <xref:System.ICustomFormatter> の両方を実装する書式設定オブジェクトの場合、現在の書式設定オブジェクトと等しいことを確認するため、`provider` パラメーターをテストする必要があります。  
   
-    2. 書式指定オブジェクトが、カスタム書式指定子をサポートするかどうかを決定します  (たとえば、"N" 書式指定子は、米国の電話番号を NANP 形式で出力することを示し、"I" はITU-T 推奨 E.123 形式での出力を示すことができます)。書式指定子を使用している場合、メソッドが特定の書式指定子を処理する必要があります。 これが `format` パラメーターのメソッドに渡されます。 指定子がない場合、`format` パラメーターの値は <xref:System.String.Empty?displayProperty=nameWithType> です。  
+    2. 書式指定オブジェクトが、カスタム書式指定子をサポートするかどうかを決定します (たとえば、"N" 書式指定子は、米国の電話番号を NANP 形式で出力することを示し、"I" はITU-T 推奨 E.123 形式での出力を示すことができます)。書式指定子を使用している場合、メソッドが特定の書式指定子を処理する必要があります。 これが `format` パラメーターのメソッドに渡されます。 指定子がない場合、`format` パラメーターの値は <xref:System.String.Empty?displayProperty=nameWithType> です。  
   
     3. `arg` パラメーターとしてメソッドに渡される数値を取得します。 文字列形式に変換するために必要な操作を実行します。  
   

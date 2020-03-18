@@ -5,15 +5,15 @@ helpviewer_keywords:
 - service behaviors, instancing sample
 - Instancing Sample [Windows Communication Foundation]
 ms.assetid: c290fa54-f6ae-45a1-9186-d9504ebc6ee6
-ms.openlocfilehash: 1e755a28ff4ce6450db4189783fa688002ebe8eb
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 868d88cff1c398009f136fe50f6cc3fe8c62d8e1
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70045559"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74715756"
 ---
 # <a name="instancing"></a>"インスタンス化"
-インスタンス化のサンプルでは、インスタンス化動作の設定を示します。この設定は、クライアント要求への応答として作成される、サービス クラスのインスタンスの作成方法を制御します。 このサンプルは、 `ICalculator`サービスコントラクトを実装する[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいています。 このサンプルでは、`ICalculatorInstance` から継承される新しいコントラクト `ICalculator` を定義します。 `ICalculatorInstance` によって指定されるコントラクトにより、サービス インスタンスの状態を検査するための 3 つの操作が追加されます。 インスタンス化設定を変更することにより、クライアントを実行して動作の変更を確認できます。  
+インスタンス化のサンプルでは、インスタンス化動作の設定を示します。この設定は、クライアント要求への応答として作成される、サービス クラスのインスタンスの作成方法を制御します。 このサンプルは、`ICalculator` サービスコントラクトを実装する[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいています。 このサンプルでは、`ICalculatorInstance` から継承される新しいコントラクト `ICalculator` を定義します。 `ICalculatorInstance` によって指定されるコントラクトにより、サービス インスタンスの状態を検査するための 3 つの操作が追加されます。 インスタンス化設定を変更することにより、クライアントを実行して動作の変更を確認できます。  
   
  この例では、クライアントはコンソール アプリケーション (.exe) であり、サービスはインターネット インフォメーション サービス (IIS) によってホストされます。  
   
@@ -22,11 +22,11 @@ ms.locfileid: "70045559"
   
  次のインスタンス化モードを使用できます。  
   
-- <xref:System.ServiceModel.InstanceContextMode.PerCall>:クライアント要求ごとに新しいサービスインスタンスが作成されます。  
+- <xref:System.ServiceModel.InstanceContextMode.PerCall> : 新しいサービス インスタンスがクライアント要求ごとに作成されます。  
   
-- <xref:System.ServiceModel.InstanceContextMode.PerSession>:新しいインスタンスは、新しいクライアントセッションごとに作成され、そのセッションの有効期間にわたって保持されます (セッションをサポートするバインディングが必要です)。  
+- <xref:System.ServiceModel.InstanceContextMode.PerSession> : 新しいインスタンスが新しいクライアント セッションごとに作成され、そのセッションの有効期間中保持されます (セッションをサポートするバインディングが必要です)。  
   
-- <xref:System.ServiceModel.InstanceContextMode.Single>:サービスクラスの1つのインスタンスが、アプリケーションの有効期間におけるすべてのクライアント要求を処理します。  
+- <xref:System.ServiceModel.InstanceContextMode.Single> : アプリケーションの有効期間中、サービス クラスの単一のインスタンスがすべてのクライアント要求を処理します。  
   
  サービス クラスは、`[ServiceBehavior(InstanceContextMode=<setting>)]` 属性を使用してインスタンス化動作を指定します。次のサンプル コードを参照してください。 コメント化されている行を変更すると、各インスタンス モードの動作を確認できます。 インスタンス モードを変更したら、サービスを再ビルドする必要があります。 クライアントでは、インスタンス化に関連する設定は行いません。  
   
@@ -135,6 +135,6 @@ static void Main()
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Services\Behaviors\Instancing`  

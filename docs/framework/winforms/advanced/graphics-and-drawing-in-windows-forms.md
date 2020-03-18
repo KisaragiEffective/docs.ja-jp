@@ -1,5 +1,5 @@
 ---
-title: Windows フォームにおけるグラフィックスと描画
+title: グラフィックスと描画
 ms.date: 03/30/2017
 helpviewer_keywords:
 - graphics [Windows Forms]
@@ -7,17 +7,17 @@ helpviewer_keywords:
 - GDI+, using in managed code
 - drawing [Windows Forms]
 ms.assetid: 362532c5-1a06-4257-bdc8-723461009ede
-ms.openlocfilehash: e110203605c31f90f71c949f81c18ebf464d52eb
-ms.sourcegitcommit: b1cfd260928d464d91e20121f9bdba7611c94d71
+ms.openlocfilehash: 10ad18d38c84f6e447601ab6c8bf1a953dabb7cf
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67505545"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76746402"
 ---
 # <a name="graphics-and-drawing-in-windows-forms"></a>Windows フォームにおけるグラフィックスと描画
-共通言語ランタイムは、高度な実装の Windows グラフィックス デバイス インターフェイス (GDI) と呼ばれる GDI + を使用します。 GDI + を使用してグラフィックスを作成、テキストを描画およびグラフィカル イメージ オブジェクトとして操作することができます。 GDI + はパフォーマンスと使いやすさを提供しています。 GDI + を使用すると、Windows フォームとコントロールのグラフィカル イメージをレンダリングします。 GDI + できません使用する Web フォームで直接、イメージの Web サーバー コントロールからグラフィカル イメージを表示できます。  
+共通言語ランタイムは、GDI + と呼ばれる Windows グラフィックスデバイスインターフェイス (GDI) の高度な実装を使用します。 GDI + を使用すると、グラフィックスの作成、テキストの描画、およびオブジェクトとしてのグラフィックイメージの操作を行うことができます。 GDI + は、パフォーマンスと使いやすさを提供するように設計されています。 GDI + を使用して、Windows フォームとコントロールにグラフィカルイメージを表示できます。 GDI + は Web フォームで直接使用することはできませんが、画像 Web サーバーコントロールを使用してグラフィカルイメージを表示できます。  
   
- このセクションでは、GDI + プログラミングの基礎を紹介するトピックを紹介します。 このセクションは、包括的なリファレンスを意図したものではありませんが、<xref:System.Drawing.Graphics>、<xref:System.Drawing.Pen>、<xref:System.Drawing.Brush>、および <xref:System.Drawing.Color> の各オブジェクトに関する情報が含まれ、図形の描画、テキストの描画、イメージの表示などのタスクを実行する方法について説明します。 詳細については、次を参照してください。 [GDI + の参照](/windows/desktop/gdiplus/-gdiplus-class-gdi-reference)します。  
+ このセクションでは、GDI + プログラミングの基礎について説明するトピックを紹介します。 このセクションは、包括的なリファレンスを意図したものではありませんが、<xref:System.Drawing.Graphics>、<xref:System.Drawing.Pen>、<xref:System.Drawing.Brush>、および <xref:System.Drawing.Color> の各オブジェクトに関する情報が含まれ、図形の描画、テキストの描画、イメージの表示などのタスクを実行する方法について説明します。 詳細については、「 [Gdi + リファレンス](/windows/desktop/gdiplus/-gdiplus-class-gdi-reference)」を参照してください。  
   
  すぐに開始する場合、「[グラフィックス プログラミングについて](getting-started-with-graphics-programming.md)」を参照してください。 Windows フォームで線、図形、テキストなどを描画するためのコードの使用方法に関するトピックがあります。  
   
@@ -26,12 +26,12 @@ ms.locfileid: "67505545"
  グラフィックスに関連するマネージド クラスの概要を提供します。  
   
  [GDI+ マネージド コードについて](about-gdi-managed-code.md)  
- マネージ GDI + クラスについてを説明します。  
+ マネージ GDI + クラスに関する情報を提供します。  
   
  [マネージド グラフィックス クラスの使用](using-managed-graphics-classes.md)  
- 方法を完全な GDI + を使用してタスクのさまざまなマネージ クラスについて説明します。  
+ GDI + マネージクラスを使用してさまざまなタスクを完了する方法を示します。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Drawing>  
  GDI + の基本的なグラフィックス機能へのアクセスを提供します。  
   

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 1a2995ff-5f02-4b49-84dc-3a5f9cfd7d55
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 09895294c4678cdb1dd033076cfb42853aa06b2e
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 9ae1aa6590366468166916e6a92d0b356eb37c27
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67780497"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73133154"
 ---
 # <a name="idebuggerthreadcontrolreleaseallruntimethreads-method"></a>IDebuggerThreadControl::ReleaseAllRuntimeThreads メソッド
-デバッグ サービスがブロックされているすべてのスレッドを解放しようとしていることをホストに通知します。  
+デバッグサービスがブロックされているすべてのスレッドを解放しようとしていることをホストに通知します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -34,14 +32,14 @@ HRESULT ReleaseAllRuntimeThreads ( );
 ```  
   
 ## <a name="remarks"></a>Remarks  
- `ReleaseAllRuntimeThreads`メソッドはランタイムのスレッドで呼び出されません。 ホストにブロックされているランタイムのスレッドがある場合は、今すぐリリースにする必要があります。  
+ `ReleaseAllRuntimeThreads` メソッドは、ランタイムスレッドでは呼び出されません。 ホストにランタイムスレッドがブロックされている場合は、この時点で解放する必要があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

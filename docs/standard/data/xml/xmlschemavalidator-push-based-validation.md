@@ -6,14 +6,12 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 911d4460-dd91-4958-85b2-2ca3299f9ec6
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: a420a134eda6c62758b0d218e3c0a4a4922b048c
-ms.sourcegitcommit: d7c298f6c2e3aab0c7498bfafc0a0a94ea1fe23e
+ms.openlocfilehash: 6a0cc110c2b8bcd97b9f5c16a344db5a63046353
+ms.sourcegitcommit: 5f236cd78cf09593c8945a7d753e0850e96a0b80
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72250043"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75709804"
 ---
 # <a name="xmlschemavalidator-push-based-validation"></a>XmlSchemaValidator のプッシュ ベースの検証
 
@@ -440,11 +438,11 @@ static void SchemaValidationEventHandler(object sender, ValidationEventArgs e)
 
 次の表では、<xref:System.Xml.Schema.XmlSchemaValidator> クラスの状態遷移と、各状態で可能なメソッド呼び出しとその順序について説明します。
 
-|状態|Transition|
+|状態|切り替え効果|
 |-----------|----------------|
 |[検証]|<xref:System.Xml.Schema.XmlSchemaValidator.Initialize%2A> (<xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A> &#124; TopLevel*) <xref:System.Xml.Schema.XmlSchemaValidator.EndValidation%2A>|
 |TopLevel|<xref:System.Xml.Schema.XmlSchemaValidator.ValidateWhitespace%2A> &#124; <xref:System.Xml.Schema.XmlSchemaValidator.ValidateText%2A> &#124; Element|
-|要素|<xref:System.Xml.Schema.XmlSchemaValidator.ValidateElement%2A> <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A>* (<xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes%2A> Content\*)? <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> &#124;<br /><br /> <xref:System.Xml.Schema.XmlSchemaValidator.ValidateElement%2A> <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A>\* <xref:System.Xml.Schema.XmlSchemaValidator.SkipToEndElement%2A> &#124;<br /><br /> <xref:System.Xml.Schema.XmlSchemaValidator.ValidateElement%2A> <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A>\* <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes%2A> Content\* <xref:System.Xml.Schema.XmlSchemaValidator.SkipToEndElement%2A> &#124;|
+|要素|<xref:System.Xml.Schema.XmlSchemaValidator.ValidateElement%2A> <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A>* (<xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes%2A> コンテンツ\*)? <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndElement%2A> &#124;<br /><br /> <xref:System.Xml.Schema.XmlSchemaValidator.ValidateElement%2A> <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A>\* <xref:System.Xml.Schema.XmlSchemaValidator.SkipToEndElement%2A>&#124;<br /><br /> <xref:System.Xml.Schema.XmlSchemaValidator.ValidateElement%2A> <xref:System.Xml.Schema.XmlSchemaValidator.ValidateAttribute%2A>\* <xref:System.Xml.Schema.XmlSchemaValidator.ValidateEndOfAttributes%2A> コンテンツ\* <xref:System.Xml.Schema.XmlSchemaValidator.SkipToEndElement%2A>&#124;|
 |Content|<xref:System.Xml.Schema.XmlSchemaValidator.ValidateWhitespace%2A> &#124; <xref:System.Xml.Schema.XmlSchemaValidator.ValidateText%2A> &#124; Element|
 
 > [!NOTE]
@@ -454,10 +452,10 @@ static void SchemaValidationEventHandler(object sender, ValidationEventArgs e)
 
 次の表は、上の状態遷移表で見られる記号が <xref:System.Xml.Schema.XmlSchemaValidator> クラスの状態遷移中の各状態について、呼び出せるメソッドと状態にどう影響を与えるかを説明するものです。
 
-|シンボル|説明|
+|[記号]|説明|
 |------------|-----------------|
 |&#124;|メソッドと状態 (縦棒の前後の項目) のいずれかを呼び出し可能です。|
-|?|疑問符の前のメソッドか状態はオプションです。呼び出す場合は 1 回しか呼べません。|
+|ですか。|疑問符の前のメソッドか状態はオプションです。呼び出す場合は 1 回しか呼べません。|
 |*|\* 記号の前のメソッドか状態はオプションです。複数回の呼び出しが可能です。|
 
 ## <a name="validation-context"></a>検証コンテキスト

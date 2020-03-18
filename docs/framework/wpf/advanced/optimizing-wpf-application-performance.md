@@ -1,5 +1,5 @@
 ---
-title: WPF アプリケーションのパフォーマンスの最適化
+title: アプリのパフォーマンスを最適化する
 ms.date: 03/30/2017
 helpviewer_keywords:
 - application rendering [WPF], performance
@@ -7,18 +7,18 @@ helpviewer_keywords:
 - applications [WPF], optimizing
 - WPF application [WPF], optimizing
 ms.assetid: ac8c6aa3-3c68-4a24-9827-3b6c829c1ebf
-ms.openlocfilehash: 4724e6264c0108924629055525e46d84e86a6e6c
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: cc6ea051401199a87965565c920068fd55cb05d0
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69953415"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76743946"
 ---
 # <a name="optimizing-wpf-application-performance"></a>WPF アプリケーションのパフォーマンスの最適化
-このセクションは、アプリケーションのパフォーマンスを[!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)]向上させる方法を探しているアプリケーション開発者を対象としています。 Microsoft .NET Framework および[!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]を初めて使用する開発者は、まず、両方のプラットフォームについて理解しておく必要があります。 このセクションでは、両方の実用的な知識を前提としており、アプリケーションを稼働させるために十分に理解しているプログラマ向けに書かれています。  
+このセクションは、アプリケーションのパフォーマンスを向上させる方法を探している [!INCLUDE[TLA#tla_winclient](../../../../includes/tlasharptla-winclient-md.md)] アプリケーション開発者を対象としています。 Microsoft .NET Framework および [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)]を初めて使用する開発者は、まず、両方のプラットフォームについて理解しておく必要があります。 このセクションでは、両方の実用的な知識を前提としており、アプリケーションを稼働させるために十分に理解しているプログラマ向けに書かれています。  
   
 > [!NOTE]
-> このセクションで提供されるパフォーマンスデータは、 [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] 512 RAM と ATI Radeon 9700 グラフィックスカードを搭載した 2.8 GHz PC で実行されているアプリケーションに基づいています。  
+> このセクションで提供されるパフォーマンスデータは、512 RAM と ATI Radeon 9700 グラフィックスカードを搭載した 2.8 GHz PC で実行されている [!INCLUDE[TLA2#tla_winclient](../../../../includes/tla2sharptla-winclient-md.md)] アプリケーションに基づいています。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [アプリケーション パフォーマンスの計画](planning-for-application-performance.md)  
@@ -33,7 +33,7 @@ ms.locfileid: "69953415"
   
  [アプリケーション リソース](optimizing-performance-application-resources.md)  
   
- [Text](optimizing-performance-text.md)  
+ [[テキスト]](optimizing-performance-text.md)  
   
  [データ バインディング](optimizing-performance-data-binding.md)  
   
@@ -43,7 +43,7 @@ ms.locfileid: "69953415"
   
  [アプリケーションの起動時間](application-startup-time.md)  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Media.RenderOptions>
 - <xref:System.Windows.Media.RenderCapability>
@@ -59,7 +59,7 @@ ms.locfileid: "69953415"
 - [WPF のドキュメント](documents-in-wpf.md)
 - [書式設定されたテキストの描画](drawing-formatted-text.md)
 - [WPF のタイポグラフィ](typography-in-wpf.md)
-- [データ バインディングの概要](../data/data-binding-overview.md)
+- [データ バインディングの概要](../../../desktop-wpf/data/data-binding-overview.md)
 - [ナビゲーションの概要](../app-development/navigation-overview.md)
 - [アニメーションのヒントとテクニック](../graphics-multimedia/animation-tips-and-tricks.md)
-- [チュートリアル: WPF アプリケーションでのアプリケーションデータのキャッシュ](walkthrough-caching-application-data-in-a-wpf-application.md)
+- [チュートリアル: WPF アプリケーション内のアプリケーション データのキャッシュ](walkthrough-caching-application-data-in-a-wpf-application.md)

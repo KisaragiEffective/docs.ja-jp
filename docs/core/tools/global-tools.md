@@ -1,142 +1,275 @@
 ---
-title: .NET Core グローバル ツール
-description: .NET Core グローバル ツールとそれらに使用できる .NET Core CLI コマンドの概要。
+title: .NET Core ツール
+description: .NET Core ツールをインストール、使用、更新、および削除する方法。 グローバル ツール、tool-path ツール、およびローカル ツールについて説明します。
 author: KathleenDollard
-ms.date: 05/29/2018
-ms.custom: seodec18
-ms.openlocfilehash: 116739f80d5157632a8e44a19cbef6ba7971d339
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.date: 02/12/2020
+ms.openlocfilehash: d8ee30df3fe063fd41a85072d145b1b5eec7d0d0
+ms.sourcegitcommit: 771c554c84ba38cbd4ac0578324ec4cfc979cf2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72318305"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77543392"
 ---
-# <a name="net-core-global-tools-overview"></a>.NET core グローバル ツールの概要
+# <a name="how-to-manage-net-core-tools"></a>.NET Core ツールの管理方法
 
-[!INCLUDE [topic-appliesto-net-core-21plus.md](../../../includes/topic-appliesto-net-core-21plus.md)]
+**この記事の対象:** ✔️ .NET Core 2.1 SDK 以降のバージョン
 
-.NET Core グローバル ツールは、コンソール アプリケーションを含む特殊な NuGet パッケージです。 グローバル ツールは、PATH 環境変数に含まれている既定の場所またはカスタムの場所のマシンにインストールできます。
+.NET Core ツールは、コンソール アプリケーションを含む特殊な NuGet パッケージです。 ツールは、次の方法でコンピューターにインストールできます。
 
-.NET Core グローバル ツールを使用する場合は、次のことを行います。
+* グローバル ツールとして。
 
-* ツールに関する情報を検索します (通常は Web サイトまたは GitHub ページ)。
-* フィードのホーム (通常は NuGet.org) で作成者と統計情報を確認します。
-* ツールをインストールします。
-* ツールを呼び出します。
-* ツールを更新します。
-* ツールをアンインストールします。
+  ツールのバイナリは、PATH 環境変数に追加された既定のディレクトリにインストールされます。 その場所を指定しなくても、マシン上の任意のディレクトリからツールを呼び出すことができます。 1 つのバージョンのツールがマシン上のすべてのディレクトリに使用されます。
+
+* カスタムの場所のグローバル ツールとして (tool-path ツールとも呼ばれます)。
+
+  ツールのバイナリは、指定した場所にインストールされます。 ツールを呼び出すには、インストール ディレクトリから実行するか、コマンド名と共にディレクトリを指定するか、ディレクトリを PATH 環境変数に追加します。 1 つのバージョンのツールがマシン上のすべてのディレクトリに使用されます。
+
+* ローカル ツールとして (.NET Core SDK 3.0 以降に適用されます)。
+
+  ツールのバイナリは、既定のディレクトリにインストールされます。 ツールは、インストール ディレクトリまたはそのいずれかのサブディレクトリから起動します。 ディレクトリごとに、同じツールの異なるバージョンを使用できます。
+  
+  .NET CLI では、マニフェスト ファイルを使用して、ディレクトリにローカルとしてインストールされているツールを追跡します。 マニフェスト ファイルがソース コード リポジトリのルート ディレクトリに保存されると、共同作成者は、リポジトリを複製し、1 つの .NET Core CLI コマンドを呼び出して、マニフェスト ファイルに一覧表示されているすべてのツールがインストールすることができます。
 
 > [!IMPORTANT]
-> .NET Core グローバル ツールは、パス上に表示され、完全な信頼で実行されます。 作成者が信頼できる場合を除き、.NET Core グローバル ツールをインストールしないでください。
+> .NET Core ツールは完全な信頼で実行されます。 作成者を信頼していない場合は、その .NET Core ツールをインストールしないでください。
 
-## <a name="find-a-net-core-global-tool"></a>.NET Core グローバル ツールの検索
+## <a name="find-a-tool"></a>ツールを検索する
 
-現時点では、.NET Core コマンド ライン インターフェイス (CLI) には、グローバル ツールの検索機能はありません。 次に、ツールの検索方法に関する推奨事項をいくつか示します。
+現在、.NET Core にはツールの検索機能がありません。 ツールを見つける方法をいくつか紹介します。
 
-* .NET Core グローバル ツールは、[NuGet](https://www.nuget.org) で見つけることができます。 ただし、NuGet では、具体的に .NET Core グローバル ツールを検索することはまだできません。
-* ブログの投稿や [natemcmaster/dotnet-tools](https://github.com/natemcmaster/dotnet-tools) GitHub リポジトリで、ツールの推奨事項を検索することができます。
-* [aspnet/DotNetTools](https://github.com/aspnet/DotNetTools/) GitHub リポジトリでは、ASP.NET チームによって作成されたグローバル ツールのソース コードを確認することができます。
-* 診断ツールの詳細については、「[.NET Core dotnet 診断グローバル ツール](../diagnostics/index.md#net-core-dotnet-diagnostic-global-tools)」を参照してください。
+* ツールの一覧については、[natemcmaster/dotnet-tools](https://github.com/natemcmaster/dotnet-tools) GitHub リポジトリを参照してください。
+* [ToolGet](https://www.toolget.net/) を使用して .NET ツールを検索します。
+* ASP.NET Core チームが作成したツールのソース コードについては、[dotnet/aspnetcore GitHub リポジトリの Tools ディレクトリ](https://github.com/dotnet/aspnetcore/tree/master/src/Tools)を参照してください。
+* 診断ツールについては、[.NET Core dotnet 診断ツール](../diagnostics/index.md#net-core-dotnet-diagnostic-global-tools)に関する記事を参照してください。
+* [NuGet](https://www.nuget.org) Web サイトを検索します。 ただし、NuGet サイトには、ツール パッケージのみを検索できる機能はまだありません。
 
 ## <a name="check-the-author-and-statistics"></a>作成者と統計情報の確認
 
-.NET Core グローバル ツールは、完全な信頼で実行され、通常はパス上にインストールされるため、非常に強力です。 信頼できないユーザーからツールをダウンロードしないでください。
+.NET Core ツールは完全な信頼で実行され、グローバル ツールが PATH 環境変数に追加されるため、非常に強力です。 信頼できないユーザーからツールをダウンロードしないでください。
 
 ツールが NuGet でホストされている場合は、ツールを検索することで作成者と統計情報を確認できます。
 
-## <a name="install-a-global-tool"></a>グローバル ツールのインストール
+## <a name="install-a-global-tool"></a>グローバル ツールをインストールする
 
-グローバル ツールをインストールするには、[dotnet tool install](dotnet-tool-install.md) .NET Core CLI コマンドを使用します。 次の例では、既定の場所にグローバル ツールをインストールする方法を示しています。
+ツールをグローバル ツールとしてインストールするには、次の例に示すように、[dotnet tool install](dotnet-tool-install.md) の `-g` または `--global` オプションを使用します。
 
 ```dotnetcli
 dotnet tool install -g dotnetsay
 ```
 
-ツールがインストールできない場合は、エラー メッセージが表示されます。 予定していたフィードがチェックされていることを確認します。
-
-ツールのプレリリース バージョンまたは特定のバージョンをインストールしようとしている場合は、次の形式を使用してバージョン番号を指定できます。
-
-```dotnetcli
-dotnet tool install -g <package-name> --version <version-number>
-```
-
-インストールが成功すると、ツールの呼び出しに使用したコマンドとインストールされたバージョンを示す、次の例のようなメッセージが表示されます。
+出力には、次の例のように、ツールの起動に使用されたコマンドとインストールされているバージョンが表示されます。
 
 ```output
 You can invoke the tool using the following command: dotnetsay
-Tool 'dotnetsay' (version '2.0.0') was successfully installed.
+Tool 'dotnetsay' (version '2.1.4') was successfully installed.
 ```
 
-グローバル ツールは、既定のディレクトリ内または特定の場所にインストールすることができます。 既定のディレクトリは次のとおりです。
+ツールのバイナリの既定の場所は、オペレーティング システムによって異なります。
 
 | OS          | パス                          |
 |-------------|-------------------------------|
 | Linux/macOS | `$HOME/.dotnet/tools`         |
 | Windows     | `%USERPROFILE%\.dotnet\tools` |
 
-これらの場所は、そこにインストールされたグローバル ツールを直接呼び出せるように、SDK が最初に実行されるときにユーザーのパスに追加されます。
+この場所は、SDK を初めて実行したときにユーザーのパスに追加されるため、ツールの場所を指定せずに任意のディレクトリからグローバル ツールを呼び出すことができます。
 
-グローバル ツールは、マシン全体ではなく、ユーザーに固有であることに注意してください。 ユーザーに固有であることは、そのマシンのすべてのユーザーが使用できるグローバル ツールをインストールできないことを意味します。 このツールは、ツールがインストールされた各ユーザー プロファイルでしか使用できません。
+ツールへのアクセスはユーザー固有であり、マシン グローバルではありません。 グローバル ツールは、ツールをインストールしたユーザーのみが使用できます。
 
-グローバル ツールは、特定のディレクトリにインストールすることもできます。 特定のディレクトリにインストールした場合は、ユーザーはコマンドが使用できることを確認する必要があります。それには、そのディレクトリをパスに含めるか、指定されたディレクトリでコマンドを呼び出すか、指定したディレクトリ内からツールを呼び出します。
-この場合、.NET Core CLI によりこの場所が PATH 環境変数に自動的に追加されることはありません。
+### <a name="install-a-global-tool-in-a-custom-location"></a>カスタムの場所にグローバル ツールをインストールする
 
-## <a name="use-the-tool"></a>ツールの使用
+カスタムの場所にグローバル ツールとしてツールをインストールするには、次の例に示すように、[dotnet tool install](dotnet-tool-install.md) の `--tool-path` オプションを使用します。
 
-ツールをインストールすると、そのコマンドを使用してツールを呼び出すことができます。 コマンドが、パッケージ名と異なる場合があることに注意してください。
+Windows の場合:
 
-コマンドが `dotnetsay` の場合、次を使用して呼び出します。
+```dotnetcli
+dotnet tool install dotnetsay --tool-path c:\dotnet-tools
+```
+
+Linux または macOS の場合:
+
+```dotnetcli
+dotnet tool install dotnetsay --tool-path ~/bin
+```
+
+この場所は、.NET Core SDK によって PATH 環境変数に自動的に追加されません。 [tool-path ツールを呼び出す](#invoke-a-tool-path-tool)には、次のいずれかの方法を使用して、コマンドを使用できることを確認する必要があります。
+
+* インストール ディレクトリを PATH 環境変数に追加します。
+* ツールを起動するときは完全なパスを指定します。
+* インストール ディレクトリ内からツールを呼び出します。
+
+## <a name="install-a-local-tool"></a>ローカル ツールをインストールする
+
+**.NET Core 3.0 SDK 以降に適用されます。**
+
+ローカル アクセス専用のツール (現在のディレクトリとサブディレクトリ用) をインストールするには、ツール マニフェスト ファイルに追加する必要があります。 ツール マニフェスト ファイルを作成するには、`dotnet new tool-manifest` コマンドを実行します。
+
+```dotnetcli
+dotnet new tool-manifest
+```
+
+このコマンドにより、 *.config* ディレクトリ以下に *dotnet-tools.json* というマニフェスト ファイルが作成されます。 ローカル ツールをマニフェスト ファイルに追加するには、次の例に示すように、[dotnet tool install](dotnet-tool-install.md) コマンドを使用し、`--global` および `--tool-path` オプションを**省略**します。
+
+```dotnetcli
+dotnet tool install dotnetsay
+```
+
+コマンド出力には、次の例のように、新しくインストールされたツールが含まれるマニフェスト ファイルが表示されます。
+
+```console
+You can invoke the tool from this directory using the following command:
+dotnet tool run dotnetsay
+Tool 'dotnetsay' (version '2.1.4') was successfully installed.
+Entry is added to the manifest file /home/name/botsay/.config/dotnet-tools.json.
+```
+
+2 つのローカル ツールがインストールされたマニフェスト ファイルの例を次に示します。
+
+```json
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "botsay": {
+      "version": "1.0.0",
+      "commands": [
+        "botsay"
+      ]
+    },
+    "dotnetsay": {
+      "version": "2.1.3",
+      "commands": [
+        "dotnetsay"
+      ]
+    }
+  }
+}
+```
+
+通常、ローカル ツールは、リポジトリのルート ディレクトリに追加します。 マニフェスト ファイルをリポジトリにチェックインした後は、リポジトリからコードをチェック アウトした開発者が最新のマニフェスト ファイルを取得します。 マニフェスト ファイルに記載されているすべてのツールをインストールするには、`dotnet tool restore` コマンドを実行します。
+
+```dotnetcli
+dotnet tool restore
+```
+
+出力には、復元されたツールが示されます。
+
+```console
+Tool 'botsay' (version '1.0.0') was restored. Available commands: botsay
+Tool 'dotnetsay' (version '2.1.3') was restored. Available commands: dotnetsay
+Restore was successful.
+```
+
+## <a name="install-a-specific-tool-version"></a>特定のツールバー ジョンをインストールする
+
+プレリリース バージョンまたは特定バージョンのツールをインストールするには、次の例に示すように、`--version` オプションを使用してバージョン番号を指定します。
+
+```dotnetcli
+dotnet tool install dotnetsay --version 2.1.3
+```
+
+## <a name="use-a-tool"></a>ツールを使用する
+
+ツールを呼び出すために使用するコマンドは、インストールするパッケージの名前と異なる場合があります。 現在のユーザーのマシンに現在インストールされているすべてのツールを表示するには、[dotnet tool list](dotnet-tool-list.md) コマンドを使用します。
+
+```dotnetcli
+dotnet tool list
+```
+
+出力には、次の例のように、各ツールのバージョンとコマンドが表示されます。
+
+```console
+Package Id      Version      Commands       Manifest
+-------------------------------------------------------------------------------------------
+botsay          1.0.0        botsay         /home/name/repository/.config/dotnet-tools.json
+dotnetsay       2.1.3        dotnetsay      /home/name/repository/.config/dotnet-tools.json
+```
+
+この例に示すように、一覧にはローカル ツールが表示されます。 グローバル ツールを表示するには、`--global` オプションを使用します。また、tool-path ツールを表示するには、`--tool-path` オプションを使用します。
+
+### <a name="invoke-a-global-tool"></a>グローバル ツールを呼び出す
+
+グローバル ツールの場合は、ツール コマンドを単独で使用します。 たとえば、コマンドが `dotnetsay` または `dotnet-doc` の場合は、そのコマンドを使用してコマンドを呼び出します。
 
 ```console
 dotnetsay
+dotnet-doc
 ```
 
-ツールの作成者が `dotnet` プロンプトのコンテキストにツールを表示するようにした場合は、次のように、`dotnet <command>` として呼び出す方法でツールを記述している場合があります。
+コマンドがプレフィックス `dotnet-` で始まる場合、ツールを呼び出すもう 1 つの方法は、`dotnet` コマンドを使用して、ツール コマンド プレフィックスを省略することです。 たとえば、コマンドが `dotnet-doc` の場合、次のコマンドを使ってツールを呼び出します。
 
 ```dotnetcli
 dotnet doc
 ```
 
-インストールしたグローバル ツール パッケージに含まれているツールを確認するには、[dotnet tool list](dotnet-tool-list.md) コマンドを使用してインストールされているパッケージを一覧表示します。
+ただし、次のシナリオでは、`dotnet` コマンドを使ってグローバル ツールを呼び出すことはできません。
 
-ツールの使用方法については、ツールの Web サイトで検索するか、次のいずれかのコマンドを入力して検索することもできます。
+* グローバル ツールとローカル ツールには、同じコマンドの先頭に `dotnet-` が付きます。
+* ローカル ツールのスコープ内にあるディレクトリからグローバル ツールを呼び出します。
 
-```console
-<command> --help
-dotnet <command> --help
+このシナリオでは、`dotnet doc` および `dotnet dotnet-doc` によってローカル ツールが呼び出されます。 グローバル ツールを呼び出すには、コマンドを単独で使用します。
+
+```dotnetcli
+dotnet-doc
 ```
 
-## <a name="other-cli-commands"></a>その他の CLI コマンド
+### <a name="invoke-a-tool-path-tool"></a>tool-path ツールを呼び出す
 
-.NET Core SDK には、.NET Core グローバル ツールをサポートするその他のコマンドが含まれています。 次のいずれかのオプションを使用して、任意の `dotnet tool` コマンドを使用します。
+`tool-path` オプションを使用してインストールされたグローバル ツールを呼び出すには、[この記事で前述](#install-a-global-tool-in-a-custom-location)したように、コマンドを使用できることを確認します。
 
-* `--global` または `-g` は、コマンドがユーザー全体のグローバル ツールに適用可能なことを指定します。
-* `--tool-path` は、グローバル ツールのカスタムの場所を指定します。
+### <a name="invoke-a-local-tool"></a>ローカル ツールを呼び出す
 
-グローバル ツールで使用できるコマンドを調べるには、次のコマンドを使用します。
+ローカル ツールを呼び出すには、インストール ディレクトリ内から `dotnet` コマンドを使用する必要があります。 次の例に示すように、長い形式 (`dotnet tool run <COMMAND_NAME>`) または短い形式 (`dotnet <COMMAND_NAME>`) を使用できます。
+
+```dotnetcli
+dotnet tool run dotnetsay
+dotnet dotnetsay
+```
+
+コマンドの先頭に `dotnet-` が付いている場合、ツールを呼び出すときにプレフィックスを含めるか省略することができます。 たとえば、コマンドが `dotnet-doc` の場合、次の例のいずれかを使ってローカル ツールを呼び出します。
+
+```dotnetcli
+dotnet tool run dotnet-doc
+dotnet dotnet-doc
+dotnet doc
+```
+
+## <a name="update-a-tool"></a>ツールを更新する
+
+ツールを更新するには、ツールをアンインストールしてから、最新の安定バージョンで再インストールする必要があります。 ツールを更新するには、ツールのインストールに使用したものと同じオプションを指定して [dotnet tool update](dotnet-tool-update.md) コマンドを使用します。
+
+```dotnetcli
+dotnet tool update --global <packagename>
+dotnet tool update --tool-path <packagename>
+dotnet tool update <packagename>
+```
+
+ローカル ツールの場合、SDK を使うと、現在のディレクトリと親ディレクトリを検索してパッケージ ID を含む最初のマニフェスト ファイルを見つけることができます。 マニフェスト ファイルにそのようなパッケージ ID がない場合は、SDK によって、最も近いマニフェスト ファイルに新しいエントリが追加されます。
+
+## <a name="uninstall-a-tool"></a>ツールをアンインストールする
+
+[dotnet tool uninstall](dotnet-tool-uninstall.md) コマンドを使用して、ツールのインストールに使用したものと同じオプションを使用してツールを削除します。
+
+```dotnetcli
+dotnet tool uninstall --global <packagename>
+dotnet tool uninstall --tool-path<packagename>
+dotnet tool uninstall <packagename>
+```
+
+ローカル ツールの場合、SDK を使うと、現在のディレクトリと親ディレクトリを検索してパッケージ ID を含む最初のマニフェスト ファイルを見つけることができます。
+
+## <a name="get-help-and-troubleshoot"></a>ヘルプとトラブルシューティングを取得する
+
+使用できる `dotnet tool` コマンドの一覧を取得するには、次のコマンドを入力します。
 
 ```dotnetcli
 dotnet tool --help
 ```
 
-グローバル ツールを更新するには、ツールをアンインストールしてから、最新の安定バージョンで再インストールする必要があります。 グローバル ツールを更新するには、[dotnet tool update](dotnet-tool-update.md) コマンドを使用します。
+ツールの使用手順を取得するには、次のコマンドのいずれかを入力するか、ツールの Web サイトを参照してください。
 
 ```dotnetcli
-dotnet tool update -g <packagename>
+<command> --help
+dotnet <command> --help
 ```
 
-[dotnet tool uninstall](dotnet-tool-uninstall.md) を使用してグローバル ツールを削除します。
-
-```dotnetcli
-dotnet tool uninstall -g <packagename>
-```
-
-マシンに現在インストールされているすべてのグローバル ツールと、それらのバージョンとコマンドを表示するには、[dotnet tool list](dotnet-tool-list.md) コマンドを使用します。
-
-```dotnetcli
-dotnet tool list -g
-```
-
-## <a name="see-also"></a>関連項目
-
-* [.NET Core ツールの使用に関する問題のトラブルシューティング](troubleshoot-usage-issues.md)
+ツールのインストールまたは実行に失敗した場合は、「[.NET Core ツールの使用に関する問題のトラブルシューティング](troubleshoot-usage-issues.md)」を参照してください。

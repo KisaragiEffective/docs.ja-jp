@@ -1,13 +1,13 @@
 ---
-title: 反復子 (Visual Basic)
+title: 反復子
 ms.date: 07/20/2015
 ms.assetid: f26b5c1e-fe9d-4004-b287-da7919d717ae
-ms.openlocfilehash: f9d5a976badc80c5ce00258f46e1d347f20be2f3
-ms.sourcegitcommit: 1f12db2d852d05bed8c53845f0b5a57a762979c8
+ms.openlocfilehash: 2789ac66690ebfd472b9bae5ccf08b1bdfaa0922
+ms.sourcegitcommit: 44a7cd8687f227fc6db3211ccf4783dc20235e51
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583348"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77628736"
 ---
 # <a name="iterators-visual-basic"></a>反復子 (Visual Basic)
 
@@ -17,7 +17,7 @@ iterator メソッドまたは `get` アクセサーは、コレクションに�
 
 For Each を使用して、クライアントコードから反復子を使用します。 [次](../../../visual-basic/language-reference/statements/for-each-next-statement.md)のステートメント、または LINQ クエリを使用します。
 
-次の例では、`For Each` ループの最初の反復子により、最初の `Yield` ステートメントに達するまで `SomeNumbers` iterator メソッドで実行が続行されます。 このイテレーションは 3 の値を返し、iterator メソッドの現在の場所が保持されます。 ループの次のイテレーションでは、iterator メソッドの実行が中断した場所から続行し、`Yield` ステートメントに達したときに再度停止します。 このイテレーションは 5 の値を返し、ここでも iterator メソッドの現在の場所が保持されます。 iterator メソッドの最後に達すると、ループが完了します。
+次の例では、`For Each` ループの最初の反復子により、最初の `SomeNumbers` ステートメントに達するまで `Yield` iterator メソッドで実行が続行されます。 このイテレーションは 3 の値を返し、iterator メソッドの現在の場所が保持されます。 ループの次のイテレーションでは、iterator メソッドの実行が中断した場所から続行し、`Yield` ステートメントに達したときに再度停止します。 このイテレーションは 5 の値を返し、ここでも iterator メソッドの現在の場所が保持されます。 iterator メソッドの最後に達すると、ループが完了します。
 
 ```vb
 Sub Main()
@@ -37,7 +37,7 @@ End Function
 
 Iterator メソッドまたは `get` アクセサーの戻り値の型は、<xref:System.Collections.IEnumerable>、<xref:System.Collections.Generic.IEnumerable%601>、<xref:System.Collections.IEnumerator>、または <xref:System.Collections.Generic.IEnumerator%601> となります。
 
-@No__t_0 または `Return` ステートメントを使用して、イテレーションを終了できます。
+`Exit Function` または `Return` ステートメントを使用して、イテレーションを終了できます。
 
 Visual Basic iterator 関数または `get` アクセサー宣言には、 [iterator](../../../visual-basic/language-reference/modifiers/iterator.md)修飾子が含まれています。
 
@@ -92,9 +92,9 @@ End Function
 
 ## <a name="BKMK_CollectionClass"></a> コレクション クラスを作成する
 
-次の例の `DaysOfTheWeek` クラスは、<xref:System.Collections.IEnumerable.GetEnumerator%2A> メソッドを必要とする <xref:System.Collections.IEnumerable> インターフェイスを実装します。 コンパイラは、<xref:System.Collections.IEnumerator> を返す `GetEnumerator` メソッドを暗黙的に呼び出します。
+次の例の `DaysOfTheWeek` クラスは、<xref:System.Collections.IEnumerable> メソッドを必要とする <xref:System.Collections.IEnumerable.GetEnumerator%2A> インターフェイスを実装します。 コンパイラは、`GetEnumerator` を返す <xref:System.Collections.IEnumerator> メソッドを暗黙的に呼び出します。
 
-@No__t_0 メソッドは、`Yield` ステートメントを使用して各文字列を1つずつ返し、`Iterator` 修飾子は関数宣言に含まれています。
+`GetEnumerator` メソッドは、`Yield` ステートメントを使用して各文字列を1つずつ返し、`Iterator` 修飾子は関数宣言に含まれています。
 
 ```vb
 Sub Main()
@@ -125,7 +125,7 @@ End Class
 
 次の例では、動物のコレクションを含む `Zoo` クラスを作成します。
 
-クラス インスタンス (`theZoo`) を参照する `For Each` ステートメントでは、`GetEnumerator` メソッドが暗黙的に呼び出されます。 `Birds` および `Mammals` プロパティを参照する `For Each` ステートメントでは、`AnimalsForType` という名前の iterator メソッドが使用されます。
+クラス インスタンス (`For Each`) を参照する `theZoo` ステートメントでは、`GetEnumerator` メソッドが暗黙的に呼び出されます。 `For Each` および `Birds` プロパティを参照する `Mammals` ステートメントでは、`AnimalsForType` という名前の iterator メソッドが使用されます。
 
 ```vb
 Sub Main()
@@ -218,7 +218,7 @@ End Class
 
 ## <a name="BKMK_TryBlocks"></a>Try ブロック
 
-Visual Basic では、Try の `Try` ブロックで `Yield` ステートメントを使用できます.. [.キャッチ...Finally ステートメント](../../../visual-basic/language-reference/statements/try-catch-finally-statement.md)。 @No__t_1 ステートメントを持つ `Try` ブロックは `Catch` ブロックを持つことができ、`Finally` ブロックを持つことができます。
+Visual Basic では、Try の `Try` ブロックで `Yield` ステートメントを使用できます.. [.キャッチ...Finally ステートメント](../../../visual-basic/language-reference/statements/try-catch-finally-statement.md)。 `Yield` ステートメントを持つ `Try` ブロックは `Catch` ブロックを持つことができ、`Finally` ブロックを持つことができます。
 
 次の例では、iterator 関数に `Try`、`Catch`、および `Finally` ブロックが含まれています。 反復子関数の `Finally` ブロックは、`For Each` のイテレーションが完了する前に実行されます。
 
@@ -253,13 +253,13 @@ Private Iterator Function Test() As IEnumerable(Of Integer)
 End Function
 ```
 
-@No__t_0 ステートメントを `Catch` ブロックまたは `Finally` ブロックの内部に指定することはできません。
+`Yield` ステートメントを `Catch` ブロックまたは `Finally` ブロックの内部に指定することはできません。
 
-@No__t_0 本体 (iterator メソッドではなく) が例外をスローした場合、iterator 関数の `Catch` ブロックは実行されませんが、iterator 関数の `Finally` ブロックが実行されます。 Iterator 関数内の `Catch` ブロックは、iterator 関数内で発生した例外のみをキャッチします。
+`For Each` 本体 (iterator メソッドではなく) が例外をスローした場合、iterator 関数の `Catch` ブロックは実行されませんが、iterator 関数の `Finally` ブロックが実行されます。 Iterator 関数内の `Catch` ブロックは、iterator 関数内で発生した例外のみをキャッチします。
 
 ## <a name="BKMK_AnonymousMethods"></a>匿名メソッド
 
-Visual Basic では、匿名関数を反復子関数にすることができます。 次に例を示します。
+Visual Basic では、匿名関数を反復子関数にすることができます。 これを次の例に示します。
 
 ```vb
 Dim iterateSequence = Iterator Function() _
@@ -316,7 +316,7 @@ End Function
 
 例では名前付き反復子を使用して、同じデータ コレクションでのさまざまな反復処理をサポートします。 この場合の名前付き反復子は、`TopToBottom` プロパティと `BottomToTop` プロパティ、および `TopN` メソッドです。
 
-@No__t_0 プロパティの宣言には、`Iterator` キーワードが含まれています。
+`BottomToTop` プロパティの宣言には、`Iterator` キーワードが含まれています。
 
 ```vb
 Sub Main()
@@ -435,7 +435,7 @@ Visual Basic では、"Yield" は予約語ではなく、`Iterator` メソッド
 
 コンパイラの動作を確認するには、Ildasm.exe ツールを使用して、iterator メソッドに対して生成される Microsoft 中間言語コードを表示します。
 
-[クラス](../../../csharp/language-reference/keywords/class.md)または[構造体](../../../csharp/language-reference/keywords/struct.md)の反復子を作成する場合、<xref:System.Collections.IEnumerator> インターフェイス全体を実装する必要はありません。 コンパイラは、反復子を検出すると、<xref:System.Collections.IEnumerator> または <xref:System.Collections.Generic.IEnumerator%601> インターフェイスの `Current`、`MoveNext`、および `Dispose` メソッドを自動的に生成します。
+[クラス](../../language-reference/statements/class-statement.md)または[構造体](../../language-reference/statements/structure-statement.md)の反復子を作成する場合、<xref:System.Collections.IEnumerator> インターフェイス全体を実装する必要はありません。 コンパイラは、反復子を検出すると、`Current` または `MoveNext` インターフェイスの `Dispose`、<xref:System.Collections.IEnumerator>、および <xref:System.Collections.Generic.IEnumerator%601> メソッドを自動的に生成します。
 
 `For Each…Next` ループの連続する反復ごとに (または `IEnumerator.MoveNext` を直接呼び出すと)、前の `Yield` ステートメントの後で次の反復子コード本体が再開されます。 次に、反復子本体の末尾に到達するか、`Exit Function` または `Return` ステートメントが検出されるまで、次の `Yield` ステートメントに進みます。
 
@@ -453,7 +453,7 @@ Visual Basic では、"Yield" は予約語ではなく、`Iterator` メソッド
 
 - 反復子に一覧の作成をカプセル化する。 iterator メソッドでは、一覧を作成してから、ループで各結果を生成することができます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Collections.Generic>
 - <xref:System.Collections.Generic.IEnumerable%601>

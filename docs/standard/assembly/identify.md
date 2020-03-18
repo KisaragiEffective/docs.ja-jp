@@ -5,12 +5,12 @@ ms.assetid: ea5186bb-5bff-4dcb-bde9-d6ba4e2edd00
 dev_langs:
 - csharp
 - vb
-ms.openlocfilehash: f9bff86ac559e40136ed016b862eef8ba0863ce3
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: 1d66c0c166724f195a3cafd9bcbe3c7414c08ebb
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70972691"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78159508"
 ---
 # <a name="how-to-determine-if-a-file-is-an-assembly"></a>方法: ファイルがアセンブリであるかどうかを確認する
 
@@ -88,7 +88,7 @@ End Module
 ' Output (with .NET Framework 3.5 installed):  
 '        Yes, the file is an Assembly.  
 ```
- 
+
 <xref:System.Reflection.AssemblyName.GetAssemblyName%2A> メソッドはテスト ファイルを読み込み、情報が読み取られた時点で解放します。  
   
 ## <a name="see-also"></a>関連項目

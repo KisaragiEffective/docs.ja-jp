@@ -1,5 +1,5 @@
 ---
-title: ListBox の代わりに Windows フォーム ComboBox を使用する場合
+title: ComboBox と ListBox
 ms.date: 03/30/2017
 helpviewer_keywords:
 - ListBox control [Windows Forms], adding and removing items
@@ -11,24 +11,24 @@ helpviewer_keywords:
 - ListBox control [Windows Forms], accessing items
 - ListCount property
 ms.assetid: 7bcaea58-1cfa-46db-9baf-b75a69d8f9ec
-ms.openlocfilehash: 8a2429049acf1a22edde8d132ece17da4e91f1db
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 7087760a393bb58d83d899c1741c745fb28585bb
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61759831"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76739931"
 ---
 # <a name="when-to-use-a-windows-forms-combobox-instead-of-a-listbox"></a>ListBox の代わりに Windows フォーム ComboBox を使用する場合
-<xref:System.Windows.Forms.ComboBox>と<xref:System.Windows.Forms.ListBox>コントロールが似たような動作、およびいくつかの場合は互換性にあります。 ただしはどちらか一方のタスクをより適切な時間があります。  
+<xref:System.Windows.Forms.ComboBox> と <xref:System.Windows.Forms.ListBox> のコントロールには同様の動作があり、場合によっては交換可能である場合もあります。 ただし、タスクにより適切なものがある場合もあります。  
   
- 一般に、コンボ ボックスは、推奨される選択肢は、の一覧があるし、リスト ボックスは、一覧にあるものへの入力を制限する場合に適切なときに適しています。 コンボ ボックスには、一覧にない選択肢を入力するためのテキスト ボックスのフィールドが含まれています。 例外は、<xref:System.Windows.Forms.ComboBox.DropDownStyle%2A>プロパティに設定されて<xref:System.Windows.Forms.ComboBoxStyle.DropDownList>します。 その場合は、コントロールによって項目が選択の最初の文字を入力する場合。  
+ 一般的に、コンボボックスは、推奨される選択肢のリストがある場合に適しています。また、リストボックスは、入力を一覧の内容に限定する場合に適しています。 コンボボックスにはテキストボックスフィールドが含まれているので、一覧にない選択肢を入力することもできます。 例外は、<xref:System.Windows.Forms.ComboBox.DropDownStyle%2A> プロパティが <xref:System.Windows.Forms.ComboBoxStyle.DropDownList>に設定されている場合です。 この場合、最初の文字を入力すると、コントロールによって項目が選択されます。  
   
- さらに、コンボ ボックスは、フォームの領域を節約します。 下矢印をクリックするまでは完全な一覧が表示されないため、コンボ ボックスに簡単にリスト ボックスが収まらない小さなスペースに収まります。 例外は、ときに、<xref:System.Windows.Forms.ComboBox.DropDownStyle%2A>プロパティに設定されて<xref:System.Windows.Forms.ComboBoxStyle.Simple>: 完全な一覧が表示され、コンボ ボックスは、リスト ボックスよりも領域を増やす。  
+ また、コンボボックスでは、フォーム上の領域が節約されます。 ユーザーが下矢印をクリックするまでは完全な一覧が表示されないため、コンボボックスは、リストボックスが収まらない小さなスペースに簡単に収めることができます。 例外は、<xref:System.Windows.Forms.ComboBox.DropDownStyle%2A> プロパティが <xref:System.Windows.Forms.ComboBoxStyle.Simple>に設定されている場合です。完全な一覧が表示されます。コンボボックスは、リストボックスの場合よりも多くの領域を必要とします。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.ComboBox>
 - <xref:System.Windows.Forms.ListBox>
-- [方法: 追加および削除項目、Windows からフォーム ComboBox、ListBox、または CheckedListBox コントロール](add-and-remove-items-from-a-wf-combobox.md)
-- [方法: Windows の内容を並べ替えるフォーム ComboBox、ListBox、または CheckedListBox コントロール](sort-the-contents-of-a-wf-combobox-listbox-or-checkedlistbox-control.md)
+- [方法: Windows フォームの ComboBox、ListBox、または CheckedListBox コントロールに項目を追加または削除する](add-and-remove-items-from-a-wf-combobox.md)
+- [方法: Windows フォーム ComboBox、ListBox、または CheckedListBox コントロールを並べ替える](sort-the-contents-of-a-wf-combobox-listbox-or-checkedlistbox-control.md)
 - [オプションのリストを表示するための Windows フォーム コントロール](windows-forms-controls-used-to-list-options.md)

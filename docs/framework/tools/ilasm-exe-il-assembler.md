@@ -11,14 +11,12 @@ helpviewer_keywords:
 - Ilasm.exe
 - verifying MSIL performance
 ms.assetid: 4ca3a4f0-4400-47ce-8936-8e219961c76f
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b8d1ad081c8d783cd18054078a6eeb82428faa4d
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: cb995e78e534048043886070536ef0dd0a45c057
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71044634"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73105101"
 ---
 # <a name="ilasmexe-il-assembler"></a>Ilasm.exe (IL アセンブラー)
 

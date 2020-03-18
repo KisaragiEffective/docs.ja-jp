@@ -1,5 +1,5 @@
 ---
-title: '方法: つまみを使用したキャンバスのサイズ変更'
+title: '方法: つまみを使用してキャンバスのサイズを変更する'
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -11,42 +11,42 @@ helpviewer_keywords:
 - Thumb control [WPF]
 - Canvas control [WPF]
 ms.assetid: 7dc9f435-726c-4d4d-be41-eb24cfe17bef
-ms.openlocfilehash: 14942157429b029147d47e2f88428c56e66523d1
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 84f5ac2b53124b7f4d7c15741e94b40e7ee81526
+ms.sourcegitcommit: 011314e0c8eb4cf4a11d92078f58176c8c3efd2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61770748"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77124300"
 ---
-# <a name="how-to-resize-a-canvas-by-using-a-thumb"></a>方法: つまみを使用したキャンバスのサイズ変更
-この例は、使用する方法を示します、<xref:System.Windows.Controls.Primitives.Thumb>サイズを変更するコントロールを<xref:System.Windows.Controls.Canvas>コントロール。  
+# <a name="how-to-resize-a-canvas-by-using-a-thumb"></a>方法: つまみを使用してキャンバスのサイズを変更する
+この例では、<xref:System.Windows.Controls.Primitives.Thumb> コントロールを使用して <xref:System.Windows.Controls.Canvas> コントロールのサイズを変更する方法を示します。  
   
 ## <a name="example"></a>例  
- <xref:System.Windows.Controls.Primitives.Thumb>コントロールには、監視することによってコントロールのサイズを変更または移動に使用できるドラッグ機能が用意されています、 <xref:System.Windows.Controls.Primitives.Thumb.DragStarted>、<xref:System.Windows.Controls.Primitives.Thumb.DragDelta>と<xref:System.Windows.Controls.Primitives.Thumb.DragCompleted>のイベント、<xref:System.Windows.Controls.Primitives.Thumb>します。  
+ <xref:System.Windows.Controls.Primitives.Thumb> コントロールには、<xref:System.Windows.Controls.Primitives.Thumb>の <xref:System.Windows.Controls.Primitives.Thumb.DragStarted>、<xref:System.Windows.Controls.Primitives.Thumb.DragDelta> および <xref:System.Windows.Controls.Primitives.Thumb.DragCompleted> イベントを監視することで、コントロールの移動やサイズ変更に使用できるドラッグ機能が用意されています。  
   
- 上にマウス ポインターが一時停止すると、マウスの左ボタンを押して、ユーザーがドラッグ操作を開始、<xref:System.Windows.Controls.Primitives.Thumb>コントロール。 マウスの左ボタンが押されている限り、ドラッグ操作が続行します。 ドラッグ操作中に、<xref:System.Windows.Controls.Primitives.Thumb.DragDelta>複数回発生することができます。 これが発生するたびに、<xref:System.Windows.Controls.Primitives.DragDeltaEventArgs>クラスには、マウスの位置の変化に対応する位置の変更が用意されています。 マウスの左ボタンを離したときに、ドラッグ操作が完了しました。 ドラッグ操作では、新しい座標のみ提供します自動的に再配置されない、<xref:System.Windows.Controls.Primitives.Thumb>します。  
+ マウスポインターが <xref:System.Windows.Controls.Primitives.Thumb> コントロールで一時停止しているときにマウスの左ボタンを押すと、ドラッグ操作が開始されます。 ドラッグ操作は、マウスの左ボタンが押されている間は続行されます。 ドラッグ操作中に、<xref:System.Windows.Controls.Primitives.Thumb.DragDelta> が複数回発生する可能性があります。 <xref:System.Windows.Controls.Primitives.DragDeltaEventArgs> クラスは、発生するたびに、マウス位置の変化に対応する位置の変更を提供します。 ユーザーがマウスの左ボタンを放すと、ドラッグ操作が終了します。 ドラッグ操作では、新しい座標のみが提供されます。<xref:System.Windows.Controls.Primitives.Thumb>の位置が自動的に変更されることはありません。  
   
- 次の例は、<xref:System.Windows.Controls.Primitives.Thumb>の子要素であるコントロール、<xref:System.Windows.Controls.Canvas>コントロール。 イベント ハンドラーの<xref:System.Windows.Controls.Primitives.Thumb.DragDelta>イベントに移動するロジックを提供する、<xref:System.Windows.Controls.Primitives.Thumb>サイズを変更して、 <xref:System.Windows.Controls.Canvas>。 イベント ハンドラー、<xref:System.Windows.Controls.Primitives.Thumb.DragStarted>と<xref:System.Windows.Controls.Primitives.Thumb.DragCompleted>の色を変更するイベント、<xref:System.Windows.Controls.Primitives.Thumb>ドラッグ操作中にします。 次の例では、定義、<xref:System.Windows.Controls.Primitives.Thumb>します。  
+ 次の例は、<xref:System.Windows.Controls.Canvas> コントロールの子要素である <xref:System.Windows.Controls.Primitives.Thumb> コントロールを示しています。 <xref:System.Windows.Controls.Primitives.Thumb.DragDelta> イベントのイベントハンドラーは、<xref:System.Windows.Controls.Primitives.Thumb> を移動し、<xref:System.Windows.Controls.Canvas>のサイズを変更するためのロジックを提供します。 <xref:System.Windows.Controls.Primitives.Thumb.DragStarted> イベントと <xref:System.Windows.Controls.Primitives.Thumb.DragCompleted> イベントのイベントハンドラーは、ドラッグ操作中に <xref:System.Windows.Controls.Primitives.Thumb> の色を変更します。 次の例では、<xref:System.Windows.Controls.Primitives.Thumb>を定義します。  
   
  [!code-xaml[Thumb#thumb](~/samples/snippets/csharp/VS_Snippets_Wpf/Thumb/CSharp/Pane1.xaml#thumb)]  
   
- 次の例は、<xref:System.Windows.Controls.Primitives.Thumb.DragDelta>を移動するイベント ハンドラー、<xref:System.Windows.Controls.Primitives.Thumb>のサイズを変更し、<xref:System.Windows.Controls.Canvas>マウスの動きへの応答。  
+ 次の例は、マウスの動きに応じて <xref:System.Windows.Controls.Primitives.Thumb> を移動し、<xref:System.Windows.Controls.Canvas> のサイズを変更する <xref:System.Windows.Controls.Primitives.Thumb.DragDelta> イベントハンドラーを示しています。  
   
  [!code-csharp[Thumb#2](~/samples/snippets/csharp/VS_Snippets_Wpf/Thumb/CSharp/Pane1.xaml.cs#2)]  
   
- 次の例は、<xref:System.Windows.Controls.Primitives.Thumb.DragStarted>イベント ハンドラー。  
+ 次の例は、<xref:System.Windows.Controls.Primitives.Thumb.DragStarted> イベントハンドラーを示しています。  
   
  [!code-csharp[Thumb#DragStartedHandler](~/samples/snippets/csharp/VS_Snippets_Wpf/Thumb/CSharp/Pane1.xaml.cs#dragstartedhandler)]
  [!code-vb[Thumb#DragStartedHandler](~/samples/snippets/visualbasic/VS_Snippets_Wpf/Thumb/VisualBasic/Pane1.xaml.vb#dragstartedhandler)]  
   
- 次の例は、<xref:System.Windows.Controls.Primitives.Thumb.DragCompleted>イベント ハンドラー。  
+ 次の例は、<xref:System.Windows.Controls.Primitives.Thumb.DragCompleted> イベントハンドラーを示しています。  
   
  [!code-csharp[Thumb#DragCompletedHandler](~/samples/snippets/csharp/VS_Snippets_Wpf/Thumb/CSharp/Pane1.xaml.cs#dragcompletedhandler)]
  [!code-vb[Thumb#DragCompletedHandler](~/samples/snippets/visualbasic/VS_Snippets_Wpf/Thumb/VisualBasic/Pane1.xaml.vb#dragcompletedhandler)]  
   
- サンプル全体については、次を参照してください。 [Thumb ドラッグ機能のサンプル](https://go.microsoft.com/fwlink/?LinkID=160042)します。  
+ 完全なサンプルについては、「 [Thumb ドラッグ機能のサンプル](https://github.com/Microsoft/WPF-Samples/tree/master/Drag%20and%20Drop/DragDropThumbOps)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Controls.Primitives.Thumb>
 - <xref:System.Windows.Controls.Primitives.Thumb.DragStarted>

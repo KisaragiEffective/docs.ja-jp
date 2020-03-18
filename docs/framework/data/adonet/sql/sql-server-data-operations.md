@@ -1,13 +1,13 @@
 ---
-title: ADO.NET における SQL Server データ操作
+title: データ操作の SQL Server
 ms.date: 03/30/2017
 ms.assetid: b864ebc9-ed8e-4059-85fd-36d9198f5521
-ms.openlocfilehash: d2c6477630e5f4b5f25fcbbdd8ffb76109ff507b
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 663d7eff5b5972c4fae070695a526e927aee311f
+ms.sourcegitcommit: 19014f9c081ca2ff19652ca12503828db8239d48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70791664"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76979886"
 ---
 # <a name="sql-server-data-operations-in-adonet"></a>ADO.NET における SQL Server データ操作
 このセクションでは、.NET Framework Data Provider for SQL Server (<xref:System.Data.SqlClient>) 固有の SQL Server の機能について説明します。  

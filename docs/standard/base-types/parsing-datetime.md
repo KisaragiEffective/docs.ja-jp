@@ -14,14 +14,12 @@ helpviewer_keywords:
 - base types, parsing strings
 - DateTime object
 - time strings
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b4217221cc5199b9d8904be1ca3073878378b4e9
-ms.sourcegitcommit: 4c41ec195caf03d98b7900007c3c8e24eba20d34
+ms.openlocfilehash: 9555304e570226b2ed3b040735cf099b5a018f93
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67268172"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78156544"
 ---
 # <a name="parsing-date-and-time-strings-in-net"></a>.NET での日付と時刻文字列の解析
 
@@ -44,9 +42,9 @@ ms.locfileid: "67268172"
 
 文字列内に日付が存在する場合、それには月、および日または年のいずれかが含まれている必要があります。 時刻が存在する場合、それには時間、および分または AM/PM 指定子のいずれかが含まれている必要があります。
 
-<xref:System.Globalization.DateTimeStyles.NoCurrentDateDefault> 定数を指定して、各既定値をオーバーライドできます。 この定数を使用する場合、不足しているすべての年、月、または日のプロパティは値 `1` に設定されます。 <xref:System.DateTime.Parse%2A> を使用する[最後の例](#styles-example)では、この動作について説明しています。
+<xref:System.Globalization.DateTimeStyles.NoCurrentDateDefault> 定数を指定して、各既定値をオーバーライドできます。 この定数を使用する場合、不足しているすべての年、月、または日のプロパティは値 `1` に設定されます。 [ を使用する](#styles-example)最後の例<xref:System.DateTime.Parse%2A>では、この動作について説明しています。
 
-日付と時刻のコンポーネントだけでなく、日付と時刻の文字列形式には、世界協定時刻 (UTC) と何時間異なるかを示すオフセットを含めることができます。 たとえば、文字列 "2/14/2007 5:32:00 -7:00" は、UTC より 7 時間早い時刻を定義します。 オフセットが時刻の文字列形式から省略される場合、解析では、その <xref:System.DateTime.Kind%2A> プロパティに <xref:System.DateTimeKind.Unspecified?displayProperty=nameWithType> を設定して、<xref:System.DateTime> オブジェクトを返します。 オフセットが指定されている場合、解析では、その <xref:System.DateTime.Kind%2A> プロパティに <xref:System.DateTimeKind.Local?displayProperty=nameWithType> を設定した <xref:System.DateTime> オブジェクトと、使用しているマシンのローカル タイム ゾーンに調整された値を返します。 解析メソッドで <xref:System.Globalization.DateTimeStyles> 値を使用することで、この動作を変更できます。
+日付と時刻のコンポーネントだけでなく、日付と時刻の文字列形式には、世界協定時刻 (UTC) と何時間異なるかを示すオフセットを含めることができます。 たとえば、文字列 "2/14/2007 5:32:00 -7:00" は、UTC より 7 時間早い時刻を定義します。 オフセットが時刻の文字列形式から省略される場合、解析では、その <xref:System.DateTime> プロパティに <xref:System.DateTime.Kind%2A> を設定して、<xref:System.DateTimeKind.Unspecified?displayProperty=nameWithType> オブジェクトを返します。 オフセットが指定されている場合、解析では、その <xref:System.DateTime> プロパティに <xref:System.DateTime.Kind%2A> を設定した <xref:System.DateTimeKind.Local?displayProperty=nameWithType> オブジェクトと、使用しているマシンのローカル タイム ゾーンに調整された値を返します。 解析メソッドで <xref:System.Globalization.DateTimeStyles> 値を使用することで、この動作を変更できます。
   
 書式プロバイダーは、あいまいな数値の日付を解釈するためにも使用されます。 文字列 "02/03/04" で表される日付は、どの構成要素が月、日、年なのかはっきりしません。 構成要素は、書式プロバイダーにある類似した日付書式と同じ順序で解釈されます。
 
@@ -58,12 +56,12 @@ ms.locfileid: "67268172"
 > この記事にあるすべての C# サンプルは、ブラウザーで実行できます。 出力を確認するには、 **[実行]** ボタンを押します。 また、サンプルを編集して自分で実験することもできます。
 
 > [!NOTE]
-> これらの例は、[C#](https://github.com/dotnet/samples/tree/master/snippets/csharp/how-to/conversions) と [VB](https://github.com/dotnet/samples/tree/master/snippets/visualbasic/how-to/conversions) 両方の GitHub ドキュメント リポジトリで使用可能です。 または、[C#](https://github.com/dotnet/samples/raw/master/snippets/csharp/how-to/conversions.zip) または [VB](https://github.com/dotnet/samples/raw/master/snippets/visualbasic/how-to/conversions.zip) の Zip ファイルとしてプロジェクトをダウンロードできます。
+> これらの例は、[C#](https://github.com/dotnet/samples/tree/master/snippets/csharp/how-to/conversions) と [Visual Basic](https://github.com/dotnet/samples/tree/master/snippets/visualbasic/how-to/conversions) 両方の GitHub ドキュメント リポジトリで使用可能です。 または、[C#](https://github.com/dotnet/samples/raw/master/snippets/csharp/how-to/conversions.zip) または [Visual Basic](https://github.com/dotnet/samples/raw/master/snippets/visualbasic/how-to/conversions.zip) の Zip ファイルとしてプロジェクトをダウンロードできます。
 
 [!code-csharp-interactive[Parsing.DateAndTime#1](../../../samples/snippets/csharp/how-to/conversions/StringToDateTime.cs#1)]
 [!code-vb[Parsing.DateAndTime#1](../../../samples/snippets/visualbasic/how-to/conversions/Program.vb#1)]
 
-文字列を解析するときに使用される書式規則を含むカルチャを、明示的に定義することもできます。 <xref:System.Globalization.CultureInfo.DateTimeFormat%2A?displayProperty=nameWithType> プロパティによって返される標準 <xref:System.Globalization.DateTimeFormatInfo> オブジェクトのいずれかを指定します。 次の例では、書式プロバイダーを使用して、ドイツ語の文字列を <xref:System.DateTime> に解析します。 これにより、`de-DE` カルチャを表す <xref:System.Globalization.CultureInfo> が作成されます。 この `CultureInfo` オブジェクトによって、この特定の文字列が正常に解析されます。 これによって、<xref:System.Threading.Thread.CurrentThread> の <xref:System.Threading.Thread.CurrentCulture> がどのように設定されていても除外されます。  
+文字列を解析するときに使用される書式規則を含むカルチャを、明示的に定義することもできます。 <xref:System.Globalization.DateTimeFormatInfo> プロパティによって返される標準 <xref:System.Globalization.CultureInfo.DateTimeFormat%2A?displayProperty=nameWithType> オブジェクトのいずれかを指定します。 次の例では、書式プロバイダーを使用して、ドイツ語の文字列を <xref:System.DateTime> に解析します。 これにより、<xref:System.Globalization.CultureInfo> カルチャを表す `de-DE` が作成されます。 この `CultureInfo` オブジェクトによって、この特定の文字列が正常に解析されます。 これによって、<xref:System.Threading.Thread.CurrentCulture> の <xref:System.Threading.Thread.CurrentThread> がどのように設定されていても除外されます。  
   
 [!code-csharp[Parsing.DateAndTime#2](../../../samples/snippets/csharp/how-to/conversions/StringToDateTime.cs#2)]
 [!code-vb[Parsing.DateAndTime#2](../../../samples/snippets/visualbasic/how-to/conversions/Program.vb#2)]
@@ -74,7 +72,7 @@ ms.locfileid: "67268172"
 
 [!code-csharp[Parsing.DateAndTime#3](../../../samples/snippets/csharp/how-to/conversions/StringToDateTime.cs#3)]
 [!code-vb[Parsing.DateAndTime#3](../../../samples/snippets/visualbasic/how-to/conversions/Program.vb#3)]
- 
+
 ## <a name="parseexact"></a>ParseExact
 
 <xref:System.DateTime.ParseExact%2A?displayProperty=nameWithType> メソッドでは、文字列が指定された文字列パターンのいずれかに準拠する場合、文字列を <xref:System.DateTime> オブジェクトに変換します。 指定された形式のいずれでもない文字列がこのメソッドに渡された場合、<xref:System.FormatException> がスローされます。 標準の日付と時刻の書式指定子のいずれか、またはカスタムの書式指定子の組み合わせを指定することができます。 カスタムの書式指定子を使用すると、カスタムの認識文字列を構成することができます。 (指定子の詳細については、[標準の日付と時刻の書式指定文字列](standard-date-and-time-format-strings.md)と[カスタムの日付と時刻の書式指定文字列](custom-date-and-time-format-strings.md)に関するトピックをご覧ください)。  
@@ -84,12 +82,12 @@ ms.locfileid: "67268172"
 [!code-csharp[Parsing.DateAndTime#4](../../../samples/snippets/csharp/how-to/conversions/StringToDateTime.cs#4)]
 [!code-vb[Parsing.DateAndTime#4](../../../samples/snippets/visualbasic/how-to/conversions/Program.vb#4)]
 
-<xref:System.DateTime.Parse%2A> メソッドと <xref:System.DateTime.ParseExact%2A> メソッドの各オーバーロードには、<xref:System.IFormatProvider> パラメーターもあります。このパラメーターでは、文字列の書式設定に関するカルチャ固有の情報が指定されます。 この <xref:System.IFormatProvider> オブジェクトは、標準的なカルチャを表す <xref:System.Globalization.CultureInfo> オブジェクトか、<xref:System.Globalization.CultureInfo.DateTimeFormat%2A?displayProperty=nameWithType> プロパティによって返される <xref:System.Globalization.DateTimeFormatInfo> オブジェクトです。  <xref:System.DateTime.ParseExact%2A> では、日付と時刻のカスタム書式を 1 つ以上定義する、文字列または文字列配列の追加の引数も使用されます。  
+<xref:System.DateTime.Parse%2A> メソッドと <xref:System.DateTime.ParseExact%2A> メソッドの各オーバーロードには、<xref:System.IFormatProvider> パラメーターもあります。このパラメーターでは、文字列の書式設定に関するカルチャ固有の情報が指定されます。 この <xref:System.IFormatProvider> オブジェクトは、標準的なカルチャを表す <xref:System.Globalization.CultureInfo> オブジェクトか、<xref:System.Globalization.DateTimeFormatInfo> プロパティによって返される <xref:System.Globalization.CultureInfo.DateTimeFormat%2A?displayProperty=nameWithType> オブジェクトです。  <xref:System.DateTime.ParseExact%2A> では、日付と時刻のカスタム書式を 1 つ以上定義する、文字列または文字列配列の追加の引数も使用されます。  
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [文字列の解析](parsing-strings.md)
 - [型の書式設定](formatting-types.md)
 - [.NET での型変換](type-conversion.md)
 - [標準の日付と時刻の書式](standard-date-and-time-format-strings.md)
-- [カスタム日時書式指定文字列](custom-date-and-time-format-strings.md)
+- [カスタムの日時と書式指定文字列](custom-date-and-time-format-strings.md)

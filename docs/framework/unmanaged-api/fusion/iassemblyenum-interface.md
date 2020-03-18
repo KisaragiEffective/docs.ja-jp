@@ -14,28 +14,26 @@ helpviewer_keywords:
 ms.assetid: 634ef9f9-e94b-4776-a9e1-866df9a76c8f
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0338c1e3e8890f08f87c80ec922071053d591935
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: b0538a0dec6ed7659898b3a40bd5e36729c7dcb9
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796675"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73134419"
 ---
 # <a name="iassemblyenum-interface"></a>IAssemblyEnum インターフェイス
-オブジェクトの`IAssemblyName`配列の列挙子を表します。  
+`IAssemblyName` オブジェクトの配列の列挙子を表します。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[Clone メソッド](iassemblyenum-clone-method.md)|この`IAssemblyEnum`オブジェクトの簡易コピーを作成します。|  
-|[GetNextAssembly メソッド](iassemblyenum-getnextassembly-method.md)|`IAssemblyName` この`IAssemblyEnum`オブジェクトに格納されている次のへのポインターを取得します。|  
-|[Reset メソッド](iassemblyenum-reset-method.md)|この`IAssemblyEnum`オブジェクトを開始位置にリセットします。|  
+|[Clone メソッド](iassemblyenum-clone-method.md)|この `IAssemblyEnum` オブジェクトの簡易コピーを作成します。|  
+|[GetNextAssembly メソッド](iassemblyenum-getnextassembly-method.md)|この `IAssemblyEnum` オブジェクトに格納されている次の `IAssemblyName` へのポインターを取得します。|  
+|[Reset メソッド](iassemblyenum-reset-method.md)|この `IAssemblyEnum` オブジェクトを開始位置にリセットします。|  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Fusion. h  
   

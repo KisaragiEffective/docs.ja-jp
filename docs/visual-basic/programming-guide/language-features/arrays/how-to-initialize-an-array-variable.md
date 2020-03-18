@@ -1,5 +1,5 @@
 ---
-title: '方法: Visual Basic で配列変数を初期化します。'
+title: '方法: 配列変数を初期化する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - variables [Visual Basic], initializing
@@ -7,15 +7,15 @@ helpviewer_keywords:
 - arrays [Visual Basic], initializing
 - arrays [Visual Basic], declaring
 ms.assetid: aadd7a60-7ca4-4608-b986-091f19e7fc10
-ms.openlocfilehash: 0e450a370c27de4690105231847de25ce5a90553
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 509859cbec41ca31b3abaa1c739e2975ec93bc0e
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64627452"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74351878"
 ---
-# <a name="how-to-initialize-an-array-variable-in-visual-basic"></a>方法: Visual Basic で配列変数を初期化します。
-配列リテラルを `New` 句に含めること、および配列の初期値を指定することで、配列変数を初期化します。 型を指定するか、配列リテラル内の値から推論することを許可できます。 型の推論方法の詳細についてを参照してください「を設定する配列の初期値の」[配列](../../../../visual-basic/programming-guide/language-features/arrays/index.md)します。  
+# <a name="how-to-initialize-an-array-variable-in-visual-basic"></a>方法: Visual Basic で配列変数を初期化する
+配列リテラルを `New` 句に含めること、および配列の初期値を指定することで、配列変数を初期化します。 型を指定するか、配列リテラル内の値から推論することを許可できます。 型の推論方法の詳細については、 [「配列」](../../../../visual-basic/programming-guide/language-features/arrays/index.md)の「配列に初期値を設定する」を参照してください。  
   
 ### <a name="to-initialize-an-array-variable-by-using-an-array-literal"></a>配列リテラルを使用して配列変数を初期化するには  
   
@@ -45,7 +45,7 @@ ms.locfileid: "64627452"
   
 ### <a name="to-initialize-a-jagged-array-variable-by-using-array-literals"></a>配列リテラルを使用してジャグ配列変数を初期化するには  
   
-- 中かっこ (`{}`) で囲んだオブジェクトの値を入れ子にします。 また、ジャグ配列の場合、異なる長さの配列を指定する配列リテラルを入れ子にすることもできます。 ただし、入れ子になった配列リテラルがかっこで囲まれた確認 (`()`)。 かっこで囲むことで、入れ子になった配列リテラルが強制的に評価され、結果の配列がジャグ配列の初期値として使用されるようになります。 ジャグ配列を初期化する 2 つの例を次に示します。  
+- 中かっこ (`{}`) で囲んだオブジェクトの値を入れ子にします。 さまざまな長さの配列を指定する配列リテラルを入れ子にすることもできますが、ジャグ配列の場合は、入れ子になった配列リテラルがかっこ (`()`) で囲まれていることを確認してください。 かっこで囲むことで、入れ子になった配列リテラルが強制的に評価され、結果の配列がジャグ配列の初期値として使用されるようになります。 ジャグ配列を初期化する 2 つの例を次に示します。  
   
      [!code-vb[VbVbalrArrays#19](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrArrays/VB/Class1.vb#19)]  
   

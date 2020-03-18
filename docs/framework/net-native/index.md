@@ -8,14 +8,12 @@ helpviewer_keywords:
 - .NET Native
 - C# and native compilation
 ms.assetid: 47cd5648-9469-4b1d-804c-43cc04384045
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5993cfdb0f50d8e474a4f18280d181d9ec2fdfa4
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 1f176e81905fe68c6d740a13240fe814659a7a59
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049652"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128376"
 ---
 # <a name="compiling-apps-with-net-native"></a>.NET ネイティブによるアプリのコンパイル
 
@@ -65,9 +63,9 @@ Windows 10 用の Windows アプリの場合は、.NET ネイティブ コード
 
 .NET ネイティブ コード コンパイルを使用したアプリ開発の詳細については、次のトピックを参照してください。
 
-- [.NET ネイティブの概要](getting-started-with-net-native.md)
+- [.NET ネイティブ コード コンパイルの概要: 開発者向けチュートリアル](getting-started-with-net-native.md)
 
-- [.NET ネイティブとコンパイル:](net-native-and-compilation.md).NET ネイティブ、プロジェクトをネイティブコードにコンパイルする方法を説明します。
+- [.NET ネイティブとコンパイル:](net-native-and-compilation.md) .NET ネイティブがプロジェクトをネイティブ コードにコンパイルする方法を取り上げます。
 
 - [リフレクションおよび .NET ネイティブ](reflection-and-net-native.md)
 

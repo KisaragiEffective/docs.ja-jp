@@ -1,5 +1,5 @@
 ---
-title: Visual Basic における Me、My、MyBase、MyClass
+title: Me、My、MyBase、および MyClass
 ms.date: 07/20/2015
 f1_keywords:
 - MyClass
@@ -21,18 +21,18 @@ helpviewer_keywords:
 - current instance [Visual Basic], Me keyword
 - MyBase keyword [Visual Basic], relationship to similar programming elements
 ms.assetid: f8e241ae-b1ed-4886-9aa0-08c632154029
-ms.openlocfilehash: 7df146e09a1d7cd730f4cf539d6823f7ced44bd1
-ms.sourcegitcommit: eff6adb61852369ab690f3f047818c90580e7eb1
+ms.openlocfilehash: a21dfeb12e8d99f5f8b8afede084846711c299ab
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72002533"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74347334"
 ---
 # <a name="me-my-mybase-and-myclass-in-visual-basic"></a>Visual Basic における Me、My、MyBase、MyClass
-`Me`、`My`、`MyBase`、および `MyClass` Visual Basic の名前は似ていますが、目的は異なります。 このトピックでは、これらの各エンティティについて説明します。  
+Visual Basic の `Me`、`My`、`MyBase`、および `MyClass` の名前は似ていますが、目的は異なります。 このトピックでは、これらの各エンティティについて説明します。  
   
 ## <a name="me"></a>Me  
- @No__t-0 キーワードは、コードが現在実行されているクラスまたは構造体の特定のインスタンスを参照する手段を提供します。 `Me` は、オブジェクト変数または現在のインスタンスを参照する構造体変数のように動作します。 @No__t-0 を使用すると、クラスまたは構造体の現在実行中のインスタンスに関する情報を、別のクラス、構造体、またはモジュール内のプロシージャに渡す場合に特に便利です。  
+ `Me` キーワードは、コードが現在実行されているクラスまたは構造体の特定のインスタンスを参照する手段を提供します。 `Me` は、オブジェクト変数または現在のインスタンスを参照する構造体変数のいずれかのように動作します。 `Me` の使用は、クラスまたは構造体の現在実行中のインスタンスに関する情報を、別のクラス、構造体、またはモジュール内のプロシージャに渡す場合に特に便利です。  
   
  たとえば、モジュールに次のプロシージャがあるとします。  
   
@@ -50,13 +50,13 @@ ChangeFormColor(Me)
 ```  
   
 ## <a name="my"></a>My  
- @No__t 0 の機能を使用すると、さまざまな .NET Framework クラスに簡単かつ直感的にアクセスできるので、Visual Basic ユーザーは、コンピューター、アプリケーション、設定、リソースなどと対話できます。  
+ `My` 機能を使用すると、さまざまな .NET Framework クラスに簡単かつ直感的にアクセスできるので、Visual Basic ユーザーはコンピューター、アプリケーション、設定、リソースなどを操作できます。  
   
 ## <a name="mybase"></a>MyBase  
- @No__t-0 キーワードは、クラスの現在のインスタンスの基底クラスを参照するオブジェクト変数のように動作します。 `MyBase` は、派生クラスでオーバーライドまたはシャドウされる基底クラスのメンバーにアクセスするためによく使用されます。 `MyBase.New` は、派生クラスのコンストラクターから基底クラスのコンストラクターを明示的に呼び出すために使用されます。  
+ `MyBase` キーワードは、クラスの現在のインスタンスの基底クラスを参照するオブジェクト変数のように動作します。 `MyBase` は、通常、派生クラスでオーバーライドまたはシャドウされる基底クラスのメンバーにアクセスするために使用されます。 `MyBase.New` は、派生クラスのコンストラクターから基底クラスのコンストラクターを明示的に呼び出すために使用されます。  
   
 ## <a name="myclass"></a>MyClass  
- @No__t-0 キーワードは、もともと実装されているクラスの現在のインスタンスを参照するオブジェクト変数のように動作します。 `MyClass` は `Me` に似ていますが、このメソッドのすべてのメソッド呼び出しは、メソッドが @no__t であるかのように処理されます。  
+ `MyClass` キーワードは、もともと実装されているクラスの現在のインスタンスを参照するオブジェクト変数のように動作します。 `MyClass` は `Me`に似ていますが、メソッドの呼び出しはすべて、メソッドが `NotOverridable`されているかのように扱われます。  
   
 ## <a name="see-also"></a>関連項目
 

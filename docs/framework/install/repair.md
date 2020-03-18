@@ -1,15 +1,13 @@
 ---
 title: .NET Framework を修復する
 description: .NET Framework を修復する方法について説明します
-author: rlander
-ms.author: mairaw
 ms.date: 08/03/2017
-ms.openlocfilehash: 74c2fdc3443741790549845eae3dabe83b46278c
-ms.sourcegitcommit: 2eceb05f1a5bb261291a1f6a91c5153727ac1c19
+ms.openlocfilehash: 734fb948728aed21ea5d5e908fbd7aee82c7ac62
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43507466"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "75716285"
 ---
 # <a name="repair-the-net-framework"></a>.NET Framework を修復する
 

@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 855f4199-b62d-40ce-998e-1eb4a1772142
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b577e915422814fbd0060fdda53b9e2bf7cd091a
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 1d75897e00c36bd5c484e837ee68e54443168e77
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67760730"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73131763"
 ---
 # <a name="icordebugstepperdeactivate-method"></a>ICorDebugStepper::Deactivate メソッド
-Icordebugstepper にすると、受信した最後の手順のコマンドをキャンセルします。  
+この ICorDebugStepper は、受け取った最後のステップコマンドをキャンセルします。  
   
 ## <a name="syntax"></a>構文  
   
@@ -34,10 +32,10 @@ HRESULT Deactivate ();
 ```  
   
 ## <a name="remarks"></a>Remarks  
- 最後に受信したステップ コマンドが取り消された後、新しいステップ実行コマンドを発行できます。  
+ 最後に受信したステップコマンドが取り消された後に、新しいステップ実行コマンドが発行される場合があります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

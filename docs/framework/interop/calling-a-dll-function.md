@@ -9,19 +9,17 @@ helpviewer_keywords:
 - interoperation with unmanaged code, platform invoke
 - DLL functions
 ms.assetid: 113646de-7ea0-4f0e-8df0-c46dab3e8733
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: b842f44711d38a996b9d710dbe8bd369d30c5443
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 14589544e05f6c59f4f58f7723fef40e75af9823
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71051883"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73123712"
 ---
 # <a name="calling-a-dll-function"></a>DLL 関数の呼び出し
 アンマネージド DLL 関数の呼び出しは、他のマネージド コードの呼び出しとほとんど同じですが、最初のうちは DLL 関数がわかりづらいと感じる違いがあります。 ここでは、通常とは異なる呼び出しに関連するいくつかの問題について説明しているトピックを紹介します。  
   
- プラットフォーム呼び出しから返される構造体は、マネージド コードとアンマネージド コードで同じ表現のデータ型である必要があります。 このような型のことは *blittable 型*と呼ばれます。これは、会話が必要ではないためです (「[Blittable 型と非 Blittable 型](blittable-and-non-blittable-types.md)」(blittable 型と非 blittable 型) を参照してください)。 戻り値の型が非 blittable 構造体の関数を呼び出すには、非 blittable 型と同じサイズの blittable ヘルパー型を定義し、関数からデータが返された後にそのデータを変換します。  
+ プラットフォーム呼び出しから返される構造体は、マネージド コードとアンマネージド コードで同じ表現のデータ型である必要があります。 このような型のことは *blittable 型*と呼ばれます。これは、会話が必要ではないためです (「[Blittable and Non-Blittable Types](blittable-and-non-blittable-types.md)」(blittable 型と非 blittable 型) を参照してください)。 戻り値の型が非 blittable 構造体の関数を呼び出すには、非 blittable 型と同じサイズの blittable ヘルパー型を定義し、関数からデータが返された後にそのデータを変換します。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
  [構造体の受け渡し](passing-structures.md)  

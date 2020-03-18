@@ -14,48 +14,46 @@ helpviewer_keywords:
 ms.assetid: c3be2cbd-2d93-438b-9888-9a0251b63c03
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a2c71f32dfd190e188bb28aad5d51c72160eb4bc
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 9b7cc41848e41976f388e38bf22c9ea0f90abbae
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64603213"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73121476"
 ---
 # <a name="ihostsecuritymanager-interface"></a>IHostSecurityManager インターフェイス
-アクセスと、現在実行中のスレッドのセキュリティ コンテキストに対する制御を許可するメソッドを提供します。  
+現在実行中のスレッドのセキュリティコンテキストに対するアクセスと制御を許可するメソッドを提供します。  
   
 ## <a name="methods"></a>メソッド  
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[GetSecurityContext メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-getsecuritycontext-method.md)|要求された取得[IHostSecurityContext](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritycontext-interface.md)ホストから。|  
-|[ImpersonateLoggedOnUser メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-impersonateloggedonuser-method.md)|要求の現在のユーザー id の資格情報を使用してコードを実行します。|  
-|[OpenThreadToken メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-openthreadtoken-method.md)|現在のスレッドに関連付けられた随意アクセス トークンを開きます。|  
-|[RevertToSelf メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-reverttoself-method.md)|現在のユーザー id の権限の借用を終了し、元のスレッド トークンを返します。|  
-|[SetSecurityContext メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-setsecuritycontext-method.md)|現在実行中のスレッドのセキュリティ コンテキストを設定します。|  
+|[GetSecurityContext メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-getsecuritycontext-method.md)|ホストから要求された[IHostSecurityContext](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritycontext-interface.md)を取得します。|  
+|[ImpersonateLoggedOnUser メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-impersonateloggedonuser-method.md)|現在のユーザー id の資格情報を使用して、コードの実行を要求します。|  
+|[OpenThreadToken メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-openthreadtoken-method.md)|現在のスレッドに関連付けられている随意アクセストークンを開きます。|  
+|[RevertToSelf メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-reverttoself-method.md)|現在のユーザー id の偽装を終了し、元のスレッドトークンを返します。|  
+|[SetSecurityContext メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-setsecuritycontext-method.md)|現在実行中のスレッドのセキュリティコンテキストを設定します。|  
 |[SetThreadToken メソッド](../../../../docs/framework/unmanaged-api/hosting/ihostsecuritymanager-setthreadtoken-method.md)|現在実行中のスレッドのハンドルを設定します。|  
   
 ## <a name="remarks"></a>Remarks  
- ホストは、共通言語ランタイム (CLR) とユーザー コードの両方で、スレッド トークンへのすべてのコード アクセスを制御できます。 その完全なセキュリティを確保できますも非同期操作または制限付きのコード アクセス権を持つコード ポイントの間で渡されるコンテキスト情報。 `IHostSecurityContext` CLR に非透過的であるこのセキュリティ コンテキスト情報をカプセル化します。  
+ ホストは、共通言語ランタイム (CLR) とユーザーコードの両方によって、スレッドトークンへのすべてのコードアクセスを制御できます。 また、完全なセキュリティコンテキスト情報が、制限されたコードアクセスで非同期操作またはコードポイント全体に渡されるようにすることもできます。 `IHostSecurityContext` は、CLR に対して非透過的なこのセキュリティコンテキスト情報をカプセル化します。  
   
- CLR では、マネージ スレッドのコンテキストを内部的に処理します。 プロセス固有のクエリを実行`IHostSecurityManager`次の状況で。  
+ CLR は、マネージスレッドコンテキストを内部で処理します。 次のような場合に、プロセス固有の `IHostSecurityManager` に対してクエリを実行します。  
   
-- ファイナライザー スレッド、ファイナライザーの実行中です。  
+- ファイナライザーの実行中に発生します。  
   
-- 実行中にクラスとモジュールのコンス トラクター。  
+- クラスおよびモジュールコンストラクターの実行中。  
   
-- 呼び出しで、ワーカー スレッドで非同期の時点で、 [ihostthreadpoolmanager::queueuserworkitem](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-queueuserworkitem-method.md)メソッド。  
+- ワーカースレッドの非同期ポイントで、 [IHostThreadPoolManager:: QueueUserWorkItem](../../../../docs/framework/unmanaged-api/hosting/ihostthreadpoolmanager-queueuserworkitem-method.md)メソッドを呼び出します。  
   
-- I/O 完了ポートの使用中です。  
+- I/o 完了ポートのサービス。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:**[システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

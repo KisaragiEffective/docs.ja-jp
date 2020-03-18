@@ -1,15 +1,13 @@
 ---
-title: <Library>要素 (.NET ネイティブ)
+title: <Library> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: f642276b-33fb-4a81-b882-8808c31ba69e
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: bc3c85ab99574c96d8a68d4221f218a1340e4122
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: f94bfe047fa7a95b6f24264bae0b27112c589dfd
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049646"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128364"
 ---
 # <a name="library-element-net-native"></a>\<Library > 要素 (.NET ネイティブ)
 実行時にリフレクションに使用可能なメタデータを持つ型と型のメンバーを含むアセンブリを定義します。  
@@ -34,7 +32,7 @@ ms.locfileid: "71049646"
   
 ## <a name="name-attribute"></a>Name 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*assembly_name*|ファイル拡張子のないアセンブリの簡易名です。 この属性は、<xref:System.Reflection.AssemblyName.Name%2A?displayProperty=nameWithType> プロパティに対応します。 たとえば、Extensions.dll というアセンブリの名前は "Extensions" です。 アセンブリのメタデータの条件付きインクルードをサポートする特殊な形式の *assembly_name* については、「解説」セクションを参照してください。|  
   
@@ -58,7 +56,7 @@ ms.locfileid: "71049646"
   
  `<Library>` 要素は、実行時に必要なメタデータを持つプログラム要素を定義するためのコンテナーとして機能します。この要素はポリシーを表しません。 コンパイル時に、コンパイラ ツールは `<Library>` 要素により指定されたライブラリでのみ、その子要素により示されるプログラム要素を検索します。 一方、[\<Application>](application-element-net-native.md) 要素の子要素により示されるプログラム要素を検索する場合、コンパイラ ツールは .NET Framework コア ライブラリを含むすべてのライブラリを検索します。  
   
- `<Library>` ディレクティブは、条件付きで使用される場合があります。 `<Library>`要素の名前の先頭と末尾がアスタリスク (\*) の場合、 `<Library>`このディレクティブは、アスタリスクによって指定されたアセンブリがアプリによって参照されている場合にのみ効果があります。 たとえば、次のランタイムディレクティブは、ユーティリティ .dll アセンブリがアプリによって参照されている場合にのみ適用されます。  
+ `<Library>` ディレクティブは、条件付きで使用される場合があります。 `<Library>` 要素の名前の先頭と末尾がアスタリスク (\*) の場合、`<Library>` ディレクティブは、アスタリスクの間に指定されているアセンブリがアプリによって参照されている場合にのみ効果があります。 たとえば、次のランタイムディレクティブは、ユーティリティ .dll アセンブリがアプリによって参照されている場合にのみ適用されます。  
   
 ```xml  
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">  
@@ -70,7 +68,7 @@ ms.locfileid: "71049646"
   
 ## <a name="see-also"></a>関連項目
 
-- [\<Application > 要素](application-element-net-native.md)
+- [\<アプリケーション > 要素](application-element-net-native.md)
 - [\<ディレクティブ > 要素](directives-element-net-native.md)
 - [ランタイム ディレクティブ (rd.xml) 構成ファイル リファレンス](runtime-directives-rd-xml-configuration-file-reference.md)
 - [ランタイム ディレクティブ要素](runtime-directive-elements.md)

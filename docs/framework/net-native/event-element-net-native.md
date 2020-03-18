@@ -1,17 +1,15 @@
 ---
-title: <Event>要素 (.NET ネイティブ)
+title: <Event> 要素 (.NET ネイティブ)
 ms.date: 03/30/2017
 ms.assetid: e53b029c-9d6d-4c0a-9cdc-5cfca8a5ca47
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 7fb0245c50677da0397ba9c4918f171dcb217ba6
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 6966caede63faafa718b760be879f6bc6cbd3ab9
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71049847"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73128492"
 ---
-# <a name="event-element-net-native"></a>\<Event > 要素 (.NET ネイティブ)
+# <a name="event-element-net-native"></a>\<イベント > 要素 (.NET ネイティブ)
 イベントにランタイム リフレクション ポリシーを適用します。  
   
 ## <a name="syntax"></a>構文  
@@ -35,13 +33,13 @@ ms.locfileid: "71049847"
   
 ## <a name="name-attribute"></a>Name 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*method_name*|イベントの名前です。 イベントの型は親 [\<Type>](type-element-net-native.md) または [\<TypeInstantiation>](typeinstantiation-element-net-native.md) 要素により定義されます。|  
   
 ## <a name="all-other-attributes"></a>その他すべての属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |*policy_setting*|イベントのこのポリシーの種類に適用する設定です。 指定できる値は、`Auto`、`Excluded`、`Included`、および `Required` です。 詳細については、「[ランタイム ディレクティブのポリシー設定](runtime-directive-policy-settings.md)」を参照してください。|  
   

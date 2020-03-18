@@ -1,5 +1,5 @@
 ---
-title: インターフェイスの作成と実装 (Visual Basic)
+title: インターフェイスの作成と実装
 ms.date: 07/20/2015
 helpviewer_keywords:
 - interfaces [Visual Basic], walkthroughs
@@ -7,12 +7,12 @@ helpviewer_keywords:
 - interface implementation [Visual Basic], walkthrough
 - interfaces [Visual Basic], creating
 ms.assetid: ded82af2-9f52-4232-98ef-fe458180f112
-ms.openlocfilehash: 62e301e9eb366d14b58088d3e2cda3b567d17f5b
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 47176d2e7a512d8e8c27a90ac04d2a2a2af274b5
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69923319"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74345040"
 ---
 # <a name="walkthrough-creating-and-implementing-interfaces-visual-basic"></a>チュートリアル: インターフェイスの作成と実装 (Visual Basic)
 
@@ -31,11 +31,11 @@ ms.locfileid: "69923319"
   
 2. **[プロジェクト]** メニューの **[モジュールの追加]** をクリックして、新しいモジュールをプロジェクトに追加します。  
   
-3. 新しいモジュール`Module1.vb`の名前を指定し、 **[追加]** をクリックします。 新しいモジュールのコードが表示されます。  
+3. 新しいモジュールに `Module1.vb` 名前を指定し、 **[追加]** をクリックします。 新しいモジュールのコードが表示されます。  
   
-4. ステートメントとステートメントの`TestInterface` `Module1` `Interface TestInterface` `End Module`間に「」と入力し、enter キーを押して、内にという名前のインターフェイスを定義します。 `Module` **コードエディター**によって`Interface`キーワードがインデントさ`End Interface`れ、コードブロックを形成するステートメントが追加されます。  
+4. `Module` と `End Module` のステートメントの間に `Interface TestInterface` を入力し、ENTER キーを押して、`Module1` 内の `TestInterface` という名前のインターフェイスを定義します。 **コードエディター**によって `Interface` キーワードがインデントされ、コードブロックを形成するための `End Interface` ステートメントが追加されます。  
   
-5. `End Interface`ステートメントとステートメントの`Interface`間に次のコードを配置して、インターフェイスのプロパティ、メソッド、およびイベントを定義します。  
+5. `Interface` と `End Interface` ステートメントの間に次のコードを配置して、インターフェイスのプロパティ、メソッド、およびイベントを定義します。  
   
      [!code-vb[VbVbalrOOP#98](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#98)]
   
@@ -45,69 +45,69 @@ ms.locfileid: "69923319"
   
 ### <a name="to-implement-the-interface"></a>インターフェイスを実装するには
   
-1. という`ImplementationClass`名前のクラスを追加します。 `Module1`そのために`End Interface`は、ステートメントの`End Module`後、ステートメントの前に、enter キーを押します。  
+1. `Module1`に次のステートメントを追加して、`ImplementationClass` という名前のクラスを追加します。そのためには、`End Interface` ステートメントの後、`End Module` ステートメントの前に、ENTER キーを押します。  
   
      [!code-vb[VbVbalrOOP#99](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#99)]
   
-     統合開発環境内で作業している場合、enter キーを押すと`End Class` 、**コードエディター**によって一致するステートメントが提供されます。  
+     統合開発環境内で作業している場合は、ENTER キーを押すと、一致する `End Class` ステートメントが**コードエディター**に表示されます。  
   
-2. 次`Implements`のステートメントをに`ImplementationClass`追加します。このステートメントは、クラスが実装するインターフェイスに名前を指定します。  
+2. 次の `Implements` ステートメントを `ImplementationClass`に追加します。これは、クラスが実装するインターフェイスの名前を指定します。  
   
      [!code-vb[VbVbalrOOP#100](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#100)]
   
-     クラスまたは構造体の先頭にある他の項目とは別に`Implements`リストされている場合、ステートメントは、クラスまたは構造体がインターフェイスを実装していることを示します。  
+     クラスまたは構造体の先頭にある他の項目とは別にリストされている場合、`Implements` ステートメントは、クラスまたは構造体がインターフェイスを実装していることを示します。  
   
-     統合開発環境内で作業している場合、enter キーを押すと、で`TestInterface`必要なクラスメンバーが**コードエディター**に実装されます。次の手順は省略できます。  
+     統合開発環境内で作業している場合、ENTER キーを押したときに `TestInterface` に必要なクラスメンバーが**コードエディター**に実装され、次の手順は省略できます。  
   
-3. 統合開発環境で作業していない場合は、インターフェイス`MyInterface`のすべてのメンバーを実装する必要があります。 `ImplementationClass` `Event1`、 、および`Prop1`を実装するには、に次のコードを追加します。 `Method1`  
+3. 統合開発環境内で作業していない場合は、`MyInterface`インターフェイスのすべてのメンバーを実装する必要があります。 `ImplementationClass` に次のコードを追加して、`Event1`、`Method1`、および `Prop1`を実装します。  
   
      [!code-vb[VbVbalrOOP#101](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#101)]
   
-     ステートメント`Implements`は、実装されているインターフェイスとインターフェイスメンバーの名前を記述します。  
+     `Implements` ステートメントは、実装されているインターフェイスとインターフェイスメンバーの名前を記述します。  
   
-4. プロパティ値を格納`Prop1`したクラスにプライベートフィールドを追加して、の定義を完了します。  
+4. プロパティ値を格納したクラスにプライベートフィールドを追加して、`Prop1` の定義を完了します。  
   
      [!code-vb[VbVbalrOOP#102](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#102)]
   
-     プロパティ get アクセサー `pval`からの値を返します。  
+     プロパティ get アクセサーから `pval` の値を返します。  
   
      [!code-vb[VbVbalrOOP#103](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#103)]
   
-     プロパティセットアクセサーで`pval`の値を設定します。  
+     プロパティセットアクセサーの `pval` の値を設定します。  
   
      [!code-vb[VbVbalrOOP#104](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#104)]
   
-5. 次のコードを`Method1`追加して、の定義を完了します。  
+5. 次のコードを追加して、`Method1` の定義を完了します。  
   
      [!code-vb[VbVbalrOOP#105](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#105)]
   
 ### <a name="to-test-the-implementation-of-the-interface"></a>インターフェイスの実装をテストするには
   
-1. **ソリューションエクスプローラー**でプロジェクトのスタートアップフォームを右クリックし、 **[コードの表示]** をクリックします。 エディターに、スタートアップフォームのクラスが表示されます。 既定では、スタートアップフォームが呼び出さ`Form1`れます。  
+1. **ソリューションエクスプローラー**でプロジェクトのスタートアップフォームを右クリックし、 **[コードの表示]** をクリックします。 エディターに、スタートアップフォームのクラスが表示されます。 既定では、スタートアップフォームは `Form1`と呼ばれます。  
   
-2. クラスに次`testInstance`のフィールドを追加します。 `Form1`  
+2. 次の `testInstance` フィールドを `Form1` クラスに追加します。  
   
      [!code-vb[VbVbalrOOP#120](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#120)]
   
-     とし`testInstance` `WithEvents`て宣言する`Form1`ことで、クラスはそのイベントを処理できます。  
+     `testInstance` を `WithEvents`として宣言することで、`Form1` クラスはそのイベントを処理できます。  
   
-3. 次のイベントハンドラーを`Form1`クラスに追加して、によって`testInstance`発生したイベントを処理します。  
+3. `testInstance`によって発生したイベントを処理するために、次のイベントハンドラーを `Form1` クラスに追加します。  
   
      [!code-vb[VbVbalrOOP#106](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#106)]
   
-4. クラスにという`Test`名前のサブルーチンを追加して、実装クラスをテストします。 `Form1`  
+4. `Test` という名前のサブルーチンを `Form1` クラスに追加して、実装クラスをテストします。  
   
      [!code-vb[VbVbalrOOP#107](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#107)]
   
-     この`Test`プロシージャは、を実装`MyInterface`するクラスのインスタンスを作成し、そのインスタンス`testInstance`をフィールドに割り当て、プロパティを設定し、インターフェイスを介してメソッドを実行します。  
+     `Test` プロシージャは、`MyInterface`を実装するクラスのインスタンスを作成し、そのインスタンスを `testInstance` フィールドに割り当て、プロパティを設定して、インターフェイスを介してメソッドを実行します。  
   
-5. スタートアップフォームの`Form1 Load`プロシージャから`Test`プロシージャを呼び出すコードを追加します。  
+5. スタートアップフォームの `Form1 Load` プロシージャから `Test` プロシージャを呼び出すコードを追加します。  
   
      [!code-vb[VbVbalrOOP#108](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrOOP/VB/OOP.vb#108)]
   
-6. F5 キー `Test`を押してプロシージャを実行します。 "Prop1 が9に設定されました" というメッセージが表示されます。 [OK] をクリックすると、"Method1 の X パラメーターは 5" というメッセージが表示されます。 [OK] をクリックすると、"イベントをキャッチしたイベントハンドラー" というメッセージが表示されます。  
+6. F5 キーを押して `Test` プロシージャを実行します。 "Prop1 が9に設定されました" というメッセージが表示されます。 [OK] をクリックすると、"Method1 の X パラメーターは 5" というメッセージが表示されます。 [OK] をクリックすると、"イベントをキャッチしたイベントハンドラー" というメッセージが表示されます。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Implements ステートメント](../../../../visual-basic/language-reference/statements/implements-statement.md)
 - [インターフェイス](../../../../visual-basic/programming-guide/language-features/interfaces/index.md)

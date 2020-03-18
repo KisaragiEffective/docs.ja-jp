@@ -3,10 +3,10 @@ title: XML ツリーからの要素、属性、およびノードの削除 (C#)
 ms.date: 07/20/2015
 ms.assetid: 07dd06d6-1117-4077-bf98-9120cf51176e
 ms.openlocfilehash: badaa6bab35367d62a73f56c5221cb7d6d4a45f7
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "69591259"
 ---
 # <a name="removing-elements-attributes-and-nodes-from-an-xml-tree-c"></a>XML ツリーからの要素、属性、およびノードの削除 (C#)
@@ -19,7 +19,7 @@ ms.locfileid: "69591259"
 
 ノードおよび属性を XML ツリーから削除するメソッドを次に示します。
 
-|Method|説明|
+|方法|[説明]|
 |------------|-----------------|
 |<xref:System.Xml.Linq.XAttribute.Remove%2A?displayProperty=nameWithType>|<xref:System.Xml.Linq.XAttribute> をその親から削除します。|
 |<xref:System.Xml.Linq.XContainer.RemoveNodes%2A?displayProperty=nameWithType>|子ノードを <xref:System.Xml.Linq.XContainer> から削除します。|
@@ -32,7 +32,7 @@ ms.locfileid: "69591259"
 
 ## <a name="example"></a>例
 
-### <a name="description"></a>説明
+### <a name="description"></a>[説明]
 
 この例では、要素を削除する 3 つの方法を示します。 まず、1 つの要素を削除します。 次に、要素のコレクションを取得し、<xref:System.Linq.Enumerable.ToList%2A?displayProperty=nameWithType> 演算子を使用して要素を具体化して、コレクションを削除します。 最後に、要素のコレクションを取得し、<xref:System.Xml.Linq.Extensions.Remove%2A> 拡張メソッドを使用して要素を削除します。
 
@@ -64,7 +64,7 @@ root.Element("Child3").Elements().Remove();
 Console.WriteLine(root);
 ```
 
-### <a name="comments"></a>説明
+### <a name="comments"></a>コメント
 
 このコードを実行すると、次の出力が生成されます。
 

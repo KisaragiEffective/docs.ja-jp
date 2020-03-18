@@ -1,16 +1,17 @@
 ---
-title: WPF アプリケーションのリアルタイムなスタイラス入力を無効にする
+title: RealTimeStylus を無効にする
 ms.date: 03/30/2017
 ms.assetid: e0525309-5ede-4782-837d-dbf6e5554859
-ms.openlocfilehash: acae177e1c49a6a1161bcf48f8e2e8ac1bfe13b8
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 74145c32af7e9ebbc774a0301e205aa1eb1539b3
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70991839"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76737941"
 ---
 # <a name="disable-the-realtimestylus-for-wpf-applications"></a>WPF アプリケーションのリアルタイムなスタイラス入力を無効にする
-Windows Presentation Foundation (WPF) には、Windows 7 タッチ入力を処理するためのサポートが組み込まれています。 サポートは、、 <xref:System.Windows.UIElement.OnStylusDown%2A> <xref:System.Windows.UIElement.OnStylusUp%2A>、および<xref:System.Windows.UIElement.OnStylusMove%2A>イベントとしてのタブレットプラットフォームのリアルタイムスタイラス入力を通じて行われます。 Windows 7 では、マルチタッチ入力も Win32 WM_TOUCH ウィンドウメッセージとして提供されます。 これらの2つの Api は、同じ HWND で相互に排他的です。 タブレットプラットフォーム (WPF アプリケーションの既定値) を使用してタッチ入力を有効にすると、WM_TOUCH メッセージが無効になります。 そのため、WM_TOUCH を使用して WPF ウィンドウからタッチメッセージを受信するには、WPF の組み込みのスタイラスサポートを無効にする必要があります。 これは、WM_TOUCH を使用するコンポーネントをホストする WPF ウィンドウなどのシナリオに適用されます。  
+
+Windows Presentation Foundation (WPF) には、Windows 7 タッチ入力を処理するためのサポートが組み込まれています。 サポートは、<xref:System.Windows.UIElement.OnStylusDown%2A>、<xref:System.Windows.UIElement.OnStylusUp%2A>、および <xref:System.Windows.UIElement.OnStylusMove%2A> イベントとしてのタブレットプラットフォームのリアルタイムスタイラス入力を通じて行われます。 Windows 7 では、マルチタッチ入力も Win32 WM_TOUCH ウィンドウメッセージとして提供されます。 これらの2つの Api は、同じ HWND で相互に排他的です。 タブレットプラットフォーム (WPF アプリケーションの既定値) を使用してタッチ入力を有効にすると、WM_TOUCH メッセージが無効になります。 そのため、WM_TOUCH を使用して WPF ウィンドウからタッチメッセージを受信するには、WPF の組み込みのスタイラスサポートを無効にする必要があります。 これは、WM_TOUCH を使用するコンポーネントをホストする WPF ウィンドウなどのシナリオに適用されます。  
   
  スタイラス入力をリッスンしている WPF を無効にするには、WPF ウィンドウによって追加されたすべてのタブレットサポートを削除します。  
   
@@ -52,6 +53,6 @@ public static void DisableWPFTabletSupport()
 }  
 ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [スタイラスからの入力のインターセプト](intercepting-input-from-the-stylus.md)

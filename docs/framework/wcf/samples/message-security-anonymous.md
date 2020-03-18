@@ -4,12 +4,12 @@ ms.date: 03/30/2017
 helpviewer_keywords:
 - WS Security
 ms.assetid: c321cbf9-8c05-4cce-b5a5-4bf7b230ee03
-ms.openlocfilehash: fdcf0c25e4e6cab2c99457112b892f5d2c5bd3b4
-ms.sourcegitcommit: 68653db98c5ea7744fd438710248935f70020dfb
+ms.openlocfilehash: 0665ce331492a5322fdfde9e91fc1dae5b8e7ea8
+ms.sourcegitcommit: 14ad34f7c4564ee0f009acb8bfc0ea7af3bc9541
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69930617"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73424110"
 ---
 # <a name="message-security-anonymous"></a>メッセージ セキュリティ匿名
 Message Security Anonymous サンプルでは、クライアント認証なしでメッセージレベルのセキュリティを使用するが、サーバーの x.509 を使用するサーバー認証を必要とする Windows Communication Foundation (WCF) アプリケーションを実装する方法を示します。証明. クライアント/サーバー間のすべてのアプリケーション メッセージは署名され、暗号化されます。 このサンプルは、 [WSHttpBinding](../../../../docs/framework/wcf/samples/wshttpbinding.md)サンプルを基にしています。 このサンプルは、クライアント コンソール プログラム (.exe) と、インターネット インフォメーション サービス (IIS) によってホストされるサービス ライブラリ (.dll) で構成されています。 サービスは、要求/応答通信パターンを定義するコントラクトを実装します。
@@ -57,7 +57,7 @@ public class CalculatorService : ICalculator
 </system.serviceModel>
 ```
 
- サービス認証に使用される資格情報は、> の[ \<動作](../../../../docs/framework/configure-apps/file-schema/wcf/behavior-of-endpointbehaviors.md)で指定されます。 サーバー証明書の `SubjectName` には、`findValue` 属性に指定されている値と同じ値が指定されている必要があります。次のサンプル コードを参照してください。
+ サービス認証に使用される資格情報は、 [\<の動作](../../../../docs/framework/configure-apps/file-schema/wcf/behavior-of-endpointbehaviors.md)で指定されます。 サーバー証明書の `SubjectName` には、`findValue` 属性に指定されている値と同じ値が指定されている必要があります。次のサンプル コードを参照してください。
 
 ```xml
 <behaviors>
@@ -108,7 +108,7 @@ public class CalculatorService : ICalculator
 
  このサンプルでは、サービスの証明書を認証するために、<xref:System.ServiceModel.Security.X509ServiceCertificateAuthentication.CertificateValidationMode%2A> を <xref:System.ServiceModel.Security.X509CertificateValidationMode.PeerOrChainTrust> に設定します。 これは、`behaviors` セクションのクライアントの App.config ファイルで行われます。 つまり、証明書がユーザーの Trusted People ストア内に存在している場合、その証明書は発行者のチェーンが検証されることなく信頼されます。 証明機関 (CA) から発行された証明書を要求しなくともサンプルを実行できるようにするため、ここでは便宜上この設定が使用されます。 この設定は、既定の ChainTrust よりも安全性が低くなります。 `PeerOrChainTrust` を製品版のコードで使用する前に、この設定のセキュリティへの影響について慎重に考慮する必要があります。
 
- クライアント実装は、 `IsCallerAnonymous`メソッドへの呼び出しを追加します。それ以外の場合は、 [WSHttpBinding](../../../../docs/framework/wcf/samples/wshttpbinding.md)サンプルとは異なります。
+ クライアント実装は `IsCallerAnonymous` メソッドへの呼び出しを追加します。それ以外の場合、 [WSHttpBinding](../../../../docs/framework/wcf/samples/wshttpbinding.md)サンプルとは異なります。
 
 ```csharp
 // Create a client with a client endpoint configuration.
@@ -135,7 +135,7 @@ Console.ReadLine();
 
  このサンプルを実行すると、操作要求および応答がクライアントのコンソール ウィンドウに表示されます。 クライアントをシャットダウンするには、クライアント ウィンドウで Enter キーを押します。
 
-```
+```console
 IsCallerAnonymous returned: True
 Add(100,15.99) = 115.99
 Subtract(145,76.54) = 68.46
@@ -168,7 +168,7 @@ Press <ENTER> to terminate client.
 
      次の行は、サーバー証明書をクライアントの信頼されたユーザーのストアにコピーします。 この手順が必要なのは、Makecert.exe によって生成される証明書がクライアント システムにより暗黙には信頼されないからです。 マイクロソフト発行の証明書など、クライアントの信頼されたルート証明書に基づいた証明書が既にある場合は、クライアント証明書ストアにサーバー証明書を配置するこの手順は不要です。
 
-    ```
+    ```console
     certmgr.exe -add -r LocalMachine -s My -c -n %SERVER_NAME% -r CurrentUser -s TrustedPeople
     ```
 
@@ -187,7 +187,7 @@ Press <ENTER> to terminate client.
     ```
 
 > [!NOTE]
-> 英語 (米国) 以外の言語で Windows を使用している場合は、Setup.bat ファイルを編集し、`NT AUTHORITY\NETWORK SERVICE` アカウント名を現在の地域に適した名前に変更してください。
+> 米国英語版以外の Windows を使用している場合は、セットアップの .bat ファイルを編集し、`NT AUTHORITY\NETWORK SERVICE` アカウント名を実際の地域に合わせて変更する必要があります。
 
 ### <a name="to-set-up-build-and-run-the-sample"></a>サンプルをセットアップ、ビルド、および実行するには
 
@@ -204,7 +204,7 @@ Press <ENTER> to terminate client.
     > [!NOTE]
     > セットアップバッチファイルは、Visual Studio の開発者コマンドプロンプトから実行するように設計されています。 path 環境変数が SDK のインストール ディレクトリを指している必要があります。 この環境変数は、Visual Studio の開発者コマンドプロンプト内で自動的に設定されます。  
   
-3. アドレスを入力して、ブラウザーを使用して、サービスへのアクセスを確認してください `http://localhost/servicemodelsamples/service.svc` です。  
+3. `http://localhost/servicemodelsamples/service.svc`アドレスを入力して、ブラウザーを使用してサービスへのアクセスを確認します。  
   
 4. Client.exe を \client\bin で起動します。 クライアント アクティビティがクライアントのコンソール アプリケーションに表示されます。  
   
@@ -220,9 +220,9 @@ Press <ENTER> to terminate client.
   
 4. クライアント プログラム ファイルを、クライアント コンピューターに作成したクライアント ディレクトリにコピーします。 Setup.bat、Cleanup.bat、ImportServiceCert.bat の各ファイルもクライアントにコピーします。  
   
-5. サーバーで、管理者`setup.bat service`特権で開かれた Visual Studio の開発者コマンドプロンプトでを実行します。 引数を指定してを実行`setup.bat`すると、コンピューターの完全修飾ドメイン名を使用してサービス証明書が作成され、service .cer という名前のファイルにエクスポートされます。 `service`  
+5. サーバーで、管理者特権で開いた Visual Studio の開発者コマンドプロンプトで `setup.bat service` を実行します。 `service` 引数を指定して `setup.bat` を実行すると、コンピューターの完全修飾ドメイン名を使用してサービス証明書が作成され、service .cer という名前のファイルにエクスポートされます。  
   
-6. Web.config を編集して、新しい証明書名 ( `findValue` [ \<serviceCertificate >](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-servicecredentials.md)の属性) を反映します。これは、コンピューターの完全修飾ドメイン名と同じです。  
+6. Web.config を編集して、新しい証明書名 ( [\<serviceCertificate >](../../../../docs/framework/configure-apps/file-schema/wcf/servicecertificate-of-servicecredentials.md)の `findValue` 属性) を反映します。これは、コンピューターの完全修飾ドメイン名と同じです。  
   
 7. Service.cer ファイルを、サービス ディレクトリからクライアント コンピューターのクライアント ディレクトリにコピーします。  
   
@@ -237,4 +237,4 @@ Press <ENTER> to terminate client.
 - サンプルの実行が終わったら、サンプル フォルダーにある Cleanup.bat を実行します。  
   
 > [!NOTE]
-> このサンプルを複数のコンピューターで実行している場合、このスクリプトはサービス証明書をクライアントから削除しません。 コンピューター間で証明書を使用する Windows Communication Foundation (WCF) サンプルを実行した場合は、CurrentUser-TrustedPeople ストアにインストールされているサービス証明書を必ずオフにしてください。 これを行うには、次のコマンドを使用します。`certmgr -del -r CurrentUser -s TrustedPeople -c -n <Fully Qualified Server Machine Name>` たとえば、次のように入力します。 `certmgr -del -r CurrentUser -s TrustedPeople -c -n server1.contoso.com.`
+> このサンプルを複数のコンピューターで実行している場合、このスクリプトはサービス証明書をクライアントから削除しません。 コンピューター間で証明書を使用する Windows Communication Foundation (WCF) サンプルを実行した場合は、CurrentUser-TrustedPeople ストアにインストールされているサービス証明書を必ずオフにしてください。 削除するには、コマンド `certmgr -del -r CurrentUser -s TrustedPeople -c -n <Fully Qualified Server Machine Name>` を実行します。たとえば、`certmgr -del -r CurrentUser -s TrustedPeople -c -n server1.contoso.com.` となります。

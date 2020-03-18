@@ -4,14 +4,12 @@ ms.date: 09/07/2017
 helpviewer_keywords:
 - COM interop, data marshaling
 - marshaling data, COM interop
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3dd667f681e9b6749f33d6ccfd91035477c56030
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 24fa390c94baaa0fe009ebe513f2eb7aa34d34fa
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71051693"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73113995"
 ---
 # <a name="marshaling-data-with-com-interop"></a>COM 相互運用機能によるデータのマーシャリング
 COM 相互運用は、マネージド コードから COM オブジェクトを使用すること、およびマネージド オブジェクトを COM に公開することの、両方の操作をサポートします。 COM との間でデータをマーシャリングする操作のサポートは広範で、ほとんどの場合、正しいマーシャリング動作が提供されます。  
@@ -25,10 +23,10 @@ COM 相互運用は、マネージド コードから COM オブジェクトを�
  以下のセクションは、マーシャラーに追加の型情報を提供できる (またはその必要がある) ときに、相互運用ラッパーをカスタマイズするためのプロセスについて説明するトピックにリンクしています。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
-[方法: ラッパーを手動で作成する](how-to-create-wrappers-manually.md)   
+[方法: ラッパを手動で作成する](how-to-create-wrappers-manually.md)   
 マネージド ソース コードにおいて COM ラッパーを手動で作成する方法について説明します。 
  
- [方法: マネージド コード DCOM を WCF に移行する](how-to-migrate-managed-code-dcom-to-wcf.md)  
+ [方法: マネージ コード DCOM を WCF に移行する](how-to-migrate-managed-code-dcom-to-wcf.md)  
  最も安全なソリューションのために、マネージド DCOM コードを WCF に移行する方法について説明します。  
   
 ## <a name="related-sections"></a>関連項目  

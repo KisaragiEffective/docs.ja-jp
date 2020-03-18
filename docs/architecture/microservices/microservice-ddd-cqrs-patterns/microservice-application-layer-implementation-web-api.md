@@ -1,13 +1,13 @@
 ---
 title: Web API を使用したマイクロサービス アプリケーション レイヤーの実装
-description: コンテナー化された .NET アプリケーションの .NET マイクロサービス アーキテクチャ | Web API アプリケーション レイヤーの依存関係挿入、メディエーター パターン、その実装詳細について。
-ms.date: 10/08/2018
-ms.openlocfilehash: df304ffbe2406323e3dcf42b9eb989b02a62b28b
-ms.sourcegitcommit: d7c298f6c2e3aab0c7498bfafc0a0a94ea1fe23e
+description: Web API アプリケーション レイヤーでの依存関係の挿入、メディエーター パターン、およびそれらの実装の詳細について理解します。
+ms.date: 01/30/2020
+ms.openlocfilehash: a88f3bfd11ea06df085ca82ed7265cb37006fc31
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249745"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "77502444"
 ---
 # <a name="implement-the-microservice-application-layer-using-the-web-api"></a>Web API を使用してマイクロサービス アプリケーション レイヤーを実装する
 
@@ -17,7 +17,9 @@ ms.locfileid: "72249745"
 
 たとえば、注文マイクロサービスのアプリケーション レイヤー コードは、**Ordering.API** プロジェクト (ASP.NET Core Web API プロジェクト) の一部として直接実装されます (図 7-23 を参照)。
 
-![Ordering.API マイクロサービスのソリューション エクスプローラー ビュー。[Application] フォルダーの下に、Behaviors、Commands、DomainEventHandlers、IntegrationEvents、Models、Queries、Validations というサブフォルダーを確認できます。](./media/image20.png)
+:::image type="complex" source="./media/microservice-application-layer-implementation-web-api/ordering-api-microservice.png" alt-text="ソリューション エクスプローラーでの Ordering.API マイクロサービスのスクリーンショット。":::
+Ordering.API マイクロサービスのソリューション エクスプローラー ビュー。[Application] フォルダーの下に、Behaviors、Commands、DomainEventHandlers、IntegrationEvents、Models、Queries、Validations というサブフォルダーを確認できます。
+:::image-end:::
 
 **図 7-23**. Ordering.API ASP.NET Core Web API プロジェクト内のアプリケーション レイヤー
 
@@ -90,11 +92,9 @@ public void ConfigureServices(IServiceCollection services)
 {
     // Register out-of-the-box framework services.
     services.AddDbContext<CatalogContext>(c =>
-    {
-        c.UseSqlServer(Configuration["ConnectionString"]);
-    },
-    ServiceLifetime.Scoped
-    );
+        c.UseSqlServer(Configuration["ConnectionString"]),
+        ServiceLifetime.Scoped);
+
     services.AddMvc();
     // Register custom application dependencies.
     services.AddScoped<IMyCustomRepository, MyCustomSQLRepository>();
@@ -181,9 +181,11 @@ Autofac には、[アセンブリをスキャンし、命名規則で型を登�
 
 図 7-24 に示すように、パターンでは基本的に、クライアント側からコマンドを受け付け、それらをドメイン モデル ルールに基づいて処理し、最後にトランザクションの状態を保持します。
 
-![CQRS の書き込み側の概要図:UI アプリは API 経由で CommandHandler にコマンドを送信します。CommandHandler とドメイン モデルまたはインフラストラクチャとの間には依存関係があり、インフラストラクチャに依存する場合、データベースが更新されます。](./media/image21.png)
+![クライアントからデータベースへの上位レベルのデータ フローを示す図。](./media/microservice-application-layer-implementation-web-api/high-level-writes-side.png)
 
 **図 7-24**. コマンド (CQRS パターンのトランザクション側) の概要
+
+図 7-24 では、UI アプリは API 経由で `CommandHandler` にコマンドを送信します。これは、ドメイン モデルとインフラストラクチャに依存し、データベースが更新されます。
 
 ### <a name="the-command-class"></a>コマンド クラス
 
@@ -285,7 +287,7 @@ public class CreateOrderCommand
 
 もう 1 つの特徴として、コマンドは不変です。なぜなら、コマンドはドメイン モデルによって直接処理されるものと想定されているからです。 予定された有効期間中に変更する必要がないのです。 C# クラスでは、内部状態を変更するセッターやその他のメソッドを使用しないことによって、不変性を達成できます。
 
-意図的に、あるいは予想としてコマンドがシリアル化/逆シリアル化プロセスを通過する場合、プロパティにはプライベート セッターと `[DataMember]` (または `[JsonProperty]`) 属性が与えられる必要があります。与えられていない場合、デシリアライザーは宛先で必須値を利用してオブジェクトを再構築することができません。
+シリアル化/逆シリアル化プロセスを実行するコマンドを指定するか想定する場合は、プロパティにプライベート セッターと `[DataMember]` (または `[JsonProperty]`) 属性が必要であることに注意してください。 それ以外の場合、デシリアライザーで、ターゲット先で必要な値を使用してオブジェクトを再構築することはできなくなります。 また、クラスにすべてのプロパティのパラメーターを持つコンストラクターがある場合は、通常のキャメルケース名前付け規則を使用して、コンストラクターに `[JsonConstructor]` として注釈を付けることができます。 ただし、このオプションにはさらに多くのコードが必要です。
 
 たとえば、注文を作成するためのコマンド クラスは通常、データの観点から見れば、作成する注文と同様のものになりますが、通常、同じ属性は必要ありません。 たとえば、注文はまだ作成されていないため、`CreateOrderCommand` に注文 ID はありません。
 
@@ -311,7 +313,7 @@ public class UpdateOrderStatusCommand
 
 ### <a name="the-command-handler-class"></a>コマンド ハンドラー クラス
 
-各コマンドについては、特定のコマンド ハンドラー クラスを実装する必要があります。 これによってパターンが機能するようになります。コマンド オブジェクト、ドメイン オブジェクト、およびインフラストラクチャ リポジトリ オブジェクトは、このクラスで使用します。 コマンド ハンドラーは、CQRS と DDD の観点から言えば、アプリケーション レイヤーの中心となるものです。 ただし、ドメイン ロジックはすべてドメイン クラス内に含める必要があります。つまり、アプリケーション レイヤーのクラスであるコマンド ハンドラー内ではなく、集約ルート (ルート エンティティ) 、子エンティティ、または[ドメイン サービス](https://lostechies.com/jimmybogard/2008/08/21/services-in-domain-driven-design/)内に含める必要があります。
+各コマンドについては、特定のコマンド ハンドラー クラスを実装する必要があります。 これによってパターンが機能するようになり、そこでコマンド オブジェクト、ドメイン オブジェクト、およびインフラストラクチャ リポジトリ オブジェクトが使用されます。 コマンド ハンドラーは、CQRS と DDD の観点から言えば、アプリケーション レイヤーの中心となるものです。 ただし、ドメイン ロジックはすべてドメイン クラス内に含める必要があります。つまり、アプリケーション レイヤーのクラスであるコマンド ハンドラー内ではなく、集約ルート (ルート エンティティ)、子エンティティ、または[ドメイン サービス](https://lostechies.com/jimmybogard/2008/08/21/services-in-domain-driven-design/)内に含める必要があります。
 
 コマンド ハンドラー クラスは、前のセクションで説明した単一責任の原則 (SRP) を達成する堅固な手法となります。
 
@@ -398,10 +400,10 @@ public class CreateOrderCommandHandler
   <https://blog.ploeh.dk/2011/05/31/AttheBoundaries,ApplicationsareNotObject-Oriented/>
 
 - **コマンドとイベント** \
-  <http://cqrs.nu/Faq/commands-and-events>
+  <https://cqrs.nu/Faq/commands-and-events>
 
 - **コマンド ハンドラーの機能** \
-  <http://cqrs.nu/Faq/command-handlers>
+  <https://cqrs.nu/Faq/command-handlers>
 
 - **Jimmy Bogard。ドメイン コマンド パターン – ハンドラー** \
   <https://jimmybogard.com/domain-command-patterns-handlers/>
@@ -423,9 +425,11 @@ public class CreateOrderCommandHandler
 
 図 7-25 に示すように、CQRS アプローチではインテリジェント メディエーターを使用します。これはインメモリ バスに似たもので、受信されるコマンドや DTO の種類に基づいて、適切なコマンド ハンドラーへと処理をスマートにリダイレクトすることができます。 コンポーネント間の黒い矢印は、オブジェクト間 (多くの場合、DI を通じて挿入されます) の依存関係と、関連する相互作用を表しています。
 
-![前の画像を拡大したもの: ASP.NET Core コントローラーは MediatR のコマンド パイプラインにコマンドを送信します。コマンドは適切なハンドラーに到達します。](./media/image22.png)
+![クライアントからデータベースへの詳細なデータ フローを示す図。](./media/microservice-application-layer-implementation-web-api/mediator-cqrs-microservice.png)
 
 **図 7-25**. 単一の CQRS マイクロサービス内のプロセスにおけるメディエーター パターンの使用
+
+上の図は、図 7-24 を拡大したものを示しています。ASP.NET Core コントローラーで MediatR のコマンド パイプラインにコマンドが送信されるため、適切なハンドラーに到達します。
 
 メディエーター パターンの使用がなぜ合理的かというと、エンタープライズ アプリケーションでは、処理要求が複雑になる場合があるからです。 そのため、ログ記録、検証、監査、セキュリティなどの横断的関心事を、多数追加できるようにすることが重要です。 メディエーター パイプライン (「[Mediator pattern (メディエーター パターン)](https://en.wikipedia.org/wiki/Mediator_pattern)」を参照してください) を使用すれば、それらの追加ビヘイビアーや横断的関心事を追加できるようになります。
 
@@ -439,11 +443,11 @@ public class CreateOrderCommandHandler
 
 もう 1 つの方法は、図 7-26 に示すように、ブローカーやメッセージ キューに基づいて非同期メッセージを使用する方法です。 この方法は、コマンド ハンドラーの直前のメディエーター コンポーネントと組み合わせることもできます。
 
-![コマンドのパイプラインは高可用性のメッセージ キューで処理し、適切なハンドラーにコマンドを配信することもできます。](./media/image23.png)
+![HA メッセージ キューを使用したデータフローを示す図。](./media/microservice-application-layer-implementation-web-api/add-ha-message-queue.png)
 
 **図 7-26**. CQRS コマンドでのメッセージ キュー (プロセス外およびプロセス間通信) の使用
 
-メッセージ キューを使用してコマンドを受信すると、コマンドのパイプラインがさらに複雑になる恐れがあります。多くの場合、外部メッセージ キューを通じて接続された 2 つのプロセスにパイプラインを分割する必要が生じるからです。 ただし、非同期メッセージングに基づいてスケーラビリティやパフォーマンスを改善する必要がある場合には、この方法を使用することになります。 図 7-26 の場合、コントローラーはコマンド メッセージをキューにポストし、そのまま戻ります。 その後、コマンド ハンドラーは自分のペースでメッセージを処理します。 これは、キューの非常に大きな利点です。高度なスケーラビリティが必要な場合、たとえば、在庫などの大量のイングレス データを扱う場合には、メッセージ キューがバッファーの役割を果たすことができるのです。
+コマンドのパイプラインは高可用性のメッセージ キューで処理し、適切なハンドラーにコマンドを配信することもできます。 メッセージ キューを使用してコマンドを受信すると、コマンドのパイプラインがさらに複雑になる恐れがあります。多くの場合、外部メッセージ キューを通じて接続された 2 つのプロセスにパイプラインを分割する必要が生じるからです。 ただし、非同期メッセージングに基づいてスケーラビリティやパフォーマンスを改善する必要がある場合には、この方法を使用することになります。 図 7-26 の場合、コントローラーはコマンド メッセージをキューにポストし、そのまま戻ります。 その後、コマンド ハンドラーは自分のペースでメッセージを処理します。 これは、キューの非常に大きな利点です。高度なスケーラビリティが必要な場合、たとえば、在庫などの大量のイングレス データを扱う場合には、メッセージ キューがバッファーの役割を果たすことができるのです。
 
 ただし、非同期であるというメッセージ キューの性質上、コマンドの処理が成功したかどうかについて、クライアント アプリケーションとどうやって通信するかを検討する必要があります。 原則として、「ファイア アンド フォーゲット」コマンドを使用することはできません。 どのようなビジネス アプリケーションでも、コマンドが正常に処理されたかどうかを確認する必要がありますし、少なくとも、検証を経て受け入れられたかどうかを確認する必要があります。
 

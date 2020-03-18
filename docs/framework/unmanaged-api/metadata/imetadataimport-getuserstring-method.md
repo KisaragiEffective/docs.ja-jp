@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 0fd3bb47-58b5-4083-b241-b9719df7a285
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: edeaefd0792a5cc03ae6d4385ff669a343ffdfc9
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 690abec6104f6eed1ad5a0eae9a6b6bb18d35b0d
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67778810"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74436690"
 ---
 # <a name="imetadataimportgetuserstring-method"></a>IMetaDataImport::GetUserString メソッド
 指定したメタデータ トークンで表されるリテラル文字列を取得します。  
@@ -40,23 +38,23 @@ HRESULT GetUserString (
   
 ## <a name="parameters"></a>パラメーター  
  `stk`  
- [in]関連付けられている文字列を返す文字列トークンです。  
+ から関連付けられている文字列を返す文字列トークン。  
   
  `szString`  
- [out]要求された文字列のコピー。  
+ 入出力要求された文字列のコピー。  
   
  `cchString`  
- [in]要求されたワイド文字の最大サイズ`szString`します。  
+ から要求された `szString`のワイド文字単位の最大サイズ。  
   
  `pchString`  
- [out]返されるワイド文字のサイズ`szString`します。  
+ 入出力返される `szString`のワイド文字単位のサイズ。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

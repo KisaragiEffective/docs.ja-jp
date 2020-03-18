@@ -1,15 +1,15 @@
 ---
-title: 方法:LINQ クエリのカスタム メソッドを追加する (C#)
+title: LINQ クエリのカスタム メソッドを追加する方法 (C#)
 ms.date: 07/20/2015
 ms.assetid: 1a500f60-2e10-49fb-8b2a-d8d08e4817cb
-ms.openlocfilehash: fcf6814c8b3076a18e807a378796094a9ce2cf84
-ms.sourcegitcommit: 986f836f72ef10876878bd6217174e41464c145a
+ms.openlocfilehash: e16175d3332b6ce36458eaa78af093e4f8772723
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69594151"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "74141474"
 ---
-# <a name="how-to-add-custom-methods-for-linq-queries-c"></a>方法:LINQ クエリのカスタム メソッドを追加する (C#)
+# <a name="how-to-add-custom-methods-for-linq-queries-c"></a>LINQ クエリのカスタム メソッドを追加する方法 (C#)
 
 <xref:System.Collections.Generic.IEnumerable%601> インターフェイスに拡張メソッドを追加することで、LINQ クエリに使用できるメソッド セットを拡張できます。 たとえば一連の値から単一の値を求めるために、平均値や最大値を求める標準的な演算に加えて、独自の集計メソッドを作成することができます。 また、一連の値を受け取って別の一連の値を返す特定のデータ変換やカスタム フィルターの働きを持ったメソッドを作成することもできます。 このようなメソッドには、<xref:System.Linq.Enumerable.Distinct%2A>、<xref:System.Linq.Enumerable.Skip%2A>、<xref:System.Linq.Enumerable.Reverse%2A> があります。
 
@@ -19,7 +19,7 @@ ms.locfileid: "69594151"
 
 集計メソッドは、一連の値から単一の値を計算するメソッドです。 LINQ は、<xref:System.Linq.Enumerable.Average%2A>、<xref:System.Linq.Enumerable.Min%2A>、<xref:System.Linq.Enumerable.Max%2A> などの集計メソッドを提供します。 <xref:System.Collections.Generic.IEnumerable%601> インターフェイスに拡張メソッドを追加することで、独自の集計メソッドを作成できます。
 
-次のコード例は、`double` 型の一連の数値から中央値を求める `Median` という拡張メソッドの作成方法を示しています。
+次のコード例は、`Median` 型の一連の数値から中央値を求める `double` という拡張メソッドの作成方法を示しています。
 
 ```csharp
 public static class LINQExtension
@@ -53,7 +53,7 @@ public static class LINQExtension
 
 この拡張メソッドは、<xref:System.Collections.Generic.IEnumerable%601> インターフェイスにある他の集計メソッドを呼び出すときと同じように、列挙可能な任意のコレクションに対して呼び出すことができます。
 
-`double` 型の配列に対して `Median` メソッドを使用する方法を次のコード例に示します。
+`Median` 型の配列に対して `double` メソッドを使用する方法を次のコード例に示します。
 
 ```csharp
 double[] numbers1 = { 1.9, 2, 8, 4, 5.7, 6, 7.2, 0 };
@@ -77,7 +77,7 @@ Console.WriteLine("double: Median = " + query1);
 
 #### <a name="to-create-an-overload-for-each-type"></a>型ごとにオーバーロードを作成するには
 
-サポート予定の型ごとに固有のオーバーロードを作成できます。 次のコード例では、`integer` 型の `Median` メソッドのオーバーロードを示します。
+サポート予定の型ごとに固有のオーバーロードを作成できます。 次のコード例では、`Median` 型の `integer` メソッドのオーバーロードを示します。
 
 ```csharp
 //int overload
@@ -88,7 +88,7 @@ public static double Median(this IEnumerable<int> source)
 }
 ```
 
-これで、次のコードに示すように、`integer` 型と `double` 型の両方に対して、`Median` のオーバーロードを呼び出すことができるようになりました。
+これで、次のコードに示すように、`Median` 型と `integer` 型の両方に対して、`double` のオーバーロードを呼び出すことができるようになりました。
 
 ```csharp
 double[] numbers1 = { 1.9, 2, 8, 4, 5.7, 6, 7.2, 0 };
@@ -119,7 +119,7 @@ Console.WriteLine("int: Median = " + query2);
 
 一連のジェネリック オブジェクトを受け取るオーバーロードを作成することもできます。 このオーバーロードは、デリゲートをパラメーターとして受け取り、ジェネリック型の一連のオブジェクトを特定の型に変換します。
 
-次のコードは、<xref:System.Func%602> デリゲートをパラメーターとして受け取る `Median` メソッドのオーバーロードを示しています。 このデリゲートは、ジェネリック型 T のオブジェクトを受け取り、`double` 型のオブジェクトを返します。
+次のコードは、`Median` デリゲートをパラメーターとして受け取る <xref:System.Func%602> メソッドのオーバーロードを示しています。 このデリゲートは、ジェネリック型 T のオブジェクトを受け取り、`double` 型のオブジェクトを返します。
 
 ```csharp
 // Generic overload.
@@ -133,7 +133,7 @@ public static double Median<T>(this IEnumerable<T> numbers,
 
 これで、任意の型の一連のオブジェクトに対して `Median` メソッドを呼び出すことができます。 型に固有のメソッド オーバーロードがない場合は、デリゲート パラメーターを渡す必要があります。 この目的で、C# ではラムダ式を使用できます。 また、Visual Basic に限り、メソッド呼び出しの代わりに `Aggregate` 句または `Group By` 句を使用した場合、その句のスコープにある任意の値または式を渡すことができます。
 
-次のコード例では、整数の配列と文字列の配列に対して `Median` メソッドを呼び出す方法を示します。 文字列の場合は、配列に格納されている文字列の長さの中央値が計算されます。 この例は、それぞれのケースについて、`Median` メソッドに <xref:System.Func%602> デリゲート パラメーターを渡す方法を示しています。
+次のコード例では、整数の配列と文字列の配列に対して `Median` メソッドを呼び出す方法を示します。 文字列の場合は、配列に格納されている文字列の長さの中央値が計算されます。 この例は、それぞれのケースについて、<xref:System.Func%602> メソッドに `Median` デリゲート パラメーターを渡す方法を示しています。
 
 ```csharp
 int[] numbers3 = { 1, 2, 3, 4, 5 };
@@ -214,7 +214,7 @@ foreach (var element in query)
 */
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Collections.Generic.IEnumerable%601>
 - [拡張メソッド](../../classes-and-structs/extension-methods.md)

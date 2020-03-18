@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ae5a5fbf97ed4a03de7d35b9d5d5ca8de3aebc39
-ms.sourcegitcommit: 2e95559d957a1a942e490c5fd916df04b39d73a9
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/14/2020
 ms.locfileid: "72394060"
 ---
 ### <a name="caching-responsecaching-pubternal-types-changed-to-internal"></a>キャッシュ:ResponseCaching の "pubternal" 型を internal に変更
@@ -32,7 +32,7 @@ ASP.NET Core では、"pubternal" 型は `public` として宣言されますが
 
 `internal` スコープでは、サポートされていないポリシーが適切に反映されます。
 
-#### <a name="recommended-action"></a>推奨される操作
+#### <a name="recommended-action"></a>推奨アクション
 
 アプリまたはライブラリで使用される型をコピーします。
 

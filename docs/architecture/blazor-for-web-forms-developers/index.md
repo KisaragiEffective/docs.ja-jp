@@ -4,18 +4,18 @@ description: Blazor と .NET Core を使用し、使い慣れた簡単な方法�
 author: danroth27
 ms.author: daroth
 ms.date: 09/11/2019
-ms.openlocfilehash: 936f85d4fda9c5396a6586810735877488226157
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: 394d11038b59f4cbe9e9955df43b6198eb5daaf8
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71696927"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73088126"
 ---
 # <a name="blazor-for-aspnet-web-forms-developers"></a>ASP.NET Web Forms 開発者向け Blazor
 
 [!INCLUDE [book-preview](../../../includes/book-preview.md)]
 
-![サーバーレス アプリの電子ブックのカバーを示すスクリーン ショット。](./media/index/blazor-for-web-forms-developers-cover.png)
+![サーバーレス アプリの e-book のカバーを示すスクリーン ショット。](./media/index/blazor-for-web-forms-developers-cover.png)
 
 > 次の場所でダウンロードできます: <https://aka.ms/blazor-ebook>
 
@@ -35,7 +35,7 @@ All rights reserved. 本書のいかなる部分も、書面による発行者�
 
 本書は "現状有姿" で提供され、著者の見解と意見を表しています。 URL および他の参照されているインターネットの Web サイトをはじめ、本書に記載されている見解、意見、および情報は、通知なく変更されることがあります。
 
-ここに記載したいくつかの例は、説明のためだけに提供された架空のものです。 実在のものとの関連性または関係性は一切ありません。
+使用している例は、例示のみを目的に提供された、架空のものです。 実際の関連やつながりはなく、推測によるものです。
 
 <https://www.microsoft.com> の "商標" Web ページに記載されている Microsoft および商標は、Microsoft グループの商標です。
 
@@ -73,7 +73,7 @@ Mac および macOS は Apple Inc. の商標です。
 
 本書は Blazor の紹介文であり、包括的な移行ガイドではありません。 ASP.NET Web Forms から Blazor にプロジェクトを移行する方法に関するガイドが含まれていますが、微妙な違いや詳細をあらゆる点で説明する試みはありません。 ASP.NET から ASP.NET Core に移行する一般的な手順については、ASP.NET Core ドキュメントの[移行ガイダンス](https://docs.microsoft.com/aspnet/core/migration/proper-to-2x/)を参照してください。
 
-### <a name="additional-resources"></a>その他の技術情報
+### <a name="additional-resources"></a>その他のリソース
 
 Blazor の公式ホーム ページとドキュメントは <https://blazor.net> にあります。
 

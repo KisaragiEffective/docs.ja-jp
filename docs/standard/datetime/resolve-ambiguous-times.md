@@ -9,14 +9,12 @@ helpviewer_keywords:
 - time zones [.NET Framework], ambiguous time
 - ambiguous time [.NET Framework]
 ms.assetid: 2cf5fb25-492c-4875-9245-98cac8348e97
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 6e98d5d8240492ca30da2825b72277d7a35f97f6
-ms.sourcegitcommit: 6f28b709592503d27077b16fff2e2eacca569992
+ms.openlocfilehash: 0b5b28c588237fb2f7f069aaef06f3f73d5268bf
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70106784"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73122250"
 ---
 # <a name="how-to-resolve-ambiguous-times"></a>方法: あいまいな時刻を解決する
 
@@ -30,11 +28,11 @@ ms.locfileid: "70106784"
 
 ### <a name="to-map-an-ambiguous-time-to-a-time-zones-standard-time"></a>あいまいな時刻をタイム ゾーンの標準時刻にマップするには
 
-1. <xref:System.TimeZoneInfo.IsAmbiguousTime%2A>メソッドを呼び出して、時刻があいまいであるかどうかを確認します。
+1. <xref:System.TimeZoneInfo.IsAmbiguousTime%2A> メソッドを呼び出して、時刻があいまいであるかどうかを確認します。
 
-2. 時刻があいまいな場合は、タイムゾーンの<xref:System.TimeSpan> <xref:System.TimeZoneInfo.BaseUtcOffset%2A>プロパティによって返されたオブジェクトから時刻を減算します。
+2. 時刻があいまいな場合は、タイムゾーンの <xref:System.TimeZoneInfo.BaseUtcOffset%2A> プロパティによって返された <xref:System.TimeSpan> オブジェクトから時刻を減算します。
 
-3. <xref:System.DateTime.SpecifyKind%2A> <xref:System.DateTime.Kind%2A> (Visual Basic .net で) メソッドを呼び出して、UTC の日付と時刻の値のプロパティ<xref:System.DateTimeKind.Utc?displayProperty=nameWithType>をに設定します。`Shared` `static`
+3. `static` (Visual Basic .NET で`Shared`) <xref:System.DateTime.SpecifyKind%2A> メソッドを呼び出して、UTC の日付と時刻の値の <xref:System.DateTime.Kind%2A> プロパティを <xref:System.DateTimeKind.Utc?displayProperty=nameWithType>に設定します。
 
 ## <a name="example"></a>例
 
@@ -43,19 +41,19 @@ ms.locfileid: "70106784"
 [!code-csharp[System.TimeZone2.Concepts#10](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.TimeZone2.Concepts/CS/TimeZone2Concepts.cs#10)]
 [!code-vb[System.TimeZone2.Concepts#10](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.TimeZone2.Concepts/VB/TimeZone2Concepts.vb#10)]
 
-この例は、渡された`ResolveAmbiguousTime` <xref:System.DateTime>値があいまいであるかどうかを判断するという名前のメソッドで構成されています。 値があいまいな場合、メソッドは対応する<xref:System.DateTime> UTC 時刻を表す値を返します。 メソッドは、ローカルタイムゾーンの<xref:System.TimeZoneInfo.BaseUtcOffset%2A>プロパティの値をローカル時刻から減算することによって、この変換を処理します。
+この例は、渡された <xref:System.DateTime> 値があいまいであるかどうかを判断する `ResolveAmbiguousTime` という名前のメソッドで構成されています。 値があいまいな場合、メソッドは、対応する UTC 時刻を表す <xref:System.DateTime> 値を返します。 メソッドは、ローカルタイムゾーンの <xref:System.TimeZoneInfo.BaseUtcOffset%2A> プロパティの値をローカル時刻から減算することによって、この変換を処理します。
 
-通常、あいまいな時刻は、 <xref:System.TimeZoneInfo.GetAmbiguousTimeOffsets%2A>メソッドを呼び出して、あいまいな時刻の UTC オフセットを含むオブジェクトの<xref:System.TimeSpan>配列を取得することによって処理されます。 しかし、この例は、あいまいな時刻は常にタイム ゾーンの標準時刻にマップされるという想定に基づいています。 プロパティ<xref:System.TimeZoneInfo.BaseUtcOffset%2A>は、UTC とタイムゾーンの標準時刻の間のオフセットを返します。
+通常、あいまいな時刻は、<xref:System.TimeZoneInfo.GetAmbiguousTimeOffsets%2A> メソッドを呼び出し、あいまいな時刻の UTC オフセットを含む <xref:System.TimeSpan> オブジェクトの配列を取得することによって処理されます。 しかし、この例は、あいまいな時刻は常にタイム ゾーンの標準時刻にマップされるという想定に基づいています。 <xref:System.TimeZoneInfo.BaseUtcOffset%2A> プロパティは、UTC とタイムゾーンの標準時刻の間のオフセットを返します。
 
-この例では、ローカルタイムゾーンへのすべての参照は、 <xref:System.TimeZoneInfo.Local%2A?displayProperty=nameWithType>プロパティを使用して行われます。ローカルタイムゾーンは、オブジェクト変数に割り当てられることはありません。 <xref:System.TimeZoneInfo.ClearCachedData%2A?displayProperty=nameWithType>メソッドを呼び出すと、ローカルタイムゾーンが割り当てられているオブジェクトが無効になるため、この方法をお勧めします。
+この例では、ローカルタイムゾーンへのすべての参照は、<xref:System.TimeZoneInfo.Local%2A?displayProperty=nameWithType> プロパティを使用して作成されます。ローカルタイムゾーンがオブジェクト変数に割り当てられることはありません。 これは、<xref:System.TimeZoneInfo.ClearCachedData%2A?displayProperty=nameWithType> メソッドを呼び出すと、ローカルタイムゾーンが割り当てられているすべてのオブジェクトが無効になるため、推奨される方法です。
 
 ## <a name="compiling-the-code"></a>コードのコンパイル
 
 この例で必要な要素は次のとおりです。
 
-- ステートメントを使用してC# 名前空間をインポートする(コードに必要<xref:System>) `using` 。
+- <xref:System> 名前空間は、`using` ステートメント (コードでC#必要) を使用してインポートされます。
 
 ## <a name="see-also"></a>関連項目
 
-- [日付、時刻、およびタイム ゾーン](../../../docs/standard/datetime/index.md)
+- [日付、時刻およびタイム ゾーン](../../../docs/standard/datetime/index.md)
 - [方法: ユーザーがあいまいな時刻を解決できるようにする](../../../docs/standard/datetime/let-users-resolve-ambiguous-times.md)

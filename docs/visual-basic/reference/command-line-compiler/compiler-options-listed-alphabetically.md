@@ -1,15 +1,15 @@
 ---
-title: Visual Basic コンパイラ オプション一覧 (アルファベット順)
+title: アルファベット順のコンパイラ オプション
 ms.date: 04/12/2018
 helpviewer_keywords:
 - Visual Basic compiler, options
 ms.assetid: e67febba-bacf-4e1f-a143-c141e063f90e
-ms.openlocfilehash: 09c2879c0a46efe6258685d8201959a626735a85
-ms.sourcegitcommit: 55f438d4d00a34b9aca9eedaac3f85590bb11565
+ms.openlocfilehash: 85fb07f46c2d885491db7358f24b3b50836c2ca8
+ms.sourcegitcommit: 7e2128d4a4c45b4274bea3b8e5760d4694569ca1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71182651"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75937758"
 ---
 # <a name="visual-basic-compiler-options-listed-alphabetically"></a>Visual Basic コンパイラ オプション一覧 (アルファベット順)
 Visual Basic コマンドラインコンパイラは、Visual Studio 統合開発環境 (IDE) からプログラムをコンパイルするための代替手段として提供されています。 アルファベット順に並べ替えられた Visual Basic のコマンドラインコンパイラオプションの一覧を次に示します。  
@@ -25,7 +25,7 @@ Visual Basic コマンドラインコンパイラは、Visual Studio 統合開�
 |`-analyzer`|このアセンブリからアナライザーを実行します (短縮形: -a)。|  
 |[-baseaddress](../../../visual-basic/reference/command-line-compiler/baseaddress.md)|DLL のベース アドレスを指定します。|  
 |[-bugreport](../../../visual-basic/reference/command-line-compiler/bugreport.md)|バグを簡単に報告するための情報を含むファイルを作成します。|  
-|`-checksumalgorithm:<alg>`|PDB に格納されているソース ファイルのチェックサムを計算するためのアルゴリズムを指定します。  サポートされる値は SHA1 (既定値) または SHA256 です。 <br>SHA1 の衝突の問題のため、SHA256 以上をお勧めします。|  
+|`-checksumalgorithm:<alg>`|PDB に格納されているソース ファイルのチェックサムを計算するためのアルゴリズムを指定します。  サポートされる値は、SHA1 (既定値) または SHA256 です。 <br>SHA1 の衝突の問題のため、SHA256 以上をお勧めします。|  
 |[-codepage](../../../visual-basic/reference/command-line-compiler/codepage.md)|コンパイルですべてのソース コード ファイルに使用するコード ページを指定します。|  
 |[-debug](../../../visual-basic/reference/command-line-compiler/debug.md)|デバッグ情報を生成します。|  
 |[-define](../../../visual-basic/reference/command-line-compiler/define.md)|条件付きコンパイルのシンボルを定義します。|  
@@ -39,10 +39,10 @@ Visual Basic コマンドラインコンパイラは、Visual Studio 統合開�
 |[-imports](../../../visual-basic/reference/command-line-compiler/imports.md)|指定したアセンブリから名前空間をインポートします。|  
 |[-keycontainer](../../../visual-basic/reference/command-line-compiler/keycontainer.md)|アセンブリに厳密な名前を付けるキー ペアのキー コンテナー名を指定します。|  
 |[-keyfile](../../../visual-basic/reference/command-line-compiler/keyfile.md)|アセンブリに厳密な名前を付けるキーまたはキー ペアを含むファイルを指定します。|  
-|[-langversion](../../../visual-basic/reference/command-line-compiler/langversion.md)|言語バージョンとして、9&#124;9.0&#124;10&#124;10.0&#124;11&#124;11.0。|  
+|[-langversion](../../../visual-basic/reference/command-line-compiler/langversion.md)|言語バージョンを指定し&#124;ます&#124;:&#124;9&#124;9.0&#124;10 10.0 11 11.0。|  
 |[-libpath](../../../visual-basic/reference/command-line-compiler/libpath.md)|[-Reference](../../../visual-basic/reference/command-line-compiler/reference.md)オプションによって参照されるアセンブリの場所を指定します。|  
 |[-linkresource](../../../visual-basic/reference/command-line-compiler/linkresource.md)|マネージド リソースへのリンクを作成します。|  
-|[-main](../../../visual-basic/reference/command-line-compiler/main.md)|スタートアップ時に使用する`Sub Main`プロシージャを含むクラスを指定します。|  
+|[-main](../../../visual-basic/reference/command-line-compiler/main.md)|起動時に使用する `Sub Main` プロシージャを含むクラスを指定します。|  
 |[-moduleassemblyname](../../../visual-basic/reference/command-line-compiler/moduleassemblyname.md)|モジュールが一部となるアセンブリの名前を指定します。|  
 |`-modulename:<string>`|ソース モジュールの名前を指定します。|  
 |[-netcf](../../../visual-basic/reference/command-line-compiler/netcf.md)|.NET Compact Framework を対象とするようにコンパイラを設定します。|  
@@ -57,7 +57,8 @@ Visual Basic コマンドラインコンパイラは、Visual Studio 統合開�
 |[-optioninfer](../../../visual-basic/reference/command-line-compiler/optioninfer.md)|変数宣言でローカル型推論を使用できるようにします。|  
 |[-optionstrict](../../../visual-basic/reference/command-line-compiler/optionstrict.md)|厳密な言語セマンティクスを適用します。|  
 |[-out](../../../visual-basic/reference/command-line-compiler/out.md)|出力ファイルを指定します。|  
-|`-parallel[+&#124;-]`|同時実行ビルドを使用する (+) かどうかを指定します。|  
+<code>-parallel[+&#124;-]</code> 
+
 |[-platform](../../../visual-basic/reference/command-line-compiler/platform.md)|コンパイラによる出力ファイルの対象となるプロセッサ プラットフォームを指定します。|  
 |`-preferreduilang`|出力用の言語名を指定します。|  
 |[-quiet](../../../visual-basic/reference/command-line-compiler/quiet.md)|コンパイラで構文関連のエラーと警告のコードが表示されないようにします。|  

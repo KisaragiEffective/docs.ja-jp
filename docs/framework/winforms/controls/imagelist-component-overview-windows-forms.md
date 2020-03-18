@@ -1,5 +1,5 @@
 ---
-title: ImageList コンポーネントの概要 (Windows フォーム)
+title: ImageList コンポーネントの概要
 ms.date: 03/30/2017
 f1_keywords:
 - ImageList
@@ -8,16 +8,16 @@ helpviewer_keywords:
 - icon list control
 - ImageList component [Windows Forms], about ImageList component
 ms.assetid: 7e25d89b-5633-40c1-afc3-82e0e301ffa2
-ms.openlocfilehash: d4513439594c9bceac3463a5b878f9059a16046e
-ms.sourcegitcommit: 8699383914c24a0df033393f55db3369db728a7b
+ms.openlocfilehash: b46204375cb046d637f4c9e1d888f37d10ea1f57
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65645697"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76728103"
 ---
 # <a name="imagelist-component-overview-windows-forms"></a>ImageList コンポーネントの概要 (Windows フォーム)
 
-Windows フォーム <xref:System.Windows.Forms.ImageList> コンポーネントは、コントロールで表示するイメージの保存に使用します。 イメージ リストでは、一貫性のある 1 つのイメージのカタログのコードを記述することができます。 たとえば、ボタンの <xref:System.Windows.Forms.ButtonBase.ImageIndex%2A> プロパティまたは <xref:System.Windows.Forms.ButtonBase.ImageKey%2A> プロパティを変更するだけで、<xref:System.Windows.Forms.Button> コントロールによって表示されるイメージを回転できます。 同じイメージのリストを複数のコントロールに関連付けることもできます。 たとえば、<xref:System.Windows.Forms.ListView> コントロールと <xref:System.Windows.Forms.TreeView> コントロールの両方を使用して同じファイルのリストを表示する場合、イメージのリストでファイルのアイコンを変更すると、新しいアイコンが両方のビューに表示されます。
+Windows フォーム <xref:System.Windows.Forms.ImageList> コンポーネントは、コントロールで表示するイメージの保存に使用します。 イメージ リストでは、一貫性のある 1 つのイメージのカタログのコードを記述することができます。 たとえば、ボタンの <xref:System.Windows.Forms.Button> プロパティまたは <xref:System.Windows.Forms.ButtonBase.ImageIndex%2A> プロパティを変更するだけで、<xref:System.Windows.Forms.ButtonBase.ImageKey%2A> コントロールによって表示されるイメージを回転できます。 同じイメージのリストを複数のコントロールに関連付けることもできます。 たとえば、<xref:System.Windows.Forms.ListView> コントロールと <xref:System.Windows.Forms.TreeView> コントロールの両方を使用して同じファイルのリストを表示する場合、イメージのリストでファイルのアイコンを変更すると、新しいアイコンが両方のビューに表示されます。
 
 ## <a name="using-imagelist-with-controls"></a>コントロールでの ImageList の使用
 
@@ -27,7 +27,7 @@ Windows フォーム <xref:System.Windows.Forms.ImageList> コンポーネント
 
 <xref:System.Windows.Forms.ImageList> コンポーネントのキー プロパティは <xref:System.Windows.Forms.ImageList.Images%2A> で、関連付けられたコントロールで使用される画像が含まれています。 各イメージは、そのインデックス値、またはそのキーを使用してアクセスできます。 <xref:System.Windows.Forms.ImageList.ColorDepth%2A> プロパティは、イメージをレンダリングする際の色の数を決定します。 イメージはすべて同じサイズで表示され、<xref:System.Windows.Forms.ImageList.ImageSize%2A> プロパティによって設定されます。 大きなイメージはサイズが合うように縮小されます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.ImageList>
-- [方法: 追加または削除のイメージを Windows フォームの ImageList コンポーネント](how-to-add-or-remove-images-with-the-windows-forms-imagelist-component.md)
+- [方法: Windows フォームの ImageList コンポーネントにイメージを追加または削除する](how-to-add-or-remove-images-with-the-windows-forms-imagelist-component.md)

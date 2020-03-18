@@ -1,5 +1,5 @@
 ---
-title: Icordebugtype 2::gettypeid メソッド
+title: 'ICorDebugType2:: GetTypeID メソッド'
 ms.date: 03/30/2017
 api_name:
 - ICorDebugType2.GetTypeID
@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 0b933686-226e-4373-92b7-fac579ee7b1a
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 3098911bab2878876b93ee1ce23d9794d7e6cdbd
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 631f605fd18559b36071964e35a15761cd4c8228
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67772471"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76791228"
 ---
-# <a name="icordebugtype2gettypeid-method"></a>Icordebugtype 2::gettypeid メソッド
-取得、 [COR_TYPEID](../../../../docs/framework/unmanaged-api/debugging/cor-typeid-structure.md)この種類。  
+# <a name="icordebugtype2gettypeid-method"></a>ICorDebugType2:: GetTypeID メソッド
+この型の[COR_TYPEID](cor-typeid-structure.md)を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -37,24 +35,24 @@ HRESULT GetTypeID(
   
 ## <a name="parameters"></a>パラメーター  
  `id`  
- [out]ポインター、 [COR_TYPEID](../../../../docs/framework/unmanaged-api/debugging/cor-typeid-structure.md)この icordebugtype します。  
+ 入出力このテキスト型の[COR_TYPEID](cor-typeid-structure.md)へのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- 戻り値は、成功の場合は `S_OK` で、失敗の場合は `HRESULT` コードです。 `HRESULT`コードには、次が含まれます。  
+ 戻り値は、成功の場合は `S_OK` で、失敗の場合は `HRESULT` コードです。 `HRESULT` コードには次のものが含まれます。  
   
 |リターン コード|説明|  
 |-----------------|-----------------|  
-|`S_OK`|メソッドが成功しました。 メソッドは、有効な取得が[COR_TYPEID](../../../../docs/framework/unmanaged-api/debugging/cor-typeid-structure.md)します。|  
+|`S_OK`|メソッドが成功しました。 メソッドが有効な[COR_TYPEID](cor-typeid-structure.md)を取得しました。|  
 |`CORDBG_E_CLASS_NOT_LOADED`|型が読み込まれていません。|  
-|`CORDBG_E_UNSUPPORTED`|型がサポートされていません。|  
+|`CORDBG_E_UNSUPPORTED`|この型はサポートされていません。|  
   
-## <a name="remarks"></a>Remarks  
- このメソッドでは、マッピングを提供することがありますいないに読み込まれている、実行時に、型を表す、ICorDebugType から、 [COR_TYPEID](../../../../docs/framework/unmanaged-api/debugging/cor-typeid-structure.md)ランタイムに読み込まれた型を識別する非透過的なとして機能する処理です。  
+## <a name="remarks"></a>コメント  
+ このメソッドは、ランタイムに読み込まれている可能性がある型を表す、または[COR_TYPEID](cor-typeid-structure.md)ランタイムに読み込まれていない可能性のある型を表す、、ランタイムに読み込まれた型を識別する不透明なハンドルとして機能する、の型からのマッピングを提供します。  
   
- ときに、ICorDebugType を表す型がまだ読み込まれていますが、このメソッドが戻る`CORDBG_E_CLASS_NOT_LOADED`します。  返すかどうか、型はサポートされていません、`CORDBG_E_UNSUPPORTED`します。  
+ によって表される型がまだ読み込まれていない場合、このメソッドは `CORDBG_E_CLASS_NOT_LOADED`を返します。  型がサポートされていない場合は、`CORDBG_E_UNSUPPORTED`を返します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   
@@ -64,4 +62,4 @@ HRESULT GetTypeID(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorDebugType2 インターフェイス](../../../../docs/framework/unmanaged-api/debugging/icordebugtype2-interface.md)
+- [ICorDebugType2 インターフェイス](icordebugtype2-interface.md)

@@ -8,14 +8,12 @@ dev_langs:
 helpviewer_keywords:
 - tasks, continuations
 ms.assetid: 0b45e9a2-de28-46ce-8212-1817280ed42d
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1f88308dcea250c02d9c6cd7f326570f8bc0133c
-ms.sourcegitcommit: 2701302a99cafbe0d86d53d540eb0fa7e9b46b36
+ms.openlocfilehash: 7de8c4e44e1866e3df36c666c9ecc210dc6a7d83
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64630120"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78159365"
 ---
 # <a name="chaining-tasks-by-using-continuation-tasks"></a>継続タスクを使用したタスクの連結
 非同期プログラミングでは、非同期操作で完了時に 2 番目の操作を呼び出してデータを渡すのが一般的です。 これまで、継続はコールバック メソッドを使用して行っていました。 タスク並列ライブラリでは、 *継続タスク*に同じ機能が用意されています。 継続タスク (単に "継続" とも呼ばれます) とは、別のタスク (" *継続元*" と呼ばれます) が終了したときにそのタスクによって呼び出される非同期タスクのことです。  
@@ -44,10 +42,10 @@ ms.locfileid: "64630120"
  継続はそれ自体が <xref:System.Threading.Tasks.Task> であり、継続が開始されたスレッドをブロックするわけではありません。 継続タスクが終了するまでブロックするには、 <xref:System.Threading.Tasks.Task.Wait%2A?displayProperty=nameWithType> メソッドを呼び出します。  
   
 ## <a name="creating-a-continuation-for-a-single-antecedent"></a>1 つの継続元に対する継続の作成  
- <xref:System.Threading.Tasks.Task.ContinueWith%2A?displayProperty=nameWithType> メソッドを呼び出して、継続元が完了した時点で実行される継続を作成します。 次の例は、基本的なパターンを示しています (わかりやすくするために、例外処理は省略されています)。 現在の曜日の名前を示す `taskA`オブジェクトを返す継続元タスク <xref:System.DayOfWeek> が実行されます。 継続元が完了すると、継続タスク `continuation` に継続元が渡され、その結果を示す文字列が表示されます。 
+ <xref:System.Threading.Tasks.Task.ContinueWith%2A?displayProperty=nameWithType> メソッドを呼び出して、継続元が完了した時点で実行される継続を作成します。 次の例は、基本的なパターンを示しています (わかりやすくするために、例外処理は省略されています)。 現在の曜日の名前を示す `taskA`オブジェクトを返す継続元タスク <xref:System.DayOfWeek> が実行されます。 継続元が完了すると、継続タスク `continuation` に継続元が渡され、その結果を示す文字列が表示されます。
 
 > [!NOTE]
-> この記事の C# サンプルでは、`Main` メソッド上で `async` 修飾子が利用されています。 この機能は C# 7.1 以降で使用できます。 以前のバージョンでは、このサンプル コードをコンパイルすると、[`CS5001`](../../csharp/misc/cs5001.md) が生成されます。 言語バージョンを C# 7.1 以降に設定する必要があります。 言語バージョンの構成方法については、[言語バージョンの構成](../../csharp/language-reference/configure-language-version.md)に関する記事を参照してください。
+> この記事の C# サンプルでは、`async` メソッド上で `Main` 修飾子が利用されています。 この機能は C# 7.1 以降で使用できます。 以前のバージョンでは、このサンプル コードをコンパイルすると、[`CS5001`](../../csharp/misc/cs5001.md) が生成されます。 言語バージョンを C# 7.1 以降に設定する必要があります。 言語バージョンの構成方法については、[言語バージョンの構成](../../csharp/language-reference/configure-language-version.md)に関する記事を参照してください。
   
  [!code-csharp[TPL_Continuations#1](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_continuations/cs/simple1.cs#1)]
  [!code-vb[TPL_Continuations#1](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_continuations/vb/simple1.vb#1)]  
@@ -55,7 +53,7 @@ ms.locfileid: "64630120"
 ## <a name="creating-a-continuation-for-multiple-antecedents"></a>複数の継続元に対する継続の作成  
  タスク グループの一部または全部のタスクが完了したときに実行される継続を作成することもできます。 すべての継続元タスクが完了した時点で継続を実行するには、静的 (Visual Basic では`Shared` ) <xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=nameWithType> メソッドまたはインスタンス <xref:System.Threading.Tasks.TaskFactory.ContinueWhenAll%2A?displayProperty=nameWithType> メソッドを呼び出します。 いずれかの継続元タスクが完了した時点で継続を実行するには、静的 (Visual Basic では`Shared` ) <xref:System.Threading.Tasks.Task.WhenAny%2A?displayProperty=nameWithType> メソッドまたはインスタンス <xref:System.Threading.Tasks.TaskFactory.ContinueWhenAny%2A?displayProperty=nameWithType> メソッドを呼び出します。  
   
- <xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=nameWithType> および <xref:System.Threading.Tasks.Task.WhenAny%2A?displayProperty=nameWithType> オーバーロードの呼び出しによって、呼び出しスレッドがブロックされることはない点に注意してください。  ただし、通常、返された <xref:System.Threading.Tasks.Task%601.Result%2A?displayProperty=nameWithType> プロパティを取得するために <xref:System.Threading.Tasks.Task.WhenAll%28System.Collections.Generic.IEnumerable%7BSystem.Threading.Tasks.Task%7D%29?displayProperty=nameWithType> メソッドと <xref:System.Threading.Tasks.Task.WhenAll%28System.Threading.Tasks.Task%5B%5D%29?displayProperty=nameWithType> メソッドを除いたすべてを呼び出しますが、そうした場合は呼び出しスレッドがブロックされます。  
+ <xref:System.Threading.Tasks.Task.WhenAll%2A?displayProperty=nameWithType> および <xref:System.Threading.Tasks.Task.WhenAny%2A?displayProperty=nameWithType> オーバーロードの呼び出しによって、呼び出しスレッドがブロックされることはない点に注意してください。  ただし、通常、返された <xref:System.Threading.Tasks.Task.WhenAll%28System.Collections.Generic.IEnumerable%7BSystem.Threading.Tasks.Task%7D%29?displayProperty=nameWithType> プロパティを取得するために <xref:System.Threading.Tasks.Task.WhenAll%28System.Threading.Tasks.Task%5B%5D%29?displayProperty=nameWithType> メソッドと <xref:System.Threading.Tasks.Task%601.Result%2A?displayProperty=nameWithType> メソッドを除いたすべてを呼び出しますが、そうした場合は呼び出しスレッドがブロックされます。  
   
  次の例では、<xref:System.Threading.Tasks.Task.WhenAll%28System.Collections.Generic.IEnumerable%7BSystem.Threading.Tasks.Task%7D%29?displayProperty=nameWithType> メソッドを呼び出して、10 個の継続元タスクの結果を反映する継続タスクを作成します。 各継続元タスクでは、1 から 10 までの範囲内のインデックス値が二乗されます。 継続元が正常に完了すると (その <xref:System.Threading.Tasks.Task.Status%2A?displayProperty=nameWithType> プロパティが <xref:System.Threading.Tasks.TaskStatus.RanToCompletion?displayProperty=nameWithType>)、継続の <xref:System.Threading.Tasks.Task%601.Result%2A?displayProperty=nameWithType> プロパティは、各継続元から返される <xref:System.Threading.Tasks.Task%601.Result%2A?displayProperty=nameWithType> 値の配列になります。 この例では、1 から 10 までのすべての数値の二乗の合計を計算するため、これらを追加します。  
   
@@ -121,7 +119,7 @@ ms.locfileid: "64630120"
 ## <a name="associating-state-with-continuations"></a>状態と継続の関連付け  
  任意の状態とタスクの継続を関連付けることができます。 <xref:System.Threading.Tasks.Task.ContinueWith%2A> メソッドは、それぞれが継続の状態を表す <xref:System.Object> 値を受け取る、オーバーロードされたバージョンを提供します。 後でこの状態オブジェクトにアクセスするには、 <xref:System.Threading.Tasks.Task.AsyncState%2A?displayProperty=nameWithType> プロパティを使用します。 値を指定しない場合、この状態オブジェクトは `null` です。  
   
- 継続の状態は、TPL を使用するために、 [非同期プログラミング モデル (APM)](../../../docs/standard/asynchronous-programming-patterns/asynchronous-programming-model-apm.md) を使った既存のコードを変換する場合に有用です。 APM では通常、**Begin**_Method_ メソッドでオブジェクト状態を指定し、後から <xref:System.IAsyncResult.AsyncState%2A?displayProperty=nameWithType> プロパティを使って、その状態にアクセスします。 <xref:System.Threading.Tasks.Task.ContinueWith%2A> メソッドを使用すると、APM を使用するコードを TPL を使用するように変換するときに、この状態を維持できます。  
+ 継続の状態は、TPL を使用するために、[非同期プログラミング モデル (APM)](../../../docs/standard/asynchronous-programming-patterns/asynchronous-programming-model-apm.md) を使った既存のコードを変換する場合に有用です。 APM では通常、**Begin**_Method_ メソッドでオブジェクト状態を指定し、後から <xref:System.IAsyncResult.AsyncState%2A?displayProperty=nameWithType> プロパティを使って、その状態にアクセスします。 <xref:System.Threading.Tasks.Task.ContinueWith%2A> メソッドを使用すると、APM を使用するコードを TPL を使用するように変換するときに、この状態を維持できます。  
   
  継続の状態は、Visual Studio デバッガーで <xref:System.Threading.Tasks.Task> オブジェクトを使用するときにも有用です。 たとえば、 **[並列タスク]** ウィンドウの **[タスク]** の列に、各タスクの状態オブジェクトの文字列表現が表示されます。 **[並列タスク]** ウィンドウの詳細については、「[[タスク] ウィンドウの使用](/visualstudio/debugger/using-the-tasks-window)」を参照してください。  
   
@@ -152,6 +150,6 @@ ms.locfileid: "64630120"
   
 - アタッチされた子タスクで、 <xref:System.Threading.Tasks.TaskContinuationOptions.AttachedToParent?displayProperty=nameWithType> オプションを使用して継続が作成された場合、アタッチされているその他の子と同様、その例外は親によって呼び出し元のスレッドに反映されます。 詳細については、「[アタッチされた子タスクとデタッチされた子タスク](../../../docs/standard/parallel-programming/attached-and-detached-child-tasks.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [タスク並列ライブラリ (TPL)](../../../docs/standard/parallel-programming/task-parallel-library-tpl.md)

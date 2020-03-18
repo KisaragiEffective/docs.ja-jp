@@ -1,23 +1,21 @@
 ---
-title: dotnet-trace - .NET Core
+title: dotnet-trace ツール - .NET Core
 description: dotnet-trace コマンドライン ツールのインストールおよび使用。
-author: sdmaclea
-ms.author: stmaclea
-ms.date: 10/14/2019
-ms.openlocfilehash: 6513cf63070bc1984006da75313e9912d76a6c95
-ms.sourcegitcommit: 628e8147ca10187488e6407dab4c4e6ebe0cac47
+ms.date: 11/21/2019
+ms.openlocfilehash: b19b159636fbf57fa2d461b398fcf9234aab491c
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72321532"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "76737644"
 ---
-# <a name="trace-for-performance-analysis-utility-dotnet-trace"></a>パフォーマンス分析ユーティリティ (`dotnet-trace`) 用のトレース
+# <a name="dotnet-trace-performance-analysis-utility"></a>dotnet-trace パフォーマンス分析ユーティリティ
 
-**この記事の対象:** .NET Core 3.0 SDK 以降のバージョン
+**この記事の対象:** ✔️ .NET Core 3.0 SDK 以降のバージョン
 
-## <a name="installing-dotnet-trace"></a>`dotnet-trace` のインストール
+## <a name="install-dotnet-trace"></a>dotnet-trace をインストールする
 
-`dotnet-trace` [NuGet パッケージ](https://www.nuget.org/packages/dotnet-trace)の最新のリリース バージョンをインストールするには、次のように [dotnet tool install](../tools/dotnet-tool-install.md) コマンドを使用します。
+[dotnet tool install](../tools/dotnet-tool-install.md) コマンドで `dotnet-trace` [NuGet パッケージ](https://www.nuget.org/packages/dotnet-trace)をインストールします。
 
 ```dotnetcli
 dotnet tool install --global dotnet-trace
@@ -31,17 +29,22 @@ dotnet-trace [-h, --help] [--version] <command>
 
 ## <a name="description"></a>説明
 
-`dotnet-trace` ツールは、ネイティブ プロファイラーを使用せずに、実行中のプロセスの .NET Core のトレースを収集するクロスプラットフォームの CLI グローバル ツールです。 これは、.NET Core ランタイムのクロスプラットフォームの `EventPipe` テクノロジを中心に構築されています。 `dotnet-trace` は、Windows、Linux または macOS でも同じエクスペリエンスを提供します。
+`dotnet-trace` ツール:
+
+* クロスプラットフォーム .NET Core ツールです。
+* ネイティブ プロファイラーなしで実行中のプロセスの .NET Core トレースを回収できます。
+* .NET Core ランタイムのクロスプラットフォームの `EventPipe` テクノロジを中心に構築されています。
+* Windows、Linux または macOS でも同じエクスペリエンスを提供します。
 
 ## <a name="options"></a>オプション
 
 - **`--version`**
 
-dotnet-counters ユーティリティのバージョンを表示します。
+  dotnet-counters ユーティリティのバージョンを表示します。
 
 - **`-h|--help`**
 
-コマンド ラインのヘルプを表示します。
+  コマンド ライン ヘルプを表示します。
 
 ## <a name="commands"></a>コマンド
 
@@ -49,7 +52,7 @@ dotnet-counters ユーティリティのバージョンを表示します。
 | ----------------------------------------------------------- |
 | [dotnet-trace collect](#dotnet-trace-collect)               |
 | [dotnet-trace convert](#dotnet-trace-convert)               |
-| [dotnet-trace list-processes](#dotnet-trace-list-processes) |
+| [dotnet-trace ps](#dotnet-trace-ps) |
 | [dotnet-trace list-profiles](#dotnet-trace-list-profiles)   |
 
 ## <a name="dotnet-trace-collect"></a>dotnet-trace collect
@@ -91,9 +94,9 @@ dotnet-trace collect [-h|--help] [-p|--process-id] [--buffersize <size>] [-o|--o
 
   共通のトレース シナリオを簡潔に指定できるようにする、事前定義されたプロバイダーの名前付き構成のセット。
 
-- **`--format <NetTrace|Speedscope>`**
+- **`--format {NetTrace|Speedscope}`**
 
-  トレース ファイルの出力の変換形式を設定します。
+  トレース ファイルの出力の変換形式を設定します。 既定値は、`NetTrace` です。
 
 ## <a name="dotnet-trace-convert"></a>dotnet-trace convert
 
@@ -121,14 +124,14 @@ dotnet-trace convert [<input-filename>] [-h|--help] [--format] [-o|--output]
 
   出力ファイルの名前。 ターゲットの形式の拡張子が追加されます。
 
-## <a name="dotnet-trace-list-processes"></a>dotnet-trace list-processes
+## <a name="dotnet-trace-ps"></a>dotnet-trace ps
 
-トレースできる dotnet プロセスの一覧を示します。
+接続できる dotnet プロセスの一覧を示します。
 
 ### <a name="synopsis"></a>構文
 
 ```console
-dotnet-trace list-processes [-h|--help]
+dotnet-trace ps [-h|--help]
 ```
 
 ## <a name="dotnet-trace-list-profiles"></a>dotnet-trace list-profiles
@@ -141,55 +144,65 @@ dotnet-trace list-processes [-h|--help]
 dotnet-trace list-profiles [-h|--help]
 ```
 
-## <a name="collect-a-trace-with-dotnet-trace"></a>`dotnet-trace` を使用してトレースを収集する
+## <a name="collect-a-trace-with-dotnet-trace"></a>dotnet-trace を使用してトレースを収集する
 
-- `dotnet-trace` を使用してトレースを収集するには、まずトレースを収集する .NET Core アプリケーションのプロセス識別子 (PID) を調べます。
+`dotnet-trace` を使用してトレースを収集するには:
 
-  - Windows では、タスク マネージャーや `tasklist` コマンドなどを使用するオプションがあります。
-  - Linux での簡易オプションは、`ps` コマンドの使用です。
+- トレースを収集する .NET Core アプリケーションのプロセス識別子 (PID) を取得します。
 
-また、その PID と共に [dotnet-trace list-processes](#dotnet-trace-list-processes) コマンドを使用して、実行中の .NET Core プロセスを調べることもできます。
+  - Windows で、タスク マネージャーや、たとえば、`tasklist` コマンドを使用できます。
+  - Linux の場合、たとえば、`ps` コマンドを使用できます。
+  - [dotnet-trace ps](#dotnet-trace-ps)
 
-- 次に、次のコマンドを実行します。
+- 次のコマンドを実行します。
 
-```console
-> dotnet-trace collect --process-id <PID>
+  ```console
+  dotnet-trace collect --process-id <PID>
+  ```
 
-Press <Enter> to exit...
-Connecting to process: <Full-Path-To-Process-Being-Profiled>/dotnet.exe
-Collecting to file: <Full-Path-To-Trace>/trace.nettrace
+  上のコマンドを実行すると、次のような出力が生成されます。
+
+  ```console
+  Press <Enter> to exit...
+  Connecting to process: <Full-Path-To-Process-Being-Profiled>/dotnet.exe
+  Collecting to file: <Full-Path-To-Trace>/trace.nettrace
   Session Id: <SessionId>
   Recording trace 721.025 (KB)
-```
+  ```
 
-- 最後に、`<Enter>` キーを押して収集を停止すると、`dotnet-trace` は `trace.nettrace` ファイルへのイベントのログ記録を終了します。
+- `<Enter>` キーを押すと、コレクションが停止します。 `dotnet-trace` では、*trace.nettrace* ファイルにイベントをログ記録する作業が完了します。
 
-## <a name="viewing-the-trace-captured-from-dotnet-trace"></a>`dotnet-trace` でキャプチャしたトレースを表示する
+## <a name="view-the-trace-captured-from-dotnet-trace"></a>dotnet-trace からキャプチャされたトレースを表示する
 
-Windows で `.nettrace` ファイルは、ETW または LTTng を使用して収集したトレースと同様、[PerfView ](https://github.com/microsoft/perfview) で参照して分析できます。 Linux で収集したトレースを PerfView で参照するには、トレースを Windows マシンに移動します。
+Windows の場合、 *.nettrace* ファイルを [PerfView](https://github.com/microsoft/perfview) で表示し、分析できます。他のプラットフォームで収集されたトレースについては、トレース ファイルを Windows コンピューターに移動し、PerfView で表示できます。
 
-また、`dotnet-trace` の出力形式を `speedscope` に変更して、Linux マシンでトレースを表示することもできます。 出力ファイルの形式は、`-f|--format` オプションを使用して変更できます。`-f speedscope` が、`dotnet-trace` に `speedscope` ファイルを生成させます。 現在、`nettrace` (既定のオプション) と `speedscope` の間で選択できます。 `Speedscope` ファイルは <https://www.speedscope.app> で開くことができます。
+Linux の場合、`dotnet-trace` の出力形式を `speedscope` に変更することでトレースを表示できます。 出力ファイル形式は `-f|--format` オプションで変更できます。`-f speedscope` により、`dotnet-trace` で `speedscope` ファイルが生成されます。 `nettrace` (既定のオプション) か `speedscope` を選択できます。 `Speedscope` ファイルは <https://www.speedscope.app> で開くことができます。
 
 > [!NOTE]
-> .NET Core ランタイムは、トレースを `nettrace` 形式で生成し、トレースの完了後 (指定されている場合は)、それを speedscope に変換します。 変換によってはデータが失われる場合もあるため、元の `nettrace` ファイルが変換されたファイルの横に保持されます。
+> .NET Core ランタイムにより、`nettrace` 形式でトレースが生成されます。 トレースの完了後、トレースは speedscope に変換されます (指定されている場合)。 変換によってはデータが失われる場合もあるため、元の `nettrace` ファイルが変換されたファイルの横に保持されます。
 
-## <a name="using-dotnet-trace-to-collect-counter-values-over-time"></a>`dotnet-trace` を使用して経時的なカウンター値を収集する
+## <a name="use-dotnet-trace-to-collect-counter-values-over-time"></a>dotnet-trace を使用して経時的なカウンター値を収集する
 
-パフォーマンスが影響する運用環境などの正常性の基本監視に `EventCounter` を使用する場合に、リアルタイムで監視するのではなく、トレースを収集したい場合は、`dotnet-trace` で行うこともできます。
+`dotnet-trace` でできること:
 
-たとえば、実行時のパフォーマンス カウンター値を収集したい場合は、次のコマンドを使用します。
+* パフォーマンスで左右される環境で基本的な正常性監視を行うには `EventCounter` を使用します。 たとえば、運用環境です。
+* リアルタイムで表示する必要がないようにトレースを収集します。
+
+たとえば、実行時のパフォーマンス カウンター値を収集するには、次のコマンドを使用します。
 
 ```console
 dotnet-trace collect --process-id <PID> --providers System.Runtime:0:1:EventCounterIntervalSec=1
 ```
 
-このコマンドは、正常性の簡易監視のために 1 秒ごとにランタイム カウンターをレポートします。 `EventCounterIntervalSec=1` の値を (60 など) 大きい値に置き換えた場合、カウンター データの細分性の詳細度がより低いトレースをより少数収集できるようになります。
+先のコマンドでは、正常性の簡易監視を 1 秒ごとに報告するようにランタイム カウンターに命令します。 `EventCounterIntervalSec=1` の値を (60 など) 大きい値に置き換えた場合、カウンター データの細分性の詳細度がより低いトレースをより少数収集できるようになります。
 
-ランタイム イベントを無効にしてオーバーヘッド (およびトレースのサイズ) をさらに減らしたい場合は、次のコマンドを使用して、ランタイム イベントとマネージド スタック プロファイラーを無効にできます。
+次のコマンドでは、先のコマンドよりオーバーヘッドとトレース サイズが少なくなります。
 
 ```console
 dotnet-trace collect --process-id <PID> --providers System.Runtime:0:1:EventCounterIntervalSec=1,Microsoft-Windows-DotNETRuntime:0:1,Microsoft-DotNETCore-SampleProfiler:0:1
 ```
+
+上のコマンドでは、ランタイム イベントとマネージド スタック プロファイラーが無効になります。
 
 ## <a name="net-providers"></a>.NET プロバイダー
 

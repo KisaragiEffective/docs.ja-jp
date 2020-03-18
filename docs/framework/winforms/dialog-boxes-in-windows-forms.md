@@ -1,23 +1,23 @@
 ---
-title: Windows フォームのダイアログ ボックス
+title: ダイアログ ボックス
 ms.date: 03/30/2017
 helpviewer_keywords:
 - dialog boxes [Windows Forms], Windows Forms
 - Windows Forms dialog boxes
 - dialogs [Windows Forms], using in Windows Forms
 ms.assetid: d43d022b-451b-490d-9386-dc79d98fbf8a
-ms.openlocfilehash: ba40ec42d78199bc59d63a2a1d92fb3655388ad5
-ms.sourcegitcommit: c7a7e1468bf0fa7f7065de951d60dfc8d5ba89f5
+ms.openlocfilehash: 3ac089bd1becaea70fff53fc6f4d66ab0f6d12fa
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65592298"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76732768"
 ---
 # <a name="dialog-boxes-in-windows-forms"></a>Windows フォームのダイアログ ボックス
-ダイアログ ボックスは、ユーザーとのやり取りおよび情報の取得のために使用します。 簡単に言えば、ダイアログ ボックスとは <xref:System.Windows.Forms.FormBorderStyle> 列挙値のプロパティが `FixedDialog` に設定されたフォームのことです。 Visual Studio で、Windows フォーム デザイナーを使用して、独自のカスタム ダイアログ ボックスを作成できます。 `Label`、`Textbox`、および `Button` などのコントロールを追加し、ダイアログ ボックスを特定のニーズに合わせてカスタマイズできます。 .NET Framework も含まれています、定義済みのダイアログ ボックスなど**ファイルを開く**とメッセージ ボックスは、独自のアプリケーションを調整できます。 詳細については、次を参照してください。 [ ダイアログ ボックス コントロールおよびコンポーネント](./controls/dialog-box-controls-and-components-windows-forms.md)します。  
+ダイアログ ボックスは、ユーザーとのやり取りおよび情報の取得のために使用します。 簡単に言えば、ダイアログ ボックスとは <xref:System.Windows.Forms.FormBorderStyle> 列挙値のプロパティが `FixedDialog` に設定されたフォームのことです。 Visual Studio の Windows フォームデザイナーを使用すると、独自のカスタムダイアログボックスを作成できます。 `Label`、`Textbox`、および `Button` などのコントロールを追加し、ダイアログ ボックスを特定のニーズに合わせてカスタマイズできます。 .NET Framework には、**ファイルを開く** や メッセージボックス などの定義済みのダイアログボックスも用意されており、独自のアプリケーションに合わせてカスタマイズできます。 詳細については、「[ダイアログボックスコントロールおよびコンポーネント](./controls/dialog-box-controls-and-components-windows-forms.md)」を参照してください。  
   
 ## <a name="in-this-section"></a>このセクションの内容  
- [方法: Windows フォームのダイアログ ボックスを表示します。](how-to-display-dialog-boxes-for-windows-forms.md)  
+ [方法: Windows フォームのダイアログ ボックスを表示する](how-to-display-dialog-boxes-for-windows-forms.md)  
  ダイアログ ボックスを表示する手順を示します。  
   
 ## <a name="related-sections"></a>関連項目  

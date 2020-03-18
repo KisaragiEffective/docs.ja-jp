@@ -1,19 +1,21 @@
 - name: ようこそ
   href: welcome.md
-- name: .NET のガイド
+- name: .NET の新機能に関するドキュメント
+  href: whats-new/index.yml
+- name: .NET ガイド
   href: standard/
-- name: .NET Core のガイド
+- name: .NET Core ガイド
   href: core/
 - name: .NET Framework ガイド
   href: framework/
 - name: .NET デスクトップ ガイド - WPF
   href: desktop-wpf/
-- name: 'C# のガイド'
-  href: csharp/
+- name: 'C# ガイド'
+  href: csharp/index.yml
 - name: 'F# のガイド'
-  href: fsharp/
-- name: Visual Basic のガイド
-  href: visual-basic/
+  href: fsharp/index.yml
+- name: Visual Basic ガイド
+  href: visual-basic/index.yml
 - name: ML.NET ガイド
   href: machine-learning/index.yml
 - name: .NET for Apache Spark ガイド

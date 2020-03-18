@@ -10,14 +10,12 @@ helpviewer_keywords:
 - managed debugging assistants (MDAs), CER calls
 - generics [.NET Framework], open generic CER calls
 ms.assetid: da3e4ff3-2e67-4668-9720-fa776c97407e
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 44b6ee3e4f74a523c1e902a4eb48a64b11eb3937
-ms.sourcegitcommit: 9b2ef64c4fc10a4a10f28a223d60d17d7d249ee8
+ms.openlocfilehash: de1735103314dfedbabe27623f579ce2c1e728af
+ms.sourcegitcommit: 9c54866bcbdc49dbb981dd55be9bbd0443837aa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/26/2019
-ms.locfileid: "72960901"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77217275"
 ---
 # <a name="opengenericcercall-mda"></a>openGenericCERCall MDA
 
@@ -37,7 +35,7 @@ JIT コンパイル時には、処理結果のコードが共有され、オブ�
 
 この MDA がアクティブになるとき、正しくないインスタンス化に対して CER が機能しないという症状が発生する可能性があります。 実際、MDA がアクティブになる状況下では、ランタイムは CER の実装を試みません。 そのため、開発者が CER の共有インスタンス化を使用している場合、目的の CER の領域内で発生した JIT コンパイル エラー、ジェネリック型の読み込みエラー、スレッドの中止などはキャッチされません。
 
-## <a name="resolution"></a>解像度
+## <a name="resolution"></a>解決策
 
 CER が存在する可能性があるメソッドには、オブジェクト参照型であるジェネリック型変数を使用しないでください。
 
@@ -112,7 +110,7 @@ class MyClass
 }
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.CompilerServices.RuntimeHelpers.PrepareMethod%2A>
 - <xref:System.Runtime.ConstrainedExecution>

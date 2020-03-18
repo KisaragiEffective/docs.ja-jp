@@ -2,12 +2,12 @@
 title: 追跡プロファイル
 ms.date: 03/30/2017
 ms.assetid: 22682566-1cd9-4672-9791-fb3523638e18
-ms.openlocfilehash: a643cf37bbb3e72baefb434249aa54b386060627
-ms.sourcegitcommit: d6e27023aeaffc4b5a3cb4b88685018d6284ada4
+ms.openlocfilehash: 9217f25ba4499e7ff75020642be387aa79ba27bf
+ms.sourcegitcommit: a4f9b754059f0210e29ae0578363a27b9ba84b64
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67660922"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74837624"
 ---
 # <a name="tracking-profiles"></a>追跡プロファイル
 
@@ -17,7 +17,7 @@ ms.locfileid: "67660922"
 
 追跡プロファイルは、どの追跡情報をワーク フロー インスタンスに出力するかを指定するために使用されます。 プロファイルが指定されていない場合、すべての追跡イベントが出力されます。 プロファイルを指定した場合、プロファイルで指定された追跡イベントが出力されます。 監視の要件に応じて、ワークフローの主な状態変化の少数のセットを定期受信する、非常に一般的なプロファイルを作成できます。 それとは反対に、結果として得られるイベントが、後で詳細な実行フローを十分に再構築できる極めて詳細なプロファイルを作成することもできます。
 
-追跡プロファイルは、標準の .NET Framework 構成ファイル内の XML 要素となって現れます。 またはコード内で指定します。 追跡参加要素が [!INCLUDE[netfx_current_long](../../../includes/netfx-current-long-md.md)] と `Started` のワークフロー イベントを定期受信できるようにする構成ファイルの `Completed` 追跡プロファイルの例を次に示します。
+追跡プロファイルは、標準 .NET Framework 構成ファイル内の XML 要素として、またはコードで指定されます。 追跡参加要素が [!INCLUDE[netfx_current_long](../../../includes/netfx-current-long-md.md)] と `Started` のワークフロー イベントを定期受信できるようにする構成ファイルの `Completed` 追跡プロファイルの例を次に示します。
 
 ```xml
 <system.serviceModel>
@@ -59,13 +59,13 @@ TrackingProfile profile = new TrackingProfile()
 };
 ```
 
-追跡レコードは、<xref:System.Activities.Tracking.ImplementationVisibility> 属性を使用して、追跡プロファイル内部の表示モードを通じてフィルター処理されます。 複合アクティビティは、その実装を形成する他のアクティビティを含む最上位アクティビティです。 表示モードは、実装を形成するアクティビティが追跡されているかどうかを指定するために、ワークフロー アクティビティ内の複合アクティビティから生成された追跡レコードを指定します。 表示モードは、追跡プロファイル レベルで適用されます。 ワークフロー内にある個々のアクティビティの追跡レコードのフィルター処理は、追跡プロファイル内のクエリによって制御されます。 詳細については、次を参照してください。、**追跡プロファイルのクエリの種類**このドキュメントの「します。
+追跡レコードは、<xref:System.Activities.Tracking.ImplementationVisibility> 属性を使用して、追跡プロファイル内部の表示モードを通じてフィルター処理されます。 複合アクティビティは、その実装を形成する他のアクティビティを含む最上位アクティビティです。 表示モードは、実装を形成するアクティビティが追跡されているかどうかを指定するために、ワークフロー アクティビティ内の複合アクティビティから生成された追跡レコードを指定します。 表示モードは、追跡プロファイル レベルで適用されます。 ワークフロー内にある個々のアクティビティの追跡レコードのフィルター処理は、追跡プロファイル内のクエリによって制御されます。 詳細については、このドキュメントの「**追跡プロファイルのクエリの種類**」を参照してください。
 
 追跡プロファイルの `implementationVisibility` 属性で指定される 2 つの表示モードは、`RootScope` と `All` です。 `RootScope` モードを使用すると、複合アクティビティがワークフローのルート アクティビティでない場合にアクティビティの実装を形成するアクティビティの追跡レコードが抑制されます。 したがって、他のアクティビティを使用して実装されているアクティビティがワークフローに追加された場合、`implementationVisibility` が RootScope に設定されていると、その複合アクティビティ内の最上位アクティビティのみが追跡されます。 アクティビティがワークフローのルート アクティビティである場合、アクティビティの実装はワークフローそのものであり、追跡レコードはその実装を形成するアクティビティを対象として生成されます。 All モードを使用すると、ルート アクティビティとそのすべての複合アクティビティを対象として、すべての追跡レコードを生成できます。
 
-たとえば、 *MyActivity*複合アクティビティの実装には、2 つのアクティビティが含まれています*Activity1*と*Activity2*します。 このアクティビティがワークフローに追加され、された追跡プロファイルの追跡が有効になっている`implementationVisibility`に設定`RootScope`、に対してのみ追跡レコードが出力されます*MyActivity*します。 ただし、レコードは生成されませんアクティビティ*Activity1*と*Activity2*します。
+たとえば、 *myactivity*が、 *Activity1*と*Activity2*の2つのアクティビティを含む実装を持つ複合アクティビティであるとします。 このアクティビティをワークフローに追加し、`implementationVisibility` が `RootScope`に設定された追跡プロファイルで追跡が有効になっている場合、追跡レコードは*Myactivity*に対してのみ生成されます。 ただし、アクティビティ*Activity1*と*Activity2*のレコードは出力されません。
 
-ただし場合、`implementationVisibility`属性に設定されている追跡プロファイルを`All`、だけでなく追跡レコードが出力されますし、 *MyActivity*がアクティビティについても*Activity1*と*Activity2*します。
+ただし、追跡プロファイルの `implementationVisibility` 属性が `All`に設定されている場合、追跡レコードは*myactivity*だけでなく、アクティビティ*Activity1*と*Activity2*にも出力されます。
 
 `implementationVisibility` フラグは、次の追跡レコード タイプに適用されます。
 
@@ -150,7 +150,7 @@ TrackingProfile sampleTrackingProfile = new TrackingProfile()
   };
   ```
 
-- <xref:System.Activities.Tracking.ActivityStateQuery> - ワークフロー インスタンスを構成するアクティビティのライフ サイクルの変化を追跡するために使用します。 たとえば、ワークフロー インスタンス内で、「電子メールの送信」アクティビティが完了するたびの追跡する可能性があります。 このクエリは、<xref:System.Activities.Tracking.TrackingParticipant> が <xref:System.Activities.Tracking.ActivityStateRecord> オブジェクトを定期受信するのに必要です。 定期受信可能な状態は <xref:System.Activities.Tracking.ActivityStates> で指定します。
+- <xref:System.Activities.Tracking.ActivityStateQuery> - ワークフロー インスタンスを構成するアクティビティのライフ サイクルの変化を追跡するために使用します。 たとえば、ワークフローインスタンス内で "電子メールの送信" アクティビティが完了するたびに追跡することができます。 このクエリは、<xref:System.Activities.Tracking.TrackingParticipant> が <xref:System.Activities.Tracking.ActivityStateRecord> オブジェクトを定期受信するのに必要です。 定期受信可能な状態は <xref:System.Activities.Tracking.ActivityStates> で指定します。
 
   <xref:System.Activities.Tracking.ActivityStateQuery> アクティビティに `SendEmailActivity` を使用するアクティビティ状態の追跡レコードを定期受信するために使用される構成またはコードを、次の例に示します。
 
@@ -234,7 +234,7 @@ TrackingProfile sampleTrackingProfile = new TrackingProfile()
 
 - <xref:System.Activities.Tracking.CancelRequestedQuery> - 親アクティビティによって子アクティビティをキャンセルする要求を追跡するために使用されます。 このクエリは、<xref:System.Activities.Tracking.TrackingParticipant> が <xref:System.Activities.Tracking.CancelRequestedRecord> オブジェクトを定期受信するのに必要です。
 
-  構成とレコードを定期受信するためのコードに関連するアクティビティの取り消しを使用して<xref:System.Activities.Tracking.CancelRequestedQuery>次の例に示します。
+  次の例では、<xref:System.Activities.Tracking.CancelRequestedQuery> を使用して、アクティビティのキャンセルに関連するレコードを定期受信するために使用される構成とコードについて説明します。
 
   ```xml
   <cancelRequestedQueries>
@@ -308,7 +308,7 @@ TrackingProfile sampleTrackingProfile = new TrackingProfile()
 
 ### <a name="annotations"></a>コメント
 
-注釈を使用すると、ビルド後に構成できる値を使用して、追跡レコードへのタグ付けを任意に行うことができます。 たとえば、"Mail Server"タグが付けられる複数のワークフロー追跡レコードをいくつかをする可能性があります"Mail Server1"= =。 こうすると、後で追跡レコードのクエリを実行するときに、このタグの付いたすべてのレコードを簡単に見つけることができます。
+注釈を使用すると、ビルド後に構成できる値を使用して、追跡レコードへのタグ付けを任意に行うことができます。 たとえば、複数のワークフローで複数の追跡レコードを "Mail Server" = = "Mail Server1" とタグ付けすることができます。 こうすると、後で追跡レコードのクエリを実行するときに、このタグの付いたすべてのレコードを簡単に見つけることができます。
 
 これを可能にするために、次の例に示すように注釈が追跡クエリに追加されます。
 
@@ -344,9 +344,9 @@ TrackingProfile sampleTrackingProfile = new TrackingProfile()
 > [!WARNING]
 > ワークフロー サービス ホストを使用する WF の場合、追跡プロファイルは構成ファイルを使用して作成されることがほとんどです。 また、追跡プロファイルや追跡クエリ API を使用するコードで追跡プロファイルを作成することも可能です。
 
-XML 構成ファイルとして構成されるプロファイルは、動作拡張を使用して追跡参加要素に適用されます。 以降のセクションで説明した WorkflowServiceHost に追加されますこの[ワークフローの追跡を構成する](configuring-tracking-for-a-workflow.md)します。
+XML 構成ファイルとして構成されるプロファイルは、動作拡張を使用して追跡参加要素に適用されます。 これは、後の「[ワークフローの追跡を構成する](configuring-tracking-for-a-workflow.md)」セクションで説明するように、WorkflowServiceHost に追加されます。
 
-ホストが生成する追跡レコードの詳細度は、追跡プロファイルの構成の設定によって決まります。 追跡参加要素は、クエリを追跡プロファイルに追加して追跡レコードを定期受信します。 追跡プロファイルをサブスクライブするすべての追跡レコードを使用してすべての追跡クエリを指定する必要があります"\*"の各クエリ内の名前フィールドにします。
+ホストが生成する追跡レコードの詳細度は、追跡プロファイルの構成の設定によって決まります。 追跡参加要素は、クエリを追跡プロファイルに追加して追跡レコードを定期受信します。 すべての追跡レコードをサブスクライブするには、追跡プロファイルで、各クエリの名前フィールドに "\*" を使用してすべての追跡クエリを指定する必要があります。
 
 一般的な追跡プロファイルの例を次に示します。
 
@@ -385,8 +385,8 @@ XML 構成ファイルとして構成されるプロファイルは、動作拡�
   </trackingProfile>
   ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [SQL 追跡](./samples/sql-tracking.md)
-- [Windows Server App Fabric の監視](https://go.microsoft.com/fwlink/?LinkId=201273)
-- [App Fabric でアプリケーションの監視](https://go.microsoft.com/fwlink/?LinkId=201275)
+- [Windows Server App Fabric の監視](https://docs.microsoft.com/previous-versions/appfabric/ee677251(v=azure.10))
+- [App Fabric を使用したアプリケーションの監視](https://docs.microsoft.com/previous-versions/appfabric/ee677276(v=azure.10))

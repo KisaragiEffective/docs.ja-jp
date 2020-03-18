@@ -1,28 +1,27 @@
 ---
-title: '方法: 抽象プロパティを定義する - C# プログラミング ガイド'
-ms.custom: seodec18
+title: 抽象プロパティを定義する方法 - C# プログラミング ガイド
 ms.date: 07/20/2015
 helpviewer_keywords:
 - properties [C#], abstract
 - abstract properties [C#]
 ms.assetid: 672a90eb-47b9-4ae0-9914-af53852fddcb
-ms.openlocfilehash: 57fd2ed3a26bf5986f9c8a1a6cae6b041811e84c
-ms.sourcegitcommit: 7b1ce327e8c84f115f007be4728d29a89efe11ef
+ms.openlocfilehash: c46f36133b68a550a17cf882844fd2481eee8851
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70970898"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75705614"
 ---
-# <a name="how-to-define-abstract-properties-c-programming-guide"></a>方法: 抽象プロパティを定義する (C# プログラミング ガイド)
+# <a name="how-to-define-abstract-properties-c-programming-guide"></a>抽象プロパティを定義する方法 (C# プログラミング ガイド)
 次の例では、[抽象](../../language-reference/keywords/abstract.md)プロパティを定義する方法を示します。 抽象プロパティの宣言では、プロパティ アクセサーは実装されません。クラスがプロパティをサポートしていることは宣言しますが、アクセサーの実装は派生クラスに委ねます。 基本クラスから継承された抽象プロパティを実装する方法を次の例に示します。  
   
  このサンプルは 3 つのファイルで構成され、それぞれ個別にコンパイルされ、生成されたアセンブリが次のコンパイルで参照されます。  
   
 - abstractshape.cs: 抽象 `Shape` プロパティを含む `Area` クラス。  
   
-- shapes.cs:`Shape` クラスのサブクラス。  
+- shapes.cs: `Shape` クラスのサブクラス。  
   
-- shapetest.cs:`Shape` から派生したいくつかのオブジェクトの面積を表示するテスト プログラム。  
+- shapetest.cs: いくつかの `Shape` から派生したオブジェクトの面積を表示するテスト プログラム。  
   
  この例をコンパイルするには、次のコマンドを使用します。  
   
@@ -31,7 +30,7 @@ ms.locfileid: "70970898"
  これで、実行可能ファイル shapetest.exe が作成されます。  
   
 ## <a name="example"></a>例  
- このファイルは、`double` 型の `Shape` プロパティを含む `Area` クラスを宣言します。  
+ このファイルは、`Shape` 型の `Area` プロパティを含む `double` クラスを宣言します。  
   
  [!code-csharp[csProgGuideInheritance#1](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideInheritance/CS/Inheritance.cs#1)]  
   
@@ -53,9 +52,9 @@ ms.locfileid: "70970898"
   
  [!code-csharp[csProgGuideInheritance#3](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csProgGuideInheritance/CS/Inheritance.cs#3)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [C# プログラミング ガイド](../index.md)
+- [C# プログラミングガイド](../index.md)
 - [クラスと構造体](./index.md)
 - [抽象クラスとシール クラス、およびクラス メンバー](./abstract-and-sealed-classes-and-class-members.md)
-- [プロパティ](./properties.md)
+- [Properties](./properties.md)

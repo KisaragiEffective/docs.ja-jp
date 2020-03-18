@@ -1,19 +1,19 @@
 ---
-title: '方法: CSV ファイルから XML を生成する (C#)'
+title: CSV ファイルから XML を生成する方法 (C#)
 ms.date: 07/20/2015
 ms.assetid: 57b9ccde-f983-4a21-ae61-70ecede30307
-ms.openlocfilehash: bcae061bd5899f4ae5cbb89f8e05079bc9222312
-ms.sourcegitcommit: 155012a8a826ee8ab6aa49b1b3a3b532e7b7d9bd
+ms.openlocfilehash: 643c05cb440165c4461c3e9c80e69701241ab8d1
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66486785"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75635809"
 ---
-# <a name="how-to-generate-xml-from-csv-files-c"></a>方法: CSV ファイルから XML を生成する (C#)
-この例では、[!INCLUDE[vbteclinqext](~/includes/vbteclinqext-md.md)] および [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] を使用して、コンマ区切り (CSV) ファイルから XML ファイルを生成する方法について説明します。  
+# <a name="how-to-generate-xml-from-csv-files-c"></a>CSV ファイルから XML を生成する方法 (C#)
+この例では、統合言語クエリ (LINQ) および [!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] を使用して、コンマ区切り (CSV) ファイルから XML ファイルを生成する方法について説明します。  
   
 ## <a name="example"></a>例  
- 次のコードは、文字列の配列に対して [!INCLUDE[vbteclinq](~/includes/vbteclinq-md.md)] クエリを実行します。  
+ 次のコードは、文字列の配列に対して LINQ クエリを実行します。  
   
  クエリでは、`let` 句を使用して各文字列をフィールドの配列に分割します。  
   

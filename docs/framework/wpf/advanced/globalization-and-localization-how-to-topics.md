@@ -7,12 +7,12 @@ helpviewer_keywords:
 - localization [WPF], features
 - globalization [WPF], features
 ms.assetid: c4b484fb-bc90-4186-a08d-f081e7109cad
-ms.openlocfilehash: a2ab04f40a3299bc0cd5a17c0f31e4f4ee0433ad
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 98368a54fad095337038236d7bfdc2123edb6be2
+ms.sourcegitcommit: f8c36054eab877de4d40a705aacafa2552ce70e9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62010294"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75559410"
 ---
 # <a name="globalization-and-localization-how-to-topics"></a>グローバリゼーションおよびローカリゼーションに関する「方法」トピック
 このセクションのトピックでは、国際対応アプリケーションを開発する方法について説明します。  
@@ -24,13 +24,13 @@ ms.locfileid: "62010294"
  [ResourceDictionary を使用してローカライズ可能な文字列リソースを管理する](how-to-use-a-resourcedictionary-to-manage-localizable-string-resources.md)  
  [ローカライズ可能アプリケーションでリソースを使用する](how-to-use-resources-in-localizable-applications.md)  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>参照先  
  <xref:System.Globalization>  
   
  <xref:System.Windows.FrameworkElement.FlowDirection%2A>  
   
  <xref:System.Resources.NeutralResourcesLanguageAttribute>  
   
- [XAML における xml:lang の処理](../../xaml-services/xml-lang-handling-in-xaml.md)  
+ [XAML における xml:lang の処理](../../../desktop-wpf/xaml-services/xml-language-handling.md)  
   
-## <a name="related-sections"></a>関連項目
+## <a name="related-sections"></a>関連セクション

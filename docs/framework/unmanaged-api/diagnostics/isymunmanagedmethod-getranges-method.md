@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: a85283d8-379c-417a-9736-ddeeef9bcf50
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: ef5a98d510eee8942a2cad0525b6902e3e4eaa52
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 1f1bd9c33f24847eae4ff7d26c5b996cd34afb72
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67769388"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74448928"
 ---
 # <a name="isymunmanagedmethodgetranges-method"></a>ISymUnmanagedMethod::GetRanges メソッド
-指定されたドキュメント内の位置には、Microsoft intermediate language (MSIL をこのメソッド内の位置に含まれる) の範囲に先頭と末尾オフセットのペアの対応する配列を返します。 配列は整数の配列であり [開始、終了、開始、終了] の形式です。 範囲のペアの数は、2 で割った値の配列の長さです。  
+ドキュメント内の位置が指定されている場合、は、位置がこのメソッド内でカバーする Microsoft 中間言語 (MSIL) の範囲に対応する開始オフセットと終了オフセットのペアの配列を返します。 配列は整数の配列であり、[開始、終了、開始、終了] の形式です。 範囲ペアの数は、配列の長さを2で除算した値です。  
   
 ## <a name="syntax"></a>構文  
   
@@ -42,29 +40,29 @@ HRESULT GetRanges(
   
 ## <a name="parameters"></a>パラメーター  
  `document`  
- [in]オフセットを要求する対象のドキュメントです。  
+ からオフセットが要求されるドキュメント。  
   
  `line`  
- [in]範囲に対応するドキュメント行。  
+ から範囲に対応するドキュメント行。  
   
  `column`  
- [in]範囲に対応するドキュメント列。  
+ から範囲に対応するドキュメント列。  
   
  `cRanges`  
  [in] `ranges` 配列のサイズ。  
   
  `pcRanges`  
- [out]ポインター、`ULONG32`範囲の格納に必要なバッファーのサイズを受け取る。  
+ 入出力範囲を格納するために必要なバッファーのサイズを受け取る `ULONG32` へのポインター。  
   
  `ranges`  
- [out]範囲を受け取るバッファーへのポインター。  
+ 入出力範囲を受け取るバッファーへのポインター。  
   
 ## <a name="return-value"></a>戻り値  
- メソッドが成功した場合は s_ok を返します。それ以外の場合、E_FAIL またはその他のエラー コード。  
+ メソッドが成功した場合は S_OK。それ以外の場合は、E_FAIL またはその他のエラーコードを指定します。  
   
-## <a name="requirements"></a>必要条件  
- **ヘッダー:** CorSym.idl, CorSym.h  
+## <a name="requirements"></a>要件  
+ **ヘッダー:** CorSym .idl、CorSym .h  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ISymUnmanagedMethod インターフェイス](../../../../docs/framework/unmanaged-api/diagnostics/isymunmanagedmethod-interface.md)

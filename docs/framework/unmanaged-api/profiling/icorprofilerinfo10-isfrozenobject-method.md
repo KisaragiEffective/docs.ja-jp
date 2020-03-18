@@ -11,12 +11,12 @@ api_type:
 - COM
 author: davmason
 ms.author: davmason
-ms.openlocfilehash: d212c06c7ddc9f22095c0b95f19fd1083482435c
-ms.sourcegitcommit: cdf67135a98a5a51913dacddb58e004a3c867802
+ms.openlocfilehash: 21f9cb415f913a9c865a487f6e80523344db811e
+ms.sourcegitcommit: 700ea803fb06c5ce98de017c7f76463ba33ff4a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69661221"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77452189"
 ---
 # <a name="icorprofilerinfo10isfrozenobject-method"></a>ICorProfilerInfo10:: IsFrozenObject メソッド
 
@@ -29,24 +29,26 @@ HRESULT IsFrozenObject( [in]  ObjectID objectId,
                         [out] BOOL *pbFrozen);
 ```
 
-#### <a name="parameters"></a>パラメーター
+## <a name="parameters"></a>パラメーター
 
-`objectId` \
-から調べるオブジェクト。
+- `objectId`
 
-`pbFrozen` \
-入出力オブジェクトが読み取り専用セグメント内にあるかどうかを示すです。`BOOL`
+  \[] を確認するオブジェクト。
 
-## <a name="requirements"></a>必要条件
+- `pbFrozen`
 
-**・** 「 [.Net Core でサポートされるオペレーティングシステム](../../../core/windows-prerequisites.md#net-core-supported-operating-systems)」を参照してください。
+  \[out] オブジェクトが読み取り専用セグメント内にあるかどうかを示す `BOOL`。
 
-**ヘッダー:** Corprof.idl、Corprof.idl
+## <a name="requirements"></a>要件
 
-**ライブラリ**CorGuids .lib
+**プラットフォーム:** 「 [.Net Core でサポートされるオペレーティングシステム](../../../core/install/dependencies.md?pivots=os-windows)」を参照してください。
+
+**ヘッダー** : CorProf.idl、CorProf.h
+
+**ライブラリ:** CorGuids.lib
 
 **.Net のバージョン:** [!INCLUDE[net_core_22](../../../../includes/net-core-30-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-- [ICorProfilerInfo10 インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilerinfo10-interface.md)
+- [ICorProfilerInfo10 インターフェイス](icorprofilerinfo10-interface.md)

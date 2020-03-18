@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 9855f0e4-12c0-4d3d-ab5d-d6bc52d25eae
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 48cd62f89f1112a1007a5661dc55fe2977dace2b
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: a020a0343eecceb4a85ebbddffe323c7f7bdca3d
+ms.sourcegitcommit: 9a39f2a06f110c9c7ca54ba216900d038aa14ef3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67778908"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74437115"
 ---
 # <a name="imetadataimportgetpermissionsetprops-method"></a>IMetaDataImport::GetPermissionSetProps メソッド
-関連付けられているメタデータを取得、<xref:System.Security.PermissionSet?displayProperty=nameWithType>指定した権限のトークンによって表されます。  
+指定したアクセス許可トークンによって表される <xref:System.Security.PermissionSet?displayProperty=nameWithType> に関連付けられているメタデータを取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,23 +38,23 @@ HRESULT GetPermissionSetProps (
   
 ## <a name="parameters"></a>パラメーター  
  `pm`  
- [in]アクセス許可セットのメタデータ プロパティの取得を表すアクセス許可のメタデータ トークンです。  
+ からメタデータプロパティを取得するアクセス許可セットを表すアクセス許可メタデータトークン。  
   
  `pdwAction`  
- [out]権限セットへのポインター。  
+ 入出力アクセス許可セットへのポインター。  
   
  `ppvPermission`  
- [out]アクセス許可セットのバイナリ メタデータ シグネチャへのポインター。  
+ 入出力アクセス許可セットのバイナリメタデータシグネチャへのポインター。  
   
  `pcbPermission`  
- [out]バイト サイズ`ppvPermission`します。  
+ 入出力`ppvPermission`のサイズ (バイト単位)。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Cor.h  
+ **ヘッダー:** Cor  
   
- **ライブラリ:** MsCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   

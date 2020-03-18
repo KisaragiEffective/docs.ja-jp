@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: f21c1612-9c5d-4abc-a337-577086d29c17
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: a69e32d418478071f9b99a391e6bef9095d6f4ad
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: 8f479443e168c3fc7c627c3227e59f1e8b54f0e0
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67749921"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73120501"
 ---
 # <a name="iclrreferenceassemblyenumget-method"></a>ICLRReferenceAssemblyEnum::Get メソッド
-指定したインデックス位置にあるアセンブリの id を取得します。  
+指定されたインデックス位置にあるアセンブリ id を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -39,36 +37,36 @@ HRESULT Get (
   
 ## <a name="parameters"></a>パラメーター  
  `dwIndex`  
- [in]アセンブリ id を返すの 0 から始まるインデックス。  
+ から返されるアセンブリ id の0から始まるインデックス。  
   
  `pwzBuffer`  
- [out]アセンブリの id データを格納するバッファー。  
+ 入出力アセンブリ id データを格納しているバッファー。  
   
  `pcchBufferSize`  
- [入力、出力]サイズ、`pwzBuffer`バッファー。  
+ [入力、出力]`pwzBuffer` バッファーのサイズ。  
   
 ## <a name="return-value"></a>戻り値  
   
 |HRESULT|説明|  
 |-------------|-----------------|  
-|S_OK|`Get` 正常に返されます。|  
+|S_OK|`Get` が正常に返されました。|  
 |ERROR_INSUFFICIENT_BUFFER|`pwzBuffer` が小さすぎます。|  
-|ERROR_NO_MORE_ITEMS|列挙には、これ以上項目が含まれています。|  
-|HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) は、プロセスに読み込まれていないか、CLR は状態をマネージ コードを実行または呼び出しを正常に処理ができません。|  
-|HOST_E_TIMEOUT|呼び出しがタイムアウトになりました。|  
+|ERROR_NO_MORE_ITEMS|列挙には、これ以上項目が含まれていません。|  
+|HOST_E_CLRNOTAVAILABLE|共通言語ランタイム (CLR) がプロセスに読み込まれていないか、CLR がマネージコードを実行できない状態であるか、または呼び出しが正常に処理されていません。|  
+|HOST_E_TIMEOUT|呼び出しがタイムアウトしました。|  
 |HOST_E_NOT_OWNER|呼び出し元がロックを所有していません。|  
-|HOST_E_ABANDONED|イベントがキャンセルされましたブロックされたスレッドまたはファイバーが待機しています。|  
-|E_FAIL|不明な致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、CLR は、プロセス内で使用可能ではなくなりました。 メソッドをホストする後続の呼び出しには、HOST_E_CLRNOTAVAILABLE が返されます。|  
+|HOST_E_ABANDONED|ブロックされたスレッドまたはファイバーが待機しているときに、イベントが取り消されました。|  
+|E_FAIL|原因不明の致命的なエラーが発生しました。 メソッドから E_FAIL が返された場合、そのプロセス内で CLR は使用できなくなります。 後続のホストメソッドの呼び出しでは、HOST_E_CLRNOTAVAILABLE が返されます。|  
   
 ## <a name="remarks"></a>Remarks  
- `Get` 通常は 2 回呼び出されます。 最初の呼び出しには、null 値が指定されています`pwzBuffer`、設定と`pcchBufferSize`の適切なサイズに`pwzBuffer`します。 2 つ目の呼び出しが適切なサイズ指定されています`pwzBuffer`、完了すると標準アセンブリの id データが含まれています。  
+ 通常、`Get` は2回呼び出されます。 最初の呼び出しでは `pwzBuffer`に null 値を指定し、`pcchBufferSize` を `pwzBuffer`に適したサイズに設定します。 2番目の呼び出しでは、適切にサイズ設定された `pwzBuffer`を渡し、完了時に正規のアセンブリ id データを格納します。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** MSCorEE.h  
+ **ヘッダー:** Mscoree.dll  
   
- **ライブラリ:** MSCorEE.dll でリソースとして含まれます  
+ **ライブラリ:** Mscoree.dll にリソースとして含まれています  
   
  **.NET Framework のバージョン:** [!INCLUDE[net_current_v20plus](../../../../includes/net-current-v20plus-md.md)]  
   

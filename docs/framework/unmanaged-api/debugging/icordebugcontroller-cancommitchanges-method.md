@@ -15,14 +15,12 @@ helpviewer_keywords:
 ms.assetid: 7050e94b-f197-4ffd-88fa-ed2ecdf19663
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 9a0b35b4782ca173133523aa9e9d0fe48ea728d0
-ms.sourcegitcommit: 3094dcd17141b32a570a82ae3f62a331616e2c9c
+ms.openlocfilehash: 3219ec752d74a6fb999e494716acd167bdb21a13
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71700762"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73125456"
 ---
 # <a name="icordebugcontrollercancommitchanges-method"></a>ICorDebugController::CanCommitChanges メソッド
 

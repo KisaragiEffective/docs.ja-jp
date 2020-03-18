@@ -1,5 +1,5 @@
 ---
-title: <type1>'<typename>' は、インターフェイス '<interfacename>' に対して '<methodname>' を実装しなければなりません。
+title: <type1>'<typename>' は、インターフェイス '<methodname>' に対して '<interfacename>' を実装しなければなりません。
 ms.date: 07/20/2015
 f1_keywords:
 - vbc30149
@@ -14,22 +14,22 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/28/2019
 ms.locfileid: "71591592"
 ---
-# <a name="type1typename-must-implement-methodname-for-interface-interfacename"></a>\<type1 > ' \< typename > ' は、インターフェイス ' 3interfacename @no__t ' に ' >-2methodname @no__t ' を実装しなければなりません
+# <a name="type1typename-must-implement-methodname-for-interface-interfacename"></a>\<type1 > '\<typename > ' は、インターフェイス '\<interfacename > ' に '\<methodname > ' を実装しなければなりません
 インターフェイスを実装するクラスまたは構造体が要求しますが、インターフェイスによって定義されたプロシージャは実装しません。 インターフェイスのすべてのメンバーを実装する必要があります。  
   
  **エラー ID:** BC30149  
   
 ## <a name="to-correct-this-error"></a>このエラーを解決するには  
   
-1. インターフェイスで定義されているものと同じ名前およびシグネチャを持つプロシージャを宣言します。 少なくとも @no__t 0 または `End Sub` ステートメントを含めてください。  
+1. インターフェイスで定義されているものと同じ名前およびシグネチャを持つプロシージャを宣言します。 少なくとも `End Function` または `End Sub` ステートメントを含めてください。  
   
-2. @No__t-1 または `Sub` ステートメントの末尾に `Implements` 句を追加します。 以下に例を示します。  
+2. `Function` または `Sub` ステートメントの末尾に `Implements` 句を追加します。 例 :  
   
     ```vb  
     Public Sub DoSomething() Implements IBaseInterface.DoSomething  
     ```  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [Implements ステートメント](../../../visual-basic/language-reference/statements/implements-statement.md)
 - [インターフェイス](../../../visual-basic/programming-guide/language-features/interfaces/index.md)

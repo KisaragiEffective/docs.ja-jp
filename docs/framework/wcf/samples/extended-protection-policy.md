@@ -2,20 +2,20 @@
 title: 拡張保護ポリシー
 ms.date: 03/30/2017
 ms.assetid: e2616a10-317e-4c34-8023-0c015a80a82f
-ms.openlocfilehash: c7c2e85872c158facb2de91a7413ac5a04491d7f
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 1cb6d44e8f6ee8f54f776453e5a1783ab0cfa4f0
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70044982"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74716422"
 ---
 # <a name="extended-protection-policy"></a>拡張保護ポリシー
 拡張保護は、man-in-the-middle (MITM) 攻撃に対するセキュリティ イニシアチブです。 MITM 攻撃はセキュリティの脅威です。MITM は、クライアントの資格情報を取得し、その資格情報をサーバーに転送します。  
   
-## <a name="demonstrates"></a>使用例  
+## <a name="demonstrates"></a>例  
  拡張保護  
   
-## <a name="discussion"></a>説明  
+## <a name="discussion"></a>ディスカッション  
  アプリケーションが HTTPS で Kerberos、Digest または NTLM を使用して認証を実行する場合、最初にトランスポート レベルのセキュリティ (TLS) チャネルが構築され、その後セキュリティ チャネルを使用して認証が行われます。 しかし、SSL によって生成されるセッション キーと認証時に生成されるセッション キーはバインドされていません。 サーバーはセキュリティ チャネルがクライアントまたは MITM のどちらで確立されたものであるか知ることができないため、トランスポート チャネルそのものはセキュリティで保護されていても、MITM がクライアントとサーバーの間に自身を構築し、クライアントからの要求の転送を開始する可能性があります。 このシナリオの解決策として、外部の TLS チャネルを内部の認証チャネルにバインドする方法があります。この方法により、サーバーは、MITM が存在するかどうかを検出できます。  
   
 > [!NOTE]
@@ -59,6 +59,6 @@ ms.locfileid: "70044982"
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Services\Security\ExtendedProtection`

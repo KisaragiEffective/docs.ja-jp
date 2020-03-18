@@ -15,11 +15,11 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71699091"
 ---
-# <a name="systemweb-element-web-settings"></a>@no__t system.web > 要素 (Web 設定)
+# <a name="systemweb-element-web-settings"></a>\<system.web > 要素 (Web 設定)
 ASP.NET ホスティングレイヤーがプロセス全体の動作をどのように管理するかについて説明します。  
   
 [ **\<configuration>** ](../configuration-element.md)  
-&nbsp; @ no__t-1 **@no__t 3system.web >**  
+&nbsp;&nbsp; **\<system.web >**  
   
 ## <a name="syntax"></a>構文  
   
@@ -28,13 +28,13 @@ ASP.NET ホスティングレイヤーがプロセス全体の動作をどのよ
 </system.web>  
 ```  
   
-## <a name="attributes-and-elements"></a>属性および要素  
+## <a name="attributes-and-elements"></a>属性と要素  
 
-以降のセクションでは、属性、子要素、および親要素について説明します。  
+次のセクションでは、属性、子要素、親要素について説明します。  
   
 ### <a name="attributes"></a>属性  
 
-[なし] :  
+[なし]。  
   
 ### <a name="child-elements"></a>子要素  
   
@@ -50,7 +50,7 @@ ASP.NET ホスティングレイヤーがプロセス全体の動作をどのよ
   
 ## <a name="remarks"></a>コメント  
 
-@No__t-0 要素とその子 `applicationPool` 要素が .NET Framework 3.5 SP1 の .NET Framework に追加されました。 IIS 7.0 以降のバージョンを統合モードで実行すると、この要素の組み合わせによって、ASP.NET がどのようにスレッドを管理し、ASP.NET が IIS アプリケーションプールでホストされている場合の要求をキューに配置するかを構成できます。 IIS 7.0 以降のバージョンをクラシックモードまたは ISAPI モードで実行した場合、これらの設定は無視されます。  
+`system.web` 要素とその子 `applicationPool` 要素が .NET Framework 3.5 SP1 の .NET Framework に追加されました。 IIS 7.0 以降のバージョンを統合モードで実行すると、この要素の組み合わせによって、ASP.NET がどのようにスレッドを管理し、ASP.NET が IIS アプリケーションプールでホストされている場合の要求をキューに配置するかを構成できます。 IIS 7.0 以降のバージョンをクラシックモードまたは ISAPI モードで実行した場合、これらの設定は無視されます。  
   
 ## <a name="example"></a>例  
 
@@ -72,10 +72,10 @@ ASP.NET ホスティングレイヤーがプロセス全体の動作をどのよ
 |||  
 |-|-|  
 |Namespace||  
-|[スキーマ名]||  
+|スキーマ名||  
 |検証ファイル||  
 |空にすることができます||  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [\<applicationPool> 要素 (Web 設定)](applicationpool-element-web-settings.md)

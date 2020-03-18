@@ -14,14 +14,12 @@ helpviewer_keywords:
 - BlessIWbemServicesObject function [.NET WMI and performance counters]
 topic_type:
 - Reference
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 94c6f47e67cf22f189719a8a9f56e830ee90227c
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: f77ff394668a235dd63cf0cddf71ea418a28125b
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70798724"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73141688"
 ---
 # <a name="blessiwbemservicesobject-function"></a>BlessIWbemServicesObject 関数
 ユーザー資格情報が、指定された[IWbemServices](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemservices)オブジェクトへのアクセスを許可するかどうかを示します。 
@@ -50,7 +48,7 @@ HRESULT BlessIWbemServicesObject (
 からユーザー名。
 
 `strPassword`\
-からに`strUser`関連付けられているパスワード。
+から`strUser`に関連付けられているパスワード。
 
 `strAuthority`\
 からユーザーのドメイン名。 詳細については、「 [Connectserverwmi](connectserverwmi.md)関数」を参照してください。
@@ -65,17 +63,17 @@ HRESULT BlessIWbemServicesObject (
 
 この関数によって返される次の値は、 *winerror.h*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
 
-|定数  |Value  |説明  |
+|定数  |[値]  |説明  |
 |---------|---------|---------|
 | `E_INVALIDARG` | 0x80070057 | 1つ以上の引数が無効です。 |
-| `E_POINTER` | 0x80004003 | `pIWbemServices` は `null` です。 | 
+| `E_POINTER` | 0x80004003 | `pIWbemServices` が `null` です。 | 
 | `E_FAIL` | 0x80000008 | 特定できないエラーが発生しました。 |
 | `E_OUTOFMEMORY` | 0x80000002 | 操作を実行するのに十分なメモリがありません。 | 
 | `S_OK` | 0 | 関数の呼び出しに成功しました。 | 
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>［要件］
 
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
  **ヘッダー:** WMINet_Utils
 

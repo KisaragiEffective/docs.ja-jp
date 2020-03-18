@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 55a2f907-d216-42eb-8f2f-e5d59c2eebd6
 topic_type:
 - apiref
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: 563a2e19c9c254870b3e767253a276a201e631a6
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: a9ce9a7a56847efcadf09924ffc56c41f20a1c58
+ms.sourcegitcommit: b11efd71c3d5ce3d9449c8d4345481b9f21392c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67779307"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76865728"
 ---
 # <a name="icorprofilercallback2rootreferences2-method"></a>ICorProfilerCallback2::RootReferences2 メソッド
-ガベージ コレクションが発生した後、ルート参照について、プロファイラーに通知します。 このメソッドは、の拡張機能、 [icorprofilercallback::rootreferences](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-rootreferences-method.md)メソッド。  
+ガベージコレクションが発生した後のルート参照をプロファイラーに通知します。 このメソッドは、 [ICorProfilerCallback:: RootReferences](icorprofilercallback-rootreferences-method.md)メソッドの拡張です。  
   
 ## <a name="syntax"></a>構文  
   
@@ -40,35 +38,35 @@ HRESULT RootReferences2(
   
 ## <a name="parameters"></a>パラメーター  
  `cRootRefs`  
- [in]要素の数、 `rootRefIds`、 `rootKinds`、 `rootFlags`、および`rootIds`配列。  
+ から`rootRefIds`、`rootKinds`、`rootFlags`、および `rootIds` の各配列内の要素の数。  
   
  `rootRefIds`  
- [in]オブジェクト Id は、静的オブジェクトまたはスタック上のオブジェクトのいずれかの参照の配列。 内の要素、`rootKinds`配列に対応する要素を分類する情報を提供する、`rootRefIds`配列。  
+ からオブジェクト Id の配列。それぞれが静的オブジェクトまたはスタック上のオブジェクトを参照します。 `rootKinds` 配列内の要素は、`rootRefIds` 配列内の対応する要素を分類するための情報を提供します。  
   
  `rootKinds`  
- [in]配列の[COR_PRF_GC_ROOT_KIND](../../../../docs/framework/unmanaged-api/profiling/cor-prf-gc-root-kind-enumeration.md)ガベージ コレクションのルートの種類を示す値。  
+ からガベージコレクションのルートの型を示す[COR_PRF_GC_ROOT_KIND](cor-prf-gc-root-kind-enumeration.md)値の配列。  
   
  `rootFlags`  
- [in]配列の[COR_PRF_GC_ROOT_FLAGS](../../../../docs/framework/unmanaged-api/profiling/cor-prf-gc-root-flags-enumeration.md)ガベージ コレクションのルートのプロパティを記述する値。  
+ からガベージコレクションのルートのプロパティを記述する[COR_PRF_GC_ROOT_FLAGS](cor-prf-gc-root-flags-enumeration.md)値の配列。  
   
  `rootIds`  
- [in]UINT_PTR の配列の値の値に応じて、ガベージ コレクションのルートに関する追加情報を格納する整数を指す、`rootKinds`パラメーター。  
+ から`rootKinds` パラメーターの値に応じて、ガベージコレクションのルートに関する追加情報を格納している整数を指す UINT_PTR 値の配列。  
   
- ルートの種類が、スタックの場合は、ルート ID は、変数を含む関数です。 そのルート ID が 0 の場合、関数、CLR の内部にある名前のない機能です。 ルートの種類が識別するハンドルである場合は、ルート ID は、ガベージ コレクション ハンドル用です。 その他のルート型の ID は非透過の値は、され、無視する必要があります。  
+ ルートの型がスタックの場合、ルート ID は変数を含む関数を示します。 そのルート ID が0の場合、関数は CLR の内部にある名前のない関数です。 ルートの型がハンドルの場合、ルート ID はガベージコレクションハンドル用です。 その他のルート型では、ID は不透明な値であるため、無視する必要があります。  
   
-## <a name="remarks"></a>Remarks  
- `rootRefIds`、 `rootKinds`、 `rootFlags`、および`rootIds`配列は並列配列です。 つまり、 `rootRefIds[i]`、 `rootKinds[i]`、 `rootFlags[i]`、および`rootIds[i]`同じルートに関するものすべてです。  
+## <a name="remarks"></a>コメント  
+ `rootRefIds`、`rootKinds`、`rootFlags`、および `rootIds` 配列は並列配列です。 つまり、`rootRefIds[i]`、`rootKinds[i]`、`rootFlags[i]`、および `rootIds[i]` はすべて同じルートに関係しています。  
   
- 両方`RootReferences`と`RootReferences2`をプロファイラーに通知と呼ばれます。 プロファイラーは通常実装方法の 1 つまたは両方ではなく、他の情報が渡されたため、`RootReferences2`渡さのスーパー セット`RootReferences`します。  
+ `RootReferences` と `RootReferences2` の両方が、プロファイラーに通知するために呼び出されます。 通常、プロファイラーは1つのメソッドを実装しますが、両方は実装しません。 `RootReferences2` 渡される情報は `RootReferences`で渡されるのスーパーセットであるためです。  
   
- 内のエントリの可能性が`rootRefIds`を対応するルートの参照が null と、マネージ ヒープ上のオブジェクトを参照していないことを意味する 0 にします。  
+ `rootRefIds` のエントリをゼロにすることができます。これは、対応するルート参照が null で、マネージヒープ上のオブジェクトを参照しないことを意味します。  
   
- によって返されるオブジェクト Id`RootReferences2`コールバック自体の中に無効なため、古いアドレスから新しいアドレスにオブジェクトを移動中にガベージ コレクションがある可能性があります。 このため、`RootReferences2` 呼び出しの間、プロファイラーはオブジェクトを検査するべきではありません。 ときに[icorprofilercallback 2::garbagecollectionfinished](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback2-garbagecollectionfinished-method.md)が呼び出されると、すべてのオブジェクトの新しい場所に移動されているし、安全に検査することができます。  
+ `RootReferences2` によって返されるオブジェクト Id は、コールバック自体では無効です。これは、ガベージコレクションが古いアドレスから新しいアドレスにオブジェクトを移動する途中である可能性があるためです。 このため、`RootReferences2` 呼び出しの間、プロファイラーはオブジェクトを検査するべきではありません。 [ICorProfilerCallback2:: GarbageCollectionFinished](icorprofilercallback2-garbagecollectionfinished-method.md)が呼び出されると、すべてのオブジェクトが新しい場所に移動され、安全に検査できるようになります。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** CorProf.idl、CorProf.h  
+ **ヘッダー** : CorProf.idl、CorProf.h  
   
  **ライブラリ:** CorGuids.lib  
   
@@ -76,5 +74,5 @@ HRESULT RootReferences2(
   
 ## <a name="see-also"></a>関連項目
 
-- [ICorProfilerCallback インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback-interface.md)
-- [ICorProfilerCallback2 インターフェイス](../../../../docs/framework/unmanaged-api/profiling/icorprofilercallback2-interface.md)
+- [ICorProfilerCallback インターフェイス](icorprofilercallback-interface.md)
+- [ICorProfilerCallback2 インターフェイス](icorprofilercallback2-interface.md)

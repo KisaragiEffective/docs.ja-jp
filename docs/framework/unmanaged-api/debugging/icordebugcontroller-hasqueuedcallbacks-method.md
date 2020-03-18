@@ -15,17 +15,15 @@ helpviewer_keywords:
 ms.assetid: 0d6a1cd9-370b-4462-adbf-e3980e897ea7
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 0d17f51867b64780fca9b21c5f48c88db36343af
-ms.sourcegitcommit: 7f616512044ab7795e32806578e8dc0c6a0e038f
+ms.openlocfilehash: c33193bd64030852441c7ca60cee4a000b09156c
+ms.sourcegitcommit: 13e79efdbd589cad6b1de634f5d6b1262b12ab01
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67748783"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76788923"
 ---
 # <a name="icordebugcontrollerhasqueuedcallbacks-method"></a>ICorDebugController::HasQueuedCallbacks メソッド
-任意のマネージ コールバックが、指定されたスレッドの現在キューに登録するかどうかを示す値を取得します。  
+マネージコールバックが、指定されたスレッドに対して現在キューに登録されているかどうかを示す値を取得します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -38,20 +36,20 @@ HRESULT HasQueuedCallbacks (
   
 ## <a name="parameters"></a>パラメーター  
  `pThread`  
- [in]スレッドを表す"ICorDebugThread"オブジェクトへのポインター。  
+ からスレッドを表す "ツールスレッド" オブジェクトへのポインター。  
   
  `pbQueued`  
- [out]ある値へのポインター`true`任意のマネージ コールバックがいると、それ以外の指定したスレッドのキューに置かれた場合は`false`します。  
+ 入出力マネージコールバックが、指定されたスレッドに対して現在キューに格納されている場合に `true` される値へのポインター。それ以外の場合は、`false`ます。  
   
- Null が指定されている場合、`pThread`パラメーター、`HasQueuedCallbacks`戻ります`true`マネージ コールバックのいずれかのスレッド キューに存在している場合。  
+ `pThread` パラメーターに null が指定されている場合、現在マネージコールバックが任意のスレッドに対してキューに置かれている場合、`HasQueuedCallbacks` は `true` を返します。  
   
-## <a name="remarks"></a>Remarks  
- コールバックにディスパッチされる 1 つずつ、毎回なります[icordebugcontroller::continue](../../../../docs/framework/unmanaged-api/debugging/icordebugcontroller-continue-method.md)が呼び出されます。 デバッガーは、同時に発生する複数のデバッグ イベントを報告する必要がある場合、このフラグを確認できます。  
+## <a name="remarks"></a>コメント  
+ コールバックは[、次の](icordebugcontroller-continue-method.md)ように表示されるたびに1つずつディスパッチされます。 デバッガーでは、同時に発生する複数のデバッグイベントを報告する場合に、このフラグをチェックできます。  
   
- デバッグ イベントがキューに置かれたときに、既に発生した、ため、デバッガーがデバッグ対象の状態を必ずキュー全体をドレインする必要があります。 (呼び出し`ICorDebugController::Continue`キューをドレインするまでにします)。たとえば、キューには、スレッドで 2 つのデバッグ イベントが含まれている場合*X*、し、デバッガー スレッドを中断します*X*デバッグの最初のイベントと、呼び出しの後に`ICorDebugController::Continue`、2 つ目のデバッグ イベントをスレッド*X*スレッドが中断されたがディスパッチされます。  
+ デバッグイベントがキューに登録されている場合は、既に発生しているため、デバッガーはキュー全体をドレインして、デバッグ対象の状態を確認する必要があります。 (`ICorDebugController::Continue` を呼び出してキューをドレインします)。たとえば、キューにスレッド*x*の2つのデバッグイベントが含まれており、デバッガーが最初のデバッグイベントの後にスレッド*x*を中断し、`ICorDebugController::Continue`を呼び出すと、スレッドが中断されていても、スレッド*x*の2番目のデバッグイベントがディスパッチされます。  
   
-## <a name="requirements"></a>必要条件  
- **プラットフォーム:** [システム要件](../../../../docs/framework/get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>要件  
+ **:** 「[システム要件](../../../../docs/framework/get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** CorDebug.idl、CorDebug.h  
   

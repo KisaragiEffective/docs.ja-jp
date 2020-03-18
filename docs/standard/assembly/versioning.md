@@ -8,14 +8,12 @@ helpviewer_keywords:
 - resolving assembly binding requests
 - versioning, assemblies
 ms.assetid: 775ad4fb-914f-453c-98ef-ce1089b6f903
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 1363ce758929414f054e3d28dc6cd02bd618a8ac
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: bbb3dae2ce66c93d05a2a1c0f7e426901fa7b2e0
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71053960"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73140181"
 ---
 # <a name="assembly-versioning"></a>アセンブリのバージョン管理
 
@@ -73,7 +71,7 @@ ms.locfileid: "71053960"
   
 補足バージョンは、カスタム属性 <xref:System.Reflection.AssemblyInformationalVersionAttribute?displayProperty=nameWithType> を使って表されます。 補足バージョン属性の詳細については、「[アセンブリ属性の設定](set-attributes.md)」を参照してください。  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ランタイムがアセンブリを検索する方法](../../framework/deployment/how-the-runtime-locates-assemblies.md)
 - [アプリの構成](../../framework/configure-apps/index.md)

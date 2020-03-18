@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/10/2019
 ms.locfileid: "72250180"
 ---
-# <a name="proceduresignature1-is-not-cls-compliant-because-it-overloads-proceduresignature2-which-differs-from-it-only-by-array-of-array-parameter-types-or-by-the-rank-of-the-array-parameter-types"></a>\<proceduresignature1 > は CLS に準拠していません。これは、配列パラメーター型の配列または配列パラメーター型のランクのみが異なる \<proceduresignature2 > をオーバーロードするためです。
+# <a name="proceduresignature1-is-not-cls-compliant-because-it-overloads-proceduresignature2-which-differs-from-it-only-by-array-of-array-parameter-types-or-by-the-rank-of-the-array-parameter-types"></a>\<proceduresignature1> は、配列パラメーター型の配列または配列パラメーター型のランクのみが異なる \<proceduresignature2> をオーバーロードするため、CLS に準拠していません
 
 プロシージャまたはプロパティが別のプロシージャまたはプロパティをオーバーライドするときに `<CLSCompliant(True)>` としてマークされます。パラメーターリスト間の唯一の違いは、ジャグ配列または配列のランクの入れ子レベルです。
   
@@ -26,7 +26,7 @@ ms.locfileid: "72250180"
   
  `Overloads Sub ProcessArray(arrayParam(,) As Integer)`  
   
- 2番目の宣言では、元の1次元パラメーター `arrayParam` を配列の配列に変更します。 3番目の宣言は、-0 @no__t を2次元配列 (ランク 2) に変更します。 Visual Basic では、これらの変更のいずれかによってのみオーバーロードが異なることが許可されますが、このようなオーバーロードは、[言語に依存しないコンポーネント](../../../standard/language-independence-and-language-independent-components.md)(CLS) に準拠していません。  
+ 2 番目の宣言では、元の1次元パラメーター `arrayParam` を配列の配列に変更します。 3番目の宣言は、`arrayParam` を2次元配列(ランク 2)に変更します。 Visual Basic では、これらの変更のいずれかによってのみオーバーロードが異なることが許可されますが、このようなオーバーロードは、[言語への非依存性、および言語非依存コンポーネント](../../../standard/language-independence-and-language-independent-components.md)(CLS)に準拠していません。  
   
  プログラミング要素に <xref:System.CLSCompliantAttribute> を適用する場合は、属性の `isCompliant` パラメーターを `True` または `False` のどちらかに設定して、準拠または非準拠を示します。 このパラメーターには既定値がありません。値を指定する必要があります。  
   

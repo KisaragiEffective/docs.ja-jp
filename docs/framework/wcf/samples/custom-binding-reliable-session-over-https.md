@@ -2,12 +2,12 @@
 title: HTTPS を介したカスタム バインドの信頼できるセッション
 ms.date: 03/30/2017
 ms.assetid: 16aaa80d-3ffe-47c4-8b16-ec65c4d25f8d
-ms.openlocfilehash: d4845a1058f42dab35919eb7bb83b16b45e42ff3
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: b83f7af2cd4d0518454a5147904c21c9ffbbbf21
+ms.sourcegitcommit: 5fb5b6520b06d7f5e6131ec2ad854da302a28f2e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70990028"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74710974"
 ---
 # <a name="custom-binding-reliable-session-over-https"></a>HTTPS を介したカスタム バインドの信頼できるセッション
 このサンプルでは、信頼できるセッションを使用した SSL トランスポート セキュリティを示します。 信頼できるセッションは、WS-ReliableMessaging プロトコルを実装しています。 信頼できるセッションを介して WS-Security を構築することにより、セキュリティで保護された信頼できるセッションを持つことができます。 ただし、SSL による HTTP トランスポート セキュリティの使用を選択できる場合もあります。  
@@ -17,14 +17,14 @@ ms.locfileid: "70990028"
 >   
 > `<InstallDrive>:\WF_WCF_Samples`  
 >   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
 >   
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Binding\Custom\ReliableSessionOverHttps`  
   
 ## <a name="sample-details"></a>サンプルの詳細  
  SSL では、パケット自体のセキュリティが保護されます。 WS-SecureConversation を使用して、信頼できるセッションのセキュリティを保護する場合とは異なることに注意してください。  
   
- HTTPS を介して信頼できるセッションを使用するには、カスタム バインドを作成する必要があります。 このサンプルは、電卓サービスを実装する[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいています。 カスタムバインドは、信頼できるセッションのバインド要素と[ \<httpsTransport >](../../../../docs/framework/configure-apps/file-schema/wcf/httpstransport.md)を使用して作成されます。 カスタム バインドの構成を次に示します。  
+ HTTPS を介して信頼できるセッションを使用するには、カスタム バインドを作成する必要があります。 このサンプルは、電卓サービスを実装する[はじめに](../../../../docs/framework/wcf/samples/getting-started-sample.md)に基づいています。 カスタムバインドは、信頼できるセッションのバインド要素と[\<httpsTransport >](../../../../docs/framework/configure-apps/file-schema/wcf/httpstransport.md)を使用して作成されます。 カスタム バインドの構成を次に示します。  
   
 ```xml  
 <?xml version="1.0" encoding="utf-8" ?>  
@@ -102,7 +102,7 @@ ms.locfileid: "70990028"
   
  アドレス指定では https:// スキームを使用しています。  
   
- このサンプルで使用される証明書は、Makecert で作成されたテスト証明書であるため、ブラウザーからなどの https: アドレス https://localhost/servicemodelsamples/service.svc にアクセスしようとすると、セキュリティの警告が表示されます。 Windows Communication Foundation (WCF) クライアントが適切なテスト証明書を使用できるようにするために、セキュリティの警告を抑制するために、いくつかの追加のコードがクライアントに追加されました。 そのためのコードとそれに必要なクラスは、本運用の証明書を使用するときには不要です。  
+ このサンプルで使用される証明書は、Makecert で作成されたテスト証明書であるため、ブラウザーから https: アドレス (https://localhost/servicemodelsamples/service.svc など) にアクセスしようとすると、セキュリティの警告が表示されます。 Windows Communication Foundation (WCF) クライアントが適切なテスト証明書を使用できるようにするために、セキュリティの警告を抑制するために、いくつかの追加のコードがクライアントに追加されました。 そのためのコードとそれに必要なクラスは、本運用の証明書を使用するときには不要です。  
 
 ```csharp
 // This code is required only for test certificates like those created by Makecert.exe.  

@@ -1,17 +1,17 @@
 ---
-title: HelpProvider コンポーネント (Windows フォーム)
+title: HelpProvider コンポーネント
 ms.date: 03/30/2017
 helpviewer_keywords:
 - forms [Windows Forms], Help
 - Help [Windows Forms], displaying on Windows Forms
 - HelpProvider component [Windows Forms]
 ms.assetid: a09a6e0b-79d8-457f-bb36-86fad2beeada
-ms.openlocfilehash: b5da5895b39412052f83cb0a89c3852d28f264bb
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 058a90a6d868d051e36523ae93bb1f3f810fc3b2
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62011308"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76745596"
 ---
 # <a name="helpprovider-component-windows-forms"></a>HelpProvider コンポーネント (Windows フォーム)
 Windows フォーム `HelpProvider` コンポーネントは、Windows ベースのアプリケーションで HTML ヘルプ 1.x のヘルプ ファイル (HTML Help Workshop で生成された .chm ファイル、または .htm ファイル) を関連付けるために使用します。  
@@ -20,9 +20,9 @@ Windows フォーム `HelpProvider` コンポーネントは、Windows ベース
  [HelpProvider コンポーネントの概要](helpprovider-component-overview-windows-forms.md)  
  HTML ヘルプ ファイルを Windows ベースのアプリケーションに関連付けることができる、`HelpProvider` コンポーネントの一般的な概念について説明します。  
   
- 参照してください[のヘルプ システムを Windows フォーム アプリケーションで](../advanced/help-systems-in-windows-forms-applications.md)します。  
+ 「 [Windows フォームアプリケーションのヘルプシステム」を](../advanced/help-systems-in-windows-forms-applications.md)参照してください。  
   
-## <a name="reference"></a>参照  
+## <a name="reference"></a>リファレンス  
  <xref:System.Windows.Forms.HelpProvider>  
  このクラスについて説明し、すべてのメンバーへのリンクの一覧を示します。  
   
@@ -33,4 +33,4 @@ Windows フォーム `HelpProvider` コンポーネントは、Windows ベース
  [Windows フォームで使用するコントロール](controls-to-use-on-windows-forms.md)  
  Windows フォーム コントロールの完全な一覧を、使用に関する情報リンクと共に提供します。  
   
- 参照してください[Windows フォーム アプリケーションのヘルプ システム](../advanced/help-systems-in-windows-forms-applications.md)します。
+ 「 [Windows フォームアプリケーションのヘルプシステム](../advanced/help-systems-in-windows-forms-applications.md)」も参照してください。

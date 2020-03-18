@@ -1,15 +1,15 @@
 ---
-title: サンプル XML ファイル:名前空間内のテスト構成
+title: 'サンプル XML ファイル : 名前空間内のテスト構成'
 ms.date: 07/20/2015
 ms.assetid: e75ad1bc-5636-4623-9a34-a286a8c485d6
-ms.openlocfilehash: 9c444bb3870ac358c2fba187c82cdc5ce5b7a3bd
-ms.sourcegitcommit: 9ee6cd851b6e176a5811ea28ed0d5935c71950f9
+ms.openlocfilehash: ed25a8608977070e0db5f4cdee8a44a3c347cc8e
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68868736"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79168003"
 ---
-# <a name="sample-xml-file-test-configuration-in-a-namespace"></a>サンプル XML ファイル:名前空間内のテスト構成
+# <a name="sample-xml-file-test-configuration-in-a-namespace"></a>サンプル XML ファイル : 名前空間内のテスト構成
 次の XML ファイルは、[!INCLUDE[sqltecxlinq](~/includes/sqltecxlinq-md.md)] ドキュメントのさまざまな例で使用されます。 これはテスト構成ファイルです。 XML は名前空間に含まれています。  
   
 ## <a name="testconfiginnamespacexml"></a>TestConfigInNamespace.xml  
@@ -55,4 +55,3 @@ ms.locfileid: "68868736"
   </Test>  
 </Tests>  
 ```  
- 

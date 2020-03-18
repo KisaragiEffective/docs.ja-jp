@@ -5,14 +5,12 @@ helpviewer_keywords:
 - .NET Framework, dynamic programming
 - dynamic programming [.NET Framework]
 ms.assetid: f78ec137-df0e-48c9-a7a0-5f6a1055f011
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: d34c52294ab662f757de9efb52ba18cc96423af6
-ms.sourcegitcommit: 289e06e904b72f34ac717dbcc5074239b977e707
+ms.openlocfilehash: 687f077cb609a2185fcb044c33bce5c636522381
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71045968"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "73130094"
 ---
 # <a name="dynamic-programming-in-the-net-framework"></a>.NET Framework の動的プログラミング
 このセクションでは、.NET Framework での動的プログラミングについて説明します。  

@@ -1,20 +1,20 @@
 ---
-title: '方法: オブジェクトのメンバーにアクセスする (Visual Basic)'
+title: '方法 : オブジェクトのメンバーにアクセスする'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - members [Visual Basic], accessing
 - object variables [Visual Basic], accessing members
 ms.assetid: a0072514-6a79-4dd6-8d03-ca8c13e61ddc
-ms.openlocfilehash: 882046b829ade2da7c10b3db4c0d6c9ca9f3d579
-ms.sourcegitcommit: f20dd18dbcf2275513281f5d9ad7ece6a62644b4
+ms.openlocfilehash: d44b538e8413eb1412e937375e9bca77600a29b7
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68630835"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74348666"
 ---
 # <a name="how-to-access-members-of-an-object-visual-basic"></a>方法: オブジェクトのメンバーにアクセスする (Visual Basic)
 
-オブジェクトを参照するオブジェクト変数がある場合は、そのオブジェクトのメソッド、プロパティ、フィールド、イベントなどのメンバーを使用することがよくあります。 たとえば、新しい<xref:System.Windows.Forms.Form>オブジェクトを作成した後で、その<xref:System.Windows.Forms.Control.Text%2A>オブジェクトのプロパティを設定したり、 <xref:System.Windows.Forms.Control.Focus%2A>メソッドを呼び出したりすることができます。
+オブジェクトを参照するオブジェクト変数がある場合は、そのオブジェクトのメソッド、プロパティ、フィールド、イベントなどのメンバーを使用することがよくあります。 たとえば、新しい <xref:System.Windows.Forms.Form> オブジェクトを作成したら、そのオブジェクトの <xref:System.Windows.Forms.Control.Text%2A> プロパティを設定するか、その <xref:System.Windows.Forms.Control.Focus%2A> メソッドを呼び出すことができます。
 
 ## <a name="accessing-members"></a>メンバーへのアクセス
 
@@ -22,7 +22,7 @@ ms.locfileid: "68630835"
 
 #### <a name="to-access-members-of-an-object"></a>オブジェクトのメンバーにアクセスするには
 
-- オブジェクト変数名とメンバー名の`.`間には、メンバーアクセス演算子 () を使用します。
+- オブジェクト変数名とメンバー名の間には、メンバーアクセス演算子 (`.`) を使用します。
 
     ```vb
     currentText = newForm.Text
@@ -42,15 +42,15 @@ ms.locfileid: "68630835"
     Dim extraForm As System.Windows.Forms.Form
     ```
 
-    で`Option Strict On`は、オブジェクト (また<xref:System.Windows.Forms.Form>はから<xref:System.Windows.Forms.Form>派生した型のオブジェクト) のみを`extraForm`に割り当てることができます。 へ`CType` `extraForm`の拡大変換でクラスまたは構造体を定義している場合は、そのクラスまたは構造体をに割り当てることもできます。 <xref:System.Windows.Forms.Form>
+    `Option Strict On`では、<xref:System.Windows.Forms.Form> オブジェクト (または <xref:System.Windows.Forms.Form>から派生した型のオブジェクト) のみを `extraForm`に割り当てることができます。 <xref:System.Windows.Forms.Form>への拡大 `CType` 変換を使用してクラスまたは構造体を定義した場合は、そのクラスまたは構造体を `extraForm`に割り当てることもできます。
 
-2. オブジェクト変数名とメンバー名の`.`間には、メンバーアクセス演算子 () を使用します。
+2. オブジェクト変数名とメンバー名の間には、メンバーアクセス演算子 (`.`) を使用します。
 
     ```vb
     extraForm.Show()
     ```
 
-    設定`Option Strict`がどのようなものであっても、 <xref:System.Windows.Forms.Form>クラスに固有のすべてのメソッドとプロパティにアクセスできます。
+    `Option Strict` の設定に関係なく、<xref:System.Windows.Forms.Form> クラスに固有のすべてのメソッドとプロパティにアクセスできます。
 
 ## <a name="accessing-members-of-an-object-of-unknown-type"></a>不明な型のオブジェクトのメンバーへのアクセス
 
@@ -58,28 +58,28 @@ ms.locfileid: "68630835"
 
 #### <a name="to-access-members-of-an-object-for-which-you-do-not-know-the-type-at-compile-time"></a>コンパイル時に型がわからないオブジェクトのメンバーにアクセスするには
 
-1. オブジェクトの[データ型](../../../../visual-basic/language-reference/data-types/object-data-type.md)であるオブジェクト変数を宣言します。 (変数をと`Object`して宣言することは、と<xref:System.Object?displayProperty=nameWithType>して宣言するのと同じです)。
+1. [Object データ型](../../../../visual-basic/language-reference/data-types/object-data-type.md)であるオブジェクト変数を宣言します。 (変数を `Object` として宣言することは <xref:System.Object?displayProperty=nameWithType>として宣言することと同じです)。
 
     ```vb
     Dim someControl As Object
     ```
 
-    で`Option Strict On`は、 <xref:System.Object>クラスで定義されているメンバーのみにアクセスできます。
+    `Option Strict On`では、<xref:System.Object> クラスで定義されているメンバーのみにアクセスできます。
 
-2. オブジェクト変数名とメンバー名の`.`間には、メンバーアクセス演算子 () を使用します。
+2. オブジェクト変数名とメンバー名の間には、メンバーアクセス演算子 (`.`) を使用します。
 
     ```vb
     someControl.GetType()
     ```
 
-    オブジェクト変数に割り当てるオブジェクトのメンバーにアクセスできるようにするには、を設定`Option Strict Off`する必要があります。 この場合、コンパイラは、変数に割り当てたオブジェクトによって、特定のメンバーが公開されることを保証できません。 アクセスしようとしたメンバーがオブジェクトによって公開され<xref:System.MemberAccessException>ていない場合は、例外が発生します。
+    オブジェクト変数に割り当てるオブジェクトのメンバーにアクセスできるようにするには、`Option Strict Off`を設定する必要があります。 この場合、コンパイラは、変数に割り当てたオブジェクトによって、特定のメンバーが公開されることを保証できません。 アクセスしようとしたメンバーがオブジェクトによって公開されていない場合、<xref:System.MemberAccessException> 例外が発生します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Object>
 - <xref:System.Windows.Forms.Form>
 - <xref:System.MemberAccessException>
 - [オブジェクト変数](../../../../visual-basic/programming-guide/language-features/variables/object-variables.md)
 - [オブジェクト変数の宣言](../../../../visual-basic/programming-guide/language-features/variables/object-variable-declaration.md)
-- [Object 型](../../../../visual-basic/language-reference/data-types/object-data-type.md)
+- [Object データ型](../../../../visual-basic/language-reference/data-types/object-data-type.md)
 - [Option Strict ステートメント](../../../../visual-basic/language-reference/statements/option-strict-statement.md)

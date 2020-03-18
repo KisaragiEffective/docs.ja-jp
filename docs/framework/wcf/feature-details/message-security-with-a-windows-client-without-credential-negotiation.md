@@ -5,12 +5,12 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: fc07a26c-cbee-41c5-8fb0-329085fef749
-ms.openlocfilehash: 724e7792e09bea23d95d32f86c2241de473d3876
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: d3b05a1786131a119d516edeba0d6e8e24289f87
+ms.sourcegitcommit: 09b4090b78f52fd09b0e430cd4b26576f1fdf96e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70045868"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76212025"
 ---
 # <a name="message-security-with-a-windows-client-without-credential-negotiation"></a>資格情報ネゴシエーションを使用しない Windows クライアントを使用するメッセージ セキュリティ
 
@@ -25,18 +25,18 @@ ms.locfileid: "70045868"
 
 |特徴|説明|
 |--------------------|-----------------|
-|セキュリティ モード|メッセージ|
+|セキュリティ モード|[メッセージ]|
 |相互運用性|○ Kerberos トークン プロファイル互換クライアントを使用する WS-Security|
 |認証 (サーバー)|サーバーとクライアントの相互認証|
 |認証 (クライアント)|サーバーとクライアントの相互認証|
-|整合性|はい|
-|機密性|はい|
+|整合性|○|
+|機密性|○|
 |Transport|HTTP|
 |バインディング|<xref:System.ServiceModel.WSHttpBinding>|
 
 ## <a name="service"></a>サービス
 
-次のコードと構成は、別々に実行します。 次のいずれかの操作を行います。
+次のコードと構成は、別々に実行します。 以下のいずれかを実行します。
 
 - 構成を使用せずに、コードを使用してスタンドアロン サービスを作成します。
 
@@ -47,18 +47,18 @@ ms.locfileid: "70045868"
 次のコードは、メッセージ セキュリティを使用するサービス エンドポイントを作成します。 このコードは、サービス資格情報のネゴシエーションとセキュリティ コンテキスト トークン (SCT) の確立を無効にします。
 
 > [!NOTE]
-> ネゴシエートせずに Windows の資格情報を使用するには、サービスのユーザー アカウントが、Active Directory ドメインを使用して登録されたサービス プリンシパル名 (SPN) にアクセスする必要があります。 これは次の 2 つの方法で実行できます。
+> ネゴシエートせずに Windows の資格情報を使用するには、サービスのユーザー アカウントが、Active Directory ドメインを使用して登録されたサービス プリンシパル名 (SPN) にアクセスする必要があります。 この操作を行う方法は 2 とおりあります。
 
 1. `NetworkService` アカウントまたは `LocalSystem` アカウントを使用してサービスを実行します。 これらのアカウントは、コンピューターが Active Directory ドメインに参加したときに確立されたコンピューターの SPN にアクセスできるため、WCF はサービスのメタデータ内のサービスのエンドポイント内に適切な SPN 要素を自動的に生成します (Web サービスの説明言語 (WSDL))。
 
 2. 任意の Active Directory ドメイン アカウントを使用してサービスを実行します。 この場合、そのドメイン アカウント用の SPN を確立する必要があります。 これを行うには、Setspn.exe ユーティリティ ツールを使用する方法があります。 サービスのアカウントの SPN を作成したら、その SPN をメタデータ (WSDL) を通じてサービスのクライアントに発行するように WCF を構成します。 これを行うには、アプリケーション構成ファイルまたはコードのどちらかを使用して、公開されるエンドポイントのエンドポイント ID を設定します。 プログラムで ID を公開する方法を次の例に示します。
 
-Spn、Kerberos プロトコル、および Active Directory の詳細については、「 [Windows 用の Kerberos テクニカル補完](https://go.microsoft.com/fwlink/?LinkId=88330)」を参照してください。 エンドポイント id の詳細については、「[認証モードの認証](../../../../docs/framework/wcf/feature-details/securitybindingelement-authentication-modes.md)」を参照してください。
+Spn、Kerberos プロトコル、および Active Directory の詳細については、「 [Windows 用の Kerberos テクニカル補完](https://docs.microsoft.com/previous-versions/msp-n-p/ff649429(v=pandp.10))」を参照してください。 エンドポイント id の詳細については、「[認証モードの認証](../../../../docs/framework/wcf/feature-details/securitybindingelement-authentication-modes.md)」を参照してください。
 
 [!code-csharp[C_SecurityScenarios#12](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_securityscenarios/cs/source.cs#12)]
 [!code-vb[C_SecurityScenarios#12](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_securityscenarios/vb/source.vb#12)]
 
-### <a name="configuration"></a>構成
+### <a name="configuration"></a>の構成
 
 コードの代わりに次の構成を使用できます。
 
@@ -96,13 +96,13 @@ Spn、Kerberos プロトコル、および Active Directory の詳細につい�
 </configuration>
 ```
 
-## <a name="client"></a>Client
+## <a name="client"></a>クライアント
 
-次のコードと構成は、別々に実行します。 次のいずれかの操作を行います。
+次のコードと構成は、別々に実行します。 以下のいずれかを実行します。
 
 - コード (およびクライアント コード) を使用してスタンドアロン クライアントを作成します。
 
-- エンドポイント アドレスを定義しないクライアントを作成します。 代わりに、引数として構成名を受け取るクライアント コンストラクターを使用します。 次に例を示します。
+- エンドポイント アドレスを定義しないクライアントを作成します。 代わりに、引数として構成名を受け取るクライアント コンストラクターを使用します。 例:
 
   [!code-csharp[C_SecurityScenarios#0](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_securityscenarios/cs/source.cs#0)]
   [!code-vb[C_SecurityScenarios#0](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_securityscenarios/vb/source.vb#0)]
@@ -114,14 +114,14 @@ Spn、Kerberos プロトコル、および Active Directory の詳細につい�
 > [!NOTE]
 > ネゴシエートせずに Windows の資格情報を使用するには、サービスとの通信を開始する前に、サービスのアカウントの SPN を使用してクライアントを構成する必要があります。 クライアントは SPN を使用して Kerberos トークンを取得し、サービスとの通信を認証し保護します。 サービスの SPN を使用してクライアントを構成する方法を次の例に示します。 [ServiceModel メタデータユーティリティツール (svcutil.exe)](../../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md)を使用してクライアントを生成する場合、サービスのメタデータにその情報が含まれていれば、サービスの SPN は、サービスのメタデータ (WSDL) からクライアントに自動的に伝達されます。 サービスのメタデータに SPN を含めるようにサービスを構成する方法の詳細については、このトピックで後述する「サービス」セクションを参照してください。
 >
-> Spn、Kerberos、および Active Directory の詳細については、「 [Windows 用の Kerberos テクニカル補完](https://go.microsoft.com/fwlink/?LinkId=88330)」を参照してください。 エンドポイント id の詳細については、「[認証モードの認証](../../../../docs/framework/wcf/feature-details/securitybindingelement-authentication-modes.md)」を参照してください。
+> Spn、Kerberos、および Active Directory の詳細については、「 [Windows 用の Kerberos テクニカル補完](https://docs.microsoft.com/previous-versions/msp-n-p/ff649429(v=pandp.10))」を参照してください。 エンドポイント id の詳細については、「[認証モードの認証](../../../../docs/framework/wcf/feature-details/securitybindingelement-authentication-modes.md)」を参照してください。
 
 [!code-csharp[C_SecurityScenarios#19](../../../../samples/snippets/csharp/VS_Snippets_CFX/c_securityscenarios/cs/source.cs#19)]
 [!code-vb[C_SecurityScenarios#19](../../../../samples/snippets/visualbasic/VS_Snippets_CFX/c_securityscenarios/vb/source.vb#19)]
 
-### <a name="configuration"></a>構成
+### <a name="configuration"></a>の構成
 
-クライアントを構成する場合のコード例を次に示します。 [ \<ServicePrincipalName >](../../../../docs/framework/configure-apps/file-schema/wcf/serviceprincipalname.md)要素は、Active Directory ドメインのサービスアカウントに登録されているサービスの SPN と一致するように設定する必要があります。
+クライアントを構成する場合のコード例を次に示します。 [\<servicePrincipalName >](../../../../docs/framework/configure-apps/file-schema/wcf/serviceprincipalname.md)要素は、Active Directory ドメイン内のサービスのアカウントに登録されているサービスの SPN と一致するように設定する必要があります。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -157,4 +157,4 @@ Spn、Kerberos プロトコル、および Active Directory の詳細につい�
 
 - [セキュリティの概要](../../../../docs/framework/wcf/feature-details/security-overview.md)
 - [サービス ID と認証](../../../../docs/framework/wcf/feature-details/service-identity-and-authentication.md)
-- [Windows Server App Fabric のセキュリティモデル](https://go.microsoft.com/fwlink/?LinkID=201279&clcid=0x409)
+- [Windows Server App Fabric のセキュリティモデル](https://docs.microsoft.com/previous-versions/appfabric/ee677202(v=azure.10))

@@ -1,6 +1,5 @@
 ---
 title: extern 修飾子 - C# リファレンス
-ms.custom: seodec18
 ms.date: 07/20/2015
 f1_keywords:
 - extern_CSharpKeyword
@@ -9,12 +8,12 @@ helpviewer_keywords:
 - DllImport attribute
 - extern keyword [C#]
 ms.assetid: 9c3f02c4-51b8-4d80-9cb2-f2b6e1ae15c7
-ms.openlocfilehash: 387ef707166705c4df501bd6740d438683aa2d69
-ms.sourcegitcommit: 2d792961ed48f235cf413d6031576373c3050918
+ms.openlocfilehash: c121d810e64b5fa27f105f814253c0752e028a95
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2019
-ms.locfileid: "70203017"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "75713538"
 ---
 # <a name="extern-c-reference"></a>extern (C# リファレンス)
 
@@ -52,7 +51,7 @@ extern キーワードの C# での用法は、C++ の場合よりも制限さ�
     }
     ```
 
-2. Visual Studio のインストール ディレクトリから Visual Studio x64 (または x32) Native Tools コマンド プロンプト ウィンドウを開き、コマンド プロンプトで「**cl -LD cmdll.c**」と入力して、`cmdll.c` ファイルをコンパイルします。
+2. Visual Studio のインストール ディレクトリから Visual Studio x64 (または x32) Native Tools コマンド プロンプト ウィンドウを開き、コマンド プロンプトで「`cmdll.c`cl -LD cmdll.c **」と入力して、** ファイルをコンパイルします。
 
 3. 同じディレクトリに、次の C# ファイルを作成し、`cm.cs` という名前を付けます。
 
@@ -88,10 +87,10 @@ extern キーワードの C# での用法は、C++ の場合よりも制限さ�
 
 [!INCLUDE[CSharplangspec](~/includes/csharplangspec-md.md)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Runtime.InteropServices.DllImportAttribute?displayProperty=nameWithType>
 - [C# リファレンス](../index.md)
-- [C# プログラミング ガイド](../../programming-guide/index.md)
+- [C# プログラミングガイド](../../programming-guide/index.md)
 - [C# のキーワード](index.md)
-- [修飾子](modifiers.md)
+- [修飾子](index.md)

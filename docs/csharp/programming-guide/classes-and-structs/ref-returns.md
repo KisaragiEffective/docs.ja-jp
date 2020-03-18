@@ -1,15 +1,13 @@
 ---
 title: ref 戻り値と ref ローカル変数 (C# ガイド)
 description: ref 戻り値と ref ローカル変数を定義して使用する方法について説明します。
-author: rpetrusha
-ms.author: ronpet
 ms.date: 04/04/2018
-ms.openlocfilehash: e23007deffea0f542d623be918cd1c61496d1362
-ms.sourcegitcommit: da2dd2772fcf32b44eb18b1cbe8affd17b1753c9
+ms.openlocfilehash: 87a9538db60d69062f0fb48ed9683a9d4f972b91
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71353886"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79170074"
 ---
 # <a name="ref-returns-and-ref-locals"></a>ref 戻り値と ref ローカル変数
 
@@ -27,7 +25,7 @@ C# 7.0 以降の C# は参照戻り値 (ref 戻り値) に対応しています�
 
 - 戻り値はリテラル `null` にすることができません。 `null` を返すと、コンパイラ エラー CS8156 "参照渡しで返すことができないため、このコンテキストで使用できない式があります" が生成されます。
 
-   ref 戻り値があるメソッドは、現在の値が null (インスタンス化されていない) 値か、値の型が [null 許容値型](../nullable-types/index.md)の変数にエイリアスを返すことができます。
+   ref 戻り値があるメソッドは、現在の値が null (インスタンス化されていない) 値か、値の型が [null 許容値型](../../language-reference/builtin-types/nullable-value-types.md)の変数にエイリアスを返すことができます。
 
 - 戻り値は、定数、列挙型のメンバー、プロパティの値渡し戻り値、`class` または `struct` のメソッドにすることができません。 この規則に違反すると、コンパイラ エラー CS8156 "参照渡しで返すことができないため、このコンテキストで使用できない式があります" が生成されます。
 
@@ -40,7 +38,7 @@ C# 7.0 以降の C# は参照戻り値 (ref 戻り値) に対応しています�
 - メソッドのシグネチャで、戻り値の型の前にキーワード [ref](../../language-reference/keywords/ref.md) が含まれること。
 - メソッド本体の各 [return](../../language-reference/keywords/return.md) ステートメントで、返されるインスタンスの名前の前に [ref](../../language-reference/keywords/ref.md) キーワードが含まれること。
 
-これらの条件を満たし、`p` という名前の `Person` オブジェクトへの参照を返すメソッドを、次の例に示します。
+これらの条件を満たし、`Person` という名前の `p` オブジェクトへの参照を返すメソッドを、次の例に示します。
 
 ```csharp
 public ref Person GetContactInformation(string fname, string lname)
@@ -84,7 +82,7 @@ ref Person p = ref contacts.GetContactInformation("Brandie", "Best");
 
 この後 `p` を使用することは、`GetContactInformation` によって返された変数を使用することと同じです。`p` はその変数のエイリアスであるためです。 `p` を変更すると、`GetContactInformation` から返される変数も変更されます。
 
-`ref` キーワードは、ローカル変数宣言の前 "*および*" メソッド呼び出しの前の両方で使用します。 
+`ref` キーワードは、ローカル変数宣言の前 "*および*" メソッド呼び出しの前の両方で使用します。
 
 同じ方法で、参照渡しの値にアクセスできます。 場合によっては、参照渡しの値へのアクセスによって負荷がかかる可能性があるコピー操作が回避され、パフォーマンスが向上します。 たとえば、次のステートメントは、値の参照に使用される ref ローカル値をどのように定義できるかを示しています。
 
@@ -92,7 +90,7 @@ ref Person p = ref contacts.GetContactInformation("Brandie", "Best");
 ref VeryLargeStruct reflocal = ref veryLargeStruct;
 ```
 
-`ref` キーワードは、ローカル変数宣言の前 "*および*" 2 番目の例の値の前で使用します。 両方の例の、変数宣言と代入の両方の `ref` キーワードを含めないと、コンパイラ エラー CS8172 "値を使用して参照渡し変数を初期化することはできません" が生成されます。 
+`ref` キーワードは、ローカル変数宣言の前 "*および*" 2 番目の例の値の前で使用します。 両方の例の、変数宣言と代入の両方の `ref` キーワードを含めないと、コンパイラ エラー CS8172 "値を使用して参照渡し変数を初期化することはできません" が生成されます。
 
 C# 7.3 より前は、初期化後に別の記憶域を参照するように ref ローカル変数を割り当て直すことはできませんでした。 この制限はなくなりました。 再割り当ての例を次に示します。
 
@@ -105,7 +103,7 @@ refLocal = ref anotherVeryLargeStruct; // reassigned, refLocal refers to differe
 
 ## <a name="ref-returns-and-ref-locals-an-example"></a>ref 戻り値と ref ローカル変数: 使用例
 
-次の例では、整数値の配列を格納する `NumberStore` クラスを定義しています。 `FindNumber` メソッドは、引数として渡された数値に等しいかそれより大きい最初の数値を参照渡しで返します。 引数に等しいかそれより大きい数値がない場合、メソッドはインデックス 0 の数値を返します。 
+次の例では、整数値の配列を格納する `NumberStore` クラスを定義しています。 `FindNumber` メソッドは、引数として渡された数値に等しいかそれより大きい最初の数値を参照渡しで返します。 引数に等しいかそれより大きい数値がない場合、メソッドはインデックス 0 の数値を返します。
 
 [!code-csharp[ref-returns](../../../../samples/snippets/csharp/programming-guide/ref-returns/NumberStore.cs#1)]
 
@@ -121,7 +119,7 @@ refLocal = ref anotherVeryLargeStruct; // reassigned, refLocal refers to differe
 
 この 2 番目のバージョンは、シークされる値が配列の末尾近くにあるようなシナリオのシーケンスが長い場合に、より効率的です。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [ref キーワード](../../language-reference/keywords/ref.md)
 - [安全で効率的なコードを記述する](../../write-safe-efficient-code.md)

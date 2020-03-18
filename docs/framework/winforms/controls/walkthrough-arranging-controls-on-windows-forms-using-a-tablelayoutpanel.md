@@ -1,17 +1,17 @@
 ---
-title: 'チュートリアル : TableLayoutPanel を使用した Windows フォーム上のコントロールの配置'
+title: TableLayoutPanel を使用したコントロールの配置
 ms.date: 03/30/2017
 helpviewer_keywords:
 - controls [Windows Forms], arranging with TableLayoutPanel
 - TableLayoutPanel control [Windows Forms], walkthroughs
 - Windows Forms controls, arranging
 ms.assetid: d474885e-12cc-4ab7-b997-2a23a643049b
-ms.openlocfilehash: 7b7380690d8668f46b98272e1d42640f23679b19
-ms.sourcegitcommit: 9bd1c09128e012b6e34bdcbdf3576379f58f3137
+ms.openlocfilehash: 803a56f6416cf3b718890e96cf9f36ae6c4ee471
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799117"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76740324"
 ---
 # <a name="walkthrough-arranging-controls-on-windows-forms-using-a-tablelayoutpanel"></a>チュートリアル : TableLayoutPanel を使用した Windows フォーム上のコントロールの配置
 
@@ -175,9 +175,9 @@ ms.locfileid: "72799117"
 
 - 占有されているセルから <xref:System.Windows.Forms.Button> コントロールの1つをドラッグし、別の占有セルにドロップします。 2つのコントロールが1つのセルから別のセルに移動されることに注意してください。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
-レイアウト パネルとコントロールを組み合わせて使用すると、複雑なレイアウトを作成できます。 さらに詳しく調べるための推奨事項を次に示します。
+レイアウト パネルとコントロールを組み合わせて使用すると、複雑なレイアウトを作成できます。 さらに理解を深めるには、次の操作を行うことをお勧めします。
 
 - <xref:System.Windows.Forms.Button> コントロールのいずれかを大きなサイズに変更してみて、レイアウトへの影響を確認してください。
 
@@ -187,7 +187,7 @@ ms.locfileid: "72799117"
 
 - <xref:System.Windows.Forms.TableLayoutPanel> コントロールを親フォームにドッキングします。 フォームのサイズを変更し、レイアウトの変化を確認します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - <xref:System.Windows.Forms.FlowLayoutPanel>
 - <xref:System.Windows.Forms.TableLayoutPanel>

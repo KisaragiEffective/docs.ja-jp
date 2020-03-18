@@ -2,18 +2,18 @@
 title: メッセージ キュー (MSMQ) のインストール
 ms.date: 03/30/2017
 ms.assetid: 7ddcd497-3e04-427e-bc04-3610ad98b01e
-ms.openlocfilehash: 118143f2d434e9f4399c3e9141743fc0254b61ab
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 8ecbd07adfb6bfb4e9898f9b8508809480d17e16
+ms.sourcegitcommit: cdf5084648bf5e77970cbfeaa23f1cab3e6e234e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70039625"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76921099"
 ---
 # <a name="installing-message-queuing-msmq"></a>メッセージ キュー (MSMQ) のインストール
 メッセージ キュー 4.0 およびメッセージ キュー 3.0 をインストールする方法を次の手順に示します。  
   
 > [!NOTE]
-> メッセージ キュー 4.0 は、[!INCLUDE[wxp](../../../../includes/wxp-md.md)] および [!INCLUDE[ws2003](../../../../includes/ws2003-md.md)] では使用できません。  
+> Windows XP および Windows Server 2003 では、メッセージキュー4.0 は使用できません。  
   
 #### <a name="to-install-message-queuing-40-on-windows-server-2008-or-windows-server-2008-r2"></a>Windows Server 2008 または Windows Server 2008 R2 にメッセージ キュー 4.0 をインストールするには  
   
@@ -54,7 +54,7 @@ ms.locfileid: "70039625"
 3. メッセージキュー を選択し、**詳細** をクリックします。  
   
     > [!NOTE]
-    > [!INCLUDE[ws2003](../../../../includes/ws2003-md.md)] を実行している場合は、メッセージ キューにアクセスするアプリケーション サーバーを選択します。  
+    > Windows Server 2003 を実行している場合は、[アプリケーションサーバー] を選択してメッセージキューにアクセスします。  
   
 4. 詳細ページで、[MSMQ HTTP サポート] オプションが選択されていることを確認します。  
   

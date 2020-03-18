@@ -14,14 +14,12 @@ helpviewer_keywords:
 ms.assetid: 66df494d-1a2f-4441-8ee6-cfed0217b4e6
 topic_type:
 - apiref
-author: rpetrusha
-ms.author: ronpet
-ms.openlocfilehash: 5187c20aaa4bd37401db3990e0f8a96a61e75418
-ms.sourcegitcommit: d2e1dfa7ef2d4e9ffae3d431cf6a4ffd9c8d378f
+ms.openlocfilehash: 016ded7b1393d6e03faa029ab5be661bf4ff4efd
+ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70796378"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73131666"
 ---
 # <a name="iinstallreferenceitem-interface"></a>IInstallReferenceItem インターフェイス
 グローバルアセンブリキャッシュにインストールされている項目を表します。  
@@ -30,10 +28,10 @@ ms.locfileid: "70796378"
   
 |メソッド|説明|  
 |------------|-----------------|  
-|[GetReference メソッド](iinstallreferenceitem-getreference-method.md)|`FUSION_INSTALL_REFERENCE` この`IInstallReferenceItem`によって表される構造体へのポインターを取得します。|  
+|[GetReference メソッド](iinstallreferenceitem-getreference-method.md)|この `IInstallReferenceItem`によって表される `FUSION_INSTALL_REFERENCE` 構造体へのポインターを取得します。|  
   
-## <a name="requirements"></a>必要条件  
- **・** [システム要件](../../get-started/system-requirements.md)に関するページを参照してください。  
+## <a name="requirements"></a>［要件］  
+ **:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
  **ヘッダー:** Fusion. h  
   

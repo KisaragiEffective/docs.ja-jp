@@ -1,14 +1,13 @@
 ---
 title: 'チュートリアル: macOS での Visual Studio Code を使用した .NET Core ソリューションの作成'
 description: このドキュメントでは、Visual Studio Code を使用して .NET Core ソリューションを作成する手順とワークフローを説明します。
-ms.date: 03/23/2017
-ms.custom: seodec18
-ms.openlocfilehash: 5df43ae235b9fd901a65f7f8898bec67e24de682
-ms.sourcegitcommit: a4b10e1f2a8bb4e8ff902630855474a0c4f1b37a
+ms.date: 12/19/2019
+ms.openlocfilehash: f5da16d413ddc25587ff35550fe9f308dc87f4bb
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71117371"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "78156596"
 ---
 # <a name="tutorial-create-a-net-core-solution-in-macos-using-visual-studio-code"></a>チュートリアル: macOS での Visual Studio Code を使用した .NET Core ソリューションの作成
 
@@ -23,13 +22,13 @@ ms.locfileid: "71117371"
 
 [Visual Studio Code](https://code.visualstudio.com) のインストール。 この記事の中では、.NET Core の開発エクスペリエンスが向上する Visual Studio Code 拡張機能もインストールします。
 
-Visual Studio Code C# 拡張機能をインストールするには、Visual Studio Code を開き、<kbd>F1</kbd> を押して Visual Studio Code パレットを開きます。 「**ext install**」と入力して、拡張機能の一覧を表示します。 C# 拡張機能を選択します。 Visual Studio Code を再起動して、拡張機能をアクティブにします。 詳細については、[Visual Studio Code C# 拡張機能のドキュメント](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md)を参照してください。
+Visual Studio Code C# 拡張機能をインストールするには、Visual Studio Code を開き、<kbd>Fn</kbd>+<kbd>F1</kbd> を押して Visual Studio Code パレットを開きます。 「**ext install**」と入力して、拡張機能の一覧を表示します。 C# 拡張機能を選択します。 Visual Studio Code を再起動して、拡張機能をアクティブにします。 詳細については、[Visual Studio Code C# 拡張機能のドキュメント](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md)を参照してください。
 
 ## <a name="get-started"></a>作業開始
 
-このチュートリアルでは 3 つのプロジェクト (ライブラリ プロジェクト、そのライブラリ プロジェクトのテスト、およびライブラリを使用するコンソール アプリケーション) を作成します。 GitHub の dotnet/samples レポジトリで、このトピックの[ソースを表示またはダウンロード](https://github.com/dotnet/samples/tree/master/core/getting-started/golden)することができます。 ダウンロード方法については、「[サンプルおよびチュートリアル](../../samples-and-tutorials/index.md#viewing-and-downloading-samples)」を参照してください。
+このチュートリアルでは 3 つのプロジェクト (ライブラリ プロジェクト、そのライブラリ プロジェクトのテスト、およびライブラリを使用するコンソール アプリケーション) を作成します。 GitHub の dotnet/samples レポジトリで、この記事の[ソースを表示またはダウンロード](https://github.com/dotnet/samples/tree/master/core/getting-started/golden)することができます。 ダウンロード方法については、「[サンプルおよびチュートリアル](../../samples-and-tutorials/index.md#viewing-and-downloading-samples)」を参照してください。
 
-Visual Studio Code を開始します。 <kbd>Ctrl</kbd>+<kbd>\`</kbd> (バッククォートまたはアクサン グラーブ) キーを押すか、メニューから **[表示]、[統合ターミナル]** の順に選択し、Visual Studio Code で埋め込みターミナルを開きます。 Visual Studio Code の外部で作業を行う場合は、エクスプローラーの **[コマンド プロンプトで開く]** コマンド (Ma または Linux の場合は **[ターミナルで開く]** ) を使用して外部シェルを開くこともできます。
+Visual Studio Code を開始します。 <kbd>Ctrl</kbd><kbd>\`</kbd> (バッククォートまたはアクサン グラーブ) キーを押すか、メニューから **[表示]**  >  **[ターミナル]** の順に選択し、Visual Studio Code で埋め込みターミナルを開きます。 Visual Studio Code の外部で作業を行う場合は、エクスプローラーの **[コマンド プロンプトで開く]** コマンド (macOS または Linux の場合は **[ターミナルで開く]** ) を使用して外部シェルを開くこともできます。
 
 1 つ以上の .NET Core プロジェクトのコンテナーとして機能する、ソリューション ファイルの作成を開始します。 ターミナル内で、[`dotnet new`](../tools/dotnet-new.md) コマンドを実行し、*golden* という名前の新しいフォルダー内に、新しいソリューション *golden.sln* を作成します。
 
@@ -143,7 +142,8 @@ namespace TestApp
     public class LibraryTests
     {
         [Fact]
-        public void TestThing() {
+        public void TestThing()
+        {
             Assert.NotEqual(42, new Thing().Get(19, 23));
         }
     }
@@ -155,7 +155,7 @@ namespace TestApp
 *golden* フォルダーから、次のコマンドを実行します。
 
 ```dotnetcli
-dotnet restore 
+dotnet restore
 dotnet test test-library/test-library.csproj
 ```
 
@@ -210,13 +210,13 @@ dotnet run -p app/app.csproj
 
 ## <a name="debug-the-application"></a>アプリケーションのデバッグ
 
-`Main` メソッドの `WriteLine` ステートメントにブレークポイントを設定します。 そのためには、カーソルが `WriteLine` 行にある状態で <kbd>F9</kbd> キーを押すか、ブレークポイントを設定する行の左余白でマウスをクリックします。 コード行の横の余白に赤い丸が表示されます。 ブレークポイントに達した場合、ブレークポイント行が実行される*前*にコードの実行が停止します。
+`Main` メソッドの `WriteLine` ステートメントにブレークポイントを設定します。 そのためには、カーソルが `WriteLine` 行にある状態で <kbd>Fn</kbd>+<kbd>F9</kbd> キーを押すか、ブレークポイントを設定する行の左余白でマウスをクリックします。 コード行の横の余白に赤い丸が表示されます。 ブレークポイントに達した場合、ブレークポイント行が実行される*前*にコードの実行が停止します。
 
-Visual Studio Code ツール バーでデバッグ アイコンを選択するか、メニュー バーから **[表示]、[デバッグ]** の順に選択するか、あるいはキーボード ショートカットの <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> を使用して、デバッガー タブを開きます。
+Visual Studio Code ツール バーでデバッグ アイコンを選択するか、メニュー バーから **[表示]**  >  **[デバッグ]** の順に選択するか、あるいはキーボード ショートカットの <kbd>&#8679;</kbd><kbd>&#8984;</kbd><kbd>D</kbd> を使用して、デバッガー タブを開きます。
 
 ![Visual Studio Code デバッガー](./media/using-on-macos/visual-studio-code-debugger.png)
 
-[再生] ボタンを押して、デバッガーでアプリケーションを開始します。 アプリは実行を開始し、ブレークポイントに達した時点で停止します。 `Get` メソッドにステップ インし、正しい引数を渡したことを確認します。 答えが 42 であることを確認してください。
+[再生] ボタンを押して、デバッガーでアプリケーションを開始します。 このプロジェクトでテスト プロジェクトとアプリケーションの両方を作成しました。 開始するプロジェクトをデバッガーから尋ねられます。 「アプリ」プロジェクトを選択します。 アプリは実行を開始し、ブレークポイントに達した時点で停止します。 `Get` メソッドにステップ インし、正しい引数を渡したことを確認します。 答えが 42 であることを確認してください。
 
 <a name="dotnet-restore-note"></a>
 [!INCLUDE[DotNet Restore Note](~/includes/dotnet-restore-note.md)]

@@ -7,12 +7,12 @@ dev_langs:
 helpviewer_keywords:
 - basic samples [WCF], getting started
 ms.assetid: 967a3d94-0261-49ff-b85a-20bb07f1af20
-ms.openlocfilehash: 5f5418da63b2bc5fc9b20f5c262890b7a06ce5dd
-ms.sourcegitcommit: 005980b14629dfc193ff6cdc040800bc75e0a5a5
+ms.openlocfilehash: 7bfef2c3fa5d0d3c6dafad5a6015eb9f5ca2b5c6
+ms.sourcegitcommit: cdf5084648bf5e77970cbfeaa23f1cab3e6e234e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70989920"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76921316"
 ---
 # <a name="getting-started-sample"></a>入門サンプル
 
@@ -26,7 +26,7 @@ ms.locfileid: "70989920"
 >
 > `<InstallDrive>:\WF_WCF_Samples`
 >
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
 >
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\GettingStarted\GettingStarted`
 
@@ -34,7 +34,7 @@ ms.locfileid: "70989920"
 
 クライアントには、サービス コントラクトの定義と、サービスにアクセスするためのプロキシ クラスが含まれています。 プロキシコードは、 [ServiceModel メタデータユーティリティツール (svcutil.exe)](../../../../docs/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe.md)を使用してサービスメタデータから生成されます。
 
-[!INCLUDE[wv](../../../../includes/wv-md.md)] では、サービスは Windows アクティベーション サービス (WAS) 内でホストされます。 [!INCLUDE[wxp](../../../../includes/wxp-md.md)] と [!INCLUDE[ws2003](../../../../includes/ws2003-md.md)] では、インターネット インフォメーション サービス (IIS) と ASP.NET によってホストされます。 サービスを IIS または WAS でホストすることにより、サービスに初めてアクセスしたときにそのサービスを自動的にアクティブ化できます。
+Windows Vista では、サービスは Windows アクティブ化サービス (WAS) でホストされます。 Windows XP および Windows Server 2003 では、インターネットインフォメーションサービス (IIS) と ASP.NET によってホストされています。 サービスを IIS または WAS でホストすることにより、サービスに初めてアクセスしたときにそのサービスを自動的にアクティブ化できます。
 
 > [!NOTE]
 > IIS ではなくコンソールアプリケーションでサービスをホストするサンプルを使い始める場合は、[自己ホスト](../../../../docs/framework/wcf/samples/self-host.md)のサンプルを参照してください。
@@ -142,9 +142,9 @@ public class CalculatorService : ICalculator
 
 サービスは、IIS ホストまたは WAS ホストから提供されるベース アドレスで、エンドポイントを公開します。 バインディングの構成には、標準の <xref:System.ServiceModel.WSHttpBinding> を使用します。これは HTTP 通信と Web サービスの標準プロトコルを提供し、アドレス指定とセキュリティをサポートします。 コントラクトは、サービスによって実装される `ICalculator` です。
 
-構成されているように、同じ`http://localhost/servicemodelsamples/service.svc`コンピューター上のクライアントからサービスにアクセスできます。 リモート コンピューター上のクライアントがサービスにアクセスするには、localhost の代わりに完全修飾ドメイン名を指定する必要があります。
+構成されているように、サービスは、同じコンピューター上のクライアントによって `http://localhost/servicemodelsamples/service.svc` にアクセスできます。 リモート コンピューター上のクライアントがサービスにアクセスするには、localhost の代わりに完全修飾ドメイン名を指定する必要があります。
 
-既定では、フレームワークはメタデータを公開しません。 その<xref:System.ServiceModel.Description.ServiceMetadataBehavior>ため、サービスはを有効にし、メタデータ交換 (MEX) `http://localhost/servicemodelsamples/service.svc/mex`エンドポイントを公開します。 これを設定する構成を次に示します。
+既定では、フレームワークはメタデータを公開しません。 そのため、サービスは <xref:System.ServiceModel.Description.ServiceMetadataBehavior> をオンにし、`http://localhost/servicemodelsamples/service.svc/mex`で metadata exchange (MEX) エンドポイントを公開します。 これを設定する構成を次に示します。
 
 ```xaml
 <system.serviceModel>
@@ -285,5 +285,5 @@ Press <ENTER> to terminate client.
 
 ## <a name="see-also"></a>関連項目
 
-- [方法: マネージアプリケーションで WCF サービスをホストする](../../../../docs/framework/wcf/how-to-host-a-wcf-service-in-a-managed-application.md)
-- [方法: IIS で WCF サービスをホストする](../../../../docs/framework/wcf/feature-details/how-to-host-a-wcf-service-in-iis.md)
+- [How to: Host a WCF Service in a Managed Application](../../../../docs/framework/wcf/how-to-host-a-wcf-service-in-a-managed-application.md)
+- [方法 : IIS で WCF サービスをホストする](../../../../docs/framework/wcf/feature-details/how-to-host-a-wcf-service-in-iis.md)

@@ -13,19 +13,17 @@ helpviewer_keywords:
 - reading data, strings
 - streams, reading characters from string
 ms.assetid: 27ea5e52-6db8-42d8-980a-50bcfc7fd270
-author: mairaw
-ms.author: mairaw
-ms.openlocfilehash: e890e4172e645e9919ea88ec5835aaed7432c0c6
-ms.sourcegitcommit: bd28ff1e312eaba9718c4f7ea272c2d4781a7cac
+ms.openlocfilehash: ed267ad62e46f6216c94906df1bcefb0684ab51b
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56835201"
+ms.lasthandoff: 03/15/2020
+ms.locfileid: "78155764"
 ---
 # <a name="how-to-read-characters-from-a-string"></a>方法: 文字列からの文字の読み取り
 次のコード例は、文字列から同期的または非同期的に文字を読み取る方法を示しています。  
   
-## <a name="example-read-characters-synchronously"></a>例:同期的に文字を読み取る 
+## <a name="example-read-characters-synchronously"></a>例:同期的に文字を読み取る
  この例では、文字列から同期的に 13 文字を読み取り、配列に格納し、これらを表示します。 次に、この例では、文字列の残りの文字を読み取り、6 番目の要素で始まる配列に格納し、配列の内容を表示します。  
   
  [!code-csharp[Conceptual.StringReader#1](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.stringreader/cs/source.cs#1)]

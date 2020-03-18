@@ -2,21 +2,22 @@
 title: メッセージ相関
 ms.date: 03/30/2017
 ms.assetid: 3f62babd-c991-421f-bcd8-391655c82a1f
-ms.openlocfilehash: 657f7c6e3fd544614e193d9e6843a8ed58881387
-ms.sourcegitcommit: 581ab03291e91983459e56e40ea8d97b5189227e
+ms.openlocfilehash: 9ded0886920f9f0b3d2f9b441061253b42a1c567
+ms.sourcegitcommit: de17a7a0a37042f0d4406f5ae5393531caeb25ba
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70039409"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76747172"
 ---
 # <a name="message-correlation"></a>メッセージ相関
-このサンプルでは、メッセージキュー (MSMQ) アプリケーションが MSMQ メッセージを Windows Communication Foundation (WCF) サービスに送信する方法と、要求/応答シナリオでメッセージを送信側と受信側のアプリケーション間で相互に関連付ける方法を示します。 このサンプルでは、msmqIntegrationBinding バインディングを使用します。 この場合、サービスは自己ホスト型コンソール アプリケーションで、サービスがキュー内のメッセージを受信したかどうかを監視できます。 k  
-  
- サービスは、送信側からの受信メッセージを処理し、送信側に応答メッセージを返信します。 送信側は、受信した応答を、最初に送信した要求に関連付けます。 メッセージの `MessageID` プロパティと `CorrelationID` プロパティを使用すると、要求メッセージと応答メッセージが関連付けられます。  
-  
- `IOrderProcessor` サービス コントラクトは、キューでの使用に適した一方向サービス操作を定義します。 MSMQ メッセージには Action ヘッダーがないので、さまざまな MSMQ メッセージを操作コントラクトに自動的にマッピングすることはできません。 したがってこの場合、存在する操作コントラクトは 1 つだけです。 サービス内に複数の操作コントラクトを定義する場合は、ディスパッチする操作コントラクトを決定するために使用できる、MSMQ メッセージ内のヘッダー (ラベルや correlationID など) に関する情報をアプリケーションで提供する必要があります。 
-  
- さらに、MSMQ メッセージには、操作コントラクトの別のパラメータにマッピングされるヘッダーに関する情報は含まれません。 したがって、操作コントラクトに存在するパラメータは 1 つだけです。 パラメーターの型<xref:System.ServiceModel.MsmqIntegration.MsmqMessage%601>はで、基になる MSMQ メッセージが含まれています。 `MsmqMessage<T>` クラスの型 "T" は、シリアル化されて MSMQ メッセージ本文に含まれているデータを表します。 このサンプルでは、`PurchaseOrder` 型がシリアル化されて MSMQ メッセージ本文になっています。  
+
+このサンプルでは、メッセージキュー (MSMQ) アプリケーションが MSMQ メッセージを Windows Communication Foundation (WCF) サービスに送信する方法と、要求/応答シナリオでメッセージを送信側と受信側のアプリケーション間で相互に関連付ける方法を示します。 このサンプルでは、msmqIntegrationBinding バインディングを使用します。 この場合、サービスは自己ホスト型コンソール アプリケーションで、サービスがキュー内のメッセージを受信したかどうかを監視できます。 k
+
+ サービスは、送信側からの受信メッセージを処理し、送信側に応答メッセージを返信します。 送信側は、受信した応答を、最初に送信した要求に関連付けます。 メッセージの `MessageID` プロパティと `CorrelationID` プロパティを使用すると、要求メッセージと応答メッセージが関連付けられます。
+
+ `IOrderProcessor` サービス コントラクトは、キューでの使用に適した一方向サービス操作を定義します。 MSMQ メッセージには Action ヘッダーがないので、さまざまな MSMQ メッセージを操作コントラクトに自動的にマッピングすることはできません。 したがってこの場合、存在する操作コントラクトは 1 つだけです。 サービス内に複数の操作コントラクトを定義する場合は、ディスパッチする操作コントラクトを決定するために使用できる、MSMQ メッセージ内のヘッダー (ラベルや correlationID など) に関する情報をアプリケーションで提供する必要があります。
+
+ さらに、MSMQ メッセージには、操作コントラクトの別のパラメータにマッピングされるヘッダーに関する情報は含まれません。 したがって、操作コントラクトに存在するパラメータは 1 つだけです。 パラメーターの型は <xref:System.ServiceModel.MsmqIntegration.MsmqMessage%601>で、基になる MSMQ メッセージが含まれています。 `MsmqMessage<T>` クラスの型 "T" は、シリアル化されて MSMQ メッセージ本文に含まれているデータを表します。 このサンプルでは、`PurchaseOrder` 型がシリアル化されて MSMQ メッセージ本文になっています。
 
 ```csharp
 [ServiceContract(Namespace = "http://Microsoft.ServiceModel.Samples")]
@@ -67,7 +68,7 @@ public class OrderProcessorService : IOrderProcessor
 
  サービスは、MSMQ メッセージをキューに送信するためにカスタム クライアント `OrderResponseClient` を使用します。 メッセージを受信して処理するアプリケーションは MSMQ アプリケーションであり、WCF アプリケーションではないため、2つのアプリケーション間に暗黙のサービスコントラクトはありません。 したがって、このシナリオでは Svcutil.exe ツールを使用してプロキシを作成することはできません。
 
- カスタムプロキシは、 `msmqIntegrationBinding`バインディングを使用してメッセージを送信するすべての WCF アプリケーションで基本的に同じです。 他のプロキシと異なり、サービス操作の範囲は含まれません。 メッセージ送信操作のみです。
+ カスタムプロキシは、`msmqIntegrationBinding` バインディングを使用してメッセージを送信するすべての WCF アプリケーションで基本的に同じです。 他のプロキシと異なり、サービス操作の範囲は含まれません。 メッセージ送信操作のみです。
 
 ```csharp
 [System.ServiceModel.ServiceContractAttribute(Namespace = "http://Microsoft.ServiceModel.Samples")]
@@ -269,7 +270,7 @@ static void DisplayOrderStatus()
 > [!NOTE]
 > このサンプルを実行するには、メッセージ キュー (MSMQ) がインストールされている必要があります。 インストールの手順については、「参照」セクションを参照してください。
 
-### <a name="to-setup-build-and-run-the-sample"></a>サンプルをセットアップ、ビルド、および実行するには
+## <a name="set-up-build-and-run-the-sample"></a>サンプルをセットアップ、ビルド、および実行する
 
 1. [Windows Communication Foundation サンプルの1回限りのセットアップ手順](../../../../docs/framework/wcf/samples/one-time-setup-procedure-for-the-wcf-samples.md)を実行したことを確認します。
 
@@ -283,13 +284,13 @@ static void DisplayOrderStatus()
 
     4. **[トランザクション]** ボックスをオンにします。
 
-    5. 新しい`ServiceModelSamplesTransacted`キューの名前として「」と入力します。
+    5. 新しいキューの名前として `ServiceModelSamplesTransacted` を入力します。
 
 3. ソリューションの C# 版または Visual Basic .NET 版をビルドするには、「 [Building the Windows Communication Foundation Samples](../../../../docs/framework/wcf/samples/building-the-samples.md)」の手順に従います。
 
 4. 1台のコンピューター構成でサンプルを実行するには、「 [Windows Communication Foundation サンプルの実行](../../../../docs/framework/wcf/samples/running-the-samples.md)」の手順に従います。
 
-### <a name="to-run-the-sample-across-computers"></a>サンプルを複数のコンピューターで実行するには
+## <a name="run-the-sample-across-computers"></a>コンピューター間でサンプルを実行する
 
 1. サービスのプログラム ファイルを、言語固有のフォルダーにある \service\bin\ フォルダーからサービス コンピューターにコピーします。
 
@@ -304,15 +305,15 @@ static void DisplayOrderStatus()
 6. クライアント コンピューターで、コマンド プロンプトから Client.exe を起動します。
 
 > [!IMPORTANT]
-> サンプルは、既にコンピューターにインストールされている場合があります。 続行する前に、次の (既定の) ディレクトリを確認してください。  
->   
-> `<InstallDrive>:\WF_WCF_Samples`  
->   
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://go.microsoft.com/fwlink/?LinkId=150780)にアクセスして、すべての[!INCLUDE[wf1](../../../../includes/wf1-md.md)] Windows Communication Foundation (wcf) とサンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。  
->   
-> `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Binding\MSMQIntegration\MessageCorrelation`  
-  
-## <a name="see-also"></a>関連項目
+> サンプルは、既にコンピューターにインストールされている場合があります。 続行する前に、次の (既定の) ディレクトリを確認してください。
+>
+> `<InstallDrive>:\WF_WCF_Samples`
+>
+> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] サンプルをダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
+>
+> `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Binding\MSMQIntegration\MessageCorrelation`
+
+## <a name="see-also"></a>参照
 
 - [WCF でのキュー](../../../../docs/framework/wcf/feature-details/queuing-in-wcf.md)
-- [メッセージキュー](https://go.microsoft.com/fwlink/?LinkId=94968)
+- [メッセージキュー](https://docs.microsoft.com/previous-versions/windows/desktop/legacy/ms711472(v=vs.85))

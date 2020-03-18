@@ -4,11 +4,11 @@ description: C# で LINQ join 句の結果の順序を指定する方法につ�
 ms.date: 12/01/2016
 ms.assetid: a7458901-1201-4c25-b8d9-c04ca52e0eb9
 ms.openlocfilehash: f60000b83bf378dd8740b7255d421dd4335614c4
-ms.sourcegitcommit: 5dcfeb59179e81071f54840d4902cbe00b184294
+ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857889"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "61659866"
 ---
 # <a name="order-the-results-of-a-join-clause"></a>join 句の結果の順序指定
 
@@ -20,7 +20,7 @@ ms.locfileid: "54857889"
 
 [!code-csharp[csProgGuideLINQ#81](~/samples/snippets/csharp/concepts/linq/how-to-order-the-results-of-a-join-clause_1.cs)]
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [統合言語クエリ (LINQ)](index.md)
 - [orderby 句](../language-reference/keywords/orderby-clause.md)

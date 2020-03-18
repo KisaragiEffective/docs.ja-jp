@@ -1,23 +1,23 @@
 ---
-title: '方法: 作成、コレクション初期化子 (Visual Basic) によって使用される拡張メソッドを追加'
+title: '方法: コレクション初期化子で使用される拡張メソッドを作成または追加する'
 ms.date: 07/20/2015
 helpviewer_keywords:
 - collection initializers [Visual Basic]
 ms.assetid: f64b52c7-8b11-4410-93a6-cb3aeebcc772
-ms.openlocfilehash: a5af41e25b8f82aa173e2df28cc41b313c8d68dd
-ms.sourcegitcommit: 9b552addadfb57fab0b9e7852ed4f1f1b8a42f8e
+ms.openlocfilehash: 6d5f9d38b413b79f111a14ec3829c57a9797ce54
+ms.sourcegitcommit: 17ee6605e01ef32506f8fdc686954244ba6911de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61907076"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74346719"
 ---
-# <a name="how-to-create-an-add-extension-method-used-by-a-collection-initializer-visual-basic"></a>方法: 作成、コレクション初期化子 (Visual Basic) によって使用される拡張メソッドを追加
-コレクション初期化子を使用してコレクションを作成するときに、Visual Basic コンパイラ検索、`Add`対象のコレクション型のメソッドのパラメーター、`Add`メソッド コレクション初期化子の値の型に一致します。 これは、`Add`メソッドを使用して、コレクション、コレクション初期化子の値に設定します。  
+# <a name="how-to-create-an-add-extension-method-used-by-a-collection-initializer-visual-basic"></a>方法: コレクション初期化子で使用される拡張メソッドを作成または追加する (Visual Basic)
+コレクション初期化子を使用してコレクションを作成すると、Visual Basic コンパイラは、`Add` メソッドのパラメーターがコレクション初期化子の値の型と一致するコレクション型の `Add` メソッドを検索します。 この `Add` メソッドを使用して、コレクション初期化子の値をコレクションに設定します。  
   
- 一致する場合`Add`メソッドが存在して、コレクションのコードを変更することはできません、という拡張メソッドを追加する`Add`コレクション初期化子に必要なパラメータを受け取る。 ジェネリック コレクションに対するコレクション初期化子を使用している場合に行う必要がありますこれは通常です。  
+ 一致する `Add` メソッドが存在せず、コレクションのコードを変更できない場合は、コレクション初期化子で必要なパラメーターを受け取る `Add` と呼ばれる拡張メソッドを追加できます。 これは通常、ジェネリックコレクションにコレクション初期化子を使用する場合に必要となります。  
   
 ## <a name="example"></a>例  
- 次の例は、ジェネリック拡張メソッドを追加する方法を示します<xref:System.Collections.Generic.List%601>コレクション初期化子を使用して、型のオブジェクトを追加することになるよう入力`Employee`します。 拡張メソッドでは、簡略化されたコレクションの初期化子構文を使用することができます。  
+ 次の例では、コレクション初期化子を使用して `Employee`型のオブジェクトを追加できるように、ジェネリック <xref:System.Collections.Generic.List%601> 型に拡張メソッドを追加する方法を示します。 拡張メソッドを使用すると、簡略化されたコレクション初期化子の構文を使用できます。  
   
  [!code-vb[VbVbalrCollectionInitializersHowTo1#1](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrCollectionInitializersHowTo1/VB/Module1.vb#1)]  
   
@@ -25,7 +25,7 @@ ms.locfileid: "61907076"
   
  [!code-vb[VbVbalrCollectionInitializersHowTo1#3](~/samples/snippets/visualbasic/VS_Snippets_VBCSharp/VbVbalrCollectionInitializersHowTo1/VB/Module1.vb#3)]  
   
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [コレクション初期化子](../../../../visual-basic/programming-guide/language-features/collection-initializers/index.md)
-- [方法: コレクション初期化子を使用してコレクションを作成します。](../../../../visual-basic/programming-guide/language-features/collection-initializers/how-to-create-a-collection-used-by-a-collection-initializer.md)
+- [方法: コレクション初期化子を使用してコレクションを作成する](../../../../visual-basic/programming-guide/language-features/collection-initializers/how-to-create-a-collection-used-by-a-collection-initializer.md)
