@@ -20,12 +20,12 @@ helpviewer_keywords:
 - pointer increment [C#]
 - pointer decrement [C#]
 - pointer comparison [C#]
-ms.openlocfilehash: 3728778b31a4b4adc51933e8fdc6287f28e03d83
-ms.sourcegitcommit: ef50c99928183a0bba75e07b9f22895cd4c480f8
+ms.openlocfilehash: 2d522e9357fb6da7b8d66a663e99e8858c9dd521
+ms.sourcegitcommit: 0bb8074d524e0dcf165430b744bb143461f17026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87916710"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103480378"
 ---
 # <a name="pointer-related-operators-c-reference"></a>ポインターに関連する演算子 (C# リファレンス)
 
@@ -40,7 +40,7 @@ ms.locfileid: "87916710"
 ポインター型については、「[ポインター型](../../programming-guide/unsafe-code-pointers/pointer-types.md)」をご覧ください。
 
 > [!NOTE]
-> ポインターに関するすべての操作には、[unsafe](../keywords/unsafe.md) コンテキストが必要です。 unsafe ブロックを含むコードは、[`-unsafe`](../compiler-options/unsafe-compiler-option.md) コンパイラ オプションでコンパイルする必要があります。
+> ポインターに関するすべての操作には、[unsafe](../keywords/unsafe.md) コンテキストが必要です。 unsafe ブロックを含むコードは、[**AllowUnsafeBlocks**](../compiler-options/language.md#allowunsafeblocks) コンパイラ オプションを使ってコンパイルする必要があります。
 
 ## <a name="address-of-operator-amp"></a><a name="address-of-operator-"></a> アドレス取得演算子 &amp;
 

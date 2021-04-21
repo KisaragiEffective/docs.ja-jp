@@ -1,11 +1,11 @@
 ---
-description: '詳細については、「コア通信: TCP トランスポートチャネル」を参照してください。'
+description: '詳細情報: コア通信: TCP トランスポート チャネル'
 title: 'コア通信: TCP トランスポート チャネル'
 ms.date: 03/30/2017
 ms.assetid: d5cd057f-faec-4e21-ae0e-18bbc22bcfb1
 ms.openlocfilehash: 7479135878c867cb84783e8208626a456ae10fac
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99635754"

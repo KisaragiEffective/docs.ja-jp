@@ -1,5 +1,5 @@
 ---
-description: '詳細情報: ヘルプモジュール:: GetFunctionFromRVA メソッド'
+description: '詳細情報: ICorDebugModule::GetFunctionFromRVA メソッド'
 title: ICorDebugModule::GetFunctionFromRVA メソッド
 ms.date: 03/30/2017
 api_name:
@@ -18,14 +18,14 @@ topic_type:
 - apiref
 ms.openlocfilehash: fdafba1321ce32743ccca271e5db551fc746d886
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99691576"
 ---
 # <a name="icordebugmodulegetfunctionfromrva-method"></a>ICorDebugModule::GetFunctionFromRVA メソッド
 
-このメソッドは、現在のバージョンの .NET Framework では実装されていません。  
+このメソッドは .NET Framework の現在のバージョンでは実装されていません。  
   
 ## <a name="syntax"></a>構文  
   

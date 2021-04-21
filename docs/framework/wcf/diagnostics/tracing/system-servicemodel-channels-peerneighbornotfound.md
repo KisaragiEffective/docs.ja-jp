@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「PeerNeighborNotFound」を参照してください。
+description: '詳細情報: System.ServiceModel.Channels.PeerNeighborNotFound'
 title: System.ServiceModel.Channels.PeerNeighborNotFound
 ms.date: 03/30/2017
 ms.assetid: 0aeb51a1-b82f-4008-920c-8604c5cbf600
 ms.openlocfilehash: ad57928e28f6f4a0eec7dabcd7b48be00815e693
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99635091"

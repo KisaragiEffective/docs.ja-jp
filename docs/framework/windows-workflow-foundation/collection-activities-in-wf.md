@@ -1,18 +1,18 @@
 ---
-description: '詳細情報: WF でのコレクションアクティビティ'
+description: '詳細情報: WF 内のコレクション アクティビティ'
 title: WF 内のコレクション アクティビティ
 ms.date: 03/30/2017
 ms.assetid: 2680c3e2-9902-4968-b98d-cab776103dbe
 ms.openlocfilehash: f7b37640afa185f753f036b58367a7877f34b127
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99720203"
 ---
 # <a name="collection-activities-in-wf"></a>WF 内のコレクション アクティビティ
 
-コレクション アクティビティはワークフローのコレクション オブジェクトの作業に使用します。 [!INCLUDE[netfx_current_long](../../../includes/netfx-current-long-md.md)] には、コレクション内の項目の追加および削除、コレクション内の項目の存在を確認するテスト、およびコレクションの消去を行うシステム標準アクティビティがあります。 `ExistsInCollection` およびには、 `RemoveFromCollection` <xref:System.Activities.OutArgument%601> 結果を示す型のがあり <xref:System.Boolean> ます。  
+コレクション アクティビティはワークフローのコレクション オブジェクトの作業に使用します。 [!INCLUDE[netfx_current_long](../../../includes/netfx-current-long-md.md)] には、コレクション内の項目の追加および削除、コレクション内の項目の存在を確認するテスト、およびコレクションの消去を行うシステム標準アクティビティがあります。 `ExistsInCollection` および `RemoveFromCollection` に、結果を示す <xref:System.Boolean> 型の <xref:System.Activities.OutArgument%601> があります。  
   
 > [!IMPORTANT]
 > コレクション アクティビティが、基礎となるコレクション オブジェクトの設定前に実行された場合、<xref:System.InvalidOperationException> がスローされ、アクティビティは失敗します。  

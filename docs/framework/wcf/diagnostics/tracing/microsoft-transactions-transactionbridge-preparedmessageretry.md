@@ -1,11 +1,11 @@
 ---
-description: 詳細については、PreparedMessageRetry を参照してください。
+description: '詳細情報: Microsoft.Transactions.TransactionBridge.PreparedMessageRetry'
 title: Microsoft.Transactions.TransactionBridge.PreparedMessageRetry
 ms.date: 03/30/2017
 ms.assetid: 2194292d-bf5f-4aef-9336-cd3c4795cb71
 ms.openlocfilehash: 99106493f0eec900875a713b439111fadb150c62
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99677276"

@@ -1,5 +1,5 @@
 ---
-description: 詳細については、次を参照してください。引数 ' <argumentname> ' は0より大きいか-1 に等しくなければなりません
+description: "詳細情報: 引数 '<argumentname>' は、0 より大きいか -1 と同じでなければなりません"
 title: 引数 '<argumentname>' は、0 より大きいか -1 と同じでなければなりません。
 ms.date: 07/20/2015
 f1_keywords:
@@ -7,7 +7,7 @@ f1_keywords:
 ms.assetid: 22c6bf5f-5194-43ec-8a8c-88f781801927
 ms.openlocfilehash: f17241169f979042bada536350cc071b227cbe59
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99699936"

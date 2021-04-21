@@ -1,11 +1,11 @@
 ---
-description: 詳細については、次を参照
+description: '詳細情報: ICorDebugInstanceFieldSymbol::GetName メソッド'
 title: ICorDebugInstanceFieldSymbol::GetName メソッド
 ms.date: 03/30/2017
 ms.assetid: d9c12b1f-9c1d-4943-8e9e-93b55faf085f
 ms.openlocfilehash: 9cc2106d1527aa0b4d9e5c52115b703ffe55037f
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99791193"
@@ -40,7 +40,7 @@ HRESULT GetName(
 > [!NOTE]
 > このメソッドは .NET ネイティブでのみ使用できます。  
   
-## <a name="requirements"></a>要件  
+## <a name="requirements"></a>必要条件  
 
  **:**「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
@@ -48,7 +48,7 @@ HRESULT GetName(
   
  **ライブラリ:** CorGuids.lib  
   
- **.NET Framework のバージョン:**[!INCLUDE[net_46_native](../../../../includes/net-46-native-md.md)]  
+ **.NET Framework のバージョン:** [!INCLUDE[net_46_native](../../../../includes/net-46-native-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 

@@ -1,18 +1,18 @@
 ---
-description: '詳細については、次を参照してください: を参照'
+description: '詳細情報: ICorDebugExceptionDebugEvent インターフェイス'
 title: ICorDebugExceptionDebugEvent インターフェイス
 ms.date: 03/30/2017
 ms.assetid: f9ba60d8-b54d-417e-bb3e-fde4b41ca44c
 ms.openlocfilehash: eacaa344763fb77faef5f66282809d741f017b37
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99693422"
 ---
 # <a name="icordebugexceptiondebugevent-interface"></a>ICorDebugExceptionDebugEvent インターフェイス
 
-は、例外イベントをサポートするために、の [イベント](icordebugdebugevent-interface.md) インターフェイスを拡張します。  
+[ICorDebugDebugEvent](icordebugdebugevent-interface.md) インターフェイスを拡張し、例外イベントをサポートします。  
   
 ## <a name="methods"></a>メソッド  
   
@@ -37,7 +37,7 @@ ms.locfileid: "99693422"
 > [!NOTE]
 > このインターフェイスは .NET ネイティブでのみ使用可能です。 インターフェイス ポインターを取得するために `QueryInterface` を呼び出そうとすると、.NET ネイティブ外の ICorDebug シナリオに対して `E_NOINTERFACE` が返されます。  
   
-## <a name="requirements"></a>要件  
+## <a name="requirements"></a>必要条件  
 
  **:**「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
@@ -45,7 +45,7 @@ ms.locfileid: "99693422"
   
  **ライブラリ:** CorGuids.lib  
   
- **.NET Framework のバージョン:**[!INCLUDE[net_46_native](../../../../includes/net-46-native-md.md)]  
+ **.NET Framework のバージョン:** [!INCLUDE[net_46_native](../../../../includes/net-46-native-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 

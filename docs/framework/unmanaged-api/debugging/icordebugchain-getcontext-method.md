@@ -1,5 +1,5 @@
 ---
-description: '詳細については、次を参照してください: GetContext メソッド'
+description: '詳細情報: ICorDebugChain::GetContext メソッド'
 title: ICorDebugChain::GetContext メソッド
 ms.date: 03/30/2017
 api_name:
@@ -18,14 +18,14 @@ topic_type:
 - apiref
 ms.openlocfilehash: 71c52dd0c4b75e8a3862caa3b1511118dcff7d5c
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99661299"
 ---
 # <a name="icordebugchaingetcontext-method"></a>ICorDebugChain::GetContext メソッド
 
-このメソッドは、.NET Framework の現在のバージョンでは実装されていません。  
+このメソッドは .NET Framework の現在のバージョンでは実装されていません。  
   
 ## <a name="syntax"></a>構文  
   

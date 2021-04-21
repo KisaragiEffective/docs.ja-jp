@@ -1,6 +1,6 @@
 ---
 title: ハッシュ コードによるデータの整合性の保証
-description: .NET でハッシュコードを使用してデータの整合性を確保する方法について説明します。 ハッシュ値は、データを一意に識別する固定長の数値です。
+description: .NET でハッシュ コードを使用し、データの整合性を確保する方法について説明します。 ハッシュ値は、データを一意に識別する固定長の数値です。
 ms.date: 07/14/2020
 dev_langs:
 - csharp
@@ -16,7 +16,7 @@ helpviewer_keywords:
 ms.assetid: 33660f33-b70f-4dca-8c87-ab35cfc2961a
 ms.openlocfilehash: 7f5e1d54efa3a5ccf28f2e0863a9bc9ccb80f894
 ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/24/2020
 ms.locfileid: "95689746"
@@ -64,4 +64,4 @@ The hash codes do not match.
 - [暗号モデル](cryptography-model.md)
 - [Cryptographic Services](cryptographic-services.md)
 - [クロスプラットフォーム暗号化](cross-platform-cryptography.md)
-- [データ保護の ASP.NET Core](/aspnet/core/security/data-protection/introduction)
+- [ASP.NET Core のデータ保護](/aspnet/core/security/data-protection/introduction)

@@ -1,11 +1,11 @@
 ---
-description: '詳細については、次を参照してください: 5010-DCGenReaderStart'
+description: '詳細情報: 5010 - DCGenReaderStart'
 title: 5010 - DCGenReaderStart
 ms.date: 03/30/2017
 ms.assetid: 199ff3ce-b811-4151-a9c2-e726c109e87b
 ms.openlocfilehash: fe400686245406a7a01e3bfd08adbfe04f214747
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99760109"
@@ -17,7 +17,7 @@ ms.locfileid: "99760109"
 |||  
 |-|-|  
 |id|5010|  
-|Keywords|シリアル化|  
+|キーワード|シリアル化|  
 |Level|"詳細"|  
 |チャネル|Microsoft-Windows-Application Server-Applications/Debug|  
   
@@ -25,7 +25,7 @@ ms.locfileid: "99760109"
 
  このイベントは、DataContract のリーダーの生成を開始すると生成されます。  
   
-## <a name="message"></a>Message  
+## <a name="message"></a>メッセージ  
 
  DataContract の %2 の %1 リーダーの生成を開始します。  
   

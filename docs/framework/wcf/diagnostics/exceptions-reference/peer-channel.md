@@ -1,18 +1,18 @@
 ---
-description: 詳細については、「ピアチャネル」を参照してください。
+description: '詳細情報: ピア チャネル'
 title: ピア チャネル
 ms.date: 03/30/2017
 ms.assetid: e06a2efb-8e70-4299-8b0f-bfb37efb074b
 ms.openlocfilehash: b054a75039a342cd725c96ccbf1092b5d39cb925
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99686311"
 ---
 # <a name="peer-channel"></a>ピア チャネル
 
-このトピックでは、Windows Communication Foundation (WCF) ピアチャネルによって生成されるすべての例外を示します。  
+このトピックでは、Windows Communication Foundation (WCF) ピア チャネルによって生成されるすべての例外をリストアップします。  
   
 ## <a name="exception-list"></a>例外の一覧  
   

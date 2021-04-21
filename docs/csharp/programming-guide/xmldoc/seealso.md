@@ -13,12 +13,12 @@ helpviewer_keywords:
 - cross-references [C#], tags
 - <seealso> C# XML tag
 ms.assetid: 8e157f3f-f220-4fcf-9010-88905b080b18
-ms.openlocfilehash: e8618ef352a4fa7f0fd4c88733c6568b0e12e376
-ms.sourcegitcommit: 552b4b60c094559db9d8178fa74f5bafaece0caf
+ms.openlocfilehash: c5baefbfca3a94095a90eb43c2bf13eb924c8cdc
+ms.sourcegitcommit: 0bb8074d524e0dcf165430b744bb143461f17026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87380645"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103477757"
 ---
 # <a name="seealso-c-programming-guide"></a>\<seealso> (C# プログラミング ガイド)
 
@@ -40,7 +40,7 @@ ms.locfileid: "87380645"
 
 `<seealso>` タグを使用して、「関連項目」セクションに表示するテキストを指定することができます。 [\<see>](./see.md) を使用すると、テキスト内からリンクを指定できます。
 
-コンパイル時に [-doc](../../language-reference/compiler-options/doc-compiler-option.md) を指定して、ドキュメント コメントをファイルに出力します。
+コンパイル時に [**DocumentationFile**](../../language-reference/compiler-options/output.md#documentationfile) を指定して、ドキュメント コメントをファイルに出力します。
 
 ## <a name="example"></a>例
 

@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「EndpointListenerOpen」を参照してください。
+description: '詳細情報: System.ServiceModel.Channels.EndpointListenerOpen'
 title: System.ServiceModel.Channels.EndpointListenerOpen
 ms.date: 03/30/2017
 ms.assetid: c911fa53-e0ad-4313-aab5-e596f3567a50
 ms.openlocfilehash: ef021f7212fa32c06c22f2caead3f38a381eab08
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99644490"

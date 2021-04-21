@@ -1,6 +1,6 @@
 ---
 title: bindingFailure MDA
-description: BindingFailure マネージデバッグアシスタント (MDA) について説明します。これは、.NET でのアセンブリの読み込みに失敗したときにアクティブ化されます。
+description: .NET でアセンブリが読み込みに失敗したときにアクティブになる bindingFailure マネージド デバッグ アシスタント (MDA) についてお読みください。
 ms.date: 03/30/2017
 helpviewer_keywords:
 - binding failure
@@ -12,7 +12,7 @@ helpviewer_keywords:
 ms.assetid: 26ada5af-175c-4576-931a-9f07fa1723e9
 ms.openlocfilehash: 98c7947c7e5d2a1f0af8c26744d3b292ed8cb4c4
 ms.sourcegitcommit: a2c8b19e813a52b91facbb5d7e3c062c7188b457
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/26/2020
 ms.locfileid: "85415629"
@@ -39,7 +39,7 @@ ms.locfileid: "85415629"
 
 - ユーザー資格情報には、ファイルを読み取るために必要なアクセス許可が指定されていません。
 
-## <a name="resolution"></a>解決策
+## <a name="resolution"></a>解決方法
 
 最初の手順は、要求されたアセンブリに CLR がバインドできなかった原因を特定することです。 たとえば、「原因」セクションに一覧表示されたシナリオのように、ランタイムが要求されたアセンブリを見つけられなかったり、読み込めなかったりする理由は多数あります。 バインディング エラーの原因を除去するには、次のアクションをお勧めします。
 

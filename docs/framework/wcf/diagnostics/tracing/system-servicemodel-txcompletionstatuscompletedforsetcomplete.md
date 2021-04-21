@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「TxCompletionStatusCompletedForSetComplete」を参照してください。
+description: '詳細情報: System.ServiceModel.TxCompletionStatusCompletedForSetComplete'
 title: System.ServiceModel.TxCompletionStatusCompletedForSetComplete
 ms.date: 03/30/2017
 ms.assetid: 201ffd59-df9e-40d9-9697-7de442ab8b35
 ms.openlocfilehash: 88a7bb24037b3c491b1e595acb9645aa61a8f5e5
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99735583"

@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「TxAsyncAbort」を参照してください。
+description: '詳細情報: System.ServiceModel.TxAsyncAbort'
 title: System.ServiceModel.TxAsyncAbort
 ms.date: 03/30/2017
 ms.assetid: bce47ff2-abd0-4b58-8667-ebf1ef3580b8
 ms.openlocfilehash: 461a5e4da21cf3219114ebb4e6db2149fb94ea17
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99653889"

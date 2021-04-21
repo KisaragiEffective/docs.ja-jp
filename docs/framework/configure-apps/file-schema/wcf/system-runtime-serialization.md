@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「<の>」を参照してください。
+description: '詳細情報: <system.runtime.serialization>'
 title: <system.runtime.serialization>
 ms.date: 03/30/2017
 ms.assetid: a8cebf4c-06d2-4667-8f5b-c3e1fc90df6f
 ms.openlocfilehash: cf1d95c8650e4b6979d4f34b0bed1fa395911f2d
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99786630"

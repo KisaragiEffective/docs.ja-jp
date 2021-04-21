@@ -1,5 +1,5 @@
 ---
-description: '詳細について: ICorProfilerInfo:: SetFunctionReJIT メソッド'
+description: '詳細情報: ICorProfilerInfo::SetFunctionReJIT メソッド'
 title: ICorProfilerInfo::SetFunctionReJIT メソッド
 ms.date: 03/30/2017
 api_name:
@@ -18,7 +18,7 @@ topic_type:
 - apiref
 ms.openlocfilehash: 201cb83b4f2dd13ab941a6fc4ce171d1aab80e9b
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99647129"

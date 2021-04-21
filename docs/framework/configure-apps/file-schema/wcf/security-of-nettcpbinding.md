@@ -1,11 +1,11 @@
 ---
-description: 詳細については <security> 、 <netTcpBinding>
+description: '詳細情報: <netTcpBinding> の <security>'
 title: <security> の <netTcpBinding>
 ms.date: 03/30/2017
 ms.assetid: 286cd191-4fd5-4c4e-a223-9c71cf7fdead
 ms.openlocfilehash: ad924f5a6ea9e003f6427ee76d3aef3afde9d083
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99683074"
@@ -44,11 +44,11 @@ ms.locfileid: "99683074"
   
 ## <a name="mode-attribute"></a>mode 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |なし|セキュリティを無効にします。|  
 |トランスポート|トランスポート セキュリティは、TCP 経由の TLS または SPNaego を使用して提供されます。 サービスは、SSL 証明書を使用して設定する必要があります。 このモードでは保護レベルを制御することができます。|  
-|Message|セキュリティは、SOAP メッセージ セキュリティを使用して確保されます。 既定では、SOAP 本文は暗号化および署名されます。 このモードは、サービス資格情報をクライアントの帯域外で使用可能にするかどうか、使用するアルゴリズム スイート、メッセージ本文に適用する保護レベルなど、さまざまな機能を提供します。 クライアント認証はセッションごとに 1 回実行され、認証の結果はセッションの存続中にキャッシュされます。|  
+|メッセージ|セキュリティは、SOAP メッセージ セキュリティを使用して確保されます。 既定では、SOAP 本文は暗号化および署名されます。 このモードは、サービス資格情報をクライアントの帯域外で使用可能にするかどうか、使用するアルゴリズム スイート、メッセージ本文に適用する保護レベルなど、さまざまな機能を提供します。 クライアント認証はセッションごとに 1 回実行され、認証の結果はセッションの存続中にキャッシュされます。|  
 |TransportWithMessageCredential|トランスポート セキュリティは、メッセージ セキュリティと組み合わせて使用されます。 トランスポート セキュリティは、TCP 経由の TLS または SPNego によって提供され、整合性、機密性、およびサーバー認証が保証されます。 SOAP メッセージ セキュリティは、クライアント認証を提供します。 既定では、クライアント認証はセッションごとに 1 回実行され、認証の結果はセッションの存続中にキャッシュされます。|  
   
 ### <a name="child-elements"></a>子要素  
@@ -62,7 +62,7 @@ ms.locfileid: "99683074"
   
 |要素|説明|  
 |-------------|-----------------|  
-|binding|のバインディング要素 [\<netTcpBinding>](nettcpbinding.md) 。|  
+|binding|[\<netTcpBinding>](nettcpbinding.md) のバインディング要素です。|  
   
 ## <a name="remarks"></a>解説  
 

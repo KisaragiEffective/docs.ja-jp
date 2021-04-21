@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「System.servicemodel」を参照してください。
+description: '詳細情報: System.ServiceModel.MessageProcessingPaused'
 title: System.ServiceModel.MessageProcessingPaused
 ms.date: 03/30/2017
 ms.assetid: 36b5302a-93cc-478a-9bb2-8a1601fba1df
 ms.openlocfilehash: 77e4742bc5617904136b2ddd9cb90fe886d38b10
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99716181"

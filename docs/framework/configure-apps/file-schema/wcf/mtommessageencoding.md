@@ -5,7 +5,7 @@ ms.date: 03/30/2017
 ms.assetid: 7865d171-cd1e-430a-8421-39cc13541d1b
 ms.openlocfilehash: 37ac0be5f3de84a4c310b8ec2a09ed6f3c4def56
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99684114"
@@ -42,8 +42,8 @@ SOAP Message Transmission Optimization Mechanism (MTOM) ベースのメッセー
 |maxBufferSize|使用できるバッファーの最大サイズを指定する整数。|  
 |maxReadPoolSize|新しいリーダーを割り当てずに同時に読み取り可能なメッセージの数を指定する整数です。 プール サイズを大きくすると、システムでは、比較的大きい作業セットで、アクティビティの急増に対する許容度が高まります。 既定値は、64 です。|  
 |maxWritePoolSize|新しいライターを割り当てずに同時に送信可能なメッセージの数を指定する整数です。 プール サイズを大きくすると、システムでは、比較的大きい作業セットで、アクティビティの急増に対する許容度が高まります。 既定値は 16 です。|  
-|messageVersion|バインディングを使用して送信されたメッセージの SOAP バージョンを指定します。 有効な値は、次のとおりです。<br /><br /> - Soap11Addressing1<br />- Soap12Addressing10<br /><br /> 既定値は Soap12Addressing10 です。 この属性は <xref:System.ServiceModel.Channels.MessageVersion> 型です。|  
-|writeEncoding|バインドでメッセージの発行に使用される文字セット エンコーディングを指定します。 有効な値は、次のとおりです。<br /><br /> -UnicodeFffeTextEncoding: Unicode BigEndian エンコード<br />-Utf16TextEncoding: Unicode エンコーディング<br />-Utf8TextEncoding: 8 ビットエンコード<br /><br /> 既定値は Utf8TextEncoding です。 この属性は <xref:System.Text.Encoding> 型です。|  
+|messageVersion|バインディングを使用して送信されたメッセージの SOAP バージョンを指定します。 有効な値は、次のとおりです。<br /><br /> -   Soap11Addressing1<br />-   Soap12Addressing10<br /><br /> 既定値は Soap12Addressing10 です。 この属性は <xref:System.ServiceModel.Channels.MessageVersion> 型です。|  
+|writeEncoding|バインドでメッセージの発行に使用される文字セット エンコーディングを指定します。 有効な値は、次のとおりです。<br /><br /> -   UnicodeFffeTextEncoding: Unicode BigEndian エンコード<br />-   Utf16TextEncoding: Unicode エンコード<br />-   Utf8TextEncoding: 8 ビットのエンコード<br /><br /> 既定値は Utf8TextEncoding です。 この属性は <xref:System.Text.Encoding> 型です。|  
   
 ### <a name="child-elements"></a>子要素  
   
@@ -82,5 +82,5 @@ SOAP Message Transmission Optimization Mechanism (MTOM) ベースのメッセー
 - [メッセージ エンコーダーを選択する](../../../wcf/feature-details/choosing-a-message-encoder.md)
 - [バインド](../../../wcf/bindings.md)
 - [バインディングの拡張](../../../wcf/extending/extending-bindings.md)
-- [カスタムバインド](../../../wcf/extending/custom-bindings.md)
+- [カスタム バインディング](../../../wcf/extending/custom-bindings.md)
 - [\<customBinding>](custombinding.md)

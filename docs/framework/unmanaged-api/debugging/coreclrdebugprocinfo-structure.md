@@ -1,5 +1,5 @@
 ---
-description: '詳細については、次を参照してください: CoreClrDebugProcInfo 構造体'
+description: '詳細情報: CoreClrDebugProcInfo 構造体'
 title: CoreClrDebugProcInfo 構造体
 ms.date: 03/30/2017
 api_name:
@@ -19,7 +19,7 @@ topic_type:
 - apiref
 ms.openlocfilehash: 04befb057be689e68dd3571a13990da9af64551f
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99801489"
@@ -46,11 +46,11 @@ struct  CoreClrDebugProcInfo {
 |`m_dwInternalID`|対象のコンピューターで実行されているリモート デバッグ プロキシによって割り当てられたプロセス識別子。 この識別子は OS 識別子よりも少ない頻度で再利用されます。|  
 |`m_wszName`|プロセスのコマンド ライン。 このメンバーは切り詰められる場合があります。|  
   
-## <a name="requirements"></a>要件  
+## <a name="requirements"></a>必要条件  
 
  **:**「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
- **ヘッダー:** Coreclrremoteデバッグインターフェイス .h  
+ **ヘッダー:** CoreClrRemoteDebuggingInterfaces.h  
   
  **ライブラリ:** mscordbi_macx86.dll  
   

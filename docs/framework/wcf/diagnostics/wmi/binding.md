@@ -1,11 +1,11 @@
 ---
-description: '詳細情報: バインド'
+description: '詳細情報: Binding'
 title: Binding2
 ms.date: 03/30/2017
 ms.assetid: 09511c6c-5749-4bb0-874e-0f0be36bfe04
 ms.openlocfilehash: 36887a9296bfafd0790105e7f4d513efc3009bf8
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99757788"
@@ -102,7 +102,7 @@ class Binding
   
  送信操作が完了するまで待機する時間です。  
   
-## <a name="requirements"></a>要件  
+## <a name="requirements"></a>必要条件  
   
 |MOF|Servicemodel.mof にて宣言済み。|  
 |---------|-----------------------------------|  

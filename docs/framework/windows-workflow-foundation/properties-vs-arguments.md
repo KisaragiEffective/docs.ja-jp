@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「プロパティと引数」を参照してください。
+description: '詳細情報: プロパティと引数'
 title: プロパティと引数
 ms.date: 03/30/2017
 ms.assetid: 14651389-4a49-4cbb-9ddf-c83fdc155df1
 ms.openlocfilehash: 34d299889bbe174a236bf9d59b5add932f2e030b
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99777607"

@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「WCF Discovery オブジェクトモデル」を参照してください。
+description: '詳細情報: WCF Discovery オブジェクト モデル'
 title: WCF Discovery オブジェクト モデル
 ms.date: 03/30/2017
 ms.assetid: 8365a152-eacd-4779-9130-bbc48fa5c5d9
 ms.openlocfilehash: e0d1c569329e0f6c5d4a6cfe4271b954299efdac
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99732918"

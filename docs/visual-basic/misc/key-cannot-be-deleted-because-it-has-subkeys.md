@@ -1,11 +1,11 @@
 ---
-description: '詳細情報: サブキーがあるため、キーを削除できません'
+description: '詳細情報: サブキーがあるためキーを削除できません'
 title: サブキーがあるためキーを削除できません
 ms.date: 07/20/2015
 ms.assetid: 71d7f28f-42ef-4eb7-a39e-512c40b79977
 ms.openlocfilehash: 4573dfa85cfb0e8fbc9ba159500f5798bf30ef29
 ms.sourcegitcommit: 10e719780594efc781b15295e499c66f316068b8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/14/2021
 ms.locfileid: "100462036"

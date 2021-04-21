@@ -1,5 +1,5 @@
 ---
-description: '詳細情報: 信頼されたサブシステム'
+description: '詳細情報: 信頼できるサブシステム'
 title: 信頼できるサブシステム
 ms.date: 03/30/2017
 dev_langs:
@@ -8,7 +8,7 @@ dev_langs:
 ms.assetid: 1f5ce46b-e259-4bc9-a0b9-89d06fc9341c
 ms.openlocfilehash: 41c2943c7794206dba06ef8b5bbee762931ce0c0
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99733048"
@@ -17,7 +17,7 @@ ms.locfileid: "99733048"
 
 クライアントは、ネットワーク全体に分散している 1 つ以上の Web サービスにアクセスします。 Web サービスは、追加のリソース (データベースや他の Web サービスなど) に対するアクセスが、Web サービスのビジネス ロジック内にカプセル化されるように設計されています。 これらのリソースは、非承認のアクセスに対して保護する必要があります。 信頼できるサブシステムの処理を次の図に示します。  
   
- ![信頼されたサブシステム](media/wcfc-trustedsubsystemc.gif "wcfc_TrustedSubsystemc")  
+ ![信頼できるサブシステム](media/wcfc-trustedsubsystemc.gif "wcfc_TrustedSubsystemc")  
   
  上図に示した信頼できるサブシステムの処理について、以下の手順で説明します。  
   
@@ -33,14 +33,14 @@ ms.locfileid: "99733048"
   
 |特徴|説明|  
 |--------------------|-----------------|  
-|セキュリティ モード|Message|  
+|セキュリティ モード|メッセージ|  
 |相互運用性|Windows Communication Foundation (WCF) のみ。|  
 |認証 (サービス)|セキュリティ トークン サービスはクライアントの認証と承認を行います。|  
 |認証 (クライアント)|信頼できるサブシステムがクライアントを認証し、リソースが信頼できるサブシステム サービスを認証します。|  
 |整合性|はい|  
 |機密性|はい|  
 |トランスポート|クライアントと信頼できるサブシステム サービス間にある HTTP<br /><br /> 信頼できるサブシステム サービスとリソース (バックエンド サービス) の間にある NET.TCP|  
-|バインド|<xref:System.ServiceModel.WSHttpBinding> そして <xref:System.ServiceModel.NetTcpBinding>[\<wsFederationHttpBinding>](../../configure-apps/file-schema/wcf/wsfederationhttpbinding.md)|  
+|バインド|<xref:System.ServiceModel.WSHttpBinding> と <xref:System.ServiceModel.NetTcpBinding>[\<wsFederationHttpBinding>](../../configure-apps/file-schema/wcf/wsfederationhttpbinding.md)|  
   
 ## <a name="resource-back-end-service"></a>リソース (バックエンド サービス)  
   
@@ -169,7 +169,7 @@ ms.locfileid: "99733048"
 </configuration>  
 ```  
   
-## <a name="client"></a>クライアント  
+## <a name="client"></a>Client  
   
 ### <a name="code"></a>コード  
 

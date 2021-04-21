@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「TxReleaseServiceInstanceOnCompletion」を参照してください。
+description: '詳細情報: System.ServiceModel.TxReleaseServiceInstanceOnCompletion'
 title: System.ServiceModel.TxReleaseServiceInstanceOnCompletion
 ms.date: 03/30/2017
 ms.assetid: e167bad3-861f-43e4-9e78-9c275cf64a29
 ms.openlocfilehash: 9cf09e4b5fe0ac780075da707f084b6df0723f57
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99735518"

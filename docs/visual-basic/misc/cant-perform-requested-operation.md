@@ -7,7 +7,7 @@ f1_keywords:
 ms.assetid: eeab237c-4110-4abd-b601-bbb025c5d204
 ms.openlocfilehash: 15aa30939e9b2e81b8697f16225660f1af3c1c86
 ms.sourcegitcommit: 10e719780594efc781b15295e499c66f316068b8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/14/2021
 ms.locfileid: "100473009"

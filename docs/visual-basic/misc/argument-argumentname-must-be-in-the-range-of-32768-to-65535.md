@@ -1,5 +1,5 @@
 ---
-description: 詳細については、次を参照してください。引数 ' <argumentname> ' は-32768 ~ 65535 の範囲内でなければなりません
+description: "詳細情報: 引数 '<argumentname>' は、-32768 から 65535 の範囲内になければなりません"
 title: 引数 '<argumentname>' は、-32768 から 65535 の範囲内になければなりません
 ms.date: 07/20/2015
 f1_keywords:
@@ -7,7 +7,7 @@ f1_keywords:
 ms.assetid: d1ab6767-8334-4d7c-bb99-c837a793ed69
 ms.openlocfilehash: 1331b4a4a9dabe7926f2b98c6fa9d478f21a5590
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99699819"

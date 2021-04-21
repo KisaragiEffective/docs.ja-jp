@@ -1,20 +1,20 @@
 ---
-description: 詳細については、「WCF」を参照してください。 <cancelRequestedQuery>
-title: <cancelRequestedQuery> WCF の
+description: '詳細情報: WCF の <cancelRequestedQuery>'
+title: WCF の <cancelRequestedQuery>
 ms.date: 03/30/2017
 ms.assetid: b690d870-02eb-4c56-8bc3-e5ca99d7097b
 ms.openlocfilehash: e477e33650eb901cf2e9275570d8538196c52b6b
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99639173"
 ---
-# <a name="cancelrequestedquery-of-wcf"></a>\<cancelRequestedQuery> WCF の
+# <a name="cancelrequestedquery-of-wcf"></a>WCF の \<cancelRequestedQuery>
 
 親アクティビティが子アクティビティを取り消すための要求を追跡するのに使用するクエリを表します。 追跡参加要素がキャンセル要求レコード オブジェクトを定期受信するには、このクエリが必要です。  
   
-追跡プロファイルのクエリの詳細については、「 [追跡プロファイル](../../../windows-workflow-foundation/tracking-profiles.md)」を参照してください。
+追跡プロファイルのクエリの詳細については、「[追跡プロファイル](../../../windows-workflow-foundation/tracking-profiles.md)」を参照してください。
   
 [**\<configuration>**](../configuration-element.md)\
 &nbsp;&nbsp;[**\<system.serviceModel>**](system-servicemodel.md)\

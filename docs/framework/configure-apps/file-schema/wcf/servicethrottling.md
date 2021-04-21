@@ -5,7 +5,7 @@ ms.date: 03/30/2017
 ms.assetid: a337d064-1e64-4209-b4a9-db7fdb7e3eaf
 ms.openlocfilehash: eb65f6d60a266a367789d87e4e6ea10ebfd2c7a7
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99786682"
@@ -59,7 +59,7 @@ WCF (Windows Communication Foundation) サービスの調整機構を指定し�
   
 ## <a name="example"></a>例  
 
- 次の構成例では、サービスで同時呼び出しの最大数を 2 に、同時インスタンスの最大数を 10 に制限することを指定しています。 この例の実行例の詳細については、「 [調整](../../../wcf/samples/throttling.md)」を参照してください。  
+ 次の構成例では、サービスで同時呼び出しの最大数を 2 に、同時インスタンスの最大数を 10 に制限することを指定しています。 この例の実行例の詳細については、「[調整](../../../wcf/samples/throttling.md)」を参照してください。  
   
 ```xml  
 <behaviors>

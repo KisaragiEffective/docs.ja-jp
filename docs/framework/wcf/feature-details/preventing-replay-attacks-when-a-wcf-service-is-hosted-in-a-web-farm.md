@@ -1,11 +1,11 @@
 ---
-description: '詳細情報: WCF サービスが Web ファームでホストされている場合のリプレイ攻撃の防止'
+description: '詳細情報: WCF サービスが Web ファームでホストされている場合のリプレイ攻撃の回避'
 title: WCF サービスが Web ファームでホストされている場合のリプレイ攻撃の回避
 ms.date: 03/30/2017
 ms.assetid: 1c2ed695-7a31-4257-92bd-9e9731b886a5
 ms.openlocfilehash: 015059ef650b3ec213c54b89763bac7d46dd218f
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99793611"

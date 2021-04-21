@@ -1,5 +1,5 @@
 ---
-description: '詳細について: ICorDebugEnum:: Reset メソッド'
+description: '詳細情報: ICorDebugEnum::Reset メソッド'
 title: ICorDebugEnum::Reset メソッド
 ms.date: 03/30/2017
 api_name:
@@ -18,14 +18,14 @@ topic_type:
 - apiref
 ms.openlocfilehash: c1308611f05bbf190f9675b611a77e0c1077f52f
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99694501"
 ---
 # <a name="icordebugenumreset-method"></a>ICorDebugEnum::Reset メソッド
 
-カーソルを列挙体の先頭に移動します。  
+列挙型の先頭にカーソルを移動します。  
   
 ## <a name="syntax"></a>構文  
   
@@ -41,7 +41,7 @@ HRESULT Reset ();
   
  **ライブラリ:** CorGuids.lib  
   
- **.NET Framework のバージョン:**[!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
+ **.NET Framework のバージョン:** [!INCLUDE[net_current_v10plus](../../../../includes/net-current-v10plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 

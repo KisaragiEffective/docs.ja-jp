@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「IssuanceTokenProviderUsingCachedToken」を参照してください。
+description: '詳細情報: System.ServiceModel.Security.IssuanceTokenProviderUsingCachedToken'
 title: System.ServiceModel.Security.IssuanceTokenProviderUsingCachedToken
 ms.date: 03/30/2017
 ms.assetid: ee51ed4e-821c-4010-8d64-eabde522169f
 ms.openlocfilehash: 66275261f562b518daced2c53bd55d065fb1b884
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99798655"

@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「PeerNeighborNotAccepted」を参照してください。
+description: '詳細情報: System.ServiceModel.Channels.PeerNeighborNotAccepted'
 title: System.ServiceModel.Channels.PeerNeighborNotAccepted
 ms.date: 03/30/2017
 ms.assetid: 77309bf5-37ba-4b90-b31f-c00ef044db0d
 ms.openlocfilehash: 4d02169d2ab44b858f05d2f40661f3a4f4e825c5
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99635104"

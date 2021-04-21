@@ -1,11 +1,11 @@
 ---
-description: '詳細情報: 57398-MaxInstancesExceeded'
+description: '詳細情報: 57398 - MaxInstancesExceeded'
 title: 57398 - MaxInstancesExceeded
 ms.date: 03/30/2017
 ms.assetid: f943d209-dfeb-43e5-b572-c9a06217936e
 ms.openlocfilehash: 104c466cb2e0ee8156e2b268caf5e757353dfb09
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99720229"
@@ -17,15 +17,15 @@ ms.locfileid: "99720229"
 |||  
 |-|-|  
 |id|57398|  
-|Keywords|WFServices|  
-|Level|警告|  
+|キーワード|WFServices|  
+|レベル|警告|  
 |チャネル|Microsoft-Windows-Application Server-Applications/Analytic|  
   
 ## <a name="description"></a>説明  
 
  システムがスロットル 'MaxConcurrentInstances' に設定された制限に達したことを示します。  
   
-## <a name="message"></a>Message  
+## <a name="message"></a>メッセージ  
 
  システムはスロットル 'MaxConcurrentInstances' に設定された制限に達しました。 このスロットルの制限は %1 に設定されました。 スロットル値を変更するには、serviceThrottle 要素の属性 'maxConcurrentInstances' を変更するか、動作 ServiceThrottlingBehavior の 'MaxConcurrentInstances' プロパティを変更する必要があります。  
   

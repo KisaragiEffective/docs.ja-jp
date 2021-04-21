@@ -1,11 +1,11 @@
 ---
-description: 詳細については <connectionPoolSettings> 、 <tcpTransport>
+description: '詳細情報: <tcpTransport> の <connectionPoolSettings>'
 title: <connectionPoolSettings> の <tcpTransport>
 ms.date: 03/30/2017
 ms.assetid: 2fbc3aa7-fcc9-4193-99a3-85d31d60d3f7
 ms.openlocfilehash: 065d3529740714ffd740c2cec71832a7b386b4a3
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99698389"
@@ -65,5 +65,5 @@ TCP トランスポートの追加の接続プール設定を指定します。
 - [トランスポートの選択](../../../wcf/feature-details/choosing-a-transport.md)
 - [バインド](../../../wcf/bindings.md)
 - [バインディングの拡張](../../../wcf/extending/extending-bindings.md)
-- [カスタムバインド](../../../wcf/extending/custom-bindings.md)
+- [カスタム バインディング](../../../wcf/extending/custom-bindings.md)
 - [\<customBinding>](custombinding.md)

@@ -1,6 +1,6 @@
 ---
 title: '方法: トレース リスナーを作成し初期化する'
-description: .NET で DefaultTraceListener などのクラスを使用して、トレースリスナーを作成および初期化する方法について説明します。
+description: .NET で、System.Diagnostics.DefaultTraceListener などのクラスを使用し、トレース リスナーを作成して初期化する方法について説明します。
 ms.date: 03/30/2017
 dev_langs:
 - csharp
@@ -14,6 +14,7 @@ helpviewer_keywords:
 ms.assetid: 21726de1-61ee-4fdc-9dd0-3be49324d066
 ms.openlocfilehash: 752306124e41a7fb7458daccc8c2891631eb9616
 ms.sourcegitcommit: 0edbeb66d71b8df10fcb374cfca4d731b58ccdb2
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86051208"
@@ -22,7 +23,7 @@ ms.locfileid: "86051208"
 
 <xref:System.Diagnostics.Debug?displayProperty=nameWithType> クラスと <xref:System.Diagnostics.Trace?displayProperty=nameWithType> クラスは、メッセージの受け取りと処理を実行する、リスナーと呼ばれるオブジェクトにメッセージを送ります。 トレースまたはデバッグを有効にすると、こうしたリスナーの 1 つである <xref:System.Diagnostics.DefaultTraceListener?displayProperty=nameWithType> が自動的に作成および初期化されます。 <xref:System.Diagnostics.Trace> または <xref:System.Diagnostics.Debug> の出力を別のソースに送るには、別のトレース リスナーを作成して初期化する必要があります。
 
-作成するリスナーには、アプリケーションのニーズが反映されている必要があります。 たとえば、すべてのトレース出力のテキスト レコードが必要である場合は、有効になったときにすべての出力を新しいテキスト ファイルに書き込む <xref:System.Diagnostics.TextWriterTraceListener> リスナーを作成します。 一方、アプリケーションの実行時にのみ出力を表示する場合は、すべての出力をコンソール ウィンドウに送る <xref:System.Diagnostics.ConsoleTraceListener> リスナーを作成します。 <xref:System.Diagnostics.EventLogTraceListener> は、トレース出力をイベント ログに転送することができます。 詳細については、「[トレースリスナー](trace-listeners.md)」を参照してください。
+作成するリスナーには、アプリケーションのニーズが反映されている必要があります。 たとえば、すべてのトレース出力のテキスト レコードが必要である場合は、有効になったときにすべての出力を新しいテキスト ファイルに書き込む <xref:System.Diagnostics.TextWriterTraceListener> リスナーを作成します。 一方、アプリケーションの実行時にのみ出力を表示する場合は、すべての出力をコンソール ウィンドウに送る <xref:System.Diagnostics.ConsoleTraceListener> リスナーを作成します。 <xref:System.Diagnostics.EventLogTraceListener> は、トレース出力をイベント ログに転送することができます。 詳細については、「[トレース リスナー](trace-listeners.md)」を参照してください。
 
 トレース リスナーは、[アプリケーション構成ファイル](../configure-apps/index.md)またはコードで作成できます。 アプリケーション構成ファイルではコードを変更せずにトレース リスナーを追加、変更、または削除できるので、アプリケーション構成ファイルを使用することをお勧めします。
 
@@ -97,5 +98,5 @@ ms.locfileid: "86051208"
 
 - [トレース リスナー](trace-listeners.md)
 - [トレース スイッチ](trace-switches.md)
-- [方法: アプリケーション コードにトレース ステートメントを追加する](how-to-add-trace-statements-to-application-code.md)
+- [方法 : アプリケーション コードにトレース ステートメントを追加する](how-to-add-trace-statements-to-application-code.md)
 - [アプリケーションのトレースとインストルメント](tracing-and-instrumenting-applications.md)

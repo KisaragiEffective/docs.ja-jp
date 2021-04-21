@@ -5,7 +5,7 @@ ms.date: 03/30/2017
 ms.assetid: cc070387-3d11-4b02-a952-bc08ad2df05a
 ms.openlocfilehash: afcd10b4ad41bd6ff12dbf246f66ef7fac4e759a
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99682619"
@@ -47,7 +47,7 @@ ms.locfileid: "99682619"
   
 ## <a name="remarks"></a>解説  
 
- この動作を使用して、既定の非同期受信ではなく同期受信を使用するようにチャネル リスナーに指示します。 Windows Communication Foundation (WCF) は、受け入れられたチャネルごとに新しいスレッドを作成します。 チャネルが多数ある場合は、スレッドが不足する可能性があります。  
+ この動作を使用して、既定の非同期受信ではなく同期受信を使用するようにチャネル リスナーに指示します。 Windows Communication Foundation (WCF) からは、受信されたチャネルごとにポンプに新しいスレッドが発行されます。 チャネルが多数ある場合は、スレッドが不足する可能性があります。  
   
 ## <a name="see-also"></a>関連項目
 

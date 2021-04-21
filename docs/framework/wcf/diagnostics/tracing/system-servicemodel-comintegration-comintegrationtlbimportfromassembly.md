@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「ComIntegrationTLBImportFromAssembly」を参照してください。
+description: '詳細情報: System.ServiceModel.ComIntegration.ComIntegrationTLBImportFromAssembly'
 title: System.ServiceModel.ComIntegration.ComIntegrationTLBImportFromAssembly
 ms.date: 03/30/2017
 ms.assetid: bb2b6e33-00cb-403f-b616-1a70294d7aa8
 ms.openlocfilehash: e5f92173b05365dafec42da714c0f1fbe403a4af
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99677003"

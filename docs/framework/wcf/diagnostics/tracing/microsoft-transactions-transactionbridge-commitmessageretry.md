@@ -1,11 +1,11 @@
 ---
-description: 詳細については、CommitMessageRetry を参照してください。
+description: '詳細情報: Microsoft.Transactions.TransactionBridge.CommitMessageRetry'
 title: Microsoft.Transactions.TransactionBridge.CommitMessageRetry
 ms.date: 03/30/2017
 ms.assetid: 4abe01f0-6398-4fba-b2f3-c054b7f7e971
 ms.openlocfilehash: 8f45463ac31c210acd8534df2c4e1ef2922f1c8e
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99720606"

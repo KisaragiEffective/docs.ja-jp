@@ -1,11 +1,11 @@
 ---
-description: '詳細情報: イベントログに無効な名前が指定されました'
+description: '詳細情報: イベント ログに無効な名前が指定されました'
 title: イベント ログに無効な名前が指定されました
 ms.date: 07/20/2015
 ms.assetid: b1b158bd-f13f-4371-a8af-31c0e86ae6be
 ms.openlocfilehash: 4786483fe0b1ae32a16b67bfb4f406587719011b
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99787371"

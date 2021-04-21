@@ -1,5 +1,5 @@
 ---
-description: 詳細については、「Add failed」を参照してください。 重複するキーの値が指定されました
+description: '詳細情報: 追加に失敗しました。 重複するキーの値が指定されました'
 title: 追加に失敗しました。 重複するキーの値が指定されました
 ms.date: 07/20/2015
 f1_keywords:
@@ -7,7 +7,7 @@ f1_keywords:
 ms.assetid: 7b1d6e6c-a69d-4713-a19d-ae1534a60464
 ms.openlocfilehash: af669f2cdc503970467d9a625842fe306959e374
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99787410"

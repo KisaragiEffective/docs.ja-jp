@@ -1,18 +1,18 @@
 ---
-description: 詳細については <security> 、 <wsFederationHttpBinding>
+description: '詳細情報: <wsFederationHttpBinding> の <security>'
 title: <security> の <wsFederationHttpBinding>
 ms.date: 03/30/2017
 ms.assetid: a8e5e854-b8dc-4921-843d-34b6a4a6a8ba
 ms.openlocfilehash: 6c01c7a50b05f1723b3620407eb5e5761bae35cb
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99786799"
 ---
 # <a name="security-of-wsfederationhttpbinding"></a>\<security> の \<wsFederationHttpBinding>
 
-のセキュリティ設定を定義し [\<wsFederationHttpBinding>](wsfederationhttpbinding.md) ます。  
+[\<wsFederationHttpBinding>](wsfederationhttpbinding.md) のセキュリティ設定を定義します。  
   
 [**\<configuration>**](../configuration-element.md)\
 &nbsp;&nbsp;[**\<system.serviceModel>**](system-servicemodel.md)\
@@ -93,10 +93,10 @@ ms.locfileid: "99786799"
   
 ## <a name="mode-attribute"></a>Mode 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |なし|SOAP メッセージは、転送中はセキュリティで保護されません。|  
-|Message|SOAP メッセージ セキュリティを使用して、整合性、機密性、サーバー認証、およびクライアント認証を提供します。 既定では、本文は暗号化および署名されます。 このサービスは、証明書を使用して設定する必要があります。 クライアント認証は、セキュリティ トークン サービスによってクライアントに発行されるトークンに基づいています。|  
+|メッセージ|SOAP メッセージ セキュリティを使用して、整合性、機密性、サーバー認証、およびクライアント認証を提供します。 既定では、本文は暗号化および署名されます。 このサービスは、証明書を使用して設定する必要があります。 クライアント認証は、セキュリティ トークン サービスによってクライアントに発行されるトークンに基づいています。|  
 |TransportWithMessageCredential|整合性、機密性、およびサーバー認証は、HTTPS によって提供されます。 このサービスは、証明書を使用して設定する必要があります。 クライアント認証は、SOAP メッセージ セキュリティによって提供され、セキュリティ トークン サービスによってクライアントに発行されるトークンに基づいています。|  
   
 ### <a name="child-elements"></a>子要素  
@@ -109,7 +109,7 @@ ms.locfileid: "99786799"
   
 |要素|説明|  
 |-------------|-----------------|  
-|[\<binding>](bindings.md)|のすべてのバインディング機能を定義 [\<wsDualHttpBinding>](wsdualhttpbinding.md) します。|  
+|[\<binding>](bindings.md)|[\<wsDualHttpBinding>](wsdualhttpbinding.md) のすべてのバインディング機能を定義します。|  
   
 ## <a name="see-also"></a>関連項目
 

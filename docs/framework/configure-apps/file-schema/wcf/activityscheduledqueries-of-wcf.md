@@ -1,16 +1,16 @@
 ---
-description: 詳細については、「WCF」を参照してください。 <activityScheduledQueries>
-title: <activityScheduledQueries> WCF の
+description: '詳細情報: WCF の <activityScheduledQueries>'
+title: WCF の <activityScheduledQueries>
 ms.date: 03/30/2017
 ms.assetid: e351329f-9676-4f11-9b19-f4bac82f36fc
 ms.openlocfilehash: b92bb2827b4c8bce43e4ee0b8dc03c7be124e3da
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99782248"
 ---
-# <a name="activityscheduledqueries-of-wcf"></a>\<activityScheduledQueries> WCF の
+# <a name="activityscheduledqueries-of-wcf"></a>WCF の \<activityScheduledQueries>
 
 親アクティビティによる実行がスケジュールされているアクティビティを追跡するために使用する、クエリのコレクションを表します。 アクティビティがスケジュールされたレコードを追跡参加要素が定期受信するには、このクエリが必要です。  
   

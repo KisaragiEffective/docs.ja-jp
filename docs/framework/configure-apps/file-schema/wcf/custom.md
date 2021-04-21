@@ -5,7 +5,7 @@ ms.date: 03/30/2017
 ms.assetid: a6f65a00-bd1a-4d4a-955a-fe009ec02ab8
 ms.openlocfilehash: 327a5d7ff1bab88a1633d7a10095e708e6b1a533
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99725910"
@@ -58,7 +58,7 @@ ms.locfileid: "99725910"
   
 ## <a name="remarks"></a>解説  
 
- この要素は、サービスをホストするピアのエンドポイント アドレスや特定のバインディング設定など、カスタム ピア リゾルバー サービスの基本設定を定義します。 カスタム競合回避モジュールの作成の詳細については、「 [PeerChannel アプリケーションへのカスタム競合回避モジュールの追加](/previous-versions/ms730105(v=vs.90))」を参照してください。  
+ この要素は、サービスをホストするピアのエンドポイント アドレスや特定のバインディング設定など、カスタム ピア リゾルバー サービスの基本設定を定義します。 カスタム リゾルバーの作成に関する詳細については、「[PeerChannel アプリケーションへのカスタム リゾルバーの追加](/previous-versions/ms730105(v=vs.90))」を参照してください。  
   
 ## <a name="see-also"></a>関連項目
 

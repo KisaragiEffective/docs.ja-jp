@@ -1,5 +1,5 @@
 ---
-description: 詳細については、「ICorDebugEditAndContinueSnapshot インターフェイス」を参照してください。
+description: '詳細情報: ICorDebugEditAndContinueSnapshot Interface'
 title: ICorDebugEditAndContinueSnapshot インターフェイス
 ms.date: 03/30/2017
 api_name:
@@ -17,7 +17,7 @@ topic_type:
 - apiref
 ms.openlocfilehash: 5e3765eb4a56cf0dcf591fa90764d921b744b1be
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99694644"

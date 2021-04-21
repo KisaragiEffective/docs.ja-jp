@@ -1,5 +1,5 @@
 ---
-description: '詳細について: ICorProfilerFunctionEnum:: GetCount メソッド'
+description: '詳細情報: ICorProfilerFunctionEnum::GetCount メソッド'
 title: ICorProfilerFunctionEnum::GetCount メソッド
 ms.date: 03/30/2017
 api_name:
@@ -18,7 +18,7 @@ topic_type:
 - apiref
 ms.openlocfilehash: a3eccfa31676636aff7379b4080bcb85a268df6c
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99737624"
@@ -36,9 +36,9 @@ HRESULT GetCount([out] ULONG * pcelt);
 ## <a name="parameters"></a>パラメーター  
 
  `celt`  
- 入出力読み込まれた関数の数。  
+ [出力] 読み込まれた関数の数。  
   
-## <a name="requirements"></a>要件  
+## <a name="requirements"></a>必要条件  
 
  **:**「[システム要件](../../get-started/system-requirements.md)」を参照してください。  
   
@@ -46,7 +46,7 @@ HRESULT GetCount([out] ULONG * pcelt);
   
  **ライブラリ:** CorGuids.lib  
   
- **.NET Framework のバージョン:**[!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
+ **.NET Framework のバージョン:** [!INCLUDE[net_current_v40plus](../../../../includes/net-current-v40plus-md.md)]  
   
 ## <a name="see-also"></a>関連項目
 
