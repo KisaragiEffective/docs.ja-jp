@@ -20,12 +20,12 @@ helpviewer_keywords:
 - pointer increment [C#]
 - pointer decrement [C#]
 - pointer comparison [C#]
-ms.openlocfilehash: 2d522e9357fb6da7b8d66a663e99e8858c9dd521
-ms.sourcegitcommit: 0bb8074d524e0dcf165430b744bb143461f17026
+ms.openlocfilehash: 22cd87a62c92dbfacd0b8ebbdd5cbafb92da73ca
+ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103480378"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106497360"
 ---
 # <a name="pointer-related-operators-c-reference"></a>ポインターに関連する演算子 (C# リファレンス)
 
@@ -37,7 +37,7 @@ ms.locfileid: "103480378"
 - 算術演算子 [`+`、`-`、`++`、`--`](#pointer-arithmetic-operators)
 - 比較演算子 [`==`、`!=`、`<`、`>`、`<=`、`>=`](#pointer-comparison-operators)
 
-ポインター型については、「[ポインター型](../../programming-guide/unsafe-code-pointers/pointer-types.md)」をご覧ください。
+ポインター型については、「[ポインター型](../unsafe-code.md#pointer-types)」をご覧ください。
 
 > [!NOTE]
 > ポインターに関するすべての操作には、[unsafe](../keywords/unsafe.md) コンテキストが必要です。 unsafe ブロックを含むコードは、[**AllowUnsafeBlocks**](../compiler-options/language.md#allowunsafeblocks) コンパイラ オプションを使ってコンパイルする必要があります。
@@ -189,7 +189,7 @@ x->y
 
 - [C# リファレンス](../index.md)
 - [C# の演算子と式](index.md)
-- [ポインター型](../../programming-guide/unsafe-code-pointers/pointer-types.md)
+- [ポインター型](../unsafe-code.md#pointer-types)
 - [unsafe キーワード](../keywords/unsafe.md)
 - [fixed キーワード](../keywords/fixed-statement.md)
 - [stackalloc](stackalloc.md)

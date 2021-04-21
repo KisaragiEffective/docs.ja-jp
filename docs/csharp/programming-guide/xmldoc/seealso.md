@@ -13,28 +13,34 @@ helpviewer_keywords:
 - cross-references [C#], tags
 - <seealso> C# XML tag
 ms.assetid: 8e157f3f-f220-4fcf-9010-88905b080b18
-ms.openlocfilehash: c5baefbfca3a94095a90eb43c2bf13eb924c8cdc
-ms.sourcegitcommit: 0bb8074d524e0dcf165430b744bb143461f17026
+ms.openlocfilehash: 35420536ef14e91dcf8bf904573ab758d5448a63
+ms.sourcegitcommit: aab60b21144bf04b3057b5d59aa7c58edaef32d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103477757"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107494103"
 ---
 # <a name="seealso-c-programming-guide"></a>\<seealso> (C# プログラミング ガイド)
 
 ## <a name="syntax"></a>構文
 
-```xml
-<seealso cref="member"/>
+```csharp
+/// <seealso cref="member"/>
+// or
+/// <seealso href="link">Link Text</seealso>
 ```
 
 ## <a name="parameters"></a>パラメーター
 
-- cref = "`member`"
+- `cref="member"`
 
   現在のコンパイル環境からの呼び出しに利用できる、メンバーまたはフィールドへの参照。 コンパイラは、指定されたコード要素が存在するかどうかを確認し、`member` を出力 XML 内の要素名に渡します。`member` は二重引用符 (" ") で囲む必要があります。
 
   ジェネリック型への cref 参照を作成する方法については、[cref 属性](./cref-attribute.md)に関するページを参照してください。
+
+- `href="link"`
+
+  特定の URL へのクリック可能なリンク。 たとえば、`<seealso href="https://github.com">GitHub</seealso>` によって生成されるクリック可能なリンクには、`https://github.com` にリンクされたテキスト :::no-loc text="GitHub"::: が含まれます。
 
 ## <a name="remarks"></a>Remarks
 
