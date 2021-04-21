@@ -3,12 +3,12 @@ title: EventPipe の概要
 description: EventPipe について、およびそれを使用して .NET アプリケーションをトレースし、パフォーマンスの問題を診断する方法について説明します。
 ms.date: 11/09/2020
 ms.topic: overview
-ms.openlocfilehash: 213d15e48ac9d50af0c87565738f952295c4f041
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.openlocfilehash: 0b4782306c85590d74b521edd254659fb162b0c2
+ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102105298"
+ms.lasthandoff: 03/17/2021
+ms.locfileid: "103624163"
 ---
 # <a name="eventpipe"></a>EventPipe
 
@@ -78,6 +78,9 @@ EventPipe を使用する場合の好ましい方法は、`dotnet-trace` また�
 * `COMPlus_EventPipeOutputPath`: EventPipe が `COMPlus_EnableEventPipe` を介して実行するように構成されている場合に、その出力となるトレース ファイルへのパス。 既定値は `trace.nettrace` です。これは、アプリが実行されているのと同じディレクトリに作成されます。
 
 * `COMPlus_EventPipeCircularMB`: EventPipe の内部バッファーのサイズをメガバイトで表す 16 進数。 この構成値は、EventPipe が `COMPlus_EnableEventPipe` 経由で実行されるように構成されているときにのみ使用されます。 既定のバッファー サイズは 1024 MB であり、`0x400` == `1024` であるため、この環境変数が `400` に設定されることになります。
+
+  > [!NOTE]
+  > ターゲット プロセスによるイベントの書き込みが頻繁すぎる場合、このバッファーがオーバーフローして、一部のイベントが削除される可能性があります。 削除されるイベントが多すぎる場合は、バッファー サイズを増やし、削除されるイベントの数が減少するかどうかを確認します。 バッファー サイズを大きくしても削除されるイベントの数が減らない場合は、リーダーが遅いために、ターゲット プロセスのバッファーのフラッシュが妨げられている可能性があります。
 
 * `COMPlus_EventPipeProcNumbers`: これを `1` に設定すると、EventPipe イベント ヘッダーのプロセッサ番号をキャプチャできるようになります。 既定値は `0` です。
 

@@ -7,23 +7,19 @@ f1_keywords:
 helpviewer_keywords:
 - Protected Friend keyword [Visual Basic]
 - Protected Friend keyword [Visual Basic], syntax
-ms.openlocfilehash: dcc8fd2b1aa99f910f002ac05178d379532fb73d
-ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
+ms.openlocfilehash: b92f52345d5b4b2b67745da8f142cd1484aec588
+ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99700976"
+ms.lasthandoff: 03/17/2021
+ms.locfileid: "103624007"
 ---
 # <a name="protected-friend-visual-basic"></a>Protected Friend (Visual Basic)
 
 キーワード組み合わせ `Protected Friend` はメンバー アクセス修飾子です。 宣言された要素に対して、[Friend](friend.md) アクセスと [Protected](protected.md) アクセスの両方が許可されるため、同じアセンブリ内の任意の場所から、それらの独自のクラスから、および派生クラスから、それらにアクセスできます。 `Protected Friend` は、クラスのメンバーに対してのみ指定できます。構造体は継承できないため、構造体のメンバーに `Protected Friend` を適用することはできません。
 
 > [!NOTE]
-> Visual Studio で、`protected friend` に対して F1 ヘルプを選択すると、[protected](protected.md) または [friend](friend.md) のヘルプが表示されます。 IDE では、複合語ではなくカーソルの下にある 1 つのトークンが選択されます。
-
-## <a name="rules"></a>ルール
-
-**宣言コンテキスト。** `Protected Friend` は、クラス レベルでのみ使用できます。 つまり、`Protected` 要素の宣言コンテキストはクラスにする必要があり、ソース ファイル、名前空間、インターフェイス、モジュール、構造体、またはプロシージャにすることはできません。
+> Visual Studio で、`Protected Friend` に対して F1 ヘルプを選択すると、[Protected](protected.md) または [Friend](friend.md) のヘルプが表示されます。 IDE では、複合語ではなくカーソルの下にある 1 つのトークンが選択されます。
 
 ## <a name="see-also"></a>関連項目
 

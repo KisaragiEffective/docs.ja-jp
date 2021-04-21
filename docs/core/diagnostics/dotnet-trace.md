@@ -2,12 +2,12 @@
 title: dotnet-trace 診断ツール - .NET CLI
 description: dotnet-trace CLI ツールをインストールして使用し、.NET EventPipe を使って、ネイティブ プロファイラーなしで実行中のプロセスの .NET トレースを収集する方法について学習します。
 ms.date: 11/17/2020
-ms.openlocfilehash: abf98df6e31747ea3e8013fc77b246613a3402ad
-ms.sourcegitcommit: f0fc5db7bcbf212e46933e9cf2d555bb82666141
+ms.openlocfilehash: e4e5bf91a7e6a9bf98e8cb006864b4cbc5ca17a2
+ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583010"
+ms.lasthandoff: 03/17/2021
+ms.locfileid: "103624189"
 ---
 # <a name="dotnet-trace-performance-analysis-utility"></a>dotnet-trace パフォーマンス分析ユーティリティ
 
@@ -91,6 +91,9 @@ dotnet-trace collect [--buffersize <size>] [--clreventlevel <clreventlevel>] [--
 - **`--buffersize <size>`**
 
   メモリ内の循環バッファーのサイズをメガバイトに設定します。 既定は 256 MB です。
+
+  > [!NOTE]
+  > ターゲット プロセスによるイベントの書き込みが頻繁すぎる場合、このバッファーがオーバーフローして、一部のイベントが削除される可能性があります。 削除されるイベントが多すぎる場合は、バッファー サイズを増やし、削除されるイベントの数が減少するかどうかを確認します。 バッファー サイズを大きくしても削除されるイベントの数が減らない場合は、リーダーが遅いために、ターゲット プロセスのバッファーのフラッシュが妨げられている可能性があります。
 
 - **`--clreventlevel <clreventlevel>`**
 

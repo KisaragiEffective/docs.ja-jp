@@ -2,12 +2,12 @@
 title: オブジェクト指向プログラミング (C#)
 description: C# は、抽象化、カプセル化、継承、ポリモーフィズムなど、オブジェクト指向プログラミングを完全にサポートします。
 ms.date: 09/30/2020
-ms.openlocfilehash: 57f1759edd2dd5f239e81351aed64bf061766b7b
-ms.sourcegitcommit: 9c589b25b005b9a7f87327646020eb85c3b6306f
+ms.openlocfilehash: e6261e9018217094e0c3ce742ff0172b8559deaf
+ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102255406"
+ms.lasthandoff: 03/17/2021
+ms.locfileid: "103624215"
 ---
 # <a name="object-oriented-programming-c"></a>オブジェクト指向プログラミング (C#)
 
@@ -187,8 +187,8 @@ public void MakeWithdrawal(decimal amount, DateTime date, string note)
 
 このチュートリアルでは、オブジェクト指向プログラミングで使用される多くの手法を示しました。
 
-- 各クラスで多くの詳細情報を `private` にしたとき、"*抽象化*" を使用しました。
-- 異なる種類の口座ごとにクラスを定義したとき、"*カプセル化*" を使用しました。 これらのクラスによって、その種類の口座の動作が記述されました。
+- 異なる種類の口座ごとにクラスを定義したとき、"*抽象化*" を使用しました。 これらのクラスによって、その種類の口座の動作が記述されました。
+- 各クラスで多くの詳細情報を `private` にしたとき、"*カプセル化*" を使用しました。
 - `BankAccount` クラスに既に作成されている実装を活用してコードを節約したとき、"*継承*" を使用しました。
 - 派生クラスでオーバーライドしてその口座の種類に固有の動作を作成できる `virtual` メソッドを作成したとき、"*ポリモーフィズム*" を使用しました。
 
