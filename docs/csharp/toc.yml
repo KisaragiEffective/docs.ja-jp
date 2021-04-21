@@ -35,41 +35,55 @@ items:
                 href: tour-of-csharp/tutorials/branches-and-loops-local.md
               - name: リスト コレクション
                 href: tour-of-csharp/tutorials/arrays-and-collections.md
+  - name: C# の新機能
+    items:
+      - name: C# 9.0
+        displayName: what's new
+        href: whats-new/csharp-9.md
+      - name: C# 8.0
+        href: whats-new/csharp-8.md
+      - name: C# 7.0-7.3
+        href: whats-new/csharp-7.md
+      - name: コンパイラの互換性に影響する変更点
+        href: whats-new/breaking-changes.md
+      - name: C# バージョン履歴
+        href: whats-new/csharp-version-history.md
+      - name: .NET ライブラリとの関係
+        href: whats-new/relationships-between-language-and-library.md
+      - name: バージョンの互換性
+        href: whats-new/version-update-considerations.md
+      - name: チュートリアル
+        items:
+          - name: レコード型を調べる
+            href: whats-new/tutorials/records.md
+          - name: 最上位レベルのステートメントを調べる
+            href: whats-new/tutorials/top-level-statements.md
+          - name: オブジェクトのパターンを調べる
+            href: whats-new/tutorials/patterns-objects.md
+          - name: 既定のインターフェイス メソッドでインターフェイスを安全に更新する
+            href: whats-new/tutorials/default-interface-methods-versions.md
+          - name: 既定のインターフェイス メソッドを使用した mixin 機能を作成する
+            href: whats-new/tutorials/mixins-with-default-interface-methods.md
+          - name: インデックスと範囲を調べる
+            href: whats-new/tutorials/ranges-indexes.md
+          - name: Null 許容参照型を操作する
+            href: whats-new/tutorials/nullable-reference-types.md
+          - name: アプリを Null 許容参照型にアップグレードする
+            href: whats-new/tutorials/upgrade-to-nullable-references.md
+          - name: 非同期ストリームの生成と使用
+            href: whats-new/tutorials/generate-consume-asynchronous-stream.md
   - name: チュートリアル
     items:
-      - name: 概要
-        displayName: tutorials
-        href: tutorials/index.md
       - name: クラスの概要
         href: tutorials/intro-to-csharp/introduction-to-classes.md
       - name: オブジェクト指向プログラミング
         href: tutorials/intro-to-csharp/object-oriented-programming.md
-      - name: レコード型を調べる
-        href: tutorials/exploration/records.md
-      - name: 最上位レベルのステートメントを調べる
-        href: tutorials/exploration/top-level-statements.md
-      - name: オブジェクトのパターンを調べる
-        href: tutorials/exploration/patterns-objects.md
       - name: 文字列補間を詳しく学習する - 対話形式
         href: tutorials/exploration/interpolated-strings.yml
       - name: 文字列補間を詳しく学習する - 自分の環境内で
         href: tutorials/exploration/interpolated-strings-local.md
       - name: 文字列補間の高度なシナリオ
         href: tutorials/string-interpolation.md
-      - name: 既定のインターフェイス メソッドでインターフェイスを安全に更新する
-        href: tutorials/default-interface-methods-versions.md
-      - name: 既定のインターフェイス メソッドを使用した mixin 機能を作成する
-        href: tutorials/mixins-with-default-interface-methods.md
-      - name: インデックスと範囲を調べる
-        href: tutorials/ranges-indexes.md
-      - name: Null 許容参照型を操作する
-        href: tutorials/nullable-reference-types.md
-      - name: アプリを Null 許容参照型にアップグレードする
-        href: tutorials/upgrade-to-nullable-references.md
-      - name: 非同期ストリームの生成と使用
-        href: tutorials/generate-consume-asynchronous-stream.md
-      - name: パターン マッチングを使用したデータドリブン アルゴリズムの構築
-        href: tutorials/pattern-matching.md
       - name: コンソール アプリケーション
         href: tutorials/console-teleprompter.md
       - name: REST クライアント
@@ -80,23 +94,8 @@ items:
         href: tutorials/working-with-linq.md
       - name: 属性の使用
         href: tutorials/attributes.md
-  - name: C# の新機能
-    items:
-      - name: C# 9.0
-        displayName: what's new
-        href: whats-new/csharp-9.md
-      - name: C# 8.0
-        href: whats-new/csharp-8.md
-      - name: C# 7.0-7.3
-        href: whats-new/csharp-7.md
-      - name: コンパイラでの破壊的変更
-        href: whats-new/breaking-changes.md
-      - name: C# バージョン履歴
-        href: whats-new/csharp-version-history.md
-      - name: 言語とフレームワークの関係
-        href: whats-new/relationships-between-language-and-library.md
-      - name: バージョンと更新に関する考慮事項
-        href: whats-new/version-update-considerations.md
+      - name: パターン マッチングを使用したデータドリブン アルゴリズムの構築
+        href: tutorials/pattern-matching.md
   - name: C# の概念
     items:
       - name: C# 型システム
@@ -539,10 +538,10 @@ items:
             href: programming-guide/types/using-type-dynamic.md
           - name: 'チュートリアル: 動的オブジェクトの作成と使用 (C# および Visual Basic)'
             href: programming-guide/types/walkthrough-creating-and-using-dynamic-objects.md
-      - name: クラス、レコード、構造体
+      - name: クラス、構造体、レコード
         items:
           - name: 概要
-            displayName: 'classes, records'
+            displayName: 'classes, structs, records'
             href: programming-guide/classes-and-structs/index.md
           - name: クラス
             href: programming-guide/classes-and-structs/classes.md
@@ -768,22 +767,6 @@ items:
             href: programming-guide/namespaces/using-namespaces.md
           - name: My 名前空間を使用する方法
             href: programming-guide/namespaces/how-to-use-the-my-namespace.md
-      - name: unsafe コードとポインター
-        items:
-          - name: 概要と制限事項
-            displayName: unsafe code pointers
-            href: programming-guide/unsafe-code-pointers/index.md
-          - name: 固定サイズ バッファー
-            href: programming-guide/unsafe-code-pointers/fixed-size-buffers.md
-          - name: ポインター型
-            items:
-              - name: 概要
-                displayName: pointer types
-                href: programming-guide/unsafe-code-pointers/pointer-types.md
-              - name: ポインター変換
-                href: programming-guide/unsafe-code-pointers/pointer-conversions.md
-              - name: ポインターを使用してバイトの配列をコピーする方法
-                href: programming-guide/unsafe-code-pointers/how-to-use-pointers-to-copy-an-array-of-bytes.md
       - name: XML ドキュメント コメント
         items:
           - name: 概要
@@ -913,7 +896,9 @@ items:
                 displayName: 'value types, simple types'
               - name: 整数数値型
                 href: language-reference/builtin-types/integral-numeric-types.md
-                displayName: 'sbyte, byte, short, ushort, int, uint, long, ulong, integer, literal'
+                displayName: 'sbyte, byte, short, ushort, int, uint, nint, nuint, long, ulong, integer, literal'
+              - name: nint と nuint のネイティブ整数型
+                href: language-reference/builtin-types/nint-nuint.md
               - name: 浮動小数点数値型
                 href: language-reference/builtin-types/floating-point-numeric-types.md
                 displayName: 'float, decimal, double, rational, real, literal'
@@ -944,6 +929,8 @@ items:
               - name: 組み込みの参照型
                 displayName: 'object, delegate, dynamic, string'
                 href: language-reference/builtin-types/reference-types.md
+              - name: レコード (record)
+                href: language-reference/builtin-types/record.md
               - name: class
                 href: language-reference/keywords/class.md
               - name: interface
@@ -1222,6 +1209,9 @@ items:
           - name: ラムダ式
             href: language-reference/operators/lambda-expressions.md
             displayName: anonymous functions
+          - name: パターン
+            href: language-reference/operators/patterns.md
+            displayName: 'pattern matching, and keyword, or keyword, not keyword, pattern reference'
           - name: + および += 演算子
             href: language-reference/operators/addition-operator.md
             displayName: 'string concatenation, delegate combination, event subscription'
@@ -1287,50 +1277,21 @@ items:
           - name: グローバル属性
             displayName: 'AssemblyName, AssemblyVersion, AssemblyCulture, AssemblyFlags, AssemblyProduct, AssemblyTrademark, AssemblyInformationalVersion, AssemblyCompany, AssemblyCopyright, AssemblyFileVersion, CLSCompliant, AssemblyTitle, AssemblyDescription, AssemblyConfiguration, AssemblyDefaultAlias'
             href: language-reference/attributes/global.md
-          - name: 全般
-            displayName: 'Conditional, Obsolete, AttributeUsage'
-            href: language-reference/attributes/general.md
           - name: 呼び出し元情報
             displayName: 'CallerFilePath, CallerLineNumber, CallerMemberName'
             href: language-reference/attributes/caller-information.md
           - name: Null 許容のスタティック分析
             displayName: 'AllowNull, DisallowNull, MaybeNull, NotNull, MaybeNullWhen, NotNullWhen, NotNullIfNotNull, DoesNotReturn, DoesNotReturnIf'
             href: language-reference/attributes/nullable-analysis.md
+          - name: その他
+            displayName: 'Conditional, Obsolete, AttributeUsage, ModuleInitializer, SkipLocalsInit'
+            href: language-reference/attributes/general.md
+      - name: アンセーフ コードとポインター
+        displayName: 'unsafe code, pointers, fixed buffer, function pointer'
+        href: language-reference/unsafe-code.md
       - name: プリプロセッサ ディレクティブ
-        items:
-          - name: 概要
-            displayName: preprocessor directives
-            href: language-reference/preprocessor-directives/index.md
-          - name: '#if'
-            href: language-reference/preprocessor-directives/preprocessor-if.md
-          - name: '#else'
-            href: language-reference/preprocessor-directives/preprocessor-else.md
-          - name: '#elif'
-            href: language-reference/preprocessor-directives/preprocessor-elif.md
-          - name: '#endif'
-            href: language-reference/preprocessor-directives/preprocessor-endif.md
-          - name: '#define'
-            href: language-reference/preprocessor-directives/preprocessor-define.md
-          - name: '#undef'
-            href: language-reference/preprocessor-directives/preprocessor-undef.md
-          - name: '#warning'
-            href: language-reference/preprocessor-directives/preprocessor-warning.md
-          - name: '#error'
-            href: language-reference/preprocessor-directives/preprocessor-error.md
-          - name: '#line'
-            href: language-reference/preprocessor-directives/preprocessor-line.md
-          - name: '#null 許容'
-            href: language-reference/preprocessor-directives/preprocessor-nullable.md
-          - name: '#region'
-            href: language-reference/preprocessor-directives/preprocessor-region.md
-          - name: '#endregion'
-            href: language-reference/preprocessor-directives/preprocessor-endregion.md
-          - name: '#pragma'
-            href: language-reference/preprocessor-directives/preprocessor-pragma.md
-          - name: '#pragma warning'
-            href: language-reference/preprocessor-directives/preprocessor-pragma-warning.md
-          - name: '#pragma checksum'
-            href: language-reference/preprocessor-directives/preprocessor-pragma-checksum.md
+        href: language-reference/preprocessor-directives.md
+        displayName: '\#if, \#else, \#elif, \#endif, \#define, \#undef, \#warning, \#error, \#line, \#nullable, \#region, \#endregion, \#pragma, warning, checksum'
       - name: コンパイラ オプション
         items:
           - name: オプションの設定方法
@@ -1360,7 +1321,7 @@ items:
             displayName: 'ResponseFiles, @, NoLogo, nologo, NoConfig, noconfig'
             href: language-reference/compiler-options/miscellaneous.md
           - name: '[詳細オプション]'
-            displayName: 'MainEntryPoint, StartupObject, main, PdbFile, pdb, PathMap, pathmap, ErrorReport, errorreport, ApplicationConfiguration, appconfig, AdditionalLibPaths, lib, GenerateFullPaths, fullpath, PreferredUILang, preferreduilang, BaseAddress, baseaddress, ChecksumAlgorithm, checksumalgorithm, CodePage, codepage, Utf8Output, utf8output, FileAlignment, filealign, ErrorEndLocation, errorendlocation, NoStandardLib, nostdlib, SubsystemVersion, subsystemversion, ModuleAssemblyName, moduleassemblyname'
+            displayName: 'MainEntryPoint, StartupObject, main, PdbFile, pdb, PathMap, pathmap, ApplicationConfiguration, appconfig, AdditionalLibPaths, lib, GenerateFullPaths, fullpath, PreferredUILang, preferreduilang, BaseAddress, baseaddress, ChecksumAlgorithm, checksumalgorithm, CodePage, codepage, Utf8Output, utf8output, FileAlignment, filealign, ErrorEndLocation, errorendlocation, NoStandardLib, nostdlib, SubsystemVersion, subsystemversion, ModuleAssemblyName, moduleassemblyname'
             href: language-reference/compiler-options/advanced.md
       - name: コンパイラ エラー
         href: language-reference/compiler-messages/index.md

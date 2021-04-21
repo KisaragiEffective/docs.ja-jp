@@ -3,12 +3,12 @@ title: EventPipe の概要
 description: EventPipe について、およびそれを使用して .NET アプリケーションをトレースし、パフォーマンスの問題を診断する方法について説明します。
 ms.date: 11/09/2020
 ms.topic: overview
-ms.openlocfilehash: 0b4782306c85590d74b521edd254659fb162b0c2
-ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
+ms.openlocfilehash: de00f448dea9752c3dff2af35977d97c07aec6f3
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/17/2021
-ms.locfileid: "103624163"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104874161"
 ---
 # <a name="eventpipe"></a>EventPipe
 
@@ -22,7 +22,7 @@ EventPipe は多くの診断ツールの背後にあるメカニズムです。�
 
 EventPipe により、ランタイム コンポーネント (たとえば、Just-In-Time コンパイラまたはガベージ コレクター) によって生成されたイベントと、ライブラリおよびユーザー コード内の [EventSource](xref:System.Diagnostics.Tracing.EventSource) インスタンスから書き込まれたイベントが集約されます。
 
-その後、イベントはシリアル化され、ファイルに直接書き込むか、診断ポートを介してアウトプロセスから利用できるようになります。 Windows では、診断ポートは `NamedPipe` として実装されます。 Linux や macOS など、Windows 以外のプラットフォームでは、Unix ドメイン ソケットを使用して実装されます。 診断ポートと、カスタムのプロセス間通信プロトコルを使用してそれを操作する方法の詳細については、[診断 IPC プロトコルのドキュメント](https://github.com/dotnet/diagnostics/blob/master/documentation/design-docs/ipc-protocol.md)を参照してください。
+その後、イベントはシリアル化され、ファイルに直接書き込むか、診断ポートを介してアウトプロセスから利用できるようになります。 Windows では、診断ポートは `NamedPipe` として実装されます。 Linux や macOS など、Windows 以外のプラットフォームでは、Unix ドメイン ソケットを使用して実装されます。 診断ポートと、カスタムのプロセス間通信プロトコルを使用してそれを操作する方法の詳細については、[診断 IPC プロトコルのドキュメント](https://github.com/dotnet/diagnostics/blob/main/documentation/design-docs/ipc-protocol.md)を参照してください。
 
 次に、シリアル化されたイベントが、EventPipe によって `.nettrace` ファイル形式で (診断ポートを介してストリームとして、またはファイルへの直接書き込みで) 書き込まれます。 EventPipe のシリアル化形式の詳細については、[EventPipe 形式のドキュメント](https://github.com/microsoft/perfview/blob/master/src/TraceEvent/EventPipe/EventPipeFormat.md)を参照してください。
 
@@ -49,7 +49,7 @@ EventPipe を使用すると、さまざまな方法で .NET アプリケーシ�
 
 * EventPipe の上に構築された[診断ツール](#tools-that-use-eventpipe)のどれかを使用します。
 
-* [Microsoft.Diagnostics.NETCore.Client](https://github.com/dotnet/diagnostics/blob/master/documentation/diagnostics-client-library-instructions.md) ライブラリを使用して、EventPipe セッションを構成して開始するための独自のツールを自分で作成します。
+* [Microsoft.Diagnostics.NETCore.Client](https://github.com/dotnet/diagnostics/blob/main/documentation/diagnostics-client-library-instructions.md) ライブラリを使用して、EventPipe セッションを構成して開始するための独自のツールを自分で作成します。
 
 * [環境変数](#trace-using-environment-variables)を使用して EventPipe を開始します。
 

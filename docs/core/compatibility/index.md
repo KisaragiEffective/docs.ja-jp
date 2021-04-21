@@ -2,12 +2,13 @@
 title: 破壊的変更の種類
 description: .NET により開発者のために .NET のバージョン間での互換性が維持される方法、および破壊的変更と見なされる変更の種類について説明します。
 ms.date: 01/28/2021
-ms.openlocfilehash: d539a82b21abc4df8d726673ef728020f36551bf
-ms.sourcegitcommit: 68c9d9d9a97aab3b59d388914004b5474cf1dbd7
+ms.topic: conceptual
+ms.openlocfilehash: a1a55a95cedca4aecba875bb44b952173327606d
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99216039"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740619"
 ---
 # <a name="changes-that-affect-compatibility"></a>互換性に影響を与える変更点
 

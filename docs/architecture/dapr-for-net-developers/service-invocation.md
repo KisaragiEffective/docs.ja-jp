@@ -1,64 +1,64 @@
 ---
-title: Dapr サービス呼び出しのビルドブロック
-description: サービス呼び出しの構成要素の説明、機能、利点、適用方法
+title: Dapr のサービス呼び出し構成ブロック
+description: サービス呼び出し構成ブロック、その機能、利点、適用方法の説明
 author: amolenk
-ms.date: 02/07/2021
-ms.openlocfilehash: 2b64aa1e9b079a3fefe120e687cd6d395981c633
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
-ms.translationtype: MT
+ms.date: 02/17/2021
+ms.openlocfilehash: f6d5f10ae476d85a9925c4fa387a16d575cacf6a
+ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102401431"
+ms.lasthandoff: 03/17/2021
+ms.locfileid: "103624098"
 ---
-# <a name="the-dapr-service-invocation-building-block"></a>Dapr サービス呼び出しのビルドブロック
+# <a name="the-dapr-service-invocation-building-block"></a>Dapr のサービス呼び出し構成ブロック
 
-分散システム全体で、1つのサービスが別のサービスと通信してビジネス操作を完了する必要があります。 [Dapr サービスの呼び出しの構成ブロック](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/)は、サービス間の通信を効率化するのに役立ちます。
+分散システム内では、多くの場合、ビジネス操作を完了するために、あるサービスが別のサービスと通信する必要があります。 [Dapr のサービス呼び出し構成ブロック](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/)は、サービス間の通信を効率化するのに役立ちます。
 
-## <a name="what-it-solves"></a>解決方法
+## <a name="what-it-solves"></a>解決される内容
 
-分散アプリケーションでサービス間の呼び出しを行うのは簡単ですが、多くの課題が関係しています。 次に例を示します。
+分散アプリケーションでサービス間の呼び出しを行うのは簡単なように見えますが、多くの課題が関係しています。 次に例を示します。
 
 - 他のサービスが配置されている場所。
-- サービスアドレスを指定してサービスを安全に呼び出す方法。
-- 短時間の [一時的なエラー](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) が発生した場合の再試行の処理方法。
+- サービス アドレスを指定して、サービスを安全に呼び出す方法。
+- 短時間の[一時的なエラー](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)が発生した場合の再試行の処理方法。
 
-最後に、分散アプリケーションではさまざまなサービスが構成されるため、サービス呼び出しグラフ間で分析情報をキャプチャすることは、運用上の問題を診断するうえで非常に重要です。
+最後に、分散アプリケーションはさまざまなサービスで構成されるため、サービス呼び出しグラフで分析情報をキャプチャすることは、運用上の問題を診断するうえで非常に重要です。
 
-サービス呼び出しの構成要素では、サービスの [リバースプロキシ](https://kemptechnologies.com/reverse-proxy/reverse-proxy/) として dapr サイドカーを使用することによって、これらの課題に対処します。
+サービス呼び出し構成ブロックでは、Dapr サイドカーをサービスの[リバース プロキシ](https://kemptechnologies.com/reverse-proxy/reverse-proxy/)として使用することにより、これらの課題が対処されます。
 
 ## <a name="how-it-works"></a>しくみ
 
-まず例を見てみましょう。 "サービス A" と "サービス B" という2つのサービスを考えてみましょう。 サービス A は、サービス B で API を呼び出す必要があり `catalog/items` ます。サービス A はサービス B への依存関係を取得し、それに直接呼び出しを行うことができますが、サービス a は代わりに Dapr sidecar でサービス呼び出し API を呼び出します。 図6-1 に、この操作を示します。
+最初に例を見てみましょう。 "サービス A" と "サービス B" という 2 つのサービスについて考えます。 サービス A は、サービス B で `catalog/items` API を呼び出す必要があります。サービス A はサービス B への依存関係を取得し、それを直接呼び出すこともできますが、サービス A は代わりに Dapr サイドカーでサービス呼び出し API を呼び出します。 図 6-1 に、この操作を示します。
 
-![Dapr サービスの呼び出しのしくみ](./media/service-invocation/service-invocation-flow.png)
+![Dapr のサービス呼び出しのしくみ](./media/service-invocation/service-invocation-flow.png)
 
-**図 6-1**。 Dapr サービスの呼び出しのしくみ。
+**図 6-1**。 Dapr のサービス呼び出しのしくみ。
 
-前の図の手順を確認します。
+前の図の手順に注意してください。
 
-1. サービス A はサービス B のエンドポイントを呼び出します。サービスでサービス `catalog/items` 呼び出し API を呼び出します。
+1. サービス A によって、サービス A サイドカーでサービス呼び出し API を呼び出すことにより、サービス B の `catalog/items` エンドポイントが呼び出されます。
 
     > [!NOTE]
-    > サイドカーは、プラグ可能な名前解決メカニズムを使用して、サービス B のアドレスを解決します。自己ホスト型モードでは、Dapr は [mdn](https://www.ionos.com/digitalguide/server/know-how/multicast-dns/) を使用して検索します。 Kubernetes モードで実行すると、Kubernetes DNS サービスによってアドレスが決定されます。  
+    > サイドカーによって、プラグ可能な名前解決メカニズムを使用して、サービス B のアドレスが解決されます。セルフホステッド モードの Dapr では、[mDNS](https://www.ionos.com/digitalguide/server/know-how/multicast-dns/) を使用してそれが検索されます。 Kubernetes モードで実行されているときは、Kubernetes DNS サービスによってアドレスが決定されます。  
 
-1. サービスは、サービス B に要求を転送します。
+1. サービス A のサイドカーにより、要求がサービス B に転送されます。
 
-1. サービス b はサービス `catalog/items` b API に対して実際の要求を行います。
+1. サービス B のサイドカーにより、サービス B の API に対する実際の `catalog/items` 要求が行われます。
 
-1. サービス B は要求を実行し、応答を sidecar に返します。
+1. サービス B によって要求が実行され、応答がそのサイドカーに返されます。
 
-1. サービス B サイドカーは、サービスに応答を転送します。
+1. サービス B のサイドカーによって、応答がサービス A のサイドカーに返送されます。
 
-1. サービスは、サービス A に応答を返します。
+1. サービス A のサイドカーによって、応答がサービス A に返されます。
 
-呼び出しはサイドカーを通じてフローするので、Dapr は便利なクロスカット動作を挿入できます。
+呼び出しはサイドカーを通じてフローするので、Dapr で便利な横断的動作を挿入できます。
 
-- 失敗したときに、自動的に呼び出しを再試行します。
-- 証明書の自動ロールオーバーなど、相互 (mTLS) 認証を使用して、サービス間の呼び出しを行います。
-- クライアントがアクセス制御ポリシーを使用して実行できる操作を制御します。
-- サービス間のすべての呼び出しのトレースとメトリックをキャプチャして、洞察と診断を提供します。
+- 失敗したら、呼び出しを自動的に再試行します。
+- 証明書の自動ロールオーバーなど、相互 (mTLS) 認証でセキュリティ保護された、サービス間の呼び出しを行います。
+- アクセス制御ポリシーを使用して、クライアントが実行できる操作を制御します。
+- サービス間のすべての呼び出しのトレースとメトリックをキャプチャして、分析情報と診断を提供します。
 
-すべてのアプリケーションは、dapr に組み込まれているネイティブ **呼び出し** API を使用して dapr サイドカーを呼び出すことができます。 API は、HTTP または gRPC を使用して呼び出すことができます。 次の URL を使用して HTTP API を呼び出します。
+Dapr に組み込まれているネイティブな **呼び出し** API を使用することで、すべてのアプリケーションで Dapr サイドカーを呼び出すことができます。 この API は、HTTP または gRPC を使用して呼び出すことができます。 次の URL を使用して HTTP API を呼び出します。
 
 ``` http
 http://localhost:<dapr-port>/v1.0/invoke/<application-id>/method/<method-name>
@@ -66,22 +66,22 @@ http://localhost:<dapr-port>/v1.0/invoke/<application-id>/method/<method-name>
 
 - `<dapr-port>` Dapr がリッスンしている HTTP ポート。
 - `<application-id>` 呼び出すサービスのアプリケーション ID。
-- `<method-name>` リモートサービスで呼び出すメソッドの名前。
+- `<method-name>` リモート サービスで呼び出すメソッドの名前。
 
-次の例では、  `catalog/items` の "GET" エンドポイントに対して curl 呼び出しが行われ `Service B` ます。
+次の例では、`Service B` の `catalog/items` "GET" エンドポイントに対して、*curl* の呼び出しが行われます。
 
 ```console
 curl http://localhost:3500/v1.0/invoke/serviceb/method/catalog/items
 ```
 
 > [!NOTE]
-> Dapr Api は、HTTP または gRPC をサポートするすべてのアプリケーションスタックで、Dapr 構成ブロックを使用できるようにします。 したがって、サービス呼び出しの構成ブロックは、プロトコル間のブリッジとして機能することができます。 サービスは、HTTP、gRPC、またはその両方の組み合わせを使用して相互に通信できます。
+> Dapr API を使用することで、HTTP または gRPC をサポートするすべてのアプリケーション スタックで、Dapr の構成ブロックを使用できます。 したがって、サービス呼び出し構成ブロックは、プロトコル間のブリッジとして機能できます。 サービスは、HTTP、gRPC、またはその両方の組み合わせを使用して相互に通信できます。
 
 次のセクションでは、.NET SDK を使用してサービス呼び出しを簡略化する方法について説明します。
 
 ## <a name="use-the-dapr-net-sdk"></a>Dapr .NET SDK を使用する
 
-Dapr [.NET SDK](https://github.com/dapr/dotnet-sdk) は、.net 開発者に、dapr と対話するための直感的で言語固有の方法を提供します。 SDK は、リモートサービス呼び出しを行うための3つの方法を開発者に提供します。
+Dapr [.NET SDK](https://github.com/dapr/dotnet-sdk) により、Dapr と対話するための直感的で言語固有の方法が、.NET 開発者に提供されます。 SDK からは、リモート サービス呼び出しを行うための 3 つの方法が開発者に提供されます。
 
 1. HttpClient を使用して HTTP サービスを呼び出す
 1. DaprClient を使用して HTTP サービスを呼び出す
@@ -89,35 +89,35 @@ Dapr [.NET SDK](https://github.com/dapr/dotnet-sdk) は、.net 開発者に、da
 
 ### <a name="invoke-http-services-using-httpclient"></a>HttpClient を使用して HTTP サービスを呼び出す
 
-HTTP エンドポイントを呼び出す方法としては、Dapr との豊富な統合を使用することをお勧めし `HttpClient` ます。 次の例では、アプリケーションのメソッドを呼び出して注文を送信し `submit` `orderservice` ます。
+HTTP エンドポイントを呼び出す方法として推奨されるのは、Dapr と `HttpClient` のリッチな統合を使用することです。 次の例では、`orderservice` アプリケーションの `submit` メソッドを呼び出すことにより、注文が送信されます。
 
 ```csharp
 var httpClient = DaprClient.CreateHttpClient();
 await httpClient.PostAsJsonAsync("http://orderservice/submit", order);
 ```
 
-この例では、は `DaprClient.CreateHttpClient` `HttpClient` dapr サービスの呼び出しを実行するために使用されるインスタンスを返します。 返されるは、 `HttpClient` 送信要求の uri を書き換える特別な Dapr メッセージハンドラーを使用します。 ホスト名は、呼び出すサービスのアプリケーション ID として解釈されます。 実際に呼び出される書き換えられた要求は次のとおりです。
+この例では、Dapr サービスの呼び出しを実行するために使用される `HttpClient` インスタンスが、`DaprClient.CreateHttpClient` から返されます。 返された `HttpClient` では、送信要求の URI を書き換える特別な Dapr メッセージ ハンドラーが使用されます。 ホスト名は、呼び出すサービスのアプリケーション ID として解釈されます。 実際に呼び出される書き換えられた要求は次のようになります。
 
 ```http
 http://127.0.0.1:3500/v1/invoke/orderservice/method/submit
 ```
 
-この例では、Dapr HTTP エンドポイントの既定値であるを使用し `http://127.0.0.1:<dapr-http-port>/` ます。 の値 `dapr-http-port` は、環境変数から取得され `DAPR_HTTP_PORT` ます。 設定されていない場合は、既定のポート番号 `3500` が使用されます。
+この例では、Dapr HTTP エンドポイントの既定値である `http://127.0.0.1:<dapr-http-port>/` を使用します。 `dapr-http-port` の値は、`DAPR_HTTP_PORT` 環境変数から取得されます。 設定されていない場合は、既定のポート番号 `3500` が使用されます。
 
-または、の呼び出しでカスタムエンドポイントを構成することもでき `DaprClient.CreateHttpClient` ます。
+または、`DaprClient.CreateHttpClient` の呼び出しでカスタム エンドポイントを構成することもできます。
 
 ```csharp
 var httpClient = DaprClient.CreateHttpClient(daprEndpoint = "localhost:4000");
 ```
 
-アプリケーション ID を指定して、ベースアドレスを直接設定することもできます。 これにより、呼び出しを行うときに、相対 Uri を使用できるようになります。
+また、アプリケーション ID を指定することで、ベース アドレスを直接設定することもできます。 これにより、呼び出しを行うときに、相対 URI を使用できるようになります。
 
 ```csharp
 var httpClient = DaprClient.CreateHttpClient("orderservice");
 await httpClient.PostAsJsonAsync("/submit");
 ```
 
-`HttpClient`オブジェクトは、有効期間が長いことを意図しています。 `HttpClient`アプリケーションの有効期間中、1つのインスタンスを再利用することができます。 次のシナリオでは、 `OrderServiceClient` クラスが Dapr インスタンスを再利用する方法について説明し `HttpClient` ます。  
+`HttpClient` オブジェクトは、長い有効期間を意図されています。 アプリケーションの有効期間を通して、1 つの `HttpClient` インスタンスを再利用できます。 次のシナリオでは、`OrderServiceClient` クラスで Dapr の `HttpClient` インスタンスを再利用する方法を示します。  
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -128,9 +128,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-上記のスニペットでは、は `OrderServiceClient` ASP.NET Core 依存関係の注入システムを使用してシングルトンとして登録されています。 実装ファクトリは、を `HttpClient` 呼び出すことによって新しいインスタンスを作成し `DaprClient.CreateInvokeHttpClient` ます。 次に、新しく作成されたを使用して `HttpClient` オブジェクトをインスタンス化し `OrderServiceClient` ます。 を `OrderServiceClient` シングルトンとして登録すると、アプリケーションの有効期間に再利用されます。
+上のスニペットで、`OrderServiceClient` は、シングルトンとして ASP.NET Core 依存関係挿入システムに登録されます。 実装ファクトリによって、`DaprClient.CreateInvokeHttpClient` を呼び出すことにより新しい `HttpClient` インスタンスが作成されます。 その後、新しく作成された `HttpClient` を使用して、`OrderServiceClient` オブジェクトがインスタンス化されます。 `OrderServiceClient` をシングルトンとして登録することにより、それはアプリケーションの有効期間を通して再利用されます。
 
-自体には、 `OrderServiceClient` Dapr 固有のコードがありません。 Dapr サービスの呼び出しが内部で使用されていても、他の HttpClient と同様に Dapr HttpClient を扱うことができます。
+`OrderServiceClient` 自体には、Dapr 固有のコードはありません。 Dapr のサービス呼び出しが内部で使用されていても、他の HttpClient と同じように Dapr HttpClient を扱うことができます。
 
 ```csharp
 public class OrderServiceClient : IOrderServiceClient
@@ -150,16 +150,16 @@ public class OrderServiceClient : IOrderServiceClient
 }
 ```
 
-HttpClient クラスと Dapr サービスの呼び出しには、次のような多くの利点があります。
+Dapr のサービス呼び出しで HttpClient クラスを使用すると、次のような多くの利点があります。
 
-- HttpClient は、多くの開発者がコードで既に使用している、よく知られたクラスです。 Dapr サービスの呼び出しに HttpClient を使用すると、開発者は既存のスキルを再利用できます。
-- HttpClient は、カスタムヘッダーなどの高度なシナリオや、要求メッセージと応答メッセージを完全に制御する機能をサポートしています。
-- .NET 5 では、HttpClient は System.Text.Jsを使用した自動シリアル化とシリアル化解除をサポートしています。
-- HttpClient は、多くの既存のフレームワークやライブラリ (たとえば、"RestSharp ["、"](https://github.com/reactiveui/refit) [](https://restsharp.dev/getting-started/getting-started.html#basic-usage)"、" [polly](https://github.com/App-vNext/Polly)など) と統合されています。
+- HttpClient は、多くの開発者がコードで既に使用している、よく知られたクラスです。 Dapr のサービス呼び出しに HttpClient を使用すると、開発者は既存のスキルを再利用できます。
+- HttpClient を使用すると、カスタム ヘッダーなどの高度なシナリオや、要求や応答のメッセージに対する完全な制御がサポートされます。
+- .NET 5 の HttpClient では、System.Text.Json を使用した自動シリアル化とシリアル化解除がサポートされています。
+- HttpClient は、多くの既存のフレームワークやライブラリと統合されています (たとえば、[Refit](https://github.com/reactiveui/refit)、[RestSharp](https://restsharp.dev/getting-started/getting-started.html#basic-usage)、[Polly](https://github.com/App-vNext/Polly) など)。
 
 ### <a name="invoke-http-services-using-daprclient"></a>DaprClient を使用して HTTP サービスを呼び出す
 
-HTTP セマンティクスを使用してサービスを呼び出すには、HttpClient を使用することをお勧めしますが、メソッドのファミリを使用することもでき `DaprClient.InvokeMethodAsync` ます。 次の例では、アプリケーションのメソッドを呼び出して注文を送信し `submit` `orderservice` ます。
+HTTP セマンティクスを使用してサービスを呼び出すには、HttpClient が推奨される方法ですが、メソッドの `DaprClient.InvokeMethodAsync` ファミリを使用することもできます。 次の例では、`orderservice` アプリケーションの `submit` メソッドを呼び出すことにより、注文が送信されます。
 
 ``` csharp
 var daprClient = new DaprClientBuilder().Build();
@@ -175,35 +175,35 @@ catch (InvocationException ex)
 }
 ```
 
-3番目の引数であるオブジェクトは、 `order` 内部で (を使用して) シリアル化され、 `System.Text.JsonSerializer` 要求ペイロードとして送信されます。 .NET SDK は、sidecar の呼び出しを処理します。 また、オブジェクトへの応答を逆シリアル化し `OrderConfirmation` ます。 HTTP メソッドが指定されていないため、要求は HTTP POST として実行されます。
+3 番目の引数である `order` オブジェクトは、 内部で (`System.Text.JsonSerializer` を使用して) シリアル化され、要求ペイロードとして送信されます。 サイドカーの呼び出しは、.NET SDK によって処理されます。 また、それによって、`OrderConfirmation` オブジェクトへの応答の逆シリアル化も行われます。 HTTP メソッドが指定されていないため、要求は HTTP POST として実行されます。
 
-次の例では、を指定して HTTP GET 要求を行う方法を示し `HttpMethod` ます。
+次の例では、`HttpMethod` を指定することにより HTTP GET 要求を行う方法を示します。
 
 ```csharp
 var catalogItems = await daprClient.InvokeMethodAsync<IEnumerable<CatalogItem>>(HttpMethod.Get, "catalogservice", "items");
 ```
 
-シナリオによっては、要求メッセージをより詳細に制御する必要がある場合があります。 たとえば、要求ヘッダーを指定する必要がある場合、またはペイロードにカスタムシリアライザーを使用する場合などです。 `DaprClient.CreateInvokeMethodRequest` を作成 `HttpRequestMessage` します。 次の例は、HTTP authorization ヘッダーを要求メッセージに追加する方法を示しています。
+一部のシナリオでは、要求メッセージのより詳細な制御が必要になる場合があります。 たとえば、要求ヘッダーを指定する必要がある場合や、ペイロードにカスタム シリアライザーを使用する場合などです。 `DaprClient.CreateInvokeMethodRequest` によって `HttpRequestMessage` が作成されます。 次の例では、HTTP 承認ヘッダーを要求メッセージに追加する方法を示します。
 
 ```csharp
 var request = daprClient.CreateInvokeMethodRequest("orderservice", "submit", order);
 request.Headers.Authorization = new AuthenticationHeaderValue("bearer", token);
 ```
 
-では、 `HttpRequestMessage` 次のプロパティが設定されました。
+`HttpRequestMessage` には、次のプロパティが設定されています。
 
 - Url = `http://127.0.0.1:3500/v1.0/invoke/orderservice/method/submit`
-- HttpMethod = 投稿
-- Content =  `JsonContent` JSON でシリアル化されたオブジェクトを含むオブジェクト `order`
-- ヘッダー. Authorization = "ベアラー \<token> "
+- HttpMethod = POST
+- Content = JSON でシリアル化された `order` オブジェクトを含む `JsonContent` オブジェクト
+- Headers.Authorization = "bearer \<token>"
 
-要求が希望どおりに設定されたら、を使用し `DaprClient.InvokeMethodAsync` て送信します。
+意図したとおりに要求が設定されたら、`DaprClient.InvokeMethodAsync` を使用して送信します。
 
 ```csharp
 var orderConfirmation = await daprClient.InvokeMethodAsync<OrderConfirmation>(request);
 ```
 
-`DaprClient.InvokeMethodAsync` 要求が成功した場合は、オブジェクトへの応答を逆シリアル化し `OrderConfirmation` ます。 または、を使用し `DaprClient.InvokeMethodWithResponseAsync` て、基になるへのフルアクセスを取得することもでき `HttpResponseMessage` ます。
+要求が成功した場合、応答は `DaprClient.InvokeMethodAsync` によって `OrderConfirmation` オブジェクトに逆シリアル化されます。 または、`DaprClient.InvokeMethodWithResponseAsync` を使用して、基になる `HttpResponseMessage` に完全にアクセスすることもできます。
 
 ```csharp
 var response = await daprClient.InvokeMethodWithResponseAsync(request);
@@ -213,11 +213,11 @@ var orderConfirmation = response.Content.ReadFromJsonAsync<OrderConfirmation>();
 ```
 
 > [!NOTE]
-> HTTP を使用したサービス呼び出しでは、前のセクションで説明した Dapr HttpClient 統合を使用することを検討してください。 HttpClient を使用すると、既存のフレームワークやライブラリとの統合などの追加の利点が得られます。
+> HTTP を使用するサービス呼び出しでは、前のセクションで説明した Dapr HttpClient 統合を使用することを検討してください。 HttpClient を使用すると、既存のフレームワークやライブラリとの統合など、より多くの利点があります。
 
 ### <a name="invoke-grpc-services-using-daprclient"></a>DaprClient を使用して gRPC サービスを呼び出す
 
-DaprClient には、 `InvokeMethodGrpcAsync` gRPC エンドポイントを呼び出すための一連のメソッドが用意されています。 HTTP メソッドとの主な違いは、JSON ではなく Protobuf serializer を使用することです。 次の例で `submitOrder` は、 `orderservice` grpc 上でのメソッドを呼び出します。
+DaprClient には、gRPC エンドポイントを呼び出すための `InvokeMethodGrpcAsync` メソッドのファミリが用意されています。 HTTP メソッドとの主な違いは、JSON ではなく Protobuf シリアライザーが使用されることです。 次の例では、gRPC を使用して `orderservice` の `submitOrder` メソッドを呼び出しています。
 
 ```csharp
 var daprClient = new DaprClientBuilder().Build();
@@ -231,53 +231,53 @@ catch (InvocationException ex)
 }
 ```
 
-上の例では、DaprClient は Protobuf を使用して指定されたオブジェクトをシリアル化 `order` し、その結果を gRPC 要求本文として使用します。 [](https://developers.google.com/protocol-buffers) 同様に、応答本文は Protobuf 逆シリアル化され、呼び出し元に返されます。 Protobuf は、通常、HTTP サービスの呼び出しで使用される JSON ペイロードより優れたパフォーマンスを提供します。
+上の例では、指定された `order` オブジェクトは DaprClient により [Protobuf](https://developers.google.com/protocol-buffers) を使用してシリアル化され、その結果が gRPC 要求本文として使用されます。 同様に、応答本文は Protobuf で逆シリアル化されて、呼び出し元に返されます。 通常、Protobuf の方が、HTTP サービスの呼び出しで使用される JSON ペイロードより、優れたパフォーマンスを提供します。
 
 ## <a name="reference-application-eshopondapr"></a>参照アプリケーション: eShopOnDapr
 
-Microsoft の元の [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) マイクロサービス参照アーキテクチャでは、HTTP/REST と grpc サービスの組み合わせが使用されていました。 GRPC の使用は、 [アグリゲーターサービス](../cloud-native/service-to-service-communication.md#service-aggregator-pattern) とコアバックエンドサービス間の通信に限定されていました。 図6-2 は、アーキテクチャを示しています。
+Microsoft の元の [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) マイクロサービス参照アーキテクチャでは、HTTP/REST と gRPC サービスの組み合わせが使用されていました。 gRPC の使用は、[アグリゲーター サービス](../cloud-native/service-to-service-communication.md#service-aggregator-pattern)とコア バックエンド サービスの間の通信に限定されていました。 図 6-2 は、そのアーキテクチャを示したものです。
 
-![eShopOnContainers での gRPC と HTTP/REST 呼び出し](./media/service-invocation/eshop-on-containers.png)
+![eShopOnContainers での gRPC と HTTP/REST の呼び出し](./media/service-invocation/eshop-on-containers.png)
 
-**図 6-2**。 eShopOnContainers で gRPC と HTTP/REST を呼び出します。
+**図 6-2**。 eShopOnContainers での gRPC と HTTP/REST の呼び出し。
 
-前の図の手順を確認します。
+前の図の手順に注意してください。
 
-1. フロントエンドは、HTTP/REST を使用して [API ゲートウェイ](/azure/architecture/microservices/design/gateway) を呼び出します。
+1. フロントエンドにより、HTTP/REST を使用して [API ゲートウェイ](/azure/architecture/microservices/design/gateway)が呼び出されます。
 
-1. API ゲートウェイは、HTTP/REST を使用して単純な [CRUD](https://www.sumologic.com/glossary/crud/) (作成、読み取り、更新、削除) 要求を直接コアバックエンドサービスに転送します。
+1. 単純な [CRUD](https://www.sumologic.com/glossary/crud/) (作成、読み取り、更新、削除) 要求は、API ゲートウェイにより、HTTP/REST を使用して、直接コア バックエンド サービスに転送されます。
 
-1. API ゲートウェイは、複数のバックエンドサービスへの連携呼び出しを伴う複雑な要求を web ショッピングアグリゲーターサービスに転送します。
+1. 複数のバックエンド サービスへの調整された呼び出しが含まれる複雑な要求は、API ゲートウェイにより、Web ショッピング アグリゲーター サービスに転送されます。
 
-1. アグリゲーターサービスは gRPC を使用して、コアバックエンドサービスを呼び出します。
+1. アグリゲーター サービスにより、gRPC を使用して、コア バックエンド サービスが呼び出されます。
 
-最近更新された eShopOnDapr 実装では、Dapr sidecars サービスと API ゲートウェイに追加されます。 図6-3 は、更新されたアーキテクチャを示しています。
+最近更新された eShopOnDapr の実装では、Dapr サイドカーがサービスと API ゲートウェイに追加されています。 図 6-3 は、更新されたアーキテクチャを示したものです。
 
-![eShopOnContainers での gRPC と HTTP/REST 呼び出し](./media/service-invocation/eshop-on-dapr.png)
+![eShopOnContainers のサイドカーでの gRPC と HTTP/REST の呼び出し](./media/service-invocation/eshop-on-dapr.png)
 
-**図 6-3**。 Dapr を使用して eShop アーキテクチャを更新しました。
+**図 6-3**。 Dapr を使用する更新された eShop アーキテクチャ。
 
 前の図の更新された手順に注意してください。
 
-1. フロントエンドは引き続き HTTP/REST を使用して API ゲートウェイを呼び出します。
+1. フロントエンドにより、引き続き HTTP/REST を使用して API ゲートウェイが呼び出されます。
 
-1. API ゲートウェイは、HTTP 要求を Dapr サイドカーに転送します。
+1. API ゲートウェイにより、HTTP 要求が Dapr サイドカーに転送されます。
 
-1. API ゲートウェイのサイドカーは、アグリゲーターまたはバックエンドサービスのサイドカーに要求を送信します。
+1. API ゲートウェイのサイドカーにより、アグリゲーターまたはバックエンド サービスのサイドカーに要求が送信されます。
 
-1. アグリゲーターサービスは dapr .net SDK を使用して、サイドカーアーキテクチャを通じてバックエンドサービスを呼び出します。
+1. アグリゲーター サービスにより、Dapr .NET SDK を使用して、サイドカー アーキテクチャを通じてバックエンド サービスが呼び出されます。
 
-Dapr は、gRPC との間の呼び出しを実装します。 したがって、HTTP/REST セマンティクスを使用してリモートサービスを起動している場合でも、トランスポートの一部は gRPC を使用して実装されます。
+サイドカーと gRPC の間の呼び出しは、Dapr によって実装されます。 したがって、HTTP/REST のセマンティクスを使用してリモート サービスを呼び出している場合でも、トランスポートの部分はまだ gRPC を使用して実装されています。
 
-EShopOnDapr 参照アプリケーションは、Dapr サービス呼び出しの構成要素の恩恵を得ます。 サービスの検出、自動 mTLS、可観測性などの利点があります。
+eShopOnDapr 参照アプリケーションでは、Dapr のサービス呼び出し構成ブロックが利用されています。 そのメリットには、サービスの検出、自動 mTLS、監視などがあります。
 
-### <a name="forward-http-requests-using-envoy-and-dapr"></a>エンボイと Dapr を使用した HTTP 要求の転送
+### <a name="forward-http-requests-using-envoy-and-dapr"></a>Envoy と Dapr を使用して HTTP 要求を転送する
 
-元と更新された eShop アプリケーションはどちらも、API ゲートウェイとして [エンボイプロキシ](https://www.envoyproxy.io/) を利用します。 エンボイは、オープンソースのプロキシと通信バスで、最新の分散アプリケーションで広く使われています。 これから、エンボイは [クラウドネイティブコンピューティングファンデーション](https://www.cncf.io/)によって所有および管理されます。
+元と更新後の両方の eShop アプリケーションで、API ゲートウェイとして [Envoy プロキシ](https://www.envoyproxy.io/)が利用されています。 Envoy は、オープンソースのプロキシであり、最新の分散アプリケーションで広く使われている通信バスです。 Lyft が基になっている Envoy は、[Cloud-Native Computing Foundation](https://www.cncf.io/) によって所有および管理されています。
 
-元の eShopOnContainers 実装では、エンボイ API ゲートウェイは、受信 HTTP 要求をアグリゲーターまたはバックエンドサービスに直接転送します。 新しい eShopOnDapr では、エンボイプロキシが Dapr sidecar に要求を転送します。 サイドカーは、サービスの呼び出し、mTLS、可観測性を提供します。
+元の eShopOnContainers の実装では、受信 HTTP 要求は、Envoy API ゲートウェイにより、アグリゲーターまたはバックエンド サービスに直接転送されていました。 新しい eShopOnDapr では、要求は Envoy プロキシによって Dapr サイドカーに転送されます。 サイドカーにより、サービスの呼び出し、mTLS、監視が提供されます。
 
-エンボイは、プロキシの動作を制御するために YAML 定義ファイルを使用して構成されます。 エンボイが HTTP 要求を dapr サイドカーコンテナーに転送できるようにするには、 `dapr` 構成にクラスターを追加します。 クラスター構成には、dapr サイドカーがリッスンしている HTTP ポートを指すホストが含まれています。
+Envoy は、プロキシの動作を制御するための YAML 定義ファイルを使用して構成されます。 Envoy で HTTP 要求を Dapr サイドカー コンテナーに転送できるようにするには、構成に `dapr` クラスターを追加します。 クラスターの構成には、Dapr サイドカーによってリッスンされている HTTP ポートを指すホストが含まれます。
 
 ``` yaml
 clusters:
@@ -290,7 +290,7 @@ clusters:
     port_value: 3500
 ```
 
-次のように、エンボイルートの構成が更新され、受信要求が dapr サイドカーの呼び出しとして書き換えられます (キーと値のペアに注意して `prefix_rewrite` ください)。
+Envoy のルート構成は、受信要求を Dapr サイドカーの呼び出しとして書き換えるように、更新されています (`prefix_rewrite` のキーと値のペアによく注意してください)。
 
 ``` yaml
 - name: "c-short"
@@ -302,7 +302,7 @@ clusters:
     cluster: dapr
 ```
 
-フロントエンドクライアントがカタログ項目の一覧を取得するシナリオについて考えてみます。 Catalog API は、カタログアイテムを取得するためのエンドポイントを提供します。
+フロントエンド クライアントでカタログ商品のリストを取得するシナリオについて考えます。 Catalog API により、カタログ商品を取得するためのエンドポイントが提供されています。
 
 ``` csharp
 [Route("api/v1/[controller]")]
@@ -318,35 +318,35 @@ public class CatalogController : ControllerBase
     }
 ```
 
-まず、フロントエンドは、エンボイ API ゲートウェイに直接 HTTP 呼び出しを行います。
+最初に、フロントエンドにより、Envoy API ゲートウェイへの HTTP の直接呼び出しが行われます。
 
 ```
 GET http://<api-gateway>/c/api/v1/catalog/items?pageSize=20
 ```
 
-エンボイプロキシはルートに一致し、HTTP 要求を書き換えて、 `invoke` Dapr sidecar の API に転送します。
+Envoy プロキシにより、ルートが照合され、HTTP 要求が書き換えられて、Dapr サイドカーの `invoke` API に転送されます。
 
 ```
 GET http://127.0.0.1:3500/v1.0/invoke/catalog-api/method/api/v1/catalog/items?pageSize=20
 ```
 
-サイドカーはサービス検出を処理し、カタログ API サイドカーに要求をルーティングします。 最後に、サイドカーは catalog API を呼び出して要求を実行し、カタログ項目をフェッチして、応答を返します。
+サイドカーにより、サービスの検出が処理され、Catalog API のサイドカーに要求がルーティングされます。 最後に、サイドカーにより Catalog API が呼び出されて、要求が実行され、カタログ商品がフェッチされて、応答が返されます。
 
 ```
 GET http://localhost/api/v1/catalog/items?pageSize=20
 ```
 
-### <a name="make-aggregated-service-calls-using-the-net-sdk"></a>.NET SDK を使用して集計されたサービスの呼び出しを行う
+### <a name="make-aggregated-service-calls-using-the-net-sdk"></a>.NET SDK を使用して集約されたサービスの呼び出しを行う
 
-EShop フロントエンドからのほとんどの呼び出しは単純な CRUD 呼び出しです。 API ゲートウェイは、処理のためにそれらを1つのサービスに転送します。 ただし、一部のシナリオでは、要求を完了するために複数のバックエンドサービスを連携させる必要があります。 これらのより複雑な呼び出しでは、web ショッピングアグリゲーターサービスを使用して、複数のサービスにわたってワークフローを仲介します。 図6-4 は、買い物かごに商品を追加する処理シーケンスを示しています。
+eShop フロントエンドからのほとんどの呼び出しは、単純な CRUD 呼び出しです。 それらは、API ゲートウェイによって、処理のために 1 つのサービスに転送されます。 ただし、一部のシナリオでは、要求を完了するために複数のバックエンド サービスが連携する必要があります。 このようなより複雑な呼び出しでは、eShop により、Web ショッピング アグリゲーター サービスを使用して、複数のサービス間のワークフローが仲介されます。 図 6-4 は、買い物かごに商品を追加する処理シーケンスを示しています。
 
-![バスケットのシーケンス図を更新する](./media/service-invocation/complex-call.png)
+![買い物かご更新シーケンスの図](./media/service-invocation/complex-call.png)
 
-**図 6-4**。 買い物かごのシーケンスを更新します。
+**図 6-4**。 買い物かご更新シーケンス。
 
-アグリゲーターサービスは、最初に catalog API からカタログアイテムを取得します。 次に、アイテムの可用性と価格を検証します。 最後に、アグリゲーターサービスは、バスケット API を呼び出すことによって、更新された買い物かごを保存します。
+最初に、アグリゲーター サービスによって、Catalog API からカタログ商品が取得されます。 次に、商品があるかどうかと、価格が検証されます。 最後に、アグリゲーター サービスにより、Basket API が呼び出されて、更新された買い物かごが保存されます。
 
-アグリゲーターサービスには、 `BasketController` 買い物かごを更新するためのエンドポイントを提供するが含まれています。
+アグリゲーター サービスには、買い物かごを更新するためのエンドポイントを提供する `BasketController` が含まれています。
 
 ``` csharp
 [Route("api/v1/[controller]")]
@@ -379,9 +379,9 @@ public class BasketController : ControllerBase
 }
 ```
 
-メソッドは、 `UpdateAllBasketAsync` 属性を使用して受信要求の *承認* ヘッダーを取得し `FromHeader` ます。 *Authorization* ヘッダーには、保護されたバックエンドサービスを呼び出すために必要なアクセストークンが含まれています。
+`UpdateAllBasketAsync` メソッドにより、`FromHeader` 属性を使用して、受信要求の *Authorization* ヘッダーが取得されます。 *Authorization* ヘッダーには、保護されたバックエンド サービスを呼び出すために必要なアクセス トークンが含まれています。
 
-バスケットを更新する要求を受信すると、アグリゲーターサービスはカタログ API を呼び出して項目の詳細を取得します。 バスケットコントローラーは、挿入されたオブジェクトを使用して `ICatalogService` その呼び出しを行い、カタログ API と通信します。 インターフェイスの元の実装で gRPC を使用して呼び出しを行います。 更新された実装では、HttpClient サポートで Dapr サービスの呼び出しを使用します。
+買い物かご更新要求を受信した後、アグリゲーター サービスにより Catalog API が呼び出されて、商品の詳細が取得されます。 バスケット コントローラーでは、挿入された `ICatalogService` オブジェクトを使用してその呼び出しが行われ、Catalog API と通信されます。 インターフェイスの元の実装では、gRPC を使用して呼び出しが行われていました。 更新された実装では、HttpClient サポートを備える Dapr のサービス呼び出しが使用されます。
 
 ``` csharp
 public class CatalogService : ICatalogService
@@ -406,14 +406,14 @@ public class CatalogService : ICatalogService
 
 サービス呼び出しを行うために、Dapr 固有のコードが必要ないことに注目してください。 すべての通信は、標準の HttpClient オブジェクトを使用して行われます。
 
-Dapr HttpClient は、メソッドのクラスに挿入され `CatalogService` `Startup.ConfigureServices` ます。
+Dapr HttpClient は、`Startup.ConfigureServices` メソッドで `CatalogService` クラスに挿入されます。
 
 ```csharp
 services.AddSingleton<ICatalogService, CatalogService>(
     _ => new CatalogService(DaprClient.CreateInvokeHttpClient("catalog-api")));
 ```
 
-アグリゲーターサービスによって実行されるもう1つの呼び出しは、バスケット API に対して行われます。 承認された要求のみを許可します。 アクセストークンは *承認* 要求ヘッダーと共に渡され、呼び出しが成功するようにします。
+アグリゲーター サービスによって行われるもう 1 つの呼び出しは、Basket API に対するものです。 それは、承認された要求を許可するだけです。 呼び出しが成功するように、アクセス トークンが *Authorization* 要求ヘッダーと共に渡されます。
 
 ``` csharp
 public class BasketService : IBasketService
@@ -434,21 +434,21 @@ public class BasketService : IBasketService
 }
 ```
 
-この例でも、サービスを呼び出すために使用されるのは、標準の HttpClient 機能だけです。 これにより、既に HttpClient を使い慣れている開発者は、既存のスキルを再利用できます。 また、既存の HttpClient コードでは、変更を加えずに Dapr サービスの呼び出しを使用できます。
+この例でも、サービスを呼び出すために使用されるのは、標準の HttpClient 機能だけです。 これにより、既に HttpClient を使い慣れている開発者は、既存のスキルを再利用できます。 また、何も変更することなく、既存の HttpClient コードで、Dapr サービスの呼び出しを使用できます。
 
 ## <a name="summary"></a>まとめ
 
-この章では、サービス呼び出しのビルドブロックについて学習しました。 ここでは、Dapr sidecar に対して直接 HTTP 呼び出しを行うことと、Dapr .NET SDK を使用して、リモートメソッドを呼び出す方法について説明しました。
+この章では、サービス呼び出し構成ブロックについて学習しました。 リモート メソッドを呼び出す方法として、Dapr サイドカーを HTTP で直接呼び出す方法と、Dapr .NET SDK を使用する方法を見ました。
 
-Dapr .NET SDK には、リモートメソッドを呼び出すための複数の方法が用意されています。 HttpClient のサポートは、既存のスキルを再利用する開発者にとって優れており、既存の多くのフレームワークやライブラリと互換性があります。 DaprClient は、HTTP または gRPC セマンティクスを使用して Dapr サービス呼び出し API を直接使用するためのサポートを提供します。
+Dapr .NET SDK には、リモート メソッドを呼び出すための複数の方法が用意されています。 HttpClient のサポートは、既存のスキルを再利用したい開発者にとって優れており、既存の多くのフレームワークやライブラリと互換性があります。 DaprClient からは、HTTP または gRPC セマンティクスを使用して Dapr サービス呼び出し API を直接使用するためのサポートが提供されています。
 
-EShopOnDapr 参照アーキテクチャは、Dapr サービスの呼び出しを使用して、元の eShopOnContainers ソリューションが最新である方法を示しています。 EShop に Dapr を追加すると、自動再試行、mTLS を使用したメッセージの暗号化、改善された可観測性などの利点が得られます。
+eShopOnDapr 参照アーキテクチャでは、元の eShopOnContainers ソリューションを Dapr のサービス呼び出しを使用して最新化する方法が示されています。 eShop に Dapr を追加すると、自動再試行、mTLS を使用したメッセージの暗号化、改善された監視などの利点が得られます。
 
-### <a name="references"></a>関連項目
+### <a name="references"></a>リファレンス
 
-- [Dapr サービス呼び出しの構成ブロック](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/)
+- [Dapr のサービス呼び出し構成ブロック](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/)
 
-- [分散型クラウドネイティブアプリケーションの監視](../cloud-native/observability-patterns.md)
+- [分散型クラウドネイティブ アプリケーションの監視](../cloud-native/observability-patterns.md)
 
 > [!div class="step-by-step"]
 > [前へ](state-management.md)

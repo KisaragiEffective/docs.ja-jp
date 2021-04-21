@@ -1,68 +1,68 @@
 ---
-title: Dapr 状態管理構成ブロック
-description: 状態管理のビルディングブロック、その機能、利点、およびその適用方法の説明。
+title: Dapr の状態管理構成ブロック
+description: 状態管理構成ブロック、その機能、利点、適用方法の説明。
 author: amolenk
-ms.date: 02/07/2021
+ms.date: 02/17/2021
 ms.reviewer: robvet
-ms.openlocfilehash: 05daf18ece1da377f3d5d6a91c4839f196f14f80
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
-ms.translationtype: MT
+ms.openlocfilehash: 67b7f839ccbe24752281fb537b0473d4984d9e37
+ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102401427"
+ms.lasthandoff: 03/17/2021
+ms.locfileid: "103623929"
 ---
-# <a name="the-dapr-state-management-building-block"></a>Dapr 状態管理構成ブロック
+# <a name="the-dapr-state-management-building-block"></a>Dapr の状態管理構成ブロック
 
-分散アプリケーションは、独立したサービスで構成されます。 各サービスはステートレスである必要がありますが、一部のサービスでは、ビジネス操作を完了するために状態を追跡する必要があります。 E コマースサイトのショッピングバスケットサービスについて考えてみましょう。 サービスが状態を追跡できない場合、顧客は web サイトを離れることによって買い物かごのコンテンツを無駄にする可能性があり、その結果、販売が失われ、カスタマーエクスペリエンスが低下する可能性があります。 これらのシナリオでは、状態を分散状態ストアに永続化する必要があります。 [Dapr state management ビルディングブロック](https://docs.dapr.io/developing-applications/building-blocks/state-management/)は、状態の追跡を簡略化し、さまざまなデータストア間で高度な機能を提供します。
+分散アプリケーションは、独立した複数のサービスで構成されています。 各サービスはステートレスである必要がありますが、一部のサービスでは、ビジネス操作を完了するために状態を追跡する必要があります。 eコマース サイトの買い物かごサービスについて考えてみましょう。 サービスで状態を追跡できない場合、顧客が Web サイトを離れると買い物かごの内容が失われることがあり、その結果、販売が失われ、カスタマー エクスペリエンスが低下する可能性があります。 これらのシナリオでは、状態を分散状態ストアに永続化する必要があります。 [Dapr の状態管理構成ブロック](https://docs.dapr.io/developing-applications/building-blocks/state-management/)を使用すると、状態の追跡が簡単になり、さまざまなデータ ストア間の高度な機能が提供されます。
 
-State management ビルディングブロックを試すには、 [第3章のカウンタアプリケーションサンプル](getting-started.md)を参照してください。
+状態管理構成ブロックを試すには、[第 3 章のカウンター アプリケーション サンプル](getting-started.md)を参照してください。
 
-## <a name="what-it-solves"></a>解決方法
+## <a name="what-it-solves"></a>解決される内容
 
-分散アプリケーションの状態を追跡することは困難な場合があります。 次に例を示します。
+分散アプリケーションで状態を追跡することは困難な場合があります。 次に例を示します。
 
-- アプリケーションによっては、さまざまな種類のデータストアが必要になる場合があります。
-- データへのアクセスやデータの更新には、異なる一貫性レベルが必要になる場合があります。
-- 複数のユーザーが同時にデータを更新して、競合の解決が必要になる場合があります。
-- サービスは、データストアとの対話中に発生する [一時的なエラー](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) をすべて再試行する必要があります。
+- アプリケーションによっては、異なる種類のデータ ストアが必要になる場合があります。
+- データへのアクセスとデータの更新には、異なる整合性レベルが必要になる場合があります。
+- 複数のユーザーが同時にデータを更新し、競合の解決が必要になる場合があります。
+- サービスでデータ ストアとの対話中に短時間の[一時的なエラー](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)が発生した場合、再試行する必要があります。
 
-Dapr state management ビルディングブロックは、これらの課題に対処します。 依存関係がない追跡状態や、サードパーティのストレージ Sdk の学習曲線を合理化します。
+Dapr の状態管理構成ブロックは、これらの課題に対処します。 サードパーティのストレージ SDK に関する依存や学習の必要なしに、状態の追跡が合理化されます。
 
 > [!IMPORTANT]
-> Dapr 状態管理には、 [キー/値](/azure/architecture/guide/technology-choices/data-store-overview#keyvalue-stores) API が用意されています。 この機能は、リレーショナルデータストレージまたはグラフデータストレージをサポートしていません。
+> Dapr の状態管理により、[キー/値](/azure/architecture/guide/technology-choices/data-store-overview#keyvalue-stores) API が提供されます。 この機能では、リレーショナルまたはグラフ データ ストレージはサポートされていません。
 
 ## <a name="how-it-works"></a>しくみ
 
-アプリケーションは Dapr サイドカーとやり取りして、キー/値データを格納および取得します。 内部的には、サイドカー API はデータを永続化するために、構成可能な状態ストアコンポーネントを使用します。 開発者は、Azure Cosmos DB、SQL Server、Cassandra など、 [サポートされている状態ストア](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/) のコレクションから選択できます。
+アプリケーションは Dapr サイドカーと対話して、キーと値のデータを格納および取得します。 内部的には、データを永続化するため、サイドカー API によって構成可能な状態ストア コンポーネントが使用されます。 開発者は、Azure Cosmos DB、SQL Server、Cassandra など、[サポートされる状態ストア](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/)の拡大するコレクションから選択できます。
 
-API は、HTTP または gRPC を使用して呼び出すことができます。 次の URL を使用して HTTP API を呼び出します。
+この API は、HTTP または gRPC を使用して呼び出すことができます。 次の URL を使用して HTTP API を呼び出します。
 
 ```http
 http://localhost:<dapr-port>/v1.0/state/<store-name>/
 ```
 
 - `<dapr-port>`: Dapr がリッスンする HTTP ポート。
-- `<store-name>`: 使用する状態ストアコンポーネントの名前。
+- `<store-name>`: 使用する状態ストア コンポーネントの名前。
 
-図5-1 は、Dapr が有効なショッピングバスケットサービスが、という名前の Dapr 状態ストアコンポーネントを使用してキーと値のペアを格納する方法を示して `statestore` います。
+図 5-1 は、Dapr が有効な買い物かごサービスにより、`statestore` という名前の Dapr 状態ストア コンポーネントを使用してキーと値のペアが格納される方法を示したものです。
 
-![Dapr 状態ストアにキーと値のペアを格納する図。](media/state-management/state-management-flow.png)
+![Dapr 状態ストアへのキーと値のペアの格納に関する図。](media/state-management/state-management-flow.png)
 
-**図 5-1**. Dapr 状態ストアにキーと値のペアを格納する。
+**図 5-1**. Dapr 状態ストアへのキーと値のペアの格納。
 
-前の図の手順を確認してください。
+前の図の手順に注意してください。
 
-1. バスケットサービスは、Dapr サイドカーで状態管理 API を呼び出します。 要求の本文は、複数のキーと値のペアを含むことができる JSON 配列を囲みます。
-1. Dapr サイドカーは、コンポーネント構成ファイルに基づいて状態ストアを決定します。 この例では、Redis cache の状態ストアです。
-1. サイドカーは、Redis cache にデータを永続化します。
+1. バスケット サービスにより、Dapr サイドカーの状態管理 API が呼び出されます。 要求の本文には、複数のキーと値のペアを含むことができる JSON 配列が格納されます。
+1. Dapr サイドカーにより、コンポーネントの構成ファイルに基づいて状態ストアが決定されます。 この例では、Redis キャッシュの状態ストアです。
+1. サイドカーにより、Redis キャッシュにデータが永続化されます。
 
-格納されたデータの取得は、同様の API 呼び出しです。 次の例では、 *curl* コマンドは dapr サイドカー API を呼び出してデータを取得します。
+格納されたデータの取得は、同様の API 呼び出しです。 次の例では、*curl* コマンドで Dapr サイドカー API を呼び出すことによってデータを取得します。
 
 ```console
 curl http://localhost:3500/v1.0/state/statestore/basket1
 ```
 
-コマンドは、次のように、格納されている状態を応答の本文に返します。
+コマンドからは、応答本文で格納されている状態が返されます。
 
 ```json
 {
@@ -76,31 +76,31 @@ curl http://localhost:3500/v1.0/state/statestore/basket1
 }
 ```
 
-以下のセクションでは、state management ビルディングブロックの高度な機能を使用する方法について説明します。
+以下のセクションでは、状態管理構成ブロックのさらに高度な機能を使用する方法について説明します。
 
 ### <a name="consistency"></a>一貫性
 
-[CAP 定理](https://en.wikipedia.org/wiki/CAP_theorem)は、状態を格納する分散システムに適用される一連の原則です。 図5-2 は、キャップ定理の3つのプロパティを示しています。
+[CAP 定理](https://en.wikipedia.org/wiki/CAP_theorem)は、状態を格納する分散システムに適用される一連の原則です。 図 5-2 は、CAP 定理の 3 つの性質を示したものです。
 
-![キャップ定理。](media/state-management/cap-theorem.png)
+![CAP 定理。](media/state-management/cap-theorem.png)
 
-**図 5-2** キャップ定理。
+**図 5-2** CAP 定理。
 
-定理は、分散データシステムが整合性、可用性、およびパーティションの許容範囲のトレードオフを提供していることを示しています。 また、すべてのデータストアは、次 *の3つのプロパティのうち2つ* だけを保証できます。
+この定理では、分散データ システムにより、整合性、可用性、およびパーティション トレランスの間でのトレードオフが提供されることが示されています。 また、どのようなデータストアでも "*保証できるのは 3 つの性質のうちの 2 つ*'' だけであることが述べられています。
 
-- *整合性* (**C**)。 すべてのレプリカが更新されるまで、システムが要求をブロックする必要がある場合でも、クラスター内のすべてのノードが最新のデータで応答します。 現在更新中の項目に対して "一貫性のあるシステム" を照会した場合、すべてのレプリカが正常に更新されるまで応答は返されません。 ただし、常に最新のデータを受け取ることになります。
+- *整合性* (**C**)。 すべてのレプリカが更新されるまでシステムで要求をブロックする必要がある場合でも、クラスター内のすべてのノードが最新のデータで応答します。 "整合性のあるシステム" で現在更新中の項目のクエリを実行した場合、すべてのレプリカが正常に更新されるまで応答は得られません。 しかし、常に最新のデータを受け取ります。
 
-- *可用性* (**A**)。 すべてのノードは、応答が最新のデータではない場合でも、直ちに応答を返します。 更新中の項目に対して "使用可能なシステム" を照会すると、その時点でサービスが提供できる最適な回答が得られます。
+- *可用性* (**A**)。 すべてのノードからは、応答が最新のデータではない場合でも、直ちに応答が返されます。 更新中の項目について "使用可能なシステム" に対してクエリを実行すると、その時点でサービスによって提供できる最適な答えが得られます。
 
-- *パーティションの許容範囲* (**P**)。 レプリケートされたデータノードで障害が発生した場合や、他のレプリケートされたデータノードとの接続が失われた場合でも、システムの動作が保証されます。
+- *パーティション トレランス* (**P**)。 レプリケートされたデータのノードで障害が発生した場合や、他のレプリケートされたデータのノードとの接続が失われた場合でも、システムが引き続き動作することを保証します。
 
-分散アプリケーションは、 **P** プロパティを処理する必要があります。 サービスがネットワーク呼び出しを使用して相互に通信するため、ネットワークの中断 (**P**) が発生します。 この点を念頭に置いて、分散アプリケーションは **AP** または **CP** である必要があります。
+分散アプリケーションでは、**P** の性質に対処する必要があります。 サービスはネットワーク呼び出しを使用して相互に通信するため、ネットワークの中断 (**P**) が発生します。 その点を考慮すると、分散アプリケーションは **AP** または **CP** である必要があります。
 
-**AP** アプリケーションは、整合性を超える可用性を選択します。 Dapr は、 **最終的な整合性** 戦略でこの選択をサポートしています。 複数のレプリカに冗長データを格納する Azure CosmosDB など、基になるデータストアについて考えてみましょう。 最終的な整合性を確保するために、状態ストアは更新を1つのレプリカに書き込み、クライアントとの書き込み要求を完了します。 この時間が経過すると、ストアはレプリカを非同期的に更新します。 読み取り要求では、最新の更新を受信していないレプリカも含め、任意のレプリカからデータを返すことができます。
+**AP** のアプリケーションでは、整合性ではなく可用性が選択されます。 Dapr の場合、この選択は **最終的な整合性** 戦略によってサポートされます。 Azure CosmosDB のように、基になるデータ ストアによって複数のレプリカに冗長データが格納される場合について考えます。 最終的な整合性がある場合、状態ストアによって更新が 1 つのレプリカに書き込まれると、クライアントによる書き込み要求は完了します。 その後、ストアによってレプリカが非同期的に更新されます。 読み取り要求に対しては、最新の更新を受け取っていないレプリカも含め、どのレプリカからでもデータを返すことができます。
 
-**CP** アプリケーションは、可用性よりも整合性を選択します。 Dapr は、 **強力な整合性** 戦略でこの選択をサポートしています。 このシナリオでは、書き込み要求を完了 *する前に*、必要なレプリカ *を (場合* によっては *クォーラム* として) 同期的に更新します。 読み取り操作では、レプリカ間で常に最新のデータが返されます。
+**CP** のアプリケーションでは、可用性ではなく整合性が選択されます。 Dapr の場合、この選択は **厳密な整合性** 戦略によってサポートされます。 このシナリオでは、書き込み要求が完了する "*前に*"、状態ストアによって必要なレプリカの "*すべて* " (場合によっては、その "*クォーラム*") が同期的に更新されます。 読み取り操作に対しては、レプリカ間で常に最新のデータが返されます。
 
-状態操作の一貫性レベルは、操作に *整合性ヒント* をアタッチすることによって指定されます。 次の *curl* コマンドは、 `Hello=World` 厳密な整合性ヒントを使用して、キーと値のペアを状態ストアに書き込みます。
+状態操作の整合性レベルは、操作に "*整合性ヒント*" をアタッチすることによって指定されます。 次の *curl* コマンドを実行すると、厳密な整合性ヒントを使用して、`Hello=World` というキーと値のペアが状態ストアに書き込まれます。
 
 ```console
 curl -X POST http://localhost:3500/v1.0/state/<store-name> \
@@ -117,21 +117,21 @@ curl -X POST http://localhost:3500/v1.0/state/<store-name> \
 ```
 
 > [!IMPORTANT]
-> 操作にアタッチされている整合性ヒントを満たすには、Dapr 状態ストアコンポーネントが必要です。 すべてのデータストアが両方の整合性レベルをサポートしているわけではありません。 整合性ヒントが設定されていない場合、既定の動作は **最終的** にはになります。
+> 操作にアタッチされている整合性ヒントは、Dapr の状態ストア コンポーネントによって満たされます。 すべてのデータ ストアで両方の整合性レベルがサポートされているわけではありません。 整合性ヒントが設定されていない場合の既定の動作は、**最終的** です。
 
 ### <a name="concurrency"></a>コンカレンシー
 
-マルチユーザーアプリケーションでは、複数のユーザーが同時に (同時に) 同じデータを更新する可能性があります。 Dapr は、オプティミスティック同時実行制御 (OCC) をサポートして競合を管理します。 OCC は、ユーザーがデータのさまざまな部分を操作するため、更新の競合が発生することがないという前提に基づいています。 更新が成功し、そうでない場合は再試行する方が効率的です。 別の方法として、ペシミスティックロックを実装すると、実行時間の長いロックによってパフォーマンスが低下し、データ競合が発生する可能性があります。
+マルチユーザー アプリケーションの場合、複数のユーザーが同時に同じデータを更新する可能性があります。 Dapr では、競合を管理するためにオプティミスティック同時実行制御 (OCC) がサポートされています。 OCC は、ユーザーはデータのさまざまな部分を操作するため、更新が競合することはめったにない、という前提に基づいています。 更新は成功するはずであり、そうでない場合は再試行する、と想定する方が効率的です。 代わりにペシミスティック ロックを実装すると、長時間のロックによってデータの競合が発生し、パフォーマンスが低下する可能性があります。
 
-Dapr は、Etag を使用したオプティミスティック同時実行制御 (OCC) をサポートしています。 ETag は、格納されているキーと値のペアの特定のバージョンに関連付けられた値です。 キーと値のペアが更新されるたびに、ETag 値も更新されます。 クライアントがキーと値のペアを取得すると、応答には現在の ETag の値が含まれます。 クライアントは、キーと値のペアを更新または削除するときに、その ETag 値を要求本文に戻す必要があります。 別のクライアントがその間にデータを更新した場合、Etag は一致せず、要求は失敗します。 この時点で、クライアントは更新されたデータを取得し、再度変更を加えて、更新を再送信する必要があります。 この方法は **、最初の書き込み-優先** と呼ばれます。
+Dapr では、オプティミスティック同時実行制御 (OCC) をサポートするために ETag が使用されています。 ETag は、格納されているキーと値のペアの特定のバージョンに関連付けられた値です。 キーと値のペアが更新されるたびに、ETag の値も更新されます。 クライアントがキーと値のペアを取得すると、応答には現在の ETag の値が含まれます。 クライアントでキーと値のペアを更新または削除するときは、要求本文でその ETag 値を返送する必要があります。 それまでの間に別のクライアントによってデータが更新されていた場合、ETag は一致せず、要求は失敗します。 この時点で、クライアントは更新されたデータを取得し、再度変更を行って、更新を送信し直す必要があります。 この戦略は、**最初の書き込み優先** と呼ばれます。
 
-Dapr は、 **最終書き込み優先** 戦略もサポートしています。 この方法では、クライアントは ETag を書き込み要求にアタッチしません。 セッション中に基になる値が変更された場合でも、状態ストアコンポーネントは常に更新を許可します。 最後の書き込み-wins は、データの競合が少ない高スループットの書き込みシナリオに役立ちます。 また、ユーザーの不定期な更新を上書きすることもできます。
+Dapr では、**最後の書き込み優先** 戦略もサポートされています。 この方法の場合、クライアントは ETag を書き込み要求にアタッチしません。 セッションの間に基になる値が変更された場合でも、更新は状態ストア コンポーネントによって常に許可されます。 最後の書き込み優先は、データの競合が少ない高スループットの書き込みシナリオに役立ちます。 また、ユーザーの不定期な更新を上書きすることもできます。
 
 ### <a name="transactions"></a>トランザクション
 
-Dapr は、トランザクションとして実装された単一の操作として、データストアに *複数項目の変更* を書き込むことができます。 この機能は、 [ACID](https://en.wikipedia.org/wiki/ACID) トランザクションをサポートするデータストアに対してのみ使用できます。 このドキュメントの執筆時点では、Redis、MongoDB、PostgreSQL、SQL Server、Azure CosmosDB が含まれています。
+Dapr では、トランザクションとして実装された単一の操作として、データ ストアに *複数項目の変更* を書き込むことができます。 この機能は、[ACID](https://en.wikipedia.org/wiki/ACID) トランザクションをサポートするデータ ストアに対してのみ使用できます。 これを書いている時点で、そのようなストアとしては Redis、MongoDB、PostgreSQL、SQL Server、Azure CosmosDB などがあります。
 
-次の例では、複数項目の操作が1つのトランザクションの状態ストアに送信されます。 トランザクションをコミットするには、すべての操作を成功させる必要があります。 1つ以上の操作が失敗した場合、トランザクション全体がロールバックされます。
+次の例では、複数項目の操作が 1 つのトランザクションで状態ストアに送信されます。 トランザクションをコミットするには、すべての操作が成功する必要があります。 1 つ以上の操作が失敗した場合、トランザクション全体がロールバックされます。
 
 ```console
 curl -X POST http://localhost:3500/v1.0/state/<store-name>/transaction \
@@ -151,7 +151,7 @@ curl -X POST http://localhost:3500/v1.0/state/<store-name>/transaction \
       }'
 ```
 
-トランザクションをサポートしていないデータストアの場合、複数のキーを1つの要求として送信できます。 次の例は、 **一括** 書き込み操作を示しています。
+トランザクションがサポートされていないデータ ストアの場合でも、複数のキーを 1 つの要求として送信できます。 次に示すのは、**一括** 書き込み操作の例です。
 
 ```console
 curl -X POST http://localhost:3500/v1.0/state/<store-name> \
@@ -162,25 +162,25 @@ curl -X POST http://localhost:3500/v1.0/state/<store-name> \
       ]'
 ```
 
-一括操作の場合、Dapr は各キー/値ペアの更新をデータストアに個別の要求として送信します。
+一括操作の場合、Dapr によって、各キーと値のペアの更新が、個別の要求としてデータ ストアに送信されます。
 
 ## <a name="use-the-dapr-net-sdk"></a>Dapr .NET SDK を使用する
 
-Dapr .NET SDK は、.NET Core プラットフォームの言語固有のサポートを提供します。 開発者は、 `DaprClient` [第3章](getting-started.md) で導入されたクラスを使用して、データの読み取りと書き込みを行うことができます。 次の例は、メソッドを使用して `DaprClient.GetStateAsync<TValue>` 状態ストアからデータを読み取る方法を示しています。 メソッドでは、 `statestore` パラメーターとして、ストア名、、およびキーが必要 `AMS` です。
+Dapr .NET SDK により、.NET Core プラットフォームに言語固有のサポートが提供されます。 開発者は、[第 3 章](getting-started.md)で紹介した `DaprClient` クラスを使用して、データの読み取りと書き込みを行うことができます。 次に示すのは、`DaprClient.GetStateAsync<TValue>` メソッドを使用して状態ストアからデータを読み取る方法の例です。 このメソッドには、パラメーターとしてストア名 `statestore` とキー `AMS` を渡す必要があります。
 
 ```csharp
 var weatherForecast = await daprClient.GetStateAsync<WeatherForecast>("statestore", "AMS");
 ```
 
-状態ストアにキーのデータが含まれていない場合、結果はになり `AMS` `default(WeatherForecast)` ます。
+状態ストアにキー `AMS` のデータが含まれていない場合、結果は `default(WeatherForecast)` になります。
 
-データをデータストアに書き込むには、メソッドを使用し `DaprClient.SaveStateAsync<TValue>` ます。
+データをデータ ストアに書き込むには、`DaprClient.SaveStateAsync<TValue>` メソッドを使用します。
 
 ```csharp
 daprClient.SaveStateAsync("statestore", "AMS", weatherForecast);
 ```
 
-この例では、ETag 値が状態ストアコンポーネントに渡されないため、 **最後の書き込み優先** の方法を使用します。 **最初の書き込み優先** 戦略でオプティミスティック同時実行制御 (occ) を使用するには、最初にメソッドを使用して現在の ETag を取得し `DaprClient.GetStateAndETagAsync` ます。 次に、更新された値を書き込み、メソッドを使用して取得した ETag に沿って渡し `DaprClient.TrySaveStateAsync` ます。
+この例では、ETag 値を状態ストア コンポーネントに渡さないため、**最後の書き込み優先** 戦略を使用します。 **最初の書き込み優先** 戦略でオプティミスティック同時実行制御 (OCC) を使用するには、最初に `DaprClient.GetStateAndETagAsync` メソッドを使用して現在の ETag を取得します。 次に、`DaprClient.TrySaveStateAsync` メソッドを使用して、更新された値を書き込み、取得した ETag を渡します。
 
 ```csharp
 var (weatherForecast, etag) = await daprClient.GetStateAndETagAsync<WeatherForecast>("statestore", city);
@@ -190,15 +190,15 @@ var (weatherForecast, etag) = await daprClient.GetStateAndETagAsync<WeatherForec
 var result = await daprClient.TrySaveStateAsync("statestore", city, weatherForecast, etag);
 ```
 
-データが取得され `DaprClient.TrySaveStateAsync` た後、状態ストアでデータ (および関連する ETag) が変更されている場合、メソッドは失敗します。 メソッドは、呼び出しが成功したかどうかを示すブール値を返します。 障害を処理するには、単に状態ストアから更新されたデータを再読み込みし、変更を加えてから更新を再送信します。
+データを取得した後で、状態ストア内のデータ (および関連する ETag) が変更されている場合、`DaprClient.TrySaveStateAsync` メソッドは失敗します。 メソッドからは、呼び出しが成功したかどうかを示すブール値が返されます。 障害を処理するには、単に状態ストアから更新されたデータを再度読み込み、変更を行ってから更新を再送信します。
 
-データに対するその他の変更に関係なく書き込みが常に成功するようにするには、 **最終書き込み優先** 戦略を使用します。
+データに対する他の変更に関係なく書き込みが常に成功するようにするには、**最後の書き込み優先** 戦略を使用します。
 
-SDK には、データを一括で取得したり、データを削除したり、トランザクションを実行したりする他の方法が用意されています。 詳細については、 [Dapr .NET SDK リポジトリ](https://github.com/dapr/dotnet-sdk)を参照してください。
+SDK には、データの一括取得、データの削除、トランザクションの実行のための他のメソッドが用意されています。 詳細については、[Dapr .NET SDK のリポジトリ](https://github.com/dapr/dotnet-sdk)を参照してください。
 
 ### <a name="aspnet-core-integration"></a>ASP.NET Core の統合
 
-Dapr は、最新のクラウドベースの web アプリケーションを構築するためのクロスプラットフォームフレームワークである ASP.NET Core もサポートしています。 Dapr SDK は、状態管理機能を [ASP.NET Core モデルバインディング](/aspnet/core/mvc/models/model-binding) 機能に直接統合します。 構成は簡単です。 次の `IMVCBuilder.AddDapr` `.AddDapr` 例に示すように、クラスに拡張メソッドを追加してを追加し `Startup.cs` ます。
+Dapr では、最新のクラウドベースの Web アプリケーションを構築するためのクロスプラットフォームのフレームワークである ASP.NET Core もサポートされています。 Dapr SDK により、[ASP.NET Core のモデル バインド](/aspnet/core/mvc/models/model-binding)機能に状態管理機能が直接統合されます。 構成は簡単です。 次の例に示すように、`Startup.cs` クラスに `.AddDapr` 拡張メソッドを追加することにより、`IMVCBuilder.AddDapr` を追加します。
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -207,7 +207,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-構成が完了すると、Dapr は、ASP.NET Core 属性を使用して、キーと値のペアをコントローラーアクションに直接挿入でき `FromState` ます。 オブジェクトを参照する `DaprClient` 必要はなくなりました。 次の例は、特定の都市の天気予報を返す Web API を示しています。
+構成が完了すると、Dapr により、ASP.NET Core の `FromState` 属性を使用して、キーと値のペアをコントローラー アクションに直接挿入できます。 `DaprClient` オブジェクトを参照する必要はなくなります。 次に示すのは、特定の都市の天気予報を返す Web API の例です。
 
 ```csharp
 [HttpGet("{city}")]
@@ -222,9 +222,9 @@ public ActionResult<WeatherForecast> Get([FromState("statestore", "city")] State
 }
 ```
 
-この例では、コントローラーは属性を使用して天気予報を読み込み `FromState` ます。 最初の属性パラメーターは、状態ストア () です `statestore` 。 2番目の属性パラメーターは、 `city` 状態キーを取得する [ルートテンプレート](/aspnet/core/mvc/controllers/routing#route-templates) 変数の名前です。 2番目のパラメーターを省略した場合は、バインドされたメソッドパラメーター () の名前を使用して `forecast` ルートテンプレート変数が検索されます。
+この例では、コントローラーにより `FromState` 属性を使用して天気予報が読み込まれます。 1 つ目の属性パラメーターは、状態ストア `statestore` です。 2 つ目の属性パラメーター `city` は、状態キーを取得する[ルート テンプレート](/aspnet/core/mvc/controllers/routing#route-templates)変数の名前です。 2 つ目のパラメーターを省略した場合は、バインドされたメソッド パラメーターの名前 (`forecast`) を使用して、ルート テンプレート変数が検索されます。
 
-クラスには `StateEntry` 、1つのキーと値のペアに対して取得されるすべての情報 (、、、および) のプロパティが含まれてい `StoreName` `Key` `Value` `ETag` ます。 ETag は、オプティミスティック同時実行制御 (OCC) 戦略を実装する場合に便利です。 クラスには、インスタンスを必要とせずに取得したキー/値データを削除または更新するメソッドも用意されて `DaprClient` います。 次の例では、 `TrySaveAsync` メソッドを使用して、OCC を使用して取得された気象予測を更新します。
+`StateEntry` クラスには、1 つのキーと値のペアに対して取得されるすべての情報のプロパティ (`StoreName`、`Key`、`Value`、`ETag`) が含まれています。 ETag は、オプティミスティック同時実行制御 (OCC) 戦略を実装する場合に便利です。 クラスには、`DaprClient` インスタンスを必要とせずに取得したキーと値のデータを削除または更新するためのメソッドも用意されています。 次の例では、`TrySaveAsync` メソッドを使用し、取得した気象予測を OCC を使用して更新します。
 
 ```csharp
 [HttpPut("{city}")]
@@ -242,7 +242,7 @@ public async Task Put(WeatherForecast updatedForecast, [FromState("statestore", 
 
 ## <a name="state-store-components"></a>状態ストアのコンポーネント
 
-このドキュメントの執筆時点では、Dapr は次のトランザクション状態ストアをサポートしています。
+これを書いている時点で、Dapr によってサポートされているトランザクション状態ストアは次のとおりです。
 
 - Azure CosmosDB
 - Azure SQL Server
@@ -250,7 +250,7 @@ public async Task Put(WeatherForecast updatedForecast, [FromState("statestore", 
 - PostgreSQL
 - Redis
 
-Dapr には、CRUD 操作をサポートするがトランザクション機能ではない状態ストアのサポートも含まれています。
+また、Dapr には、CRUD 操作には対応してもトランザクション機能には対応しない状態ストアのサポートも含まれています。
 
 - Aerospike
 - Azure Blob Storage
@@ -267,7 +267,7 @@ Dapr には、CRUD 操作をサポートするがトランザクション機能�
 
 ### <a name="configuration"></a>構成
 
-自己ホスト型のローカル開発用に初期化された場合、Dapr は Redis を既定の状態ストアとして登録します。 既定の状態ストア構成の例を次に示します。 既定の名前に注意して `statestore` ください。
+ローカル環境のセルフホステッド開発用に初期化されている場合、Dapr により Redis が既定の状態ストアとして登録されます。 既定の状態ストアの構成の例を次に示します。 既定の名前 `statestore` に注意してください。
 
 ```yaml
 apiVersion: dapr.io/v1alpha1
@@ -287,15 +287,15 @@ spec:
 ```
 
  > [!NOTE]
- > 多くの状態ストアは、別々の名前を持つ1つのアプリケーションに登録できます。
+ > 1 つのアプリケーションに、多くの状態ストアを、それぞれ異なる名前で登録できます。
 
-Redis 状態ストアには `redisHost` 、 `redisPassword` redis インスタンスに接続するためのメタデータとメタデータが必要です。 上の例では、Redis パスワード (既定では空の文字列) がプレーン文字列として格納されます。 ベストプラクティスとしては、クリアテキスト文字列を避け、常にシークレット参照を使用することをお勧めします。 シークレット管理の詳細については、 [第10章](secrets.md)を参照してください。
+Redis 状態ストアの場合、Redis インスタンスに接続するために `redisHost` と `redisPassword` のメタデータが必要です。 上の例では、Redis パスワード (既定では空の文字列) がプレーン文字列として格納されています。 ベスト プラクティスとして、クリア テキスト文字列を避け、常にシークレット参照を使用することをお勧めします。 シークレット管理の詳細については、[第 10 章](secrets.md)を参照してください。
 
-もう1つのメタデータフィールドは、 `actorStateStore` 状態ストアをアクター構成ブロックで使用できるかどうかを示します。
+もう 1 つのメタデータ フィールド `actorStateStore` は、状態ストアをアクター構成ブロックで使用できるかどうかを示します。
 
-### <a name="key-prefix-strategies"></a>キープレフィックス戦略
+### <a name="key-prefix-strategies"></a>キー プレフィックス戦略
 
-状態ストアコンポーネントを使用すると、キーと値のペアを基になるストアに格納するさまざまな方法が有効になります。 顧客が購入する品目を格納するショッピングバスケットサービスの例を思い出してください。
+状態ストア コンポーネントを使用すると、さまざまな方法で基になるストアにキーと値のペアを格納できます。 顧客が買いたい品物を入れる買い物かごサービスの前の例を思い出してください。
 
 ```console
 curl -X POST http://localhost:3500/v1.0/state/statestore \
@@ -311,7 +311,7 @@ curl -X POST http://localhost:3500/v1.0/state/statestore \
      }]'
 ```
 
-Redis コンソールツールを使用して、redis cache の内部を調べて、Redis 状態ストアコンポーネントがどのようにデータを永続化したかを確認します。
+Redis コンソール ツールを使用して、Redis キャッシュの内部を調べ、Redis 状態ストア コンポーネントによってデータがどのように永続化されているかを確認します。
 
 ```
 127.0.0.1:6379> KEYS *
@@ -324,9 +324,9 @@ Redis コンソールツールを使用して、redis cache の内部を調べ�
 4) "1"
 ```
 
-出力には、データの完全な Redis **キー** がとして表示され `basketservice||basket1` ます。 既定では、Dapr は、 `application id` dapr インスタンス () のを `basketservice` キーのプレフィックスとして使用します。 この名前付け規則を使用すると、複数の Dapr インスタンスで、キー名の競合を発生させずに同じデータストアを共有できます。 開発者にとっては、 `application id` Dapr でアプリケーションを実行するときは常に同じを指定することが重要です。 省略した場合、Dapr は一意のアプリケーション ID を生成します。 が変更されると、 `application id` アプリケーションは前のキープレフィックスで格納された状態にアクセスできなくなります。
+出力には、データの完全な Redis **キー** が `basketservice||basket1` と表示されています。 既定では、Dapr により、キーのプレフィックスとして、Dapr インスタンス (`basketservice`) の `application id` が使用されます。 この名前付け規則を使用すると、複数の Dapr インスタンスで、キー名の競合を発生させずに同じデータ ストアを共有できます。 開発者にとっては、Dapr でアプリケーションを実行するときに常に同じ `application id` を指定することが重要です。 省略した場合、Dapr によって一意のアプリケーション ID が生成されます。 `application id` が変更されると、前のキー プレフィックスで格納された状態にアプリケーションでアクセスできなくなります。
 
-とは言うものの、状態ストアのコンポーネントファイルのメタデータフィールドで、キープレフィックスの *定数値* を構成することができ `keyPrefix` ます。 次の例を確認してください。
+ただし、状態ストア コンポーネント ファイルの `keyPrefix` メタデータ フィールドで、キー プレフィックスに "*定数値*" を構成することができます。 次の例を確認してください。
 
 ```yaml
 spec:
@@ -335,13 +335,13 @@ spec:
   - value: MyPrefix
 ```
 
-定数キープレフィックスを使用すると、複数の Dapr アプリケーション間で状態ストアにアクセスできます。 さらに、を設定して、 `keyPrefix` `none` プレフィックスを完全に省略します。
+定数のキー プレフィックスを使用すると、複数の Dapr アプリケーションで状態ストアにアクセスできます。 さらに、プレフィックスを完全に省略するには、`keyPrefix` を `none` に設定します。
 
 ## <a name="reference-application-eshopondapr"></a>参照アプリケーション: eShopOnDapr
 
-この書籍には、資格のある参照アプリケーションが含まれてい `eShopOnDapr` ます。 これは、以前の Microsoft マイクロサービス参照アプリケーションからモデル化さ `eShopOnContainers` れています。
+この記事には、`eShopOnDapr` という名前の参照アプリケーションが含まれています。 これは、以前の Microsoft マイクロサービス参照アプリケーション `eShopOnContainers` からモデル化されています。
 
-元の [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) アーキテクチャは、インターフェイスを使用して `IBasketRepository` バスケットサービスのデータの読み取りと書き込みを行います。 クラスは、 `RedisBasketRepository` 基になるデータストアとして Redis を使用して実装を提供しました。
+元の [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers) のアーキテクチャでは、`IBasketRepository` インターフェイスを使用して、バスケット サービスのデータの読み取りと書き込みが行われていました。 `RedisBasketRepository` クラスにより、基になるデータ ストアとして Redis を使用する実装が提供されていました。
 
 ```csharp
 public class RedisBasketRepository : IBasketRepository
@@ -371,9 +371,9 @@ public class RedisBasketRepository : IBasketRepository
 }
 ```
 
-このコードでは、サードパーティの NuGet パッケージを使用し `StackExchange.Redis` ます。 特定の顧客に対して買い物かごを読み込むには、次の手順を実行する必要があります。
+このコードでは、サードパーティの `StackExchange.Redis` NuGet パッケージを使用します。 特定の顧客の買い物かごを読み込むには、次の手順を実行する必要があります。
 
-1. を `ConnectionMultiplexer` コンストラクターに挿入します。 は、 `ConnectionMultiplexer` ファイルの依存関係挿入フレームワークに登録され `Startup.cs` ます。
+1. `ConnectionMultiplexer` をコンストラクターに挿入します。 `ConnectionMultiplexer` は、`Startup.cs` ファイルで依存関係挿入フレームワークに登録されます。
 
    ```csharp
    services.AddSingleton<ConnectionMultiplexer>(sp =>
@@ -385,15 +385,15 @@ public class RedisBasketRepository : IBasketRepository
    });
    ```
 
-1. 使用 `ConnectionMultiplexer` する各クラスにインスタンスを作成するには、を使用し `IDatabase` ます。
+1. `ConnectionMultiplexer` を使用して、使用する各クラスに `IDatabase` インスタンスを作成します。
 
-1. `IDatabase`キーとして指定されたを使用して Redis StringGet 呼び出しを実行するには、インスタンスを使用し `customerId` ます。
+1. `IDatabase` インスタンスを使用し、キーとして指定された `customerId` を使用して Redis StringGet の呼び出しを実行します。
 
-1. データが Redis から読み込まれているかどうかを確認します。それ以外の場合は、を返し `null` ます。
+1. データが Redis から読み込まれているかどうかを確認します。そうでない場合は、`null` を返します。
 
-1. Redis からオブジェクトにデータを逆シリアル化し、その `CustomerBasket` 結果を返します。
+1. Redis から `CustomerBasket` オブジェクトにデータを逆シリアル化し、その結果を返します。
 
-更新された [eShopOnDapr](https://github.com/dotnet-architecture/eShopOnDapr) 参照アプリケーションでは、クラスを新しい `DaprBasketRepository` クラスで置き換え `RedisBasketRepository` ます。
+更新された [eShopOnDapr](https://github.com/dotnet-architecture/eShopOnDapr) 参照アプリケーションでは、新しい `DaprBasketRepository` クラスで `RedisBasketRepository` クラスが置き換えられています。
 
 ```csharp
 public class DaprBasketRepository : IBasketRepository
@@ -416,12 +416,12 @@ public class DaprBasketRepository : IBasketRepository
 }
 ```
 
-更新されたコードでは、Dapr .NET SDK を使用して、state management ビルディングブロックを使用してデータの読み取りと書き込みを行います。 顧客向けにバスケットを読み込む新しい手順は、大幅に簡素化されています。
+更新されたコードでは、状態管理構成ブロックを使用してデータの読み取りと書き込みを行うために、Dapr .NET SDK が使用されています。 顧客の買い物かごを読み込む新しい手順は、大幅に簡素化されています。
 
-1. を `DaprClient` コンストラクターに挿入します。 は、 `DaprClient` ファイルの依存関係挿入フレームワークに登録され `Startup.cs` ます。
-1. メソッドを使用し `DaprClient.GetStateAsync` て、構成済みの状態ストアから顧客の買い物かご項目を読み込み、結果を返します。
+1. `DaprClient` をコンストラクターに挿入します。 `DaprClient` は、`Startup.cs` ファイルで依存関係挿入フレームワークに登録されます。
+1. `DaprClient.GetStateAsync` メソッドを使用して、構成されている状態ストアから顧客の買い物かごの商品を読み込み、結果を返します。
 
-更新された実装では、引き続き Redis が基になるデータストアとして使用されます。 しかし、Dapr は、 `StackExchange.Redis` アプリケーションから参照と複雑さを抽象化します。 Dapr 構成ファイルが必要です。
+更新された実装では、引き続き Redis が基になるデータ ストアとして使用されます。 ただし、Dapr によって `StackExchange.Redis` の参照と複雑さがアプリケーションから取り除かれます。 必要なものは Dapr 構成ファイルだけです。
 
 ```yaml
 apiVersion: dapr.io/v1alpha1
@@ -442,28 +442,28 @@ auth:
   secretStore: eshop-secretstore
 ```
 
-Dapr の実装により、基になるデータストアの変更も簡略化されます。 たとえば、Azure Table Storage に切り替えるには、構成ファイルの内容のみを変更する必要があります。 コードに変更を加える必要はありません。
+Dapr の実装により、基になるデータ ストアの変更も簡略化されます。 たとえば、Azure Table Storage に切り替えるために必要なのは、構成ファイルの内容の変更だけです。 コードに変更を加える必要はありません。
 
 ## <a name="summary"></a>まとめ
 
-Dapr state management ビルディングブロックは、さまざまなデータストア間でキー/値データを格納するための API を提供します。 API では、次の機能がサポートされています。
+Dapr の状態管理構成ブロックにより、さまざまなデータ ストアにキーと値のデータを格納するための API が提供されます。 API により以下のサポートが提供されます。
 
 - 一括操作
-- 強力で最終的な整合性
+- 厳密および最終的な整合性
 - オプティミスティック コンカレンシー
 - 複数項目のトランザクション
 
-.NET SDK は、.NET Core と ASP.NET Core の言語固有のサポートを提供します。 モデルバインディングの統合により、ASP.NET Core コントローラーアクションメソッドからの状態へのアクセスと更新が簡単になります。
+.NET SDK により、.NET Core および ASP.NET Core 用の言語固有のサポートが提供されます。 モデル バインドの統合により、ASP.NET Core コントローラー アクション メソッドからの状態へのアクセスと更新が簡単になります。
 
-EShopOnDapr reference アプリケーションでは、Dapr 状態管理に移行する利点は明らかです。
+eShopOnDapr 参照アプリケーションでは、Dapr の状態管理に移行する利点が明らかです。
 
-1. 新しい実装では、より少数のコード行が使用されます。
-1. これにより、サードパーティの API の複雑さが解消され `StackExchange.Redis` ます。
-1. 基になる Redis キャッシュを別の種類のデータストアに置き換えるには、状態ストアの構成ファイルの変更のみが必要になりました。
+1. 新しい実装では、使用するコード行が少なくなります。
+1. これにより、サードパーティの `StackExchange.Redis` API の複雑さが解消されます。
+1. 基になる Redis キャッシュを別の種類のデータ ストアに置き換えるときに必要なことが、状態ストアの構成ファイルの変更だけになります。
 
-### <a name="references"></a>関連項目
+### <a name="references"></a>リファレンス
 
-- [Dapr がサポートする状態ストア](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/)
+- [Dapr でサポートされている状態ストア](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/)
 
 > [!div class="step-by-step"]
 > [前へ](reference-application.md)

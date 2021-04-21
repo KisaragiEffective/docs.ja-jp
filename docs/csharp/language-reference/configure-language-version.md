@@ -3,12 +3,12 @@ title: C# 言語のバージョン管理 - C# ガイド
 description: C# 言語のバージョンがプロジェクトに基づいて決定されるしくみとその選択の背後にある理由について説明します。 既定値を手動でオーバーライドする方法について説明します。
 ms.custom: updateeachrelease
 ms.date: 08/11/2020
-ms.openlocfilehash: e1b5848f5cd589b0ea61518f0b19efb8fe801337
-ms.sourcegitcommit: 0bb8074d524e0dcf165430b744bb143461f17026
+ms.openlocfilehash: b7cb989224b2ed609051b4703ab852437c0774d0
+ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103477464"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105637521"
 ---
 # <a name="c-language-versioning"></a>C# 言語のバージョン管理
 
@@ -53,7 +53,7 @@ C# のバージョンを明示的に指定する必要がある場合は、い�
 - [**LangVersion** コンパイラ オプション](compiler-options/language.md#langversion)を設定する。
 
 > [!TIP]
-> 現在使用している言語バージョンを確認するには、コードに `#error version` を入れます (大文字と小文字を区別します)。 このようにすると、コンパイラによって、コンパイラ エラー CS8304 と、使用されているコンパイラのバージョンと現在選択されている言語バージョンが含まれるメッセージが報告されます。 詳細については、「[#error (C# リファレンス)](preprocessor-directives/preprocessor-error.md)」を参照してください。
+> 現在使用している言語バージョンを確認するには、コードに `#error version` を入れます (大文字と小文字を区別します)。 このようにすると、コンパイラによって、コンパイラ エラー CS8304 と、使用されているコンパイラのバージョンと現在選択されている言語バージョンが含まれるメッセージが報告されます。 詳細については、「[#error (C# リファレンス)](preprocessor-directives.md#error-and-warning-information)」を参照してください。
 
 ### <a name="edit-the-project-file"></a>プロジェクト ファイルを編集する
 
@@ -88,7 +88,7 @@ C# のバージョンを明示的に指定する必要がある場合は、い�
 [!INCLUDE [langversion-table](includes/langversion-table.md)]
 
 > [!TIP]
-> お使いのマシンで使用可能な言語バージョンの一覧を表示するには、[開発者コマンドライン シェル](/visualstudio/ide/reference/command-prompt-powershell)を開き、次のコマンドを実行します。
+> お使いのコンピューターで使用可能な言語バージョンの一覧を表示するには、[Visual Studio の開発者コマンド プロンプトまたは Visual Studio 開発者 PowerShell](/visualstudio/ide/reference/command-prompt-powershell) を開き、次のコマンドを実行します。
 >
 > ```CMD
 > csc -langversion:?
