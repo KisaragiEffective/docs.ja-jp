@@ -3,12 +3,12 @@ title: eShopOnDapr 参照アプリケーションの概要
 description: eShopOnDapr 参照アプリケーションとその履歴の概要。
 author: amolenk
 ms.date: 02/17/2021
-ms.openlocfilehash: 8fd0ccade45f4f6609046e00d22ffd5693c4a529
-ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
+ms.openlocfilehash: 47d99246eec8e3288738c911cccb23bb9cac8df3
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/17/2021
-ms.locfileid: "103623890"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104874564"
 ---
 # <a name="dapr-reference-application"></a>Dapr 参照アプリケーション
 
@@ -119,9 +119,9 @@ eShopOnDapr のコードベースは、eShopOnContainers のコードベース�
 
 ### <a name="references"></a>リファレンス
 
-- [eShopOnDapr](https://github.com/dotnet-architecture/eShopOnDapr)
+- [GitHub の eShopOnDapr](https://github.com/dotnet-architecture/eShopOnDapr)
 
-- [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers)
+- [GitHub の eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers)
 
 - [コンテナー化された .NET アプリケーション用の .NET マイクロサービス](https://dotnet.microsoft.com/download/e-book/microservices-architecture/pdf)
 

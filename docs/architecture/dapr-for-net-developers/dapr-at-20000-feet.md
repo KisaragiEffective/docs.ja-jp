@@ -3,12 +3,12 @@ title: 2 万フィートの Dapr
 description: Dapr の概要、その機能、およびしくみについて説明します。
 author: robvet
 ms.date: 02/17/2021
-ms.openlocfilehash: 9f23e9822fd0d4b5eda648d2fc1359cce14cf59d
-ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
+ms.openlocfilehash: 6e5d73f8c49ecb3eec518986e2af60c68195c0ab
+ms.sourcegitcommit: 5ce37699c2a51ed173171813be68ef7577b1aba5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/17/2021
-ms.locfileid: "103624046"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104881082"
 ---
 # <a name="dapr-at-20000-feet"></a>2 万フィートの Dapr
 
@@ -59,7 +59,7 @@ Dapr は、最新の分散アプリケーションに固有の大きな課題で
 
 次の表では、各ブロックによって提供されるインフラストラクチャ サービスについて説明します。
 
-| 構成要素 | Description |
+| 構成要素 | 説明 |
 |----------------|-------------|
 | [状態管理](state-management.md) | 長時間実行されるステートフル サービスのコンテキスト情報をサポートします。 |
 | [サービスの呼び出し](service-invocation.md) | プラットフォームに依存しないプロトコルと既知のエンドポイントを使用して、直接、安全なサービス間呼び出しを呼び出します。 |
@@ -210,7 +210,7 @@ gRPC は、古い[リモート プロシージャ コール (RPC)](https://en.wi
 - クライアント要求とサーバー応答の両方を同時に送信するための双方向全二重通信。
 - 大規模なデータセットを非同期にストリーミングするための要求と応答を可能にする組み込みのストリーミング。
 
-詳細については、「[Azure 向けクラウド ネイティブ .NET アプリケーションの設計](https://docs.microsoft.com/dotnet/architecture/cloud-native/)」電子ブックの [grpc の概要](https://docs.microsoft.com/dotnet/architecture/cloud-native/grpc#what-is-grpc)に関するページを参照してください。  
+詳細については、「[Azure 向けクラウド ネイティブ .NET アプリケーションの設計](../cloud-native/index.md)」電子ブックの [grpc の概要](../cloud-native/grpc.md#what-is-grpc)に関するページを参照してください。  
 
 ## <a name="dapr-and-service-meshes"></a>Dapr とサービス メッシュ
 
@@ -250,7 +250,7 @@ Dapr の中核となる部分は、分散マイクロサービス アプリケ�
 
 次の章では、アプリケーションで Dapr を使用する方法について、実践的な説明を提供します。
 
-### <a name="references"></a>リファレンス
+### <a name="references"></a>References
 
 - [Dapr のドキュメント](https://dapr.io/)
 - [Dapr の学習](https://www.amazon.com/Learning-Dapr-Building-Distributed-Applications/dp/1492072427/ref=sr_1_1?dchild=1&keywords=dapr&qid=1604794794&sr=8-1)
