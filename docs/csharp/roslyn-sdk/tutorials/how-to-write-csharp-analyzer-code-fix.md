@@ -3,12 +3,12 @@ title: 'チュートリアル: 最初のアナライザーとコード修正を�
 description: このチュートリアルでは、.NET Compiler SDK (Roslyn API) を使用してアナライザーとコード修正を作成する手順を詳しく説明します。
 ms.date: 03/02/2021
 ms.custom: mvc
-ms.openlocfilehash: b712cb4df5ab6dae825407212685cb1a08b2d189
-ms.sourcegitcommit: 05d0087dfca85aac9ca2960f86c5efd218bf833f
+ms.openlocfilehash: 040a91c5755c736a9729e6796d2e73d2f956a8dd
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105637248"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514464"
 ---
 # <a name="tutorial-write-your-first-analyzer-and-code-fix"></a>チュートリアル: 最初のアナライザーとコード修正を作成する
 
@@ -50,6 +50,8 @@ Visual Studio インストーラーで **.NET Compiler Platform SDK** をイン�
 
 > [!TIP]
 > アナライザーを実行するときは、Visual Studio の 2 つ目のコピーを開始します。 この 2 つ目のコピーは、別のレジストリ ハイブを使用して設定を保存します。 これにより、Visual Studio の 2 つのコピーのビジュアル設定を区別することができます。 Visual Studio の実験的な実行のために、別のテーマを選択することができます。 また、設定のローミングや、Visual Studio アカウントへのログインには、Visual Studio の実験的な実行が使用されません。 そのため、設定を分けておくことができます。
+>
+> ハイブには、開発中のアナライザーだけでなく、以前に開いたアナライザーも含まれます。 Roslyn ハイブをリセットするには、 *%LocalAppData%\\Microsoft\\VisualStudio* から手動で削除する必要があります。 Roslyn ハイブのフォルダー名は、`16.0_9ae182f9Roslyn` のように `Roslyn` で終わります。 ハイブ削除後に、ソリューションをクリーンアップしてリビルドすることが必要な場合があることに注意してください。
 
 開始した 2 つ目の Visual Studio インスタンスで、新しい C# コンソール アプリケーション プロジェクトを作成します (任意のターゲット フレームワークが動作し、アナライザーはソース レベルで動作します)。波線の下線が表示されているトークンにマウス カーソルを移動すると、アナライザーに設定されている警告テキストが表示されます。
 

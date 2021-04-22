@@ -2,12 +2,12 @@
 title: C# 9.0 の新機能 - C# ガイド
 description: C# 9.0 で使用できる新しい機能の概要を説明します。
 ms.date: 04/07/2021
-ms.openlocfilehash: c2189d2db175a40c24d6a41d20f2ae2d9384513b
-ms.sourcegitcommit: e7e0921d0a10f85e9cb12f8b87cc1639a6c8d3fe
+ms.openlocfilehash: e43ecc02fa7fe1f9a0a76353ce0b6bce001f9dac
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255338"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514425"
 ---
 # <a name="whats-new-in-c-90"></a>C# 9.0 の新機能
 
@@ -18,20 +18,20 @@ C# 9.0 によって、C# 言語に次の機能と機能強化が追加されて�
 - [最上位レベルのステートメント](#top-level-statements)
 - [パターン マッチングの拡張機能](#pattern-matching-enhancements)
 - [パフォーマンスと相互運用](#performance-and-interop)
-  - ネイティブ サイズの整数
-  - 関数ポインター
-  - localsinit フラグの出力を抑制する
+  - [ネイティブ サイズの整数](~/_csharplang/proposals/csharp-9.0/native-integers.md)
+  - [関数ポインター](~/_csharplang/proposals/csharp-9.0/function-pointers.md)
+  - [localsinit フラグの出力を抑制する](~/_csharplang/proposals/csharp-9.0/skip-localsinit.md)
 - [適合性と完成度の機能](#fit-and-finish-features)
-  - ターゲット型の`new` 式
-  - 静的な匿名関数
-  - ターゲットにより型指定された条件式
-  - 共変の戻り値の型
-  - `foreach` ループの拡張機能 `GetEnumerator` サポート
-  - ラムダ ディスカード パラメーター
-  - ローカル関数の属性
+  - [ターゲットにより型指定された `new` 式](~/_csharplang/proposals/csharp-9.0/target-typed-new.md)
+  - [`static` 匿名関数](~/_csharplang/proposals/csharp-9.0/static-anonymous-functions.md)
+  - [ターゲットにより型指定された条件式](~/_csharplang/proposals/csharp-9.0/target-typed-conditional-expression.md)
+  - [共変の戻り値の型](~/_csharplang/proposals/csharp-9.0/covariant-returns.md)
+  - [`foreach` ループでの拡張機能 `GetEnumerator` のサポート](~/_csharplang/proposals/csharp-9.0/extension-getenumerator.md)
+  - [ラムダ ディスカード パラメーター](~/_csharplang/proposals/csharp-9.0/lambda-discard-parameters.md)
+  - [ローカル関数の属性](~/_csharplang/proposals/csharp-9.0/local-function-attributes.md)
 - [コード ジェネレーターのサポート](#support-for-code-generators)
-  - モジュールの初期化子
-  - 部分メソッドの新機能
+  - [モジュールの初期化子](~/_csharplang/proposals/csharp-9.0/module-initializers.md)
+  - [部分メソッドの新機能](~/_csharplang/proposals/csharp-9.0/extending-partial-methods.md)
 
 C# 9.0 は **.NET 5** でサポートされています。 詳細については、「[C# 言語のバージョン管理](../language-reference/configure-language-version.md)」を参照してください。
 

@@ -3,15 +3,15 @@ title: 'チュートリアル: 転移学習を利用した自動ビジュアル�
 description: このチュートリアルでは、転移学習を利用し、ML.NET で TensorFlow ディープ ラーニング モデルをトレーニングする方法を説明します。具体的には、画像検出 API を利用し、コンクリートの表面の画像をひび割れあり/ひび割れなしに分類します。
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/09/2021
+ms.date: 04/13/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 71d44ca3248d497b3f46d1d93c6505adcfc42021
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 92c768c429a2eae22071556cc13c7457a7cf26df
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104873303"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514516"
 ---
 # <a name="tutorial-automated-visual-inspection-using-transfer-learning-with-the-mlnet-image-classification-api"></a>チュートリアル: 転移学習と ML.NET Image Classification API を利用した自動ビジュアル検査
 
@@ -36,7 +36,9 @@ ms.locfileid: "104873303"
 
 ## <a name="understand-the-problem"></a>問題を把握する
 
-画像分類はコンピューターのビジョンの問題です。 画像分類では、画像を入力として受け取り、指示されたクラスにそれを分類します。 画像分類はたとえば次のシナリオで役立ちます。
+画像分類はコンピューターのビジョンの問題です。 画像分類では、画像を入力として受け取り、指示されたクラスにそれを分類します。 画像分類モデルは、一般的にディープ ラーニングとニューラル ネットワークを使用してトレーニングされます。 詳細については、[ディープ ラーニングと機械学習の違い](/azure/machine-learning/concept-deep-learning-vs-machine-learning)に関するページを参照してください。
+
+画像分類はたとえば次のシナリオで役立ちます。
 
 - 顔認識
 - 感情検出
@@ -396,10 +398,6 @@ Image: 7001-210.jpg | Actual Value: UD | Predicted Value: UD
 - **トレーニング時間を増やす**:トレーニング時間が長ければ長いほど、モデルがそれだけ微調整されます。 エポックの数を増やすことで、モデルのパフォーマンスが上がることもあります。
 - **パイパーパラメーターで実験する**:このチュートリアルで使用されているパラメーターに加え、他のパラメーターを微調整するとパフォーマンスが上がることがあります。 各エポック後のモデル更新の規模を決定する学習率を変更すると、パフォーマンスが上がることがあります。
 - **別のモデル アーキテクチャを使用する**:目で見たときのデータによっては、その特徴を最も効果的に学習できるモデルが異なることがあります。 モデルのパフォーマンスに不満が残る場合、アーキテクチャの変更をお試しください。
-
-### <a name="additional-resources"></a>その他のリソース
-
-- [ディープ ラーニングと機械学習](/azure/machine-learning/service/concept-deep-learning-vs-machine-learning)
 
 ## <a name="next-steps"></a>次の手順
 

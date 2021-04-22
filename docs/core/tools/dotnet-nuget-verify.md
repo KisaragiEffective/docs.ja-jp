@@ -3,12 +3,12 @@ title: dotnet nuget verify コマンド
 description: dotnet nuget verify コマンドによって、署名されたパッケージが検証されます。
 author: kartheekp-ms
 ms.date: 10/08/2020
-ms.openlocfilehash: 6cb368e2b6c203f3774b4450c0831c5d6b2dc0e8
-ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
+ms.openlocfilehash: 1c300e5a09b4049a9895b9b3f6c742f701dc2200
+ms.sourcegitcommit: 985c603cb21a085f8a8105f34ff5b87a44b76ab4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91957101"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564845"
 ---
 # <a name="dotnet-nuget-verify"></a>dotnet nuget verify
 
@@ -54,7 +54,30 @@ dotnet nuget verify -h|--help
 
 * **`-v|--verbosity <LEVEL>`**
 
-  MSBuild の詳細レベルを設定します。 指定できる値は、`q[uiet]`、`m[inimal]`、`n[ormal]`、`d[etailed]`、および `diag[nostic]` です。 既定値は、`normal` です。
+  [MSBuild の詳細レベル](/visualstudio/msbuild/obtaining-build-logs-with-msbuild#verbosity-settings)を設定します。 指定できる値は、`q[uiet]`、`m[inimal]`、`n[ormal]`、`d[etailed]`、および `diag[nostic]` です。 既定値は、`minimal` です。
+
+    次の表は、各詳細レベルに表示される内容を示しています。
+
+                                      | `q[uiet]` | `m[inimal]` | `n[ormal]` | `d[etailed]` | `diag[nostic]`
+    ----------------------------------| --------- | ----------- | ---------- | -----------| --------------
+    `Certificate chain Information`   | ❌       | ❌          | ❌         | ✔️         | ✔️
+    `Path to package being verified`  | ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Hashing algorithm used for signature`        | ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> SHA1 hash`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> Issued By`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Timestamp Certificate -> Issued By`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Timestamp Certificate -> SHA-256 hash`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Timestamp Certificate -> Validity period`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Timestamp Certificate -> SHA1 hash`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Timestamp Certificate -> Subject name`| ❌       | ❌          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> Subject name`| ❌       | ✔️          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> SHA-256 hash`| ❌       | ✔️          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> Validity period`| ❌       | ✔️          | ✔️         | ✔️         | ✔️
+    `Author/Repository Certificate -> Service index URL (If applicable)`| ❌       | ✔️          | ✔️         | ✔️         | ✔️
+    `Package name being verified`                    | ❌       | ✔️          | ✔️         | ✔️         | ✔️
+    `Type of signature (author or repository)`| ❌       | ✔️          | ✔️         | ✔️         | ✔️
+
+    ❌は、表示 "**されない**" 詳細を示します。 ✔️は、表示される詳細を示します。
 
 * **`-h|--help`**
 

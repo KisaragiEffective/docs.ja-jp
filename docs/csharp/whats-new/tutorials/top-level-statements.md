@@ -2,12 +2,12 @@
 title: 最上位レベルのステートメント - C# チュートリアル
 description: このチュートリアルでは、最上位レベルのステートメントを使用して、アイデアを探索しながら概念を試して証明する方法を示します
 ms.date: 10/28/2020
-ms.openlocfilehash: d3cd089c5681e6c06a0c63cbffcc3cf5935fbeef
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 60044b58fb52302cd559d7e8802657b602f1b6eb
+ms.sourcegitcommit: 985c603cb21a085f8a8105f34ff5b87a44b76ab4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104878911"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564832"
 ---
 # <a name="tutorial-explore-ideas-using-top-level-statements-to-build-code-as-you-learn"></a>チュートリアル: 学習しながらコードをビルドするために最上位レベルのステートメントを使用してアイデアを探索する
 
@@ -94,7 +94,7 @@ System.String[]
 
 :::code language="csharp" source="snippets/top-level-statements/ProgramSnippets.cs" ID="Answers":::
 
-この配列には 12 個の答えが含まれており、6 個は肯定的であいまいなものであり、残りの 6 個は否定的なものです。 次に、配列からランダムな回答を生成して表示する以下のコードを追加します。
+この配列に含まれる答えは、肯定的なものが 10 個、あいまいなものが 5 個、否定的なものが 5 個です。 次に、配列からランダムな回答を生成して表示する以下のコードを追加します。
 
 :::code language="csharp" source="snippets/top-level-statements/ProgramSnippets.cs" ID="GenerateAnswer":::
 

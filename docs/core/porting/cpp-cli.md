@@ -3,12 +3,12 @@ title: C++/CLI プロジェクトの .NET Core への移行
 description: C++/CLI プロジェクトの .NET Core への移植について説明します。
 author: mjrousos
 ms.date: 01/10/2020
-ms.openlocfilehash: 1194e1ce03e5b86052d7e2584aa5c15acd01874b
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: 60c4cc2040b5cfb7aadc2147832d3f0a763085dc
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104873693"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514397"
 ---
 # <a name="how-to-port-a-ccli-project-to-net-core"></a>C++/CLI プロジェクトを .NET Core に移植する方法
 
@@ -89,3 +89,5 @@ MSBuild を使用せずに C++/CLI プロジェクトをビルドすることも
           }
     }
     ```
+
+* Windows 7 では、エントリ アプリケーションがネイティブの場合に .NET Core C++/CLI アセンブリを読み込むと、動作が失敗することがあります。 動作が失敗するのは、Windows 7 のローダーで C++/CLI アセンブリの `mscoree.dll` 以外のエントリ ポイントが考慮されていないためです。 推奨される一連の措置は、エントリ アプリケーションをマネージ コードに変換することです。 スレッド ローカル ストレージ (TLS) が関係するシナリオは、Windows 7 ではすべての場合に明示的にサポート対象外となります。

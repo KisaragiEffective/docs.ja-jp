@@ -1,23 +1,21 @@
 ---
-title: 'チュートリアル: TensorFlow からの ML.NET 画像分類モデル'
-description: 既存の TensorFlow モデルから新しい ML.NET 画像分類モデルに知識を転移する方法について説明します。 TensorFlow モデルは、画像を 1,000 個のカテゴリに分類するためにトレーニングされました。 ML.NET モデルでは、転移学習を利用して、さらに少ない数のカテゴリに画像を分類します。
-ms.date: 06/30/2020
+title: 'チュートリアル: ML.NET 分類モデルによる画像の分類'
+description: 画像処理のために事前トレーニングされた TensorFlow モデルを使用して、画像を分類するために分類モデルをトレーニングする方法について説明します。
+ms.date: 04/13/2021
 ms.topic: tutorial
 ms.custom: mvc, title-hack-0612
-ms.openlocfilehash: b3e5617979d1635248f87db6008d3e234bb3ffc5
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.openlocfilehash: f510b6a21807a2ab1e2d7c878c285038bea33d42
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877034"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514477"
 ---
-# <a name="tutorial-generate-an-mlnet-image-classification-model-from-a-pre-trained-tensorflow-model"></a>チュートリアル: 事前トレーニング済みの TensorFlow モデルから ML.NET 画像分類モデルを生成する
+# <a name="tutorial-train-an-mlnet-classification-model-to-categorize-images"></a>チュートリアル: ML.NET 分類モデルをトレーニングして画像を分類する
 
-既存の TensorFlow モデルから新しい ML.NET 画像分類モデルに知識を転移する方法について説明します。
+画像処理用に事前トレーニング済みの TensorFlow モデルを使用して、画像を分類するために分類モデルをトレーニングする方法について説明します。
 
-TensorFlow モデルは、画像を 1,000 個のカテゴリに分類するためにトレーニングされました。 ML.NET モデルでは、パイプラインで TensorFlow モデルの一部を利用し、モデルをトレーニングし、画像を 3 つのカテゴリに分類しています。
-
-[画像分類](https://en.wikipedia.org/wiki/Outline_of_object_recognition)モデルを最初からトレーニングするには、数百万のパラメーター、大量のラベル付きトレーニング データ、膨大な量の計算リソース (数百時間の GPU) を設定する必要があります。 最初からカスタム モデルをトレーニングするほど効果的ではありませんが、転移学習を使用すると、何千もの画像と何百万ものラベル付き画像を使用し、カスタマイズされたモデルを短時間 (GPU が搭載されていないマシンで 1 時間以内) で構築できます。 このチュートリアルでは、1 ダースのトレーニング画像のみを使用して、そのプロセスをさらにスケールダウンします。
+TensorFlow モデルは、画像を 1,000 個のカテゴリに分類するためにトレーニングされました。 TensorFlow モデルを使用すれば画像内のパターンを認識する方法がわかっているため、その一部を ML.NET モデルのパイプライン内で利用して未加工の画像を特徴や入力に変換し、分類モデルをトレーニングすることができます。
 
 このチュートリアルでは、次の作業を行う方法について説明します。
 > [!div class="checklist"]
@@ -29,12 +27,6 @@ TensorFlow モデルは、画像を 1,000 個のカテゴリに分類するた�
 
 このチュートリアルのソース コードは [dotnet/samples](https://github.com/dotnet/samples/tree/main/machine-learning/tutorials/TransferLearningTF) リポジトリで確認できます。 既定では、このチュートリアルの .NET プロジェクトの構成は .NET Core 2.2 を対象としています。
 
-## <a name="what-is-transfer-learning"></a>転移学習とは何か
-
-転移学習は、1 つの問題を解決し、それを別の関連する問題に適用するときに得た知識を使用するプロセスです。
-
-このチュートリアルでは、TensorFlow モデル (画像を 1,000 個のカテゴリに分類するようにトレーニング済み) の一部を、画像を 3 つのカテゴリに分類する ML.NET モデルで使用します。
-
 ## <a name="prerequisites"></a>必須コンポーネント
 
 * ".NET Core クロスプラットフォーム開発" ワークロードがインストールされた [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) 以降または Visual Studio 2017 バージョン 15.6 以降。
@@ -45,14 +37,14 @@ TensorFlow モデルは、画像を 1,000 個のカテゴリに分類するた�
 
 ### <a name="deep-learning"></a>ディープ ラーニング
 
-[ディープ ラーニング](https://en.wikipedia.org/wiki/Deep_learning)は、Computer Vision や音声認識などの分野に革命を起こしている Machine Learning のサブセットです。
+[ディープ ラーニング](https://en.wikipedia.org/wiki/Deep_learning)は、コンピューター ビジョンや音声認識などの分野に革命を起こしている、機械学習のサブセットです。
 
 ディープ ラーニング モデルは、複数の学習レイヤーを含む多数の[ラベル付きデータ](https://en.wikipedia.org/wiki/Labeled_data)と[ニューラル ネットワーク](https://en.wikipedia.org/wiki/Artificial_neural_network)を使用してトレーニングされます。 ディープ ラーニング:
 
-* Computer Vision などの一部のタスクでより効果的に機能します。
+* コンピューター ビジョンなどの一部のタスクでより効果的に機能します。
 * 大量のトレーニング データが必要です。
 
-画像分類は、画像を次のようなカテゴリに自動的に分類することができる一般的な機械学習タスクです。
+画像分類は、画像を次のようなカテゴリに自動的に分類することができる、特定の機械学習タスクです。
 
 * 画像から人の顔を検出するかどうか。
 * 猫と犬の検出。
@@ -70,13 +62,15 @@ TensorFlow モデルは、画像を 1,000 個のカテゴリに分類するた�
 > * "119px-Nalle_-_a_small_brown_teddy_bear.jpg" By [Jonik](https://commons.wikimedia.org/wiki/User:Jonik) - 自己撮影、CC BY-SA 2.0、 <https://commons.wikimedia.org/w/index.php?curid=48166>。
 > * "193px-Broodrooster.jpg" By [M.Minderhoud](https://nl.wikipedia.org/wiki/Gebruiker:Michiel1972) - 自分の作品、CC BY-SA 3.0、 <https://commons.wikimedia.org/w/index.php?curid=27403>
 
-`Inception model` は、画像を 1,000 個のカテゴリに分類するようにトレーニングされていますが、このチュートリアルでは、画像をより小さなカテゴリ セットにのみ分類する必要があります。 `transfer learning` の `transfer` 部分を入力します。 `Inception model` の画像を認識および分類する能力をカスタム画像分類器の新しい限られたカテゴリに転移ことができます。
+[画像分類](https://en.wikipedia.org/wiki/Outline_of_object_recognition)モデルを最初からトレーニングするには、数百万のパラメーター、大量のラベル付きトレーニング データ、膨大な量の計算リソース (数百時間の GPU) を設定する必要があります。 最初からカスタム モデルをトレーニングするほど効果的ではありませんが、事前トレーニング済みのモデルを使用すると、何千もの画像と何百万ものラベル付き画像を使用し、カスタマイズされたモデルを短時間 (GPU が搭載されていないマシンで 1 時間以内) で構築できます。 このチュートリアルでは、1 ダースのトレーニング画像のみを使用して、そのプロセスをさらにスケールダウンします。
+
+`Inception model` は、画像を 1,000 個のカテゴリに分類するようにトレーニングされていますが、このチュートリアルで必要なのは、より小さいカテゴリ セットに (それらのカテゴリのみに) 画像を分類することです。`Inception model` の機能を使用して画像を認識し、カスタム画像分類器の新しい限定されたカテゴリに分類することができます。
 
 * 食品
 * おもちゃ
 * アプライアンス
 
-このチュートリアルでは、TensorFlow の [Inception モデル](https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip) ディープ ラーニング モデルを使用します。これは、`ImageNet` データセットに対してトレーニングされた、よく使われる画像認識モデルです。 TensorFlow モデルでは、画像全体を "傘"、"ジャージー"、"食器洗い機" などの 1,000 個のクラスに分類します。
+このチュートリアルでは、TensorFlow の [Inception](https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip) ディープ ラーニング モデルを使用します。これは、`ImageNet` データセットに対してトレーニングされた、よく使われる画像認識モデルです。 TensorFlow モデルでは、画像全体を "傘"、"ジャージー"、"食器洗い機" などの 1,000 個のクラスに分類します。
 
 `Inception model` は何千種類もの画像に対して事前にトレーニングされているため、画像の識別に必要な[画像の特徴](https://en.wikipedia.org/wiki/Feature_(computer_vision))が内部に含まれています。 モデルでこれらの内部画像機能を利用して、はるかに少数のクラスで新しいモデルをトレーニングすることができます。
 
@@ -91,6 +85,8 @@ TensorFlow Inception モデルを使用して、従来の機械学習アルゴ�
 この場合に使用される特定のトレーナーは、[多項ロジスティック回帰アルゴリズム](https://en.wikipedia.org/wiki/Multinomial_logistic_regression)です。
 
 このトレーナーに実装されているアルゴリズムは、多数の特徴を持つ問題 (画像データに対して機能するディープ ラーニング モデルのケース) に適しています。
+
+詳細については、[ディープ ラーニングと機械学習の違い](/azure/machine-learning/concept-deep-learning-vs-machine-learning)に関するページを参照してください。
 
 ### <a name="data"></a>データ
 
@@ -368,7 +364,7 @@ ML.NET モデルのパイプラインは推定器のチェーンです。 パイ
     Image: toaster3.jpg predicted as: appliance with score: 0.9646884
     ```
 
-おめでとうございます! これで、ML.NET で `TensorFlow` モデルに転移学習を適用して、画像分類の機械学習モデルを構築できました。
+おめでとうございます! これで、画像処理用に事前トレーニング済みの TensorFlow を使用して、画像を分類するための分類モデルが ML.NET で正常に作成されました。
 
 このチュートリアルのソース コードは [dotnet/samples](https://github.com/dotnet/samples/tree/main/machine-learning/tutorials/TransferLearningTF) リポジトリで確認できます。
 

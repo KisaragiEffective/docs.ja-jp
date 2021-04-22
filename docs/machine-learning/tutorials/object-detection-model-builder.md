@@ -3,19 +3,19 @@ title: 'チュートリアル: Model Builder で画像内のオブジェクト�
 description: このチュートリアルでは、ML.NET Model Builder と Azure ML を使用して、物体検出モデルを構築し、画像内の一時停止標識を検出する方法について説明します。
 author: briacht
 ms.author: brachtma
-ms.date: 03/12/2021
+ms.date: 04/13/2021
 ms.topic: tutorial
 ms.custom: mlnet-tooling
-ms.openlocfilehash: 3a773f7364e3fd6c8ad0073eac091fa38716afa6
-ms.sourcegitcommit: 44af69720863bd09bd7a4509bf1ec119466ba6e8
+ms.openlocfilehash: f628be47bbef080505355fa99630c68b327f1a60
+ms.sourcegitcommit: 5ddbd1f65d0369b4cc8c8ff91c72f1b524c90221
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106231272"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514503"
 ---
 # <a name="tutorial-detect-stop-signs-in-images-with-model-builder"></a>チュートリアル: Model Builder で画像内の一時停止標識を検出する
 
-ML.NET Model Builder と Azure ML を使用して、物体検出モデルを構築し、画像内の一時停止標識を検出して見つける方法について説明します。
+ML.NET Model Builder と Azure Machine Learning を使用して、物体検出モデルを構築し、画像内の一時停止標識を検出して特定する方法について説明します。
 
 このチュートリアルでは、次の作業を行う方法について説明します。
 
@@ -38,7 +38,9 @@ ML.NET Model Builder と Azure ML を使用して、物体検出モデルを構�
 
 ## <a name="model-builder-object-detection-overview"></a>Model Builder の物体検出の概要
 
-オブジェクト検出はコンピューターのビジョンの問題です。 画像の分類に密接に関連していますが、オブジェクト検出では、より詳細なスケールで画像分類が実行されます。 オブジェクト検出では、画像内のエンティティの特定 "_と_" 分類の両方が行われます。 オブジェクト検出は、画像に異なる種類のオブジェクトが複数含まれる場合に使用します。
+オブジェクト検出はコンピューターのビジョンの問題です。 画像の分類に密接に関連していますが、オブジェクト検出では、より詳細なスケールで画像分類が実行されます。 オブジェクト検出では、画像内のエンティティの特定 "_と_" 分類の両方が行われます。 物体検出モデルは、一般的にディープ ラーニングとニューラル ネットワークを使用してトレーニングされます。 詳細については、[ディープ ラーニングと機械学習の違い](/azure/machine-learning/concept-deep-learning-vs-machine-learning)に関するページを参照してください。
+
+オブジェクト検出は、画像に異なる種類のオブジェクトが複数含まれる場合に使用します。
 
 ![画像の分類とオブジェクトの分類を示すスクリーンショット。](./media/object-detection-onnx/img-classification-obj-detection.PNG)
 
