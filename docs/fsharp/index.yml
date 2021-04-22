@@ -23,7 +23,7 @@ landingContent:
       url: what-is-fsharp.md
     - text: F# をインストールする
       url: get-started/install-fsharp.md
-    - text: Visual Studio での F+ の概要
+    - text: Visual Studio での F# の概要
       url: get-started/get-started-visual-studio.md
     - text: Visual Studio Code での F# の概要
       url: get-started/get-started-vscode.md
