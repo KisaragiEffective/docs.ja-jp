@@ -1,11 +1,11 @@
 ---
-description: '詳細情報: 状態の変更について'
+description: '詳細情報: 状態変更の理解'
 title: 状態変更の理解
 ms.date: 03/30/2017
 ms.assetid: a79ed2aa-e49a-47a8-845a-c9f436ec9987
 ms.openlocfilehash: e537a7421ffa8ab924e4e9e4ab841343245534b2
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99644009"
@@ -35,9 +35,9 @@ ms.locfileid: "99644009"
  ![チャネル状態遷移のデータフロー図。](./media/understanding-state-changes/channel-state-transitions.gif)  
 図 1. ICommunicationObject ステート マシン  
   
- Windows Communication Foundation (WCF) は、 <xref:System.ServiceModel.Channels.CommunicationObject> およびチャネルステートマシンを実装するという名前の抽象基本クラスを提供 <xref:System.ServiceModel.ICommunicationObject> します。 次の図は、<xref:System.ServiceModel.Channels.CommunicationObject> に固有の、変更済みの状態図です。 <xref:System.ServiceModel.ICommunicationObject> ステート マシンのほかに、追加の <xref:System.ServiceModel.Channels.CommunicationObject> メソッドが呼び出されるタイミングも示しています。  
+ Windows Communication Foundation (WCF) は、<xref:System.ServiceModel.ICommunicationObject> とチャネル ステート マシンを実装する <xref:System.ServiceModel.Channels.CommunicationObject> という名前の抽象基本クラスを提供します。 次の図は、<xref:System.ServiceModel.Channels.CommunicationObject> に固有の、変更済みの状態図です。 <xref:System.ServiceModel.ICommunicationObject> ステート マシンのほかに、追加の <xref:System.ServiceModel.Channels.CommunicationObject> メソッドが呼び出されるタイミングも示しています。  
   
- ![CommunicationObject 実装状態の変化のデータフロー図。](./media/understanding-state-changes/communicationobject-implementation-state-machine.gif)
+ ![CommunicationObject 実装の状態変更のデータフロー図。](./media/understanding-state-changes/communicationobject-implementation-state-machine.gif)
 図 2. イベントと保護メソッドの呼び出しを含む、ICommunicationObject ステート マシンの CommunicationObject 実装  
   
 ### <a name="icommunicationobject-events"></a>ICommunicationObject イベント  
@@ -71,7 +71,7 @@ ms.locfileid: "99644009"
   
  <xref:System.ServiceModel.Channels.CommunicationObject> は 3 つのコンストラクターを提供します。これらはすべて、オブジェクトを Created 状態にとどめます。 これらのコンストラクターは、次のように定義されています。  
   
- 1つ目のコンストラクターは、オブジェクトを受け取るコンストラクターのオーバーロードにデリゲートするパラメーターなしのコンストラクターです。  
+ 最初のコンストラクターはパラメーターなしのコンストラクターで、オブジェクトを取得するコンストラクター オーバーロードで代行されます。  
   
  `protected CommunicationObject() : this(new object()) { … }`  
   
@@ -97,7 +97,7 @@ ms.locfileid: "99644009"
   
  次に、状態を Opening に設定し、OnOpening() (Opening イベントを発生させます)、OnOpen()、および OnOpened() をこの順に呼び出します。 OnOpened() は、状態を Opened に設定し、Opened イベントを発生させます。 これらのいずれかが例外をスローした場合、Open() は Fault() を呼び出して例外をバブリングさせます。 Open プロセスの詳細を次の図に示します。  
   
- ![ICommunicationObject の状態が変化するデータフロー図。](./media/understanding-state-changes/ico-open-process-override-onopen.gif)  
+ ![ICommunicationObject.Open の状態変更のデータフロー図。](./media/understanding-state-changes/ico-open-process-override-onopen.gif)  
 カスタム オープン ロジック (内部通信オブジェクトを開くなど) を実装するように OnOpen メソッドをオーバーライドします。  
   
  Close メソッド  
@@ -108,7 +108,7 @@ ms.locfileid: "99644009"
   
  Close() メソッドはどの状態でも呼び出すことができます。 このメソッドは、オブジェクトを正常に閉じようとします。 エラーが発生した場合は、オブジェクトを終了します。 現在の状態が Closing または Closed の場合、このメソッドは何もしません。 それ以外の場合は、状態を Closing に設定します。 元の状態が Created、Opening、または Faulted の場合は、Abort() を呼び出します (次の図を参照してください)。 元の状態が Opened の場合は、OnClosing() (Closing イベントを発生させます)、OnClose()、および OnClosed() をこの順に呼び出します。 これらのいずれかが例外をスローした場合、Close() は Abort() を呼び出して例外をバブリングさせます。 OnClosed() は状態をクローズに設定し、クローズ イベントを発生させます。 Close プロセスの詳細を次の図に示します。  
   
- ![ICommunicationObject 状態変更のデータフローダイアグラム。](./media/understanding-state-changes/ico-close-process-override-onclose.gif)  
+ ![ICommunicationObject.Close の状態変更のデータフロー図。](./media/understanding-state-changes/ico-close-process-override-onclose.gif)  
 OnClose メソッドをオーバーライドして、カスタム クローズ ロジック (内部通信オブジェクトを閉じるなど) を実装します。 OnClose() はタイムアウト パラメーターを取り、Abort() の一部として呼び出されないため、長時間にわたってブロックできる正常なクロージング ロジック (たとえば、もう一方の側が応答するまで待機するなど) はすべて OnClose() で実装してください。  
   
  中止  
@@ -118,7 +118,7 @@ OnClose メソッドをオーバーライドして、カスタム クローズ �
   
  現在の状態が Closed の場合、またはオブジェクトが既に終了している場合 (Abort() を別のスレッドで実行するなどにより)、Abort() メソッドは何もしません。 それ以外の場合は、状態を Closing に設定し、OnClosing() (Closing イベントを発生させます)、OnAbort()、および OnClosed をこの順に呼び出します (オブジェクトを閉じるのではなく、終了させるので OnClose を呼び出しません)。 OnClosed() は状態をクローズに設定し、クローズ イベントを発生させます。 これらのいずれかが例外をスローした場合は、Abort の呼び出し元に例外が再スローされます。 OnClosing()、OnClosed()、および OnAbort() の実装は、入出力などでブロックしないでください。 Abort プロセスの詳細を次の図に示します。  
   
- ![ICommunicationObject の状態が変化するデータフロー図。](./media/understanding-state-changes/ico-abort-process-override-onabort.gif)  
+ ![ICommunicationObject.Abort の状態変更のデータフロー図。](./media/understanding-state-changes/ico-abort-process-override-onabort.gif)  
 カスタム終了ロジック (内部通信オブジェクトを終了するなど) を実装するように OnAbort メソッドをオーバーライドします。  
   
  障害  
@@ -145,14 +145,14 @@ OnClose メソッドをオーバーライドして、カスタム クローズ �
   
 |State|Abort を呼び出したか|例外|  
 |-----------|----------------------------|---------------|  
-|作成済み|該当なし|<xref:System.InvalidOperationException?displayProperty=nameWithType>|  
-|開く|該当なし|<xref:System.InvalidOperationException?displayProperty=nameWithType>|  
-|開始済み|該当なし|<xref:System.InvalidOperationException?displayProperty=nameWithType>|  
+|作成済み|N/A|<xref:System.InvalidOperationException?displayProperty=nameWithType>|  
+|開く|N/A|<xref:System.InvalidOperationException?displayProperty=nameWithType>|  
+|開始済み|N/A|<xref:System.InvalidOperationException?displayProperty=nameWithType>|  
 |閉じる|はい|<xref:System.ServiceModel.CommunicationObjectAbortedException?displayProperty=nameWithType>|  
 |閉じる|いいえ|<xref:System.ObjectDisposedException?displayProperty=nameWithType>|  
 |クローズ|はい|事前に Abort を明示的に呼び出してオブジェクトを閉じた場合、<xref:System.ServiceModel.CommunicationObjectAbortedException?displayProperty=nameWithType>。 オブジェクトで Close を呼び出した場合は、<xref:System.ObjectDisposedException?displayProperty=nameWithType> がスローされます。|  
 |クローズ|いいえ|<xref:System.ObjectDisposedException?displayProperty=nameWithType>|  
-|フォールト|該当なし|<xref:System.ServiceModel.CommunicationObjectFaultedException?displayProperty=nameWithType>|  
+|フォールト|N/A|<xref:System.ServiceModel.CommunicationObjectFaultedException?displayProperty=nameWithType>|  
   
 ### <a name="timeouts"></a>Timeouts  
 

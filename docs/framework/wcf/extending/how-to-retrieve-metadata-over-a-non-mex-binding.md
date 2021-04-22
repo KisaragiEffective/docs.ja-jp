@@ -1,22 +1,22 @@
 ---
-description: '詳細については、「方法: MEX 以外のバインディングを介してメタデータを取得する」を参照してください。'
+description: '詳細情報: 方法: MEX 以外のバインディングを介してメタデータを取得する'
 title: '方法: MEX 以外のバインディングを介してメタデータを取得する'
 ms.date: 03/30/2017
 ms.assetid: 2292e124-81b2-4317-b881-ce9c1ec66ecb
 ms.openlocfilehash: 521e48d90e9dbed2e0ded61c60af59d063d2b3dc
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99644217"
 ---
 # <a name="how-to-retrieve-metadata-over-a-non-mex-binding"></a>方法: MEX 以外のバインディングを介してメタデータを取得する
 
-ここでは、MEX 以外のバインディングを介して MEX エンドポイントからメタデータを取得する方法を説明します。 このサンプルのコードは、 [カスタムセキュアメタデータエンドポイント](../samples/custom-secure-metadata-endpoint.md) のサンプルに基づいています。  
+ここでは、MEX 以外のバインディングを介して MEX エンドポイントからメタデータを取得する方法を説明します。 このサンプル コードは、「[カスタム セキュア メタデータ エンドポイント](../samples/custom-secure-metadata-endpoint.md)」のサンプルに基づいています。  
   
 ### <a name="to-retrieve-metadata-over-a-non-mex-binding"></a>MEX 以外のバインディングを介してメタデータを取得するには  
   
-1. MEX エンドポイントで使用されているバインディングを特定します。 Windows Communication Foundation (WCF) サービスの場合は、サービスの構成ファイルにアクセスすることにより、MEX バインドを特定できます。 この場合、MEX バインディングは、次のサービス構成で定義されています。  
+1. MEX エンドポイントで使用されているバインディングを特定します。 Windows Communication Foundation (WCF) サービスの場合、サービスの構成ファイルにアクセスすることで MEX バインディングを特定できます。 この場合、MEX バインディングは、次のサービス構成で定義されています。  
   
     ```xml  
     <services>  
@@ -123,8 +123,8 @@ ms.locfileid: "99644217"
     ServiceEndpointCollection endpoints = importer.ImportAllEndpoints();  
     ```  
   
-5. この時点で、サービス エンドポイントのコレクションが取得されます。 メタデータのインポートの詳細については、「 [方法: メタデータをサービスエンドポイントにインポートする](../feature-details/how-to-import-metadata-into-service-endpoints.md)」を参照してください。  
+5. この時点で、サービス エンドポイントのコレクションが取得されます。 メタデータのインポートの詳細については、「[方法: メタデータをサービス エンドポイントにインポートする](../feature-details/how-to-import-metadata-into-service-endpoints.md)」を参照してください。  
   
 ## <a name="see-also"></a>関連項目
 
-- [Metadata](../feature-details/metadata.md)
+- [メタデータ](../feature-details/metadata.md)

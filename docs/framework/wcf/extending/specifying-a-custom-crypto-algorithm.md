@@ -5,7 +5,7 @@ ms.date: 03/30/2017
 ms.assetid: d662a305-8e09-451d-9a59-b0f12b012f1d
 ms.openlocfilehash: 4d4cb525b46b33a0d0df8dd6a3db9e9fafe84f8f
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99643970"
@@ -109,7 +109,7 @@ public class MyCustomAlgorithmSuite : SecurityAlgorithmSuite
 </configuration>  
 ```  
   
- <> 要素の下のセクションで、 `cryptoClasses` SHA256CryptoServiceProvider とエイリアス "SHA256CSP" の間のマッピングを作成します。 <`nameEntry`> 要素は、"SHA256CSP" エイリアスと指定した URL の間のマッピングを作成し `http://contoso.com/CustomAlgorithms/CustomHashAlgorithm` ます。  
+ <`cryptoClasses`> 要素の下のセクションで、SHA256CryptoServiceProvider とエイリアス "SHA256CSP" の間のマッピングを作成します。 <`nameEntry`> 要素によって、"SHA256CSP" エイリアスと指定した URL (`http://contoso.com/CustomAlgorithms/CustomHashAlgorithm`) の間のマッピングを作成します。  
   
  コードでカスタム アルゴリズムを登録するには、<xref:System.Security.Cryptography.CryptoConfig.AddAlgorithm(System.Type,System.String[])> メソッドを使用します。 このメソッドによって、両方のマッピングを作成します。 次の例は、このメソッドを呼び出す方法を示しています。  
   
@@ -128,7 +128,7 @@ WSHttpBinding binding = new WSHttpBinding();
             binding.Security.Message.AlgorithmSuite = new MyCustomAlgorithmSuite();  
 ```  
   
- 完全なコード例については、「 [WCF セキュリティサンプルでの暗号化の俊敏性](../samples/cryptographic-agility-in-wcf-security.md) 」を参照してください。  
+ コード例全体については、「[WCF セキュリティの暗号化方式の指定](../samples/cryptographic-agility-in-wcf-security.md)」のサンプルを参照してください。  
   
 ## <a name="see-also"></a>関連項目
 

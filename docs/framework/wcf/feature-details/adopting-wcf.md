@@ -1,26 +1,26 @@
 ---
-description: 詳細については、「Windows Communication Foundation の導入」を参照してください
+description: '詳細情報: Windows Communication Foundation の採用'
 title: Windows Communication Foundation の採用
 ms.date: 03/30/2017
 ms.assetid: 49ba71e2-9468-4082-84c5-cf8daf95e34a
 ms.openlocfilehash: c8d5808b246e40b504d2d07dcdd6dc3fd622361d
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99643918"
 ---
-# <a name="adopt-windows-communication-foundation"></a>Windows Communication Foundation を採用する
+# <a name="adopt-windows-communication-foundation"></a>Windows Communication Foundation の採用
 
-ASP.NET を使用して開発した既存のアプリケーションを引き続き維持しながら、新しい開発に Windows Communication Foundation (WCF) を使用することもできます。 WCF は、任意のシナリオで .NET Framework で構築されたアプリケーションとの通信を容易にするために最適な選択肢となることを目的としているため、ASP.NET ができない方法でさまざまなソフトウェア通信の問題を解決するための標準ツールとして使用できます。
+ASP.NET を使用して開発した既存のアプリケーションのメンテナンスを続行しながら、新規開発については Windows Communication Foundation (WCF) を選択できます。 WCF は、どのようなシナリオにおいても .NET Framework を使用してビルドされたアプリケーションとの通信を容易に行うための最適な選択となるように設計されているため、これまで ASP.NET では実現できなかったような方法でソフトウェア通信における多様な問題を解決するための標準ツールとして使用できます。
 
-新しい WCF アプリケーションは、既存の ASP.NET Web サービスと同じコンピューターにデプロイできます。 既存の ASP.NET Web サービスがバージョン2.0 より前のバージョンの .NET Framework を使用する場合は、ASP.NET IIS 登録ツールを使用して、新しい WCF アプリケーションがホストされる IIS アプリケーションに .NET Framework 2.0 を選択的に展開できます。 このツールは「 [ASP.NET Iis Registration tool (Aspnet_regiis.exe)](/previous-versions/dotnet/netframework-3.5/k6h9cz8h(v=vs.90))」に記載されており、iis 6.0 管理コンソールにはユーザーインターフェイスが組み込まれています。
+新しい WCF アプリケーションは、既存の ASP.NET Web サービスがある同じコンピューター上に展開できます。 既存の ASP.NET Web サービスが、バージョン 2.0 より前の .NET Framework を使用している場合は、ASP.NET IIS 登録ツールを使用して、新しい WCF アプリケーションをホストできる IIS アプリケーションに .NET Framework 2.0 を選択的に展開できます。 このツールについてのドキュメントは [ASP.NET IIS Registration Tool (Aspnet_regiis.exe)](/previous-versions/dotnet/netframework-3.5/k6h9cz8h(v=vs.90)) にあり、ユーザー インターフェイスは IIS 6.0 管理コンソールに組み込まれています。
 
-ASP.NET 互換モードで実行するように構成されている WCF サービスを IIS の既存の ASP.NET Web サービスアプリケーションに追加することにより、WCF を使用して、既存の ASP.NET Web サービスに新しい機能を追加できます。 ASP.NET 互換モードのため、新しい WCF サービスのコードは、クラスを使用して、既存の ASP.NET コードと同じアプリケーション状態情報にアクセスし、更新することができ <xref:System.Web.HttpContext> ます。 また、アプリケーションは同じクラス ライブラリを共有することもできます。
+WCF を使用して、ASP.NET 互換モードで実行するように構成された WCF サービスを IIS の既存の ASP.NET Web サービス アプリケーションに追加することで、既存の ASP.NET Web サービスに新しい機能を追加できます。 ASP.NET 互換モードにより、新しい WCF サービスのコードは、<xref:System.Web.HttpContext> クラスを使用することで、既存の ASP.NET コードと同じアプリケーション状態情報にアクセスして更新を行うことができます。 また、アプリケーションは同じクラス ライブラリを共有することもできます。
 
-WCF クライアントでは、ASP.NET Web サービスを使用できます。 で構成されている WCF サービスは、 <xref:System.ServiceModel.BasicHttpBinding> ASP.NET Web サービスクライアントで使用できます。 ASP.NET Web サービスは、WCF アプリケーションと共存できます。また、WCF を使用して、既存の ASP.NET Web サービスに機能を追加することもできます。 これらの方法で WCF と ASP.NET Web サービスを一緒に使用できるようになった場合は、ASP.NET Web サービスではなく、WCF によって提供される機能が必要な場合にのみ、ASP.NET Web サービスを WCF に移行することをお勧めします。
+WCF クライアントでは、ASP.NET Web サービスを使用できます。 ASP.NET Web サービス クライアントは、<xref:System.ServiceModel.BasicHttpBinding> で構成された WCF サービスを使用できます。 ASP.NET Web サービスは WCF アプリケーションとの共存が可能であり、WCF を使用して既存の ASP.NET Web サービスに機能を追加することもできます。 このように WCF と ASP.NET Web サービスは同時に使用できるため、ASP.NET Web サービスから WCF への移行が必要になるのは、ASP.NET Web サービスでは提供されず、WCF でのみ提供される機能が必要な場合に限られるかもしれません。
 
-場合によっては、あるテクノロジから別のテクノロジにコードを移行する方法はほとんどありません。 新しいテクノロジを採用する理由は、以前のテクノロジでは満たすことができない新しい要件を満たすことであり、その場合は、新しく展開された一連の要件を満たす新しいソリューションを設計することです。 新しい設計では、既存のシステムでの経験とそのシステムを設計して以来、獲得した知識を活用できます。 また、新しい設計は、新しいプラットフォーム上で古い設計を再制作するのではなく、新しいテクノロジの機能を十分に活用することができます。 新しいデザインの重要な要素をプロトタイプ作成した後は、新しい設計の既存のシステムからコードを再利用しやすくなります。
+このような移行が必要となるまれな場合においても、あるテクノロジから別のテクノロジへコードを移行するのは、ほとんどの場合、正しいアプローチではありません。 以前のテクノロジでは満たされない新しい要件を満たすために新しいテクノロジを採用する場合、新たに拡張された要件を満たす新しいソリューションを設計することが正しい方法です。 新しい設計では、既存のシステムでの経験とそのシステムを設計して以来、獲得した知識を活用できます。 また、新しい設計は、新しいプラットフォーム上で古い設計を再制作するのではなく、新しいテクノロジの機能を十分に活用することができます。 新しい設計の主要な要素のプロトタイプが完成すると、既存のシステムのコードを新しいシステム内で再使用することが容易になります。
 
 ## <a name="see-also"></a>関連項目
 

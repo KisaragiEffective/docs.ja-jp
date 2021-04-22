@@ -1,11 +1,11 @@
 ---
-description: '詳細については、「方法: チャネルファクトリを作成し、それを使用してチャネルを作成および管理する」を参照してください。'
+description: '詳細情報: 方法: チャネル ファクトリを作成および使用して、チャネルを作成および管理する'
 title: '方法: チャネル ファクトリを作成および使用して、チャネルを作成および管理する'
 ms.date: 03/30/2017
 ms.assetid: 018dcc30-9f61-419e-af8e-412a85e8d282
 ms.openlocfilehash: 4e76e5ea0c6776e5623a2e716a3702e628f146f6
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99643476"

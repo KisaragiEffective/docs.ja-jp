@@ -1,11 +1,11 @@
 ---
-description: '詳細については、「方法: サービスのバージョン管理」を参照してください。'
+description: '詳細情報: 方法: サービスのバージョン管理'
 title: '方法: サービスのバージョン管理'
 ms.date: 03/30/2017
 ms.assetid: 4287b6b3-b207-41cf-aebe-3b1d4363b098
 ms.openlocfilehash: d32ea2051783ccaec7a66bfffada7f08887f8559
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99643229"
@@ -71,7 +71,7 @@ messageHeadersElement.Add(MessageHeader.CreateHeader("CalcVer", "http://my.custo
         </client>  
     ```  
   
-2. 送信先エンドポイントにメッセージをルーティングするのに使用するフィルターを定義します。  この例では、XPath フィルターを使用して "CalcVer" カスタムヘッダーの値を検出し、メッセージのルーティング先のバージョンを決定します。 XPath フィルターは、"CalcVer" ヘッダーが含まれていないメッセージを検出するためにも使用されます。 次の例では、必要なフィルターおよび名前空間のテーブルを定義します。  
+2. 送信先エンドポイントにメッセージをルーティングするのに使用するフィルターを定義します。  この例では、XPath フィルターを使用してカスタム ヘッダー CalcVer の値を検出し、メッセージのルーティング先となるバージョンを特定します。 XPath フィルターは、"CalcVer" ヘッダーを含まないメッセージの検出にも使用します。 次の例では、必要なフィルターおよび名前空間のテーブルを定義します。  
   
     ```xml  
     <!-- use the namespace table element to define a prefix for our custom namespace-->  
@@ -96,9 +96,9 @@ messageHeadersElement.Add(MessageHeader.CreateHeader("CalcVer", "http://my.custo
     ```  
   
     > [!NOTE]
-    > S12 名前空間プレフィックスは、既定で名前空間テーブルに定義され、名前空間を表し `http://www.w3.org/2003/05/soap-envelope` ます。
+    > s12 の名前空間プレフィックスは、既定で名前空間のテーブルで定義され、名前空間 `http://www.w3.org/2003/05/soap-envelope` を表します。
   
-3. 各フィルターをクライアント エンドポイントと関連付けるフィルター テーブルを定義します。 メッセージの "CalcVer" ヘッダーに値1が含まれている場合は、regularCalc サービスに送信されます。 ヘッダーに値 2 が含まれる場合は、roundingCalc サービスに送信されます。 ヘッダーがない場合、メッセージは regularCalc にルーティングされます。  
+3. 各フィルターをクライアント エンドポイントと関連付けるフィルター テーブルを定義します。 値が 1 の "CalcVer" ヘッダーがメッセージに含まれる場合は、regularCalc サービスに送信されます。 ヘッダーに値 2 が含まれる場合は、roundingCalc サービスに送信されます。 ヘッダーがない場合、メッセージは regularCalc にルーティングされます。  
   
      次のコードでは、フィルター テーブルを定義し、前に定義されたフィルターを追加します。  
   
@@ -119,7 +119,7 @@ messageHeadersElement.Add(MessageHeader.CreateHeader("CalcVer", "http://my.custo
     </filterTables>  
     ```  
   
-4. フィルター テーブルに含まれているフィルターと照合して受信メッセージを評価するには、ルーティング動作を使用して、フィルター テーブルをサービス エンドポイントと関連付ける必要があります。 次の例は、 `filterTable1` サービスエンドポイントとの関連付けを示しています。  
+4. フィルター テーブルに含まれているフィルターと照合して受信メッセージを評価するには、ルーティング動作を使用して、フィルター テーブルをサービス エンドポイントと関連付ける必要があります。 次の例は、`filterTable1` をサービス エンドポイントと関連付ける方法を示しています。  
   
     ```xml  
     <behaviors>  

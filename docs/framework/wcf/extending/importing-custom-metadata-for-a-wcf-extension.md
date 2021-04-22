@@ -1,26 +1,26 @@
 ---
-description: 詳細については、「WCF 拡張機能のカスタムメタデータのインポート」を参照してください。
+description: '詳細情報: WCF 拡張に対するカスタム メタデータのインポート'
 title: WCF 拡張に対するカスタム メタデータのインポート
 ms.date: 03/30/2017
 ms.assetid: 78beb28f-408a-4c75-9c3c-caefe9595b1a
 ms.openlocfilehash: f8fc0517298a7170941e7d3ed34b3ddfd9834c7c
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99644191"
 ---
 # <a name="importing-custom-metadata-for-a-wcf-extension"></a>WCF 拡張に対するカスタム メタデータのインポート
 
-Windows Communication Foundation (WCF) では、メタデータのインポートは、サービスまたはそのコンポーネントの部分の抽象表現をメタデータから生成するプロセスです。 たとえば、WCF では、 <xref:System.ServiceModel.Description.ServiceEndpoint> <xref:System.ServiceModel.Channels.Binding> <xref:System.ServiceModel.Description.ContractDescription> サービスの WSDL ドキュメントからインスタンス、インスタンス、またはインスタンスをインポートできます。 WCF でサービスメタデータをインポートするには、抽象クラスの実装を使用し <xref:System.ServiceModel.Description.MetadataImporter?displayProperty=nameWithType> ます。 クラスから派生する型は <xref:System.ServiceModel.Description.MetadataImporter> 、WCF の WS-Policy インポートロジックを利用するメタデータ形式をインポートするためのサポートを実装します。  
+Windows Communication Foundation (WCF) では、メタデータのインポートとは、サービス、またはそのコンポーネントの抽象表現をメタデータから生成するプロセスです。 たとえば、WCF では、<xref:System.ServiceModel.Description.ServiceEndpoint> インスタンス、<xref:System.ServiceModel.Channels.Binding> インスタンス、または <xref:System.ServiceModel.Description.ContractDescription> インスタンスをサービスの WSDL ドキュメントからインポートできます。 WCF のサービス メタデータをインポートするには、<xref:System.ServiceModel.Description.MetadataImporter?displayProperty=nameWithType> 抽象クラスの実装を使用します。 <xref:System.ServiceModel.Description.MetadataImporter> クラスから派生した型では、WCF の WS-Policy インポート ロジックを利用したメタデータ形式のインポートがサポートされます。  
   
  カスタム メタデータは、システム指定のメタデータ インポーターでインポートできない XML 要素で構成されます。 通常、これにはカスタム WSDL 拡張とカスタム ポリシー アサーションが含まれます。  
   
- ここでは、カスタム WSDL 拡張とカスタム ポリシー アサーションをインポートする方法について説明します。 インポート プロセス自体には重点を置きません。 メタデータがカスタムまたはシステムでサポートされているかどうかに関係なく、メタデータをエクスポートおよびインポートする型の使用方法の詳細については、「 [メタデータのエクスポートとインポート](../feature-details/exporting-and-importing-metadata.md)」を参照してください。  
+ ここでは、カスタム WSDL 拡張とカスタム ポリシー アサーションをインポートする方法について説明します。 インポート プロセス自体には重点を置きません。 カスタム メタデータであるか、システムがサポートするメタデータであるかに関係なく、メタデータをエクスポートおよびインポートする型の使用方法の詳細については、「[メタデータのエクスポートとインポート](../feature-details/exporting-and-importing-metadata.md)」を参照してください。  
   
 ## <a name="overview"></a>概要  
 
- <xref:System.ServiceModel.Description.WsdlImporter?displayProperty=nameWithType>型は、 <xref:System.ServiceModel.Description.MetadataImporter> WCF に含まれる抽象クラスの実装です。 <xref:System.ServiceModel.Description.WsdlImporter> 型は、<xref:System.ServiceModel.Description.MetadataSet?displayProperty=nameWithType> オブジェクトにまとめられた、結び付けられているポリシーを使用して WSDL メタデータをインポートします。 既定のインポーターが認識しないポリシー アサーションおよび WSDL 拡張は、インポートに使用される登録済みのカスタム ポリシーおよびカスタム WDSL インポーターに渡されます。 通常、インポーターは、ユーザー定義のバインド要素をサポートしたりインポートされたコントラクトを変更したりする目的で実装されます。  
+ <xref:System.ServiceModel.Description.WsdlImporter?displayProperty=nameWithType> 型は、WCF に含まれる <xref:System.ServiceModel.Description.MetadataImporter> 抽象クラスの実装です。 <xref:System.ServiceModel.Description.WsdlImporter> 型は、<xref:System.ServiceModel.Description.MetadataSet?displayProperty=nameWithType> オブジェクトにまとめられた、結び付けられているポリシーを使用して WSDL メタデータをインポートします。 既定のインポーターが認識しないポリシー アサーションおよび WSDL 拡張は、インポートに使用される登録済みのカスタム ポリシーおよびカスタム WDSL インポーターに渡されます。 通常、インポーターは、ユーザー定義のバインド要素をサポートしたりインポートされたコントラクトを変更したりする目的で実装されます。  
   
  ここでは、次の内容について説明します。  
   
@@ -28,7 +28,7 @@ Windows Communication Foundation (WCF) では、メタデータのインポー�
   
 2. 説明オブジェクトを生成する前に、インポーターにポリシー アサーションを公開する <xref:System.ServiceModel.Description.IPolicyImportExtension?displayProperty=nameWithType> インターフェイスを実装して使用する方法。 このインターフェイスは、ダウンロードしたポリシーに基づいてバインディングまたはコントラクトを確認または変更するために使用できます。  
   
- カスタム WSDL およびポリシーアサーションのエクスポートの詳細については、「 [WCF 拡張機能のカスタムメタデータのエクスポート](exporting-custom-metadata-for-a-wcf-extension.md)」を参照してください。  
+ カスタム WSDL とポリシー アサーションのエクスポートに関する詳細については、「[WCF 拡張に対するカスタム メタデータのエクスポート](exporting-custom-metadata-for-a-wcf-extension.md)」を参照してください。  
   
 ## <a name="importing-custom-wsdl-extensions"></a>カスタム WSDL 拡張のインポート  
 
@@ -36,11 +36,11 @@ Windows Communication Foundation (WCF) では、メタデータのインポー�
   
  <xref:System.ServiceModel.Description.WsdlImporter> は、カスタム WSDL インポーターを読み込んで使用する場合、インポート プロセスの前にメタデータを変更できるように、まず <xref:System.ServiceModel.Description.IWsdlImportExtension.BeforeImport%2A> メソッドを呼び出します。 次に、コントラクトがインポートされたら、メタデータからインポートされたコントラクトを変更できるように <xref:System.ServiceModel.Description.IWsdlImportExtension.ImportContract%2A> メソッドを呼び出します。 最後に、インポートされたエンドポイントを変更できるように <xref:System.ServiceModel.Description.IWsdlImportExtension.ImportEndpoint%2A> メソッドを呼び出します。  
   
- 詳細については、「 [方法: カスタム WSDL をインポート](how-to-import-custom-wsdl.md)する」を参照してください。  
+ 詳細については、「[方法: カスタム WSDL をインポートする](how-to-import-custom-wsdl.md)」を参照してください。  
   
 ### <a name="importing-custom-policy-assertions"></a>カスタム ポリシー アサーションのインポート  
 
- <xref:System.ServiceModel.Description.WsdlImporter>型と[ServiceModel メタデータユーティリティツール (Svcutil.exe)](../servicemodel-metadata-utility-tool-svcutil-exe.md)は、WSDL ドキュメントに関連付けられているポリシー式に含まれるさまざまな種類のポリシーアサーションの処理を自動的に処理します。 これらのツールは、WSDL バインディングや WSDL ポートに結び付けられたポリシー表現の収集、正規化、およびマージを行います。  
+ <xref:System.ServiceModel.Description.WsdlImporter> 型と [ServiceModel メタデータ ユーティリティ ツール (Svcutil.exe)](../servicemodel-metadata-utility-tool-svcutil-exe.md) は、WSDL ドキュメントに結び付けられたポリシー表現に含まれるさまざまなポリシー アサーション型を自動的に処理します。 これらのツールは、WSDL バインディングや WSDL ポートに結び付けられたポリシー表現の収集、正規化、およびマージを行います。  
   
  カスタム ポリシー アサーションのインポートをサポートするには、<xref:System.ServiceModel.Description.IPolicyImportExtension> インターフェイスを実装し、その実装を <xref:System.ServiceModel.Description.MetadataImporter.PolicyImportExtensions%2A> プロパティに追加します。 <xref:System.ServiceModel.Description.MetadataImporter> は、アプリケーション構成ファイルに登録された <xref:System.ServiceModel.Description.IPolicyImportExtension> インターフェイスの実装を読み込むこともできます。 いくつかのポリシー インポーターが既定で登録されること、および登録されたポリシー インポーターの順序に意味があることに注意してください。  
   

@@ -1,11 +1,11 @@
 ---
-description: 詳細については、配信のアーキテクチャに関するページを参照してください。
+description: '詳細情報: 配信のアーキテクチャ'
 title: 配信のアーキテクチャ
 ms.date: 03/30/2017
 ms.assetid: ed4ca86e-e3d8-4acb-87aa-1921fbc353be
 ms.openlocfilehash: 274ec121629bcb4e596401ad989309d3ef02c128
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99643736"
@@ -26,16 +26,16 @@ ms.locfileid: "99643736"
   
  これらのクラスは、一部の名前が異なっていますが、Atom 1.0 仕様に規定されるコンストラクトに厳密にマップされています。  
   
- Windows Communication Foundation (WCF) では、シンジケーションフィードは別の種類のサービス操作としてモデル化されます。1つは戻り値の型がの派生クラスの1つです <xref:System.ServiceModel.Syndication.SyndicationFeedFormatter> 。 フィードの取得は要求/応答のメッセージ交換としてモデル化されています。 クライアントはサービスに要求を送信し、サービスがこれに応答します。 要求メッセージはインフラストラクチャ プロトコル (生の HTTP など) 上に設定され、応答メッセージは広く認識されている配信形式 (RSS 2.0 または Atom 1.0) から構成されるペイロードを含んでいます。 このようなメッセージ交換を実装するサービスは、配信サービスと呼ばれます。  
+ Windows Communication Foundation (WCF) では、配信フィードはその戻り値の型が <xref:System.ServiceModel.Syndication.SyndicationFeedFormatter> の派生クラスの 1 つである別の種類のサービス操作としてモデル化されています。 フィードの取得は要求/応答のメッセージ交換としてモデル化されています。 クライアントはサービスに要求を送信し、サービスがこれに応答します。 要求メッセージはインフラストラクチャ プロトコル (生の HTTP など) 上に設定され、応答メッセージは広く認識されている配信形式 (RSS 2.0 または Atom 1.0) から構成されるペイロードを含んでいます。 このようなメッセージ交換を実装するサービスは、配信サービスと呼ばれます。  
   
  配信サービスのコントラクトは、<xref:System.ServiceModel.Syndication.SyndicationFeedFormatter> クラスのインスタンスを返す一連の操作から構成されます。 配信サービスのインターフェイス宣言の例を次に示します。  
   
  [!code-csharp[S_UE_SyndicationBoth#0](../../../../samples/snippets/csharp/VS_Snippets_CFX/s_ue_syndicationboth/cs/service.cs#0)]  
   
- 配信のサポートは、バインディングを定義する WCF REST プログラミングモデル上に構築されてい <xref:System.ServiceModel.WebHttpBinding> ます。これは、と共に使用し <xref:System.ServiceModel.Description.WebHttpBehavior> て、フィードをサービスとして使用できるようにします。 WCF REST プログラミングモデルの詳細については、「 [Wcf WEB HTTP プログラミングモデルの概要](wcf-web-http-programming-model-overview.md)」を参照してください。  
+ 配信のサポートは、<xref:System.ServiceModel.WebHttpBinding> バインディングを定義する WCF REST プログラミング モデル上に組み込まれています。このバインディングを <xref:System.ServiceModel.Description.WebHttpBehavior> と共に使用すると、フィードをサービスとして利用できるようになります。 WCF REST プログラミング モデルの詳細については、「[WCF Web HTTP プログラミング モデルの概要](wcf-web-http-programming-model-overview.md)」を参照してください。  
   
 > [!NOTE]
-> Atom 1.0 仕様では、date コンストラクトで小数秒を指定できます。 WCF 実装をシリアル化および逆シリアル化する場合、秒の小数部は無視されます。  
+> Atom 1.0 仕様では、date コンストラクトで小数秒を指定できます。 シリアル化および逆シリアル化する場合、WCF の実装では小数秒は無視されます。  
   
 ## <a name="object-model"></a>オブジェクト モデル  
 
@@ -43,7 +43,7 @@ ms.locfileid: "99643736"
   
  形式設定クラス  
   
-|インスタンス|説明|  
+|クラス|説明|  
 |-----------|-----------------|  
 |<xref:System.ServiceModel.Syndication.Atom10FeedFormatter>|<xref:System.ServiceModel.Syndication.SyndicationFeed> インスタンスを Atom 1.0 形式にシリアル化するクラス。|  
 |<xref:System.ServiceModel.Syndication.Atom10FeedFormatter%601>|<xref:System.ServiceModel.Syndication.SyndicationFeed> 派生クラスを Atom 1.0 形式にシリアル化するクラス。|  
@@ -56,7 +56,7 @@ ms.locfileid: "99643736"
   
  オブジェクト モデル クラス  
   
-|インスタンス|説明|  
+|クラス|説明|  
 |-----------|-----------------|  
 |<xref:System.ServiceModel.Syndication.SyndicationCategory>|配信フィードのカテゴリを表すクラス。|  
 |<xref:System.ServiceModel.Syndication.SyndicationContent>|配信コンテンツを表す基本クラス。|  
@@ -78,7 +78,7 @@ ms.locfileid: "99643736"
   
 ## <a name="extensibility"></a>機能拡張  
   
-- 配信プロトコルの主な機能は拡張性です。 Atom 1.0 と RSS 2.0 では、仕様で定義されていない属性および要素を配信フィードに追加できます。 WCF 配信プログラミングモデルには、カスタム属性と拡張機能を操作する2つの方法が用意されています。新しいクラスの派生と弱い型指定のアクセスです。 詳細については、「 [配信の拡張機能](syndication-extensibility.md)」を参照してください。  
+- 配信プロトコルの主な機能は拡張性です。 Atom 1.0 と RSS 2.0 では、仕様で定義されていない属性および要素を配信フィードに追加できます。 WCF の配信プログラミング モデルには、カスタム属性と拡張機能を扱う方法として、新しいクラスの派生と弱い型指定のアクセスの 2 つの方法が用意されています。 詳細については、[配信の拡張](syndication-extensibility.md)に関するページを参照してください。  
   
 ## <a name="see-also"></a>関連項目
 

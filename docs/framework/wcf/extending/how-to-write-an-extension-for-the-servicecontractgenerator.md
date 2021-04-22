@@ -1,11 +1,11 @@
 ---
-description: '詳細については、「方法: ServiceContractGenerator の拡張機能を記述する」を参照してください。'
+description: '詳細情報: 方法: ServiceContractGenerator の拡張を記述する'
 title: '方法: ServiceContractGenerator の拡張を記述する'
 ms.date: 03/30/2017
 ms.assetid: 876ca823-bd16-4bdf-9e0f-02092df90e51
 ms.openlocfilehash: 29d6d65cc3f9d29009f72b9a0c81b6cb1f472ac9
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99644204"
@@ -103,5 +103,5 @@ ms.locfileid: "99644204"
   
 ## <a name="see-also"></a>関連項目
 
-- [Metadata](../feature-details/metadata.md)
+- [メタデータ](../feature-details/metadata.md)
 - [方法: カスタム WSDL をインポートする](how-to-import-custom-wsdl.md)

@@ -1,5 +1,5 @@
 ---
-description: '詳細情報: キューに置かれた通信のベストプラクティス'
+description: '詳細情報: キューに置かれた通信のベスト プラクティス'
 title: キューに置かれた通信のベスト プラクティス
 ms.date: 03/30/2017
 helpviewer_keywords:
@@ -8,14 +8,14 @@ helpviewer_keywords:
 ms.assetid: 446a6383-cae3-4338-b193-a33c14a49948
 ms.openlocfilehash: 895b0a1a87bc84cf590f3dd4b5269b61e9399d15
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99643684"
 ---
 # <a name="best-practices-for-queued-communication"></a>キューに置かれた通信のベスト プラクティス
 
-このトピックでは、Windows Communication Foundation (WCF) でのキュー通信の推奨される方法について説明します。 以下の各セクションでは、シナリオの観点から推奨されるベスト プラクティスについて説明します。  
+ここでは、Windows Communication Foundation (WCF) のキューに置かれた通信で推奨されるベスト プラクティスについて説明します。 以下の各セクションでは、シナリオの観点から推奨されるベスト プラクティスについて説明します。  
   
 ## <a name="fast-best-effort-queued-messaging"></a>キューに置かれたベストエフォート方式の高速メッセージング  
 
@@ -23,7 +23,7 @@ ms.locfileid: "99643684"
   
  また、<xref:System.ServiceModel.MsmqBindingBase.Durable%2A> プロパティを `false` に設定して、ディスク書き込みの負荷がかからないようにすることもできます。  
   
- セキュリティは、パフォーマンスに影響を及ぼします。 詳細については、「 [パフォーマンスに関する考慮事項](performance-considerations.md)」を参照してください。  
+ セキュリティは、パフォーマンスに影響を及ぼします。 詳細については、「[パフォーマンスに関する考慮事項](performance-considerations.md)」を参照してください。  
   
 ## <a name="reliable-end-to-end-queued-messaging"></a>キューに置かれた信頼性のあるエンド ツー エンドのメッセージング  
 
@@ -43,7 +43,7 @@ ms.locfileid: "99643684"
   
  エンド ツー エンドの信頼性が必要な通信では、配信不能キューを無効にすることはお勧めしません。  
   
- 詳細については、「 [Dead-Letter キューを使用したメッセージ転送エラーの処理](using-dead-letter-queues-to-handle-message-transfer-failures.md)」を参照してください。  
+ 詳細については、「[配信不能キューを使用したメッセージ転送エラー処理](using-dead-letter-queues-to-handle-message-transfer-failures.md)」を参照してください。  
   
 ### <a name="use-of-poison-message-handling"></a>有害メッセージ処理の使用  
 
@@ -51,31 +51,31 @@ ms.locfileid: "99643684"
   
  有害メッセージ処理機能を使用する場合は、<xref:System.ServiceModel.MsmqBindingBase.ReceiveErrorHandling%2A> プロパティが適切な値に設定されていることを確認します。 このプロパティを <xref:System.ServiceModel.ReceiveErrorHandling.Drop> に設定すると、データが失われることになります。 一方、<xref:System.ServiceModel.ReceiveErrorHandling.Fault> に設定すると、有害メッセージが検出されたときにサービス ホストでエラーが発生します。 MSMQ 3.0 を使用する場合、データの損失を防ぎ、有害メッセージを取り除くための最適なオプションは <xref:System.ServiceModel.ReceiveErrorHandling.Fault> です。 MSMQ 4.0 を使用する場合は、<xref:System.ServiceModel.ReceiveErrorHandling.Move> が推奨されます。 <xref:System.ServiceModel.ReceiveErrorHandling.Move> に設定すると有害メッセージがキューから取り除かれるため、サービスは新しいメッセージの処理を続行できます。 有害メッセージ サービスは、取り除かれた有害メッセージを別個に処理できます。  
   
- 詳細については、「 [有害メッセージの処理](poison-message-handling.md)」を参照してください。  
+ 詳細については、「[有害メッセージ処理](poison-message-handling.md)」を参照してください。  
   
 ## <a name="achieving-high-throughput"></a>高スループットの実現  
 
  単一のエンドポイントで高スループットを実現するには、以下を使用します。  
   
-- トランザクション バッチ。 トランザクション バッチでは、1 回のトランザクションで多くのメッセージを読み取ることができます。 これにより、トランザクションのコミットが最適化され、全体的なパフォーマンスが向上します。 バッチ処理の難点は、バッチ内の 1 つのメッセージでエラーが発生した場合に、バッチ全体をロールバックし、再び安全にバッチ処理できるようになるまで、メッセージを 1 つずつ処理する必要があることです。 ほとんどの場合、有害メッセージはまれであるため、特にトランザクションに他のリソース マネージャーが参加している場合は、バッチ処理がシステム パフォーマンスを向上させる方法として推奨されます。 詳細については、「 [トランザクション内のメッセージのバッチ](batching-messages-in-a-transaction.md)処理」を参照してください。  
+- トランザクション バッチ。 トランザクション バッチでは、1 回のトランザクションで多くのメッセージを読み取ることができます。 これにより、トランザクションのコミットが最適化され、全体的なパフォーマンスが向上します。 バッチ処理の難点は、バッチ内の 1 つのメッセージでエラーが発生した場合に、バッチ全体をロールバックし、再び安全にバッチ処理できるようになるまで、メッセージを 1 つずつ処理する必要があることです。 ほとんどの場合、有害メッセージはまれであるため、特にトランザクションに他のリソース マネージャーが参加している場合は、バッチ処理がシステム パフォーマンスを向上させる方法として推奨されます。 詳細については、「[トランザクションに含まれるメッセージのバッチ処理](batching-messages-in-a-transaction.md)」を参照してください。  
   
-- コンカレンシー。 コンカレンシーによりスループットが向上します。ただし、コンカレンシーは共有リソースの競合に影響します。 詳細については、「 [Concurrency](../samples/concurrency.md)」を参照してください。  
+- コンカレンシー。 コンカレンシーによりスループットが向上します。ただし、コンカレンシーは共有リソースの競合に影響します。 詳細については、「[コンカレンシー](../samples/concurrency.md)」を参照してください。  
   
-- 調整。 最適なパフォーマンスを実現するために、ディスパッチャー パイプラインのメッセージの数を調整します。 これを行う方法の例については、「 [調整](../samples/throttling.md)」を参照してください。  
+- 調整。 最適なパフォーマンスを実現するために、ディスパッチャー パイプラインのメッセージの数を調整します。 この操作を行う方法の例については、「[調整](../samples/throttling.md)」を参照してください。  
   
  バッチ処理を使用する場合は、コンカレンシーと調整はコンカレント バッチに変換されることに気をつけてください。  
   
- より高いスループットと可用性を実現するには、キューから読み取る WCF サービスのファームを使用します。 この場合、ファームのすべてのサービスが同じエンドポイントで同じコントラクトを公開している必要があります。 ファームを使用すると、多数のサービスがすべて同じキューから読み取ることができるため、この方法はメッセージの生成率が高いアプリケーションで最も効果を発揮します。  
+ スループットと可用性を高めるには、キューから読み取る WCF サービスのファームを使用します。 この場合、ファームのすべてのサービスが同じエンドポイントで同じコントラクトを公開している必要があります。 ファームを使用すると、多数のサービスがすべて同じキューから読み取ることができるため、この方法はメッセージの生成率が高いアプリケーションで最も効果を発揮します。  
   
  ファームを使用する場合、MSMQ 3.0 ではリモート トランザクション読み取りがサポートされていないので注意してください。 MSMQ 4.0 は、リモート トランザクション読み取りをサポートしています。  
   
- 詳細については、「 [トランザクション内のメッセージのバッチ](batching-messages-in-a-transaction.md) 処理」および「 [Windows Vista、windows Server 2003、および Windows XP のキュー機能の相違点](diff-in-queue-in-vista-server-2003-windows-xp.md)」を参照してください。  
+ 詳細については、「[トランザクションに含まれるメッセージのバッチ処理](batching-messages-in-a-transaction.md)」および「[Windows Vista、Windows Server 2003、および Windows XP におけるキュー機能の相違点](diff-in-queue-in-vista-server-2003-windows-xp.md)」を参照してください。  
   
 ## <a name="queuing-with-unit-of-work-semantics"></a>作業単位のセマンティクスによるキュー処理  
 
  キューにある一連のメッセージが関連している可能性があるため、これらのメッセージの順序付けが重要となるシナリオがあります。 このようなシナリオでは、関連するメッセージのグループを 1 つの単位としてまとめて処理します。つまり、すべてのメッセージが正常に処理されるか、どのメッセージも処理されないかのいずれかになります。 このような動作を実装するには、キューでセッションを使用します。  
   
- 詳細については、「 [セッションでキューに置かれたメッセージをグループ化する](grouping-queued-messages-in-a-session.md)」を参照してください。  
+ 詳細については、「[セッションでキューに置かれたメッセージのグループ化](grouping-queued-messages-in-a-session.md)」を参照してください。  
   
 ## <a name="correlating-request-reply-messages"></a>要求/応答メッセージの関連付け  
 
@@ -83,15 +83,15 @@ ms.locfileid: "99643684"
   
 ## <a name="integrating-with-non-wcf-applications"></a>非 WCF アプリケーションとの統合  
 
- Wcf サービス `MsmqIntegrationBinding` またはクライアントを wcf 以外のサービスまたはクライアントと統合する場合は、を使用します。 WCF 以外のアプリケーションは、System. Messaging、COM +、Visual Basic、または C++ を使用して作成された MSMQ アプリケーションにすることができます。  
+ WCF サービスまたはクライアントを非 WCF サービスまたはクライアントと統合するときには、`MsmqIntegrationBinding` を使用します。 非 WCF アプリケーションには、System.Messaging、COM+、Visual Basic、または C++ を使用して作成された MSMQ アプリケーションなどがあります。  
   
  `MsmqIntegrationBinding` を使用するときは、以下の点に注意してください。  
   
-- WCF メッセージ本文は、MSMQ メッセージ本文と同じではありません。 キューに置かれたバインディングを使用して WCF メッセージを送信する場合、WCF メッセージ本文は MSMQ メッセージの内部に配置されます。 MSMQ インフラストラクチャは、この追加情報を認識しません。認識するのは、MSMQ メッセージだけです。  
+- WCF メッセージの本文は、MSMQ メッセージの本文と同じではありません。 キューに置かれたバインディングを使用して WCF メッセージを送信する場合は、WCF メッセージの本文が MSMQ メッセージの内部に配置されます。 MSMQ インフラストラクチャは、この追加情報を認識しません。認識するのは、MSMQ メッセージだけです。  
   
 - `MsmqIntegrationBinding` では、よく使用されるシリアル化型をサポートしています。 ジェネリック メッセージである <xref:System.ServiceModel.MsmqIntegration.MsmqMessage%601> の本文の型は、シリアル化型に基づいてさまざまな型パラメーターを受け取ります。 たとえば、<xref:System.ServiceModel.MsmqIntegration.MsmqMessageSerializationFormat.ByteArray> には `MsmqMessage\<byte[]>` が必要であり、<xref:System.ServiceModel.MsmqIntegration.MsmqMessageSerializationFormat.Stream> には `MsmqMessage<Stream>` が必要です。  
   
-- XML シリアル化では、 `KnownTypes` [\<behavior>](../../configure-apps/file-schema/wcf/behavior-of-servicebehaviors.md) xml メッセージを逆シリアル化する方法を決定するために使用される要素の属性を使用して、既知の型を指定できます。  
+- XML シリアル化では、[\<behavior>](../../configure-apps/file-schema/wcf/behavior-of-servicebehaviors.md) 要素の `KnownTypes` 属性を使用して既知の型を指定できます。この型は、後で XML メッセージを逆シリアル化する方法を確認する際に使用されます。  
   
 ## <a name="see-also"></a>関連項目
 

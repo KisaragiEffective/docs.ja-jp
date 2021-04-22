@@ -1,11 +1,11 @@
 ---
-description: 詳細については、「ピアチャネルアプリケーションの構築」を参照してください。
+description: '詳細情報: ピア チャネル アプリケーションの構築'
 title: ピア チャネル アプリケーションの構築
 ms.date: 03/30/2017
 ms.assetid: a69a1b8f-8e15-45c5-87b8-bdb71e1c7ab8
 ms.openlocfilehash: dc55efab2e60db96589a8d014ce28b927ad39309
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99643554"

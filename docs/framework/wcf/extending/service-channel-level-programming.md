@@ -1,5 +1,5 @@
 ---
-description: 詳細については、サービス Channel-Level プログラミングに関するページを参照してください。
+description: '詳細情報: サービス チャネル レベルのプログラミング'
 title: サービス チャネル レベルのプログラミング
 ms.date: 03/30/2017
 dev_langs:
@@ -8,14 +8,14 @@ dev_langs:
 ms.assetid: 8d8dcd85-0a05-4c44-8861-4a0b3b90cca9
 ms.openlocfilehash: 9d89b073430ccdf80bdcbdfc50fd1e002fc807ff
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99644062"
 ---
 # <a name="service-channel-level-programming"></a>サービス チャネル レベルのプログラミング
 
-このトピックでは、 <xref:System.ServiceModel.ServiceHost?displayProperty=nameWithType> とそれに関連付けられたオブジェクトモデルを使用せずに、Windows Communication Foundation (WCF) サービスアプリケーションを記述する方法について説明します。  
+ここでは、Windows Communication Foundation (WCF) サービス アプリケーションを <xref:System.ServiceModel.ServiceHost?displayProperty=nameWithType> とこれに関係するオブジェクト モデルを使用しないで作成する方法を説明します。  
   
 ## <a name="receiving-messages"></a>受信、メッセージ  
 
@@ -33,7 +33,7 @@ ms.locfileid: "99644062"
   
 #### <a name="creating-a-binding"></a>バインディングの作成  
 
- メッセージのリッスンと受信の最初の手順として、バインディングを作成します。 WCF には、いくつかの組み込みまたはシステム指定のバインディングが付属しています。これらのバインディングは、そのうちの1つをインスタンス化することによって直接使用できます。 また、CustomBinding クラスをインスタンス化することにより、独自のバインディングを作成することもできます。手順 1. のコードは、この処理を実行します。  
+ メッセージのリッスンと受信の最初の手順として、バインディングを作成します。 WCF には、組み込みバインディングまたはシステム標準のバインディングが複数付属しており、そのうちの 1 個をインスタンス化することによって直接使用できます。 また、CustomBinding クラスをインスタンス化することにより、独自のバインディングを作成することもできます。手順 1. のコードは、この処理を実行します。  
   
  後のコード例は、<xref:System.ServiceModel.Channels.CustomBinding?displayProperty=nameWithType> のインスタンスを作成し、その Elements コレクションに <xref:System.ServiceModel.Channels.HttpTransportBindingElement?displayProperty=nameWithType> を追加します。Elements コレクションは、チャネル スタックを作成するために使用されるバインド要素のコレクションです。 この例では、Elements コレクションには <xref:System.ServiceModel.Channels.HttpTransportBindingElement> しか含まれないため、チャネル スタックは HTTP トランスポート チャネルだけを持ちます。  
   

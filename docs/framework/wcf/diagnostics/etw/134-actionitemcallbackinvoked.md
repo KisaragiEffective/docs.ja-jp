@@ -1,11 +1,11 @@
 ---
-description: '詳細については、次を参照してください: 134-Actionitemの呼び出しが呼び出されます'
+description: '詳細情報: 134 - ActionItemCallbackInvoked'
 title: 134 - ActionItemCallbackInvoked
 ms.date: 03/30/2017
 ms.assetid: 9547f8a6-8f75-4c64-9d6d-391385557d8c
 ms.openlocfilehash: 82fd227cce51103f8fa00aa042a7f74001796fe6
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99645920"
@@ -17,16 +17,16 @@ ms.locfileid: "99645920"
 |||  
 |-|-|  
 |id|134|  
-|Keywords|スレッド|  
+|キーワード|スレッド|  
 |Level|"詳細"|  
 |チャネル|Microsoft-Windows-Application Server-Applications/Debug|  
   
 ## <a name="description"></a>説明  
 
- このイベントは、i/o スレッドスケジューラのコールバック呼び出しが終了したときに生成されます。  
+ このイベントは、I/O スレッド スケジューラのコールバック呼び出しが終了すると生成されます。  
   
-## <a name="message"></a>Message  
+## <a name="message"></a>メッセージ  
 
- I/o スレッドスケジューラのコールバックが呼び出されました。  
+ I/O スレッド スケジューラのコールバックが呼び出されました。  
   
 ## <a name="details"></a>詳細

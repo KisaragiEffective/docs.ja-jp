@@ -11,7 +11,7 @@ helpviewer_keywords:
 ms.assetid: c08125d6-56cc-4b23-b482-813ff85dc630
 ms.openlocfilehash: bb651fc9c9f6f3df448ed5ce19e81c1ae092838c
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99639979"
@@ -43,7 +43,7 @@ ms.locfileid: "99639979"
   
 ## <a name="enabled-attribute"></a>enabled 属性  
   
-|値|説明|  
+|[値]|説明|  
 |-----------|-----------------|  
 |`0`|共通言語ランタイムは、アプリケーション ドメインごとに文字列のハッシュ コードを計算しません。1 つのアルゴリズムを使用して文字列のハッシュ コードを計算します。 既定値です。|  
 |`1`|共通言語ランタイムは、アプリケーション ドメインごとに文字列のハッシュ コードを計算します。 異なるアプリケーション ドメインや異なるプロセスで同一の文字列のハッシュ コードは異なります。|  
@@ -61,11 +61,11 @@ ms.locfileid: "99639979"
   
 ## <a name="remarks"></a>解説  
 
- 既定では、<xref:System.StringComparer> のクラスと <xref:System.String.GetHashCode%2A?displayProperty=nameWithType> のメソッドは、アプリケーション ドメイン間で一貫したハッシュ コードを生成する単一のハッシュ アルゴリズムを使用します。 これは、`enabled` 要素の `<UseRandomizedStringHashAlgorithm>` 属性を `0` に設定することと同じです。 これは、.NET Framework 4 で使用されるハッシュアルゴリズムです。  
+ 既定では、<xref:System.StringComparer> のクラスと <xref:System.String.GetHashCode%2A?displayProperty=nameWithType> のメソッドは、アプリケーション ドメイン間で一貫したハッシュ コードを生成する単一のハッシュ アルゴリズムを使用します。 これは、`enabled` 要素の `<UseRandomizedStringHashAlgorithm>` 属性を `0` に設定することと同じです。 これは .NET Framework 4 で使用されるハッシュ アルゴリズムです。  
   
  <xref:System.StringComparer> クラスと <xref:System.String.GetHashCode%2A?displayProperty=nameWithType> メソッドは、別のハッシュ アルゴリズムを使用してアプリケーション ドメインごとのハッシュ コードを計算することもできます。 その結果、同じ文字列のハッシュ コードが、アプリケーション ドメイン間で異なります。 これはオプトイン機能であり、この機能を利用するには、`enabled` 要素の `<UseRandomizedStringHashAlgorithm>` 属性を `1` に設定する必要があります。  
   
- ハッシュ テーブルの文字列検索は、通常 O(1) 操作です。 ただし、多数の競合が発生した場合、参照は O (n<sup>2</sup>) 操作になる可能性があります。 特にハッシュ コードを計算するキーがユーザーによる入力データに基づいている場合、`<UseRandomizedStringHashAlgorithm>` 構成要素を使用して、アプリケーション ドメインごとにランダムなハッシュ アルゴリズムを生成でき、潜在的な競合の数を制限できます。  
+ ハッシュ テーブルの文字列検索は、通常 O(1) 操作です。 ただし、多くの競合が発生すると、検索は O(n<sup>2</sup>) 操作になることがあります。 特にハッシュ コードを計算するキーがユーザーによる入力データに基づいている場合、`<UseRandomizedStringHashAlgorithm>` 構成要素を使用して、アプリケーション ドメインごとにランダムなハッシュ アルゴリズムを生成でき、潜在的な競合の数を制限できます。  
   
 ## <a name="example"></a>例  
 

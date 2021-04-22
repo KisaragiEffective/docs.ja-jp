@@ -1,5 +1,5 @@
 ---
-description: '詳細情報: WCF のセキュリティに関するベストプラクティス'
+description: '詳細情報: WCF のセキュリティのベスト プラクティス'
 title: WCF のセキュリティのベスト プラクティス
 ms.date: 03/30/2017
 dev_langs:
@@ -10,7 +10,7 @@ helpviewer_keywords:
 ms.assetid: 3639de41-1fa7-4875-a1d7-f393e4c8bd69
 ms.openlocfilehash: 67c3f3054011ea5727d5713c1eabf810a4c39b42
 ms.sourcegitcommit: ddf7edb67715a5b9a45e3dd44536dabc153c1de0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/06/2021
 ms.locfileid: "99643645"
@@ -70,6 +70,6 @@ ms.locfileid: "99643645"
   
 ## <a name="see-also"></a>関連項目
 
-- [セキュリティに関する考慮事項](security-considerations-in-wcf.md)
+- [セキュリティの考慮事項](security-considerations-in-wcf.md)
 - [セキュリティに関するデータの考慮事項](security-considerations-for-data.md)
 - [メタデータを使用する場合のセキュリティ上の考慮事項](security-considerations-with-metadata.md)
