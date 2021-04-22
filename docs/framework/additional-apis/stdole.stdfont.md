@@ -1,6 +1,6 @@
 ---
 title: StdFont インターフェイス (stdole)
-description: .NET の StdFont インターフェイスに関するリファレンス情報を参照してください。 このインターフェイスは、stdole 名前空間と、(stdole.dll ライブラリ内の) stdole アセンブリにあります。
+description: .NET の StdFont インターフェイスについて説明します。 このインターフェイスは、stdole 名前空間と、(stdole.dll ライブラリ内の) stdole アセンブリにあります。
 ms.date: 03/28/2019
 topic_type:
 - apiref
@@ -12,7 +12,7 @@ api_type:
 - Assembly
 ms.openlocfilehash: 974d3a3b0ea6dc762f27f812a609eeec4376bc24
 ms.sourcegitcommit: 1c37a894c923bea021a3cc38ce7cba946357bbe1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/19/2020
 ms.locfileid: "85105273"

@@ -1,6 +1,6 @@
 ---
-title: M_StatusCode CoreResponseData フィールド
-description: .NET の m_StatusCode CoreResponseData フィールドについて確認します。 フィールドは、HTTP 応答の状態を含む HttpStatusCode 型です。
+title: CoreResponseData.m_StatusCode フィールド
+description: .NET の CoreResponseData.m_StatusCode フィールドについて説明します。 このフィールドは、HTTP 応答の状態が格納されている HttpStatusCode 型です。
 ms.date: 01/29/2018
 topic_type:
 - apiref
@@ -13,14 +13,14 @@ api_type:
 author: stevewhims
 ms.openlocfilehash: 05950290bde96511432941ce679e663126878663
 ms.sourcegitcommit: 45c8eed045779b70a47b23169897459d0323dc89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/18/2020
 ms.locfileid: "84989777"
 ---
-# <a name="coreresponsedatam_statuscode-field"></a>CoreResponseData \_ StatusCode フィールド
+# <a name="coreresponsedatam_statuscode-field"></a>CoreResponseData.m\_StatusCode フィールド
 
-`CoreResponseData.m_StatusCode`<xref:System.Net.HttpStatusCode>応答の状態を表すです。
+`CoreResponseData.m_StatusCode` 応答の状態が格納されている <xref:System.Net.HttpStatusCode> です。
 
 ## <a name="syntax"></a>構文
   
@@ -29,14 +29,14 @@ public HttpStatusCode m_StatusCode
 ```
 
 > [!WARNING]
-> この API は、コード内で直接使用するためのものではありません。 代わりに、を使用して <xref:System.Diagnostics.DiagnosticSource> ネットワークコードをフックする必要があります。 「 [DiagnosticSource User'S Guide](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)」を参照してください。
+> この API は、コードで直接使用されるものではありません。 代わりに、<xref:System.Diagnostics.DiagnosticSource> を使用してネットワーク コードをフックする必要があります。 「[DiagnosticSource User'S Guide (DiagnosticSource ユーザーズ ガイド)](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)」を参照してください。
 >
-> Microsoft では、どのような状況でも、実稼働アプリケーションでのこのクラスの使用はサポートしていません。
+> Microsoft は、状況に関係なく、運用アプリケーションでのこのクラスの使用はサポートしていません。
 
 ## <a name="requirements"></a>必要条件
 
 **名前空間:** <xref:System.Net>
 
-**アセンブリ:** システム (System.dll)
+**アセンブリ:** System (System.dll 内)
 
-**.NET Framework のバージョン:** 2.0 以降で使用できます。
+**.NET Framework のバージョン:** 2.0 以降で使用可能。

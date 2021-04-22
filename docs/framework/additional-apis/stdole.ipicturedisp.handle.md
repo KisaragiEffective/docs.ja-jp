@@ -1,6 +1,6 @@
 ---
-title: IPictureDisp プロパティ (stdole)
-description: .NET の IPictureDisp プロパティについて説明します。 このプロパティは、stdole 名前空間と、(stdole.dll ライブラリ内の) stdole アセンブリにあります。
+title: IPictureDisp.Handle プロパティ (stdole)
+description: .NET の IPictureDisp.Handle プロパティについて説明します。 このプロパティは、stdole 名前空間と、(stdole.dll ライブラリ内の) stdole アセンブリにあります。
 ms.date: 02/22/2019
 topic_type:
 - apiref
@@ -13,7 +13,7 @@ api_type:
 - Assembly
 ms.openlocfilehash: c75cb2b28801924987d42fe442fee492245fe809
 ms.sourcegitcommit: 1c37a894c923bea021a3cc38ce7cba946357bbe1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/19/2020
 ms.locfileid: "85105313"
@@ -32,4 +32,4 @@ int Handle { get; }
 
 **名前空間:** `stdole`
 
-**アセンブリ:** stdole (stdole.dll)
+**アセンブリ:** stdole (stdole.dll 内)

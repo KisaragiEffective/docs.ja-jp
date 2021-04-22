@@ -1,6 +1,6 @@
 ---
 title: IPictureDisp インターフェイス (stdole)
-description: .NET の IPictureDisp インターフェイスに関する情報を参照してください。 このインターフェイスは、stdole 名前空間と、(stdole.dll ライブラリ内の) stdole アセンブリにあります。
+description: .NET の IPictureDisp インターフェイスについて説明します。 このインターフェイスは、stdole 名前空間と、(stdole.dll ライブラリ内の) stdole アセンブリにあります。
 ms.date: 03/28/2019
 topic_type:
 - apiref
@@ -12,7 +12,7 @@ api_type:
 - Assembly
 ms.openlocfilehash: 54f2139500bfa62a6c862157283079f05d69215b
 ms.sourcegitcommit: 1c37a894c923bea021a3cc38ce7cba946357bbe1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/19/2020
 ms.locfileid: "85105299"
@@ -29,4 +29,4 @@ public interface IPictureDisp
 
 **名前空間:** `stdole`
 
-**アセンブリ:** stdole (stdole.dll)
+**アセンブリ:** stdole (stdole.dll 内)

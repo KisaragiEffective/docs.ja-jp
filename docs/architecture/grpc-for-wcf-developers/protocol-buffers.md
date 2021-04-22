@@ -1,28 +1,28 @@
 ---
-title: プロトコル バッファー - WCF 開発者向けの gRPC
-description: gRPC ネットワーキングに使用されるプロトコル バッファの配線形式の概要。
+title: プロトコル バッファー - WCF 開発者向け gRPC
+description: gRPC ネットワークに使用されるプロトコル バッファー ワイヤ形式の概要。
 ms.date: 09/09/2019
 ms.openlocfilehash: 35319d299a8bc2866a87954b3e54bfda9314ffe8
 ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/12/2020
 ms.locfileid: "79147933"
 ---
-# <a name="protocol-buffers"></a>プロトコル バッファ
+# <a name="protocol-buffers"></a>プロトコル バッファー
 
-gRPC サービスは、プロトコル*バッファー (Protobuf) メッセージ*としてデータを送受信する Windows 通信基盤 (WCF) のデータ コントラクトと同様です。 Protobuf は、XML や JSON などの人間が読み取り可能な形式で発生するオーバーヘッドを伴わずに、コンピューターが読み書きできるように構造化データを効率的にシリアル化する方法です。
+Windows Communication Foundation (WCF) のデータ コントラクトと同様に、gRPC サービスでは、データが "*プロトコル バッファー (Protobuf) メッセージ*" として送受信されます。 Protobuf は、コンピューターの読み書き用の構造化データをシリアル化する効率的な方法であり、XML や JSON のような人間が判読できる形式で発生するオーバーヘッドはありません。
 
 この章では、Protobuf のしくみと、独自の Protobuf メッセージを定義する方法について説明します。
 
-## <a name="how-protobuf-works"></a>プロトブーフの仕組み
+## <a name="how-protobuf-works"></a>Protobuf のしくみ
 
-WCF のデータ コントラクトを含むほとんどの .NET オブジェクトシリアル化手法は、実行時にオブジェクト構造を分析するリフレクションを使用して動作します。 一方、Protobuf ライブラリの多くは、ファイル内の専用言語 ( プロトコル*バッファ言語*) を`.proto`使用して、事前に構造を定義する必要があります。 コンパイラは、このファイルを使用して、サポートされているプラットフォームのコードを生成します。 サポートされるプラットフォームには、.NET、Java、C/C++、JavaScriptなどがあります。
+WCF のデータ コントラクトを含むほとんどの .NET オブジェクトのシリアル化手法は、リフレクションを使用して実行時にオブジェクトの構造を分析することで機能します。 これに対し、ほとんどの Protobuf ライブラリでは、専用の言語 ("*プロトコル バッファー言語*") を使用して、`.proto` ファイルで構造を事前に定義する必要があります。 その後、コンパイラにより、このファイルを使用して、サポートされている任意のプラットフォームのコードが生成されます。 サポートされているプラットフォームには、.NET、Java、C/C++、JavaScript などがあります。
 
-Protobuf コンパイラは`protoc`、別の実装が利用可能ですが、Google によって保守されています。 生成されたコードは効率的で、データの高速なシリアル化と逆シリアル化に最適化されています。
+Protobuf のコンパイラ `protoc` は Google によって管理されていますが、代替の実装も利用できます。 生成されたコードは効率的で、データの高速のシリアル化と逆シリアル化のために最適化されています。
 
-Protobuf ワイヤー形式はバイナリエンコーディングです。 メッセージを表すために使用されるバイト数を最小限に抑えるために、巧妙なトリックを使用します。 バイナリエンコーディング形式の知識は、Protobufを使用する必要はありません。 しかし、興味がある場合は、[プロトコルバッファのウェブサイト](https://developers.google.com/protocol-buffers/docs/encoding)で詳細を学ぶことができます。
+Protobuf のワイヤ形式は、バイナリ エンコードです。 いくつかの巧妙なテクニックを使用して、メッセージを表すために使用されるバイト数が最小限に抑えられます。 Protobuf を使用するために、バイナリ エンコード形式の知識は必要ありません。 ただし、興味がある場合は、[プロトコル バッファーの Web サイト](https://developers.google.com/protocol-buffers/docs/encoding)で詳しく学習できます。
 
 >[!div class="step-by-step"]
->[前次](why-grpc.md)
->[Next](protobuf-messages.md)
+>[前へ](why-grpc.md)
+>[次へ](protobuf-messages.md)

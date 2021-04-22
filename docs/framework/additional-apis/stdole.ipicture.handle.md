@@ -1,6 +1,6 @@
 ---
-title: IPicture. Handle プロパティ (stdole)
-description: .NET の IPicture. Handle プロパティに関する参照情報を取得します。 このプロパティは、この picture オブジェクト内で管理されている画像へのハンドルを取得します。
+title: IPicture.Handle プロパティ (stdole)
+description: .NET の IPicture.Handle プロパティについて説明します。 このプロパティは、この画像オブジェクト内で管理されている画像へのハンドルを取得します。
 ms.date: 02/22/2019
 topic_type:
 - apiref
@@ -13,14 +13,14 @@ api_type:
 - Assembly
 ms.openlocfilehash: 85c8f2c3fcdbecd69bc9b3dc9c13f4ccea41038b
 ms.sourcegitcommit: 1c37a894c923bea021a3cc38ce7cba946357bbe1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/19/2020
 ms.locfileid: "85105339"
 ---
 # <a name="ipicturehandle-property"></a>IPicture.Handle プロパティ
 
-この picture オブジェクト内で管理されている画像へのハンドルを、指定した場所に取得します。
+この画像オブジェクト内で管理されている画像へのハンドルを、指定した場所に取得します。
 
 ```csharp
 int Handle { get; }
@@ -34,4 +34,4 @@ int Handle { get; }
 
 **名前空間:** `stdole`
 
-**アセンブリ:** stdole (stdole.dll)
+**アセンブリ:** stdole (stdole.dll 内)

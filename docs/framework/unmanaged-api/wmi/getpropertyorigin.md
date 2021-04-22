@@ -1,6 +1,6 @@
 ---
-title: GetPropertyOrigin 関数 (アンマネージ API リファレンス)
-description: GetPropertyOrigin 関数は、プロパティが宣言されているクラスを特定します。
+title: GetPropertyOrigin 関数 (アンマネージド API リファレンス)
+description: GetPropertyOrigin 関数を使用すると、プロパティが宣言されているクラスが特定されます。
 ms.date: 11/06/2017
 api_name:
 - GetPropertyOrigin
@@ -16,7 +16,7 @@ topic_type:
 - Reference
 ms.openlocfilehash: 6cab3765f0359f5dd18831acaaa1aefce3fe1081
 ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/30/2019
 ms.locfileid: "73101852"
@@ -41,45 +41,45 @@ HRESULT GetPropertyOrigin (
 ## <a name="parameters"></a>パラメーター
 
 `vFunc`\
-からこのパラメーターは使用されていません。
+[in] このパラメーターは使用されません。
 
 `ptr`\
-から[IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject)インスタンスへのポインター。
+[in] [IWbemClassObject](/windows/desktop/api/wbemcli/nn-wbemcli-iwbemclassobject) インスタンスへのポインター。
 
 `wszMethodName`\
-から所有クラスが要求されているオブジェクトのプロパティの名前。
+[in] 所有クラスが要求されているオブジェクトのプロパティの名前。
 
 `pstrClassName`\
-入出力プロパティを所有するクラスの名前を受け取ります。
+[out] プロパティを所有するクラスの名前を受け取ります。
 
 ## <a name="return-value"></a>戻り値
 
-この関数によって返される次の値は、 *WbemCli*ヘッダーファイルで定義されています。また、コード内で定数として定義することもできます。
+この関数によって返される次の値は、*WbemCli.h* ヘッダー ファイル内で定義されています。または、コード内で定数として定義することもできます。
 
 |定数  |[値]  |説明  |
 |---------|---------|---------|
 |`WBEM_E_FAILED` | 0x80041001 | 一般的なエラーが発生しました。 |
 |`WBEM_E_NOT_FOUND` | 0x80041002 | 指定されたプロパティが見つかりませんでした。 |
-|`WBEM_E_INVALID_PARAMETER` | 0x80041008 | パラメーターが有効ではありません。 |
-|`WBEM_E_OUT_OF_MEMORY` | 0x80041006 | 操作を完了するために必要なメモリが不足しています。 |
-|`WBEM_S_NO_ERROR` | 0 | 関数の呼び出しに成功しました。  |
+|`WBEM_E_INVALID_PARAMETER` | 0x80041008 | パラメーターが無効です。 |
+|`WBEM_E_OUT_OF_MEMORY` | 0x80041006 | メモリ不足のため、操作を完了できません。 |
+|`WBEM_S_NO_ERROR` | 0 | 関数呼び出しに成功しました。  |
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>解説
 
-この関数は、 [IWbemClassObject:: GetPropertyOrigin](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemclassobject-getpropertyorigin)メソッドの呼び出しをラップします。
+この関数では、[IWbemClassObject::GetPropertyOrigin](/windows/desktop/api/wbemcli/nf-wbemcli-iwbemclassobject-getpropertyorigin) メソッドの呼び出しがラップされます。
 
-クラスは1つまたは複数の基底クラスからプロパティを継承できるため、多くの場合、特定のメソッドが定義されているプロパティを特定する必要があります。
+クラスは 1 つまたは複数の基底クラスからプロパティを継承できるため、多くの場合、開発者は特定のメソッドが定義されているプロパティを判別する必要があります。
 
-`pstrClassName` パラメーターは `out` パラメーターであるため、関数が呼び出される前に、有効な `BSTR` をポイントすることはできません。関数から制御が戻った後、このポインターの割り当ては解除されません。
+`pstrClassName` パラメーターは `out` パラメーターであるため、この関数が呼び出される前は有効な `BSTR` を指していてはなりません。このポインターは、関数から制御が戻った後に割り当て解除されません。
 
-## <a name="requirements"></a>［要件］
+## <a name="requirements"></a>必要条件
 
-**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
+**:**「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
-**ヘッダー:** WMINet_Utils
+**ヘッダー:** WMINet_Utils.idl
 
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v472plus](../../../../includes/net-current-v472plus.md)]
 
 ## <a name="see-also"></a>関連項目
 
-- [WMI およびパフォーマンスカウンター (アンマネージ API リファレンス)](index.md)
+- [WMI およびパフォーマンス カウンター (アンマネージド API リファレンス)](index.md)

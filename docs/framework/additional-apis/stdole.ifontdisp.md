@@ -1,6 +1,6 @@
 ---
 title: IFontDisp インターフェイス (stdole)
-description: .NET の IFontDisp インターフェイスに関するリファレンス情報を参照してください。 このインターフェイスは、stdole 名前空間と、(stdole.dll ライブラリ内の) stdole アセンブリにあります。
+description: .NET の IFontDisp インターフェイスについて説明します。 このインターフェイスは、stdole 名前空間と、(stdole.dll ライブラリ内の) stdole アセンブリにあります。
 ms.date: 03/28/2019
 topic_type:
 - apiref
@@ -12,7 +12,7 @@ api_type:
 - Assembly
 ms.openlocfilehash: f2e955997c66dc4db0de804ee6eded02735a3276
 ms.sourcegitcommit: 1c37a894c923bea021a3cc38ce7cba946357bbe1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/19/2020
 ms.locfileid: "85105325"
@@ -29,4 +29,4 @@ public interface IFontDisp
 
 **名前空間:** `stdole`
 
-**アセンブリ:** stdole (stdole.dll)
+**アセンブリ:** stdole (stdole.dll 内)

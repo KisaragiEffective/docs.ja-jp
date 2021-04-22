@@ -1,5 +1,5 @@
 ---
-title: Initialize 関数 (アンマネージ API リファレンス)
+title: Initialize 関数 (アンマネージド API リファレンス)
 description: Initialize 関数は、WMI の初期化を実行します。
 ms.date: 11/06/2017
 api_name:
@@ -16,7 +16,7 @@ topic_type:
 - Reference
 ms.openlocfilehash: b1f96b6285911b12d72ac136127d736b75d44023
 ms.sourcegitcommit: 559fcfbe4871636494870a8b716bf7325df34ac5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/30/2019
 ms.locfileid: "73127392"
@@ -39,20 +39,20 @@ HRESULT Initialize(
 
 `bAllowIManagementObjectQI`
 
-[in] WMI オブジェクトの QueryInterface の呼び出しが許可されていることを示す `true` ます。それ以外の場合は `false`。
+[in] WMI オブジェクトで QueryInterface の呼び出しが許可されることを示す場合は `true`。それ以外の場合は `false`。
 
 ## <a name="return-value"></a>戻り値
 
 関数は常に `S_OK` (0) を返します。
 
-## <a name="requirements"></a>［要件］
+## <a name="requirements"></a>必要条件
 
-**:** 「[システム要件](../../get-started/system-requirements.md)」を参照してください。
+**:**「[システム要件](../../get-started/system-requirements.md)」を参照してください。
 
-**ヘッダー:** WMINet_Utils
+**ヘッダー:** WMINet_Utils.def
 
 **.NET Framework のバージョン:** [!INCLUDE[net_current_v472plus](../../../../includes/net-current-v472plus.md)]
 
 ## <a name="see-also"></a>関連項目
 
-- [WMI およびパフォーマンスカウンター (アンマネージ API リファレンス)](index.md)
+- [WMI およびパフォーマンス カウンター (アンマネージド API リファレンス)](index.md)

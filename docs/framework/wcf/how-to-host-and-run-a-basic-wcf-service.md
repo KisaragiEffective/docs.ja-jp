@@ -1,6 +1,6 @@
 ---
-title: 'チュートリアル: 基本的な Windows Communication Foundation サービスをホストして実行する'
-description: Wcf アプリケーションの作成を開始する際に役立つ一連の記事の一部として、コンソールアプリケーションで WCF サービスをホストする方法について説明します。
+title: 'チュートリアル: 基本的な Windows Communication Foundation サービスをホストおよび実行する'
+description: WCF アプリケーションの作成を始めるときに役立つ一連の記事の一部として、コンソール アプリケーションで WCF サービスをホストする方法について説明します。
 ms.date: 03/19/2019
 dev_langs:
 - csharp
@@ -11,76 +11,76 @@ helpviewer_keywords:
 ms.assetid: 31774d36-923b-4e2d-812e-aa190127266f
 ms.openlocfilehash: 5318991087e71430523681d601d3b38c4513027b
 ms.sourcegitcommit: 358a28048f36a8dca39a9fe6e6ac1f1913acadd5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/23/2020
 ms.locfileid: "85246131"
 ---
-# <a name="tutorial-host-and-run-a-basic-windows-communication-foundation-service"></a>チュートリアル: 基本的な Windows Communication Foundation サービスをホストして実行する
+# <a name="tutorial-host-and-run-a-basic-windows-communication-foundation-service"></a>チュートリアル: 基本的な Windows Communication Foundation サービスをホストおよび実行する
 
-このチュートリアルでは、基本的な Windows Communication Foundation (WCF) アプリケーションを作成するために必要な5つのタスクについて説明します。 チュートリアルの概要については、「[チュートリアル: Windows Communication Foundation アプリケーションの](getting-started-tutorial.md)概要」を参照してください。
+このチュートリアルでは、基本的な Windows Communication Foundation (WCF) アプリケーションの作成に必要な 5 つのタスクのうち 3 番目のタスクについて説明します。 このチュートリアルの概要については、「[チュートリアル: Windows Communication Foundation アプリケーション入門](getting-started-tutorial.md)」を参照してください。
 
-WCF アプリケーションを作成するための次のタスクは、コンソールアプリケーションで WCF サービスをホストすることです。 WCF サービスは1つ以上の*エンドポイント*を公開し、それぞれが1つ以上のサービス操作を公開します。 サービスエンドポイントは、次の情報を指定します。
+WCF アプリケーションを作成するための次のタスクは、コンソール アプリケーションで WCF サービスをホストすることです。 WCF サービスにより 1 つ以上の "*エンドポイント*" が公開され、そのそれぞれで 1 つ以上のサービス操作が公開されます。 サービス エンドポイントにより次の情報が指定されます。
 
 - サービスを検索できるアドレス。
-- クライアントがサービスと通信する方法を説明する情報を格納しているバインディング。
-- サービスがクライアントに提供する機能を定義するコントラクト。
+- クライアントがサービスと通信するために必要な方法を説明する情報が格納されているバインド。
+- サービスからクライアントに提供される機能が定義されているコントラクト。
 
-このチュートリアルでは、次の作業を行う方法について説明します。
+このチュートリアルでは、以下の内容を学習します。
 > [!div class="checklist"]
 >
-> - WCF サービスをホストするためのコンソールアプリプロジェクトを作成して構成します。
-> - WCF サービスをホストするコードを追加します。
+> - WCF サービスをホストするためのコンソール アプリ プロジェクトを作成して構成します。
+> - WCF サービスをホストするためのコードを追加します。
 > - 構成ファイルを更新します。
-> - WCF サービスを開始し、実行されていることを確認します。
+> - WCF サービスを開始し、動作していることを確認します。
 
-## <a name="create-and-configure-a-console-app-project-for-hosting-the-service"></a>サービスをホストするためのコンソールアプリプロジェクトを作成して構成する
+## <a name="create-and-configure-a-console-app-project-for-hosting-the-service"></a>サービスをホストするためのコンソール アプリ プロジェクトを作成して構成する
 
-1. Visual Studio でコンソールアプリプロジェクトを作成します。
+1. Visual Studio でコンソール アプリ プロジェクトを作成します。
 
-    1. [**ファイル**] メニューの [プロジェクト/ソリューションを**開く**] を選択し、前の作業で作成し  >  **Project/Solution**た**gettingstarted** (*gettingstarted. .sln*) を参照します。 **[Open (開く)]** を選択します。
+    1. **[ファイル]** メニューから、 **[開く]**  >  **[ソリューション/プロジェクト]** を選択し、前に作成した **GettingStarted** ソリューション (*GettingStarted.sln*) を参照します。 **[Open]** を選択します。
 
-    2. [**表示**] メニューの [**ソリューションエクスプローラー**] をクリックします。
+    2. **[表示]** メニューの **[ソリューション エクスプローラー]** を選択します。
 
-    3. [**ソリューションエクスプローラー** ] ウィンドウで、[ **gettingstarted** ] ソリューション (最上位ノード) を選択**Add**し、  >  ショートカットメニューの [**新しいプロジェクト**の追加] をクリックします。
+    3. **[ソリューション エクスプローラー]** ウィンドウで、**GettingStarted** ソリューション (最上位ノード) を選択し、ショートカット メニューの **[追加]**  >  **[新しいプロジェクト]** を選択します。
 
-    4. [**新しいプロジェクトの追加**] ウィンドウの左側にある [ **Visual C#** ] または [ **Visual Basic**] の下にある [ **Windows デスクトップ**] カテゴリを選択します。
+    4. **[新しいプロジェクトの追加]** ウィンドウの左側で、 **[Visual C#]** または **[Visual Basic]** の下にある **[Windows デスクトップ]** カテゴリを選択します。
 
-    5. [**コンソールアプリ (.NET Framework)** ] テンプレートを選択し、**名前**として「 *gettingon host* 」と入力します。 **[OK]** を選択します。
+    5. **[コンソール アプリ (.NET Framework)]** テンプレートを選択し、 **[名前]** に「*GettingStartedHost*」と入力します。 **[OK]** を選択します。
 
-2. **Gettingのホスト**プロジェクトに参照を追加して、 **Getting: lib**プロジェクトに追加します。
+2. **GettingStartedHost** プロジェクトに **GettingStartedLib** プロジェクトへの参照を追加します。
 
-    1. [**ソリューションエクスプローラー** ] ウィンドウで、 **Gettingのホスト**プロジェクトの下にある [**参照**] フォルダーを選択し、ショートカットメニューの [**参照の追加**] を選択します。
+    1. **[ソリューション エクスプローラー]** ウィンドウで、**GettingStartedHost** プロジェクトの下にある **[参照設定]** フォルダーを選択して、ショートカット メニューから **[参照の追加]** を選択します。
 
-    2. [**参照の追加**] ダイアログボックスで、ウィンドウの左側にある [**プロジェクト**] の下にある [**ソリューション**] を選択します。
+    2. **[参照の追加]** ダイアログ ボックスで、ウィンドウの左側にある **[プロジェクト]** の下の **[ソリューション]** を選択します。
 
-    3. ウィンドウの中央のセクションで [ **Getting] lib**を選択し、[ **OK]** を選択します。
+    3. ウィンドウの中央のセクションで **GettingStartedLib** を選択し、 **[OK]** を選択します。
 
-       このアクションにより、gettingの**lib**プロジェクトで定義されている型が**Gettingのホスト**プロジェクトで使用できるようになります。
+       これにより、**GettingStartedLib** プロジェクトで定義されている型を、**GettingStartedHost** プロジェクトで使用できるようになります。
 
-3. **Gettingのホスト**プロジェクトで、アセンブリに参照を追加し <xref:System.ServiceModel> ます。
+3. **GettingStartedHost** プロジェクトで、<xref:System.ServiceModel> アセンブリへの参照を追加します。
 
-    1. [**ソリューションエクスプローラー** ] ウィンドウで、 **Gettingのホスト**プロジェクトの下にある [**参照**] フォルダーを選択し、ショートカットメニューの [**参照の追加**] を選択します。
+    1. **[ソリューション エクスプローラー]** ウィンドウで、**GettingStartedHost** プロジェクトの下にある **[参照設定]** フォルダーを選択して、ショートカット メニューから **[参照の追加]** を選択します。
 
-    2. [**参照の追加**] ウィンドウの左側にある [**アセンブリ**] で、[**フレームワーク**] を選択します。
+    2. **[参照の追加]** ウィンドウの左側にある **[アセンブリ]** で、 **[フレームワーク]** を選択します。
 
-    3. [ **System.servicemodel**] を選択し、[ **OK]** を選択します。
+    3. **System.ServiceModel** を選択して、 **[OK]** を選択します。
 
-    4. [**ファイル**] [  >  **すべて保存**] の順に選択して、ソリューションを保存します。
+    4. **[ファイル]**  >  **[すべて保存]** を選択して、ソリューションを保存します。
 
-## <a name="add-code-to-host-the-service"></a>サービスをホストするコードを追加する
+## <a name="add-code-to-host-the-service"></a>サービスをホストするためのコードを追加する
 
 サービスをホストするには、次の手順を実行するコードを追加します。
 
-1. ベースアドレスの URI を作成します。
-2. サービスをホストするためのクラスインスタンスを作成します。
-3. サービスエンドポイントを作成します。
+1. ベース アドレスの URI を作成します。
+2. サービスをホストするためのクラス インスタンスを作成します。
+3. サービス エンドポイントを作成します。
 4. メタデータ交換を有効にします。
-5. サービスホストを開いて、受信メッセージをリッスンします。
+5. 受信メッセージをリッスンするためのサービス ホストを開きます。
   
 コードに次の変更を加えます。
 
-1. **GettingProgram.cs ホスト**プロジェクトの**Program.cs**ファイルまたは module1.vb ファイルを開き、そのコードを次のコードに置き換え**ます。**
+1. **GettingStartedHost** プロジェクトの **Program.cs** または **Module1.vb** ファイルを開き、そのコードを次のコードで置き換えます。
 
     ```csharp
     using System;
@@ -177,63 +177,63 @@ WCF アプリケーションを作成するための次のタスクは、コン�
     End Module
     ```
 
-    このコードの動作については、「[サービスホスティングプログラムの手順](#service-hosting-program-steps)」を参照してください。
+    このコードの動作については、「[サービス ホスティング プログラムの手順](#service-hosting-program-steps)」を参照してください。
 
 2. プロジェクトのプロパティを更新します。
 
-   1. [**ソリューションエクスプローラー** ] ウィンドウで、[ **Getting] ホスト**フォルダーを選択し、ショートカットメニューの [**プロパティ**] をクリックします。
+   1. **[ソリューション エクスプローラー]** ウィンドウで、**GettingStartedHost** フォルダーを選択した後、ショートカット メニューの **[プロパティ]** を選択します。
 
-   2. [ **Gettingon ホスト**のプロパティ] ページで、[**アプリケーション**] タブを選択します。
+   2. **GettingStartedHost** のプロパティ ページで、 **[アプリケーション]** タブを選択します。
 
-      - C# プロジェクトの場合は、[**スタートアップオブジェクト**] ボックスの一覧から [ **Getting] ホスト**を選択します。
+      - C# プロジェクトの場合は、 **[スタートアップ オブジェクト]** ボックスの一覧から **GettingStartedHost.Program** を選択します。
 
-      - Visual Basic プロジェクトの場合は、[**スタートアップオブジェクト**] ボックスの一覧から [ **Service. プログラム**] を選択します。
+      - Visual Basic プロジェクトの場合は、 **[スタートアップ オブジェクト]** ボックスの一覧から **Service.Program** を選択します。
 
-   3. [**ファイル**] メニューの [**すべてを保存**] をクリックします。
+   3. **[ファイル]** メニューから **[すべて保存]** を選択します。
 
-## <a name="verify-the-service-is-working"></a>サービスが動作していることを確認する
+## <a name="verify-the-service-is-working"></a>サービスが機能していることを確認する
 
-1. ソリューションをビルドし、Visual Studio 内から**Gettingのホスト**コンソールアプリケーションを実行します。
+1. ソリューションをビルドし、Visual Studio 内から **GettingStartedHost** コンソール アプリケーションを実行します。
 
-    サービスは、管理者特権で実行する必要があります。 Visual Studio を管理者特権で開いたので、Visual Studio で**Gettingon ホスト**を実行すると、アプリケーションも管理者特権で実行されます。 または、管理者として新しいコマンドプロンプトを開き ( **More**  >  ショートカットメニューから [**管理者として実行**] を選択して)、その中で**GettingStartedHost.exe**を実行することもできます。
+    サービスは、管理者権限で実行する必要があります。 Visual Studio を管理者特権で開いたので、Visual Studio で **GettingStartedHost** を実行すると、アプリケーションも管理者特権で実行されます。 または、管理者として新しいコマンド プロンプトを開き (ショートカット メニューから **[その他]**  >  **[管理者として実行]** を選択)、その中で **GettingStartedHost.exe** を実行することもできます。
 
-2. Web ブラウザーを開き、でサービスのページを参照し `http://localhost:8000/GettingStarted/CalculatorService` ます。
+2. Web ブラウザーを開き、サービスのページ `http://localhost:8000/GettingStarted/CalculatorService` を参照します。
 
    > [!NOTE]
-   > このようなサービスでは、リッスンするコンピューターに HTTP アドレスを登録するための適切なアクセス許可が必要です。 管理者アカウントにはこのアクセス許可がありますが、管理者以外のアカウントの場合は、HTTP 名前空間へのアクセス許可を付与する必要があります。 名前空間の予約を構成する方法については、「[Configuring HTTP and HTTPS](feature-details/configuring-http-and-https.md)」 (HTTP と HTTPS を構成する) を参照してください。
+   > このようなサービスには、リッスンを行うコンピューター上で HTTP アドレスを登録するための適切なアクセス許可が必要です。 管理者アカウントにはこのアクセス許可がありますが、管理者以外のアカウントの場合は、HTTP 名前空間へのアクセス許可を付与する必要があります。 名前空間の予約を構成する方法については、「[Configuring HTTP and HTTPS](feature-details/configuring-http-and-https.md)」 (HTTP と HTTPS を構成する) を参照してください。
 
-## <a name="service-hosting-program-steps"></a>サービスホスティングプログラムの手順
+## <a name="service-hosting-program-steps"></a>サービス ホスティング プログラムの手順
 
 サービスをホストするために追加したコードの手順は、次のように記述されています。
 
-- **手順 1**: `Uri` サービスのベースアドレスを保持するクラスのインスタンスを作成します。 ベースアドレスを含む URL には、サービスを識別する省略可能な URI があります。 ベースアドレスは、のように書式設定され `<transport>://<machine-name or domain><:optional port #>/<optional URI segment>` ます。 電卓サービスのベースアドレスは、HTTP トランスポート、localhost、ポート8000、および URI セグメント (GettingStarted) を使用します。
+- **ステップ 1**: サービスのベース アドレスを保持する `Uri` クラスのインスタンスを作成します。 ベース アドレスを含む URL には、サービスを識別するオプションの URI があります。 ベース アドレスの形式は次のとおりです: `<transport>://<machine-name or domain><:optional port #>/<optional URI segment>`。 電卓サービスのベース アドレスには、HTTP トランスポート、localhost、ポート 8000、および URI セグメント "GettingStarted" が使用されます。
 
-- **手順 2**: <xref:System.ServiceModel.ServiceHost> サービスをホストするために使用するクラスのインスタンスを作成します。 コンストラクターは、サービスコントラクトを実装するクラスの型とサービスのベースアドレスの2つのパラメーターを受け取ります。
+- **ステップ 2**: サービスをホストするために使用する <xref:System.ServiceModel.ServiceHost> クラスのインスタンスを作成します。 コンストラクターは、サービス コントラクトを実装するクラスの型と、サービスのベース アドレスの、2 つのパラメーターを受け取ります。
 
-- **手順 3**: インスタンスを作成 <xref:System.ServiceModel.Description.ServiceEndpoint> します。 サービス エンドポイントは、アドレス、バインディング、およびサービス コントラクトから構成されます。 <xref:System.ServiceModel.Description.ServiceEndpoint>コンストラクターは、サービスコントラクトインターフェイスの型、バインディング、およびアドレスで構成されます。 サービス コントラクトは、サービス型に定義および実装した `ICalculator` です。 このサンプルのバインドは、組み込みのバインドであり、 <xref:System.ServiceModel.WSHttpBinding> WS-* 仕様に準拠するエンドポイントに接続されています。 WCF バインディングの詳細については、「 [wcf バインディングの概要](bindings-overview.md)」を参照してください。 アドレスをベースアドレスに追加して、エンドポイントを識別します。 このコードでは、このアドレスを計算し、そのエンドポイントの完全修飾アドレスをとして指定し `http://localhost:8000/GettingStarted/CalculatorService` ます。
+- **ステップ 3**: <xref:System.ServiceModel.Description.ServiceEndpoint> のインスタンスを作成します。 サービス エンドポイントは、アドレス、バインディング、およびサービス コントラクトから構成されます。 <xref:System.ServiceModel.Description.ServiceEndpoint> コンストラクターは、サービス コントラクト インターフェイスの型、バインディング、およびアドレスで構成されます。 サービス コントラクトは、サービス型に定義および実装した `ICalculator` です。 このサンプルのバインディングは <xref:System.ServiceModel.WSHttpBinding> で、これは組み込みのバインディングであり、WS-* 仕様に準拠するエンドポイントに接続します。 WCF バインディングの詳細については、[WCF バインディングの概要](bindings-overview.md)に関するページを参照してください。 エンドポイントを示すため、ベース アドレスにアドレスを追加します。 コードで、アドレスとして CalculatorService を指定し、エンドポイントの完全修飾アドレスとして `http://localhost:8000/GettingStarted/CalculatorService` を指定します。
 
     > [!IMPORTANT]
-    > .NET Framework バージョン4以降では、サービスエンドポイントの追加は省略可能です。 これらのバージョンでは、コードまたは構成を追加しないと、サービスによって実装されたベースアドレスとコントラクトの組み合わせごとに既定のエンドポイントが1つ追加されます。 既定のエンドポイントの詳細については、「[エンドポイントアドレスの指定](specifying-an-endpoint-address.md)」を参照してください。 既定のエンドポイント、バインディング、および動作の詳細については、「簡略化された[構成](simplified-configuration.md)と[WCF サービスの簡略化](samples/simplified-configuration-for-wcf-services.md)された構成」を参照してください。
+    > .NET Framework バージョン 4 以降では、サービス エンドポイントの追加は省略可能です。 これらのバージョンの場合、コードまたは構成を追加しないと、WCF により、サービスで実装されているベース アドレスとコントラクトの組み合わせごとに、1 つの既定のエンドポイントが追加されます。 既定のエンドポイントの詳細については、「[エンドポイント アドレスの指定](specifying-an-endpoint-address.md)」を参照してください。 既定のエンドポイントについては、「[簡略化された構成](simplified-configuration.md)」と「[WCF サービスの簡略化された構成](samples/simplified-configuration-for-wcf-services.md)」を参照してください。
 
-- **手順 4**: メタデータ交換を有効にします。 クライアントは、メタデータ交換を使用して、サービス操作を呼び出すためのプロキシを生成します。 メタデータ交換を有効にするには、インスタンスを作成し、 <xref:System.ServiceModel.Description.ServiceMetadataBehavior> その <xref:System.ServiceModel.Description.ServiceMetadataBehavior.HttpGetEnabled> プロパティをに設定 `true` して、 `ServiceMetadataBehavior` オブジェクトを <xref:System.ServiceModel.Description.ServiceDescription.Behaviors%2A> インスタンスのコレクションに追加し <xref:System.ServiceModel.ServiceHost> ます。
+- **ステップ 4**: メタデータ交換を有効にします。 サービス操作を呼び出すためのプロキシを生成するため、クライアントによりメタデータ交換が使用されます。 メタデータ交換を有効化するには、<xref:System.ServiceModel.Description.ServiceMetadataBehavior> のインスタンスを作成し、その <xref:System.ServiceModel.Description.ServiceMetadataBehavior.HttpGetEnabled> プロパティを `true` に設定して、`ServiceMetadataBehavior` オブジェクトを <xref:System.ServiceModel.ServiceHost> インスタンスの <xref:System.ServiceModel.Description.ServiceDescription.Behaviors%2A> コレクションに追加します。
 
-- **手順 5**: <xref:System.ServiceModel.ServiceHost> を開き、受信メッセージをリッスンします。 アプリケーションは、 **enter**キーを押すまで待機します。 アプリケーションがインスタンス化されると <xref:System.ServiceModel.ServiceHost> 、try/catch ブロックが実行されます。 によってスローされる例外を安全にキャッチする方法の詳細につい <xref:System.ServiceModel.ServiceHost> ては、「 [Close と Abort を使用して WCF クライアントリソースを解放する](samples/use-close-abort-release-wcf-client-resources.md)」を参照してください。
+- **ステップ 5**: 受信メッセージをリッスンするために <xref:System.ServiceModel.ServiceHost> を開きます。 アプリケーションは、**Enter** キーが押されるのを待機しています。 アプリケーションによって <xref:System.ServiceModel.ServiceHost> がインスタンス化された後、try/catch ブロックが実行されます。 <xref:System.ServiceModel.ServiceHost> によってスローされる例外を安全にキャッチする方法の詳細については、「[close と abort を使用して WCF クライアントのリソースを解放する](samples/use-close-abort-release-wcf-client-resources.md)」を参照してください。
 
 > [!IMPORTANT]
-> WCF サービスライブラリを追加すると、サービスホストを起動してデバッグする場合、Visual Studio はそれをホストします。 競合を回避するために、Visual Studio が WCF サービスライブラリをホストしないようにすることができます。
+> WCF サービス ライブラリを追加すると、サービス ホストを開始することによりそれをデバッグしている場合は、Visual Studio によって自動的にホストされます。 競合を回避するため、Visual Studio によって WCF サービス ライブラリがホストされないようにすることができます。
 >
-> 1. **ソリューションエクスプローラー**で**Gettingの lib**プロジェクトを選択し、ショートカットメニューの [**プロパティ**] を選択します。
-> 2. [ **Wcf オプション**] を選択し、**同じソリューションで別のプロジェクトをデバッグするときに [wcf サービスホストを開始する**] チェックボックスをオフにします。
+> 1. **ソリューション エクスプローラー** で **GettingStartedLib** プロジェクトを選択し、ショートカット メニューから **[プロパティ]** を選択します。
+> 2. **[WCF オプション]** を選択し、 **[同じソリューション内での別のプロジェクトのデバッグ時に WCF サービス ホストを開始する]** をオフにします。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 このチュートリアルでは、以下の内容を学習しました。
 > [!div class="checklist"]
 >
-> - WCF サービスをホストするためのコンソールアプリプロジェクトを作成して構成します。
-> - WCF サービスをホストするコードを追加します。
+> - WCF サービスをホストするためのコンソール アプリ プロジェクトを作成して構成します。
+> - WCF サービスをホストするためのコードを追加します。
 > - 構成ファイルを更新します。
-> - WCF サービスを開始し、実行されていることを確認します。
+> - WCF サービスを開始し、動作していることを確認します。
 
 次のチュートリアルに進み、WCF クライアントを作成する方法を学習してください。
 

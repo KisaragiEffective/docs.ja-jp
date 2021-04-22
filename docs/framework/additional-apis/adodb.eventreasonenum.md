@@ -1,6 +1,6 @@
 ---
-title: EventReason 列挙 (adodb)
-description: .NET の EventReason 列挙に関する情報を取得します。 この列挙体は、adodb 名前空間と adodb アセンブリ (adodb.dll ライブラリ内) にあります。
+title: EventReason 列挙型 (adodb)
+description: .NET の EventReason 列挙型について説明します。 この列挙型は、adodb 名前空間と adodb アセンブリ (adodb.dll ライブラリ内) にあります。
 ms.date: 03/28/2019
 topic_type:
 - apiref
@@ -12,7 +12,7 @@ api_type:
 - Assembly
 ms.openlocfilehash: bbb616625777e0193af4da10770502da904f401a
 ms.sourcegitcommit: 45c8eed045779b70a47b23169897459d0323dc89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/18/2020
 ms.locfileid: "84989900"
@@ -35,7 +35,7 @@ public enum EventReasonEnum
 |adRsnUndoAddNew  |   |
 |adRsnUndoDelete  |   |
 |adRsnRequery  |   |
-|adRsnResynch 同期  |   |
+|adRsnResynch  |   |
 | adRsnClose  |   |
 | adRsnMove  |   |
 | adRsnFirstChange  |   |
@@ -47,4 +47,4 @@ public enum EventReasonEnum
 
 **名前空間:** `adodb`
 
-**アセンブリ:** adodb (adodb.dll)
+**アセンブリ:** adodb (adodb.dll 内)

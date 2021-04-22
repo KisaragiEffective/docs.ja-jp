@@ -1,18 +1,18 @@
 ---
 title: close と abort を使用して WCF クライアントのリソースを解放する
-description: ネットワークに障害が発生すると、Dispose は失敗し、例外がスローされます。 これにより、望ましくない動作が発生する可能性があります。 ネットワークに障害が発生したときに、クライアントリソースを解放するには、Close と Abort を使用します。
+description: ネットワークで障害が発生したとき、Dispose が失敗して例外がスローされることがあります。 これにより、望ましくない動作が発生する可能性があります。 ネットワークで障害が発生したときは、代わりに、Close と Abort を使用してクライアント リソースを解放します。
 ms.date: 11/12/2018
 ms.assetid: aff82a8d-933d-4bdc-b0c2-c2f7527204fb
 ms.openlocfilehash: b338b760f461d7b773f43dd1f5e6dbce98f9e15a
 ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/09/2020
 ms.locfileid: "84599920"
 ---
-# <a name="close-and-abort-release-resources-safely-when-network-connections-have-dropped"></a>ネットワーク接続が切断されたときに解放リソースを安全に閉じ、中止する
+# <a name="close-and-abort-release-resources-safely-when-network-connections-have-dropped"></a>ネットワーク接続が切断されたときに Close と Abort でリソースを安全に解放する
 
-このサンプルでは、 `Close` `Abort` 型指定されたクライアントを使用するときに、メソッドとメソッドを使用してリソースをクリーンアップする方法を示します。 `using`ネットワーク接続が堅牢でない場合、ステートメントは例外を発生させます。 このサンプルは、電卓サービスを実装する[はじめに](getting-started-sample.md)に基づいています。 この例では、クライアントはコンソール アプリケーション (.exe) であり、サービスはインターネット インフォメーション サービス (IIS) によってホストされます。
+このサンプルでは、型指定されたクライアントを使用するときに、`Close` メソッドと `Abort` メソッドを使用してリソースをクリーンアップする方法を示します。 ネットワーク接続が堅牢でない場合、`using` ステートメントによって例外が発生します。 このサンプルは、電卓サービスを実装する「[入門サンプル](getting-started-sample.md)」に基づいています。 この例では、クライアントはコンソール アプリケーション (.exe) であり、サービスはインターネット インフォメーション サービス (IIS) によってホストされます。
 
 > [!NOTE]
 > このサンプルのセットアップ手順とビルド手順については、このトピックの最後を参照してください。
@@ -46,7 +46,7 @@ using (CalculatorClient client = new CalculatorClient())
 
 `Dispose`() は "最後の" ブロック内で発生するので、`ApplicationException`() が失敗した場合、`Dispose` は using ブロックの外側には表示されません。 外側のコードで、`ApplicationException` の発生時期を認識できるよう考慮されている場合は、この例外をマスクすると、"using" コンストラクトが問題の原因となる場合があります。
 
-最後に、このサンプルでは、`DemonstrateCleanupWithExceptions` で例外が発生した場合に正しくクリーンアップする方法を示します。 ここでは、try/catch ブロックを使用してエラーを報告し、`Abort` を呼び出します。 クライアント呼び出しから例外をキャッチする方法の詳細については、[予想される例外](expected-exceptions.md)のサンプルを参照してください。
+最後に、このサンプルでは、`DemonstrateCleanupWithExceptions` で例外が発生した場合に正しくクリーンアップする方法を示します。 ここでは、try/catch ブロックを使用してエラーを報告し、`Abort` を呼び出します。 クライアントの呼び出しから例外をキャッチする方法の詳細については、「[予期される例外](expected-exceptions.md)」のサンプルを参照してください。
 
 ```csharp
 try
@@ -105,17 +105,17 @@ Press <ENTER> to terminate client.
 
 ### <a name="to-set-up-build-and-run-the-sample"></a>サンプルをセットアップ、ビルド、および実行するには
 
-1. [Windows Communication Foundation サンプルの1回限りのセットアップ手順](one-time-setup-procedure-for-the-wcf-samples.md)を実行したことを確認します。
+1. [Windows Communication Foundation サンプルの 1 回限りのセットアップの手順](one-time-setup-procedure-for-the-wcf-samples.md)を実行したことを確認します。
 
 2. ソリューションの C# 版または Visual Basic .NET 版をビルドするには、「 [Building the Windows Communication Foundation Samples](building-the-samples.md)」の手順に従います。
 
-3. サンプルを単一コンピューター構成または複数コンピューター構成で実行するには、「 [Windows Communication Foundation サンプルの実行](running-the-samples.md)」の手順に従います。
+3. 単一または複数コンピューター構成でサンプルを実行するには、「[Windows Communication Foundation サンプルの実行](running-the-samples.md)」の手順に従います。
 
 > [!IMPORTANT]
 > サンプルは、既にコンピューターにインストールされている場合があります。 続行する前に、次の (既定の) ディレクトリを確認してください。
 >
 > `<InstallDrive>:\WF_WCF_Samples`
 >
-> このディレクトリが存在しない場合は、 [Windows Communication Foundation (wcf) および Windows Workflow Foundation (WF) のサンプルの .NET Framework 4](https://www.microsoft.com/download/details.aspx?id=21459)にアクセスして、すべての WINDOWS COMMUNICATION FOUNDATION (wcf) とサンプルをダウンロードして [!INCLUDE[wf1](../../../../includes/wf1-md.md)] ください。 このサンプルは、次のディレクトリに格納されます。
+> このディレクトリが存在しない場合は、「[.NET Framework 4 向けの Windows Communication Foundation (WCF) および Windows Workflow Foundation (WF) のサンプル](https://www.microsoft.com/download/details.aspx?id=21459)」にアクセスして、Windows Communication Foundation (WCF) と [!INCLUDE[wf1](../../../../includes/wf1-md.md)] のサンプルをすべてダウンロードしてください。 このサンプルは、次のディレクトリに格納されます。
 >
 > `<InstallDrive>:\WF_WCF_Samples\WCF\Basic\Client\UsingUsing`

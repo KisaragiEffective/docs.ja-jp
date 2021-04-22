@@ -1,21 +1,21 @@
 ---
-title: プロトブーフ列挙 - WCF 開発者向け gRPC
-description: Protobuf で列挙体を宣言して使用する方法について説明します。
+title: Protobuf の列挙型 - WCF 開発者向け gRPC
+description: Protobuf で列挙型を宣言して使用する方法について説明します。
 ms.date: 09/09/2019
 ms.openlocfilehash: 2177f568a671fa0e651625c6e025ac70c243feb5
 ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/12/2020
 ms.locfileid: "79148076"
 ---
 # <a name="protobuf-enumerations"></a>Protobuf 列挙型
 
-Protobuf は列挙型をサポートしています。 前のセクションでは、フィールドの種類を決定するために列挙型を使用したこのサポートを`Oneof`確認しました。 独自の列挙型を定義すると、Protobuf は C# 列挙型にコンパイルします。
+Protobuf では列挙型がサポートされています。 このサポートについては前のセクションで見ました。そこでは、列挙型を使用して `Oneof` フィールドの型を決定しました。 独自の列挙型を定義することができ、それらは Protobuf によって C# の列挙型にコンパイルされます。
 
-Protobuf はさまざまな言語で使用できるため、列挙体の名前付け規則は C# の規則とは異なります。 ただし、コード ジェネレーターは、名前を従来の C# の大文字と小文字に変換します。 フィールド名の Pascal の大文字と小文字の対応が列挙名で始まる場合は、削除されます。
+さまざまな言語で Protobuf を使用できるため、列挙の名前付け規則は C# の規則とは異なります。 ただし、コード ジェネレーターにより、名前は従来の C# の形式に変換されます。 フィールド名に対応する Pascal 形式が列挙名で始まる場合、それは削除されます。
 
-たとえば、次の Protobuf 列挙体では、フィールドの先頭に`ACCOUNT_STATUS`. このプレフィックスは、パスカルケースの列挙名と`AccountStatus`同じです。
+たとえば、次の Protobuf 列挙型では、フィールドの先頭に `ACCOUNT_STATUS` が付いています。 このプレフィックスは、Pascal 形式の列挙型名 `AccountStatus` に相当します。
 
 ```protobuf
 enum AccountStatus {
@@ -27,7 +27,7 @@ enum AccountStatus {
 }
 ```
 
-ジェネレーターは、次のコードと同等の C# 列挙型を作成します。
+ジェネレーターにより、次のコードに相当する C# の列挙型が作成されます。
 
 ```csharp
 public enum AccountStatus
@@ -40,7 +40,7 @@ public enum AccountStatus
 }
 ```
 
-Protobuf 列挙型の定義は、最初のフィールドとしてゼロ定数を持つ*必要があります*。 C# と同様に、同じ値を持つ複数のフィールドを宣言できます。 ただし、列挙型のオプションを使用して、この`allow_alias`オプションを明示的に有効にする必要があります。
+Protobuf の列挙型の定義には、最初のフィールドとして定数 0 が含まれている "*必要があります*"。 C# と同様に、同じ値を持つ複数のフィールドを宣言できます。 ただし、列挙型で `allow_alias` オプションを使用することで、このオプションを明示的に有効にする必要があります。
 
 ```protobuf
 enum AccountStatus {
@@ -54,9 +54,9 @@ enum AccountStatus {
 }
 ```
 
-列挙型は`.proto`、ファイルの最上位レベルで宣言するか、メッセージ定義内で入れ子にできます。 入れ子になったメッセージなどの入れ子になった列挙型は、生成`.Types`されたメッセージ クラスの静的クラス内で宣言されます。
+列挙型は、`.proto` ファイルの最上位レベルで宣言することも、メッセージ定義内に入れ子にすることもできます。 入れ子になった列挙型は、入れ子になったメッセージのように、生成されるメッセージ クラスの `.Types` 静的クラス内で宣言されます。
 
-プロトブーフで生成された列挙型に[[Flags]](xref:System.FlagsAttribute)属性を適用する方法はなく、Protobuf はビットごとの列挙型の組み合わせを理解していません。 次の例を見てください。
+Protobuf で生成される列挙型に [[Flags]](xref:System.FlagsAttribute) 属性を適用する方法はなく、ビットごとの列挙値の組み合わせは Protobuf で認識されません。 次の例を見てください。
 
 ```protobuf
 enum Region {
@@ -72,10 +72,10 @@ message Product {
 }
 ```
 
-に`product.AvailableIn``Region.NorthAmerica | Region.SouthAmerica`設定すると、整数値としてシリアル化されます`3`。 クライアントまたはサーバーが値を逆シリアル化しようとすると、`3`の enum 定義に一致するものが見つかりません。 結果は`Region.None`.
+`product.AvailableIn` を `Region.NorthAmerica | Region.SouthAmerica` に設定すると、整数値 `3` としてシリアル化されます。 クライアントまたはサーバーでその値を逆シリアル化しようとすると、列挙型の定義に `3` と一致するものが見つかりません。 結果は `Region.None` となります。
 
-Protobuf で複数の列挙値を操作する最善の方法は、`repeated`列挙型のフィールドを使用することです。
+Protobuf で複数の列挙値を操作する最善の方法は、列挙型の `repeated` フィールドを使用することです。
 
 >[!div class="step-by-step"]
->[前次](protobuf-any-oneof.md)
->[Next](protobuf-maps.md)
+>[前へ](protobuf-any-oneof.md)
+>[次へ](protobuf-maps.md)

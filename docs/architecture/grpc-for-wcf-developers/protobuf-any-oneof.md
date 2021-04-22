@@ -1,23 +1,23 @@
 ---
-title: Protobuf variant 型のフィールドと、WCF 開発者向け gRPC の組み合わせ
-description: Any 型および Oneof キーワードを使用して、メッセージ内のバリアントオブジェクト型を表す方法について説明します。
+title: Protobuf のバリアント型の Any フィールドと OneOf フィールド - WCF 開発者向け gRPC
+description: Any 型と Oneof キーワードを使用して、メッセージ内のバリアント オブジェクト型を表す方法について説明します。
 ms.date: 09/09/2019
 ms.openlocfilehash: 6fe7acbd1ec35289f7ad6f3acee8509ab934619d
 ms.sourcegitcommit: 771c554c84ba38cbd4ac0578324ec4cfc979cf2e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/21/2020
 ms.locfileid: "77543197"
 ---
-# <a name="protobuf-any-and-oneof-fields-for-variant-types"></a>Protobuf variant 型のフィールドをすべて使用します。
+# <a name="protobuf-any-and-oneof-fields-for-variant-types"></a>Protobuf のバリアント型の Any フィールドと OneOf フィールド
 
-Windows Communication Foundation (WCF) での動的プロパティ型 (`object`型のプロパティ) の処理は複雑になります。 たとえば、シリアライザーを指定し、 [Knowntype](xref:System.Runtime.Serialization.KnownTypeAttribute)属性を指定する必要があります。
+Windows Communication Foundation (WCF) で動的プロパティ型 (つまり、`object` 型のプロパティ) を処理することは複雑です。 たとえば、シリアライザーを指定し、[KnownType](xref:System.Runtime.Serialization.KnownTypeAttribute) 属性を指定する必要があります。
 
-プロトコルバッファー (Protobuf) には、複数の型の値を処理するための2つの簡単なオプションが用意されています。 `Any` 型は、既知の Protobuf メッセージ型を表すことができます。 また、`oneof` キーワードを使用して、任意のメッセージで設定できるフィールドの範囲が1つだけであることを指定できます。
+プロトコル バッファー (Protobuf) には、複数の型の値を処理するための 2 つの簡単なオプションが用意されています。 `Any` 型では、任意の既知の Protobuf メッセージ型を表すことができます。 また、`oneof` キーワードを使用すると、ある範囲のフィールドのうちの 1 つだけをメッセージで設定できることを指定できます。
 
 ## <a name="any"></a>Any
 
-`Any` は、Protobuf の "既知の型" の1つです。サポートされているすべての言語の実装で、便利で再利用可能なメッセージ型のコレクションです。 `Any` の種類を使用するには、`google/protobuf/any.proto` 定義をインポートする必要があります。
+`Any` は、Protobuf の "既知の型"、つまりサポートされているすべての言語の実装での、便利で再利用可能なメッセージ型のコレクションの 1 つです。 `Any` 型を使用するには、`google/protobuf/any.proto` 定義をインポートする必要があります。
 
 ```protobuf
 syntax "proto3"
@@ -38,7 +38,7 @@ message ChangeNotification {
 }
 ```
 
-C#コードでは、`Any` クラスに、フィールドの設定、メッセージの抽出、および型のチェックを行うメソッドが用意されています。
+C# コードでは、`Any` クラスに、フィールドの設定、メッセージの抽出、型のチェックを行うためのメソッドが用意されています。
 
 ```csharp
 public void FormatChangeNotification(ChangeNotification change)
@@ -58,11 +58,11 @@ public void FormatChangeNotification(ChangeNotification change)
 }
 ```
 
-Protobuf の内部リフレクションコードでは、生成された各型の `Descriptor` 静的フィールドを使用して `Any` フィールド型を解決します。 `TryUnpack<T>` メソッドもありますが、`T` の初期化されていないインスタンスは失敗した場合でも作成されます。 前述のように `Is` メソッドを使用することをお勧めします。
+Protobuf の内部リフレクション コードでは、生成された各型の `Descriptor` 静的フィールドを使用して、`Any` フィールドの型が解決されます。 また、`TryUnpack<T>` メソッドもありますが、それを使用すると、失敗した場合でも、`T` の初期化されていないインスタンスが作成されます。 前に示したように、`Is` メソッドを使用することをお勧めします。
 
-## <a name="oneof"></a>うち
+## <a name="oneof"></a>Oneof
 
-Oneof フィールドは言語機能です。コンパイラは、message クラスを生成するときに、`oneof` キーワードを処理します。 `oneof` を使用して `ChangeNotification` メッセージを指定する場合は、次のようになります。
+Oneof フィールドは言語機能です。コンパイラにより、メッセージ クラスを生成するときに `oneof` キーワードが処理されます。 `oneof` を使用した `ChangeNotification` メッセージの指定は、次のようになります。
 
 ```protobuf
 message Stock {
@@ -82,9 +82,9 @@ message ChangeNotification {
 }
 ```
 
-`oneof` セット内のフィールドには、メッセージの宣言全体で一意のフィールド番号を指定する必要があります。
+`oneof` セット内のフィールドには、メッセージの宣言全体で一意のフィールド番号が含まれている必要があります。
 
-`oneof`を使用すると、生成C#されるコードには、どのフィールドが設定されているかを指定する列挙が含まれます。 列挙をテストして、どのフィールドが設定されているかを調べることができます。 設定されていないフィールドは、例外をスローするのではなく、`null` または既定値を返します。
+`oneof` を使用する場合、生成される C# コードには、どのフィールドが設定されているかを示す列挙型が含まれます。 その列挙型をテストして、どのフィールドが設定されているかを確認することができます。 設定されていないフィールドによって、例外がスローされるのではなく、`null` または既定値が返されます。
 
 ```csharp
 public void FormatChangeNotification(ChangeNotification change)
@@ -105,7 +105,7 @@ public void FormatChangeNotification(ChangeNotification change)
 }
 ```
 
-`oneof` セットの一部であるフィールドを設定すると、セット内の他のすべてのフィールドが自動的にクリアされます。 `oneof`で `repeated` を使用することはできません。 代わりに、この制限を回避するために、繰り返しフィールドまたは `oneof` 設定を使用して、入れ子になったメッセージを作成できます。
+`oneof` セットの一部である任意のフィールドを設定すると、セット内の他のすべてのフィールドは自動的にクリアされます。 `oneof` で `repeated` を使用することはできません。 代わりに、repeated フィールドまたは `oneof` セットを使用して入れ子になったメッセージを作成し、この制限を回避することができます。
 
 >[!div class="step-by-step"]
 >[前へ](protobuf-reserved.md)

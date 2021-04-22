@@ -1,6 +1,6 @@
 ---
 title: '方法: マネージド アプリケーションで WCF サービスをホストする'
-description: 自己ホスト型サービスを作成してテストすることによって、マネージアプリケーション内で WCF サービスをホストする方法について説明します。
+description: 自己ホスト型サービスを作成してテストすることにより、マネージド アプリケーション内で WCF サービスをホストする方法について説明します。
 ms.date: 09/17/2018
 dev_langs:
 - csharp
@@ -8,39 +8,39 @@ dev_langs:
 ms.assetid: 5eb29db0-b6dc-4e77-8c68-0a62f79d743b
 ms.openlocfilehash: 7d1d61b683f60a6c643d2a2f03d367a6ae6c6c15
 ms.sourcegitcommit: 358a28048f36a8dca39a9fe6e6ac1f1913acadd5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/23/2020
 ms.locfileid: "85246169"
 ---
-# <a name="how-to-host-a-wcf-service-in-a-managed-app"></a>方法: マネージアプリで WCF サービスをホストする
+# <a name="how-to-host-a-wcf-service-in-a-managed-app"></a>方法: マネージド アプリで WCF サービスをホストする
 
 マネージド アプリケーションでサービスをホストするには、マネージド アプリケーション コード内にサービスのコードを埋め込み、サービスのエンドポイントをコードで強制的に定義するか、構成を使用して宣言により定義してから、または既定のエンドポイントを使用して、<xref:System.ServiceModel.ServiceHost> のインスタンスを作成します。
 
 メッセージの受信を開始するには、<xref:System.ServiceModel.ICommunicationObject.Open%2A> で <xref:System.ServiceModel.ServiceHost> を呼び出します。 これにより、サービスのリスナーが作成されて開きます。 この方法によるサービスのホストは、マネージド アプリケーション自体がホスト作業を行うため、"自己ホスト" と呼ばれることがあります。 サービスを閉じるには、<xref:System.ServiceModel.Channels.CommunicationObject.Close%2A?displayProperty=nameWithType> で <xref:System.ServiceModel.ServiceHost> を呼び出します。
 
-サービスは、マネージド Windows サービス、インターネット インフォメーション サービス (IIS)、または Windows プロセス アクティブ化サービス (WAS) でホストすることもできます。 サービスのホスティングオプションの詳細については、「[ホスティングサービス](hosting-services.md)」を参照してください。
+サービスは、マネージド Windows サービス、インターネット インフォメーション サービス (IIS)、または Windows プロセス アクティブ化サービス (WAS) でホストすることもできます。 サービスのホスティング オプションの詳細については、「[ホスティング サービス](hosting-services.md)」を参照してください。
 
-マネージド アプリケーションでのサービスのホスティングは、展開するインフラストラクチャが最小限で済むため、最も柔軟性があります。 マネージアプリケーションでのホスティングサービスの詳細については、「[マネージアプリケーションでのホスティング](./feature-details/hosting-in-a-managed-application.md)」を参照してください。
+マネージド アプリケーションでのサービスのホスティングは、展開するインフラストラクチャが最小限で済むため、最も柔軟性があります。 マネージド アプリケーションでのホスティング サービスの詳細については、「[マネージド アプリケーションのホスト](./feature-details/hosting-in-a-managed-application.md)」を参照してください。
 
 次の手順では、自己ホスト型サービスをコンソール アプリケーションに実装する方法を示します。
 
 ## <a name="create-a-self-hosted-service"></a>自己ホスト型サービスを作成する
 
-1. 新しいコンソールアプリケーションを作成します。
+1. 新しいコンソール アプリケーションを作成します。
 
-   1. Visual Studio を開き**New**  >  、[**ファイル**] メニューの [新しい**プロジェクト**] をクリックします。
+   1. Visual Studio を開き、 **[ファイル]** メニューから **[新規]**  >  **[プロジェクト]** を選択します。
 
-   2. [**インストールされたテンプレート**] の一覧で [ **Visual C#** ] または [ **Visual Basic**] を選択し、[ **Windows デスクトップ**] を選択します。
+   2. **[インストール済みのテンプレート]** の一覧で **[Visual C#]** または **[Visual Basic]** を選択し、 **[Windows デスクトップ]** を選択します。
 
-   3. [**コンソールアプリケーション**] テンプレートを選択します。 [ `SelfHost` **名前**] ボックスに「」と入力し、[ **OK]** をクリックします。
+   3. **[コンソール アプリ]** テンプレートを選択します。 **[名前]** ボックスに「`SelfHost`」と入力して、 **[OK]** を選択します。
 
-2. **ソリューションエクスプローラー**で [ **selfhost** ] を右クリックし、[**参照の追加**] を選択します。 [ **.Net** ] タブで [ **system.servicemodel** ] を選択し、[ **OK**] を選択します。
+2. **ソリューション エクスプローラー** で **SelfHost** を右クリックして、 **[参照の追加]** を選択します。 **[.NET]** タブで **System.ServiceModel** を選択して、 **[OK]** を選択します。
 
     > [!TIP]
-    > **ソリューションエクスプローラー**ウィンドウが表示されていない場合は、[**表示**] メニューの [**ソリューションエクスプローラー** ] を選択します。
+    > **[ソリューション エクスプローラー]** ウィンドウが表示されない場合は、 **[表示]** メニューの **[ソリューション エクスプローラー]** を選択します。
 
-3. **ソリューションエクスプローラー**で**Program.cs**または module1.vb をダブルクリックして、まだ開いていない**場合はコード**ウィンドウで開きます。 ファイルの先頭に次のステートメントを追加します。
+3. まだ開いていない場合は、**ソリューション エクスプローラー** で **Program.cs** または **Module1.vb** をダブルクリックして、コード ウィンドウで開きます。 ファイルの先頭に、次のステートメントを追加します。
 
      [!code-csharp[CFX_SelfHost4#1](../../../samples/snippets/csharp/VS_Snippets_CFX/cfx_selfhost4/cs/program.cs#1)]
      [!code-vb[CFX_SelfHost4#1](../../../samples/snippets/visualbasic/VS_Snippets_CFX/cfx_selfhost4/vb/module1.vb#1)]
@@ -51,7 +51,7 @@ ms.locfileid: "85246169"
      [!code-vb[CFX_SelfHost4#2](../../../samples/snippets/visualbasic/VS_Snippets_CFX/cfx_selfhost4/vb/module1.vb#2)]
 
     > [!NOTE]
-    > サービスインターフェイスを定義および実装する方法の詳細については、「[方法: サービスコントラクトを定義](how-to-define-a-wcf-service-contract.md)する」および「[方法: サービスコントラクトを実装](how-to-implement-a-wcf-contract.md)する」を参照してください。
+    > サービス インターフェイスを定義して実装する方法の詳細については、[サービス コントラクトの定義方法](how-to-define-a-wcf-service-contract.md)および[サービス コントラクトの実装方法](how-to-implement-a-wcf-contract.md)に関する記事を参照してください。
 
 5. `Main` メソッドの上部で、サービスのベース アドレスで <xref:System.Uri> クラスのインスタンスを作成します。
 
@@ -64,29 +64,29 @@ ms.locfileid: "85246169"
      [!code-vb[CFX_SelfHost4#4](../../../samples/snippets/visualbasic/VS_Snippets_CFX/cfx_selfhost4/vb/module1.vb#4)]
 
     > [!NOTE]
-    > この例では、既定のエンドポイントを使用するので、このサービスには構成ファイルは必要ありません。 エンドポイントが構成されていない場合、ランタイムは、サービスによって実装されたサービス コントラクトごとに 1 つのエンドポイントを各ベース アドレスに作成します。 既定のエンドポイントの詳細については、「 [WCF サービスの](./samples/simplified-configuration-for-wcf-services.md)構成と簡略化された構成の[簡略化](simplified-configuration.md)」を参照してください。
+    > この例では、既定のエンドポイントを使用するので、このサービスには構成ファイルは必要ありません。 エンドポイントが構成されていない場合、ランタイムは、サービスによって実装されたサービス コントラクトごとに 1 つのエンドポイントを各ベース アドレスに作成します。 既定のエンドポイントの詳細については、「[簡易構成](simplified-configuration.md)」と「[WCF サービスの簡易構成](./samples/simplified-configuration-for-wcf-services.md)」を参照してください。
 
-7. **Ctrl** + **Shift** + **B**キーを押して、ソリューションをビルドします。
+7. **Ctrl** + **Shift** + **B** キーを押して、ソリューションをビルドします。
 
 ## <a name="test-the-service"></a>サービスをテストする
 
-1. **Ctrl**F5 キーを押して + **F5**サービスを実行します。
+1. **Ctrl** + **F5** キーを押してサービスを実行します。
 
-2. **WCF テストクライアント**を開きます。
+2. **[WCF テスト クライアント]** を開きます。
 
     > [!TIP]
-    > **WCF テストクライアント**を開くには、Visual Studio の開発者コマンドプロンプトを開き、 **WcfTestClient.exe**を実行します。
+    > **[WCF テスト クライアント]** を開くには、Visual Studio の開発者コマンド プロンプトを開き、**WcfTestClient.exe** を実行します。
 
-3. [**ファイル**] メニューの [**サービスの追加**] を選択します。
+3. **[ファイル]** メニューの **[サービスの追加]** を選択します。
 
-4. `http://localhost:8080/hello`[アドレス] ボックスに「」と入力し、[ **OK]** をクリックします。
+4. アドレス ボックスに「`http://localhost:8080/hello`」と入力して、 **[OK]** をクリックします。
 
     > [!TIP]
     > サービスが実行していることを確認してください。サービスが実行していない場合、この手順は失敗します。 コードでベース アドレスを変更した場合は、この手順で、変更したアドレスを使用します。
 
-5. [**マイサービスプロジェクト**] ノードの下にある [ **SayHello** ] をダブルクリックします。 **要求**一覧の [**値**] 列に名前を入力し、[**呼び出し**] をクリックします。
+5. **[マイ サービス プロジェクト]** ノードの **SayHello** をダブルクリックします。 自分の名前を **[要求]** ボックスの **[値]** 列に入力して、 **[起動]** をクリックします。
 
-   **応答**の一覧に応答メッセージが表示されます。
+   応答メッセージが **[応答]** の一覧に表示されます。
 
 ## <a name="example"></a>例
 

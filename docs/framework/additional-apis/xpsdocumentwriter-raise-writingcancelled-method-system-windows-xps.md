@@ -1,6 +1,6 @@
 ---
-title: Raise__WritingCancelled System.windows.xps.xpsdocumentwriter> メソッド (System. Windows. .Xps)
-description: .NET で XML Paper Specification (XPS) ドキュメントの WritingCancelled イベントを発生させる raise__WritingCancelled System.windows.xps.xpsdocumentwriter> メソッドについて説明します。
+title: XpsDocumentWriter.raise__WritingCancelled メソッド (System.Windows.Xps)
+description: .NET で XML Paper Specification (XPS) ドキュメントの WritingCancelled イベントを発生させる XpsDocumentWriter.raise__WritingCancelled メソッドについて説明します。
 ms.date: 12/12/2007
 api_location:
 - system.printing.dll
@@ -12,12 +12,12 @@ topic_type:
 - apiref
 ms.openlocfilehash: 5436be347792209780c4b3b617f26f731d98ac90
 ms.sourcegitcommit: 1c37a894c923bea021a3cc38ce7cba946357bbe1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/19/2020
 ms.locfileid: "85105246"
 ---
-# <a name="xpsdocumentwriterraise__writingcancelled-method"></a>System.windows.xps.xpsdocumentwriter> \_ \_ WritingCancelled メソッド
+# <a name="xpsdocumentwriterraise__writingcancelled-method"></a>XpsDocumentWriter.raise\_\_WritingCancelled メソッド
 
 <xref:System.Windows.Xps.XpsDocumentWriter.WritingCancelled> イベントを発生させます。
 
@@ -31,7 +31,7 @@ public void raise__WritingCancelled (object value0,
 ## <a name="parameters"></a>パラメーター
 
 - `value0` <xref:System.Object>  
-  イベントのソースです。
+  イベントのソース。
 
 - `value1` <xref:System.Windows.Documents.Serialization.WritingCancelledEventArgs>  
   イベントのデータ。
@@ -40,6 +40,6 @@ public void raise__WritingCancelled (object value0,
 
 **名前空間:** <xref:System.Windows.Xps>
 
-**アセンブリ:**[印刷] (system.printing.dll)
+**アセンブリ:** System.Printing (system.printing.dll 内)
 
 **.NET Framework のバージョン:** 3.0
