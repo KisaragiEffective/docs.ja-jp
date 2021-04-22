@@ -11,12 +11,12 @@ api_location:
 api_type:
 - Assembly
 author: stevewhims
-ms.openlocfilehash: 5093ec7ed2c3b94931dcd622ae9ccdb42feffa18
-ms.sourcegitcommit: 45c8eed045779b70a47b23169897459d0323dc89
+ms.openlocfilehash: f5fb71c21922285c0e18c2d1f28eeaf2353dcaee
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84989751"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104873836"
 ---
 # <a name="httpwebrequest_coreresponse-field"></a>HttpWebRequest.\_CoreResponse フィールド
 
@@ -29,7 +29,7 @@ private object _CoreResponse
 ```
 
 > [!WARNING]
-> この API は、コードで直接使用されるものではありません。 代わりに、<xref:System.Diagnostics.DiagnosticSource> を使用してネットワーク コードをフックする必要があります。 「[DiagnosticSource User'S Guide (DiagnosticSource ユーザーズ ガイド)](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)」を参照してください。
+> この API は、コードで直接使用されるものではありません。 代わりに、<xref:System.Diagnostics.DiagnosticSource> を使用してネットワーク コードをフックする必要があります。 「[DiagnosticSource User'S Guide (DiagnosticSource ユーザーズ ガイド)](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)」を参照してください。
 >
 > Microsoft は、状況に関係なく、運用アプリケーションでのこのクラスの使用はサポートしていません。
 

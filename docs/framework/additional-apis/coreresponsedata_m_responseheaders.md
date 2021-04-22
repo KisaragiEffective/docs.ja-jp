@@ -11,12 +11,12 @@ api_location:
 api_type:
 - Assembly
 author: stevewhims
-ms.openlocfilehash: 7c7b896193cb81e9fc9e3ec28110359003a36728
-ms.sourcegitcommit: 45c8eed045779b70a47b23169897459d0323dc89
+ms.openlocfilehash: 6e0203094376de6ec2870649dd3c025e88639bb8
+ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84989784"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104875929"
 ---
 # <a name="coreresponsedatam_responseheaders-field"></a>CoreResponseData.m\_ResponseHeaders フィールド
 
@@ -29,7 +29,7 @@ public WebHeaderCollection m_ResponseHeaders
 ```
 
 > [!WARNING]
-> この API は、コードで直接使用されるものではありません。 代わりに、<xref:System.Diagnostics.DiagnosticSource> を使用してネットワーク コードをフックする必要があります。 「[DiagnosticSource User'S Guide (DiagnosticSource ユーザーズ ガイド)](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)」を参照してください。
+> この API は、コードで直接使用されるものではありません。 代わりに、<xref:System.Diagnostics.DiagnosticSource> を使用してネットワーク コードをフックする必要があります。 「[DiagnosticSource User'S Guide (DiagnosticSource ユーザーズ ガイド)](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)」を参照してください。
 >
 > Microsoft は、状況に関係なく、運用アプリケーションでのこのクラスの使用はサポートしていません。
 

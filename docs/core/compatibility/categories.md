@@ -2,12 +2,13 @@
 title: 互換性
 description: コードの変更が .NET の互換性に影響を与えるしくみについて説明します。
 ms.date: 06/10/2019
-ms.openlocfilehash: 1cf14b7ff4143367653bd1c305cc1dda6711f980
-ms.sourcegitcommit: a2c8b19e813a52b91facbb5d7e3c062c7188b457
+ms.topic: conceptual
+ms.openlocfilehash: 70417428e547490088cd1644aff227f1f366dba3
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85415694"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740892"
 ---
 # <a name="how-code-changes-can-affect-compatibility"></a>コード変更が互換性に影響を与えるしくみ
 

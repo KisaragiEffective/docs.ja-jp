@@ -2,12 +2,13 @@
 title: dotnet-trace 診断ツール - .NET CLI
 description: dotnet-trace CLI ツールをインストールして使用し、.NET EventPipe を使って、ネイティブ プロファイラーなしで実行中のプロセスの .NET トレースを収集する方法について学習します。
 ms.date: 11/17/2020
-ms.openlocfilehash: e4e5bf91a7e6a9bf98e8cb006864b4cbc5ca17a2
-ms.sourcegitcommit: d623f686701b94bef905ec5e93d8b55d031c5d6f
+ms.topic: reference
+ms.openlocfilehash: ae6621631a916f1d9cb5f8982c9e313f1ca2cc09
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/17/2021
-ms.locfileid: "103624189"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740567"
 ---
 # <a name="dotnet-trace-performance-analysis-utility"></a>dotnet-trace パフォーマンス分析ユーティリティ
 

@@ -16,12 +16,12 @@ helpviewer_keywords:
 - Inherited property
 - attribute classes, declaring
 ms.assetid: 97216f69-bde8-49fd-ac40-f18c500ef5dc
-ms.openlocfilehash: e3c97f28a05f2e5396872fe808cae0d48d5a4824
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.openlocfilehash: f3627f0b140c9f85d6293bf75723c835c3d4145a
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95727004"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740905"
 ---
 # <a name="writing-custom-attributes"></a>カスタム属性の記述
 
@@ -37,7 +37,7 @@ ms.locfileid: "95727004"
   
 - [プロパティを宣言する](#declaring-properties)  
   
- このセクションでは、これらの各手順について説明し、最後に [カスタム属性の例](#custom-attribute-example)について説明します。  
+ このセクションでは、これらの各手順について説明し、最後に [カスタム属性の例](#custom-attribute-example)について説明します。
   
 ## <a name="applying-the-attributeusageattribute"></a>AttributeUsageAttribute を適用する  
 
@@ -160,3 +160,4 @@ ms.locfileid: "95727004"
 - <xref:System.Attribute?displayProperty=nameWithType>
 - <xref:System.AttributeUsageAttribute?displayProperty=nameWithType>
 - [属性](index.md)
+- [属性パラメーターの型](~/_csharplang/spec/attributes.md#attribute-parameter-types)

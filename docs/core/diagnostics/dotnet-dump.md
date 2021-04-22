@@ -2,12 +2,13 @@
 title: dotnet-dump 診断ツール - .NET CLI
 description: dotnet-dump CLI ツールをインストールして使用し、ネイティブ デバッガーなしで Windows と Linux のダンプを収集して分析する方法について学習します。
 ms.date: 11/17/2020
-ms.openlocfilehash: 6e9edbc8075691784028f3293750c92fe53d3782
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.topic: reference
+ms.openlocfilehash: 57149c9330d6057ea57a32bfa6582a73ed6b6dee
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104874174"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740606"
 ---
 # <a name="dump-collection-and-analysis-utility-dotnet-dump"></a>ダンプの収集と分析のユーティリティ (dotnet-dump)
 

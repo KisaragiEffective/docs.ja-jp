@@ -2,12 +2,13 @@
 title: dotnet-symbol 診断ツール - .NET CLI
 description: dotnet-symbol CLI ツールをインストールして使用し、.NET ダンプとミニダンプのデバッグに必要なファイルをダウンロードする方法について学習します。
 ms.date: 11/17/2020
-ms.openlocfilehash: 4543bd965c889d93d7dc0b89ff2d6f62c4343e5f
-ms.sourcegitcommit: e3cf8227573e13b8e1f4e3dc007404881cdafe47
+ms.topic: reference
+ms.openlocfilehash: 95f806ea0cc5d1c7dc552418adb054c34e92fc66
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103189905"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740775"
 ---
 # <a name="symbol-downloader-dotnet-symbol"></a>シンボル ダウンローダー (dotnet-symbol)
 

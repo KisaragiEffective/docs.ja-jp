@@ -5,12 +5,13 @@ ms.custom: azure-sdk-dotnet
 author: camsoper
 ms.author: casoper
 ms.date: 07/29/2020
-ms.openlocfilehash: 122527d522b3ab0360fd905c4352adcfaf0b6ce2
-ms.sourcegitcommit: ef50c99928183a0bba75e07b9f22895cd4c480f8
+ms.topic: reference
+ms.openlocfilehash: e0893e26ac2ca1e7504c00c6ef340ce7f2636aa5
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87916563"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740645"
 ---
 # <a name="azure-sdk-for-net-package-index"></a>Azure SDK for .NET パッケージ インデックス
 

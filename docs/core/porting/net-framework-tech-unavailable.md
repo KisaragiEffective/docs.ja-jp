@@ -4,12 +4,13 @@ titleSuffix: ''
 description: .NET Core と .NET 5.0 以降のバージョンで使用できない .NET Framework テクノロジについて学習します。
 author: cartermp
 ms.date: 03/08/2021
-ms.openlocfilehash: d8eccce7e36552e0d5396779936681227cb1e28a
-ms.sourcegitcommit: c7f0beaa2bd66ebca86362ca17d673f7e8256ca6
+ms.topic: reference
+ms.openlocfilehash: d22352cee76c546531a6487387fc8e2f4105fac4
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104875123"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740957"
 ---
 # <a name="net-framework-technologies-unavailable-on-net-core-and-net-5"></a>.NET Core と .NET 5 以降で使用できない .NET Framework テクノロジ
 

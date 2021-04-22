@@ -2,12 +2,13 @@
 title: .NET Runtime Identifier (RID) カタログ
 description: ランタイム識別子 (RID) と .NET での RID の使用方法について学習します。
 ms.date: 01/28/2021
-ms.openlocfilehash: 87fbad990fce5431769fa1631be7e079c2eb27a5
-ms.sourcegitcommit: 089068389671f6f9e15fd67dcbfb0145bf72f1fb
+ms.topic: reference
+ms.openlocfilehash: ea3881332fe407bdc985d22033a88cb669e360e8
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106496671"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740303"
 ---
 # <a name="net-rid-catalog"></a>.NET RID カタログ
 

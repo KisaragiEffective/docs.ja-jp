@@ -2,12 +2,13 @@
 title: 破壊的変更の参照の概要
 description: .NET に関する破壊的変更の参照内を移動する方法について学習します。
 ms.date: 11/16/2020
-ms.openlocfilehash: df3a35954ce819c8a3d19eba1a0e9b4692d667e7
-ms.sourcegitcommit: d8020797a6657d0fbbdff362b80300815f682f94
+ms.topic: conceptual
+ms.openlocfilehash: b3c15bfd7b2f4a64669f461fac4c02746aef0c66
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95675374"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740632"
 ---
 # <a name="breaking-changes-reference-overview"></a>破壊的変更の参照の概要
 

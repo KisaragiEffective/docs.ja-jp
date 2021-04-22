@@ -2,12 +2,13 @@
 title: dotnet-gcdump 診断ツール - .NET CLI
 description: dotnet-gcdump CLI ツールをインストールして使用し、.NET EventPipe を使ってライブ .NET プロセスの GC (ガベージ コレクター) ダンプを収集する方法について学習します。
 ms.date: 11/17/2020
-ms.openlocfilehash: fe7772eed642daadbd1754627751f58d0ab57b8e
-ms.sourcegitcommit: a4cecb7389f02c27e412b743f9189bd2a6dea4d6
+ms.topic: reference
+ms.openlocfilehash: 71f0ff3ee39ae89d56a271d3cc6dd9624681885c
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98188570"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740788"
 ---
 # <a name="heap-analysis-tool-dotnet-gcdump"></a>ヒープ分析ツール (dotnet-gcdump)
 

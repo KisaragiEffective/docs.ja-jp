@@ -2,12 +2,13 @@
 title: dotnet-sos 診断ツール - .NET CLI
 description: dotnet-sos CLI ツールをインストールして使用し、Windows および Linux のネイティブ デバッガーで使われる SOS デバッガー拡張機能を管理する方法について学習します。
 ms.date: 11/17/2020
-ms.openlocfilehash: 09e8228c47bdc632bccf3c9ad2296d55fe420060
-ms.sourcegitcommit: c0b803bffaf101e12f071faf94ca21b46d04ff30
+ms.topic: reference
+ms.openlocfilehash: 83458ac0933034886dee51e0258acaeef9a8ed89
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97765008"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740593"
 ---
 # <a name="sos-installer-dotnet-sos"></a>SOS インストーラー (dotnet-sos)
 

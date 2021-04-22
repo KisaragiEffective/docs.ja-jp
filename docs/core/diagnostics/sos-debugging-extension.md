@@ -2,16 +2,17 @@
 title: .NET 用 SOS デバッガー拡張
 description: 内部 CLR 環境に関する情報を提供する、.NET 用の SOS デバッガー拡張について学習します。
 ms.date: 12/21/2020
+ms.topic: reference
 helpviewer_keywords:
 - debugging extensions
 - SOS debugging extensions
 - SOS.dll
-ms.openlocfilehash: a24b946c4ffda59e17f61c065d2846dc1a6effe0
-ms.sourcegitcommit: c0b803bffaf101e12f071faf94ca21b46d04ff30
+ms.openlocfilehash: 3bbf7dd34b85434a338f1b0e0d38a652246e8da4
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97764969"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740580"
 ---
 # <a name="sos-debugging-extension"></a>SOS デバッガー拡張
 

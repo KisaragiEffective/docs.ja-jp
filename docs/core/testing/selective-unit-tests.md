@@ -4,12 +4,13 @@ description: .NET Core において dotnet test コマンドでフィルター�
 author: smadala
 ms.date: 05/18/2020
 zone_pivot_groups: unit-testing-framework-set-one
-ms.openlocfilehash: 6a6bbb0687742d1e3288d64fb88f6825dc678e28
-ms.sourcegitcommit: 0926684d8d34f4c6b5acce58d2193db093cb9cf2
+ms.topic: reference
+ms.openlocfilehash: 7f072952c6200e10602ec476b5d075819044fc5a
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702981"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740944"
 ---
 # <a name="run-selective-unit-tests"></a>選択的単体テストの実行
 

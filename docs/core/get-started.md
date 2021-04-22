@@ -5,12 +5,13 @@ author: adegeo
 ms.author: adegeo
 ms.date: 09/29/2020
 ms.custom: vs-dotnet
-ms.openlocfilehash: f196f5cfe914fe7ecddec61d2abf618c21968bbd
-ms.sourcegitcommit: 42d436ebc2a7ee02fc1848c7742bc7d80e13fc2f
+ms.topic: tutorial
+ms.openlocfilehash: 1c88817b0503b050faf2a7ce3bd42d892931a698
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102105155"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740385"
 ---
 # <a name="get-started-with-net"></a>.NET を使って作業を開始する
 

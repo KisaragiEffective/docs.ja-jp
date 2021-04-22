@@ -2,12 +2,13 @@
 title: dotnet-counters 診断ツール - .NET CLI
 description: dotnet-counter CLI ツールをインストールし、アドホックな正常性監視と最初のレベルのパフォーマンス調査に使用する方法について学習します。
 ms.date: 11/17/2020
-ms.openlocfilehash: 1c802e33602c2d8f18600b9771a1f68e722d8fdf
-ms.sourcegitcommit: f0fc5db7bcbf212e46933e9cf2d555bb82666141
+ms.topic: reference
+ms.openlocfilehash: 436db72677186b5fcc8b560451b69e616870f66e
+ms.sourcegitcommit: 8f71a6c655a9c39d5223401aed76c02ba00e03ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583308"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740801"
 ---
 # <a name="investigate-performance-counters-dotnet-counters"></a>パフォーマンス カウンターを調べる (dotnet-counters)
 
